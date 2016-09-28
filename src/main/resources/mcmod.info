@@ -1,0 +1,16 @@
+[
+{
+  "modid": "TribalPower",
+  "name": "Tribal Power",
+  "description": "A techno magic mod with no real direction ;)",
+  "version": "1.9.4-1.0",
+  "mcversion": "1.9.4",
+  "url": "Darrow.tk",
+  "updateUrl": "",
+  "authorList": ["Ahmi & Risika Darrow"],
+  "credits": "The Forge & FML guys, Mr Crayfish, TehNut, Discult",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

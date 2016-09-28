@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "tribalpower:blocks/acoomalogtop",
+        "side": "Tribalpower:blocks/acoomalog"
+    }
+}

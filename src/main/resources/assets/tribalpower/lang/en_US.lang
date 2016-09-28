@@ -1,0 +1,36 @@
+itemGroup.tabTribal=Tribal Power
+
+item.acoomafruit.name=Acooma Fruit
+item.acoomastick.name=Acooma Stick
+
+
+item.amazoniteingot.name=Amazonite Ingot
+item.amazonitenugget.name=Amazonite Nugget
+item.infusedamazoniteingot.name=Infused Amazonite Ingot
+item.fluorite.name=Fluorite
+item.chromiteingot.name=Chromite Ingot
+item.spiritdiamond.name=Spirit Diamond
+
+
+item.spiritessence.name=Spirit Essence
+item.airrune.name=Air Rune
+item.blankrune.name=Blank Rune
+item.earthrune.name=Earth Rune
+item.firerune.name=Fire Rune
+item.waterrune.name=Water Rune
+
+
+item.amazonite_pickaxe.name=Amazonite Pickaxe
+item.amazonite_axe.name=Amazonite Axe
+item.amazonite_hoe.name=Amazonite Hoe
+item.amazonite_shovel.name=Amazonite Shovel
+
+
+item.amazonite_sword.name=Amazonite Sword
+
+
+tile.chromiteore.name=Chromite Ore
+tile.fluoriteore.name=Fluorite Ore
+tile.amazoniteore.name=Amazonite Ore
+tile.amazoniteblock.name=Amazonite Block
+tile.acoomaplanks.name=Acooma Planks
