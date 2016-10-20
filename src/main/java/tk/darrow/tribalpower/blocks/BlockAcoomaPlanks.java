@@ -6,7 +6,7 @@ import tk.darrow.tribalpower.Reference;
 import tk.darrow.tribalpower.TribalPower;
 
 public class BlockAcoomaPlanks extends Block {
-	
+
 	public BlockAcoomaPlanks() {
 		super(Material.WOOD);
 		setUnlocalizedName(Reference.TribalPowerBlocks.ACOOMAPLANKS.getUnlocalizedName());

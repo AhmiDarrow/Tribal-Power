@@ -5,7 +5,7 @@ import tk.darrow.tribalpower.Reference;
 import tk.darrow.tribalpower.TribalPower;
 
 public class ItemSpiritDiamond extends Item {
-	
+
 	public ItemSpiritDiamond() {
 		setUnlocalizedName(Reference.TribalPowerItems.SPIRITDIAMOND.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerItems.SPIRITDIAMOND.getRegistryName());

@@ -12,6 +12,6 @@ public class ItemAmazoniteHoe extends ItemHoe {
 		setUnlocalizedName(Reference.TribalPowerItems.AMAZONITEHOE.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerItems.AMAZONITEHOE.getRegistryName());
 		setCreativeTab(TribalPower.CREATIVE_TAB);
-		
+
 	}
 }

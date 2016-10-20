@@ -6,7 +6,7 @@ import tk.darrow.tribalpower.Reference;
 import tk.darrow.tribalpower.TribalPower;
 
 public class BlockChromiteOre extends Block {
-	
+
 	public BlockChromiteOre() {
 		super(Material.ROCK);
 		this.setHardness(6.0F);

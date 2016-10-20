@@ -12,8 +12,7 @@ public class ItemAmazonitePickaxe extends ItemPickaxe {
 		setUnlocalizedName(Reference.TribalPowerItems.AMAZONITEPICKAXE.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerItems.AMAZONITEPICKAXE.getRegistryName());
 		setCreativeTab(TribalPower.CREATIVE_TAB);
-		
-	}
 
+	}
 
 }

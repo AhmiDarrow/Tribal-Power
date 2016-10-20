@@ -9,5 +9,6 @@ public class ItemWaterRune extends Item {
 		setUnlocalizedName(Reference.TribalPowerItems.WATERRUNE.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerItems.WATERRUNE.getRegistryName());
 		setCreativeTab(TribalPower.CREATIVE_TAB);
+		setMaxStackSize(16);
 	}
 }

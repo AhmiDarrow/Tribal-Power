@@ -16,7 +16,7 @@ import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.init.ModItems;
 
 public class BlockAmazoniteOre extends Block {
-	
+
 	public BlockAmazoniteOre() {
 		super(Material.ROCK);
 		this.setHardness(6.0F);
@@ -31,15 +31,12 @@ public class BlockAmazoniteOre extends Block {
 	}
 
 	@Nullable
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        if (fortune > 3)
-        {
-            fortune = 3;
-        }
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		if (fortune > 3) {
+			fortune = 3;
+		}
 
-        return rand.nextInt(5 - fortune * 3) == 0 ? ModItems.spiritessence : Item.getItemFromBlock(this);
-    }
+		return rand.nextInt(5 - fortune * 3) == 0 ? ModItems.spiritessence : Item.getItemFromBlock(this);
+	}
 
-	
 }

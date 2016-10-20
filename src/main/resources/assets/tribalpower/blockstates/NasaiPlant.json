@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "age=0": { "model": "tribalpower:nasaistage0" },
+        "age=1": { "model": "tribalpower:nasaistage1" },
+        "age=2": { "model": "tribalpower:nasaistage2" },
+        "age=3": { "model": "tribalpower:nasaistage3" },
+        "age=4": { "model": "tribalpower:nasaistage4" },
+        "age=5": { "model": "tribalpower:nasaistage5" },
+        "age=6": { "model": "tribalpower:nasaistage6" }
+    }
+}

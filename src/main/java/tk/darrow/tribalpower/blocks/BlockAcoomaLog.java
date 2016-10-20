@@ -6,17 +6,15 @@ import net.minecraft.block.material.Material;
 import tk.darrow.tribalpower.Reference;
 import tk.darrow.tribalpower.TribalPower;
 
-public class BlockAcoomaLog extends Block{
-	
-  
+public class BlockAcoomaLog extends Block {
 
-   public BlockAcoomaLog() {
-	   super(Material.WOOD);
-	    this.setHardness(2.0F);
-        this.setSoundType(SoundType.WOOD);
-        setUnlocalizedName(Reference.TribalPowerBlocks.ACOOMALOG.getUnlocalizedName());
+	public BlockAcoomaLog() {
+		super(Material.WOOD);
+		this.setHardness(2.0F);
+		this.setSoundType(SoundType.WOOD);
+		setUnlocalizedName(Reference.TribalPowerBlocks.ACOOMALOG.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerBlocks.ACOOMALOG.getRegistryName());
 		setCreativeTab(TribalPower.CREATIVE_TAB);
-    }
-    
+	}
+
 }

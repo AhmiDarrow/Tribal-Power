@@ -12,7 +12,9 @@ item.chromiteingot.name=Chromite Ingot
 item.spiritdiamond.name=Spirit Diamond
 
 
+item.tribalseal.name=Tribal Seal
 item.spiritessence.name=Spirit Essence
+item.airessence.name=Air Essence
 item.airrune.name=Air Rune
 item.blankrune.name=Blank Rune
 item.earthrune.name=Earth Rune
@@ -24,9 +26,21 @@ item.amazonite_pickaxe.name=Amazonite Pickaxe
 item.amazonite_axe.name=Amazonite Axe
 item.amazonite_hoe.name=Amazonite Hoe
 item.amazonite_shovel.name=Amazonite Shovel
+item.chromite_pickaxe.name=Chromite Pickaxe
+item.chromite_axe.name=Chromite Axe
+item.chromite_hoe.name=Chromite Hoe
+item.chromite_shovel.name=Chromite Shovel
+item.fluorite_pickaxe.name=Fluorite Pickaxe
+item.fluorite_axe.name=Fluorite Axe
+item.fluorite_hoe.name=Fluorite Hoe
+item.fluorite_shovel.name=Fluorite Shovel
+item.runecarver.name=Rune Carver
+item.runetip.name=Rune Tip
 
 
 item.amazonite_sword.name=Amazonite Sword
+item.chromite_sword.name=Chromite Sword
+item.fluorite_sword.name=Fluorite Sword
 
 
 tile.chromiteore.name=Chromite Ore
@@ -34,3 +48,5 @@ tile.fluoriteore.name=Fluorite Ore
 tile.amazoniteore.name=Amazonite Ore
 tile.amazoniteblock.name=Amazonite Block
 tile.acoomaplanks.name=Acooma Planks
+tile.acoomalog.name=Acooma Log
+tile.tribalaltar.name=Tribal Altar

@@ -12,7 +12,7 @@ public class ItemAmazoniteSword extends ItemSword {
 		setUnlocalizedName(Reference.TribalPowerItems.AMAZONITESWORD.getUnlocalizedName());
 		setRegistryName(Reference.TribalPowerItems.AMAZONITESWORD.getRegistryName());
 		setCreativeTab(TribalPower.CREATIVE_TAB);
-		
+
 	}
 
 }
