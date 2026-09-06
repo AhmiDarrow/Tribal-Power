@@ -1,0 +1,40 @@
+{
+  "book": "Spirit Codex",
+  "chapters": [
+    {
+      "id": "intro",
+      "title": "Shamanic Technomancy",
+      "text": "Spirit-synced machinery, totem lattices, and Pulse \u2014 not furnace magic."
+    },
+    {
+      "id": "pulse",
+      "title": "Spirit Pulse",
+      "text": "Rhythmic beats stored by PulseHandlers. Drumheart and Ley Collectors generate Pulse."
+    },
+    {
+      "id": "lattice",
+      "title": "Totem Lattice",
+      "text": "Resonance Totems + Song Bench route harmonics for Echo-stage refinement."
+    },
+    {
+      "id": "echo",
+      "title": "Echo Stages",
+      "text": "Shatter \u2192 Attune \u2192 Bind \u2192 Manifest."
+    },
+    {
+      "id": "storage",
+      "title": "Caches",
+      "text": "Ancestral Cache locally; Deep Cache via spirit link to The March."
+    },
+    {
+      "id": "rites",
+      "title": "Seals & Rites",
+      "text": "Offer seals on a Rite Pedestal for spirit boons."
+    },
+    {
+      "id": "march",
+      "title": "The March",
+      "text": "Otherworld dimension reached by Gate Drum."
+    }
+  ]
+}

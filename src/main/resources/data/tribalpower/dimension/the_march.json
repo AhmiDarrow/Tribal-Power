@@ -1,0 +1,30 @@
+{
+  "type": "tribalpower:the_march",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "tribalpower:march_steppe",
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "height": 1,
+          "block": "minecraft:bedrock"
+        },
+        {
+          "height": 48,
+          "block": "tribalpower:march_stone"
+        },
+        {
+          "height": 3,
+          "block": "tribalpower:march_cobble"
+        },
+        {
+          "height": 1,
+          "block": "tribalpower:march_stone"
+        }
+      ],
+      "structure_overrides": []
+    }
+  }
+}
