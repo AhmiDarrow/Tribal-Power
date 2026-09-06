@@ -4,6 +4,8 @@
 
 Tribal Power binds spirit and machine. Energy is **Spirit Pulse** — rhythmic beats, not FE/RF furnace heat. Processing flows through a **Totem Lattice**: Resonance Totems of elemental attunement linked by song, chalk, and proximity. Ores walk **Echo Stages** (Shatter → Attune → Bind → Manifest) on the **Song Bench** instead of vanishing into a magic smelter.
 
+Updated and rewritten for Ninjacat Skies modpack. 
+
 Authors: **Ahmi & Risika Darrow**  
 License: GNU GPL v3 (see `License.txt`)
 
