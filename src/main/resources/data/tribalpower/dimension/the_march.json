@@ -12,15 +12,15 @@
           "block": "minecraft:bedrock"
         },
         {
-          "height": 40,
+          "height": 56,
           "block": "tribalpower:march_stone"
         },
         {
-          "height": 4,
+          "height": 6,
           "block": "tribalpower:march_cobble"
         },
         {
-          "height": 3,
+          "height": 5,
           "block": "tribalpower:march_soil"
         },
         {

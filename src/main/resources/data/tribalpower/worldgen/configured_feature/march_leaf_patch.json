@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 36,
+    "tries": 48,
     "xz_spread": 6,
     "y_spread": 2,
     "feature": {
@@ -11,7 +11,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "tribalpower:spirit_reed"
+              "Name": "tribalpower:march_leaf"
             }
           }
         }
@@ -22,7 +22,7 @@
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "tribalpower:spirit_reed"
+              "Name": "tribalpower:march_leaf"
             }
           }
         }

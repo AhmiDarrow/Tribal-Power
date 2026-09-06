@@ -3,7 +3,7 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 4
+      "count": 6
     },
     {
       "type": "minecraft:in_square"
@@ -19,6 +19,7 @@
         "offset": [0, -1, 0],
         "blocks": [
           "tribalpower:march_grass",
+          "tribalpower:march_moss",
           "tribalpower:march_soil",
           "tribalpower:march_stone"
         ]

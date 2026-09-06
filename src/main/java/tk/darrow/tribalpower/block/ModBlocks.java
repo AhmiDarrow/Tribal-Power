@@ -145,6 +145,14 @@ public final class ModBlocks {
                     .sound(SoundType.GRASS)
     );
 
+    public static final DeferredBlock<Block> MARCH_MOSS = BLOCKS.registerSimpleBlock(
+            "march_moss",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .strength(0.4F)
+                    .sound(SoundType.MOSS)
+    );
+
     public static final DeferredBlock<Block> MARCH_LOG = BLOCKS.registerSimpleBlock(
             "march_log",
             BlockBehaviour.Properties.of()
@@ -222,6 +230,17 @@ public final class ModBlocks {
                     .noCollission()
                     .noOcclusion()
                     .lightLevel(s -> 4))
+    );
+
+    public static final DeferredBlock<Block> LEY_THISTLE = BLOCKS.register(
+            "ley_thistle",
+            () -> new MarchPlantBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .noCollission()
+                    .noOcclusion()
+                    .lightLevel(s -> 2))
     );
 
     private static DeferredBlock<ResonanceTotemBlock> totem(String id, Attunement attunement, MapColor color) {

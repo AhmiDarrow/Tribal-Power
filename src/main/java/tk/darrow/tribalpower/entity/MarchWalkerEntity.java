@@ -52,9 +52,20 @@ public class MarchWalkerEntity extends PathfinderMob {
     public static boolean checkSpawnRules(
             EntityType<MarchWalkerEntity> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random
     ) {
+        if (!level.getBlockState(pos).isAir() || !level.getBlockState(pos.above()).isAir()) {
+            return false;
+        }
         BlockState below = level.getBlockState(pos.below());
-        return below.is(ModBlocks.MARCH_GRASS.get())
-                || below.is(ModBlocks.MARCH_SOIL.get())
-                || below.is(ModBlocks.MARCH_STONE.get());
+        boolean footing = below.is(ModBlocks.MARCH_GRASS.get())
+                || below.is(ModBlocks.MARCH_MOSS.get())
+                || below.is(ModBlocks.MARCH_SOIL.get());
+        if (!footing) {
+            return false;
+        }
+        // Prefer living turf; soil spawns are rarer.
+        if (below.is(ModBlocks.MARCH_SOIL.get()) && random.nextInt(4) != 0) {
+            return false;
+        }
+        return true;
     }
 }

@@ -1,9 +1,9 @@
 {
-  "feature": "tribalpower:spirit_reed_patch",
+  "feature": "tribalpower:march_leaf_patch",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 8
+      "count": 10
     },
     {
       "type": "minecraft:in_square"

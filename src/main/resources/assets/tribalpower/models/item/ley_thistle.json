@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tribalpower:block/march_leaf"
+    "layer0": "tribalpower:block/ley_thistle"
   }
 }

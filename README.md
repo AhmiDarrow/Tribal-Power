@@ -44,7 +44,14 @@ Stage table is code-defined in `tk.darrow.tribalpower.echo.EchoStage`. The song 
 
 ## The March
 
-A shamanic otherworld with March Stone, cobble, woods, leaves, Spirit Reeds, and fauna (**Spirit Wisp**, **March Walker**). Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to spend **20 Pulse** and travel; use it again to return.
+A shamanic otherworld reached by **Gate Drum** (20 Pulse). **Honest status:** The March still uses a **thickened flat** chunk generator (`minecraft:flat` with deep March Stone / cobble / soil / grass), not full noise terrain. That keeps Gate Drum travel, Deep Cache spirit-link, and recipes stable while biome decoration does the “extensive” work:
+
+- Surface moss patches (`march_moss`), Ley Thistle, March Leaf, Spirit Reed, Echo Bloom
+- March trees, crystal clusters, and sparse crystal-capped **ruin pillars**
+- Ore veins in the deep stone/cobble band
+- Registered spawn placements for **March Walker** / **Spirit Wisp**
+
+Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to travel; use it again to return.
 
 ## Getting started in-game
 
@@ -72,4 +79,4 @@ Optional: **Patchouli** is declared as an optional dependency. The **Spirit Code
 
 Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector, Totem Lattice + chalk links, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum travel (20 Pulse) + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
 
-Still stubs / thin: **Lattice Conductor** is placeable copper-bone décor only (no routing logic yet); **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems.
+Still stubs / thin: **Lattice Conductor** is placeable copper-bone décor only (no routing logic yet); **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March is intentionally **flat+features** until a noise generator can be added without risking Gate Drum / Echo / recipe breakage.

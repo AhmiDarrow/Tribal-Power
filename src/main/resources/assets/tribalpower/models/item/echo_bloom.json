@@ -1,3 +1,6 @@
 {
-  "parent": "tribalpower:block/echo_bloom"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:block/echo_bloom"
+  }
 }

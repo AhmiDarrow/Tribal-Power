@@ -90,6 +90,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> MARCH_COBBLE = ITEMS.registerSimpleBlockItem("march_cobble", ModBlocks.MARCH_COBBLE);
     public static final DeferredItem<BlockItem> MARCH_SOIL = ITEMS.registerSimpleBlockItem("march_soil", ModBlocks.MARCH_SOIL);
     public static final DeferredItem<BlockItem> MARCH_GRASS = ITEMS.registerSimpleBlockItem("march_grass", ModBlocks.MARCH_GRASS);
+    public static final DeferredItem<BlockItem> MARCH_MOSS = ITEMS.registerSimpleBlockItem("march_moss", ModBlocks.MARCH_MOSS);
     public static final DeferredItem<BlockItem> MARCH_LOG = ITEMS.registerSimpleBlockItem("march_log", ModBlocks.MARCH_LOG);
     public static final DeferredItem<BlockItem> MARCH_PLANKS = ITEMS.registerSimpleBlockItem("march_planks", ModBlocks.MARCH_PLANKS);
     public static final DeferredItem<BlockItem> MARCH_LEAVES = ITEMS.registerSimpleBlockItem("march_leaves", ModBlocks.MARCH_LEAVES);
@@ -98,6 +99,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> MARCH_CRYSTAL = ITEMS.registerSimpleBlockItem("march_crystal", ModBlocks.MARCH_CRYSTAL);
     public static final DeferredItem<BlockItem> SPIRIT_REED = ITEMS.registerSimpleBlockItem("spirit_reed", ModBlocks.SPIRIT_REED);
     public static final DeferredItem<BlockItem> ECHO_BLOOM = ITEMS.registerSimpleBlockItem("echo_bloom", ModBlocks.ECHO_BLOOM);
+    public static final DeferredItem<BlockItem> LEY_THISTLE = ITEMS.registerSimpleBlockItem("ley_thistle", ModBlocks.LEY_THISTLE);
 
     private ModItems() {}
 }

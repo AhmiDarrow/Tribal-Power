@@ -1,8 +1,8 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 36,
-    "xz_spread": 6,
+    "tries": 32,
+    "xz_spread": 5,
     "y_spread": 2,
     "feature": {
       "feature": {
@@ -11,7 +11,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "tribalpower:spirit_reed"
+              "Name": "tribalpower:ley_thistle"
             }
           }
         }
@@ -22,7 +22,7 @@
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "tribalpower:spirit_reed"
+              "Name": "tribalpower:ley_thistle"
             }
           }
         }

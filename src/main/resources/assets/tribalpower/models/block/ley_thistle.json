@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "tribalpower:block/echo_bloom"
+    "cross": "tribalpower:block/ley_thistle"
   }
 }

@@ -61,6 +61,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_COBBLE.get());
                         out.accept(ModItems.MARCH_SOIL.get());
                         out.accept(ModItems.MARCH_GRASS.get());
+                        out.accept(ModItems.MARCH_MOSS.get());
                         out.accept(ModItems.MARCH_LOG.get());
                         out.accept(ModItems.MARCH_PLANKS.get());
                         out.accept(ModItems.MARCH_LEAVES.get());
@@ -69,6 +70,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_CRYSTAL.get());
                         out.accept(ModItems.SPIRIT_REED.get());
                         out.accept(ModItems.ECHO_BLOOM.get());
+                        out.accept(ModItems.LEY_THISTLE.get());
                     })
                     .build()
     );

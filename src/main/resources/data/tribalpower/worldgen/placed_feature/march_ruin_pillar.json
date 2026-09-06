@@ -1,16 +1,12 @@
 {
-  "feature": "tribalpower:march_tree",
+  "feature": "tribalpower:march_ruin_pillar",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 5
+      "type": "minecraft:rarity_filter",
+      "chance": 18
     },
     {
       "type": "minecraft:in_square"
-    },
-    {
-      "type": "minecraft:surface_water_depth_filter",
-      "max_water_depth": 0
     },
     {
       "type": "minecraft:heightmap",
@@ -19,10 +15,13 @@
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
-        "type": "minecraft:would_survive",
-        "state": {
-          "Name": "tribalpower:echo_bloom"
-        }
+        "type": "minecraft:matching_blocks",
+        "offset": [0, -1, 0],
+        "blocks": [
+          "tribalpower:march_grass",
+          "tribalpower:march_moss",
+          "tribalpower:march_soil"
+        ]
       }
     },
     {

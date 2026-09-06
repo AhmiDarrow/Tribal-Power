@@ -74,10 +74,23 @@ public class SpiritWispEntity extends PathfinderMob {
     public static boolean checkSpawnRules(
             EntityType<SpiritWispEntity> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random
     ) {
+        if (!level.getBlockState(pos).isAir()) {
+            return false;
+        }
         BlockState below = level.getBlockState(pos.below());
-        return below.is(ModBlocks.MARCH_GRASS.get())
+        boolean footing = below.is(ModBlocks.MARCH_GRASS.get())
+                || below.is(ModBlocks.MARCH_MOSS.get())
                 || below.is(ModBlocks.MARCH_SOIL.get())
                 || below.is(ModBlocks.MARCH_STONE.get())
-                || below.is(ModBlocks.MARCH_COBBLE.get());
+                || below.is(ModBlocks.MARCH_COBBLE.get())
+                || below.is(ModBlocks.MARCH_CRYSTAL.get());
+        if (!footing) {
+            return false;
+        }
+        // Cluster near crystals more often; otherwise require open sky-ish air above.
+        if (below.is(ModBlocks.MARCH_CRYSTAL.get())) {
+            return true;
+        }
+        return level.getBlockState(pos.above()).isAir() && random.nextInt(3) != 0;
     }
 }

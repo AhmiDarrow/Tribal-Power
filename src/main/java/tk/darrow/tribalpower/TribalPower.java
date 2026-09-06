@@ -28,6 +28,7 @@ public final class TribalPower {
 
         modBus.addListener(this::onCommonSetup);
         modBus.addListener(ModEntityAttributes::onAttributes);
+        modBus.addListener(ModEntityAttributes::onSpawnPlacements);
         NeoForge.EVENT_BUS.register(ModDimensions.class);
     }
 
