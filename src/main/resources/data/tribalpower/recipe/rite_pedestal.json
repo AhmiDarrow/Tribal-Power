@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": { "item": "minecraft:stone" },
+    "Q": { "item": "minecraft:quartz" },
+    "B": { "item": "tribalpower:bone_chime" }
+  },
+  "pattern": [
+    " Q ",
+    "SBS",
+    "SSS"
+  ],
+  "result": { "count": 1, "id": "tribalpower:rite_pedestal" }
+}

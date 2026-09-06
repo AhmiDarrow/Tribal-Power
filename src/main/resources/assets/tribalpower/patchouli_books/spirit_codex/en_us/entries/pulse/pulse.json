@@ -1,0 +1,15 @@
+{
+  "name": "Spirit Pulse",
+  "icon": "tribalpower:pulse_cell",
+  "category": "tribalpower:pulse",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Spirit Pulse is rhythmic beats, not furnace heat or FE. Drumhearts and Ley Collectors generate it; Pulse Cells carry it; lattices and Spiritgear spend it."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Use a Pulse Cell on a Drumheart to charge up to 25 beats per click. Cells hold 200 and show a cyan bar."
+    }
+  ]
+}

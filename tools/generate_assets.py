@@ -195,10 +195,16 @@ BLOCKS = {
     "spirit_door": lambda: block_tex(VIOLET, CYAN),
     "march_stone": lambda: block_tex(TEAL_DK, TEAL_LT),
     "march_cobble": lambda: block_tex(TEAL_DK, BONE_DK, "noise"),
+    "march_soil": lambda: block_tex((62, 78, 58), TEAL_DK),
+    "march_grass": lambda: block_tex((58, 140, 120), TEAL_LT),
     "march_log": lambda: block_tex(BROWN, TEAL_DK),
     "march_planks": lambda: block_tex(BROWN, BONE, "grid"),
+    "march_leaves": lambda: block_tex(TEAL, VIOLET_LT),
     "march_leaf": lambda: plant_tex(TEAL_DK, TEAL_LT),
+    "march_ore": lambda: block_tex(TEAL_DK, VIOLET_LT, "grid"),
+    "march_crystal": lambda: block_tex(CYAN, VIOLET_LT),
     "spirit_reed": lambda: plant_tex(VIOLET_DK, CYAN),
+    "echo_bloom": lambda: plant_tex(VIOLET_DK, VIOLET_LT),
 }
 
 ITEMS = {
@@ -208,10 +214,10 @@ ITEMS = {
     "copper_resonator": lambda: item_ingot(COPPER),
     "pulse_cell": lambda: item_orb(CYAN, TEAL_DK),
     "ritual_chalk": lambda: item_ingot(BONE),
-    "shattered_ore": lambda: item_orb(BONE_DK, TEAL),
-    "attuned_ore": lambda: item_orb(TEAL, VIOLET),
-    "bound_ore": lambda: item_orb(VIOLET, TEAL),
-    "manifest_ingot": lambda: item_ingot(GOLD),
+    "echo_shard": lambda: item_orb(BONE_DK, TEAL),
+    "attuned_echo": lambda: item_orb(TEAL, VIOLET),
+    "bound_echo": lambda: item_orb(VIOLET, TEAL),
+    "manifested_ingot": lambda: item_ingot(GOLD),
     "blank_seal": lambda: item_seal(BONE_DK),
     "earth_seal": lambda: item_seal(GREEN),
     "fire_seal": lambda: item_seal(ORANGE),
@@ -219,6 +225,8 @@ ITEMS = {
     "air_seal": lambda: item_seal(BONE),
     "spirit_seal": lambda: item_seal(VIOLET),
     "spiritgear_pickaxe": lambda: item_tool(VIOLET, BROWN),
+    "spiritgear_axe": lambda: item_tool(TEAL, BROWN),
+    "spiritgear_shovel": lambda: item_tool(GOLD, BROWN_DK),
     "spiritgear_blade": lambda: item_tool(CYAN, BROWN_DK),
 }
 
@@ -268,10 +276,12 @@ def gen_lang() -> None:
         "item.tribalpower.copper_resonator": "Copper Resonator",
         "item.tribalpower.pulse_cell": "Pulse Cell",
         "item.tribalpower.ritual_chalk": "Ritual Chalk",
-        "item.tribalpower.shattered_ore": "Shattered Ore",
-        "item.tribalpower.attuned_ore": "Attuned Ore",
-        "item.tribalpower.bound_ore": "Bound Ore",
-        "item.tribalpower.manifest_ingot": "Manifest Ingot",
+        "item.tribalpower.ritual_chalk.desc": "Mark two Resonance Totems to seal a lattice link",
+        "item.tribalpower.ritual_chalk.pending": "Pending mark: %s, %s, %s",
+        "item.tribalpower.echo_shard": "Echo Shard",
+        "item.tribalpower.attuned_echo": "Attuned Echo",
+        "item.tribalpower.bound_echo": "Bound Echo",
+        "item.tribalpower.manifested_ingot": "Manifested Ingot",
         "item.tribalpower.blank_seal": "Blank Seal",
         "item.tribalpower.earth_seal": "Earth Seal",
         "item.tribalpower.fire_seal": "Fire Seal",
@@ -313,8 +323,25 @@ def gen_lang() -> None:
         "attunement.tribalpower.air": "Air",
         "attunement.tribalpower.spirit": "Spirit",
         "message.tribalpower.drumheart.beat": "Drumheart +%s Pulse (%s/%s)",
+        "message.tribalpower.ley_collector.status": "Ley Collector Pulse %s/%s",
         "message.tribalpower.totem.attunement": "Totem attunement: %s",
+        "message.tribalpower.totem.links": "Lattice links: %s",
         "message.tribalpower.song_bench.start": "Song begun — %s totems answering",
+        "message.tribalpower.song_bench.idle": "Song Bench silent — place grit and strike the song",
+        "message.tribalpower.song_bench.need_item": "The bench waits for ore, grit, or echo",
+        "message.tribalpower.song_bench.no_totems": "No Resonance Totems within song range",
+        "message.tribalpower.song_bench.no_pulse": "The song stalls — no Pulse nearby",
+        "message.tribalpower.song_bench.need_attunement": "Need a %s Resonance Totem nearby",
+        "message.tribalpower.song_bench.working": "Echo %s — %s/%s beats (%s totems)",
+        "message.tribalpower.song_bench.inserted": "Material laid on the Song Bench",
+        "message.tribalpower.song_bench.full": "The Song Bench already holds a voice",
+        "message.tribalpower.song_bench.removed": "Material lifted from the Song Bench",
+        "message.tribalpower.chalk.mark": "Totem marked — chalk the partner totem",
+        "message.tribalpower.chalk.clear": "Chalk mark cleared",
+        "message.tribalpower.chalk.too_far": "Those totems are beyond lattice range",
+        "message.tribalpower.chalk.link": "Lattice link sealed",
+        "message.tribalpower.chalk.already": "Those totems are already linked",
+        "message.tribalpower.chalk.fail": "The chalk finds no lasting mark",
         "message.tribalpower.rite.success": "The seal answers the pedestal",
         "message.tribalpower.rite.fail": "The rite finds no voice",
         "message.tribalpower.gate.travel": "The Gate Drum opens The March",
@@ -383,7 +410,7 @@ def gen_dimension() -> None:
         "features": []
     })
 
-    # Reliable flat March for scaffold — unique blocks form the terrain layers.
+    # Layered flat March with biome features (trees, ore, crystals, flora).
     write_json(DATA / "dimension/the_march.json", {
         "type": "tribalpower:the_march",
         "generator": {
@@ -391,12 +418,13 @@ def gen_dimension() -> None:
             "settings": {
                 "biome": "tribalpower:march_steppe",
                 "lakes": False,
-                "features": False,
+                "features": True,
                 "layers": [
                     {"height": 1, "block": "minecraft:bedrock"},
-                    {"height": 48, "block": "tribalpower:march_stone"},
-                    {"height": 3, "block": "tribalpower:march_cobble"},
-                    {"height": 1, "block": "tribalpower:march_stone"}
+                    {"height": 40, "block": "tribalpower:march_stone"},
+                    {"height": 4, "block": "tribalpower:march_cobble"},
+                    {"height": 3, "block": "tribalpower:march_soil"},
+                    {"height": 1, "block": "tribalpower:march_grass"}
                 ],
                 "structure_overrides": []
             }
@@ -406,10 +434,11 @@ def gen_dimension() -> None:
 
 def gen_guide_json() -> None:
     chapters = [
-        {"id": "intro", "title": "Shamanic Technomancy", "text": "Spirit-synced machinery, totem lattices, and Pulse — not furnace magic."},
-        {"id": "pulse", "title": "Spirit Pulse", "text": "Rhythmic beats stored by PulseHandlers. Drumheart and Ley Collectors generate Pulse."},
-        {"id": "lattice", "title": "Totem Lattice", "text": "Resonance Totems + Song Bench route harmonics for Echo-stage refinement."},
-        {"id": "echo", "title": "Echo Stages", "text": "Shatter → Attune → Bind → Manifest."},
+        {"id": "intro", "title": "Shamanic Technomancy", "text": "Steward tribes of the Loom braid spirit and craft. Pulse, totem lattices, and Echo — not furnace magic."},
+        {"id": "pulse", "title": "Spirit Pulse", "text": "Rhythmic beats stored by PulseHandlers. Drumheart for bursts; Ley Collector for ambient trickle."},
+        {"id": "lattice", "title": "Totem Lattice", "text": "Resonance Totems near a Song Bench. Ritual Chalk seals lasting links within 16 blocks."},
+        {"id": "echo", "title": "Echo Stages", "text": "Song Bench path: raw ore → Echo Shard (Earth) → Attuned Echo (Fire) → Bound Echo (Water) → Manifested Ingot (Spirit)."},
+        {"id": "song", "title": "Song Bench", "text": "Insert grit, start the song, keep Pulse and the right attunement nearby. Shift-click to remove."},
         {"id": "storage", "title": "Caches", "text": "Ancestral Cache locally; Deep Cache via spirit link to The March."},
         {"id": "rites", "title": "Seals & Rites", "text": "Offer seals on a Rite Pedestal for spirit boons."},
         {"id": "march", "title": "The March", "text": "Otherworld dimension reached by Gate Drum."},

@@ -1,0 +1,63 @@
+{
+  "anvil_cost": 3,
+  "description": {
+    "translate": "enchantment.tribalpower.echo_edge"
+  },
+  "effects": {
+    "minecraft:damage": [
+      {
+        "effect": {
+          "type": "minecraft:add",
+          "value": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 0.5
+          }
+        }
+      }
+    ],
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:apply_mob_effect",
+          "to_apply": "minecraft:glowing",
+          "min_duration": {
+            "type": "minecraft:linear",
+            "base": 3.0,
+            "per_level_above_first": 2.0
+          },
+          "max_duration": {
+            "type": "minecraft:linear",
+            "base": 5.0,
+            "per_level_above_first": 2.0
+          },
+          "min_amplifier": 0.0,
+          "max_amplifier": 0.0
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "condition": "minecraft:damage_source_properties",
+          "predicate": {
+            "is_direct": true
+          }
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 40,
+    "per_level_above_first": 12
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 8,
+    "per_level_above_first": 12
+  },
+  "primary_items": "#minecraft:enchantable/sword",
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#tribalpower:enchantable/echo_edge",
+  "weight": 3
+}

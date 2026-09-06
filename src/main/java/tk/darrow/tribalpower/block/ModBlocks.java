@@ -1,6 +1,7 @@
 package tk.darrow.tribalpower.block;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -22,13 +23,13 @@ public final class ModBlocks {
                     .requiresCorrectToolForDrops())
     );
 
-    public static final DeferredBlock<Block> LEY_COLLECTOR = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<LeyCollectorBlock> LEY_COLLECTOR = BLOCKS.register(
             "ley_collector",
-            BlockBehaviour.Properties.of()
+            () -> new LeyCollectorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN)
                     .strength(3.0F)
                     .sound(SoundType.METAL)
-                    .requiresCorrectToolForDrops()
+                    .requiresCorrectToolForDrops())
     );
 
     // Lattice
@@ -70,13 +71,13 @@ public final class ModBlocks {
                     .sound(SoundType.WOOD))
     );
 
-    public static final DeferredBlock<Block> DEEP_CACHE = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<DeepCacheBlock> DEEP_CACHE = BLOCKS.register(
             "deep_cache",
-            BlockBehaviour.Properties.of()
+            () -> new DeepCacheBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .strength(4.0F, 12.0F)
                     .sound(SoundType.STONE)
-                    .requiresCorrectToolForDrops()
+                    .requiresCorrectToolForDrops())
     );
 
     // Rites
@@ -128,6 +129,22 @@ public final class ModBlocks {
                     .requiresCorrectToolForDrops()
     );
 
+    public static final DeferredBlock<Block> MARCH_SOIL = BLOCKS.registerSimpleBlock(
+            "march_soil",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_GREEN)
+                    .strength(0.5F)
+                    .sound(SoundType.GRAVEL)
+    );
+
+    public static final DeferredBlock<Block> MARCH_GRASS = BLOCKS.registerSimpleBlock(
+            "march_grass",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .strength(0.6F)
+                    .sound(SoundType.GRASS)
+    );
+
     public static final DeferredBlock<Block> MARCH_LOG = BLOCKS.registerSimpleBlock(
             "march_log",
             BlockBehaviour.Properties.of()
@@ -144,6 +161,18 @@ public final class ModBlocks {
                     .sound(SoundType.WOOD)
     );
 
+    public static final DeferredBlock<Block> MARCH_LEAVES = BLOCKS.register(
+            "march_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .strength(0.2F)
+                    .randomTicks()
+                    .sound(SoundType.GRASS)
+                    .noOcclusion()
+                    .isViewBlocking((s, l, p) -> false)
+                    .isSuffocating((s, l, p) -> false))
+    );
+
     public static final DeferredBlock<Block> MARCH_LEAF = BLOCKS.register(
             "march_leaf",
             () -> new MarchPlantBlock(BlockBehaviour.Properties.of()
@@ -155,6 +184,25 @@ public final class ModBlocks {
                     .isSuffocating((s, l, p) -> false))
     );
 
+    public static final DeferredBlock<Block> MARCH_ORE = BLOCKS.registerSimpleBlock(
+            "march_ore",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .strength(3.0F, 3.0F)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+    );
+
+    public static final DeferredBlock<MarchCrystalBlock> MARCH_CRYSTAL = BLOCKS.register(
+            "march_crystal",
+            () -> new MarchCrystalBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .strength(1.2F)
+                    .sound(SoundType.AMETHYST)
+                    .lightLevel(s -> 10)
+                    .noOcclusion())
+    );
+
     public static final DeferredBlock<Block> SPIRIT_REED = BLOCKS.register(
             "spirit_reed",
             () -> new MarchPlantBlock(BlockBehaviour.Properties.of()
@@ -163,6 +211,17 @@ public final class ModBlocks {
                     .sound(SoundType.GRASS)
                     .noCollission()
                     .noOcclusion())
+    );
+
+    public static final DeferredBlock<EchoBloomBlock> ECHO_BLOOM = BLOCKS.register(
+            "echo_bloom",
+            () -> new EchoBloomBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PURPLE)
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .noCollission()
+                    .noOcclusion()
+                    .lightLevel(s -> 4))
     );
 
     private static DeferredBlock<ResonanceTotemBlock> totem(String id, Attunement attunement, MapColor color) {

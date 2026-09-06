@@ -1,0 +1,11 @@
+{
+  "name": "Totem Lattice",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "category": "tribalpower:lattice",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Resonance Totems hold Earth, Fire, Water, Air, or Spirit. A Song Bench begins a song; nearby totems answer. Ritual Chalk marks lasting links."
+    }
+  ]
+}

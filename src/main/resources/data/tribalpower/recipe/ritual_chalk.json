@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "minecraft:bone_meal" },
+    { "item": "minecraft:bone_meal" },
+    { "item": "minecraft:lapis_lazuli" },
+    { "item": "tribalpower:spirit_shard" }
+  ],
+  "result": { "count": 4, "id": "tribalpower:ritual_chalk" }
+}

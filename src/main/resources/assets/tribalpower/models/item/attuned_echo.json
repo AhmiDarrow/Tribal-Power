@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tribalpower:item/bound_ore"
+    "layer0": "tribalpower:item/attuned_echo"
   }
 }

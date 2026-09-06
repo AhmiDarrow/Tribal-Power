@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": { "item": "tribalpower:drumheart" },
+    "S": { "item": "tribalpower:spirit_shard" },
+    "O": { "item": "minecraft:obsidian" },
+    "C": { "item": "tribalpower:copper_resonator" }
+  },
+  "pattern": [
+    "OSO",
+    "CDC",
+    "OSO"
+  ],
+  "result": { "count": 1, "id": "tribalpower:gate_drum" }
+}

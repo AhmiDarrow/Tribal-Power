@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "tribalpower:blank_seal" },
+    { "item": "minecraft:prismarine_crystals" }
+  ],
+  "result": { "count": 1, "id": "tribalpower:water_seal" }
+}

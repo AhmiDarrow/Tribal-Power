@@ -20,14 +20,20 @@ public final class ModItems {
     public static final DeferredItem<Item> SPIRIT_SHARD = ITEMS.registerSimpleItem("spirit_shard");
     public static final DeferredItem<Item> BONE_CHIME = ITEMS.registerSimpleItem("bone_chime");
     public static final DeferredItem<Item> COPPER_RESONATOR = ITEMS.registerSimpleItem("copper_resonator");
-    public static final DeferredItem<Item> PULSE_CELL = ITEMS.registerSimpleItem("pulse_cell");
-    public static final DeferredItem<Item> RITUAL_CHALK = ITEMS.registerSimpleItem("ritual_chalk");
+    public static final DeferredItem<PulseCellItem> PULSE_CELL = ITEMS.register(
+            "pulse_cell",
+            () -> new PulseCellItem(new Item.Properties().stacksTo(1))
+    );
+    public static final DeferredItem<RitualChalkItem> RITUAL_CHALK = ITEMS.register(
+            "ritual_chalk",
+            () -> new RitualChalkItem(new Item.Properties().stacksTo(64))
+    );
 
-    // Echo stage intermediates (item forms of refinement)
-    public static final DeferredItem<Item> SHATTERED_ORE = ITEMS.registerSimpleItem("shattered_ore");
-    public static final DeferredItem<Item> ATTUNED_ORE = ITEMS.registerSimpleItem("attuned_ore");
-    public static final DeferredItem<Item> BOUND_ORE = ITEMS.registerSimpleItem("bound_ore");
-    public static final DeferredItem<Item> MANIFEST_INGOT = ITEMS.registerSimpleItem("manifest_ingot");
+    // Echo stage intermediates — shattered grit → manifested metal (not furnace smelting)
+    public static final DeferredItem<Item> ECHO_SHARD = ITEMS.registerSimpleItem("echo_shard");
+    public static final DeferredItem<Item> ATTUNED_ECHO = ITEMS.registerSimpleItem("attuned_echo");
+    public static final DeferredItem<Item> BOUND_ECHO = ITEMS.registerSimpleItem("bound_echo");
+    public static final DeferredItem<Item> MANIFESTED_INGOT = ITEMS.registerSimpleItem("manifested_ingot");
 
     // Seals
     public static final DeferredItem<Item> BLANK_SEAL = ITEMS.registerSimpleItem("blank_seal");
@@ -37,14 +43,22 @@ public final class ModItems {
     public static final DeferredItem<Item> AIR_SEAL = ITEMS.registerSimpleItem("air_seal");
     public static final DeferredItem<Item> SPIRIT_SEAL = ITEMS.registerSimpleItem("spirit_seal");
 
-    // Spiritgear stubs
+    // Spiritgear — Pulse-fueled tools
     public static final DeferredItem<Item> SPIRITGEAR_PICKAXE = ITEMS.register(
             "spiritgear_pickaxe",
             () -> new SpiritgearPickaxeItem(new Item.Properties().durability(512))
     );
+    public static final DeferredItem<Item> SPIRITGEAR_AXE = ITEMS.register(
+            "spiritgear_axe",
+            () -> new SpiritgearAxeItem(new Item.Properties().durability(512))
+    );
+    public static final DeferredItem<Item> SPIRITGEAR_SHOVEL = ITEMS.register(
+            "spiritgear_shovel",
+            () -> new SpiritgearShovelItem(new Item.Properties().durability(512))
+    );
     public static final DeferredItem<Item> SPIRITGEAR_BLADE = ITEMS.register(
             "spiritgear_blade",
-            () -> new Item(new Item.Properties().durability(512))
+            () -> new SpiritgearBladeItem(new Item.Properties().durability(512))
     );
 
     // Block items — pulse / lattice
@@ -58,7 +72,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> SONG_BENCH = ITEMS.registerSimpleBlockItem("song_bench", ModBlocks.SONG_BENCH);
     public static final DeferredItem<BlockItem> LATTICE_CONDUCTOR = ITEMS.registerSimpleBlockItem("lattice_conductor", ModBlocks.LATTICE_CONDUCTOR);
 
-    // Echo blocks
+    // Echo stage stations (markers / future dedicated processors; Song Bench does live refinement)
     public static final DeferredItem<BlockItem> ECHO_SHATTER = ITEMS.registerSimpleBlockItem("echo_shatter", ModBlocks.ECHO_SHATTER);
     public static final DeferredItem<BlockItem> ECHO_ATTUNE = ITEMS.registerSimpleBlockItem("echo_attune", ModBlocks.ECHO_ATTUNE);
     public static final DeferredItem<BlockItem> ECHO_BIND = ITEMS.registerSimpleBlockItem("echo_bind", ModBlocks.ECHO_BIND);
@@ -74,10 +88,16 @@ public final class ModItems {
     // March
     public static final DeferredItem<BlockItem> MARCH_STONE = ITEMS.registerSimpleBlockItem("march_stone", ModBlocks.MARCH_STONE);
     public static final DeferredItem<BlockItem> MARCH_COBBLE = ITEMS.registerSimpleBlockItem("march_cobble", ModBlocks.MARCH_COBBLE);
+    public static final DeferredItem<BlockItem> MARCH_SOIL = ITEMS.registerSimpleBlockItem("march_soil", ModBlocks.MARCH_SOIL);
+    public static final DeferredItem<BlockItem> MARCH_GRASS = ITEMS.registerSimpleBlockItem("march_grass", ModBlocks.MARCH_GRASS);
     public static final DeferredItem<BlockItem> MARCH_LOG = ITEMS.registerSimpleBlockItem("march_log", ModBlocks.MARCH_LOG);
     public static final DeferredItem<BlockItem> MARCH_PLANKS = ITEMS.registerSimpleBlockItem("march_planks", ModBlocks.MARCH_PLANKS);
+    public static final DeferredItem<BlockItem> MARCH_LEAVES = ITEMS.registerSimpleBlockItem("march_leaves", ModBlocks.MARCH_LEAVES);
     public static final DeferredItem<BlockItem> MARCH_LEAF = ITEMS.registerSimpleBlockItem("march_leaf", ModBlocks.MARCH_LEAF);
+    public static final DeferredItem<BlockItem> MARCH_ORE = ITEMS.registerSimpleBlockItem("march_ore", ModBlocks.MARCH_ORE);
+    public static final DeferredItem<BlockItem> MARCH_CRYSTAL = ITEMS.registerSimpleBlockItem("march_crystal", ModBlocks.MARCH_CRYSTAL);
     public static final DeferredItem<BlockItem> SPIRIT_REED = ITEMS.registerSimpleBlockItem("spirit_reed", ModBlocks.SPIRIT_REED);
+    public static final DeferredItem<BlockItem> ECHO_BLOOM = ITEMS.registerSimpleBlockItem("echo_bloom", ModBlocks.ECHO_BLOOM);
 
     private ModItems() {}
 }

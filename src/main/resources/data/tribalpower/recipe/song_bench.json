@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": { "tag": "minecraft:planks" },
+    "C": { "item": "tribalpower:copper_resonator" },
+    "B": { "item": "tribalpower:bone_chime" },
+    "S": { "item": "tribalpower:spirit_shard" }
+  },
+  "pattern": [
+    "BCB",
+    "WSW",
+    "WWW"
+  ],
+  "result": { "count": 1, "id": "tribalpower:song_bench" }
+}

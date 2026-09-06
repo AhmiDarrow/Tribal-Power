@@ -1,0 +1,15 @@
+{
+  "name": "Seals, Rites, Spiritgear",
+  "icon": "tribalpower:spirit_seal",
+  "category": "tribalpower:rites",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Offer elemental seals on a Rite Pedestal. Each seal has a distinct working. Carry 8+ Pulse to amplify. Spiritgear tools drain Pulse Cells: fueled work spares the edge; starved work wears twice."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Enchantments: Pulse Attunement (mining efficiency) and Echo Edge (extra damage + Glow)."
+    }
+  ]
+}

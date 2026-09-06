@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": { "tag": "minecraft:logs" },
+    "B": { "item": "tribalpower:bone_chime" },
+    "C": { "item": "tribalpower:copper_resonator" },
+    "X": { "item": "minecraft:blaze_powder" }
+  },
+  "pattern": [
+    " B ",
+    "WXW",
+    " C "
+  ],
+  "result": { "count": 1, "id": "tribalpower:resonance_totem_fire" }
+}

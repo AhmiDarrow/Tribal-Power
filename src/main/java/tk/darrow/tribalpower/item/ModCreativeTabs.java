@@ -23,11 +23,12 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.BONE_CHIME.get());
                         out.accept(ModItems.COPPER_RESONATOR.get());
                         out.accept(ModItems.PULSE_CELL.get());
+                        out.accept(PulseCellItem.createFilled(PulseCellItem.CAPACITY));
                         out.accept(ModItems.RITUAL_CHALK.get());
-                        out.accept(ModItems.SHATTERED_ORE.get());
-                        out.accept(ModItems.ATTUNED_ORE.get());
-                        out.accept(ModItems.BOUND_ORE.get());
-                        out.accept(ModItems.MANIFEST_INGOT.get());
+                        out.accept(ModItems.ECHO_SHARD.get());
+                        out.accept(ModItems.ATTUNED_ECHO.get());
+                        out.accept(ModItems.BOUND_ECHO.get());
+                        out.accept(ModItems.MANIFESTED_INGOT.get());
                         out.accept(ModItems.BLANK_SEAL.get());
                         out.accept(ModItems.EARTH_SEAL.get());
                         out.accept(ModItems.FIRE_SEAL.get());
@@ -35,6 +36,8 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.AIR_SEAL.get());
                         out.accept(ModItems.SPIRIT_SEAL.get());
                         out.accept(ModItems.SPIRITGEAR_PICKAXE.get());
+                        out.accept(ModItems.SPIRITGEAR_AXE.get());
+                        out.accept(ModItems.SPIRITGEAR_SHOVEL.get());
                         out.accept(ModItems.SPIRITGEAR_BLADE.get());
                         out.accept(ModItems.DRUMHEART.get());
                         out.accept(ModItems.LEY_COLLECTOR.get());
@@ -56,10 +59,16 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRIT_DOOR.get());
                         out.accept(ModItems.MARCH_STONE.get());
                         out.accept(ModItems.MARCH_COBBLE.get());
+                        out.accept(ModItems.MARCH_SOIL.get());
+                        out.accept(ModItems.MARCH_GRASS.get());
                         out.accept(ModItems.MARCH_LOG.get());
                         out.accept(ModItems.MARCH_PLANKS.get());
+                        out.accept(ModItems.MARCH_LEAVES.get());
                         out.accept(ModItems.MARCH_LEAF.get());
+                        out.accept(ModItems.MARCH_ORE.get());
+                        out.accept(ModItems.MARCH_CRYSTAL.get());
                         out.accept(ModItems.SPIRIT_REED.get());
+                        out.accept(ModItems.ECHO_BLOOM.get());
                     })
                     .build()
     );

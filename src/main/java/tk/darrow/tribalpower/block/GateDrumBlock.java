@@ -4,19 +4,28 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.Nullable;
+import tk.darrow.tribalpower.blockentity.GateDrumBlockEntity;
+import tk.darrow.tribalpower.item.ModItems;
+import tk.darrow.tribalpower.storage.DeepCacheManager;
 import tk.darrow.tribalpower.world.ModDimensions;
 
 /**
- * Portal drum that opens a passage into The March.
+ * Portal drum that opens a passage into The March. Stores Pulse to fuel travel.
  */
-public class GateDrumBlock extends Block {
+public class GateDrumBlock extends BaseEntityBlock {
     public static final MapCodec<GateDrumBlock> CODEC = simpleCodec(GateDrumBlock::new);
 
     public GateDrumBlock(BlockBehaviour.Properties properties) {
@@ -24,17 +33,70 @@ public class GateDrumBlock extends Block {
     }
 
     @Override
-    protected MapCodec<? extends Block> codec() {
+    protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new GateDrumBlockEntity(pos, state);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(
+            ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit
+    ) {
+        if (stack.is(ModItems.PULSE_CELL.get()) && level.getBlockEntity(pos) instanceof GateDrumBlockEntity drum) {
+            if (!level.isClientSide) {
+                int gained = drum.chargeFromCell();
+                if (gained > 0) {
+                    stack.shrink(1);
+                    player.displayClientMessage(Component.translatable(
+                            "message.tribalpower.gate.charge", gained, drum.getPulseStored(), drum.getPulseCapacity()
+                    ), true);
+                } else {
+                    player.displayClientMessage(Component.translatable("message.tribalpower.gate.full"), true);
+                }
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer
+                && level.getBlockEntity(pos) instanceof GateDrumBlockEntity drum) {
+            if (player.isShiftKeyDown()) {
+                int gained = drum.manualCharge();
+                serverPlayer.displayClientMessage(Component.translatable(
+                        "message.tribalpower.gate.charge", gained, drum.getPulseStored(), drum.getPulseCapacity()
+                ), true);
+                return InteractionResult.CONSUME;
+            }
+
+            if (!drum.tryConsumeTravelPulse()) {
+                serverPlayer.displayClientMessage(Component.translatable(
+                        "message.tribalpower.gate.need_pulse", GateDrumBlockEntity.TRAVEL_COST, drum.getPulseStored()
+                ), true);
+                return InteractionResult.CONSUME;
+            }
+
             boolean ok = ModDimensions.travelThroughGate(serverPlayer);
-            serverPlayer.displayClientMessage(Component.translatable(
-                    ok ? "message.tribalpower.gate.travel" : "message.tribalpower.gate.fail"
-            ), true);
+            if (ok) {
+                DeepCacheManager.markVisited(serverPlayer);
+                serverPlayer.displayClientMessage(Component.translatable("message.tribalpower.gate.travel"), true);
+            } else {
+                // Refund travel cost if dimension missing.
+                drum.insertPulse(GateDrumBlockEntity.TRAVEL_COST, false);
+                serverPlayer.displayClientMessage(Component.translatable("message.tribalpower.gate.fail"), true);
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

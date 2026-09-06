@@ -3,6 +3,8 @@ package tk.darrow.tribalpower.blockentity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.api.pulse.Attunement;
@@ -10,9 +12,14 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 import tk.darrow.tribalpower.block.ResonanceTotemBlock;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandler {
     private Attunement attunement = Attunement.SPIRIT;
     private final PulseStorage resonance = new PulseStorage(250);
+    private final List<BlockPos> links = new ArrayList<>();
 
     public ResonanceTotemBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.RESONANCE_TOTEM.get(), pos, state);
@@ -32,6 +39,27 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
 
     public Attunement getAttunement() {
         return attunement;
+    }
+
+    public List<BlockPos> getLinks() {
+        return Collections.unmodifiableList(links);
+    }
+
+    public boolean isLinkedTo(BlockPos other) {
+        return links.contains(other);
+    }
+
+    public void addLink(BlockPos other) {
+        if (!links.contains(other) && !other.equals(worldPosition)) {
+            links.add(other.immutable());
+            setChanged();
+        }
+    }
+
+    public void removeLink(BlockPos other) {
+        if (links.remove(other)) {
+            setChanged();
+        }
     }
 
     @Override
@@ -67,6 +95,15 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         super.saveAdditional(tag, registries);
         tag.putString("Attunement", attunement.getSerializedName());
         resonance.save(tag);
+        ListTag list = new ListTag();
+        for (BlockPos link : links) {
+            CompoundTag entry = new CompoundTag();
+            entry.putInt("X", link.getX());
+            entry.putInt("Y", link.getY());
+            entry.putInt("Z", link.getZ());
+            list.add(entry);
+        }
+        tag.put("Links", list);
     }
 
     @Override
@@ -74,5 +111,11 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         super.loadAdditional(tag, registries);
         attunement = Attunement.byName(tag.getString("Attunement"));
         resonance.load(tag);
+        links.clear();
+        ListTag list = tag.getList("Links", Tag.TAG_COMPOUND);
+        for (int i = 0; i < list.size(); i++) {
+            CompoundTag entry = list.getCompound(i);
+            links.add(new BlockPos(entry.getInt("X"), entry.getInt("Y"), entry.getInt("Z")));
+        }
     }
 }

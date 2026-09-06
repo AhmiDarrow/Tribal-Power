@@ -5,8 +5,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -19,6 +22,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.ModBlockEntities;
+import tk.darrow.tribalpower.item.PulseCellItem;
 
 /**
  * Early Spirit Pulse generator. Right-click drums a beat; redstone tempo also accumulates pulse.
@@ -50,6 +54,31 @@ public class DrumheartBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.DRUMHEART.get(), DrumheartBlockEntity::serverTick);
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                              Player player, InteractionHand hand, BlockHitResult hit) {
+        if (stack.getItem() instanceof PulseCellItem
+                && level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum) {
+            if (!level.isClientSide) {
+                int want = Math.min(25, PulseCellItem.CAPACITY - PulseCellItem.getPulse(stack));
+                int taken = drum.extractPulse(want, false);
+                int filled = PulseCellItem.insertPulse(stack, taken, false);
+                if (filled < taken) {
+                    drum.insertPulse(taken - filled, false);
+                }
+                player.displayClientMessage(Component.translatable(
+                        "message.tribalpower.pulse_cell.charge",
+                        filled,
+                        PulseCellItem.getPulse(stack),
+                        PulseCellItem.CAPACITY,
+                        drum.getPulseStored()
+                ), true);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override

@@ -16,6 +16,11 @@ public final class ModBlockEntities {
                     DrumheartBlockEntity::new, ModBlocks.DRUMHEART.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LeyCollectorBlockEntity>> LEY_COLLECTOR =
+            BLOCK_ENTITIES.register("ley_collector", () -> BlockEntityType.Builder.of(
+                    LeyCollectorBlockEntity::new, ModBlocks.LEY_COLLECTOR.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncestralCacheBlockEntity>> ANCESTRAL_CACHE =
             BLOCK_ENTITIES.register("ancestral_cache", () -> BlockEntityType.Builder.of(
                     AncestralCacheBlockEntity::new, ModBlocks.ANCESTRAL_CACHE.get()
@@ -34,6 +39,11 @@ public final class ModBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SongBenchBlockEntity>> SONG_BENCH =
             BLOCK_ENTITIES.register("song_bench", () -> BlockEntityType.Builder.of(
                     SongBenchBlockEntity::new, ModBlocks.SONG_BENCH.get()
+            ).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GateDrumBlockEntity>> GATE_DRUM =
+            BLOCK_ENTITIES.register("gate_drum", () -> BlockEntityType.Builder.of(
+                    GateDrumBlockEntity::new, ModBlocks.GATE_DRUM.get()
             ).build(null));
 
     private ModBlockEntities() {}

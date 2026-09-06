@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tribalpower:item/shattered_ore"
+    "layer0": "tribalpower:item/manifested_ingot"
   }
 }

@@ -5,23 +5,27 @@
     "settings": {
       "biome": "tribalpower:march_steppe",
       "lakes": false,
-      "features": false,
+      "features": true,
       "layers": [
         {
           "height": 1,
           "block": "minecraft:bedrock"
         },
         {
-          "height": 48,
+          "height": 40,
           "block": "tribalpower:march_stone"
         },
         {
-          "height": 3,
+          "height": 4,
           "block": "tribalpower:march_cobble"
         },
         {
+          "height": 3,
+          "block": "tribalpower:march_soil"
+        },
+        {
           "height": 1,
-          "block": "tribalpower:march_stone"
+          "block": "tribalpower:march_grass"
         }
       ],
       "structure_overrides": []

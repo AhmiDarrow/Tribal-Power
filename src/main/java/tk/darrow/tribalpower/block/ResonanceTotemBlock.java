@@ -70,6 +70,12 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
                     "message.tribalpower.totem.attunement",
                     Component.translatable("attunement.tribalpower." + attunement.getSerializedName())
             ), true);
+            if (level.getBlockEntity(pos) instanceof ResonanceTotemBlockEntity totem) {
+                player.displayClientMessage(Component.translatable(
+                        "message.tribalpower.totem.links",
+                        totem.getLinks().size()
+                ), true);
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

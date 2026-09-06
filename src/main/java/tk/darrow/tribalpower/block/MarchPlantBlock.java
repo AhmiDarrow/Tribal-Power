@@ -32,6 +32,8 @@ public class MarchPlantBlock extends BushBlock {
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         return state.is(ModBlocks.MARCH_STONE.get())
                 || state.is(ModBlocks.MARCH_COBBLE.get())
+                || state.is(ModBlocks.MARCH_SOIL.get())
+                || state.is(ModBlocks.MARCH_GRASS.get())
                 || super.mayPlaceOn(state, level, pos);
     }
 }

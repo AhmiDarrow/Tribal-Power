@@ -1,19 +1,21 @@
 package tk.darrow.tribalpower.item;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
 /**
- * Spiritgear tools consume durability as a stand-in for Pulse drain until full gear pulse is wired.
+ * Spiritgear pickaxe — Pulse from inventory Pulse Cells preserves durability while mining.
  */
 public class SpiritgearPickaxeItem extends PickaxeItem {
     public SpiritgearPickaxeItem(Properties properties) {
@@ -21,13 +23,16 @@ public class SpiritgearPickaxeItem extends PickaxeItem {
     }
 
     @Override
-    public boolean mineBlock(ItemStack stack, net.minecraft.world.level.Level level, BlockState state,
-                             net.minecraft.core.BlockPos pos, LivingEntity entity) {
+    public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
         boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        if (ok && !level.isClientSide && entity instanceof Player player && !player.getAbilities().instabuild) {
-            // Extra pulse-flavored wear: already handled by durability; message occasionally.
-            if (level.random.nextInt(20) == 0) {
-                player.displayClientMessage(Component.translatable("message.tribalpower.spiritgear.pulse"), true);
+        if (ok && !level.isClientSide && entity instanceof Player player && !player.getAbilities().instabuild
+                && state.getDestroySpeed(level, pos) != 0.0F) {
+            if (SpiritgearHelper.tryConsumePulse(player, SpiritgearHelper.MINE_COST)) {
+                stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
+                SpiritgearHelper.notifyFueled(player);
+            } else {
+                stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+                SpiritgearHelper.notifyStarved(player);
             }
         }
         return ok;

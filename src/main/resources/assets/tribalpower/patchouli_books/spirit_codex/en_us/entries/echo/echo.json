@@ -1,0 +1,11 @@
+{
+  "name": "Echo Stages",
+  "icon": "tribalpower:echo_shard",
+  "category": "tribalpower:echo",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ore walks Shatter → Attune → Bind → Manifest. You get Echo Shard, Attuned Echo, Bound Echo, then Manifested Ingot — metal remembered by spirit."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "tribalpower:blank_seal" },
+    { "item": "minecraft:blaze_powder" }
+  ],
+  "result": { "count": 1, "id": "tribalpower:fire_seal" }
+}

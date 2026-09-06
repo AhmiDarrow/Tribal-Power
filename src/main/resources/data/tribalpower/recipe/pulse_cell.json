@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": { "item": "tribalpower:copper_resonator" },
+    "S": { "item": "tribalpower:spirit_shard" },
+    "G": { "item": "minecraft:glass" }
+  },
+  "pattern": [
+    "GCG",
+    "CSC",
+    "GCG"
+  ],
+  "result": { "count": 1, "id": "tribalpower:pulse_cell" }
+}

@@ -34,3 +34,7 @@ Desktop.ini
 
 # Generated (keep structure; ignore cache)
 src/generated/resources/.cache/
+
+# Accidental Minecraft/decompile extracts at repo root (not src/.../data)
+/data/
+/net/

@@ -1,0 +1,11 @@
+{
+  "name": "The March",
+  "icon": "tribalpower:march_stone",
+  "category": "tribalpower:march",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Strike a Gate Drum to enter tribalpower:the_march. Teal stone, pale woods, Spirit Wisps, and March Walkers. Deep Cache leans on March spirit links."
+    }
+  ]
+}

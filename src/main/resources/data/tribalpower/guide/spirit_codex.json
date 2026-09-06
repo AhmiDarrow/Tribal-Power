@@ -4,27 +4,37 @@
     {
       "id": "intro",
       "title": "Shamanic Technomancy",
-      "text": "Spirit-synced machinery, totem lattices, and Pulse \u2014 not furnace magic."
+      "text": "Steward-tribes of the Loom braid spirit and craft. Pulse, totem lattices, and Echo — not furnace magic."
+    },
+    {
+      "id": "origin",
+      "title": "Loom-born Origin",
+      "text": "They drummed Spirit Pulse into stone, raised Resonance Totems, and walked ore through Echo until metal remembered the tribe."
     },
     {
       "id": "pulse",
       "title": "Spirit Pulse",
-      "text": "Rhythmic beats stored by PulseHandlers. Drumheart and Ley Collectors generate Pulse."
+      "text": "Rhythmic beats stored by PulseHandlers. Drumheart for bursts; Ley Collector for ambient trickle. Song Bench drinks generators first, then Totems."
     },
     {
       "id": "lattice",
       "title": "Totem Lattice",
-      "text": "Resonance Totems + Song Bench route harmonics for Echo-stage refinement."
+      "text": "Resonance Totems within 8 of a Song Bench. Ritual Chalk seals lasting links within 16 blocks."
+    },
+    {
+      "id": "song",
+      "title": "Song Bench",
+      "text": "Seat one feed item, empty-hand click to sing, shift-click to remove. Status reports Pulse, totem, and attunement stalls."
     },
     {
       "id": "echo",
       "title": "Echo Stages",
-      "text": "Shatter \u2192 Attune \u2192 Bind \u2192 Manifest."
+      "text": "Live path: raw ore/cobble/iron-like → Echo Shard (Earth) → Attuned Echo (Fire) → Bound Echo (Water) → Manifested Ingot (Spirit). Shrine Echo blocks are markers only."
     },
     {
       "id": "storage",
       "title": "Caches",
-      "text": "Ancestral Cache locally; Deep Cache via spirit link to The March."
+      "text": "Ancestral Cache locally; Deep Cache via spirit link after visiting The March."
     },
     {
       "id": "rites",
@@ -34,7 +44,7 @@
     {
       "id": "march",
       "title": "The March",
-      "text": "Otherworld dimension reached by Gate Drum."
+      "text": "Otherworld dimension reached by a charged Gate Drum."
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "translate": "enchantment.tribalpower.pulse_attunement"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:levels_squared",
+          "added": 1.0
+        },
+        "attribute": "minecraft:player.mining_efficiency",
+        "id": "tribalpower:enchantment.pulse_attunement",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 45,
+    "per_level_above_first": 10
+  },
+  "max_level": 4,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#tribalpower:enchantable/pulse_attunement",
+  "weight": 4
+}
