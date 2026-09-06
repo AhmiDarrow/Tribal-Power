@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     { "item": "tribalpower:blank_seal" },
-    { "item": "minecraft:blaze_powder" }
+    { "item": "minecraft:charcoal" }
   ],
   "result": { "count": 1, "id": "tribalpower:fire_seal" }
 }

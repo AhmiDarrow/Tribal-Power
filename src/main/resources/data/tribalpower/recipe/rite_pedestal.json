@@ -3,11 +3,11 @@
   "category": "misc",
   "key": {
     "S": { "item": "minecraft:stone" },
-    "Q": { "item": "minecraft:quartz" },
+    "A": { "item": "minecraft:amethyst_shard" },
     "B": { "item": "tribalpower:bone_chime" }
   },
   "pattern": [
-    " Q ",
+    " A ",
     "SBS",
     "SSS"
   ],

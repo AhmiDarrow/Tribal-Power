@@ -4,7 +4,7 @@
   "key": {
     "C": { "item": "tribalpower:copper_resonator" },
     "S": { "item": "tribalpower:spirit_shard" },
-    "A": { "item": "minecraft:amethyst_block" },
+    "A": { "item": "minecraft:amethyst_shard" },
     "I": { "item": "minecraft:copper_ingot" }
   },
   "pattern": [

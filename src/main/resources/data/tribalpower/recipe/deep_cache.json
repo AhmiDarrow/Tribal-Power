@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": { "item": "tribalpower:ancestral_cache" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "tribalpower:spirit_shard" },
+    "C": { "item": "tribalpower:copper_resonator" },
+    "P": { "item": "tribalpower:pulse_cell" }
+  },
+  "pattern": [
+    "ISI",
+    "CAC",
+    "IPI"
+  ],
+  "result": { "count": 1, "id": "tribalpower:deep_cache" }
+}

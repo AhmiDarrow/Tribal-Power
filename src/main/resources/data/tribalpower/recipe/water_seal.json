@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     { "item": "tribalpower:blank_seal" },
-    { "item": "minecraft:prismarine_crystals" }
+    { "item": "minecraft:water_bucket" }
   ],
   "result": { "count": 1, "id": "tribalpower:water_seal" }
 }

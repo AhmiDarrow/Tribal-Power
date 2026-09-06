@@ -5,7 +5,7 @@
     "W": { "tag": "minecraft:logs" },
     "B": { "item": "tribalpower:bone_chime" },
     "C": { "item": "tribalpower:copper_resonator" },
-    "X": { "item": "minecraft:blaze_powder" }
+    "X": { "item": "minecraft:charcoal" }
   },
   "pattern": [
     " B ",

@@ -9,7 +9,7 @@
   "pattern": [
     " M ",
     " M ",
-    " B "
+    "BS "
   ],
   "result": { "count": 1, "id": "tribalpower:spiritgear_blade" }
 }
