@@ -44,12 +44,14 @@ Stage table is code-defined in `tk.darrow.tribalpower.echo.EchoStage`. The song 
 
 ## The March
 
-A shamanic otherworld reached by **Gate Drum** (20 Pulse). **Honest status:** The March still uses a **thickened flat** chunk generator (`minecraft:flat` with deep March Stone / cobble / soil / grass), not full noise terrain. That keeps Gate Drum travel, Deep Cache spirit-link, and recipes stable while biome decoration does the “extensive” work:
+A shamanic otherworld reached by **Gate Drum** (20 Pulse). The March uses a **noise** chunk generator (`minecraft:noise` + `tribalpower:the_march` noise settings adapted from overworld density functions) with March Stone / soil / grass surfaces, hills and valleys, and a lowered sea level (~48).
 
+- Multi-biome layout: **March Steppe**, **March Highlands**, **March Crystal Fields**
 - Surface moss patches (`march_moss`), Ley Thistle, March Leaf, Spirit Reed, Echo Bloom
 - March trees, crystal clusters, and sparse crystal-capped **ruin pillars**
-- Ore veins in the deep stone/cobble band
+- Ore bands in deep / mid / high March stone & cobble
 - Registered spawn placements for **March Walker** / **Spirit Wisp**
+- Gate Drum landing resolves the motion-blocking surface and clears a 3×3 pad (works with variable height)
 
 Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to travel; use it again to return.
 
@@ -97,4 +99,4 @@ With **2+ chalk-linked Resonance Totems** and a Conductor within 8 blocks of the
 2. While generators supply Pulse, the Conductor keeps pushing (~10 / second) and **assists** Song Benches on the network that have seated grit (priority fill for totems near those benches).
 3. When powered, it can move Echo grit: finished products Song Bench → Ancestral Cache, processable feeds Cache → empty Bench, and idle Bench → Bench handoff.
 
-Still stubs / thin: **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March is intentionally **flat+features** until a noise generator can be added without risking Gate Drum / Echo / recipe breakage.
+Still stubs / thin: **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March terrain itself is live noise + multi-biome; Gate Drum / Echo / Lattice are unchanged aside from surface-aware landing.

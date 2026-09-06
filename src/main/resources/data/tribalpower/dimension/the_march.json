@@ -1,34 +1,60 @@
 {
   "type": "tribalpower:the_march",
   "generator": {
-    "type": "minecraft:flat",
-    "settings": {
-      "biome": "tribalpower:march_steppe",
-      "lakes": false,
-      "features": true,
-      "layers": [
+    "type": "minecraft:noise",
+    "settings": "tribalpower:the_march",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
         {
-          "height": 1,
-          "block": "minecraft:bedrock"
+          "biome": "tribalpower:march_steppe",
+          "parameters": {
+            "temperature": [-0.15, 0.55],
+            "humidity": [-0.35, 0.45],
+            "continentalness": [-0.2, 0.55],
+            "erosion": [-0.2, 0.55],
+            "weirdness": [-0.6, 0.35],
+            "depth": 0.0,
+            "offset": 0.0
+          }
         },
         {
-          "height": 56,
-          "block": "tribalpower:march_stone"
+          "biome": "tribalpower:march_highlands",
+          "parameters": {
+            "temperature": [-0.65, 0.05],
+            "humidity": [-0.55, 0.15],
+            "continentalness": [0.25, 1.0],
+            "erosion": [-1.0, -0.15],
+            "weirdness": [-0.35, 0.55],
+            "depth": 0.0,
+            "offset": 0.0
+          }
         },
         {
-          "height": 6,
-          "block": "tribalpower:march_cobble"
+          "biome": "tribalpower:march_crystal_fields",
+          "parameters": {
+            "temperature": [0.15, 0.85],
+            "humidity": [-1.0, -0.1],
+            "continentalness": [-0.45, 0.35],
+            "erosion": [0.1, 0.85],
+            "weirdness": [0.35, 1.0],
+            "depth": 0.0,
+            "offset": 0.0
+          }
         },
         {
-          "height": 5,
-          "block": "tribalpower:march_soil"
-        },
-        {
-          "height": 1,
-          "block": "tribalpower:march_grass"
+          "biome": "tribalpower:march_steppe",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "weirdness": 0.0,
+            "depth": 0.0,
+            "offset": 0.15
+          }
         }
-      ],
-      "structure_overrides": []
+      ]
     }
   }
 }

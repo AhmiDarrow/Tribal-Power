@@ -37,7 +37,7 @@
     {"id": "pulse_attunement", "title": "Pulse Attunement", "text": "Mining enchantment that raises spirit-tuned efficiency."},
     {"id": "echo_edge", "title": "Echo Edge", "text": "Weapon enchantment: extra damage and Glow mark."},
     {"id": "gate", "title": "Gate Drum", "text": "Charge with Pulse, then travel Overworld ↔ The March."},
-    {"id": "march", "title": "The March", "text": "Otherworld of teal stone, pale woods, blooms, wisps, and walkers."},
+    {"id": "march", "title": "The March", "text": "Noise otherworld of teal hills — Steppe, Highlands, Crystal Fields — with woods, ore bands, blooms, wisps, and walkers."},
     {"id": "march_mats", "title": "March Materials", "text": "March blocks for builds that remember the otherworld."},
     {"id": "crafting", "title": "Crafting Notes", "text": "Chimes, copper resonators, shards unlock machines including the Pulse Resonator; Echo grit comes from the Song Bench."},
     {"id": "camp", "title": "Camp Layout", "text": "Drum, ley, or resonator by the bench; chalk-linked totem ring with Conductor; echo shrines; pedestal hearth; gate at the edge."},

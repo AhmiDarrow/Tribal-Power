@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 7,
+    "discard_chance_on_air_exposure": 0.15,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "tribalpower:march_stone"
+        },
+        "state": {
+          "Name": "tribalpower:march_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "tribalpower:march_cobble"
+        },
+        "state": {
+          "Name": "tribalpower:march_ore"
+        }
+      }
+    ]
+  }
+}

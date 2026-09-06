@@ -1,22 +1,22 @@
 {
-  "has_precipitation": true,
-  "temperature": 0.55,
-  "downfall": 0.35,
+  "has_precipitation": false,
+  "temperature": 0.7,
+  "downfall": 0.1,
   "effects": {
-    "fog_color": 6989992,
-    "sky_color": 5996479,
-    "water_color": 3832474,
-    "water_fog_color": 1982544,
-    "foliage_color": 4037260,
-    "grass_color": 4886394,
+    "fog_color": 8553432,
+    "sky_color": 7241951,
+    "water_color": 4886714,
+    "water_fog_color": 2643056,
+    "foliage_color": 5341500,
+    "grass_color": 6197562,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000,
+      "tick_delay": 7000,
       "block_search_extent": 8,
       "offset": 2.0
     },
     "particle": {
-      "probability": 0.004,
+      "probability": 0.012,
       "options": {
         "type": "minecraft:end_rod"
       }
@@ -27,17 +27,17 @@
     "creature": [
       {
         "type": "tribalpower:march_walker",
-        "weight": 14,
-        "minCount": 2,
-        "maxCount": 4
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "ambient": [
       {
         "type": "tribalpower:spirit_wisp",
-        "weight": 12,
-        "minCount": 2,
-        "maxCount": 5
+        "weight": 18,
+        "minCount": 3,
+        "maxCount": 7
       }
     ],
     "axolotls": [],
@@ -52,8 +52,8 @@
       "charge": 0.8
     },
     "tribalpower:spirit_wisp": {
-      "energy_budget": 0.08,
-      "charge": 0.5
+      "energy_budget": 0.06,
+      "charge": 0.4
     }
   },
   "carvers": {},
@@ -69,12 +69,12 @@
     [
       "tribalpower:march_ore",
       "tribalpower:march_ore_mid",
+      "tribalpower:march_ore_high",
       "tribalpower:march_moss_patch"
     ],
     [],
     [],
     [
-      "tribalpower:march_tree",
       "tribalpower:march_crystal_patch",
       "tribalpower:echo_bloom_patch",
       "tribalpower:spirit_reed_patch",

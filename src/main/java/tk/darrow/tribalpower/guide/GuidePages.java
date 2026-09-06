@@ -46,7 +46,7 @@ public final class GuidePages {
                 "PULSE ATTUNEMENT\n\nEnchantment for mining tools / Spiritgear. Raises mining efficiency like a spirit-tuned Efficiency.",
                 "ECHO EDGE\n\nWeapon enchantment. Extra strike damage plus Glow on direct hits.",
                 "GATE DRUM\n\nCharge with Pulse (sneak-drum or Pulse Cell), then strike to cross into The March. Use it again to return.",
-                "THE MARCH\n\nDimension tribalpower:the_march — thickened flat steppe (not full noise terrain yet). Moss patches, Ley Thistle, Spirit Reeds, Echo Blooms, crystal ruin pillars, ore veins. Spirit Wisps and March Walkers dwell there.",
+                "THE MARCH\n\nDimension tribalpower:the_march — noise hills and valleys across Steppe, Highlands, and Crystal Fields. Moss, Ley Thistle, Spirit Reeds, Echo Blooms, ruin pillars, and ore bands. Spirit Wisps and March Walkers dwell there.",
                 "MARCH MATERIALS\n\nBring March blocks home for builds that remember the otherworld. Deep Cache logic leans on March spirit links.",
                 "CRAFTING NOTES\n\nBone Chimes, Copper Resonators, and Spirit Shards unlock Drumhearts, Song Benches, Totems, Ley Collectors, and Pulse Resonators. Echo intermediates come from the Song Bench loop, not crafting tables.",
                 "CAMP LAYOUT\n\nDrumheart, Ley, or Resonator near Song Bench. Totems in a ring by attunement, chalk-linked, with a Lattice Conductor on the ring. Echo shrines in Shatter→Manifest order. Pedestal and caches at the hearth. Gate Drum at the edge.",

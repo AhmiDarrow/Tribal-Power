@@ -29,6 +29,7 @@ public final class ModDimensions {
 
     /**
      * Gate Drum travel: Overworld ↔ The March with a cleared landing pad.
+     * Landing resolves the motion-blocking surface so noise hills/valleys stay safe.
      */
     public static boolean travelThroughGate(ServerPlayer player) {
         ServerLevel current = player.serverLevel();
@@ -41,13 +42,16 @@ public final class ModDimensions {
 
         int x = player.blockPosition().getX();
         int z = player.blockPosition().getZ();
+        // Force destination chunk generation before heightmap / pad work.
+        target.getChunk(x >> 4, z >> 4);
+
         int surfaceY = findSafeSurfaceY(target, x, z);
-        BlockPos feet = new BlockPos(x, surfaceY, z);
-        ensureLandingPad(target, feet);
+        BlockPos ground = new BlockPos(x, surfaceY, z);
+        ensureLandingPad(target, ground);
 
         player.changeDimension(new DimensionTransition(
                 target,
-                new Vec3(x + 0.5, feet.getY() + 1.0, z + 0.5),
+                new Vec3(x + 0.5, ground.getY() + 1.0, z + 0.5),
                 Vec3.ZERO,
                 player.getYRot(),
                 player.getXRot(),
@@ -60,27 +64,46 @@ public final class ModDimensions {
     }
 
     private static int findSafeSurfaceY(ServerLevel level, int x, int z) {
-        int height = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
         int min = level.getMinBuildHeight() + 1;
         int max = level.getMaxBuildHeight() - 3;
+        int height = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
         if (height < min) {
-            height = 64;
+            height = Math.max(64, level.getSeaLevel());
         }
-        height = Math.min(height, max);
+        height = Math.min(Math.max(height, min), max);
 
-        // Prefer standing on solid ground with two air blocks of headroom.
-        for (int y = height; y >= min; y--) {
+        Integer dry = scanForStand(level, x, z, height, min, true);
+        if (dry != null) {
+            return dry;
+        }
+        Integer any = scanForStand(level, x, z, height, min, false);
+        if (any != null) {
+            return any;
+        }
+        // Fabricate a pad at the heightmap / sea level — ensureLandingPad fills solids.
+        return Math.min(Math.max(height - 1, level.getSeaLevel()), max);
+    }
+
+    private static Integer scanForStand(ServerLevel level, int x, int z, int fromY, int minY, boolean requireDry) {
+        for (int y = fromY; y >= minY; y--) {
             BlockPos ground = new BlockPos(x, y, z);
             BlockPos feet = ground.above();
             BlockPos head = feet.above();
             BlockState groundState = level.getBlockState(ground);
-            if (groundState.blocksMotion()
-                    && !level.getBlockState(feet).blocksMotion()
-                    && !level.getBlockState(head).blocksMotion()) {
-                return y;
+            BlockState feetState = level.getBlockState(feet);
+            BlockState headState = level.getBlockState(head);
+            if (!groundState.blocksMotion()) {
+                continue;
             }
+            if (feetState.blocksMotion() || headState.blocksMotion()) {
+                continue;
+            }
+            if (requireDry && (!feetState.getFluidState().isEmpty() || !headState.getFluidState().isEmpty())) {
+                continue;
+            }
+            return y;
         }
-        return Math.max(64, min);
+        return null;
     }
 
     private static void ensureLandingPad(ServerLevel level, BlockPos groundCenter) {
@@ -88,12 +111,20 @@ public final class ModDimensions {
         BlockState pad = inMarch
                 ? ModBlocks.MARCH_GRASS.get().defaultBlockState()
                 : Blocks.STONE.defaultBlockState();
+        BlockState fill = inMarch
+                ? ModBlocks.MARCH_SOIL.get().defaultBlockState()
+                : Blocks.DIRT.defaultBlockState();
         for (int dx = -1; dx <= 1; dx++) {
             for (int dz = -1; dz <= 1; dz++) {
                 BlockPos ground = groundCenter.offset(dx, 0, dz);
+                BlockPos under = ground.below();
                 BlockPos feet = ground.above();
                 BlockPos head = feet.above();
-                if (!level.getBlockState(ground).blocksMotion()) {
+                if (!level.getBlockState(under).blocksMotion()) {
+                    level.setBlockAndUpdate(under, fill);
+                }
+                if (!level.getBlockState(ground).blocksMotion()
+                        || !level.getBlockState(ground).getFluidState().isEmpty()) {
                     level.setBlockAndUpdate(ground, pad);
                 }
                 clearIfBlocking(level, feet);
@@ -104,7 +135,8 @@ public final class ModDimensions {
 
     private static void clearIfBlocking(ServerLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
-        if (!state.isAir() && (state.canBeReplaced() || state.blocksMotion() || !state.getCollisionShape(level, pos).isEmpty())) {
+        if (!state.isAir() && (state.canBeReplaced() || state.blocksMotion() || !state.getCollisionShape(level, pos).isEmpty()
+                || !state.getFluidState().isEmpty())) {
             level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
         }
     }
