@@ -16,7 +16,7 @@ Shamanic technomancy was born from a great Loom tended by steward-tribes. Along 
 | System | Role |
 | --- | --- |
 | **Spirit Pulse (SP)** | Native power API (`PulseHandler`). Drumheart / Ley Collector generation; Totem buffers. |
-| **Totem Lattice** | Resonance Totems + Ritual Chalk links + Song Bench pulse draw. |
+| **Totem Lattice** | Resonance Totems + Ritual Chalk links + Lattice Conductor Pulse routing + Song Bench pulse draw. |
 | **Echo Stages** | Live Song Bench refine loop: Shatter → Attune → Bind → Manifest. |
 | **Ancestral Cache** | Local chest-like storage. |
 | **Deep Cache** | March-linked bulk vault (spirit link after visiting The March; Pulse-cell link costs 5 when unvisited). |
@@ -57,10 +57,11 @@ Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to 
 
 1. Open the creative tab **Tribal Power** or craft / take a **Spirit Codex**.
 2. Place a **Drumheart** and right-click to store Pulse (redstone tempo also works).
-3. Plant the needed **Resonance Totems** near a **Song Bench**.
-4. Seat raw ore / cobble / Echo grit on the bench and start the song.
-5. Offer seals on a **Rite Pedestal**.
-6. Charge and strike a **Gate Drum** (20 Pulse) to enter The March.
+3. Plant the needed **Resonance Totems** near a **Song Bench**; seal lasting links with **Ritual Chalk**.
+4. Place a **Lattice Conductor** near the chalk-linked ring to push Pulse into totem buffers (and assist distant Song Benches).
+5. Seat raw ore / cobble / Echo grit on the bench and start the song.
+6. Offer seals on a **Rite Pedestal**.
+7. Charge and strike a **Gate Drum** (20 Pulse) to enter The March.
 
 ## Development
 
@@ -77,6 +78,14 @@ Optional: **Patchouli** is declared as an optional dependency. The **Spirit Code
 
 ## Rewrite status
 
-Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector, Totem Lattice + chalk links, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum travel (20 Pulse) + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
+Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector, Totem Lattice + chalk links, **Lattice Conductor Pulse routing / Song Bench assist / Echo item handoff**, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum travel (20 Pulse) + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
 
-Still stubs / thin: **Lattice Conductor** is placeable copper-bone décor only (no routing logic yet); **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March is intentionally **flat+features** until a noise generator can be added without risking Gate Drum / Echo / recipe breakage.
+### Lattice Conductor (live)
+
+With **2+ chalk-linked Resonance Totems** and a Conductor within 8 blocks of the ring:
+
+1. Right-click the Conductor to see **network size** and burst-transfer Pulse from nearby **Drumheart / Ley Collector** into linked **totem buffers**.
+2. While generators supply Pulse, the Conductor keeps pushing (~10 / second) and **assists** Song Benches on the network that have seated grit (priority fill for totems near those benches).
+3. When powered, it can move Echo grit: finished products Song Bench → Ancestral Cache, processable feeds Cache → empty Bench, and idle Bench → Bench handoff.
+
+Still stubs / thin: **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March is intentionally **flat+features** until a noise generator can be added without risking Gate Drum / Echo / recipe breakage.

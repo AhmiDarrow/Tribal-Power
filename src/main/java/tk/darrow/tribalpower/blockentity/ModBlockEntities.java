@@ -41,6 +41,11 @@ public final class ModBlockEntities {
                     SongBenchBlockEntity::new, ModBlocks.SONG_BENCH.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LatticeConductorBlockEntity>> LATTICE_CONDUCTOR =
+            BLOCK_ENTITIES.register("lattice_conductor", () -> BlockEntityType.Builder.of(
+                    LatticeConductorBlockEntity::new, ModBlocks.LATTICE_CONDUCTOR.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GateDrumBlockEntity>> GATE_DRUM =
             BLOCK_ENTITIES.register("gate_drum", () -> BlockEntityType.Builder.of(
                     GateDrumBlockEntity::new, ModBlocks.GATE_DRUM.get()

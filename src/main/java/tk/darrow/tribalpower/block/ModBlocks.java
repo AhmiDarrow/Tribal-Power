@@ -48,12 +48,13 @@ public final class ModBlocks {
                     .noOcclusion())
     );
 
-    public static final DeferredBlock<Block> LATTICE_CONDUCTOR = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<LatticeConductorBlock> LATTICE_CONDUCTOR = BLOCKS.register(
             "lattice_conductor",
-            BlockBehaviour.Properties.of()
+            () -> new LatticeConductorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.METAL)
                     .strength(2.5F)
                     .sound(SoundType.COPPER)
+                    .requiresCorrectToolForDrops())
     );
 
     // Echo stages (ore refinement path)

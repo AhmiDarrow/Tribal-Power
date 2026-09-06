@@ -13,7 +13,7 @@
     {"id": "lattice", "title": "Totem Lattice", "text": "Resonance Totems within 8 of a Song Bench. Ritual Chalk seals lasting links within 16 blocks."},
     {"id": "attunements", "title": "Attunements", "text": "Earth, Fire, Water, Air, Spirit. Match Echo stages to nearby totems."},
     {"id": "chalk", "title": "Ritual Chalk", "text": "Mark two Resonance Totems to seal a bidirectional lattice link."},
-    {"id": "conductor", "title": "Lattice Conductor", "text": "Copper-bone scaffolding for longer continuous songs."},
+    {"id": "conductor", "title": "Lattice Conductor", "text": "Near chalk-linked totems: right-click routes Pulse from Drumheart/Ley into totem buffers, assists Song Benches, and can move Echo grit to Ancestral Caches."},
     {"id": "song", "title": "Song Bench", "text": "Seat one feed item, empty-hand click to sing, shift-click to remove."},
     {"id": "song_status", "title": "Song Status", "text": "Reports Pulse, totem, and attunement stalls."},
     {"id": "echo", "title": "Echo Loop", "text": "Shatter (Earth) → Attune (Fire) → Bind (Water) → Manifest (Spirit). Live on Song Bench only."},
@@ -39,7 +39,7 @@
     {"id": "march", "title": "The March", "text": "Otherworld of teal stone, pale woods, blooms, wisps, and walkers."},
     {"id": "march_mats", "title": "March Materials", "text": "March blocks for builds that remember the otherworld."},
     {"id": "crafting", "title": "Crafting Notes", "text": "Chimes, resonators, shards unlock machines; Echo grit comes from the Song Bench."},
-    {"id": "camp", "title": "Camp Layout", "text": "Drum and ley by the bench; totem ring; echo shrines; pedestal hearth; gate at the edge."},
+    {"id": "camp", "title": "Camp Layout", "text": "Drum and ley by the bench; chalk-linked totem ring with Conductor; echo shrines; pedestal hearth; gate at the edge."},
     {"id": "safety", "title": "Safety", "text": "Pulse ≠ FE. Keep the drum honest."},
     {"id": "credits", "title": "Credits", "text": "Tribal Power — Ahmi & Risika Darrow. Shamanic Technomancy for steward-tribes of the Loom."}
   ]

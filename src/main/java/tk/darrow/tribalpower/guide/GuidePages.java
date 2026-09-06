@@ -22,7 +22,7 @@ public final class GuidePages {
                 "TOTEM LATTICE\n\nResonance Totems hold Attunements: Earth, Fire, Water, Air, Spirit. Place the stage's totem within 8 blocks of the Song Bench. Ritual Chalk seals lasting links out to 16 blocks.",
                 "ATTUNEMENTS\n\nEach totem answers one voice. Match Echo stages to nearby attunements. Wrong harmonic stalls the song without wasting grit.",
                 "RITUAL CHALK\n\nRight-click one Resonance Totem to mark it, then another within 16 blocks to seal a bidirectional lattice link. Linked attunements count even a little farther out.",
-                "LATTICE CONDUCTOR\n\nCopper-bone scaffolding for longer songs. Helps the lattice feel continuous between distant posts and echo shrines.",
+                "LATTICE CONDUCTOR\n\nPlace near chalk-linked Resonance Totems. Right-click to read network size and push Pulse from nearby Drumhearts / Ley Collectors into linked totem buffers. While powered, it assists Song Benches on the lattice and can move Echo grit between benches and Ancestral Caches.",
                 "SONG BENCH\n\nLive Echo refinement. Right-click with raw ore, cobble, iron-like metal, or an Echo intermediate to seat one item. Empty-hand click starts the song. Shift-click removes the item.",
                 "SONG STATUS\n\nStatus text reports stalls: missing Pulse, no totems in range, or wrong attunement for the current Echo stage.",
                 "ECHO LOOP\n\nAt the Song Bench:\n1 Shatter (Earth) → Echo Shard\n2 Attune (Fire) → Attuned Echo\n3 Bind (Water) → Bound Echo\n4 Manifest (Spirit) → Manifested Ingot\n\nEach stage costs Pulse every tick and needs its totem.",
@@ -48,7 +48,7 @@ public final class GuidePages {
                 "THE MARCH\n\nDimension tribalpower:the_march — thickened flat steppe (not full noise terrain yet). Moss patches, Ley Thistle, Spirit Reeds, Echo Blooms, crystal ruin pillars, ore veins. Spirit Wisps and March Walkers dwell there.",
                 "MARCH MATERIALS\n\nBring March blocks home for builds that remember the otherworld. Deep Cache logic leans on March spirit links.",
                 "CRAFTING NOTES\n\nBone Chimes, Copper Resonators, and Spirit Shards unlock Drumhearts, Song Benches, Totems, and Ley Collectors. Echo intermediates come from the Song Bench loop, not crafting tables.",
-                "CAMP LAYOUT\n\nDrumheart and Ley near Song Bench. Totems in a ring by attunement. Echo shrines in Shatter→Manifest order. Pedestal and caches at the hearth. Gate Drum at the edge.",
+                "CAMP LAYOUT\n\nDrumheart and Ley near Song Bench. Totems in a ring by attunement, chalk-linked, with a Lattice Conductor on the ring. Echo shrines in Shatter→Manifest order. Pedestal and caches at the hearth. Gate Drum at the edge.",
                 "SAFETY\n\nPulse is not Redstone Flux. Do not expect FE cables to feed a Song Bench. Native rhythm remains Pulse.",
                 "CREDITS\n\nTribal Power\nAhmi & Risika Darrow\n\nShamanic Technomancy for steward-tribes of the Loom. Keep the drum honest."
         );

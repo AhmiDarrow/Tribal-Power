@@ -6,6 +6,10 @@
     {
       "type": "patchouli:text",
       "text": "Resonance Totems hold Earth, Fire, Water, Air, or Spirit. A Song Bench begins a song; nearby totems answer. Ritual Chalk marks lasting links."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A $(item)Lattice Conductor$() near a chalk-linked ring routes Spirit Pulse from Drumhearts and Ley Collectors into totem buffers. Right-click reports network size and bursts a transfer. While powered, it assists Song Benches on the lattice and can move Echo grit between benches and Ancestral Caches."
     }
   ]
 }

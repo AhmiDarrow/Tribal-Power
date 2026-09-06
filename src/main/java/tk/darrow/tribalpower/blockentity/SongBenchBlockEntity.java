@@ -124,6 +124,20 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
         return stallReason;
     }
 
+    /**
+     * Conductor assist target: singing and Pulse-starved, or seated grit waiting to sing.
+     */
+    public boolean wantsPulseAssist() {
+        ItemStack stack = items.get(SLOT);
+        if (!EchoStage.isProcessable(stack)) {
+            return false;
+        }
+        if (singing) {
+            return "pulse".equals(stallReason) || stallReason.isEmpty();
+        }
+        return true;
+    }
+
     public Component statusMessage() {
         ItemStack stack = items.get(SLOT);
         EchoStage stage = EchoStage.forInput(stack);
