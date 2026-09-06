@@ -32,6 +32,16 @@ public final class ModBlocks {
                     .requiresCorrectToolForDrops())
     );
 
+    public static final DeferredBlock<PulseResonatorBlock> PULSE_RESONATOR = BLOCKS.register(
+            "pulse_resonator",
+            () -> new PulseResonatorBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE)
+                    .strength(3.0F)
+                    .sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(PulseResonatorBlock.LIT) ? 8 : 0))
+    );
+
     // Lattice
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_EARTH = totem("resonance_totem_earth", Attunement.EARTH, MapColor.DIRT);
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_FIRE = totem("resonance_totem_fire", Attunement.FIRE, MapColor.COLOR_ORANGE);

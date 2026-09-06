@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/pulse_resonator"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/pulse_resonator_on"
+    }
+  }
+}

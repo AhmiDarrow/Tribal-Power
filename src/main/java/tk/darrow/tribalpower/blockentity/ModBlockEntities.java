@@ -21,6 +21,11 @@ public final class ModBlockEntities {
                     LeyCollectorBlockEntity::new, ModBlocks.LEY_COLLECTOR.get()
             ).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PulseResonatorBlockEntity>> PULSE_RESONATOR =
+            BLOCK_ENTITIES.register("pulse_resonator", () -> BlockEntityType.Builder.of(
+                    PulseResonatorBlockEntity::new, ModBlocks.PULSE_RESONATOR.get()
+            ).build(null));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AncestralCacheBlockEntity>> ANCESTRAL_CACHE =
             BLOCK_ENTITIES.register("ancestral_cache", () -> BlockEntityType.Builder.of(
                     AncestralCacheBlockEntity::new, ModBlocks.ANCESTRAL_CACHE.get()

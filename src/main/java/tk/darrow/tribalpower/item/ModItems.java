@@ -64,6 +64,7 @@ public final class ModItems {
     // Block items — pulse / lattice
     public static final DeferredItem<BlockItem> DRUMHEART = ITEMS.registerSimpleBlockItem("drumheart", ModBlocks.DRUMHEART);
     public static final DeferredItem<BlockItem> LEY_COLLECTOR = ITEMS.registerSimpleBlockItem("ley_collector", ModBlocks.LEY_COLLECTOR);
+    public static final DeferredItem<BlockItem> PULSE_RESONATOR = ITEMS.registerSimpleBlockItem("pulse_resonator", ModBlocks.PULSE_RESONATOR);
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_EARTH = ITEMS.registerSimpleBlockItem("resonance_totem_earth", ModBlocks.RESONANCE_TOTEM_EARTH);
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_FIRE = ITEMS.registerSimpleBlockItem("resonance_totem_fire", ModBlocks.RESONANCE_TOTEM_FIRE);
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_WATER = ITEMS.registerSimpleBlockItem("resonance_totem_water", ModBlocks.RESONANCE_TOTEM_WATER);

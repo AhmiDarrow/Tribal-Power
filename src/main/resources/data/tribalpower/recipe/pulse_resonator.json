@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "C": { "item": "minecraft:coal" },
+    "R": { "item": "tribalpower:copper_resonator" },
+    "S": { "item": "tribalpower:spirit_shard" }
+  },
+  "pattern": [
+    "ICI",
+    "RSR",
+    "ICI"
+  ],
+  "result": { "count": 1, "id": "tribalpower:pulse_resonator" }
+}

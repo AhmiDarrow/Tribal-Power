@@ -5,11 +5,15 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Spirit Pulse is rhythmic beats, not furnace heat or FE. Drumhearts and Ley Collectors generate it; Pulse Cells carry it; lattices and Spiritgear spend it."
+      "text": "Spirit Pulse is rhythmic beats, not furnace heat or FE. Drumhearts, Ley Collectors, and Pulse Resonators generate it; Pulse Cells carry it; lattices and Spiritgear spend it."
     },
     {
       "type": "patchouli:text",
-      "text": "Use a Pulse Cell on a Drumheart to charge up to 25 beats per click. Cells hold 200 and show a cyan bar."
+      "text": "Use a Pulse Cell on a Drumheart or Pulse Resonator to charge up to 25 beats per click. Cells hold 200 and show a cyan bar."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Pulse Resonator burns coal or charcoal (~4 Pulse every 20 ticks while lit). Right-click with fuel, empty-hand for status, shift-click to pull unused fuel. Lattice Conductors treat it as a generator."
     }
   ]
 }

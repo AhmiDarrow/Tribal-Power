@@ -177,6 +177,7 @@ def entity_skin(base, accent, size=64) -> Image.Image:
 BLOCKS = {
     "drumheart": drum_tex,
     "ley_collector": lambda: block_tex(CYAN, VIOLET, "grid"),
+    "pulse_resonator": lambda: block_tex(COPPER, ORANGE, "grid"),
     "resonance_totem_earth": lambda: totem_tex(GREEN),
     "resonance_totem_fire": lambda: totem_tex(ORANGE),
     "resonance_totem_water": lambda: totem_tex(BLUE),
@@ -240,21 +241,25 @@ def write_json(path: Path, data) -> None:
 
 def gen_models() -> None:
     for name in BLOCKS:
-        write_json(ASSETS / f"blockstates/{name}.json", {
-            "variants": {"": {"model": f"tribalpower:block/{name}"}}
-        })
-        if name in ("march_leaf", "spirit_reed", "resonance_totem_earth", "resonance_totem_fire",
-                    "resonance_totem_water", "resonance_totem_air", "resonance_totem_spirit"):
-            # cross / thin — still use cube_all for simple scaffold visibility
-            write_json(ASSETS / f"models/block/{name}.json", {
+        if name == "pulse_resonator":
+            write_json(ASSETS / f"blockstates/{name}.json", {
+                "variants": {
+                    "lit=false": {"model": "tribalpower:block/pulse_resonator"},
+                    "lit=true": {"model": "tribalpower:block/pulse_resonator_on"}
+                }
+            })
+            write_json(ASSETS / "models/block/pulse_resonator_on.json", {
                 "parent": "minecraft:block/cube_all",
-                "textures": {"all": f"tribalpower:block/{name}"}
+                "textures": {"all": "tribalpower:block/pulse_resonator_on"}
             })
         else:
-            write_json(ASSETS / f"models/block/{name}.json", {
-                "parent": "minecraft:block/cube_all",
-                "textures": {"all": f"tribalpower:block/{name}"}
+            write_json(ASSETS / f"blockstates/{name}.json", {
+                "variants": {"": {"model": f"tribalpower:block/{name}"}}
             })
+        write_json(ASSETS / f"models/block/{name}.json", {
+            "parent": "minecraft:block/cube_all",
+            "textures": {"all": f"tribalpower:block/{name}"}
+        })
         write_json(ASSETS / f"models/item/{name}.json", {
             "parent": f"tribalpower:block/{name}"
         })
@@ -293,6 +298,7 @@ def gen_lang() -> None:
         "item.tribalpower.spiritgear.desc": "Consumes spirit strain while working",
         "block.tribalpower.drumheart": "Drumheart",
         "block.tribalpower.ley_collector": "Ley Collector",
+        "block.tribalpower.pulse_resonator": "Pulse Resonator",
         "block.tribalpower.resonance_totem_earth": "Resonance Totem (Earth)",
         "block.tribalpower.resonance_totem_fire": "Resonance Totem (Fire)",
         "block.tribalpower.resonance_totem_water": "Resonance Totem (Water)",
@@ -330,6 +336,12 @@ def gen_lang() -> None:
         "attunement.tribalpower.spirit": "Spirit",
         "message.tribalpower.drumheart.beat": "Drumheart +%s Pulse (%s/%s)",
         "message.tribalpower.ley_collector.status": "Ley Collector Pulse %s/%s",
+        "message.tribalpower.pulse_resonator.status": "Pulse Resonator %s/%s — burn %s, fuel %s",
+        "message.tribalpower.pulse_resonator.need_fuel": "Pulse Resonator %s/%s — feed coal or charcoal",
+        "message.tribalpower.pulse_resonator.fueled": "Resonator fueled (stock %s) — Pulse %s/%s",
+        "message.tribalpower.pulse_resonator.full_fuel": "The Resonator already holds a full fuel stack",
+        "message.tribalpower.pulse_resonator.removed_fuel": "Fuel lifted from the Pulse Resonator",
+        "message.tribalpower.pulse_cell.charge_resonator": "Pulse Cell +%s (%s/%s) — Resonator %s",
         "message.tribalpower.totem.attunement": "Totem attunement: %s",
         "message.tribalpower.totem.links": "Lattice links: %s",
         "message.tribalpower.song_bench.start": "Song begun — %s totems answering",
@@ -473,6 +485,8 @@ def gen_loot() -> None:
 def main() -> None:
     for name, factory in BLOCKS.items():
         save(factory(), ASSETS / f"textures/block/{name}.png")
+    # Lit variant texture for Pulse Resonator (not a separate block id)
+    save(block_tex(COPPER_LT, ORANGE, "grid"), ASSETS / "textures/block/pulse_resonator_on.png")
     for name, factory in ITEMS.items():
         save(factory(), ASSETS / f"textures/item/{name}.png")
     save(entity_skin(VIOLET_LT, CYAN), ASSETS / "textures/entity/spirit_wisp.png")

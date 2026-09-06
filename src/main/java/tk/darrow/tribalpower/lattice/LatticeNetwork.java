@@ -10,6 +10,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
+import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.SongBenchBlockEntity;
 import tk.darrow.tribalpower.echo.EchoStage;
@@ -198,7 +199,7 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Pull Pulse only from Drumhearts / Ley Collectors near {@code origin}.
+     * Pull Pulse only from Drumhearts / Ley Collectors / Pulse Resonators near {@code origin}.
      */
     public static int extractPulseFromGenerators(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
         return drainHandlers(level, origin, radius, amount, true, simulate);
@@ -402,7 +403,7 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Pull Pulse from nearby Drumhearts, Ley Collectors, then Totems.
+     * Pull Pulse from nearby Drumhearts, Ley Collectors, Pulse Resonators, then Totems.
      * @return amount actually extracted
      */
     public static int extractPulseNearby(Level level, BlockPos origin, int radius, int amount) {
@@ -436,7 +437,9 @@ public final class LatticeNetwork {
                     if (!(be instanceof PulseHandler handler)) {
                         continue;
                     }
-                    boolean isGenerator = be instanceof DrumheartBlockEntity || be instanceof LeyCollectorBlockEntity;
+                    boolean isGenerator = be instanceof DrumheartBlockEntity
+                            || be instanceof LeyCollectorBlockEntity
+                            || be instanceof PulseResonatorBlockEntity;
                     if (generatorsFirst != isGenerator) {
                         continue;
                     }

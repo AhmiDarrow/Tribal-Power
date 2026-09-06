@@ -91,6 +91,8 @@ public class LatticeConductorBlockEntity extends BlockEntity {
                         remaining -= drum.insertPulse(remaining, false);
                     } else if (be instanceof LeyCollectorBlockEntity ley) {
                         remaining -= ley.insertPulse(remaining, false);
+                    } else if (be instanceof PulseResonatorBlockEntity resonator) {
+                        remaining -= resonator.insertPulse(remaining, false);
                     }
                 }
             }
