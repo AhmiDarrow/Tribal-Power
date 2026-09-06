@@ -9,7 +9,7 @@ License: GNU GPL v3 (see `License.txt`)
 
 ## Loom-born steward-tribes
 
-Along the Loom, steward-tribes kept rhythm as law. They drummed Spirit Pulse into stone, raised Resonance Totems as attuned posts, and walked ore through Echo until metal remembered the tribe. Tribal Power is that craft — drum, chalk, and honest work — not furnace vanity and not an outside pantheon.
+Shamanic technomancy was born from a great Loom tended by steward-tribes. Along its threads they kept rhythm as law: drumming Spirit Pulse into stone, raising Resonance Totems as attuned posts, and walking ore through Echo until metal remembered the tribe. Tribal Power is that craft — drum, chalk, and honest work — not furnace vanity and not an outside pantheon.
 
 ## Core systems
 
@@ -19,10 +19,10 @@ Along the Loom, steward-tribes kept rhythm as law. They drummed Spirit Pulse int
 | **Totem Lattice** | Resonance Totems + Ritual Chalk links + Song Bench pulse draw. |
 | **Echo Stages** | Live Song Bench refine loop: Shatter → Attune → Bind → Manifest. |
 | **Ancestral Cache** | Local chest-like storage. |
-| **Deep Cache** | March-linked bulk vault (spirit link after visiting The March). |
-| **Seals & Rites** | Seal items + Rite Pedestal spirit boons. |
-| **Spiritgear** | Pulse-fed tools (Pulse Cells in inventory). |
-| **Gate Drum** | Portal into **The March** (`tribalpower:the_march`). |
+| **Deep Cache** | March-linked bulk vault (spirit link after visiting The March; Pulse-cell link costs 5 when unvisited). |
+| **Seals & Rites** | Seal items + Rite Pedestal spirit boons (amplify with Pulse Cells). |
+| **Spiritgear** | Pulse-fed tools (Pulse Cells in inventory; mining 2 / use-on 1 / blade hit 3). |
+| **Gate Drum** | Portal into **The March** (`tribalpower:the_march`); travel costs **20 Pulse**. |
 
 ## Echo refine loop (Song Bench)
 
@@ -44,7 +44,7 @@ Stage table is code-defined in `tk.darrow.tribalpower.echo.EchoStage`. The song 
 
 ## The March
 
-A shamanic otherworld with March Stone, cobble, woods, leaves, Spirit Reeds, and fauna (**Spirit Wisp**, **March Walker**). Charge a **Gate Drum** with Pulse and strike it to travel; use it again to return.
+A shamanic otherworld with March Stone, cobble, woods, leaves, Spirit Reeds, and fauna (**Spirit Wisp**, **March Walker**). Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to spend **20 Pulse** and travel; use it again to return.
 
 ## Getting started in-game
 
@@ -53,7 +53,7 @@ A shamanic otherworld with March Stone, cobble, woods, leaves, Spirit Reeds, and
 3. Plant the needed **Resonance Totems** near a **Song Bench**.
 4. Seat raw ore / cobble / Echo grit on the bench and start the song.
 5. Offer seals on a **Rite Pedestal**.
-6. Charge and strike a **Gate Drum** to enter The March.
+6. Charge and strike a **Gate Drum** (20 Pulse) to enter The March.
 
 ## Development
 
@@ -70,4 +70,6 @@ Optional: **Patchouli** is declared as an optional dependency. The **Spirit Code
 
 ## Rewrite status
 
-Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector, Totem Lattice + chalk links, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
+Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector, Totem Lattice + chalk links, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum travel (20 Pulse) + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
+
+Still stubs / thin: **Lattice Conductor** is placeable copper-bone décor only (no routing logic yet); **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems.
