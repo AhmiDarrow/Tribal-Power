@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import tk.darrow.tribalpower.item.ModItems;
+import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.world.ModDimensions;
 
 /**
@@ -40,26 +40,29 @@ public final class DeepCacheManager {
     }
 
     /**
-     * Pay Pulse Cell cost when the player has never linked to The March.
+     * Pay Pulse from cells when the player has never linked to The March.
      * @return true if access is allowed
      */
     public static boolean tryAuthorize(ServerPlayer player) {
         if (hasSpiritLink(player)) {
             return true;
         }
-        return consumePulseCells(player, LINK_PULSE_COST);
+        return consumePulseFromCells(player, LINK_PULSE_COST);
     }
 
-    public static boolean consumePulseCells(ServerPlayer player, int cost) {
+    public static boolean consumePulseFromCells(ServerPlayer player, int cost) {
+        int available = 0;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            available += PulseCellItem.getPulse(stack);
+        }
+        if (available < cost) {
+            return false;
+        }
         int remaining = cost;
         for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (!stack.is(ModItems.PULSE_CELL.get())) {
-                continue;
-            }
-            int take = Math.min(remaining, stack.getCount());
-            stack.shrink(take);
-            remaining -= take;
+            remaining -= PulseCellItem.extractPulse(stack, remaining, false);
         }
         return remaining <= 0;
     }

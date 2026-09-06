@@ -10,6 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
@@ -43,7 +45,14 @@ public final class ModDimensions {
         BlockPos feet = new BlockPos(x, surfaceY, z);
         ensureLandingPad(target, feet);
 
-        player.teleportTo(target, x + 0.5, feet.getY() + 1.0, z + 0.5, player.getYRot(), player.getXRot());
+        player.changeDimension(new DimensionTransition(
+                target,
+                new Vec3(x + 0.5, feet.getY() + 1.0, z + 0.5),
+                Vec3.ZERO,
+                player.getYRot(),
+                player.getXRot(),
+                DimensionTransition.DO_NOTHING
+        ));
         if (targetKey.equals(THE_MARCH)) {
             DeepCacheManager.markVisited(player);
         }

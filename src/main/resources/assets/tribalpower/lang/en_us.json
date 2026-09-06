@@ -90,6 +90,12 @@
   "message.tribalpower.rite.fail": "The rite finds no voice",
   "message.tribalpower.gate.travel": "The Gate Drum opens The March",
   "message.tribalpower.gate.fail": "The March cannot be reached",
+  "message.tribalpower.gate.charge": "Gate Drum +%s Pulse (%s/%s)",
+  "message.tribalpower.gate.full": "The Gate Drum is fully charged",
+  "message.tribalpower.gate.cell_empty": "That Pulse Cell holds no charge",
+  "message.tribalpower.gate.need_pulse": "Gate needs %s Pulse (has %s) — use a Pulse Cell or sneak-drum",
+  "message.tribalpower.deep_cache.need_pulse": "Deep Cache needs a March link or Pulse in a cell",
+  "message.tribalpower.deep_cache.pulse_link": "Pulse spent — temporary spirit link formed",
   "message.tribalpower.spiritgear.pulse": "Spiritgear draws Pulse from a cell",
   "message.tribalpower.spiritgear.starved": "Spiritgear finds no Pulse — the edge suffers",
   "biome.tribalpower.march_steppe": "March Steppe"

@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.blockentity.GateDrumBlockEntity;
-import tk.darrow.tribalpower.item.ModItems;
+import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.storage.DeepCacheManager;
 import tk.darrow.tribalpower.world.ModDimensions;
 
@@ -52,16 +52,21 @@ public class GateDrumBlock extends BaseEntityBlock {
     protected ItemInteractionResult useItemOn(
             ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit
     ) {
-        if (stack.is(ModItems.PULSE_CELL.get()) && level.getBlockEntity(pos) instanceof GateDrumBlockEntity drum) {
+        if (stack.getItem() instanceof PulseCellItem && level.getBlockEntity(pos) instanceof GateDrumBlockEntity drum) {
             if (!level.isClientSide) {
-                int gained = drum.chargeFromCell();
-                if (gained > 0) {
-                    stack.shrink(1);
+                int available = PulseCellItem.getPulse(stack);
+                int room = drum.getPulseCapacity() - drum.getPulseStored();
+                int transfer = Math.min(available, Math.min(room, GateDrumBlockEntity.CELL_CHARGE));
+                if (transfer <= 0) {
+                    player.displayClientMessage(Component.translatable(
+                            available <= 0 ? "message.tribalpower.gate.cell_empty" : "message.tribalpower.gate.full"
+                    ), true);
+                } else {
+                    PulseCellItem.extractPulse(stack, transfer, false);
+                    int gained = drum.insertPulse(transfer, false);
                     player.displayClientMessage(Component.translatable(
                             "message.tribalpower.gate.charge", gained, drum.getPulseStored(), drum.getPulseCapacity()
                     ), true);
-                } else {
-                    player.displayClientMessage(Component.translatable("message.tribalpower.gate.full"), true);
                 }
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
@@ -93,7 +98,6 @@ public class GateDrumBlock extends BaseEntityBlock {
                 DeepCacheManager.markVisited(serverPlayer);
                 serverPlayer.displayClientMessage(Component.translatable("message.tribalpower.gate.travel"), true);
             } else {
-                // Refund travel cost if dimension missing.
                 drum.insertPulse(GateDrumBlockEntity.TRAVEL_COST, false);
                 serverPlayer.displayClientMessage(Component.translatable("message.tribalpower.gate.fail"), true);
             }
