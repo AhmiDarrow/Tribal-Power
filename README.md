@@ -6,6 +6,17 @@ Build a camp that answers you: rhythmic power, elemental workshops, woven equipm
 
 Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
+## Repository versions
+
+`master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
+
+- [Current 2.2.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v2.2.1)
+- [Archived legacy 1.10.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/archive/legacy-1.10.2)
+- [Archived previous master](https://github.com/AhmiDarrow/Tribal-Power/tree/archive/master-before-2.2.1)
+- [Canonical CurseForge project](https://www.curseforge.com/minecraft/mc-mods/tribalpower) — project ID 1684851
+
+Older code is preserved as archive tags rather than active development branches.
+
 ## Start a living workshop
 
 Craft a Bone Chime, Spirit Shard and Drumheart. Strike the drum, then charge a Pulse Cell. Place an Earth Totem and Echo Shatter within eight blocks of a generator. Stone becomes Echo Shards; raw iron, gold and copper become two grits, each smeltable into an ingot.
