@@ -8,12 +8,12 @@ import net.minecraft.resources.ResourceLocation;
 import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.entity.MarchWalkerEntity;
 
-public class MarchWalkerRenderer extends MobRenderer<MarchWalkerEntity, PigModel<MarchWalkerEntity>> {
+public class MarchWalkerRenderer extends MobRenderer<MarchWalkerEntity, MarchCreatureModel<MarchWalkerEntity>> {
     private static final ResourceLocation TEXTURE =
             ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "textures/entity/march_walker.png");
 
     public MarchWalkerRenderer(EntityRendererProvider.Context context) {
-        super(context, new PigModel<>(context.bakeLayer(ModelLayers.PIG)), 0.5F);
+        super(context, new MarchCreatureModel<>(context.bakeLayer(MarchCreatureModel.WALKER), false), 0.5F);
     }
 
     @Override

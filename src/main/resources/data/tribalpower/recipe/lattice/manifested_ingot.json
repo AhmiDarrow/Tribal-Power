@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_manifest",
+  "ingredient": {
+    "item": "tribalpower:bound_echo"
+  },
+  "result": {
+    "id": "tribalpower:manifested_ingot",
+    "count": 1
+  },
+  "attunement": "spirit",
+  "seconds": 5,
+  "pulse_per_second": 16
+}

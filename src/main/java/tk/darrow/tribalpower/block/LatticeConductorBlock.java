@@ -25,7 +25,7 @@ public class LatticeConductorBlock extends BaseEntityBlock {
     public static final MapCodec<LatticeConductorBlock> CODEC = simpleCodec(LatticeConductorBlock::new);
 
     public LatticeConductorBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     @Override

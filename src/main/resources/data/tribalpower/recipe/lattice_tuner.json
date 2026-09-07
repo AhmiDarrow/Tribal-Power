@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    " R ",
+    " R "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:spirit_shard"
+    },
+    "R": {
+      "item": "tribalpower:copper_resonator"
+    }
+  },
+  "result": {
+    "id": "tribalpower:lattice_tuner",
+    "count": 1
+  }
+}

@@ -57,4 +57,20 @@ public final class ModBlockEntities {
             ).build(null));
 
     private ModBlockEntities() {}
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SpiritCisternBlockEntity>> SPIRIT_CISTERN =
+            BLOCK_ENTITIES.register("spirit_cistern", () -> BlockEntityType.Builder.of(SpiritCisternBlockEntity::new, ModBlocks.SPIRIT_CISTERN.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WirelessRelayBlockEntity>> WIRELESS_RELAY =
+            BLOCK_ENTITIES.register("wireless_relay", () -> BlockEntityType.Builder.of(WirelessRelayBlockEntity::new,
+                    ModBlocks.ITEM_RELAY.get(), ModBlocks.FLUID_RELAY.get(), ModBlocks.LONGREACH_ITEM_RELAY.get(), ModBlocks.LONGREACH_FLUID_RELAY.get(),
+                    ModBlocks.ASTRAL_ITEM_RELAY.get(), ModBlocks.ASTRAL_FLUID_RELAY.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PulseAdapterBlockEntity>> PULSE_ADAPTER =
+            BLOCK_ENTITIES.register("pulse_adapter", () -> BlockEntityType.Builder.of(PulseAdapterBlockEntity::new, ModBlocks.PULSE_ADAPTER.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RitualBrazierBlockEntity>> RITUAL_BRAZIER =
+            BLOCK_ENTITIES.register("ritual_brazier", () -> BlockEntityType.Builder.of(RitualBrazierBlockEntity::new, ModBlocks.RITUAL_BRAZIER.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EchoStationBlockEntity>> ECHO_STATION =
+            BLOCK_ENTITIES.register("echo_station", () -> BlockEntityType.Builder.of(EchoStationBlockEntity::new,
+                    ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get()).build(null));
 }

@@ -25,7 +25,7 @@ public class LeyCollectorBlock extends BaseEntityBlock {
     public static final MapCodec<LeyCollectorBlock> CODEC = simpleCodec(LeyCollectorBlock::new);
 
     public LeyCollectorBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     @Override
@@ -60,5 +60,13 @@ public class LeyCollectorBlock extends BaseEntityBlock {
             ), true);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+    @Override
+    protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
+    @Override
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof tk.darrow.tribalpower.api.pulse.PulseHandler pulse)
+            return pulse.getPulseStored() == 0 ? 0 : 1 + 14 * pulse.getPulseStored() / Math.max(1, pulse.getPulseCapacity());
+        return 0;
     }
 }

@@ -72,6 +72,32 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRIT_REED.get());
                         out.accept(ModItems.ECHO_BLOOM.get());
                         out.accept(ModItems.LEY_THISTLE.get());
+                        out.accept(ModItems.IRON_GRIT.get());
+                        out.accept(ModItems.GOLD_GRIT.get());
+                        out.accept(ModItems.COPPER_GRIT.get());
+                        out.accept(ModItems.SPIRITWEAVE.get());
+                        out.accept(ModItems.RESONANT_CORE.get());
+                        out.accept(ModItems.GREATER_PULSE_CELL.get());
+                        out.accept(ModItems.SPIRIT_STAFF.get());
+                        out.accept(ModItems.WAYFARER_SATCHEL.get());
+                        out.accept(ModItems.RESONANCE_MAUL.get());
+                        out.accept(ModItems.SPIRITWEAVE_HOOD.get());
+                        out.accept(ModItems.SPIRITWEAVE_ROBE.get());
+                        out.accept(ModItems.SPIRITWEAVE_LEGGINGS.get());
+                        out.accept(ModItems.SPIRITWEAVE_BOOTS.get());
+                        out.accept(ModItems.RITUAL_BRAZIER.get());
+                        out.accept(ModItems.LATTICE_TUNER.get());
+                        out.accept(ModItems.ITEM_RELAY.get());
+                        out.accept(ModItems.FLUID_RELAY.get());
+                        out.accept(ModItems.LONGREACH_ITEM_RELAY.get());
+                        out.accept(ModItems.LONGREACH_FLUID_RELAY.get());
+                        out.accept(ModItems.ASTRAL_ITEM_RELAY.get());
+                        out.accept(ModItems.ASTRAL_FLUID_RELAY.get());
+                        out.accept(ModItems.PULSE_ADAPTER.get());
+                        out.accept(ModItems.SPIRIT_CISTERN.get());
+                        out.accept(ModItems.WAYSTONE_COMPASS.get());
+                        out.accept(ModItems.HORIZON_COMPASS.get());
+                        out.accept(ModItems.ASTRAL_COMPASS.get());
                     })
                     .build()
     );

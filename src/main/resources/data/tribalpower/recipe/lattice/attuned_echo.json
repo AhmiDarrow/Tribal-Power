@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_attune",
+  "ingredient": {
+    "item": "tribalpower:echo_shard"
+  },
+  "result": {
+    "id": "tribalpower:attuned_echo",
+    "count": 1
+  },
+  "attunement": "fire",
+  "seconds": 3,
+  "pulse_per_second": 10
+}

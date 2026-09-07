@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "item": "minecraft:diorite"
+  },
+  "result": {
+    "id": "minecraft:quartz",
+    "count": 1
+  },
+  "attunement": "earth",
+  "seconds": 4,
+  "pulse_per_second": 10
+}

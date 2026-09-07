@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "ICI",
+    " R ",
+    " R "
+  ],
+  "key": {
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "R": {
+      "item": "tribalpower:copper_resonator"
+    }
+  },
+  "result": {
+    "id": "tribalpower:resonance_maul",
+    "count": 1
+  }
+}

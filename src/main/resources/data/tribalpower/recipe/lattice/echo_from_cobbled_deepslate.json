@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "result": {
+    "id": "tribalpower:echo_shard",
+    "count": 1
+  },
+  "attunement": "earth",
+  "seconds": 2,
+  "pulse_per_second": 8
+}

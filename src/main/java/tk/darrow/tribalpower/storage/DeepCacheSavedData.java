@@ -22,10 +22,13 @@ import java.util.UUID;
  */
 public class DeepCacheSavedData extends SavedData {
     public static final String FILE_ID = "tribalpower_deep_cache";
-    public static final int SLOTS = 27;
+    public static final int SLOTS = 54;
 
     private final Map<UUID, NonNullList<ItemStack>> inventories = new HashMap<>();
     private final Set<UUID> visitedMarch = new HashSet<>();
+    // Preserve unreadable records without letting one malformed owner disable every cache.
+    private final ListTag unreadablePlayers = new ListTag();
+    private final ListTag unreadableVisits = new ListTag();
 
     public static SavedData.Factory<DeepCacheSavedData> factory() {
         return new SavedData.Factory<>(DeepCacheSavedData::new, DeepCacheSavedData::load);
@@ -55,6 +58,7 @@ public class DeepCacheSavedData extends SavedData {
         ListTag players = tag.getList("Players", Tag.TAG_COMPOUND);
         for (int i = 0; i < players.size(); i++) {
             CompoundTag entry = players.getCompound(i);
+            if (!entry.hasUUID("Id")) { data.unreadablePlayers.add(entry.copy()); continue; }
             UUID id = entry.getUUID("Id");
             NonNullList<ItemStack> items = NonNullList.withSize(SLOTS, ItemStack.EMPTY);
             ContainerHelper.loadAllItems(entry, items, registries);
@@ -62,14 +66,16 @@ public class DeepCacheSavedData extends SavedData {
         }
         ListTag visits = tag.getList("Visited", Tag.TAG_COMPOUND);
         for (int i = 0; i < visits.size(); i++) {
-            data.visitedMarch.add(visits.getCompound(i).getUUID("Id"));
+            CompoundTag entry = visits.getCompound(i);
+            if (!entry.hasUUID("Id")) { data.unreadableVisits.add(entry.copy()); continue; }
+            data.visitedMarch.add(entry.getUUID("Id"));
         }
         return data;
     }
 
     @Override
     public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
-        ListTag players = new ListTag();
+        ListTag players = unreadablePlayers.copy();
         for (Map.Entry<UUID, NonNullList<ItemStack>> entry : inventories.entrySet()) {
             CompoundTag playerTag = new CompoundTag();
             playerTag.putUUID("Id", entry.getKey());
@@ -78,7 +84,7 @@ public class DeepCacheSavedData extends SavedData {
         }
         tag.put("Players", players);
 
-        ListTag visits = new ListTag();
+        ListTag visits = unreadableVisits.copy();
         for (UUID id : visitedMarch) {
             CompoundTag visitTag = new CompoundTag();
             visitTag.putUUID("Id", id);

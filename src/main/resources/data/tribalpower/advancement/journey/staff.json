@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:spirit_staff"
+    },
+    "title": "Five voices, one hand",
+    "description": "Craft the Fivefold Staff and carry charged cells.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:spirit_staff"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/core"
+}

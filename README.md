@@ -1,104 +1,91 @@
-# Tribal Power
+# Tribal Power — The Living Lattice
 
-**Shamanic Technomancy** for Minecraft **1.21.1** (NeoForge **21.1.249**).
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.1.0.
 
-Tribal Power binds spirit and machine. Energy is **Spirit Pulse** — rhythmic beats, not FE/RF furnace heat. Processing flows through a **Totem Lattice**: Resonance Totems of elemental attunement linked by song, chalk, and proximity. Ores walk **Echo Stages** (Shatter → Attune → Bind → Manifest) on the **Song Bench** instead of vanishing into a magic smelter.
+Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites and paths between worlds. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
-Updated and rewritten for Ninjacat Skies modpack. 
+Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
-Authors: **Ahmi & Risika Darrow**  
-License: GNU GPL v3 (see `License.txt`)
+## Start a living workshop
 
-## Loom-born steward-tribes
+Craft a Bone Chime, Spirit Shard and Drumheart. Strike the drum, then charge a Pulse Cell. Place an Earth Totem and Echo Shatter within eight blocks of a generator. Stone becomes Echo Shards; raw iron, gold and copper become two grits, each smeltable into an ingot.
 
-Shamanic technomancy was born from a great Loom tended by steward-tribes. Along its threads they kept rhythm as law: drumming Spirit Pulse into stone, raising Resonance Totems as attuned posts, and walking ore through Echo until metal remembered the tribe. Tribal Power is that craft — drum, chalk, and honest work — not furnace vanity and not an outside pantheon.
+Continue through Fire / Echo Attune, Water / Echo Bind, and Spirit / Echo Manifest. Bound Echo becomes Manifested Ingot; manifest the ingot again for a Resonant Core. Water also binds wool into Spiritweave.
 
-## Core systems
+Each Echo station has a batch input, eight output slots, a progress screen and status readout. Feed above or from the sides; extract below. Missing power, missing attunement or full output pauses the batch without consuming its input. The original single-item Song Bench remains available.
 
-| System | Role |
-| --- | --- |
-| **Spirit Pulse (SP)** | Native power API (`PulseHandler`). Drumheart / Ley Collector / **Pulse Resonator** (coal-fueled) generation; Totem buffers. |
-| **Totem Lattice** | Resonance Totems + Ritual Chalk links + Lattice Conductor Pulse routing + Song Bench pulse draw. |
-| **Echo Stages** | Live Song Bench refine loop: Shatter → Attune → Bind → Manifest. |
-| **Ancestral Cache** | Local chest-like storage. |
-| **Deep Cache** | March-linked bulk vault (spirit link after visiting The March; Pulse-cell link costs 5 when unvisited). |
-| **Seals & Rites** | Seal items + Rite Pedestal spirit boons (amplify with Pulse Cells). |
-| **Spiritgear** | Pulse-fed tools (Pulse Cells in inventory; mining 2 / use-on 1 / blade hit 3). |
-| **Gate Drum** | Portal into **The March** (`tribalpower:the_march`); travel costs **20 Pulse**. |
+The Spirit Codex provides the in-game guide. JEI, when installed, displays lattice recipes, attunements, duration and total Pulse cost.
 
-## Echo refine loop (Song Bench)
+## Power with a place in the world
 
-Live ore processing is **not** the Echo Shatter / Attune / Bind / Manifest shrine blocks — those are camp markers. Refinement runs on the **Song Bench**:
+- **Drumheart:** deliberate beats about a second apart yield more Pulse. A redstone clock automates its rising-edge rhythm.
+- **Ley Collector:** sky, night, rain, nearby water and living greenery influence collection.
+- **Pulse Resonator:** a reusable Echo catalyst and at least two distinct nearby totem voices produce Pulse. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are increasing catalyst ranks. More distinct voices improve output. Coal and wood are not fuel.
+- **Pulse Cells:** ordinary cells hold 200 Pulse; Greater Cells hold 1,200.
+- **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
 
-1. Place a **Drumheart**, **Ley Collector**, and/or **Pulse Resonator** within 8 blocks (and optionally charge Totems).
-2. Place the stage’s **Resonance Totem** nearby (or chalk-link one within 16).
-3. Right-click the bench with a feed item to seat one stack unit.
-4. Empty-hand click to start the song. Shift-click to remove the item.
+## Storage and automation
 
-| Stage | Attunement | Input | Output | Pulse / tick | Work ticks |
-| --- | --- | --- | --- | --- | --- |
-| Shatter | Earth | Raw ore, cobble/stone, iron-like metal, March grit | `echo_shard` | 8 | 40 |
-| Attune | Fire | `echo_shard` | `attuned_echo` | 10 | 60 |
-| Bind | Water | `attuned_echo` | `bound_echo` | 12 | 80 |
-| Manifest | Spirit | `bound_echo` | `manifested_ingot` | 16 | 100 |
+Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers.
 
-Stage table is code-defined in `tk.darrow.tribalpower.echo.EchoStage`. The song can chain stages while singing if the next attunement and Pulse remain available; it stops when a **Manifested Ingot** is produced.
+A Lattice Conductor moves Pulse through chalk-linked totems and routes Song Bench items through nearby Ancestral Caches. Delivered feed starts the bench automatically. Charged totems keep item routing active even when their buffers are full. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
-## The March
+Wireless relays pull from the inventory or tank below them. Mark a receiving block face with the Lattice Tuner, then use it on the relay. Sneak-use the tuner to replace its mark.
 
-A shamanic otherworld reached by **Gate Drum** (20 Pulse). The March uses a **noise** chunk generator (`minecraft:noise` + `tribalpower:the_march` noise settings adapted from overworld density functions) with March Stone / soil / grass surfaces, hills and valleys, and a lowered sea level (~48).
+1. **Local:** 32 blocks in the same dimension; 4 Pulse per successful transfer.
+2. **Longreach:** 128 blocks in the same dimension; 8 Pulse.
+3. **Astral:** unlimited distance, including other dimensions; 16 Pulse.
 
-- Multi-biome layout: **March Steppe**, **March Highlands**, **March Crystal Fields**
-- Surface moss patches (`march_moss`), Ley Thistle, March Leaf, Spirit Reed, Echo Bloom
-- March trees, crystal clusters, and sparse crystal-capped **ruin pillars**
-- Ore bands in deep / mid / high March stone & cobble
-- Registered spawn placements for **March Walker** / **Spirit Wisp**
-- Gate Drum landing resolves the motion-blocking surface and clears a 3×3 pad (works with variable height)
+Each beat transfers up to 16 items or 250 mB, once per second. Both endpoints must already be loaded. Automation never force-loads remote chunks. Full or unloaded destinations pause safely; pending fluid from a changing third-party receiver is retained.
 
-Charge a **Gate Drum** with Pulse (sneak-drum or Pulse Cell), then strike it to travel; use it again to return.
+## Paths for players
 
-## Getting started in-game
+Sneak-use a compass on the top of a sturdy floor to bind it, then use it to travel. Leave two clear, dry blocks above the floor and avoid nearby hazards.
 
-1. Open the creative tab **Tribal Power** or craft / take a **Spirit Codex**.
-2. Place a **Drumheart** and right-click to store Pulse (redstone tempo also works). Feed a **Pulse Resonator** with coal/charcoal for steadier fueled generation.
-3. Plant the needed **Resonance Totems** near a **Song Bench**; seal lasting links with **Ritual Chalk**.
-4. Place a **Lattice Conductor** near the chalk-linked ring to push Pulse into totem buffers (and assist distant Song Benches).
-5. Seat raw ore / cobble / Echo grit on the bench and start the song.
-6. Offer seals on a **Rite Pedestal**.
-7. Charge and strike a **Gate Drum** (20 Pulse) to enter The March.
+1. **Waystone Compass:** 128 blocks within one dimension; 20 Pulse.
+2. **Horizon Compass:** any distance within one dimension; 40 Pulse.
+3. **Astral Compass:** travel across dimensions; 100 Pulse.
 
-### Pulse Resonator
+Travel has a five-second cooldown. Redstone at the destination floor locks arrivals. The Gate Drum reaches The March, whose crystals unlock Astral transport for travellers and cargo.
 
-Coal-fueled Spirit Pulse generator (Ley alternative — no FE API):
+## Equipment and rites
 
-- Buffer **2500** Pulse; while burning, gains **~4 Pulse / 20 ticks** (~320 per coal/charcoal at 1600 burn ticks).
-- Right-click with coal/charcoal to load fuel; empty-hand for status; shift-click to remove unused fuel.
-- Pulse Cells charge from it like a Drumheart (up to 25 / click).
-- Lattice Conductor / Song Bench treat it as a generator alongside Drumheart and Ley Collector.
+The **Fivefold Staff** switches voices with sneak-use: Earth slows hostiles, Fire strikes and ignites, Water heals and cleanses, Air grants a leap and slow falling, and Spirit reveals enemies. Offensive rays stop at blocks. Each cast draws from carried cells.
+
+The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in the main hand, costing 8 Pulse per broken block. Normal player breaking checks and protection events still apply.
+
+**Spiritweave armor** provides night sight, resistance, speed and conditional slow falling. Each active piece consumes 2 Pulse every four seconds. Original Spiritgear tools remain available.
+
+Seat a reusable seal in a **Ritual Brazier** with its matching totem nearby. Earth grants haste, Fire resists flame, Water regenerates, Air slows falls, and Spirit grants night sight. A six-block blessing consumes 8 Pulse every two seconds while players are present. Sneak empty-handed to recover the seal.
+
+## Redstone language
+
+High signal pauses generators other than the Drumheart, workshops, conductors, relays and braziers. It locks cache access, cistern filling/draining, FE extraction and travel destinations. Capability references cached by other mods also obey the live signal. The Drumheart deliberately responds to rising edges instead.
+
+Comparators read stored resources. Relay output is 0 unlinked, 1 linked but waiting or paused, and 15 while transferring. Stored resources and unfinished work survive a pause.
+
+## Datapack recipes
+
+Recipes live under data/<namespace>/recipe/ and use the normal server recipe manager and client synchronization. Example:
+
+```json
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {"tag": "c:raw_materials/iron"},
+  "result": {"id": "tribalpower:iron_grit", "count": 2},
+  "attunement": "earth",
+  "seconds": 4,
+  "pulse_per_second": 10
+}
+```
+
+Use a standard ingredient, including compatible mod ingredients. Station names are echo_shatter, echo_attune, echo_bind and echo_manifest. KubeJS can register this JSON with event.custom. Pack-specific recipes belong in the pack; standalone recipes never require Ninjacat Skies.
 
 ## Development
 
-```bat
-gradlew build
-gradlew runClient
-```
+Java 21. Run gradlew build to build the jar and gradlew runVerification for server GameTests. The pack verification runs use disposable directories under build/.
 
-- Mod id: `tribalpower`
-- Package: `tk.darrow.tribalpower`
-- Legacy 1.9.4 Forge sources: `legacy_1_9_4/` (reference only; ignored by the new build)
+Regenerate content with python tools/expand_content.py, the guide with python tools/generate_guide.py, and authored pixel assets/models with python tools/overhaul_art.py. Art uses 32-pixel textures, native models and bounded particles; no shaders are required.
 
-Optional: **Patchouli** is declared as an optional dependency. The **Spirit Codex** ships a full multi-page written guidebook regardless (`GuidePages` + `data/tribalpower/guide/spirit_codex.json`).
-
-## Rewrite status
-
-Branch `rewrite/shamanic-technomancy`: Pulse API, Drumheart / Ley Collector / **Pulse Resonator**, Totem Lattice + chalk links, **Lattice Conductor Pulse routing / Song Bench assist / Echo item handoff**, **working Song Bench Echo refine loop**, Ancestral / Deep Cache, Gate Drum travel (20 Pulse) + The March, Spiritgear Pulse cells, seals/rites, and Spirit Codex pages aligned to live behavior.
-
-### Lattice Conductor (live)
-
-With **2+ chalk-linked Resonance Totems** and a Conductor within 8 blocks of the ring:
-
-1. Right-click the Conductor to see **network size** and burst-transfer Pulse from nearby **Drumheart / Ley Collector / Pulse Resonator** into linked **totem buffers**.
-2. While generators supply Pulse, the Conductor keeps pushing (~10 / second) and **assists** Song Benches on the network that have seated grit (priority fill for totems near those benches).
-3. When powered, it can move Echo grit: finished products Song Bench → Ancestral Cache, processable feeds Cache → empty Bench, and idle Bench → Bench handoff.
-
-Still stubs / thin: **March ambient noise / spirit-link tick effects** are reserved hooks, not live systems. The March terrain itself is live noise + multi-biome; Gate Drum / Echo / Lattice are unchanged aside from surface-aware landing.
+Existing block/item IDs and storage slots remain stable. An old Resonator retains unused coal for retrieval but no longer burns it. Existing caches expand to 54 slots.

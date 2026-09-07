@@ -34,7 +34,7 @@ public final class LatticeNetwork {
     private LatticeNetwork() {}
 
     public static boolean canLink(BlockPos from, BlockPos to) {
-        return from.closerThan(to, LINK_RANGE);
+        return !from.equals(to) && from.closerThan(to, LINK_RANGE);
     }
 
     public static boolean canRoute(Level level, BlockPos from, BlockPos to) {
@@ -47,10 +47,10 @@ public final class LatticeNetwork {
     public static boolean linkTotems(ResonanceTotemBlockEntity from, ResonanceTotemBlockEntity to) {
         BlockPos a = from.getBlockPos();
         BlockPos b = to.getBlockPos();
-        if (!canLink(a, b)) {
+        if (from.getLevel() != to.getLevel() || !canLink(a, b)) {
             return false;
         }
-        if (from.isLinkedTo(b) || to.isLinkedTo(a)) {
+        if (from.isLinkedTo(b) && to.isLinkedTo(a)) {
             return false;
         }
         from.addLink(b);
@@ -72,7 +72,7 @@ public final class LatticeNetwork {
                         continue;
                     }
                     cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.getBlockEntity(cursor);
+                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
                     if (be instanceof ResonanceTotemBlockEntity totem) {
                         found.add(totem);
                     }
@@ -95,14 +95,14 @@ public final class LatticeNetwork {
             ResonanceTotemBlockEntity current = queue.removeFirst();
             network.add(current);
             for (BlockPos link : current.getLinks()) {
+                if (!canLink(current.getBlockPos(), link)) continue;
                 BlockPos key = link.immutable();
+                BlockEntity candidate = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
+                if (!(candidate instanceof ResonanceTotemBlockEntity linked) || !linked.isLinkedTo(current.getBlockPos())) continue;
                 if (!visited.add(key)) {
                     continue;
                 }
-                BlockEntity be = level.getBlockEntity(key);
-                if (be instanceof ResonanceTotemBlockEntity linked) {
-                    queue.add(linked);
-                }
+                queue.add(linked);
             }
         }
         return network;
@@ -134,9 +134,13 @@ public final class LatticeNetwork {
         if (network.size() < 2) {
             return false;
         }
+        var byPosition = new java.util.HashMap<BlockPos, ResonanceTotemBlockEntity>();
+        for (ResonanceTotemBlockEntity totem : network) byPosition.put(totem.getBlockPos(), totem);
         for (ResonanceTotemBlockEntity totem : network) {
-            if (!totem.getLinks().isEmpty()) {
-                return true;
+            for (BlockPos link : totem.getLinks()) {
+                ResonanceTotemBlockEntity other = byPosition.get(link);
+                if (other != null && totem.getLevel() == other.getLevel() && canLink(totem.getBlockPos(), other.getBlockPos())
+                        && totem.isLinkedTo(other.getBlockPos()) && other.isLinkedTo(totem.getBlockPos())) return true;
             }
         }
         return false;
@@ -163,7 +167,7 @@ public final class LatticeNetwork {
                         if (!seen.add(key)) {
                             continue;
                         }
-                        BlockEntity be = level.getBlockEntity(key);
+                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
                         if (be instanceof SongBenchBlockEntity bench) {
                             found.add(bench);
                         }
@@ -187,7 +191,7 @@ public final class LatticeNetwork {
                         if (!seen.add(key)) {
                             continue;
                         }
-                        BlockEntity be = level.getBlockEntity(key);
+                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
                         if (be instanceof AncestralCacheBlockEntity cache) {
                             found.add(cache);
                         }
@@ -292,7 +296,8 @@ public final class LatticeNetwork {
             if (stack.isEmpty() || EchoStage.isProcessable(stack) || bench.isSinging()) {
                 continue;
             }
-            if (insertIntoAny(caches, stack.copy())) {
+            if (level.hasNeighborSignal(bench.getBlockPos())) continue;
+            if (insertIntoAny(caches, stack.copyWithCount(1))) {
                 bench.removeItem(SongBenchBlockEntity.SLOT, 1);
                 return true;
             }
@@ -300,14 +305,17 @@ public final class LatticeNetwork {
 
         // Feed: Ancestral Cache → empty Song Bench
         for (AncestralCacheBlockEntity cache : caches) {
+            if (level.hasNeighborSignal(cache.getBlockPos())) continue;
             int slot = findProcessableSlot(cache);
             if (slot < 0) {
                 continue;
             }
             ItemStack feed = cache.getItem(slot).copyWithCount(1);
             for (SongBenchBlockEntity bench : benches) {
+                if (level.hasNeighborSignal(bench.getBlockPos())) continue;
                 if (bench.insertItem(feed.copy())) {
                     cache.removeItem(slot, 1);
+                    bench.startSong();
                     return true;
                 }
             }
@@ -316,6 +324,7 @@ public final class LatticeNetwork {
         // Bench → bench handoff of idle processable grit
         for (int i = 0; i < benches.size(); i++) {
             SongBenchBlockEntity from = benches.get(i);
+            if (level.hasNeighborSignal(from.getBlockPos())) continue;
             ItemStack stack = from.getItem(SongBenchBlockEntity.SLOT);
             if (stack.isEmpty() || !EchoStage.isProcessable(stack) || from.isSinging()) {
                 continue;
@@ -325,15 +334,15 @@ public final class LatticeNetwork {
                     continue;
                 }
                 SongBenchBlockEntity to = benches.get(j);
+                if (level.hasNeighborSignal(to.getBlockPos())) continue;
                 if (!to.isEmpty()) {
                     continue;
                 }
-                ItemStack moved = from.takeItem();
-                if (!moved.isEmpty() && to.insertItem(moved)) {
+                ItemStack moved = stack.copyWithCount(1);
+                if (to.insertItem(moved)) {
+                    from.removeItem(SongBenchBlockEntity.SLOT, 1);
+                    to.startSong();
                     return true;
-                }
-                if (!moved.isEmpty()) {
-                    from.insertItem(moved);
                 }
             }
         }
@@ -352,6 +361,7 @@ public final class LatticeNetwork {
 
     private static boolean insertIntoAny(List<? extends Container> containers, ItemStack stack) {
         for (Container container : containers) {
+            if (container instanceof BlockEntity be && be.getLevel().hasNeighborSignal(be.getBlockPos())) continue;
             if (tryInsert(container, stack)) {
                 return true;
             }
@@ -389,8 +399,9 @@ public final class LatticeNetwork {
                 if (!linked.closerThan(origin, LINK_RANGE)) {
                     continue;
                 }
-                BlockEntity be = level.getBlockEntity(linked);
-                if (be instanceof ResonanceTotemBlockEntity linkedTotem) {
+                BlockEntity be = level.hasChunkAt(linked) ? level.getBlockEntity(linked) : null;
+                if (be instanceof ResonanceTotemBlockEntity linkedTotem && canLink(totem.getBlockPos(), linked)
+                        && linkedTotem.isLinkedTo(totem.getBlockPos())) {
                     set.add(linkedTotem.getAttunement());
                 }
             }
@@ -433,7 +444,7 @@ public final class LatticeNetwork {
             for (int dy = -radius; dy <= radius && taken < amount; dy++) {
                 for (int dz = -radius; dz <= radius && taken < amount; dz++) {
                     cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.getBlockEntity(cursor);
+                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
                     if (!(be instanceof PulseHandler handler)) {
                         continue;
                     }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tribalpower:block/astral_fluid_relay"
+    }
+  }
+}

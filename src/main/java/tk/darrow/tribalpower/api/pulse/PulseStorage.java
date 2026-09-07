@@ -56,6 +56,6 @@ public class PulseStorage implements PulseHandler {
     }
 
     public void load(CompoundTag tag) {
-        stored = tag.getInt("Pulse");
+        setStored(tag.getInt("Pulse"));
     }
 }

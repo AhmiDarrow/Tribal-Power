@@ -55,6 +55,23 @@ neoForge {
             logLevel = org.slf4j.event.Level.INFO
             gameDirectory = project.file('run')
         }
+        verification {
+            type = 'gameTestServer'
+            gameDirectory = project.file('build/verification')
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+        }
+        packVerification {
+            server()
+            gameDirectory = project.file('build/pack-verification')
+            programArgument '--nogui'
+            jvmArgument '-Xmx4G'
+        }
+        packClientVerification {
+            client()
+            gameDirectory = project.file('build/pack-client')
+            jvmArgument '-Xmx5G'
+            programArguments.addAll '--username', 'LatticeQA', '--quickPlayMultiplayer', '127.0.0.1:25585'
+        }
     }
 
     mods {
@@ -69,6 +86,8 @@ configurations {
 }
 
 dependencies {
+    compileOnly 'mezz.jei:jei-1.21.1-common-api:19.51.0.418'
+    compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.51.0.418'
     // Optional guidebook library — present at runtime when installed; build does not require it.
     compileOnly 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'
     localRuntime 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'

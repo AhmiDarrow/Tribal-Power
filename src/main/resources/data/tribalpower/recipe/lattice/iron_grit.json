@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "tag": "c:raw_materials/iron"
+  },
+  "result": {
+    "id": "tribalpower:iron_grit",
+    "count": 2
+  },
+  "attunement": "earth",
+  "seconds": 4,
+  "pulse_per_second": 10
+}

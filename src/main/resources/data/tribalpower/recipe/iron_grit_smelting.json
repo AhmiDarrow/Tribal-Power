@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "tribalpower:iron_grit"
+  },
+  "result": {
+    "id": "minecraft:iron_ingot"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    "RMR",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "R": {
+      "item": "minecraft:ender_pearl"
+    },
+    "M": {
+      "item": "tribalpower:fluid_relay"
+    }
+  },
+  "result": {
+    "id": "tribalpower:longreach_fluid_relay",
+    "count": 1
+  }
+}

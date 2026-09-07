@@ -264,12 +264,27 @@ public final class ModBlocks {
     }
 
     private static DeferredBlock<Block> echo(String id, MapColor color) {
-        return BLOCKS.registerSimpleBlock(id, BlockBehaviour.Properties.of()
+        return BLOCKS.register(id, () -> new EchoStationBlock(BlockBehaviour.Properties.of()
                 .mapColor(color)
                 .strength(3.0F)
                 .sound(SoundType.STONE)
-                .requiresCorrectToolForDrops());
+                .requiresCorrectToolForDrops()));
     }
 
     private ModBlocks() {}
+
+    private static DeferredBlock<LatticeUtilityBlock> utility(String name) {
+        return BLOCKS.register(name, () -> new LatticeUtilityBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F).sound(SoundType.COPPER).noOcclusion()));
+    }
+    public static final DeferredBlock<LatticeUtilityBlock> ITEM_RELAY = utility("item_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> FLUID_RELAY = utility("fluid_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> LONGREACH_ITEM_RELAY = utility("longreach_item_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> LONGREACH_FLUID_RELAY = utility("longreach_fluid_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> ASTRAL_ITEM_RELAY = utility("astral_item_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> ASTRAL_FLUID_RELAY = utility("astral_fluid_relay");
+    public static final DeferredBlock<LatticeUtilityBlock> PULSE_ADAPTER = utility("pulse_adapter");
+    public static final DeferredBlock<LatticeUtilityBlock> SPIRIT_CISTERN = utility("spirit_cistern");
+
+    public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->
+            new RitualBrazierBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F).sound(SoundType.COPPER).lightLevel(s -> 5).noOcclusion()));
 }

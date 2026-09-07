@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:echo_bind"
+    },
+    "title": "Thread that remembers",
+    "description": "Build Echo Bind for echoes and Spiritweave.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:echo_bind"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/attune"
+}

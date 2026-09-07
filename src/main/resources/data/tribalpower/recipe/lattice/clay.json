@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_bind",
+  "ingredient": {
+    "item": "minecraft:dirt"
+  },
+  "result": {
+    "id": "minecraft:clay_ball",
+    "count": 4
+  },
+  "attunement": "water",
+  "seconds": 3,
+  "pulse_per_second": 8
+}

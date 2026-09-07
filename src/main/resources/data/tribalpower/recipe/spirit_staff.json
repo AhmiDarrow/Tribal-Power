@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " SC",
+    " RI",
+    "R  "
+  ],
+  "key": {
+    "S": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "R": {
+      "tag": "minecraft:logs"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spirit_staff",
+    "count": 1
+  }
+}

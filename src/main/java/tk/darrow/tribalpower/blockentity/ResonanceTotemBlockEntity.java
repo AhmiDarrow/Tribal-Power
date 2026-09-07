@@ -109,7 +109,8 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        attunement = Attunement.byName(tag.getString("Attunement"));
+        attunement = getBlockState().getBlock() instanceof ResonanceTotemBlock totem
+                ? totem.getAttunement() : Attunement.byName(tag.getString("Attunement"));
         resonance.load(tag);
         links.clear();
         ListTag list = tag.getList("Links", Tag.TAG_COMPOUND);

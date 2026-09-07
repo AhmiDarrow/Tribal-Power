@@ -42,6 +42,8 @@ public class RitePedestalBlock extends Block {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                               Player player, InteractionHand hand, BlockHitResult hit) {
+        if (level.hasNeighborSignal(pos)) return ItemInteractionResult.CONSUME;
+
         if (stack.is(ModItems.BLANK_SEAL.get()) || stack.is(ModItems.SPIRIT_SEAL.get())
                 || stack.is(ModItems.EARTH_SEAL.get()) || stack.is(ModItems.FIRE_SEAL.get())
                 || stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.AIR_SEAL.get())) {

@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_bind",
+  "ingredient": {
+    "tag": "minecraft:wool"
+  },
+  "result": {
+    "id": "tribalpower:spiritweave",
+    "count": 1
+  },
+  "attunement": "water",
+  "seconds": 4,
+  "pulse_per_second": 12
+}

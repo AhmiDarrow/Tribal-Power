@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "W W",
+    "WCW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "tribalpower:spiritweave"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spiritweave_robe",
+    "count": 1
+  }
+}

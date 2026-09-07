@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    "IPI",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "P": {
+      "item": "tribalpower:pulse_cell"
+    }
+  },
+  "result": {
+    "id": "tribalpower:greater_pulse_cell",
+    "count": 1
+  }
+}

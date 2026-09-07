@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    "RMR",
+    " I "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "R": {
+      "item": "tribalpower:ritual_chalk"
+    },
+    "M": {
+      "item": "tribalpower:spirit_cistern"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    }
+  },
+  "result": {
+    "id": "tribalpower:fluid_relay",
+    "count": 1
+  }
+}

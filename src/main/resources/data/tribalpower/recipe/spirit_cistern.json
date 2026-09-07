@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CGC",
+    "G G",
+    "CGC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spirit_cistern",
+    "count": 1
+  }
+}

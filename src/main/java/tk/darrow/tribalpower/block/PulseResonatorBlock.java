@@ -36,7 +36,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public PulseResonatorBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
         registerDefaultState(stateDefinition.any().setValue(LIT, false));
     }
 
@@ -82,7 +82,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
 
         if (stack.getItem() instanceof PulseCellItem) {
             if (!level.isClientSide) {
-                int want = Math.min(25, PulseCellItem.CAPACITY - PulseCellItem.getPulse(stack));
+                int want = Math.min(100, PulseCellItem.capacity(stack) - PulseCellItem.getPulse(stack));
                 int taken = resonator.extractPulse(want, false);
                 int filled = PulseCellItem.insertPulse(stack, taken, false);
                 if (filled < taken) {
@@ -92,19 +92,19 @@ public class PulseResonatorBlock extends BaseEntityBlock {
                         "message.tribalpower.pulse_cell.charge_resonator",
                         filled,
                         PulseCellItem.getPulse(stack),
-                        PulseCellItem.CAPACITY,
+                        PulseCellItem.capacity(stack),
                         resonator.getPulseStored()
                 ), true);
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
 
-        if (PulseResonatorBlockEntity.isFuel(stack)) {
+        if (PulseResonatorBlockEntity.isCatalyst(stack)) {
             if (!level.isClientSide) {
-                if (resonator.acceptFuel(stack)) {
+                if (resonator.acceptCatalyst(player.isCreative() ? stack.copy() : stack)) {
                     player.displayClientMessage(Component.translatable(
                             "message.tribalpower.pulse_resonator.fueled",
-                            resonator.fuelCount(),
+                            resonator.catalystCount(),
                             resonator.getPulseStored(),
                             resonator.getPulseCapacity()
                     ), true);
@@ -127,7 +127,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
         }
         if (!level.isClientSide) {
             if (player.isShiftKeyDown()) {
-                ItemStack taken = resonator.takeFuel();
+                ItemStack taken = resonator.takeCatalyst();
                 if (!taken.isEmpty()) {
                     if (!player.addItem(taken)) {
                         player.drop(taken, false);
@@ -146,13 +146,13 @@ public class PulseResonatorBlock extends BaseEntityBlock {
     }
 
     private static void showStatus(Player player, PulseResonatorBlockEntity resonator) {
-        if (resonator.isBurning() || resonator.fuelCount() > 0) {
+        if (resonator.catalystCount() > 0) {
             player.displayClientMessage(Component.translatable(
                     "message.tribalpower.pulse_resonator.status",
                     resonator.getPulseStored(),
                     resonator.getPulseCapacity(),
-                    resonator.getBurnTime(),
-                    resonator.fuelCount()
+                    resonator.getGain(),
+                    resonator.getHarmonics()
             ), true);
         } else {
             player.displayClientMessage(Component.translatable(
@@ -170,5 +170,13 @@ public class PulseResonatorBlock extends BaseEntityBlock {
             Containers.dropContents(serverLevel, pos, resonator);
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+    @Override
+    protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
+    @Override
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof tk.darrow.tribalpower.api.pulse.PulseHandler pulse)
+            return pulse.getPulseStored() == 0 ? 0 : 1 + 14 * pulse.getPulseStored() / Math.max(1, pulse.getPulseCapacity());
+        return 0;
     }
 }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "WWW",
+    "CDC",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "tribalpower:spiritweave"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "D": {
+      "item": "tribalpower:deep_cache"
+    }
+  },
+  "result": {
+    "id": "tribalpower:wayfarer_satchel",
+    "count": 1
+  }
+}

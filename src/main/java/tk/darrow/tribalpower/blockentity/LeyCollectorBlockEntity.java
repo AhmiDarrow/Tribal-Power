@@ -25,12 +25,25 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, LeyCollectorBlockEntity be) {
+        if (level.hasNeighborSignal(pos)) return;
         be.tickCounter++;
         if (be.tickCounter < GAIN_INTERVAL) {
             return;
         }
         be.tickCounter = 0;
-        if (be.insertPulse(GAIN_AMOUNT, false) > 0) {
+        int gain = 1;
+        if (level.canSeeSky(pos.above())) gain += level.isNight() ? 3 : 1;
+        if (level.isRainingAt(pos.above())) gain += 2;
+        boolean water = false, living = false;
+        for (var direction : net.minecraft.core.Direction.Plane.HORIZONTAL) {
+            var nearby = level.getBlockState(pos.relative(direction));
+            water |= !nearby.getFluidState().isEmpty() && nearby.getFluidState().is(net.minecraft.tags.FluidTags.WATER);
+            living |= nearby.is(net.minecraft.tags.BlockTags.LEAVES) || nearby.is(net.minecraft.world.level.block.Blocks.MOSS_BLOCK)
+                    || nearby.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get());
+        }
+        if (water) gain += 2;
+        if (living) gain += 2;
+        if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
         }
     }

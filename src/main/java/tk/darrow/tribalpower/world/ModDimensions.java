@@ -32,8 +32,13 @@ public final class ModDimensions {
      * Landing resolves the motion-blocking surface so noise hills/valleys stay safe.
      */
     public static boolean travelThroughGate(ServerPlayer player) {
+        if (player.isPassenger()) return false;
         ServerLevel current = player.serverLevel();
-        ResourceKey<Level> targetKey = current.dimension().equals(THE_MARCH) ? Level.OVERWORLD : THE_MARCH;
+        boolean returning = current.dimension().equals(THE_MARCH);
+        var memory = player.getPersistentData();
+        var returnId = ResourceLocation.tryParse(memory.getString("TribalGateReturnDimension"));
+        ResourceKey<Level> targetKey = returning
+                ? (returnId == null ? Level.OVERWORLD : ResourceKey.create(Registries.DIMENSION, returnId)) : THE_MARCH;
         ServerLevel target = player.server.getLevel(targetKey);
         if (target == null) {
             TribalPower.LOGGER.warn("Dimension {} is not loaded", targetKey.location());
@@ -42,21 +47,36 @@ public final class ModDimensions {
 
         int x = player.blockPosition().getX();
         int z = player.blockPosition().getZ();
+        BlockPos remembered = returning && memory.contains("TribalGateReturn") ? BlockPos.of(memory.getLong("TribalGateReturn")) : null;
+        if (remembered != null) { x = remembered.getX(); z = remembered.getZ(); }
+        if (!target.getWorldBorder().isWithinBounds(new BlockPos(x, target.getMinBuildHeight(), z))
+                || (remembered != null && !TravelSafety.withinBounds(target, remembered))) return false;
         // Force destination chunk generation before heightmap / pad work.
         target.getChunk(x >> 4, z >> 4);
 
-        int surfaceY = findSafeSurfaceY(target, x, z);
+        int surfaceY = remembered == null ? findSafeSurfaceY(target, x, z) : remembered.getY()-1;
         BlockPos ground = new BlockPos(x, surfaceY, z);
+        if (!TravelSafety.withinBounds(target, ground.above()) || TravelSafety.hasHazard(target, ground.above()) || target.hasNeighborSignal(ground)
+                || !target.getBlockState(ground.above()).getCollisionShape(target, ground.above()).isEmpty()
+                || !target.getBlockState(ground.above(2)).getCollisionShape(target, ground.above(2)).isEmpty()) return false;
         ensureLandingPad(target, ground);
+        if (!target.getBlockState(ground).isFaceSturdy(target, ground, net.minecraft.core.Direction.UP)
+                || !target.getFluidState(ground.above()).isEmpty() || !target.getFluidState(ground.above(2)).isEmpty()) return false;
+        BlockPos origin = player.blockPosition();
 
-        player.changeDimension(new DimensionTransition(
+        if (player.changeDimension(new DimensionTransition(
                 target,
                 new Vec3(x + 0.5, ground.getY() + 1.0, z + 0.5),
                 Vec3.ZERO,
                 player.getYRot(),
                 player.getXRot(),
                 DimensionTransition.DO_NOTHING
-        ));
+        )) == null) return false;
+        player.fallDistance = 0;
+        if (!returning) {
+            memory.putString("TribalGateReturnDimension", current.dimension().location().toString());
+            memory.putLong("TribalGateReturn", origin.asLong());
+        }
         if (targetKey.equals(THE_MARCH)) {
             DeepCacheManager.markVisited(player);
         }
@@ -120,11 +140,10 @@ public final class ModDimensions {
                 BlockPos under = ground.below();
                 BlockPos feet = ground.above();
                 BlockPos head = feet.above();
-                if (!level.getBlockState(under).blocksMotion()) {
+                if (level.getBlockState(under).isAir()) {
                     level.setBlockAndUpdate(under, fill);
                 }
-                if (!level.getBlockState(ground).blocksMotion()
-                        || !level.getBlockState(ground).getFluidState().isEmpty()) {
+                if (level.getBlockState(ground).isAir()) {
                     level.setBlockAndUpdate(ground, pad);
                 }
                 clearIfBlocking(level, feet);
@@ -135,8 +154,7 @@ public final class ModDimensions {
 
     private static void clearIfBlocking(ServerLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
-        if (!state.isAir() && (state.canBeReplaced() || state.blocksMotion() || !state.getCollisionShape(level, pos).isEmpty()
-                || !state.getFluidState().isEmpty())) {
+        if (!state.isAir() && state.canBeReplaced() && state.getFluidState().isEmpty() && level.getBlockEntity(pos) == null) {
             level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
         }
     }

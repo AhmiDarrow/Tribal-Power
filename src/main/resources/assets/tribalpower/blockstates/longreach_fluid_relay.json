@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tribalpower:block/longreach_fluid_relay"
+    }
+  }
+}

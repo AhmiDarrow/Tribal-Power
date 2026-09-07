@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:ritual_brazier",
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay",
+    "tribalpower:pulse_adapter",
+    "tribalpower:spirit_cistern"
+  ]
+}

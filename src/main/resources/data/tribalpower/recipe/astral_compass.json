@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " R ",
+    "SCS",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "tribalpower:march_crystal"
+    },
+    "S": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "C": {
+      "item": "tribalpower:horizon_compass"
+    }
+  },
+  "result": {
+    "id": "tribalpower:astral_compass",
+    "count": 1
+  }
+}

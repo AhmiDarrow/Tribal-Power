@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:resonant_core"
+    },
+    "title": "A living lattice",
+    "description": "Manifest a Resonant Core for advanced craft.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:resonant_core"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/manifest"
+}

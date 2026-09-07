@@ -61,6 +61,7 @@ public class DeepCacheContainer implements Container {
             return ItemStack.EMPTY;
         }
         items.set(slot, ItemStack.EMPTY);
+        setChanged();
         return stack;
     }
 

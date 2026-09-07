@@ -8,12 +8,12 @@ import net.minecraft.resources.ResourceLocation;
 import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.entity.SpiritWispEntity;
 
-public class SpiritWispRenderer extends MobRenderer<SpiritWispEntity, SilverfishModel<SpiritWispEntity>> {
+public class SpiritWispRenderer extends MobRenderer<SpiritWispEntity, MarchCreatureModel<SpiritWispEntity>> {
     private static final ResourceLocation TEXTURE =
             ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "textures/entity/spirit_wisp.png");
 
     public SpiritWispRenderer(EntityRendererProvider.Context context) {
-        super(context, new SilverfishModel<>(context.bakeLayer(ModelLayers.SILVERFISH)), 0.2F);
+        super(context, new MarchCreatureModel<>(context.bakeLayer(MarchCreatureModel.WISP), true), 0.12F);
     }
 
     @Override

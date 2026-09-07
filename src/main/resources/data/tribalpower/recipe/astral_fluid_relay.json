@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    "RMR",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:march_crystal"
+    },
+    "R": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "M": {
+      "item": "tribalpower:longreach_fluid_relay"
+    }
+  },
+  "result": {
+    "id": "tribalpower:astral_fluid_relay",
+    "count": 1
+  }
+}

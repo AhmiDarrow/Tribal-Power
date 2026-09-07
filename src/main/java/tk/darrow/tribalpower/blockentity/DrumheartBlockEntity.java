@@ -16,6 +16,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler {
 
     private final PulseStorage pulse = new PulseStorage(CAPACITY);
     private int redstoneCooldown;
+    private long lastManualBeat = -100;
 
     public DrumheartBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DRUMHEART.get(), pos, state);
@@ -28,7 +29,18 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler {
     }
 
     public int drumBeat() {
-        int gained = insertPulse(BEAT_GAIN, false);
+        long now = level == null ? 0 : level.getGameTime();
+        long interval = now - lastManualBeat;
+        if (interval < 8) return 0;
+        boolean inTime = interval >= 17 && interval <= 23;
+        lastManualBeat = now;
+        int gained = insertPulse(inTime ? 24 : BEAT_GAIN, false);
+        if (level instanceof net.minecraft.server.level.ServerLevel server) {
+            tk.darrow.tribalpower.effect.SpiritEffects.ring(server, worldPosition.getCenter().add(0, 0.4, 0),
+                    tk.darrow.tribalpower.api.pulse.Attunement.EARTH, inTime ? 1 : 0.55, inTime ? 16 : 8);
+            server.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.NOTE_BLOCK_BASEDRUM.value(),
+                    net.minecraft.sounds.SoundSource.BLOCKS, 0.65F, inTime ? 1.3F : 0.9F);
+        }
         setChanged();
         return gained;
     }
@@ -81,6 +93,6 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         pulse.load(tag);
-        redstoneCooldown = tag.getInt("RedstoneCooldown");
+        redstoneCooldown = net.minecraft.util.Mth.clamp(tag.getInt("RedstoneCooldown"), 0, 8);
     }
 }

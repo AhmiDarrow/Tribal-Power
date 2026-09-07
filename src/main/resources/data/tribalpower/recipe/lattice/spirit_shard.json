@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_attune",
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "id": "tribalpower:spirit_shard",
+    "count": 1
+  },
+  "attunement": "fire",
+  "seconds": 3,
+  "pulse_per_second": 8
+}

@@ -1,47 +1,180 @@
 {
   "book": "Spirit Codex",
   "chapters": [
-    {"id": "intro", "title": "Shamanic Technomancy", "text": "Steward-tribes of the Loom braid spirit and craft. Pulse, totem lattices, and Echo — not furnace magic."},
-    {"id": "origin", "title": "Loom-born Origin", "text": "They drummed Spirit Pulse into stone, raised Resonance Totems, and walked ore through Echo until metal remembered the tribe."},
-    {"id": "overview", "title": "What You Build", "text": "Drums, ley, and Pulse Resonator for Pulse; totems and Song Bench for songs; seals for rites; Pulse Cells for Spiritgear; Gate Drum for The March."},
-    {"id": "pulse", "title": "Spirit Pulse", "text": "Rhythmic beats stored by PulseHandlers. Drumheart for bursts; Ley Collector for ambient trickle; Pulse Resonator burns coal for denser beats."},
-    {"id": "reading_pulse", "title": "Reading Pulse", "text": "Drumheart, Ley, Resonator, and Song Bench report fill and stalls. Not FE/RF."},
-    {"id": "drumheart", "title": "Drumheart", "text": "Empty-hand drum to store Pulse. Redstone edges and idle trickle also add beats."},
-    {"id": "charging_cells", "title": "Charging Cells", "text": "Use a Pulse Cell on a Drumheart or Pulse Resonator to transfer up to 25 Pulse per click."},
-    {"id": "pulse_cells", "title": "Pulse Cells", "text": "Portable buffers (200). Spiritgear, Gate Drum, and Deep Cache can drink them."},
-    {"id": "ley", "title": "Ley Collector", "text": "Ambient Pulse tap (~2 / 40 ticks). Song Bench prefers generators before Totem buffers."},
-    {"id": "resonator", "title": "Pulse Resonator", "text": "Burns coal/charcoal (~4 Pulse / 20 ticks while lit). Feed by right-click; status empty-hand; shift-click removes fuel. Lattice treats it as a generator."},
-    {"id": "lattice", "title": "Totem Lattice", "text": "Resonance Totems within 8 of a Song Bench. Ritual Chalk seals lasting links within 16 blocks."},
-    {"id": "attunements", "title": "Attunements", "text": "Earth, Fire, Water, Air, Spirit. Match Echo stages to nearby totems."},
-    {"id": "chalk", "title": "Ritual Chalk", "text": "Mark two Resonance Totems to seal a bidirectional lattice link."},
-    {"id": "conductor", "title": "Lattice Conductor", "text": "Near chalk-linked totems: right-click routes Pulse from Drumheart/Ley/Resonator into totem buffers, assists Song Benches, and can move Echo grit to Ancestral Caches."},
-    {"id": "song", "title": "Song Bench", "text": "Seat one feed item, empty-hand click to sing, shift-click to remove."},
-    {"id": "song_status", "title": "Song Status", "text": "Reports Pulse, totem, and attunement stalls."},
-    {"id": "echo", "title": "Echo Loop", "text": "Shatter (Earth) → Attune (Fire) → Bind (Water) → Manifest (Spirit). Live on Song Bench only."},
-    {"id": "shatter", "title": "Shatter", "text": "Raw ores/cobble/iron-like → Echo Shard under Earth."},
-    {"id": "attune", "title": "Attune", "text": "Echo Shard → Attuned Echo under Fire."},
-    {"id": "bind", "title": "Bind", "text": "Attuned Echo → Bound Echo under Water; drinks Pulse each tick."},
-    {"id": "manifest", "title": "Manifest", "text": "Bound Echo → Manifested Ingot under Spirit."},
-    {"id": "echo_stations", "title": "Echo Stations", "text": "Shrine markers only — they do not process ores."},
-    {"id": "ancestral", "title": "Ancestral Cache", "text": "Local camp storage for reagents, seals, and cells."},
-    {"id": "deep", "title": "Deep Cache", "text": "March-linked vault; Pulse can form a temporary spirit link."},
-    {"id": "rites", "title": "Seals & Rites", "text": "Offer elemental seals on a Rite Pedestal; the seal is consumed."},
-    {"id": "earth_rite", "title": "Earth Rite", "text": "Guard, root hostiles, firm footing into paths."},
-    {"id": "fire_rite", "title": "Fire Rite", "text": "Fire ward, ignite foes, melt ice, light campfires."},
-    {"id": "water_rite", "title": "Water Rite", "text": "Breath, grace, quench flames, moisten farmland."},
-    {"id": "air_rite", "title": "Air Rite", "text": "Soft fall, speed, gust knockback, clear rain."},
-    {"id": "spirit_rite", "title": "Spirit Rite", "text": "Regen, sight, cleanse, heal allies, reveal foes."},
-    {"id": "amplified", "title": "Amplified Rites", "text": "8+ Pulse in cells deepens pedestal workings."},
-    {"id": "spiritgear", "title": "Spiritgear", "text": "Pick, axe, shovel, blade fueled by Pulse Cells."},
-    {"id": "spiritgear_costs", "title": "Spiritgear Costs", "text": "Mine 2, use-on 1, blade hit 3. Fueled spares durability; blade adds echo damage."},
-    {"id": "pulse_attunement", "title": "Pulse Attunement", "text": "Mining enchantment that raises spirit-tuned efficiency."},
-    {"id": "echo_edge", "title": "Echo Edge", "text": "Weapon enchantment: extra damage and Glow mark."},
-    {"id": "gate", "title": "Gate Drum", "text": "Charge with Pulse, then travel Overworld ↔ The March."},
-    {"id": "march", "title": "The March", "text": "Noise otherworld of teal hills — Steppe, Highlands, Crystal Fields — with woods, ore bands, blooms, wisps, and walkers."},
-    {"id": "march_mats", "title": "March Materials", "text": "March blocks for builds that remember the otherworld."},
-    {"id": "crafting", "title": "Crafting Notes", "text": "Chimes, copper resonators, shards unlock machines including the Pulse Resonator; Echo grit comes from the Song Bench."},
-    {"id": "camp", "title": "Camp Layout", "text": "Drum, ley, or resonator by the bench; chalk-linked totem ring with Conductor; echo shrines; pedestal hearth; gate at the edge."},
-    {"id": "safety", "title": "Safety", "text": "Pulse ≠ FE. Burn coal in a Resonator when ley is thin — keep the drum honest."},
-    {"id": "credits", "title": "Credits", "text": "Tribal Power — Ahmi & Risika Darrow. Shamanic Technomancy for steward-tribes of the Loom."}
+    {
+      "id": "chapter_1",
+      "title": "Spirit Codex",
+      "text": "Shamanic technomancy begins with a rhythm. Raise a camp that answers you: living power, elemental workshops, woven equipment and paths between worlds."
+    },
+    {
+      "id": "chapter_2",
+      "title": "First camp",
+      "text": "Craft a Bone Chime, Spirit Shard and Drumheart. Add a Pulse Cell. JEI shows crafting recipes; every system also works without another mod installed."
+    },
+    {
+      "id": "chapter_3",
+      "title": "Spirit Pulse",
+      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers."
+    },
+    {
+      "id": "chapter_4",
+      "title": "Drumheart",
+      "text": "Strike empty-handed. Beats about one second apart yield 24 Pulse; offbeat hits yield 10. Redstone rising edges give 5, with an 8-tick cooldown. Build a clock to automate rhythm."
+    },
+    {
+      "id": "chapter_5",
+      "title": "Ley Collector",
+      "text": "Open sky, night, rain, nearby water and living greenery strengthen collection. Place it thoughtfully. A redstone signal pauses generation."
+    },
+    {
+      "id": "chapter_6",
+      "title": "Pulse Resonator",
+      "text": "Seat an Echo catalyst and place at least two different elemental totems within 8 blocks. More distinct voices and stronger catalysts increase generation. The catalyst is reusable."
+    },
+    {
+      "id": "chapter_7",
+      "title": "Harmonic ranks",
+      "text": "Catalysts: Echo Shard, Attuned Echo, Bound Echo, Resonant Core. Coal and wood are not fuels. Sneak with an empty hand to recover the catalyst. Redstone pauses generation."
+    },
+    {
+      "id": "chapter_8",
+      "title": "Carry the beat",
+      "text": "Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel."
+    },
+    {
+      "id": "chapter_9",
+      "title": "Five voices",
+      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Place the needed totem within 8 blocks of the station; missing voices pause work safely."
+    },
+    {
+      "id": "chapter_10",
+      "title": "Chalk and conductor",
+      "text": "Mark two totems with Ritual Chalk to link them within 16 blocks. A Conductor moves Pulse through linked totems and routes Song Bench items through nearby Ancestral Caches."
+    },
+    {
+      "id": "chapter_11",
+      "title": "Echo workshops",
+      "text": "The four Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work."
+    },
+    {
+      "id": "chapter_12",
+      "title": "Shatter",
+      "text": "Earth turns stone into Echo Shards. Raw iron, copper and gold become two grits each. Smelt or blast grits into ingots. Shared raw-material tags accept compatible ores from other mods."
+    },
+    {
+      "id": "chapter_13",
+      "title": "Attune and Bind",
+      "text": "Fire turns Echo Shards into Attuned Echoes. Water binds them into Bound Echoes. Bind also turns wool into Spiritweave and dirt into clay. Check JEI for time and Pulse costs."
+    },
+    {
+      "id": "chapter_14",
+      "title": "Manifest",
+      "text": "Spirit turns Bound Echoes into Manifested Ingots, then ingots into Resonant Cores. Cores unlock stronger cells, equipment and long-distance automation."
+    },
+    {
+      "id": "chapter_15",
+      "title": "Song Bench",
+      "text": "The original single-item workshop remains. Insert an Echo-stage ingredient and click empty-handed to sing; sneak-click to retrieve it. Dedicated Echo stations are better for sustained batches."
+    },
+    {
+      "id": "chapter_16",
+      "title": "Ancestral Cache",
+      "text": "A local 54-slot inventory for camp supplies. Hoppers and item pipes work normally. A redstone signal locks access and automation. A comparator reads how full it is."
+    },
+    {
+      "id": "chapter_17",
+      "title": "Deep Cache",
+      "text": "A personal 54-slot vault shared between your Deep Caches. Visiting The March attunes you; otherwise opening costs 5 Pulse. A Wayfarer Satchel opens the same personal vault."
+    },
+    {
+      "id": "chapter_18",
+      "title": "Spirit Cistern",
+      "text": "Stores 16 buckets of one fluid. Buckets and standard fluid pipes both work. Redstone locks filling and draining, including remote relays. A comparator reads fullness."
+    },
+    {
+      "id": "chapter_19",
+      "title": "Wireless cargo",
+      "text": "Place an item or fluid relay above its source inventory or tank. Use the Lattice Tuner on a destination face, then on the relay. Sneak-use the tuner to replace a previous mark."
+    },
+    {
+      "id": "chapter_20",
+      "title": "Cargo tiers",
+      "text": "Local relays reach 32 blocks. Longreach relays reach 128. Astral relays have no distance limit and can cross dimensions. Transfers cost 4, 8 or 16 Pulse per successful beat."
+    },
+    {
+      "id": "chapter_21",
+      "title": "Cargo rhythm",
+      "text": "Each second, a relay moves up to 16 items or 250 mB. Both ends must already be loaded. Unloaded or full destinations pause safely. Relays never keep distant chunks loaded themselves."
+    },
+    {
+      "id": "chapter_22",
+      "title": "Cargo controls",
+      "text": "Redstone pauses a relay. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring. Lock the receiver with redstone when you need a remote stop. Bound links survive pickup."
+    },
+    {
+      "id": "chapter_23",
+      "title": "Pulse to FE",
+      "text": "The Pulse Adapter converts 1 Pulse into 100 FE, up to 20 Pulse each second. It buffers 16,000 FE and exports to standard energy receivers. Redstone stops conversion and extraction."
+    },
+    {
+      "id": "chapter_24",
+      "title": "Waystone paths",
+      "text": "Sneak-use a compass on the top of a solid floor to bind a landing. Use it to return. Keep two clear dry blocks above the floor. Power the landing floor with redstone to lock arrival."
+    },
+    {
+      "id": "chapter_25",
+      "title": "Travel tiers",
+      "text": "Waystone Compass: 128 blocks, same world, 20 Pulse. Horizon Compass: any distance in one world, 40 Pulse. Astral Compass: across dimensions, 100 Pulse. Travel has a 5-second cooldown."
+    },
+    {
+      "id": "chapter_26",
+      "title": "The March",
+      "text": "The Gate Drum opens the way to The March. Bring charged cells and prepare a return route. March materials unlock Astral transport, the final tier for both travellers and cargo."
+    },
+    {
+      "id": "chapter_27",
+      "title": "Fivefold Staff",
+      "text": "Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies."
+    },
+    {
+      "id": "chapter_28",
+      "title": "Staff costs",
+      "text": "Earth 12, Fire 18, Water 24, Air 16, Spirit 20 Pulse. Water rests for 8 seconds; other voices for 2. Offensive spells target hostile creatures and stop at solid obstacles."
+    },
+    {
+      "id": "chapter_29",
+      "title": "Resonance Maul",
+      "text": "Hold the maul in your main hand. Sneak-use a stone face to excavate a 3-by-3 plane. Each block costs 8 Pulse. Tool requirements and normal player block protection still apply."
+    },
+    {
+      "id": "chapter_30",
+      "title": "Spiritweave",
+      "text": "Hood: night sight. Robe: resistance. Leggings: speed. Boots: slow falling when descending. Each active piece spends 2 Pulse every four seconds. Carry spare cells for long expeditions."
+    },
+    {
+      "id": "chapter_31",
+      "title": "Ritual Brazier",
+      "text": "Seat a reusable elemental seal. With its matching totem and Pulse nearby, the brazier sustains a blessing for players within 6 blocks. It spends 8 Pulse every two seconds."
+    },
+    {
+      "id": "chapter_32",
+      "title": "Camp blessings",
+      "text": "Earth grants haste; Fire resists flame; Water regenerates; Air slows falls; Spirit grants night sight. Redstone pauses the brazier. Sneak empty-handed to recover its seal."
+    },
+    {
+      "id": "chapter_33",
+      "title": "Redstone language",
+      "text": "High signal pauses workshops, conductors, resonators, collectors, relays and braziers; it locks storage and travel destinations. The Drumheart instead listens for rising edges to make beats."
+    },
+    {
+      "id": "chapter_34",
+      "title": "Read the camp",
+      "text": "Comparators read stored Pulse, inventory or fluid fullness, FE buffer, and relay activity. A pause keeps stored resources intact. Use clocks, levers and comparators to choreograph the camp."
+    },
+    {
+      "id": "chapter_35",
+      "title": "Other workshops",
+      "text": "Lattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed."
+    }
   ]
 }

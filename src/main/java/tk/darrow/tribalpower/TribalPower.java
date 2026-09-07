@@ -25,11 +25,28 @@ public final class TribalPower {
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModEntities.ENTITIES.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
+        tk.darrow.tribalpower.echo.StationMenu.MENUS.register(modBus);
+        tk.darrow.tribalpower.echo.LatticeRecipe.TYPES.register(modBus);
+        tk.darrow.tribalpower.echo.LatticeRecipe.SERIALIZERS.register(modBus);
+        tk.darrow.tribalpower.item.SpiritweaveArmor.MATERIALS.register(modBus);
 
         modBus.addListener(this::onCommonSetup);
         modBus.addListener(ModEntityAttributes::onAttributes);
         modBus.addListener(ModEntityAttributes::onSpawnPlacements);
         NeoForge.EVENT_BUS.register(ModDimensions.class);
+        modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntities.SPIRIT_CISTERN.get(), (be, side) -> be.tank);
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
+                    ModBlockEntities.PULSE_ADAPTER.get(), (be, side) -> be.handler);
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.ECHO_STATION.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                            side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                    : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.ANCESTRAL_CACHE.get(), (be, side) -> new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be, new net.neoforged.neoforge.items.wrapper.InvWrapper(be)));
+        });
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {

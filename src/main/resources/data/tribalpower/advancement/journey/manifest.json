@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:manifested_ingot"
+    },
+    "title": "Metal with a memory",
+    "description": "Walk an echo through all four stages.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:manifested_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/bind"
+}

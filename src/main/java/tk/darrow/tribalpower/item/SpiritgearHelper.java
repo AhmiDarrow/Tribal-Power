@@ -26,31 +26,40 @@ public final class SpiritgearHelper {
     }
 
     public static boolean tryConsumePulse(Player player, int amount) {
-        if (amount <= 0 || player.getAbilities().instabuild) {
-            return true;
-        }
-        if (availablePulse(player) < amount) {
-            return false;
-        }
-
-        int remaining = amount;
-        remaining -= drainHand(player.getOffhandItem(), remaining);
-        if (remaining > 0) {
-            remaining -= drainHand(player.getMainHandItem(), remaining);
-        }
-        if (remaining > 0) {
-            for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
-                remaining -= PulseCellItem.extractPulse(player.getInventory().getItem(i), remaining, false);
-            }
-        }
-        return remaining <= 0;
+        return reservePulse(player, amount) != null;
     }
 
-    private static int drainHand(ItemStack stack, int amount) {
-        if (amount <= 0 || !(stack.getItem() instanceof PulseCellItem)) {
-            return 0;
+    /** A refundable charge for actions that other mods can cancel. */
+    public static PulseCharge reservePulse(Player player, int amount) {
+        var charge = new PulseCharge(player);
+        if (amount <= 0 || player.getAbilities().instabuild) return charge;
+        if (availablePulse(player) < amount) return null;
+        int remaining = amount;
+        remaining -= charge.drain(player.getOffhandItem(), remaining);
+        remaining -= charge.drain(player.getMainHandItem(), remaining);
+        for (int i = 0; i < player.getInventory().getContainerSize() && remaining > 0; i++) {
+            remaining -= charge.drain(player.getInventory().getItem(i), remaining);
         }
-        return PulseCellItem.extractPulse(stack, amount, false);
+        player.getInventory().setChanged();
+        if (remaining > 0) { charge.refund(); return null; }
+        return charge;
+    }
+
+    public static final class PulseCharge {
+        private record Drain(ItemStack stack, int amount) {}
+        private final Player player;
+        private final java.util.List<Drain> drains = new java.util.ArrayList<>();
+        private PulseCharge(Player player) { this.player = player; }
+        private int drain(ItemStack stack, int amount) {
+            int taken = PulseCellItem.extractPulse(stack, amount, false);
+            if (taken > 0) drains.add(new Drain(stack, taken));
+            return taken;
+        }
+        public void refund() {
+            for (Drain drain : drains) PulseCellItem.insertPulse(drain.stack(), drain.amount(), false);
+            drains.clear();
+            player.getInventory().setChanged();
+        }
     }
 
     public static void notifyStarved(Player player) {

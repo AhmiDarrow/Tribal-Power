@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:bone_chime"
+    },
+    "title": "A beat in the quiet",
+    "description": "Craft a Bone Chime. The first rhythm belongs to you.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "tribalpower:textures/block/march_stone.png"
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:bone_chime"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

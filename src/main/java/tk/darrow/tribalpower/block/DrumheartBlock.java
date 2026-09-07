@@ -31,7 +31,7 @@ public class DrumheartBlock extends BaseEntityBlock {
     public static final MapCodec<DrumheartBlock> CODEC = simpleCodec(DrumheartBlock::new);
 
     public DrumheartBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     @Override
@@ -62,7 +62,7 @@ public class DrumheartBlock extends BaseEntityBlock {
         if (stack.getItem() instanceof PulseCellItem
                 && level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum) {
             if (!level.isClientSide) {
-                int want = Math.min(25, PulseCellItem.CAPACITY - PulseCellItem.getPulse(stack));
+                int want = Math.min(25, PulseCellItem.capacity(stack) - PulseCellItem.getPulse(stack));
                 int taken = drum.extractPulse(want, false);
                 int filled = PulseCellItem.insertPulse(stack, taken, false);
                 if (filled < taken) {
@@ -72,7 +72,7 @@ public class DrumheartBlock extends BaseEntityBlock {
                         "message.tribalpower.pulse_cell.charge",
                         filled,
                         PulseCellItem.getPulse(stack),
-                        PulseCellItem.CAPACITY,
+                        PulseCellItem.capacity(stack),
                         drum.getPulseStored()
                 ), true);
             }
@@ -113,5 +113,13 @@ public class DrumheartBlock extends BaseEntityBlock {
         if (level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum && random.nextInt(4) == 0) {
             drum.insertPulse(1, false);
         }
+    }
+    @Override
+    protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
+    @Override
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof tk.darrow.tribalpower.api.pulse.PulseHandler pulse)
+            return pulse.getPulseStored() == 0 ? 0 : 1 + 14 * pulse.getPulseStored() / Math.max(1, pulse.getPulseCapacity());
+        return 0;
     }
 }

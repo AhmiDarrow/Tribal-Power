@@ -17,102 +17,52 @@ import tk.darrow.tribalpower.api.pulse.PulseStorage;
 import tk.darrow.tribalpower.block.PulseResonatorBlock;
 
 /**
- * Fueled Spirit Pulse generator — burns coal/charcoal as a Ley Collector alternative.
+ * Harmonic generator: a reusable Echo catalyst amplifies distinct nearby totem voices.
  */
 public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, Container {
     public static final int CAPACITY = 2500;
     public static final int GAIN_INTERVAL = 20;
-    public static final int GAIN_AMOUNT = 4;
-    public static final int COAL_BURN_TICKS = 1600;
     public static final int SLOT = 0;
 
     private final PulseStorage pulse = new PulseStorage(CAPACITY);
     private NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
-    private int burnTime;
-    private int burnDuration;
-    private int tickCounter;
+    private int harmonics;
+    private int gain;
 
     public PulseResonatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PULSE_RESONATOR.get(), pos, state);
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PulseResonatorBlockEntity be) {
-        boolean wasLit = be.isBurning();
-
-        if (be.burnTime > 0) {
-            be.burnTime--;
-            be.tickCounter++;
-            if (be.tickCounter >= GAIN_INTERVAL) {
-                be.tickCounter = 0;
-                if (be.insertPulse(GAIN_AMOUNT, false) > 0) {
-                    be.setChanged();
-                }
-            }
-        } else {
-            be.tickCounter = 0;
-        }
-
-        if (be.burnTime <= 0 && be.canStartBurn()) {
-            be.consumeFuel();
-        }
-
-        boolean lit = be.isBurning();
-        if (wasLit != lit) {
-            level.setBlock(pos, state.setValue(PulseResonatorBlock.LIT, lit), 3);
-            be.setChanged();
-        } else if (lit) {
-            be.setChanged();
-        }
+        if ((level.getGameTime() + pos.asLong()) % GAIN_INTERVAL != 0) return;
+        var voices = java.util.EnumSet.noneOf(tk.darrow.tribalpower.api.pulse.Attunement.class);
+        for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
+            voices.add(totem.getAttunement());
+        be.harmonics = voices.size();
+        int rank = catalystRank(be.items.get(SLOT));
+        be.gain = rank > 0 && be.harmonics >= 2 && !level.hasNeighborSignal(pos) ? 2 * be.harmonics + 2 * rank : 0;
+        boolean sounding = be.gain > 0 && be.insertPulse(be.gain, false) > 0;
+        if (state.getValue(PulseResonatorBlock.LIT) != sounding)
+            level.setBlock(pos, state.setValue(PulseResonatorBlock.LIT, sounding), 3);
+        if (sounding && level instanceof net.minecraft.server.level.ServerLevel server)
+            tk.darrow.tribalpower.effect.SpiritEffects.ring(server, pos.getCenter().add(0, 0.4, 0),
+                    tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT, 0.65, 8);
     }
 
-    public boolean isBurning() {
-        return burnTime > 0;
-    }
-
-    public int getBurnTime() {
-        return burnTime;
-    }
-
-    public int getBurnDuration() {
-        return burnDuration;
-    }
-
-    public static boolean isFuel(ItemStack stack) {
-        return stack.is(Items.COAL) || stack.is(Items.CHARCOAL);
-    }
-
-    public static int burnTicksFor(ItemStack stack) {
-        if (stack.is(Items.COAL) || stack.is(Items.CHARCOAL)) {
-            return COAL_BURN_TICKS;
-        }
+    public int getGain() { return gain; }
+    public int getHarmonics() { return harmonics; }
+    public static int catalystRank(ItemStack stack) {
+        if (stack.is(tk.darrow.tribalpower.item.ModItems.RESONANT_CORE.get())) return 4;
+        if (stack.is(tk.darrow.tribalpower.item.ModItems.BOUND_ECHO.get())) return 3;
+        if (stack.is(tk.darrow.tribalpower.item.ModItems.ATTUNED_ECHO.get())) return 2;
+        if (stack.is(tk.darrow.tribalpower.item.ModItems.ECHO_SHARD.get())) return 1;
         return 0;
     }
+    public static boolean isCatalyst(ItemStack stack) { return catalystRank(stack) > 0; }
 
-    private boolean canStartBurn() {
-        if (!isFuel(items.get(SLOT))) {
-            return false;
-        }
-        return pulse.getPulseStored() < pulse.getPulseCapacity();
-    }
-
-    private void consumeFuel() {
-        ItemStack fuel = items.get(SLOT);
-        int ticks = burnTicksFor(fuel);
-        if (ticks <= 0) {
-            return;
-        }
-        fuel.shrink(1);
-        if (fuel.isEmpty()) {
-            items.set(SLOT, ItemStack.EMPTY);
-        }
-        burnTime = ticks;
-        burnDuration = ticks;
-        setChanged();
-    }
-
-    /** Insert one fuel item from the held stack; returns true if accepted. */
-    public boolean acceptFuel(ItemStack stack) {
-        if (!isFuel(stack)) {
+    /** Seat one reusable Echo catalyst from the held stack; returns true if accepted. */
+    public boolean acceptCatalyst(ItemStack stack) {
+        if (!isCatalyst(stack)) {
             return false;
         }
         ItemStack slot = items.get(SLOT);
@@ -121,16 +71,10 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
             setChanged();
             return true;
         }
-        if (ItemStack.isSameItemSameComponents(slot, stack) && slot.getCount() < slot.getMaxStackSize()) {
-            slot.grow(1);
-            stack.shrink(1);
-            setChanged();
-            return true;
-        }
         return false;
     }
 
-    public ItemStack takeFuel() {
+    public ItemStack takeCatalyst() {
         ItemStack taken = items.get(SLOT);
         items.set(SLOT, ItemStack.EMPTY);
         if (!taken.isEmpty()) {
@@ -139,7 +83,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         return taken;
     }
 
-    public int fuelCount() {
+    public int catalystCount() {
         return items.get(SLOT).getCount();
     }
 
@@ -218,7 +162,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return isFuel(stack);
+        return isCatalyst(stack);
     }
 
     @Override
@@ -226,9 +170,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         super.saveAdditional(tag, registries);
         pulse.save(tag);
         ContainerHelper.saveAllItems(tag, items, registries);
-        tag.putInt("BurnTime", burnTime);
-        tag.putInt("BurnDuration", burnDuration);
-        tag.putInt("TickCounter", tickCounter);
+
     }
 
     @Override
@@ -237,8 +179,6 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         pulse.load(tag);
         items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
-        burnTime = tag.getInt("BurnTime");
-        burnDuration = tag.getInt("BurnDuration");
-        tickCounter = tag.getInt("TickCounter");
+        // Legacy stored coal is retained for extraction, but no longer generates Pulse.
     }
 }

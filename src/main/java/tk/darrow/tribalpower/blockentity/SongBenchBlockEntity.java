@@ -19,7 +19,10 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 /**
  * Lattice hub that advances Echo-stage materials when Pulse and the right attunement are present.
  */
-public class SongBenchBlockEntity extends BlockEntity implements Container {
+public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer {
+    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return new int[]{SLOT}; }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && canPlaceItem(slot, stack); }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && !singing; }
     public static final int SLOT = 0;
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
 
@@ -34,11 +37,18 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SongBenchBlockEntity be) {
-        if (!be.singing) {
+        if (!be.singing || level.hasNeighborSignal(pos)) {
             return;
         }
 
         ItemStack stack = be.items.get(SLOT);
+        // Other mods and saved data can bypass slot limits. Preserve excess input for recovery.
+        if (stack.getCount() > 1) {
+            be.singing = false;
+            be.progress = 0;
+            be.setChanged();
+            return;
+        }
         EchoStage stage = EchoStage.forInput(stack);
         if (stage == null) {
             be.stall("empty");
@@ -171,6 +181,7 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
     }
 
     public ItemStack takeItem() {
+        if (level != null && level.hasNeighborSignal(worldPosition)) return ItemStack.EMPTY;
         ItemStack stack = items.get(SLOT);
         if (stack.isEmpty()) {
             return ItemStack.EMPTY;
@@ -183,6 +194,7 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
     }
 
     public boolean insertItem(ItemStack stack) {
+        if (level != null && level.hasNeighborSignal(worldPosition)) return false;
         if (stack.isEmpty() || !EchoStage.isProcessable(stack) || !items.get(SLOT).isEmpty()) {
             return false;
         }
@@ -198,6 +210,9 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
     public int getContainerSize() {
         return 1;
     }
+
+    @Override
+    public int getMaxStackSize() { return 1; }
 
     @Override
     public boolean isEmpty() {
@@ -221,7 +236,13 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
 
     @Override
     public ItemStack removeItemNoUpdate(int slot) {
-        return ContainerHelper.takeItem(items, slot);
+        ItemStack removed = ContainerHelper.takeItem(items, slot);
+        if (!removed.isEmpty()) {
+            progress = 0;
+            singing = false;
+            setChanged();
+        }
+        return removed;
     }
 
     @Override
@@ -265,6 +286,8 @@ public class SongBenchBlockEntity extends BlockEntity implements Container {
         ContainerHelper.loadAllItems(tag, items, registries);
         singing = tag.getBoolean("Singing");
         progress = tag.getInt("Progress");
+        EchoStage stage = EchoStage.forInput(items.get(SLOT));
+        if (stage == null || progress < 0 || progress >= stage.workTicks()) progress = 0;
         linkedTotems = tag.getInt("LinkedTotems");
         stallReason = tag.getString("StallReason");
     }

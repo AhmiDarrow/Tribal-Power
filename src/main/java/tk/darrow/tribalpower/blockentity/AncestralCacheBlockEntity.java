@@ -15,8 +15,12 @@ import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity {
-    public static final int SIZE = 27;
+public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity implements net.minecraft.world.WorldlyContainer {
+    public static final int SIZE = 54;
+    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return java.util.stream.IntStream.range(0, SIZE).toArray(); }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition); }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition); }
+    @Override public boolean stillValid(Player player) { return super.stillValid(player) && !level.hasNeighborSignal(worldPosition); }
 
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
 
@@ -60,7 +64,7 @@ public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity 
 
     @Override
     protected AbstractContainerMenu createMenu(int id, Inventory inventory) {
-        return ChestMenu.threeRows(id, inventory, this);
+        return ChestMenu.sixRows(id, inventory, this);
     }
 
     @Override

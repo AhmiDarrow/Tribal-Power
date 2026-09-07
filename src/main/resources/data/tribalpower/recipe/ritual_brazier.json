@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "I I",
+    "CRC",
+    "SSS"
+  ],
+  "key": {
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ritual_brazier",
+    "count": 1
+  }
+}

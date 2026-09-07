@@ -29,7 +29,7 @@ public class GateDrumBlock extends BaseEntityBlock {
     public static final MapCodec<GateDrumBlock> CODEC = simpleCodec(GateDrumBlock::new);
 
     public GateDrumBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     @Override
@@ -76,6 +76,11 @@ public class GateDrumBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (level.hasNeighborSignal(pos)) {
+            if (!level.isClientSide) player.displayClientMessage(net.minecraft.network.chat.Component.translatable("message.tribalpower.redstone.locked"), true);
+            return InteractionResult.CONSUME;
+        }
+
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer
                 && level.getBlockEntity(pos) instanceof GateDrumBlockEntity drum) {
             if (player.isShiftKeyDown()) {
@@ -103,5 +108,13 @@ public class GateDrumBlock extends BaseEntityBlock {
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+    @Override
+    protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
+    @Override
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof tk.darrow.tribalpower.api.pulse.PulseHandler pulse)
+            return pulse.getPulseStored() == 0 ? 0 : 1 + 14 * pulse.getPulseStored() / Math.max(1, pulse.getPulseCapacity());
+        return 0;
     }
 }

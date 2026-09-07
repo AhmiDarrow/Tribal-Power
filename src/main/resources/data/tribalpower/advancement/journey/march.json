@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:gate_drum"
+    },
+    "title": "Beyond the veil",
+    "description": "Build a Gate Drum to reach The March.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tribalpower:gate_drum"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/ritual"
+}

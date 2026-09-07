@@ -26,7 +26,7 @@ public class AncestralCacheBlock extends BaseEntityBlock {
     public static final MapCodec<AncestralCacheBlock> CODEC = simpleCodec(AncestralCacheBlock::new);
 
     public AncestralCacheBlock(BlockBehaviour.Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     @Override
@@ -47,6 +47,11 @@ public class AncestralCacheBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (level.hasNeighborSignal(pos)) {
+            if (!level.isClientSide) player.displayClientMessage(net.minecraft.network.chat.Component.translatable("message.tribalpower.redstone.locked"), true);
+            return InteractionResult.CONSUME;
+        }
+
         if (!level.isClientSide) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof MenuProvider provider) {

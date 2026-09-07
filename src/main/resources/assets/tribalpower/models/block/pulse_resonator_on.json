@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "tribalpower:block/pulse_resonator",
   "textures": {
-    "all": "tribalpower:block/pulse_resonator_on"
+    "light": "tribalpower:block/loom_light"
   }
 }

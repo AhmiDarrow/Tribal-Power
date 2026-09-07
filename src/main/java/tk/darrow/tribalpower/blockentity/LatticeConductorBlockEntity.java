@@ -32,6 +32,7 @@ public class LatticeConductorBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, LatticeConductorBlockEntity be) {
+        if (level.hasNeighborSignal(pos)) return;
         be.tickCounter++;
         if (be.tickCounter % TICK_INTERVAL != 0) {
             return;
@@ -67,7 +68,7 @@ public class LatticeConductorBlockEntity extends BlockEntity {
             refundPulse(level, pos, taken - be.lastPulsePushed);
         }
 
-        if (be.tickCounter % ITEM_INTERVAL == 0 && be.lastPulsePushed > 0) {
+        if (be.tickCounter % ITEM_INTERVAL == 0 && hasRoutingPower(network, be.lastPulsePushed)) {
             List<AncestralCacheBlockEntity> caches = LatticeNetwork.findCachesNearHubs(level, hubs, RADIUS);
             be.lastItemRouted = LatticeNetwork.routeEchoItems(level, benches, caches);
         } else {
@@ -86,7 +87,7 @@ public class LatticeConductorBlockEntity extends BlockEntity {
             for (int dy = -RADIUS; dy <= RADIUS && remaining > 0; dy++) {
                 for (int dz = -RADIUS; dz <= RADIUS && remaining > 0; dz++) {
                     cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    var be = level.getBlockEntity(cursor);
+                    var be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
                     if (be instanceof DrumheartBlockEntity drum) {
                         remaining -= drum.insertPulse(remaining, false);
                     } else if (be instanceof LeyCollectorBlockEntity ley) {
@@ -99,10 +100,15 @@ public class LatticeConductorBlockEntity extends BlockEntity {
         }
     }
 
+    private static boolean hasRoutingPower(List<ResonanceTotemBlockEntity> network, int pushed) {
+        return pushed > 0 || network.stream().anyMatch(totem -> totem.getPulseStored() > 0);
+    }
+
     /**
      * Manual strike: report network and burst-transfer Pulse into linked totem buffers.
      */
     public Component conductOnce() {
+        if (level != null && level.hasNeighborSignal(worldPosition)) return Component.translatable("message.tribalpower.redstone.locked");
         if (level == null) {
             return Component.translatable("message.tribalpower.conductor.no_network");
         }
@@ -133,7 +139,7 @@ public class LatticeConductorBlockEntity extends BlockEntity {
             refundPulse(level, worldPosition, taken - lastPulsePushed);
         }
 
-        if (lastPulsePushed > 0) {
+        if (hasRoutingPower(network, lastPulsePushed)) {
             List<AncestralCacheBlockEntity> caches = LatticeNetwork.findCachesNearHubs(level, hubs, RADIUS);
             lastItemRouted = LatticeNetwork.routeEchoItems(level, benches, caches);
         } else {

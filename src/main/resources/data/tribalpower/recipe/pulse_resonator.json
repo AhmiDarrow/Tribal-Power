@@ -1,16 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "I": { "item": "minecraft:iron_ingot" },
-    "C": { "item": "minecraft:coal" },
-    "R": { "item": "tribalpower:copper_resonator" },
-    "S": { "item": "tribalpower:spirit_shard" }
-  },
+  "category": "equipment",
   "pattern": [
     "ICI",
     "RSR",
     "ICI"
   ],
-  "result": { "count": 1, "id": "tribalpower:pulse_resonator" }
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "R": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    }
+  },
+  "result": {
+    "id": "tribalpower:pulse_resonator",
+    "count": 1
+  }
 }

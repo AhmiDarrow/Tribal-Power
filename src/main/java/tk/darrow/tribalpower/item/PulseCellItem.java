@@ -16,18 +16,26 @@ import java.util.List;
 public class PulseCellItem extends Item {
     public static final int CAPACITY = 200;
     public static final String PULSE_KEY = "Pulse";
+    private final int capacity;
 
     public PulseCellItem(Properties properties) {
-        super(properties);
+        this(properties, CAPACITY);
     }
+
+    public PulseCellItem(Properties properties, int capacity) {
+        super(properties);
+        this.capacity = capacity;
+    }
+
+    public static int capacity(ItemStack stack) { return stack.getItem() instanceof PulseCellItem cell ? cell.capacity : 0; }
 
     public static int getPulse(ItemStack stack) {
         CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        return Mth.clamp(data.copyTag().getInt(PULSE_KEY), 0, CAPACITY);
+        return Mth.clamp(data.copyTag().getInt(PULSE_KEY), 0, capacity(stack));
     }
 
     public static void setPulse(ItemStack stack, int amount) {
-        int clamped = Mth.clamp(amount, 0, CAPACITY);
+        int clamped = Mth.clamp(amount, 0, capacity(stack));
         if (clamped <= 0) {
             CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.remove(PULSE_KEY));
             return;
@@ -40,7 +48,7 @@ public class PulseCellItem extends Item {
             return 0;
         }
         int stored = getPulse(stack);
-        int accepted = Math.min(amount, CAPACITY - stored);
+        int accepted = Math.min(amount, capacity(stack) - stored);
         if (!simulate && accepted > 0) {
             setPulse(stack, stored + accepted);
         }
@@ -72,17 +80,17 @@ public class PulseCellItem extends Item {
 
     @Override
     public int getBarWidth(ItemStack stack) {
-        return Math.round(13.0F * getPulse(stack) / (float) CAPACITY);
+        return Math.round(13.0F * getPulse(stack) / (float) capacity(stack));
     }
 
     @Override
     public int getBarColor(ItemStack stack) {
-        float fill = getPulse(stack) / (float) CAPACITY;
+        float fill = getPulse(stack) / (float) capacity(stack);
         return Mth.hsvToRgb(0.50F, 0.65F, 0.55F + 0.45F * fill);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("item.tribalpower.pulse_cell.desc", getPulse(stack), CAPACITY));
+        tooltip.add(Component.translatable("item.tribalpower.pulse_cell.desc", getPulse(stack), capacity(stack)));
     }
 }

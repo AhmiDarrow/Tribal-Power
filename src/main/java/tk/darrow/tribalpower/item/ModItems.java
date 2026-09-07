@@ -103,4 +103,32 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> LEY_THISTLE = ITEMS.registerSimpleBlockItem("ley_thistle", ModBlocks.LEY_THISTLE);
 
     private ModItems() {}
+    public static final DeferredItem<BlockItem> SPIRIT_CISTERN = ITEMS.registerSimpleBlockItem("spirit_cistern", ModBlocks.SPIRIT_CISTERN);
+
+    public static final DeferredItem<BlockItem> ITEM_RELAY = ITEMS.registerSimpleBlockItem("item_relay", ModBlocks.ITEM_RELAY);
+    public static final DeferredItem<BlockItem> FLUID_RELAY = ITEMS.registerSimpleBlockItem("fluid_relay", ModBlocks.FLUID_RELAY);
+    public static final DeferredItem<BlockItem> LONGREACH_ITEM_RELAY = ITEMS.registerSimpleBlockItem("longreach_item_relay", ModBlocks.LONGREACH_ITEM_RELAY);
+    public static final DeferredItem<BlockItem> LONGREACH_FLUID_RELAY = ITEMS.registerSimpleBlockItem("longreach_fluid_relay", ModBlocks.LONGREACH_FLUID_RELAY);
+    public static final DeferredItem<BlockItem> ASTRAL_ITEM_RELAY = ITEMS.registerSimpleBlockItem("astral_item_relay", ModBlocks.ASTRAL_ITEM_RELAY);
+    public static final DeferredItem<BlockItem> ASTRAL_FLUID_RELAY = ITEMS.registerSimpleBlockItem("astral_fluid_relay", ModBlocks.ASTRAL_FLUID_RELAY);
+    public static final DeferredItem<BlockItem> PULSE_ADAPTER = ITEMS.registerSimpleBlockItem("pulse_adapter", ModBlocks.PULSE_ADAPTER);
+    public static final DeferredItem<LatticeTunerItem> LATTICE_TUNER = ITEMS.register("lattice_tuner", () -> new LatticeTunerItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<WaystoneCompassItem> WAYSTONE_COMPASS = ITEMS.register("waystone_compass", () -> new WaystoneCompassItem(new Item.Properties().stacksTo(1), 1));
+    public static final DeferredItem<WaystoneCompassItem> HORIZON_COMPASS = ITEMS.register("horizon_compass", () -> new WaystoneCompassItem(new Item.Properties().stacksTo(1), 2));
+    public static final DeferredItem<WaystoneCompassItem> ASTRAL_COMPASS = ITEMS.register("astral_compass", () -> new WaystoneCompassItem(new Item.Properties().stacksTo(1), 3));
+
+    public static final DeferredItem<Item> SPIRITWEAVE = ITEMS.registerSimpleItem("spiritweave");
+    public static final DeferredItem<Item> RESONANT_CORE = ITEMS.registerSimpleItem("resonant_core");
+    public static final DeferredItem<Item> IRON_GRIT = ITEMS.registerSimpleItem("iron_grit");
+    public static final DeferredItem<Item> GOLD_GRIT = ITEMS.registerSimpleItem("gold_grit");
+    public static final DeferredItem<Item> COPPER_GRIT = ITEMS.registerSimpleItem("copper_grit");
+    public static final DeferredItem<PulseCellItem> GREATER_PULSE_CELL = ITEMS.register("greater_pulse_cell", () -> new PulseCellItem(new Item.Properties().stacksTo(1), 1200));
+    public static final DeferredItem<SpiritStaffItem> SPIRIT_STAFF = ITEMS.register("spirit_staff", () -> new SpiritStaffItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<WayfarerSatchelItem> WAYFARER_SATCHEL = ITEMS.register("wayfarer_satchel", () -> new WayfarerSatchelItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<ResonanceMaulItem> RESONANCE_MAUL = ITEMS.register("resonance_maul", () -> new ResonanceMaulItem(new Item.Properties().durability(1024)));
+    public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_HOOD = ITEMS.register("spiritweave_hood", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_ROBE = ITEMS.register("spiritweave_robe", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_LEGGINGS = ITEMS.register("spiritweave_leggings", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_BOOTS = ITEMS.register("spiritweave_boots", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final DeferredItem<BlockItem> RITUAL_BRAZIER = ITEMS.registerSimpleBlockItem("ritual_brazier", ModBlocks.RITUAL_BRAZIER);
 }
