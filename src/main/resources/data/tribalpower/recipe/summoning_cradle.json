@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "BRB",
+    "WWW"
+  ],
+  "key": {
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "C": {
+      "item": "tribalpower:march_crystal"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "W": {
+      "item": "tribalpower:march_planks"
+    }
+  },
+  "result": {
+    "id": "tribalpower:summoning_cradle",
+    "count": 1
+  }
+}

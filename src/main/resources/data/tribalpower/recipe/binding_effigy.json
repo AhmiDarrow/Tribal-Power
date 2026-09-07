@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "SRS",
+    " E "
+  ],
+  "key": {
+    "B": {
+      "item": "tribalpower:bone_chime"
+    },
+    "S": {
+      "item": "tribalpower:spiritweave"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "E": {
+      "item": "tribalpower:bound_echo"
+    }
+  },
+  "result": {
+    "id": "tribalpower:binding_effigy",
+    "count": 1
+  }
+}

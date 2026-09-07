@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CMC",
+    "IRI",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:march_crystal"
+    },
+    "M": {
+      "item": "minecraft:ender_eye"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "S": {
+      "item": "tribalpower:march_stone"
+    }
+  },
+  "result": {
+    "id": "tribalpower:wayanchor",
+    "count": 1
+  }
+}

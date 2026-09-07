@@ -37,7 +37,7 @@ public final class VisualVerification {
     private static int codexStage;
     private static long codexNext;
     private static void codexTour(net.neoforged.neoforge.client.event.ScreenEvent.Render.Post event) {
-        if(!Boolean.getBoolean("tribalpower.codexVerification") || codexStage>=9)return;
+        if(!Boolean.getBoolean("tribalpower.codexVerification") || codexStage>=11)return;
         var mc=Minecraft.getInstance();
         if(codex==null && event.getScreen() instanceof net.minecraft.client.gui.screens.TitleScreen) {
             codex=new SpiritCodexScreen();mc.setScreen(codex);codexNext=System.currentTimeMillis()+3000;return;

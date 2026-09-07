@@ -24,6 +24,10 @@ public class RitualBrazierBlock extends BaseEntityBlock {
         return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.RITUAL_BRAZIER.get(), RitualBrazierBlockEntity::tick);
     }
     @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if(stack.getItem() instanceof tk.darrow.tribalpower.camp.BoundEffigyItem effigy){
+            effigy.useOn(new net.minecraft.world.item.context.UseOnContext(player,hand,hit));
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
         if (RitualBrazierBlockEntity.element(stack) == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
             if (!be.seal().isEmpty()) {

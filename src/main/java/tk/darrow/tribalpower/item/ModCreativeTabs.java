@@ -18,6 +18,7 @@ public final class ModCreativeTabs {
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                     .icon(() -> ModItems.SPIRIT_CODEX.get().getDefaultInstance())
                     .displayItems((params, out) -> {
+                        tk.darrow.tribalpower.camp.CampRegistry.ITEMS.getEntries().forEach(item->out.accept(item.get()));
                         out.accept(ModItems.SPIRIT_CODEX.get());
                         CreatureItems.REAGENTS.values().forEach(item -> out.accept(item.get()));
                         CreatureItems.EGGS.values().forEach(item -> out.accept(item.get()));

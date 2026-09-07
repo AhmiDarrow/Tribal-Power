@@ -45,3 +45,9 @@ Homepage / issues: see project links when published.
 ## The Returning Song
 
 Animated night auroras and a distinct March sky accompany three new breedable animals and ten hostile spirits. Brush the gentle fauna for renewable materials, recover guardian reagents, and return them to Echo processing. Overworld forests and swamps share some species with the March; its three biomes provide a route to every creature. Client settings control sky brightness and detail.
+
+## The Spirit Codex and the living camp
+
+The standalone Spirit Codex is an illustrated, interactive book with animated examples, search, bookmarks, creature portraits and live recipes. Advanced knowledge stays behind an explicit spoiler warning.
+
+Build Wayanchors for sustained chunks, Hush Totems for peaceful camp boundaries, Grove Tenders for crop automation, and Summoning Cradles for ritual-bound creatures. A harmless imprint and a three-voice ritual awaken each effigy with 512 successful summons before renewal. Failed attempts spend nothing. Spirit Lanterns, weather-reading Rain Chimes and storage Offering Tables make camp decorations useful. Redstone controls every device; compatible item pipes can supply and extract materials.

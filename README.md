@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.2.1.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.3.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites and paths between worlds. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,7 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 2.2.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v2.2.1)
+- [Current 2.3.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v2.3.0)
 - [Archived legacy 1.10.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/archive/legacy-1.10.2)
 - [Archived previous master](https://github.com/AhmiDarrow/Tribal-Power/tree/archive/master-before-2.2.1)
 - [Canonical CurseForge project](https://www.curseforge.com/minecraft/mc-mods/tribalpower) — project ID 1684851
@@ -49,7 +49,17 @@ Wireless relays pull from the inventory or tank below them. Mark a receiving blo
 2. **Longreach:** 128 blocks in the same dimension; 8 Pulse.
 3. **Astral:** unlimited distance, including other dimensions; 16 Pulse.
 
-Each beat transfers up to 16 items or 250 mB, once per second. Both endpoints must already be loaded. Automation never force-loads remote chunks. Full or unloaded destinations pause safely; pending fluid from a changing third-party receiver is retained.
+Each beat transfers up to 16 items or 250 mB, once per second. Both endpoints must already be loaded. Relays never force-load remote chunks; an explicitly powered Wayanchor can sustain an endpoint. Full or unloaded destinations pause safely; pending fluid from a changing third-party receiver is retained.
+
+## A camp that keeps working
+
+- **Wayanchor:** sustains its own ticking chunk for 16 Pulse/s, with a 2,400-Pulse buffer and a limit of 32 active anchors per dimension. Redstone, removal or exhausted power releases its ticket.
+- **Hush Totem:** prevents hostile spawning within 24 blocks for 8 Pulse/s. Existing mobs remain; commands and spawn eggs are exempt. Keep hostile summoning outside its ward.
+- **Grove Tender:** plants and harvests a 9-by-9 crop bed, at most one action per second. Planting costs 4 Pulse; harvest and replant costs 12. Seeds enter the top row; outputs leave below. Full storage preserves crops, and player protection events apply.
+- **Summoning Cradle:** use a Binding Effigy to harmlessly imprint one of 21 supported species. Awaken it at a Spirit-sealed Ritual Brazier with Earth, Air and Spirit voices, three Spiritweave and 200 Pulse. Each binding permits **512 successful summons**, then needs the ritual again. Every summon costs 80 Pulse and one Spiritweave; failed attempts consume nothing. The effigy preserves its count through saves and pickup. A comparator reads remaining binding strength. Eight nearby mobs pause summoning.
+- **Spirit Lantern, Rain Chime and Offering Table:** carved, functional decorations providing full light, weather signals and 27-slot storage. The chime reports clear/rain/thunder as 0/8/15.
+
+Redstone pauses every camp device and its inventory access. Farm, cradle and table expose standard item capabilities for hoppers, pipes and relays. All eight items have standalone recipes; Ninjacat Skies adds a connected camp quest branch and binding milestones.
 
 ## Paths for players
 

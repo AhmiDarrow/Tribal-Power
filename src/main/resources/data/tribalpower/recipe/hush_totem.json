@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "BEB",
+    "WWW"
+  ],
+  "key": {
+    "S": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    },
+    "E": {
+      "item": "tribalpower:echo_shard"
+    },
+    "W": {
+      "item": "tribalpower:march_planks"
+    }
+  },
+  "result": {
+    "id": "tribalpower:hush_totem",
+    "count": 1
+  }
+}

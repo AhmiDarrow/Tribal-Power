@@ -223,15 +223,31 @@ public final class SpiritCodexScreen extends Screen {
         g.fill(contentX+4,y,contentX+contentWidth-4,y+65,0xFF0C1922);
         boolean cargo=e.category().contains("transport"),work=e.category().equals("Workshops"),rites=e.category().contains("rites");
         String label=cargo?"LINK > TRANSFER > REST":work?"ATTUNE > PROCESS > COLLECT":rites?"CHARGE > CAST > RECOVER":"BEAT > GATHER > STORE";
+        if(e.category().equals("Camp stewardship"))label=switch(e.id()) {
+            case "camp_binding_effigy","camp_binding_ritual" -> "IMPRINT > AWAKEN > RENEW";
+            case "camp_summoning_cradle" -> "BIND > SUMMON > RENEW";
+            case "camp_grove_tender" -> "PLANT > GROW > HARVEST";
+            case "camp_wayanchor" -> "SUPPLY > SUSTAIN > RELEASE";
+            case "camp_hush_totem" -> "SUPPLY > WARD > REST";
+            default -> "PLACE > CONNECT > ENJOY";
+        };
         g.drawString(font,font.plainSubstrByWidth(label,contentWidth-16),x,y+6,TEAL,false);
         String first=cargo?"ancestral_cache":work?"minecraft:stone":rites?"pulse_cell":"drumheart";
         String last=cargo?"ancestral_cache":work?"echo_shard":rites?e.icon():"pulse_cell";
+        if(e.category().equals("Camp stewardship")) {
+            first=e.icon();last="pulse_cell";
+            if(e.id().equals("camp_summoning_cradle")){first="binding_effigy";last="summoning_cradle";}
+            if(e.id().equals("camp_binding_ritual")){first="ritual_brazier";last="binding_effigy";}
+            if(e.id().equals("camp_grove_tender")){first="minecraft:wheat_seeds";last="minecraft:wheat";}
+        }
         item(g,stack(first),x,y+29);item(g,stack(last),x+span-16,y+29);
         int lineStart=x+24,lineEnd=x+span-22;g.fill(lineStart,y+37,lineEnd,y+38,0xFF36555B);
         for(int n=0;n<4;n++){double phase=(t/4+n/4.0)%1;int dx=lineStart+(int)((lineEnd-lineStart)*phase);int dy=y+36+(int)(Math.sin(t+n)*3);g.fill(dx,dy,dx+3,dy+3,TEAL);}
         double progress=(t/6)%1;
         int movingX=lineStart+(int)((lineEnd-lineStart-16)*progress);
-        g.renderItem(stack(cargo?"minecraft:wheat":work?(progress<0.6?"minecraft:stone":"echo_shard"):"spirit_shard"),movingX,y+25);
+        String moving=cargo?"minecraft:wheat":work?(progress<0.6?"minecraft:stone":"echo_shard"):"spirit_shard";
+        if(e.category().equals("Camp stewardship"))moving=e.id().equals("camp_grove_tender")?(progress<0.6?"minecraft:wheat_seeds":"minecraft:wheat"):e.id().contains("binding")||e.id().equals("camp_summoning_cradle")?"spiritweave":e.icon();
+        g.renderItem(stack(moving),movingX,y+25);
         int meterY=y+53;g.fill(x,meterY,x+span,meterY+3,0xFF29484F);g.fill(x,meterY,x+(int)(span*progress),meterY+3,TEAL);
         return paragraph(g,"Illustrated example — use Motion to pause. Live costs and ingredients are shown in Recipes.",y+71,0xFF9CB8B9);
     }
@@ -270,5 +286,7 @@ public final class SpiritCodexScreen extends Screen {
         if(stage==6){spoilers=true;openRecipes("tribalpower:drumheart");}
         if(stage==7)openRecipes("tribalpower:echo_shard");
         if(stage==8){recipePage=1;scroll=0;}
+        if(stage==9)openEntry("camp_summoning_cradle");
+        if(stage==10)openRecipes("tribalpower:binding_effigy");
     }
 }

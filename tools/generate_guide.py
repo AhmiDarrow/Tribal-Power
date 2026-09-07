@@ -47,6 +47,8 @@ CHAPTERS = [
     ('Returning the song', 'Bring creature reagents to the Echo workshops. Gentle animal harvests, Storm Wings and Echo Silk bind into Spiritweave under Water. Other hostile remnants attune into two Attuned Echoes under Spirit. Existing recipes remain available.'),
 ]
 
+CHAPTERS.extend((r["title"], r["text"]) for r in json.loads((ROOT/"tools/camp_guides.json").read_text(encoding="utf-8")))
+
 def main():
     roster=json.loads((ROOT/'art/creatures/roster.json').read_text(encoding='utf-8'))
     chapters=CHAPTERS+[(r['name'],r['notes']) for r in roster]

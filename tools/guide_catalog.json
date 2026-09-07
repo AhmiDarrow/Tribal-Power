@@ -430,5 +430,77 @@
     "icon": "echo_silk",
     "spoiler": true,
     "picture": "echo_weaver"
+  },
+  {
+    "id": "camp_wayanchor",
+    "title": "Wayanchor",
+    "category": "Camp stewardship",
+    "icon": "wayanchor",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "camp_hush_totem",
+    "title": "Hush Totem",
+    "category": "Camp stewardship",
+    "icon": "hush_totem",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "camp_grove_tender",
+    "title": "Grove Tender",
+    "category": "Camp stewardship",
+    "icon": "grove_tender",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "camp_binding_effigy",
+    "title": "Binding Effigy",
+    "category": "Camp stewardship",
+    "icon": "binding_effigy",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "camp_binding_ritual",
+    "title": "Three-voice Binding",
+    "category": "Camp stewardship",
+    "icon": "binding_effigy",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "camp_summoning_cradle",
+    "title": "Summoning Cradle",
+    "category": "Camp stewardship",
+    "icon": "summoning_cradle",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "camp_spirit_lantern",
+    "title": "Spirit Lantern",
+    "category": "Camp stewardship",
+    "icon": "spirit_lantern",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "camp_rain_chime",
+    "title": "Rain Chime",
+    "category": "Camp stewardship",
+    "icon": "rain_chime",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "camp_offering_table",
+    "title": "Offering Table",
+    "category": "Camp stewardship",
+    "icon": "offering_table",
+    "spoiler": false,
+    "picture": ""
   }
 ]

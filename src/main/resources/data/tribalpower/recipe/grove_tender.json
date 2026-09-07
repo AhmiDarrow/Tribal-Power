@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "CHC",
+    "WBW"
+  ],
+  "key": {
+    "E": {
+      "item": "tribalpower:earth_seal"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "H": {
+      "item": "minecraft:iron_hoe"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    }
+  },
+  "result": {
+    "id": "tribalpower:grove_tender",
+    "count": 1
+  }
+}
