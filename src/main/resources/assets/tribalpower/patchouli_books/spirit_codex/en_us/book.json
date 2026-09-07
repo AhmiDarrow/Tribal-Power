@@ -1,7 +1,7 @@
 {
   "name": "Spirit Codex",
-  "landing_text": "Shamanic Technomancy field notes. The in-game Spirit Codex item also opens a written-book edition of these teachings.",
-  "version": 2,
+  "landing_text": "Spoiler warning: this legacy reference reveals advanced systems. Use the Spirit Codex item for the illustrated, searchable reader with spoiler controls.",
+  "version": 3,
   "creative_tab": "tribalpower:main",
   "model": "tribalpower:spirit_codex",
   "book_texture": "patchouli:textures/gui/book_blue.png",

@@ -5,15 +5,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Live refinement runs on the $(item)Song Bench$(), not the Echo shrine blocks. Seat raw ore, cobble, iron-like metal, or March grit, then start the song."
+      "title": "Echo workshops",
+      "text": "The four Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work."
     },
     {
       "type": "patchouli:text",
-      "text": "$(bold)Shatter$() (Earth) → Echo Shard$(br)$(bold)Attune$() (Fire) → Attuned Echo$(br)$(bold)Bind$() (Water) → Bound Echo$(br)$(bold)Manifest$() (Spirit) → Manifested Ingot$(br)$(br)Each stage drinks Spirit Pulse from nearby Drumhearts, Ley Collectors, then Totems, and needs the matching Resonance Totem within song range."
+      "title": "Shatter",
+      "text": "Earth turns stone into Echo Shards. Raw iron, copper and gold become two grits each. Smelt or blast grits into ingots. Shared raw-material tags accept compatible ores from other mods."
     },
     {
       "type": "patchouli:text",
-      "text": "Echo Shatter / Attune / Bind / Manifest blocks are camp markers only. They do not process ores. Shift-click the Song Bench to remove grit; wrong attunement or empty Pulse stalls the song without destroying the item."
+      "title": "Attune and Bind",
+      "text": "Fire turns Echo Shards into Attuned Echoes. Water binds them into Bound Echoes. Bind also turns wool into Spiritweave and dirt into clay. Check JEI for time and Pulse costs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Manifest",
+      "text": "Spirit turns Bound Echoes into Manifested Ingots, then ingots into Resonant Cores. Cores unlock stronger cells, equipment and long-distance automation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Song Bench",
+      "text": "The original single-item workshop remains. Insert an Echo-stage ingredient and click empty-handed to sing; sneak-click to retrieve it. Dedicated Echo stations are better for sustained batches."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Other workshops",
+      "text": "Lattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed."
     }
   ]
 }

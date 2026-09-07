@@ -5,11 +5,63 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Resonance Totems hold Earth, Fire, Water, Air, or Spirit. A Song Bench begins a song; nearby totems answer. Ritual Chalk marks lasting links."
+      "title": "Five voices",
+      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Place the needed totem within 8 blocks of the station; missing voices pause work safely."
     },
     {
       "type": "patchouli:text",
-      "text": "A $(item)Lattice Conductor$() near a chalk-linked ring routes Spirit Pulse from Drumhearts and Ley Collectors into totem buffers. Right-click reports network size and bursts a transfer. While powered, it assists Song Benches on the lattice and can move Echo grit between benches and Ancestral Caches."
+      "title": "Chalk and conductor",
+      "text": "Mark two totems with Ritual Chalk to link them within 16 blocks. A Conductor moves Pulse through linked totems and routes Song Bench items through nearby Ancestral Caches."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ancestral Cache",
+      "text": "A local 54-slot inventory for camp supplies. Hoppers and item pipes work normally. A redstone signal locks access and automation. A comparator reads how full it is."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Deep Cache",
+      "text": "A personal 54-slot vault shared between your Deep Caches. Visiting The March attunes you; otherwise opening costs 5 Pulse. A Wayfarer Satchel opens the same personal vault."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spirit Cistern",
+      "text": "Stores 16 buckets of one fluid. Buckets and standard fluid pipes both work. Redstone locks filling and draining, including remote relays. A comparator reads fullness."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Wireless cargo",
+      "text": "Place an item or fluid relay above its source inventory or tank. Use the Lattice Tuner on a destination face, then on the relay. Sneak-use the tuner to replace a previous mark."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cargo tiers",
+      "text": "Local relays reach 32 blocks. Longreach relays reach 128. Astral relays have no distance limit and can cross dimensions. Transfers cost 4, 8 or 16 Pulse per successful beat."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cargo rhythm",
+      "text": "Each second, a relay moves up to 16 items or 250 mB. Both ends must already be loaded. Unloaded or full destinations pause safely. Relays never keep distant chunks loaded themselves."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Cargo controls",
+      "text": "Redstone pauses a relay. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring. Lock the receiver with redstone when you need a remote stop. Bound links survive pickup."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pulse to FE",
+      "text": "The Pulse Adapter converts 1 Pulse into 100 FE, up to 20 Pulse each second. It buffers 16,000 FE and exports to standard energy receivers. Redstone stops conversion and extraction."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Redstone language",
+      "text": "High signal pauses workshops, conductors, resonators, collectors, relays and braziers; it locks storage and travel destinations. The Drumheart instead listens for rising edges to make beats."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Read the camp",
+      "text": "Comparators read stored Pulse, inventory or fluid fullness, FE buffer, and relay activity. A pause keeps stored resources intact. Use clocks, levers and comparators to choreograph the camp."
     }
   ]
 }

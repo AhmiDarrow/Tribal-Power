@@ -73,6 +73,23 @@ neoForge {
             jvmArgument '-Xmx5G'
             programArguments.addAll '--username', 'LatticeQA'
         }
+        codexVerification {
+            client()
+            gameDirectory = project.file('build/codex-client')
+            jvmArgument '-Dtribalpower.codexVerification=true'
+            programArguments.addAll '--username', 'CodexQA', '--width', '1280', '--height', '800'
+        }
+        codexServerVerification {
+            server()
+            gameDirectory = project.file('build/codex-server')
+            programArgument '--nogui'
+        }
+        codexWorldVerification {
+            client()
+            gameDirectory = project.file('build/codex-client')
+            jvmArgument '-Dtribalpower.codexVerification=true'
+            programArguments.addAll '--username', 'CodexQA', '--width', '1280', '--height', '800', '--quickPlayMultiplayer', '127.0.0.1:25586'
+        }
         packClientVerification {
             client()
             jvmArgument '-Dtribalpower.visualVerification=true'
@@ -96,9 +113,6 @@ configurations {
 dependencies {
     compileOnly 'mezz.jei:jei-1.21.1-common-api:19.51.0.418'
     compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.51.0.418'
-    // Optional guidebook library — present at runtime when installed; build does not require it.
-    compileOnly 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'
-    localRuntime 'vazkii.patchouli:Patchouli:1.21.1-92-NEOFORGE'
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {

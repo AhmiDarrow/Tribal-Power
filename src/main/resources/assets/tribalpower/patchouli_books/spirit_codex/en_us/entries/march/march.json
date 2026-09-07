@@ -5,7 +5,48 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Strike a Gate Drum to enter tribalpower:the_march. Noise hills of teal stone across Steppe, Highlands, and Crystal Fields — pale woods, ore bands, Spirit Wisps, and March Walkers. Deep Cache leans on March spirit links."
+      "title": "Waystone paths",
+      "text": "Sneak-use a compass on the top of a solid floor to bind a landing. Use it to return. Keep two clear dry blocks above the floor. Power the landing floor with redstone to lock arrival."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Travel tiers",
+      "text": "Waystone Compass: 128 blocks, same world, 20 Pulse. Horizon Compass: any distance in one world, 40 Pulse. Astral Compass: across dimensions, 100 Pulse. Travel has a 5-second cooldown."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The March",
+      "text": "The Gate Drum opens the way to The March. Bring charged cells and prepare a return route. March materials unlock Astral transport, the final tier for both travellers and cargo."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The veil at night",
+      "text": "After dusk, the sky unfolds in slow curtains of green and violet. The March carries a colder sky. Rain veils the aurora. Client settings can reduce its detail or disable it for shader packs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Gentle harvesting",
+      "text": "Brush adult Dawn Stags, Lantern Foxes and Mossbacks for renewable reagents. Each rests for one minute between harvests. Young animals do not yield materials. Breed with wheat, sweet berries and seagrass respectively."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Broken guardians",
+      "text": "Ashbound, Rootbound and Reed Stalkers haunt forests and marshes in the Overworld. All can also be found in the March. Build lighted paths: hostile creatures require darkness."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Beyond the Gate",
+      "text": "Steppe: Ashbound, Rootbound, Rift Hounds and Echo Weavers. Highlands: Hollow Sentinels, Storm Moths, Cinder Imps and Rift Hounds. Crystal Fields: Shardbacks, Mourning Bells, Reed Stalkers and Echo Weavers."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Answering a spell",
+      "text": "Storm Moths, Cinder Imps and Mourning Bells gather visible motes before casting. Step behind solid cover to interrupt. Their magic never burns or replaces terrain. A charged staff is useful for keeping distance."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Returning the song",
+      "text": "Bring creature reagents to the Echo workshops. Gentle animal harvests, Storm Wings and Echo Silk bind into Spiritweave under Water. Other hostile remnants attune into two Attuned Echoes under Spirit. Existing recipes remain available."
     }
   ]
 }

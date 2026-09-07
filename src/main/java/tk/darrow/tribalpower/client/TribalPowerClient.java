@@ -8,6 +8,13 @@ import tk.darrow.tribalpower.TribalPower;
 @Mod(value = TribalPower.MOD_ID, dist = Dist.CLIENT)
 public final class TribalPowerClient {
     public TribalPowerClient(IEventBus modBus, net.neoforged.fml.ModContainer container) {
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickItem event) -> {
+            if (event.getLevel().isClientSide && event.getItemStack().is(tk.darrow.tribalpower.item.ModItems.SPIRIT_CODEX.get())) {
+                net.minecraft.client.Minecraft.getInstance().setScreen(new SpiritCodexScreen());
+                event.setCanceled(true);
+                event.setCancellationResult(net.minecraft.world.InteractionResult.SUCCESS);
+            }
+        });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event)->event.register(net.minecraft.resources.ResourceLocation.parse("tribalpower:the_march"),new MarchSkyEffects()));
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,SkyConfig.SPEC);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(AuroraSky::render);

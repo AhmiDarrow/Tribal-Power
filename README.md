@@ -110,3 +110,9 @@ Three breedable animals and ten new hostile creatures populate Overworld forests
 Night skies carry an animated aurora and nine small constellations. The March has its own twilight and fog palette. Client settings control brightness, detail and dimension coverage; disable the effect when using a shader pack with a custom sky.
 
 Editable Blender models, animations and previews are in `art/creatures/`. See [bestiary and sky documentation](docs/bestiary-and-skies.md) for authoring and validation.
+
+## Illustrated Spirit Codex
+
+Use the Spirit Codex item for an interactive native wiki: searchable teachings, thirteen creature portraits, animated examples, bookmarks, related-page links, and crafting/Echo recipe and use cards from the current world. No Patchouli or JEI is required. Advanced discoveries and the full recipe graph require an explicit spoiler choice per reading session. Hide spoilers returns to the safe landing page. Motion toggles animation; scroll or use Page Up / Page Down to read longer pages.
+
+![Spirit Codex](docs/images/codex-cover.png)

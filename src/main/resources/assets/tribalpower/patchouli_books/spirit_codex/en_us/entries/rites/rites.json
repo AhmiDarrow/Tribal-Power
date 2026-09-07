@@ -5,11 +5,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Offer elemental seals on a Rite Pedestal. Each seal has a distinct working. Carry 8+ Pulse to amplify. Spiritgear tools drain Pulse Cells: fueled work spares the edge; starved work wears twice."
+      "title": "Fivefold Staff",
+      "text": "Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies."
     },
     {
       "type": "patchouli:text",
-      "text": "Enchantments: Pulse Attunement (mining efficiency) and Echo Edge (extra damage + Glow)."
+      "title": "Staff costs",
+      "text": "Earth 12, Fire 18, Water 24, Air 16, Spirit 20 Pulse. Water rests for 8 seconds; other voices for 2. Offensive spells target hostile creatures and stop at solid obstacles."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Resonance Maul",
+      "text": "Hold the maul in your main hand. Sneak-use a stone face to excavate a 3-by-3 plane. Each block costs 8 Pulse. Tool requirements and normal player block protection still apply."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Spiritweave",
+      "text": "Hood: night sight. Robe: resistance. Leggings: speed. Boots: slow falling when descending. Each active piece spends 2 Pulse every four seconds. Carry spare cells for long expeditions."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Ritual Brazier",
+      "text": "Seat a reusable elemental seal. With its matching totem and Pulse nearby, the brazier sustains a blessing for players within 6 blocks. It spends 8 Pulse every two seconds."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Camp blessings",
+      "text": "Earth grants haste; Fire resists flame; Water regenerates; Air slows falls; Spirit grants night sight. Redstone pauses the brazier. Sneak empty-handed to recover its seal."
     }
   ]
 }

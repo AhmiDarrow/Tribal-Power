@@ -18,6 +18,20 @@ import tk.darrow.tribalpower.world.ModDimensions;
 @PrefixGameTestTemplate(false)
 public class LatticeGameTests {
     @GameTest(template="empty")
+    public static void codexHasValidItemsAndSpoilerSafeLanding(GameTestHelper h) {
+        var entries=tk.darrow.tribalpower.guide.CodexEntries.ALL;
+        h.assertTrue(entries.size()>=54 && !entries.getFirst().spoiler(),"Complete Codex needs a spoiler-safe landing");
+        var ids=new java.util.HashSet<String>();
+        for(var entry:entries) {
+            h.assertTrue(ids.add(entry.id()),"Duplicate Codex id: "+entry.id());
+            var id=net.minecraft.resources.ResourceLocation.parse("tribalpower:"+entry.icon());
+            h.assertTrue(net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(id),"Unknown Codex item: "+id);
+            h.assertTrue(!entry.text().isBlank(),"Empty teaching: "+entry.id());
+            if(!entry.picture().isEmpty())h.assertTrue(entry.spoiler(),"Creature pictures need spoiler protection");
+        }
+        h.succeed();
+    }
+    @GameTest(template="empty")
     public static void malformedCacheOwnerDoesNotDisableOtherPlayers(GameTestHelper h) {
         var id=java.util.UUID.randomUUID();var data=new tk.darrow.tribalpower.storage.DeepCacheSavedData();
         data.getOrCreateItems(id).set(0,new ItemStack(Items.DIAMOND,7));data.markVisitedMarch(id);

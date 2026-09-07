@@ -5,15 +5,33 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Spirit Pulse is rhythmic beats, not furnace heat or FE. Drumhearts, Ley Collectors, and Pulse Resonators generate it; Pulse Cells carry it; lattices and Spiritgear spend it."
+      "title": "Spirit Pulse",
+      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers."
     },
     {
       "type": "patchouli:text",
-      "text": "Use a Pulse Cell on a Drumheart or Pulse Resonator to charge up to 25 beats per click. Cells hold 200 and show a cyan bar."
+      "title": "Drumheart",
+      "text": "Strike empty-handed. Beats about one second apart yield 24 Pulse; offbeat hits yield 10. Redstone rising edges give 5, with an 8-tick cooldown. Build a clock to automate rhythm."
     },
     {
       "type": "patchouli:text",
-      "text": "Pulse Resonator burns coal or charcoal (~4 Pulse every 20 ticks while lit). Right-click with fuel, empty-hand for status, shift-click to pull unused fuel. Lattice Conductors treat it as a generator."
+      "title": "Ley Collector",
+      "text": "Open sky, night, rain, nearby water and living greenery strengthen collection. Place it thoughtfully. A redstone signal pauses generation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pulse Resonator",
+      "text": "Seat an Echo catalyst and place at least two different elemental totems within 8 blocks. More distinct voices and stronger catalysts increase generation. The catalyst is reusable."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Harmonic ranks",
+      "text": "Catalysts: Echo Shard, Attuned Echo, Bound Echo, Resonant Core. Coal and wood are not fuels. Sneak with an empty hand to recover the catalyst. Redstone pauses generation."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Carry the beat",
+      "text": "Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel."
     }
   ]
 }

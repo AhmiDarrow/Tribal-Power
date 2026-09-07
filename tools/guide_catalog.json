@@ -1,0 +1,434 @@
+[
+  {
+    "id": "chapter_1",
+    "title": "Spirit Codex",
+    "category": "First steps",
+    "icon": "spirit_codex",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_2",
+    "title": "First camp",
+    "category": "First steps",
+    "icon": "bone_chime",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_3",
+    "title": "Spirit Pulse",
+    "category": "Living power",
+    "icon": "pulse_cell",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_4",
+    "title": "Drumheart",
+    "category": "Living power",
+    "icon": "drumheart",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_5",
+    "title": "Ley Collector",
+    "category": "Living power",
+    "icon": "ley_collector",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_6",
+    "title": "Pulse Resonator",
+    "category": "Living power",
+    "icon": "pulse_resonator",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_7",
+    "title": "Harmonic ranks",
+    "category": "Living power",
+    "icon": "echo_shard",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_8",
+    "title": "Carry the beat",
+    "category": "Living power",
+    "icon": "greater_pulse_cell",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_9",
+    "title": "Five voices",
+    "category": "Workshops",
+    "icon": "resonance_totem_earth",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_10",
+    "title": "Chalk and conductor",
+    "category": "Workshops",
+    "icon": "lattice_conductor",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_11",
+    "title": "Echo workshops",
+    "category": "Workshops",
+    "icon": "echo_shatter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_12",
+    "title": "Shatter",
+    "category": "Workshops",
+    "icon": "echo_shatter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_13",
+    "title": "Attune and Bind",
+    "category": "Workshops",
+    "icon": "echo_bind",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_14",
+    "title": "Manifest",
+    "category": "Workshops",
+    "icon": "echo_manifest",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_15",
+    "title": "Song Bench",
+    "category": "Workshops",
+    "icon": "song_bench",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_16",
+    "title": "Ancestral Cache",
+    "category": "Storage & transport",
+    "icon": "ancestral_cache",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_17",
+    "title": "Deep Cache",
+    "category": "Storage & transport",
+    "icon": "deep_cache",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_18",
+    "title": "Spirit Cistern",
+    "category": "Storage & transport",
+    "icon": "spirit_cistern",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_19",
+    "title": "Wireless cargo",
+    "category": "Storage & transport",
+    "icon": "lattice_tuner",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_20",
+    "title": "Cargo tiers",
+    "category": "Storage & transport",
+    "icon": "lattice_tuner",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_21",
+    "title": "Cargo rhythm",
+    "category": "Storage & transport",
+    "icon": "lattice_tuner",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_22",
+    "title": "Cargo controls",
+    "category": "Storage & transport",
+    "icon": "lattice_tuner",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_23",
+    "title": "Pulse to FE",
+    "category": "Storage & transport",
+    "icon": "pulse_adapter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_24",
+    "title": "Waystone paths",
+    "category": "Storage & transport",
+    "icon": "waystone_compass",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_25",
+    "title": "Travel tiers",
+    "category": "Storage & transport",
+    "icon": "astral_compass",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_26",
+    "title": "The March",
+    "category": "The March",
+    "icon": "gate_drum",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_27",
+    "title": "Fivefold Staff",
+    "category": "Equipment & rites",
+    "icon": "spirit_staff",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_28",
+    "title": "Staff costs",
+    "category": "Equipment & rites",
+    "icon": "spirit_staff",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_29",
+    "title": "Resonance Maul",
+    "category": "Equipment & rites",
+    "icon": "resonance_maul",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_30",
+    "title": "Spiritweave",
+    "category": "Equipment & rites",
+    "icon": "spiritweave_hood",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_31",
+    "title": "Ritual Brazier",
+    "category": "Equipment & rites",
+    "icon": "ritual_brazier",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_32",
+    "title": "Camp blessings",
+    "category": "Equipment & rites",
+    "icon": "ritual_brazier",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_33",
+    "title": "Redstone language",
+    "category": "Automation",
+    "icon": "drumheart",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_34",
+    "title": "Read the camp",
+    "category": "Automation",
+    "icon": "pulse_cell",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_35",
+    "title": "Other workshops",
+    "category": "Automation",
+    "icon": "echo_shatter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "chapter_36",
+    "title": "The veil at night",
+    "category": "Bestiary & skies",
+    "icon": "spirit_codex",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_37",
+    "title": "Gentle harvesting",
+    "category": "Bestiary & skies",
+    "icon": "spirit_codex",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_38",
+    "title": "Broken guardians",
+    "category": "Bestiary & skies",
+    "icon": "spirit_codex",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_39",
+    "title": "Beyond the Gate",
+    "category": "Bestiary & skies",
+    "icon": "gate_drum",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_40",
+    "title": "Answering a spell",
+    "category": "Bestiary & skies",
+    "icon": "spirit_staff",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "chapter_41",
+    "title": "Returning the song",
+    "category": "Bestiary & skies",
+    "icon": "echo_bind",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "dawn_stag",
+    "title": "Dawn Stag",
+    "category": "Bestiary & skies",
+    "icon": "dawn_velvet",
+    "spoiler": true,
+    "picture": "dawn_stag"
+  },
+  {
+    "id": "lantern_fox",
+    "title": "Lantern Fox",
+    "category": "Bestiary & skies",
+    "icon": "lantern_down",
+    "spoiler": true,
+    "picture": "lantern_fox"
+  },
+  {
+    "id": "mossback",
+    "title": "Mossback",
+    "category": "Bestiary & skies",
+    "icon": "mossback_scale",
+    "spoiler": true,
+    "picture": "mossback"
+  },
+  {
+    "id": "ashbound",
+    "title": "Ashbound",
+    "category": "Bestiary & skies",
+    "icon": "ember_heart",
+    "spoiler": true,
+    "picture": "ashbound"
+  },
+  {
+    "id": "rootbound",
+    "title": "Rootbound",
+    "category": "Bestiary & skies",
+    "icon": "knotted_root",
+    "spoiler": true,
+    "picture": "rootbound"
+  },
+  {
+    "id": "reed_stalker",
+    "title": "Reed Stalker",
+    "category": "Bestiary & skies",
+    "icon": "reed_fang",
+    "spoiler": true,
+    "picture": "reed_stalker"
+  },
+  {
+    "id": "shardback",
+    "title": "Shardback",
+    "category": "Bestiary & skies",
+    "icon": "prism_carapace",
+    "spoiler": true,
+    "picture": "shardback"
+  },
+  {
+    "id": "hollow_sentinel",
+    "title": "Hollow Sentinel",
+    "category": "Bestiary & skies",
+    "icon": "sentinel_sigil",
+    "spoiler": true,
+    "picture": "hollow_sentinel"
+  },
+  {
+    "id": "storm_moth",
+    "title": "Storm Moth",
+    "category": "Bestiary & skies",
+    "icon": "storm_wing",
+    "spoiler": true,
+    "picture": "storm_moth"
+  },
+  {
+    "id": "cinder_imp",
+    "title": "Cinder Imp",
+    "category": "Bestiary & skies",
+    "icon": "cinder_knot",
+    "spoiler": true,
+    "picture": "cinder_imp"
+  },
+  {
+    "id": "mourning_bell",
+    "title": "Mourning Bell",
+    "category": "Bestiary & skies",
+    "icon": "bell_fragment",
+    "spoiler": true,
+    "picture": "mourning_bell"
+  },
+  {
+    "id": "rift_hound",
+    "title": "Rift Hound",
+    "category": "Bestiary & skies",
+    "icon": "rift_tooth",
+    "spoiler": true,
+    "picture": "rift_hound"
+  },
+  {
+    "id": "echo_weaver",
+    "title": "Echo Weaver",
+    "category": "Bestiary & skies",
+    "icon": "echo_silk",
+    "spoiler": true,
+    "picture": "echo_weaver"
+  }
+]
