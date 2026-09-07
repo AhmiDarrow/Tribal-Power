@@ -24,6 +24,10 @@ public final class TribalPower {
         ModItems.ITEMS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModEntities.ENTITIES.register(modBus);
+        tk.darrow.tribalpower.entity.CreatureEntities.ENTITIES.register(modBus);
+        tk.darrow.tribalpower.item.CreatureItems.ITEMS.register(modBus);
+        modBus.addListener(tk.darrow.tribalpower.entity.CreatureEntities::attributes);
+        modBus.addListener(tk.darrow.tribalpower.entity.CreatureEntities::placements);
         ModCreativeTabs.TABS.register(modBus);
         tk.darrow.tribalpower.echo.StationMenu.MENUS.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.TYPES.register(modBus);

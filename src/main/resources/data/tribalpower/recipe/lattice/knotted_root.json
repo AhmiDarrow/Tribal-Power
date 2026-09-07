@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_attune",
+  "ingredient": {
+    "item": "tribalpower:knotted_root"
+  },
+  "result": {
+    "id": "tribalpower:attuned_echo",
+    "count": 2
+  },
+  "attunement": "spirit",
+  "seconds": 5,
+  "pulse_per_second": 10
+}

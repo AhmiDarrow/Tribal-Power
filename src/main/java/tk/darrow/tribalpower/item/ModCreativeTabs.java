@@ -19,6 +19,8 @@ public final class ModCreativeTabs {
                     .icon(() -> ModItems.SPIRIT_CODEX.get().getDefaultInstance())
                     .displayItems((params, out) -> {
                         out.accept(ModItems.SPIRIT_CODEX.get());
+                        CreatureItems.REAGENTS.values().forEach(item -> out.accept(item.get()));
+                        CreatureItems.EGGS.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.SPIRIT_SHARD.get());
                         out.accept(ModItems.BONE_CHIME.get());
                         out.accept(ModItems.COPPER_RESONATOR.get());

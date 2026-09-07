@@ -38,3 +38,10 @@ src/generated/resources/.cache/
 # Accidental Minecraft/decompile extracts at repo root (not src/.../data)
 /data/
 /net/
+
+# Blender automatic backups (the primary .blend is versioned)
+*.blend1
+*.blend2
+
+__pycache__/
+*.pyc

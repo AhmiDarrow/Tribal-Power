@@ -16,7 +16,7 @@ Rewritten for modern NeoForge and featured in the **Ninjacat Skies** modpack —
 
 ## Core systems
 
-- **Spirit Pulse (SP)** — native power API; Drumheart, Ley Collector, and coal-fueled Pulse Resonator
+- **Spirit Pulse (SP)** — native power API; Drumheart, Ley Collector, and Echo-catalyzed Pulse Resonator
 - **Totem Lattice** — Resonance Totems, Ritual Chalk links, Lattice Conductor routing
 - **Echo Stages** — Song Bench refine loop: Shatter → Attune → Bind → Manifest
 - **Ancestral / Deep Cache** — local storage and March-linked bulk vault
@@ -27,7 +27,7 @@ Rewritten for modern NeoForge and featured in the **Ninjacat Skies** modpack —
 ## Getting started
 
 1. Craft or take a **Spirit Codex** (creative tab: Tribal Power).
-2. Place a **Drumheart** or feed a **Pulse Resonator** with coal/charcoal.
+2. Place a **Drumheart** or seat a reusable Echo catalyst in a **Pulse Resonator** beside two different totems.
 3. Plant **Resonance Totems** near a **Song Bench**; seal links with **Ritual Chalk**.
 4. Seat raw ore on the bench and start the song.
 5. Charge and strike a **Gate Drum** to enter The March.
@@ -41,3 +41,7 @@ A shamanic otherworld with noise hills, multi-biome layout (Steppe, Highlands, C
 Authors: **Ahmi & Risika Darrow**  
 License: GNU GPL v3  
 Homepage / issues: see project links when published.
+
+## The Returning Song
+
+Animated night auroras and a distinct March sky accompany three new breedable animals and ten hostile spirits. Brush the gentle fauna for renewable materials, recover guardian reagents, and return them to Echo processing. Overworld forests and swamps share some species with the March; its three biomes provide a route to every creature. Client settings control sky brightness and detail.

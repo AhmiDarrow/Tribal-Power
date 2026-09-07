@@ -175,6 +175,101 @@
       "id": "chapter_35",
       "title": "Other workshops",
       "text": "Lattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed."
+    },
+    {
+      "id": "chapter_36",
+      "title": "The veil at night",
+      "text": "After dusk, the sky unfolds in slow curtains of green and violet. The March carries a colder sky. Rain veils the aurora. Client settings can reduce its detail or disable it for shader packs."
+    },
+    {
+      "id": "chapter_37",
+      "title": "Gentle harvesting",
+      "text": "Brush adult Dawn Stags, Lantern Foxes and Mossbacks for renewable reagents. Each rests for one minute between harvests. Young animals do not yield materials. Breed with wheat, sweet berries and seagrass respectively."
+    },
+    {
+      "id": "chapter_38",
+      "title": "Broken guardians",
+      "text": "Ashbound, Rootbound and Reed Stalkers haunt forests and marshes in the Overworld. All can also be found in the March. Build lighted paths: hostile creatures require darkness."
+    },
+    {
+      "id": "chapter_39",
+      "title": "Beyond the Gate",
+      "text": "Steppe: Ashbound, Rootbound, Rift Hounds and Echo Weavers. Highlands: Hollow Sentinels, Storm Moths, Cinder Imps and Rift Hounds. Crystal Fields: Shardbacks, Mourning Bells, Reed Stalkers and Echo Weavers."
+    },
+    {
+      "id": "chapter_40",
+      "title": "Answering a spell",
+      "text": "Storm Moths, Cinder Imps and Mourning Bells gather visible motes before casting. Step behind solid cover to interrupt. Their magic never burns or replaces terrain. A charged staff is useful for keeping distance."
+    },
+    {
+      "id": "chapter_41",
+      "title": "Returning the song",
+      "text": "Bring creature reagents to the Echo workshops. Gentle animal harvests, Storm Wings and Echo Silk bind into Spiritweave under Water. Other hostile remnants attune into two Attuned Echoes under Spirit. Existing recipes remain available."
+    },
+    {
+      "id": "chapter_42",
+      "title": "Dawn Stag",
+      "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet."
+    },
+    {
+      "id": "chapter_43",
+      "title": "Lantern Fox",
+      "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down."
+    },
+    {
+      "id": "chapter_44",
+      "title": "Mossback",
+      "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale."
+    },
+    {
+      "id": "chapter_45",
+      "title": "Ashbound",
+      "text": "The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close."
+    },
+    {
+      "id": "chapter_46",
+      "title": "Rootbound",
+      "text": "A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly."
+    },
+    {
+      "id": "chapter_47",
+      "title": "Reed Stalker",
+      "text": "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
+    },
+    {
+      "id": "chapter_48",
+      "title": "Shardback",
+      "text": "A crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove."
+    },
+    {
+      "id": "chapter_49",
+      "title": "Hollow Sentinel",
+      "text": "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
+    },
+    {
+      "id": "chapter_50",
+      "title": "Storm Moth",
+      "text": "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack."
+    },
+    {
+      "id": "chapter_51",
+      "title": "Cinder Imp",
+      "text": "A nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain."
+    },
+    {
+      "id": "chapter_52",
+      "title": "Mourning Bell",
+      "text": "A floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song."
+    },
+    {
+      "id": "chapter_53",
+      "title": "Rift Hound",
+      "text": "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
+    },
+    {
+      "id": "chapter_54",
+      "title": "Echo Weaver",
+      "text": "An eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
     }
   ]
 }

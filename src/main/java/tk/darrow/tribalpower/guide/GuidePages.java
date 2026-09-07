@@ -41,7 +41,26 @@ public final class GuidePages {
             "CAMP BLESSINGS\n\nEarth grants haste; Fire resists flame; Water regenerates; Air slows falls; Spirit grants night sight. Redstone pauses the brazier. Sneak empty-handed to recover its seal.",
             "REDSTONE LANGUAGE\n\nHigh signal pauses workshops, conductors, resonators, collectors, relays and braziers; it locks storage and travel destinations. The Drumheart instead listens for rising edges to make beats.",
             "READ THE CAMP\n\nComparators read stored Pulse, inventory or fluid fullness, FE buffer, and relay activity. A pause keeps stored resources intact. Use clocks, levers and comparators to choreograph the camp.",
-            "OTHER WORKSHOPS\n\nLattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed."
+            "OTHER WORKSHOPS\n\nLattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed.",
+            "THE VEIL AT NIGHT\n\nAfter dusk, the sky unfolds in slow curtains of green and violet. The March carries a colder sky. Rain veils the aurora. Client settings can reduce its detail or disable it for shader packs.",
+            "GENTLE HARVESTING\n\nBrush adult Dawn Stags, Lantern Foxes and Mossbacks for renewable reagents. Each rests for one minute between harvests. Young animals do not yield materials. Breed with wheat, sweet berries and seagrass respectively.",
+            "BROKEN GUARDIANS\n\nAshbound, Rootbound and Reed Stalkers haunt forests and marshes in the Overworld. All can also be found in the March. Build lighted paths: hostile creatures require darkness.",
+            "BEYOND THE GATE\n\nSteppe: Ashbound, Rootbound, Rift Hounds and Echo Weavers. Highlands: Hollow Sentinels, Storm Moths, Cinder Imps and Rift Hounds. Crystal Fields: Shardbacks, Mourning Bells, Reed Stalkers and Echo Weavers.",
+            "ANSWERING A SPELL\n\nStorm Moths, Cinder Imps and Mourning Bells gather visible motes before casting. Step behind solid cover to interrupt. Their magic never burns or replaces terrain. A charged staff is useful for keeping distance.",
+            "RETURNING THE SONG\n\nBring creature reagents to the Echo workshops. Gentle animal harvests, Storm Wings and Echo Silk bind into Spiritweave under Water. Other hostile remnants attune into two Attuned Echoes under Spirit. Existing recipes remain available.",
+            "DAWN STAG\n\nA dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet.",
+            "LANTERN FOX\n\nA shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down.",
+            "MOSSBACK\n\nA patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale.",
+            "ASHBOUND\n\nThe remains of a broken fire rite. Its melee strikes briefly ignite; keep water close.",
+            "ROOTBOUND\n\nA grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly.",
+            "REED STALKER\n\nA marsh hunter concealed among spirit reeds. Fast strikes carry a short poison.",
+            "SHARDBACK\n\nA crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove.",
+            "HOLLOW SENTINEL\n\nAn empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers.",
+            "STORM MOTH\n\nA storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack.",
+            "CINDER IMP\n\nA nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain.",
+            "MOURNING BELL\n\nA floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song.",
+            "RIFT HOUND\n\nA hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself.",
+            "ECHO WEAVER\n\nAn eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
         );
     }
 }

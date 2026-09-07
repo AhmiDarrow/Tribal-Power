@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_bind",
+  "ingredient": {
+    "item": "tribalpower:lantern_down"
+  },
+  "result": {
+    "id": "tribalpower:spiritweave",
+    "count": 2
+  },
+  "attunement": "water",
+  "seconds": 5,
+  "pulse_per_second": 10
+}

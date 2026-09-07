@@ -1,6 +1,6 @@
 # Tribal Power — The Living Lattice
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.1.0.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.2.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites and paths between worlds. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -89,3 +89,11 @@ Java 21. Run gradlew build to build the jar and gradlew runVerification for serv
 Regenerate content with python tools/expand_content.py, the guide with python tools/generate_guide.py, and authored pixel assets/models with python tools/overhaul_art.py. Art uses 32-pixel textures, native models and bounded particles; no shaders are required.
 
 Existing block/item IDs and storage slots remain stable. An old Resonator retains unused coal for retrieval but no longer burns it. Existing caches expand to 54 slots.
+
+## The Returning Song
+
+Three breedable animals and ten new hostile creatures populate Overworld forests/swamps and the March. Brush adult Dawn Stags, Lantern Foxes and Mossbacks for renewable resources. Recover guardian reagents for native Echo recipes. The Spirit Codex explains habitats, food, harvesting and combat; Ninjacat Skies adds the corresponding story branch.
+
+Night skies carry an animated aurora and nine small constellations. The March has its own twilight and fog palette. Client settings control brightness, detail and dimension coverage; disable the effect when using a shader pack with a custom sky.
+
+Editable Blender models, animations and previews are in `art/creatures/`. See [bestiary and sky documentation](docs/bestiary-and-skies.md) for authoring and validation.

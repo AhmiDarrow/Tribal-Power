@@ -12,6 +12,8 @@ public final class ClientSetup {
     }
 
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        tk.darrow.tribalpower.entity.CreatureEntities.ANIMALS.forEach((p,t)->event.registerEntityRenderer(t.get(),context->new LatticeCreatureRenderer<>(context,p)));
+        tk.darrow.tribalpower.entity.CreatureEntities.MONSTERS.forEach((p,t)->event.registerEntityRenderer(t.get(),context->new LatticeCreatureRenderer<>(context,p)));
         event.registerEntityRenderer(ModEntities.SPIRIT_WISP.get(), SpiritWispRenderer::new);
         event.registerEntityRenderer(ModEntities.MARCH_WALKER.get(), MarchWalkerRenderer::new);
     }

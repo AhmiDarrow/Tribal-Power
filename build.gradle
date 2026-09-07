@@ -66,8 +66,16 @@ neoForge {
             programArgument '--nogui'
             jvmArgument '-Xmx4G'
         }
+        packMenuVerification {
+            client()
+            jvmArgument '-Dtribalpower.visualVerification=true'
+            gameDirectory = project.file('build/pack-client')
+            jvmArgument '-Xmx5G'
+            programArguments.addAll '--username', 'LatticeQA'
+        }
         packClientVerification {
             client()
+            jvmArgument '-Dtribalpower.visualVerification=true'
             gameDirectory = project.file('build/pack-client')
             jvmArgument '-Xmx5G'
             programArguments.addAll '--username', 'LatticeQA', '--quickPlayMultiplayer', '127.0.0.1:25585'

@@ -7,10 +7,16 @@ import tk.darrow.tribalpower.TribalPower;
 
 @Mod(value = TribalPower.MOD_ID, dist = Dist.CLIENT)
 public final class TribalPowerClient {
-    public TribalPowerClient(IEventBus modBus) {
+    public TribalPowerClient(IEventBus modBus, net.neoforged.fml.ModContainer container) {
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event)->event.register(net.minecraft.resources.ResourceLocation.parse("tribalpower:the_march"),new MarchSkyEffects()));
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,SkyConfig.SPEC);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(AuroraSky::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::screen);
         modBus.addListener(ClientSetup::onClientSetup);
         modBus.addListener(ClientSetup::registerRenderers);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {
+            for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->GeneratedCreatureLayers.create(p.id));
             event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
             event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
         });
