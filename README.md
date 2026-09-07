@@ -1,5 +1,7 @@
 # Tribal Power — The Living Lattice
 
+<img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
+
 Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 2.2.1.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites and paths between worlds. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
