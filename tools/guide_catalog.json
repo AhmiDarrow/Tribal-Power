@@ -596,8 +596,8 @@
     "title": "Tribal Kin",
     "category": "The Nine Tribes",
     "icon": "tribal_kin_elder_spawn_egg",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribal_kin"
   },
   {
     "id": "tribes_kinship_totem",
@@ -701,7 +701,7 @@
     "category": "The March",
     "icon": "unsung_heart",
     "spoiler": true,
-    "picture": ""
+    "picture": "the_unsung"
   },
   {
     "id": "march_crystal_spire",

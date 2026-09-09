@@ -10,18 +10,25 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import tk.darrow.tribalpower.tribe.KinRole;
+import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.tribe.TribalKinEntity;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-/** Base skin per role plus a cloak/mask overlay tinted with the tribe colour. */
+/**
+ * Base 256x256 skin per role (painted by tools/art/creatures.py through the Blender pipeline) plus a hood/cloak
+ * overlay carrying the tribe glyph, tinted with the tribe colour.
+ */
 public class TribalKinRenderer extends MobRenderer<TribalKinEntity, TribalKinModel> {
     private static final Map<KinRole, ResourceLocation> SKINS = new EnumMap<>(KinRole.class);
+    private static final Map<TribeDefinition, ResourceLocation> CLOAKS = new EnumMap<>(TribeDefinition.class);
     private static final ResourceLocation CLOAK = ResourceLocation.parse("tribalpower:textures/entity/kin_cloak.png");
     static {
         for (KinRole role : KinRole.values())
             SKINS.put(role, ResourceLocation.parse("tribalpower:textures/entity/kin_" + role.id() + ".png"));
+        for (TribeDefinition tribe : TribeDefinition.values())
+            CLOAKS.put(tribe, ResourceLocation.parse("tribalpower:textures/entity/kin_cloak_" + tribe.id() + ".png"));
     }
 
     public TribalKinRenderer(EntityRendererProvider.Context context) {
@@ -40,7 +47,7 @@ public class TribalKinRenderer extends MobRenderer<TribalKinEntity, TribalKinMod
         public void render(PoseStack pose, MultiBufferSource buffer, int light, TribalKinEntity entity, float limbSwing, float limbAmount,
                            float partial, float age, float yaw, float pitch) {
             if (entity.isInvisible()) return;
-            VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(CLOAK));
+            VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(CLOAKS.getOrDefault(entity.tribe(), CLOAK)));
             int colour = 0xFF000000 | entity.tribe().colour();
             getParentModel().renderToBuffer(pose, consumer, light, LivingEntityRenderer.getOverlayCoords(entity, 0), colour);
         }

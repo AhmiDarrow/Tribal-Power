@@ -4,9 +4,9 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 # id, kind, habitat, shape, health, speed, damage, armor, attack, colors, reagent, field notes
 ROWS=[
-('dawn_stag','animal','forest','stag',24,.25,0,1,'none',['405d55','bec991','7effcb'],'dawn_velvet','A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet.'),
-('lantern_fox','animal','forest','fox',14,.30,0,0,'none',['603e68','dca77b','7affe1'],'lantern_down','A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down.'),
-('mossback','animal','swamp','turtle',30,.15,0,6,'none',['344f44','8eaa68','c4ffad'],'mossback_scale','A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale.'),
+('dawn_stag','animal','forest','stag',24,.25,0,1,'none',['405d55','bec991','7effcb'],'dawn_velvet','A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet. Bond an adult with a Bonding Charm to ride it without a saddle.'),
+('lantern_fox','animal','forest','fox',14,.30,0,0,'none',['603e68','dca77b','7affe1'],'lantern_down','A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down. Bond an adult with a Bonding Charm for a lantern that follows you.'),
+('mossback','animal','swamp','turtle',30,.15,0,6,'none',['344f44','8eaa68','c4ffad'],'mossback_scale','A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale. Bond an adult with a Bonding Charm for a walking saddlebag.'),
 ('ashbound','monster','forest','biped',24,.23,4,2,'ember',['473c42','ae6b4e','ffb46c'],'ember_heart','The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close.'),
 ('rootbound','monster','forest','root',38,.18,6,5,'root',['494735','859364','b1e0a0'],'knotted_root','A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly.'),
 ('reed_stalker','monster','swamp','stalker',22,.30,4,1,'venom',['294b4a','879c73','a2e8b9'],'reed_fang','A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison.'),
@@ -56,10 +56,39 @@ def rig(shape):
   p=[part('body',(0,14,0),box(-5,-7,-5,10,9,10),box(-7,2,-7,14,2,14,1),box(-2,-11,-2,4,4,4,1),box(-4,-3,-5.2,8,1,1,2)),part('tail',(0,18,0),box(-1,0,-1,2,6,2,1),box(-2,5,-2,4,2,4,2))]
  return p
 
+def kin_rig():
+ """Masked, cloaked humanoid (design 3.0 §8). Flat rig: every part is a root child; the role only changes the skin."""
+ return [
+  part('head',(0,0,0),box(-4,-8,-4,8,8,8,1),box(-4.5,-8.5,-5,9,9,1,1),box(-4.5,-9,-4.5,9,5,9,0),box(-4.5,-2,3.5,1,6,1,1),box(3.5,-2,3.5,1,6,1,1)),
+  part('body',(0,0,0),box(-4,0,-2,8,12,4,0),box(-4.5,7,-2.5,9,2,5,1)),
+  part('cloak',(0,0,2.2),box(-5,0,0,10,14,2,0)),
+  part('arm0',(-5,2,0),box(-3,-2,-2,4,12,4,1)),
+  part('arm1',(5,2,0),box(-1,-2,-2,4,12,4,1)),
+  part('leg0',(-1.9,12,0),box(-2,0,-2,4,12,4,0)),
+  part('leg1',(1.9,12,0),box(-2,0,-2,4,12,4,0))]
+
+def unsung_rig():
+ """Hollow standing drum authored at half scale (renderer draws it at 2x): four lacquered side panels split so
+ every box fits a 64x32 atlas tile, a two-piece taut hide top, two ring bands made of four rails, a masked head
+ and two long rune arms with knuckle clubs."""
+ body=part('body',(0,13,0),box(-10,-9,-10,20,18,1),box(-10,-9,9,20,18,1),box(-10,-9,-9,1,9,18),box(-10,0,-9,1,9,18),box(9,-9,-9,1,9,18),box(9,0,-9,1,9,18),box(-10,-10,-10,10,1,20,1),box(0,-10,-10,10,1,20,1))
+ def band(name,y):return part(name,(0,13,0),box(-12,y,-12,24,2,2),box(-12,y,10,24,2,2),box(-12,y,-10,2,2,20),box(10,y,-10,2,2,20))
+ head=part('head',(0,3,0),box(-4,-7,-4,8,7,8),box(-4,-8,-5,8,8,1,1),box(-1,-13,-1,2,5,2),box(-6,-6,-1,2,6,2),box(4,-6,-1,2,6,2))
+ arms=[part('arm'+str(i),(-13 if i==0 else 13,5,0),box(-1.5,0,-1.5,3,18,3,1),box(-2.5,17,-2.5,5,4,5)) for i in range(2)]
+ return [body,band('band0',-8),band('band1',6),head]+arms
+
+TRIBE_ROWS=[
+ dict(id='tribal_kin',name='Tribal Kin',kind='kin',shape='kin',colors=['4a3b33','a87a58','e8d9a8'],variants=['elder','drummer','hunter','weaver'],textures='kin_{variant}',notes='Masked camp folk in four roles; the cloak overlay is tinted by the tribe colour.'),
+ dict(id='the_unsung',name='The Unsung',kind='boss',shape='drum',colors=['4a1f22','c9a974','9b6cff'],scale=2,pulse=True,notes='Hollow drum-spirit with rune arms and a cracked mask; authored at half scale, rendered at 2x.')]
+
 def main():
  data=[]
  for row in ROWS:
   keys=['id','kind','habitat','shape','health','speed','damage','armor','attack','colors','reagent','notes'];r=dict(zip(keys,row));r['name']=r['id'].replace('_',' ').title();r['parts']=rig(r['shape']);data.append(r)
  out=ROOT/'art/creatures';out.mkdir(parents=True,exist_ok=True);(out/'roster.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
- print('Authored',len(data),'creatures for Blender')
+ tribes=[]
+ for row in TRIBE_ROWS:
+  r=dict(row);r['parts']=kin_rig() if r['shape']=='kin' else unsung_rig();tribes.append(r)
+ (out/'roster_tribes.json').write_text(json.dumps(tribes,indent=2)+'\n',encoding='utf-8')
+ print('Authored',len(data),'creatures and',len(tribes),'tribe rigs for Blender')
 if __name__=='__main__':main()
