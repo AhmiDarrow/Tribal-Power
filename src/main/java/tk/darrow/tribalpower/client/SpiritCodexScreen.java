@@ -277,6 +277,12 @@ public final class SpiritCodexScreen extends Screen {
     }
     @Override public boolean isPauseScreen(){return false;}
     /** Opt-in development tour; never runs in a normal game. */
+    /** Showcase driver hook ({@link ShowcaseVerification}): reveal spoilers and jump straight to an entry or item. */
+    void showcaseOpen(String id) {
+        if(!Boolean.getBoolean("tribalpower.showcaseVerification"))return;
+        spoilers=true;scroll=0;recipePage=0;
+        if(id.startsWith("item:"))openRecipes(id.substring(5));else openEntry(id);
+    }
     void verificationStage(int stage) {
         if(!Boolean.getBoolean("tribalpower.codexVerification"))return;
         if(stage==1)openEntry("chapter_4");

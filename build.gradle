@@ -97,6 +97,22 @@ neoForge {
             jvmArgument '-Xmx5G'
             programArguments.addAll '--username', 'LatticeQA', '--quickPlayMultiplayer', '127.0.0.1:25585'
         }
+        // Low-memory showcase pair (2 CPU / 7 GB container, software GL): tools/showcase_verification.py drives it.
+        showcaseServer {
+            server()
+            gameDirectory = project.file('build/pack-verification')
+            programArgument '--nogui'
+            jvmArgument '-Xmx1500m'
+        }
+        showcaseClient {
+            client()
+            gameDirectory = project.file('build/showcase-client')
+            jvmArgument '-Xmx3G'
+            jvmArgument '-Dtribalpower.visualVerification=true'
+            jvmArgument '-Dtribalpower.showcaseVerification=true'
+            jvmArgument '-Dtribalpower.showcaseScreens=true'
+            programArguments.addAll '--username', 'LatticeQA', '--width', '1280', '--height', '800', '--quickPlayMultiplayer', '127.0.0.1:25585'
+        }
     }
 
     mods {
