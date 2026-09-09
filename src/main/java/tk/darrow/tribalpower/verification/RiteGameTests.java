@@ -18,6 +18,8 @@ import tk.darrow.tribalpower.ley.LeyMath;
 import tk.darrow.tribalpower.logic.LogicRegistry;
 import tk.darrow.tribalpower.logic.PulseGaugeBlock;
 import tk.darrow.tribalpower.logic.PulseGaugeBlockEntity;
+import tk.darrow.tribalpower.logic.PulseThresholdBlock;
+import tk.darrow.tribalpower.logic.PulseThresholdBlockEntity;
 import tk.darrow.tribalpower.rite.world.GreenBlessing;
 import tk.darrow.tribalpower.rite.world.LeyLines;
 import tk.darrow.tribalpower.rite.world.RiteSavedData;
@@ -151,5 +153,56 @@ public class RiteGameTests {
         h.assertTrue(network.size() >= 2, "A Conductor network must route across the ley line, found " + network.size());
         h.assertTrue(LatticeNetwork.isConductable(network), "Ley-linked totems must be conductable");
         h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void leyLineDropsWhenTotemBroken(GameTestHelper h) {
+        var level = h.getLevel();
+        h.setBlock(1, 2, 1, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(14, 2, 14, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        BlockPos a = h.absolutePos(new BlockPos(1, 2, 1)), b = h.absolutePos(new BlockPos(14, 2, 14));
+        LeyLines.bind(level, a, b, 20 * 60);
+        h.assertTrue(LeyLines.isLinked(level, a, b) && LeyLines.isLinked(level, b, a), "A bound line must be live from both ends");
+        h.setBlock(1, 2, 1, Blocks.AIR);
+        h.assertTrue(LeyLines.linked(level, b).isEmpty(), "Breaking one totem must drop the ley line at the other end");
+        h.assertTrue(LeyLines.linked(level, a).isEmpty(), "Breaking a totem must drop its own lines");
+        // A short line must lapse on its own.
+        h.setBlock(1, 2, 1, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        LeyLines.bind(level, a, b, 5);
+        h.assertTrue(LeyLines.isLinked(level, a, b), "A fresh line must be live");
+        h.runAfterDelay(10, () -> {
+            h.assertTrue(!LeyLines.isLinked(level, a, b), "A ley line must expire after its duration");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template = "empty")
+    public static void pulseThresholdTogglesCyclesAndPersists(GameTestHelper h) {
+        h.setBlock(3, 2, 3, ModBlocks.DRUMHEART.get());
+        h.setBlock(3, 2, 4, LogicRegistry.PULSE_THRESHOLD.get().defaultBlockState().setValue(PulseThresholdBlock.FACING, Direction.NORTH));
+        DrumheartBlockEntity drum = at(h, new BlockPos(3, 2, 3), DrumheartBlockEntity.class);
+        drum.insertPulse(600, false); // 60 % of 1000
+        BlockPos pos = h.absolutePos(new BlockPos(3, 2, 4));
+        var level = h.getLevel();
+        h.runAfterDelay(6, () -> {
+            var threshold = at(h, new BlockPos(3, 2, 4), PulseThresholdBlockEntity.class);
+            h.assertTrue(threshold.threshold() == 50, "Default threshold must be 50 %, got " + threshold.threshold());
+            h.assertTrue(threshold.powered() && level.getBlockState(pos).getValue(PulseThresholdBlock.POWERED), "60 % must satisfy a 50 % threshold");
+            h.assertTrue(level.getBlockState(pos).getSignal(level, pos, Direction.NORTH) == 15, "The rear face must emit full power");
+            h.assertTrue(level.getBlockState(pos).getSignal(level, pos, Direction.SOUTH) == 0, "The arrow face must not emit");
+            int percent = threshold.cycle();
+            h.assertTrue(percent == 75 && !threshold.powered() && !level.getBlockState(pos).getValue(PulseThresholdBlock.POWERED),
+                    "Cycling to 75 % must switch the output off immediately");
+            h.assertTrue(level.getBlockState(pos).getAnalogOutputSignal(level, pos) == 3, "A comparator must read the threshold index + 1");
+            var tag = threshold.saveWithoutMetadata(level.registryAccess());
+            var copy = new PulseThresholdBlockEntity(pos, level.getBlockState(pos));
+            copy.loadWithComponents(tag, level.registryAccess());
+            h.assertTrue(copy.index() == threshold.index() && copy.powered() == threshold.powered(), "Threshold index and state must survive NBT");
+            drum.insertPulse(200, false); // 80 %
+            h.runAfterDelay(6, () -> {
+                h.assertTrue(threshold.powered(), "80 % must satisfy a 75 % threshold after the next poll");
+                h.succeed();
+            });
+        });
     }
 }

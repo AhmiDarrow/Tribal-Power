@@ -46,6 +46,11 @@ public final class LeyLines {
         RiteSavedData.get(level.getServer()).bind(level, a, b, level.getGameTime() + durationTicks);
     }
 
+    /** Drop every line ending at {@code pos}; called when a Resonance Totem is broken. */
+    public static void unbind(ServerLevel level, BlockPos pos) {
+        RiteSavedData.get(level.getServer()).unbind(level, pos);
+    }
+
     /** Nearest Resonance Totem to {@code origin} within the cube of {@code radius}, or null. */
     @Nullable
     public static ResonanceTotemBlockEntity nearestTotem(ServerLevel level, BlockPos origin, int radius, @Nullable BlockPos exclude) {
@@ -77,7 +82,9 @@ public final class LeyLines {
         List<RiteSavedData.LeyLine> lines = RiteSavedData.get(level.getServer()).leyLines(level);
         if (lines.isEmpty()) return;
         DustParticleOptions dust = new DustParticleOptions(SpiritEffects.color(Attunement.LOOM), 0.8F);
-        double phase = (level.getGameTime() / (double) PARTICLE_INTERVAL) % 1.0;
+        // This runs only when gameTime % PARTICLE_INTERVAL == 0, so the phase must come from the beat count,
+        // not the fractional tick, or the thread never moves.
+        double phase = ((level.getGameTime() / PARTICLE_INTERVAL) % 4) / 4.0;
         for (RiteSavedData.LeyLine line : lines) {
             if (!level.hasChunkAt(line.a()) || !level.hasChunkAt(line.b())) continue;
             Vec3 from = line.a().getCenter().add(0, 0.6, 0);

@@ -80,6 +80,13 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        // A broken totem drops its temporary ley lines (rite/world/LeyLines) instead of leaving them dangling.
+        if (!state.is(newState.getBlock()) && level instanceof net.minecraft.server.level.ServerLevel server)
+            tk.darrow.tribalpower.rite.world.LeyLines.unbind(server, pos);
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+    @Override
     protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {

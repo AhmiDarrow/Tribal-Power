@@ -43,6 +43,7 @@ public class PulseGaugeBlockEntity extends BlockEntity implements Diagnosable {
         if (next == be.signal) return;
         be.signal = next;
         be.setChanged();
+        level.updateNeighbourForOutputSignal(pos, state.getBlock()); // comparators reading the gauge's analog output
         level.updateNeighborsAt(pos, state.getBlock());
         level.updateNeighborsAt(pos.relative(state.getValue(PulseGaugeBlock.FACING).getOpposite()), state.getBlock());
     }

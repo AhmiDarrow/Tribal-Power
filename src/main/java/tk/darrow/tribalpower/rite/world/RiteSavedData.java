@@ -86,6 +86,7 @@ public class RiteSavedData extends SavedData {
     }
 
     public List<Ward> wards(ServerLevel level) {
+        if (wards.isEmpty()) return List.of(); // hot path: consulted on every hostile spawn placement check
         prune(level.getGameTime());
         String dim = dimension(level);
         List<Ward> out = new ArrayList<>();
@@ -102,7 +103,15 @@ public class RiteSavedData extends SavedData {
         setDirty();
     }
 
+    /** Drop every ley line touching {@code pos} (a totem was broken). */
+    public void unbind(ServerLevel level, BlockPos pos) {
+        if (leyLines.isEmpty()) return;
+        String dim = dimension(level);
+        if (leyLines.removeIf(line -> line.dimension().equals(dim) && line.touches(pos))) setDirty();
+    }
+
     public List<LeyLine> leyLines(ServerLevel level) {
+        if (leyLines.isEmpty()) return List.of(); // hot path: consulted per node of every lattice walk
         prune(level.getGameTime());
         String dim = dimension(level);
         List<LeyLine> out = new ArrayList<>();
