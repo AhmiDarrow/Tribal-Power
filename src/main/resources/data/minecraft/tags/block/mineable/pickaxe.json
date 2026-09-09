@@ -9,6 +9,7 @@
     "tribalpower:astral_item_relay",
     "tribalpower:astral_fluid_relay",
     "tribalpower:pulse_adapter",
-    "tribalpower:spirit_cistern"
+    "tribalpower:spirit_cistern",
+    "tribalpower:echo_unweave"
   ]
 }

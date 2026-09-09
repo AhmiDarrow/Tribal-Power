@@ -43,8 +43,8 @@
     },
     {
       "id": "chapter_9",
-      "title": "Five voices",
-      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Place the needed totem within 8 blocks of the station; missing voices pause work safely."
+      "title": "Six voices",
+      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Loom unweaves. Place the needed totem within 8 blocks of the station; missing voices pause work safely."
     },
     {
       "id": "chapter_10",
@@ -133,8 +133,8 @@
     },
     {
       "id": "chapter_27",
-      "title": "Fivefold Staff",
-      "text": "Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies."
+      "title": "Sixfold Staff",
+      "text": "Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies, Loom tethers a foe toward you or, sneaking with no target, stitches you 6 blocks forward."
     },
     {
       "id": "chapter_28",
@@ -253,66 +253,71 @@
     },
     {
       "id": "chapter_51",
+      "title": "The sixth voice",
+      "text": "The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung; an Unsung Heart, two threads, four March Crystals and two March Planks make the Loom totem, a distinct voice for the Resonator. Echo Unweave reverses the lattice: ingots to echoes, cores to ingots, Spiritweave to wool, and worn Spiritgear to one Manifested Ingot. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch."
+    },
+    {
+      "id": "chapter_52",
       "title": "Dawn Stag",
       "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet."
     },
     {
-      "id": "chapter_52",
+      "id": "chapter_53",
       "title": "Lantern Fox",
       "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down."
     },
     {
-      "id": "chapter_53",
+      "id": "chapter_54",
       "title": "Mossback",
       "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale."
     },
     {
-      "id": "chapter_54",
+      "id": "chapter_55",
       "title": "Ashbound",
       "text": "The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close."
     },
     {
-      "id": "chapter_55",
+      "id": "chapter_56",
       "title": "Rootbound",
       "text": "A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly."
     },
     {
-      "id": "chapter_56",
+      "id": "chapter_57",
       "title": "Reed Stalker",
       "text": "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
     },
     {
-      "id": "chapter_57",
+      "id": "chapter_58",
       "title": "Shardback",
       "text": "A crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove."
     },
     {
-      "id": "chapter_58",
+      "id": "chapter_59",
       "title": "Hollow Sentinel",
       "text": "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
     },
     {
-      "id": "chapter_59",
+      "id": "chapter_60",
       "title": "Storm Moth",
       "text": "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack."
     },
     {
-      "id": "chapter_60",
+      "id": "chapter_61",
       "title": "Cinder Imp",
       "text": "A nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain."
     },
     {
-      "id": "chapter_61",
+      "id": "chapter_62",
       "title": "Mourning Bell",
       "text": "A floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song."
     },
     {
-      "id": "chapter_62",
+      "id": "chapter_63",
       "title": "Rift Hound",
       "text": "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
     },
     {
-      "id": "chapter_63",
+      "id": "chapter_64",
       "title": "Echo Weaver",
       "text": "An eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
     }

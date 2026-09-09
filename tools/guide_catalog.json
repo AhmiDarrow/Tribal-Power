@@ -65,7 +65,7 @@
   },
   {
     "id": "chapter_9",
-    "title": "Five voices",
+    "title": "Six voices",
     "category": "Workshops",
     "icon": "resonance_totem_earth",
     "spoiler": false,
@@ -209,7 +209,7 @@
   },
   {
     "id": "chapter_27",
-    "title": "Fivefold Staff",
+    "title": "Sixfold Staff",
     "category": "Equipment & rites",
     "icon": "spirit_staff",
     "spoiler": true,
@@ -501,6 +501,14 @@
     "category": "Camp stewardship",
     "icon": "offering_table",
     "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "loom_sixth_voice",
+    "title": "The sixth voice",
+    "category": "Workshops",
+    "icon": "resonance_totem_loom",
+    "spoiler": true,
     "picture": ""
   }
 ]

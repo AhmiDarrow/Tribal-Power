@@ -48,6 +48,7 @@ public final class ModBlocks {
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_WATER = totem("resonance_totem_water", Attunement.WATER, MapColor.WATER);
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_AIR = totem("resonance_totem_air", Attunement.AIR, MapColor.WOOL);
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_SPIRIT = totem("resonance_totem_spirit", Attunement.SPIRIT, MapColor.COLOR_PURPLE);
+    public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_LOOM = totem("resonance_totem_loom", Attunement.LOOM, MapColor.DIAMOND);
 
     public static final DeferredBlock<SongBenchBlock> SONG_BENCH = BLOCKS.register(
             "song_bench",
@@ -72,6 +73,7 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> ECHO_ATTUNE = echo("echo_attune", MapColor.COLOR_CYAN);
     public static final DeferredBlock<Block> ECHO_BIND = echo("echo_bind", MapColor.COLOR_PURPLE);
     public static final DeferredBlock<Block> ECHO_MANIFEST = echo("echo_manifest", MapColor.GOLD);
+    public static final DeferredBlock<Block> ECHO_UNWEAVE = echo("echo_unweave", MapColor.DIAMOND);
 
     // Storage
     public static final DeferredBlock<AncestralCacheBlock> ANCESTRAL_CACHE = BLOCKS.register(

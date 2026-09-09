@@ -38,7 +38,8 @@ public final class ModBlockEntities {
                     ModBlocks.RESONANCE_TOTEM_FIRE.get(),
                     ModBlocks.RESONANCE_TOTEM_WATER.get(),
                     ModBlocks.RESONANCE_TOTEM_AIR.get(),
-                    ModBlocks.RESONANCE_TOTEM_SPIRIT.get()
+                    ModBlocks.RESONANCE_TOTEM_SPIRIT.get(),
+                    ModBlocks.RESONANCE_TOTEM_LOOM.get()
             ).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SongBenchBlockEntity>> SONG_BENCH =
@@ -72,5 +73,5 @@ public final class ModBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EchoStationBlockEntity>> ECHO_STATION =
             BLOCK_ENTITIES.register("echo_station", () -> BlockEntityType.Builder.of(EchoStationBlockEntity::new,
-                    ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get()).build(null));
+                    ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get(), ModBlocks.ECHO_UNWEAVE.get()).build(null));
 }

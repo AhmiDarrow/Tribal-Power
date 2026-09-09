@@ -11,7 +11,9 @@ public enum Attunement implements StringRepresentable {
     FIRE("fire"),
     WATER("water"),
     AIR("air"),
-    SPIRIT("spirit");
+    SPIRIT("spirit"),
+    /** The sixth voice: the thread itself. March-born, boss-gated. */
+    LOOM("loom");
 
     public static final Codec<Attunement> CODEC = StringRepresentable.fromEnum(Attunement::values);
 

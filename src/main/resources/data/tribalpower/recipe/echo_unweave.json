@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "T": {
+      "item": "tribalpower:loom_thread"
+    },
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "P": {
+      "item": "tribalpower:spirit_shard"
+    }
+  },
+  "pattern": [
+    "STS",
+    "CPC",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:echo_unweave"
+  }
+}

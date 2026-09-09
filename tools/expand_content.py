@@ -37,7 +37,7 @@ def main():
     shaped('horizon_compass', [' R ','RCR',' R '], {'R':'tribalpower:resonant_core','C':'tribalpower:waystone_compass'})
     shaped('astral_compass', [' R ','SCS',' R '], {'R':'tribalpower:march_crystal','S':'tribalpower:spirit_seal','C':'tribalpower:horizon_compass'})
     utility_blocks = ['item_relay','fluid_relay','longreach_item_relay','longreach_fluid_relay','astral_item_relay','astral_fluid_relay','pulse_adapter','spirit_cistern']
-    for name in utility_blocks:
+    for name in utility_blocks + ['resonance_totem_loom', 'echo_unweave']:
         write(DATA/f'tribalpower/loot_table/blocks/{name}.json', {'type':'minecraft:block','pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':'tribalpower:'+name}],'conditions':[{'condition':'minecraft:survives_explosion'}]}]})
     for feed in ['minecraft:cobblestone', 'minecraft:stone', 'minecraft:cobbled_deepslate', 'tribalpower:march_stone', 'tribalpower:march_cobble']:
         process('echo_from_' + feed.split(':')[1], 'shatter', feed, 'tribalpower:echo_shard', 'earth', 2, 8)
@@ -55,6 +55,19 @@ def main():
     process('spirit_shard', 'attune', 'minecraft:amethyst_shard', 'tribalpower:spirit_shard', 'fire', 3, 8)
     process('quartz', 'shatter', 'minecraft:diorite', 'minecraft:quartz', 'earth', 4, 10)
     process('clay', 'bind', 'minecraft:dirt', 'minecraft:clay_ball', 'water', 3, 8, 4)
+    # The sixth voice — Echo Unweave reverses the lattice (Loom attunement).
+    process('unweave_manifested_ingot', 'unweave', 'tribalpower:manifested_ingot', 'tribalpower:bound_echo', 'loom', 4, 12, 2)
+    process('unweave_bound_echo', 'unweave', 'tribalpower:bound_echo', 'tribalpower:attuned_echo', 'loom', 3, 10, 2)
+    process('unweave_attuned_echo', 'unweave', 'tribalpower:attuned_echo', 'tribalpower:echo_shard', 'loom', 2, 8, 2)
+    process('unweave_spiritweave', 'unweave', 'tribalpower:spiritweave', 'minecraft:white_wool', 'loom', 3, 10, 2)
+    process('unweave_resonant_core', 'unweave', 'tribalpower:resonant_core', 'tribalpower:manifested_ingot', 'loom', 6, 16, 3)
+    process('unweave_spiritgear', 'unweave', '#tribalpower:spiritgear_tools', 'tribalpower:manifested_ingot', 'loom', 8, 16)
+    write(DATA / 'tribalpower/tags/item/spiritgear_tools.json', {'replace': False, 'values': ['tribalpower:spiritgear_' + t for t in ['pickaxe', 'axe', 'shovel', 'blade']]})
+    shaped('resonance_totem_loom', ['CTC', 'PHP', 'CTC'], {'C':'tribalpower:march_crystal', 'T':'tribalpower:loom_thread', 'H':'tribalpower:unsung_heart', 'P':'tribalpower:march_planks'})
+    shaped('echo_unweave', ['STS', 'CPC', 'SSS'], {'S':'tribalpower:march_stone', 'T':'tribalpower:loom_thread', 'C':'tribalpower:copper_resonator', 'P':'tribalpower:spirit_shard'})
+    write(DATA / 'tribalpower/recipe/loom_seal.json', {'type': 'minecraft:crafting_shapeless', 'category': 'misc',
+          'ingredients': [{'item': 'tribalpower:blank_seal'}, {'item': 'tribalpower:loom_thread'}, {'item': 'tribalpower:spirit_shard'}],
+          'result': {'count': 1, 'id': 'tribalpower:loom_seal'}})
     shaped('greater_pulse_cell', [' C ', 'IPI', ' C '], {'C':'tribalpower:resonant_core', 'I':'tribalpower:manifested_ingot', 'P':'tribalpower:pulse_cell'})
     shaped('spirit_staff', [' SC', ' RI', 'R  '], {'S':'tribalpower:spirit_seal', 'C':'tribalpower:resonant_core', 'R':'#minecraft:logs', 'I':'tribalpower:manifested_ingot'})
     shaped('wayfarer_satchel', ['WWW', 'CDC', 'WWW'], {'W':'tribalpower:spiritweave', 'C':'tribalpower:resonant_core', 'D':'tribalpower:deep_cache'})
@@ -67,7 +80,7 @@ def main():
     for tag in ['mineable/pickaxe', 'needs_stone_tool']:
         path = DATA / ('minecraft/tags/block/' + tag + '.json')
         obj = json.loads(path.read_text()) if path.exists() else {'replace': False, 'values': []}
-        for name in ['ritual_brazier'] + utility_blocks:
+        for name in ['ritual_brazier', 'echo_unweave'] + utility_blocks:
             if 'tribalpower:'+name not in obj['values']: obj['values'].append('tribalpower:'+name)
         write(path, obj)
     write(DATA / 'tribalpower/loot_table/blocks/ritual_brazier.json', {'type':'minecraft:block','pools':[{'rolls':1,
@@ -75,7 +88,7 @@ def main():
     for metal in ['iron', 'gold', 'copper']:
         write(DATA / f'c/tags/item/dusts/{metal}.json', {'replace':False,'values':['tribalpower:' + metal + '_grit']})
     names = {'spiritweave':'Spiritweave', 'resonant_core':'Resonant Core', 'greater_pulse_cell':'Greater Pulse Cell',
-             'spirit_staff':'Fivefold Staff', 'wayfarer_satchel':'Wayfarer Satchel', 'resonance_maul':'Resonance Maul',
+             'spirit_staff':'Sixfold Staff', 'wayfarer_satchel':'Wayfarer Satchel', 'resonance_maul':'Resonance Maul',
              'spiritweave_hood':'Spiritweave Hood', 'spiritweave_robe':'Spiritweave Robe',
              'spiritweave_leggings':'Spiritweave Leggings', 'spiritweave_boots':'Spiritweave Boots',
              'iron_grit':'Iron Grit','gold_grit':'Gold Grit','copper_grit':'Copper Grit'}
@@ -117,6 +130,14 @@ def main():
         'item.tribalpower.spiritweave_armor.desc':'Worn pieces draw 2 Pulse every 4 seconds for their spirit boon.',
         'spell.tribalpower.earth':'Earthbind', 'spell.tribalpower.fire':'Ember Lance', 'spell.tribalpower.water':'Mending Tide',
         'spell.tribalpower.air':'Windstep', 'spell.tribalpower.spirit':'Spirit Sight',
+        'spell.tribalpower.loom':'Tether', 'spell.tribalpower.loom.stitch':'Stitch', 'attunement.tribalpower.loom':'Loom',
+        'item.tribalpower.spirit_staff.stitch':'Sneak-use with no target: Stitch, blink 6 blocks forward (%s Pulse).',
+        'message.tribalpower.staff.stitch_blocked':'No open air to stitch through.',
+        'message.tribalpower.brazier.tension':'Tension · threading 2 Pulse into carried cells every 2 seconds',
+        'item.tribalpower.loom_thread':'Loom Thread', 'item.tribalpower.unsung_heart':'Unsung Heart', 'item.tribalpower.loom_seal':'Loom Seal',
+        'item.tribalpower.loom_thread.desc':'A strand of the thread itself. Found in Ancestor Halls, torn from The Unsung.',
+        'item.tribalpower.unsung_heart.desc':'The stilled drum of The Unsung. Crafts the Loom totem.',
+        'block.tribalpower.resonance_totem_loom':'Resonance Totem (Loom)', 'block.tribalpower.echo_unweave':'Echo Unweave',
         'message.tribalpower.staff.selected':'Attuned: %s', 'message.tribalpower.staff.no_target':'Aim at a hostile within 18 blocks.',
         'message.tribalpower.station.idle':'Seat feed in the left slot', 'message.tribalpower.station.working':'Working · %s beats',
         'message.tribalpower.station.paused':'Paused by redstone', 'message.tribalpower.station.full':'Output is full',
@@ -133,7 +154,7 @@ def main():
                   ('bind','echo_bind','Thread that remembers','Build Echo Bind for echoes and Spiritweave.'),
                   ('manifest','manifested_ingot','Metal with a memory','Walk an echo through all four stages.'),
                   ('core','resonant_core','A living lattice','Manifest a Resonant Core for advanced craft.'),
-                  ('staff','spirit_staff','Five voices, one hand','Craft the Fivefold Staff and carry charged cells.'),
+                  ('staff','spirit_staff','Six voices, one hand','Craft the Sixfold Staff and carry charged cells.'),
                   ('ritual','ritual_brazier','A hearth worth returning to','Build a sustained ritual for your camp.'),
                   ('march','gate_drum','Beyond the veil','Build a Gate Drum to reach The March.')]
     parent = None

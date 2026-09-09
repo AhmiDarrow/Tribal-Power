@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_unweave",
+  "ingredient": {
+    "item": "tribalpower:attuned_echo"
+  },
+  "result": {
+    "id": "tribalpower:echo_shard",
+    "count": 2
+  },
+  "attunement": "loom",
+  "seconds": 2,
+  "pulse_per_second": 8
+}

@@ -16,6 +16,7 @@ public final class SpiritEffects {
             case WATER -> new Vector3f(0.28F, 0.75F, 0.91F);
             case AIR -> new Vector3f(0.81F, 0.92F, 0.83F);
             case SPIRIT -> new Vector3f(0.70F, 0.48F, 0.95F);
+            case LOOM -> new Vector3f(0.38F, 0.82F, 0.79F);
         };
     }
     public static void ring(ServerLevel level, Vec3 center, Attunement element, double radius, int points) {

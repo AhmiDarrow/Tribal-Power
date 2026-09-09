@@ -28,7 +28,7 @@ public class TribalJeiPlugin implements IModPlugin {
         registration.addIngredientInfo(ModItems.LATTICE_TUNER.get(),Component.translatable("item.tribalpower.lattice_tuner.desc"));
     }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get());
+        registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get());
     }
     private static class Category implements IRecipeCategory<LatticeRecipe> {
         private final IDrawable icon;

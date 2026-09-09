@@ -42,6 +42,11 @@ public final class ModItems {
     public static final DeferredItem<Item> WATER_SEAL = ITEMS.registerSimpleItem("water_seal");
     public static final DeferredItem<Item> AIR_SEAL = ITEMS.registerSimpleItem("air_seal");
     public static final DeferredItem<Item> SPIRIT_SEAL = ITEMS.registerSimpleItem("spirit_seal");
+    public static final DeferredItem<Item> LOOM_SEAL = ITEMS.registerSimpleItem("loom_seal");
+
+    // The sixth voice — Loom (March-born, boss-gated)
+    public static final DeferredItem<Item> LOOM_THREAD = ITEMS.registerSimpleItem("loom_thread");
+    public static final DeferredItem<Item> UNSUNG_HEART = ITEMS.register("unsung_heart", () -> new Item(new Item.Properties().rarity(net.minecraft.world.item.Rarity.EPIC).fireResistant()));
 
     // Spiritgear — Pulse-fueled tools
     public static final DeferredItem<Item> SPIRITGEAR_PICKAXE = ITEMS.register(
@@ -70,6 +75,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_WATER = ITEMS.registerSimpleBlockItem("resonance_totem_water", ModBlocks.RESONANCE_TOTEM_WATER);
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_AIR = ITEMS.registerSimpleBlockItem("resonance_totem_air", ModBlocks.RESONANCE_TOTEM_AIR);
     public static final DeferredItem<BlockItem> RESONANCE_TOTEM_SPIRIT = ITEMS.registerSimpleBlockItem("resonance_totem_spirit", ModBlocks.RESONANCE_TOTEM_SPIRIT);
+    public static final DeferredItem<BlockItem> RESONANCE_TOTEM_LOOM = ITEMS.registerSimpleBlockItem("resonance_totem_loom", ModBlocks.RESONANCE_TOTEM_LOOM);
     public static final DeferredItem<BlockItem> SONG_BENCH = ITEMS.registerSimpleBlockItem("song_bench", ModBlocks.SONG_BENCH);
     public static final DeferredItem<BlockItem> LATTICE_CONDUCTOR = ITEMS.registerSimpleBlockItem("lattice_conductor", ModBlocks.LATTICE_CONDUCTOR);
 
@@ -78,6 +84,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> ECHO_ATTUNE = ITEMS.registerSimpleBlockItem("echo_attune", ModBlocks.ECHO_ATTUNE);
     public static final DeferredItem<BlockItem> ECHO_BIND = ITEMS.registerSimpleBlockItem("echo_bind", ModBlocks.ECHO_BIND);
     public static final DeferredItem<BlockItem> ECHO_MANIFEST = ITEMS.registerSimpleBlockItem("echo_manifest", ModBlocks.ECHO_MANIFEST);
+    public static final DeferredItem<BlockItem> ECHO_UNWEAVE = ITEMS.registerSimpleBlockItem("echo_unweave", ModBlocks.ECHO_UNWEAVE);
 
     // Storage / rites / portal
     public static final DeferredItem<BlockItem> ANCESTRAL_CACHE = ITEMS.registerSimpleBlockItem("ancestral_cache", ModBlocks.ANCESTRAL_CACHE);

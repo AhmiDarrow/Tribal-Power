@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_unweave",
+  "ingredient": {
+    "item": "tribalpower:manifested_ingot"
+  },
+  "result": {
+    "id": "tribalpower:bound_echo",
+    "count": 2
+  },
+  "attunement": "loom",
+  "seconds": 4,
+  "pulse_per_second": 12
+}

@@ -50,6 +50,8 @@ public final class RiteHelper {
             airRite(server, pos, player, amplified);
         } else if (seal.is(ModItems.SPIRIT_SEAL.get())) {
             spiritRite(server, pos, player, amplified);
+        } else if (seal.is(ModItems.LOOM_SEAL.get())) {
+            loomRite(server, pos, player, amplified);
         } else {
             return false;
         }
@@ -184,6 +186,41 @@ public final class RiteHelper {
                 26, 0.7, 0.5, 0.7, 0.01);
         server.sendParticles(ParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() + 1.3, pos.getZ() + 0.5,
                 10, 0.4, 0.4, 0.4, 0.02);
+    }
+
+    /**
+     * Loom rite — "Tension": draw every hostile in range toward the pedestal along a thread, bind them briefly,
+     * and re-thread Pulse into carried cells of every player nearby. Luck follows the thread.
+     */
+    private static void loomRite(ServerLevel server, BlockPos pos, Player player, boolean amplified) {
+        player.addEffect(new MobEffectInstance(MobEffects.LUCK, 20 * (amplified ? 90 : 60), 0));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 20, 0));
+
+        double pull = amplified ? 1.2 : 0.8;
+        for (LivingEntity living : hostilesNear(server, pos)) {
+            double dx = pos.getX() + 0.5 - living.getX();
+            double dz = pos.getZ() + 0.5 - living.getZ();
+            double dist = Math.max(0.35, Math.sqrt(dx * dx + dz * dz));
+            living.push(dx / dist * pull, 0.15, dz / dist * pull);
+            living.hurtMarked = true;
+            living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * (amplified ? 8 : 5), 1));
+        }
+
+        int refund = amplified ? 24 : 12;
+        AABB area = new AABB(pos).inflate(RADIUS);
+        for (Player nearby : server.getEntitiesOfClass(Player.class, area)) {
+            int remaining = refund;
+            for (int i = 0; i < nearby.getInventory().getContainerSize() && remaining > 0; i++) {
+                ItemStack stack = nearby.getInventory().getItem(i);
+                if (stack.getItem() instanceof PulseCellItem) {
+                    remaining -= PulseCellItem.insertPulse(stack, remaining, false);
+                }
+            }
+        }
+        tk.darrow.tribalpower.effect.SpiritEffects.ring(server, pos.getCenter().add(0, 1.0, 0),
+                tk.darrow.tribalpower.api.pulse.Attunement.LOOM, amplified ? 2.0 : 1.4, 24);
+        server.sendParticles(ParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() + 1.3, pos.getZ() + 0.5,
+                12, 0.5, 0.4, 0.5, 0.02);
     }
 
     private static Iterable<LivingEntity> hostilesNear(ServerLevel server, BlockPos pos) {

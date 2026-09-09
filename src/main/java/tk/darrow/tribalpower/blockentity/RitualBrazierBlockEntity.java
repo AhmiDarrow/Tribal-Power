@@ -14,6 +14,7 @@ import net.minecraft.world.phys.AABB;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.item.ModItems;
+import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 public class RitualBrazierBlockEntity extends BlockEntity {
@@ -22,13 +23,17 @@ public class RitualBrazierBlockEntity extends BlockEntity {
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
     public ItemStack seal() { return seal; }
     public void setSeal(ItemStack stack) { seal = stack; active = false; setChanged(); }
-    public Component status() { return Component.translatable("message.tribalpower.brazier." + (seal.isEmpty() ? "empty" : active ? "active" : "waiting")); }
+    public Component status() {
+        if (active && element(seal) == Attunement.LOOM) return Component.translatable("message.tribalpower.brazier.tension");
+        return Component.translatable("message.tribalpower.brazier." + (seal.isEmpty() ? "empty" : active ? "active" : "waiting"));
+    }
     public static Attunement element(ItemStack seal) {
         if (seal.is(ModItems.EARTH_SEAL.get())) return Attunement.EARTH;
         if (seal.is(ModItems.FIRE_SEAL.get())) return Attunement.FIRE;
         if (seal.is(ModItems.WATER_SEAL.get())) return Attunement.WATER;
         if (seal.is(ModItems.AIR_SEAL.get())) return Attunement.AIR;
         if (seal.is(ModItems.SPIRIT_SEAL.get())) return Attunement.SPIRIT;
+        if (seal.is(ModItems.LOOM_SEAL.get())) return Attunement.LOOM;
         return null;
     }
     public static void tick(Level level, BlockPos pos, BlockState state, RitualBrazierBlockEntity be) {
@@ -47,10 +52,22 @@ public class RitualBrazierBlockEntity extends BlockEntity {
             case WATER -> MobEffects.REGENERATION;
             case AIR -> MobEffects.SLOW_FALLING;
             case SPIRIT -> MobEffects.NIGHT_VISION;
+            case LOOM -> MobEffects.LUCK;
         };
-        for (Player player : players) player.addEffect(new MobEffectInstance(effect, element == Attunement.SPIRIT ? 300 : 100, 0, true, false, true));
+        for (Player player : players) {
+            player.addEffect(new MobEffectInstance(effect, element == Attunement.SPIRIT ? 300 : 100, 0, true, false, true));
+            if (element == Attunement.LOOM) tension(player);
+        }
         SpiritEffects.ring((ServerLevel)level, pos.getCenter().add(0, 0.35, 0), element, 1.2, 16);
     }
+    /** Loom blessing "Tension": every beat, thread 2 Pulse back into one carried cell with room. */
+    public static void tension(Player player) {
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
+            if (stack.getItem() instanceof PulseCellItem && PulseCellItem.insertPulse(stack, TENSION_PULSE, false) > 0) return;
+        }
+    }
+    public static final int TENSION_PULSE = 2;
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         if (!seal.isEmpty()) tag.put("Seal", seal.save(registries));

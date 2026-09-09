@@ -18,7 +18,7 @@ public record LatticeRecipe(String station, Ingredient ingredient, ItemStack out
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, "tribalpower");
     public static final DeferredHolder<RecipeType<?>,RecipeType<LatticeRecipe>> TYPE = TYPES.register("lattice", () -> new RecipeType<>() {});
     public static final DeferredHolder<RecipeSerializer<?>,RecipeSerializer<LatticeRecipe>> SERIALIZER = SERIALIZERS.register("lattice", Serializer::new);
-    private static final Codec<String> STATION = Codec.STRING.validate(value -> java.util.Set.of("echo_shatter","echo_attune","echo_bind","echo_manifest").contains(value)
+    private static final Codec<String> STATION = Codec.STRING.validate(value -> java.util.Set.of("echo_shatter","echo_attune","echo_bind","echo_manifest","echo_unweave").contains(value)
             ? DataResult.success(value) : DataResult.error(() -> "Unknown lattice station: " + value));
     public static final MapCodec<LatticeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             STATION.fieldOf("station").forGetter(LatticeRecipe::station),

@@ -12,7 +12,7 @@ CHAPTERS = [
     ('Pulse Resonator', 'Seat an Echo catalyst and place at least two different elemental totems within 8 blocks. More distinct voices and stronger catalysts increase generation. The catalyst is reusable.'),
     ('Harmonic ranks', 'Catalysts: Echo Shard, Attuned Echo, Bound Echo, Resonant Core. Coal and wood are not fuels. Sneak with an empty hand to recover the catalyst. Redstone pauses generation.'),
     ('Carry the beat', 'Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel.'),
-    ('Five voices', 'Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Place the needed totem within 8 blocks of the station; missing voices pause work safely.'),
+    ('Six voices', 'Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Loom unweaves. Place the needed totem within 8 blocks of the station; missing voices pause work safely.'),
     ('Chalk and conductor', 'Mark two totems with Ritual Chalk to link them within 16 blocks. A Conductor moves Pulse through linked totems and routes Song Bench items through nearby Ancestral Caches.'),
     ('Echo workshops', 'The four Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work.'),
     ('Shatter', 'Earth turns stone into Echo Shards. Raw iron, copper and gold become two grits each. Smelt or blast grits into ingots. Shared raw-material tags accept compatible ores from other mods.'),
@@ -30,7 +30,7 @@ CHAPTERS = [
     ('Waystone paths', 'Sneak-use a compass on the top of a solid floor to bind a landing. Use it to return. Keep two clear dry blocks above the floor. Power the landing floor with redstone to lock arrival.'),
     ('Travel tiers', 'Waystone Compass: 128 blocks, same world, 20 Pulse. Horizon Compass: any distance in one world, 40 Pulse. Astral Compass: across dimensions, 100 Pulse. Travel has a 5-second cooldown.'),
     ('The March', 'The Gate Drum opens the way to The March. Bring charged cells and prepare a return route. March materials unlock Astral transport, the final tier for both travellers and cargo.'),
-    ('Fivefold Staff', 'Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies.'),
+    ('Sixfold Staff', 'Sneak-use to choose a voice; use to cast. Earth slows foes, Fire strikes and ignites, Water heals and cleanses, Air grants a short leap and slow falling, Spirit reveals nearby enemies, Loom tethers a foe toward you or, sneaking with no target, stitches you 6 blocks forward.'),
     ('Staff costs', 'Earth 12, Fire 18, Water 24, Air 16, Spirit 20 Pulse. Water rests for 8 seconds; other voices for 2. Offensive spells target hostile creatures and stop at solid obstacles.'),
     ('Resonance Maul', 'Hold the maul in your main hand. Sneak-use a stone face to excavate a 3-by-3 plane. Each block costs 8 Pulse. Tool requirements and normal player block protection still apply.'),
     ('Spiritweave', 'Hood: night sight. Robe: resistance. Leggings: speed. Boots: slow falling when descending. Each active piece spends 2 Pulse every four seconds. Carry spare cells for long expeditions.'),
@@ -48,6 +48,7 @@ CHAPTERS = [
 ]
 
 CHAPTERS.extend((r["title"], r["text"]) for r in json.loads((ROOT/"tools/camp_guides.json").read_text(encoding="utf-8")))
+CHAPTERS.append(('The sixth voice', 'The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung; an Unsung Heart, two threads, four March Crystals and two March Planks make the Loom totem, a distinct voice for the Resonator. Echo Unweave reverses the lattice: ingots to echoes, cores to ingots, Spiritweave to wool, and worn Spiritgear to one Manifested Ingot. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch.'))
 
 def main():
     roster=json.loads((ROOT/'art/creatures/roster.json').read_text(encoding='utf-8'))
