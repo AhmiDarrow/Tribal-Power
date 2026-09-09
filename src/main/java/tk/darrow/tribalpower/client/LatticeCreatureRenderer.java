@@ -14,6 +14,7 @@ public class LatticeCreatureRenderer<T extends Mob> extends MobRenderer<T,Lattic
         texture=ResourceLocation.fromNamespaceAndPath("tribalpower","textures/entity/"+profile.id+".png");
         var glow=RenderType.eyes(ResourceLocation.fromNamespaceAndPath("tribalpower","textures/entity/"+profile.id+"_glow.png"));
         addLayer(new EyesLayer<T,LatticeCreatureModel<T>>(this) { @Override public RenderType renderType() { return glow; } });
+        if(profile.animal)addLayer(new BondedCollarLayer<>(this,profile));
     }
     @Override public ResourceLocation getTextureLocation(T entity) { return texture; }
 }

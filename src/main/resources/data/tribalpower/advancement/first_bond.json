@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:bonding_charm"
+    },
+    "title": "A friend in the dark",
+    "description": "Bond a Lantern Fox, Mossback or Dawn Stag with a Bonding Charm.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/march"
+}

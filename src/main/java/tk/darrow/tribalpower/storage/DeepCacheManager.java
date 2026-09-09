@@ -21,8 +21,29 @@ public final class DeepCacheManager {
         return DeepCacheSavedData.get(server);
     }
 
+    /**
+     * Personal vault by default. A camp member gets the shared camp vault (design 3.0 §6) unless they toggled
+     * personal mode; sneak-using a Deep Cache or Wayfarer Satchel flips that toggle (persisted as
+     * {@code TribalVaultPersonal} in player persistent data) and then opens the chosen vault.
+     */
     public static DeepCacheContainer openContainer(ServerPlayer player) {
-        return new DeepCacheContainer(data(player.server), player.getUUID());
+        var camp = tk.darrow.tribalpower.camp.identity.Camps.campOf(player.server, player.getUUID());
+        if (camp != null && player.isShiftKeyDown()) {
+            boolean personal = !tk.darrow.tribalpower.camp.identity.Camps.personalVault(player);
+            tk.darrow.tribalpower.camp.identity.Camps.setPersonalVault(player, personal);
+            player.displayClientMessage(net.minecraft.network.chat.Component.translatable(personal ? "message.tribalpower.camp.vault_personal" : "message.tribalpower.camp.vault_camp", camp.name), true);
+        }
+        return openContainer(player.server, player.getUUID(), tk.darrow.tribalpower.camp.identity.Camps.personalVault(player));
+    }
+
+    /** Resolve the vault a player id opens: the camp vault when in a camp and not in personal mode, else the personal one. */
+    public static DeepCacheContainer openContainer(net.minecraft.server.MinecraftServer server, java.util.UUID playerId, boolean personal) {
+        var camps = tk.darrow.tribalpower.camp.identity.Camps.data(server);
+        var camp = camps.campOf(playerId);
+        if (camp != null && !personal) {
+            return new tk.darrow.tribalpower.camp.identity.CampVaultContainer(camps, camp);
+        }
+        return new DeepCacheContainer(data(server), playerId);
     }
 
     public static boolean hasSpiritLink(ServerPlayer player) {

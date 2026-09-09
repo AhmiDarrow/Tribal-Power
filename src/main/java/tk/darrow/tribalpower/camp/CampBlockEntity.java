@@ -43,7 +43,9 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     @Override public int getContainerSize(){return 27;}
     @Override protected Component getDefaultName(){return Component.translatable("block.tribalpower."+kind());}
     @Override protected AbstractContainerMenu createMenu(int id,Inventory inventory){return ChestMenu.threeRows(id,inventory,this);}
-    @Override public boolean stillValid(Player player){return super.stillValid(player)&&!level.hasNeighborSignal(worldPosition);}
+    @Override public boolean stillValid(Player player){return super.stillValid(player)&&!level.hasNeighborSignal(worldPosition)&&canAccess(player);}
+    /** Owner-based access: the placer, anyone sharing the placer's camp (design 3.0 §6), or everyone when unclaimed. */
+    public boolean canAccess(Player player){return owner==null||player.getUUID().equals(owner)||tk.darrow.tribalpower.camp.identity.Camps.sameCamp(level instanceof ServerLevel server?server.getServer():null,owner,player.getUUID());}
     @Override public int[] getSlotsForFace(Direction side){
         if(kind().equals("offering_table"))return java.util.stream.IntStream.range(0,27).toArray();
         if(kind().equals("summoning_cradle"))return side==Direction.DOWN?new int[]{0}:new int[]{1};
@@ -69,7 +71,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     }
     public void deactivate(){
         if(level instanceof ServerLevel server){
-            if(kind().equals("wayanchor"))CampHooks.anchor(server,worldPosition,false);
+            if(kind().equals("wayanchor"))CampHooks.anchor(server,worldPosition,owner,false);
             if(kind().equals("hush_totem"))CampHooks.ward(server,worldPosition,false);
             active=false;reason="Paused by redstone";
             if(level.getBlockState(worldPosition).is(getBlockState().getBlock())&&getBlockState().getValue(CampBlock.LIT))level.setBlock(worldPosition,getBlockState().setValue(CampBlock.LIT,false),3);
@@ -91,8 +93,8 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         }
         switch(kind){
             case "wayanchor" -> {
-                if(pulse>=16&&CampHooks.anchor(server,worldPosition,true)){spend(16);active=true;reason="Holding this chunk";}
-                else {CampHooks.anchor(server,worldPosition,false);reason="Need 16 Pulse/s; maximum 32 anchors per dimension";}
+                if(pulse>=16&&CampHooks.anchor(server,worldPosition,owner,true)){spend(16);active=true;reason="Holding this chunk";}
+                else {CampHooks.anchor(server,worldPosition,owner,false);reason="Need 16 Pulse/s; maximum "+CampHooks.SOLO_ANCHOR_CAP+" anchors per dimension, or "+CampHooks.CAMP_ANCHOR_BUDGET+" shared by a camp";}
             }
             case "hush_totem" -> {active=pulse>=8;if(active){spend(8);reason="Hostile spawn ward: 24 blocks";}CampHooks.ward(server,worldPosition,active);}
             case "summoning_cradle" -> {reason="Effigy in slot 1; Spiritweave in slot 2";if((server.getGameTime()+worldPosition.asLong())%200==0)summon(server);}

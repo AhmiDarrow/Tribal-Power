@@ -258,66 +258,86 @@
     },
     {
       "id": "chapter_52",
-      "title": "Dawn Stag",
-      "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet."
+      "title": "Bonded spirits",
+      "text": "Craft a Bonding Charm from two Spiritweave, a Spirit Shard and a Lantern Down, Mossback Scale or Dawn Velvet. Use it on an adult Lantern Fox, Mossback or Dawn Stag: three tries in five succeed with hearts, and a failed charm is kept. A bonded animal follows within ten blocks, teleports to you past twelve, never despawns, ignores your blows and sheds double reagent when brushed. Sneak-use it to make it wait or follow again."
     },
     {
       "id": "chapter_53",
-      "title": "Lantern Fox",
-      "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down."
+      "title": "Lantern Fox familiar",
+      "text": "A bonded Lantern Fox lights the way: it carries an invisible Spirit Light with it, grants Night Vision while you stay within eight blocks, and every four seconds marks ores within six blocks of itself with glints only you can see."
     },
     {
       "id": "chapter_54",
-      "title": "Mossback",
-      "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale."
+      "title": "Mossback and Dawn Stag familiars",
+      "text": "A bonded Mossback carries a nine-slot saddlebag: sneak-use it with an empty hand to open the bag; sneak-use holding an item to make it wait or follow. It drops the bag on death. A bonded Dawn Stag needs no saddle: use it to mount, steer with your gaze, hold jump for a short leap and sneak to dismount. It carries only the one it is bonded to."
     },
     {
       "id": "chapter_55",
+      "title": "Shared camps",
+      "text": "Found a camp with /tribalpower camp create <name>, then invite with /tribalpower camp invite <player> or by using a Camp Charter (paper, Spiritweave, Spirit Shard) on them; invitations last five minutes and are accepted with /tribalpower camp join <name>. Members open one shared 54-slot camp vault from any Deep Cache or Wayfarer Satchel (sneak-use to switch back to your personal vault), count as owners of each other's camp devices, and share a budget of twelve Wayanchors instead of thirty-two per dimension. Leave, kick, rename and info complete the command."
+    },
+    {
+      "id": "chapter_56",
+      "title": "Dawn Stag",
+      "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet. Bond an adult with a Bonding Charm to ride it without a saddle."
+    },
+    {
+      "id": "chapter_57",
+      "title": "Lantern Fox",
+      "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down. Bond an adult with a Bonding Charm for a lantern that follows you."
+    },
+    {
+      "id": "chapter_58",
+      "title": "Mossback",
+      "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale. Bond an adult with a Bonding Charm for a walking saddlebag."
+    },
+    {
+      "id": "chapter_59",
       "title": "Ashbound",
       "text": "The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close."
     },
     {
-      "id": "chapter_56",
+      "id": "chapter_60",
       "title": "Rootbound",
       "text": "A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly."
     },
     {
-      "id": "chapter_57",
+      "id": "chapter_61",
       "title": "Reed Stalker",
       "text": "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
     },
     {
-      "id": "chapter_58",
+      "id": "chapter_62",
       "title": "Shardback",
       "text": "A crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove."
     },
     {
-      "id": "chapter_59",
+      "id": "chapter_63",
       "title": "Hollow Sentinel",
       "text": "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
     },
     {
-      "id": "chapter_60",
+      "id": "chapter_64",
       "title": "Storm Moth",
       "text": "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack."
     },
     {
-      "id": "chapter_61",
+      "id": "chapter_65",
       "title": "Cinder Imp",
       "text": "A nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain."
     },
     {
-      "id": "chapter_62",
+      "id": "chapter_66",
       "title": "Mourning Bell",
       "text": "A floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song."
     },
     {
-      "id": "chapter_63",
+      "id": "chapter_67",
       "title": "Rift Hound",
       "text": "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
     },
     {
-      "id": "chapter_64",
+      "id": "chapter_68",
       "title": "Echo Weaver",
       "text": "An eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
     }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " W ",
+    "WRW",
+    " S "
+  ],
+  "key": {
+    "W": {
+      "item": "tribalpower:spiritweave"
+    },
+    "R": {
+      "tag": "tribalpower:familiar_reagents"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    }
+  },
+  "result": {
+    "id": "tribalpower:bonding_charm",
+    "count": 1
+  }
+}

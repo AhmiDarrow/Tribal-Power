@@ -15,7 +15,7 @@
       "7effcb"
     ],
     "reagent": "dawn_velvet",
-    "notes": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet.",
+    "notes": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet. Bond an adult with a Bonding Charm to ride it without a saddle.",
     "name": "Dawn Stag",
     "parts": [
       {
@@ -315,7 +315,7 @@
       "7affe1"
     ],
     "reagent": "lantern_down",
-    "notes": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down.",
+    "notes": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down. Bond an adult with a Bonding Charm for a lantern that follows you.",
     "name": "Lantern Fox",
     "parts": [
       {
@@ -549,7 +549,7 @@
       "c4ffad"
     ],
     "reagent": "mossback_scale",
-    "notes": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale.",
+    "notes": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale. Bond an adult with a Bonding Charm for a walking saddlebag.",
     "name": "Mossback",
     "parts": [
       {
