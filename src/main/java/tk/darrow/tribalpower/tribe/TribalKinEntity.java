@@ -51,7 +51,9 @@ import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
 
+import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -79,6 +81,12 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     private long angerUntil;
     @Nullable private Player tradingPlayer;
     @Nullable private MerchantOffers offers;
+    /** Rank the current {@link #offers} were built for; offers are rebuilt only when the customer's rank differs. */
+    @Nullable private TribeRank offersRank;
+    /** Uses spent per entry of {@link TribeDefinition#trades()}; persisted so closing the screen does not restock. */
+    private int[] tradeUses = new int[0];
+    /** Minecraft day of the last restock: like villagers, Elders restock once per day. */
+    private long restockDay = -1;
     /** Client-side beat animation countdown. */
     public int beatTicks;
 
@@ -244,7 +252,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                 }
             }
             if (getTradingPlayer() == null) {
-                offers = buildOffers(rank);
+                MerchantOffers offers = offersFor(rank);
                 if (offers.isEmpty()) {
                     sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stranger", tribe.displayNameComponent()), true);
                     return InteractionResult.CONSUME;
@@ -261,15 +269,50 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
 
     // ---- Merchant ----
 
+    /** Fresh offers for {@code rank} with no uses spent (does not touch the Elder's persisted stock). */
     public MerchantOffers buildOffers(TribeRank rank) {
+        return buildOffers(rank, new int[0]);
+    }
+
+    private MerchantOffers buildOffers(TribeRank rank, int[] uses) {
         MerchantOffers list = new MerchantOffers();
-        for (TribeDefinition.Offer spec : tribe().tradesFor(rank)) {
+        List<TribeDefinition.Offer> all = tribe().trades();
+        for (int i = 0; i < all.size(); i++) {
+            TribeDefinition.Offer spec = all.get(i);
+            if (rank.ordinal() < spec.rank().ordinal()) continue;
             ItemStack cost = spec.cost().get();
             Optional<ItemCost> costB = spec.costB() == null ? Optional.empty()
                     : Optional.of(new ItemCost(spec.costB().get().getItem(), spec.costB().get().getCount()));
-            list.add(new MerchantOffer(new ItemCost(cost.getItem(), cost.getCount()), costB, spec.result().get(), spec.maxUses(), 2, 0.05F));
+            int used = i < uses.length ? Math.min(uses[i], spec.maxUses()) : 0;
+            list.add(new MerchantOffer(new ItemCost(cost.getItem(), cost.getCount()), costB, spec.result().get(), used, spec.maxUses(), 2, 0.05F));
         }
         return list;
+    }
+
+    /**
+     * The Elder's stock for a customer of {@code rank}: uses spent survive closing the screen, saving and reloading,
+     * and rank changes (the same six offers are just filtered); stock restocks once per Minecraft day.
+     */
+    public MerchantOffers offersFor(TribeRank rank) {
+        int count = tribe().trades().size();
+        if (tradeUses.length != count) tradeUses = Arrays.copyOf(tradeUses, count);
+        long day = level().getDayTime() / 24000L;
+        if (restockDay != day) { restockDay = day; Arrays.fill(tradeUses, 0); offers = null; }
+        if (offers == null || offersRank != rank) { offers = buildOffers(rank, tradeUses); offersRank = rank; }
+        return offers;
+    }
+
+    /** Index into {@link TribeDefinition#trades()} of a live offer, or -1. */
+    private int tradeIndex(MerchantOffer offer) {
+        if (offers == null || offersRank == null) return -1;
+        int slot = offers.indexOf(offer);
+        if (slot < 0) return -1;
+        List<TribeDefinition.Offer> all = tribe().trades();
+        for (int i = 0, seen = 0; i < all.size(); i++) {
+            if (offersRank.ordinal() < all.get(i).rank().ordinal()) continue;
+            if (seen++ == slot) return i;
+        }
+        return -1;
     }
 
     @Override public void setTradingPlayer(@Nullable Player player) { tradingPlayer = player; }
@@ -277,7 +320,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
 
     @Override
     public MerchantOffers getOffers() {
-        if (offers == null) offers = buildOffers(TribeRank.STRANGER);
+        if (offers == null) return offersFor(offersRank == null ? TribeRank.STRANGER : offersRank);
         return offers;
     }
 
@@ -286,6 +329,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     @Override
     public void notifyTrade(MerchantOffer offer) {
         offer.increaseUses();
+        int index = tradeIndex(offer);
+        if (index >= 0 && index < tradeUses.length) tradeUses[index] = offer.getUses();
         if (tradingPlayer instanceof ServerPlayer sp) {
             TribeStanding.add(sp, tribe(), TribeStanding.GAIN_TRADE);
         }
@@ -306,6 +351,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         tag.putInt(NBT_TRIBE, tribe().ordinal());
         tag.putString(NBT_ROLE, role().name());
         if (anchor != null) tag.putLong(NBT_ANCHOR, anchor.asLong());
+        tag.putIntArray("TradeUses", tradeUses);
+        tag.putLong("RestockDay", restockDay);
     }
 
     @Override
@@ -315,6 +362,9 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         if (tag.contains(NBT_ROLE, net.minecraft.nbt.Tag.TAG_STRING)) setRole(KinRole.byName(tag.getString(NBT_ROLE)));
         else if (tag.contains(NBT_ROLE)) setRole(KinRole.byOrdinal(tag.getInt(NBT_ROLE)));
         if (tag.contains(NBT_ANCHOR)) setAnchor(BlockPos.of(tag.getLong(NBT_ANCHOR)));
+        tradeUses = tag.getIntArray("TradeUses").clone();
+        restockDay = tag.contains("RestockDay") ? tag.getLong("RestockDay") : -1;
+        offers = null;
     }
 
     @Override public boolean removeWhenFarAway(double distance) { return false; }

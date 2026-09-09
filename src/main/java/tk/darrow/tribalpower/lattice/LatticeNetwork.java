@@ -424,14 +424,21 @@ public final class LatticeNetwork {
 
     /** Kinship Totems within {@code radius} (tribe voices, tracked separately from Attunement). */
     public static List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> findNearbyKinshipTotems(Level level, BlockPos origin, int radius) {
+        // Walk the loaded chunks' block-entity maps instead of probing every position of the cube: this runs inside
+        // collectAttunements for every station beat, so it must not double the cost of the totem scan.
         List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> found = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -radius; dy <= radius; dy++) {
-                for (int dz = -radius; dz <= radius; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (be instanceof tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship) found.add(kinship);
+        int minY = origin.getY() - radius, maxY = origin.getY() + radius;
+        int minX = origin.getX() - radius, maxX = origin.getX() + radius;
+        int minZ = origin.getZ() - radius, maxZ = origin.getZ() + radius;
+        for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
+            for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) continue;
+                for (BlockEntity be : chunk.getBlockEntities().values()) {
+                    if (!(be instanceof tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship) || be.isRemoved()) continue;
+                    BlockPos p = be.getBlockPos();
+                    if (p.getX() >= minX && p.getX() <= maxX && p.getY() >= minY && p.getY() <= maxY && p.getZ() >= minZ && p.getZ() <= maxZ)
+                        found.add(kinship);
                 }
             }
         }

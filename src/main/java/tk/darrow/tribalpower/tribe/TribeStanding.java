@@ -60,6 +60,9 @@ public final class TribeStanding {
         if (now.ordinal() > was.ordinal()) {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_up",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(colour(tribe)));
+            // "On good terms" is about reaching Friend by any route (offerings, trades, kills), not only via the hearth.
+            if (now.ordinal() >= TribeRank.FRIEND.ordinal())
+                tk.darrow.tribalpower.camp.CampHooks.award(player.serverLevel(), player.getUUID(), "tribes/friend");
         } else if (now.ordinal() < was.ordinal()) {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_down",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(ChatFormatting.RED));

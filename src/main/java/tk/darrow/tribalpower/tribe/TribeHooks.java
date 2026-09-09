@@ -47,14 +47,17 @@ public final class TribeHooks {
 
     // ---- first meeting ----
 
+    /** Met flags live under {@link Player#PERSISTED_NBT_TAG} so they survive death and dimension changes. */
     public static boolean hasMet(ServerPlayer player, TribeDefinition tribe) {
-        CompoundTag tag = player.getPersistentData();
+        CompoundTag tag = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
         return (tag.getInt(MET_KEY) & (1 << tribe.ordinal())) != 0;
     }
 
     public static void markMet(ServerPlayer player, TribeDefinition tribe) {
-        CompoundTag tag = player.getPersistentData();
-        tag.putInt(MET_KEY, tag.getInt(MET_KEY) | (1 << tribe.ordinal()));
+        CompoundTag data = player.getPersistentData();
+        CompoundTag persisted = data.getCompound(Player.PERSISTED_NBT_TAG);
+        persisted.putInt(MET_KEY, persisted.getInt(MET_KEY) | (1 << tribe.ordinal()));
+        data.put(Player.PERSISTED_NBT_TAG, persisted);
     }
 
     // ---- events ----

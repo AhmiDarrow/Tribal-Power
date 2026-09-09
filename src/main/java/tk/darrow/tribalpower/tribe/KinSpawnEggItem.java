@@ -36,14 +36,35 @@ public class KinSpawnEggItem extends DeferredSpawnEggItem {
         if (level.isClientSide) return InteractionResult.SUCCESS;
         BlockPos pos = ctx.getClickedPos();
         BlockPos spawnPos = level.getBlockState(pos).getBlock() instanceof LiquidBlock ? pos : pos.relative(ctx.getClickedFace());
-        TribalKinEntity kin = TribeRegistry.TRIBAL_KIN.get().spawn((net.minecraft.server.level.ServerLevel) level, spawnPos, MobSpawnType.SPAWN_EGG);
+        spawnKin((net.minecraft.server.level.ServerLevel) level, spawnPos, stack, ctx.getPlayer());
+        return InteractionResult.CONSUME;
+    }
+
+    /** Right-clicking water: vanilla's fluid path would spawn a bare Weaver of tribe 0, so route it through ours. */
+    @Override
+    public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level level, net.minecraft.world.entity.player.Player player, net.minecraft.world.InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        net.minecraft.world.phys.BlockHitResult hit = getPlayerPOVHitResult(level, player, net.minecraft.world.level.ClipContext.Fluid.SOURCE_ONLY);
+        if (hit.getType() != net.minecraft.world.phys.HitResult.Type.BLOCK) return net.minecraft.world.InteractionResultHolder.pass(stack);
+        if (level.isClientSide) return net.minecraft.world.InteractionResultHolder.success(stack);
+        BlockPos pos = hit.getBlockPos();
+        if (!(level.getBlockState(pos).getBlock() instanceof LiquidBlock)) return net.minecraft.world.InteractionResultHolder.pass(stack);
+        if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, hit.getDirection(), stack)) return net.minecraft.world.InteractionResultHolder.fail(stack);
+        return spawnKin((net.minecraft.server.level.ServerLevel) level, pos, stack, player) != null
+                ? net.minecraft.world.InteractionResultHolder.consume(stack) : net.minecraft.world.InteractionResultHolder.pass(stack);
+    }
+
+    /** Spawns this egg's role with the egg's stamped tribe, anchored where it lands; consumes one egg in survival. */
+    public TribalKinEntity spawnKin(net.minecraft.server.level.ServerLevel level, BlockPos spawnPos, ItemStack stack,
+                                    @org.jetbrains.annotations.Nullable net.minecraft.world.entity.player.Player player) {
+        TribalKinEntity kin = TribeRegistry.TRIBAL_KIN.get().spawn(level, spawnPos, MobSpawnType.SPAWN_EGG);
         if (kin != null) {
             kin.setRole(role);
             kin.setTribe(TribeDefinition.ofOrDefault(stack));
             kin.setAnchor(spawnPos);
-            if (ctx.getPlayer() == null || !ctx.getPlayer().isCreative()) stack.shrink(1);
+            if (player == null || !player.isCreative()) stack.shrink(1);
         }
-        return InteractionResult.CONSUME;
+        return kin;
     }
 
     @Override

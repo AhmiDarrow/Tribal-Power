@@ -114,7 +114,7 @@ public enum TribeDefinition {
     public static TribeDefinition of(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
         if (data == null || !data.contains(NBT_KEY)) return null;
-        return byOrdinal(data.copyTag().getInt(NBT_KEY));
+        return byOrdinal(data.getUnsafe().getInt(NBT_KEY)); // read-only: no need to copy the tag per item-model predicate call
     }
 
     public static TribeDefinition ofOrDefault(ItemStack stack) {
