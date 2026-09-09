@@ -6,7 +6,6 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -20,6 +19,7 @@ import tk.darrow.tribalpower.tribe.KinRole;
 import tk.darrow.tribalpower.tribe.KinshipTotemBlock;
 import tk.darrow.tribalpower.tribe.TribalKinEntity;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
+import tk.darrow.tribalpower.tribe.TribeHearthBlock;
 import tk.darrow.tribalpower.tribe.TribeHearthBlockEntity;
 import tk.darrow.tribalpower.tribe.TribeRank;
 import tk.darrow.tribalpower.tribe.TribeRegistry;
@@ -61,7 +61,6 @@ public class TribeGameTests {
         var hearth = (TribeHearthBlockEntity) h.getLevel().getBlockEntity(pos);
         hearth.setTribe(TribeDefinition.STONE);
         var player = h.makeMockServerPlayerInLevel();
-        player.setGameMode(GameType.SURVIVAL);
         int before = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
         ItemStack ore = new ItemStack(Items.RAW_IRON, 4);
         player.setItemInHand(InteractionHand.MAIN_HAND, ore);
@@ -69,7 +68,14 @@ public class TribeGameTests {
         h.getBlockState(rel).useItemOn(ore, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);
         int after = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
         h.assertTrue(after - before == TribeStanding.GAIN_FAVOURED, "Raw iron is favoured by the Grit-singers: +3, got " + (after - before));
+        // The GameTest mock ServerPlayer hard-codes isCreative() == true, so the block path must NOT consume for it...
+        h.assertTrue(ore.getCount() == 4, "Creative offerings are free");
+        // ...while the survival path (what a real player right-clicking gets) consumes exactly one.
+        int survivalBefore = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
+        h.assertTrue(TribeHearthBlock.offer(player, hearth, ore, true) == TribeStanding.GAIN_FAVOURED, "Survival offering grants +3");
         h.assertTrue(ore.getCount() == 3, "One offering is consumed");
+        after = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
+        h.assertTrue(after - survivalBefore == TribeStanding.GAIN_FAVOURED, "Survival offering raises standing");
         ItemStack echo = new ItemStack(ModItems.ATTUNED_ECHO.get());
         player.setItemInHand(InteractionHand.MAIN_HAND, echo);
         h.getBlockState(rel).useItemOn(echo, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);

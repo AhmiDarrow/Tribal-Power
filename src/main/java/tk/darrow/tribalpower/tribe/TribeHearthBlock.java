@@ -72,13 +72,22 @@ public class TribeHearthBlock extends BaseEntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        int value = tribe.offeringValue(stack);
-        if (value <= 0) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        if (player instanceof ServerPlayer sp) {
-            if (!sp.isCreative()) stack.shrink(1);
-            offered(sp, hearth, value, pos);
-        }
+        if (tribe.offeringValue(stack) <= 0) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (player instanceof ServerPlayer sp) offer(sp, hearth, stack, !sp.isCreative());
         return ItemInteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    /**
+     * Offers one item from {@code stack} at the hearth: grants standing and, when {@code consume}, shrinks the stack by one
+     * (survival players consume; creative players do not).
+     * @return standing gained, 0 if the tribe does not want the item
+     */
+    public static int offer(ServerPlayer player, TribeHearthBlockEntity hearth, ItemStack stack, boolean consume) {
+        int value = hearth.tribe().offeringValue(stack);
+        if (value <= 0) return 0;
+        if (consume) stack.shrink(1);
+        offered(player, hearth, value, hearth.getBlockPos());
+        return value;
     }
 
     private static void offered(ServerPlayer player, TribeHearthBlockEntity hearth, int gain, BlockPos pos) {
