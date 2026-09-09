@@ -143,7 +143,7 @@ Craft a **Rite Tablet** from two stone, a creature reagent and the matching seal
 | Dawn Calling | Fire | 800 | time advances to sunrise (game rule `tribalpower:allowDawnRite`, default true) |
 | Ley Binding | Loom | 1,200 | a 30-minute ley line joins the nearest two totems within 64 blocks; Conductors route Pulse across it |
 
-Seal-carvers sell tablets at Friend rank.
+Seal-carvers sell the Still Night tablet at Friend rank (three Attuned Echo and two Spirit Shards).
 
 ## Bound spirits
 

@@ -32,6 +32,11 @@ public class BestiaryGameTests {
             h.assertTrue(CreatureItems.REAGENTS.get(p).get()!=Items.AIR && CreatureItems.EGGS.get(p).get()!=Items.AIR,"Every creature needs its registered reagent and spawn egg");
             if(p.animal)animals++;else monsters++;
         }
+        // 3.0 roster (design §9): the Tribal Kin and The Unsung join the three animals and ten hostiles.
+        var kin=tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get().create(h.getLevel());
+        h.assertTrue(kin!=null && kin.getMaxHealth()==30 && kin.getType().getCategory()==MobCategory.MISC,"Tribal Kin must construct as a persistent MISC mob");
+        var unsung=tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get().create(h.getLevel());
+        h.assertTrue(unsung!=null && unsung.getMaxHealth()==400 && unsung.fireImmune() && unsung.getType().getCategory()==MobCategory.MONSTER,"The Unsung must construct with 400 HP, fire immunity and the MONSTER category");
         h.assertTrue(animals==3 && monsters==10,"Roster must contain three animals and ten hostiles");h.succeed();
     }
     @GameTest(template="empty")

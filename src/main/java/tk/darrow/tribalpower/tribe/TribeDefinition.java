@@ -270,7 +270,9 @@ public enum TribeDefinition {
                     Offer.of(TribeRank.GUEST, ModItems.SPIRIT_SHARD.get(), 2, ModItems.BLANK_SEAL.get(), 1),
                     Offer.of(TribeRank.GUEST, ModItems.ECHO_SHARD.get(), 4, ModItems.RITUAL_CHALK.get(), 4),
                     Offer.of(TribeRank.FRIEND, ModItems.BLANK_SEAL.get(), 1, ModItems.SPIRIT_SHARD.get(), 2, ModItems.SPIRIT_SEAL.get(), 1),
-                    Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 3, ModItems.SPIRIT_SHARD.get(), 3),
+                    // Seal-carvers sell a Rite Tablet at Friend rank as a shortcut past the reagent hunt (design 3.0 §4).
+                    Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 3, ModItems.SPIRIT_SHARD.get(), 2,
+                            tk.darrow.tribalpower.rite.world.WorldRiteRegistry.TABLETS.get(tk.darrow.tribalpower.rite.world.WorldRite.STILL_NIGHT).get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 3, ModItems.RITUAL_BRAZIER.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, ModItems.RESONANCE_TOTEM_SPIRIT.get(), 1));
             case SPINDLE -> List.of(

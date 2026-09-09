@@ -146,3 +146,22 @@ Effects of membership:
 - New GameTests: Loom attunement counted; Unweave recipes reverse Manifest; standing rank thresholds; Unsung wakes on rhythm and drops Heart; familiar bond persists through save; camp vault shared between two members; Pulse Gauge output; rite consumes Pulse and sets weather.
 - `BestiaryGameTests` roster assertion updated (3 animals + 10 hostiles + Kin + Unsung).
 - Version 3.0.0. README section "The Nine Tribes" and RELEASE_3.0.0.md.
+
+## Implementation notes / deviations
+
+Audited against `release/3.0.0`. Everything above is implemented unless listed here; these are the intentional deviations so the document and the mod agree.
+
+- **Green Blessing sampling** (§4): instead of "3 extra random ticks per second" per plant, `rite/world/GreenBlessing` samples every non-empty section of each blessed chunk `EXTRA_TICKS` (3) times per server tick the way vanilla `randomTickSpeed` does, and only ticks growable blocks (crops, saplings, stems). Blessed chunks (3×3) live in `RiteSavedData`; sparkles once a second.
+- **Spiritweave → Wool** (§1): Echo Unweave returns `minecraft:white_wool` ×2 (`recipe/lattice/unweave_spiritweave.json`).
+- **Spiritgear salvage** (§1): `unweave_spiritgear` accepts any tool in `#tribalpower:spiritgear_tools`, damaged or not; there is no durability predicate.
+- **Elder trades** (§2): offers have finite uses (12 / 8 / 6 per offer type) that persist across reopening and saves, and restock once per Minecraft day like villagers. Offers are rebuilt only when the customer's rank changes.
+- **Seal-carver tablets** (§4): the Friend-rank offer is a single Rite Tablet (Still Night, for 3 Attuned Echo + 2 Spirit Shards), keeping the six-offers-per-tribe table; other tablets are craft-only.
+- **Drummer Pulse** (§2): the beat feeds 2 Pulse into every generator within 8 blocks (Drumheart, Ley Collector, Pulse Resonator), not only Drumhearts.
+- **Weaver** (§2): has no loom-specific goal; camps place a vanilla loom beside the Weaver's spawn as set dressing and it wanders/looks like the other roles.
+- **Codex gating** (§2, §3): tribe crest pages and the twelve Lore Tablet pages are spoiler-gated Codex entries rather than per-player unlocks. Meeting a tribe (`tribalpower_tribes_met`) and reading tablets (`TribalTabletsRead`) are still tracked in player persistent data (greeting on first meeting, read counter), but the Codex does not consult them.
+- **Bonding Charm** (§5): one item, crafted with any reagent in `#tribalpower:familiar_reagents` (2 Spiritweave + reagent + Spirit Shard), bonds any of the three species.
+- **March camp variants** (§2): each tribe's March camp is the same template placed in one March biome through its `has_structure/tribe_camp_<id>` tag, not a separate NBT.
+- **Rite Tablet recipes** (§4): "2 stone" is `#minecraft:stone_crafting_materials`; the seal is returned by the `tribalpower:seal_keeping_shapeless` recipe type.
+- **Unsung Echo bolts** (§3): the "weave" effect is Slowness II (4 s) + Weakness (3 s) on a 5-damage hit.
+- **Rank-up toast** (§2): a chat message (`message.tribalpower.standing.rank_up`), not a toast overlay.
+- **Blender rigs** (§8): the Kin and The Unsung are authored in `art/creatures/roster_tribes.json` (a second roster beside `roster.json`).
