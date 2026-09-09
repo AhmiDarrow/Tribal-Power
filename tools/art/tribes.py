@@ -1,215 +1,232 @@
 """Painter for the Nine Tribes (design 3.0 §2, art direction §8).
 
 32x32 blocks/items in the Living Lattice palette (top-left light, 1 px ink outline, 2-3 value steps, no noise) and
-64x64 Kin entity skins. Glyphs come from tools/art/glyphs.py.
+64x64 Kin entity skins. Glyphs come from tools/art/glyphs.py, shared primitives from tools/art/lattice.py.
 
-  block/tribe_hearth.png, tribe_hearth_top.png, tribe_hearth_embers.png (white; tinted in-game by tribe colour)
+  block/tribe_hearth.png, tribe_hearth_top.png, tribe_hearth_embers.png (greyscale; tinted in-game by tribe colour)
   block/tribe_banner_<id>.png x9          block/kinship_totem_<id>.png x9, kinship_totem_top.png
-  item/tribe_mark_<id>.png x9             item/tribe_banner_<id>.png x9   item/tribe_hearth.png
-  entity/kin_elder.png kin_drummer.png kin_hunter.png kin_weaver.png kin_cloak.png
-Run: python3 tools/art/tribes.py [project root]
+  item/tribe_mark_<id>.png x9             item/tribe_banner_<id>.png x9   item/tribe_hearth.png (+ _embers)
+  entity/kin_elder.png kin_drummer.png kin_hunter.png kin_weaver.png kin_cloak.png  (only with --entities: the
+  creature art pass owns textures/entity and may have replaced them)
+Run: python3 tools/art/tribes.py [project root] [--entities]
 """
 from pathlib import Path
 import sys
 from PIL import Image, ImageDraw
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from glyphs import TRIBES, COLOURS, GLYPH_NAMES, draw_glyph, shade, lighten, darken  # noqa: E402
+from glyphs import TRIBES, COLOURS, GLYPH_NAMES, draw_glyph  # noqa: E402
+from lattice import *  # noqa: E402,F403
 
-ROOT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+ROOT = Path(ARGS[0]) if ARGS else Path(__file__).resolve().parents[2]
 TEX = ROOT / 'src/main/resources/assets/tribalpower/textures'
-
-INK = (17, 26, 34, 255)
-WOOD = (0x5a, 0x3b, 0x2e, 255)
-WOOD_LIGHT = (0x7a, 0x51, 0x38, 255)
-STONE = (0x3a, 0x4a, 0x55, 255)
-STONE_LIGHT = (0x55, 0x66, 0x72, 255)
-COPPER = (0xc0, 0x8a, 0x4e, 255)
-LIGHT = (0x7e, 0xff, 0xcb, 255)
-BONE = (225, 217, 189, 255)
-ASH = (0x2a, 0x2c, 0x30, 255)
-EMBER = (255, 255, 255, 255)
 
 
 def rgba(tribe):
     return COLOURS[tribe] + (255,)
 
 
-def blank(size=32):
-    return Image.new('RGBA', (size, size), (0, 0, 0, 0))
-
-
 def save(rel, img):
-    path = TEX / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    img.save(path)
-
-
-def stone_face(color=STONE, light=STONE_LIGHT):
-    im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=color)
-    for y in range(0, 32, 8):
-        for x in range(-4 if y % 16 else 0, 32, 10):
-            d.rectangle((x, y, x + 9, y + 7), outline=shade(color, -18))
-            d.line((x + 1, y + 1, x + 8, y + 1), fill=light)
-            d.line((x + 1, y + 1, x + 1, y + 6), fill=light)
-    return im
-
-
-def plank_face(color=WOOD, light=WOOD_LIGHT):
-    im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=color)
-    for x in range(0, 32, 8):
-        d.line((x, 0, x, 31), fill=shade(color, -22))
-        d.line((x + 1, 0, x + 1, 31), fill=light)
-    d.line((0, 0, 31, 0), fill=light)
-    d.line((0, 0, 0, 31), fill=light)
-    return im
+    save_to(TEX, rel, img)
 
 
 # ---------------------------------------------------------------- hearth
+#
+# The hearth model (tools/generate_tribe_data.py) is a stone plinth [1,0,1]-[15,4,15], a square bowl of four 2 px walls
+# [2,4,2]-[14,9,14] and ember planes inside. Every face uses the model's default UV, so the side texture is painted as
+# an elevation of the whole block and the top texture as its plan view:
+#   side  rows  0..7  unused        rows  8..17 bowl inner wall (v 4..9)   rows 14..17 rim band
+#         rows 14..23 bowl belly    rows 24..31 plinth (v 12..16)
+#   top   texels 2..29 plinth, 4..27 bowl rim, 8..23 ash floor
+#   embers rows 0..7 x cols 6..25: flame planes (uv [3,0,13,4]); rows 8..31 x cols 4..27: ember bed (uv [2,4,14,16]).
 
 def hearth_side():
-    """Stone bowl: a rimmed basin with a dark ash band and a copper trim line."""
-    im = stone_face(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), outline=INK)
-    d.rectangle((2, 10, 29, 31), fill=STONE, outline=shade(STONE, -24))
-    d.line((3, 11, 28, 11), fill=STONE_LIGHT); d.line((3, 11, 3, 30), fill=STONE_LIGHT)
-    d.rectangle((0, 8, 31, 9), fill=COPPER); d.line((0, 8, 31, 8), fill=shade(COPPER, 35))
-    d.rectangle((6, 2, 25, 7), fill=ASH)
-    d.line((6, 2, 25, 2), fill=shade(ASH, 20))
-    for x in (5, 26):
-        d.rectangle((x - 1, 14, x + 1, 16), fill=INK); d.point((x, 14), fill=shade(COPPER, 35))
-    # carved band
-    for x in range(8, 24, 4):
-        d.rectangle((x, 20, x + 1, 24), fill=shade(STONE, -30)); d.point((x, 20), fill=STONE_LIGHT)
+    im = blank(); d = ImageDraw.Draw(im)
+    # bowl interior (seen on the inner faces of the walls): soot-dark stone with a lighter top lip
+    d.rectangle((2, 8, 29, 17), fill=ASH)
+    d.line((2, 8, 29, 8), fill=ASH_LIGHT)
+    for x in range(5, 28, 6):
+        d.line((x, 10, x, 16), fill=ASH_DARK)
+    # rim band: copper trim on the outer wall top edge
+    d.rectangle((4, 14, 27, 15), fill=COPPER); d.line((4, 14, 27, 14), fill=COPPER_LIGHT)
+    # bowl belly: carved stone with an incised tick band
+    bevel(d, (4, 16, 27, 23), STONE, STONE_LIGHT, STONE_DARK)
+    for x in range(7, 26, 4):
+        d.rectangle((x, 18, x, 21), fill=STONE_DARK); d.point((x + 1, 18), fill=STONE_LIGHT)
+    d.line((4, 23, 27, 23), fill=INK)
+    # plinth: two courses of darker stone blocks with a light top edge
+    d.rectangle((2, 24, 29, 31), fill=STONE_DARK)
+    d.line((2, 24, 29, 24), fill=STONE_LIGHT)
+    for x in range(2, 30, 7):
+        d.line((x, 25, x, 27), fill=INK)
+    for x in range(5, 30, 7):
+        d.line((x, 29, x, 31), fill=INK)
+    d.line((2, 28, 29, 28), fill=INK)
+    d.line((2, 24, 2, 31), fill=STONE_LIGHT)
+    d.line((29, 25, 29, 31), fill=INK)
+    d.line((2, 31, 29, 31), fill=INK)
     return im
 
 
 def hearth_top():
-    im = stone_face(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), outline=INK)
-    d.ellipse((3, 3, 28, 28), fill=shade(STONE, -20), outline=COPPER, width=2)
-    d.ellipse((7, 7, 24, 24), fill=ASH, outline=shade(ASH, -12))
-    d.arc((4, 4, 27, 27), 200, 290, fill=STONE_LIGHT)
-    for (x, y) in ((11, 11), (19, 13), (14, 19), (20, 20)):
-        d.rectangle((x, y, x + 1, y + 1), fill=shade(ASH, 40))
+    im = blank(); d = ImageDraw.Draw(im)
+    # plinth ledge
+    bevel(d, (2, 2, 29, 29), STONE_DARK, STONE, INK)
+    # bowl rim: stone with a copper inlay line
+    bevel(d, (4, 4, 27, 27), STONE, STONE_LIGHT, STONE_DARK, ink=INK)
+    d.rectangle((6, 6, 25, 25), outline=COPPER); d.line((6, 6, 25, 6), fill=COPPER_LIGHT); d.line((6, 6, 6, 25), fill=COPPER_LIGHT)
+    # ash floor with dark coals
+    d.rectangle((8, 8, 23, 23), fill=ASH, outline=ASH_DARK)
+    for (x, y) in ((10, 10), (17, 11), (13, 15), (19, 18), (10, 20), (15, 21)):
+        d.rectangle((x, y, x + 2, y + 1), fill=ASH_DARK); d.point((x, y), fill=ASH_LIGHT)
     return im
 
 
 def hearth_embers():
-    """White ember clusters over transparency; tinted in-game by the tribe colour."""
+    """Greyscale glow over transparency; tinted in-game by the tribe colour (tint index 0)."""
     im = blank(); d = ImageDraw.Draw(im)
-    d.ellipse((9, 9, 22, 22), fill=(255, 255, 255, 120))
-    for (x, y, s) in ((12, 12, 3), (17, 11, 2), (19, 16, 3), (13, 18, 2), (16, 15, 2)):
-        d.rectangle((x, y, x + s, y + s), fill=EMBER)
-    for (x, y) in ((11, 16), (20, 13), (15, 20)):
-        d.point((x, y), fill=(255, 255, 255, 200))
+    W = (255, 255, 255, 255); G = (205, 205, 205, 255); K = (140, 140, 140, 255)
+    # flame planes (rows 0..7, cols 6..25): three tongues rising from the coals
+    for (x, h) in ((9, 4), (15, 7), (21, 5)):
+        for i in range(h):
+            w = max(1, (h - i) // 2)
+            d.rectangle((x - w, 7 - i, x + w, 7 - i), fill=G if i < h - 2 else W)
+        d.point((x, 7 - h + 1), fill=W)
+    d.rectangle((6, 7, 25, 7), fill=K)
+    # ember bed (rows 8..31, cols 4..27): a cracked crust with a glowing heart
+    d.rectangle((4, 8, 27, 31), fill=(0, 0, 0, 0))
+    for (x, y, w, h) in ((6, 10, 20, 20),):
+        d.rounded_rectangle((x, y, x + w - 1, y + h - 1), radius=5, fill=K)
+    d.ellipse((9, 13, 22, 26), fill=G)
+    d.ellipse((12, 16, 19, 23), fill=W)
+    # dark cracks between the coals
+    for (x0, y0, x1, y1) in ((8, 20, 14, 22), (18, 12, 20, 18), (16, 22, 23, 24), (11, 11, 13, 15), (21, 25, 24, 28)):
+        d.line((x0, y0, x1, y1), fill=(0, 0, 0, 0), width=1)
     return im
 
 
 def hearth_item():
     im = blank(); d = ImageDraw.Draw(im)
-    d.ellipse((3, 14, 28, 29), fill=STONE, outline=INK)
-    d.ellipse((5, 15, 26, 25), fill=shade(STONE, -20), outline=COPPER)
-    d.ellipse((8, 16, 23, 23), fill=ASH)
-    d.arc((4, 15, 27, 28), 20, 160, fill=STONE_LIGHT)
-    return im
+    # a wide stone bowl on a plinth, seen slightly from above
+    d.rectangle((6, 25, 25, 29), fill=STONE_DARK); d.line((6, 25, 25, 25), fill=STONE_LIGHT)
+    d.ellipse((2, 13, 29, 27), fill=STONE)
+    d.arc((2, 13, 29, 27), 200, 320, fill=STONE_LIGHT, width=2)
+    d.arc((2, 13, 29, 27), 20, 150, fill=STONE_DARK, width=2)
+    d.ellipse((4, 12, 27, 20), fill=COPPER); d.arc((4, 12, 27, 20), 190, 330, fill=COPPER_LIGHT, width=1)
+    d.ellipse((6, 13, 25, 19), fill=ASH); d.arc((6, 13, 25, 19), 20, 160, fill=ASH_LIGHT)
+    for x in range(9, 24, 4):
+        d.line((x, 22, x, 24), fill=STONE_DARK)
+    return outline(im)
 
 
 def hearth_item_embers():
     im = blank(); d = ImageDraw.Draw(im)
-    for (x, y, w, h) in ((14, 5, 3, 13), (10, 9, 2, 9), (19, 8, 3, 10), (12, 13, 8, 6)):
-        d.rectangle((x, y, x + w, y + h), fill=EMBER)
-    d.rectangle((15, 3, 16, 5), fill=(255, 255, 255, 200))
+    W = (255, 255, 255, 255); G = (200, 200, 200, 255)
+    d.ellipse((8, 14, 23, 18), fill=G)
+    for (x, h) in ((11, 6), (16, 11), (21, 8)):
+        for i in range(h):
+            w = max(0, (h - i) // 3)
+            d.rectangle((x - w, 15 - i, x + w, 15 - i), fill=G if i < h - 3 else W)
+    d.ellipse((12, 14, 19, 17), fill=W)
     return im
 
 
 # ---------------------------------------------------------------- banners
+#
+# Cloth texture layout: the cloth is the region cols 4..27 x rows 0..26 (uv [2,0,14,13.5]); everything outside is
+# transparent so the 1 px thick element's edge faces stay clean.
 
 def banner_cloth(tribe):
-    """Cloth panel with a bone glyph, notched hem, darker fold on the right. Full 32x32 is the cloth face."""
-    c = rgba(tribe); im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=c)
-    d.rectangle((0, 0, 31, 31), outline=darken(c, 0.55))
-    d.rectangle((1, 1, 30, 30), outline=lighten(c, 0.25))
-    d.rectangle((22, 2, 29, 29), fill=darken(c, 0.18))
-    d.line((22, 2, 22, 29), fill=darken(c, 0.35))
-    # top hem loops
-    for x in range(3, 30, 6):
-        d.rectangle((x, 0, x + 2, 2), fill=WOOD)
-    # notched hem
-    for x in range(0, 32, 4):
-        d.polygon([(x, 31), (x + 2, 27), (x + 4, 31)], fill=(0, 0, 0, 0))
-    draw_glyph(d, GLYPH_NAMES[tribe], 7, 8, BONE, scale=2, shadow=darken(c, 0.45))
+    c = rgba(tribe); dark, base, light = ramp(c, 0.28); deep = darken(c, 0.5)
+    im = blank(); d = ImageDraw.Draw(im)
+    # cloth body with three vertical fold bands (light, base, shadow) and a darker rolled hem at the top
+    d.rectangle((4, 0, 27, 26), fill=base)
+    d.rectangle((5, 1, 9, 25), fill=light)
+    d.rectangle((14, 1, 16, 25), fill=dark)
+    d.rectangle((23, 1, 26, 25), fill=dark)
+    d.rectangle((4, 0, 27, 2), fill=deep); d.line((4, 0, 27, 0), fill=dark)
+    for x in range(6, 27, 5):  # stitch loops along the hem
+        d.point((x, 1), fill=BONE_SHADE)
+    # fringe: alternating tassels, notched by transparency
+    for x in range(4, 28, 3):
+        d.rectangle((x, 24, x + 1, 26), fill=dark)
+        d.rectangle((x + 2, 24, x + 2, 26), fill=(0, 0, 0, 0))
+    d.line((4, 23, 27, 23), fill=deep)
+    # glyph panel: bone glyph with a deep drop shadow, centred on the cloth
+    draw_glyph(d, GLYPH_NAMES[tribe], 7, 4, BONE, scale=2, shadow=deep)
+    # outline
+    d.rectangle((4, 0, 4, 23), fill=deep); d.rectangle((27, 0, 27, 23), fill=deep)
     return im
 
 
 def banner_item(tribe):
-    """Icon: a pole with a hanging cloth."""
-    c = rgba(tribe); im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((6, 1, 8, 30), fill=WOOD, outline=INK)
-    d.line((7, 2, 7, 29), fill=WOOD_LIGHT)
-    d.rectangle((5, 0, 9, 2), fill=COPPER)
-    d.rectangle((9, 3, 27, 25), fill=c, outline=darken(c, 0.55))
-    d.line((10, 4, 26, 4), fill=lighten(c, 0.25)); d.line((10, 4, 10, 24), fill=lighten(c, 0.25))
-    d.rectangle((23, 4, 26, 24), fill=darken(c, 0.18))
-    for x in range(9, 28, 4):
-        d.polygon([(x, 26), (x + 2, 23), (x + 4, 26)], fill=(0, 0, 0, 0))
-    draw_glyph(d, GLYPH_NAMES[tribe], 13, 8, BONE, scale=1, shadow=darken(c, 0.45))
-    return im
+    """Icon: a copper-capped pole with a bracket and a hanging, fringed cloth."""
+    c = rgba(tribe); dark, base, light = ramp(c, 0.28); deep = darken(c, 0.5)
+    im = blank(); d = ImageDraw.Draw(im)
+    # pole
+    d.rectangle((5, 2, 7, 30), fill=WOOD); d.line((5, 2, 5, 30), fill=WOOD_LIGHT); d.line((7, 2, 7, 30), fill=WOOD_DARK)
+    d.rectangle((4, 0, 8, 2), fill=COPPER); d.line((4, 0, 8, 0), fill=COPPER_LIGHT)
+    d.rectangle((5, 4, 24, 5), fill=WOOD_LIGHT); d.line((5, 5, 24, 5), fill=WOOD_DARK)  # crossbar
+    d.point((24, 4), fill=COPPER)
+    # cloth
+    d.rectangle((9, 6, 24, 24), fill=base)
+    d.rectangle((10, 7, 12, 23), fill=light)
+    d.rectangle((16, 7, 17, 23), fill=dark)
+    d.rectangle((22, 7, 23, 23), fill=dark)
+    d.rectangle((9, 6, 24, 7), fill=deep)
+    for x in range(9, 25, 3):
+        d.rectangle((x, 24, x + 1, 26), fill=dark)
+    d.line((9, 23, 24, 23), fill=deep)
+    draw_glyph(d, GLYPH_NAMES[tribe], 12, 10, BONE, scale=1, shadow=deep)
+    return outline(im)
 
 
 # ---------------------------------------------------------------- kinship totem
-
-def rails(d):
-    d.rectangle((0, 0, 31, 2), fill=COPPER); d.line((0, 0, 31, 0), fill=shade(COPPER, 35))
-    d.rectangle((0, 29, 31, 31), fill=shade(COPPER, -30)); d.line((0, 29, 31, 29), fill=COPPER)
-    for x in (3, 28):
-        for y in (5, 26):
-            d.rectangle((x - 1, y - 1, x + 1, y + 1), fill=INK); d.point((x, y - 1), fill=shade(COPPER, 35))
-
+#
+# The glyph panel element [3,4,3]-[13,13,13] shows texels 6..26 x 6..24 of the side texture (default UV).
 
 def kinship_side(tribe):
-    c = rgba(tribe); im = plank_face(); d = ImageDraw.Draw(im)
+    c = rgba(tribe); dark, base, light = ramp(c, 0.3)
+    im = plank_face(); d = ImageDraw.Draw(im)
     rails(d)
-    d.rectangle((6, 5, 25, 26), fill=INK, outline=shade(COPPER, -32))
-    d.rectangle((7, 6, 24, 25), fill=darken(c, 0.55))
-    d.line((7, 6, 24, 6), fill=darken(c, 0.3)); d.line((7, 6, 7, 25), fill=darken(c, 0.3))
-    # woven thread band behind the glyph
-    for yy in (8, 23):
-        d.line((8, yy, 23, yy), fill=darken(c, 0.15))
-    draw_glyph(d, GLYPH_NAMES[tribe], 7, 7, lighten(c, 0.3), scale=2, shadow=darken(c, 0.7))
+    # panel: copper frame, ink field, tribe-coloured woven band top and bottom
+    d.rectangle((5, 5, 26, 24), fill=COPPER_DARK)
+    d.line((5, 5, 26, 5), fill=COPPER); d.line((5, 5, 5, 24), fill=COPPER)
+    d.rectangle((6, 6, 25, 23), fill=INK)
+    d.rectangle((7, 7, 24, 22), fill=darken(c, 0.62))
+    for yy in (7, 22):
+        for x in range(7, 25, 2):
+            d.point((x, yy), fill=dark)
+    draw_glyph(d, GLYPH_NAMES[tribe], 7, 6, light, scale=2, shadow=darken(c, 0.8))
     return im
 
 
 def kinship_top():
     im = plank_face(); d = ImageDraw.Draw(im)
     rails(d)
-    d.ellipse((5, 5, 26, 26), fill=shade(BONE, -28), outline=COPPER, width=2)
-    d.ellipse((9, 9, 22, 22), outline=shade(BONE, -49))
-    d.line((6, 6, 12, 12), fill=shade(BONE, -8))
-    d.rectangle((14, 14, 17, 17), fill=LIGHT)
+    disc(d, (5, 5, 26, 26), BONE_SHADE, BONE, darken(BONE_SHADE, 0.3), ink=COPPER)
+    d.ellipse((9, 9, 22, 22), outline=darken(BONE_SHADE, 0.3))
+    d.rectangle((14, 14, 17, 17), fill=LIGHT); d.point((14, 14), fill=LIGHT_PALE)
     return im
 
 
 # ---------------------------------------------------------------- tribe mark
 
-def mark_base():
-    """Bone disc on a leather cord; the tint layer is added per tribe."""
+def mark(tribe):
+    """A fired clay pendant in the tribe colour, bone-rimmed, hung on a knotted leather cord."""
+    c = rgba(tribe); dark, base, light = ramp(c, 0.3)
     im = blank(); d = ImageDraw.Draw(im)
-    d.line((15, 0, 9, 8), fill=WOOD, width=2); d.line((16, 0, 22, 8), fill=WOOD, width=2)
-    d.ellipse((5, 7, 26, 28), fill=BONE, outline=INK)
-    d.ellipse((7, 9, 24, 26), outline=shade(BONE, -35))
-    d.arc((6, 8, 25, 27), 200, 300, fill=(255, 255, 255, 255))
-    d.rectangle((14, 5, 17, 8), fill=COPPER, outline=INK)
-    return im
-
-
-def mark(tribe, base):
-    c = rgba(tribe); im = base.copy(); d = ImageDraw.Draw(im)
-    d.ellipse((9, 11, 22, 24), fill=darken(c, 0.1), outline=darken(c, 0.5))
-    draw_glyph(d, GLYPH_NAMES[tribe], 11, 13, BONE, scale=1, shadow=darken(c, 0.5))
+    # cord
+    d.line((9, 9, 15, 1), fill=WOOD_LIGHT, width=2); d.line((16, 1, 22, 9), fill=WOOD, width=2)
+    d.rectangle((14, 0, 17, 2), fill=WOOD_DARK); d.point((15, 0), fill=WOOD_LIGHT)
+    # bone rim and clay disc
+    disc(d, (5, 8, 26, 29), BONE, BONE_LIGHT, BONE_SHADE, ink=INK)
+    disc(d, (8, 11, 23, 26), base, light, dark)
+    d.ellipse((8, 11, 23, 26), outline=darken(c, 0.55))
+    # hanging loop
+    d.rectangle((14, 6, 17, 9), fill=COPPER, outline=INK); d.point((15, 7), fill=COPPER_LIGHT)
+    draw_glyph(d, GLYPH_NAMES[tribe], 11, 14, BONE_LIGHT, scale=1, shadow=darken(c, 0.55))
     return im
 
 
@@ -312,15 +329,15 @@ def main():
     save('item/tribe_hearth.png', hearth_item())
     save('item/tribe_hearth_embers.png', hearth_item_embers())
     save('block/kinship_totem_top.png', kinship_top())
-    base = mark_base()
     for tribe in TRIBES:
         save(f'block/tribe_banner_{tribe}.png', banner_cloth(tribe))
         save(f'item/tribe_banner_{tribe}.png', banner_item(tribe))
         save(f'block/kinship_totem_{tribe}.png', kinship_side(tribe))
-        save(f'item/tribe_mark_{tribe}.png', mark(tribe, base))
-    for role in ROLE_TRIM:
-        save(f'entity/kin_{role}.png', kin_skin(role))
-    save('entity/kin_cloak.png', kin_cloak())
+        save(f'item/tribe_mark_{tribe}.png', mark(tribe))
+    if '--entities' in sys.argv or not (TEX / 'entity/kin_cloak.png').exists():
+        for role in ROLE_TRIM:
+            save(f'entity/kin_{role}.png', kin_skin(role))
+        save('entity/kin_cloak.png', kin_cloak())
     print('tribes: textures written to', TEX)
 
 

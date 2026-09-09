@@ -37,6 +37,16 @@ def cube(fr, to, tex, tint=None):
 
 
 def hearth_model():
+    """Stone plinth, a square bowl of four 2 px walls and tinted ember planes (~11 px tall; VoxelShape 1..15 x 0..9).
+    Faces use the model's default UV so tools/art/tribes.py paints the side texture as an elevation and the top as a plan."""
+    walls = [([2, 4, 2], [14, 9, 4], 'south'), ([2, 4, 12], [14, 9, 14], 'north'), ([2, 4, 2], [4, 9, 14], 'east'), ([12, 4, 2], [14, 9, 14], 'west')]
+    ember = {'texture': '#embers', 'tintindex': 0}
+
+    def wall(fr, to, inner):
+        f = {d: {'texture': '#side'} for d in ('north', 'south', 'east', 'west')}
+        f[inner] = {'texture': '#side', 'uv': [fr[0] if inner in ('north', 'south') else fr[2], 4, to[0] if inner in ('north', 'south') else to[2], 9]}
+        f['up'] = {'texture': '#top'}; f['down'] = {'texture': '#stone'}
+        return {'from': fr, 'to': to, 'faces': f}
     return {
         'parent': 'minecraft:block/block',
         'render_type': 'minecraft:cutout',
@@ -49,25 +59,31 @@ def hearth_model():
             'embers': 'tribalpower:block/tribe_hearth_embers',
         },
         'elements': [
-            {'from': [1, 0, 1], 'to': [15, 5, 15], 'faces': {
+            {'from': [1, 0, 1], 'to': [15, 4, 15], 'faces': {
                 'north': {'texture': '#side'}, 'south': {'texture': '#side'}, 'east': {'texture': '#side'}, 'west': {'texture': '#side'},
                 'up': {'texture': '#top'}, 'down': {'texture': '#stone'}}},
-            cube([3, 5, 3], [13, 6, 13], '#trim'),
-            cube([3, 6, 3], [5, 9, 13], '#stone'),
-            cube([11, 6, 3], [13, 9, 13], '#stone'),
-            cube([5, 6, 3], [11, 9, 5], '#stone'),
-            cube([5, 6, 11], [11, 9, 13], '#stone'),
-            {'from': [5, 6, 5], 'to': [11, 7.5, 11], 'faces': {'up': {'texture': '#top', 'uv': [4, 4, 12, 12]}}},
-            {'from': [5, 7.5, 5], 'to': [11, 8, 11], 'faces': {'up': {'texture': '#embers', 'uv': [4, 4, 12, 12], 'tintindex': 0}}},
-            {'from': [8, 6, 5], 'to': [8, 9.5, 11], 'faces': {
-                'east': {'texture': '#embers', 'uv': [4, 4, 12, 12], 'tintindex': 0}, 'west': {'texture': '#embers', 'uv': [4, 4, 12, 12], 'tintindex': 0}}},
-            {'from': [5, 6, 8], 'to': [11, 9.5, 8], 'faces': {
-                'north': {'texture': '#embers', 'uv': [4, 4, 12, 12], 'tintindex': 0}, 'south': {'texture': '#embers', 'uv': [4, 4, 12, 12], 'tintindex': 0}}},
+            *[wall(fr, to, inner) for fr, to, inner in walls],
+            {'from': [4, 4, 4], 'to': [12, 6, 12], 'faces': {'up': {'texture': '#top'}}},
+            {'from': [4, 6, 4], 'to': [12, 6.5, 12], 'faces': {'up': dict(ember, uv=[2, 4, 14, 16])}},
+            {'from': [8, 6.5, 3], 'to': [8, 10.5, 13], 'faces': {
+                'east': dict(ember, uv=[3, 0, 13, 4]), 'west': dict(ember, uv=[3, 0, 13, 4])}},
+            {'from': [3, 6.5, 8], 'to': [13, 10.5, 8], 'faces': {
+                'north': dict(ember, uv=[3, 0, 13, 4]), 'south': dict(ember, uv=[3, 0, 13, 4])}},
         ],
     }
 
 
+def cloth(fr, to):
+    """Hanging cloth element: the painted cloth region of the texture (cols 4..27 x rows 0..26) on both broad faces."""
+    h = to[1] - fr[1]
+    return {'from': fr, 'to': to, 'faces': {
+        'north': {'texture': '#cloth', 'uv': [2, 0, 14, h]}, 'south': {'texture': '#cloth', 'uv': [14, 0, 2, h]},
+        'east': {'texture': '#cloth', 'uv': [13.5, 0, 14, h]}, 'west': {'texture': '#cloth', 'uv': [2, 0, 2.5, h]},
+        'up': {'texture': '#cloth', 'uv': [2, 0, 14, 0.5]}, 'down': {'texture': '#cloth', 'uv': [2, 12, 14, 12.5]}}}
+
+
 def banner_floor(tribe):
+    """Copper-capped pole, crossbar and a 12 px wide fringed cloth hanging on its north side (FACING points at the placer)."""
     return {
         'parent': 'minecraft:block/block',
         'render_type': 'minecraft:cutout',
@@ -76,16 +92,16 @@ def banner_floor(tribe):
         'elements': [
             cube([7, 0, 7], [9, 16, 9], '#wood'),
             cube([6, 15, 6], [10, 16, 10], '#trim'),
-            cube([3, 14, 9], [13, 15, 10], '#wood'),
-            {'from': [4, 1, 9.5], 'to': [12, 14.5, 10.5], 'faces': {
-                'north': {'texture': '#cloth', 'uv': [0, 0, 16, 16]}, 'south': {'texture': '#cloth', 'uv': [16, 0, 0, 16]},
-                'east': {'texture': '#cloth', 'uv': [14, 0, 16, 16]}, 'west': {'texture': '#cloth', 'uv': [0, 0, 2, 16]},
-                'up': {'texture': '#cloth', 'uv': [0, 0, 16, 2]}, 'down': {'texture': '#cloth', 'uv': [0, 14, 16, 16]}}},
+            cube([2, 14, 6], [14, 15, 7], '#wood'),
+            cube([1, 13.5, 5.5], [3, 15.5, 7.5], '#trim'),
+            cube([13, 13.5, 5.5], [15, 15.5, 7.5], '#trim'),
+            cloth([2, 0.5, 5.5], [14, 14, 6.5]),
         ],
     }
 
 
 def banner_wall(tribe):
+    """Wall bracket with copper pegs; the cloth hangs flat against the wall behind it."""
     return {
         'parent': 'minecraft:block/block',
         'render_type': 'minecraft:cutout',
@@ -93,16 +109,15 @@ def banner_wall(tribe):
                      'wood': 'tribalpower:block/loom_wood', 'trim': 'tribalpower:block/loom_copper'},
         'elements': [
             cube([2, 14, 13], [14, 16, 16], '#wood'),
-            cube([2, 13, 13.5], [14, 14, 14.5], '#trim'),
-            {'from': [3, 0.5, 13], 'to': [13, 13.5, 14], 'faces': {
-                'north': {'texture': '#cloth', 'uv': [0, 0, 16, 16]}, 'south': {'texture': '#cloth', 'uv': [16, 0, 0, 16]},
-                'east': {'texture': '#cloth', 'uv': [14, 0, 16, 16]}, 'west': {'texture': '#cloth', 'uv': [0, 0, 2, 16]},
-                'up': {'texture': '#cloth', 'uv': [0, 0, 16, 2]}, 'down': {'texture': '#cloth', 'uv': [0, 14, 16, 16]}}},
+            cube([1, 13.5, 13.5], [3, 16, 15.5], '#trim'),
+            cube([13, 13.5, 13.5], [15, 16, 15.5], '#trim'),
+            cloth([2, 0.5, 13.5], [14, 14, 14.5]),
         ],
     }
 
 
 def kinship_model(tribe):
+    """Matches the Resonance Totem silhouette; the glyph panel is 9 px tall so the 18 px glyph shows whole."""
     return {
         'parent': 'minecraft:block/block',
         'textures': {
@@ -112,7 +127,7 @@ def kinship_model(tribe):
         'elements': [
             cube([3, 0, 3], [13, 2, 13], '#stone'),
             cube([5, 2, 5], [11, 14, 11], '#wood'),
-            {'from': [3, 5, 3], 'to': [13, 13, 13], 'faces': {
+            {'from': [3, 4, 3], 'to': [13, 13, 13], 'faces': {
                 'north': {'texture': '#side'}, 'south': {'texture': '#side'}, 'east': {'texture': '#side'}, 'west': {'texture': '#side'},
                 'up': {'texture': '#top'}, 'down': {'texture': '#wood'}}},
             cube([2, 13, 2], [14, 15, 14], '#trim'),

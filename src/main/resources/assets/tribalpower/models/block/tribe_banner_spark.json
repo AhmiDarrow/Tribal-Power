@@ -74,14 +74,14 @@
     },
     {
       "from": [
-        3,
+        2,
         14,
-        9
+        6
       ],
       "to": [
-        13,
+        14,
         15,
-        10
+        7
       ],
       "faces": {
         "north": {
@@ -106,68 +106,132 @@
     },
     {
       "from": [
-        4,
         1,
-        9.5
+        13.5,
+        5.5
       ],
       "to": [
-        12,
-        14.5,
-        10.5
+        3,
+        15.5,
+        7.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        13,
+        13.5,
+        5.5
+      ],
+      "to": [
+        15,
+        15.5,
+        7.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        0.5,
+        5.5
+      ],
+      "to": [
+        14,
+        14,
+        6.5
       ],
       "faces": {
         "north": {
           "texture": "#cloth",
           "uv": [
+            2,
             0,
-            0,
-            16,
-            16
+            14,
+            13.5
           ]
         },
         "south": {
           "texture": "#cloth",
           "uv": [
-            16,
+            14,
             0,
-            0,
-            16
+            2,
+            13.5
           ]
         },
         "east": {
           "texture": "#cloth",
           "uv": [
-            14,
+            13.5,
             0,
-            16,
-            16
+            14,
+            13.5
           ]
         },
         "west": {
           "texture": "#cloth",
           "uv": [
-            0,
-            0,
             2,
-            16
+            0,
+            2.5,
+            13.5
           ]
         },
         "up": {
           "texture": "#cloth",
           "uv": [
+            2,
             0,
-            0,
-            16,
-            2
+            14,
+            0.5
           ]
         },
         "down": {
           "texture": "#cloth",
           "uv": [
-            0,
+            2,
+            12,
             14,
-            16,
-            16
+            12.5
           ]
         }
       }

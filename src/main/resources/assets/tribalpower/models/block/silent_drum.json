@@ -4,8 +4,7 @@
     "particle": "tribalpower:block/silent_drum",
     "side": "tribalpower:block/silent_drum",
     "top": "tribalpower:block/silent_drum_top",
-    "stone": "tribalpower:block/loom_stone",
-    "trim": "tribalpower:block/loom_copper"
+    "stone": "tribalpower:block/loom_stone"
   },
   "elements": [
     {
@@ -21,16 +20,16 @@
       ],
       "faces": {
         "north": {
-          "texture": "#stone"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#stone"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#stone"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#stone"
+          "texture": "#side"
         },
         "up": {
           "texture": "#stone"
@@ -65,7 +64,13 @@
           "texture": "#side"
         },
         "up": {
-          "texture": "#top"
+          "texture": "#top",
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ]
         },
         "down": {
           "texture": "#stone"
@@ -85,28 +90,34 @@
       ],
       "faces": {
         "north": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "up": {
           "texture": "#top",
           "uv": [
-            0,
-            0,
-            16,
-            16
+            1,
+            1,
+            15,
+            15
           ]
         },
         "down": {
-          "texture": "#trim"
+          "texture": "#side",
+          "uv": [
+            1,
+            0,
+            15,
+            1
+          ]
         }
       }
     },
@@ -123,22 +134,34 @@
       ],
       "faces": {
         "north": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "up": {
-          "texture": "#trim"
+          "texture": "#side",
+          "uv": [
+            1,
+            5,
+            15,
+            5.5
+          ]
         },
         "down": {
-          "texture": "#trim"
+          "texture": "#side",
+          "uv": [
+            1,
+            6.5,
+            15,
+            7
+          ]
         }
       }
     },
@@ -155,22 +178,34 @@
       ],
       "faces": {
         "north": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#side"
         },
         "up": {
-          "texture": "#trim"
+          "texture": "#side",
+          "uv": [
+            1,
+            9,
+            15,
+            9.5
+          ]
         },
         "down": {
-          "texture": "#trim"
+          "texture": "#side",
+          "uv": [
+            1,
+            10.5,
+            15,
+            11
+          ]
         }
       }
     }

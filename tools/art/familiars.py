@@ -7,13 +7,14 @@
   entity/bonded_collar_<dawn_stag|lantern_fox|mossback>.png  a cord ring around the front of the body box
   entity/bonded_collar.png (copy of the fox layout, kept for the spec name)
 The Spirit Light block is invisible and needs no texture.
-Run: python3 tools/art/familiars.py [project root]
+Run: python3 tools/art/familiars.py [project root] [--entities]   (collar overlays only rewritten with --entities)
 """
 from pathlib import Path
 import sys
 from PIL import Image, ImageDraw
 
-ROOT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+ROOT = Path(ARGS[0]) if ARGS else Path(__file__).resolve().parents[2]
 TEX = ROOT / 'src/main/resources/assets/tribalpower/textures'
 
 INK = (17, 26, 34, 255)
@@ -51,6 +52,10 @@ def save(rel, img):
     img.save(path)
 
 
+def darken(c, f=0.35):
+    return tuple(int(v * (1 - f)) for v in c[:3]) + (255,)
+
+
 def outline(im, colour=INK):
     """1 px ink outline around every opaque pixel that touches transparency."""
     px = im.load()
@@ -70,52 +75,55 @@ def outline(im, colour=INK):
 
 
 def bonding_charm():
+    """A loop of twisted spirit cord, knotted at the top, with a small bone mask bead hanging in it."""
     im = blank(); d = ImageDraw.Draw(im)
-    # Spirit cord: a loop of twisted teal thread, lit from the top-left.
-    d.ellipse((5, 4, 26, 25), outline=LIGHT_DEEP, width=3)
-    d.arc((5, 4, 26, 25), 200, 320, fill=LIGHT, width=2)
-    d.arc((5, 4, 26, 25), 20, 140, fill=shade(LIGHT_DEEP, -28), width=1)
-    for a in range(0, 360, 30):  # twist ticks
-        import math
-        x = 15.5 + 10.5 * math.cos(math.radians(a)); y = 14.5 + 10.5 * math.sin(math.radians(a))
-        d.point((round(x), round(y)), fill=shade(LIGHT_DEEP, -40))
-    # Knot at the top of the loop.
-    d.rectangle((13, 2, 18, 6), fill=LIGHT_DEEP)
-    d.rectangle((14, 3, 16, 4), fill=LIGHT)
-    # Small mask bead hanging in the loop.
-    d.rectangle((12, 11, 19, 21), fill=MASK)
-    d.rectangle((13, 12, 15, 14), fill=MASK_LIGHT)
-    d.rectangle((13, 15, 14, 16), fill=LIGHT)
-    d.rectangle((17, 15, 18, 16), fill=LIGHT)
-    d.line((14, 19, 17, 19), fill=COPPER)
+    # cord loop: three values, twist ticks
+    d.ellipse((4, 3, 27, 26), outline=TEAL_DEEP, width=3)
+    d.arc((4, 3, 27, 26), 195, 300, fill=TEAL, width=2)
+    d.arc((4, 3, 27, 26), 210, 260, fill=TEAL_PALE, width=1)
+    d.arc((4, 3, 27, 26), 20, 130, fill=darken(TEAL_DEEP, 0.3), width=1)
+    import math
+    for a in range(15, 360, 30):
+        x = 15.5 + 11.5 * math.cos(math.radians(a)); y = 14.5 + 11.5 * math.sin(math.radians(a))
+        d.point((round(x), round(y)), fill=darken(TEAL_DEEP, 0.45))
+    # knot at the top with two short tails
+    d.rectangle((12, 1, 19, 6), fill=TEAL_DEEP); d.rectangle((13, 2, 17, 4), fill=TEAL); d.point((13, 2), fill=TEAL_PALE)
+    d.line((11, 6, 9, 9), fill=TEAL_DEEP); d.line((20, 6, 22, 9), fill=TEAL_DEEP)
+    # bone mask bead: brow ridge, two eye slits, a chin notch
     d.line((15, 7, 15, 10), fill=BONE_SHADE)
-    d.point((15, 8), fill=BONE)
+    d.rounded_rectangle((11, 10, 20, 22), radius=2, fill=BONE)
+    d.line((12, 11, 19, 11), fill=(246, 241, 222, 255)); d.line((12, 11, 12, 21), fill=(246, 241, 222, 255))
+    d.line((20, 12, 20, 21), fill=BONE_SHADE); d.line((13, 22, 20, 22), fill=BONE_SHADE)
+    d.rectangle((13, 14, 14, 15), fill=INK); d.rectangle((17, 14, 18, 15), fill=INK)
+    d.point((13, 14), fill=LIGHT); d.point((17, 14), fill=LIGHT)
+    d.line((14, 19, 17, 19), fill=COPPER); d.point((15, 20), fill=BONE_SHADE)
     return outline(im)
 
 
 def camp_charter():
+    """A parchment scroll on two wooden rods, lines of ink, a teal wax seal pressed with the hearth glyph."""
     im = blank(); d = ImageDraw.Draw(im)
-    # Rolled parchment, slightly tilted: a wide scroll with a curled top edge.
-    d.rounded_rectangle((6, 7, 25, 27), radius=2, fill=PARCHMENT)
-    d.rectangle((7, 8, 24, 9), fill=PARCHMENT_LIGHT)
-    d.line((7, 8, 7, 26), fill=PARCHMENT_LIGHT)
-    d.rectangle((7, 25, 24, 26), fill=PARCHMENT_DEEP)
-    d.line((24, 9, 24, 26), fill=PARCHMENT_DEEP)
-    # Curled roll across the top.
-    d.rounded_rectangle((4, 3, 27, 8), radius=2, fill=WOOD_LIGHT)
-    d.line((5, 4, 26, 4), fill=shade(WOOD_LIGHT, 30))
-    d.line((5, 7, 26, 7), fill=WOOD)
-    d.rectangle((4, 4, 5, 7), fill=WOOD)
-    # Ink lines of the charter.
-    for y in (12, 15, 18):
+    # sheet
+    d.rectangle((7, 6, 24, 26), fill=PARCHMENT)
+    d.line((7, 6, 24, 6), fill=PARCHMENT_LIGHT); d.line((7, 6, 7, 26), fill=PARCHMENT_LIGHT)
+    d.line((24, 7, 24, 26), fill=PARCHMENT_DEEP); d.line((8, 26, 24, 26), fill=PARCHMENT_DEEP)
+    # rods top and bottom with copper caps
+    for y in (3, 27):
+        d.rectangle((4, y, 27, y + 3), fill=WOOD)
+        d.line((5, y, 26, y), fill=WOOD_LIGHT); d.line((5, y + 3, 26, y + 3), fill=shade(WOOD, -30))
+        d.rectangle((3, y, 4, y + 3), fill=COPPER); d.rectangle((27, y, 28, y + 3), fill=COPPER)
+        d.point((3, y), fill=(0xe3, 0xb1, 0x71, 255)); d.point((27, y), fill=(0xe3, 0xb1, 0x71, 255))
+    # charter text: a heading and ruled lines
+    d.line((10, 10, 17, 10), fill=shade(PARCHMENT_DEEP, -40))
+    for y in (13, 16, 19):
         d.line((10, y, 21, y), fill=PARCHMENT_DEEP)
-    d.line((10, 21, 15, 21), fill=PARCHMENT_DEEP)
-    # Teal wax seal with a raised hearth glyph.
-    d.ellipse((16, 18, 24, 26), fill=TEAL_DEEP)
-    d.ellipse((17, 19, 22, 24), fill=TEAL)
+    d.line((10, 22, 14, 22), fill=PARCHMENT_DEEP)
+    # wax seal
+    d.ellipse((16, 18, 24, 26), fill=INK)
+    d.ellipse((17, 19, 23, 25), fill=TEAL_DEEP)
+    d.ellipse((18, 20, 22, 24), fill=TEAL)
     d.point((18, 20), fill=TEAL_PALE)
-    d.line((19, 21, 21, 21), fill=TEAL_DEEP)
-    d.point((20, 22), fill=TEAL_DEEP)
+    d.point((20, 21), fill=TEAL_DEEP); d.line((19, 23, 21, 23), fill=TEAL_DEEP)
     return outline(im)
 
 
@@ -142,9 +150,10 @@ def collar(body):
 def main():
     save('item/bonding_charm.png', bonding_charm())
     save('item/camp_charter.png', camp_charter())
-    for name, body in BODIES.items():
-        save(f'entity/bonded_collar_{name}.png', collar(body))
-    save('entity/bonded_collar.png', collar(BODIES['lantern_fox']))
+    if '--entities' in sys.argv or not (TEX / 'entity/bonded_collar.png').exists():  # the creature art pass owns textures/entity
+        for name, body in BODIES.items():
+            save(f'entity/bonded_collar_{name}.png', collar(body))
+        save('entity/bonded_collar.png', collar(BODIES['lantern_fox']))
     print('Painted familiars & camps textures into', TEX)
 
 

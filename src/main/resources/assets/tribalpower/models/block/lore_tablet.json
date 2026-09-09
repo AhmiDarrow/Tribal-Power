@@ -3,8 +3,7 @@
   "textures": {
     "particle": "tribalpower:block/lore_tablet",
     "face": "tribalpower:block/lore_tablet",
-    "back": "tribalpower:block/lore_tablet_back",
-    "trim": "tribalpower:block/loom_copper"
+    "back": "tribalpower:block/lore_tablet_back"
   },
   "elements": [
     {
@@ -22,90 +21,50 @@
         "north": {
           "texture": "#face",
           "uv": [
-            0,
-            0,
-            16,
-            16
+            1,
+            2,
+            15,
+            14
           ]
         },
         "south": {
           "texture": "#back"
         },
         "east": {
-          "texture": "#trim"
+          "texture": "#back",
+          "uv": [
+            14,
+            2,
+            16,
+            14
+          ]
         },
         "west": {
-          "texture": "#trim"
+          "texture": "#back",
+          "uv": [
+            0,
+            2,
+            2,
+            14
+          ]
         },
         "up": {
-          "texture": "#trim"
+          "texture": "#back",
+          "uv": [
+            1,
+            0,
+            15,
+            2
+          ]
         },
         "down": {
-          "texture": "#trim"
-        }
-      }
-    },
-    {
-      "from": [
-        0,
-        1,
-        15
-      ],
-      "to": [
-        16,
-        2,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#trim"
-        },
-        "south": {
-          "texture": "#trim"
-        },
-        "east": {
-          "texture": "#trim"
-        },
-        "west": {
-          "texture": "#trim"
-        },
-        "up": {
-          "texture": "#trim"
-        },
-        "down": {
-          "texture": "#trim"
-        }
-      }
-    },
-    {
-      "from": [
-        0,
-        14,
-        15
-      ],
-      "to": [
-        16,
-        15,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#trim"
-        },
-        "south": {
-          "texture": "#trim"
-        },
-        "east": {
-          "texture": "#trim"
-        },
-        "west": {
-          "texture": "#trim"
-        },
-        "up": {
-          "texture": "#trim"
-        },
-        "down": {
-          "texture": "#trim"
+          "texture": "#back",
+          "uv": [
+            1,
+            14,
+            15,
+            16
+          ]
         }
       }
     }

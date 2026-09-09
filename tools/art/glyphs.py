@@ -19,29 +19,29 @@ GLYPH_NAMES = {'soil': 'hearth', 'stone': 'mesh', 'sprout': 'root', 'claw': 'boo
                'clock': 'cog', 'swarm': 'comb', 'sigil': 'seal', 'spindle': 'spindle'}
 
 GLYPHS = {
-    # hearth: a bowl with three flames
+    # hearth: a low bowl of banked embers with one small flame licking up from the coals
     'hearth': [
         '....#....',
+        '...#.#...',
+        '..#...#..',
         '..#.#.#..',
-        '..#.#.#..',
-        '.#.###.#.',
+        '#..#.#..#',
         '#########',
         '.#######.',
         '..#####..',
         '...###...',
-        '..#####..',
     ],
-    # mesh: a woven lattice
+    # mesh: a knotted net of diagonal cords (the Grit-singers' ore mesh)
     'mesh': [
-        '#.#.#.#.#',
+        '#...#...#',
         '.#.#.#.#.',
-        '#.#.#.#.#',
+        '..#...#..',
         '.#.#.#.#.',
-        '#.#.#.#.#',
+        '#...#...#',
         '.#.#.#.#.',
-        '#.#.#.#.#',
+        '..#...#..',
         '.#.#.#.#.',
-        '#.#.#.#.#',
+        '#...#...#',
     ],
     # root: a sprout above spreading roots
     'root': [

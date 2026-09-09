@@ -612,88 +612,88 @@
     "title": "Pad-keepers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_soil"
   },
   {
     "id": "tribe_stone",
     "title": "Grit-singers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_stone"
   },
   {
     "id": "tribe_sprout",
     "title": "Rootbinders",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_sprout"
   },
   {
     "id": "tribe_claw",
     "title": "Edge-walkers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_claw"
   },
   {
     "id": "tribe_spark",
     "title": "Drumhearts",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_spark"
   },
   {
     "id": "tribe_clock",
     "title": "Pattern-weavers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_clock"
   },
   {
     "id": "tribe_swarm",
     "title": "Colony-keepers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_swarm"
   },
   {
     "id": "tribe_sigil",
     "title": "Seal-carvers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_sigil"
   },
   {
     "id": "tribe_spindle",
     "title": "Loom-stitchers",
     "category": "The Nine Tribes",
     "icon": "tribe_mark",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "tribe_spindle"
   },
   {
     "id": "march_ancestor_hall",
     "title": "Ancestor Hall",
     "category": "The March",
     "icon": "lore_tablet",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "ancestor_hall"
   },
   {
     "id": "march_drum_circle",
     "title": "Drum Circle",
     "category": "The March",
     "icon": "silent_drum",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "drum_circle"
   },
   {
     "id": "march_the_unsung",
@@ -708,8 +708,8 @@
     "title": "Crystal Spire",
     "category": "The March",
     "icon": "march_crystal",
-    "spoiler": false,
-    "picture": ""
+    "spoiler": true,
+    "picture": "crystal_spire"
   },
   {
     "id": "tablet_0",

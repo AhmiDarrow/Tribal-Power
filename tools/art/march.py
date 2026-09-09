@@ -5,13 +5,18 @@ steps per material, no noise) plus the boss sheet:
   block/silent_drum.png  block/silent_drum_top.png  block/lore_tablet.png
   entity/the_unsung.png (128x128)  entity/the_unsung_glow.png
 The boss UV layout mirrors boss/client/TheUnsungModel (half-scale boxes, vanilla cube unwrap).
-Run: python3 tools/art/march.py [project root]
+Run: python3 tools/art/march.py [project root] [--entities]   (entity sheets only rewritten with --entities)
 """
 from pathlib import Path
+import math
 import sys
 from PIL import Image, ImageDraw
 
-ROOT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lattice import COPPER, COPPER_LIGHT, LIGHT, LOOM_PALE, blank, shade  # noqa: E402
+
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+ROOT = Path(ARGS[0]) if ARGS else Path(__file__).resolve().parents[2]
 TEX = ROOT / 'src/main/resources/assets/tribalpower/textures'
 
 INK = (17, 26, 34, 255)
@@ -19,10 +24,7 @@ WOOD = (0x5a, 0x3b, 0x2e, 255)
 WOOD_LIGHT = (0x7a, 0x51, 0x38, 255)
 STONE = (0x3a, 0x4a, 0x55, 255)
 STONE_LIGHT = (0x55, 0x66, 0x72, 255)
-COPPER = (0xc0, 0x8a, 0x4e, 255)
-LIGHT = (0x7e, 0xff, 0xcb, 255)
 LOOM = (0x62, 0xd1, 0xc9, 255)
-LOOM_PALE = (0xc9, 0xf6, 0xf1, 255)
 LACQUER = (0x4a, 0x1f, 0x22, 255)        # deep lacquered drum shell
 LACQUER_LIGHT = (0x6e, 0x2f, 0x30, 255)
 LACQUER_DEEP = (0x2d, 0x12, 0x16, 255)
@@ -39,14 +41,6 @@ GLOW_EYE = (0xff, 0xf0, 0xa0, 255)
 BLACK = (0, 0, 0, 255)
 
 
-def shade(c, amount):
-    return tuple(max(0, min(255, x + amount)) for x in c[:3]) + (255,)
-
-
-def blank(size=32):
-    return Image.new('RGBA', (size, size), (0, 0, 0, 0))
-
-
 def save(rel, img):
     path = TEX / rel
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -54,70 +48,100 @@ def save(rel, img):
 
 
 # ---------------------------------------------------------------- blocks
+#
+# Silent Drum model (models/block/silent_drum.json): plinth [1,0,1]-[15,3,15], body [2,3,2]-[14,13,14], two bands
+# [1,5..7] and [1,9..11], rim [1,13,1]-[15,16,15]. Every side face uses the default UV, so the side texture is one
+# elevation: rows 0..5 top hoop, 6..9 / 14..17 / 22..25 laced body, 10..13 / 18..21 bands, 26..31 plinth.
 
 def drum_side():
-    """Lacquered drum shell: dark red body, two gold ring bands with rivets, a base plinth."""
     im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=LACQUER)
-    d.line((0, 0, 31, 0), fill=LACQUER_LIGHT); d.line((0, 0, 0, 31), fill=LACQUER_LIGHT)
-    d.line((31, 0, 31, 31), fill=LACQUER_DEEP); d.line((0, 31, 31, 31), fill=LACQUER_DEEP)
-    # vertical stave seams
-    for x in (8, 16, 24):
-        d.line((x, 3, x, 28), fill=LACQUER_DEEP); d.line((x + 1, 3, x + 1, 28), fill=LACQUER_LIGHT)
-    # ring bands
-    for y in (5, 22):
-        d.rectangle((0, y, 31, y + 3), fill=GOLD)
-        d.line((0, y, 31, y), fill=GOLD_LIGHT); d.line((0, y + 3, 31, y + 3), fill=shade(GOLD, -50))
-        for x in range(3, 32, 7):
-            d.point((x, y + 1), fill=INK); d.point((x, y + 2), fill=GOLD_LIGHT)
-    # rim and plinth
-    d.rectangle((0, 0, 31, 1), fill=shade(HIDE_DARK, -20)); d.line((0, 0, 31, 0), fill=HIDE)
-    d.rectangle((0, 29, 31, 31), fill=STONE); d.line((0, 29, 31, 29), fill=STONE_LIGHT)
-    # a faint violet rune in the middle band gap
-    d.line((12, 13, 19, 13), fill=RUNE); d.line((15, 10, 15, 17), fill=RUNE); d.point((16, 11), fill=RUNE_PALE)
-    d.rectangle((0, 0, 31, 31), outline=INK)
+    # body staves (cols 4..27)
+    d.rectangle((4, 6, 27, 25), fill=LACQUER)
+    for x in (4, 10, 16, 22):
+        d.line((x, 6, x, 25), fill=LACQUER_DEEP); d.line((x + 1, 6, x + 1, 25), fill=LACQUER_LIGHT)
+    d.line((27, 6, 27, 25), fill=LACQUER_DEEP)
+    # rope lacing: zigzag cords between the hoops, knotted where they meet a band
+    for y0 in (6, 14, 22):
+        for x in range(5, 27, 6):
+            d.line((x, y0, x + 3, y0 + 3), fill=HIDE_DARK); d.line((x + 1, y0, x + 3, y0 + 2), fill=HIDE)
+            d.line((x + 3, y0 + 3, x + 6, y0), fill=HIDE_DARK); d.line((x + 4, y0 + 2, x + 6, y0), fill=HIDE)
+            d.point((x + 3, y0 + 3), fill=BONE)
+    # lacquered bands (cols 2..29) with brass edge and rivets
+    for y in (10, 18):
+        d.rectangle((2, y, 29, y + 3), fill=LACQUER_LIGHT)
+        d.line((2, y, 29, y), fill=GOLD)
+        d.line((2, y + 3, 29, y + 3), fill=LACQUER_DEEP)
+        for x in range(4, 30, 6):
+            d.point((x, y + 2), fill=INK); d.point((x + 1, y + 2), fill=GOLD_LIGHT)
+        d.line((2, y, 2, y + 3), fill=INK); d.line((29, y, 29, y + 3), fill=INK)
+    # top hoop (rows 0..5): hide folded over the edge, lacquer below, bone lacing pegs
+    d.rectangle((2, 0, 29, 1), fill=HIDE); d.line((2, 0, 29, 0), fill=HIDE_LIGHT)
+    d.rectangle((2, 2, 29, 5), fill=LACQUER_LIGHT); d.line((2, 5, 29, 5), fill=LACQUER_DEEP)
+    for x in range(5, 28, 6):
+        d.rectangle((x - 1, 2, x + 1, 4), fill=INK); d.rectangle((x, 2, x, 3), fill=BONE); d.point((x, 4), fill=BONE_DARK)
+    d.line((2, 0, 2, 5), fill=INK); d.line((29, 0, 29, 5), fill=INK)
+    # plinth (rows 26..31): stone courses
+    d.rectangle((2, 26, 29, 31), fill=STONE); d.line((2, 26, 29, 26), fill=STONE_LIGHT)
+    d.line((2, 29, 29, 29), fill=shade(STONE, -30))
+    for x in (8, 17, 26):
+        d.line((x, 27, x, 28), fill=shade(STONE, -30))
+    for x in (4, 13, 22):
+        d.line((x, 30, x, 31), fill=shade(STONE, -30))
+    d.line((2, 26, 2, 31), fill=STONE_LIGHT); d.line((29, 27, 29, 31), fill=INK); d.line((2, 31, 29, 31), fill=INK)
+    # a faint violet rune on the front stave, between the bands
+    d.line((14, 15, 17, 15), fill=RUNE); d.point((15, 14), fill=RUNE_PALE); d.point((15, 16), fill=RUNE)
     return im
 
 
 def drum_top():
-    """Taut hide stretched over the rim, laced with a gold ring and a centre rune."""
+    """Plan view for the rim's up face (uv [1,1,15,15] -> texels 2..29): lacquered hoop, laced hide with a crack."""
     im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=LACQUER)
-    d.ellipse((1, 1, 30, 30), fill=GOLD, outline=INK)
-    d.ellipse((3, 3, 28, 28), fill=HIDE, outline=shade(GOLD, -50))
-    d.arc((3, 3, 28, 28), 200, 320, fill=HIDE_LIGHT, width=2)
-    d.arc((3, 3, 28, 28), 20, 140, fill=HIDE_DARK, width=2)
-    # lacing marks around the rim
+    d.rectangle((2, 2, 29, 29), fill=LACQUER_LIGHT)
+    d.line((2, 2, 29, 2), fill=GOLD_LIGHT); d.line((2, 2, 2, 29), fill=GOLD_LIGHT)
+    d.line((29, 2, 29, 29), fill=LACQUER_DEEP); d.line((2, 29, 29, 29), fill=LACQUER_DEEP)
+    d.ellipse((4, 4, 27, 27), fill=INK)
+    d.ellipse((5, 5, 26, 26), fill=HIDE)
+    d.arc((5, 5, 26, 26), 195, 290, fill=HIDE_LIGHT, width=2)
+    d.arc((5, 5, 26, 26), 15, 110, fill=HIDE_DARK, width=2)
+    # lacing holes just inside the hoop
     for i in range(12):
-        import math
-        a = i * math.tau / 12
-        x, y = 15.5 + 12.5 * math.cos(a), 15.5 + 12.5 * math.sin(a)
+        a = i * math.tau / 12 + math.tau / 24
+        x, y = 15.5 + 10 * math.cos(a), 15.5 + 10 * math.sin(a)
         d.point((round(x), round(y)), fill=INK)
-    # centre rune: a circle crossed by a stroke
-    d.ellipse((11, 11, 20, 20), outline=RUNE)
-    d.line((15, 8, 15, 23), fill=RUNE); d.point((15, 9), fill=RUNE_PALE)
-    d.rectangle((0, 0, 31, 31), outline=INK)
+    # worn centre and a crack running from the rim with a lit edge
+    d.ellipse((11, 11, 20, 20), fill=HIDE_DARK)
+    d.ellipse((12, 12, 19, 19), fill=HIDE)
+    d.line([(21, 6), (18, 11), (20, 15), (17, 20), (19, 25)], fill=INK)
+    d.line([(22, 6), (19, 11), (21, 15), (18, 20), (20, 25)], fill=HIDE_LIGHT)
+    # rune ring
+    d.ellipse((13, 13, 18, 18), outline=RUNE); d.point((13, 13), fill=RUNE_PALE)
     return im
 
 
 def tablet_face():
-    """A cracked slate tablet in a copper frame carrying rows of carved script."""
+    """Etched slate tablet for the north face (uv [1,2,15,14] -> texels 2..29 x 4..27): chamfered edges, copper pegs,
+    rows of carved script with a teal title line, one crack."""
     im = blank(); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, 31, 31), fill=STONE)
-    d.rectangle((1, 1, 30, 30), outline=COPPER); d.line((1, 1, 30, 1), fill=shade(COPPER, 35)); d.line((1, 1, 1, 30), fill=shade(COPPER, 35))
-    d.rectangle((3, 3, 28, 28), fill=shade(STONE, -14))
-    d.line((3, 3, 28, 3), fill=STONE_LIGHT); d.line((3, 3, 3, 28), fill=STONE_LIGHT)
-    # carved script rows
-    for y in range(7, 26, 4):
-        x = 6
-        while x < 25:
-            w = 2 + ((x * 7 + y * 3) % 3)
-            d.line((x, y, x + w, y), fill=LOOM if y == 7 else STONE_LIGHT)
+    d.rectangle((2, 4, 29, 27), fill=INK)
+    d.rectangle((3, 5, 28, 26), fill=STONE)
+    d.line((3, 5, 28, 5), fill=STONE_LIGHT); d.line((3, 5, 3, 26), fill=STONE_LIGHT)
+    d.line((28, 6, 28, 26), fill=shade(STONE, -30)); d.line((4, 26, 28, 26), fill=shade(STONE, -30))
+    d.rectangle((5, 7, 26, 24), fill=shade(STONE, -12))
+    d.line((5, 7, 26, 7), fill=shade(STONE, -30)); d.line((5, 7, 5, 24), fill=shade(STONE, -30))
+    for (x, y) in ((4, 6), (27, 6), (4, 25), (27, 25)):
+        d.point((x, y), fill=COPPER); d.point((x, y - 1) if y == 6 else (x, y + 1), fill=COPPER_LIGHT if y == 6 else INK)
+    # etched script: a teal title glyph line, then dashes of varying length
+    d.line((7, 9, 12, 9), fill=LOOM); d.line((14, 9, 15, 9), fill=LOOM); d.line((17, 9, 22, 9), fill=LOOM)
+    d.point((7, 10), fill=LOOM_PALE)
+    for y in (12, 15, 18, 21):
+        x = 7
+        while x < 24:
+            w = 1 + ((x * 5 + y * 3) % 3)
+            d.line((x, y, x + w, y), fill=STONE_LIGHT); d.line((x, y + 1, x + w, y + 1), fill=shade(STONE, -34))
             x += w + 2
-    # crack
-    d.line([(20, 3), (18, 10), (21, 16), (19, 28)], fill=INK)
-    d.line([(21, 3), (19, 10), (22, 16), (20, 28)], fill=STONE_LIGHT)
-    d.rectangle((0, 0, 31, 31), outline=INK)
+    # crack with a lit edge
+    d.line([(21, 5), (19, 11), (22, 16), (20, 26)], fill=INK)
+    d.line([(22, 5), (20, 11), (23, 16), (21, 26)], fill=STONE_LIGHT)
     return im
 
 
@@ -269,8 +293,9 @@ def main():
     save('block/silent_drum_top.png', drum_top())
     save('block/lore_tablet.png', tablet_face())
     save('block/lore_tablet_back.png', tablet_back())
-    save('entity/the_unsung.png', paint_unsung(False))
-    save('entity/the_unsung_glow.png', paint_unsung(True))
+    if '--entities' in sys.argv or not (TEX / 'entity/the_unsung.png').exists():  # the creature art pass owns textures/entity
+        save('entity/the_unsung.png', paint_unsung(False))
+        save('entity/the_unsung_glow.png', paint_unsung(True))
     print('march art written to', TEX)
 
 
