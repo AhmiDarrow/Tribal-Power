@@ -68,8 +68,8 @@ public class TheUnsungModel extends HierarchicalModel<TheUnsungEntity> {
             arm0.zRot = 0.45F; arm1.zRot = -0.45F;
             return;
         }
-        int elapsed = (int) (time - entity.swipeTime());
-        int beat = (int) (time - entity.beatTime());
+        int elapsed = (int) time - entity.swipeTime(); // int arithmetic on both sides so a wrapped game time still lines up
+        int beat = (int) time - entity.beatTime();
         if (entity.inSilence()) {
             // arms spread wide and drift, the body slowly turning about its axis
             arm0.zRot = 1.3F + Mth.sin(age * 0.12F) * 0.15F;

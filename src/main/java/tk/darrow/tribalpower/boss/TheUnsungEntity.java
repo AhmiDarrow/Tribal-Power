@@ -8,6 +8,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -226,7 +229,8 @@ public class TheUnsungEntity extends Monster {
         }
     }
 
-    private int weaversAlive(ServerLevel server) {
+    /** Living Echo Weavers this Unsung summoned (stale ids are dropped). */
+    public int weaversAlive(ServerLevel server) {
         weavers.removeIf(id -> !(server.getEntity(id) instanceof LivingEntity living) || !living.isAlive());
         return weavers.size();
     }
@@ -343,6 +347,7 @@ public class TheUnsungEntity extends Monster {
     @Override
     public void die(DamageSource source) {
         super.die(source);
+        if (!dead) return; // a cancelled LivingDeathEvent leaves it alive: keep its Weavers and say nothing
         if (level() instanceof ServerLevel server) {
             for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver) weaver.discard();
             weavers.clear();
@@ -369,6 +374,9 @@ public class TheUnsungEntity extends Monster {
         tag.putInt("Stun", stunTicks);
         tag.putInt("Vulnerable", vulnerableTicks);
         tag.putInt("Away", awayTicks);
+        ListTag list = new ListTag();
+        for (UUID id : weavers) list.add(NbtUtils.createUUID(id));
+        tag.put("Weavers", list);
     }
 
     @Override
@@ -378,6 +386,8 @@ public class TheUnsungEntity extends Monster {
         stunTicks = Math.max(0, tag.getInt("Stun"));
         vulnerableTicks = Math.max(0, tag.getInt("Vulnerable"));
         awayTicks = Math.max(0, tag.getInt("Away"));
+        weavers.clear();
+        for (Tag id : tag.getList("Weavers", Tag.TAG_INT_ARRAY)) weavers.add(NbtUtils.loadUUID(id));
         entityData.set(STUNNED, stunTicks > 0);
         if (hasCustomName()) bossEvent.setName(getDisplayName());
     }

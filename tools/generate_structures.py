@@ -27,6 +27,8 @@ trees/terrain never pierce the camp.  The hall uses -11: its layer 11 is the sur
 Run: pip install nbtlib && python3 tools/generate_structures.py [project root]
 """
 from pathlib import Path
+import gzip
+import io
 import json
 import math
 import random
@@ -298,7 +300,12 @@ class Template:
             'entities': entities,
         })
         STRUCT.mkdir(parents=True, exist_ok=True)
-        File(root, gzipped=True).save(STRUCT / f'{name}.nbt', gzipped=True)
+        # gzip with a fixed mtime so a rerun produces byte-identical files (keeps `git status` clean)
+        raw = io.BytesIO()
+        File(root).write(raw)
+        with open(STRUCT / f'{name}.nbt', 'wb') as out:
+            with gzip.GzipFile(fileobj=out, mode='wb', mtime=0) as gz:
+                gz.write(raw.getvalue())
         return size
 
 

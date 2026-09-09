@@ -122,6 +122,33 @@ public class MarchGameTests {
         });
     }
 
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void bossRemembersItsWeaversAcrossSave(GameTestHelper h) {
+        h.setBlock(3, 1, 3, Blocks.STONE);
+        var boss = h.spawn(MarchRegistry.THE_UNSUNG.get(), new BlockPos(3, 2, 3));
+        var weaverType = tk.darrow.tribalpower.entity.CreatureEntities.type(tk.darrow.tribalpower.entity.CreatureProfile.ECHO_WEAVER);
+        h.runAtTickTime(5, () -> boss.setHealth(200F)); // Chorus: the first summon lands ~60 ticks later
+        h.runAtTickTime(90, () -> {
+            var level = h.getLevel();
+            h.assertTrue(boss.weaversAlive(level) == 2, "The first Chorus summon calls two Echo Weavers, found " + boss.weaversAlive(level));
+            var tag = new net.minecraft.nbt.CompoundTag();
+            boss.addAdditionalSaveData(tag);
+            h.assertTrue(tag.getList("Weavers", net.minecraft.nbt.Tag.TAG_INT_ARRAY).size() == 2, "Weaver ids must be saved with the boss");
+            var reloaded = MarchRegistry.THE_UNSUNG.get().create(level);
+            reloaded.readAdditionalSaveData(tag);
+            h.assertTrue(reloaded.weaversAlive(level) == 2, "A reloaded Unsung must still count its own Weavers toward the cap");
+            reloaded.resetAndDespawn(level);
+            boss.discard();
+        });
+        h.runAtTickTime(95, () -> {
+            long left = level(h).getEntities(weaverType, h.getBounds().inflate(16), e -> e.isAlive()).size();
+            h.assertTrue(left == 0, "A reset after reload must discard the Weavers it summoned before saving, " + left + " left");
+            h.succeed();
+        });
+    }
+
+    private static net.minecraft.server.level.ServerLevel level(GameTestHelper h) { return h.getLevel(); }
+
     @GameTest(template = "empty")
     public static void structureTemplatesReferencedByPoolsExist(GameTestHelper h) {
         var manager = h.getLevel().getStructureManager();
