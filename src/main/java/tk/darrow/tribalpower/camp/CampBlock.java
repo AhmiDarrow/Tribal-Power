@@ -37,7 +37,7 @@ public class CampBlock extends BaseEntityBlock {
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit){
         if(!level.isClientSide&&level.getBlockEntity(pos) instanceof CampBlockEntity be){
             player.displayClientMessage(be.status(),true);
-            if(be.hasInventory()&&!level.hasNeighborSignal(pos)&&!player.isShiftKeyDown())player.openMenu(be);
+            if(be.hasInventory()&&!level.hasNeighborSignal(pos)&&!player.isShiftKeyDown()&&be.canAccess(player))player.openMenu(be);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
