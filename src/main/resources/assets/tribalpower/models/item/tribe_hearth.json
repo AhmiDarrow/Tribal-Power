@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:item/tribe_hearth",
+    "layer1": "tribalpower:item/tribe_hearth_embers"
+  }
+}

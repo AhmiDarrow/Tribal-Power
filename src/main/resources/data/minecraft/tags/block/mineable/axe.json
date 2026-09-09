@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:resonance_totem_loom"
+    "tribalpower:resonance_totem_loom",
+    "tribalpower:kinship_totem",
+    "tribalpower:tribe_banner",
+    "tribalpower:silent_drum"
   ]
 }

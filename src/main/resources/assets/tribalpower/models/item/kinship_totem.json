@@ -1,0 +1,53 @@
+{
+  "parent": "tribalpower:block/kinship_totem_soil",
+  "overrides": [
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.095
+      },
+      "model": "tribalpower:item/kinship_totem_stone"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.195
+      },
+      "model": "tribalpower:item/kinship_totem_sprout"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.295
+      },
+      "model": "tribalpower:item/kinship_totem_claw"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.395
+      },
+      "model": "tribalpower:item/kinship_totem_spark"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.495
+      },
+      "model": "tribalpower:item/kinship_totem_clock"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.595
+      },
+      "model": "tribalpower:item/kinship_totem_swarm"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.695
+      },
+      "model": "tribalpower:item/kinship_totem_sigil"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.795
+      },
+      "model": "tribalpower:item/kinship_totem_spindle"
+    }
+  ]
+}

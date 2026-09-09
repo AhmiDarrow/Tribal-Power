@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:item/tribe_mark_soil"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.095
+      },
+      "model": "tribalpower:item/tribe_mark_stone"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.195
+      },
+      "model": "tribalpower:item/tribe_mark_sprout"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.295
+      },
+      "model": "tribalpower:item/tribe_mark_claw"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.395
+      },
+      "model": "tribalpower:item/tribe_mark_spark"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.495
+      },
+      "model": "tribalpower:item/tribe_mark_clock"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.595
+      },
+      "model": "tribalpower:item/tribe_mark_swarm"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.695
+      },
+      "model": "tribalpower:item/tribe_mark_sigil"
+    },
+    {
+      "predicate": {
+        "tribalpower:tribe": 0.795
+      },
+      "model": "tribalpower:item/tribe_mark_spindle"
+    }
+  ]
+}

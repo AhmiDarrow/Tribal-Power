@@ -16,5 +16,7 @@ public final class ClientSetup {
         tk.darrow.tribalpower.entity.CreatureEntities.MONSTERS.forEach((p,t)->event.registerEntityRenderer(t.get(),context->new LatticeCreatureRenderer<>(context,p)));
         event.registerEntityRenderer(ModEntities.SPIRIT_WISP.get(), SpiritWispRenderer::new);
         event.registerEntityRenderer(ModEntities.MARCH_WALKER.get(), MarchWalkerRenderer::new);
+        event.registerEntityRenderer(tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get(), tk.darrow.tribalpower.boss.client.TheUnsungRenderer::new);
+        event.registerEntityRenderer(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get(), TribalKinRenderer::new);
     }
 }

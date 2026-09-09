@@ -1,0 +1,274 @@
+{
+  "variants": {
+    "facing=north,tribe=0,wall=false": {
+      "model": "tribalpower:block/tribe_banner_soil"
+    },
+    "facing=north,tribe=0,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_soil"
+    },
+    "facing=east,tribe=0,wall=false": {
+      "model": "tribalpower:block/tribe_banner_soil",
+      "y": 90
+    },
+    "facing=east,tribe=0,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_soil",
+      "y": 90
+    },
+    "facing=south,tribe=0,wall=false": {
+      "model": "tribalpower:block/tribe_banner_soil",
+      "y": 180
+    },
+    "facing=south,tribe=0,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_soil",
+      "y": 180
+    },
+    "facing=west,tribe=0,wall=false": {
+      "model": "tribalpower:block/tribe_banner_soil",
+      "y": 270
+    },
+    "facing=west,tribe=0,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_soil",
+      "y": 270
+    },
+    "facing=north,tribe=1,wall=false": {
+      "model": "tribalpower:block/tribe_banner_stone"
+    },
+    "facing=north,tribe=1,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_stone"
+    },
+    "facing=east,tribe=1,wall=false": {
+      "model": "tribalpower:block/tribe_banner_stone",
+      "y": 90
+    },
+    "facing=east,tribe=1,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_stone",
+      "y": 90
+    },
+    "facing=south,tribe=1,wall=false": {
+      "model": "tribalpower:block/tribe_banner_stone",
+      "y": 180
+    },
+    "facing=south,tribe=1,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_stone",
+      "y": 180
+    },
+    "facing=west,tribe=1,wall=false": {
+      "model": "tribalpower:block/tribe_banner_stone",
+      "y": 270
+    },
+    "facing=west,tribe=1,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_stone",
+      "y": 270
+    },
+    "facing=north,tribe=2,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sprout"
+    },
+    "facing=north,tribe=2,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sprout"
+    },
+    "facing=east,tribe=2,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sprout",
+      "y": 90
+    },
+    "facing=east,tribe=2,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sprout",
+      "y": 90
+    },
+    "facing=south,tribe=2,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sprout",
+      "y": 180
+    },
+    "facing=south,tribe=2,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sprout",
+      "y": 180
+    },
+    "facing=west,tribe=2,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sprout",
+      "y": 270
+    },
+    "facing=west,tribe=2,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sprout",
+      "y": 270
+    },
+    "facing=north,tribe=3,wall=false": {
+      "model": "tribalpower:block/tribe_banner_claw"
+    },
+    "facing=north,tribe=3,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_claw"
+    },
+    "facing=east,tribe=3,wall=false": {
+      "model": "tribalpower:block/tribe_banner_claw",
+      "y": 90
+    },
+    "facing=east,tribe=3,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_claw",
+      "y": 90
+    },
+    "facing=south,tribe=3,wall=false": {
+      "model": "tribalpower:block/tribe_banner_claw",
+      "y": 180
+    },
+    "facing=south,tribe=3,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_claw",
+      "y": 180
+    },
+    "facing=west,tribe=3,wall=false": {
+      "model": "tribalpower:block/tribe_banner_claw",
+      "y": 270
+    },
+    "facing=west,tribe=3,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_claw",
+      "y": 270
+    },
+    "facing=north,tribe=4,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spark"
+    },
+    "facing=north,tribe=4,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spark"
+    },
+    "facing=east,tribe=4,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spark",
+      "y": 90
+    },
+    "facing=east,tribe=4,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spark",
+      "y": 90
+    },
+    "facing=south,tribe=4,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spark",
+      "y": 180
+    },
+    "facing=south,tribe=4,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spark",
+      "y": 180
+    },
+    "facing=west,tribe=4,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spark",
+      "y": 270
+    },
+    "facing=west,tribe=4,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spark",
+      "y": 270
+    },
+    "facing=north,tribe=5,wall=false": {
+      "model": "tribalpower:block/tribe_banner_clock"
+    },
+    "facing=north,tribe=5,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_clock"
+    },
+    "facing=east,tribe=5,wall=false": {
+      "model": "tribalpower:block/tribe_banner_clock",
+      "y": 90
+    },
+    "facing=east,tribe=5,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_clock",
+      "y": 90
+    },
+    "facing=south,tribe=5,wall=false": {
+      "model": "tribalpower:block/tribe_banner_clock",
+      "y": 180
+    },
+    "facing=south,tribe=5,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_clock",
+      "y": 180
+    },
+    "facing=west,tribe=5,wall=false": {
+      "model": "tribalpower:block/tribe_banner_clock",
+      "y": 270
+    },
+    "facing=west,tribe=5,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_clock",
+      "y": 270
+    },
+    "facing=north,tribe=6,wall=false": {
+      "model": "tribalpower:block/tribe_banner_swarm"
+    },
+    "facing=north,tribe=6,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_swarm"
+    },
+    "facing=east,tribe=6,wall=false": {
+      "model": "tribalpower:block/tribe_banner_swarm",
+      "y": 90
+    },
+    "facing=east,tribe=6,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_swarm",
+      "y": 90
+    },
+    "facing=south,tribe=6,wall=false": {
+      "model": "tribalpower:block/tribe_banner_swarm",
+      "y": 180
+    },
+    "facing=south,tribe=6,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_swarm",
+      "y": 180
+    },
+    "facing=west,tribe=6,wall=false": {
+      "model": "tribalpower:block/tribe_banner_swarm",
+      "y": 270
+    },
+    "facing=west,tribe=6,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_swarm",
+      "y": 270
+    },
+    "facing=north,tribe=7,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sigil"
+    },
+    "facing=north,tribe=7,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sigil"
+    },
+    "facing=east,tribe=7,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sigil",
+      "y": 90
+    },
+    "facing=east,tribe=7,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sigil",
+      "y": 90
+    },
+    "facing=south,tribe=7,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sigil",
+      "y": 180
+    },
+    "facing=south,tribe=7,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sigil",
+      "y": 180
+    },
+    "facing=west,tribe=7,wall=false": {
+      "model": "tribalpower:block/tribe_banner_sigil",
+      "y": 270
+    },
+    "facing=west,tribe=7,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_sigil",
+      "y": 270
+    },
+    "facing=north,tribe=8,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spindle"
+    },
+    "facing=north,tribe=8,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spindle"
+    },
+    "facing=east,tribe=8,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spindle",
+      "y": 90
+    },
+    "facing=east,tribe=8,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spindle",
+      "y": 90
+    },
+    "facing=south,tribe=8,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spindle",
+      "y": 180
+    },
+    "facing=south,tribe=8,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spindle",
+      "y": 180
+    },
+    "facing=west,tribe=8,wall=false": {
+      "model": "tribalpower:block/tribe_banner_spindle",
+      "y": 270
+    },
+    "facing=west,tribe=8,wall=true": {
+      "model": "tribalpower:block/tribe_banner_wall_spindle",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "tribe=0": {
+      "model": "tribalpower:block/kinship_totem_soil"
+    },
+    "tribe=1": {
+      "model": "tribalpower:block/kinship_totem_stone"
+    },
+    "tribe=2": {
+      "model": "tribalpower:block/kinship_totem_sprout"
+    },
+    "tribe=3": {
+      "model": "tribalpower:block/kinship_totem_claw"
+    },
+    "tribe=4": {
+      "model": "tribalpower:block/kinship_totem_spark"
+    },
+    "tribe=5": {
+      "model": "tribalpower:block/kinship_totem_clock"
+    },
+    "tribe=6": {
+      "model": "tribalpower:block/kinship_totem_swarm"
+    },
+    "tribe=7": {
+      "model": "tribalpower:block/kinship_totem_sigil"
+    },
+    "tribe=8": {
+      "model": "tribalpower:block/kinship_totem_spindle"
+    }
+  }
+}
