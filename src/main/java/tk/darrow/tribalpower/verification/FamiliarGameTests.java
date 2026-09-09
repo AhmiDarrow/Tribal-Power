@@ -151,4 +151,55 @@ public class FamiliarGameTests {
         h.assertTrue(CampHooks.campAnchors(server,camp.id)==0,"Released anchors free the budget");
         h.succeed();
     }
+    @GameTest(template="empty")
+    public static void foxLightClearedOnDimensionChangeAndKeptOffWater(GameTestHelper h) {
+        floor(h);
+        var level=h.getLevel();var server=level.getServer();
+        var player=h.makeMockServerPlayerInLevel();
+        var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
+        bond(h,player,fox);
+        var light=FamiliarRegistry.SPIRIT_LIGHT.get();
+        var at=fox.blockPosition();
+        FamiliarAbilities.carryLight(level,fox);
+        h.assertTrue(level.getBlockState(at).is(light) && at.equals(fox.lastLight()),"A bonded fox lights the air it stands in");
+        // Moving onto water must neither replace the water nor leave the old light behind.
+        var wet=h.absolutePos(new BlockPos(5,2,5));
+        level.setBlock(wet,Blocks.WATER.defaultBlockState(),3);
+        fox.moveTo(wet.getX()+.5,wet.getY(),wet.getZ()+.5,0,0);
+        FamiliarAbilities.carryLight(level,fox);
+        h.assertTrue(level.getBlockState(wet).is(Blocks.WATER) && !level.getBlockState(at).is(light) && fox.lastLight()==null,"Water is never replaced and the previous light is cleared");
+        level.setBlock(wet,Blocks.AIR.defaultBlockState(),3);
+        fox.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
+        FamiliarAbilities.carryLight(level,fox);
+        h.assertTrue(level.getBlockState(at).is(light),"Light returns on air");
+        // Portals copy the entity into the other level and drop the old one without calling remove().
+        var nether=server.getLevel(net.minecraft.world.level.Level.NETHER);
+        h.assertTrue(nether!=null,"The test server has a Nether");
+        var moved=fox.changeDimension(new net.minecraft.world.level.portal.DimensionTransition(nether,new net.minecraft.world.phys.Vec3(at.getX()+.5,200,at.getZ()+.5),net.minecraft.world.phys.Vec3.ZERO,0,0,net.minecraft.world.level.portal.DimensionTransition.DO_NOTHING));
+        h.assertTrue(!level.getBlockState(at).is(light),"Leaving the dimension clears the fox's light");
+        h.assertTrue(moved instanceof LatticeAnimal copy && copy!=fox && copy.isBonded() && copy.lastLight()==null,"The copy keeps its bond but not the old light position");
+        if(moved!=null)moved.discard();
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void spiritLightSweepKeepsClaimedLights(GameTestHelper h) {
+        floor(h);
+        var level=h.getLevel();
+        var player=h.makeMockServerPlayerInLevel();
+        var fox=spawn(h,CreatureProfile.LANTERN_FOX,1,2,1);
+        bond(h,player,fox);
+        var light=FamiliarRegistry.SPIRIT_LIGHT.get();
+        var claimed=h.absolutePos(new BlockPos(2,2,2));var stray=h.absolutePos(new BlockPos(6,2,6));
+        level.setBlock(claimed,light.defaultBlockState(),3);level.setBlock(stray,light.defaultBlockState(),3);
+        fox.setLastLight(claimed);
+        // A fleeing fox can be several blocks from the light it placed up to ten ticks ago.
+        fox.moveTo(claimed.getX()+.5+SpiritLightBlock.SWEEP_REACH-1,claimed.getY(),claimed.getZ()+.5,0,0);
+        level.getBlockState(claimed).tick(level,claimed,level.random);
+        level.getBlockState(stray).tick(level,stray,level.random);
+        h.assertTrue(level.getBlockState(claimed).is(light),"The sweep keeps a light its fox still claims");
+        h.assertTrue(!level.getBlockState(stray).is(light),"The sweep removes a light no fox claims");
+        fox.discard();
+        h.assertTrue(!level.getBlockState(claimed).is(light) && fox.lastLight()==null,"Discarding the fox clears its light");
+        h.succeed();
+    }
 }

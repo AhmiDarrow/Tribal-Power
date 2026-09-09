@@ -18,10 +18,12 @@ import net.minecraft.world.level.Level;
  * {@code /tribalpower camp create}; used on air it reports your camp.
  */
 public class CampCharterItem extends Item {
+    /** Ticks between invitations from one charter, so a held-down right-click cannot flood the invitee's chat. */
+    public static final int INVITE_COOLDOWN=40;
     public CampCharterItem(Properties properties) { super(properties); }
     @Override public InteractionResult interactLivingEntity(ItemStack stack,Player player,LivingEntity target,InteractionHand hand) {
-        if(!(target instanceof Player invitee))return InteractionResult.PASS;
-        if(player instanceof ServerPlayer holder)CampCommands.inviteFromCharter(holder,invitee);
+        if(!(target instanceof Player invitee) || player.getCooldowns().isOnCooldown(this))return InteractionResult.PASS;
+        if(player instanceof ServerPlayer holder) { CampCommands.inviteFromCharter(holder,invitee);holder.getCooldowns().addCooldown(this,INVITE_COOLDOWN); }
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level,Player player,InteractionHand hand) {

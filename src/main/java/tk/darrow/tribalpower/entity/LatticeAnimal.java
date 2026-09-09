@@ -125,6 +125,16 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)FamiliarAbilities.clearLight(this);
         super.remove(reason);
     }
+    /** Portals and cross-dimension teleports bypass {@link #remove}: the old copy is dropped through this hook instead. */
+    @Override protected void removeAfterChangingDimensions() {
+        FamiliarAbilities.clearLight(this);
+        super.removeAfterChangingDimensions();
+    }
+    /** The copy that arrives in the new dimension must not inherit a light position from the old one. */
+    @Override public void restoreFrom(Entity source) {
+        super.restoreFrom(source);
+        lastLight=null;
+    }
     @Override public void die(DamageSource source) {
         super.die(source);
         if(!level().isClientSide) { Containers.dropContents(level(),blockPosition(),saddlebag);saddlebag.clearContent(); }

@@ -23,6 +23,8 @@ import tk.darrow.tribalpower.entity.LatticeAnimal;
 public class SpiritLightBlock extends Block {
     public static final MapCodec<SpiritLightBlock> CODEC=simpleCodec(SpiritLightBlock::new);
     public static final int SWEEP_TICKS=100;
+    /** A fleeing fox can be ~4 blocks from a light placed up to {@link FamiliarAbilities#LIGHT_PERIOD} ticks ago; look a little further before sweeping. */
+    public static final int SWEEP_REACH=6;
     public SpiritLightBlock(Properties properties) { super(properties); }
     @Override protected MapCodec<? extends Block> codec() { return CODEC; }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
@@ -31,7 +33,7 @@ public class SpiritLightBlock extends Block {
     @Override protected float getShadeBrightness(BlockState state,BlockGetter level,BlockPos pos) { return 1F; }
     @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState old,boolean moved) { level.scheduleTick(pos,this,SWEEP_TICKS); }
     @Override protected void tick(BlockState state,ServerLevel level,BlockPos pos,RandomSource random) {
-        boolean claimed=!level.getEntitiesOfClass(LatticeAnimal.class,new AABB(pos).inflate(2),a->a.isBonded() && pos.equals(a.lastLight())).isEmpty();
+        boolean claimed=!level.getEntitiesOfClass(LatticeAnimal.class,new AABB(pos).inflate(SWEEP_REACH),a->a.isBonded() && pos.equals(a.lastLight())).isEmpty();
         if(claimed)level.scheduleTick(pos,this,SWEEP_TICKS);else level.removeBlock(pos,false);
     }
     @Override protected BlockState updateShape(BlockState state,net.minecraft.core.Direction direction,BlockState neighbour,LevelAccessor level,BlockPos pos,BlockPos neighbourPos) { return state; }
