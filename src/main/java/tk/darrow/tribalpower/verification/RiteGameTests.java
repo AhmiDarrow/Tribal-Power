@@ -112,29 +112,34 @@ public class RiteGameTests {
     public static void leyMathPrefersOpenSky(GameTestHelper h) {
         h.setBlock(2, 2, 2, Blocks.STONE);
         h.setBlock(8, 2, 8, Blocks.STONE);
-        for (int y = 3; y <= 6; y++) h.setBlock(8, y, 8, Blocks.AIR);
-        for (int x = 6; x <= 10; x++) for (int z = 6; z <= 10; z++) h.setBlock(x, 7, z, Blocks.STONE);
+        for (int x = 4; x <= 12; x++) for (int z = 4; z <= 12; z++) h.setBlock(x, 6, z, Blocks.STONE);
         var level = h.getLevel();
         BlockPos open = h.absolutePos(new BlockPos(2, 2, 2)), roofed = h.absolutePos(new BlockPos(8, 2, 8));
-        h.assertTrue(level.canSeeSky(open.above()), "Test position must see the sky");
-        h.assertTrue(!level.canSeeSky(roofed.above()), "Roofed position must not see the sky");
-        double a = LeyMath.strength(level, open), b = LeyMath.strength(level, roofed);
-        h.assertTrue(a > b, "Open sky must strengthen ley: " + a + " vs " + b);
-        h.assertTrue(LeyMath.gain(level, roofed) == LeyMath.BASE && b > 0 && b <= 1, "Sheltered ground yields only the base gain");
-        int before = LeyMath.gain(level, open);
-        h.setBlock(3, 2, 2, Blocks.WATER);
-        h.assertTrue(LeyMath.gain(level, open) == before + LeyMath.WATER, "Adjacent water must add its factor");
-        h.succeed();
+        // Sky light settles a few ticks after the roof is placed.
+        h.runAfterDelay(10, () -> {
+            h.assertTrue(level.canSeeSky(open.above()), "Test position must see the sky");
+            h.assertTrue(!level.canSeeSky(roofed.above()), "Roofed position must not see the sky");
+            double a = LeyMath.strength(level, open), b = LeyMath.strength(level, roofed);
+            h.assertTrue(a > b, "Open sky must strengthen ley: " + a + " vs " + b);
+            h.assertTrue(LeyMath.gain(level, roofed) == LeyMath.BASE && b > 0 && b <= 1, "Sheltered ground yields only the base gain");
+            int before = LeyMath.gain(level, open);
+            h.setBlock(3, 2, 2, Blocks.WATER);
+            h.assertTrue(LeyMath.gain(level, open) == before + LeyMath.WATER, "Adjacent water must add its factor");
+            h.succeed();
+        });
     }
 
     @GameTest(template = "empty")
     public static void leyBindingLinksTwoTotems(GameTestHelper h) {
         var level = h.getLevel();
         brazierWithDrum(h, new ItemStack(ModItems.LOOM_SEAL.get()));
-        h.setBlock(2, 2, 3, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(13, 2, 12, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        h.setBlock(1, 2, 1, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(14, 2, 14, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        // Ley Binding costs 1,200 Pulse; a Drumheart caps at 1,000, so add a second drum.
+        h.setBlock(5, 2, 5, ModBlocks.DRUMHEART.get());
+        at(h, new BlockPos(5, 2, 5), DrumheartBlockEntity.class).insertPulse(1000, false);
         BlockPos brazier = h.absolutePos(new BlockPos(3, 2, 3));
-        BlockPos a = h.absolutePos(new BlockPos(2, 2, 3)), b = h.absolutePos(new BlockPos(13, 2, 12));
+        BlockPos a = h.absolutePos(new BlockPos(1, 2, 1)), b = h.absolutePos(new BlockPos(14, 2, 14));
         h.assertTrue(!LatticeNetwork.canLink(a, b), "Test totems must be beyond chalk range to prove the ley line");
         var failure = RiteTabletItem.perform(level, brazier, null, WorldRite.LEY_BINDING);
         h.assertTrue(failure == null, "Ley Binding must succeed with two totems in range, got " + failure);
