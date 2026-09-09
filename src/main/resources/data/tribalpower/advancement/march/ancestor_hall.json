@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:lore_tablet"
+    },
+    "title": "Ancestor Hall",
+    "description": "Find a sunken hall of the nine tribes in The March.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "structures": "tribalpower:ancestor_hall"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/march"
+}

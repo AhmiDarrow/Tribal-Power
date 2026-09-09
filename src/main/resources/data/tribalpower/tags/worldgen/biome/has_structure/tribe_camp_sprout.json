@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:forest",
+    "minecraft:jungle",
+    "minecraft:sparse_jungle",
+    "tribalpower:march_steppe"
+  ]
+}

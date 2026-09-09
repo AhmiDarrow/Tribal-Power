@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/lore_tablet"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/lore_tablet",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/lore_tablet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/lore_tablet",
+      "y": 270
+    }
+  }
+}

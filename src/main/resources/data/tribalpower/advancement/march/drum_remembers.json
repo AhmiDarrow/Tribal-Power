@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:unsung_heart"
+    },
+    "title": "The Drum Remembers",
+    "description": "Still The Unsung and carry its heart out of the Drum Circle.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "stilled": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "tribalpower:the_unsung"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tribalpower:journey/march",
+  "rewards": {
+    "experience": 100
+  }
+}

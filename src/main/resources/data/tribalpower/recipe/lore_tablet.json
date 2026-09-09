@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SES",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "E": {
+      "item": "tribalpower:echo_shard"
+    }
+  },
+  "result": {
+    "id": "tribalpower:lore_tablet",
+    "count": 2
+  }
+}
