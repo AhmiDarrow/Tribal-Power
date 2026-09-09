@@ -19,7 +19,7 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 /**
  * Lattice hub that advances Echo-stage materials when Pulse and the right attunement are present.
  */
-public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer {
+public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable {
     @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return new int[]{SLOT}; }
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && canPlaceItem(slot, stack); }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && !singing; }
@@ -290,5 +290,19 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         if (stage == null || progress < 0 || progress >= stage.workTicks()) progress = 0;
         linkedTotems = tag.getInt("LinkedTotems");
         stallReason = tag.getString("StallReason");
+    }
+
+    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.state", statusMessage()));
+        EchoStage stage = EchoStage.forInput(items.get(SLOT));
+        if (stage != null) {
+            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, stage.workTicks(), stage.pulsePerTick()));
+            if (!LatticeNetwork.hasAttunement(server, pos, RADIUS, stage.requiredAttunement()))
+                lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
+                        net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + stage.requiredAttunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
+        }
+        if (!stallReason.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stall", stallReason).withStyle(net.minecraft.ChatFormatting.YELLOW));
+        return lines;
     }
 }

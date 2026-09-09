@@ -510,5 +510,301 @@
     "icon": "resonance_totem_loom",
     "spoiler": true,
     "picture": ""
+  },
+  {
+    "id": "familiars_bonding",
+    "title": "Bonded spirits",
+    "category": "Bestiary & skies",
+    "icon": "bonding_charm",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "familiars_fox",
+    "title": "Lantern Fox familiar",
+    "category": "Bestiary & skies",
+    "icon": "lantern_down",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "familiars_mossback_stag",
+    "title": "Mossback and Dawn Stag familiars",
+    "category": "Bestiary & skies",
+    "icon": "dawn_velvet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "camps_identity",
+    "title": "Shared camps",
+    "category": "Camp automation",
+    "icon": "camp_charter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "rite_world_rites",
+    "title": "World rites",
+    "category": "Equipment & rites",
+    "icon": "rite_rain_calling",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "rite_land_rites",
+    "title": "Land rites",
+    "category": "Equipment & rites",
+    "icon": "rite_green_blessing",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "ley_lens",
+    "title": "Ley Lens",
+    "category": "Living power",
+    "icon": "ley_lens",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pulse_logic",
+    "title": "Pulse logic",
+    "category": "Automation",
+    "icon": "pulse_gauge",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "codex_diagnostics",
+    "title": "Codex diagnostics",
+    "category": "Automation",
+    "icon": "spirit_codex",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribes_standing",
+    "title": "Standing",
+    "category": "The Nine Tribes",
+    "icon": "tribe_hearth",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribes_kin",
+    "title": "Tribal Kin",
+    "category": "The Nine Tribes",
+    "icon": "tribal_kin_elder_spawn_egg",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribes_kinship_totem",
+    "title": "Kinship Totem",
+    "category": "The Nine Tribes",
+    "icon": "kinship_totem",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tribe_soil",
+    "title": "Pad-keepers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_stone",
+    "title": "Grit-singers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_sprout",
+    "title": "Rootbinders",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_claw",
+    "title": "Edge-walkers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_spark",
+    "title": "Drumhearts",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_clock",
+    "title": "Pattern-weavers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_swarm",
+    "title": "Colony-keepers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_sigil",
+    "title": "Seal-carvers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tribe_spindle",
+    "title": "Loom-stitchers",
+    "category": "The Nine Tribes",
+    "icon": "tribe_mark",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "march_ancestor_hall",
+    "title": "Ancestor Hall",
+    "category": "The March",
+    "icon": "lore_tablet",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "march_drum_circle",
+    "title": "Drum Circle",
+    "category": "The March",
+    "icon": "silent_drum",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "march_the_unsung",
+    "title": "The Unsung",
+    "category": "The March",
+    "icon": "unsung_heart",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "march_crystal_spire",
+    "title": "Crystal Spire",
+    "category": "The March",
+    "icon": "march_crystal",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "tablet_0",
+    "title": "Tablet: Pad-keepers' Hearth",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_1",
+    "title": "Tablet: Grit-singers' Mesh",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_2",
+    "title": "Tablet: Rootbinders' Rope",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_3",
+    "title": "Tablet: Edge-walkers' Boots",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_4",
+    "title": "Tablet: Drumhearts' Beat",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_5",
+    "title": "Tablet: Pattern-weavers' Song",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_6",
+    "title": "Tablet: Colony-keepers' Hive",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_7",
+    "title": "Tablet: Seal-carvers' Rite",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_8",
+    "title": "Tablet: Loom-stitchers' Thread",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_9",
+    "title": "Tablet: The Cut",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_10",
+    "title": "Tablet: The Unsung",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "tablet_11",
+    "title": "Tablet: The March",
+    "category": "Lore Tablets",
+    "icon": "lore_tablet",
+    "spoiler": true,
+    "picture": ""
   }
 ]

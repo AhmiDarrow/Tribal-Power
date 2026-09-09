@@ -18,7 +18,7 @@ import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 /** Pulls from below into a linked block face. No force-loading or hidden global inventories. */
-public class WirelessRelayBlockEntity extends BlockEntity {
+public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
     private BlockPos target;
     private String dimension = "";
     private Direction face = Direction.UP;
@@ -135,5 +135,20 @@ public class WirelessRelayBlockEntity extends BlockEntity {
         dimension = tag.getString("Dimension");
         face = Direction.from3DDataValue(tag.getInt("Face")); cursor = tag.getInt("Cursor");
         pending = net.neoforged.neoforge.fluids.FluidStack.parseOptional(registries, tag.getCompound("Pending"));
+    }
+
+    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(ServerLevel server, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.state", status(), tier(), fluid() ? "fluid" : "item"));
+        if (target == null) { lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.unlinked").withStyle(net.minecraft.ChatFormatting.YELLOW)); return lines; }
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.target", target.getX(), target.getY(), target.getZ(), dimension, face.getSerializedName()));
+        var dim = net.minecraft.resources.ResourceLocation.tryParse(dimension);
+        var destination = dim == null ? null : server.getServer().getLevel(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION, dim));
+        if (destination == null || !destination.hasChunkAt(target)) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.target_unloaded").withStyle(net.minecraft.ChatFormatting.RED));
+        else if (destination.hasNeighborSignal(target)) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.target_paused").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        if (!server.hasChunkAt(pos.below())) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.source_unloaded").withStyle(net.minecraft.ChatFormatting.RED));
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.cost", tier() == 3 ? 16 : tier() == 2 ? 8 : 4));
+        if (!pending.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.pending", pending.getAmount()));
+        return lines;
     }
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    " T ",
+    "RCR",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:pulse_threshold"
+  }
+}

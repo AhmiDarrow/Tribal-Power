@@ -103,6 +103,13 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.WAYSTONE_COMPASS.get());
                         out.accept(ModItems.HORIZON_COMPASS.get());
                         out.accept(ModItems.ASTRAL_COMPASS.get());
+                        tk.darrow.tribalpower.rite.world.WorldRiteRegistry.displayItems(out);
+                        tk.darrow.tribalpower.ley.LeyRegistry.displayItems(out);
+                        tk.darrow.tribalpower.logic.LogicRegistry.displayItems(out);
+                        tk.darrow.tribalpower.familiar.FamiliarRegistry.displayItems(out);
+                        tk.darrow.tribalpower.camp.identity.CampIdentityRegistry.displayItems(out);
+                        tk.darrow.tribalpower.world.structure.MarchRegistry.displayItems(out);
+                        tk.darrow.tribalpower.tribe.TribeRegistry.displayItems(out);
                     })
                     .build()
     );

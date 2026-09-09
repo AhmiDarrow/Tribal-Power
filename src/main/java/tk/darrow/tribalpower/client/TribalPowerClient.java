@@ -26,9 +26,22 @@ public final class TribalPowerClient {
             for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->GeneratedCreatureLayers.create(p.id));
             event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
             event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
+            event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
         });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) ->
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new));
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) ->
+                event.register(tk.darrow.tribalpower.familiar.FamiliarRegistry.SADDLEBAG.get(), MossbackScreen::new));
+        modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) ->
+                event.registerLayerDefinition(tk.darrow.tribalpower.boss.client.TheUnsungModel.LAYER, tk.darrow.tribalpower.boss.client.TheUnsungModel::create));
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) -> {
+            if (event.getLevel().isClientSide && !event.getEntity().isShiftKeyDown() && event.getLevel().getBlockEntity(event.getPos()) instanceof tk.darrow.tribalpower.world.structure.LoreTabletBlockEntity tablet)
+                net.minecraft.client.Minecraft.getInstance().setScreen(new LoreTabletScreen(tablet.tablet()));
+        });
+        modBus.addListener(TribeClient::onClientSetup);
+        modBus.addListener(TribeClient::blockColours);
+        modBus.addListener(TribeClient::itemColours);
     }
 }

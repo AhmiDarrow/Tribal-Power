@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    }
+  },
+  "pattern": [
+    "G",
+    "C",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:ley_lens"
+  }
+}

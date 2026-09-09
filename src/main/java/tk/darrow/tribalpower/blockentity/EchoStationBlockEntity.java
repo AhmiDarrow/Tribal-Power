@@ -17,7 +17,7 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 
 /** Slot 0 input, slots 1-8 output. One work beat per second; no per-tick lattice volume scans. */
-public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
+public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable {
     private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
     private int work;
     private String recipeId = "";
@@ -96,5 +96,21 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         items = NonNullList.withSize(9, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         work = Math.max(0, tag.getInt("Work")); recipeId = tag.getString("Recipe");
+    }
+
+    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(ServerLevel server, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
+        var recipe = ProcessingRecipes.find(server, station(), items.get(0));
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.state", status()));
+        if (recipe == null) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.no_recipe"));
+        else {
+            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.recipe", recipe.result().getHoverName(), work, recipe.seconds(), recipe.pulse(),
+                    net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + recipe.attunement().getSerializedName())));
+            if (!LatticeNetwork.hasAttunement(server, pos, 8, recipe.attunement()))
+                lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
+                        net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + recipe.attunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
+            if (!placeOutput(recipe.result(), true)) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.output_full").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        }
+        return lines;
     }
 }

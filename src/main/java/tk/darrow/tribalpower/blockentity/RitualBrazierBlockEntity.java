@@ -17,7 +17,7 @@ import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
-public class RitualBrazierBlockEntity extends BlockEntity {
+public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
     private ItemStack seal = ItemStack.EMPTY;
     private boolean active;
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
@@ -75,5 +75,20 @@ public class RitualBrazierBlockEntity extends BlockEntity {
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         seal = ItemStack.parseOptional(registries, tag.getCompound("Seal")); active = false;
+    }
+
+    @Override public java.util.List<Component> diagnose(ServerLevel server, BlockPos pos) {
+        java.util.List<Component> lines = new java.util.ArrayList<>();
+        lines.add(Component.translatable("diag.tribalpower.brazier.state", status()));
+        Attunement element = element(seal);
+        if (element == null) { lines.add(Component.translatable("diag.tribalpower.brazier.no_seal").withStyle(net.minecraft.ChatFormatting.YELLOW)); return lines; }
+        lines.add(Component.translatable("diag.tribalpower.brazier.seal", seal.getHoverName(), Component.translatable("attunement.tribalpower." + element.getSerializedName())));
+        if (!LatticeNetwork.hasAttunement(server, pos, 8, element))
+            lines.add(Component.translatable("diag.tribalpower.station.missing_attunement", Component.translatable("attunement.tribalpower." + element.getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
+        int players = server.getEntitiesOfClass(Player.class, new AABB(pos).inflate(6), p -> p.isAlive() && !p.isSpectator()).size();
+        lines.add(Component.translatable("diag.tribalpower.brazier.players", players));
+        for (var rite : tk.darrow.tribalpower.rite.world.WorldRite.values())
+            if (rite.element() == element) lines.add(Component.translatable("diag.tribalpower.brazier.rite", Component.translatable("item.tribalpower." + rite.tabletId()), rite.cost()));
+        return lines;
     }
 }

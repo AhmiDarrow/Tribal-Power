@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:seal_keeping_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    {
+      "item": "tribalpower:storm_wing"
+    },
+    {
+      "item": "tribalpower:air_seal"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:rite_sky_clearing"
+  }
+}

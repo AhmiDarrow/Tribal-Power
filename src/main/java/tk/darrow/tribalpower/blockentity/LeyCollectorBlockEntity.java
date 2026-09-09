@@ -12,7 +12,7 @@ import tk.darrow.tribalpower.api.pulse.PulseStorage;
 /**
  * Slow ambient Spirit Pulse siphon — steady mid-game generation without constant drumming.
  */
-public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler {
+public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2000;
     public static final int GAIN_INTERVAL = 40;
     public static final int GAIN_AMOUNT = 2;
@@ -31,18 +31,8 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
             return;
         }
         be.tickCounter = 0;
-        int gain = 1;
-        if (level.canSeeSky(pos.above())) gain += level.isNight() ? 3 : 1;
-        if (level.isRainingAt(pos.above())) gain += 2;
-        boolean water = false, living = false;
-        for (var direction : net.minecraft.core.Direction.Plane.HORIZONTAL) {
-            var nearby = level.getBlockState(pos.relative(direction));
-            water |= !nearby.getFluidState().isEmpty() && nearby.getFluidState().is(net.minecraft.tags.FluidTags.WATER);
-            living |= nearby.is(net.minecraft.tags.BlockTags.LEAVES) || nearby.is(net.minecraft.world.level.block.Blocks.MOSS_BLOCK)
-                    || nearby.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get());
-        }
-        if (water) gain += 2;
-        if (living) gain += 2;
+        // Factor maths live in ley/LeyMath so the Ley Lens and Codex diagnostics show the same numbers.
+        int gain = tk.darrow.tribalpower.ley.LeyMath.gain(level, pos);
         if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
         }
@@ -88,5 +78,12 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         super.loadAdditional(tag, registries);
         pulse.load(tag);
         tickCounter = tag.getInt("TickCounter");
+    }
+
+    @Override
+    public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel level, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>(tk.darrow.tribalpower.ley.LeyMath.breakdown(level, pos));
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.ley_collector.beat", GAIN_INTERVAL - tickCounter));
+        return lines;
     }
 }

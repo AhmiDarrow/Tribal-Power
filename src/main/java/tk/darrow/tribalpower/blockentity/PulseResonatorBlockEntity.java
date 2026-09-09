@@ -19,7 +19,7 @@ import tk.darrow.tribalpower.block.PulseResonatorBlock;
 /**
  * Harmonic generator: a reusable Echo catalyst amplifies distinct nearby totem voices.
  */
-public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, Container {
+public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, Container, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2500;
     public static final int GAIN_INTERVAL = 20;
     public static final int SLOT = 0;
@@ -39,6 +39,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
             voices.add(totem.getAttunement());
         be.harmonics = voices.size();
+        be.harmonics += tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices
         int rank = catalystRank(be.items.get(SLOT));
         be.gain = rank > 0 && be.harmonics >= 2 && !level.hasNeighborSignal(pos) ? 2 * be.harmonics + 2 * rank : 0;
         boolean sounding = be.gain > 0 && be.insertPulse(be.gain, false) > 0;
@@ -180,5 +181,17 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         // Legacy stored coal is retained for extraction, but no longer generates Pulse.
+    }
+
+    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
+        ItemStack catalyst = items.get(SLOT);
+        int rank = catalystRank(catalyst);
+        lines.add(rank > 0 ? net.minecraft.network.chat.Component.translatable("diag.tribalpower.resonator.catalyst", catalyst.getHoverName(), rank)
+                : net.minecraft.network.chat.Component.translatable("diag.tribalpower.resonator.no_catalyst").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.resonator.harmonics", harmonics, gain));
+        if (harmonics < 2) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.resonator.need_voices").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        if (!canReceivePulse()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.output_full").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        return lines;
     }
 }

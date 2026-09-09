@@ -11,7 +11,10 @@ import net.neoforged.neoforge.common.world.chunk.TicketController;
 import net.minecraft.resources.ResourceLocation;
 
 public final class CampHooks {
-    private static final Map<ServerLevel,Set<BlockPos>> ANCHORS=new WeakHashMap<>();
+    /** Anchor position -> owner UUID (null for unowned); one map per dimension. */
+    private static final Map<ServerLevel,Map<BlockPos,UUID>> ANCHORS=new WeakHashMap<>();
+    /** Solo players keep 32 anchors per dimension; a camp shares 12 across every member and dimension (design 3.0 §6). */
+    public static final int SOLO_ANCHOR_CAP=32,CAMP_ANCHOR_BUDGET=12;
     private static final Map<ServerLevel,Map<Long,Map<BlockPos,Long>>> WARDS=new WeakHashMap<>();
     public static final TicketController TICKETS=new TicketController(ResourceLocation.parse("tribalpower:wayanchors"),(level,helper)->{
         int count=0;
@@ -22,23 +25,37 @@ public final class CampHooks {
                 // A valid anchor owns exactly its own ticking chunk; discard any stale broader tickets.
                 for(long chunk:entry.getValue().ticking())if(chunk!=new ChunkPos(pos).toLong())helper.removeTicket(pos,chunk,true);
                 for(long chunk:entry.getValue().nonTicking())helper.removeTicket(pos,chunk,false);
-                ANCHORS.computeIfAbsent(level,l->new HashSet<>()).add(pos.immutable());
+                ANCHORS.computeIfAbsent(level,l->new HashMap<>()).putIfAbsent(pos.immutable(),be.owner);
             }
         }
         for(var id:helper.getEntityTickets().keySet())helper.removeAllTickets(id);
     });
-    public static boolean anchor(ServerLevel level,BlockPos pos,boolean active){
-        var set=ANCHORS.computeIfAbsent(level,l->new HashSet<>());
-        if(active&&!set.contains(pos)&&set.size()>=32)return false;
-        if(active)set.add(pos.immutable());else set.remove(pos);
+    public static boolean anchor(ServerLevel level,BlockPos pos,boolean active){return anchor(level,pos,null,active);}
+    /** Claim or release an anchor for {@code owner}. Camp members draw on the shared camp budget; everyone else on the per-dimension cap. */
+    public static boolean anchor(ServerLevel level,BlockPos pos,UUID owner,boolean active){
+        var anchors=ANCHORS.computeIfAbsent(level,l->new HashMap<>());
+        if(active&&!anchors.containsKey(pos)){
+            var camp=tk.darrow.tribalpower.camp.identity.Camps.campOf(level.getServer(),owner);
+            if(camp!=null?campAnchors(level.getServer(),camp.id)>=CAMP_ANCHOR_BUDGET:anchors.size()>=SOLO_ANCHOR_CAP)return false;
+        }
+        if(active)anchors.put(pos.immutable(),owner);else anchors.remove(pos);
         var chunk=new ChunkPos(pos);TICKETS.forceChunk(level,pos,chunk.x,chunk.z,active,true);return active;
     }
+    /** Active anchors owned by members of {@code campId} across every dimension. */
+    public static int campAnchors(net.minecraft.server.MinecraftServer server,UUID campId){
+        var camp=tk.darrow.tribalpower.camp.identity.Camps.data(server).camp(campId);if(camp==null)return 0;
+        int count=0;
+        for(var entry:ANCHORS.entrySet())for(var owner:entry.getValue().values())if(owner!=null&&camp.isMember(owner))count++;
+        return count;
+    }
+    public static int anchors(ServerLevel level){var anchors=ANCHORS.get(level);return anchors==null?0:anchors.size();}
     public static void ward(ServerLevel level,BlockPos pos,boolean active){
         var chunks=WARDS.computeIfAbsent(level,l->new HashMap<>());long chunk=new ChunkPos(pos).toLong();
         if(active)chunks.computeIfAbsent(chunk,c->new HashMap<>()).put(pos.immutable(),level.getGameTime()+24);
         else if(chunks.containsKey(chunk)){chunks.get(chunk).remove(pos);if(chunks.get(chunk).isEmpty())chunks.remove(chunk);}
     }
     public static boolean warded(ServerLevel level,BlockPos target){
+        if(tk.darrow.tribalpower.rite.world.TemporaryWards.warded(level,target))return true; // Still Night rite (rite/world)
         var chunks=WARDS.get(level);if(chunks==null)return false;
         var center=new ChunkPos(target);
         for(int x=center.x-2;x<=center.x+2;x++)for(int z=center.z-2;z<=center.z+2;z++){

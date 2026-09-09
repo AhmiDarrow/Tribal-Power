@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 
-public class DrumheartBlockEntity extends BlockEntity implements PulseHandler {
+public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 1000;
     public static final int BEAT_GAIN = 10;
     public static final int REDSTONE_GAIN = 5;
@@ -94,5 +94,13 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler {
         super.loadAdditional(tag, registries);
         pulse.load(tag);
         redstoneCooldown = net.minecraft.util.Mth.clamp(tag.getInt("RedstoneCooldown"), 0, 8);
+    }
+
+    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
+        long since = server.getGameTime() - lastManualBeat;
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.drumheart.beat", since < 200 ? Long.toString(since) : "-", BEAT_GAIN, REDSTONE_GAIN, redstoneCooldown));
+        if (!canReceivePulse()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.output_full").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        return lines;
     }
 }

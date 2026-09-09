@@ -10,6 +10,10 @@
     "tribalpower:astral_fluid_relay",
     "tribalpower:pulse_adapter",
     "tribalpower:spirit_cistern",
-    "tribalpower:echo_unweave"
+    "tribalpower:echo_unweave",
+    "tribalpower:pulse_gauge",
+    "tribalpower:pulse_threshold",
+    "tribalpower:tribe_hearth",
+    "tribalpower:lore_tablet"
   ]
 }

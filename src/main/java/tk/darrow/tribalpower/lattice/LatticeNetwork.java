@@ -104,6 +104,13 @@ public final class LatticeNetwork {
                 }
                 queue.add(linked);
             }
+            // Ley Binding: a live ley line makes two distant totems adjacent for routing (rite/world/LeyLines).
+            for (BlockPos link : tk.darrow.tribalpower.rite.world.LeyLines.linked(level, current.getBlockPos())) {
+                BlockPos key = link.immutable();
+                BlockEntity candidate = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
+                if (!(candidate instanceof ResonanceTotemBlockEntity linked) || !visited.add(key)) continue;
+                queue.add(linked);
+            }
         }
         return network;
     }
@@ -142,6 +149,9 @@ public final class LatticeNetwork {
                 if (other != null && totem.getLevel() == other.getLevel() && canLink(totem.getBlockPos(), other.getBlockPos())
                         && totem.isLinkedTo(other.getBlockPos()) && other.isLinkedTo(totem.getBlockPos())) return true;
             }
+            // A live ley line between two network totems is also a conductable path (rite/world/LeyLines).
+            for (BlockPos link : tk.darrow.tribalpower.rite.world.LeyLines.linked(totem.getLevel(), totem.getBlockPos()))
+                if (byPosition.containsKey(link)) return true;
         }
         return false;
     }
@@ -406,7 +416,33 @@ public final class LatticeNetwork {
                 }
             }
         }
+        // Kinship Totems lend their tribe's voice to stations as well (design 3.0 §2).
+        for (tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship : findNearbyKinshipTotems(level, origin, radius))
+            set.add(kinship.attunement());
         return set;
+    }
+
+    /** Kinship Totems within {@code radius} (tribe voices, tracked separately from Attunement). */
+    public static List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> findNearbyKinshipTotems(Level level, BlockPos origin, int radius) {
+        List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> found = new ArrayList<>();
+        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dy = -radius; dy <= radius; dy++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
+                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
+                    if (be instanceof tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship) found.add(kinship);
+                }
+            }
+        }
+        return found;
+    }
+
+    /** Number of distinct tribes with a Kinship Totem within {@code radius}: extra voices for the Pulse Resonator. */
+    public static int countKinshipTribes(Level level, BlockPos origin, int radius) {
+        EnumSet<tk.darrow.tribalpower.tribe.TribeDefinition> tribes = EnumSet.noneOf(tk.darrow.tribalpower.tribe.TribeDefinition.class);
+        for (tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship : findNearbyKinshipTotems(level, origin, radius)) tribes.add(kinship.tribe());
+        return tribes.size();
     }
 
     public static boolean hasAttunement(Level level, BlockPos origin, int radius, Attunement needed) {

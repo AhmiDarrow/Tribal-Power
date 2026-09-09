@@ -39,8 +39,24 @@ public final class TribalPower {
         tk.darrow.tribalpower.echo.LatticeRecipe.TYPES.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.SERIALIZERS.register(modBus);
         tk.darrow.tribalpower.item.SpiritweaveArmor.MATERIALS.register(modBus);
+        tk.darrow.tribalpower.familiar.FamiliarRegistry.ITEMS.register(modBus);
+        tk.darrow.tribalpower.familiar.FamiliarRegistry.BLOCKS.register(modBus);
+        tk.darrow.tribalpower.familiar.FamiliarRegistry.MENUS.register(modBus);
+        tk.darrow.tribalpower.camp.identity.CampIdentityRegistry.ITEMS.register(modBus);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.identity.CampCommands::register);
+        tk.darrow.tribalpower.camp.identity.CampStanding.register();
+        tk.darrow.tribalpower.world.structure.MarchRegistry.register(modBus);
+        tk.darrow.tribalpower.tribe.TribeRegistry.register(modBus);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onCommands);
 
         modBus.addListener(this::onCommonSetup);
+        // Rites / QoL (rite/world, ley, logic, api/Diagnostics)
+        tk.darrow.tribalpower.rite.world.WorldRiteRegistry.register(modBus);
+        tk.darrow.tribalpower.ley.LeyRegistry.register(modBus);
+        tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);
         modBus.addListener(ModEntityAttributes::onAttributes);
         modBus.addListener(ModEntityAttributes::onSpawnPlacements);
         NeoForge.EVENT_BUS.register(ModDimensions.class);
