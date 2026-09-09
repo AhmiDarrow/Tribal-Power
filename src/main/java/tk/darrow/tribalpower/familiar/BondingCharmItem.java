@@ -32,9 +32,11 @@ public class BondingCharmItem extends Item {
         if(player.level() instanceof ServerLevel level)attempt(level,player,animal,stack);
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }
-    /** Server-side bonding roll; exposed for tests. @return true when the animal bonded. */
-    public static boolean attempt(ServerLevel level,Player player,LatticeAnimal animal,ItemStack charm) {
-        boolean success=level.random.nextFloat()<CHANCE;
+    /** Server-side bonding roll. @return true when the animal bonded. */
+    public static boolean attempt(ServerLevel level,Player player,LatticeAnimal animal,ItemStack charm) { return attempt(level,player,animal,charm,false); }
+    /** Bonding with an optional forced success (used by tests and rites). Creative players keep the charm. */
+    public static boolean attempt(ServerLevel level,Player player,LatticeAnimal animal,ItemStack charm,boolean force) {
+        boolean success=force || level.random.nextFloat()<CHANCE;
         double x=animal.getX(),y=animal.getY()+animal.getBbHeight()*.8,z=animal.getZ();
         if(success) {
             animal.bond(player);

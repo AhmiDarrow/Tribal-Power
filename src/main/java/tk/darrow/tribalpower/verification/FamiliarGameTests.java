@@ -26,16 +26,12 @@ public class FamiliarGameTests {
         return animal;
     }
     private static void floor(GameTestHelper h) { for(int x=0;x<8;x++)for(int z=0;z<8;z++)h.setBlock(x,1,z,Blocks.STONE); }
-    /** Roll the 60% charm until it lands; fifty misses in a row is astronomically unlikely. */
-    private static ItemStack bond(GameTestHelper h,net.minecraft.world.entity.player.Player player,LatticeAnimal animal) {
+    /** Deterministic bond: forced success in survival mode spends exactly one charm. */
+    private static ItemStack bond(GameTestHelper h,net.minecraft.server.level.ServerPlayer player,LatticeAnimal animal) {
+        player.getAbilities().instabuild=false;
         var charm=new ItemStack(FamiliarRegistry.BONDING_CHARM.get(),16);
-        int before=charm.getCount();
-        for(int i=0;i<50 && !animal.isBonded();i++) {
-            boolean ok=BondingCharmItem.attempt(h.getLevel(),player,animal,charm);
-            h.assertTrue(ok==animal.isBonded(),"The roll result must match the bonded state");
-            h.assertTrue(charm.getCount()==(ok?before-1:before),"A charm is spent only on success");
-        }
-        h.assertTrue(animal.isBonded(),"Sixty percent charms must eventually bond");
+        h.assertTrue(BondingCharmItem.attempt(h.getLevel(),player,animal,charm,true) && animal.isBonded(),"A forced attempt must bond");
+        h.assertTrue(charm.getCount()==15,"A charm is spent on success, got "+charm.getCount());
         return charm;
     }
     @GameTest(template="empty")
@@ -59,6 +55,9 @@ public class FamiliarGameTests {
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,charm);
         charm.getItem().interactLivingEntity(charm,player,baby,net.minecraft.world.InteractionHand.MAIN_HAND);
         h.assertTrue(!baby.isBonded() && charm.getCount()==1,"Babies cannot be bonded and keep the charm");
+        var other=spawn(h,CreatureProfile.LANTERN_FOX,6,2,3);
+        h.assertTrue(!fox.hurt(h.getLevel().damageSources().playerAttack(player),4) && other.hurt(h.getLevel().damageSources().playerAttack(player),1),"Only the bonded animal ignores its owner");
+        other.discard();
         fox.discard();baby.discard();h.succeed();
     }
     @GameTest(template="empty")
@@ -90,8 +89,9 @@ public class FamiliarGameTests {
         copy.load(tag);
         h.assertTrue(copy.saddlebag().getItem(0).is(Items.SEAGRASS) && copy.saddlebag().getItem(0).getCount()==7 && copy.saddlebag().getItem(8).getCount()==3,"Saddlebag contents must survive a round-trip");
         var menu=new MossbackMenu(1,player.getInventory(),mossback.saddlebag(),mossback);
+        player.moveTo(mossback.getX()+1,mossback.getY(),mossback.getZ(),0,0);
         h.assertTrue(menu.stillValid(player),"The owner may keep the saddlebag open");
-        var stranger=h.makeMockServerPlayerInLevel();
+        var stranger=h.makeMockServerPlayerInLevel();stranger.moveTo(mossback.getX()+1,mossback.getY(),mossback.getZ(),0,0);
         h.assertTrue(!menu.stillValid(stranger),"Strangers may not");
         mossback.discard();h.succeed();
     }

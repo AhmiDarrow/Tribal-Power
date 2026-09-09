@@ -29,7 +29,7 @@ import tk.darrow.tribalpower.item.CreatureItems;
  * The three gentle March animals. Adults can be bonded with a Bonding Charm (design 3.0 §5); a bonded animal
  * stores {@code Owner} and {@code Sitting}, follows or waits, never despawns, ignores its owner's blows and yields
  * double reagent when brushed. Species abilities live in {@link FamiliarAbilities}.
- * <p>NBT: {@code ForageCooldown} int, {@code Owner} UUID, {@code Sitting} boolean, {@code Saddlebag} list (Mossback), {@code LastLight} long (Lantern Fox).
+ * <p>NBT: {@code ForageCooldown} int, {@code Owner} UUID, {@code Sitting} boolean, {@code Saddlebag} compound with slot-indexed {@code Items} (Mossback), {@code LastLight} long (Lantern Fox).
  */
 public class LatticeAnimal extends Animal implements PlayerRideableJumping {
     private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.OPTIONAL_UUID);
@@ -165,7 +165,11 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         tag.putInt("ForageCooldown",forageCooldown);
         ownerUUID().ifPresent(id->tag.putUUID("Owner",id));
         tag.putBoolean("Sitting",isSitting());
-        if(!saddlebag.isEmpty())tag.put("Saddlebag",saddlebag.createTag(registryAccess()));
+        if(!saddlebag.isEmpty()) {
+            var items=net.minecraft.core.NonNullList.withSize(SADDLEBAG_SLOTS,ItemStack.EMPTY);
+            for(int i=0;i<SADDLEBAG_SLOTS;i++)items.set(i,saddlebag.getItem(i));
+            CompoundTag bag=new CompoundTag();ContainerHelper.saveAllItems(bag,items,registryAccess());tag.put("Saddlebag",bag);
+        }
         if(lastLight!=null)tag.putLong("LastLight",lastLight.asLong());
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
@@ -174,7 +178,12 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         entityData.set(DATA_OWNER,tag.hasUUID("Owner")?Optional.of(tag.getUUID("Owner")):Optional.empty());
         setSitting(tag.getBoolean("Sitting") && isBonded());
         saddlebag.clearContent();
-        if(tag.contains("Saddlebag",Tag.TAG_LIST))saddlebag.fromTag(tag.getList("Saddlebag",Tag.TAG_COMPOUND),registryAccess());
+        if(tag.contains("Saddlebag",Tag.TAG_COMPOUND)) {
+            var items=net.minecraft.core.NonNullList.withSize(SADDLEBAG_SLOTS,ItemStack.EMPTY);
+            ContainerHelper.loadAllItems(tag.getCompound("Saddlebag"),items,registryAccess());
+            for(int i=0;i<SADDLEBAG_SLOTS;i++)saddlebag.setItem(i,items.get(i));
+        }
+        else if(tag.contains("Saddlebag",Tag.TAG_LIST))saddlebag.fromTag(tag.getList("Saddlebag",Tag.TAG_COMPOUND),registryAccess());
         lastLight=tag.contains("LastLight",Tag.TAG_LONG)?BlockPos.of(tag.getLong("LastLight")):null;
         if(isBonded())setPersistenceRequired();
     }
