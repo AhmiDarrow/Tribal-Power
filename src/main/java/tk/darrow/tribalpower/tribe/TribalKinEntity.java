@@ -230,7 +230,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                     .withStyle(TribeStanding.colour(tribe)));
             sp.sendSystemMessage(tribe.marginComponent().withStyle(net.minecraft.ChatFormatting.ITALIC, net.minecraft.ChatFormatting.GRAY));
         }
-        TribeRank rank = TribeStanding.rank(sp, tribe);
+        TribeRank rank = TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(sp, tribe));
         if (role() == KinRole.ELDER) {
             if (rank == TribeRank.VOICE) {
                 TribeStandingSavedData data = TribeStandingSavedData.get(sp.server);
