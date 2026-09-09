@@ -22,7 +22,8 @@ ITEMS = ['tribe_hearth', 'tribe_banner', 'kinship_totem', 'tribe_mark', 'tribal_
 CODEX = ['tribes_standing', 'tribes_kin', 'tribes_kinship_totem', 'tribe_soil', 'tribe_spindle', 'march_ancestor_hall', 'march_drum_circle',
          'march_the_unsung', 'march_crystal_spire', 'familiars_bonding', 'familiars_fox', 'familiars_mossback_stag', 'camps_identity',
          'rite_world_rites', 'rite_land_rites', 'ley_lens', 'pulse_logic', 'codex_diagnostics', 'loom_sixth_voice', 'tablet_0',
-         'item:tribalpower:kinship_totem', 'item:tribalpower:tribe_hearth']
+         'walk_first_camp', 'walk_sixth_voice', 'walk_wake_the_unsung', 'walk_first_rite', 'walk_bond_a_familiar', 'walk_found_a_camp',
+         'chapter_1', 'chapter_12', 'camp_grove_tender', 'item:tribalpower:kinship_totem', 'item:tribalpower:tribe_hearth']
 
 
 def say(text):

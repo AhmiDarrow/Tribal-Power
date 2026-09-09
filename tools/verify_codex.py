@@ -10,7 +10,9 @@ assert len({r['id'] for r in rows})==len(rows)
 assert not rows[0]['spoiler']
 for row in rows:
     if row['picture']:
-        assert row['spoiler']
+        assert row['spoiler'] or row.get('safe_picture'), row['id']
+    if row.get('safe_picture'):
+        assert row['picture'] and not row['spoiler'], row['id']
         image=ROOT/'src/main/resources/assets/tribalpower/textures/gui/codex'/f"{row['picture']}.png"
         assert image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'),image
 screen=(ROOT/'src/main/java/tk/darrow/tribalpower/client/SpiritCodexScreen.java').read_text(encoding='utf-8')
@@ -18,4 +20,5 @@ assert 'super.render(g,mx,my,partial)' not in screen, 'Screen.render would blur 
 assert 'Button.DEFAULT_NARRATION' not in screen, 'Protected narration supplier must not be accessed externally'
 assert 'if(!spoilers){confirmSpoilers(()->openRecipes(id));return;}' in screen
 assert 'getRecipeManager().getRecipes()' in screen
-print(f'PASS: {len(rows)} teachings, 13 creature portraits, spoiler guard and live recipe source.')
+assert any(r['category']=='Walkthroughs' for r in rows)
+print(f'PASS: {len(rows)} teachings, {sum(1 for r in rows if r["picture"])} pictured, spoiler guard and live recipe source.')

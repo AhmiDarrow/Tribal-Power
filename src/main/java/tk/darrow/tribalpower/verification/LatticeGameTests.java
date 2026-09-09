@@ -27,7 +27,8 @@ public class LatticeGameTests {
             var id=net.minecraft.resources.ResourceLocation.parse("tribalpower:"+entry.icon());
             h.assertTrue(net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(id),"Unknown Codex item: "+id);
             h.assertTrue(!entry.text().isBlank(),"Empty teaching: "+entry.id());
-            if(!entry.picture().isEmpty())h.assertTrue(entry.spoiler(),"Creature pictures need spoiler protection");
+            if(!entry.picture().isEmpty())h.assertTrue(entry.spoiler()||entry.safePicture(),"Pictures need spoiler protection unless the catalog marks them safe: "+entry.id());
+            if(entry.safePicture())h.assertTrue(!entry.picture().isEmpty()&&!entry.spoiler(),"safe_picture is only for pictured, spoiler-free pages: "+entry.id());
         }
         h.succeed();
     }

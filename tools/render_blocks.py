@@ -54,11 +54,42 @@ BUILTIN = {
          'shade': False, 'faces': {'west': {'uv': [0, 0, 16, 16], 'texture': '#cross'}, 'east': {'uv': [0, 0, 16, 16], 'texture': '#cross'}}}]},
     'minecraft:block/tinted_cross': {'parent': 'minecraft:block/cross'},
 }
+# Vanilla models and textures come from the NeoForge client-extra jar when the dev environment has one.
+VANILLA_JARS = sorted((ROOT / 'build/moddev/artifacts').glob('*client-extra*.jar')) + sorted(Path.home().glob('.gradle/caches/neoformruntime/artifacts/minecraft_*_client.jar'))
 VANILLA_COLOURS = {'stone': (125, 125, 125), 'cobblestone': (110, 110, 110), 'oak_planks': (162, 130, 78), 'spruce_planks': (114, 84, 48),
                    'dirt': (134, 96, 67), 'glass': (200, 230, 240), 'copper_block': (192, 110, 80), 'iron_block': (220, 220, 220)}
 
 
 # ---------------------------------------------------------------- model resolution
+
+def vanilla_bytes(member: str) -> bytes | None:
+    """A file from the vanilla client resources (`assets/minecraft/...`), or None without a dev jar."""
+    import zipfile
+    for jar in VANILLA_JARS:
+        try:
+            with zipfile.ZipFile(jar) as z:
+                if member in z.namelist():
+                    return z.read(member)
+        except (OSError, zipfile.BadZipFile):
+            continue
+    return None
+
+
+def item_model(texture: str, standing=False, thickness=0.5) -> dict:
+    """A synthetic model showing an item texture as a flat quad: lying on the floor, or standing and facing south."""
+    if standing:
+        element = {'from': [2, 0, 8 - thickness / 2], 'to': [14, 12, 8 + thickness / 2], 'shade': False,
+                   'faces': {'north': {'texture': '#all'}, 'south': {'texture': '#all'}}}
+    else:
+        element = {'from': [2, 0, 2], 'to': [14, thickness, 14], 'shade': False, 'faces': {'up': {'texture': '#all'}}}
+    return {'textures': {'all': texture}, 'elements': [element], 'display': {}}
+
+
+def tile_model(colour: str, inset=1, thickness=0.5) -> dict:
+    """A flat solid-colour tile (`solid:rrggbb`) for painting ley grids and similar overlays on the ground."""
+    return {'textures': {'all': 'solid:' + colour}, 'elements': [
+        {'from': [inset, 0, inset], 'to': [16 - inset, thickness, 16 - inset], 'shade': False, 'faces': {'up': {'texture': '#all'}}}], 'display': {}}
+
 
 def load_model(mid: str, cache: dict) -> dict:
     """Return the fully merged model (textures + elements + display) for a resource id like `tribalpower:block/x`."""
@@ -68,8 +99,11 @@ def load_model(mid: str, cache: dict) -> dict:
         mid = 'minecraft:' + mid
     ns, path = mid.split(':', 1)
     file = ASSETS / ns / 'models' / (path + '.json')
+    vanilla = vanilla_bytes(f'assets/minecraft/models/{path}.json') if ns == 'minecraft' and not file.exists() else None
     if file.exists():
         raw = json.loads(file.read_text(encoding='utf-8'))
+    elif vanilla is not None:
+        raw = json.loads(vanilla.decode('utf-8'))
     elif mid in BUILTIN:
         raw = BUILTIN[mid]
     else:
@@ -108,8 +142,12 @@ def texture_file(tex: str, scratch: Path) -> Path:
     out = scratch / (ns + '_' + path.replace('/', '_') + '.png')
     if out.exists():
         return out
-    if file.exists():
-        im = Image.open(file).convert('RGBA')
+    vanilla = vanilla_bytes(f'assets/minecraft/textures/{path}.png') if ns == 'minecraft' and not file.exists() else None
+    if ns == 'solid':
+        Image.new('RGBA', (16, 16), tuple(int(path[i:i + 2], 16) for i in (0, 2, 4)) + (255,)).save(out)
+    elif file.exists() or vanilla is not None:
+        import io
+        im = Image.open(file if file.exists() else io.BytesIO(vanilla)).convert('RGBA')
         if im.height > im.width:  # animation strip: first frame
             im = im.crop((0, 0, im.width, im.width))
         im.save(out)

@@ -509,7 +509,7 @@
     "category": "Workshops",
     "icon": "resonance_totem_loom",
     "spoiler": true,
-    "picture": ""
+    "picture": "loom_sixth_voice"
   },
   {
     "id": "familiars_bonding",
@@ -517,7 +517,7 @@
     "category": "Bestiary & skies",
     "icon": "bonding_charm",
     "spoiler": true,
-    "picture": ""
+    "picture": "familiars_bonding"
   },
   {
     "id": "familiars_fox",
@@ -525,7 +525,7 @@
     "category": "Bestiary & skies",
     "icon": "lantern_down",
     "spoiler": true,
-    "picture": ""
+    "picture": "familiar_lantern_fox"
   },
   {
     "id": "familiars_mossback_stag",
@@ -533,7 +533,7 @@
     "category": "Bestiary & skies",
     "icon": "dawn_velvet",
     "spoiler": true,
-    "picture": ""
+    "picture": "familiar_mossback_stag"
   },
   {
     "id": "camps_identity",
@@ -541,7 +541,8 @@
     "category": "Camp stewardship",
     "icon": "camp_charter",
     "spoiler": false,
-    "picture": ""
+    "picture": "camps_identity",
+    "safe_picture": true
   },
   {
     "id": "rite_world_rites",
@@ -549,7 +550,7 @@
     "category": "Equipment & rites",
     "icon": "rite_rain_calling",
     "spoiler": true,
-    "picture": ""
+    "picture": "rite_world_rites"
   },
   {
     "id": "rite_land_rites",
@@ -557,7 +558,7 @@
     "category": "Equipment & rites",
     "icon": "rite_green_blessing",
     "spoiler": true,
-    "picture": ""
+    "picture": "rite_land_rites"
   },
   {
     "id": "ley_lens",
@@ -565,7 +566,8 @@
     "category": "Living power",
     "icon": "ley_lens",
     "spoiler": false,
-    "picture": ""
+    "picture": "ley_lens",
+    "safe_picture": true
   },
   {
     "id": "pulse_logic",
@@ -573,7 +575,8 @@
     "category": "Automation",
     "icon": "pulse_gauge",
     "spoiler": false,
-    "picture": ""
+    "picture": "pulse_logic",
+    "safe_picture": true
   },
   {
     "id": "codex_diagnostics",
@@ -581,7 +584,8 @@
     "category": "Automation",
     "icon": "spirit_codex",
     "spoiler": false,
-    "picture": ""
+    "picture": "codex_diagnostics",
+    "safe_picture": true
   },
   {
     "id": "tribes_standing",
@@ -589,7 +593,8 @@
     "category": "The Nine Tribes",
     "icon": "tribe_hearth",
     "spoiler": false,
-    "picture": ""
+    "picture": "tribes_standing",
+    "safe_picture": true
   },
   {
     "id": "tribes_kin",
@@ -605,7 +610,7 @@
     "category": "The Nine Tribes",
     "icon": "kinship_totem",
     "spoiler": true,
-    "picture": ""
+    "picture": "tribes_kinship_totem"
   },
   {
     "id": "tribe_soil",
@@ -717,7 +722,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_1",
@@ -725,7 +730,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_2",
@@ -733,7 +738,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_3",
@@ -741,7 +746,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_4",
@@ -749,7 +754,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_5",
@@ -757,7 +762,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_6",
@@ -765,7 +770,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_7",
@@ -773,7 +778,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_8",
@@ -781,7 +786,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_9",
@@ -789,7 +794,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_10",
@@ -797,7 +802,7 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
-    "picture": ""
+    "picture": "lore_tablet_page"
   },
   {
     "id": "tablet_11",
@@ -805,6 +810,54 @@
     "category": "Lore Tablets",
     "icon": "lore_tablet",
     "spoiler": true,
+    "picture": "lore_tablet_page"
+  },
+  {
+    "id": "walk_first_camp",
+    "title": "Walkthrough: your first camp",
+    "category": "Walkthroughs",
+    "icon": "spirit_codex",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "walk_sixth_voice",
+    "title": "Walkthrough: the sixth voice",
+    "category": "Walkthroughs",
+    "icon": "resonance_totem_loom",
+    "spoiler": true,
+    "picture": "loom_sixth_voice"
+  },
+  {
+    "id": "walk_wake_the_unsung",
+    "title": "Walkthrough: wake The Unsung",
+    "category": "Walkthroughs",
+    "icon": "silent_drum",
+    "spoiler": true,
+    "picture": "the_unsung"
+  },
+  {
+    "id": "walk_first_rite",
+    "title": "Walkthrough: your first rite",
+    "category": "Walkthroughs",
+    "icon": "rite_rain_calling",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "walk_bond_a_familiar",
+    "title": "Walkthrough: bond a familiar",
+    "category": "Walkthroughs",
+    "icon": "bonding_charm",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "walk_found_a_camp",
+    "title": "Walkthrough: found a camp",
+    "category": "Walkthroughs",
+    "icon": "camp_charter",
+    "spoiler": false,
     "picture": ""
   }
 ]

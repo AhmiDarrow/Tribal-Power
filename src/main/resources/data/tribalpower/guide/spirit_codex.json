@@ -254,7 +254,7 @@
     {
       "id": "chapter_51",
       "title": "The sixth voice",
-      "text": "The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung; an Unsung Heart, two threads, four March Crystals and two March Planks make the Loom totem, a distinct voice for the Resonator. Echo Unweave reverses the lattice: ingots to echoes, cores to ingots, Spiritweave to wool, and worn Spiritgear to one Manifested Ingot. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch."
+      "text": "The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung; an Unsung Heart, two threads, four March Crystals and two March Planks make the Loom totem, a distinct voice for the Resonator. Echo Unweave reverses the lattice: ingots to echoes, cores to ingots, Spiritweave to wool, and worn Spiritgear (only tools that have taken damage) to one Manifested Ingot. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch."
     },
     {
       "id": "chapter_52",
@@ -443,66 +443,96 @@
     },
     {
       "id": "chapter_89",
+      "title": "Walkthrough: your first camp",
+      "text": "1. Find a tribe camp: a hearth, a banner and four Kin in plains, mountains, forest, taiga, savanna, birch woods, flower meadows or dark forest. The banner colour names the tribe; the tribe pages list what each favours.\n2. Read the hearth. Sneak-use the Spirit Codex on it, or simply watch what the Kin carry: bread and moss for Pad-keepers, ores for Grit-singers, saplings for Rootbinders.\n3. Offer. Use a favoured item on the Tribe Hearth for +3 standing, or the tribe's reagent for +8. Any food gives +1 and a charged Pulse Cell gives +2 per 10 Pulse. Seventeen favoured offerings, or seven reagents, reach Guest at 50.\n4. Trade. Use the Elder once you are a Guest. Every trade gives +2, and each rank unlocks two more offers.\n5. Keep the peace. Never hit Kin (-25 standing and an angry Hunter for a minute) and never break the hearth (-40). Kills of hostiles within 24 blocks of the hearth earn +1, twenty times a day.\nWhat you now have: Guest standing with one tribe, its first trades, and a hearth that remembers you. /tribalpower standing prints all nine.\nNext: Friend at 150 opens the seal and tablet trades; Voice at 800 earns a Tribe Mark, the key to a Kinship Totem."
+    },
+    {
+      "id": "chapter_90",
+      "title": "Walkthrough: the sixth voice",
+      "text": "1. Loot an Ancestor Hall. The sunken halls in the March steppe and highlands keep Loom Thread in their two chests; read the four tablets on the way out.\n2. Carve a Loom Seal: a Blank Seal, one Loom Thread and a Spirit Shard, shapeless. Seat it in a Ritual Brazier with Pulse nearby to thread 2 Pulse into your carried cells every two seconds.\n3. Build Echo Unweave: March Stone around a Copper Resonator, a Spirit Shard and two Loom Thread. It needs the Loom voice within 8 blocks, which for now only a Kinship Totem of the Loom-stitchers or a Loom-stitcher camp can lend.\n4. Wake The Unsung at a Drum Circle (see that walkthrough) and take its Unsung Heart.\n5. Craft the Loom totem: four March Crystal, two Loom Thread, two March Planks around the Unsung Heart. Place it within 8 blocks of the Unweave and of a Pulse Resonator.\nWhat you now have: the sixth voice. Unweave turns ingots back to echoes, cores to ingots, Spiritweave to wool and damaged Spiritgear into one Manifested Ingot; the Resonator counts one more distinct voice.\nNext: the Sixfold Staff's Loom voice (Tether and Stitch) and the Ley Binding rite, which needs the Loom seal."
+    },
+    {
+      "id": "chapter_91",
+      "title": "Walkthrough: wake The Unsung",
+      "text": "1. Prepare: full Pulse cells, food, a Bone Chime, and a bound return route. Bring a friend if you can; the fight lasts a few minutes.\n2. Find a Drum Circle in the March highlands: twelve lantern pillars around a Silent Drum.\n3. Beat four times. Strike the drum empty-handed or with the chime, about one second apart (16 to 28 ticks). A wrong beat thuds and resets the count. The drum answers once per twenty minutes and never while its keeper is awake.\n4. Beat phase: every three seconds a shockwave hits everyone within 8 blocks for 6 and knocks back. Sneak just before it lands to brace: half damage, no knockback. Its swipe deals 10, so keep the drum between you.\n5. Chorus, below two thirds health: it calls two Echo Weavers every eight seconds, up to six, and beats faster. Clear the weavers before they slow you.\n6. Silence, below one third: it hovers invulnerable over the drum and casts slow weaving bolts. Walk to the drum and play the four-beat again to resync it: eight seconds stunned at double damage. Silence returns twelve seconds after each resync, so repeat.\nWhat you now have: an Unsung Heart, 16 to 24 Loom Thread and 4 Resonant Cores. Leaving for thirty seconds resets the fight.\nNext: the Loom totem (The sixth voice) and the Loom-stitcher trades at the Crystal Spire."
+    },
+    {
+      "id": "chapter_92",
+      "title": "Walkthrough: your first rite",
+      "text": "1. Choose the rite. Rain Calling needs the Water seal and 400 Pulse; Sky Clearing the Air seal and 400. Dawn Calling (Fire, 800) and the land rites cost more. Start with rain.\n2. Carve the tablet: two stone, the rite's creature reagent (a Reed Fang for rain) and the matching seal, shapeless. The seal is handed back.\n3. Seat the seal. Use the Water Seal on a Ritual Brazier; the brazier's usual blessing still runs, and the seal stays reusable.\n4. Gather 400 Pulse within 8 blocks of the brazier: a charged Greater Pulse Cell in a Drumheart, a Resonator with a good catalyst, or several generators together. A Pulse Gauge or the Codex diagnostics show the total.\n5. Cast. Sneak-use the tablet on the brazier. If the lattice holds less than the cost nothing is spent; otherwise the tablet is consumed and the Pulse drawn.\nWhat you now have: twenty minutes of rain (or forty minutes of clear sky), stronger Ley Collectors, and a brazier that knows how to answer tablets.\nNext: Green Blessing over your farm (Earth, 600), Still Night around the camp (Spirit, 600), or Ley Binding between two distant totems (Loom, 1,200)."
+    },
+    {
+      "id": "chapter_93",
+      "title": "Walkthrough: bond a familiar",
+      "text": "1. Craft a Bonding Charm: two Spiritweave, a Spirit Shard and one reagent of the animal you want (Lantern Down, Mossback Scale or Dawn Velvet). Brush an adult of that species to get the reagent.\n2. Find an adult Lantern Fox (forests, dusk), Mossback (swamps) or Dawn Stag (forests, dawn). Young animals cannot be bonded.\n3. Use the charm on it. Three tries in five succeed with hearts; a failed charm is kept, so try again.\n4. Follow and stay. The familiar follows within ten blocks and teleports to you past twelve. Sneak-use it (empty-handed for a Mossback) to make it wait, and again to follow. It never despawns and ignores your blows.\n5. Learn its trick. Fox: an invisible Spirit Light travels with it, Night Vision within eight blocks, and ore glints only you can see. Mossback: sneak-use with an empty hand for a nine-slot saddlebag. Stag: use it to ride without a saddle, steer with your gaze, hold jump to leap, sneak to dismount.\n6. Brush it. A bonded animal sheds double reagent, once a minute.\nWhat you now have: a companion that lights, carries or carries you, and a renewable reagent supply.\nNext: Rootbinders favour Mossback Scale and Colony-keepers Lantern Down, so a brushed familiar also buys standing."
+    },
+    {
+      "id": "chapter_94",
+      "title": "Walkthrough: found a camp",
+      "text": "1. Found it: /tribalpower camp create <name>. You become its first member.\n2. Invite. Craft a Camp Charter (paper, Spiritweave, Spirit Shard) and use it on a player, or run /tribalpower camp invite <player>. Invitations last five minutes; the invitee accepts with /tribalpower camp join <name>.\n3. Share the vault. Open any Deep Cache or Wayfarer Satchel: sneak-use switches between your personal vault and the shared 54-slot camp vault.\n4. Share the devices. Members count as owners of each other's camp devices: cradles, tenders, anchors and locked menus open for all of you.\n5. Budget anchors. The camp shares twelve Wayanchors per dimension instead of thirty-two each, so agree on which chunks matter.\n6. Manage it: /tribalpower camp info, rename, kick and leave. A quarter of every member's tribe standing lands on the camp, and an Elder trades at the camp's rank when it beats your own.\nWhat you now have: a named camp with one vault, shared devices and pooled tribe standing.\nNext: the Shared camps teaching for the fine print, and Kinship Totems to lend your camp every tribe's voice."
+    },
+    {
+      "id": "chapter_95",
       "title": "Dawn Stag",
       "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet. Bond an adult with a Bonding Charm to ride it without a saddle."
     },
     {
-      "id": "chapter_90",
+      "id": "chapter_96",
       "title": "Lantern Fox",
       "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down. Bond an adult with a Bonding Charm for a lantern that follows you."
     },
     {
-      "id": "chapter_91",
+      "id": "chapter_97",
       "title": "Mossback",
       "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale. Bond an adult with a Bonding Charm for a walking saddlebag."
     },
     {
-      "id": "chapter_92",
+      "id": "chapter_98",
       "title": "Ashbound",
       "text": "The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close."
     },
     {
-      "id": "chapter_93",
+      "id": "chapter_99",
       "title": "Rootbound",
       "text": "A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly."
     },
     {
-      "id": "chapter_94",
+      "id": "chapter_100",
       "title": "Reed Stalker",
       "text": "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
     },
     {
-      "id": "chapter_95",
+      "id": "chapter_101",
       "title": "Shardback",
       "text": "A crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove."
     },
     {
-      "id": "chapter_96",
+      "id": "chapter_102",
       "title": "Hollow Sentinel",
       "text": "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
     },
     {
-      "id": "chapter_97",
+      "id": "chapter_103",
       "title": "Storm Moth",
       "text": "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack."
     },
     {
-      "id": "chapter_98",
+      "id": "chapter_104",
       "title": "Cinder Imp",
       "text": "A nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain."
     },
     {
-      "id": "chapter_99",
+      "id": "chapter_105",
       "title": "Mourning Bell",
       "text": "A floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song."
     },
     {
-      "id": "chapter_100",
+      "id": "chapter_106",
       "title": "Rift Hound",
       "text": "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
     },
     {
-      "id": "chapter_101",
+      "id": "chapter_107",
       "title": "Echo Weaver",
       "text": "An eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
     }

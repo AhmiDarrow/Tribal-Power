@@ -32,6 +32,8 @@ public final class SpiritCodexScreen extends Screen {
     private EditBox search;
     private List<RecipeHolder<?>> recipes=List.of();
     private record Hit(int x,int y,ItemStack item) {}
+    private record Link(int y,String id) {}
+    private final List<Link> links=new ArrayList<>();
 
     public SpiritCodexScreen() {
         super(Component.literal("Spirit Codex"));
@@ -172,23 +174,16 @@ public final class SpiritCodexScreen extends Screen {
         g.enableScissor(contentX,start,contentX+contentWidth,top+bookHeight-55);
         int y=start-scroll;
         if(recipeItem.isEmpty()) {
-            Entry e=current();
+            Entry e=current();links.clear();
             y=paragraph(g,e.title(),y,GOLD);
-            if(!e.picture().isEmpty()) {
-                var pic=ResourceLocation.parse("tribalpower:textures/gui/codex/"+e.picture()+".png");
-                int size=Math.min(bookHeight<300?64:112,contentWidth-12);int px=contentX+(contentWidth-size)/2;
-                g.blit(pic,px,y,0,0,size,size,size,size);y+=size+8;
-            } else if(e.id().equals("chapter_1")) {
-                int size=Math.min(bookHeight<300?64:112,contentWidth-12);
-                g.blit(ResourceLocation.parse("tribalpower:textures/gui/codex/cover.png"),contentX+(contentWidth-size)/2,y,0,0,size,size,size,size);y+=size+8;
-            } else y=diagram(g,e,y);
+            y=illustration(g,e,y);
             y=paragraph(g,e.text(),y,PAPER);
             y=paragraph(g,"RELATED TEACHINGS",y+6,TEAL);
             String hint=CodexUnlocks.hint(e.category());
             if(hint!=null)y=paragraph(g,hint,y,TEAL);
             for(Entry other:CodexEntries.ALL) if(!other.id().equals(e.id())&&other.category().equals(e.category())&&visible(other)) {
                 g.drawString(font,"> "+font.plainSubstrByWidth(other.title(),contentWidth-22),contentX+6,y,GOLD,false);
-                y+=16;
+                links.add(new Link(y,other.id()));y+=16;
             }
         } else {
             ItemStack focus=stack(recipeItem);item(g,focus,contentX+6,y);y=paragraph(g,focus.getHoverName().getString()+(showUses?" — uses":""),y+24,GOLD);
@@ -222,38 +217,29 @@ public final class SpiritCodexScreen extends Screen {
         for(Hit h:hits)if(mx>=h.x&&mx<h.x+16&&my>=h.y&&my<h.y+16)g.renderTooltip(font,h.item,mx,my);
     }
 
-    private int diagram(GuiGraphics g,Entry e,int y) {
-        int x=contentX+8,span=contentWidth-32;double t=motion?System.currentTimeMillis()/650.0:0;
-        g.fill(contentX+4,y,contentX+contentWidth-4,y+65,0xFF0C1922);
-        boolean cargo=e.category().contains("transport"),work=e.category().equals("Workshops"),rites=e.category().contains("rites");
-        String label=cargo?"LINK > TRANSFER > REST":work?"ATTUNE > PROCESS > COLLECT":rites?"CHARGE > CAST > RECOVER":"BEAT > GATHER > STORE";
-        if(e.category().equals("Camp stewardship"))label=switch(e.id()) {
-            case "camp_binding_effigy","camp_binding_ritual" -> "IMPRINT > AWAKEN > RENEW";
-            case "camp_summoning_cradle" -> "BIND > SUMMON > RENEW";
-            case "camp_grove_tender" -> "PLANT > GROW > HARVEST";
-            case "camp_wayanchor" -> "SUPPLY > SUSTAIN > RELEASE";
-            case "camp_hush_totem" -> "SUPPLY > WARD > REST";
-            default -> "PLACE > CONNECT > ENJOY";
-        };
-        g.drawString(font,font.plainSubstrByWidth(label,contentWidth-16),x,y+6,TEAL,false);
-        String first=cargo?"ancestral_cache":work?"minecraft:stone":rites?"pulse_cell":"drumheart";
-        String last=cargo?"ancestral_cache":work?"echo_shard":rites?e.icon():"pulse_cell";
-        if(e.category().equals("Camp stewardship")) {
-            first=e.icon();last="pulse_cell";
-            if(e.id().equals("camp_summoning_cradle")){first="binding_effigy";last="summoning_cradle";}
-            if(e.id().equals("camp_binding_ritual")){first="ritual_brazier";last="binding_effigy";}
-            if(e.id().equals("camp_grove_tender")){first="minecraft:wheat_seeds";last="minecraft:wheat";}
+    /**
+     * Picture (when the entry has one and it is spoiler-guarded or marked safe) beside or above the animated diagram.
+     * Every teaching gets a diagram; wide pages put the two side by side, narrow ones stack them.
+     */
+    private int illustration(GuiGraphics g,Entry e,int y) {
+        int size=Math.min(bookHeight<300?64:112,contentWidth-12),height=CodexDiagrams.HEIGHT;
+        boolean cover=e.id().equals("chapter_1");
+        boolean picture=cover||(!e.picture().isEmpty()&&(e.spoiler()||e.safePicture()));
+        double t=motion?System.currentTimeMillis()/1000.0:0;
+        int diagramX=contentX+4,diagramWidth=contentWidth-8,diagramY=y,bottom=y;
+        if(picture) {
+            var pic=ResourceLocation.parse("tribalpower:textures/gui/codex/"+(cover?"cover":e.picture())+".png");
+            boolean beside=!cover&&contentWidth-size-20>=200;
+            int px=beside?contentX+6:contentX+(contentWidth-size)/2;
+            g.blit(pic,px,y,0,0,size,size,size,size);
+            bottom=y+size;
+            if(beside){diagramX=px+size+8;diagramWidth=contentX+contentWidth-4-diagramX;diagramY=y+Math.max(0,(size-height)/2);}
+            else diagramY=y+size+8;
         }
-        item(g,stack(first),x,y+29);item(g,stack(last),x+span-16,y+29);
-        int lineStart=x+24,lineEnd=x+span-22;g.fill(lineStart,y+37,lineEnd,y+38,0xFF36555B);
-        for(int n=0;n<4;n++){double phase=(t/4+n/4.0)%1;int dx=lineStart+(int)((lineEnd-lineStart)*phase);int dy=y+36+(int)(Math.sin(t+n)*3);g.fill(dx,dy,dx+3,dy+3,TEAL);}
-        double progress=(t/6)%1;
-        int movingX=lineStart+(int)((lineEnd-lineStart-16)*progress);
-        String moving=cargo?"minecraft:wheat":work?(progress<0.6?"minecraft:stone":"echo_shard"):"spirit_shard";
-        if(e.category().equals("Camp stewardship"))moving=e.id().equals("camp_grove_tender")?(progress<0.6?"minecraft:wheat_seeds":"minecraft:wheat"):e.id().contains("binding")||e.id().equals("camp_summoning_cradle")?"spiritweave":e.icon();
-        g.renderItem(stack(moving),movingX,y+25);
-        int meterY=y+53;g.fill(x,meterY,x+span,meterY+3,0xFF29484F);g.fill(x,meterY,x+(int)(span*progress),meterY+3,TEAL);
-        return paragraph(g,"Illustrated example — use Motion to pause. Live costs and ingredients are shown in Recipes.",y+71,0xFF9CB8B9);
+        if(cover)return bottom+8;
+        CodexDiagrams.draw(g,font,e,diagramX,diagramY,diagramWidth,t,(stack,pos)->item(g,stack,pos[0],pos[1]));
+        bottom=Math.max(bottom,diagramY+height);
+        return paragraph(g,"Illustrated example: use Motion to pause. Live costs and ingredients are shown in Recipes.",bottom+6,0xFF9CB8B9);
     }
 
     @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical) {
@@ -263,16 +249,8 @@ public final class SpiritCodexScreen extends Screen {
     @Override public boolean mouseClicked(double x,double y,int button) {
         if(button==0&&y>=top+88&&y<top+bookHeight-55) {
             for(Hit h:hits)if(x>=h.x&&x<h.x+16&&y>=h.y&&y<h.y+16){openRecipes(BuiltInRegistries.ITEM.getKey(h.item.getItem()).toString());return true;}
-            if(recipeItem.isEmpty()&&x>=contentX&&x<contentX+contentWidth) {
-                Entry e=current();int pos=top+88-scroll;
-                pos+=font.split(Component.literal(e.title()),contentWidth-12).size()*12+8;
-                pos+=(!e.picture().isEmpty()||e.id().equals("chapter_1"))?Math.min(bookHeight<300?64:112,contentWidth-12)+8:71+font.split(Component.literal("Illustrated example — use Motion to pause. Live costs and ingredients are shown in Recipes."),contentWidth-12).size()*12+8;
-                pos+=font.split(Component.literal(e.text()),contentWidth-12).size()*12+8+6;
-                pos+=font.split(Component.literal("RELATED TEACHINGS"),contentWidth-12).size()*12+8;
-                String hint=CodexUnlocks.hint(e.category());
-                if(hint!=null)pos+=font.split(Component.literal(hint),contentWidth-12).size()*12+8;
-                for(Entry other:CodexEntries.ALL)if(!other.id().equals(e.id())&&other.category().equals(e.category())&&visible(other)){if(y>=pos&&y<pos+16){openEntry(other.id());return true;}pos+=16;}
-            }
+            if(recipeItem.isEmpty()&&x>=contentX&&x<contentX+contentWidth)
+                for(Link link:links)if(y>=link.y()&&y<link.y()+16&&link.y()>=top+88&&link.y()+16<=top+bookHeight-55){openEntry(link.id());return true;}
         }
         return super.mouseClicked(x,y,button);
     }
