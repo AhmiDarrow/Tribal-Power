@@ -7,7 +7,7 @@
   entity/bonded_collar_<dawn_stag|lantern_fox|mossback>.png  a cord ring around the front of the body box
   entity/bonded_collar.png (copy of the fox layout, kept for the spec name)
 The Spirit Light block is invisible and needs no texture.
-Run: python3 tools/art/familiars.py [project root] [--entities]   (collar overlays only rewritten with --entities)
+Run: python3 tools/art/familiars.py [project root]   (--entities is retired: collar overlays come from tools/art/creatures.py)
 """
 from pathlib import Path
 import sys
@@ -147,13 +147,15 @@ def collar(body):
     return im
 
 
+DEPRECATED = ('{name}: --entities is retired; textures/entity/* are painted by tools/art/creatures.py and '
+              'tools/blender_bestiary.py (see art/creatures). Nothing was written.')
+
+
 def main():
     save('item/bonding_charm.png', bonding_charm())
     save('item/camp_charter.png', camp_charter())
-    if '--entities' in sys.argv or not (TEX / 'entity/bonded_collar.png').exists():  # the creature art pass owns textures/entity
-        for name, body in BODIES.items():
-            save(f'entity/bonded_collar_{name}.png', collar(body))
-        save('entity/bonded_collar.png', collar(BODIES['lantern_fox']))
+    if '--entities' in sys.argv:
+        print(DEPRECATED.format(name='familiars'))
     print('Painted familiars & camps textures into', TEX)
 
 

@@ -6,9 +6,9 @@
   block/tribe_hearth.png, tribe_hearth_top.png, tribe_hearth_embers.png (greyscale; tinted in-game by tribe colour)
   block/tribe_banner_<id>.png x9          block/kinship_totem_<id>.png x9, kinship_totem_top.png
   item/tribe_mark_<id>.png x9             item/tribe_banner_<id>.png x9   item/tribe_hearth.png (+ _embers)
-  entity/kin_elder.png kin_drummer.png kin_hunter.png kin_weaver.png kin_cloak.png  (only with --entities: the
-  creature art pass owns textures/entity and may have replaced them)
-Run: python3 tools/art/tribes.py [project root] [--entities]
+Kin entity skins are no longer painted here: textures/entity/* come from tools/art/creatures.py and the Blender
+bestiary (--entities prints a notice and writes nothing).
+Run: python3 tools/art/tribes.py [project root]
 """
 from pathlib import Path
 import sys
@@ -322,6 +322,10 @@ def kin_cloak():
     return im
 
 
+DEPRECATED = ('{name}: --entities is retired; textures/entity/* are painted by tools/art/creatures.py and '
+              'tools/blender_bestiary.py (see art/creatures). Nothing was written.')
+
+
 def main():
     save('block/tribe_hearth.png', hearth_side())
     save('block/tribe_hearth_top.png', hearth_top())
@@ -334,10 +338,8 @@ def main():
         save(f'item/tribe_banner_{tribe}.png', banner_item(tribe))
         save(f'block/kinship_totem_{tribe}.png', kinship_side(tribe))
         save(f'item/tribe_mark_{tribe}.png', mark(tribe))
-    if '--entities' in sys.argv or not (TEX / 'entity/kin_cloak.png').exists():
-        for role in ROLE_TRIM:
-            save(f'entity/kin_{role}.png', kin_skin(role))
-        save('entity/kin_cloak.png', kin_cloak())
+    if '--entities' in sys.argv:
+        print(DEPRECATED.format(name='tribes'))
     print('tribes: textures written to', TEX)
 
 

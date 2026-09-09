@@ -5,7 +5,7 @@ steps per material, no noise) plus the boss sheet:
   block/silent_drum.png  block/silent_drum_top.png  block/lore_tablet.png
   entity/the_unsung.png (128x128)  entity/the_unsung_glow.png
 The boss UV layout mirrors boss/client/TheUnsungModel (half-scale boxes, vanilla cube unwrap).
-Run: python3 tools/art/march.py [project root] [--entities]   (entity sheets only rewritten with --entities)
+Run: python3 tools/art/march.py [project root]   (--entities is retired: the creature art pass owns textures/entity)
 """
 from pathlib import Path
 import math
@@ -288,14 +288,17 @@ def paint_unsung(glow=False):
     return s.im
 
 
+DEPRECATED = ('{name}: --entities is retired; textures/entity/* are painted by tools/art/creatures.py and '
+              'tools/blender_bestiary.py (see art/creatures). Nothing was written.')
+
+
 def main():
     save('block/silent_drum.png', drum_side())
     save('block/silent_drum_top.png', drum_top())
     save('block/lore_tablet.png', tablet_face())
     save('block/lore_tablet_back.png', tablet_back())
-    if '--entities' in sys.argv or not (TEX / 'entity/the_unsung.png').exists():  # the creature art pass owns textures/entity
-        save('entity/the_unsung.png', paint_unsung(False))
-        save('entity/the_unsung_glow.png', paint_unsung(True))
+    if '--entities' in sys.argv:
+        print(DEPRECATED.format(name='march'))
     print('march art written to', TEX)
 
 
