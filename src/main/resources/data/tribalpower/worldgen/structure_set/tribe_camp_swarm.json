@@ -9,6 +9,10 @@
     "type": "minecraft:random_spread",
     "spacing": 40,
     "separation": 24,
-    "salt": 8049818
+    "salt": 8049818,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_spark",
+      "chunk_count": 3
+    }
   }
 }

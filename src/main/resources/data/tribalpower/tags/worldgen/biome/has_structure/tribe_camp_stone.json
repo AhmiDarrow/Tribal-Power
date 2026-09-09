@@ -3,6 +3,7 @@
   "values": [
     "#minecraft:is_mountain",
     "minecraft:stony_shore",
+    "minecraft:stony_peaks",
     "tribalpower:march_highlands"
   ]
 }

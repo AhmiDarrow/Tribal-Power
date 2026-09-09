@@ -9,6 +9,10 @@
     "type": "minecraft:random_spread",
     "spacing": 56,
     "separation": 32,
-    "salt": 5971603
+    "salt": 5971603,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_spindle",
+      "chunk_count": 3
+    }
   }
 }
