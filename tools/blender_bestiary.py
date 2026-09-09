@@ -65,7 +65,16 @@ def build(r,slot,variant=None,export=True,location=None):
  scale=r.get('scale',1);origin.scale=(scale,scale,scale)
  boxes=creatures.layout(r)
  texture_id=(r.get('textures','{id}').format(variant=variant or '',id=r['id']))
- mat=painted_material(title,texdir/(texture_id+'.png'),texdir/(texture_id+'_glow.png'))
+ atlas=texdir/(texture_id+'.png')
+ tint_tribe=(r.get('preview_overlay') or {}).get(variant)
+ if tint_tribe:
+  # preview what players see: the tribe-tinted cloak overlay composited over the role skin
+  from PIL import Image
+  from glyphs import COLOURS
+  base=Image.open(atlas).convert('RGBA');over=Image.open(texdir/('kin_cloak_'+tint_tribe+'.png')).convert('RGBA');c=COLOURS[tint_tribe]
+  ch=over.split();over=Image.merge('RGBA',tuple(ch[i].point(lambda v,k=c[i]:v*k//255) for i in range(3))+(ch[3],));base.alpha_composite(over)
+  preview=ROOT/'art/creatures/preview';preview.mkdir(exist_ok=True);atlas=preview/(texture_id+'_'+tint_tribe+'.png');base.save(atlas)
+ mat=painted_material(title,atlas,texdir/(texture_id+'_glow.png'))
  if export:java.append('case "'+r['id']+'" -> {')
  geometry=[];lookup={(b['part'],b['index']):b for b in boxes}
  for p in r['parts']:
@@ -92,6 +101,9 @@ def build(r,slot,variant=None,export=True,location=None):
    axis=1 if p['name'].startswith('wing') else 0
    for frame,angle in [(1,-.32),(13,.32),(25,-.32)]:
     pivot.rotation_euler[axis]=angle*(-1 if p['name'][-1:] in ('1','3','5','7') else 1);pivot.keyframe_insert('rotation_euler',frame=frame)
+  if p['name']=='halo':
+   for frame,angle in [(1,0),(25,math.pi/2)]:
+    pivot.rotation_euler[2]=angle;pivot.keyframe_insert('rotation_euler',frame=frame)
   if r.get('pulse') and p['name'] in ('body','band0','band1'):
    for frame,s in [(1,1.0),(13,1.035),(25,1.0)]:
     pivot.scale=(s,1,s);pivot.keyframe_insert('scale',frame=frame)
@@ -133,7 +145,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/creatures/tribal_bestiary.ble
 bpy.ops.render.render(write_still=True)
 # Close-up of the tribe rows (Kin roles and The Unsung).
 scene.render.resolution_x=1800;scene.render.resolution_y=1000
-aim(cam,(0,tribe_row*SPACING[1]+2.6,1.2),distance=(8,18,12),ortho=15.5)
+aim(cam,(0,tribe_row*SPACING[1]+2.8,1.4),distance=(8,18,11),ortho=17)
 scene.render.filepath=str(ROOT/'art/creatures/kin-and-unsung.png')
 bpy.ops.render.render(write_still=True)
 print('BLENDER EXPORT COMPLETE:',len(roster),'creatures +',len(tribes),'tribe rigs')

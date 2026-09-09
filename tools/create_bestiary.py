@@ -68,17 +68,24 @@ def kin_rig():
   part('leg1',(1.9,12,0),box(-2,0,-2,4,12,4,0))]
 
 def unsung_rig():
- """Hollow standing drum authored at half scale (renderer draws it at 2x): four lacquered side panels split so
- every box fits a 64x32 atlas tile, a two-piece taut hide top, two ring bands made of four rails, a masked head
- and two long rune arms with knuckle clubs."""
- body=part('body',(0,13,0),box(-10,-9,-10,20,18,1),box(-10,-9,9,20,18,1),box(-10,-9,-9,1,9,18),box(-10,0,-9,1,9,18),box(9,-9,-9,1,9,18),box(9,0,-9,1,9,18),box(-10,-10,-10,10,1,20,1),box(0,-10,-10,10,1,20,1))
- def band(name,y):return part(name,(0,13,0),box(-12,y,-12,24,2,2),box(-12,y,10,24,2,2),box(-12,y,-10,2,2,20),box(10,y,-10,2,2,20))
- head=part('head',(0,3,0),box(-4,-7,-4,8,7,8),box(-4,-8,-5,8,8,1,1),box(-1,-13,-1,2,5,2),box(-6,-6,-1,2,6,2),box(4,-6,-1,2,6,2))
- arms=[part('arm'+str(i),(-13 if i==0 else 13,5,0),box(-1.5,0,-1.5,3,18,3,1),box(-2.5,17,-2.5,5,4,5)) for i in range(2)]
- return [body,band('band0',-8),band('band1',6),head]+arms
+ """Hollow standing drum authored at half scale (renderer draws it at 2x; feet at y=24, ~3 blocks wide, body
+ ~2.75 tall, mask floating half a block above the hide, hands reaching the floor). Shell = eight lacquer panels
+ with a 2 px slit in the middle of every side showing the black interior; wide top/bottom bands; taut hide;
+ floating mask head with horns; a thin rune halo; two long rune arms from shoulder pivots at the top band
+ ending in three-fingered hands."""
+ shell=[]
+ for x0 in (-10,1):shell+=[box(x0,-6,-10,9,13,1),box(x0,-6,9,9,13,1)]
+ for z0 in (-9,1):shell+=[box(-10,-6,z0,1,13,8),box(9,-6,z0,1,13,8)]
+ body=part('body',(0,13,0),*shell,box(-11,-11,-11,22,1,22,1))
+ band0=part('band0',(0,13,0),box(-12,-10,-12,24,4,24))
+ band1=part('band1',(0,13,0),box(-12,7,-12,24,4,24))
+ head=part('head',(0,-3,0),box(-4,-7,-4,8,7,8),box(-4,-8,-5,8,8,1,1),box(-6,-6,-1,2,6,2),box(4,-6,-1,2,6,2))
+ halo=part('halo',(0,-12,0),box(-6,0,-6,12,1,1,2),box(-6,0,5,12,1,1,2),box(-6,0,-5,1,1,10,2),box(5,0,-5,1,1,10,2))
+ arms=[part('arm'+str(i),(-14 if i==0 else 14,3,0),box(-1.5,0,-1.5,3,15,3,1),box(-3,15,-2,6,3,4),box(-3,18,-1,1.5,4,2),box(-.75,18,-1,1.5,4,2),box(1.5,18,-1,1.5,4,2)) for i in range(2)]
+ return [body,band0,band1,head,halo]+arms
 
 TRIBE_ROWS=[
- dict(id='tribal_kin',name='Tribal Kin',kind='kin',shape='kin',colors=['4a3b33','a87a58','e8d9a8'],variants=['elder','drummer','hunter','weaver'],textures='kin_{variant}',notes='Masked camp folk in four roles; the cloak overlay is tinted by the tribe colour.'),
+ dict(id='tribal_kin',name='Tribal Kin',kind='kin',shape='kin',colors=['4a3b33','a87a58','e8d9a8'],variants=['elder','drummer','hunter','weaver'],textures='kin_{variant}',preview_overlay={'elder':'spindle','drummer':'spark','hunter':'claw','weaver':'sigil'},notes='Masked camp folk in four roles; the cloak overlay is tinted by the tribe colour.'),
  dict(id='the_unsung',name='The Unsung',kind='boss',shape='drum',colors=['4a1f22','c9a974','9b6cff'],scale=2,pulse=True,notes='Hollow drum-spirit with rune arms and a cracked mask; authored at half scale, rendered at 2x.')]
 
 def main():

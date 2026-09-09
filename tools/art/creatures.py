@@ -80,18 +80,28 @@ class Palette:
 
 # ----------------------------------------------------------------------------------------------- layout
 def layout(entry):
-    """Deterministic UV tiles for every box of a roster entry (box order == tile order)."""
+    """Deterministic UV tiles for every box of a roster entry.
+
+    Boxes are placed in roster order by first-fit over the 4x8 grid of 64x32 tiles; a box whose unwrap is
+    wider than 64 px (or taller than 32 px) claims a 2x1 / 1x2 / 2x2 block of tiles, so u=(tile%4)*64 and
+    v=(tile//4)*32 still hold for every box."""
     boxes = []
-    tile = 0
+    used = set()
     for part in entry['parts']:
         for index, b in enumerate(part['boxes']):
             x, y, z, w, h, d = b['box']
-            u, v = (tile % 4) * TILE_W, (tile // 4) * TILE_H
             need_w, need_h = 2 * (w + d), h + d
-            assert need_w <= TILE_W and need_h <= TILE_H, (entry['id'], part['name'], index, 'box does not fit a 64x32 tile', b['box'])
-            assert v + TILE_H <= ATLAS, (entry['id'], 'more than 32 boxes')
-            boxes.append(dict(part=part['name'], index=index, box=list(b['box']), u=u, v=v, color=b.get('color', 0)))
-            tile += 1
+            cw, ch = math.ceil(need_w / TILE_W), math.ceil(need_h / TILE_H)
+            assert cw <= 2 and ch <= 2, (entry['id'], part['name'], index, 'box unwrap exceeds 128x64', b['box'])
+            for tile in range(32):
+                col, row = tile % 4, tile // 4
+                cells = [(col + i, row + j) for i in range(cw) for j in range(ch)]
+                if col + cw <= 4 and row + ch <= 8 and not any(c in used for c in cells):
+                    used.update(cells)
+                    boxes.append(dict(part=part['name'], index=index, box=list(b['box']), u=col * TILE_W, v=row * TILE_H, color=b.get('color', 0)))
+                    break
+            else:
+                raise AssertionError((entry['id'], 'atlas is full', part['name'], index))
     return boxes
 
 
@@ -1190,67 +1200,76 @@ def paint_kin_cloak(cr, tribe=None):
 def paint_unsung(cr):
     p = cr.pal
     lac, hide, rune = p.base
-    black = darken(lac, 0.75)
-    inner = {0: 'south', 1: 'north', 2: 'east', 3: 'east', 4: 'west', 5: 'west'}
-    outer = {0: 'north', 1: 'south', 2: 'west', 3: 'west', 4: 'east', 5: 'east'}
-    for idx in range(6):
+    black = darken(lac, 0.78)
+
+    def rune_column(f, c, j0, j1, bright=0.5):
+        for j in range(j0, j1):
+            f.put(c, j, step(rune, bright if (j // 3) % 2 else -0.1), glow=True)
+        for j in range(j0 + 1, j1 - 1, 4):
+            f.put(c - 1, j, step(rune, -0.3), glow=True)
+            f.put(c + 1, j, step(rune, -0.3), glow=True)
+        f.rect(c - 1, j0 - 1, 3, 1, step(rune, 0.9), glow=True)
+
+    # shell panels: 0/1 north+south left, 2/3 north+south right, 4/5 west+east front, 6/7 west+east back
+    outer = {0: 'north', 1: 'south', 2: 'north', 3: 'south', 4: 'west', 5: 'east', 6: 'west', 7: 'east'}
+    opposite = {'north': 'south', 'south': 'north', 'west': 'east', 'east': 'west'}
+    for idx in range(8):
         cr.coat('body', idx, 'lacquer', lac, gradient=False)
-        cr.face('body', idx, inner[idx]).fill(black)
-        cr.face('body', idx, 'top').fill(darken(lac, 0.3))
-        cr.face('body', idx, 'bottom').fill(black)
+        for name in ('top', 'bottom', opposite[outer[idx]]):
+            cr.face('body', idx, name).fill(black)
         f = cr.face('body', idx, outer[idx])
-        cols = [4, 10, 15] if f.w >= 18 else [5, 12]
-        top_half = idx in (0, 1, 2, 4)
-        for c in cols:
-            start = 2 if top_half else 0
-            end = f.h - (2 if idx in (0, 1, 3, 5) else 0)
-            for j in range(start, end):
-                f.put(c, j, step(rune, 0.5 if (j // 3) % 2 else -0.1), glow=True)
-            for j in range(start + 1, end - 1, 4):
-                f.put(c - 1, j, step(rune, -0.3), glow=True)
-                f.put(c + 1, j, step(rune, -0.3), glow=True)
-            if top_half:
-                f.rect(c - 1, start - 1, 3, 1, step(rune, 0.9), glow=True)
-        if idx < 2:
-            f.hline(f.h - 1, black)
-    # taut hide top (two halves), a crack running across, stitching along the rim
-    for idx, ci in ((6, 10), (7, 0)):
-        cr.coat('body', idx, 'hide', hide, gradient=False)
-        top = cr.face('body', idx, 'top')
-        for j in range(top.h):
-            for i in range(top.w):
-                d = math.hypot((i - ci) / 10.0, (j - 10) / 10.0)
-                if d > 0.72:
-                    top.put(i, j, step(hide, -0.7 - (d - 0.72) * 3))
-                elif d < 0.3:
-                    top.put(i, j, step(hide, 0.6))
-        for j in range(0, top.h, 2):
-            top.put(0 if idx == 7 else top.w - 1, j, darken(hide, 0.5))
-        for i in range(0, top.w, 2):
-            top.put(i, 0, darken(hide, 0.5))
-            top.put(i + 1, top.h - 1, darken(hide, 0.5))
+        # the slit edge (the panel end facing the middle of the side) is lined with a pale rune rim
+        slit_left = idx in (1, 2, 4, 7)  # which end of the unwrapped outer face touches the slit
+        edge = 0 if slit_left else f.w - 1
+        f.vline(edge, step(hide, -0.9))
+        for j in range(0, f.h, 3):
+            f.put(edge, j, step(rune, 0.6), glow=True)
+        rune_column(f, 4 if slit_left else f.w - 5, 2, f.h - 2)
+        f.hline(f.h - 1, black)
+        f.hline(0, step(lac, 1.4))
+        # the panel end faces beside the slit show the shell thickness in dark lacquer
         for name in SIDES:
-            cr.face('body', idx, name).fill(darken(lac, 0.2))
-        cr.face('body', idx, 'bottom').fill(black)
-    cr.face('body', 6, 'top').path([(4, 6), (6, 8), (6, 11), (8, 13), (9, 16)], darken(hide, 0.55))
-    cr.face('body', 7, 'top').path([(0, 16), (2, 17)], darken(hide, 0.55))
-    cr.face('body', 6, 'top').path([(7, 9), (8, 9)], darken(hide, 0.35))
-    # lacquered ring bands: glossy red with a black seam
+            if name not in (outer[idx], opposite[outer[idx]]):
+                cr.face('body', idx, name).fill(darken(lac, 0.4))
+    # taut hide top, a crack across, stitching along the rim; underside black (hollow)
+    cr.coat('body', 8, 'hide', hide, gradient=False)
+    top = cr.face('body', 8, 'top')
+    for j in range(top.h):
+        for i in range(top.w):
+            d = math.hypot((i - 10.5) / 11.0, (j - 10.5) / 11.0)
+            if d > 0.78:
+                top.put(i, j, step(hide, -0.8 - (d - 0.78) * 3))
+            elif d < 0.28:
+                top.put(i, j, step(hide, 0.6))
+    for k in range(0, top.w, 2):
+        top.put(k, 0, darken(hide, 0.5))
+        top.put(k + 1, top.h - 1, darken(hide, 0.5))
+        top.put(0, k + 1, darken(hide, 0.5))
+        top.put(top.w - 1, k, darken(hide, 0.5))
+    top.path([(5, 6), (8, 8), (9, 11), (12, 13), (13, 16), (16, 17)], darken(hide, 0.55))
+    top.path([(9, 10), (11, 10)], darken(hide, 0.35))
+    top.path([(12, 13), (13, 12)], darken(hide, 0.35))
+    for name in SIDES:
+        cr.face('body', 8, name).fill(darken(lac, 0.25))
+    cr.face('body', 8, 'bottom').fill(black)
+    # lacquered bands: glossy red with a bright specular row, gold-hide seam pins, black underside
     for band in ('band0', 'band1'):
-        for b in cr.part_boxes(band):
-            for name, f in cr.faces[(band, b['index'])].items():
+        for name, f in cr.faces[(band, 0)].items():
+            if name in SIDES:
                 f.fill(step(lac, 0.9))
-                if name in SIDES:
-                    f.hline(0, step(lac, 2.2))
-                    f.hline(f.h - 1, black)
-                    for i in range(1, f.w, 4):
-                        f.put(i, 0, lighten(lac, 0.8))
-                elif name == 'top':
-                    f.fill(step(lac, 1.6))
-                else:
-                    f.fill(black)
-    # head: hollow dark head, bone mask with two glowing slits and a crack, crest and horns in lacquer
+                f.hline(0, step(lac, 2.2))
+                f.hline(1, step(lac, 1.4))
+                f.hline(f.h - 1, black)
+                for i in range(2, f.w, 5):
+                    f.put(i, 2, step(hide, -0.6))
+            elif name == 'top':
+                f.fill(step(lac, 1.5))
+                f.rect(1, 1, f.w - 2, f.h - 2, step(lac, 0.6))
+            else:
+                f.fill(black)
+    # floating head: dark hollow skull, bone mask with two glowing slits and a crack, lacquer horns
     cr.coat('head', 0, 'flat', darken(lac, 0.45), gradient=False)
+    cr.face('head', 0, 'bottom').fill(step(rune, -1.2), glow=True)  # spirit light under the floating skull
     cr.coat('head', 1, 'bone', hide, gradient=False)
     mask = cr.face('head', 1, 'north')
     mask.fill(hide)
@@ -1261,32 +1280,38 @@ def paint_unsung(cr):
     mask.hline(6, darken(hide, 0.4), 2, 6)
     mask.points([(0, 0), (7, 0), (0, 7), (7, 7)], darken(hide, 0.5))
     mask.points([(2, 6), (5, 6)], INK)
-    for idx in (2, 3, 4):
+    for idx in (2, 3):
         cr.coat('head', idx, 'lacquer', lac, gradient=False)
         cr.face('head', idx, 'top').fill(step(hide, -0.3))
         for name in SIDES:
             cr.face('head', idx, name).hline(0, step(hide, -0.6))
-    # rune arms and knuckle clubs
+    # rune halo
+    for b in cr.part_boxes('halo'):
+        for name, f in cr.faces[('halo', b['index'])].items():
+            for j in range(f.h):
+                for i in range(f.w):
+                    f.put(i, j, step(rune, 0.9 if (i + j) % 3 == 0 else -0.2), glow=True)
+    # rune arms: lacquer shaft with a glowing rune column, dark palm with a hide knuckle line, glowing fingertips
     for part in cr.parts('arm'):
-        arm, club = cr.part_boxes(part)
+        arm, palm, *fingers = cr.part_boxes(part)
         cr.coat(part, arm['index'], 'lacquer', darken(lac, 0.15), gradient=False)
         outer_face = 'west' if part.endswith('0') else 'east'
         for name in (outer_face, 'north'):
             f = cr.face(part, arm['index'], name)
-            for j in range(1, f.h - 1):
-                if j % 3 != 2:
-                    f.put(1, j, step(rune, 0.4 if j % 2 else -0.3), glow=True)
-            for j in range(3, f.h - 2, 6):
-                f.put(0, j, step(rune, -0.2), glow=True)
-                f.put(2, j + 3, step(rune, -0.2), glow=True)
-        cr.coat(part, club['index'], 'flat', darken(lac, 0.35), gradient=False)
+            rune_column(f, 1, 2, f.h - 1, bright=0.4)
+        cr.coat(part, palm['index'], 'flat', darken(lac, 0.35), gradient=False)
         for name in SIDES:
-            f = cr.face(part, club['index'], name)
+            f = cr.face(part, palm['index'], name)
             f.hline(0, step(hide, -0.4))
-            f.hline(2, step(rune, 0.2), glow=True)
-            f.points([(1, 2), (3, 2)], step(rune, 1.2), glow=True)
-        cr.face(part, club['index'], 'bottom').fill(step(hide, -0.6))
-        cr.face(part, club['index'], 'bottom').rect(1, 1, 3, 3, step(rune, 0.4), glow=True)
+            f.hline(1, step(rune, 0.3), glow=True)
+        cr.face(part, palm['index'], 'top').fill(step(lac, 0.4))
+        for b in fingers:
+            cr.coat(part, b['index'], 'flat', darken(lac, 0.3), gradient=False)
+            for name in SIDES:
+                f = cr.face(part, b['index'], name)
+                f.hline(f.h - 1, step(rune, 0.6), glow=True)
+                f.hline(1, step(hide, -0.7))
+            cr.face(part, b['index'], 'bottom').fill(step(rune, 1.4), glow=True)
 
 
 # ----------------------------------------------------------------------------------------------- collars
