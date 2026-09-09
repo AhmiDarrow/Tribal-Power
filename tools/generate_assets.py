@@ -373,7 +373,17 @@ def gen_lang() -> None:
         "message.tribalpower.spiritgear.pulse": "Spiritgear draws a pulse of strain",
         "biome.tribalpower.march_steppe": "March Steppe",
     }
-    write_json(ASSETS / "lang/en_us.json", lang)
+    # Merge rather than overwrite: later scripts (expand_content, generate_camp, generate_tribe_data, the 3.0
+    # feature packages) add and refine keys in place, so an existing key keeps its current value and only
+    # keys this bootstrap knows and the file lacks are added.
+    path = ASSETS / "lang/en_us.json"
+    if path.exists():
+        existing = json.loads(path.read_text(encoding="utf-8"))
+        for key, value in lang.items():
+            existing.setdefault(key, value)
+        lang = existing
+    ensure(path.parent)
+    path.write_text(json.dumps(lang, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def gen_dimension() -> None:
