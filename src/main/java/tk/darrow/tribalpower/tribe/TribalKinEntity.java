@@ -71,9 +71,15 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public static final int DRUM_RADIUS = 8;
     public static final int DRUM_PULSE = 2;
     public static final byte EVENT_BEAT = 64;
+    /** Weaver loom goal: search radius around the anchor, cooldown window (ticks) and working time at the loom. */
+    public static final int LOOM_RADIUS = 12;
+    public static final int LOOM_COOLDOWN_MIN = 800, LOOM_COOLDOWN_MAX = 1800;
+    public static final int LOOM_WORK_TICKS = 120;
 
     private static final EntityDataAccessor<Integer> TRIBE = SynchedEntityData.defineId(TribalKinEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ROLE = SynchedEntityData.defineId(TribalKinEntity.class, EntityDataSerializers.INT);
+    /** True while a Weaver stands at a loom; the model raises the arms into the weaving pose. */
+    private static final EntityDataAccessor<Boolean> WORKING = SynchedEntityData.defineId(TribalKinEntity.class, EntityDataSerializers.BOOLEAN);
 
     @Nullable private BlockPos anchor;
     private int drumTimer;
@@ -110,6 +116,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         super.defineSynchedData(builder);
         builder.define(TRIBE, 0);
         builder.define(ROLE, KinRole.WEAVER.ordinal());
+        builder.define(WORKING, false);
     }
 
     // ---- data ----
@@ -118,6 +125,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public void setTribe(TribeDefinition tribe) { entityData.set(TRIBE, tribe.ordinal()); }
     public KinRole role() { return KinRole.byOrdinal(entityData.get(ROLE)); }
     public void setRole(KinRole role) { entityData.set(ROLE, role.ordinal()); }
+    public boolean isWorking() { return entityData.get(WORKING); }
+    public void setWorking(boolean working) { entityData.set(WORKING, working); }
     public BlockPos anchor() { return anchor == null ? blockPosition() : anchor; }
     public void setAnchor(BlockPos pos) { anchor = pos.immutable(); restrictTo(anchor, WANDER_RADIUS); }
 
@@ -128,6 +137,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.1D, true) {
             @Override public boolean canUse() { return role() == KinRole.HUNTER && super.canUse(); }
         });
+        goalSelector.addGoal(2, new LoomGoal());
         goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
         goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.7D));
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -249,6 +259,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                     sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.mark", tribe.displayNameComponent())
                             .withStyle(TribeStanding.colour(tribe)));
                     tk.darrow.tribalpower.camp.CampHooks.award(sp.serverLevel(), sp.getUUID(), "tribes/mark");
+                    CodexUnlocksPayload.sync(sp);
                 }
             }
             if (getTradingPlayer() == null) {
@@ -393,6 +404,83 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         @Override public void start() { getNavigation().stop(); }
         @Override public void stop() { setTradingPlayer(null); }
         @Override public void tick() { Player p = getTradingPlayer(); if (p != null) getLookControl().setLookAt(p, 30F, 30F); }
+    }
+
+    /**
+     * Weavers walk to the nearest loom (or Song Bench) within {@link #LOOM_RADIUS} of the camp anchor every 40-90 s
+     * and work it for six seconds: a soft loom sound, arms in the weaving pose ({@link #isWorking()}).
+     */
+    private final class LoomGoal extends Goal {
+        private int cooldown = 200 + random.nextInt(400);
+        @Nullable private BlockPos loom;
+        private int walkTicks, workTicks, soundTicks;
+
+        LoomGoal() { setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK)); }
+
+        @Override public boolean canUse() {
+            if (role() != KinRole.WEAVER || getTradingPlayer() != null || isInWater() || getTarget() != null) return false;
+            if (--cooldown > 0) return false;
+            cooldown = 100;
+            loom = findLoom();
+            return loom != null;
+        }
+
+        @Override public boolean canContinueToUse() {
+            return loom != null && isAlive() && role() == KinRole.WEAVER && workTicks < LOOM_WORK_TICKS && walkTicks < 400
+                    && isLoom(level().getBlockState(loom)) && getTarget() == null;
+        }
+
+        @Override public void start() { walkTicks = 0; workTicks = 0; soundTicks = 0; getNavigation().moveTo(loom.getX() + 0.5, loom.getY(), loom.getZ() + 0.5, 0.75D); }
+
+        @Override public void stop() {
+            if (workTicks > 0 && level() instanceof ServerLevel server)
+                server.playSound(null, loom, SoundEvents.UI_LOOM_TAKE_RESULT, SoundSource.NEUTRAL, 0.45F, 1.0F);
+            setWorking(false);
+            getNavigation().stop();
+            loom = null;
+            cooldown = LOOM_COOLDOWN_MIN + random.nextInt(LOOM_COOLDOWN_MAX - LOOM_COOLDOWN_MIN + 1);
+        }
+
+        @Override public boolean requiresUpdateEveryTick() { return true; }
+
+        @Override public void tick() {
+            if (loom == null) return;
+            getLookControl().setLookAt(loom.getX() + 0.5, loom.getY() + 0.6, loom.getZ() + 0.5, 30F, 30F);
+            if (workTicks == 0 && distanceToSqr(loom.getX() + 0.5, loom.getY(), loom.getZ() + 0.5) > 2.6 * 2.6) {
+                walkTicks++;
+                if (getNavigation().isDone()) getNavigation().moveTo(loom.getX() + 0.5, loom.getY(), loom.getZ() + 0.5, 0.75D);
+                return;
+            }
+            if (workTicks == 0) { getNavigation().stop(); setWorking(true); }
+            workTicks++;
+            if (++soundTicks >= 30 && level() instanceof ServerLevel server) {
+                soundTicks = 0;
+                server.playSound(null, loom, SoundEvents.UI_LOOM_SELECT_PATTERN, SoundSource.NEUTRAL, 0.35F, 0.9F + random.nextFloat() * 0.2F);
+            }
+        }
+
+        private boolean isLoom(net.minecraft.world.level.block.state.BlockState state) {
+            return state.is(net.minecraft.world.level.block.Blocks.LOOM) || state.is(tk.darrow.tribalpower.block.ModBlocks.SONG_BENCH.get());
+        }
+
+        /** Nearest vanilla loom to the anchor within {@link #LOOM_RADIUS}; a Song Bench only when no loom exists. */
+        @Nullable private BlockPos findLoom() {
+            BlockPos origin = anchor();
+            BlockPos best = null, bench = null;
+            double bestDist = Double.MAX_VALUE, benchDist = Double.MAX_VALUE;
+            BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+            for (int dx = -LOOM_RADIUS; dx <= LOOM_RADIUS; dx++)
+                for (int dy = -3; dy <= 3; dy++)
+                    for (int dz = -LOOM_RADIUS; dz <= LOOM_RADIUS; dz++) {
+                        cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
+                        if (!level().hasChunkAt(cursor)) continue;
+                        net.minecraft.world.level.block.state.BlockState state = level().getBlockState(cursor);
+                        double d = cursor.distSqr(origin);
+                        if (state.is(net.minecraft.world.level.block.Blocks.LOOM)) { if (d < bestDist) { bestDist = d; best = cursor.immutable(); } }
+                        else if (state.is(tk.darrow.tribalpower.block.ModBlocks.SONG_BENCH.get()) && d < benchDist) { benchDist = d; bench = cursor.immutable(); }
+                    }
+            return best != null ? best : bench;
+        }
     }
 
     /** Targets the player the camp is angry at while the anger timer runs. */

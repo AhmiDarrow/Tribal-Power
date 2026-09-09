@@ -435,6 +435,8 @@ class Camp:
         self.cobble = 'tribalpower:march_cobble' if self.march else rng.choice(['minecraft:cobblestone', 'tribalpower:march_cobble', 'minecraft:mossy_cobblestone'])
         self.fence = 'minecraft:spruce_fence' if 'spruce' in self.planks else ('minecraft:dark_oak_fence' if 'dark_oak' in self.planks else 'minecraft:spruce_fence')
         self.kin_spots = []
+        # interiors (x0, z0, x1, z1) of the huts in build order; the first one is the Weaver's hut
+        self.huts = []
 
     # --- ground
     def ground(self, top=None, sub=None):
@@ -575,6 +577,7 @@ class Camp:
         t.set(barrel_at[0], FLOOR, barrel_at[1], 'minecraft:barrel', {'facing': 'up', 'open': 'false'})
         if t.is_air(mx, FLOOR, mz):
             t.set(mx, FLOOR, mz, self.carpet)
+        self.huts.append((x + 1, z + 1, x1 - 1, z1 - 1))
         return dx, dz
 
     def round_hut(self, cx, cz, r=3):
@@ -607,7 +610,41 @@ class Camp:
         t.set(cx + 1, FLOOR, cz - 1, 'minecraft:barrel', {'facing': 'up', 'open': 'false'})
         if t.is_air(cx + 1, FLOOR, cz + r + 1):
             place(t, cx + 1, FLOOR, cz + r + 1, banner_wall(self.i, 'south'))
+        self.huts.append((cx - r + 1, cz - r + 1, cx + r - 1, cz + r - 1))
         return cx, cz + r
+
+    # --- the Weaver's loom
+    def weaver_loom(self):
+        """Every camp keeps a loom inside the Weaver's hut (the first hut built) and the Weaver spawns beside it."""
+        if not self.huts:
+            raise AssertionError(f'{self.tribe}: no hut for the Weaver')
+        t = self.t
+        v = Validator(self.tribe, t)
+        x0, z0, x1, z1 = self.huts[0]
+        inside = [(x, z) for x in range(x0, x1 + 1) for z in range(z0, z1 + 1)]
+        loom = next(((x, z) for (x, z) in inside if t.get(x, FLOOR, z) == 'minecraft:loom'), None)
+
+        def free(x, z):
+            return t.is_air(x, FLOOR, z) and t.is_air(x, FLOOR + 1, z) and v.standable(x, FLOOR - 1, z)
+
+        def neighbours(x, z):
+            return [((x + dx, z + dz), f) for (dx, dz, f) in ((1, 0, 'east'), (-1, 0, 'west'), (0, 1, 'south'), (0, -1, 'north'))
+                    if (x + dx, z + dz) in inside and free(x + dx, z + dz)]
+
+        if loom is None:
+            # a wall-side floor tile with a free tile beside it to stand on; the loom faces the free tile
+            edge = [(x, z) for (x, z) in inside if (x in (x0, x1) or z in (z0, z1)) and free(x, z) and neighbours(x, z)]
+            if not edge:
+                raise AssertionError(f'{self.tribe}: no room for a loom in the Weaver\'s hut')
+            loom = edge[0]
+            (sx, sz), facing = neighbours(*loom)[0]
+            t.set(loom[0], FLOOR, loom[1], 'minecraft:loom', {'facing': facing})
+        else:
+            spots = neighbours(*loom)
+            if not spots:
+                raise AssertionError(f'{self.tribe}: nowhere to stand beside the loom')
+            (sx, sz), _ = spots[0]
+        self.kin_spots = [(x, z, role) if role != 'WEAVER' else (sx, sz, role) for (x, z, role) in self.kin_spots]
 
     # --- the four Kin
     def kin(self):
@@ -646,6 +683,7 @@ class Camp:
                 placed += 1
 
     def save(self):
+        self.weaver_loom()
         self.kin()
         return self.t.save(f'tribe_camp_{self.tribe}')
 
@@ -1151,6 +1189,7 @@ def camp_spindle(camp):
     t.fill(x0 + 1, FLOOR, z0, x0 + 5, FLOOR + 1, z0, 'tribalpower:march_stone')  # back wall
     place(t, x0 + 3, FLOOR + 1, z0 + 1, tablet('south', 8))
     t.set(x0 + 1, FLOOR, z0 + 1, 'minecraft:loom', {'facing': 'south'})
+    camp.huts.append((x0 + 1, z0 + 1, x0 + 5, z0 + 3))   # the pavilion is the Weaver's hut
     t.set(x0 + 5, FLOOR, z0 + 1, 'minecraft:cyan_wool')
     t.set(x0 + 5, FLOOR + 1, z0 + 1, 'minecraft:cyan_carpet')
     place(t, x0 + 3, FLOOR + 3, z0 + 2, lantern(hanging=True))

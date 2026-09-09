@@ -60,12 +60,12 @@ public class TribalKinModel extends HierarchicalModel<TribalKinEntity> {
             leftArm.xRot = -1.35F + strike * 1.1F - Mth.sin(age * 0.2F) * 0.08F;
             rightArm.zRot = -0.15F;
             leftArm.zRot = 0.15F;
-        } else if (role == KinRole.WEAVER) {
-            // hands working a loom in front of the body
-            rightArm.xRot = -0.9F + Mth.sin(age * 0.15F) * 0.25F;
-            leftArm.xRot = -0.9F - Mth.sin(age * 0.15F) * 0.25F;
-            rightArm.zRot = -0.25F;
-            leftArm.zRot = 0.25F;
+        } else if (role == KinRole.WEAVER && entity.isWorking()) {
+            // at the loom: hands raised, shuttling the thread across in front of the body
+            rightArm.xRot = -0.9F + Mth.sin(age * 0.35F) * 0.3F;
+            leftArm.xRot = -0.9F - Mth.sin(age * 0.35F) * 0.3F;
+            rightArm.zRot = -0.25F + Mth.cos(age * 0.35F) * 0.1F;
+            leftArm.zRot = 0.25F - Mth.cos(age * 0.35F) * 0.1F;
         } else if (role == KinRole.HUNTER && entity.isAggressive()) {
             rightArm.xRot = -1.5F + Mth.sin(attackTime * Mth.PI) * 1.2F;
         } else if (role == KinRole.ELDER) {

@@ -62,7 +62,7 @@ public final class SpiritCodexScreen extends Screen {
         search.setMaxLength(96);search.setHint(Component.literal("Search teachings and items..."));search.setValue(query);
         search.setResponder(value->{query=value;listPage=0; rebuildList();});
         button(category,left+10,top+60,sidebar-8,b->{
-            List<String> visible=categories.stream().filter(c->spoilers||c.equals("Contents")||c.equals("Bookmarks")||CodexEntries.ALL.stream().anyMatch(e->e.category().equals(c)&&!e.spoiler())).toList();
+            List<String> visible=categories.stream().filter(c->spoilers||c.equals("Contents")||c.equals("Bookmarks")||CodexEntries.ALL.stream().anyMatch(e->e.category().equals(c)&&visible(e))).toList();
             String next=visible.get((visible.indexOf(category)+1)%visible.size());
             category=next;listPage=0;rebuildWidgets();
         });
@@ -98,7 +98,7 @@ public final class SpiritCodexScreen extends Screen {
                     .sorted(Comparator.comparing(e->e.getValue().getDescription().getString()))
                     .forEach(e->{String name=e.getValue().getDescription().getString();if(name.toLowerCase(Locale.ROOT).contains(needle))rows.add(new String[]{"item:"+e.getKey().location(),name});});
         } else {
-            for(Entry e:CodexEntries.ALL) if((spoilers||!e.spoiler())
+            for(Entry e:CodexEntries.ALL) if(visible(e)
                     && (category.equals("Contents")||category.equals(e.category())||(category.equals("Bookmarks")&&bookmarks.contains(e.id())))
                     &&(e.title()+" "+e.text()).toLowerCase(Locale.ROOT).contains(needle)) rows.add(new String[]{e.id(),e.title()});
         }
@@ -119,11 +119,13 @@ public final class SpiritCodexScreen extends Screen {
                 Component.literal("Beyond the veil — spoilers"),Component.literal("The full wiki reveals creatures, materials, recipes and late-game discoveries. Reveal them for this reading session?"),
                 Component.literal("Reveal knowledge"),Component.literal("Keep discovering")));
     }
+    /** Spoiler pages stay veiled unless revealed for the session or unlocked in-world (Tribe Mark held, tablet read). */
+    private boolean visible(Entry e){return spoilers||!e.spoiler()||CodexUnlocks.unlocked(e);}
     private Entry current(){return CodexEntries.ALL.stream().filter(e->e.id().equals(selected)).findFirst().orElse(CodexEntries.ALL.getFirst());}
     private void openEntry(String id) {
         Entry target=CodexEntries.ALL.stream().filter(e->e.id().equals(id)).findFirst().orElse(null);
         if(target==null)return;
-        if(target.spoiler()&&!spoilers){confirmSpoilers(()->openEntry(id));return;}
+        if(!visible(target)){confirmSpoilers(()->openEntry(id));return;}
         remember();navigate(id);
     }
     private void navigate(String id) {
@@ -182,7 +184,9 @@ public final class SpiritCodexScreen extends Screen {
             } else y=diagram(g,e,y);
             y=paragraph(g,e.text(),y,PAPER);
             y=paragraph(g,"RELATED TEACHINGS",y+6,TEAL);
-            for(Entry other:CodexEntries.ALL) if(!other.id().equals(e.id())&&other.category().equals(e.category())&&(spoilers||!other.spoiler())) {
+            String hint=CodexUnlocks.hint(e.category());
+            if(hint!=null)y=paragraph(g,hint,y,TEAL);
+            for(Entry other:CodexEntries.ALL) if(!other.id().equals(e.id())&&other.category().equals(e.category())&&visible(other)) {
                 g.drawString(font,"> "+font.plainSubstrByWidth(other.title(),contentWidth-22),contentX+6,y,GOLD,false);
                 y+=16;
             }
@@ -265,7 +269,9 @@ public final class SpiritCodexScreen extends Screen {
                 pos+=(!e.picture().isEmpty()||e.id().equals("chapter_1"))?Math.min(bookHeight<300?64:112,contentWidth-12)+8:71+font.split(Component.literal("Illustrated example — use Motion to pause. Live costs and ingredients are shown in Recipes."),contentWidth-12).size()*12+8;
                 pos+=font.split(Component.literal(e.text()),contentWidth-12).size()*12+8+6;
                 pos+=font.split(Component.literal("RELATED TEACHINGS"),contentWidth-12).size()*12+8;
-                for(Entry other:CodexEntries.ALL)if(!other.id().equals(e.id())&&other.category().equals(e.category())&&(spoilers||!other.spoiler())){if(y>=pos&&y<pos+16){openEntry(other.id());return true;}pos+=16;}
+                String hint=CodexUnlocks.hint(e.category());
+                if(hint!=null)pos+=font.split(Component.literal(hint),contentWidth-12).size()*12+8;
+                for(Entry other:CodexEntries.ALL)if(!other.id().equals(e.id())&&other.category().equals(e.category())&&visible(other)){if(y>=pos&&y<pos+16){openEntry(other.id());return true;}pos+=16;}
             }
         }
         return super.mouseClicked(x,y,button);

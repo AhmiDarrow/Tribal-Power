@@ -96,7 +96,9 @@ public class LoreTabletBlock extends BaseEntityBlock {
         int bit = 1 << Math.floorMod(tablet, TABLETS);
         persisted.putInt(READ_KEY, mask | bit);
         data.put(Player.PERSISTED_NBT_TAG, persisted);
-        return (mask & bit) == 0;
+        boolean first = (mask & bit) == 0;
+        if (first && player instanceof net.minecraft.server.level.ServerPlayer sp) tk.darrow.tribalpower.tribe.CodexUnlocksPayload.sync(sp);
+        return first;
     }
 
     public static int readMask(Player player) { return player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getInt(READ_KEY); }

@@ -2,7 +2,10 @@
   "type": "tribalpower:lattice",
   "station": "echo_unweave",
   "ingredient": {
-    "tag": "tribalpower:spiritgear_tools"
+    "type": "tribalpower:damaged",
+    "base": {
+      "tag": "tribalpower:spiritgear_tools"
+    }
   },
   "result": {
     "id": "tribalpower:manifested_ingot",

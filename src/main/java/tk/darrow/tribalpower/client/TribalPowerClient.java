@@ -45,5 +45,6 @@ public final class TribalPowerClient {
         modBus.addListener(TribeClient::onClientSetup);
         modBus.addListener(TribeClient::blockColours);
         modBus.addListener(TribeClient::itemColours);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> CodexUnlocks.reset());
     }
 }

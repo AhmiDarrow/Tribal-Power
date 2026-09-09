@@ -50,6 +50,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onCommands);
+        modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onClone);
+        tk.darrow.tribalpower.echo.DamagedIngredient.INGREDIENT_TYPES.register(modBus);
 
         modBus.addListener(this::onCommonSetup);
         // Rites / QoL (rite/world, ley, logic, api/Diagnostics)

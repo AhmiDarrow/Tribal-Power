@@ -45,9 +45,15 @@ public class LoomGameTests {
         h.assertTrue(formula.result().is(ModItems.BOUND_ECHO.get()) && formula.result().getCount() == 2,
                 "Unweaving a Manifested Ingot must yield 2 Bound Echo");
         h.assertTrue(formula.attunement() == Attunement.LOOM, "Unweave recipes require the Loom voice");
-        var salvage = ProcessingRecipes.find(h.getLevel(), "echo_unweave", new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get()));
+        var worn = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
+        worn.setDamageValue(5);
+        var salvage = ProcessingRecipes.find(h.getLevel(), "echo_unweave", worn);
         h.assertTrue(salvage != null && salvage.result().is(ModItems.MANIFESTED_INGOT.get()),
-                "Spiritgear tools must salvage into a Manifested Ingot");
+                "Worn Spiritgear tools must salvage into a Manifested Ingot");
+        h.assertTrue(ProcessingRecipes.find(h.getLevel(), "echo_unweave", new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get())) == null,
+                "An undamaged Spiritgear tool must not match the salvage formula (tribalpower:damaged ingredient)");
+        h.assertTrue(salvage.recipe().ingredient().getCustomIngredient() instanceof tk.darrow.tribalpower.echo.DamagedIngredient,
+                "The salvage formula must use the tribalpower:damaged ingredient type");
         long unweave = h.getLevel().getRecipeManager().getAllRecipesFor(LatticeRecipe.TYPE.get()).stream()
                 .filter(r -> r.value().station().equals("echo_unweave")).count();
         h.assertTrue(unweave >= 6, "Expected the six Unweave formulas, found " + unweave);

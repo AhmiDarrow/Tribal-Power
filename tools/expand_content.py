@@ -18,9 +18,16 @@ def shaped(name, pattern, key):
           'result': {'id': 'tribalpower:' + name, 'count': 1}})
 
 
+def ingredient(feed):
+    """'#tag' / 'item' → vanilla ingredient; 'damaged:#tag' → tribalpower:damaged wrapper (durability > 0 only)."""
+    if feed.startswith('damaged:'):
+        return {'type': 'tribalpower:damaged', 'base': ingredient(feed[len('damaged:'):])}
+    return {'tag' if feed.startswith('#') else 'item': feed.lstrip('#')}
+
+
 def process(name, station, feed, output, element, seconds, pulse, count=1):
     write(DATA / f'tribalpower/recipe/lattice/{name}.json', {'type':'tribalpower:lattice', 'station': 'echo_' + station,
-          'ingredient': {'tag' if feed.startswith('#') else 'item': feed.lstrip('#')}, 'result': {'id':output,'count':count},
+          'ingredient': ingredient(feed), 'result': {'id':output,'count':count},
           'attunement': element, 'seconds': seconds, 'pulse_per_second': pulse})
 
 
@@ -61,7 +68,7 @@ def main():
     process('unweave_attuned_echo', 'unweave', 'tribalpower:attuned_echo', 'tribalpower:echo_shard', 'loom', 2, 8, 2)
     process('unweave_spiritweave', 'unweave', 'tribalpower:spiritweave', 'minecraft:white_wool', 'loom', 3, 10, 2)
     process('unweave_resonant_core', 'unweave', 'tribalpower:resonant_core', 'tribalpower:manifested_ingot', 'loom', 6, 16, 3)
-    process('unweave_spiritgear', 'unweave', '#tribalpower:spiritgear_tools', 'tribalpower:manifested_ingot', 'loom', 8, 16)
+    process('unweave_spiritgear', 'unweave', 'damaged:#tribalpower:spiritgear_tools', 'tribalpower:manifested_ingot', 'loom', 8, 16)
     write(DATA / 'tribalpower/tags/item/spiritgear_tools.json', {'replace': False, 'values': ['tribalpower:spiritgear_' + t for t in ['pickaxe', 'axe', 'shovel', 'blade']]})
     shaped('resonance_totem_loom', ['CTC', 'PHP', 'CTC'], {'C':'tribalpower:march_crystal', 'T':'tribalpower:loom_thread', 'H':'tribalpower:unsung_heart', 'P':'tribalpower:march_planks'})
     shaped('echo_unweave', ['STS', 'CPC', 'SSS'], {'S':'tribalpower:march_stone', 'T':'tribalpower:loom_thread', 'C':'tribalpower:copper_resonator', 'P':'tribalpower:spirit_shard'})

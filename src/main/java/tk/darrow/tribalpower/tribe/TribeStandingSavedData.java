@@ -73,6 +73,12 @@ public class TribeStandingSavedData extends SavedData {
         return r != null && (r.marks & (1 << tribe.ordinal())) != 0;
     }
 
+    /** Bitmask (bit = tribe ordinal) of the Tribe Marks this player has received; drives the Codex tribe pages. */
+    public int marks(UUID player) {
+        Record r = records.get(player);
+        return r == null ? 0 : r.marks;
+    }
+
     public void grantMark(UUID player, TribeDefinition tribe) {
         record(player).marks |= 1 << tribe.ordinal();
         setDirty();
