@@ -493,7 +493,9 @@ public final class LatticeNetwork {
                     }
                     boolean isGenerator = be instanceof DrumheartBlockEntity
                             || be instanceof LeyCollectorBlockEntity
-                            || be instanceof PulseResonatorBlockEntity;
+                            || be instanceof PulseResonatorBlockEntity
+                            // The six voices of 3.1 all implement PulseGenerator, so they need no case of their own.
+                            || be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator;
                     if (generatorsFirst != isGenerator) {
                         continue;
                     }

@@ -56,5 +56,6 @@ public final class WorldRiteRegistry {
         if (!(event.getLevel() instanceof ServerLevel level)) return;
         GreenBlessing.tick(level);
         LeyLines.tick(level);
+        Springs.tick(level);
     }
 }

@@ -18,6 +18,10 @@ import tk.darrow.tribalpower.block.PulseResonatorBlock;
 
 /**
  * Harmonic generator: a reusable Echo catalyst amplifies distinct nearby totem voices.
+ *
+ * <p>3.1 adds the Voice Ring (design 3.1 section 5). Scattered totems still work exactly as they did, but
+ * they are capped at {@link #UNARRANGED_VOICES}: six-voice resonance only counts when the voices are
+ * actually arranged in a ring at radius 3. Placement is the ritual.
  */
 public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, Container, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2500;
@@ -28,6 +32,12 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
     private NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     private int harmonics;
     private int gain;
+    private boolean ringed;
+    private final tk.darrow.tribalpower.pattern.PatternState ring =
+            new tk.darrow.tribalpower.pattern.PatternState(tk.darrow.tribalpower.pattern.ModPatterns.VOICE_RING);
+
+    /** Voices a heap of unarranged totems is worth. The sixth has to be asked for properly. */
+    public static final int UNARRANGED_VOICES = 5;
 
     public PulseResonatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PULSE_RESONATOR.get(), pos, state);
@@ -38,8 +48,10 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         var voices = java.util.EnumSet.noneOf(tk.darrow.tribalpower.api.pulse.Attunement.class);
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
             voices.add(totem.getAttunement());
-        be.harmonics = voices.size();
-        be.harmonics += tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices
+        int raw = voices.size()
+                + tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices
+        be.ringed = be.ring.satisfied(level, pos, 1);
+        be.harmonics = be.ringed ? raw : Math.min(UNARRANGED_VOICES, raw);
         int rank = catalystRank(be.items.get(SLOT));
         be.gain = rank > 0 && be.harmonics >= 2 && !level.hasNeighborSignal(pos) ? 2 * be.harmonics + 2 * rank : 0;
         boolean sounding = be.gain > 0 && be.insertPulse(be.gain, false) > 0;
@@ -52,6 +64,8 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
 
     public int getGain() { return gain; }
     public int getHarmonics() { return harmonics; }
+    /** True when the totems stand in a ring rather than in a heap. */
+    public boolean isRinged() { return ringed; }
     public static int catalystRank(ItemStack stack) {
         if (stack.is(tk.darrow.tribalpower.item.ModItems.RESONANT_CORE.get())) return 4;
         if (stack.is(tk.darrow.tribalpower.item.ModItems.BOUND_ECHO.get())) return 3;

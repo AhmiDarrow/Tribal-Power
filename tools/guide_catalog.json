@@ -280,6 +280,198 @@
     "picture": ""
   },
   {
+    "id": "pattern_intro",
+    "title": "Placement is the ritual",
+    "category": "Patterns",
+    "icon": "ritual_chalk",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_ritual_mark",
+    "title": "Ritual Mark",
+    "category": "Patterns",
+    "icon": "ritual_chalk",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_anchor_stone",
+    "title": "Anchor Stone",
+    "category": "Patterns",
+    "icon": "anchor_stone",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_stone_font",
+    "title": "Stone Font",
+    "category": "Patterns",
+    "icon": "stone_font",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_listening_pit",
+    "title": "Listening Pit",
+    "category": "The Listening Pit",
+    "icon": "resonance_mesh",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pit_deep_listening",
+    "title": "Deep Listening",
+    "category": "The Listening Pit",
+    "icon": "anchor_stone",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pit_bands",
+    "title": "What the ground offers",
+    "category": "The Listening Pit",
+    "icon": "iron_grit",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pit_sample",
+    "title": "Sample and substrate",
+    "category": "The Listening Pit",
+    "icon": "march_stone",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pit_voices",
+    "title": "Voices at the pit",
+    "category": "The Listening Pit",
+    "icon": "resonance_totem_water",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "gate_way",
+    "title": "Way Gate",
+    "category": "The Gates",
+    "icon": "gate_keystone",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "gate_far",
+    "title": "Far Gate",
+    "category": "The Gates",
+    "icon": "gate_sigil",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "gate_keeping",
+    "title": "Keeping the way",
+    "category": "The Gates",
+    "icon": "gate_frame",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_ember_horn",
+    "title": "Ember Horn",
+    "category": "The Six Voices",
+    "icon": "ember_horn",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_wind_harp",
+    "title": "Wind Harp",
+    "category": "The Six Voices",
+    "icon": "wind_harp",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_wave_drum",
+    "title": "Wave Drum",
+    "category": "The Six Voices",
+    "icon": "wave_drum",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_wake_bell",
+    "title": "Wake Bell",
+    "category": "The Six Voices",
+    "icon": "wake_bell",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_loom_anchor",
+    "title": "Loom Anchor",
+    "category": "The Six Voices",
+    "icon": "loom_anchor",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "voice_pulse_cairn",
+    "title": "Pulse Cairn",
+    "category": "The Six Voices",
+    "icon": "pulse_cairn",
+    "spoiler": true,
+    "picture": ""
+  },
+  {
+    "id": "rite_spring_calling",
+    "title": "Spring Calling",
+    "category": "Equipment & rites",
+    "icon": "rite_spring_calling",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_rite_circle",
+    "title": "Draw the circle",
+    "category": "Equipment & rites",
+    "icon": "rite_pedestal",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "automation_contract",
+    "title": "A rite on a clock",
+    "category": "Automation",
+    "icon": "rite_pedestal",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "grit_split",
+    "title": "Metals and gems",
+    "category": "Workshops",
+    "icon": "iron_grit",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_voice_ring",
+    "title": "Voice Ring",
+    "category": "Patterns",
+    "icon": "pulse_resonator",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
+    "id": "pattern_shatter_array",
+    "title": "Shatter Array",
+    "category": "Patterns",
+    "icon": "echo_shatter",
+    "spoiler": false,
+    "picture": ""
+  },
+  {
     "id": "chapter_36",
     "title": "The veil at night",
     "category": "Bestiary & skies",

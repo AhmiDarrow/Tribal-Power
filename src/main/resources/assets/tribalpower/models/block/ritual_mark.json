@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "tribalpower:block/ritual_mark",
+    "mark": "tribalpower:block/ritual_mark"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        1,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#mark"
+        },
+        "south": {
+          "texture": "#mark"
+        },
+        "east": {
+          "texture": "#mark"
+        },
+        "west": {
+          "texture": "#mark"
+        },
+        "up": {
+          "texture": "#mark"
+        },
+        "down": {
+          "texture": "#mark"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "tribalpower:march_crystal"
+    },
+    "T": {
+      "item": "tribalpower:loom_thread"
+    },
+    "S": {
+      "item": "tribalpower:spiritweave"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    }
+  },
+  "pattern": [
+    "MTM",
+    "SRS",
+    "MTM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:loom_anchor"
+  }
+}

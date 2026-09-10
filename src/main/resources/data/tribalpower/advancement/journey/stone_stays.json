@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:stone_font"
+    },
+    "title": "Stone stays",
+    "description": "Ask a Stone Font for its first cobblestone. Stone is not made; stone is asked to stay.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/circle"
+}

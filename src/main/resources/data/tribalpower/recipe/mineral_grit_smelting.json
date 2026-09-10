@@ -1,0 +1,10 @@
+{
+  "type": "tribalpower:grit_cooking",
+  "category": "misc",
+  "ingredient": {
+    "item": "tribalpower:mineral_grit"
+  },
+  "experience": 0.35,
+  "cookingtime": 200,
+  "blasting": false
+}

@@ -92,7 +92,15 @@ public class TribeHearthBlock extends BaseEntityBlock {
 
     private static void offered(ServerPlayer player, TribeHearthBlockEntity hearth, int gain, BlockPos pos) {
         TribeDefinition tribe = hearth.tribe();
-        int total = TribeStanding.add(player, tribe, gain);
+        // The hearth only takes so much in a day: renewable ore must not feed the standing that unlocks it.
+        int granted = TribeStanding.offerGain(player, tribe, gain);
+        int total = TribeStanding.get(player.server, player.getUUID(), tribe);
+        if (granted <= 0) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.hearth.sated",
+                    tribe.displayNameComponent(), TribeStanding.OFFER_CAP_PER_DAY).withStyle(net.minecraft.ChatFormatting.YELLOW), true);
+            return;
+        }
+        gain = granted;
         hearth.touched(player.getUUID(), TribeRank.of(total));
         var server = player.serverLevel();
         server.playSound(null, pos, net.minecraft.sounds.SoundEvents.FIRECHARGE_USE, net.minecraft.sounds.SoundSource.BLOCKS, 0.4F, 1.4F);

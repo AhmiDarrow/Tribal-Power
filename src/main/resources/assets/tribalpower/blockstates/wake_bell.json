@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/wake_bell_off"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/wake_bell"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "item": "tribalpower:loom_thread"
+    },
+    {
+      "item": "tribalpower:spirit_shard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:gate_sigil"
+  }
+}

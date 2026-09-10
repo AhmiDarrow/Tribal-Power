@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "E": {
+      "item": "tribalpower:echo_shard"
+    }
+  },
+  "pattern": [
+    "SCS",
+    "SES",
+    "SCS"
+  ],
+  "result": {
+    "count": 4,
+    "id": "tribalpower:gate_frame"
+  }
+}

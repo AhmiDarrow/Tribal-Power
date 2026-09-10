@@ -76,13 +76,20 @@ MOD_BLOCKS = {
     'march_planks': {}, 'march_ore': {}, 'march_crystal': {}, 'march_leaf': {}, 'spirit_reed': {},
     'march_leaves': {'distance': [str(i) for i in range(1, 8)], 'persistent': BOOL, 'waterlogged': BOOL},
     'song_bench': {}, 'spirit_light': {},
+    # 3.1: the camp props. Each tribe that keeps a voice shows its own craft working.
+    'stone_font': {}, 'resonance_mesh': {}, 'anchor_stone': {}, 'ritual_mark': {}, 'pulse_cairn': {},
+    'ember_horn': {'lit': BOOL}, 'wind_harp': {'lit': BOOL}, 'wave_drum': {'lit': BOOL},
+    'wake_bell': {'lit': BOOL}, 'loom_anchor': {'lit': BOOL},
+    'gate_frame': {}, 'gate_keystone': {}, 'ancestral_cache': {}, 'spirit_cistern': {},
 }
 MOD_ENTITIES = {'tribal_kin', 'the_unsung', 'hollow_sentinel', 'echo_weaver', 'march_walker', 'spirit_wisp', 'dawn_stag',
                 'lantern_fox', 'mossback', 'ashbound', 'rootbound', 'reed_stalker', 'shardback', 'storm_moth',
                 'cinder_imp', 'mourning_bell', 'rift_hound'}
 # support checks: mod blocks that are full cubes, and vanilla blocks that are NOT (by exact name / suffix)
 SOLID_MOD = {'march_stone', 'march_cobble', 'march_soil', 'march_grass', 'march_moss', 'march_log', 'march_planks',
-             'march_ore', 'tribe_hearth', 'drumheart', 'silent_drum', 'kinship_totem', 'march_leaves'}
+             'march_ore', 'tribe_hearth', 'drumheart', 'silent_drum', 'kinship_totem', 'march_leaves',
+             'anchor_stone', 'gate_frame', 'gate_keystone', 'ancestral_cache', 'spirit_cistern'}
+NON_SOLID_MOD = {'ritual_mark'}
 NON_SOLID_EXACT = {
     'air', 'cave_air', 'water', 'lava', 'fire', 'soul_fire', 'campfire', 'soul_campfire', 'lantern', 'soul_lantern',
     'torch', 'wall_torch', 'ladder', 'chain', 'rail', 'powered_rail', 'detector_rail', 'activator_rail', 'cobweb',
@@ -788,6 +795,17 @@ def corner_feature(camp, cx, cz):
         t.set(cx, FLOOR, cz + 2, 'minecraft:fletching_table')
 
 
+def _stone_font(camp, x, z, braced=False):
+    """A working tier 1 Stone Font: the font and four chalk marks. Braced adds the tier 2 anchor stones."""
+    t = camp.t
+    t.set(x, FLOOR, z, 'tribalpower:stone_font')
+    for (dx, dz) in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        t.set(x + dx, FLOOR, z + dz, 'tribalpower:ritual_mark')
+    if braced:
+        for (dx, dz) in ((2, 2), (2, -2), (-2, 2), (-2, -2)):
+            t.set(x + dx, FLOOR, z + dz, 'tribalpower:anchor_stone')
+
+
 def camp_soil(camp):
     """Pad-keepers: roundhouses with turf domes, a sunken hearth pit lined with cobble, hay and crops."""
     t, rng, i = camp.t, camp.rng, camp.i
@@ -827,6 +845,8 @@ def camp_soil(camp):
         if t.is_air(x, FLOOR, S - 3):
             t.set(x, GROUND, S - 3, 'minecraft:farmland', {'moisture': '7'})
             t.set(x, FLOOR, S - 3, 'minecraft:wheat', {'age': str(rng.randint(3, 7))})
+    # their own craft: a working Stone Font, chalk and all
+    _stone_font(camp, C - 6, C + 6)
     camp.scatter(['minecraft:hay_block', ('minecraft:composter', {'level': '3'}), 'minecraft:moss_block', 'minecraft:barrel'], 4)
     camp.edge_lanterns()
 
@@ -863,6 +883,14 @@ def camp_stone(camp):
         h = rng.randint(2, 3)
         t.fill(x, FLOOR, z, x, FLOOR + h - 1, z, 'minecraft:cobblestone')
         place(t, x, FLOOR + h, z, spirit_lantern())
+    # the craft itself: a braced Stone Font, and a Listening Pit with its mesh and cache
+    _stone_font(camp, C - 6, C - 5, braced=True)
+    t.set(C + 6, FLOOR, C + 6, 'tribalpower:resonance_mesh')
+    for (dx, dz) in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        t.set(C + 6 + dx, FLOOR, C + 6 + dz, 'tribalpower:ritual_mark')
+    for (dx, dz) in ((2, 2), (2, -2), (-2, 2), (-2, -2)):
+        t.set(C + 6 + dx, FLOOR, C + 6 + dz, 'tribalpower:anchor_stone')
+    t.set(C + 6, FLOOR + 1, C + 6, 'tribalpower:ancestral_cache')
     camp.scatter(['minecraft:cobblestone', 'minecraft:stone', 'minecraft:gravel', 'minecraft:andesite', slab('minecraft:cobblestone_slab')], 6)
     camp.edge_lanterns()
 
@@ -912,6 +940,10 @@ def camp_sprout(camp):
             t.set(x, GROUND, S - 3, 'minecraft:podzol')
             plant = rng.choice(['minecraft:oak_sapling', 'minecraft:spruce_sapling', 'minecraft:dark_oak_sapling', 'minecraft:azalea'])
             t.set(x, FLOOR, S - 3, plant, {'stage': '0'} if plant.endswith('_sapling') else None)
+    # their own craft: a Wave Drum beside water, and a cistern to pipe it properly
+    t.set(C + 6, FLOOR, C - 5, 'tribalpower:wave_drum', {'lit': 'false'})
+    t.set(C + 7, GROUND, C - 5, 'minecraft:water')
+    t.set(C + 6, FLOOR, C - 6, 'tribalpower:spirit_cistern')
     camp.scatter(['minecraft:moss_carpet', 'minecraft:fern', 'minecraft:moss_block', 'minecraft:flowering_azalea', 'minecraft:large_fern'], 8, avoid_radius=3)
     # fix any large_fern (double plant) into a fern to keep it single-block
     for pos, (bname, props, nbt) in list(t.blocks.items()):
@@ -1022,6 +1054,9 @@ def camp_spark(camp):
         place(t, x, FLOOR + 3, z, campfire())
     # loom off the platform for the weaver
     t.set(C - 6, FLOOR, C + 2, 'minecraft:loom', {'facing': 'east'})
+    # their own craft: the Ember Horn, banked with fuel
+    t.set(C + 6, FLOOR, C + 2, 'tribalpower:ember_horn', {'lit': 'false'})
+    t.set(C + 6, FLOOR, C + 3, 'minecraft:coal_block')
     camp.kin_spots = [(C - 1, C + 1, 'ELDER'), (C + 1, C + 1, 'DRUMMER'), (C + 6, C - 1, 'HUNTER'), (C - 5, C + 2, 'WEAVER')]
     for (fx, fz) in standard_huts(camp, sizes=(5, 6, 7)):
         corner_feature(camp, fx, fz)
@@ -1075,6 +1110,9 @@ def camp_clock(camp):
     camp.kin_spots = [(C - 1, C + 1, 'ELDER'), (C + 1, C + 4, 'DRUMMER'), (C + 3, C - 1, 'HUNTER'), (C - 2, C + 1, 'WEAVER')]
     for (fx, fz) in free:
         corner_feature(camp, fx, fz)
+    # their own craft: a Wind Harp on a mast, under open sky where it is worth anything
+    t.fill(C + 6, FLOOR, C + 6, C + 6, FLOOR + 3, C + 6, 'minecraft:cut_copper')
+    t.set(C + 6, FLOOR + 4, C + 6, 'tribalpower:wind_harp', {'lit': 'false'})
     camp.scatter(['minecraft:copper_block', 'minecraft:target', ('minecraft:barrel', {'facing': 'up', 'open': 'false'}), 'minecraft:daylight_detector'], 4, avoid_radius=8)
     camp.edge_lanterns()
 
@@ -1157,6 +1195,11 @@ def camp_sigil(camp):
     t.set(C + 3, FLOOR + 1, C - 3, 'minecraft:soul_lantern', {'hanging': 'false', 'waterlogged': 'false'})
     for (fx, fz) in standard_huts(camp, count=3, sizes=(5, 6)):
         corner_feature(camp, fx, fz)
+    # their own craft: a Wake Bell on a deepslate plinth, and a cairn to hold what it tolls
+    t.set(C - 6, FLOOR, C + 6, 'minecraft:chiseled_deepslate')
+    t.set(C - 6, FLOOR + 1, C + 6, 'tribalpower:wake_bell', {'lit': 'false'})
+    t.set(C - 4, FLOOR, C + 6, 'tribalpower:pulse_cairn')
+    t.set(C - 4, FLOOR + 1, C + 6, 'tribalpower:pulse_cairn')
     camp.scatter(['minecraft:cobbled_deepslate', 'minecraft:skeleton_skull' if False else 'minecraft:mossy_cobblestone', ('minecraft:barrel', {'facing': 'up', 'open': 'false'})], 4, avoid_radius=10)
     camp.edge_lanterns()
 
@@ -1205,6 +1248,9 @@ def camp_spindle(camp):
     camp.hut(S - 9, S - 9, 6, 6, 'north', 'frame')
     corner_feature(camp, 5, 5)
     corner_feature(camp, S - 6, 5)
+    # their own craft: a Loom Anchor with the sixth voice standing beside it
+    t.set(C + 6, FLOOR, C + 6, 'tribalpower:loom_anchor', {'lit': 'false'})
+    t.set(C + 5, FLOOR, C + 6, 'tribalpower:resonance_totem_loom')
     camp.scatter(['tribalpower:march_crystal', 'minecraft:cyan_wool', 'tribalpower:march_moss', ('minecraft:barrel', {'facing': 'up', 'open': 'false'})], 6, avoid_radius=8)
     camp.edge_lanterns()
 

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "P": {
+      "item": "tribalpower:march_planks"
+    },
+    "K": {
+      "item": "tribalpower:knotted_root"
+    },
+    "W": {
+      "item": "tribalpower:water_seal"
+    }
+  },
+  "pattern": [
+    "LPL",
+    "PKP",
+    " W "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:wave_drum"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "tribalpower:bell_fragment"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "F": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    }
+  },
+  "pattern": [
+    " B ",
+    "CFC",
+    "CSC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:wake_bell"
+  }
+}

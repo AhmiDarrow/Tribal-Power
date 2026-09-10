@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/wind_harp_off"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/wind_harp"
+    }
+  }
+}

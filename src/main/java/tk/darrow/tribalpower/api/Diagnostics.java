@@ -104,6 +104,8 @@ public final class Diagnostics {
                     else if (be instanceof LeyCollectorBlockEntity) {
                         perSecond = level.hasNeighborSignal(cursor) ? "0" : String.format("%.1f", LeyMath.gain(level, cursor) * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
                     } else if (be instanceof PulseResonatorBlockEntity resonator) perSecond = Integer.toString(resonator.getGain());
+                    else if (be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator generator)
+                        perSecond = Integer.toString(generator.currentOutput());
                     else continue;
                     PulseHandler handler = (PulseHandler) be;
                     lines.add(Component.translatable("diag.tribalpower.generator", be.getBlockState().getBlock().getName(),

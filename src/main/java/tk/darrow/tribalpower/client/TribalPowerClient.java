@@ -22,6 +22,8 @@ public final class TribalPowerClient {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::screen);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::gui);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::screen);
+        modBus.addListener(TribalColors::items);
+        modBus.addListener(TribalColors::blocks);
         modBus.addListener(ClientSetup::onClientSetup);
         modBus.addListener(ClientSetup::registerRenderers);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {

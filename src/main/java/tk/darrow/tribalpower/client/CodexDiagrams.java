@@ -28,7 +28,17 @@ final class CodexDiagrams {
     private static final String[] STATUS = {"PAUSED", "NO VOICE", "OUTPUT FULL", "HUMMING"};
     private static final int[] STATUS_COLOUR = {0xFFE07A5F, 0xFFE4C18A, 0xFFE4C18A, 0xFF74DBCB};
 
-    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE }
+    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN }
+
+    /** The placement rites, in the order the Codex teaches them; {@link Flow#variant()} indexes this. */
+    private static final tk.darrow.tribalpower.pattern.RitualPattern[] PATTERNS = {
+            tk.darrow.tribalpower.pattern.ModPatterns.STONE_FONT,
+            tk.darrow.tribalpower.pattern.ModPatterns.LISTENING_PIT,
+            tk.darrow.tribalpower.pattern.ModPatterns.RITE_CIRCLE,
+            tk.darrow.tribalpower.pattern.ModPatterns.VOICE_RING,
+            tk.darrow.tribalpower.pattern.ModPatterns.SHATTER_ARRAY,
+            tk.darrow.tribalpower.pattern.ModPatterns.WAY_GATE,
+            tk.darrow.tribalpower.pattern.ModPatterns.FAR_GATE};
 
     /** One diagram: {@code middle} may be empty; {@code moving} changes shape mid-line for the CHAIN and workshop flows. */
     record Flow(Kind kind, String label, ItemStack first, ItemStack last, ItemStack moving, ItemStack middle, int accent, int variant) {}
@@ -75,6 +85,21 @@ final class CodexDiagrams {
             case "camp_grove_tender" -> flow(Kind.FLOW, "PLANT > GROW > HARVEST", "minecraft:wheat_seeds", "minecraft:wheat", "minecraft:wheat_seeds", "", 0xFF7BC96F, 1);
             case "camp_wayanchor" -> flow(Kind.FLOW, "SUPPLY > SUSTAIN > RELEASE", "wayanchor", "pulse_cell", "wayanchor", "", TEAL, 0);
             case "camp_hush_totem" -> flow(Kind.FLOW, "SUPPLY > WARD > REST", "hush_totem", "pulse_cell", "hush_totem", "", TEAL, 0);
+            case "pattern_stone_font" -> new Flow(Kind.PATTERN, "FONT + FOUR MARKS", stack("ritual_chalk"), stack("stone_font"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 0);
+            case "pattern_listening_pit" -> new Flow(Kind.PATTERN, "ANCHOR > CHALK > MESH", stack("anchor_stone"), stack("resonance_mesh"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 1);
+            case "pattern_rite_circle" -> new Flow(Kind.PATTERN, "BRAZIER + FOUR PEDESTALS", stack("rite_pedestal"), stack("ritual_brazier"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 2);
+            case "pattern_voice_ring" -> new Flow(Kind.PATTERN, "TOTEMS AT RADIUS THREE", stack("resonance_totem_earth"), stack("pulse_resonator"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 3);
+            case "pattern_shatter_array" -> new Flow(Kind.PATTERN, "FOUR TOTEMS, ONE CACHE", stack("resonance_totem_earth"), stack("echo_shatter"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 4);
+            case "gate_way" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
+            case "gate_far" -> new Flow(Kind.PATTERN, "FRAME + FOUR ANCHORS", stack("anchor_stone"), stack("gate_sigil"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF62D1C9, 6);
+            case "grit_split" -> flow(Kind.CHAIN, "CRUSH > FIRE | SHATTER", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "echo_shatter", GOLD, 0);
+            case "voice_ember_horn" -> flow(Kind.FLOW, "FEED > BURN > GIVE", "minecraft:coal", "ember_horn", "minecraft:coal", "", 0xFFEB8449, 0);
+            case "voice_wind_harp" -> flow(Kind.FLOW, "SKY > HEIGHT > STORM", "wind_harp", "pulse_cell", "minecraft:feather", "", 0xFFC0DAC2, 0);
+            case "voice_wave_drum" -> flow(Kind.FLOW, "WATER > PIPE > BEAT", "minecraft:water_bucket", "wave_drum", "minecraft:water_bucket", "spirit_cistern", 0xFF5FB8D9, 0);
+            case "voice_wake_bell" -> flow(Kind.FLOW, "DEATH > HOLD > TOLL", "wake_bell", "pulse_cell", "spirit_shard", "", 0xFFA688DD, 0);
+            case "voice_loom_anchor" -> flow(Kind.FLOW, "VOICES > THREAD > GIVE", "resonance_totem_loom", "loom_anchor", "loom_thread", "", 0xFF62D1C9, 0);
+            case "voice_pulse_cairn" -> flow(Kind.FLOW, "BURST > HOLD > STEADY", "wake_bell", "pulse_cairn", "pulse_cell", "", TEAL, 0);
+            case "automation_contract" -> flow(Kind.LOGIC, "HELD STILLS > STRUCK CALLS", "minecraft:lever", "minecraft:redstone_lamp", "minecraft:redstone", "minecraft:comparator", 0xFFE07A5F, 0);
             default -> null;
         };
         if (exact != null) return exact;
@@ -109,11 +134,51 @@ final class CodexDiagrams {
             case LENS -> lens(g, f, bx, y, span, lineStart, lineEnd, t);
             case LOGIC -> logic(g, font, f, bx, y, span, lineStart, lineEnd, railY, t, item);
             case DIAGNOSE -> diagnose(g, font, f, bx, y, span, lineStart, lineEnd, railY, t);
+            case PATTERN -> { pattern(g, f, bx, y, span, t, item); return HEIGHT; }
             default -> plain(g, f, bx, y, span, lineStart, lineEnd, railY, t, item);
         }
         item.accept(f.first(), new int[]{bx, y + 29});
         item.accept(f.last(), new int[]{bx + span - 16, y + 29});
         return HEIGHT;
+    }
+
+    /**
+     * A placement rite drawn from above: one square per cell of the working course, the anchor in the
+     * accent colour, and a highlight walking the cells so the shape reads as something you build rather
+     * than something you own. The shape comes from the pattern itself, so a diagram can never drift from
+     * what the matcher actually wants.
+     */
+    private static void pattern(GuiGraphics g, Flow f, int bx, int y, int span, double t,
+                                BiConsumer<ItemStack, int[]> item) {
+        tk.darrow.tribalpower.pattern.RitualPattern shape = PATTERNS[Math.floorMod(f.variant(), PATTERNS.length)];
+        tk.darrow.tribalpower.pattern.RitualPattern.Tier tier = shape.tiers().getFirst();
+        java.util.List<tk.darrow.tribalpower.pattern.RitualPattern.Cell> course = new java.util.ArrayList<>();
+        for (var c : tier.cells()) if (c.offset().getY() == 0 && !c.predicate().trivial()) course.add(c);
+
+        int minX = 0, maxX = 0, minZ = 0, maxZ = 0;
+        for (var c : course) {
+            minX = Math.min(minX, c.offset().getX()); maxX = Math.max(maxX, c.offset().getX());
+            minZ = Math.min(minZ, c.offset().getZ()); maxZ = Math.max(maxZ, c.offset().getZ());
+        }
+        int cols = maxX - minX + 1, rows = maxZ - minZ + 1, size = 6, gap = 1;
+        int gridW = cols * (size + gap), gridH = rows * (size + gap);
+        int ox = bx + span / 2 - gridW / 2, oy = y + 20 + Math.max(0, (44 - gridH) / 2);
+
+        for (int gx = 0; gx < cols; gx++)
+            for (int gz = 0; gz < rows; gz++) {
+                int px = ox + gx * (size + gap), pz = oy + gz * (size + gap);
+                g.fill(px, pz, px + size, pz + size, DIM);
+            }
+        int lit = course.isEmpty() ? 0 : (int) (t * 2) % course.size();
+        for (int i = 0; i < course.size(); i++) {
+            var c = course.get(i);
+            int px = ox + (c.offset().getX() - minX) * (size + gap), pz = oy + (c.offset().getZ() - minZ) * (size + gap);
+            g.fill(px, pz, px + size, pz + size, i == lit ? PAPER : TEAL);
+        }
+        int ax = ox + (0 - minX) * (size + gap), az = oy + (0 - minZ) * (size + gap);
+        g.fill(ax, az, ax + size, az + size, f.accent());
+        item.accept(f.first(), new int[]{bx, y + 29});
+        item.accept(f.last(), new int[]{bx + span - 16, y + 29});
     }
 
     private static void rail(GuiGraphics g, int lineStart, int lineEnd, int railY, double t, int colour) {

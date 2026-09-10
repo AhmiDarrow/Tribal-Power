@@ -23,7 +23,9 @@ public class TribeStandingSavedData extends SavedData {
     private static final class Record {
         final int[] standing = new int[TRIBES];
         final int[] kills = new int[TRIBES];
+        final int[] offerings = new int[TRIBES];
         long killDay = -1;
+        long offerDay = -1;
         int marks; // bitmask of tribes whose Mark was granted
     }
 
@@ -68,6 +70,30 @@ public class TribeStandingSavedData extends SavedData {
         return true;
     }
 
+    /**
+     * Standing still allowed today from hearth offerings, consuming what it grants.
+     *
+     * <p>Same idiom as the kill cap, and it exists for the same reason: without it, renewable ore feeds
+     * the hearth that gates the pit that makes the ore (design 3.1 section 7.7).
+     *
+     * @return how much of {@code want} may actually be granted, 0 when the day is spent
+     */
+    public int allowOffering(UUID player, TribeDefinition tribe, long day, int cap, int want) {
+        if (want <= 0) return 0;
+        Record r = record(player);
+        if (r.offerDay != day) { r.offerDay = day; Arrays.fill(r.offerings, 0); setDirty(); }
+        int spent = r.offerings[tribe.ordinal()];
+        int allowed = Math.max(0, Math.min(want, cap - spent));
+        if (allowed > 0) { r.offerings[tribe.ordinal()] = spent + allowed; setDirty(); }
+        return allowed;
+    }
+
+    /** Standing already taken from offerings today, for diagnostics and tests. */
+    public int offeringsToday(UUID player, TribeDefinition tribe, long day) {
+        Record r = records.get(player);
+        return r == null || r.offerDay != day ? 0 : r.offerings[tribe.ordinal()];
+    }
+
     public boolean hasMark(UUID player, TribeDefinition tribe) {
         Record r = records.get(player);
         return r != null && (r.marks & (1 << tribe.ordinal())) != 0;
@@ -95,7 +121,10 @@ public class TribeStandingSavedData extends SavedData {
             System.arraycopy(standing, 0, r.standing, 0, Math.min(TRIBES, standing.length));
             int[] kills = entry.getIntArray("Kills");
             System.arraycopy(kills, 0, r.kills, 0, Math.min(TRIBES, kills.length));
+            int[] offerings = entry.getIntArray("Offerings");
+            System.arraycopy(offerings, 0, r.offerings, 0, Math.min(TRIBES, offerings.length));
             r.killDay = entry.getLong("KillDay");
+            r.offerDay = entry.contains("OfferDay") ? entry.getLong("OfferDay") : -1;
             r.marks = entry.getInt("Marks");
             data.records.put(entry.getUUID("Id"), r);
         }
@@ -110,7 +139,9 @@ public class TribeStandingSavedData extends SavedData {
             entry.putUUID("Id", e.getKey());
             entry.putIntArray("Standing", e.getValue().standing);
             entry.putIntArray("Kills", e.getValue().kills);
+            entry.putIntArray("Offerings", e.getValue().offerings);
             entry.putLong("KillDay", e.getValue().killDay);
+            entry.putLong("OfferDay", e.getValue().offerDay);
             entry.putInt("Marks", e.getValue().marks);
             players.add(entry);
         }

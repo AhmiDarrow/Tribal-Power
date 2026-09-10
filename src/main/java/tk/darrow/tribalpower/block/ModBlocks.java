@@ -287,6 +287,55 @@ public final class ModBlocks {
     public static final DeferredBlock<LatticeUtilityBlock> PULSE_ADAPTER = utility("pulse_adapter");
     public static final DeferredBlock<LatticeUtilityBlock> SPIRIT_CISTERN = utility("spirit_cistern");
 
+    // The Listening Pit and the Stone Font (design 3.1 sections 6 and 7)
+    public static final DeferredBlock<ResonanceMeshBlock> RESONANCE_MESH = BLOCKS.register(
+            "resonance_mesh",
+            () -> new ResonanceMeshBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .strength(3.5F)
+                    .sound(SoundType.COPPER)
+                    .requiresCorrectToolForDrops())
+    );
+
+    public static final DeferredBlock<Block> ANCHOR_STONE = BLOCKS.registerSimpleBlock(
+            "anchor_stone",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .strength(2.5F, 8.0F)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+    );
+
+    public static final DeferredBlock<RitualMarkBlock> RITUAL_MARK = BLOCKS.register(
+            "ritual_mark",
+            () -> new RitualMarkBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SNOW)
+                    .instabreak()
+                    .noCollission()
+                    .noOcclusion()
+                    .sound(SoundType.WOOL)
+                    .replaceable())
+    );
+
+    public static final DeferredBlock<StoneFontBlock> STONE_FONT = BLOCKS.register(
+            "stone_font",
+            () -> new StoneFontBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .strength(2.5F)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops())
+    );
+
+    public static final DeferredBlock<PulseCairnBlock> PULSE_CAIRN = BLOCKS.register(
+            "pulse_cairn",
+            () -> new PulseCairnBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_CYAN)
+                    .strength(3.0F)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(s -> 3))
+    );
+
     public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->
             new RitualBrazierBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F).sound(SoundType.COPPER).lightLevel(s -> 5).noOcclusion()));
 }

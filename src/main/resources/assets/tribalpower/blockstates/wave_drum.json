@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/wave_drum_off"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/wave_drum"
+    }
+  }
+}

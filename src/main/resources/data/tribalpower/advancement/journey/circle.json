@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:ritual_mark"
+    },
+    "title": "Draw the circle",
+    "description": "Complete any pattern. Placement is the ritual: scattered devices are not a rite.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/root"
+}

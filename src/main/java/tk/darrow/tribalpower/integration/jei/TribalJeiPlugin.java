@@ -24,6 +24,10 @@ public class TribalJeiPlugin implements IModPlugin {
     @Override public void registerRecipes(IRecipeRegistration registration) {
         var level=Minecraft.getInstance().level;
         if (level!=null) registration.addRecipes(TYPE,level.getRecipeManager().getAllRecipesFor(LatticeRecipe.TYPE.get()).stream().map(holder -> holder.value()).toList());
+        // Shatterings the grit scan synthesised have no recipe file, so without this they are invisible
+        // to players -- and a modded metal would look unsupported (design 3.1 section 1.4).
+        registration.addRecipes(TYPE,tk.darrow.tribalpower.grit.GritRegistry.allFormulae().stream()
+                .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
         registration.addIngredientInfo(ModItems.SPIRIT_STAFF.get(),Component.translatable("item.tribalpower.spirit_staff.desc",12));
         registration.addIngredientInfo(ModItems.LATTICE_TUNER.get(),Component.translatable("item.tribalpower.lattice_tuner.desc"));
     }

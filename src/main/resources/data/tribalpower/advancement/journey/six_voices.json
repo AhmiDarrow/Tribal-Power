@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:loom_anchor"
+    },
+    "title": "Six voices singing",
+    "description": "Have all six generators producing within 32 blocks of each other, one per voice.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/ask_the_ground"
+}

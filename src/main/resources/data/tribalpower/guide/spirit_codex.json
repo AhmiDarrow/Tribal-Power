@@ -19,7 +19,7 @@
     {
       "id": "chapter_4",
       "title": "Drumheart",
-      "text": "Strike empty-handed. Beats about one second apart yield 24 Pulse; offbeat hits yield 10. Redstone rising edges give 5, with an 8-tick cooldown. Build a clock to automate rhythm."
+      "text": "Strike empty-handed. Beats about one second apart yield 24 Pulse; offbeat hits yield 10. Redstone now pays by the same tempo: a rising edge 17 to 23 ticks after the last one is worth 24, anything else 10, and nothing closer than 8 ticks counts at all. A well-built one-second clock makes 24 a second; a spam clock makes 10. The drum is not loud. The drum is steady."
     },
     {
       "id": "chapter_5",
@@ -59,7 +59,7 @@
     {
       "id": "chapter_12",
       "title": "Shatter",
-      "text": "Earth turns stone into Echo Shards. Raw iron, copper and gold become two grits each. Smelt or blast grits into ingots. Shared raw-material tags accept compatible ores from other mods."
+      "text": "Earth turns stone into Echo Shards. Metals and gems are two different crafts: a metal goes raw item or silk-touched ore to grit, then grit to ingot in any furnace, while a gem or mineral goes silk-touched ore straight to the gem itself at twice the ore\u2019s own drop. The gem is never an input, because gem to gem would be a dupe. Every metal and mineral in the common tags is found automatically, so a modded ore works with no datapack."
     },
     {
       "id": "chapter_13",
@@ -164,7 +164,7 @@
     {
       "id": "chapter_33",
       "title": "Redstone language",
-      "text": "High signal pauses workshops, conductors, resonators, collectors, relays and braziers; it locks storage and travel destinations. The Drumheart instead listens for rising edges to make beats."
+      "text": "A held signal stills the work. A struck signal calls it once. Holding a line high pauses workshops, conductors, resonators, collectors, relays, braziers, meshes, fonts, pedestals, gate keystones and every generator, and locks storage and travel destinations. A rising edge is a call, and only devices that do a discrete thing listen for one: a Drumheart takes a beat, a Ritual Brazier fires its seated rite, a keystone lights or darkens. Nothing is ever lost to a pause."
     },
     {
       "id": "chapter_34",
@@ -473,66 +473,186 @@
     },
     {
       "id": "chapter_95",
+      "title": "Placement is the ritual",
+      "text": "A device that claims to be a rite has to be arranged, not scattered. A pattern is a shape you build around one anchor block: the Stone Font and its chalk, the Listening Pit and its anchor stones, the Rite Circle around a brazier, the Voice Ring around a Resonator, the Shatter Array around an Echo station, and both gates. Any rotation works. Sneak-use the Spirit Codex on the anchor to be told the tier, the facing, and the first three things that are missing, with ghosts where they should go."
+    },
+    {
+      "id": "chapter_96",
+      "title": "Ritual Mark",
+      "text": "Draw marks with Ritual Chalk on the top of any solid block. They are flat, walked over rather than around, and removed by breaking them; they drop nothing, because the chalk was spent when the mark was made. Chalk keeps its other job of linking totems. Marks are what join a pattern together."
+    },
+    {
+      "id": "chapter_97",
+      "title": "Anchor Stone",
+      "text": "Four March Stone and an Echo Shard make four anchor stones. They brace the corners of a pattern and do nothing else: no Pulse, no inventory, no upkeep. A pattern that has them is a tier higher than one that does not."
+    },
+    {
+      "id": "chapter_98",
+      "title": "Stone Font",
+      "text": "Stone is not made. Stone is asked to stay. Four stone, two Echo Shards and a Drumheart. Put a font down with four chalk marks around it and it asks for cobblestone every two seconds at 4 Pulse a second \\u2014 slow enough to run on a hand-drummed Drumheart, which is the point. Brace the corners with anchor stones and bring the Earth voice and it asks for stone at 8 Pulse a second. Add Fire and Water both and it asks for obsidian at 24. Below y 0 it gives the deepslate of each tier instead."
+    },
+    {
+      "id": "chapter_99",
+      "title": "Listening Pit",
+      "text": "The mesh does not find the ore. The mesh gives the ore somewhere to land. Lay stone or deepslate, brace four corners with anchor stones, chalk from each edge to the middle, and set a Resonance Mesh at the centre with an Ancestral Cache beside it and the Earth voice within eight blocks. Feed substrate from the sides, seat a sample on top, take ore from the bottom \\u2014 or let the mesh empty itself into the cache, which is what the normal build does."
+    },
+    {
+      "id": "chapter_100",
+      "title": "Deep Listening",
+      "text": "The seven by seven doubles the corner bracing, seats a totem at each cardinal edge, and wants a Tribe Hearth or a Grit-singer Kinship Totem standing inside the pattern. It is what opens the deep, hot and rare bands. The Grit-singers gate all of it by standing: Friend for the common band, Kin for the deep, Voice and their kinship for the rare."
+    },
+    {
+      "id": "chapter_101",
+      "title": "What the ground offers",
+      "text": "The pit calls up exactly what a silk-touch mining trip would: the raw item for a metal, the ore block for a gem. Common is coal, copper and iron at 10 seconds and 14 Pulse a second on two stone. Deep is gold, redstone, lapis and quartz at 15 seconds and 18, on two March Stone. Hot is the Nether\\u2019s quartz and gold at 20 seconds and 36. Rare is diamond, emerald and whatever a modded pack added, at 40 seconds and 24, on four March Stone and a Spirit Shard, twice as much a quarter of the time."
+    },
+    {
+      "id": "chapter_102",
+      "title": "Sample and substrate",
+      "text": "A sample is a filter, never an ingredient: it is not consumed, and a material it names weighs six times as much as anything else in the band. A sample the band does not hold is simply ignored, and the Codex says so. Substrates are all renewable on purpose \\u2014 stone from a Stone Font, March Stone from cobble \\u2014 so no tier is ever throttled behind a pickaxe. Per iron ingot the pit costs about 70 Pulse against 20 for shattering ore you mined. Mining stays efficient. The pit buys walking away."
+    },
+    {
+      "id": "chapter_103",
+      "title": "Voices at the pit",
+      "text": "Each voice trades one thing for another; none of them is a plain multiplier. Earth is required. Water washes for 250 mB a cycle and gives one extra output every third cycle. Air quickens the cycle to about two thirds and charges half again as much a second, so the Pulse per item does not move and only throughput does. Fire opens the hot band at twice the Pulse. Spirit listens a band deeper and opens the rare one. The Loom halves the substrate, rounded up."
+    },
+    {
+      "id": "chapter_104",
+      "title": "Way Gate",
+      "text": "Six March Stone, two copper and an Echo Shard make four Gate Frames; four frames, a Resonant Core, a Spirit Shard and a Pulse Cell make the keystone. Build a five by five ring without its corners and put the keystone at the bottom centre. Charge it from a Pulse Cell, then light it by hand or with a struck signal: 400 Pulse out of its own 600. Twenty Pulse carries anything that walks in \\u2014 players, mobs and dropped items alike, which is what makes a gate pair bulk logistics."
+    },
+    {
+      "id": "chapter_105",
+      "title": "Far Gate",
+      "text": "A taller frame around a three by four interior, braced by four anchor stones at the corners of its footprint, with the Loom voice within eight blocks \\u2014 so crossing dimensions sits behind The Unsung. Link two of them with a Gate Sigil: a Blank Seal, a Loom Thread and a Spirit Shard. Sneak-use it on one keystone to write that gate down, then use it on the other to tie the pair both ways. Travel is 120 Pulse with a two-second breath afterwards."
+    },
+    {
+      "id": "chapter_106",
+      "title": "Keeping the way",
+      "text": "Way Gates link locally: sneak-use a bound Waystone Compass on a keystone, or draw chalk from one keystone to the other within 64 blocks. A gate always lands you inside the far gate\\u2019s own interior and never terraforms; if there is nowhere to stand the trip refuses and the Pulse comes back. The far end is held loaded for ten seconds around your arrival, so an unloaded partner still answers. Break a keystone and its partner is released and anyone standing near it is told. /tribalpower gate list and /tribalpower gate unlink read and cut the threads."
+    },
+    {
+      "id": "chapter_107",
+      "title": "Ember Horn",
+      "text": "The Drumhearts\\u2019 craft. Feed it any furnace fuel by hand, hopper or relay: burn time divided by twenty is Pulse, delivered at up to 20 a second. Coal is 80, a coal block 800, a lava bucket 1,000, a blaze rod 120. The rate is the real cap, so scaling means more horns \\u2014 and horns are a tribe craft. Nothing you can automate turns fuel into more fuel than it burns."
+    },
+    {
+      "id": "chapter_108",
+      "title": "Wind Harp",
+      "text": "The Pattern-weavers\\u2019 craft, and free, so it is capped instead. One Pulse a second as a base and one more under open sky; one more above y 128 and two above y 192; one more in rain or two in a storm. Six a second is the whole of the wind. Harps within twelve blocks divide it between them, so a wall of harps is a wall of decorations. Under a roof it makes nothing at all."
+    },
+    {
+      "id": "chapter_109",
+      "title": "Wave Drum",
+      "text": "The Rootbinders\\u2019 craft, and the second job for fluid transport. Three a second standing beside water, shared with any drum within eight blocks. Give it its own water instead \\u2014 a bucket, a cistern, a fluid relay \\u2014 and it makes ten a second for 100 mB a second, which nothing crowds out because the water is already the limit. Rain doubles either tier."
+    },
+    {
+      "id": "chapter_110",
+      "title": "Wake Bell",
+      "text": "The Seal-carvers\\u2019 craft, and what turns a mob farm into a power plant. Twenty Pulse for a hostile death within sixteen blocks and five for a passive one, gathered into a reservoir of 2,000 that lets out at most eight a second. A big farm fills the reservoir and then idles rather than scaling to absurdity. Only the nearest bell hears a death, so stacking bells buys nothing."
+    },
+    {
+      "id": "chapter_111",
+      "title": "Loom Anchor",
+      "text": "The Loom-stitchers\\u2019 craft, and the one that pays for completeness. One Pulse a second per distinct voice within eight blocks, to a maximum of six, doubled while a Ley Binding is live nearby. It generates from the system itself, so it needs no cap of its own: there are only six voices."
+    },
+    {
+      "id": "chapter_112",
+      "title": "Pulse Cairn",
+      "text": "Six March Stone, two Bound Echoes and a Pulse Cell. Each cairn holds 4,000 Pulse and draws surplus out of nearby generators; stack up to five in a column and the sixth stone is just a stone. A comparator reads how full it is. A cairn is what turns a Wake Bell\\u2019s bursts into the steady draw a Listening Pit wants."
+    },
+    {
+      "id": "chapter_113",
+      "title": "Spring Calling",
+      "text": "Rain Calling\\u2019s small sibling: two stone, a Spirit Reed and the Water Seal, and the seal comes back. Three hundred Pulse at a brazier with a Spirit Cistern beside it marks that cistern a spring, and it refills 100 mB a second for ten minutes. Cheap and repeatable, and it is where the water for a Wave Drum, for Washing and for anything else that drinks comes from. March-side lava stays a manual haul: the Ember Horn\\u2019s best fuel should cost a trip."
+    },
+    {
+      "id": "chapter_114",
+      "title": "Draw the circle",
+      "text": "A brazier\\u2019s blessing still needs nothing but a seated seal. A tablet rite now wants its circle: the brazier in the middle, four Rite Pedestals on the diagonals, and chalk joining them. Seat four totems of the rite\\u2019s own voice on the cardinals and it costs a quarter less and lasts twice as long. This is the one deliberate change to something that already worked, and the failure message says so."
+    },
+    {
+      "id": "chapter_115",
+      "title": "A rite on a clock",
+      "text": "A Rite Pedestal now holds and shows one item, and a comparator reads whether it is occupied. That is the whole of what an automatic rite loop needs: a relay restocks a pedestal with a tablet, a clock strikes the brazier, the rite fires and spends the tablet, and the comparator reports the pedestal empty. No fake players, no hidden inventories \\u2014 everything a player can do by hand, a base can do on a clock."
+    },
+    {
+      "id": "chapter_116",
+      "title": "Metals and gems",
+      "text": "Grit means one thing now: crushed metal waiting for the fire. A metal is raw item or silk-touched ore to grit, then grit to ingot in a furnace or blast furnace. A gem or mineral skips the fire entirely \\u2014 silk-touched ore shatters straight into the gem at twice the ore\\u2019s own drop, so coal, diamond, emerald and quartz give two and redstone and lapis give eight. The gem itself is never an input. Modded metals ride one Mineral Grit item that names its own material, and light up with no datapack."
+    },
+    {
+      "id": "chapter_117",
+      "title": "Voice Ring",
+      "text": "A Pulse Resonator surrounded by totems standing at radius three, on its own level, counts every voice among them. Totems merely near it still work exactly as they did, but a heap counts at most five voices: six-voice resonance only counts when the voices are actually arranged."
+    },
+    {
+      "id": "chapter_118",
+      "title": "Shatter Array",
+      "text": "Centre an Echo station in a five by five with four totems of the recipe\\u2019s own attunement at the corners and an Ancestral Cache beneath. The station then costs a quarter less Pulse and empties itself into the cache. Entirely optional, and every station works exactly as before without it."
+    },
+    {
+      "id": "chapter_119",
       "title": "Dawn Stag",
       "text": "A dawn grazer that carries the old forest song in its antlers. Breed with wheat; brush adults for Dawn Velvet. Bond an adult with a Bonding Charm to ride it without a saddle."
     },
     {
-      "id": "chapter_96",
+      "id": "chapter_120",
       "title": "Lantern Fox",
       "text": "A shy dusk forager whose tail marks safe paths. Breed with sweet berries; brush adults for Lantern Down. Bond an adult with a Bonding Charm for a lantern that follows you."
     },
     {
-      "id": "chapter_97",
+      "id": "chapter_121",
       "title": "Mossback",
       "text": "A patient wetland gardener with a living shell. Breed with seagrass; brush adults for a naturally shed Mossback Scale. Bond an adult with a Bonding Charm for a walking saddlebag."
     },
     {
-      "id": "chapter_98",
+      "id": "chapter_122",
       "title": "Ashbound",
       "text": "The remains of a broken fire rite. Its melee strikes briefly ignite; keep water close."
     },
     {
-      "id": "chapter_99",
+      "id": "chapter_123",
       "title": "Rootbound",
       "text": "A grove guardian twisted by a severed ley line. Slow but sturdy; its blows root travellers briefly."
     },
     {
-      "id": "chapter_100",
+      "id": "chapter_124",
       "title": "Reed Stalker",
       "text": "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
     },
     {
-      "id": "chapter_101",
+      "id": "chapter_125",
       "title": "Shardback",
       "text": "A crystal-field scavenger armored in singing stone. Keep your distance from its heavy shove."
     },
     {
-      "id": "chapter_102",
+      "id": "chapter_126",
       "title": "Hollow Sentinel",
       "text": "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
     },
     {
-      "id": "chapter_103",
+      "id": "chapter_127",
       "title": "Storm Moth",
       "text": "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust; cover breaks the attack."
     },
     {
-      "id": "chapter_104",
+      "id": "chapter_128",
       "title": "Cinder Imp",
       "text": "A nimble ember spirit. It gathers sparks before a burning bolt; the spell never ignites terrain."
     },
     {
-      "id": "chapter_105",
+      "id": "chapter_129",
       "title": "Mourning Bell",
       "text": "A floating relic that remembers the lost tribes. Its telegraphed chime slows; shelter interrupts the song."
     },
     {
-      "id": "chapter_106",
+      "id": "chapter_130",
       "title": "Rift Hound",
       "text": "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
     },
     {
-      "id": "chapter_107",
+      "id": "chapter_131",
       "title": "Echo Weaver",
       "text": "An eight-legged keeper of broken songs. Its bite slows prey without placing webs or damaging the camp."
     }

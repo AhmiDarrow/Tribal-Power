@@ -61,6 +61,10 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.ANCESTRAL_CACHE.get());
                         out.accept(ModItems.DEEP_CACHE.get());
                         out.accept(ModItems.RITE_PEDESTAL.get());
+                        out.accept(ModItems.RESONANCE_MESH.get());
+                        out.accept(ModItems.ANCHOR_STONE.get());
+                        out.accept(ModItems.STONE_FONT.get());
+                        out.accept(ModItems.PULSE_CAIRN.get());
                         out.accept(ModItems.GATE_DRUM.get());
                         out.accept(ModItems.SPIRIT_DOOR.get());
                         out.accept(ModItems.MARCH_STONE.get());
@@ -103,6 +107,9 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.WAYSTONE_COMPASS.get());
                         out.accept(ModItems.HORIZON_COMPASS.get());
                         out.accept(ModItems.ASTRAL_COMPASS.get());
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.displayItems(out);
+                        tk.darrow.tribalpower.gate.GateRegistry.displayItems(out);
+                        tk.darrow.tribalpower.grit.GritItems.displayItems(out);
                         tk.darrow.tribalpower.rite.world.WorldRiteRegistry.displayItems(out);
                         tk.darrow.tribalpower.ley.LeyRegistry.displayItems(out);
                         tk.darrow.tribalpower.logic.LogicRegistry.displayItems(out);

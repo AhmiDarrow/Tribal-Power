@@ -74,4 +74,21 @@ public final class ModBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EchoStationBlockEntity>> ECHO_STATION =
             BLOCK_ENTITIES.register("echo_station", () -> BlockEntityType.Builder.of(EchoStationBlockEntity::new,
                     ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get(), ModBlocks.ECHO_UNWEAVE.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ResonanceMeshBlockEntity>> RESONANCE_MESH =
+            BLOCK_ENTITIES.register("resonance_mesh", () -> BlockEntityType.Builder.of(ResonanceMeshBlockEntity::new, ModBlocks.RESONANCE_MESH.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StoneFontBlockEntity>> STONE_FONT =
+            BLOCK_ENTITIES.register("stone_font", () -> BlockEntityType.Builder.of(StoneFontBlockEntity::new, ModBlocks.STONE_FONT.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PulseCairnBlockEntity>> PULSE_CAIRN =
+            BLOCK_ENTITIES.register("pulse_cairn", () -> BlockEntityType.Builder.of(PulseCairnBlockEntity::new, ModBlocks.PULSE_CAIRN.get()).build(null));
+
+    /**
+     * The Rite Pedestal gains a block entity in 3.1 so it can hold and render an item and answer a
+     * comparator. Pedestals placed in 3.0 worlds have no saved block entity; modern chunk loading creates
+     * one on demand from the block, so they wake up empty rather than broken (design 3.1 section 16).
+     */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RitePedestalBlockEntity>> RITE_PEDESTAL =
+            BLOCK_ENTITIES.register("rite_pedestal", () -> BlockEntityType.Builder.of(RitePedestalBlockEntity::new, ModBlocks.RITE_PEDESTAL.get()).build(null));
 }

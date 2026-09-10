@@ -97,6 +97,7 @@ public class DrumheartBlock extends BaseEntityBlock {
 
     @Override
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbor, BlockPos neighborPos, boolean movedByPiston) {
+        // A struck signal calls the beat once. Holding the line high is not a faster drum, it is one beat.
         if (!level.isClientSide && level.hasNeighborSignal(pos) && level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum) {
             drum.onRedstonePulse();
         }

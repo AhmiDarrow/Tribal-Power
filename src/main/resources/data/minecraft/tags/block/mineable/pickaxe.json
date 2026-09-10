@@ -14,6 +14,15 @@
     "tribalpower:pulse_gauge",
     "tribalpower:pulse_threshold",
     "tribalpower:tribe_hearth",
-    "tribalpower:lore_tablet"
+    "tribalpower:lore_tablet",
+    "tribalpower:resonance_mesh",
+    "tribalpower:anchor_stone",
+    "tribalpower:stone_font",
+    "tribalpower:pulse_cairn",
+    "tribalpower:gate_frame",
+    "tribalpower:gate_keystone",
+    "tribalpower:ember_horn",
+    "tribalpower:wake_bell",
+    "tribalpower:loom_anchor"
   ]
 }

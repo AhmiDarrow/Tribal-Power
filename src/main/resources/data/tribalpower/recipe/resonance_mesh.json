@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "A": {
+      "item": "tribalpower:attuned_echo"
+    },
+    "M": {
+      "item": "tribalpower:spiritweave"
+    },
+    "R": {
+      "item": "tribalpower:copper_resonator"
+    }
+  },
+  "pattern": [
+    "SAS",
+    "MRM",
+    "SAS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:resonance_mesh"
+  }
+}

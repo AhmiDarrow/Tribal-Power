@@ -20,6 +20,12 @@ public final class TribeStanding {
     public static final int MAX_CELL_DRAIN = 40;
     public static final int GAIN_KILL = 1;
     public static final int KILL_CAP_PER_DAY = 20;
+    /**
+     * Standing a player can take from one tribe's hearth in a Minecraft day (design 3.1 section 7.7).
+     * The Listening Pit makes ore renewable, and the hearth is what gates the pit; without this cap the
+     * pit would feed the standing that unlocked it.
+     */
+    public static final int OFFER_CAP_PER_DAY = 60;
     public static final int KILL_RADIUS = 24;
     public static final int GAIN_TRADE = 2;
     public static final int LOSS_HURT_KIN = -25;
@@ -69,6 +75,18 @@ public final class TribeStanding {
         }
         for (StandingListener l : LISTENERS) l.onStandingChanged(player, tribe, after - before, after);
         return after;
+    }
+
+    /**
+     * Adds standing from a hearth offering, clamped to {@link #OFFER_CAP_PER_DAY} for that tribe today.
+     * @return standing actually granted, which is 0 once the day is spent
+     */
+    public static int offerGain(ServerPlayer player, TribeDefinition tribe, int want) {
+        long day = player.serverLevel().getDayTime() / 24000L;
+        int allowed = TribeStandingSavedData.get(player.server).allowOffering(player.getUUID(), tribe, day, OFFER_CAP_PER_DAY, want);
+        if (allowed <= 0) return 0;
+        add(player, tribe, allowed);
+        return allowed;
     }
 
     /** +1 per hostile kill within {@link #KILL_RADIUS} of a hearth, capped per Minecraft day per tribe. */

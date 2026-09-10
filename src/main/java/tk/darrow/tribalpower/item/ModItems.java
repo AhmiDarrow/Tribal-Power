@@ -138,4 +138,11 @@ public final class ModItems {
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_LEGGINGS = ITEMS.register("spiritweave_leggings", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_BOOTS = ITEMS.register("spiritweave_boots", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final DeferredItem<BlockItem> RITUAL_BRAZIER = ITEMS.registerSimpleBlockItem("ritual_brazier", ModBlocks.RITUAL_BRAZIER);
+
+    // The Listening Pit and the Stone Font (design 3.1 sections 6 and 7). The Ritual Mark has no item:
+    // it is drawn with chalk, and breaking it is how it is removed.
+    public static final DeferredItem<BlockItem> RESONANCE_MESH = ITEMS.registerSimpleBlockItem("resonance_mesh", ModBlocks.RESONANCE_MESH);
+    public static final DeferredItem<BlockItem> ANCHOR_STONE = ITEMS.registerSimpleBlockItem("anchor_stone", ModBlocks.ANCHOR_STONE);
+    public static final DeferredItem<BlockItem> STONE_FONT = ITEMS.registerSimpleBlockItem("stone_font", ModBlocks.STONE_FONT);
+    public static final DeferredItem<BlockItem> PULSE_CAIRN = ITEMS.registerSimpleBlockItem("pulse_cairn", ModBlocks.PULSE_CAIRN);
 }

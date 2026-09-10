@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:resonance_mesh"
+    },
+    "title": "Ask the ground",
+    "description": "Call the first ore up through a Listening Pit. The mesh does not find the ore; the mesh gives the ore somewhere to land.",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/stone_stays"
+}

@@ -9,7 +9,9 @@ public enum WorldRite {
     DAWN_CALLING("rite_dawn_calling", Attunement.FIRE, 800, 0),
     GREEN_BLESSING("rite_green_blessing", Attunement.EARTH, 600, 20 * 60 * 20),
     STILL_NIGHT("rite_still_night", Attunement.SPIRIT, 600, 15 * 60 * 20),
-    LEY_BINDING("rite_ley_binding", Attunement.LOOM, 1200, 30 * 60 * 20);
+    LEY_BINDING("rite_ley_binding", Attunement.LOOM, 1200, 30 * 60 * 20),
+    /** Rain Calling's small sibling: cheap, repeatable, and where a base's water comes from. */
+    SPRING_CALLING("rite_spring_calling", Attunement.WATER, 300, 10 * 60 * 20);
 
     private final String tabletId;
     private final Attunement element;

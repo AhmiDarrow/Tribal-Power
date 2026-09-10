@@ -72,40 +72,51 @@ public class RiteTabletItem extends Item {
             return Component.translatable("message.tribalpower.rite.wrong_seal",
                     Component.translatable("attunement.tribalpower." + rite.element().getSerializedName()));
         if (level.hasNeighborSignal(brazierPos)) return Component.translatable("message.tribalpower.rite.paused");
-        int available = LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, rite.cost(), true);
-        if (available < rite.cost()) return Component.translatable("message.tribalpower.rite.no_pulse", available, rite.cost());
-        Component failure = apply(level, brazierPos, rite);
+        // Placement is the ritual: a tablet rite wants its circle drawn (design 3.1 section 5).
+        RiteCircle.Result circle = RiteCircle.evaluate(level, brazierPos, rite.element());
+        if (!circle.complete()) return Component.translatable("message.tribalpower.rite.no_circle");
+        int cost = circle.cost(rite.cost());
+        int duration = circle.duration(rite.durationTicks());
+        int available = LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, true);
+        if (available < cost) return Component.translatable("message.tribalpower.rite.no_pulse", available, cost);
+        Component failure = apply(level, brazierPos, rite, duration);
         if (failure != null) return failure;
-        LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, rite.cost(), false);
+        LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, false);
         celebrate(level, brazierPos, rite);
         if (player != null) {
             player.displayClientMessage(Component.translatable("message.tribalpower.rite." + rite.key() + ".done").withStyle(ChatFormatting.AQUA), true);
-            if (player instanceof ServerPlayer serverPlayer) award(serverPlayer);
+            if (player instanceof ServerPlayer serverPlayer) {
+                award(serverPlayer);
+                tk.darrow.tribalpower.camp.CampHooks.award(level, serverPlayer.getUUID(), "journey/circle");
+            }
         }
         return null;
     }
 
     /** The rite's world effect. Returns a failure reason when it cannot take effect. */
     @Nullable
-    private static Component apply(ServerLevel level, BlockPos pos, WorldRite rite) {
+    private static Component apply(ServerLevel level, BlockPos pos, WorldRite rite, int duration) {
         ServerLevel overworld = level.getServer().overworld();
         switch (rite) {
-            case RAIN_CALLING -> overworld.setWeatherParameters(0, rite.durationTicks(), true, false);
-            case SKY_CLEARING -> overworld.setWeatherParameters(rite.durationTicks(), 0, false, false);
+            case RAIN_CALLING -> overworld.setWeatherParameters(0, duration, true, false);
+            case SKY_CLEARING -> overworld.setWeatherParameters(duration, 0, false, false);
             case DAWN_CALLING -> {
                 if (!level.getGameRules().getBoolean(WorldRiteRegistry.ALLOW_DAWN_RITE))
                     return Component.translatable("message.tribalpower.rite.dawn_disabled");
                 long day = overworld.getDayTime();
                 overworld.setDayTime((day / 24000L + 1L) * 24000L);
             }
-            case GREEN_BLESSING -> GreenBlessing.bless(level, pos, rite.durationTicks());
-            case STILL_NIGHT -> TemporaryWards.add(level, pos, 64, rite.durationTicks());
+            case GREEN_BLESSING -> GreenBlessing.bless(level, pos, duration);
+            case STILL_NIGHT -> TemporaryWards.add(level, pos, 64, duration);
+            case SPRING_CALLING -> {
+                if (!Springs.call(level, pos, duration)) return Component.translatable("message.tribalpower.rite.no_cistern");
+            }
             case LEY_BINDING -> {
                 ResonanceTotemBlockEntity first = LeyLines.nearestTotem(level, pos, RADIUS, null);
                 if (first == null) return Component.translatable("message.tribalpower.rite.no_totem");
                 ResonanceTotemBlockEntity second = LeyLines.nearestTotem(level, first.getBlockPos(), LeyLines.RANGE, first.getBlockPos());
                 if (second == null) return Component.translatable("message.tribalpower.rite.no_second_totem", LeyLines.RANGE);
-                LeyLines.bind(level, first.getBlockPos(), second.getBlockPos(), rite.durationTicks());
+                LeyLines.bind(level, first.getBlockPos(), second.getBlockPos(), duration);
                 SpiritEffects.beam(level, first.getBlockPos().getCenter(), second.getBlockPos().getCenter(), Attunement.LOOM);
             }
         }

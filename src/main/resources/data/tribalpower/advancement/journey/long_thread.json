@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:gate_sigil"
+    },
+    "title": "The long thread",
+    "description": "Travel a Far Gate from one dimension to another. The Loom was never one thread.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:journey/open_the_way"
+}

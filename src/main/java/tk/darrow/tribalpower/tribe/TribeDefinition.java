@@ -214,19 +214,26 @@ public enum TribeDefinition {
         };
     }
 
-    /** Six offers: two per rank Guest / Friend / Kin. */
+    /**
+     * Six offers: two per rank Guest / Friend / Kin.
+     *
+     * <p>3.1 gives each voice-keeping tribe its own generator to sell (design 3.1 section 12), which is
+     * what finally makes standing pay. They are swapped in for the least load-bearing offer at the right
+     * rank rather than appended, so the shape of a tribe's counter -- six offers, two per rank -- is
+     * unchanged. Everything displaced is craftable or decorative.
+     */
     public List<Offer> trades() {
         return switch (this) {
             case SOIL -> List.of(
                     Offer.of(TribeRank.GUEST, Items.BREAD, 4, ModItems.ECHO_SHARD.get(), 2),
                     Offer.of(TribeRank.GUEST, Items.MOSS_BLOCK, 6, ModItems.MARCH_MOSS.get(), 4),
-                    Offer.of(TribeRank.FRIEND, ModItems.ECHO_SHARD.get(), 6, ModItems.MARCH_SOIL.get(), 8),
+                    Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 2, ModItems.STONE_FONT.get(), 1),
                     Offer.of(TribeRank.FRIEND, Items.BREAD, 8, ModItems.ATTUNED_ECHO.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.ATTUNED_ECHO.get(), 4, ModItems.ANCESTRAL_CACHE.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 2, Items.MOSS_BLOCK, 8, ModItems.DEEP_CACHE.get(), 1));
             case STONE -> List.of(
                     Offer.of(TribeRank.GUEST, Items.RAW_IRON, 4, ModItems.ECHO_SHARD.get(), 3),
-                    Offer.of(TribeRank.GUEST, Items.RAW_COPPER, 6, ModItems.COPPER_GRIT.get(), 4),
+                    Offer.of(TribeRank.GUEST, ModItems.ATTUNED_ECHO.get(), 4, ModItems.MARCH_STONE.get(), 8, ModItems.RESONANCE_MESH.get(), 1),
                     Offer.of(TribeRank.FRIEND, ModItems.IRON_GRIT.get(), 6, ModItems.ATTUNED_ECHO.get(), 2),
                     Offer.of(TribeRank.FRIEND, Items.RAW_GOLD, 3, ModItems.GOLD_GRIT.get(), 4),
                     Offer.of(TribeRank.KIN, ModItems.ATTUNED_ECHO.get(), 6, ModItems.BOUND_ECHO.get(), 2),
@@ -234,7 +241,7 @@ public enum TribeDefinition {
             case SPROUT -> List.of(
                     Offer.of(TribeRank.GUEST, Items.OAK_SAPLING, 4, ModItems.SPIRIT_REED.get(), 3),
                     Offer.of(TribeRank.GUEST, Items.WHEAT_SEEDS, 12, Items.BONE_MEAL, 8),
-                    Offer.of(TribeRank.FRIEND, ModItems.SPIRIT_REED.get(), 6, ModItems.MARCH_LEAF.get(), 4),
+                    Offer.of(TribeRank.FRIEND, ModItems.SPIRIT_REED.get(), 6, tk.darrow.tribalpower.generator.GeneratorRegistry.WAVE_DRUM_ITEM.get(), 1),
                     Offer.stack(TribeRank.FRIEND, Items.MOSS_BLOCK, 8, () -> reagent(CreatureProfile.MOSSBACK)),
                     Offer.of(TribeRank.KIN, ModItems.ECHO_SHARD.get(), 8, ModItems.MARCH_LOG.get(), 6),
                     Offer.of(TribeRank.KIN, ModItems.SPIRITWEAVE.get(), 2, ModItems.ECHO_BLOOM.get(), 2));
@@ -249,7 +256,7 @@ public enum TribeDefinition {
                     Offer.of(TribeRank.GUEST, Items.COPPER_INGOT, 6, ModItems.BONE_CHIME.get(), 1),
                     Offer.of(TribeRank.GUEST, Items.COPPER_INGOT, 3, ModItems.COPPER_RESONATOR.get(), 1),
                     Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 2, ModItems.PULSE_CELL.get(), 1),
-                    Offer.stack(TribeRank.FRIEND, ModItems.BONE_CHIME.get(), 2, () -> PulseCellItem.createFilled(PulseCellItem.CAPACITY)),
+                    Offer.of(TribeRank.FRIEND, ModItems.BONE_CHIME.get(), 2, Items.COPPER_INGOT, 6, tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN_ITEM.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.RESONANT_CORE.get(), 1, ModItems.GREATER_PULSE_CELL.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, ModItems.DRUMHEART.get(), 1));
             case CLOCK -> List.of(
@@ -258,7 +265,7 @@ public enum TribeDefinition {
                     Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 2, Items.COMPARATOR, 4),
                     Offer.stack(TribeRank.FRIEND, Items.REDSTONE, 16, () -> reagent(CreatureProfile.STORM_MOTH)),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 3, ModItems.LATTICE_CONDUCTOR.get(), 1),
-                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 2, ModItems.ITEM_RELAY.get(), 1));
+                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 2, tk.darrow.tribalpower.generator.GeneratorRegistry.WIND_HARP_ITEM.get(), 1));
             case SWARM -> List.of(
                     Offer.of(TribeRank.GUEST, Items.HONEYCOMB, 4, ModItems.ECHO_SHARD.get(), 2),
                     Offer.of(TribeRank.GUEST, Items.HONEY_BOTTLE, 2, ModItems.LEY_THISTLE.get(), 2),
@@ -274,13 +281,13 @@ public enum TribeDefinition {
                     Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 3, ModItems.SPIRIT_SHARD.get(), 2,
                             tk.darrow.tribalpower.rite.world.WorldRiteRegistry.TABLETS.get(tk.darrow.tribalpower.rite.world.WorldRite.STILL_NIGHT).get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 3, ModItems.RITUAL_BRAZIER.get(), 1),
-                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, ModItems.RESONANCE_TOTEM_SPIRIT.get(), 1));
+                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, tk.darrow.tribalpower.generator.GeneratorRegistry.WAKE_BELL_ITEM.get(), 1));
             case SPINDLE -> List.of(
                     Offer.of(TribeRank.GUEST, ModItems.MARCH_CRYSTAL.get(), 4, ModItems.ECHO_SHARD.get(), 3),
                     Offer.of(TribeRank.GUEST, Items.COMPASS, 1, ModItems.MARCH_PLANKS.get(), 8),
                     Offer.of(TribeRank.FRIEND, ModItems.MARCH_CRYSTAL.get(), 6, ModItems.LOOM_THREAD.get(), 1),
                     Offer.of(TribeRank.FRIEND, ModItems.ATTUNED_ECHO.get(), 4, ModItems.WAYSTONE_COMPASS.get(), 1),
-                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, ModItems.LOOM_THREAD.get(), 1, ModItems.HORIZON_COMPASS.get(), 1),
+                    Offer.of(TribeRank.KIN, ModItems.BOUND_ECHO.get(), 4, ModItems.LOOM_THREAD.get(), 1, tk.darrow.tribalpower.generator.GeneratorRegistry.LOOM_ANCHOR_ITEM.get(), 1),
                     Offer.of(TribeRank.KIN, ModItems.LOOM_THREAD.get(), 2, ModItems.LOOM_SEAL.get(), 1));
         };
     }

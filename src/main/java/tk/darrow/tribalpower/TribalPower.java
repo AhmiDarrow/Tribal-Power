@@ -19,7 +19,8 @@ public final class TribalPower {
     public static final String MOD_ID = "tribalpower";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public TribalPower(IEventBus modBus) {
+    public TribalPower(IEventBus modBus, net.neoforged.fml.ModContainer container) {
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, tk.darrow.tribalpower.config.TribalConfig.SPEC);
         tk.darrow.tribalpower.camp.CampRegistry.BLOCKS.register(modBus);
         tk.darrow.tribalpower.camp.CampRegistry.ITEMS.register(modBus);
         tk.darrow.tribalpower.camp.CampRegistry.ENTITIES.register(modBus);
@@ -55,6 +56,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onClone);
         tk.darrow.tribalpower.echo.DamagedIngredient.INGREDIENT_TYPES.register(modBus);
+
+        // 3.1: patterns, the metal/gem split, the gates and the six voices.
+        tk.darrow.tribalpower.grit.GritItems.register(modBus);
+        tk.darrow.tribalpower.gate.GateRegistry.register(modBus);
+        tk.darrow.tribalpower.generator.GeneratorRegistry.register(modBus);
 
         modBus.addListener(this::onCommonSetup);
         // Rites / QoL (rite/world, ley, logic, api/Diagnostics)

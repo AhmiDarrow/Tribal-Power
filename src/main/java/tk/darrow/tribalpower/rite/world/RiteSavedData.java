@@ -27,6 +27,8 @@ public class RiteSavedData extends SavedData {
 
     /** A temporary ward: hostile spawns suppressed within {@code radius} of {@code center}. */
     public record Ward(String dimension, BlockPos center, int radius, long expiry) {}
+    /** A called spring: a Spirit Cistern that refills itself until {@code expiry}. */
+    public record Spring(String dimension, BlockPos pos, long expiry) {}
     /** A temporary ley line joining two Resonance Totems. */
     public record LeyLine(String dimension, BlockPos a, BlockPos b, long expiry) {
         public boolean touches(BlockPos pos) { return a.equals(pos) || b.equals(pos); }
@@ -36,6 +38,7 @@ public class RiteSavedData extends SavedData {
     private final Map<String, Map<Long, Long>> blessed = new HashMap<>();
     private final List<Ward> wards = new ArrayList<>();
     private final List<LeyLine> leyLines = new ArrayList<>();
+    private final List<Spring> springs = new ArrayList<>();
 
     public static SavedData.Factory<RiteSavedData> factory() {
         return new SavedData.Factory<>(RiteSavedData::new, RiteSavedData::load);
@@ -122,6 +125,33 @@ public class RiteSavedData extends SavedData {
     private void prune(long now) {
         if (wards.removeIf(w -> w.expiry() <= now)) setDirty();
         if (leyLines.removeIf(l -> l.expiry() <= now)) setDirty();
+        if (springs.removeIf(s -> s.expiry() <= now)) setDirty();
+    }
+
+    // ---- Spring Calling ---------------------------------------------------------------------
+
+    /** Marks a cistern a spring, extending rather than shortening whatever it already had. */
+    public void spring(ServerLevel level, BlockPos pos, long expiry) {
+        String dim = dimension(level);
+        for (int i = 0; i < springs.size(); i++) {
+            Spring existing = springs.get(i);
+            if (!existing.dimension().equals(dim) || !existing.pos().equals(pos)) continue;
+            springs.set(i, new Spring(dim, pos.immutable(), Math.max(existing.expiry(), expiry)));
+            setDirty();
+            return;
+        }
+        springs.add(new Spring(dim, pos.immutable(), expiry));
+        setDirty();
+    }
+
+    public List<BlockPos> springs(ServerLevel level) {
+        if (springs.isEmpty()) return List.of(); // hot path: consulted every second per dimension
+        long now = level.getGameTime();
+        if (springs.removeIf(spring -> spring.expiry() <= now)) setDirty();
+        String dim = dimension(level);
+        List<BlockPos> out = new ArrayList<>();
+        for (Spring spring : springs) if (spring.dimension().equals(dim)) out.add(spring.pos());
+        return out;
     }
 
     // ---- Serialisation ------------------------------------------------------------------------
@@ -142,6 +172,11 @@ public class RiteSavedData extends SavedData {
         for (int i = 0; i < lineList.size(); i++) {
             CompoundTag entry = lineList.getCompound(i);
             data.leyLines.add(new LeyLine(entry.getString("Dim"), BlockPos.of(entry.getLong("A")), BlockPos.of(entry.getLong("B")), entry.getLong("Expiry")));
+        }
+        ListTag springList = tag.getList("Springs", Tag.TAG_COMPOUND);
+        for (int i = 0; i < springList.size(); i++) {
+            CompoundTag entry = springList.getCompound(i);
+            data.springs.add(new Spring(entry.getString("Dim"), BlockPos.of(entry.getLong("Pos")), entry.getLong("Expiry")));
         }
         return data;
     }
@@ -179,6 +214,15 @@ public class RiteSavedData extends SavedData {
             lineList.add(entry);
         }
         tag.put("LeyLines", lineList);
+        ListTag springList = new ListTag();
+        for (Spring spring : springs) {
+            CompoundTag entry = new CompoundTag();
+            entry.putString("Dim", spring.dimension());
+            entry.putLong("Pos", spring.pos().asLong());
+            entry.putLong("Expiry", spring.expiry());
+            springList.add(entry);
+        }
+        tag.put("Springs", springList);
         return tag;
     }
 }

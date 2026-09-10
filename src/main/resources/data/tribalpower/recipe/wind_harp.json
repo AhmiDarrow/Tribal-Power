@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "tribalpower:spiritweave"
+    },
+    "W": {
+      "item": "tribalpower:storm_wing"
+    },
+    "A": {
+      "item": "tribalpower:air_seal"
+    },
+    "P": {
+      "item": "tribalpower:march_planks"
+    }
+  },
+  "pattern": [
+    "SWS",
+    "SAS",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:wind_harp"
+  }
+}

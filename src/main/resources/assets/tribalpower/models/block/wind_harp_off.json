@@ -1,0 +1,142 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tribalpower:block/wind_harp",
+    "side": "tribalpower:block/wind_harp",
+    "top": "tribalpower:block/wind_harp_top",
+    "wood": "tribalpower:block/loom_wood",
+    "stone": "tribalpower:block/loom_stone",
+    "trim": "tribalpower:block/loom_copper",
+    "light": "tribalpower:block/loom_stone"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        13,
+        2,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
+        },
+        "east": {
+          "texture": "#stone"
+        },
+        "west": {
+          "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        2,
+        6
+      ],
+      "to": [
+        6,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "up": {
+          "texture": "#side"
+        },
+        "down": {
+          "texture": "#side"
+        }
+      }
+    },
+    {
+      "from": [
+        10,
+        2,
+        6
+      ],
+      "to": [
+        12,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "up": {
+          "texture": "#side"
+        },
+        "down": {
+          "texture": "#side"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        13,
+        7
+      ],
+      "to": [
+        10,
+        15,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "tribalpower:march_stone"
+    },
+    "E": {
+      "item": "tribalpower:echo_shard"
+    }
+  },
+  "pattern": [
+    "SS ",
+    "SS ",
+    "E  "
+  ],
+  "result": {
+    "count": 4,
+    "id": "tribalpower:anchor_stone"
+  }
+}

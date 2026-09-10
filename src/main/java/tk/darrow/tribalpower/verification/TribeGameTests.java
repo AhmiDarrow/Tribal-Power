@@ -120,8 +120,10 @@ public class TribeGameTests {
         h.assertTrue(kin.buildOffers(TribeRank.FRIEND).size() == 4, "Friends get four offers");
         h.assertTrue(kin.buildOffers(TribeRank.KIN).size() == 6 && kin.buildOffers(TribeRank.VOICE).size() == 6, "Kin and Voice get all six");
         boolean thread = kin.buildOffers(TribeRank.FRIEND).stream().anyMatch(o -> o.getResult().is(ModItems.LOOM_THREAD.get()));
-        boolean horizon = kin.buildOffers(TribeRank.KIN).stream().anyMatch(o -> o.getResult().is(ModItems.HORIZON_COMPASS.get()));
-        h.assertTrue(thread && horizon, "Loom-stitchers sell Loom Thread at Friend and a Horizon Compass at Kin");
+        // 3.1: the Loom-stitchers' Kin counter now sells their own voice's generator (design 3.1 section 12).
+        boolean anchor = kin.buildOffers(TribeRank.KIN).stream()
+                .anyMatch(o -> o.getResult().is(tk.darrow.tribalpower.generator.GeneratorRegistry.LOOM_ANCHOR_ITEM.get()));
+        h.assertTrue(thread && anchor, "Loom-stitchers sell Loom Thread at Friend and a Loom Anchor at Kin");
         for (TribeDefinition tribe : TribeDefinition.values()) {
             h.assertTrue(tribe.trades().size() == 6, tribe.id() + " must have six offers");
             h.assertTrue(tribe.tradesFor(TribeRank.GUEST).size() == 2 && tribe.tradesFor(TribeRank.FRIEND).size() == 4, tribe.id() + " offers two per rank");
@@ -129,6 +131,58 @@ public class TribeGameTests {
         var tag = new net.minecraft.nbt.CompoundTag();
         kin.addAdditionalSaveData(tag);
         h.assertTrue(tag.getInt("Tribe") == 8 && tag.getString("Role").equals("ELDER"), "NBT contract: Tribe int and Role string");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void everyVoiceKeepingTribeSellsItsOwnGenerator(GameTestHelper h) {
+        // Standing finally pays: each tribe that keeps a voice sells that voice's craft (design 3.1 section 12).
+        record Sold(TribeDefinition tribe, TribeRank rank, net.minecraft.world.item.Item item) {}
+        var expected = new Sold[]{
+                new Sold(TribeDefinition.SOIL, TribeRank.FRIEND, ModItems.STONE_FONT.get()),
+                new Sold(TribeDefinition.STONE, TribeRank.GUEST, ModItems.RESONANCE_MESH.get()),
+                new Sold(TribeDefinition.SPARK, TribeRank.FRIEND,
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN_ITEM.get()),
+                new Sold(TribeDefinition.SPROUT, TribeRank.FRIEND,
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.WAVE_DRUM_ITEM.get()),
+                new Sold(TribeDefinition.CLOCK, TribeRank.KIN,
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.WIND_HARP_ITEM.get()),
+                new Sold(TribeDefinition.SIGIL, TribeRank.KIN,
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.WAKE_BELL_ITEM.get()),
+                new Sold(TribeDefinition.SPINDLE, TribeRank.KIN,
+                        tk.darrow.tribalpower.generator.GeneratorRegistry.LOOM_ANCHOR_ITEM.get())};
+        for (Sold sold : expected) {
+            boolean found = sold.tribe().tradesFor(sold.rank()).stream()
+                    .anyMatch(o -> o.result().get().is(sold.item()));
+            h.assertTrue(found, sold.tribe().id() + " must sell " + sold.item() + " at " + sold.rank());
+            boolean tooEarly = sold.rank() == TribeRank.GUEST || sold.tribe().tradesFor(
+                    TribeRank.values()[sold.rank().ordinal() - 1]).stream().noneMatch(o -> o.result().get().is(sold.item()));
+            h.assertTrue(tooEarly, sold.item() + " must not be available before " + sold.rank());
+        }
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void hearthOfferingsAreCappedPerDayPerTribe(GameTestHelper h) {
+        // Without this cap, renewable ore feeds the hearth that gates the pit that makes the ore.
+        var data = new tk.darrow.tribalpower.tribe.TribeStandingSavedData();
+        var player = java.util.UUID.randomUUID();
+        int cap = tk.darrow.tribalpower.tribe.TribeStanding.OFFER_CAP_PER_DAY;
+
+        int granted = 0;
+        for (int i = 0; i < 40; i++)
+            granted += data.allowOffering(player, TribeDefinition.STONE, 0L, cap, 8);
+        h.assertTrue(granted == cap, "A day of offerings must stop at " + cap + ", granted " + granted);
+        h.assertTrue(data.allowOffering(player, TribeDefinition.STONE, 0L, cap, 8) == 0,
+                "Once the day is spent the hearth takes nothing more");
+
+        // The cap is per tribe, and it resets with the day.
+        h.assertTrue(data.allowOffering(player, TribeDefinition.SPARK, 0L, cap, 8) == 8,
+                "One tribe being sated must not close another");
+        h.assertTrue(data.allowOffering(player, TribeDefinition.STONE, 1L, cap, 8) == 8,
+                "A new day must open the hearth again");
+        h.assertTrue(data.offeringsToday(player, TribeDefinition.STONE, 1L) == 8,
+                "The new day must count from zero");
         h.succeed();
     }
 }

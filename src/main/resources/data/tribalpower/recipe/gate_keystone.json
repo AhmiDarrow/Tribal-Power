@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "tribalpower:gate_frame"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    },
+    "P": {
+      "item": "tribalpower:pulse_cell"
+    }
+  },
+  "pattern": [
+    " F ",
+    "FRF",
+    "SPF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:gate_keystone"
+  }
+}

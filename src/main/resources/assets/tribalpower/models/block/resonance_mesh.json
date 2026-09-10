@@ -1,0 +1,110 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tribalpower:block/resonance_mesh",
+    "side": "tribalpower:block/resonance_mesh",
+    "top": "tribalpower:block/resonance_mesh_top",
+    "wood": "tribalpower:block/loom_wood",
+    "stone": "tribalpower:block/loom_stone",
+    "trim": "tribalpower:block/loom_copper",
+    "light": "tribalpower:block/loom_light"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
+        },
+        "east": {
+          "texture": "#stone"
+        },
+        "west": {
+          "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
+        },
+        "down": {
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        2,
+        1
+      ],
+      "to": [
+        15,
+        8,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "up": {
+          "texture": "#side"
+        },
+        "down": {
+          "texture": "#side"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        8,
+        0
+      ],
+      "to": [
+        16,
+        10,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#top"
+        }
+      }
+    }
+  ]
+}

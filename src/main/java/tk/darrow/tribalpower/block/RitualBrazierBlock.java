@@ -48,6 +48,10 @@ public class RitualBrazierBlock extends BaseEntityBlock {
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be)
+            be.onRedstoneChanged((net.minecraft.server.level.ServerLevel) level);
+    }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState next, boolean moved) {
         if (!state.is(next.getBlock()) && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be)
             Containers.dropItemStack(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.seal());

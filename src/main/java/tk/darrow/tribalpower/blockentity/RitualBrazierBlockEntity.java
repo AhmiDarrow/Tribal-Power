@@ -18,8 +18,12 @@ import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
+    /** Where the Rite Circle seats its pedestals, as offsets from the brazier. Rotation-invariant as a set. */
+    private static final int[][] PEDESTALS = {{2, 2}, {2, -2}, {-2, 2}, {-2, -2}};
+
     private ItemStack seal = ItemStack.EMPTY;
     private boolean active;
+    private boolean lastSignal;
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
     public ItemStack seal() { return seal; }
     public void setSeal(ItemStack stack) { seal = stack; active = false; setChanged(); }
@@ -36,6 +40,39 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
         if (seal.is(ModItems.LOOM_SEAL.get())) return Attunement.LOOM;
         return null;
     }
+    /**
+     * A struck signal fires the seated rite once (design 3.1 section 2). It looks for a Rite Tablet on one
+     * of the circle's pedestals matching the seated seal, and consumes it on success -- which is what makes
+     * the whole loop buildable: a relay restocks a pedestal, a clock strikes the brazier, the rite fires,
+     * and a comparator reports the pedestal empty.
+     */
+    public void onRedstoneChanged(ServerLevel level) {
+        boolean signal = level.hasNeighborSignal(worldPosition);
+        boolean rising = signal && !lastSignal;
+        lastSignal = signal;
+        setChanged();
+        if (rising) strike(level);
+    }
+
+    /** Fires the seated rite from a stocked pedestal. Returns null on success, else why not. */
+    public Component strike(ServerLevel level) {
+        Attunement element = element(seal);
+        if (element == null) return Component.translatable("message.tribalpower.brazier.no_seal");
+        for (int[] offset : PEDESTALS) {
+            BlockPos pedestalPos = worldPosition.offset(offset[0], 0, offset[1]);
+            if (!level.hasChunkAt(pedestalPos)) continue;
+            if (!(level.getBlockEntity(pedestalPos) instanceof tk.darrow.tribalpower.blockentity.RitePedestalBlockEntity pedestal)) continue;
+            ItemStack held = pedestal.held();
+            if (!(held.getItem() instanceof tk.darrow.tribalpower.rite.world.RiteTabletItem tablet)) continue;
+            if (tablet.rite().element() != element) continue;
+            Component failure = tk.darrow.tribalpower.rite.world.RiteTabletItem.perform(level, worldPosition, null, tablet.rite());
+            if (failure != null) return failure;
+            pedestal.removeItem(tk.darrow.tribalpower.blockentity.RitePedestalBlockEntity.SLOT, 1);
+            return null;
+        }
+        return Component.translatable("message.tribalpower.brazier.no_tablet");
+    }
+
     public static void tick(Level level, BlockPos pos, BlockState state, RitualBrazierBlockEntity be) {
         if ((level.getGameTime() + pos.asLong()) % 40 != 0) return;
         Attunement element = element(be.seal);
@@ -71,10 +108,12 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         if (!seal.isEmpty()) tag.put("Seal", seal.save(registries));
+        tag.putBoolean("LastSignal", lastSignal);
     }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         seal = ItemStack.parseOptional(registries, tag.getCompound("Seal")); active = false;
+        lastSignal = tag.getBoolean("LastSignal");
     }
 
     @Override public java.util.List<Component> diagnose(ServerLevel server, BlockPos pos) {
@@ -87,8 +126,13 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
             lines.add(Component.translatable("diag.tribalpower.station.missing_attunement", Component.translatable("attunement.tribalpower." + element.getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
         int players = server.getEntitiesOfClass(Player.class, new AABB(pos).inflate(6), p -> p.isAlive() && !p.isSpectator()).size();
         lines.add(Component.translatable("diag.tribalpower.brazier.players", players));
+        var circle = tk.darrow.tribalpower.rite.world.RiteCircle.evaluate(server, pos, element);
+        lines.addAll(circle.report());
+        if (circle.complete() && circle.tier() >= 2)
+            lines.add(Component.translatable("diag.tribalpower.brazier.circle_tier2").withStyle(net.minecraft.ChatFormatting.GREEN));
         for (var rite : tk.darrow.tribalpower.rite.world.WorldRite.values())
-            if (rite.element() == element) lines.add(Component.translatable("diag.tribalpower.brazier.rite", Component.translatable("item.tribalpower." + rite.tabletId()), rite.cost()));
+            if (rite.element() == element) lines.add(Component.translatable("diag.tribalpower.brazier.rite",
+                    Component.translatable("item.tribalpower." + rite.tabletId()), circle.cost(rite.cost())));
         return lines;
     }
 }
