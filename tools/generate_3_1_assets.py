@@ -79,17 +79,23 @@ def block_tile(name, top=False):
         return im
 
     if name == "gate_portal":
-        im = blank()
-        d = ImageDraw.Draw(im)
-        # Greyscale so the block tint can colour it per destination; woven rather than swirled.
-        for y in range(32):
-            for x in range(32):
-                v = 150 + int(38 * ((x * 3 + y * 5) % 11) / 11.0)
-                d.point((x, y), fill=(v, v, v, 190))
-        for a in range(0, 32, 6):
-            d.line((a, 0, a, 31), fill=(230, 230, 230, 150))
-            d.line((0, a, 31, a), fill=(120, 120, 120, 130))
-        return im
+        # Greyscale weave so the block tint can colour it per destination. Eight frames, the
+        # thread drifting inward — Minecraft reads a vertical strip plus .mcmeta.
+        frames = 8
+        strip = Image.new("RGBA", (32, 32 * frames), (0, 0, 0, 0))
+        for f in range(frames):
+            frame = blank()
+            d = ImageDraw.Draw(frame)
+            shift = f * 2
+            for y in range(32):
+                for x in range(32):
+                    v = 150 + int(38 * ((x * 3 + (y + shift) * 5) % 11) / 11.0)
+                    d.point((x, y), fill=(v, v, v, 190))
+            for a in range(-shift % 6, 32, 6):
+                d.line((a, 0, a, 31), fill=(230, 230, 230, 150))
+                d.line((0, a, 31, a), fill=(120, 120, 120, 130))
+            strip.paste(frame, (0, f * 32))
+        return strip
 
     im = material(name + ("_top" if top else ""), base)
     d = ImageDraw.Draw(im)
@@ -248,16 +254,9 @@ def cuboid(name):
         box([3, 12, 3], [13, 14, 13], "trim")
         box([6, 14, 6], [10, 16, 10], "light")
     elif name == "wind_harp":
-        # Standing folk harp: plinth, forepillar, neck, soundbox, and a fan of strings.
-        box([2, 0, 5], [14, 2, 11], "stone")
-        box([10, 2, 5], [14, 14, 11], "side")
-        box_top([10, 14, 5], [14, 15, 11], "trim", "top")
-        box([2, 2, 7], [4, 15, 9], "wood")
-        box([2, 15, 7], [12, 16, 9], "wood")
-        box([4, 2, 7], [10, 3.5, 9], "trim")
-        box([5, 4, 9], [10, 13, 10.5], "wood")
-        for i, x in enumerate((4.6, 5.8, 7.0, 8.2, 9.4)):
-            box([x, 3.6 + i * 0.5, 7.7], [x + 0.35, 15.2, 8.15], "light")
+        # Source of truth is tools/blender_wind_harp.py — same Living Lattice cuboid either way.
+        from blender_wind_harp import minecraft_model
+        return minecraft_model(True)
     elif name == "wave_drum":
         box([2, 0, 2], [14, 2, 14], "wood")
         box([2, 2, 2], [14, 12, 14], "side")
@@ -293,6 +292,9 @@ def write_block(name):
         }
         write(ASSETS / "models/block/gate_portal.json", model)
         write(ASSETS / "blockstates/gate_portal.json", {"variants": {"": {"model": f"{NS}:block/gate_portal"}}})
+        write(ASSETS / "textures/block/gate_portal.png.mcmeta", {
+            "animation": {"frametime": 3, "interpolate": True},
+        })
         return
 
     if name == "ritual_mark":

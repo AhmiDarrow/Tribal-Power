@@ -369,12 +369,12 @@
     {
       "id": "chapter_74",
       "title": "Drum Circle",
-      "text": "Twelve lantern-topped pillars ring a Silent Drum in the March highlands. Strike the drum empty-handed or with a Bone Chime: four beats about a second apart (16 to 28 ticks) wake what waits beneath. A wrong beat thuds and resets. Each drum answers once per twenty minutes of real time, and never while its keeper is already awake."
+      "text": "Twelve lantern-topped pillars ring a Silent Drum in the March highlands. Strike the drum empty-handed or with a Bone Chime: four beats about a second apart (16 to 28 ticks) wake what waits beneath. A wrong beat thuds and resets. Each drum answers once per twenty minutes of real time, and never while its keeper is already awake. A music disc of the circle's four-beat sits in a chest among the pillars, and The Unsung carries another."
     },
     {
       "id": "chapter_75",
       "title": "The Unsung",
-      "text": "A hollow drum-spirit with two rune arms and a cracked mask. Beat (above two thirds health): a shockwave every 3 seconds hits everyone within 8 blocks for 6 and knocks back; sneak to brace for half damage and no knockback; its swipe deals 10. Chorus: every 8 seconds it calls two Echo Weavers, up to six, and beats faster. Silence (below one third): it goes invulnerable over the drum and casts slow weaving bolts. Strike the Silent Drum with the four-beat to resync it: stunned 8 seconds at double damage, then silence returns 12 seconds after the resync. Drops an Unsung Heart, 16 to 24 Loom Thread and 4 Resonant Cores. Leave for 30 seconds and it resets."
+      "text": "A hollow drum-spirit with two rune arms and a cracked mask. Beat (above two thirds health): a shockwave every 3 seconds hits everyone within 8 blocks for 6 and knocks back; sneak to brace for half damage and no knockback; its swipe deals 10. Chorus: every 8 seconds it calls two Echo Weavers, up to six, and beats faster. Silence (below one third): it goes invulnerable over the drum and casts slow weaving bolts. Strike the Silent Drum with the four-beat to resync it: stunned 8 seconds at double damage, then silence returns 12 seconds after the resync. Drops an Unsung Heart, 16 to 24 Loom Thread, 4 Resonant Cores, and a Drum Circle music disc. Leave for 30 seconds and it resets."
     },
     {
       "id": "chapter_76",
@@ -454,7 +454,7 @@
     {
       "id": "chapter_91",
       "title": "Walkthrough: wake The Unsung",
-      "text": "1. Prepare: full Pulse cells, food, a Bone Chime, and a bound return route. Bring a friend if you can; the fight lasts a few minutes.\n2. Find a Drum Circle in the March highlands: twelve lantern pillars around a Silent Drum.\n3. Beat four times. Strike the drum empty-handed or with the chime, about one second apart (16 to 28 ticks). A wrong beat thuds and resets the count. The drum answers once per twenty minutes and never while its keeper is awake.\n4. Beat phase: every three seconds a shockwave hits everyone within 8 blocks for 6 and knocks back. Sneak just before it lands to brace: half damage, no knockback. Its swipe deals 10, so keep the drum between you.\n5. Chorus, below two thirds health: it calls two Echo Weavers every eight seconds, up to six, and beats faster. Clear the weavers before they slow you.\n6. Silence, below one third: it hovers invulnerable over the drum and casts slow weaving bolts. Walk to the drum and play the four-beat again to resync it: eight seconds stunned at double damage. Silence returns twelve seconds after each resync, so repeat.\nWhat you now have: an Unsung Heart, 16 to 24 Loom Thread and 4 Resonant Cores. Leaving for thirty seconds resets the fight.\nNext: the Loom totem (The sixth voice) and the Loom-stitcher trades at the Crystal Spire."
+      "text": "1. Prepare: full Pulse cells, food, a Bone Chime, and a bound return route. Bring a friend if you can; the fight lasts a few minutes.\n2. Find a Drum Circle in the March highlands: twelve lantern pillars around a Silent Drum.\n3. Beat four times. Strike the drum empty-handed or with the chime, about one second apart (16 to 28 ticks). A wrong beat thuds and resets the count. The drum answers once per twenty minutes and never while its keeper is awake.\n4. Beat phase: every three seconds a shockwave hits everyone within 8 blocks for 6 and knocks back. Sneak just before it lands to brace: half damage, no knockback. Its swipe deals 10, so keep the drum between you.\n5. Chorus, below two thirds health: it calls two Echo Weavers every eight seconds, up to six, and beats faster. Clear the weavers before they slow you.\n6. Silence, below one third: it hovers invulnerable over the drum and casts slow weaving bolts. Walk to the drum and play the four-beat again to resync it: eight seconds stunned at double damage. Silence returns twelve seconds after each resync, so repeat.\nWhat you now have: an Unsung Heart, 16 to 24 Loom Thread, 4 Resonant Cores, and a Drum Circle music disc. Leaving for thirty seconds resets the fight.\nNext: the Loom totem (The sixth voice) and the Loom-stitcher trades at the Crystal Spire."
     },
     {
       "id": "chapter_92",
@@ -489,7 +489,7 @@
     {
       "id": "chapter_98",
       "title": "Stone Font",
-      "text": "Stone is not made. Stone is asked to stay. Four stone, two Echo Shards and a Drumheart. Put a font down with four chalk marks around it and it asks for cobblestone every two seconds at 4 Pulse a second \\u2014 slow enough to run on a hand-drummed Drumheart, which is the point. Brace the corners with anchor stones and bring the Earth voice and it asks for stone at 8 Pulse a second. Add Fire and Water both and it asks for obsidian at 24. Below y 0 it gives the deepslate of each tier instead."
+      "text": "Stone is not made. Stone is asked to stay. Four stone, two Echo Shards and a Drumheart. Put a font down with four chalk marks around it and it asks for cobblestone every two seconds at 4 Pulse a second \\u2014 slow enough to run on a hand-drummed Drumheart, which is the point. Brace the corners with anchor stones and bring the Earth voice and it asks for stone at 8 Pulse a second. Add Fire and Water both and it asks for obsidian at 24 Pulse a second. Feed 250 mB of water and 250 mB of lava instead and a braced Earth font asks for the same obsidian at 6. Below y 0 it gives the deepslate of each tier instead."
     },
     {
       "id": "chapter_99",

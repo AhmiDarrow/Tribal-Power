@@ -62,7 +62,7 @@ Comparators read the mesh's cycle progress, the font's progress, a pedestal's oc
 
 ## Also
 
-- **Stone Font**: the starter rite, and the tutorial for patterns. A font and four chalk marks asks for cobblestone at 4 Pulse a second — slow enough to run on a hand-drummed Drumheart, which is the point. Brace it and bring Earth for stone; add Fire and Water for obsidian.
+- **Stone Font**: the starter rite, and the tutorial for patterns. A font and four chalk marks asks for cobblestone at 4 Pulse a second — slow enough to run on a hand-drummed Drumheart, which is the point. Brace it and bring Earth for stone; add Fire and Water for obsidian at 24 Pulse/s, or feed 250 mB water and 250 mB lava for the same obsidian at 6.
 - **Spring Calling**: Rain Calling's small sibling. 300 Pulse marks an adjacent Spirit Cistern a spring, refilling 100 mB/s for ten minutes. It is where the water for a Wave Drum, for Washing, and for anything else that drinks comes from. March-side lava stays a manual haul on purpose.
 - **Tribe Hearth offerings are capped at 60 standing per day per tribe**, the same idiom as the existing per-kill cap. Without it, renewable ore would feed the hearth that gates the pit that makes the ore.
 - Every tribe that keeps a voice now sells that voice's craft, and shows one working in its camp: a Stone Font at the Pad-keepers, a braced font and a whole Listening Pit at the Grit-singers, an Ember Horn at the Drumhearts, a Wind Harp at the Pattern-weavers, a Wave Drum at the Rootbinders, a Wake Bell at the Seal-carvers, a Loom Anchor at the Crystal Spire. Each is swapped in for the least load-bearing offer at that rank, so every counter still holds six offers, two per rank.

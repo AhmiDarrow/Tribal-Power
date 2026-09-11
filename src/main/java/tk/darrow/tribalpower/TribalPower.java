@@ -101,6 +101,8 @@ public final class TribalPower {
                             new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
                                     side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
                                             : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntities.STONE_FONT.get(), (be, side) -> be.fluids);
         });
     }
 

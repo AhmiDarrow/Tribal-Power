@@ -6,9 +6,8 @@ Not for the changelog. The public notes are `docs/RELEASE_3.1.0.md`.
 
 Java 21 / Minecraft 1.21.1 / NeoForge 21.1.249. Production build plus the server GameTest suites:
 Lattice, Bestiary, Camp, Familiar, Loom, March, Rite, Tribe, Tribe-sweep, Codex-unlock, and the 3.1
-holders — Pattern, Grit, Pit, Gate, Generator. **122 GameTests pass** after the disc (up from 121
-after the bug sweep, 113 on the first 3.1 commit).
-on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`, `verify_lang.py`).
+holders — Pattern, Grit, Pit, Gate, Generator. **123 GameTests pass** (grounded obsidian added).
+Codex and lang regeneration checks (`verify_codex.py`, `verify_lang.py`) are the gauntlet.
 
 ## Still open
 
@@ -29,9 +28,14 @@ on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`,
 - **Drum Circle music disc** (`tribalpower:music_disc_drum_circle`, jukebox song `tribalpower:drum_circle`,
   96 s original from `tools/generate_3_1_disc.py`). Chest loot `chests/drum_circle` plus The Unsung drop.
   Device hits are in; see below.
-- **Wind Harp model** is a folk-harp cuboid (plinth, forepillar, neck, soundbox, five strings) from
-  `tools/generate_3_1_assets.py`. The Blender string rig lives at `art/blocks/wind_harp.blend`
-  (`tools/blender_wind_harp.py`); block id stays `tribalpower:wind_harp`.
+- **Wind Harp model** is the Living Lattice cuboid (plinth, forepillar, neck, soundbox, five strings)
+  wearing the 32px loom atlas — same boxes as `ember_horn` / `wave_drum`, not a smoothed studio mesh.
+  Source of those boxes is `tools/blender_wind_harp.py`; `generate_3_1_assets.py` writes the same JSON.
+  The Blender still uses Closest-filtered emission of those tiles. Block id stays `tribalpower:wind_harp`.
+- **Gate portal** is an eight-frame greyscale weave (`gate_portal.png` plus `.mcmeta`, frametime 3,
+  interpolate) tinted per destination.
+- **Grounded obsidian**: a braced Earth font fed 250 mB water and 250 mB lava asks for obsidian at
+  6 Pulse/s. Fire and Water voices together keep the 24 Pulse/s path and win when both are available.
 - **Device hits** are original short OGGs (`tools/generate_3_1_sounds.py`) wired through `ModSounds` and
   `sounds.json`: Drumheart on/off tempo, Ember Horn roar, Wind Harp string, Wave Drum slap, Wake Bell
   toll, gate hum and transit, mesh sift, font form, chalk draw. Vanilla `SoundEvents` remain only where

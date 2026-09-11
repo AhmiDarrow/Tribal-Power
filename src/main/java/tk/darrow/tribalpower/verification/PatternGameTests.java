@@ -5,6 +5,9 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.block.ModBlocks;
@@ -105,6 +108,44 @@ public class PatternGameTests {
         font.patternState().invalidate();
         h.assertTrue(font.best(h.getLevel(), h.absolutePos(centre)) == StoneFontBlockEntity.Ask.OBSIDIAN,
                 "Fire and Water together open the obsidian tier");
+        h.assertFalse(font.grounded(), "Voices are the Pulse-taught door, not the tanks");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void fontAsksForObsidianWhenFedWaterAndLava(GameTestHelper h) {
+        BlockPos centre = new BlockPos(4, 2, 4);
+        fontTier1(h, centre);
+        for (int dx : new int[]{-2, 2})
+            for (int dz : new int[]{-2, 2}) h.setBlock(centre.offset(dx, 0, dz), ModBlocks.ANCHOR_STONE.get());
+        h.setBlock(8, 2, 4, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        StoneFontBlockEntity font = (StoneFontBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(centre));
+        font.patternState().invalidate();
+        h.assertTrue(font.best(h.getLevel(), h.absolutePos(centre)) == StoneFontBlockEntity.Ask.STONE,
+                "Earth alone still asks for stone");
+
+        font.water.fill(new FluidStack(Fluids.WATER, StoneFontBlockEntity.GROUND_COST), IFluidHandler.FluidAction.EXECUTE);
+        h.assertTrue(font.best(h.getLevel(), h.absolutePos(centre)) == StoneFontBlockEntity.Ask.STONE,
+                "Water without lava is still stone");
+        font.lava.fill(new FluidStack(Fluids.LAVA, StoneFontBlockEntity.GROUND_COST), IFluidHandler.FluidAction.EXECUTE);
+        h.assertTrue(font.best(h.getLevel(), h.absolutePos(centre)) == StoneFontBlockEntity.Ask.OBSIDIAN,
+                "250 mB water and 250 mB lava open the grounded door");
+        h.assertTrue(font.grounded(), "Tanks without Fire and Water are the grounded path");
+        h.assertTrue(StoneFontBlockEntity.Ask.OBSIDIAN.pulsePerSecond(font.grounded()) == 6,
+                "Grounded obsidian asks at 6 Pulse/s");
+
+        BlockPos at = h.absolutePos(centre);
+        h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                at, null) != null, "A bucket or a cistern must find the font's tanks");
+
+        h.setBlock(8, 2, 6, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        h.setBlock(8, 2, 2, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        font.patternState().invalidate();
+        h.assertTrue(font.best(h.getLevel(), h.absolutePos(centre)) == StoneFontBlockEntity.Ask.OBSIDIAN,
+                "Voices still open obsidian when the tanks are already full");
+        h.assertFalse(font.grounded(), "Fire and Water win over the tanks");
+        h.assertTrue(StoneFontBlockEntity.Ask.OBSIDIAN.pulsePerSecond(font.grounded()) == 24,
+                "The Pulse-taught door stays at 24 Pulse/s");
         h.succeed();
     }
 

@@ -3,7 +3,9 @@ package tk.darrow.tribalpower.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.fluids.FluidUtil;
 import tk.darrow.tribalpower.blockentity.ModBlockEntities;
 import tk.darrow.tribalpower.blockentity.StoneFontBlockEntity;
 import tk.darrow.tribalpower.camp.Ownership;
@@ -58,6 +61,18 @@ public class StoneFontBlock extends BaseEntityBlock {
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         if (level.getBlockEntity(pos) instanceof StoneFontBlockEntity font) font.setOwner(Ownership.of(placer));
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                              Player player, InteractionHand hand, BlockHitResult hit) {
+        if (level.getBlockEntity(pos) instanceof StoneFontBlockEntity font) {
+            if (!Ownership.check(level, font.owner(), player)) return ItemInteractionResult.CONSUME;
+            // Buckets and cisterns feed the grounded obsidian path: 250 mB water and 250 mB lava.
+            if (FluidUtil.interactWithFluidHandler(player, hand, level, pos, hit.getDirection()))
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
