@@ -46,3 +46,7 @@ src/generated/resources/.cache/
 __pycache__/
 *.pyc
 art/showcase/
+
+# Local notes — never commit
+INTERNAL/
+docs/*_INTERNAL.md
