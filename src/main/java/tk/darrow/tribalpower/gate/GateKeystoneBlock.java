@@ -54,6 +54,16 @@ public class GateKeystoneBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moved) {
+        super.onPlace(state, level, pos, previous, moved);
+        // Worldgen, dispensers and GameTest setBlock never call setPlacedBy. Seed the live signal here
+        // or the first neighbour update after landing in an already-powered spot spends 400 Pulse.
+        if (!level.isClientSide && !previous.is(state.getBlock())
+                && level.getBlockEntity(pos) instanceof GateKeystoneBlockEntity keystone)
+            keystone.seedSignal(level);
+    }
+
+    @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         if (level.getBlockEntity(pos) instanceof GateKeystoneBlockEntity keystone) {
             keystone.setOwner(Ownership.of(placer));
@@ -118,6 +128,11 @@ public class GateKeystoneBlock extends BaseEntityBlock {
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, net.minecraft.util.RandomSource random) {
+        if (level.getBlockEntity(pos) instanceof GateKeystoneBlockEntity keystone) keystone.onTransitEnded();
     }
 
     @Override

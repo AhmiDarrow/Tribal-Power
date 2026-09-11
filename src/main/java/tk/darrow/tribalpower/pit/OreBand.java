@@ -25,10 +25,17 @@ import java.util.Locale;
 public enum OreBand {
     /** What any finished pit can reach. */
     COMMON(1, 10, 14, List.of("coal", "copper", "iron")),
-    /** The band under the world, and the reason a pit is worth bracing. */
-    DEEP(2, 15, 18, List.of("gold", "redstone", "lapis", "quartz")),
+    /**
+     * The band under the world, and the reason a pit is worth bracing.
+     *
+     * <p>Design note: section 7.5 lists quartz here as well as in the hot band, but vanilla's only member
+     * of {@code c:ores/quartz} is the Nether's own ore. Leaving quartz in this list handed out Nether
+     * Quartz Ore at Deep's price with no Fire lit, which is the hot band's bargain given away. Quartz
+     * belongs to HOT alone.
+     */
+    DEEP(2, 15, 18, List.of("gold", "redstone", "lapis")),
     /** Fire's bargain: the Nether's ores without the Nether, at twice the Pulse. Never ancient debris. */
-    HOT(2, 20, 36, List.of()),
+    HOT(2, 20, 36, List.of("quartz")),
     /** Spirit's bargain, and where a modded metal the scan discovered ends up. */
     RARE(2, 40, 24, List.of("diamond", "emerald"));
 
@@ -38,6 +45,7 @@ public enum OreBand {
     static {
         NAMED.addAll(COMMON.materials);
         NAMED.addAll(DEEP.materials);
+        NAMED.addAll(HOT.materials);
         NAMED.addAll(RARE.materials);
     }
 
@@ -90,9 +98,36 @@ public enum OreBand {
 
     /** The band a material belongs to, or null when nothing calls it up. */
     public static OreBand of(String material) {
-        if (material == null) return null;
-        for (OreBand band : values()) if (band.materials.contains(material)) return band;
-        return GritRegistry.material(material) != null ? RARE : null;
+        List<OreBand> bands = bandsFor(material);
+        return bands.isEmpty() ? null : bands.getLast();
+    }
+
+    /**
+     * Every band that can call {@code material} up, deepest first, so a sample asks for the deepest one
+     * the pit is actually allowed to reach and settles for a shallower one otherwise. Gold sits in both
+     * the deep and the hot band, and which of the two a gold sample means depends on whether Fire is lit.
+     */
+    public static List<OreBand> bandsFor(String material) {
+        List<OreBand> out = new ArrayList<>();
+        if (material == null) return out;
+        for (OreBand band : new OreBand[]{RARE, HOT, DEEP, COMMON})
+            for (Entry entry : band.entries()) if (entry.material().equals(material)) { out.add(band); break; }
+        if (out.isEmpty() && GritRegistry.material(material) != null) out.add(RARE);
+        return out;
+    }
+
+    /**
+     * This band and every shallower one, deepest first. Depth picks where the pit starts listening; if
+     * standing or arrangement will not carry it that far, it settles rather than falling all the way to
+     * the common band in one step.
+     */
+    public List<OreBand> descent() {
+        return switch (this) {
+            case COMMON -> List.of(COMMON);
+            case DEEP -> List.of(DEEP, COMMON);
+            case HOT -> List.of(HOT, DEEP, COMMON);
+            case RARE -> List.of(RARE, DEEP, COMMON);
+        };
     }
 
     /**

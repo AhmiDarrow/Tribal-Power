@@ -69,6 +69,14 @@ public final class GritRegistry {
             "coal", Items.COAL, "redstone", Items.REDSTONE, "lapis", Items.LAPIS_LAZULI,
             "diamond", Items.DIAMOND, "emerald", Items.EMERALD, "quartz", Items.QUARTZ);
 
+    /**
+     * Two grit per unit, matching the shipped {@code lattice/iron_grit.json} and its siblings. Crushing is
+     * the metal's doubling step, so the synthesised recipe has to pay the same as the written one --
+     * otherwise silk-touching an iron ore yields one ingot where mining it plainly yields two, and every
+     * modded metal runs at half the vanilla rate.
+     */
+    public static final int GRIT_PER_UNIT = 2;
+
     /** Gem yields are twice the ore's own drop, not a flat two. Modded gems default to two. */
     private static final Map<String, Integer> VANILLA_GEM_YIELD = Map.of(
             "coal", 2, "diamond", 2, "emerald", 2, "quartz", 2, "redstone", 8, "lapis", 8);
@@ -91,7 +99,7 @@ public final class GritRegistry {
 
         /** What one shatter of this material yields. */
         public ItemStack shatterResult() {
-            return metal() ? stackFor(name) : new ItemStack(gem, gemCount);
+            return metal() ? stackFor(name).copyWithCount(GRIT_PER_UNIT) : new ItemStack(gem, gemCount);
         }
 
         /** What the Listening Pit calls up: the raw item for a metal, the ore block for a gem. */

@@ -144,7 +144,11 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     public int progressSignal() {
         if (!"working".equals(state)) return 0;
         int seconds = seconds(band, voices(level, worldPosition));
-        return seconds <= 0 ? 0 : Math.max(1, Math.min(15, 1 + 14 * work / seconds));
+        if (seconds <= 0 || work <= 0) return seconds <= 0 ? 0 : 1;
+        // work is observed over 1..seconds-1, because the last beat finishes the cycle and resets it.
+        // Spread that across 1..15 so "about to finish" is readable in redstone.
+        int span = Math.max(1, seconds - 2);
+        return Math.max(1, Math.min(15, 1 + 14 * (work - 1) / span));
     }
 
     public Component status() {
@@ -197,15 +201,17 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     public Container cache(Level level, BlockPos pos) {
         for (Direction face : Direction.values()) {
             BlockPos side = pos.relative(face);
-            if (level.hasChunkAt(side) && level.getBlockEntity(side) instanceof AncestralCacheBlockEntity cache
-                    && !level.hasNeighborSignal(side)) return cache;
+            if (level.hasChunkAt(side) && level.getBlockEntity(side) instanceof AncestralCacheBlockEntity cache)
+                return cache;
         }
         return null;
     }
 
     /** The owner's standing with the Grit-singers, which is what gates how deep the pit may listen. */
     private TribeRank standing(Level level) {
-        if (owner() == null) return TribeRank.VOICE;
+        // No owner means no standing: a mesh placed by a dispenser or generated as a camp prop has earned
+        // nothing with the Grit-singers. Failing open here would hand the rare band to anyone.
+        if (owner() == null) return TribeRank.STRANGER;
         MinecraftServer server = level.getServer();
         return server == null ? TribeRank.STRANGER : TribeStanding.rank(server, owner(), TribeDefinition.STONE);
     }
@@ -224,6 +230,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     /** How deep the pit listens by depth alone: below zero is a band down, and Spirit is another. */
     private OreBand depthBand(BlockPos pos, Set<Attunement> voices) {
         int depth = (pos.getY() < 0 ? 1 : 0) + (voices.contains(Attunement.SPIRIT) ? 1 : 0);
+        if (depth >= 2) return OreBand.RARE;
         return depth >= 1 ? OreBand.DEEP : OreBand.COMMON;
     }
 
@@ -232,14 +239,14 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         TribeRank rank = standing(level);
         boolean kinship = kinshipPresent(level, pos);
         String sample = sampleMaterial();
-        if (sample != null) {
-            OreBand asked = OreBand.of(sample);
-            // A sample naming a deeper band asks for it; one the band does not hold is simply ignored.
-            if (asked != null && unlocked(asked, tier, voices, rank, kinship)) return asked;
-        }
-        OreBand wanted = depthBand(pos, voices);
-        if (unlocked(wanted, tier, voices, rank, kinship)) return wanted;
-        return unlocked(OreBand.COMMON, tier, voices, rank, kinship) ? OreBand.COMMON : null;
+        if (sample != null)
+            // A sample asks for the deepest band that holds it and the pit may reach; one no reachable
+            // band holds is simply ignored.
+            for (OreBand asked : OreBand.bandsFor(sample))
+                if (unlocked(asked, tier, voices, rank, kinship)) return asked;
+        for (OreBand wanted : depthBand(pos, voices).descent())
+            if (unlocked(wanted, tier, voices, rank, kinship)) return wanted;
+        return null;
     }
 
     /** The material named by the sample slot. The sample is a filter, never an ingredient. */
@@ -305,11 +312,18 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         takeSubstrate(substrate);
         cycles++;
         ItemStack yield = result.copy();
-        // Rare bands sometimes give twice; Washing gives an extra every third cycle for its 250 mB.
+        // Rare bands sometimes give twice. A bonus is only granted when there is room for it: the mesh
+        // stalls rather than voiding, and that promise has to hold for the bonus as well as the base.
         if (band == OreBand.RARE && level.random.nextFloat() < 0.25F) yield.grow(result.getCount());
-        if (voices.contains(Attunement.WATER) && cycles % WASH_EVERY == 0
-                && tank.drain(WASH_COST, net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE).getAmount() >= WASH_COST)
-            yield.grow(1);
+        // Washing costs 250 mB whether or not it lands, so check the tank before taking anything from it.
+        if (voices.contains(Attunement.WATER) && cycles % WASH_EVERY == 0 && tank.getFluidAmount() >= WASH_COST) {
+            ItemStack washed = yield.copyWithCount(yield.getCount() + 1);
+            if (placeOutput(washed, true)) {
+                tank.drain(WASH_COST, net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+                yield = washed;
+            }
+        }
+        while (yield.getCount() > result.getCount() && !placeOutput(yield, true)) yield.shrink(1);
         placeOutput(yield, false);
         work = 0;
         calling = "";
@@ -326,9 +340,13 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         return ItemStack.EMPTY;
     }
 
+    /**
+     * Something the cycle needs is missing. The paid-for progress is kept: a relay pulling the last stone
+     * out on the ninth second of a ten-second cycle should cost a pause, not the Pulse already spent.
+     * Only a change of band, which asks the ground for something else entirely, restarts the count.
+     */
     private void stall(String why) {
         state = why;
-        work = 0;
         setChanged();
     }
 
@@ -442,6 +460,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         tag.putInt("Cycles", cycles);
         tag.putString("Band", band.key());
         tag.putString("Calling", calling);
+        tag.putString("State", state);
         buffer.save(tag);
         tag.put("Tank", tank.writeToNBT(registries, new CompoundTag()));
     }
@@ -452,6 +471,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         work = Math.max(0, tag.getInt("Work"));
         cycles = Math.max(0, tag.getInt("Cycles"));
         calling = tag.getString("Calling");
+        if (tag.contains("State")) state = tag.getString("State");
         for (OreBand value : OreBand.values()) if (value.key().equals(tag.getString("Band"))) band = value;
         buffer.load(tag);
         tank.readFromNBT(registries, tag.getCompound("Tank"));

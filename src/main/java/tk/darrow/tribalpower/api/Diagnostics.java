@@ -39,9 +39,40 @@ public final class Diagnostics {
         if (event.getLevel().getBlockEntity(event.getPos()) == null) return;
         if (event.getLevel() instanceof ServerLevel server) {
             for (Component line : report(server, event.getPos())) player.sendSystemMessage(line);
+            if (player instanceof net.minecraft.server.level.ServerPlayer viewer)
+                ghosts(server, viewer, event.getPos());
         }
         event.setCanceled(true);
         event.setCancellationResult(InteractionResult.SUCCESS);
+    }
+
+    /** How many missing cells are worth marking before the sparkles stop meaning anything. */
+    private static final int MAX_GHOSTS = 12;
+
+    /**
+     * Marks the missing cells of a broken pattern with particles, so the chat lines have somewhere to
+     * point. Design 3.1 section 4 asks for exactly this: "particle ghosts at the missing positions".
+     */
+    private static void ghosts(ServerLevel level, net.minecraft.server.level.ServerPlayer viewer, BlockPos pos) {
+        tk.darrow.tribalpower.pattern.PatternMatcher.Match match = matchOf(level, pos);
+        if (match == null || match.found()) return;
+        int shown = 0;
+        for (tk.darrow.tribalpower.pattern.PatternMatcher.Miss miss : match.misses()) {
+            if (shown++ >= MAX_GHOSTS) break;
+            BlockPos at = miss.pos();
+            level.sendParticles(viewer, net.minecraft.core.particles.ParticleTypes.END_ROD, true,
+                    at.getX() + 0.5, at.getY() + 0.5, at.getZ() + 0.5, 8, 0.22, 0.22, 0.22, 0.0);
+        }
+    }
+
+    /** The pattern a block entity is trying to stand in, or null when it has none. */
+    private static tk.darrow.tribalpower.pattern.PatternMatcher.Match matchOf(ServerLevel level, BlockPos pos) {
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof tk.darrow.tribalpower.blockentity.LatticeDeviceBlockEntity device)
+            return device.patternState().get(level, pos);
+        if (be instanceof tk.darrow.tribalpower.gate.GateKeystoneBlockEntity keystone)
+            return keystone.match(level);
+        return null;
     }
 
     /** Full report: header, generic Pulse context, then the block's own diagnosis. */

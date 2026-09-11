@@ -19,6 +19,11 @@ import tk.darrow.tribalpower.grit.GritRegistry;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.pattern.PatternMatcher;
 import tk.darrow.tribalpower.pit.OreBand;
+import tk.darrow.tribalpower.tribe.TribeDefinition;
+import tk.darrow.tribalpower.tribe.TribeRank;
+import tk.darrow.tribalpower.tribe.TribeStandingSavedData;
+
+import java.util.UUID;
 
 /** The Listening Pit (design 3.1 section 7). */
 @GameTestHolder("tribalpower")
@@ -45,7 +50,19 @@ public class PitGameTests {
         h.setBlock(MESH.above(), ModBlocks.ANCESTRAL_CACHE.get());
         // Clear of the pattern: the corners belong to the anchor stones.
         h.setBlock(9, 2, 5, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        return (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+        ResonanceMeshBlockEntity mesh = (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+        // A pit listens on its owner's standing with the Grit-singers, and no owner means no standing --
+        // so a test pit has to be owned by somebody who has earned the band it is asking for.
+        stand(h, mesh, TribeRank.FRIEND);
+        return mesh;
+    }
+
+    /** Gives the mesh an owner standing at {@code rank} with the Grit-singers. */
+    private static UUID stand(GameTestHelper h, ResonanceMeshBlockEntity mesh, TribeRank rank) {
+        UUID owner = UUID.nameUUIDFromBytes(("pit-test-" + rank.name()).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        TribeStandingSavedData.get(h.getLevel().getServer()).set(owner, TribeDefinition.STONE, rank.threshold());
+        mesh.setOwner(owner);
+        return owner;
     }
 
     /** Pulse from outside the pattern: the five by five belongs to the pit. */
@@ -72,7 +89,6 @@ public class PitGameTests {
         GritRegistry.rebuild();
         ResonanceMeshBlockEntity mesh = pit(h);
         feed(h, 1000);
-        mesh.setOwner(null); // no owner means no standing gate, so the band is decided by shape and voices
         mesh.setItem(ResonanceMeshBlockEntity.SUBSTRATE_A, new ItemStack(Items.STONE, 64));
         mesh.setItem(ResonanceMeshBlockEntity.SAMPLE, new ItemStack(Items.RAW_IRON));
 
@@ -109,6 +125,66 @@ public class PitGameTests {
                 h.assertTrue(live.getItem(slot).is(Items.BEDROCK), "Nothing already in the output may be overwritten");
             h.succeed();
         });
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void anUnownedPitEarnsNothingRatherThanEverything(GameTestHelper h) {
+        // Failing open here handed the rare band to a mesh a dispenser placed. No owner is no standing.
+        GritRegistry.rebuild();
+        ResonanceMeshBlockEntity mesh = pit(h);
+        feed(h, 4000);
+        mesh.setOwner(null);
+        mesh.setItem(ResonanceMeshBlockEntity.SUBSTRATE_A, new ItemStack(Items.STONE, 64));
+        h.runAfterDelay(60, () -> {
+            ResonanceMeshBlockEntity live = (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+            h.assertTrue("standing".equals(live.state()),
+                    "An unowned pit must stall on standing, not run; state is " + live.state());
+            h.succeed();
+        });
+    }
+
+    @GameTest(template = "empty")
+    public static void theDeepBandNeverHandsOutTheNethersQuartz(GameTestHelper h) {
+        // c:ores/quartz holds only the Nether's ore, so a quartz row in the deep band gave the hot band's
+        // bargain away for free -- no Fire, and at deep's price.
+        GritRegistry.rebuild();
+        for (OreBand.Entry entry : OreBand.DEEP.entries())
+            h.assertFalse(entry.result(false).is(Items.NETHER_QUARTZ_ORE),
+                    "The deep band must not call up Nether Quartz Ore");
+        h.assertTrue(OreBand.bandsFor("quartz").contains(OreBand.HOT),
+                "Quartz belongs to the hot band, or Fire's bargain is unreachable");
+        h.assertTrue(OreBand.HOT.descent().getFirst() == OreBand.HOT, "The hot band must be selectable");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 400)
+    public static void washingTakesNoWaterItCannotUse(GameTestHelper h) {
+        GritRegistry.rebuild();
+        ResonanceMeshBlockEntity mesh = pit(h);
+        feed(h, 4000);
+        mesh.setItem(ResonanceMeshBlockEntity.SUBSTRATE_A, new ItemStack(Items.STONE, 64));
+        h.setBlock(9, 2, 7, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        // Less than one wash costs: the tank must still hold it after several cycles.
+        int short_ = ResonanceMeshBlockEntity.WASH_COST - 50;
+        mesh.tank.fill(new FluidStack(Fluids.WATER, short_), IFluidHandler.FluidAction.EXECUTE);
+        h.runAfterDelay(300, () -> {
+            ResonanceMeshBlockEntity live = (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+            h.assertTrue(live.tank.getFluidAmount() == short_,
+                    "A tank too shallow to wash must be left alone, held " + live.tank.getFluidAmount());
+            h.succeed();
+        });
+    }
+
+    @GameTest(template = "empty")
+    public static void theMeshIsReachableAsATankAndAsAnInventory(GameTestHelper h) {
+        // Washing is unreachable and no relay can feed the pit unless these capabilities are registered.
+        ResonanceMeshBlockEntity mesh = pit(h);
+        BlockPos at = h.absolutePos(MESH);
+        h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                at, null) != null, "A bucket or a cistern must find the mesh's tank");
+        h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                at, net.minecraft.core.Direction.NORTH) != null, "A relay must find the mesh's substrate slots");
+        h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -150,6 +226,45 @@ public class PitGameTests {
         h.assertTrue(filled == 1000, "The mesh must accept water, took " + filled);
         h.assertTrue(mesh.tank.fill(new FluidStack(Fluids.LAVA, 1000), IFluidHandler.FluidAction.SIMULATE) == 0,
                 "The mesh drinks water and nothing else");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 400)
+    public static void aPoweredCacheDoesNotStallAPaidCycle(GameTestHelper h) {
+        // The cache is the pit's output, not a camp device. Redstone next to it used to make cache()
+        // return null, which stalled the mesh and wiped the Pulse already spent on that cycle.
+        GritRegistry.rebuild();
+        ResonanceMeshBlockEntity mesh = pit(h);
+        feed(h, 4000);
+        mesh.setItem(ResonanceMeshBlockEntity.SUBSTRATE_A, new ItemStack(Items.STONE, 64));
+        mesh.setItem(ResonanceMeshBlockEntity.SAMPLE, new ItemStack(Items.RAW_IRON));
+        int before = mesh.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A).getCount();
+        h.setBlock(MESH.above().east(), Blocks.REDSTONE_BLOCK);
+        h.assertFalse(mesh.stilled(), "Power on the cache must not still the mesh");
+        h.succeedWhen(() -> {
+            ResonanceMeshBlockEntity live = (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+            h.assertTrue(live.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A).getCount() < before,
+                    "A powered cache must not stall a paid cycle, state is " + live.state());
+        });
+    }
+
+    @GameTest(template = "empty")
+    public static void theComparatorReachesFifteenOnTheLastBeat(GameTestHelper h) {
+        ResonanceMeshBlockEntity mesh = pit(h);
+        h.assertTrue(mesh.progressSignal() == 0, "Idle is 0");
+        // 1 + 14 * (work-1) / max(1, seconds-2). Common is 10s, so work 9 must read 15, not 13.
+        try {
+            var field = ResonanceMeshBlockEntity.class.getDeclaredField("work");
+            field.setAccessible(true);
+            var state = ResonanceMeshBlockEntity.class.getDeclaredField("state");
+            state.setAccessible(true);
+            state.set(mesh, "working");
+            field.setInt(mesh, 9);
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+        h.assertTrue(mesh.progressSignal() == 15,
+                "The last observed beat must read 15, got " + mesh.progressSignal());
         h.succeed();
     }
 

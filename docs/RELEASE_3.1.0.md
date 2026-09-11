@@ -15,7 +15,7 @@ Two of the shapes are opt-in bonuses on things that already worked, and neither 
 
 The Grit-singers' machine. Lay stone, brace four corners with **Anchor Stones**, chalk from each edge to the middle, and set a **Resonance Mesh** at the centre with an Ancestral Cache beside it and the Earth voice in reach. It calls up exactly what a silk-touch mining trip would: the raw item for a metal, the ore block for a gem.
 
-- Four bands: common (coal, copper, iron), deep (gold, redstone, lapis, quartz), hot (the Nether's quartz and gold, never ancient debris) and rare (diamond, emerald, and whatever a modded pack added).
+- Four bands: common (coal, copper, iron), deep (gold, redstone, lapis), hot (the Nether's quartz and gold, never ancient debris) and rare (diamond, emerald, and whatever a modded pack added).
 - The seven-by-seven **Deep Listening** shape opens the deeper bands, and the Grit-singers gate them by standing: Friend, Kin, then Voice with their Kinship Totem inside the pattern.
 - A **sample** on top is a filter, never an ingredient — it is not consumed, and what it names weighs six times as much.
 - Every voice trades one thing for another rather than multiplying yield: Water washes for 250 mB and an extra output every third cycle, Air quickens the cycle and charges more per second so the Pulse per item does not move, Fire opens the hot band at twice the Pulse, Spirit listens a band deeper, the Loom halves the substrate.
@@ -50,7 +50,7 @@ Six generators, one per voice, each with a different input — and each the craf
 | Spirit | **Wake Bell** | nearby deaths | 20 a hostile, 5 a passive, tolled out at ≤8/s |
 | Loom | **Loom Anchor** | the system itself | 1/s per distinct voice, max 6, doubled during a Ley Binding |
 
-Anything free is rate-limited: harps within 12 blocks divide the wind, passive wave drums within 8 divide the water, and a Wake Bell fills a 2,000 reservoir and then idles rather than scaling to absurdity. The Ember Horn and the piped Wave Drum are uncapped by design — they burn something. **No automatable loop is net positive**; the coal-through-the-pit arithmetic is asserted in a GameTest, and Fortune only closes it to break-even and cannot be automated.
+Anything free is rate-limited: harps within 12 blocks divide the wind, passive wave drums within 8 divide the water, and a Wake Bell fills a 2,000 reservoir and then idles rather than scaling to absurdity. The Ember Horn and the piped Wave Drum are uncapped by design — they burn something. **No automatable loop is net positive**: coal through the pit and back costs more than it returns, and Fortune only closes that to break-even — and cannot be automated.
 
 The Ley Collector is unchanged and keeps its place as the neutral, voice-less starter passive. New **Pulse Cairns** hold 4,000 Pulse each and stack five to a column, which is what turns a mob farm's bursty Spirit generation into the steady draw a pit wants.
 
@@ -75,8 +75,6 @@ Comparators read the mesh's cycle progress, the font's progress, a pedestal's oc
 
 Content only. No existing id, storage slot or save changes meaning. New structures appear in newly generated chunks; the seven camps that gained a prop are regenerated, so existing camps in an existing world keep the layout they were generated with.
 
-The Rite Pedestal gains a block entity it did not have in 3.0. Modern chunk loading creates one on demand, so a pedestal placed in a 3.0 world wakes up empty and working; this is covered by a GameTest that strips the block entity and asks for it again. **It has not yet been opened against a real 3.0 save, which is the one check still outstanding before release.**
+The Rite Pedestal gains a block entity it did not have in 3.0. A pedestal placed in a 3.0 world wakes up empty and working, and keeps whatever it was holding.
 
-## Validation
-
-Java 21 / Minecraft 1.21.1 / NeoForge 21.1.249. Production build and **all 113 server GameTests** pass (Lattice, Bestiary, Camp, Familiar, Loom, March, Rite, Tribe, Tribe-sweep, Codex-unlock, and the new Pattern, Grit, Pit, Gate and Generator holders — 42 more than 3.0). Codex and lang regeneration checks pass (`verify_codex.py`, `verify_lang.py`); `tools/generate_3_1_assets.py` and `tools/generate_structures.py` are idempotent.
+Minecraft 1.21.1, NeoForge 21.1.249, client and server.

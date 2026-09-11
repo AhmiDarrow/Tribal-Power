@@ -13,13 +13,23 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 import java.util.List;
 
 /**
- * Marks lasting Totem Lattice links. First click stores a totem; second click within range seals the link.
+ * The chalk does two jobs.
+ *
+ * <p>On a Resonance Totem it marks lasting Totem Lattice links: first click stores a totem, second click
+ * within range seals the link.
+ *
+ * <p>Anywhere else it draws a Ritual Mark on the ground -- the thing that turns scattered devices into a
+ * rite (design 3.1 section 7.1). Clicking a drawn mark rubs it out. The chalk is spent when the mark is
+ * made, which is why the mark itself drops nothing when it is broken.
  */
 public class RitualChalkItem extends Item {
     private static final String TAG_LINK = "LatticePending";
@@ -37,7 +47,7 @@ public class RitualChalkItem extends Item {
         BlockPos pos = context.getClickedPos();
         BlockEntity be = level.getBlockEntity(pos);
         if (!(be instanceof ResonanceTotemBlockEntity)) {
-            return InteractionResult.PASS;
+            return drawMark(context);
         }
 
         Player player = context.getPlayer();
@@ -93,9 +103,50 @@ public class RitualChalkItem extends Item {
         return InteractionResult.SUCCESS;
     }
 
+    /**
+     * Draws a Ritual Mark on the floor, or rubs out the one already there. Marks are what every pattern
+     * that claims to be a rite is joined with, so without this the Stone Font, the Listening Pit and the
+     * Rite Circle cannot be built at all.
+     */
+    private static InteractionResult drawMark(UseOnContext context) {
+        Level level = context.getLevel();
+        BlockPos clicked = context.getClickedPos();
+        // A mark is replaceable, so clicking one directly lands on it; clicking the floor lands beside it.
+        BlockPos target = level.getBlockState(clicked).canBeReplaced()
+                ? clicked : clicked.relative(context.getClickedFace());
+        Player player = context.getPlayer();
+        ItemStack stack = context.getItemInHand();
+        Block mark = ModBlocks.RITUAL_MARK.get();
+
+        if (level.getBlockState(target).is(mark)) {
+            if (level.isClientSide) return InteractionResult.SUCCESS;
+            level.destroyBlock(target, false);
+            if (player != null) {
+                player.displayClientMessage(Component.translatable("message.tribalpower.chalk.erased"), true);
+            }
+            return InteractionResult.SUCCESS;
+        }
+
+        BlockState state = mark.defaultBlockState();
+        if (!level.getBlockState(target).canBeReplaced() || !state.canSurvive(level, target)) {
+            return InteractionResult.PASS;
+        }
+        if (level.isClientSide) return InteractionResult.SUCCESS;
+
+        level.setBlock(target, state, Block.UPDATE_ALL);
+        level.playSound(null, target, state.getSoundType().getPlaceSound(),
+                net.minecraft.sounds.SoundSource.BLOCKS, 0.8F, 1.1F);
+        if (player == null || !player.getAbilities().instabuild) stack.shrink(1);
+        if (player != null) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.chalk.drawn"), true);
+        }
+        return InteractionResult.SUCCESS;
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.ritual_chalk.desc"));
+        tooltip.add(Component.translatable("item.tribalpower.ritual_chalk.marks"));
         BlockPos pending = readPending(stack);
         if (pending != null) {
             tooltip.add(Component.translatable(

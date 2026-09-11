@@ -86,6 +86,20 @@ public final class TribalPower {
                                     : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     ModBlockEntities.ANCESTRAL_CACHE.get(), (be, side) -> new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be, new net.neoforged.neoforge.items.wrapper.InvWrapper(be)));
+            // Washing drinks 250 mB a cycle, so the mesh has to be something a bucket or a cistern can
+            // actually reach; and the relays speak ItemHandler, where a hopper speaks WorldlyContainer.
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                    ModBlockEntities.RESONANCE_MESH.get(), (be, side) -> be.tank);
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.RESONANCE_MESH.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.STONE_FONT.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
         });
     }
 

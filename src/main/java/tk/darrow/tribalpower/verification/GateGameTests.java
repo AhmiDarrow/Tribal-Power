@@ -102,6 +102,20 @@ public class GateGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void landingInPowerIsNotAStrike(GameTestHelper h) {
+        BlockPos pos = new BlockPos(4, 2, 4);
+        h.setBlock(pos.below(), Blocks.REDSTONE_BLOCK);
+        GateKeystoneBlockEntity keystone = wayGate(h, pos);
+        keystone.insertPulse(GateKeystoneBlockEntity.Kind.WAY.capacity(), false);
+        h.assertFalse(keystone.lit(), "A keystone placed into power must stay dark");
+        keystone.onRedstoneChanged(h.getLevel());
+        h.assertFalse(keystone.lit(), "The first neighbour update after landing in power is not a strike");
+        h.assertTrue(keystone.getPulseStored() == GateKeystoneBlockEntity.Kind.WAY.capacity(),
+                "Landing in power must not spend the lighting cost");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void linkingIsMutualAndBreakingOneEndReleasesTheOther(GameTestHelper h) {
         GateKeystoneBlockEntity a = wayGate(h, new BlockPos(3, 2, 3));
         GateKeystoneBlockEntity b = wayGate(h, new BlockPos(3, 2, 9));

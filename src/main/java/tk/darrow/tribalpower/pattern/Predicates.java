@@ -34,8 +34,23 @@ public final class Predicates {
     public static BlockPredicate tag(TagKey<Block> tag) {
         return new Simple(
                 (level, pos) -> level.getBlockState(pos).is(tag),
-                () -> Component.translatable("pattern.tribalpower.expect.tag",
-                        Component.translatable(net.minecraft.Util.makeDescriptionId("tag", tag.location()))));
+                () -> Component.translatable("pattern.tribalpower.expect.tag", tagName(tag)));
+    }
+
+    /**
+     * A readable name for a block tag. {@code Util.makeDescriptionId} builds a key no lang file defines,
+     * so a missing floor read "Expected any tag.minecraft.base_stone_overworld at ...". Prefer a
+     * translation when the pack supplies one and fall back to the tag's own path in words.
+     */
+    private static Component tagName(TagKey<Block> tag) {
+        String key = "tag.block." + tag.location().getNamespace() + "." + tag.location().getPath().replace('/', '.');
+        StringBuilder words = new StringBuilder();
+        for (String word : tag.location().getPath().replace('/', '_').split("_")) {
+            if (word.isEmpty()) continue;
+            if (!words.isEmpty()) words.append(' ');
+            words.append(word);
+        }
+        return Component.translatableWithFallback(key, words.toString());
     }
 
     public static BlockPredicate anything() {

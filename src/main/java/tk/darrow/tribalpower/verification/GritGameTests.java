@@ -33,6 +33,16 @@ public class GritGameTests {
         h.assertTrue(rawIron != null, "Raw iron must shatter into grit");
         h.assertTrue(rawIron.result().is(ModItems.IRON_GRIT.get()), "Raw iron must give iron grit, got " + rawIron.result());
 
+        // Silk-touching an ore is supposed to be the doubling path. The synthesised recipe used to give
+        // one grit where the written one gives two, which made silk touch a downgrade and ran every
+        // modded metal at half the vanilla rate.
+        var oreIron = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION, new ItemStack(Items.IRON_ORE));
+        h.assertTrue(oreIron != null, "A silk-touched iron ore must shatter");
+        h.assertTrue(oreIron.result().getCount() == GritRegistry.GRIT_PER_UNIT,
+                "A silk-touched ore must give " + GritRegistry.GRIT_PER_UNIT + " grit, got " + oreIron.result().getCount());
+        h.assertTrue(iron.shatterResult().getCount() == GritRegistry.GRIT_PER_UNIT,
+                "The scan must pay what the written recipe pays");
+
         var oreCoal = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION, new ItemStack(Items.COAL_ORE));
         h.assertTrue(oreCoal != null, "A silk-touched coal ore must shatter");
         h.assertTrue(oreCoal.result().is(Items.COAL), "Coal ore must give coal itself, got " + oreCoal.result());

@@ -46,6 +46,16 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
      * the whole loop buildable: a relay restocks a pedestal, a clock strikes the brazier, the rite fires,
      * and a comparator reports the pedestal empty.
      */
+    /**
+     * A struck signal is an edge. A brazier placed beside a lit redstone torch has to start from the
+     * signal that is already there, or the first unrelated neighbour update fires the seated rite and
+     * eats a Rite Tablet nobody asked for.
+     */
+    public void seedSignal(net.minecraft.world.level.Level level) {
+        lastSignal = level.hasNeighborSignal(worldPosition);
+        setChanged();
+    }
+
     public void onRedstoneChanged(ServerLevel level) {
         boolean signal = level.hasNeighborSignal(worldPosition);
         boolean rising = signal && !lastSignal;

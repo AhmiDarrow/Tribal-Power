@@ -77,25 +77,37 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 && !level.hasNeighborSignal(below) ? cache : null;
     }
 
-    /** Empties the output slots into the cache beneath. Only an arrayed station does this. */
+    /**
+     * Empties the output slots into the cache beneath. Only an arrayed station does this.
+     *
+     * <p>The station has to mark itself changed here, not only the cache: the tick can return early for
+     * want of Pulse or attunement straight after a drain, and an unload at that moment would restore the
+     * stacks this just gave away -- the same items in two places.
+     */
     private void drainToCache(Level level) {
         AncestralCacheBlockEntity cache = cacheBelow(level);
         if (cache == null) return;
+        boolean drained = false;
         for (int slot = 1; slot < 9; slot++) {
             ItemStack stack = items.get(slot);
             if (stack.isEmpty()) continue;
             for (int target = 0; target < cache.getContainerSize() && !stack.isEmpty(); target++) {
                 ItemStack held = cache.getItem(target);
-                if (held.isEmpty()) { cache.setItem(target, stack.copy()); items.set(slot, ItemStack.EMPTY); stack = ItemStack.EMPTY; }
-                else if (ItemStack.isSameItemSameComponents(held, stack)) {
+                if (held.isEmpty()) {
+                    cache.setItem(target, stack.copy());
+                    items.set(slot, ItemStack.EMPTY);
+                    stack = ItemStack.EMPTY;
+                    drained = true;
+                } else if (ItemStack.isSameItemSameComponents(held, stack)) {
                     int moved = Math.min(stack.getCount(), held.getMaxStackSize() - held.getCount());
                     if (moved <= 0) continue;
                     held.grow(moved);
                     stack.shrink(moved);
+                    drained = true;
                 }
             }
         }
-        cache.setChanged();
+        if (drained) { cache.setChanged(); setChanged(); }
     }
 
     private boolean placeOutput(ItemStack result, boolean simulate) {

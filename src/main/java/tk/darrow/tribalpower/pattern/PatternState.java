@@ -34,8 +34,10 @@ public final class PatternState {
         if (dirty || cached == null || now >= nextCheck) {
             cached = PatternMatcher.match(level, anchor, pattern);
             dirty = false;
-            // Stagger by position so neighbouring devices never revalidate on the same tick.
-            nextCheck = now + REVALIDATE_TICKS + Math.floorMod(anchor.asLong(), REVALIDATE_TICKS);
+            // Stagger by position -- as a phase, not as extra period. Neighbouring devices land on
+            // different ticks, but every device still revalidates once every REVALIDATE_TICKS.
+            long phase = Math.floorMod(anchor.asLong(), REVALIDATE_TICKS);
+            nextCheck = now + REVALIDATE_TICKS - Math.floorMod(now - phase, REVALIDATE_TICKS);
         }
         return cached;
     }

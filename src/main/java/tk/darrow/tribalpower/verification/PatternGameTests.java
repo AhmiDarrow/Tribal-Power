@@ -12,6 +12,7 @@ import tk.darrow.tribalpower.blockentity.StoneFontBlockEntity;
 import tk.darrow.tribalpower.pattern.ModPatterns;
 import tk.darrow.tribalpower.pattern.PatternMatcher;
 import tk.darrow.tribalpower.pattern.RitualPattern;
+import tk.darrow.tribalpower.item.ModItems;
 
 /** The pattern framework and the Stone Font (design 3.1 sections 4 and 6). */
 @GameTestHolder("tribalpower")
@@ -123,4 +124,33 @@ public class PatternGameTests {
         h.assertTrue(font.progressSignal() >= 0, "A stilled font still answers a comparator");
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void ritualChalkDrawsAndRubsOutMarks(GameTestHelper h) {
+        // Every pattern that claims to be a rite is joined with chalk marks. Without a way to draw one,
+        // the Stone Font, the Listening Pit and the Rite Circle cannot be built outside creative at all.
+        h.setBlock(2, 1, 2, Blocks.STONE);
+        net.minecraft.server.level.ServerPlayer player = h.makeMockServerPlayerInLevel();
+        net.minecraft.world.item.ItemStack chalk =
+                new net.minecraft.world.item.ItemStack(ModItems.RITUAL_CHALK.get(), 4);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, chalk);
+
+        BlockPos floor = h.absolutePos(new BlockPos(2, 1, 2));
+        net.minecraft.world.phys.BlockHitResult onFloor = new net.minecraft.world.phys.BlockHitResult(
+                floor.getCenter().add(0, 0.5, 0), net.minecraft.core.Direction.UP, floor, false);
+        chalk.useOn(new net.minecraft.world.item.context.UseOnContext(
+                player, net.minecraft.world.InteractionHand.MAIN_HAND, onFloor));
+        h.assertBlockPresent(ModBlocks.RITUAL_MARK.get(), 2, 2, 2);
+        if (!player.getAbilities().instabuild)
+            h.assertTrue(chalk.getCount() == 3, "Drawing a mark spends one chalk, held " + chalk.getCount());
+
+        BlockPos mark = h.absolutePos(new BlockPos(2, 2, 2));
+        net.minecraft.world.phys.BlockHitResult onMark = new net.minecraft.world.phys.BlockHitResult(
+                mark.getCenter(), net.minecraft.core.Direction.UP, mark, false);
+        chalk.useOn(new net.minecraft.world.item.context.UseOnContext(
+                player, net.minecraft.world.InteractionHand.MAIN_HAND, onMark));
+        h.assertBlockNotPresent(ModBlocks.RITUAL_MARK.get(), 2, 2, 2);
+        h.succeed();
+    }
+
 }

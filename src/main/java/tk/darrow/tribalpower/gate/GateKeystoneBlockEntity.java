@@ -222,6 +222,25 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         if (level == null) return;
         transitUntil = level.getGameTime() + TRANSIT_SIGNAL_TICKS;
         changed();
+        // The pulse has to fall on its own. The beat only runs once a second and returns early when the
+        // gate is dark, so without this the comparator would sit at 15 until something else nudged it.
+        if (level instanceof ServerLevel server)
+            server.scheduleTick(worldPosition, getBlockState().getBlock(), TRANSIT_SIGNAL_TICKS + 1);
+    }
+
+    /** The scheduled tick at the end of a transit pulse: tell the comparator the reading has changed. */
+    public void onTransitEnded() {
+        changed();
+    }
+
+    /**
+     * A struck signal is an edge, so a keystone placed into an already-powered spot must start from what
+     * is actually there -- otherwise the first unrelated neighbour update reads as a rise and spends 400
+     * Pulse lighting a gate nobody struck.
+     */
+    public void seedSignal(Level level) {
+        lastSignal = level.hasNeighborSignal(worldPosition);
+        setChanged();
     }
 
     public boolean inTransit() { return level != null && level.getGameTime() < transitUntil; }
