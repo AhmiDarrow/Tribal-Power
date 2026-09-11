@@ -135,8 +135,8 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
             be.work = 0;
             tk.darrow.tribalpower.camp.CampHooks.award((ServerLevel) level, be.owner(), "journey/circle");
             tk.darrow.tribalpower.camp.CampHooks.award((ServerLevel) level, be.owner(), "journey/stone_stays");
-            level.playSound(null, pos, net.minecraft.sounds.SoundEvents.STONE_PLACE,
-                    net.minecraft.sounds.SoundSource.BLOCKS, 0.5F, 1.1F);
+            tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                    tk.darrow.tribalpower.sound.ModSounds.FONT_FORM, 0.5F, 1.05F);
         }
         be.setChanged();
         level.updateNeighbourForOutputSignal(pos, blockState.getBlock());

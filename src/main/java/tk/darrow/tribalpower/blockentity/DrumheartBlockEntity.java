@@ -66,8 +66,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         if (level instanceof net.minecraft.server.level.ServerLevel server) {
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server, worldPosition.getCenter().add(0, 0.4, 0),
                     tk.darrow.tribalpower.api.pulse.Attunement.EARTH, inTime ? 1 : 0.55, inTime ? 16 : 8);
-            server.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.NOTE_BLOCK_BASEDRUM.value(),
-                    net.minecraft.sounds.SoundSource.BLOCKS, 0.65F, inTime ? 1.3F : 0.9F);
+            strike(inTime);
         }
         setChanged();
         return gained;
@@ -87,8 +86,16 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         lastRedstoneGain = value;
         if (value <= 0) return 0;
         int gained = insertPulse(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value), false);
+        strike(value == ON_TEMPO);
         setChanged();
         return gained;
+    }
+
+    private void strike(boolean inTime) {
+        tk.darrow.tribalpower.sound.ModSounds.play(level, worldPosition,
+                inTime ? tk.darrow.tribalpower.sound.ModSounds.DRUMHEART_TEMPO
+                        : tk.darrow.tribalpower.sound.ModSounds.DRUMHEART_OFF_TEMPO,
+                0.7F, inTime ? 1.05F : 0.85F);
     }
 
     @Override

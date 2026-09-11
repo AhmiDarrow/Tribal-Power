@@ -240,10 +240,16 @@ def cuboid(name):
         box([3, 12, 3], [13, 14, 13], "trim")
         box([6, 14, 6], [10, 16, 10], "light")
     elif name == "wind_harp":
-        box([3, 0, 3], [13, 2, 13], "stone")
-        box([4, 2, 6], [6, 16, 10], "side")
-        box([10, 2, 6], [12, 16, 10], "side")
-        box([6, 13, 7], [10, 15, 9], "trim")
+        # Standing folk harp: plinth, forepillar, neck, soundbox, and a fan of strings.
+        box([2, 0, 5], [14, 2, 11], "stone")
+        box([10, 2, 5], [14, 14, 11], "side")
+        box_top([10, 14, 5], [14, 15, 11], "trim", "top")
+        box([2, 2, 7], [4, 15, 9], "wood")
+        box([2, 15, 7], [12, 16, 9], "wood")
+        box([4, 2, 7], [10, 3.5, 9], "trim")
+        box([5, 4, 9], [10, 13, 10.5], "wood")
+        for i, x in enumerate((4.6, 5.8, 7.0, 8.2, 9.4)):
+            box([x, 3.6 + i * 0.5, 7.7], [x + 0.35, 15.2, 8.15], "light")
     elif name == "wave_drum":
         box([2, 0, 2], [14, 2, 14], "wood")
         box([2, 2, 2], [14, 12, 14], "side")

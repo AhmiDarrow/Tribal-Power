@@ -1,0 +1,68 @@
+{
+  "drumheart_tempo": {
+    "subtitle": "subtitles.tribalpower.drumheart_tempo",
+    "sounds": [
+      "tribalpower:drumheart_tempo"
+    ]
+  },
+  "drumheart_off_tempo": {
+    "subtitle": "subtitles.tribalpower.drumheart_off_tempo",
+    "sounds": [
+      "tribalpower:drumheart_off_tempo"
+    ]
+  },
+  "ember_horn_roar": {
+    "subtitle": "subtitles.tribalpower.ember_horn_roar",
+    "sounds": [
+      "tribalpower:ember_horn_roar"
+    ]
+  },
+  "wind_harp_string": {
+    "subtitle": "subtitles.tribalpower.wind_harp_string",
+    "sounds": [
+      "tribalpower:wind_harp_string"
+    ]
+  },
+  "wave_drum_slap": {
+    "subtitle": "subtitles.tribalpower.wave_drum_slap",
+    "sounds": [
+      "tribalpower:wave_drum_slap"
+    ]
+  },
+  "wake_bell_toll": {
+    "subtitle": "subtitles.tribalpower.wake_bell_toll",
+    "sounds": [
+      "tribalpower:wake_bell_toll"
+    ]
+  },
+  "gate_hum": {
+    "subtitle": "subtitles.tribalpower.gate_hum",
+    "sounds": [
+      "tribalpower:gate_hum"
+    ]
+  },
+  "gate_transit": {
+    "subtitle": "subtitles.tribalpower.gate_transit",
+    "sounds": [
+      "tribalpower:gate_transit"
+    ]
+  },
+  "mesh_sift": {
+    "subtitle": "subtitles.tribalpower.mesh_sift",
+    "sounds": [
+      "tribalpower:mesh_sift"
+    ]
+  },
+  "font_form": {
+    "subtitle": "subtitles.tribalpower.font_form",
+    "sounds": [
+      "tribalpower:font_form"
+    ]
+  },
+  "chalk_draw": {
+    "subtitle": "subtitles.tribalpower.chalk_draw",
+    "sounds": [
+      "tribalpower:chalk_draw"
+    ]
+  }
+}

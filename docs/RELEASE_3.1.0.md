@@ -70,6 +70,7 @@ Comparators read the mesh's cycle progress, the font's progress, a pedestal's oc
 - **Camp membership** is honoured by every new device with an owner: gate keystones, the Resonance Mesh, the Stone Font and Rite Pedestals.
 - **Advancements**: Draw the Circle, Stone Stays, Ask the Ground, Open the Way, The Long Thread, Six Voices Singing.
 - **Codex**: 24 new teachings, including a diagram for each of the seven patterns drawn from the pattern itself — so a diagram can never drift from what the matcher actually wants — and a factor breakdown per generator in the same integers the server uses.
+- **Sounds**: original short hits for the Drumheart, the new generators, the mesh, the font, chalk and the gates. The Drum Circle music disc from the design spec is still unauthored.
 
 ## Compatibility
 

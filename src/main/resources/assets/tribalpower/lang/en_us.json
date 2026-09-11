@@ -657,5 +657,16 @@
   "diag.tribalpower.pedestal.empty": "Holding nothing",
   "diag.tribalpower.pedestal.holding": "Holding %s",
   "message.tribalpower.hearth.sated": "The %s have taken all they will today (%s standing).",
-  "message.tribalpower.not_yours": "This belongs to another camp."
+  "message.tribalpower.not_yours": "This belongs to another camp.",
+  "subtitles.tribalpower.drumheart_tempo": "Drumheart beats on tempo",
+  "subtitles.tribalpower.drumheart_off_tempo": "Drumheart beats off tempo",
+  "subtitles.tribalpower.ember_horn_roar": "Ember Horn roars",
+  "subtitles.tribalpower.wind_harp_string": "Wind Harp sings",
+  "subtitles.tribalpower.wave_drum_slap": "Wave Drum slaps",
+  "subtitles.tribalpower.wake_bell_toll": "Wake Bell tolls",
+  "subtitles.tribalpower.gate_hum": "Gate hums",
+  "subtitles.tribalpower.gate_transit": "Gate takes a traveller",
+  "subtitles.tribalpower.mesh_sift": "Resonance Mesh sifts",
+  "subtitles.tribalpower.font_form": "Stone Font settles",
+  "subtitles.tribalpower.chalk_draw": "Chalk draws a mark"
 }

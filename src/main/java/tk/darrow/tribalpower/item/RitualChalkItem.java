@@ -134,8 +134,8 @@ public class RitualChalkItem extends Item {
         if (level.isClientSide) return InteractionResult.SUCCESS;
 
         level.setBlock(target, state, Block.UPDATE_ALL);
-        level.playSound(null, target, state.getSoundType().getPlaceSound(),
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.8F, 1.1F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, target,
+                tk.darrow.tribalpower.sound.ModSounds.CHALK_DRAW, 0.7F, 1.05F);
         if (player == null || !player.getAbilities().instabuild) stack.shrink(1);
         if (player != null) {
             player.displayClientMessage(Component.translatable("message.tribalpower.chalk.drawn"), true);

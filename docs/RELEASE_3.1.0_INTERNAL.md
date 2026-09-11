@@ -14,7 +14,18 @@ on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`,
 - **A real 3.0 save has not been opened against 3.1.** The Rite Pedestal's new block entity is covered by
   a GameTest that strips the block entity and asks for it again, but that is not the same as loading a
   world that was actually played in 3.0. Do this before release.
-- **Sounds and the Wind Harp Blender rig** were out of scope for the 3.1 implementation pass.
+- **Drum Circle music disc** from design 3.1 §15 is still unauthored (no original track; do not ship a
+  silent disc). Device hits are in; see Done below.
+
+## Done — Sounds / Wind Harp
+
+- **Wind Harp model** is a folk-harp cuboid (plinth, forepillar, neck, soundbox, five strings) from
+  `tools/generate_3_1_assets.py`. Blender was not on this machine, so there is no `.blend` rig; block id
+  stays `tribalpower:wind_harp`.
+- **Device hits** are original short OGGs (`tools/generate_3_1_sounds.py`) wired through `ModSounds` and
+  `sounds.json`: Drumheart on/off tempo, Ember Horn roar, Wind Harp string, Wave Drum slap, Wake Bell
+  toll, gate hum and transit, mesh sift, font form, chalk draw. Vanilla `SoundEvents` remain only where
+  nothing 3.1-specific was specified.
 
 ## Fixed in the 3.1 bug sweep
 

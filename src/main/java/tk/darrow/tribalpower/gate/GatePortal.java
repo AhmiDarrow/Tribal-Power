@@ -210,9 +210,7 @@ public final class GatePortal {
 
     private static void celebrate(ServerLevel level, BlockPos pos) {
         SpiritEffects.ring(level, pos.getCenter(), Attunement.LOOM, 0.9, 16);
-        level.playSound(null, pos, net.minecraft.sounds.SoundEvents.NOTE_BLOCK_BASEDRUM.value(),
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 0.6F);
-        level.playSound(null, pos, net.minecraft.sounds.SoundEvents.RESPAWN_ANCHOR_CHARGE,
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.35F, 1.6F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                tk.darrow.tribalpower.sound.ModSounds.GATE_TRANSIT, 0.7F, 1.0F);
     }
 }

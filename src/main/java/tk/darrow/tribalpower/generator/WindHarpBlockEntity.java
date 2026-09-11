@@ -29,6 +29,14 @@ public class WindHarpBlockEntity extends GeneratorBlockEntity {
     }
 
     @Override
+    protected void afterProduce(Level level, BlockPos pos, int produced) {
+        if (produced <= 0) return;
+        float pitch = 0.85F + Math.min(0.5F, pos.getY() / 256.0F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                tk.darrow.tribalpower.sound.ModSounds.WIND_HARP_STRING, 0.28F, pitch);
+    }
+
+    @Override
     public List<Component> breakdown() {
         return level == null ? List.of() : WindMath.breakdown(level, worldPosition);
     }

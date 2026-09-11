@@ -43,8 +43,8 @@ public class WakeBellBlockEntity extends GeneratorBlockEntity {
         reservoir = Math.min(RESERVOIR, reservoir + pulse);
         setChanged();
         if (level != null) {
-            level.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.BELL_RESONATE,
-                    net.minecraft.sounds.SoundSource.BLOCKS, 0.35F, 1.2F);
+            tk.darrow.tribalpower.sound.ModSounds.play(level, worldPosition,
+                    tk.darrow.tribalpower.sound.ModSounds.WAKE_BELL_TOLL, 0.4F, 1.05F);
         }
     }
 

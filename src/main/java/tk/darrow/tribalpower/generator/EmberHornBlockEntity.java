@@ -77,8 +77,8 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
         fuel.shrink(1);
         if (!remainder.isEmpty() && fuel.isEmpty()) items.set(SLOT, remainder);
         updateLit(level, pos, true);
-        level.playSound(null, pos, net.minecraft.sounds.SoundEvents.FIRECHARGE_USE,
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.4F, 1.4F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                tk.darrow.tribalpower.sound.ModSounds.EMBER_HORN_ROAR, 0.55F, 0.95F);
     }
 
     private void updateLit(Level level, BlockPos pos, boolean lit) {

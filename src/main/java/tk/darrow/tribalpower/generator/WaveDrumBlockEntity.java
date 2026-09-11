@@ -48,6 +48,10 @@ public class WaveDrumBlockEntity extends GeneratorBlockEntity {
     protected void afterProduce(Level level, BlockPos pos, int produced) {
         // The piped tier drinks only when it actually delivered: a full buffer wastes no water.
         if (produced > 0 && piped()) tank.drain(WaveMath.PIPED_COST, IFluidHandler.FluidAction.EXECUTE);
+        if (produced > 0) {
+            tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                    tk.darrow.tribalpower.sound.ModSounds.WAVE_DRUM_SLAP, 0.35F, 0.9F);
+        }
     }
 
     @Override

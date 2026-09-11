@@ -329,8 +329,8 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         calling = "";
         tk.darrow.tribalpower.camp.CampHooks.award((ServerLevel) level, owner(), "journey/circle");
         tk.darrow.tribalpower.camp.CampHooks.award((ServerLevel) level, owner(), "journey/ask_the_ground");
-        level.playSound(null, pos, net.minecraft.sounds.SoundEvents.GRAVEL_BREAK,
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.6F, 0.8F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                tk.darrow.tribalpower.sound.ModSounds.MESH_SIFT, 0.55F, 0.95F);
     }
 
     private ItemStack result(Level level, BlockPos pos, OreBand band) {

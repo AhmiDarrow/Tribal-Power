@@ -180,8 +180,8 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         record(level);
         refreshTint(level);
         GatePortal.fill(level, this, kind);
-        level.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.BEACON_ACTIVATE,
-                net.minecraft.sounds.SoundSource.BLOCKS, 0.7F, 0.8F);
+        tk.darrow.tribalpower.sound.ModSounds.play(level, worldPosition,
+                tk.darrow.tribalpower.sound.ModSounds.GATE_HUM, 0.65F, 0.9F);
         tk.darrow.tribalpower.camp.CampHooks.award(level, owner, "journey/circle");
         tk.darrow.tribalpower.camp.CampHooks.award(level, owner, "journey/open_the_way");
         changed();
@@ -310,6 +310,10 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         be.refreshTint(server);
         if (!be.lit) return;
         if (be.stilled() || be.kind(level) == null) { be.extinguish(server); return; }
+        if ((level.getGameTime() + pos.asLong()) % 40 == 0) {
+            tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
+                    tk.darrow.tribalpower.sound.ModSounds.GATE_HUM, 0.18F, 0.85F);
+        }
         // Draw from the lattice so a gate on a powered base tops itself back up between trips.
         int room = be.getPulseCapacity() - be.pulse.getPulseStored();
         if (room > 0) be.pulse.insertPulse(
