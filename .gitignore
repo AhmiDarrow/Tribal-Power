@@ -50,3 +50,20 @@ art/showcase/
 # Local notes — never commit
 INTERNAL/
 docs/*_INTERNAL.md
+
+# Authoring only — generated assets already live in src/
+tools/
+art/
+legacy_1_9_4/
+.grok/
+docs/CODEX_ART.md
+docs/DESIGN_3.0_NINE_TRIBES.md
+docs/bestiary-and-skies.md
+
+# Scratch copies — never commit
+Claude outputs/
+tribal-power-*.bundle*
+_review_copy.py
+_review_copy.bat
+fetch_3.0.1_and_3.1.0.py
+fetch_3.0.1_and_3.1.0.bat
