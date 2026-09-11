@@ -1,7 +1,12 @@
 package tk.darrow.tribalpower.item;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.JukeboxSong;
+import net.minecraft.world.item.Rarity;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import tk.darrow.tribalpower.TribalPower;
@@ -27,6 +32,16 @@ public final class ModItems {
     public static final DeferredItem<RitualChalkItem> RITUAL_CHALK = ITEMS.register(
             "ritual_chalk",
             () -> new RitualChalkItem(new Item.Properties().stacksTo(64))
+    );
+
+    // Design 3.1 §15: original Drum Circle record. The jukebox_song id is drum_circle;
+    // the item keeps vanilla's music_disc_* prefix.
+    public static final ResourceKey<JukeboxSong> DRUM_CIRCLE_SONG = ResourceKey.create(
+            Registries.JUKEBOX_SONG,
+            ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "drum_circle"));
+    public static final DeferredItem<Item> MUSIC_DISC_DRUM_CIRCLE = ITEMS.register(
+            "music_disc_drum_circle",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DRUM_CIRCLE_SONG))
     );
 
     // Echo stage intermediates — shattered grit → manifested metal (not furnace smelting)

@@ -2,10 +2,12 @@ package tk.darrow.tribalpower.verification;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -107,16 +109,18 @@ public class MarchGameTests {
         h.runAtTickTime(5, () -> boss.kill());
         h.runAtTickTime(40, () -> {
             var items = h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, h.getBounds().inflate(6));
-            int heart = 0, thread = 0, core = 0;
+            int heart = 0, thread = 0, core = 0, disc = 0;
             for (var item : items) {
                 var stack = item.getItem();
                 if (stack.is(ModItems.UNSUNG_HEART.get())) heart += stack.getCount();
                 if (stack.is(ModItems.LOOM_THREAD.get())) thread += stack.getCount();
                 if (stack.is(ModItems.RESONANT_CORE.get())) core += stack.getCount();
+                if (stack.is(ModItems.MUSIC_DISC_DRUM_CIRCLE.get())) disc += stack.getCount();
             }
             h.assertTrue(heart == 1, "The Unsung drops exactly one Unsung Heart, found " + heart);
             h.assertTrue(thread >= 16 && thread <= 24, "The Unsung drops 16–24 Loom Thread, found " + thread);
             h.assertTrue(core == 4, "The Unsung drops four Resonant Cores, found " + core);
+            h.assertTrue(disc == 1, "The Unsung drops the Drum Circle music disc, found " + disc);
             h.assertTrue(bosses(h).isEmpty(), "The Unsung must be gone after death");
             h.succeed();
         });
@@ -169,9 +173,22 @@ public class MarchGameTests {
         boolean hasDrum = drum.filterBlocks(BlockPos.ZERO, new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(), MarchRegistry.SILENT_DRUM.get())
                 .stream().anyMatch(info -> info.state().is(MarchRegistry.SILENT_DRUM.get()));
         h.assertTrue(hasDrum, "The Drum Circle must carry a Silent Drum at its centre");
+        boolean hasChest = !drum.filterBlocks(BlockPos.ZERO, new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(), Blocks.CHEST).isEmpty();
+        h.assertTrue(hasChest, "The Drum Circle must keep a chest for the music disc");
         var hall = manager.get(ResourceLocation.fromNamespaceAndPath("tribalpower", "ancestor_hall")).orElseThrow();
         long tablets = hall.filterBlocks(BlockPos.ZERO, new net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings(), MarchRegistry.LORE_TABLET.get()).size();
         h.assertTrue(tablets == 4, "The Ancestor Hall must hang four Lore Tablets, found " + tablets);
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void theDrumCircleDiscPlaysInAJukebox(GameTestHelper h) {
+        var stack = new ItemStack(ModItems.MUSIC_DISC_DRUM_CIRCLE.get());
+        h.assertTrue(stack.has(DataComponents.JUKEBOX_PLAYABLE), "The Drum Circle disc must be jukebox-playable");
+        var song = h.getLevel().registryAccess().registryOrThrow(Registries.JUKEBOX_SONG).get(ModItems.DRUM_CIRCLE_SONG);
+        h.assertTrue(song != null, "jukebox_song tribalpower:drum_circle must load");
+        h.assertTrue(song.lengthInTicks() > 20 * 30, "The disc must be a real track, not a stub (" + song.lengthInTicks() + " ticks)");
+        h.assertTrue(song.comparatorOutput() == 12, "Twelve pillars, comparator 12, got " + song.comparatorOutput());
         h.succeed();
     }
 

@@ -44,7 +44,7 @@ VOICE = {
 }
 
 BLOCKS = list(VOICE)
-ITEMS = ["mineral_grit", "gate_sigil", "rite_spring_calling"]
+ITEMS = ["mineral_grit", "gate_sigil", "rite_spring_calling", "music_disc_drum_circle"]
 
 
 # ---- textures ---------------------------------------------------------------------------------
@@ -174,6 +174,14 @@ def item_icon(name):
             d.polygon([(x, y - 4), (x + 4, y), (x + 2, y + 4), (x - 4, y + 2)], fill=(58, 58, 58, 255))
             d.polygon([(x, y - 2), (x + 2, y), (x + 1, y + 2), (x - 2, y + 1)], fill=(210, 210, 210, 255))
             d.point((x, y - 1), fill=(255, 255, 255, 255))
+    elif name == "music_disc_drum_circle":
+        d.ellipse((2, 2, 29, 29), fill=INK, outline=shade(COPPER, -20))
+        d.ellipse((4, 4, 27, 27), outline=shade(TEAL, -40))
+        d.ellipse((7, 7, 24, 24), outline=shade(TEAL, -20))
+        d.ellipse((10, 10, 21, 21), outline=TEAL)
+        d.ellipse((12, 12, 19, 19), fill=shade(STONE, -18), outline=GOLD)
+        d.ellipse((14, 14, 17, 17), fill=INK)
+        glyph(d, "earth", LIGHT, y=16, size=3)
     elif name == "gate_sigil":
         d.polygon([(8, 2), (23, 2), (29, 8), (29, 23), (23, 29), (8, 29), (2, 23), (2, 8)], fill=INK)
         d.polygon([(9, 4), (22, 4), (27, 9), (27, 22), (22, 27), (9, 27), (4, 22), (4, 9)],

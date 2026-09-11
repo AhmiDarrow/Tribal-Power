@@ -1,0 +1,8 @@
+{
+  "comparator_output": 12,
+  "description": {
+    "translate": "jukebox_song.tribalpower.drum_circle"
+  },
+  "length_in_seconds": 96.0,
+  "sound_event": "tribalpower:music_disc.drum_circle"
+}

@@ -1,6 +1,6 @@
 # Tribal Power
 
-**CurseForge Summary (one line):** Shamanic technomancy for NeoForge 1.21.1 — Spirit Pulse, Totem Lattice, Song Bench Echo, The March and the Nine Tribes.
+**CurseForge Summary (one line):** Shamanic technomancy for NeoForge 1.21.1 — Spirit Pulse, Totem Lattice, Song Bench Echo, The March, the Nine Tribes, and the Listening Pit.
 
 Tribal Power binds spirit and machine. Energy is **Spirit Pulse** — rhythmic beats, not furnace FE heat. Processing flows through a **Totem Lattice**: Resonance Totems linked by song, chalk, and proximity. Ores walk **Echo Stages** on the **Song Bench** instead of vanishing into a magic smelter.
 
@@ -55,3 +55,7 @@ Build Wayanchors for sustained chunks, Hush Totems for peaceful camp boundaries,
 ## The Nine Tribes (3.0)
 
 Nine tribes once kept the Loom of Worlds. Their camps still stand in the Overworld and the March, each with a hearth, a banner and four Tribal Kin. Offer favoured goods at a Tribe Hearth to rise from Guest to Voice, trade with the Elders, earn a Tribe Mark and carve it into a Kinship Totem for an extra Resonator voice. In the March, sunken Ancestor Halls keep twelve Lore Tablets, and a four-beat on the Silent Drum wakes The Unsung, a three-phase boss whose Heart unlocks the sixth voice: Loom. Loom brings the Echo Unweave station, the Loom Seal, the Sixfold Staff and six world rites for weather, daylight, growth, quiet nights and ley lines. Bond a Lantern Fox, Mossback or Dawn Stag as a familiar, found a shared camp with a vault and pooled anchors, and read the land with the Ley Lens, Pulse Gauge, Pulse Threshold and Codex diagnostics.
+
+## The Listening Pit and the Gates (3.1)
+
+Placement is the ritual. Draw chalk patterns for the **Stone Font**, the **Listening Pit**, tablet **Rite Circles**, and built **Way** and **Far Gates**. Grit is crushed metal waiting for a furnace; gems skip the fire. Each voice now has its own generator — Drumheart, Ember Horn, Wind Harp, Wave Drum, Wake Bell, Loom Anchor — and **Pulse Cairns** hold the burst. A **Drum Circle** music disc plays the circle's four-beat in a jukebox. The Drumheart's redstone tempo is retuned (see the 3.1.0 notes); tablet rites now need their circle.

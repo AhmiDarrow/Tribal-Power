@@ -11,6 +11,9 @@
   "item.tribalpower.ritual_chalk.desc": "Mark two Resonance Totems to seal a lattice link",
   "item.tribalpower.ritual_chalk.marks": "Draw a Ritual Mark on any floor; click the mark again to rub it out",
   "item.tribalpower.ritual_chalk.pending": "Pending mark: %s, %s, %s",
+  "item.tribalpower.music_disc_drum_circle": "Music Disc",
+  "item.tribalpower.music_disc_drum_circle.desc": "The Drum Circle — The Unsung",
+  "jukebox_song.tribalpower.drum_circle": "The Drum Circle — The Unsung",
   "item.tribalpower.echo_shard": "Echo Shard",
   "item.tribalpower.attuned_echo": "Attuned Echo",
   "item.tribalpower.bound_echo": "Bound Echo",
@@ -668,5 +671,6 @@
   "subtitles.tribalpower.gate_transit": "Gate takes a traveller",
   "subtitles.tribalpower.mesh_sift": "Resonance Mesh sifts",
   "subtitles.tribalpower.font_form": "Stone Font settles",
-  "subtitles.tribalpower.chalk_draw": "Chalk draws a mark"
+  "subtitles.tribalpower.chalk_draw": "Chalk draws a mark",
+  "subtitles.tribalpower.music_disc.drum_circle": "Music Disc"
 }

@@ -203,6 +203,9 @@ def sounds_json() -> dict:
             "sounds": [f"tribalpower:{name}"],
         }
         _ = subtitle
+    out["music_disc.drum_circle"] = {
+        "sounds": [{"name": "tribalpower:records/drum_circle", "stream": True}],
+    }
     return out
 
 

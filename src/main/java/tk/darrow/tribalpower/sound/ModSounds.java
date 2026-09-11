@@ -11,13 +11,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import tk.darrow.tribalpower.TribalPower;
 
 /**
- * Original short hits for the 3.1 devices (design 3.1 section 15). The Drum Circle music disc
- * is not registered here: there is no authored track to put on it.
+ * Original short hits for the 3.1 devices (design 3.1 section 15) plus the streamed Drum Circle disc.
  */
 public final class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS =
             DeferredRegister.create(Registries.SOUND_EVENT, TribalPower.MOD_ID);
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_DRUM_CIRCLE =
+            register("music_disc.drum_circle");
     public static final DeferredHolder<SoundEvent, SoundEvent> DRUMHEART_TEMPO = register("drumheart_tempo");
     public static final DeferredHolder<SoundEvent, SoundEvent> DRUMHEART_OFF_TEMPO = register("drumheart_off_tempo");
     public static final DeferredHolder<SoundEvent, SoundEvent> EMBER_HORN_ROAR = register("ember_horn_roar");

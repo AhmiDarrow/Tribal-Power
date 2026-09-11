@@ -47,6 +47,15 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tribalpower:music_disc_drum_circle"
+        }
+      ]
     }
   ]
 }

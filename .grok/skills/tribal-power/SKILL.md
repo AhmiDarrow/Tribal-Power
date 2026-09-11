@@ -27,11 +27,11 @@ GameTests live in `src/main/java/tk/darrow/tribalpower/verification/`. The Gradl
 
 ## Generators
 
-`tools/generate_3_1_assets.py`, `tools/generate_structures.py`, `tools/verify_lang.py`, `tools/verify_codex.py`. Optional Blender: `tools/blender_*.py`.
+`tools/generate_3_1_assets.py`, `tools/generate_3_1_sounds.py`, `tools/generate_3_1_disc.py`, `tools/generate_structures.py`, `tools/verify_lang.py`, `tools/verify_codex.py`. Blender: `tools/blender_*.py` (Wind Harp: `blender_wind_harp.py`).
 
 ## 3.1
 
 Public: `docs/RELEASE_3.1.0.md`. Internal: `docs/RELEASE_3.1.0_INTERNAL.md`.  
-Rite Pedestal 3.0-save check, custom drums/disc, and Wind Harp Blender rig stay open until that internal file says otherwise. Do not ship silent oggs.
+3.0 pedestal load, device hits, Drum Circle disc, and Wind Harp cuboid+Blender rig are checked off in the internal notes. Do not ship silent oggs.
 
 When asked to land on master: `git checkout master && git merge --ff-only <feature-branch>`. Keep README version in lockstep with `mod_version`.

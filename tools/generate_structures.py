@@ -1490,6 +1490,9 @@ def build_drum_circle():
     t.set(c, 4, c, 'tribalpower:silent_drum', nbt={'id': String('tribalpower:silent_drum')})
     for (dx, dz) in ((-1, -1), (1, -1), (-1, 1), (1, 1)):
         t.set(c + dx, 4, c + dz, 'minecraft:candle', {'candles': '2', 'lit': 'true', 'waterlogged': 'false'})
+    # Design 3.1 §15: the Drum Circle music disc sits in a chest just off the dais.
+    if t.is_air(c + 6, 2, c):
+        place(t, c + 6, 2, c, loot_chest('west', rng, 'tribalpower:chests/drum_circle'))
     # a lore stele north of the dais and a second south
     for (sx, sz, facing, idx) in ((c + 4, c - 10, 'south', 4), (c - 4, c + 10, 'north', 6)):
         t.fill(sx, 2, sz, sx, 4, sz, stone)
@@ -1657,6 +1660,18 @@ def loot_table():
     def item(name, lo, hi, weight=1):
         return {'type': 'minecraft:item', 'name': name, 'weight': weight,
                 'functions': [{'function': 'minecraft:set_count', 'count': {'type': 'minecraft:uniform', 'min': lo, 'max': hi}}]}
+    write_json('loot_table/chests/drum_circle.json', {
+        'type': 'minecraft:chest',
+        'pools': [
+            {'rolls': 1, 'entries': [{'type': 'minecraft:item', 'name': 'tribalpower:music_disc_drum_circle'}]},
+            {'rolls': {'type': 'minecraft:uniform', 'min': 1, 'max': 3}, 'entries': [
+                item('tribalpower:bone_chime', 1, 1, 2),
+                item('minecraft:bone', 2, 6, 6),
+                item('minecraft:candle', 1, 3, 4),
+                item('tribalpower:echo_shard', 1, 4, 3),
+            ]},
+        ],
+    })
     write_json('loot_table/chests/ancestor_hall.json', {
         'type': 'minecraft:chest',
         'pools': [

@@ -64,5 +64,13 @@
     "sounds": [
       "tribalpower:chalk_draw"
     ]
+  },
+  "music_disc.drum_circle": {
+    "sounds": [
+      {
+        "name": "tribalpower:records/drum_circle",
+        "stream": true
+      }
+    ]
   }
 }

@@ -6,7 +6,8 @@ Not for the changelog. The public notes are `docs/RELEASE_3.1.0.md`.
 
 Java 21 / Minecraft 1.21.1 / NeoForge 21.1.249. Production build plus the server GameTest suites:
 Lattice, Bestiary, Camp, Familiar, Loom, March, Rite, Tribe, Tribe-sweep, Codex-unlock, and the 3.1
-holders — Pattern, Grit, Pit, Gate, Generator. **121 GameTests pass** after the bug sweep (up from 113
+holders — Pattern, Grit, Pit, Gate, Generator. **122 GameTests pass** after the disc (up from 121
+after the bug sweep, 113 on the first 3.1 commit).
 on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`, `verify_lang.py`).
 
 ## Still open
@@ -23,14 +24,14 @@ on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`,
   `build/migration-3.0/evidence/3.0-server-latest.log` and
   `build/migration-3.0/evidence/3.1-server-latest.log`. The GameTest
   `aPedestalWithNoSavedBlockEntityWakesUpWorking` is still only the in-memory strip, not this load.
-- **Drum Circle music disc** from design 3.1 §15 is still unauthored (no original track; do not ship a
-  silent disc). Device hits are in; see Done below.
-
 ## Done — Sounds / Wind Harp
 
+- **Drum Circle music disc** (`tribalpower:music_disc_drum_circle`, jukebox song `tribalpower:drum_circle`,
+  96 s original from `tools/generate_3_1_disc.py`). Chest loot `chests/drum_circle` plus The Unsung drop.
+  Device hits are in; see below.
 - **Wind Harp model** is a folk-harp cuboid (plinth, forepillar, neck, soundbox, five strings) from
-  `tools/generate_3_1_assets.py`. Blender was not on this machine, so there is no `.blend` rig; block id
-  stays `tribalpower:wind_harp`.
+  `tools/generate_3_1_assets.py`. The Blender string rig lives at `art/blocks/wind_harp.blend`
+  (`tools/blender_wind_harp.py`); block id stays `tribalpower:wind_harp`.
 - **Device hits** are original short OGGs (`tools/generate_3_1_sounds.py`) wired through `ModSounds` and
   `sounds.json`: Drumheart on/off tempo, Ember Horn roar, Wind Harp string, Wave Drum slap, Wake Bell
   toll, gate hum and transit, mesh sift, font form, chalk draw. Vanilla `SoundEvents` remain only where
