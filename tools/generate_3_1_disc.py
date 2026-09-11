@@ -188,7 +188,8 @@ def write_stereo_ogg(path: Path, left: np.ndarray, right: np.ndarray) -> None:
         w.setframerate(SR)
         w.writeframes(pcm.tobytes())
     subprocess.run(
-        [ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(wav), "-c:a", "libvorbis", "-q:a", "5", str(path)],
+        [ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(wav),
+         "-c:a", "libvorbis", "-q:a", "5", "-map_metadata", "-1", "-fflags", "+bitexact", str(path)],
         check=True,
     )
     wav.unlink()

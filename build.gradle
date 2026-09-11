@@ -162,6 +162,18 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+// GameTests stay on the compile classpath for runVerification. They are not player content
+// and a published jar full of mock-player bytecode is extra surface for CurseForge's scanner.
+tasks.named('jar', Jar).configure {
+    exclude 'tk/darrow/tribalpower/verification/**'
+    duplicatesStrategy = DuplicatesStrategy.FAIL
+}
+
 idea {
     module {
         downloadSources = true

@@ -80,7 +80,8 @@ def write_ogg(name: str, data: np.ndarray, sr: int = SR) -> Path:
         w.setframerate(sr)
         w.writeframes(pcm.tobytes())
     subprocess.run(
-        [ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(wav), "-c:a", "libvorbis", "-q:a", "4", str(ogg)],
+        [ffmpeg_exe(), "-y", "-loglevel", "error", "-i", str(wav),
+         "-c:a", "libvorbis", "-q:a", "4", "-map_metadata", "-1", "-fflags", "+bitexact", str(ogg)],
         check=True,
     )
     wav.unlink()
