@@ -18,10 +18,8 @@ public final class TribalPowerClient {
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event)->event.register(net.minecraft.resources.ResourceLocation.parse("tribalpower:the_march"),new MarchSkyEffects()));
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,SkyConfig.SPEC);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(AuroraSky::render);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::render);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::screen);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::gui);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::screen);
+        installDevHook("tk.darrow.tribalpower.client.VisualVerification");
+        installDevHook("tk.darrow.tribalpower.client.ShowcaseVerification");
         modBus.addListener(TribalColors::items);
         modBus.addListener(TribalColors::blocks);
         modBus.addListener(ClientSetup::onClientSetup);
@@ -48,5 +46,13 @@ public final class TribalPowerClient {
         modBus.addListener(TribeClient::blockColours);
         modBus.addListener(TribeClient::itemColours);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> CodexUnlocks.reset());
+    }
+
+    /** Screenshot drivers stay on the compile classpath for Gradle runs; the published jar omits them. */
+    private static void installDevHook(String className) {
+        try {
+            Class.forName(className).getMethod("install").invoke(null);
+        } catch (ReflectiveOperationException ignored) {
+        }
     }
 }

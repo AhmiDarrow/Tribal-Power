@@ -169,8 +169,19 @@ tasks.withType(AbstractArchiveTask).configureEach {
 
 // GameTests stay on the compile classpath for runVerification. They are not player content
 // and a published jar full of mock-player bytecode is extra surface for CurseForge's scanner.
+// Same for screenshot drivers, the GameTest empty structure, unused written-book factory,
+// and FTB Library face overlays (that mod is not a dependency).
 tasks.named('jar', Jar).configure {
     exclude 'tk/darrow/tribalpower/verification/**'
+    exclude 'tk/darrow/tribalpower/client/VisualVerification.class'
+    exclude 'tk/darrow/tribalpower/client/VisualVerification$*.class'
+    exclude 'tk/darrow/tribalpower/client/ShowcaseVerification.class'
+    exclude 'tk/darrow/tribalpower/client/ShowcaseVerification$*.class'
+    exclude 'tk/darrow/tribalpower/guide/GuideBookFactory.class'
+    exclude 'tk/darrow/tribalpower/guide/GuidePages.class'
+    exclude 'data/tribalpower/guide/**'
+    exclude 'data/tribalpower/structure/empty.nbt'
+    exclude 'assets/ftblibrary/**'
     duplicatesStrategy = DuplicatesStrategy.FAIL
 }
 

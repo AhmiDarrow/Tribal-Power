@@ -5,6 +5,10 @@ import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 public final class VisualVerification {
     private static long nextCapture=0;
     private static int captures=0;
+    public static void install() {
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(VisualVerification::screen);
+    }
     public static void render(RenderLevelStageEvent event) {
         if(Boolean.getBoolean("tribalpower.codexVerification") && event.getStage()==RenderLevelStageEvent.Stage.AFTER_LEVEL && codex==null) {
             var client=Minecraft.getInstance();

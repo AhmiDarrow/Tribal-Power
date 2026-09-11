@@ -48,6 +48,11 @@ public final class ShowcaseVerification {
 
     private ShowcaseVerification() {}
 
+    public static void install() {
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::gui);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::screen);
+    }
+
     /** HUD phase: the frame already holds the level and HUD; captures happen here unless a screen is open. */
     public static void gui(RenderGuiEvent.Post event) { frame(false); }
     /** Screen phase: fires after an open screen has drawn, so GUI captures include it. */
