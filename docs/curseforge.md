@@ -24,3 +24,6 @@ File 8855150 then went to **Under Manual Review** with "failed processing… obf
 
 ## 3.2.0 — The Listening Pit and the Gates
 Uploaded 2026-09-11: `tribalpower-3.2.0.jar` as file **8855281** ("Tribal Power 3.2.0 - The Listening Pit and the Gates", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.2.0.md`. This is the cleaner 3.1 jar under a new version so CurseForge can process a new file. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.2.0
+
+## 3.2.1 — The Listening Pit and the Gates
+Uploaded 2026-09-11: `tribalpower-3.2.1.jar` as file **8858043** ("Tribal Power 3.2.1 - The Listening Pit and the Gates", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.2.1.md`. Packaging-only: published jar omits leftover QA (screenshot drivers, GameTest empty structure, unused written-book copies, FTB Library face overlays). GameTests stay out of the player jar. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.2.1
