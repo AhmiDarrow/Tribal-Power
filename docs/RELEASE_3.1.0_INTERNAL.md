@@ -11,9 +11,18 @@ on the first 3.1 commit). Codex and lang regeneration checks (`verify_codex.py`,
 
 ## Still open
 
-- **A real 3.0 save has not been opened against 3.1.** The Rite Pedestal's new block entity is covered by
-  a GameTest that strips the block entity and asks for it again, but that is not the same as loading a
-  world that was actually played in 3.0. Do this before release.
+- **A 3.0 save has been opened against 3.1 (constructed, not a player save).** No CurseForge / `.minecraft`
+  / `run/world` save was last played on 3.0.0. A disposable world was generated with tag `v3.0.0`
+  (`Tribal Power 3.0.0`) via `build/src-3.0.0` `gradlew runServer --offline`, then frozen at
+  `build/migration-3.0`. Chunk `0,0` NBT has `tribalpower:rite_pedestal` in the section palette and **no**
+  block entity at `4,70,4`; the 3.0 RCON check was `The target block is not a block entity`. The same
+  world was copied to `build/migration-3.1-load` and loaded with 3.1 (`gradlew runMigration31 --offline`).
+  It came up without a crash (`tribalpower (version 3.0.0 -> 3.1.0)`). The pedestal woke as an empty
+  working `RitePedestalBlockEntity` (`Items: []`, then accepted a Spirit Shard in `container.0`); the
+  3.0 brazier, Drumheart, earth totem and cistern kept their block ids and block entities. Logs:
+  `build/migration-3.0/evidence/3.0-server-latest.log` and
+  `build/migration-3.0/evidence/3.1-server-latest.log`. The GameTest
+  `aPedestalWithNoSavedBlockEntityWakesUpWorking` is still only the in-memory strip, not this load.
 - **Drum Circle music disc** from design 3.1 §15 is still unauthored (no original track; do not ship a
   silent disc). Device hits are in; see Done below.
 

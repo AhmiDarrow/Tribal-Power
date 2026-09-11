@@ -60,6 +60,12 @@ neoForge {
             gameDirectory = project.file('build/verification')
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
+        // Disposable: load the frozen 3.0 save under build/migration-3.0 (copied to build/migration-3.1-load).
+        migration31 {
+            server()
+            gameDirectory = project.file('build/migration-3.1-load')
+            programArgument '--nogui'
+        }
         packVerification {
             server()
             gameDirectory = project.file('build/pack-verification')
