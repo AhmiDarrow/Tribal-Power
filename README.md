@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 3.1.0.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 3.2.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,8 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 3.1.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 3.2.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Previous 3.1.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.1.0)
 - [Previous 3.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.0.0)
 - [Previous 2.3.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v2.3.0)
 - [Archived legacy 1.10.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/archive/legacy-1.10.2)

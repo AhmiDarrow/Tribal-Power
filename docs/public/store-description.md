@@ -60,4 +60,4 @@ Craft a Bone Chime, Spirit Shard, and Drumheart. Strike the drum and charge a Pu
 
 Tribal Power works standalone. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), its workshops, rituals, transport, bestiary and camp systems are woven into the pack story and quest progression. The pack is optional.
 
-Version 3.1.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 3.2.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
