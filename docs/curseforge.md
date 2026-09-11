@@ -16,4 +16,6 @@ The description gains a Nine Tribes paragraph (docs/public/store-description.md)
 Uploaded 2026-09-09: tribalpower-3.0.0.jar as file 8843562 ("Tribal Power 3.0.0 - The Nine Tribes", release, 1.21.1 / NeoForge / Client+Server, changelog = docs/RELEASE_3.0.0.md). Awaiting CurseForge approval.
 
 ## 3.1.0 — The Listening Pit and the Gates
-The description gains a 3.1 paragraph (docs/public/store-description.md): chalk patterns, the Listening Pit and Stone Font, grit as metal-only, six voice generators, Pulse Cairns, Way/Far Gates, and the Drum Circle music disc. The one-line summary now ends "the Listening Pit". Release notes: docs/RELEASE_3.1.0.md. Upload the 3.1.0 jar for 1.21.1 / NeoForge 21.1.249 with the same project icon.
+The live project page (2.3.0, file 8828297) is the style to copy: display name `Tribal Power {version} - {subtitle}`, markdown changelog as a heading plus short player-facing bullets, tags 1.21.1 / NeoForge / Client+Server, release. The long project description is the Living Lattice prose, not the local store-description bullets.
+
+Uploaded 2026-09-10: `tribalpower-3.1.0.jar` as file **8855150** ("Tribal Power 3.1.0 - The Listening Pit and the Gates", release, 1.21.1 / NeoForge / Client+Server). Changelog matches 8828297's bullet form (not the long `docs/RELEASE_3.1.0.md`). Awaiting CurseForge approval; the public files list still shows 2.3.0 until then.
