@@ -139,6 +139,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (!be.placeOutput(result, true)) { be.state = "full"; return; }
         if (!LatticeNetwork.hasAttunement(level, pos, 8, recipe.attunement())) { be.state = "attunement"; return; }
         int cost = be.arrayed ? Math.max(1, (int) Math.round(recipe.pulse() * ARRAY_DISCOUNT)) : recipe.pulse();
+        cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(cost);
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
         LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
         be.state = "working";

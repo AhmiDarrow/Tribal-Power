@@ -51,6 +51,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onCommands);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);

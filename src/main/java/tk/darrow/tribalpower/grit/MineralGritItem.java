@@ -37,10 +37,27 @@ public class MineralGritItem extends Item {
      * A stable colour per material, so tin and lead do not look alike. Derived from the material name
      * rather than configured: a modded metal has to get a colour without anyone writing one down.
      */
+    private static final java.util.Map<String, Integer> PALETTE = java.util.Map.ofEntries(
+            java.util.Map.entry("tin", 0xC0C4C8),
+            java.util.Map.entry("lead", 0x4A4E62),
+            java.util.Map.entry("silver", 0xE8F0F4),
+            java.util.Map.entry("zinc", 0xB8C9B0),
+            java.util.Map.entry("aluminum", 0xD6DEE6),
+            java.util.Map.entry("aluminium", 0xD6DEE6),
+            java.util.Map.entry("nickel", 0xC8C090),
+            java.util.Map.entry("osmium", 0x9BB4C8),
+            java.util.Map.entry("uranium", 0x78C850),
+            java.util.Map.entry("steel", 0x6A7380),
+            java.util.Map.entry("bronze", 0xC4843A),
+            java.util.Map.entry("brass", 0xC9A227),
+            java.util.Map.entry("tin_bronze", 0xA87840)
+    );
+
     public static int tint(String material) {
         if (material == null) return 0xFFFFFF;
-        // Keep the sprite readable: mid lightness, gentle saturation, hue from the name.
-        return hsb(Math.floorMod(material.hashCode(), 360) / 360.0F, 0.32F, 0.78F);
+        Integer named = PALETTE.get(material);
+        if (named != null) return named;
+        return hsb(Math.floorMod(material.hashCode(), 360) / 360.0F, 0.55F, 0.82F);
     }
 
     /** Local HSB conversion: the server has no business loading AWT to pick a tint. */

@@ -170,7 +170,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     private int pulsePerSecond(OreBand band, Set<Attunement> voices) {
         int pulse = band.pulsePerSecond();
         if (voices.contains(Attunement.AIR)) pulse = (int) Math.round(pulse * 1.55);
-        return pulse;
+        return tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(pulse);
     }
 
     /** The Loom's Threading: half the substrate, rounded up, because half a stone is still a stone. */

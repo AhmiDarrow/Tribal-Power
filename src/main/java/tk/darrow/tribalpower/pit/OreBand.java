@@ -24,7 +24,7 @@ import java.util.Locale;
  */
 public enum OreBand {
     /** What any finished pit can reach. */
-    COMMON(1, 10, 14, List.of("coal", "copper", "iron")),
+    COMMON(1, 10, 28, List.of("coal", "copper", "iron")),
     /**
      * The band under the world, and the reason a pit is worth bracing.
      *
@@ -33,7 +33,7 @@ public enum OreBand {
      * Quartz Ore at Deep's price with no Fire lit, which is the hot band's bargain given away. Quartz
      * belongs to HOT alone.
      */
-    DEEP(2, 15, 18, List.of("gold", "redstone", "lapis")),
+    DEEP(2, 15, 32, List.of("gold", "redstone", "lapis")),
     /** Fire's bargain: the Nether's ores without the Nether, at twice the Pulse. Never ancient debris. */
     HOT(2, 20, 36, List.of("quartz")),
     /** Spirit's bargain, and where a modded metal the scan discovered ends up. */

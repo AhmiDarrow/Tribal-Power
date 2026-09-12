@@ -100,6 +100,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> ECHO_BIND = ITEMS.registerSimpleBlockItem("echo_bind", ModBlocks.ECHO_BIND);
     public static final DeferredItem<BlockItem> ECHO_MANIFEST = ITEMS.registerSimpleBlockItem("echo_manifest", ModBlocks.ECHO_MANIFEST);
     public static final DeferredItem<BlockItem> ECHO_UNWEAVE = ITEMS.registerSimpleBlockItem("echo_unweave", ModBlocks.ECHO_UNWEAVE);
+    public static final DeferredItem<BlockItem> EMBER_KILN = ITEMS.registerSimpleBlockItem("ember_kiln", ModBlocks.EMBER_KILN);
 
     // Storage / rites / portal
     public static final DeferredItem<BlockItem> ANCESTRAL_CACHE = ITEMS.registerSimpleBlockItem("ancestral_cache", ModBlocks.ANCESTRAL_CACHE);

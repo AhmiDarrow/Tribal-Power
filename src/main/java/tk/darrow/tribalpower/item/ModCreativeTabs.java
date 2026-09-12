@@ -59,6 +59,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.ECHO_BIND.get());
                         out.accept(ModItems.ECHO_MANIFEST.get());
                         out.accept(ModItems.ECHO_UNWEAVE.get());
+                        out.accept(ModItems.EMBER_KILN.get());
                         out.accept(ModItems.ANCESTRAL_CACHE.get());
                         out.accept(ModItems.DEEP_CACHE.get());
                         out.accept(ModItems.RITE_PEDESTAL.get());

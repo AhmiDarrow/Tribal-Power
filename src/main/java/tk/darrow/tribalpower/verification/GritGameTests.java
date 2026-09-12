@@ -148,4 +148,28 @@ public class GritGameTests {
                 .id().equals(formula.id()), "A written recipe must outrank the scan");
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void cobbleHammersAndStoneSings(GameTestHelper h) {
+        var cobble = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION, new ItemStack(Items.COBBLESTONE));
+        h.assertTrue(cobble != null, "Cobble must still have an Echo Shatter recipe");
+        h.assertTrue(cobble.result().is(Items.GRAVEL), "Cobble hammers into gravel, not shards: " + cobble.result());
+        var stone = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION, new ItemStack(Items.STONE));
+        h.assertTrue(stone != null && stone.result().is(ModItems.ECHO_SHARD.get()),
+                "Stone must sing into Echo Shards");
+        var sand = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION, new ItemStack(Items.SAND));
+        h.assertTrue(sand != null, "Sand must still have an Echo Shatter recipe");
+        h.assertTrue(sand.result().is(Items.CLAY_BALL),
+                "Without Ex Deorum, sand hammers into clay, got " + sand.result());
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void emberKilnFiresGrit(GameTestHelper h) {
+        var kiln = ProcessingRecipes.find(h.getLevel(), "ember_kiln", new ItemStack(ModItems.IRON_GRIT.get()));
+        h.assertTrue(kiln != null, "Ember Kiln must smelt iron grit");
+        h.assertTrue(kiln.result().is(Items.IRON_INGOT), "Kiln grit must fire into an ingot, got " + kiln.result());
+        h.assertTrue(kiln.attunement() == tk.darrow.tribalpower.api.pulse.Attunement.FIRE, "Kiln is Fire work");
+        h.succeed();
+    }
 }

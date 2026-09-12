@@ -65,7 +65,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public static final String NBT_TRIBE = TribeDefinition.NBT_KEY;
     public static final String NBT_ROLE = "Role";
     public static final String NBT_ANCHOR = "Anchor";
+    public static final String NBT_STALL = "Stall";
+    public static final String NBT_STALL_ID = "StallId";
     public static final int WANDER_RADIUS = 16;
+    public static final int STALL_RADIUS = 2;
     public static final int HUNT_RADIUS = 12;
     public static final int DRUM_INTERVAL = 120;
     public static final int DRUM_RADIUS = 8;
@@ -82,6 +85,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     private static final EntityDataAccessor<Boolean> WORKING = SynchedEntityData.defineId(TribalKinEntity.class, EntityDataSerializers.BOOLEAN);
 
     @Nullable private BlockPos anchor;
+    private boolean stall;
+    private String stallId = DockShop.DEFAULT_STALL;
     private int drumTimer;
     @Nullable private UUID angerTarget;
     private long angerUntil;
@@ -128,7 +133,12 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public boolean isWorking() { return entityData.get(WORKING); }
     public void setWorking(boolean working) { entityData.set(WORKING, working); }
     public BlockPos anchor() { return anchor == null ? blockPosition() : anchor; }
-    public void setAnchor(BlockPos pos) { anchor = pos.immutable(); restrictTo(anchor, WANDER_RADIUS); }
+    public void setAnchor(BlockPos pos) { anchor = pos.immutable(); restrictTo(anchor, wanderRadius()); }
+    public boolean stall() { return stall; }
+    public void setStall(boolean value) { stall = value; if (anchor != null) restrictTo(anchor, wanderRadius()); }
+    public String stallId() { return stallId == null || stallId.isBlank() ? DockShop.DEFAULT_STALL : stallId; }
+    public void setStallId(String id) { stallId = id == null || id.isBlank() ? DockShop.DEFAULT_STALL : id; }
+    public int wanderRadius() { return stall ? STALL_RADIUS : WANDER_RADIUS; }
 
     @Override
     protected void registerGoals() {
@@ -139,7 +149,9 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         });
         goalSelector.addGoal(2, new LoomGoal());
         goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
-        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.7D));
+        goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 0.7D) {
+            @Override public boolean canUse() { return !stall() && super.canUse(); }
+        });
         goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new AngerTargetGoal());
@@ -162,7 +174,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             return;
         }
         if (anchor == null) setAnchor(blockPosition());
-        else if (!hasRestriction()) restrictTo(anchor, WANDER_RADIUS);
+        else if (!hasRestriction()) restrictTo(anchor, wanderRadius());
         if (role() == KinRole.DRUMMER && ++drumTimer >= DRUM_INTERVAL) {
             drumTimer = random.nextInt(20);
             drum();
@@ -249,6 +261,20 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             sp.sendSystemMessage(tribe.marginComponent().withStyle(net.minecraft.ChatFormatting.ITALIC, net.minecraft.ChatFormatting.GRAY));
         }
         TribeRank rank = TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(sp, tribe));
+        if (stall() && role() == KinRole.ELDER) {
+            sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line1", tribe.displayNameComponent()));
+            sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line2"));
+            if (getTradingPlayer() == null) {
+                MerchantOffers offers = stallOffers();
+                if (offers.isEmpty()) {
+                    sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stall.empty"), true);
+                    return InteractionResult.CONSUME;
+                }
+                setTradingPlayer(sp);
+                openTradingScreen(sp, Component.translatable("entity.tribalpower.tribal_kin.stall", tribe.displayNameComponent()), 0);
+            }
+            return InteractionResult.CONSUME;
+        }
         if (role() == KinRole.ELDER) {
             if (rank == TribeRank.VOICE) {
                 TribeStandingSavedData data = TribeStandingSavedData.get(sp.server);
@@ -300,11 +326,20 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         return list;
     }
 
+    public MerchantOffers stallOffers() {
+        if (offers == null || offersRank != null) {
+            offers = DockShop.offers(stallId());
+            offersRank = null;
+        }
+        return offers;
+    }
+
     /**
      * The Elder's stock for a customer of {@code rank}: uses spent survive closing the screen, saving and reloading,
      * and rank changes (the same six offers are just filtered); stock restocks once per Minecraft day.
      */
     public MerchantOffers offersFor(TribeRank rank) {
+        if (stall()) return stallOffers();
         int count = tribe().trades().size();
         if (tradeUses.length != count) tradeUses = Arrays.copyOf(tradeUses, count);
         long day = level().getDayTime() / 24000L;
@@ -362,6 +397,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         tag.putInt(NBT_TRIBE, tribe().ordinal());
         tag.putString(NBT_ROLE, role().name());
         if (anchor != null) tag.putLong(NBT_ANCHOR, anchor.asLong());
+        tag.putBoolean(NBT_STALL, stall);
+        tag.putString(NBT_STALL_ID, stallId());
         tag.putIntArray("TradeUses", tradeUses);
         tag.putLong("RestockDay", restockDay);
     }
@@ -373,6 +410,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         if (tag.contains(NBT_ROLE, net.minecraft.nbt.Tag.TAG_STRING)) setRole(KinRole.byName(tag.getString(NBT_ROLE)));
         else if (tag.contains(NBT_ROLE)) setRole(KinRole.byOrdinal(tag.getInt(NBT_ROLE)));
         if (tag.contains(NBT_ANCHOR)) setAnchor(BlockPos.of(tag.getLong(NBT_ANCHOR)));
+        setStall(tag.getBoolean(NBT_STALL));
+        if (tag.contains(NBT_STALL_ID, net.minecraft.nbt.Tag.TAG_STRING)) setStallId(tag.getString(NBT_STALL_ID));
         tradeUses = tag.getIntArray("TradeUses").clone();
         restockDay = tag.contains("RestockDay") ? tag.getLong("RestockDay") : -1;
         offers = null;

@@ -47,7 +47,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
     /** What the font can ask for, in the order it is asked. */
     public enum Ask {
         COBBLE(1, 2, 4),
-        STONE(2, 3, 8),
+        STONE(2, 3, 16),
         OBSIDIAN(2, 12, 24);
 
         private final int patternTier;
@@ -179,6 +179,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         if (!be.placeOutput(result, true)) { be.state = "full"; return; }
 
         int cost = ask.pulsePerSecond(be.grounded);
+        if (ask != Ask.COBBLE) cost = TribalConfig.scaleConsumption(cost);
         if (LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, true) < cost) {
             be.state = "pulse";
             return;

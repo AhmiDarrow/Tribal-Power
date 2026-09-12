@@ -21,7 +21,25 @@ public final class ProcessingRecipes {
      */
     public static Formula find(Level level, String station, ItemStack stack) {
         Formula written = findWritten(level, station, stack);
-        return written != null ? written : tk.darrow.tribalpower.grit.GritRegistry.formula(station, stack);
+        if (written != null) return written;
+        if ("ember_kiln".equals(station)) return kiln(level, stack);
+        return tk.darrow.tribalpower.grit.GritRegistry.formula(station, stack);
+    }
+
+    /** Vanilla smelting (and grit cooking registered as smelting) paid in Pulse on the Ember Kiln. */
+    public static Formula kiln(Level level, ItemStack stack) {
+        if (level == null || stack.isEmpty()) return null;
+        var match = level.getRecipeManager().getRecipeFor(
+                net.minecraft.world.item.crafting.RecipeType.SMELTING,
+                new net.minecraft.world.item.crafting.SingleRecipeInput(stack), level);
+        if (match.isEmpty()) return null;
+        var holder = match.get();
+        ItemStack output = holder.value().getResultItem(level.registryAccess()).copy();
+        if (output.isEmpty()) return null;
+        LatticeRecipe recipe = new LatticeRecipe("ember_kiln",
+                net.minecraft.world.item.crafting.Ingredient.of(stack.getItem()), output,
+                10, 32, Attunement.FIRE);
+        return new Formula(holder.id(), recipe);
     }
 
     /** Datapack and KubeJS recipes only -- the authored half of the lookup. */

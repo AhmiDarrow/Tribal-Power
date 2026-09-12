@@ -54,6 +54,28 @@ public class TribeSweepGameTests {
         h.succeed();
     }
 
+    @GameTest(template = "empty")
+    public static void stallTradesWithoutStanding(GameTestHelper h) {
+        tk.darrow.tribalpower.tribe.DockShop.replace(java.util.List.of(
+                new tk.darrow.tribalpower.tribe.DockShop.Listing("dock",
+                        new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIRT, 8),
+                        new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.OAK_SAPLING, 4),
+                        8)));
+        TribalKinEntity kin = TribeRegistry.TRIBAL_KIN.get().create(h.getLevel());
+        kin.setTribe(TribeDefinition.SOIL);
+        kin.setRole(KinRole.ELDER);
+        kin.setStall(true);
+        kin.setStallId("dock");
+        MerchantOffers none = kin.offersFor(TribeRank.STRANGER);
+        h.assertTrue(!none.isEmpty(), "A dock stall sells without Guest standing");
+        h.assertTrue(none.get(0).getResult().is(net.minecraft.world.item.Items.OAK_SAPLING), "Stall result is the datapack listing");
+        CompoundTag tag = new CompoundTag();
+        kin.addAdditionalSaveData(tag);
+        h.assertTrue(tag.getBoolean("Stall"), "Stall flag persists");
+        tk.darrow.tribalpower.tribe.DockShop.replace(java.util.List.of());
+        h.succeed();
+    }
+
     /** First-meeting flags must live under PlayerPersisted so death and dimension changes keep them. */
     @GameTest(template = "empty")
     public static void metFlagsSurviveClone(GameTestHelper h) {

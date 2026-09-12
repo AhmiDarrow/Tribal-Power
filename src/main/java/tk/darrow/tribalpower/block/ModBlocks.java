@@ -74,6 +74,7 @@ public final class ModBlocks {
     public static final DeferredBlock<Block> ECHO_BIND = echo("echo_bind", MapColor.COLOR_PURPLE);
     public static final DeferredBlock<Block> ECHO_MANIFEST = echo("echo_manifest", MapColor.GOLD);
     public static final DeferredBlock<Block> ECHO_UNWEAVE = echo("echo_unweave", MapColor.DIAMOND);
+    public static final DeferredBlock<Block> EMBER_KILN = echo("ember_kiln", MapColor.COLOR_ORANGE);
 
     // Storage
     public static final DeferredBlock<AncestralCacheBlock> ANCESTRAL_CACHE = BLOCKS.register(

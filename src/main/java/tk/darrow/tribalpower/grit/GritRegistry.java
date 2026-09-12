@@ -49,7 +49,7 @@ public final class GritRegistry {
     /** Shattering is Earth work, four seconds, ten Pulse a second -- the same terms as a written recipe. */
     public static final String STATION = "echo_shatter";
     public static final int SHATTER_SECONDS = 4;
-    public static final int SHATTER_PULSE = 10;
+    public static final int SHATTER_PULSE = 20;
 
     /**
      * Netherite must be earned in the Nether, so ancient debris is never a shattering input however its

@@ -15,6 +15,7 @@ public final class TribalConfig {
     public static final ModConfigSpec SPEC;
 
     public static final ModConfigSpec.DoubleValue GENERATION_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue CONSUMPTION_MULTIPLIER;
     public static final ModConfigSpec.DoubleValue PIT_SPEED_MULTIPLIER;
     public static final ModConfigSpec.IntValue GATE_TRAVEL_COST;
     public static final ModConfigSpec.IntValue FAR_GATE_TRAVEL_COST;
@@ -27,6 +28,9 @@ public final class TribalConfig {
         GENERATION_MULTIPLIER = b
                 .comment("Scales the Pulse every generator produces. 1.0 is the shipped balance.")
                 .defineInRange("generationMultiplier", 1.0, 0.0, 16.0);
+        CONSUMPTION_MULTIPLIER = b
+                .comment("Scales Pulse machines spend. 2.0 is the shipped balance: a hand Drumheart still runs Stone Font cobble, not Echo stations or the pit. Stone Font cobble is exempt.")
+                .defineInRange("consumptionMultiplier", 2.0, 0.25, 16.0);
         PIT_SPEED_MULTIPLIER = b
                 .comment("Scales how fast the Listening Pit and Stone Font cycle. Higher is faster; Pulse per second is unchanged, so a faster cycle is also a cheaper one.")
                 .defineInRange("pitSpeedMultiplier", 1.0, 0.05, 20.0);
@@ -51,6 +55,8 @@ public final class TribalConfig {
 
     public static double generationMultiplier() { return SPEC.isLoaded() ? GENERATION_MULTIPLIER.get() : 1.0; }
 
+    public static double consumptionMultiplier() { return SPEC.isLoaded() ? CONSUMPTION_MULTIPLIER.get() : 2.0; }
+
     public static double pitSpeedMultiplier() { return SPEC.isLoaded() ? PIT_SPEED_MULTIPLIER.get() : 1.0; }
 
     public static int gateTravelCost() { return SPEC.isLoaded() ? GATE_TRAVEL_COST.get() : 20; }
@@ -65,6 +71,13 @@ public final class TribalConfig {
     public static int scaleGeneration(int pulse) {
         if (pulse <= 0) return 0;
         double scaled = pulse * generationMultiplier();
+        return scaled <= 0 ? 0 : Math.max(1, (int) Math.round(scaled));
+    }
+
+    /** Applies {@link #CONSUMPTION_MULTIPLIER}. Stone Font cobble must not call this. */
+    public static int scaleConsumption(int pulse) {
+        if (pulse <= 0) return 0;
+        double scaled = pulse * consumptionMultiplier();
         return scaled <= 0 ? 0 : Math.max(1, (int) Math.round(scaled));
     }
 }

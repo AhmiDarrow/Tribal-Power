@@ -72,7 +72,7 @@ public enum EchoStage {
     }
 
     /**
-     * Shatter accepts raw ore, cobble, and iron-like metal feeds (plus March grit).
+     * Shatter accepts raw ore, stone (not cobble), and iron-like metal feeds. Cobble is a hammer feed on Echo Shatter.
      */
     public static boolean isShatterFeed(Item item) {
         return item == Items.RAW_IRON
@@ -88,10 +88,8 @@ public enum EchoStage {
                 || item == Items.GOLD_INGOT
                 || item == Items.COPPER_INGOT
                 || item == Items.IRON_BLOCK
-                || item == Items.COBBLESTONE
-                || item == Items.COBBLED_DEEPSLATE
                 || item == Items.STONE
-                || item == ModItems.MARCH_COBBLE.get()
+                || item == Items.DEEPSLATE
                 || item == ModItems.MARCH_ORE.get()
                 || item == ModItems.MARCH_STONE.get();
     }

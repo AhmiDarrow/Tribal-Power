@@ -54,12 +54,12 @@
     {
       "id": "chapter_11",
       "title": "Echo workshops",
-      "text": "The four Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work."
+      "text": "The Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work. Redstone pauses insert and work. A matching Resonance Totem must stand within 8. Pulse draw is doubled from 3.2: a hand Drumheart still runs Stone Font cobble, not these stations. Ember Kiln is the sixth station \u2014 Fire attunement, vanilla smelting paid in Pulse."
     },
     {
       "id": "chapter_12",
       "title": "Shatter",
-      "text": "Earth turns stone into Echo Shards. Metals and gems are two different crafts: a metal goes raw item or silk-touched ore to grit, then grit to ingot in any furnace, while a gem or mineral goes silk-touched ore straight to the gem itself at twice the ore\u2019s own drop. The gem is never an input, because gem to gem would be a dupe. Every metal and mineral in the common tags is found automatically, so a modded ore works with no datapack."
+      "text": "Earth turns stone into Echo Shards. Cobble does not sing: Echo Shatter hammers cobble to gravel, gravel to sand, then sand to Ex Deorum dust when that mod is loaded, or clay when it is not. Shards want stone, deepslate, or March stone.\n\n1. Place Echo Shatter. Earth totem within 8. Hopper grit in the top, sit it on a hopper for output.\n2. Stone in, shards out (16 Pulse/s before the pack multiplier).\n3. Cobble in, gravel out (4 Pulse/s) \u2014 the hammer chain. Sand becomes dust with Ex Deorum, clay without it.\n4. Metals: raw item or silk-touched ore to grit, then grit to ingot in a furnace or Ember Kiln. Gems: silk-touched ore straight to the gem at twice the ore drop. The gem is never an input. Modded ores light up from common tags."
     },
     {
       "id": "chapter_13",
@@ -489,7 +489,7 @@
     {
       "id": "chapter_98",
       "title": "Stone Font",
-      "text": "Stone is not made. Stone is asked to stay. Four stone, two Echo Shards and a Drumheart. Put a font down with four chalk marks around it and it asks for cobblestone every two seconds at 4 Pulse a second \\u2014 slow enough to run on a hand-drummed Drumheart, which is the point. Brace the corners with anchor stones and bring the Earth voice and it asks for stone at 8 Pulse a second. Add Fire and Water both and it asks for obsidian at 24 Pulse a second. Feed 250 mB of water and 250 mB of lava instead and a braced Earth font asks for the same obsidian at 6. Below y 0 it gives the deepslate of each tier instead."
+      "text": "Stone is not made. Stone is asked to stay. Four stone, two Echo Shards and a Drumheart. Put a font down with four chalk marks around it and it asks for cobblestone every two seconds at 4 Pulse a second \\u2014 slow enough to run on a hand-drummed Drumheart, which is the point, and the only machine that stays that cheap. Brace the corners with anchor stones and bring the Earth voice and it asks for stone at 16 Pulse a second. Add Fire and Water both and it asks for obsidian at 24 Pulse a second. Feed 250 mB of water and 250 mB of lava instead and a braced Earth font asks for the same obsidian at 6. Below y 0 it gives the deepslate of each tier instead. Cobble from the font is for hammers and building, not Echo Shards."
     },
     {
       "id": "chapter_99",

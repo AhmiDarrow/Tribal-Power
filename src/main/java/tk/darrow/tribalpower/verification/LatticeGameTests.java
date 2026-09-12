@@ -117,7 +117,7 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void directBenchRemovalClearsInFlightWork(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());
-        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.COBBLESTONE));
+        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.STONE));
         var tag=bench.saveWithoutMetadata(h.getLevel().registryAccess());tag.putInt("Progress",20);tag.putBoolean("Singing",true);
         bench.loadWithComponents(tag,h.getLevel().registryAccess());
         h.assertTrue(bench.removeItemNoUpdate(0).getCount()==1,"Direct removal must return the input");
@@ -128,7 +128,7 @@ public class LatticeGameTests {
     public static void invalidSavedStationWorkRecovers(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ECHO_SHATTER.get());power(h);
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var station=at(h,pos,EchoStationBlockEntity.class);station.setItem(0,new ItemStack(Items.COBBLESTONE));
+        var station=at(h,pos,EchoStationBlockEntity.class);station.setItem(0,new ItemStack(Items.STONE));
         var recipe=tk.darrow.tribalpower.echo.ProcessingRecipes.find(h.getLevel(),station.station(),station.getItem(0));
         var tag=station.saveWithoutMetadata(h.getLevel().registryAccess());tag.putString("Recipe",recipe.id().toString());tag.putInt("Work",Integer.MAX_VALUE);
         station.loadWithComponents(tag,h.getLevel().registryAccess());
@@ -138,7 +138,7 @@ public class LatticeGameTests {
     public static void invalidSavedBenchProgressCannotOverflowAndStall(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.COBBLESTONE));
+        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.STONE));
         var tag=bench.saveWithoutMetadata(h.getLevel().registryAccess());
         tag.putBoolean("Singing",true);tag.putInt("Progress",Integer.MAX_VALUE);
         bench.loadWithComponents(tag,h.getLevel().registryAccess());
@@ -216,9 +216,9 @@ public class LatticeGameTests {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var bench=at(h,pos,SongBenchBlockEntity.class);
-        bench.setItem(0,new ItemStack(Items.COBBLESTONE,32));bench.startSong();
+        bench.setItem(0,new ItemStack(Items.STONE,32));bench.startSong();
         h.runAfterDelay(45,()->{
-            h.assertTrue(bench.getItem(0).is(Items.COBBLESTONE) && bench.getItem(0).getCount()==32,"Malformed oversized input must remain recoverable, never become one output");
+            h.assertTrue(bench.getItem(0).is(Items.STONE) && bench.getItem(0).getCount()==32,"Malformed oversized input must remain recoverable, never become one output");
             h.succeed();
         });
     }
@@ -228,7 +228,7 @@ public class LatticeGameTests {
         h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var from=at(h,new BlockPos(2,2,2),SongBenchBlockEntity.class);
         var to=at(h,new BlockPos(4,2,2),SongBenchBlockEntity.class);
-        from.setItem(0,new ItemStack(Items.COBBLESTONE,32));
+        from.setItem(0,new ItemStack(Items.STONE,32));
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(from,to),java.util.List.of()),"Handoff must deliver one item");
         h.assertTrue(from.getItem(0).getCount()==31 && to.getItem(0).getCount()==1,"Handoff must retain all excess items at source");
         h.succeed();
@@ -258,7 +258,7 @@ public class LatticeGameTests {
         h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var bench=at(h,new BlockPos(2,2,2),SongBenchBlockEntity.class);
         var cache=at(h,new BlockPos(4,2,2),AncestralCacheBlockEntity.class);
-        cache.setItem(0,new ItemStack(Items.COBBLESTONE,2));
+        cache.setItem(0,new ItemStack(Items.STONE,2));
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(bench),java.util.List.of(cache)),"Conductor must feed empty bench");
         h.assertTrue(bench.isSinging(),"Automated feed must start processing without a manual strike");
         h.assertTrue(bench.getItem(0).getCount()==1 && cache.getItem(0).getCount()==1,"Automated feed must conserve items");
@@ -356,7 +356,7 @@ public class LatticeGameTests {
     public static void stationPreservesBatchAndStopsWhenFull(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ECHO_SHATTER.get());power(h);
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var be=at(h,pos,EchoStationBlockEntity.class);be.setItem(0,new ItemStack(Items.COBBLESTONE,32));
+        var be=at(h,pos,EchoStationBlockEntity.class);be.setItem(0,new ItemStack(Items.STONE,32));
         for(int i=1;i<9;i++)be.setItem(i,new ItemStack(Items.DIRT,64));
         h.runAfterDelay(50,()->{
             h.assertTrue(be.getItem(0).getCount()==32,"Full output must not consume feed");

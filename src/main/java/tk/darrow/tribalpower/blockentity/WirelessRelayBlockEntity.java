@@ -57,7 +57,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
                 || (be.tier() < 3 && be.target.distSqr(pos) > range * range)) { be.updateStatus("unlinked"); return; }
         if (destination == null || !destination.hasChunkAt(be.target) || !level.hasChunkAt(pos.below())) { be.updateStatus("unloaded"); return; }
         if (destination.hasNeighborSignal(be.target)) { be.updateStatus("paused"); return; }
-        int cost = be.tier() == 3 ? 16 : be.tier() == 2 ? 8 : 4;
+        int cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(be.tier() == 3 ? 16 : be.tier() == 2 ? 8 : 4);
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.updateStatus("pulse"); return; }
         boolean moved = be.fluid() ? be.moveFluid(level, destination) : be.moveItem(level, destination);
         be.updateStatus(moved ? "working" : "waiting");

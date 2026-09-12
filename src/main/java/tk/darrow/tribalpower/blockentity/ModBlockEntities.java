@@ -73,7 +73,7 @@ public final class ModBlockEntities {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EchoStationBlockEntity>> ECHO_STATION =
             BLOCK_ENTITIES.register("echo_station", () -> BlockEntityType.Builder.of(EchoStationBlockEntity::new,
-                    ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get(), ModBlocks.ECHO_UNWEAVE.get()).build(null));
+                    ModBlocks.ECHO_SHATTER.get(), ModBlocks.ECHO_ATTUNE.get(), ModBlocks.ECHO_BIND.get(), ModBlocks.ECHO_MANIFEST.get(), ModBlocks.ECHO_UNWEAVE.get(), ModBlocks.EMBER_KILN.get()).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ResonanceMeshBlockEntity>> RESONANCE_MESH =
             BLOCK_ENTITIES.register("resonance_mesh", () -> BlockEntityType.Builder.of(ResonanceMeshBlockEntity::new, ModBlocks.RESONANCE_MESH.get()).build(null));

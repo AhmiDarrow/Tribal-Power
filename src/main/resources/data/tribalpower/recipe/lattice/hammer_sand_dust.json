@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "exdeorum"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "exdeorum:dust"
+    }
+  ],
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": {
+    "id": "exdeorum:dust",
+    "count": 1
+  },
+  "attunement": "earth",
+  "seconds": 2,
+  "pulse_per_second": 4
+}

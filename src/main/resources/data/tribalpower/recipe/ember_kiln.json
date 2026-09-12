@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "B": {
+      "item": "tribalpower:bone_chime"
+    }
+  },
+  "pattern": [
+    "SBS",
+    "CFC",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:ember_kiln"
+  }
+}
