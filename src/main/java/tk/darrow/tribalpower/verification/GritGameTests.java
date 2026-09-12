@@ -4,6 +4,9 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.BlastingRecipe;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.echo.ProcessingRecipes;
@@ -104,6 +107,33 @@ public class GritGameTests {
         h.assertTrue(GritRegistry.stackFor("gold").is(ModItems.GOLD_GRIT.get()), "Gold keeps gold_grit");
         h.assertTrue(MineralGritItem.materialOf(GritRegistry.stackFor("iron")) == null,
                 "iron_grit is not a component item");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void cookingTypeRecipesMatchVanillaClasses(GameTestHelper h) {
+        // Mekanism 10.7.19 IncompleteRecipeScanner casts every SMELTING holder to SmeltingRecipe.
+        boolean sawGritSmelt = false;
+        boolean sawGritBlast = false;
+        for (var holder : h.getLevel().getRecipeManager().getRecipes()) {
+            var recipe = holder.value();
+            if (recipe.getType() == RecipeType.SMELTING) {
+                h.assertTrue(recipe instanceof SmeltingRecipe,
+                        holder.id() + " is on SMELTING but is " + recipe.getClass().getName());
+                if (recipe instanceof tk.darrow.tribalpower.grit.GritCookingRecipe.Smelting) {
+                    sawGritSmelt = true;
+                }
+            }
+            if (recipe.getType() == RecipeType.BLASTING) {
+                h.assertTrue(recipe instanceof BlastingRecipe,
+                        holder.id() + " is on BLASTING but is " + recipe.getClass().getName());
+                if (recipe instanceof tk.darrow.tribalpower.grit.GritCookingRecipe.Blasting) {
+                    sawGritBlast = true;
+                }
+            }
+        }
+        h.assertTrue(sawGritSmelt, "mineral grit smelting must register as SmeltingRecipe");
+        h.assertTrue(sawGritBlast, "mineral grit blasting must register as BlastingRecipe");
         h.succeed();
     }
 

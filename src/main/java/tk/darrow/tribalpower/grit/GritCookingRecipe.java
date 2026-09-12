@@ -8,11 +8,13 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.BlastingRecipe;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 
 /**
@@ -25,54 +27,87 @@ import net.minecraft.world.level.Level;
  *
  * <p>It reports itself special so the recipe book does not try to show one entry standing for every
  * metal at once; the per-material entries come from the scan instead.
+ *
+ * <p>The live objects are {@link Smelting} / {@link Blasting} so they are {@link SmeltingRecipe} and
+ * {@link BlastingRecipe}. Mods that iterate {@link RecipeType#SMELTING} and cast (Mekanism 10.7.19
+ * {@code IncompleteRecipeScanner}) crash if grit cooking is only {@link AbstractCookingRecipe}.
  */
-public class GritCookingRecipe extends AbstractCookingRecipe {
-    private final boolean blasting;
+public final class GritCookingRecipe {
+    private GritCookingRecipe() {}
 
-    public GritCookingRecipe(String group, CookingBookCategory category, Ingredient ingredient,
-                             float experience, int cookingTime, boolean blasting) {
-        super(blasting ? RecipeType.BLASTING : RecipeType.SMELTING, group, category, ingredient,
-                ItemStack.EMPTY, experience, cookingTime);
-        this.blasting = blasting;
+    public static AbstractCookingRecipe create(String group, CookingBookCategory category, Ingredient ingredient,
+                                               float experience, int cookingTime, boolean blasting) {
+        return blasting
+                ? new Blasting(group, category, ingredient, experience, cookingTime)
+                : new Smelting(group, category, ingredient, experience, cookingTime);
     }
 
-    public boolean blasting() { return blasting; }
-
-    @Override
-    public boolean matches(SingleRecipeInput input, Level level) {
-        return super.matches(input, level) && !GritRegistry.ingotFor(input.item()).isEmpty();
+    public static boolean blasting(AbstractCookingRecipe recipe) {
+        return recipe.getType() == RecipeType.BLASTING;
     }
 
-    /** The ingot the grit in the slot fires into; empty refuses the burn rather than voiding the grit. */
-    @Override
-    public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider registries) {
-        return GritRegistry.ingotFor(input.item());
+    public static final class Smelting extends SmeltingRecipe {
+        public Smelting(String group, CookingBookCategory category, Ingredient ingredient,
+                        float experience, int cookingTime) {
+            super(group, category, ingredient, ItemStack.EMPTY, experience, cookingTime);
+        }
+
+        @Override
+        public boolean matches(SingleRecipeInput input, Level level) {
+            return super.matches(input, level) && !GritRegistry.ingotFor(input.item()).isEmpty();
+        }
+
+        @Override
+        public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider registries) {
+            return GritRegistry.ingotFor(input.item());
+        }
+
+        @Override public boolean isSpecial() { return true; }
+
+        @Override public RecipeSerializer<?> getSerializer() { return GritItems.GRIT_COOKING.get(); }
     }
 
-    @Override public boolean isSpecial() { return true; }
+    public static final class Blasting extends BlastingRecipe {
+        public Blasting(String group, CookingBookCategory category, Ingredient ingredient,
+                        float experience, int cookingTime) {
+            super(group, category, ingredient, ItemStack.EMPTY, experience, cookingTime);
+        }
 
-    @Override public RecipeSerializer<?> getSerializer() { return GritItems.GRIT_COOKING.get(); }
+        @Override
+        public boolean matches(SingleRecipeInput input, Level level) {
+            return super.matches(input, level) && !GritRegistry.ingotFor(input.item()).isEmpty();
+        }
 
-    public static class Serializer implements RecipeSerializer<GritCookingRecipe> {
-        public static final MapCodec<GritCookingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+        @Override
+        public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider registries) {
+            return GritRegistry.ingotFor(input.item());
+        }
+
+        @Override public boolean isSpecial() { return true; }
+
+        @Override public RecipeSerializer<?> getSerializer() { return GritItems.GRIT_COOKING.get(); }
+    }
+
+    public static class Serializer implements RecipeSerializer<AbstractCookingRecipe> {
+        public static final MapCodec<AbstractCookingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 com.mojang.serialization.Codec.STRING.optionalFieldOf("group", "").forGetter(AbstractCookingRecipe::getGroup),
                 CookingBookCategory.CODEC.optionalFieldOf("category", CookingBookCategory.MISC).forGetter(AbstractCookingRecipe::category),
                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter(recipe -> recipe.getIngredients().getFirst()),
                 com.mojang.serialization.Codec.FLOAT.optionalFieldOf("experience", 0.0F).forGetter(AbstractCookingRecipe::getExperience),
                 com.mojang.serialization.Codec.INT.optionalFieldOf("cookingtime", 200).forGetter(AbstractCookingRecipe::getCookingTime),
                 com.mojang.serialization.Codec.BOOL.optionalFieldOf("blasting", false).forGetter(GritCookingRecipe::blasting)
-        ).apply(instance, GritCookingRecipe::new));
+        ).apply(instance, GritCookingRecipe::create));
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, GritCookingRecipe> STREAM = StreamCodec.composite(
+        public static final StreamCodec<RegistryFriendlyByteBuf, AbstractCookingRecipe> STREAM = StreamCodec.composite(
                 ByteBufCodecs.STRING_UTF8, AbstractCookingRecipe::getGroup,
                 net.minecraft.network.codec.ByteBufCodecs.idMapper(i -> CookingBookCategory.values()[i], CookingBookCategory::ordinal), AbstractCookingRecipe::category,
                 Ingredient.CONTENTS_STREAM_CODEC, recipe -> recipe.getIngredients().getFirst(),
                 ByteBufCodecs.FLOAT, AbstractCookingRecipe::getExperience,
                 ByteBufCodecs.VAR_INT, AbstractCookingRecipe::getCookingTime,
                 ByteBufCodecs.BOOL, GritCookingRecipe::blasting,
-                GritCookingRecipe::new);
+                GritCookingRecipe::create);
 
-        @Override public MapCodec<GritCookingRecipe> codec() { return CODEC; }
-        @Override public StreamCodec<RegistryFriendlyByteBuf, GritCookingRecipe> streamCodec() { return STREAM; }
+        @Override public MapCodec<AbstractCookingRecipe> codec() { return CODEC; }
+        @Override public StreamCodec<RegistryFriendlyByteBuf, AbstractCookingRecipe> streamCodec() { return STREAM; }
     }
 }
