@@ -31,5 +31,8 @@ Uploaded 2026-09-11: `tribalpower-3.2.1.jar` as file **8858201** ("Tribal Power 
 ## 3.2.2 — Furnace grit and Mekanism
 Uploaded 2026-09-11: `tribalpower-3.2.2.jar` as file **8861850** ("Tribal Power 3.2.2 - Furnace grit and Mekanism", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.2.2.md`. Grit cooking subclasses vanilla `SmeltingRecipe` / `BlastingRecipe` so Mekanism 10.7.19's incomplete-recipe scan can iterate furnace recipes without a ClassCastException. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.2.2
 
+## 3.3.0 — Ember Kiln and Dock stalls
+Uploaded 2026-09-12: `tribalpower-3.3.0.jar` as file **8868094** ("Tribal Power 3.3.0 - Ember Kiln and Dock stalls", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.0.md`. Pulse `consumptionMultiplier` default 2.0; Echo Shatter hammer chain (sand → Ex Deorum dust, else clay); Ember Kiln; dock stalls. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.0
+
 ## 3.2.1 — The Listening Pit and the Gates
 Uploaded 2026-09-11: `tribalpower-3.2.1.jar` as file **8858043** ("Tribal Power 3.2.1 - The Listening Pit and the Gates", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.2.1.md`. Packaging-only: published jar omits leftover QA (screenshot drivers, GameTest empty structure, unused written-book copies, FTB Library face overlays). GameTests stay out of the player jar. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.2.1
