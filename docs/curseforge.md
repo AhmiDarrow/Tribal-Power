@@ -41,7 +41,7 @@ Uploaded 2026-09-12: `tribalpower-3.3.1.jar` as file **8869162** ("Tribal Power 
 Uploaded 2026-09-12: `tribalpower-3.3.2.jar` as file **8869249** ("Tribal Power 3.3.2 - Ember Kiln smelts grit", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.2.md`. Kiln runs every furnace smelting recipe, including mineral grit. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.2
 
 ## 3.4.0 — Keeping, March biomes, ranked gear
-Changelog is `docs/RELEASE_3.4.0.md`. March Snow Fields, Ember Wastes and Reed Fen; Keeping on Resonance Totems; Ley Collector pad; ranked Spiritgear and machines; face-mounted plates. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.0
+Uploaded 2026-09-13: `tribalpower-3.4.0.jar` as file **8871059** ("Tribal Power 3.4.0 - Keeping and the March", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.0.md`. March Snow Fields, Ember Wastes and Reed Fen; Keeping on Resonance Totems; Ley Collector pad; ranked Spiritgear and machines; face-mounted plates. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.0
 
 ## 3.3.3 — Relay plates and Ley sight
 Uploaded 2026-09-12: `tribalpower-3.3.3.jar` as file **8870016** ("Tribal Power 3.3.3 - Relay plates and Ley sight", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.3.md`. Face-mounted relays, Ley Lens modes, per-face machine I/O, grit kiln/textures, Codex walkthroughs, Stone Font z-fight fix. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.3
