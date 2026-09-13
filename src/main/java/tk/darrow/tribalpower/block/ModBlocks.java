@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -235,9 +236,13 @@ public final class ModBlocks {
             "march_leaf",
             () -> new MarchPlantBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN)
-                    .strength(0.2F)
+                    .instabreak()
                     .sound(SoundType.GRASS)
+                    .noCollission()
                     .noOcclusion()
+                    .replaceable()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
                     .isViewBlocking((s, l, p) -> false)
                     .isSuffocating((s, l, p) -> false))
     );
@@ -278,7 +283,10 @@ public final class ModBlocks {
                     .instabreak()
                     .sound(SoundType.GRASS)
                     .noCollission()
-                    .noOcclusion())
+                    .noOcclusion()
+                    .replaceable()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY))
     );
 
     public static final DeferredBlock<EchoBloomBlock> ECHO_BLOOM = BLOCKS.register(
@@ -289,6 +297,9 @@ public final class ModBlocks {
                     .sound(SoundType.GRASS)
                     .noCollission()
                     .noOcclusion()
+                    .replaceable()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
                     .lightLevel(s -> 4))
     );
 
@@ -300,6 +311,9 @@ public final class ModBlocks {
                     .sound(SoundType.GRASS)
                     .noCollission()
                     .noOcclusion()
+                    .replaceable()
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
                     .lightLevel(s -> 2))
     );
 

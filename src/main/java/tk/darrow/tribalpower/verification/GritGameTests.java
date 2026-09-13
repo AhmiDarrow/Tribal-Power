@@ -161,6 +161,12 @@ public class GritGameTests {
         h.assertTrue(sand != null, "Sand must still have an Echo Shatter recipe");
         h.assertTrue(sand.result().is(Items.CLAY_BALL),
                 "Without Ex Deorum, sand hammers into clay, got " + sand.result());
+        var marchOre = ProcessingRecipes.find(h.getLevel(), GritRegistry.STATION,
+                new ItemStack(tk.darrow.tribalpower.block.ModBlocks.MARCH_ORE.get()));
+        h.assertTrue(marchOre != null && marchOre.result().is(ModItems.SPIRIT_SHARD.get())
+                        && marchOre.result().getCount() == 2,
+                "Silk-touched March ore must shatter into two Spirit Shards, got "
+                        + (marchOre == null ? "none" : marchOre.result()));
         h.succeed();
     }
 

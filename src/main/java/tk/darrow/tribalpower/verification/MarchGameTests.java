@@ -234,6 +234,16 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get().defaultBlockState()
                         .is(net.minecraft.tags.BlockTags.FROGS_SPAWNABLE_ON),
                 "March moss must take frogs in the reed fen");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.RABBITS_SPAWNABLE_ON),
+                "March grass must take rabbits");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAF.get().defaultBlockState().getCollisionShape(
+                        h.getLevel(), h.absolutePos(pos)).isEmpty(),
+                "March leaf is a plant; walking the steppe must not bounce off it");
+        var ores = net.minecraft.tags.TagKey.create(Registries.BLOCK,
+                ResourceLocation.fromNamespaceAndPath("c", "ores"));
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_ORE.get().defaultBlockState().is(ores),
+                "March ore must sit in c:ores so JEI and crushers see it");
         h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get());
         h.setBlock(pos.above(), Blocks.AIR);
         var pathTill = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(

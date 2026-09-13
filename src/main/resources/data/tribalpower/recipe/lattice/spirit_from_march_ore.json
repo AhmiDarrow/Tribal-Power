@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "item": "tribalpower:march_ore"
+  },
+  "result": {
+    "id": "tribalpower:spirit_shard",
+    "count": 2
+  },
+  "attunement": "earth",
+  "seconds": 4,
+  "pulse_per_second": 20
+}
