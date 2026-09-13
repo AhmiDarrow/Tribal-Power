@@ -21,9 +21,9 @@ public final class LogicRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, TribalPower.MOD_ID);
 
     public static final DeferredBlock<PulseGaugeBlock> PULSE_GAUGE = BLOCKS.register("pulse_gauge",
-            () -> new PulseGaugeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+            () -> new PulseGaugeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE)));
     public static final DeferredBlock<PulseThresholdBlock> PULSE_THRESHOLD = BLOCKS.register("pulse_threshold",
-            () -> new PulseThresholdBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE).requiresCorrectToolForDrops()
+            () -> new PulseThresholdBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE)
                     .lightLevel(state -> state.getValue(PulseThresholdBlock.POWERED) ? 6 : 0)));
 
     public static final DeferredItem<BlockItem> PULSE_GAUGE_ITEM = ITEMS.registerSimpleBlockItem("pulse_gauge", PULSE_GAUGE);

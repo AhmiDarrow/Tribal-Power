@@ -421,4 +421,41 @@ public class LatticeGameTests {
             h.succeed();
         });
     }
+    @GameTest(template="empty")
+    public static void playerMachinesDropWithoutATaggedTool(GameTestHelper h) {
+        var ores=java.util.Set.of("march_stone","march_cobble","march_ore");
+        var never=java.util.Set.of("gate_portal","spirit_light");
+        for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
+            var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);
+            if(!id.getNamespace().equals("tribalpower")||never.contains(id.getPath())) continue;
+            boolean requires=block.defaultBlockState().requiresCorrectToolForDrops();
+            if(ores.contains(id.getPath())) h.assertTrue(requires,id+" world stone still needs a pickaxe");
+            else h.assertFalse(requires,id+" vanished because it required a tagged tool");
+        }
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void echoStationDropsItselfAndContents(GameTestHelper h) {
+        var pos=new BlockPos(2,1,2);
+        h.setBlock(pos,ModBlocks.ECHO_SHATTER.get());
+        var station=at(h,pos,EchoStationBlockEntity.class);
+        station.setItem(0,new ItemStack(Items.STONE,8));
+        station.setItem(1,new ItemStack(ModItems.ECHO_SHARD.get(),3));
+        var abs=h.absolutePos(pos);
+        var player=h.makeMockServerPlayerInLevel();
+        player.getAbilities().instabuild=false;
+        net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,station,player,ItemStack.EMPTY);
+        h.setBlock(pos,Blocks.AIR);
+        var items=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,h.getBounds().inflate(4));
+        int machines=0,stone=0,shards=0;
+        for(var item:items) {
+            var stack=item.getItem();
+            if(stack.is(ModBlocks.ECHO_SHATTER.get().asItem())) machines+=stack.getCount();
+            if(stack.is(Items.STONE)) stone+=stack.getCount();
+            if(stack.is(ModItems.ECHO_SHARD.get())) shards+=stack.getCount();
+        }
+        h.assertTrue(machines>=1,"Echo Shatter must drop itself, found "+machines);
+        h.assertTrue(stone==8 && shards==3,"Station contents must drop, stone="+stone+" shards="+shards);
+        h.succeed();
+    }
 }

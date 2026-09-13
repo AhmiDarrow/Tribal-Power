@@ -156,6 +156,10 @@ public class GateKeystoneBlock extends BaseEntityBlock {
         }
         super.onRemove(state, level, pos, next, moved);
     }
+    @Override
+    protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
+        return tk.darrow.tribalpower.block.MachineDrops.withSelf(this, super.getDrops(state, builder));
+    }
 
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
 

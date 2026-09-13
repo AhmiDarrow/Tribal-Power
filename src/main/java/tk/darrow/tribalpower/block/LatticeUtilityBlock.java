@@ -41,7 +41,7 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
         return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
-        var drops = super.getDrops(state, builder);
+        var drops = MachineDrops.withSelf(this, super.getDrops(state, builder));
         var be = builder.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY);
         if (be != null && be.getLevel() != null) {
             var data = be.saveWithFullMetadata(be.getLevel().registryAccess());

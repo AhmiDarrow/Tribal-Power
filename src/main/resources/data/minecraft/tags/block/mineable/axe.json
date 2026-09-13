@@ -1,11 +1,28 @@
 {
   "replace": false,
   "values": [
+    "tribalpower:drumheart",
+    "tribalpower:song_bench",
+    "tribalpower:ancestral_cache",
+    "tribalpower:resonance_totem_earth",
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit",
     "tribalpower:resonance_totem_loom",
     "tribalpower:kinship_totem",
     "tribalpower:tribe_banner",
     "tribalpower:silent_drum",
     "tribalpower:wind_harp",
-    "tribalpower:wave_drum"
+    "tribalpower:wave_drum",
+    "tribalpower:wayanchor",
+    "tribalpower:hush_totem",
+    "tribalpower:summoning_cradle",
+    "tribalpower:grove_tender",
+    "tribalpower:spirit_lantern",
+    "tribalpower:rain_chime",
+    "tribalpower:offering_table",
+    "tribalpower:march_log",
+    "tribalpower:march_planks"
   ]
 }

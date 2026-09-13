@@ -62,4 +62,8 @@ public class RitualBrazierBlock extends BaseEntityBlock {
             Containers.dropItemStack(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.seal());
         super.onRemove(state, level, pos, next, moved);
     }
+    @Override
+    protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
+        return MachineDrops.withSelf(this, super.getDrops(state, builder));
+    }
 }

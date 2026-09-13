@@ -34,15 +34,13 @@ public final class GateRegistry {
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(4.0F, 12.0F)
-                    .sound(SoundType.COPPER)
-                    .requiresCorrectToolForDrops());
+                    .sound(SoundType.COPPER));
 
     public static final DeferredBlock<GateKeystoneBlock> GATE_KEYSTONE = BLOCKS.register("gate_keystone",
             () -> new GateKeystoneBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(5.0F, 20.0F)
                     .sound(SoundType.COPPER)
-                    .requiresCorrectToolForDrops()
                     .lightLevel(state -> 6)));
 
     public static final DeferredBlock<GatePortalBlock> GATE_PORTAL = BLOCKS.register("gate_portal",

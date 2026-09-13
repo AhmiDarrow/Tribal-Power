@@ -70,6 +70,10 @@ public class AncestralCacheBlock extends BaseEntityBlock {
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
+    @Override
+    protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
+        return MachineDrops.withSelf(this, super.getDrops(state, builder));
+    }
 
     @Override
     protected boolean hasAnalogOutputSignal(BlockState state) {
