@@ -130,7 +130,9 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
 
     @Override protected boolean isOutputSlot(int slot) { return true; }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return false; }
-    @Override public int[] getSlotsForFace(Direction face) { return new int[]{0, 1, 2, 3}; }
+    @Override protected tk.darrow.tribalpower.lattice.SideIo defaultSides() {
+        return new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT);
+    }
 
     public int work() { return work; }
     public Ask asking() { return asking; }

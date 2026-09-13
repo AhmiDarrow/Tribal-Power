@@ -28,11 +28,14 @@ public class TribalJeiPlugin implements IModPlugin {
         // to players -- and a modded metal would look unsupported (design 3.1 section 1.4).
         registration.addRecipes(TYPE,tk.darrow.tribalpower.grit.GritRegistry.allFormulae().stream()
                 .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
+        // Kiln firings the grit scan synthesised have no lattice file either.
+        registration.addRecipes(TYPE,tk.darrow.tribalpower.grit.GritRegistry.allFireFormulae().stream()
+                .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
         registration.addIngredientInfo(ModItems.SPIRIT_STAFF.get(),Component.translatable("item.tribalpower.spirit_staff.desc",12));
         registration.addIngredientInfo(ModItems.LATTICE_TUNER.get(),Component.translatable("item.tribalpower.lattice_tuner.desc"));
     }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get());
+        registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get(),ModItems.EMBER_KILN.get());
     }
     private static class Category implements IRecipeCategory<LatticeRecipe> {
         private final IDrawable icon;

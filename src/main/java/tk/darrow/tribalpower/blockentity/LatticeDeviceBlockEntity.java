@@ -26,11 +26,12 @@ import java.util.UUID;
  * signal stills the work and closes the inventory to hoppers and relays alike.
  */
 public abstract class LatticeDeviceBlockEntity extends BlockEntity
-        implements WorldlyContainer, Diagnosable, Ownership.Owned {
+        implements WorldlyContainer, Diagnosable, Ownership.Owned, tk.darrow.tribalpower.lattice.HasSideIo {
     protected NonNullList<ItemStack> items;
     protected final PatternState pattern;
     private final int size;
     private UUID owner;
+    protected final tk.darrow.tribalpower.lattice.SideIo sides;
 
     protected LatticeDeviceBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                        int size, RitualPattern pattern) {
@@ -38,6 +39,37 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
         this.size = size;
         this.items = NonNullList.withSize(size, ItemStack.EMPTY);
         this.pattern = new PatternState(pattern);
+        this.sides = defaultSides();
+    }
+
+    protected tk.darrow.tribalpower.lattice.SideIo defaultSides() {
+        return new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+    }
+
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+
+    @Override
+    public int[] inputSlots(net.minecraft.core.Direction face) {
+        int n = 0;
+        for (int i = 0; i < size; i++) if (!isOutputSlot(i)) n++;
+        int[] out = new int[n];
+        int j = 0;
+        for (int i = 0; i < size; i++) if (!isOutputSlot(i)) out[j++] = i;
+        return out;
+    }
+
+    @Override
+    public int[] outputSlots(net.minecraft.core.Direction face) {
+        int n = 0;
+        for (int i = 0; i < size; i++) if (isOutputSlot(i)) n++;
+        int[] out = new int[n];
+        int j = 0;
+        for (int i = 0; i < size; i++) if (isOutputSlot(i)) out[j++] = i;
+        return out;
+    }
+
+    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) {
+        return tk.darrow.tribalpower.lattice.SideIo.slots(this, face);
     }
 
     public PatternState patternState() { return pattern; }
@@ -92,12 +124,12 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) {
-        return !stilled() && canPlaceItem(slot, stack);
+        return !stilled() && sides.get(face).insert() && canPlaceItem(slot, stack);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) {
-        return !stilled() && isOutputSlot(slot);
+        return !stilled() && sides.get(face).extract() && isOutputSlot(slot);
     }
 
     /** Slots a hopper or relay may drain. */
@@ -130,6 +162,7 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         Ownership.save(tag, owner);
+        sides.save(tag);
     }
 
     @Override
@@ -138,6 +171,7 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
         items = NonNullList.withSize(size, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         owner = Ownership.load(tag);
+        sides.load(tag);
         pattern.invalidate();
     }
 }

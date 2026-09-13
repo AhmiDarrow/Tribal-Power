@@ -11,12 +11,18 @@ import net.neoforged.neoforge.registries.*;
 public class StationMenu extends AbstractContainerMenu {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, "tribalpower");
     public static final DeferredHolder<MenuType<?>, MenuType<StationMenu>> TYPE = MENUS.register("echo_station", () -> new MenuType<>(StationMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    static {
+        RelayMenu.class.getName();
+        CacheMenu.class.getName();
+    }
     private final Container container;
     private final ContainerData data;
-    public StationMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(9), new SimpleContainerData(3)); }
+    public StationMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(9), new SimpleContainerData(7)); }
+    public int ioPacked() { return data.get(3); }
+    public net.minecraft.core.BlockPos machinePos() { return new net.minecraft.core.BlockPos(data.get(4), data.get(5), data.get(6)); }
     public StationMenu(int id, Inventory inventory, Container container, ContainerData data) {
         super(TYPE.get(), id); this.container = container; this.data = data;
-        checkContainerSize(container, 9); checkContainerDataCount(data, 3);
+        checkContainerSize(container, 9); checkContainerDataCount(data, 7);
         container.startOpen(inventory.player);
         addSlot(new Slot(container, 0, 26, 42) {
             @Override public boolean mayPlace(ItemStack stack) { return container.canPlaceItem(0, stack); }

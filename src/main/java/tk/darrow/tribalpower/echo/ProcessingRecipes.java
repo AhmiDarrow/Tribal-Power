@@ -22,7 +22,11 @@ public final class ProcessingRecipes {
     public static Formula find(Level level, String station, ItemStack stack) {
         Formula written = findWritten(level, station, stack);
         if (written != null) return written;
-        if ("ember_kiln".equals(station)) return kiln(level, stack);
+        if ("ember_kiln".equals(station)) {
+            Formula grit = tk.darrow.tribalpower.grit.GritRegistry.fire(stack);
+            if (grit != null) return grit;
+            return kiln(level, stack);
+        }
         return tk.darrow.tribalpower.grit.GritRegistry.formula(station, stack);
     }
 

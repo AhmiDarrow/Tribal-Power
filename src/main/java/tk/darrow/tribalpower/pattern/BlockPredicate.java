@@ -16,4 +16,12 @@ public interface BlockPredicate {
 
     /** Cells that accept anything are never reported as misses and never drawn as ghosts. */
     default boolean trivial() { return false; }
+
+    /** Colour role for Codex / schematic diagrams. */
+    default Role role() { return Role.OTHER; }
+
+    /** Item shown on a schematic cell; empty when the cell is not a placed block. */
+    default net.minecraft.world.item.ItemStack icon() { return net.minecraft.world.item.ItemStack.EMPTY; }
+
+    enum Role { ANCHOR, TOTEM, MARK, BRACE, FRAME, PEDESTAL, CACHE, FLOOR, AIR, OTHER }
 }

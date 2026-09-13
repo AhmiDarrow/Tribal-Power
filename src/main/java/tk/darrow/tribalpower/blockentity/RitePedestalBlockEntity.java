@@ -33,7 +33,7 @@ import java.util.UUID;
  * <p>Migration: pedestals placed in 3.0 worlds have no saved block entity. Chunk loading creates one from
  * the block on demand, so an old pedestal comes back empty and working rather than broken.
  */
-public class RitePedestalBlockEntity extends BlockEntity implements WorldlyContainer, Diagnosable, Ownership.Owned {
+public class RitePedestalBlockEntity extends BlockEntity implements WorldlyContainer, Diagnosable, Ownership.Owned, tk.darrow.tribalpower.lattice.HasSideIo {
     public static final int SLOT = 0;
     private static final int[] SLOTS = {SLOT};
 
@@ -86,17 +86,21 @@ public class RitePedestalBlockEntity extends BlockEntity implements WorldlyConta
 
     @Override public void clearContent() { items.clear(); sync(); }
 
-    @Override public int[] getSlotsForFace(Direction face) { return SLOTS; }
+    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(Direction face) { return SLOTS; }
+    @Override public int[] outputSlots(Direction face) { return SLOTS; }
+    @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return held().isEmpty(); }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction face) {
-        return !stilled() && canPlaceItem(slot, stack);
+        return !stilled() && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return !stilled();
+        return !stilled() && sides.get(face).extract();
     }
 
     /** Comparator: occupied or not. A pedestal holds one thing, so there is nothing finer to report. */
@@ -130,6 +134,7 @@ public class RitePedestalBlockEntity extends BlockEntity implements WorldlyConta
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         Ownership.save(tag, owner);
+        sides.save(tag);
     }
 
     @Override
@@ -138,6 +143,7 @@ public class RitePedestalBlockEntity extends BlockEntity implements WorldlyConta
         items = NonNullList.withSize(1, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         owner = Ownership.load(tag);
+        sides.load(tag);
     }
 
     @Override

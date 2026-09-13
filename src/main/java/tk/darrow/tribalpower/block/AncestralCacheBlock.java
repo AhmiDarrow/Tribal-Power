@@ -54,6 +54,8 @@ public class AncestralCacheBlock extends BaseEntityBlock {
 
         if (!level.isClientSide) {
             BlockEntity be = level.getBlockEntity(pos);
+            if (player.isShiftKeyDown() && tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, be, hit.getDirection()))
+                return InteractionResult.CONSUME;
             if (be instanceof MenuProvider provider) {
                 player.openMenu(provider);
             }

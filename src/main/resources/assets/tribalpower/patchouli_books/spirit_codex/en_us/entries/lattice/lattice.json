@@ -11,7 +11,37 @@
     {
       "type": "patchouli:text",
       "title": "Chalk and conductor",
-      "text": "Mark two totems with Ritual Chalk to link them within 16 blocks. A Conductor moves Pulse through linked totems and routes Song Bench items through nearby Ancestral Caches."
+      "text": "The Conductor does not make Pulse. It moves Pulse you already have.$(br)$(br)1. Place two Resonance Totems.$(br)2. Ritual Chalk on the first, then the second (within 16).$(br)3. Place the Conductor within 8 of them.$(br)4. Place a Drumheart, Ley Collector or Resonator within 8 of the Conductor.$(br)5. It pulls up to 10 Pulse a second into totem buffers. Click for a 25-Pulse burst."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "A working lattice",
+      "enable_visualize": true,
+      "multiblock": {
+        "pattern": [
+          [
+            "D 0 T",
+            "    T"
+          ]
+        ],
+        "mapping": {
+          "0": "tribalpower:lattice_conductor",
+          "D": "tribalpower:drumheart",
+          "T": "tribalpower:resonance_totem_earth"
+        }
+      },
+      "text": "Visualize this, then chalk-link the two totems. Strike the Drumheart. The Conductor pushes Pulse into the totems every second."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "title": "Ritual Chalk",
+      "text": "Click totem A, then totem B. You should see Lattice link sealed. Clicking the same totem twice cancels. Chalk also draws Ritual Marks on the floor for patterns such as the Stone Font."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "What it moves",
+      "text": "Every second: up to 10 Pulse from nearby generators into linked totems. Song Benches that need help are filled first.$(br)$(br)Every two seconds: Echo items between Song Benches and nearby Ancestral Caches, while the lattice holds Pulse.$(br)$(br)A lever pauses it. No network means the totems are not chalk-linked. No Pulse means bring a generator closer."
     },
     {
       "type": "patchouli:text",

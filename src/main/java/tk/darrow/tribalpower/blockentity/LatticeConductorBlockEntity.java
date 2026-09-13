@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Routes Spirit Pulse along chalk-linked Resonance Totems and assists Song Benches / caches on the lattice.
  */
-public class LatticeConductorBlockEntity extends BlockEntity {
+public class LatticeConductorBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
     public static final int TICK_INTERVAL = 20;
     public static final int ITEM_INTERVAL = 40;
@@ -178,6 +178,25 @@ public class LatticeConductorBlockEntity extends BlockEntity {
 
     public boolean isAssistActive() {
         return assistActive;
+    }
+
+    @Override
+    public java.util.List<Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        java.util.List<Component> lines = new java.util.ArrayList<>();
+        if (server.hasNeighborSignal(pos)) {
+            lines.add(Component.translatable("message.tribalpower.redstone.locked").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        }
+        if (networkSize < 2) {
+            lines.add(Component.translatable("diag.tribalpower.conductor.no_network").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        } else {
+            lines.add(Component.translatable("diag.tribalpower.conductor.network", networkSize, lastPulsePushed));
+            if (assistActive) lines.add(Component.translatable("diag.tribalpower.conductor.assist"));
+            if (lastItemRouted) lines.add(Component.translatable("diag.tribalpower.conductor.items"));
+            if (lastPulsePushed == 0) {
+                lines.add(Component.translatable("diag.tribalpower.conductor.no_pulse").withStyle(net.minecraft.ChatFormatting.YELLOW));
+            }
+        }
+        return lines;
     }
 
     @Override

@@ -22,8 +22,11 @@ public final class TribalColors {
 
     public static void items(RegisterColorHandlersEvent.Item event) {
         event.register((stack, layer) -> {
+            if (layer != 0) return 0xFFFFFFFF;
             String material = MineralGritItem.materialOf(stack);
-            return material == null ? 0xFFFFFF : MineralGritItem.tint(material);
+            // Item colours are ARGB. A 0xRRGGBB value is alpha 0, so the sprite vanishes.
+            int rgb = material == null ? 0xC8C8C8 : MineralGritItem.tint(material);
+            return 0xFF000000 | rgb;
         }, GritItems.MINERAL_GRIT.get());
     }
 

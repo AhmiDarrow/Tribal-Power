@@ -82,6 +82,24 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         super(ModBlockEntities.RESONANCE_MESH.get(), pos, state, SLOTS, ModPatterns.LISTENING_PIT);
     }
 
+    @Override protected tk.darrow.tribalpower.lattice.SideIo defaultSides() {
+        return tk.darrow.tribalpower.lattice.SideIo.mesh();
+    }
+
+    @Override public int[] inputSlots(Direction face) {
+        return switch (face) {
+            case UP -> new int[]{SAMPLE};
+            case DOWN -> new int[0];
+            default -> new int[]{SUBSTRATE_A, SUBSTRATE_B};
+        };
+    }
+
+    @Override public int[] outputSlots(Direction face) {
+        return face == Direction.DOWN
+                ? new int[]{OUTPUT_FIRST, OUTPUT_FIRST + 1, OUTPUT_FIRST + 2, OUTPUT_FIRST + 3}
+                : new int[0];
+    }
+
     // ---- inventory -------------------------------------------------------------------------
 
     @Override protected boolean isOutputSlot(int slot) { return slot >= OUTPUT_FIRST; }
@@ -95,15 +113,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         };
     }
 
-    /** Top is the sample, sides feed substrate, the bottom gives back what the ground offered. */
-    @Override
-    public int[] getSlotsForFace(Direction face) {
-        return switch (face) {
-            case UP -> new int[]{SAMPLE};
-            case DOWN -> new int[]{OUTPUT_FIRST, OUTPUT_FIRST + 1, OUTPUT_FIRST + 2, OUTPUT_FIRST + 3};
-            default -> new int[]{SUBSTRATE_A, SUBSTRATE_B};
-        };
-    }
+    /** Top is the sample, sides feed substrate, the bottom gives back what the ground offered — unless the UI reassigns a face. */
 
     // ---- pulse -----------------------------------------------------------------------------
 

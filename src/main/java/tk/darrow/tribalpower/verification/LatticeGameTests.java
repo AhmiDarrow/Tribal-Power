@@ -21,6 +21,8 @@ public class LatticeGameTests {
     public static void codexHasValidItemsAndSpoilerSafeLanding(GameTestHelper h) {
         var entries=tk.darrow.tribalpower.guide.CodexEntries.ALL;
         h.assertTrue(entries.size()>=54 && !entries.getFirst().spoiler(),"Complete Codex needs a spoiler-safe landing");
+        h.assertTrue(entries.stream().anyMatch(e->"walk_pulse_resonator".equals(e.id()) && e.text().contains("Echo Shard")),"Codex must teach seating a Resonator");
+        h.assertTrue(entries.stream().anyMatch(e->"walk_lattice_conductor".equals(e.id()) && e.text().contains("Ritual Chalk")),"Codex must teach running a Conductor");
         var ids=new java.util.HashSet<String>();
         for(var entry:entries) {
             h.assertTrue(ids.add(entry.id()),"Duplicate Codex id: "+entry.id());
@@ -457,5 +459,69 @@ public class LatticeGameTests {
         h.assertTrue(machines>=1,"Echo Shatter must drop itself, found "+machines);
         h.assertTrue(stone==8 && shards==3,"Station contents must drop, stone="+stone+" shards="+shards);
         h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void leyLensCyclesSightModes(GameTestHelper h) {
+        var lens=new ItemStack(tk.darrow.tribalpower.ley.LeyRegistry.LEY_LENS.get());
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.LEY,"Fresh lens starts on ley sight");
+        tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.PULSE,"First use is pulse zone");
+        tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.VOICE,"Second use is voices");
+        tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.MACHINE,"Third use is machines");
+        tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.LEY,"Fourth use wraps to ley");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void stationAndCacheHonourSideIo(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ECHO_SHATTER.get());
+        var station=at(h,new BlockPos(2,2,2),EchoStationBlockEntity.class);
+        h.assertTrue(station.sideIo().get(Direction.DOWN)==tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT,"Stations default to output below");
+        h.assertTrue(station.canTakeItemThroughFace(1,ItemStack.EMPTY,Direction.DOWN),"Output face may drain products");
+        h.assertFalse(station.canPlaceItemThroughFace(0,new ItemStack(Items.STONE),Direction.DOWN),"Output face must refuse input");
+        station.sideIo().set(Direction.UP,tk.darrow.tribalpower.lattice.SideIo.Mode.NONE);
+        h.assertTrue(station.getSlotsForFace(Direction.UP).length==0,"Closed face exposes no slots");
+        h.setBlock(4,2,2,ModBlocks.ANCESTRAL_CACHE.get());
+        var cache=at(h,new BlockPos(4,2,2),AncestralCacheBlockEntity.class);
+        cache.sideIo().set(Direction.UP,tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT);
+        var handler=h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,h.absolutePos(new BlockPos(4,2,2)),Direction.UP);
+        h.assertTrue(handler.insertItem(0,new ItemStack(Items.DIRT),false).getCount()==1,"Output-only cache face must refuse inserts");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void relayRuneChoosesItemOrFluid(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        h.assertFalse(relay.fluid(),"Item plate defaults to items");
+        relay.setItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.WATER_SEAL.get()));
+        h.assertTrue(relay.fluid(),"Water Seal turns the plate to fluid");
+        relay.setItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.EARTH_SEAL.get()));
+        h.assertFalse(relay.fluid(),"Earth Seal turns the plate to items");
+        h.setBlock(4,2,2,ModBlocks.FLUID_RELAY.get());
+        h.assertTrue(at(h,new BlockPos(4,2,2),WirelessRelayBlockEntity.class).fluid(),"Fluid plate defaults to fluid");
+        h.succeed();
+    }
+    @GameTest(template="empty", timeoutTicks=120)
+    public static void pairedRelaysShareABondItem(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,1,2,Blocks.CHEST);
+        h.setBlock(6,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(6,1,2,Blocks.CHEST);
+        power(h);
+        var source=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
+        var dest=at(h,new BlockPos(6,1,2),ChestBlockEntity.class);
+        source.setItem(0,new ItemStack(Items.GOLD_INGOT,16));
+        var send=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var recv=at(h,new BlockPos(6,2,2),WirelessRelayBlockEntity.class);
+        send.setItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND));
+        recv.setItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND));
+        send.extract(true);
+        recv.extract(false);
+        h.runAfterDelay(65,()->{
+            h.assertTrue(source.isEmpty() && dest.countItem(Items.GOLD_INGOT)==16,"Paired plates must move the host chest into its partner");
+            h.succeed();
+        });
     }
 }

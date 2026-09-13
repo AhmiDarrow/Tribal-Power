@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 3.3.2.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 3.3.3.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,8 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 3.3.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 3.3.3 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Previous 3.3.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.3.2)
 - [Previous 3.3.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.3.1)
 - [Previous 3.3.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.3.0)
 - [Previous 3.2.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.2.2)
@@ -33,7 +34,7 @@ Craft a Bone Chime, Spirit Shard and Drumheart. Strike the drum, then charge a P
 
 Continue through Fire / Echo Attune, Water / Echo Bind, Spirit / Echo Manifest and Loom / Echo Unweave. Bound Echo becomes Manifested Ingot; manifest the ingot again for a Resonant Core. Water also binds wool into Spiritweave.
 
-Each Echo station has a batch input, eight output slots, a progress screen and status readout. Feed above or from the sides; extract below. Missing power, missing attunement or full output pauses the batch without consuming its input. The original single-item Song Bench remains available.
+Each Echo station has a batch input, eight output slots, a progress screen and status readout. Faces default to feed on the sides and top, extract below; the IO pad in the UI changes that. Missing power, missing attunement or full output pauses the batch without consuming its input. The original single-item Song Bench remains available.
 
 The Spirit Codex provides the in-game guide. JEI, when installed, displays lattice recipes, attunements, duration and total Pulse cost.
 
@@ -41,7 +42,7 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
 
 - **Drumheart:** deliberate beats about a second apart yield more Pulse. A redstone clock automates its rising-edge rhythm.
 - **Ley Collector:** sky, night, rain, nearby water and living greenery influence collection.
-- **Pulse Resonator:** a reusable Echo catalyst and at least two distinct nearby totem voices produce Pulse. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are increasing catalyst ranks. More distinct voices improve output. Coal and wood are not fuel.
+- **Pulse Resonator:** seat a reusable Echo catalyst (right-click; it is not burned) and place at least two distinct Resonance Totems within 8 blocks. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are ranks 1–4. Gain each second is `(2 × voices) + (2 × rank)`. A heap of totems counts at most five voices; six needs the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift the catalyst.
 - **Pulse Cells:** ordinary cells hold 200 Pulse; Greater Cells hold 1,200.
 - **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
 
@@ -49,9 +50,11 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
 
 Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers.
 
-A Lattice Conductor moves Pulse through chalk-linked totems and routes Song Bench items through nearby Ancestral Caches. Delivered feed starts the bench automatically. Charged totems keep item routing active even when their buffers are full. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
+A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
-Wireless relays pull from the inventory or tank below them. Mark a receiving block face with the Lattice Tuner, then use it on the relay. Sneak-use the tuner to replace its mark.
+Wireless relays are thin plates that snap onto a machine face. Seat the same item in two Bond slots to pair them, or mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Sneak-click a plate to switch extract or insert.
+
+Each Echo station and Ancestral Cache has a six-face IO pad. Sneak-use an empty hand on a face to cycle Input, Output, Both or Closed. Hoppers and pipes honour those faces.
 
 1. **Local:** 32 blocks in the same dimension; 4 Pulse per successful transfer.
 2. **Longreach:** 128 blocks in the same dimension; 8 Pulse.

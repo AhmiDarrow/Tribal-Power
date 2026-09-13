@@ -21,17 +21,66 @@
     {
       "type": "patchouli:text",
       "title": "Pulse Resonator",
-      "text": "Seat an Echo catalyst and place at least two different elemental totems within 8 blocks. More distinct voices and stronger catalysts increase generation. The catalyst is reusable."
+      "text": "This is not a furnace. Coal and wood do nothing.$(br)$(br)1. Place the Resonator.$(br)2. Right-click it with an Echo catalyst (start with an Echo Shard).$(br)3. Place two different Resonance Totems within 8 blocks.$(br)4. It lights and makes Pulse. The crystal stays seated.$(br)5. Sneak empty-handed to lift the catalyst."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "First Resonator",
+      "enable_visualize": true,
+      "multiblock": {
+        "pattern": [
+          [
+            "E",
+            "0",
+            "F"
+          ]
+        ],
+        "mapping": {
+          "0": "tribalpower:pulse_resonator",
+          "E": "tribalpower:resonance_totem_earth",
+          "F": "tribalpower:resonance_totem_fire"
+        }
+      },
+      "text": "Click Visualize, then seat an Echo Shard. Two different voices within 8 is the whole of it."
     },
     {
       "type": "patchouli:text",
-      "title": "Harmonic ranks",
-      "text": "Catalysts: Echo Shard, Attuned Echo, Bound Echo, Resonant Core. Coal and wood are not fuels. Sneak with an empty hand to recover the catalyst. Redstone pauses generation."
+      "title": "What is a catalyst?",
+      "text": "A reusable crystal you seat in the Resonator. None of them burn.$(br)$(br)Rank 1 Echo Shard — shatter stone in Echo Shatter.$(br)Rank 2 Attuned Echo — Echo Attune + Fire.$(br)Rank 3 Bound Echo — Echo Bind + Water.$(br)Rank 4 Resonant Core — Echo Manifest + Spirit.$(br)$(br)Gain each second is (2 × voices) + (2 × rank). Two voices and a shard is 6 Pulse/s."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "tribalpower:echo_shard",
+      "title": "Echo Shard",
+      "text": "The first catalyst. Shatter stone, deepslate or March stone — cobble is the hammer chain, not shards. Right-click the Resonator with one shard to seat it."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Voice Ring",
+      "enable_visualize": true,
+      "multiblock": {
+        "pattern": [
+          [
+            "T  T  T",
+            "       ",
+            "       ",
+            "T  0  T",
+            "       ",
+            "       ",
+            "T  T  T"
+          ]
+        ],
+        "mapping": {
+          "0": "tribalpower:pulse_resonator",
+          "T": "tribalpower:resonance_totem_earth"
+        }
+      },
+      "text": "Totems at radius 3, same floor. A heap nearby only counts five voices; six needs this ring. Mix the six voices among the eight slots."
     },
     {
       "type": "patchouli:text",
       "title": "Carry the beat",
-      "text": "Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel."
+      "text": "Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel. A lever on the Resonator pauses it."
     }
   ]
 }

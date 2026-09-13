@@ -5,12 +5,17 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import tk.darrow.tribalpower.echo.StationMenu;
+import tk.darrow.tribalpower.lattice.SideIo;
 
 /** A quiet copper-and-ink workshop panel, rendered without external UI dependencies. */
 public class StationScreen extends AbstractContainerScreen<StationMenu> {
+
     public StationScreen(StationMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title); imageWidth = 176; imageHeight = 188; inventoryLabelY = 92;
     }
+
+    private int ioX() { return leftPos + 142; }
+    private int ioY() { return topPos + 26; }
     @Override protected void renderBg(GuiGraphics g, float partialTick, int mouseX, int mouseY) {
         int x = leftPos, y = topPos;
         g.fill(x, y, x+176, y+188, 0xFF101B22);
@@ -29,9 +34,18 @@ public class StationScreen extends AbstractContainerScreen<StationMenu> {
         g.drawString(font, title, 8, 8, 0xFFE7DCC1, false);
         g.drawString(font, playerInventoryTitle, 8, 92, 0xFF98ACA5, false);
         Component status = Component.translatable(menu.statusKey(), menu.work());
-        g.drawString(font, font.plainSubstrByWidth(status.getString(), 157), 9, 76, 0xFF99C9BD, false);
+        g.drawString(font, font.plainSubstrByWidth(status.getString(), 128), 9, 76, 0xFF99C9BD, false);
+        g.drawString(font, "IO", 142, 16, 0xFF98ACA5, false);
     }
     @Override public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
-        super.render(g, mouseX, mouseY, partialTick); renderTooltip(g, mouseX, mouseY);
+        super.render(g, mouseX, mouseY, partialTick);
+        SideIo io = new SideIo(SideIo.Mode.BOTH);
+        io.unpack(menu.ioPacked());
+        renderTooltip(g, mouseX, mouseY);
+        SideIoWidget.render(g, font, ioX(), ioY(), io, mouseX, mouseY);
+    }
+    @Override public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (SideIoWidget.click(mouseX, mouseY, ioX(), ioY(), menu.machinePos())) return true;
+        return super.mouseClicked(mouseX, mouseY, button);
     }
 }

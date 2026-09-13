@@ -4,6 +4,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,13 +31,17 @@ public final class Predicates {
     public static BlockPredicate block(Supplier<? extends Block> block) {
         return new Simple(
                 (level, pos) -> level.getBlockState(pos).is(block.get()),
-                () -> block.get().getName());
+                () -> block.get().getName(),
+                () -> roleFor(block.get()),
+                () -> new ItemStack(block.get()));
     }
 
     public static BlockPredicate tag(TagKey<Block> tag) {
         return new Simple(
                 (level, pos) -> level.getBlockState(pos).is(tag),
-                () -> Component.translatable("pattern.tribalpower.expect.tag", tagName(tag)));
+                () -> Component.translatable("pattern.tribalpower.expect.tag", tagName(tag)),
+                () -> BlockPredicate.Role.FLOOR,
+                () -> new ItemStack(Items.STONE));
     }
 
     /**
@@ -60,7 +67,9 @@ public final class Predicates {
     public static BlockPredicate air() {
         return new Simple(
                 (level, pos) -> level.getBlockState(pos).isAir(),
-                () -> Component.translatable("pattern.tribalpower.expect.air"));
+                () -> Component.translatable("pattern.tribalpower.expect.air"),
+                () -> BlockPredicate.Role.AIR,
+                () -> ItemStack.EMPTY);
     }
 
     public static BlockPredicate solid() {
@@ -87,14 +96,18 @@ public final class Predicates {
                 (level, pos) -> level.getBlockEntity(pos) instanceof ResonanceTotemBlockEntity totem
                         && totem.getAttunement() == voice,
                 () -> Component.translatable("pattern.tribalpower.expect.totem",
-                        Component.translatable("attunement.tribalpower." + voice.getSerializedName())));
+                        Component.translatable("attunement.tribalpower." + voice.getSerializedName())),
+                () -> BlockPredicate.Role.TOTEM,
+                () -> new ItemStack(tk.darrow.tribalpower.block.ModBlocks.RESONANCE_TOTEM_EARTH.get()));
     }
 
     /** Any Resonance Totem, whatever its voice. */
     public static BlockPredicate anyTotem() {
         return new Simple(
                 (level, pos) -> level.getBlockState(pos).getBlock() instanceof ResonanceTotemBlock,
-                () -> Component.translatable("pattern.tribalpower.expect.any_totem"));
+                () -> Component.translatable("pattern.tribalpower.expect.any_totem"),
+                () -> BlockPredicate.Role.TOTEM,
+                () -> new ItemStack(tk.darrow.tribalpower.block.ModBlocks.RESONANCE_TOTEM_EARTH.get()));
     }
 
     /** Air, or the block itself -- how a portal frame's interior is written before it is lit. */
@@ -104,7 +117,9 @@ public final class Predicates {
                     BlockState state = level.getBlockState(pos);
                     return state.isAir() || state.is(block.get());
                 },
-                () -> Component.translatable("pattern.tribalpower.expect.air_or", block.get().getName()));
+                () -> Component.translatable("pattern.tribalpower.expect.air_or", block.get().getName()),
+                () -> BlockPredicate.Role.AIR,
+                () -> ItemStack.EMPTY);
     }
 
     /** A Ritual Mark: the chalk line joining the pattern together. */
@@ -122,14 +137,35 @@ public final class Predicates {
 
     private interface Check { boolean test(Level level, BlockPos pos); }
 
-    private record Simple(Check check, Supplier<Component> describe) implements BlockPredicate {
+    private static BlockPredicate.Role roleFor(Block block) {
+        var key = BuiltInRegistries.BLOCK.getKey(block);
+        if (key == null) return BlockPredicate.Role.OTHER;
+        return switch (key.getPath()) {
+            case "ritual_mark" -> BlockPredicate.Role.MARK;
+            case "anchor_stone" -> BlockPredicate.Role.BRACE;
+            case "gate_frame", "gate_keystone" -> BlockPredicate.Role.FRAME;
+            case "rite_pedestal" -> BlockPredicate.Role.PEDESTAL;
+            case "ancestral_cache" -> BlockPredicate.Role.CACHE;
+            default -> BlockPredicate.Role.OTHER;
+        };
+    }
+
+    private record Simple(Check check, Supplier<Component> describe, Supplier<BlockPredicate.Role> roleOf,
+                          Supplier<ItemStack> iconOf) implements BlockPredicate {
+        Simple(Check check, Supplier<Component> describe) {
+            this(check, describe, () -> BlockPredicate.Role.OTHER, () -> ItemStack.EMPTY);
+        }
         @Override public boolean test(Level level, BlockPos pos) { return check.test(level, pos); }
         @Override public Component description() { return describe.get(); }
+        @Override public BlockPredicate.Role role() { return roleOf.get(); }
+        @Override public ItemStack icon() { return iconOf.get(); }
     }
 
     /** The pattern's own position. Matching it is what proves the cached match still belongs to this device. */
     record Anchor(Supplier<? extends Block> block) implements BlockPredicate {
         @Override public boolean test(Level level, BlockPos pos) { return level.getBlockState(pos).is(block.get()); }
         @Override public Component description() { return block.get().getName(); }
+        @Override public BlockPredicate.Role role() { return BlockPredicate.Role.ANCHOR; }
+        @Override public ItemStack icon() { return new ItemStack(block.get()); }
     }
 }

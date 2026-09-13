@@ -29,7 +29,7 @@ import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
 import tk.darrow.tribalpower.item.PulseCellItem;
 
 /**
- * Coal-fueled Spirit Pulse generator. Feed coal/charcoal; lattice reads it like a Ley Collector.
+ * Harmonic Spirit Pulse generator. Seat a reusable Echo catalyst and place two distinct totem voices nearby.
  */
 public class PulseResonatorBlock extends BaseEntityBlock {
     public static final MapCodec<PulseResonatorBlock> CODEC = simpleCodec(PulseResonatorBlock::new);
@@ -102,9 +102,11 @@ public class PulseResonatorBlock extends BaseEntityBlock {
         if (PulseResonatorBlockEntity.isCatalyst(stack)) {
             if (!level.isClientSide) {
                 if (resonator.acceptCatalyst(player.isCreative() ? stack.copy() : stack)) {
+                    var seated = resonator.getItem(PulseResonatorBlockEntity.SLOT);
                     player.displayClientMessage(Component.translatable(
                             "message.tribalpower.pulse_resonator.fueled",
-                            resonator.catalystCount(),
+                            seated.getHoverName(),
+                            PulseResonatorBlockEntity.catalystRank(seated),
                             resonator.getPulseStored(),
                             resonator.getPulseCapacity()
                     ), true);
@@ -136,31 +138,42 @@ public class PulseResonatorBlock extends BaseEntityBlock {
                             "message.tribalpower.pulse_resonator.removed_fuel"
                     ), true);
                 } else {
-                    showStatus(player, resonator);
+                    showStatus(player, resonator, level, pos);
                 }
             } else {
-                showStatus(player, resonator);
+                showStatus(player, resonator, level, pos);
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    private static void showStatus(Player player, PulseResonatorBlockEntity resonator) {
-        if (resonator.catalystCount() > 0) {
-            player.displayClientMessage(Component.translatable(
-                    "message.tribalpower.pulse_resonator.status",
-                    resonator.getPulseStored(),
-                    resonator.getPulseCapacity(),
-                    resonator.getGain(),
-                    resonator.getHarmonics()
-            ), true);
-        } else {
+    private static void showStatus(Player player, PulseResonatorBlockEntity resonator, Level level, BlockPos pos) {
+        if (resonator.catalystCount() == 0) {
             player.displayClientMessage(Component.translatable(
                     "message.tribalpower.pulse_resonator.need_fuel",
                     resonator.getPulseStored(),
                     resonator.getPulseCapacity()
             ), true);
+            return;
         }
+        if (level.hasNeighborSignal(pos)) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.pulse_resonator.paused"), true);
+            return;
+        }
+        if (resonator.getHarmonics() < 2) {
+            player.displayClientMessage(Component.translatable(
+                    "message.tribalpower.pulse_resonator.need_voices",
+                    resonator.getHarmonics()
+            ), true);
+            return;
+        }
+        player.displayClientMessage(Component.translatable(
+                "message.tribalpower.pulse_resonator.status",
+                resonator.getPulseStored(),
+                resonator.getPulseCapacity(),
+                resonator.getGain(),
+                resonator.getHarmonics()
+        ), true);
     }
 
     @Override

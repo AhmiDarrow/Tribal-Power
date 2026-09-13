@@ -20,6 +20,7 @@ import java.util.function.BiConsumer;
  */
 final class CodexDiagrams {
     static final int HEIGHT = 72;
+    static final int PATTERN_HEIGHT = 108;
     private static final int INK = 0xFF0C1922, TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, RAIL = 0xFF36555B, DIM = 0xFF29484F;
     private static final String[] TRIBE_REAGENTS = {"echo_shard", "attuned_echo", "mossback_scale", "rift_tooth", "bone_chime", "storm_wing", "lantern_down", "spirit_shard", "loom_thread"};
     private static final String[] RITES = {"rite_rain_calling", "rite_sky_clearing", "rite_dawn_calling", "rite_green_blessing", "rite_still_night", "rite_ley_binding"};
@@ -28,7 +29,7 @@ final class CodexDiagrams {
     private static final String[] STATUS = {"PAUSED", "NO VOICE", "OUTPUT FULL", "HUMMING"};
     private static final int[] STATUS_COLOUR = {0xFFE07A5F, 0xFFE4C18A, 0xFFE4C18A, 0xFF74DBCB};
 
-    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN }
+    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN, RESONATOR, CONDUCTOR }
 
     /** The placement rites, in the order the Codex teaches them; {@link Flow#variant()} indexes this. */
     private static final tk.darrow.tribalpower.pattern.RitualPattern[] PATTERNS = {
@@ -76,7 +77,7 @@ final class CodexDiagrams {
             case "familiars_fox" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", "lantern_fox_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 0);
             case "familiars_mossback_stag" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", FAMILIARS[1 + (int) (t / 3) % 2] + "_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 1 + (int) (t / 3) % 2);
             case "camps_identity", "walk_found_a_camp" -> flow(Kind.CAMP, "CHARTER > INVITE > SHARE", "camp_charter", "deep_cache", "wayfarer_satchel", "", TEAL, 0);
-            case "ley_lens" -> flow(Kind.LENS, "HOLD > READ > PLACE", "ley_lens", "ley_collector", "ley_lens", "", GOLD, 0);
+            case "ley_lens" -> flow(Kind.LENS, "HOLD > CYCLE > ZONE", "ley_lens", "ley_collector", "ley_lens", "", GOLD, 0);
             case "pulse_logic" -> flow(Kind.LOGIC, "STORE > MEASURE > SWITCH", "drumheart", "minecraft:redstone_lamp", "pulse_gauge", "pulse_threshold", 0xFFE07A5F, 0);
             case "codex_diagnostics" -> flow(Kind.DIAGNOSE, "SNEAK-USE > LISTEN > MEND", "spirit_codex", "echo_shatter", "spirit_codex", "", TEAL, 0);
             case "camp_binding_effigy" -> flow(Kind.FLOW, "IMPRINT > AWAKEN > RENEW", "binding_effigy", "pulse_cell", "spiritweave", "", TEAL, 0);
@@ -85,12 +86,15 @@ final class CodexDiagrams {
             case "camp_grove_tender" -> flow(Kind.FLOW, "PLANT > GROW > HARVEST", "minecraft:wheat_seeds", "minecraft:wheat", "minecraft:wheat_seeds", "", 0xFF7BC96F, 1);
             case "camp_wayanchor" -> flow(Kind.FLOW, "SUPPLY > SUSTAIN > RELEASE", "wayanchor", "pulse_cell", "wayanchor", "", TEAL, 0);
             case "camp_hush_totem" -> flow(Kind.FLOW, "SUPPLY > WARD > REST", "hush_totem", "pulse_cell", "hush_totem", "", TEAL, 0);
+            case "pattern_intro" -> new Flow(Kind.PATTERN, "BUILD THE SHAPE", stack("ritual_chalk"), stack("anchor_stone"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, (int) (t / 5) % PATTERNS.length);
             case "pattern_stone_font" -> new Flow(Kind.PATTERN, "FONT + FOUR MARKS", stack("ritual_chalk"), stack("stone_font"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 0);
-            case "pattern_listening_pit" -> new Flow(Kind.PATTERN, "ANCHOR > CHALK > MESH", stack("anchor_stone"), stack("resonance_mesh"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 1);
+            case "pattern_listening_pit", "pit_deep_listening" -> new Flow(Kind.PATTERN, "ANCHOR > CHALK > MESH", stack("anchor_stone"), stack("resonance_mesh"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 1);
             case "pattern_rite_circle" -> new Flow(Kind.PATTERN, "BRAZIER + FOUR PEDESTALS", stack("rite_pedestal"), stack("ritual_brazier"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 2);
+            case "chapter_6", "chapter_7", "walk_pulse_resonator" -> flow(Kind.RESONATOR, "SEAT > TWO VOICES > HUM", "echo_shard", "pulse_resonator", "echo_shard", "resonance_totem_earth", TEAL, 0);
+            case "chapter_10", "walk_lattice_conductor" -> flow(Kind.CONDUCTOR, "CHALK > PULL > PUSH", "drumheart", "lattice_conductor", "ritual_chalk", "resonance_totem_earth", GOLD, 0);
             case "pattern_voice_ring" -> new Flow(Kind.PATTERN, "TOTEMS AT RADIUS THREE", stack("resonance_totem_earth"), stack("pulse_resonator"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 3);
             case "pattern_shatter_array" -> new Flow(Kind.PATTERN, "FOUR TOTEMS, ONE CACHE", stack("resonance_totem_earth"), stack("echo_shatter"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 4);
-            case "gate_way" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
+            case "gate_way", "gate_keeping" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
             case "gate_far" -> new Flow(Kind.PATTERN, "FRAME + FOUR ANCHORS", stack("anchor_stone"), stack("gate_sigil"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF62D1C9, 6);
             case "grit_split" -> flow(Kind.CHAIN, "CRUSH > FIRE | SHATTER", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "echo_shatter", GOLD, 0);
             case "voice_ember_horn" -> flow(Kind.FLOW, "FEED > BURN > GIVE", "minecraft:coal", "ember_horn", "minecraft:coal", "", 0xFFEB8449, 0);
@@ -113,14 +117,19 @@ final class CodexDiagrams {
         return flow(Kind.FLOW, "BEAT > GATHER > STORE", "drumheart", "pulse_cell", "spirit_shard", "", TEAL, 0);
     }
 
+    static int height(Entry e) {
+        return flow(e, 0).kind() == Kind.PATTERN ? PATTERN_HEIGHT : HEIGHT;
+    }
+
     /**
      * Draws the diagram box for {@code e} at ({@code x},{@code y}) spanning {@code w} pixels; {@code item} renders an
      * item stack at a position (so the screen can register tooltips). Returns the box height.
      */
     static int draw(GuiGraphics g, Font font, Entry e, int x, int y, int w, double t, BiConsumer<ItemStack, int[]> item) {
         Flow f = flow(e, t);
-        g.fill(x, y, x + w, y + HEIGHT, INK);
-        g.fill(x, y, x + 3, y + HEIGHT, f.accent());
+        int h = f.kind() == Kind.PATTERN ? PATTERN_HEIGHT : HEIGHT;
+        g.fill(x, y, x + w, y + h, INK);
+        g.fill(x, y, x + 3, y + h, f.accent());
         int bx = x + 8, span = w - 16;
         g.drawString(font, font.plainSubstrByWidth(f.label(), span - 4), bx, y + 6, TEAL, false);
         int lineStart = bx + 24, lineEnd = bx + span - 22, railY = y + 37;
@@ -134,35 +143,55 @@ final class CodexDiagrams {
             case LENS -> lens(g, f, bx, y, span, lineStart, lineEnd, t);
             case LOGIC -> logic(g, font, f, bx, y, span, lineStart, lineEnd, railY, t, item);
             case DIAGNOSE -> diagnose(g, font, f, bx, y, span, lineStart, lineEnd, railY, t);
-            case PATTERN -> { pattern(g, f, bx, y, span, t, item); return HEIGHT; }
+            case PATTERN -> { pattern(g, font, f, bx, y, span, t, item); return h; }
+            case RESONATOR -> { resonator(g, f, bx, y, span, t, item); return h; }
+            case CONDUCTOR -> { conductor(g, f, bx, y, span, t, item); return h; }
             default -> plain(g, f, bx, y, span, lineStart, lineEnd, railY, t, item);
         }
         item.accept(f.first(), new int[]{bx, y + 29});
         item.accept(f.last(), new int[]{bx + span - 16, y + 29});
-        return HEIGHT;
+        return h;
     }
 
     /**
-     * A placement rite drawn from above: one square per cell of the working course, the anchor in the
-     * accent colour, and a highlight walking the cells so the shape reads as something you build rather
-     * than something you own. The shape comes from the pattern itself, so a diagram can never drift from
-     * what the matcher actually wants.
+     * A placement rite drawn from the pattern itself: tiers cycle low to high, Y layers cycle on stacked
+     * builds (gates, pits), cells take a colour from their role, and the lit cell shows its block.
      */
-    private static void pattern(GuiGraphics g, Flow f, int bx, int y, int span, double t,
+    private static void pattern(GuiGraphics g, Font font, Flow f, int bx, int y, int span, double t,
                                 BiConsumer<ItemStack, int[]> item) {
         tk.darrow.tribalpower.pattern.RitualPattern shape = PATTERNS[Math.floorMod(f.variant(), PATTERNS.length)];
-        tk.darrow.tribalpower.pattern.RitualPattern.Tier tier = shape.tiers().getFirst();
+        java.util.List<tk.darrow.tribalpower.pattern.RitualPattern.Tier> tiers = new java.util.ArrayList<>(shape.tiers());
+        java.util.Collections.reverse(tiers);
+        tk.darrow.tribalpower.pattern.RitualPattern.Tier tier = tiers.get(tiers.size() == 1 ? 0 : (int) (t / 4) % tiers.size());
+
+        java.util.List<tk.darrow.tribalpower.pattern.RitualPattern.Cell> all = new java.util.ArrayList<>();
+        if (tier.anchor() != null) all.add(tier.anchor());
+        for (var c : tier.cells()) if (!c.predicate().trivial()) all.add(c);
+
+        int minY = 0, maxY = 0;
+        for (var c : all) {
+            minY = Math.min(minY, c.offset().getY());
+            maxY = Math.max(maxY, c.offset().getY());
+        }
+        java.util.List<Integer> layers = new java.util.ArrayList<>();
+        for (int layer = minY; layer <= maxY; layer++) {
+            int yLevel = layer;
+            if (all.stream().anyMatch(c -> c.offset().getY() == yLevel)) layers.add(layer);
+        }
+        int layerY = layers.isEmpty() ? 0 : layers.get((int) (t / 2) % layers.size());
         java.util.List<tk.darrow.tribalpower.pattern.RitualPattern.Cell> course = new java.util.ArrayList<>();
-        for (var c : tier.cells()) if (c.offset().getY() == 0 && !c.predicate().trivial()) course.add(c);
+        for (var c : all) if (c.offset().getY() == layerY) course.add(c);
 
         int minX = 0, maxX = 0, minZ = 0, maxZ = 0;
         for (var c : course) {
             minX = Math.min(minX, c.offset().getX()); maxX = Math.max(maxX, c.offset().getX());
             minZ = Math.min(minZ, c.offset().getZ()); maxZ = Math.max(maxZ, c.offset().getZ());
         }
-        int cols = maxX - minX + 1, rows = maxZ - minZ + 1, size = 6, gap = 1;
+        int cols = Math.max(1, maxX - minX + 1), rows = Math.max(1, maxZ - minZ + 1);
+        int size = Math.max(6, Math.min(12, Math.min((span - 48) / cols, 70 / rows) - 1));
+        int gap = 1;
         int gridW = cols * (size + gap), gridH = rows * (size + gap);
-        int ox = bx + span / 2 - gridW / 2, oy = y + 20 + Math.max(0, (44 - gridH) / 2);
+        int ox = bx + span / 2 - gridW / 2, oy = y + 22 + Math.max(0, (58 - gridH) / 2);
 
         for (int gx = 0; gx < cols; gx++)
             for (int gz = 0; gz < rows; gz++) {
@@ -172,13 +201,92 @@ final class CodexDiagrams {
         int lit = course.isEmpty() ? 0 : (int) (t * 2) % course.size();
         for (int i = 0; i < course.size(); i++) {
             var c = course.get(i);
-            int px = ox + (c.offset().getX() - minX) * (size + gap), pz = oy + (c.offset().getZ() - minZ) * (size + gap);
-            g.fill(px, pz, px + size, pz + size, i == lit ? PAPER : TEAL);
+            int px = ox + (c.offset().getX() - minX) * (size + gap);
+            int pz = oy + (c.offset().getZ() - minZ) * (size + gap);
+            g.fill(px, pz, px + size, pz + size, roleColour(c.predicate().role(), f.accent(), i == lit));
         }
-        int ax = ox + (0 - minX) * (size + gap), az = oy + (0 - minZ) * (size + gap);
-        g.fill(ax, az, ax + size, az + size, f.accent());
-        item.accept(f.first(), new int[]{bx, y + 29});
-        item.accept(f.last(), new int[]{bx + span - 16, y + 29});
+        String caption = "T" + tier.number() + (layers.size() > 1 ? "  Y=" + layerY : "");
+        g.drawString(font, caption, bx, y + PATTERN_HEIGHT - 12, GOLD, false);
+        item.accept(f.first(), new int[]{bx, y + 28});
+        item.accept(f.last(), new int[]{bx + span - 16, y + 28});
+        if (!course.isEmpty()) {
+            ItemStack shown = course.get(lit).predicate().icon();
+            if (!shown.isEmpty()) item.accept(shown, new int[]{bx + span / 2 - 8, y + PATTERN_HEIGHT - 22});
+        }
+    }
+
+    private static int roleColour(tk.darrow.tribalpower.pattern.BlockPredicate.Role role, int accent, boolean lit) {
+        if (lit) return PAPER;
+        return switch (role) {
+            case ANCHOR -> accent;
+            case TOTEM -> TEAL;
+            case MARK -> 0xFFD8D0B8;
+            case BRACE -> 0xFF8A9AA2;
+            case FRAME -> 0xFFC49A5A;
+            case PEDESTAL -> GOLD;
+            case CACHE -> 0xFF3D6B62;
+            case FLOOR -> 0xFF4A5A52;
+            case AIR -> 0xFF1A2830;
+            default -> TEAL;
+        };
+    }
+
+    /** Catalyst drops into the Resonator, two totems light, then Pulse fills. */
+    private static void resonator(GuiGraphics g, Flow f, int bx, int y, int span, double t,
+                                  BiConsumer<ItemStack, int[]> item) {
+        double cycle = t % 6;
+        int cx = bx + span / 2, cy = y + 42;
+        String[] ranks = {"echo_shard", "attuned_echo", "bound_echo", "resonant_core"};
+        ItemStack catalyst = stack(ranks[(int) (t / 6) % ranks.length]);
+        boolean twoVoices = cycle >= 2.6;
+        boolean humming = cycle >= 3.4;
+        int glow = humming ? lerp(DIM, f.accent(), 0.5 + 0.5 * Math.sin(t * 6)) : DIM;
+        g.fill(cx - 9, cy - 9, cx + 9, cy + 9, glow);
+        g.fill(cx - 6, cy - 6, cx + 6, cy + 6, humming ? GOLD : RAIL);
+        item.accept(stack("pulse_resonator"), new int[]{cx - 8, cy - 8});
+        int startY = y + 10, restY = cy - 20;
+        int dropY = startY + (int) ((restY - startY) * Math.min(1, cycle / 1.4));
+        g.renderItem(catalyst, cx - 8, dropY);
+        int[][] slots = {{-36, 0}, {28, 0}, {0, -18}, {0, 16}};
+        for (int i = 0; i < slots.length; i++) {
+            int px = cx + slots[i][0], pz = cy + slots[i][1];
+            boolean lit = (i < 2 && twoVoices) || (i < 1 && cycle >= 1.4);
+            g.fill(px, pz, px + 10, pz + 10, lit ? TEAL : DIM);
+        }
+        item.accept(catalyst, new int[]{bx, y + 29});
+        item.accept(stack("resonance_totem_earth"), new int[]{cx - 38, cy - 3});
+        item.accept(stack("resonance_totem_fire"), new int[]{cx + 26, cy - 3});
+        meter(g, bx, y, span, humming ? Math.min(1, (cycle - 3.4) / 2.2) : 0, humming ? TEAL : DIM);
+    }
+
+    /** Chalk joins two totems; Pulse packets walk from a generator through the Conductor. */
+    private static void conductor(GuiGraphics g, Flow f, int bx, int y, int span, double t,
+                                  BiConsumer<ItemStack, int[]> item) {
+        int gy = y + 30;
+        int genX = bx + 4, condX = bx + span / 2 - 8, totA = bx + span - 44, totB = bx + span - 18;
+        g.fill(genX - 2, gy - 2, genX + 18, gy + 18, DIM);
+        g.fill(condX - 2, gy - 2, condX + 18, gy + 18, RAIL);
+        g.fill(totA - 2, gy - 2, totA + 18, gy + 18, TEAL);
+        g.fill(totB - 2, gy - 2, totB + 18, gy + 18, TEAL);
+        int chalkY = gy + 20;
+        g.fill(totA + 8, chalkY, totB + 8, chalkY + 1, GOLD);
+        for (int px = totA + 8; px < totB + 8; px++) {
+            int ty = chalkY + (int) (Math.sin(t * 5 + px * 0.6) * 2);
+            g.fill(px, ty, px + 1, ty + 1, PAPER);
+        }
+        item.accept(stack("drumheart"), new int[]{genX, gy});
+        item.accept(stack("lattice_conductor"), new int[]{condX, gy});
+        item.accept(stack("resonance_totem_earth"), new int[]{totA, gy});
+        item.accept(stack("resonance_totem_fire"), new int[]{totB, gy});
+        g.renderItem(stack("ritual_chalk"), totA + 10, gy - 16);
+        int pathStart = genX + 16, pathEnd = totA;
+        for (int n = 0; n < 3; n++) {
+            double phase = (t / 4 + n / 3.0) % 1;
+            int dx = pathStart + (int) ((pathEnd - pathStart) * phase);
+            int dy = gy + 6 + (int) (Math.sin(t * 3 + n) * 2);
+            g.fill(dx, dy, dx + 4, dy + 4, f.accent());
+        }
+        meter(g, bx, y, span, (t / 4) % 1, f.accent());
     }
 
     private static void rail(GuiGraphics g, int lineStart, int lineEnd, int railY, double t, int colour) {

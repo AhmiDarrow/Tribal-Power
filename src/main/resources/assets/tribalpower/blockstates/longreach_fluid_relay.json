@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "tribalpower:block/longreach_fluid_relay"
-    }
+    "facing=down": { "model": "tribalpower:block/longreach_fluid_relay", "x": 180 },
+    "facing=up": { "model": "tribalpower:block/longreach_fluid_relay" },
+    "facing=north": { "model": "tribalpower:block/longreach_fluid_relay", "x": 90 },
+    "facing=south": { "model": "tribalpower:block/longreach_fluid_relay", "x": 90, "y": 180 },
+    "facing=west": { "model": "tribalpower:block/longreach_fluid_relay", "x": 90, "y": 270 },
+    "facing=east": { "model": "tribalpower:block/longreach_fluid_relay", "x": 90, "y": 90 }
   }
 }

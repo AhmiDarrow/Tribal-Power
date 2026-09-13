@@ -54,7 +54,7 @@ public final class GritCookingRecipe {
 
         @Override
         public boolean matches(SingleRecipeInput input, Level level) {
-            return super.matches(input, level) && !GritRegistry.ingotFor(input.item()).isEmpty();
+            return GritRegistry.materialOf(input.item()) != null && !GritRegistry.ingotFor(input.item()).isEmpty();
         }
 
         @Override
@@ -75,7 +75,7 @@ public final class GritCookingRecipe {
 
         @Override
         public boolean matches(SingleRecipeInput input, Level level) {
-            return super.matches(input, level) && !GritRegistry.ingotFor(input.item()).isEmpty();
+            return GritRegistry.materialOf(input.item()) != null && !GritRegistry.ingotFor(input.item()).isEmpty();
         }
 
         @Override

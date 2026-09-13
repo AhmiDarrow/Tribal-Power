@@ -222,7 +222,7 @@ public final class SpiritCodexScreen extends Screen {
      * Every teaching gets a diagram; wide pages put the two side by side, narrow ones stack them.
      */
     private int illustration(GuiGraphics g,Entry e,int y) {
-        int size=Math.min(bookHeight<300?64:112,contentWidth-12),height=CodexDiagrams.HEIGHT;
+        int size=Math.min(bookHeight<300?64:112,contentWidth-12),height=CodexDiagrams.height(e);
         boolean cover=e.id().equals("chapter_1");
         boolean picture=cover||(!e.picture().isEmpty()&&(e.spoiler()||e.safePicture()));
         double t=motion?System.currentTimeMillis()/1000.0:0;

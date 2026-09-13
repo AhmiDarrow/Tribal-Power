@@ -28,11 +28,15 @@ import java.util.List;
  * and yields 2 coal worth 160, against 180 spent. Fortune closes that to break-even and cannot be
  * automated, because the mod has no fake players. No automatable loop is net positive.
  */
-public class EmberHornBlockEntity extends GeneratorBlockEntity implements WorldlyContainer {
+public class EmberHornBlockEntity extends GeneratorBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo {
     public static final int CAPACITY = 1000;
     public static final int MAX_RATE = 20;
     public static final int SLOT = 0;
     private static final int[] SLOTS = {SLOT};
+    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(Direction face) { return SLOTS; }
+    @Override public int[] outputSlots(Direction face) { return SLOTS; }
 
     private NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     /** Pulse still owed by the fuel already burning. */
@@ -109,17 +113,17 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
     @Override public void setItem(int slot, ItemStack stack) { items.set(slot, stack); setChanged(); }
     @Override public void clearContent() { items.clear(); setChanged(); }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return pulseOf(stack) > 0; }
-    @Override public int[] getSlotsForFace(Direction face) { return SLOTS; }
+    @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return !stilled() && canPlaceItem(slot, stack);
+        return !stilled() && sides.get(face).insert() && canPlaceItem(slot, stack);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
         // Only a spent bucket comes back out; nobody siphons the fuel out of a lit fire.
-        return !stilled() && pulseOf(stack) <= 0;
+        return !stilled() && sides.get(face).extract() && pulseOf(stack) <= 0;
     }
 
     @Override
@@ -133,6 +137,7 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         tag.putInt("Burning", burning);
+        sides.save(tag);
     }
 
     @Override
@@ -141,5 +146,6 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
         items = NonNullList.withSize(1, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         burning = Math.max(0, tag.getInt("Burning"));
+        sides.load(tag);
     }
 }

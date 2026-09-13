@@ -8,11 +8,11 @@ https://github.com/AhmiDarrow/Tribal-Power
 
 ## Power from rhythm and the world
 
-Strike the Drumheart in rhythm, gather environmental energy with the Ley Collector, and harmonize distinct totem voices around a reusable Echo catalyst in the Pulse Resonator. Coal and wood are not fuel. Store Spirit Pulse in cells or convert it to standard FE through the one-way Pulse Adapter.
+Strike the Drumheart in rhythm, gather environmental energy with the Ley Collector, and seat a reusable Echo catalyst (Echo Shard through Resonant Core) in the Pulse Resonator with at least two distinct totem voices nearby. Coal and wood are not fuel. Store Spirit Pulse in cells or convert it to standard FE through the one-way Pulse Adapter.
 
 ## A living, automated workshop
 
-Progress through Echo Shatter, Attune, Bind, and Manifest. Dedicated batch stations provide progress screens, eight output slots, and hopper or pipe automation. The Lattice Conductor routes Pulse and Song Bench items. Store goods in 54-slot Ancestral Caches and personal Deep Caches, carry a Wayfarer Satchel, and hold fluids in Spirit Cisterns.
+Progress through Echo Shatter, Attune, Bind, and Manifest. Dedicated batch stations provide progress screens, eight output slots, and hopper or pipe automation. The Lattice Conductor moves Pulse along chalk-linked totems and routes Song Bench items. Store goods in 54-slot Ancestral Caches and personal Deep Caches, carry a Wayfarer Satchel, and hold fluids in Spirit Cisterns.
 
 Redstone pauses workshops, generators, relays, and rites, while comparators report stored resources. The Drumheart responds to rising-edge beats. Standard item, fluid, and energy capabilities support other mods; datapack recipes use normal ingredients and tags, with optional JEI recipe display and KubeJS custom recipe support.
 

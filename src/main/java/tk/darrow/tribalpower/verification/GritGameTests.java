@@ -166,6 +166,7 @@ public class GritGameTests {
 
     @GameTest(template = "empty")
     public static void emberKilnFiresGrit(GameTestHelper h) {
+        GritRegistry.rebuild();
         var kiln = ProcessingRecipes.find(h.getLevel(), "ember_kiln", new ItemStack(ModItems.IRON_GRIT.get()));
         h.assertTrue(kiln != null, "Ember Kiln must smelt iron grit");
         h.assertTrue(kiln.result().is(Items.IRON_INGOT), "Kiln grit must fire into an ingot, got " + kiln.result());
@@ -173,6 +174,17 @@ public class GritGameTests {
         var mineral = ProcessingRecipes.find(h.getLevel(), "ember_kiln", MineralGritItem.of("iron"));
         h.assertTrue(mineral != null, "Ember Kiln must smelt mineral grit, not only iron_grit");
         h.assertTrue(mineral.result().is(Items.IRON_INGOT), "Mineral grit cooking must assemble an ingot, got " + mineral.result());
+        int metals = 0;
+        for (GritRegistry.Material material : GritRegistry.materials()) {
+            if (!material.metal()) continue;
+            metals++;
+            var formula = ProcessingRecipes.find(h.getLevel(), "ember_kiln", GritRegistry.stackFor(material.name()));
+            h.assertTrue(formula != null && formula.result().is(material.ingot()),
+                    material.name() + " grit must fire into its ingot, got " + (formula == null ? "none" : formula.result()));
+        }
+        h.assertTrue(metals >= 3, "Iron, gold and copper must be kiln metals, got " + metals);
+        h.assertTrue(ProcessingRecipes.find(h.getLevel(), "ember_kiln", MineralGritItem.of("no_such_metal")) == null,
+                "Unbound names must not invent an ingot");
         var cobble = ProcessingRecipes.find(h.getLevel(), "ember_kiln", new ItemStack(Items.COBBLESTONE));
         h.assertTrue(cobble != null && cobble.result().is(Items.STONE), "Kiln must run every furnace recipe, cobble→stone missing");
         h.succeed();

@@ -53,6 +53,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onCommands);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onClone);
@@ -87,7 +88,14 @@ public final class TribalPower {
                             side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
                                     : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
-                    ModBlockEntities.ANCESTRAL_CACHE.get(), (be, side) -> new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be, new net.neoforged.neoforge.items.wrapper.InvWrapper(be)));
+                    ModBlockEntities.ANCESTRAL_CACHE.get(), (be, side) -> new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                            side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                    : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.SONG_BENCH.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
             // Washing drinks 250 mB a cycle, so the mesh has to be something a bucket or a cistern can
             // actually reach; and the relays speak ItemHandler, where a hopper speaks WorldlyContainer.
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,

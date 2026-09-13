@@ -19,11 +19,16 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 /**
  * Lattice hub that advances Echo-stage materials when Pulse and the right attunement are present.
  */
-public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable {
-    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return new int[]{SLOT}; }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && canPlaceItem(slot, stack); }
-    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && !singing; }
+public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
     public static final int SLOT = 0;
+    private static final int[] SLOTS_ARR = {0};
+    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return SLOTS_ARR; }
+    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return SLOTS_ARR; }
+    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack); }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && !singing; }
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
@@ -277,6 +282,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         tag.putInt("Progress", progress);
         tag.putInt("LinkedTotems", linkedTotems);
         tag.putString("StallReason", stallReason);
+        sides.save(tag);
     }
 
     @Override
@@ -290,6 +296,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         if (stage == null || progress < 0 || progress >= stage.workTicks()) progress = 0;
         linkedTotems = tag.getInt("LinkedTotems");
         stallReason = tag.getString("StallReason");
+        sides.load(tag);
     }
 
     @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {

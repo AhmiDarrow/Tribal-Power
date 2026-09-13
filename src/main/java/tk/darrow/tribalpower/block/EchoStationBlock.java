@@ -23,8 +23,9 @@ public class EchoStationBlock extends BaseEntityBlock {
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof EchoStationBlockEntity station) {
-            if (player.isShiftKeyDown()) player.displayClientMessage(station.status(), true);
-            else player.openMenu(station);
+            if (player.isShiftKeyDown()) {
+                tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, station, hit.getDirection());
+            } else player.openMenu(station);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

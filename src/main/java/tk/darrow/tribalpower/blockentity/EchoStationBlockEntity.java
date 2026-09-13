@@ -17,7 +17,7 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 
 /** Slot 0 input, slots 1-8 output. One work beat per second; no per-tick lattice volume scans. */
-public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable {
+public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
     private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
     private int work;
     private String recipeId = "";
@@ -25,6 +25,13 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     private boolean arrayed;
     private final tk.darrow.tribalpower.pattern.PatternState array =
             new tk.darrow.tribalpower.pattern.PatternState(tk.darrow.tribalpower.pattern.ModPatterns.SHATTER_ARRAY);
+    private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.station();
+    private static final int[] INPUT_SLOTS = {0};
+    private static final int[] OUTPUT_SLOTS = {1, 2, 3, 4, 5, 6, 7, 8};
+
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(Direction face) { return INPUT_SLOTS; }
+    @Override public int[] outputSlots(Direction face) { return OUTPUT_SLOTS; }
 
     /** The Shatter Array pays a quarter of the Pulse back and empties the station into the cache. */
     public static final double ARRAY_DISCOUNT = 0.75;
@@ -43,17 +50,25 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 return switch(index) {
                     case 0 -> work;
                     case 1 -> recipe == null ? 1 : recipe.seconds();
+                    case 3 -> sides.pack();
+                    case 4 -> worldPosition.getX();
+                    case 5 -> worldPosition.getY();
+                    case 6 -> worldPosition.getZ();
                     default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse").indexOf(state));
                 };
             }
             public void set(int index, int value) {}
-            public int getCount() { return 3; }
+            public int getCount() { return 7; }
         });
     }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return slot == 0 && ProcessingRecipes.find(level, station(), stack) != null; }
-    @Override public int[] getSlotsForFace(Direction face) { return face == Direction.DOWN ? new int[]{1,2,3,4,5,6,7,8} : new int[]{0}; }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) { return !level.hasNeighborSignal(worldPosition) && canPlaceItem(slot, stack); }
-    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) { return !level.hasNeighborSignal(worldPosition) && slot > 0; }
+    @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) {
+        return !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack);
+    }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
+        return !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && slot > 0;
+    }
     public Component status() { return Component.translatable("message.tribalpower.station." + state, work); }
 
     /** True when this station stands in a Shatter Array whose totems match {@code attunement}. */
@@ -156,12 +171,14 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         tag.putInt("Work", work); tag.putString("Recipe", recipeId);
+        sides.save(tag);
     }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         items = NonNullList.withSize(9, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         work = Math.max(0, tag.getInt("Work")); recipeId = tag.getString("Recipe");
+        sides.load(tag);
         array.invalidate();
     }
 

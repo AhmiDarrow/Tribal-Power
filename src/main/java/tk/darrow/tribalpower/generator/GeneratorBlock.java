@@ -108,8 +108,11 @@ public class GeneratorBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide && level.getBlockEntity(pos) instanceof GeneratorBlockEntity generator)
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof GeneratorBlockEntity generator) {
+            if (player.isShiftKeyDown() && tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, generator, hit.getDirection()))
+                return InteractionResult.SUCCESS;
             player.displayClientMessage(generator.status(), true);
+        }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 

@@ -1,6 +1,7 @@
 package tk.darrow.tribalpower.grit;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -76,6 +77,9 @@ public final class GritRegistry {
      * modded metal runs at half the vanilla rate.
      */
     public static final int GRIT_PER_UNIT = 2;
+    public static final String KILN = "ember_kiln";
+    public static final int KILN_SECONDS = 10;
+    public static final int KILN_PULSE = 32;
 
     /** Gem yields are twice the ore's own drop, not a flat two. Modded gems default to two. */
     private static final Map<String, Integer> VANILLA_GEM_YIELD = Map.of(
@@ -269,7 +273,44 @@ public final class GritRegistry {
         String name = materialOf(grit);
         if (name == null) return ItemStack.EMPTY;
         Material material = material(name);
-        return material == null || material.ingot() == null ? ItemStack.EMPTY : new ItemStack(material.ingot());
+        if (material != null && material.ingot() != null) return new ItemStack(material.ingot());
+        return ingotFromTag(name);
+    }
+
+    /** {@code c:ingots/<name>} when the scan never built a Material (name mismatch, alloys, late tags). */
+    private static ItemStack ingotFromTag(String name) {
+        TagKey<Item> tag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", TAG_INGOTS + name));
+        var listed = BuiltInRegistries.ITEM.getTag(tag);
+        if (listed.isEmpty()) return ItemStack.EMPTY;
+        for (var holder : listed.get()) return new ItemStack(holder.value());
+        return ItemStack.EMPTY;
+    }
+
+    /**
+     * Grit in the Ember Kiln. Independent of the furnace JSON so a modded metal still fires when the
+     * catch-all cooking recipe cannot see its component.
+     */
+    public static ProcessingRecipes.Formula fire(ItemStack stack) {
+        ItemStack ingot = ingotFor(stack);
+        if (ingot.isEmpty()) return null;
+        LatticeRecipe recipe = new LatticeRecipe(KILN, Ingredient.of(stack.getItem()), ingot,
+                KILN_SECONDS, KILN_PULSE, Attunement.FIRE);
+        String name = materialOf(stack);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID,
+                "grit/fire/" + (name == null ? "unknown" : name));
+        return new ProcessingRecipes.Formula(id, recipe);
+    }
+
+    /** One kiln firing per discovered metal, so JEI can show grit to ingot on the Ember Kiln. */
+    public static List<ProcessingRecipes.Formula> allFireFormulae() {
+        List<ProcessingRecipes.Formula> out = new ArrayList<>();
+        for (Material material : materials()) {
+            if (!material.metal()) continue;
+            ProcessingRecipes.Formula formula = fire(stackFor(material.name()));
+            if (formula != null) out.add(formula);
+        }
+        out.sort(java.util.Comparator.comparing(formula -> formula.id().toString()));
+        return out;
     }
 
     // ---- synthesised recipes ---------------------------------------------------------------

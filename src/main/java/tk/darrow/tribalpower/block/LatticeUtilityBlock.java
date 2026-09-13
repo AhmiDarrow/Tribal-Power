@@ -18,18 +18,17 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         if (state.is(ModBlocks.SPIRIT_CISTERN.get())) return new SpiritCisternBlockEntity(pos, state);
-        return state.is(ModBlocks.PULSE_ADAPTER.get()) ? new PulseAdapterBlockEntity(pos, state) : new WirelessRelayBlockEntity(pos, state);
+        return new PulseAdapterBlockEntity(pos, state);
     }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide) return null;
         return state.is(ModBlocks.PULSE_ADAPTER.get())
                 ? createTickerHelper(type, ModBlockEntities.PULSE_ADAPTER.get(), PulseAdapterBlockEntity::tick)
-                : createTickerHelper(type, ModBlockEntities.WIRELESS_RELAY.get(), WirelessRelayBlockEntity::tick);
+                : null;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
             var be = level.getBlockEntity(pos);
-            if (be instanceof WirelessRelayBlockEntity relay) player.displayClientMessage(relay.status(), true);
             if (be instanceof PulseAdapterBlockEntity adapter) player.displayClientMessage(adapter.status(), true);
             if (be instanceof SpiritCisternBlockEntity cistern) player.displayClientMessage(cistern.status(), true);
         }
@@ -55,7 +54,6 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
         var be = level.getBlockEntity(pos);
         if (be instanceof SpiritCisternBlockEntity tank) return tank.tank.getFluidAmount() == 0 ? 0 : 1 + 14 * tank.tank.getFluidAmount() / tank.tank.getCapacity();
         if (be instanceof PulseAdapterBlockEntity adapter) return adapter.handler.getEnergyStored() == 0 ? 0 : 1 + 14 * adapter.handler.getEnergyStored() / adapter.handler.getMaxEnergyStored();
-        if (be instanceof WirelessRelayBlockEntity relay) return relay.signal();
         return 0;
     }
 }
