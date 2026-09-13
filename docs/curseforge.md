@@ -40,5 +40,8 @@ Uploaded 2026-09-12: `tribalpower-3.3.1.jar` as file **8869162** ("Tribal Power 
 ## 3.3.2 — Ember Kiln smelts grit
 Uploaded 2026-09-12: `tribalpower-3.3.2.jar` as file **8869249** ("Tribal Power 3.3.2 - Ember Kiln smelts grit", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.2.md`. Kiln runs every furnace smelting recipe, including mineral grit. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.2
 
+## 3.3.3 — Relay plates and Ley sight
+Uploaded 2026-09-12: `tribalpower-3.3.3.jar` as file **8870016** ("Tribal Power 3.3.3 - Relay plates and Ley sight", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.3.md`. Face-mounted relays, Ley Lens modes, per-face machine I/O, grit kiln/textures, Codex walkthroughs, Stone Font z-fight fix. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.3
+
 ## 3.2.1 — The Listening Pit and the Gates
 Uploaded 2026-09-11: `tribalpower-3.2.1.jar` as file **8858043** ("Tribal Power 3.2.1 - The Listening Pit and the Gates", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.2.1.md`. Packaging-only: published jar omits leftover QA (screenshot drivers, GameTest empty structure, unused written-book copies, FTB Library face overlays). GameTests stay out of the player jar. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.2.1

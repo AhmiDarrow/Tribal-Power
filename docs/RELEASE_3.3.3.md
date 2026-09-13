@@ -8,3 +8,5 @@
 - Stone Font top no longer z-fights a copper plate at glancing angles.
 
 Minecraft 1.21.1, NeoForge 21.1.249.
+
+GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.3
