@@ -254,6 +254,33 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LOG.get().defaultBlockState()
                         .hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.AXIS),
                 "March logs must have an axis so trunks stand upright");
+        var covered = new BlockPos(5, 2, 1);
+        h.setBlock(covered, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(covered.above(), Blocks.STONE);
+        h.getBlockState(covered).randomTick(h.getLevel(), h.absolutePos(covered), h.getLevel().random);
+        h.assertTrue(h.getBlockState(covered).is(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get()),
+                "Covered March grass must die to March soil, not dirt");
+        h.setBlock(covered, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(covered.above(), Blocks.AIR);
+        h.setBlock(covered.above(2), Blocks.GLOWSTONE);
+        h.setBlock(covered.above(), tk.darrow.tribalpower.block.ModBlocks.MARCH_SAPLING.get());
+        h.assertTrue(h.getBlockState(covered.above()).getBlock() instanceof net.minecraft.world.level.block.SaplingBlock,
+                "March saplings must be saplings so bone meal and grove work grow them");
+        h.assertTrue(h.getBlockState(covered.above()).canSurvive(h.getLevel(), h.absolutePos(covered.above())),
+                "A March sapling must take March grass");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_ORE.get() instanceof net.minecraft.world.level.block.DropExperienceBlock,
+                "March ore must drop experience when mined");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAVES.get() instanceof net.minecraft.world.level.block.LeavesBlock,
+                "March leaves must decay like vanilla leaves");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAVES.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.LEAVES),
+                "March leaves must be in #minecraft:leaves so canopies count as leaves");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_PLANKS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.PLANKS),
+                "March planks must be in #minecraft:planks so sticks and wooden recipes take them");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_SAPLING.get().defaultBlockState()
+                        .hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.STAGE),
+                "March saplings must have a growth stage");
         h.succeed();
     }
 

@@ -154,6 +154,15 @@ public final class TribalPower {
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> LOGGER.info("Tribal Power — shamanic technomancy online"));
+        event.enqueueWork(() -> {
+            var fire = (net.minecraft.world.level.block.FireBlock) net.minecraft.world.level.block.Blocks.FIRE;
+            fire.setFlammable(ModBlocks.MARCH_LOG.get(), 5, 5);
+            fire.setFlammable(ModBlocks.MARCH_PLANKS.get(), 5, 20);
+            fire.setFlammable(ModBlocks.MARCH_LEAVES.get(), 30, 60);
+            fire.setFlammable(ModBlocks.MARCH_SAPLING.get(), 60, 100);
+            fire.setFlammable(ModBlocks.MARCH_LEAF.get(), 60, 100);
+            fire.setFlammable(ModBlocks.SPIRIT_REED.get(), 60, 100);
+            LOGGER.info("Tribal Power — shamanic technomancy online");
+        });
     }
 }

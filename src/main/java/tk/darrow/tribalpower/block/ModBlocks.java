@@ -1,10 +1,16 @@
 package tk.darrow.tribalpower.block;
 
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
@@ -172,12 +178,21 @@ public final class ModBlocks {
                     .isSuffocating((state, level, pos) -> true))
     );
 
-    public static final DeferredBlock<Block> MARCH_GRASS = BLOCKS.registerSimpleBlock(
+    public static final TreeGrower MARCH_GROWER = new TreeGrower(
+            "march",
+            java.util.Optional.empty(),
+            java.util.Optional.of(ResourceKey.create(Registries.CONFIGURED_FEATURE,
+                    ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "march_tree"))),
+            java.util.Optional.empty()
+    );
+
+    public static final DeferredBlock<MarchGrassBlock> MARCH_GRASS = BLOCKS.register(
             "march_grass",
-            BlockBehaviour.Properties.of()
+            () -> new MarchGrassBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN)
                     .strength(0.6F)
                     .sound(SoundType.GRASS)
+                    .randomTicks())
     );
 
     public static final DeferredBlock<Block> MARCH_MOSS = BLOCKS.registerSimpleBlock(
@@ -227,13 +242,23 @@ public final class ModBlocks {
                     .isSuffocating((s, l, p) -> false))
     );
 
-    public static final DeferredBlock<Block> MARCH_ORE = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<MarchSaplingBlock> MARCH_SAPLING = BLOCKS.register(
+            "march_sapling",
+            () -> new MarchSaplingBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .noCollission()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS))
+    );
+
+    public static final DeferredBlock<Block> MARCH_ORE = BLOCKS.register(
             "march_ore",
-            BlockBehaviour.Properties.of()
+            () -> new DropExperienceBlock(UniformInt.of(1, 3), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(3.0F, 3.0F)
                     .sound(SoundType.STONE)
-                    .requiresCorrectToolForDrops()
+                    .requiresCorrectToolForDrops())
     );
 
     public static final DeferredBlock<MarchCrystalBlock> MARCH_CRYSTAL = BLOCKS.register(

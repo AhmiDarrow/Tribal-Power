@@ -75,12 +75,14 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_STONE.get());
                         out.accept(ModItems.MARCH_COBBLE.get());
                         out.accept(ModItems.MARCH_SOIL.get());
+                        out.accept(ModItems.MARCH_PATH.get());
                         out.accept(ModItems.MARCH_GRASS.get());
                         out.accept(ModItems.MARCH_MOSS.get());
                         out.accept(ModItems.MARCH_LOG.get());
                         out.accept(ModItems.MARCH_PLANKS.get());
                         out.accept(ModItems.MARCH_LEAVES.get());
                         out.accept(ModItems.MARCH_LEAF.get());
+                        out.accept(ModItems.MARCH_SAPLING.get());
                         out.accept(ModItems.MARCH_ORE.get());
                         out.accept(ModItems.MARCH_CRYSTAL.get());
                         out.accept(ModItems.SPIRIT_REED.get());
