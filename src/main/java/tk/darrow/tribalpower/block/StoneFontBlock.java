@@ -26,6 +26,7 @@ import net.neoforged.neoforge.fluids.FluidUtil;
 import tk.darrow.tribalpower.blockentity.ModBlockEntities;
 import tk.darrow.tribalpower.blockentity.StoneFontBlockEntity;
 import tk.darrow.tribalpower.camp.Ownership;
+import tk.darrow.tribalpower.item.MachineRank;
 
 /**
  * The Stone Font (design 3.1 section 6): the first pattern, and the block that teaches chalk, shape and
@@ -60,6 +61,7 @@ public class StoneFontBlock extends BaseEntityBlock {
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        MachineRank.onPlacedBy(level, pos, stack);
         if (level.getBlockEntity(pos) instanceof StoneFontBlockEntity font) font.setOwner(Ownership.of(placer));
     }
 

@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tribalpower:march_soil",
+    "tribalpower:march_farmland",
     "tribalpower:march_grass",
     "tribalpower:march_moss"
   ]

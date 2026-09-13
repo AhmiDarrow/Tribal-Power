@@ -207,7 +207,8 @@ public class MarchGameTests {
         var event = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
                 h.getBlockState(pos), ctx, net.neoforged.neoforge.common.ItemAbilities.HOE_TILL, true);
         tk.darrow.tribalpower.block.ModBlocks.tillMarchSoil(event);
-        h.assertTrue(event.getFinalState().is(Blocks.FARMLAND), "March soil with air above must hoe into farmland");
+        h.assertTrue(event.getFinalState().is(tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get()),
+                "March soil with air above must hoe into March farmland");
         h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
         h.setBlock(pos.above(), Blocks.STONE);
         var blocked = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
@@ -224,6 +225,15 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get().defaultBlockState()
                         .is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON),
                 "March soil must accept animal spawns");
+        var farm = new BlockPos(4, 2, 4);
+        h.setBlock(farm, tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get().defaultBlockState());
+        h.setBlock(farm.above(), Blocks.STONE);
+        h.getBlockState(farm).tick(h.getLevel(), h.absolutePos(farm), h.getLevel().random);
+        h.assertTrue(h.getBlockState(farm).is(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get()),
+                "Blocked March farmland must revert to March soil, not dirt");
+        h.setBlock(farm, tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get().defaultBlockState());
+        h.assertTrue(h.getBlockState(farm).getBlock() instanceof net.minecraft.world.level.block.FarmBlock,
+                "March farmland must be a FarmBlock so vanilla crops plant");
         h.succeed();
     }
 

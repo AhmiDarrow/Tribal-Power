@@ -60,6 +60,7 @@ public class ResonanceMeshBlock extends BaseEntityBlock {
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
         if (level.getBlockEntity(pos) instanceof ResonanceMeshBlockEntity mesh) mesh.setOwner(Ownership.of(placer));
     }
 

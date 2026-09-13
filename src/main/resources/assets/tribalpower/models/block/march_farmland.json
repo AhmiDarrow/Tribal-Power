@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "tribalpower:block/march_soil",
+    "top": "tribalpower:block/march_soil"
+  }
+}

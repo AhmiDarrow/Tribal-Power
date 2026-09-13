@@ -157,6 +157,13 @@ public final class SpiritGearHooks {
         if (event.getEntity() instanceof Player player
                 && SpiritGear.voice(player.getItemBySlot(EquipmentSlot.FEET)).orElse(null) == Attunement.EARTH) {
             event.setCanceled(true);
+            return;
+        }
+        if (event.getLevel() instanceof net.minecraft.world.level.Level level
+                && level.dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH)
+                && event.getState().is(net.minecraft.world.level.block.Blocks.FARMLAND)) {
+            event.setCanceled(true);
+            level.setBlockAndUpdate(event.getPos(), tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get().defaultBlockState());
         }
     }
 

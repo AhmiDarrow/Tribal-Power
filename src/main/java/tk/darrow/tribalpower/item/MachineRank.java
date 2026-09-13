@@ -78,6 +78,11 @@ public final class MachineRank {
         apply(be, rank(stack));
     }
 
+    /** Vanilla hands setPlacedBy the stack before it shrinks. Last-item place still needs {@link #placed}. */
+    public static void onPlacedBy(Level level, BlockPos pos, ItemStack stack) {
+        if (!level.isClientSide) copyToBlock(stack, level.getBlockEntity(pos));
+    }
+
     /** Rank 1/2/3: 85% / 70% / 55% duration. Extra speed is paid 1:1 in Pulse. */
     public static float timeFactor(int rank) {
         return switch (Math.clamp(rank, 0, MAX)) {
@@ -184,26 +189,32 @@ public final class MachineRank {
                 Component.translatable("item.tribalpower.spiritgear.rank." + rank(stack))));
     }
 
-    private static final java.util.Map<java.util.UUID, ItemStack> PLACING = new java.util.concurrent.ConcurrentHashMap<>();
+    private record Snapshot(ItemStack stack, long tick) {}
+    private static final java.util.Map<java.util.UUID, Snapshot> PLACING = new java.util.concurrent.ConcurrentHashMap<>();
 
     public static void beforePlace(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
         if (event.getLevel().isClientSide()) return;
         if (isMachine(event.getItemStack()) && event.getEntity() != null)
-            PLACING.put(event.getEntity().getUUID(), event.getItemStack().copy());
+            PLACING.put(event.getEntity().getUUID(), new Snapshot(event.getItemStack().copy(), event.getLevel().getGameTime()));
     }
 
     public static void placed(net.neoforged.neoforge.event.level.BlockEvent.EntityPlaceEvent event) {
         if (event.getLevel().isClientSide() || !(event.getEntity() instanceof net.minecraft.world.entity.player.Player player)) return;
-        ItemStack stack = PLACING.remove(player.getUUID());
-        if (stack == null) return;
+        Snapshot snap = PLACING.remove(player.getUUID());
+        ItemStack stack = snap == null ? ItemStack.EMPTY : snap.stack();
+        if (stack.isEmpty() && isMachine(player.getMainHandItem())) stack = player.getMainHandItem();
+        if (stack.isEmpty()) return;
         if (stack.getItem() instanceof net.minecraft.world.item.BlockItem blockItem
                 && event.getPlacedBlock().getBlock() != blockItem.getBlock()) return;
         copyToBlock(stack, event.getLevel().getBlockEntity(event.getPos()));
     }
 
-    /** Drop a leftover snapshot if the click never placed a block. */
+    /** Drop a leftover snapshot if the click never placed a block. Keep it through the placing tick. */
     public static void playerTick(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event) {
-        if (!event.getEntity().level().isClientSide) PLACING.remove(event.getEntity().getUUID());
+        if (event.getEntity().level().isClientSide) return;
+        Snapshot snap = PLACING.get(event.getEntity().getUUID());
+        if (snap != null && event.getEntity().level().getGameTime() > snap.tick() + 1)
+            PLACING.remove(event.getEntity().getUUID());
     }
 
     public static void dropped(net.neoforged.neoforge.event.level.BlockDropsEvent event) {

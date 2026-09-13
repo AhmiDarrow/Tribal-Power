@@ -4,7 +4,9 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.Containers;
 import net.minecraft.world.level.BlockGetter;
@@ -65,6 +67,9 @@ public class RelayBlock extends BaseEntityBlock {
         return SHAPES[state.getValue(FACING).ordinal()];
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new WirelessRelayBlockEntity(pos, state); }
+    @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
+    }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.WIRELESS_RELAY.get(), WirelessRelayBlockEntity::tick);
     }

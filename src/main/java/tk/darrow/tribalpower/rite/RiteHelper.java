@@ -116,7 +116,7 @@ public final class RiteHelper {
                 server.removeBlock(p, false);
             } else if (state.getBlock() instanceof CampfireBlock && state.getValue(CampfireBlock.LIT)) {
                 server.setBlock(p, state.setValue(CampfireBlock.LIT, false), 3);
-            } else if (state.is(Blocks.FARMLAND)) {
+            } else if (state.is(Blocks.FARMLAND) || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get())) {
                 server.setBlock(p, state.setValue(net.minecraft.world.level.block.FarmBlock.MOISTURE, 7), 3);
             } else if (amplified && state.getBlock() instanceof BonemealableBlock growable
                     && growable.isValidBonemealTarget(server, p, state)) {

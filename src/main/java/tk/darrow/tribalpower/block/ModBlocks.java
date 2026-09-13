@@ -1,7 +1,6 @@
 package tk.darrow.tribalpower.block;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -148,6 +147,17 @@ public final class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_GREEN)
                     .strength(0.5F)
                     .sound(SoundType.GRAVEL)
+    );
+
+    public static final DeferredBlock<MarchFarmlandBlock> MARCH_FARMLAND = BLOCKS.register(
+            "march_farmland",
+            () -> new MarchFarmlandBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_GREEN)
+                    .strength(0.6F)
+                    .sound(SoundType.GRAVEL)
+                    .randomTicks()
+                    .isViewBlocking((state, level, pos) -> true)
+                    .isSuffocating((state, level, pos) -> true))
     );
 
     public static final DeferredBlock<Block> MARCH_GRASS = BLOCKS.registerSimpleBlock(
@@ -341,12 +351,12 @@ public final class ModBlocks {
         return state.is(MARCH_SOIL.get()) || state.is(MARCH_GRASS.get()) || state.is(MARCH_MOSS.get());
     }
 
-    /** Hoe March soils into vanilla farmland when the block above is air. */
+    /** Hoe March soils into March farmland when the block above is air. */
     public static void tillMarchSoil(BlockEvent.BlockToolModificationEvent event) {
         if (event.getItemAbility() != ItemAbilities.HOE_TILL) return;
         if (!isMarchTillable(event.getState())) return;
         var ctx = event.getContext();
         if (ctx != null && !ctx.getLevel().getBlockState(ctx.getClickedPos().above()).isAir()) return;
-        event.setFinalState(Blocks.FARMLAND.defaultBlockState());
+        event.setFinalState(MARCH_FARMLAND.get().defaultBlockState());
     }
 }

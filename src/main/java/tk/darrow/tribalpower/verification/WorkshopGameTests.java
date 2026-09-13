@@ -413,4 +413,42 @@ public class WorkshopGameTests {
                 "Ranked hands must beat faster");
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void machineRankSurvivesThePlacingTick(GameTestHelper h) {
+        var pos = new BlockPos(3, 2, 3);
+        var stack = new ItemStack(ModBlocks.DRUMHEART.get());
+        tk.darrow.tribalpower.item.MachineRank.setRank(stack, 2);
+        h.assertTrue(tk.darrow.tribalpower.item.MachineRank.rank(stack) == 2, "rank must live on the item");
+        h.setBlock(pos, ModBlocks.DRUMHEART.get());
+        var be = h.getBlockEntity(pos);
+        tk.darrow.tribalpower.item.MachineRank.copyToBlock(stack, be);
+        h.assertTrue(tk.darrow.tribalpower.item.MachineRank.rank(be) == 2, "copyToBlock must write rank onto the machine");
+        var drop = new ItemStack(ModBlocks.DRUMHEART.get());
+        tk.darrow.tribalpower.item.MachineRank.copyToItem(be, drop);
+        h.assertTrue(tk.darrow.tribalpower.item.MachineRank.rank(drop) == 2, "breaking must keep rank on the drop");
+
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var ranked = new ItemStack(ModBlocks.DRUMHEART.get());
+        tk.darrow.tribalpower.item.MachineRank.setRank(ranked, 3);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ranked);
+        var worldPos = h.absolutePos(pos);
+        var hit = new net.minecraft.world.phys.BlockHitResult(
+                net.minecraft.world.phys.Vec3.atCenterOf(worldPos),
+                Direction.UP, worldPos, false);
+        var click = new net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock(
+                player, net.minecraft.world.InteractionHand.MAIN_HAND, worldPos, hit);
+        tk.darrow.tribalpower.item.MachineRank.beforePlace(click);
+        h.setBlock(pos, Blocks.AIR);
+        h.setBlock(pos, ModBlocks.DRUMHEART.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        var snapshot = net.neoforged.neoforge.common.util.BlockSnapshot.create(
+                h.getLevel().dimension(), h.getLevel(), worldPos);
+        var place = new net.neoforged.neoforge.event.level.BlockEvent.EntityPlaceEvent(
+                snapshot, Blocks.AIR.defaultBlockState(), player);
+        tk.darrow.tribalpower.item.MachineRank.placed(place);
+        h.assertTrue(tk.darrow.tribalpower.item.MachineRank.rank(h.getBlockEntity(pos)) == 3,
+                "rank must survive the placing tick after the last item is consumed");
+        h.succeed();
+    }
 }

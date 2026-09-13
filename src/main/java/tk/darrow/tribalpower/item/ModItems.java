@@ -113,6 +113,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> MARCH_STONE = ITEMS.registerSimpleBlockItem("march_stone", ModBlocks.MARCH_STONE);
     public static final DeferredItem<BlockItem> MARCH_COBBLE = ITEMS.registerSimpleBlockItem("march_cobble", ModBlocks.MARCH_COBBLE);
     public static final DeferredItem<BlockItem> MARCH_SOIL = ITEMS.registerSimpleBlockItem("march_soil", ModBlocks.MARCH_SOIL);
+    public static final DeferredItem<BlockItem> MARCH_FARMLAND = ITEMS.registerSimpleBlockItem("march_farmland", ModBlocks.MARCH_FARMLAND);
     public static final DeferredItem<BlockItem> MARCH_GRASS = ITEMS.registerSimpleBlockItem("march_grass", ModBlocks.MARCH_GRASS);
     public static final DeferredItem<BlockItem> MARCH_MOSS = ITEMS.registerSimpleBlockItem("march_moss", ModBlocks.MARCH_MOSS);
     public static final DeferredItem<BlockItem> MARCH_LOG = ITEMS.registerSimpleBlockItem("march_log", ModBlocks.MARCH_LOG);

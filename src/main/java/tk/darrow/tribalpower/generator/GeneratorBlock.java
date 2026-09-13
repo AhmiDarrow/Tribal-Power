@@ -6,6 +6,7 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -63,6 +64,11 @@ public class GeneratorBlock extends BaseEntityBlock {
         if (state.is(GeneratorRegistry.WAKE_BELL.get()))
             return createTickerHelper(type, GeneratorRegistry.WAKE_BELL_TYPE.get(), GeneratorBlockEntity::tick);
         return createTickerHelper(type, GeneratorRegistry.LOOM_ANCHOR_TYPE.get(), GeneratorBlockEntity::tick);
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+        tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
     }
 
     @Override
