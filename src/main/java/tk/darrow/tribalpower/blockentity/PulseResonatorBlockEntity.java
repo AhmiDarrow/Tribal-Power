@@ -47,13 +47,15 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         if ((level.getGameTime() + pos.asLong()) % GAIN_INTERVAL != 0) return;
         var voices = java.util.EnumSet.noneOf(tk.darrow.tribalpower.api.pulse.Attunement.class);
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
-            voices.add(totem.getAttunement());
+            if (totem.keeping() == tk.darrow.tribalpower.lattice.Keeping.State.ANSWERED)
+                voices.add(totem.getAttunement());
         int raw = voices.size()
                 + tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices
         be.ringed = be.ring.satisfied(level, pos, 1);
         be.harmonics = be.ringed ? raw : Math.min(UNARRANGED_VOICES, raw);
         int rank = catalystRank(be.items.get(SLOT));
-        be.gain = rank > 0 && be.harmonics >= 2 && !level.hasNeighborSignal(pos) ? 2 * be.harmonics + 2 * rank : 0;
+        be.gain = rank > 0 && voices.size() >= 1 && be.harmonics >= 2 && !level.hasNeighborSignal(pos) ? 2 * be.harmonics + 2 * rank : 0;
+        be.gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, be.gain);
         boolean sounding = be.gain > 0 && be.insertPulse(be.gain, false) > 0;
         if (state.getValue(PulseResonatorBlock.LIT) != sounding)
             level.setBlock(pos, state.setValue(PulseResonatorBlock.LIT, sounding), 3);

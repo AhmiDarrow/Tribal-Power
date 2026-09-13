@@ -62,11 +62,14 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         if (interval < MIN_SPACING) return 0;
         boolean inTime = interval >= TEMPO_MIN && interval <= TEMPO_MAX;
         lastManualBeat = now;
-        int gained = insertPulse(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval)), false);
+        int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval));
+        beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
+        int gained = insertPulse(beat, false);
         if (level instanceof net.minecraft.server.level.ServerLevel server) {
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server, worldPosition.getCenter().add(0, 0.4, 0),
                     tk.darrow.tribalpower.api.pulse.Attunement.EARTH, inTime ? 1 : 0.55, inTime ? 16 : 8);
             strike(inTime);
+            tk.darrow.tribalpower.lattice.Keeping.livingBeat(level, worldPosition);
         }
         setChanged();
         return gained;
@@ -85,7 +88,9 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         redstoneCooldown = MIN_SPACING;
         lastRedstoneGain = value;
         if (value <= 0) return 0;
-        int gained = insertPulse(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value), false);
+        int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value);
+        beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
+        int gained = insertPulse(beat, false);
         strike(value == ON_TEMPO);
         setChanged();
         return gained;

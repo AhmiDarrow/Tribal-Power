@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    { "item": "tribalpower:spiritweave" },
+    { "item": "tribalpower:resonant_core" },
+    { "item": "tribalpower:spirit_shard" },
+    { "item": "tribalpower:blank_seal" }
+  ],
+  "result": { "id": "tribalpower:chorus_charm", "count": 1 }
+}

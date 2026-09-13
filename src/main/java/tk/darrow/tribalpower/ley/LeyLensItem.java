@@ -25,6 +25,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
+import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 import java.util.List;
@@ -35,7 +36,7 @@ import java.util.List;
  * exact factor breakdown.
  */
 public class LeyLensItem extends Item {
-    public static final int GRID = 4;
+    public static final int GRID = 8;
     public static final int INTERVAL = 10;
     public static final int MODES = 4;
     public static final int LEY = 0, PULSE = 1, VOICE = 2, MACHINE = 3;
@@ -113,7 +114,7 @@ public class LeyLensItem extends Item {
                 int ground = groundY(server, cursor, 6);
                 if (ground == Integer.MIN_VALUE) continue;
                 cursor.setY(ground + 1);
-                double strength = LeyMath.strength(server, cursor);
+                double strength = LeyMath.glimpse(server, cursor).strength();
                 DustParticleOptions dust = new DustParticleOptions(colour(strength), 0.6F + (float) strength * 0.6F);
                 server.sendParticles(player, dust, false, cursor.getX() + 0.5, ground + 1.08, cursor.getZ() + 0.5, 1, 0, 0, 0, 0);
             }
@@ -146,7 +147,13 @@ public class LeyLensItem extends Item {
         for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(server, origin, LatticeNetwork.DEFAULT_RADIUS)) {
             int idx = Math.max(0, Math.min(VOICE_COL.length - 1, totem.getAttunement().ordinal()));
             BlockPos pos = totem.getBlockPos();
-            server.sendParticles(player, new DustParticleOptions(VOICE_COL[idx], 1.0F), false,
+            Vector3f col = switch (totem.keeping()) {
+                case ANSWERED -> VOICE_COL[idx];
+                case DIM -> new Vector3f(VOICE_COL[idx]).mul(0.45F);
+                case QUIET -> new Vector3f(0.45F, 0.48F, 0.5F);
+            };
+            float size = totem.keeping() == Keeping.State.ANSWERED ? 1.0F : 0.7F;
+            server.sendParticles(player, new DustParticleOptions(col, size), false,
                     pos.getX() + 0.5, pos.getY() + 1.4, pos.getZ() + 0.5, 3, 0.15, 0.2, 0.15, 0);
         }
     }

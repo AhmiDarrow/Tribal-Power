@@ -461,6 +461,36 @@ public class LatticeGameTests {
         h.succeed();
     }
     @GameTest(template="empty")
+    public static void ritualChalkHasTenUsesPerStick(GameTestHelper h) {
+        var stack=new ItemStack(ModItems.RITUAL_CHALK.get(),4);
+        h.assertTrue(tk.darrow.tribalpower.item.RitualChalkItem.remaining(stack)==tk.darrow.tribalpower.item.RitualChalkItem.USES,"Each chalk stick starts at 10 uses");
+        h.assertTrue(stack.getMaxStackSize()>=4,"A craft of four sticks must be able to stack");
+        h.setBlock(2,1,2,Blocks.STONE);
+        var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,stack);
+        var floor=h.absolutePos(new BlockPos(2,1,2));
+        stack.useOn(new net.minecraft.world.item.context.UseOnContext(player,net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(floor.getCenter().add(0,0.5,0),Direction.UP,floor,false)));
+        h.assertTrue(stack.getCount()==3,"Spending one mark splits one stick off a stack of four");
+        h.assertTrue(tk.darrow.tribalpower.item.RitualChalkItem.remaining(stack)==tk.darrow.tribalpower.item.RitualChalkItem.USES,
+                "Leftover sticks in the stack must still have ten uses");
+        int used=0;
+        for(var inv:player.getInventory().items) {
+            if(inv.is(ModItems.RITUAL_CHALK.get()) && tk.darrow.tribalpower.item.RitualChalkItem.remaining(inv)<tk.darrow.tribalpower.item.RitualChalkItem.USES)
+                used+=inv.getCount();
+        }
+        h.assertTrue(used==1 && tk.darrow.tribalpower.item.RitualChalkItem.remaining(findUsedChalk(player))==tk.darrow.tribalpower.item.RitualChalkItem.USES-1,
+                "The spent stick must keep nine uses of its own");
+        h.succeed();
+    }
+    private static ItemStack findUsedChalk(net.minecraft.world.entity.player.Player player) {
+        for(var inv:player.getInventory().items) {
+            if(inv.is(ModItems.RITUAL_CHALK.get()) && tk.darrow.tribalpower.item.RitualChalkItem.remaining(inv)<tk.darrow.tribalpower.item.RitualChalkItem.USES)
+                return inv;
+        }
+        return ItemStack.EMPTY;
+    }
+    @GameTest(template="empty")
     public static void leyLensCyclesSightModes(GameTestHelper h) {
         var lens=new ItemStack(tk.darrow.tribalpower.ley.LeyRegistry.LEY_LENS.get());
         h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.LEY,"Fresh lens starts on ley sight");
@@ -488,6 +518,29 @@ public class LatticeGameTests {
         cache.sideIo().set(Direction.UP,tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT);
         var handler=h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,h.absolutePos(new BlockPos(4,2,2)),Direction.UP);
         h.assertTrue(handler.insertItem(0,new ItemStack(Items.DIRT),false).getCount()==1,"Output-only cache face must refuse inserts");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void adjacentStationsShareConfiguredFaces(GameTestHelper h) {
+        h.setBlock(2,3,2,ModBlocks.ECHO_SHATTER.get());
+        h.setBlock(2,2,2,ModBlocks.EMBER_KILN.get());
+        var shatter=at(h,new BlockPos(2,3,2),EchoStationBlockEntity.class);
+        var kiln=at(h,new BlockPos(2,2,2),EchoStationBlockEntity.class);
+        shatter.setItem(1,new ItemStack(ModItems.IRON_GRIT.get(),8));
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.push(h.getLevel(),shatter);
+        h.assertTrue(shatter.getItem(1).isEmpty() && kiln.getItem(0).getCount()==8,
+                "Shatter output-down into kiln input-up must move grit without a relay");
+        h.setBlock(4,2,2,ModBlocks.ANCESTRAL_CACHE.get());
+        h.setBlock(5,2,2,ModBlocks.ANCESTRAL_CACHE.get());
+        var left=at(h,new BlockPos(4,2,2),AncestralCacheBlockEntity.class);
+        var right=at(h,new BlockPos(5,2,2),AncestralCacheBlockEntity.class);
+        left.setItem(0,new ItemStack(Items.DIAMOND,16));
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.push(h.getLevel(),left);
+        h.assertTrue(left.countItem(Items.DIAMOND)==16 && right.isEmpty(),"Both-to-both faces must not ping-pong");
+        left.sideIo().set(Direction.EAST,tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT);
+        right.sideIo().set(Direction.WEST,tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.push(h.getLevel(),left);
+        h.assertTrue(left.isEmpty() && right.countItem(Items.DIAMOND)==16,"Configured output-into-input must move the stack");
         h.succeed();
     }
     @GameTest(template="empty")

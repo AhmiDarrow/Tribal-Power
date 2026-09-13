@@ -46,6 +46,11 @@ public class AncestralCacheBlock extends BaseEntityBlock {
     }
 
     @Override
+    public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
+        return level.isClientSide ? null : createTickerHelper(type, tk.darrow.tribalpower.blockentity.ModBlockEntities.ANCESTRAL_CACHE.get(), AncestralCacheBlockEntity::tick);
+    }
+
+    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level.hasNeighborSignal(pos)) {
             if (!level.isClientSide) player.displayClientMessage(net.minecraft.network.chat.Component.translatable("message.tribalpower.redstone.locked"), true);

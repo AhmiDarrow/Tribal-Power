@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/tide_pump"
+    },
+    "facing=south": {
+      "model": "tribalpower:block/tide_pump",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/tide_pump",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tribalpower:block/tide_pump",
+      "y": 90
+    },
+    "facing=up": {
+      "model": "tribalpower:block/tide_pump",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "tribalpower:block/tide_pump",
+      "x": 90
+    }
+  }
+}

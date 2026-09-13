@@ -26,18 +26,27 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import java.util.*;
 
 /** Bounded camp automation. Outputs and world changes are checked before spending resources. */
-public class CampBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
+public class CampBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo, tk.darrow.tribalpower.camp.Ownership.Owned {
     public static final int CAPACITY=2400;
     private NonNullList<ItemStack> items=NonNullList.withSize(27,ItemStack.EMPTY);
     public int pulse;
     public UUID owner;
     public String ownerName="Skybound";
-    private int cursor;
-    private boolean active;
-    private String reason="Waiting";
-    public CampBlockEntity(BlockPos pos,BlockState state){super(CampRegistry.TYPE.get(),pos,state);}
+    int cursor;
+    boolean active;
+    String reason="Waiting";
+    public CampBlockEntity(BlockPos pos,BlockState state){
+        super(CampRegistry.TYPE.get(),pos,state);
+        String path=BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
+        sides="grove_tender".equals(path)?tk.darrow.tribalpower.lattice.SideIo.mesh()
+                :new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+    }
     public String kind(){return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();}
     public boolean hasInventory(){return Set.of("grove_tender","summoning_cradle","offering_table").contains(kind());}
+    private final tk.darrow.tribalpower.lattice.SideIo sides;
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo(){return sides;}
+    @Override public int[] inputSlots(Direction face){return getSlotsForFace(face);}
+    @Override public int[] outputSlots(Direction face){return getSlotsForFace(face);}
     @Override protected NonNullList<ItemStack> getItems(){return items;}
     @Override protected void setItems(NonNullList<ItemStack> value){items=value;}
     @Override public int getContainerSize(){return 27;}
@@ -46,18 +55,20 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     @Override public boolean stillValid(Player player){return super.stillValid(player)&&!level.hasNeighborSignal(worldPosition)&&canAccess(player);}
     /** Owner-based access: the placer, anyone sharing the placer's camp (design 3.0 §6), or everyone when unclaimed. */
     public boolean canAccess(Player player){return owner==null||player.getUUID().equals(owner)||tk.darrow.tribalpower.camp.identity.Camps.sameCamp(level instanceof ServerLevel server?server.getServer():null,owner,player.getUUID());}
+    @Override public UUID owner(){return owner;}
+    @Override public void setOwner(UUID owner){this.owner=owner;setChanged();}
     @Override public int[] getSlotsForFace(Direction side){
         if(kind().equals("offering_table"))return java.util.stream.IntStream.range(0,27).toArray();
         if(kind().equals("summoning_cradle"))return side==Direction.DOWN?new int[]{0}:new int[]{1};
         return side==Direction.DOWN?java.util.stream.IntStream.range(9,27).toArray():java.util.stream.IntStream.range(0,9).toArray();
     }
-    @Override public boolean canPlaceItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&canPlaceItem(slot,stack);}
+    @Override public boolean canPlaceItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).insert()&&canPlaceItem(slot,stack);}
     @Override public boolean canPlaceItem(int slot,ItemStack stack){
         if(kind().equals("summoning_cradle"))return slot==0?stack.getItem() instanceof BoundEffigyItem:slot==1&&stack.is(ModItems.SPIRITWEAVE.get());
-        if(kind().equals("grove_tender"))return slot<9&&stack.getItem() instanceof BlockItem block&&block.getBlock() instanceof CropBlock;
+        if(kind().equals("grove_tender"))return slot<9&&GroveWork.isSeed(stack);
         return kind().equals("offering_table");
     }
-    @Override public boolean canTakeItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&(!kind().equals("summoning_cradle")||slot==0&&BoundEffigyItem.remaining(stack)==0);}
+    @Override public boolean canTakeItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).extract()&&(!kind().equals("summoning_cradle")||slot==0&&BoundEffigyItem.remaining(stack)==0);}
     public Component status(){
         var status=Component.literal(reason+" | "+pulse+" / "+CAPACITY+" Pulse");
         if(kind().equals("summoning_cradle"))status.append(" | ").append(BoundEffigyItem.targetName(items.get(0))).append(" | "+BoundEffigyItem.remaining(items.get(0))+" threads");
@@ -78,6 +89,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         }
     }
     public static void tick(Level level,BlockPos pos,BlockState state,CampBlockEntity be){
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level,be);
         if((level.getGameTime()+pos.asLong())%20!=0)return;
         be.work((ServerLevel)level);boolean lit=be.active;
         if(be.getBlockState().getValue(CampBlock.LIT)!=lit)level.setBlock(pos,be.getBlockState().setValue(CampBlock.LIT,lit),3);
@@ -98,7 +110,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
             }
             case "hush_totem" -> {active=pulse>=8;if(active){spend(8);reason="Hostile spawn ward: 24 blocks";}CampHooks.ward(server,worldPosition,active);}
             case "summoning_cradle" -> {reason="Effigy in slot 1; Spiritweave in slot 2";if((server.getGameTime()+worldPosition.asLong())%200==0)summon(server);}
-            case "grove_tender" -> tend(server);
+            case "grove_tender" -> GroveWork.tend(this, server);
             case "spirit_lantern" -> {active=true;reason="Lantern lit; redstone dims it";}
             case "rain_chime" -> {active=server.isRaining();reason=server.isThundering()?"Thunder: signal 15":active?"Rain: signal 8":"Clear skies: signal 0";
                 if(active&&(server.getGameTime()+worldPosition.asLong())%200==0)server.playSound(null,worldPosition,net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,net.minecraft.sounds.SoundSource.BLOCKS,0.25F,1.4F);
@@ -106,7 +118,10 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
             case "offering_table" -> {active=true;reason="27 offering slots; comparator reads fullness";}
         }
     }
-    private void spend(int amount){pulse-=amount;setChanged();}
+    void spendPublic(int amount){spend(amount);}
+    void spend(int amount){pulse-=amount;setChanged();}
+    NonNullList<ItemStack> copyItemsPublic(){return copyItems();}
+    void replaceItems(NonNullList<ItemStack> next){items=next;setChanged();}
     public boolean summon(ServerLevel server){
         if(server.hasNeighborSignal(worldPosition))return false;
         ItemStack effigy=items.get(0),offering=items.get(1);
@@ -130,39 +145,6 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         }
         reason="Clear a safe floor within 3 blocks";return false;
     }
-    private void tend(ServerLevel server){
-        reason="Tending a 9x9 bed at this height";
-        if(owner==null){reason="Place this tender yourself to claim it";return;}
-        if(pulse<4)return;
-        var farmer=FakePlayerFactory.get(server,new GameProfile(owner,ownerName));
-        for(int scan=0;scan<9;scan++){
-            int n=cursor;cursor=(cursor+1)%81;BlockPos pos=worldPosition.offset(n%9-4,0,n/9-4);
-            if(pos.equals(worldPosition)||!server.hasChunkAt(pos)||!server.getWorldBorder().isWithinBounds(pos))continue;
-            var state=server.getBlockState(pos);if(!server.mayInteract(farmer,pos))continue;
-            if(state.getBlock() instanceof CropBlock crop&&crop.isMaxAge(state)){
-                if(pulse<12)continue;
-                if(NeoForge.EVENT_BUS.post(new BlockEvent.BreakEvent(server,pos,state,farmer)).isCanceled()){reason="Crop protected";continue;}
-                List<ItemStack> drops=new ArrayList<>(Block.getDrops(state,server,pos,null,farmer,ItemStack.EMPTY));
-                Item seed=crop.asItem();boolean reserved=false;
-                for(var drop:drops)if(drop.is(seed)&&!drop.isEmpty()){drop.shrink(1);reserved=true;break;}
-                var preview=copyItems();
-                if(!reserved)for(int i=0;i<9;i++)if(preview.get(i).is(seed)){preview.get(i).shrink(1);reserved=true;break;}
-                if(!reserved){reason="Needs one seed to replant";continue;}
-                if(!storeDrops(preview,drops)){reason="Output full; crop preserved";return;}
-                if(!server.setBlock(pos,crop.getStateForAge(0),3))continue;
-                items=preview;spend(12);active=true;reason="Harvested and replanted";return;
-            }
-            if(state.isAir())for(int slot=0;slot<9;slot++){
-                ItemStack seed=items.get(slot);
-                if(!(seed.getItem() instanceof BlockItem block)||!(block.getBlock() instanceof CropBlock crop))continue;
-                var planted=crop.getStateForAge(0);if(!planted.canSurvive(server,pos))continue;
-                var snapshot=BlockSnapshot.create(server.dimension(),server,pos);
-                if(!server.setBlock(pos,planted,3))continue;
-                if(EventHooks.onBlockPlace(farmer,snapshot,Direction.UP)){snapshot.restore(3);reason="Planting protected";break;}
-                seed.shrink(1);spend(4);active=true;reason="Planted a seed";return;
-            }
-        }
-    }
     private NonNullList<ItemStack> copyItems(){var result=NonNullList.withSize(27,ItemStack.EMPTY);for(int i=0;i<27;i++)result.set(i,items.get(i).copy());return result;}
     public static boolean storeDrops(NonNullList<ItemStack> slots,List<ItemStack> drops){
         for(var drop:drops){int left=drop.getCount();for(int i=9;i<27&&left>0;i++){
@@ -170,6 +152,6 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
             else if(ItemStack.isSameItemSameComponents(in,drop)){int n=Math.min(left,Math.max(0,in.getMaxStackSize()-in.getCount()));in.grow(n);left-=n;}
         }if(left>0)return false;}return true;
     }
-    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries){super.saveAdditional(tag,registries);ContainerHelper.saveAllItems(tag,items,registries);tag.putInt("Pulse",pulse);tag.putInt("Cursor",Math.floorMod(cursor,81));if(owner!=null)tag.putUUID("Owner",owner);tag.putString("OwnerName",ownerName);}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider registries){super.loadAdditional(tag,registries);items=NonNullList.withSize(27,ItemStack.EMPTY);ContainerHelper.loadAllItems(tag,items,registries);pulse=Math.clamp(tag.getInt("Pulse"),0,CAPACITY);cursor=Math.floorMod(tag.getInt("Cursor"),81);owner=tag.hasUUID("Owner")?tag.getUUID("Owner"):null;ownerName=tag.getString("OwnerName");if(ownerName.isBlank()||ownerName.length()>16)ownerName="Skybound";active=false;}
+    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries){super.saveAdditional(tag,registries);ContainerHelper.saveAllItems(tag,items,registries);tag.putInt("Pulse",pulse);tag.putInt("Cursor",Math.floorMod(cursor,81));if(owner!=null)tag.putUUID("Owner",owner);tag.putString("OwnerName",ownerName);sides.save(tag);}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider registries){super.loadAdditional(tag,registries);items=NonNullList.withSize(27,ItemStack.EMPTY);ContainerHelper.loadAllItems(tag,items,registries);pulse=Math.clamp(tag.getInt("Pulse"),0,CAPACITY);cursor=Math.floorMod(tag.getInt("Cursor"),81);owner=tag.hasUUID("Owner")?tag.getUUID("Owner"):null;ownerName=tag.getString("OwnerName");if(ownerName.isBlank()||ownerName.length()>16)ownerName="Skybound";active=false;sides.load(tag);}
 }

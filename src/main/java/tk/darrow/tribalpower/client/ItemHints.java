@@ -16,5 +16,6 @@ final class ItemHints {
         if (I18n.exists(key)) {
             event.getToolTip().add(Component.translatable(key).withStyle(ChatFormatting.GRAY));
         }
+        tk.darrow.tribalpower.item.MachineRank.appendTooltip(event.getItemStack(), event.getToolTip());
     }
 }

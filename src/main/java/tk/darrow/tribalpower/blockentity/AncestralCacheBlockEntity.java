@@ -54,6 +54,10 @@ public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity 
         super(ModBlockEntities.ANCESTRAL_CACHE.get(), pos, state);
     }
 
+    public static void tick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, AncestralCacheBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
+    }
+
     @Override
     protected NonNullList<ItemStack> getItems() {
         return items;

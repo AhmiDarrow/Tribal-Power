@@ -69,7 +69,8 @@ public final class GeneratorRegistry {
         NeoForge.EVENT_BUS.addListener(WakeBells::onDeath);
         modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
-                    WAVE_DRUM_TYPE.get(), (be, side) -> be.tank);
+                    WAVE_DRUM_TYPE.get(), (be, side) ->
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.tank));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     EMBER_HORN_TYPE.get(), (be, side) -> new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
                             side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)

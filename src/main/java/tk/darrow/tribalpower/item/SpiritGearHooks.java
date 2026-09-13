@@ -1,0 +1,287 @@
+package tk.darrow.tribalpower.item;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent;
+import net.neoforged.neoforge.event.level.BlockDropsEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.block.ModBlocks;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/** Voice perks that have to listen to world events instead of the tool's own methods. */
+public final class SpiritGearHooks {
+    private SpiritGearHooks() {}
+
+    /** Pulse and voice must be recorded here: vanilla drops run before {@code Item#mineBlock}. */
+    public static void beforeBreak(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+        ItemStack tool = player.getMainHandItem();
+        if (!SpiritGear.isTool(tool)) return;
+        if (SpiritGear.SWING.get() != null) return;
+        boolean paid = player.getAbilities().instabuild || SpiritGear.consumeForMine(player, tool);
+        SpiritGear.beginSwing(player, tool, paid, false);
+    }
+
+    public static void drops(BlockDropsEvent event) {
+        SpiritGear.Swing swing = SpiritGear.SWING.get();
+        if (swing == null || !swing.pulsePaid()) return;
+        ItemStack tool = swing.tool();
+        Attunement voice = SpiritGear.voice(tool).orElse(null);
+        if (voice == null) return;
+        ServerLevel level = event.getLevel();
+        BlockState state = event.getState();
+
+        if (voice == Attunement.FIRE) {
+            smelt(event, level);
+        } else if (voice == Attunement.WATER && tool.getItem() instanceof SpiritgearPickaxeItem) {
+            silk(event, level, tool);
+        } else if (voice == Attunement.LOOM && tool.getItem() instanceof SpiritgearShovelItem
+                && (state.is(BlockTags.SAND) || state.is(Blocks.GRAVEL) || state.is(Blocks.SUSPICIOUS_GRAVEL))) {
+            silk(event, level, tool);
+        } else if (voice == Attunement.WATER && tool.getItem() instanceof SpiritgearShovelItem
+                && state.is(BlockTags.DIRT)
+                && SpiritGear.chance(level.random, tool, 0.10F)) {
+            event.getDrops().add(new ItemEntity(level, event.getPos().getX() + 0.5, event.getPos().getY() + 0.5,
+                    event.getPos().getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.CLAY_BALL)));
+        }
+
+        if (voice == Attunement.LOOM && tool.getItem() instanceof SpiritgearAxeItem && swing.player() != null) {
+            for (ItemEntity drop : event.getDrops()) {
+                drop.setPos(swing.player().getX(), swing.player().getY() + 0.2, swing.player().getZ());
+                drop.setPickUpDelay(0);
+            }
+        }
+    }
+
+    private static void smelt(BlockDropsEvent event, ServerLevel level) {
+        List<ItemEntity> drops = event.getDrops();
+        for (ItemEntity entity : new ArrayList<>(drops)) {
+            ItemStack stack = entity.getItem();
+            var input = new SingleRecipeInput(stack);
+            var cooked = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, input, level)
+                    .map(holder -> holder.value().assemble(input, level.registryAccess()))
+                    .orElse(ItemStack.EMPTY);
+            if (cooked.isEmpty()) continue;
+            cooked.setCount(stack.getCount());
+            entity.setItem(cooked);
+        }
+    }
+
+    private static void silk(BlockDropsEvent event, ServerLevel level, ItemStack tool) {
+        ItemStack silk = tool.copy();
+        level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.SILK_TOUCH)
+                .ifPresent(holder -> silk.enchant(holder, 1));
+        List<ItemStack> silkDrops = Block.getDrops(event.getState(), level, event.getPos(),
+                event.getBlockEntity(), event.getBreaker(), silk);
+        event.getDrops().clear();
+        for (ItemStack drop : silkDrops) {
+            MachineRank.copyToItem(event.getBlockEntity(), drop);
+            event.getDrops().add(new ItemEntity(level, event.getPos().getX() + 0.5, event.getPos().getY() + 0.5,
+                    event.getPos().getZ() + 0.5, drop));
+        }
+    }
+
+    public static void incomingDamage(LivingIncomingDamageEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
+        ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
+        ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        if (SpiritGear.voice(hood).orElse(null) == Attunement.EARTH
+                && event.getSource().is(DamageTypeTags.IS_PROJECTILE)
+                && player.getRandom().nextFloat() < (SpiritGear.rank(hood) >= 3 ? 0.35F : 0.20F)) {
+            event.setCanceled(true);
+            return;
+        }
+        if (SpiritGear.voice(boots).orElse(null) == Attunement.FIRE
+                && event.getSource().is(DamageTypes.HOT_FLOOR)) {
+            event.setCanceled(true);
+            return;
+        }
+        if (event.getSource().getEntity() instanceof LivingEntity attacker) {
+            if (SpiritGear.voice(robe).orElse(null) == Attunement.FIRE) attacker.igniteForSeconds(3);
+            if (SpiritGear.voice(robe).orElse(null) == Attunement.SPIRIT)
+                attacker.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+                        net.minecraft.world.effect.MobEffects.GLOWING, 80, 0));
+            if (SpiritGear.voice(robe).orElse(null) == Attunement.WATER)
+                player.addEffect(new net.minecraft.world.effect.MobEffectInstance(
+                        net.minecraft.world.effect.MobEffects.REGENERATION,
+                        SpiritGear.rank(robe) >= 3 ? 160 : 100, 0, true, false, true));
+        }
+    }
+
+    public static void knockback(LivingKnockBackEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
+        ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        if (SpiritGear.voice(robe).orElse(null) == Attunement.AIR) event.setCanceled(true);
+        if (SpiritGear.voice(boots).orElse(null) == Attunement.EARTH) event.setStrength(event.getStrength() * 0.4F);
+    }
+
+    public static void fall(LivingFallEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        if (SpiritGear.voice(boots).orElse(null) != Attunement.SPIRIT) return;
+        if (SpiritGear.rank(boots) >= 3 && event.getDistance() >= 4) {
+            player.setDeltaMovement(player.getDeltaMovement().x, 0.55, player.getDeltaMovement().z);
+            player.hurtMarked = true;
+        }
+        event.setCanceled(true);
+    }
+
+    public static void trample(BlockEvent.FarmlandTrampleEvent event) {
+        if (event.getEntity() instanceof Player player
+                && SpiritGear.voice(player.getItemBySlot(EquipmentSlot.FEET)).orElse(null) == Attunement.EARTH) {
+            event.setCanceled(true);
+        }
+    }
+
+    public static void playerTick(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (player.level().isClientSide) return;
+        SpiritGear.endSwing();
+        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        Attunement legVoice = SpiritGear.voice(legs).orElse(null);
+        Attunement bootVoice = SpiritGear.voice(boots).orElse(null);
+
+        if (legVoice == Attunement.EARTH || legVoice == Attunement.LOOM) {
+            BlockState feet = player.level().getBlockState(player.blockPosition());
+            if (feet.is(Blocks.COBWEB) || feet.is(Blocks.SWEET_BERRY_BUSH)
+                    || (legVoice == Attunement.EARTH && (feet.is(Blocks.SOUL_SAND) || feet.is(Blocks.SOUL_SOIL)))) {
+                player.setDeltaMovement(player.getDeltaMovement().multiply(1.7, 1.0, 1.7));
+            }
+        }
+
+        if (bootVoice == Attunement.LOOM && player.isShiftKeyDown() && player.zza > 0.1F
+                && !player.getCooldowns().isOnCooldown(boots.getItem())
+                && player.level() instanceof ServerLevel server) {
+            int reach = SpiritGear.rank(boots) >= 3 ? 6 : 4;
+            if (stitch(server, player, reach)) player.getCooldowns().addCooldown(boots.getItem(), 160);
+        }
+
+        if (player instanceof ServerPlayer serverPlayer && player.level() instanceof ServerLevel server
+                && player.getMainHandItem().getItem() instanceof SpiritgearPickaxeItem
+                && SpiritGear.voice(player.getMainHandItem()).orElse(null) == Attunement.SPIRIT
+                && server.getGameTime() % 80 == 0) {
+            glintOres(server, serverPlayer, SpiritGear.rank(player.getMainHandItem()) >= 3 ? 10 : 6);
+        }
+        if (player instanceof ServerPlayer serverPlayer && player.level() instanceof ServerLevel server
+                && player.getMainHandItem().getItem() instanceof SpiritgearShovelItem
+                && SpiritGear.voice(player.getMainHandItem()).orElse(null) == Attunement.SPIRIT
+                && server.getGameTime() % 80 == 0) {
+            glintBuried(server, serverPlayer, 8);
+        }
+    }
+
+    static boolean stoneLike(BlockState state) {
+        return state.is(BlockTags.BASE_STONE_OVERWORLD) || state.is(BlockTags.BASE_STONE_NETHER)
+                || state.is(BlockTags.STONE_ORE_REPLACEABLES) || state.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
+                || state.is(Tags.Blocks.COBBLESTONES) || state.is(ModBlocks.MARCH_STONE.get())
+                || state.is(ModBlocks.MARCH_COBBLE.get());
+    }
+
+    static boolean dirtLike(BlockState state) {
+        return state.is(BlockTags.DIRT) || state.is(BlockTags.SAND) || state.is(Blocks.GRAVEL)
+                || state.is(Blocks.CLAY);
+    }
+
+    static void aoe(ServerPlayer player, ItemStack tool, BlockPos center, net.minecraft.core.Direction.Axis axis,
+                    java.util.function.Predicate<BlockState> filter) {
+        if (SpiritGear.SWING.get() != null && SpiritGear.SWING.get().aoe()) return;
+        for (int a = -1; a <= 1; a++) for (int b = -1; b <= 1; b++) {
+            if (a == 0 && b == 0) continue;
+            BlockPos pos = switch (axis) {
+                case X -> center.offset(0, a, b);
+                case Y -> center.offset(a, 0, b);
+                case Z -> center.offset(a, b, 0);
+            };
+            var state = player.level().getBlockState(pos);
+            if (!filter.test(state) || !tool.isCorrectToolForDrops(state)
+                    || state.getDestroySpeed(player.level(), pos) < 0
+                    || !player.level().mayInteract(player, pos)
+                    || !player.mayUseItemAt(pos, net.minecraft.core.Direction.UP, tool)) continue;
+            SpiritGear.beginSwing(player, tool, true, true);
+            try {
+                player.gameMode.destroyBlock(pos);
+            } finally {
+                SpiritGear.beginSwing(player, tool, true, false);
+            }
+        }
+    }
+
+    private static void glintOres(ServerLevel level, ServerPlayer owner, int range) {
+        BlockPos center = owner.blockPosition();
+        int marked = 0;
+        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
+                center.offset(range, range, range))) {
+            if (!level.getBlockState(pos).is(Tags.Blocks.ORES)) continue;
+            level.sendParticles(owner, ParticleTypes.END_ROD, true,
+                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 3, 0.35, 0.35, 0.35, 0);
+            if (++marked >= 96) break;
+        }
+    }
+
+    private static void glintBuried(ServerLevel level, ServerPlayer owner, int range) {
+        BlockPos center = owner.blockPosition();
+        int marked = 0;
+        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
+                center.offset(range, range, range))) {
+            var state = level.getBlockState(pos);
+            if (!state.is(Blocks.CHEST) && !state.is(Blocks.TRAPPED_CHEST) && !state.is(Blocks.BARREL)
+                    && !state.is(Blocks.SPAWNER) && !state.is(Blocks.TRIAL_SPAWNER)) continue;
+            level.sendParticles(owner, ParticleTypes.END_ROD, true,
+                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 4, 0.25, 0.25, 0.25, 0);
+            if (++marked >= 32) break;
+        }
+    }
+
+    private static boolean stitch(ServerLevel server, Player player, int range) {
+        net.minecraft.world.phys.Vec3 direction = player.getLookAngle();
+        net.minecraft.world.phys.Vec3 flat = new net.minecraft.world.phys.Vec3(direction.x, 0, direction.z);
+        if (flat.lengthSqr() < 1.0E-4) flat = net.minecraft.world.phys.Vec3.directionFromRotation(0, player.getYRot());
+        flat = flat.normalize();
+        for (int reach = range; reach >= 2; reach--) {
+            var candidate = player.position().add(flat.scale(reach));
+            BlockPos feet = BlockPos.containing(candidate);
+            if (!tk.darrow.tribalpower.world.TravelSafety.withinBounds(server, feet)
+                    || tk.darrow.tribalpower.world.TravelSafety.hasHazard(server, feet)) continue;
+            var box = player.getBoundingBox().move(candidate.subtract(player.position()));
+            if (!server.noCollision(player, box)) continue;
+            var clip = server.clip(new net.minecraft.world.level.ClipContext(player.getEyePosition(),
+                    candidate.add(0, player.getEyeHeight(), 0), net.minecraft.world.level.ClipContext.Block.COLLIDER,
+                    net.minecraft.world.level.ClipContext.Fluid.NONE, player));
+            if (clip.getType() != net.minecraft.world.phys.HitResult.Type.MISS) continue;
+            var from = player.position();
+            player.teleportTo(candidate.x, candidate.y, candidate.z);
+            player.fallDistance = 0;
+            tk.darrow.tribalpower.effect.SpiritEffects.beam(server, from.add(0, 1, 0), candidate.add(0, 1, 0), Attunement.LOOM);
+            return true;
+        }
+        return false;
+    }
+}

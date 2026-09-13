@@ -39,6 +39,26 @@
     "tribalpower:gate_keystone",
     "tribalpower:ember_horn",
     "tribalpower:wake_bell",
-    "tribalpower:loom_anchor"
+    "tribalpower:loom_anchor",
+    "tribalpower:tide_pump",
+    "tribalpower:wind_snare",
+    "tribalpower:ward_drum",
+    "tribalpower:song_thread",
+    "tribalpower:song_vine",
+    "tribalpower:verse_call",
+    "tribalpower:verse_answer",
+    "tribalpower:chorus_plate",
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate",
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate",
+    "tribalpower:memory_plate",
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate",
+    "tribalpower:verse_plate"
   ]
 }

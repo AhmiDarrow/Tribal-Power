@@ -28,6 +28,13 @@ public class RitualBrazierBlock extends BaseEntityBlock {
             effigy.useOn(new net.minecraft.world.item.context.UseOnContext(player,hand,hit));
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
+        if (player.isShiftKeyDown() && stack.getItem() instanceof tk.darrow.tribalpower.charm.SpiritCharmItem charm
+                && charm.kind == tk.darrow.tribalpower.charm.CharmKind.CHORUS) {
+            if (!level.isClientSide && level instanceof net.minecraft.server.level.ServerLevel server) {
+                tk.darrow.tribalpower.charm.SpiritCharmItem.imprintChorus(player, stack, server, pos);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
         if (RitualBrazierBlockEntity.element(stack) == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
             if (!be.seal().isEmpty()) {

@@ -20,9 +20,13 @@ import java.util.List;
  * drinking {@link WaveMath#PIPED_COST} mB a second from its own tank, which nothing crowds because the
  * water supply is already the limit. Doubled in the rain either way.
  */
-public class WaveDrumBlockEntity extends GeneratorBlockEntity {
+public class WaveDrumBlockEntity extends GeneratorBlockEntity implements tk.darrow.tribalpower.lattice.HasSideIo {
     public static final int CAPACITY = 1000;
     public static final int TANK_CAPACITY = 4000;
+    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return new int[0]; }
+    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return new int[0]; }
 
     public final FluidTank tank = new FluidTank(TANK_CAPACITY, stack -> stack.getFluid() == Fluids.WATER) {
         @Override public int fill(FluidStack resource, FluidAction action) {
@@ -70,11 +74,13 @@ public class WaveDrumBlockEntity extends GeneratorBlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("Tank", tank.writeToNBT(registries, new CompoundTag()));
+        sides.save(tag);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         tank.readFromNBT(registries, tag.getCompound("Tank"));
+        sides.load(tag);
     }
 }

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "tribalpower:block/gathering_plate",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "tribalpower:block/gathering_plate"
+    },
+    "facing=north": {
+      "model": "tribalpower:block/gathering_plate",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/gathering_plate",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/gathering_plate",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tribalpower:block/gathering_plate",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

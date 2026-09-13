@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tribalpower:block/wind_snare_front",
+    "north": "tribalpower:block/wind_snare_front",
+    "south": "tribalpower:block/wind_snare_side",
+    "east": "tribalpower:block/wind_snare_side",
+    "west": "tribalpower:block/wind_snare_side",
+    "up": "tribalpower:block/wind_snare_side",
+    "down": "tribalpower:block/wind_snare_side"
+  }
+}

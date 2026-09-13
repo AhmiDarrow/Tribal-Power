@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " S ",
+    "RER",
+    " A "
+  ],
+  "key": {
+    "S": { "item": "tribalpower:song_thread" },
+    "R": { "item": "minecraft:redstone" },
+    "E": { "item": "tribalpower:echo_shard" },
+    "A": { "item": "tribalpower:air_seal" }
+  },
+  "result": { "id": "tribalpower:verse_call", "count": 1 }
+}

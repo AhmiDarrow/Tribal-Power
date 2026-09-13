@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " R ",
+    "RLR",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "tribalpower:loom_thread"
+    }
+  },
+  "result": {
+    "id": "tribalpower:song_thread",
+    "count": 8
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    { "item": "tribalpower:spiritweave" },
+    { "item": "tribalpower:manifested_ingot" },
+    { "item": "tribalpower:loom_seal" }
+  ],
+  "result": { "id": "tribalpower:spindle_charm", "count": 1 }
+}

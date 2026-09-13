@@ -31,8 +31,25 @@ public class TribalJeiPlugin implements IModPlugin {
         // Kiln firings the grit scan synthesised have no lattice file either.
         registration.addRecipes(TYPE,tk.darrow.tribalpower.grit.GritRegistry.allFireFormulae().stream()
                 .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
+        registration.addRecipes(TYPE,tk.darrow.tribalpower.item.SpiritGear.allRankFormulae().stream()
+                .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
+        registration.addRecipes(TYPE,tk.darrow.tribalpower.item.MachineRank.allRankFormulae().stream()
+                .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
+        var charmHint=Component.translatable("item.tribalpower.spirit_charm.hint");
+        registration.addIngredientInfo(ModItems.SKY_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.EMBER_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.TIDE_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.ROOT_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.LANTERN_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.SPINDLE_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.WARD_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.HEARTH_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.VEIL_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.CHORUS_CHARM.get(),charmHint);
         registration.addIngredientInfo(ModItems.SPIRIT_STAFF.get(),Component.translatable("item.tribalpower.spirit_staff.desc",12));
         registration.addIngredientInfo(ModItems.LATTICE_TUNER.get(),Component.translatable("item.tribalpower.lattice_tuner.desc"));
+        registration.addIngredientInfo(ModItems.SPIRITGEAR_PICKAXE.get(),Component.translatable("item.tribalpower.spiritgear.hint"));
+        registration.addIngredientInfo(ModItems.SPIRITWEAVE_HOOD.get(),Component.translatable("item.tribalpower.spiritweave_armor.hint"));
     }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get(),ModItems.EMBER_KILN.get());

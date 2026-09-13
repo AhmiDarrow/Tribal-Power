@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.echo.EchoStage;
+import tk.darrow.tribalpower.item.MachineRank;
+import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 /**
@@ -42,6 +44,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SongBenchBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if (!be.singing || level.hasNeighborSignal(pos)) {
             return;
         }
@@ -72,7 +75,12 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
             return;
         }
 
-        int needPulse = stage.pulsePerTick();
+        var keeping = Keeping.voice(level, pos, needed);
+        if (keeping == Keeping.State.QUIET && be.progress == 0) {
+            be.stall("quiet");
+            return;
+        }
+        int needPulse = be.pulsePerTick(stage);
         if (LatticeNetwork.extractPulseNearby(level, pos, RADIUS, needPulse, true) < needPulse) {
             be.stall("pulse");
             return;
@@ -81,7 +89,8 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
         be.stallReason = "";
         be.progress++;
-        if (be.progress >= stage.workTicks()) {
+        if (keeping != Keeping.State.QUIET) Keeping.feedWork(level, pos, needed);
+        if (be.progress >= Keeping.stretch(keeping, be.workTicks(stage))) {
             ItemStack out = new ItemStack(stage.output());
             be.items.set(SLOT, out);
             be.progress = 0;
@@ -100,6 +109,14 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
             stallReason = reason;
             setChanged();
         }
+    }
+
+    private int workTicks(EchoStage stage) {
+        return MachineRank.scaleTime(this, stage.workTicks());
+    }
+
+    private int pulsePerTick(EchoStage stage) {
+        return MachineRank.scalePulse(this, stage.pulsePerTick());
     }
 
     public void startSong() {
@@ -165,6 +182,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         return switch (stallReason) {
             case "no_totems" -> Component.translatable("message.tribalpower.song_bench.no_totems");
             case "pulse" -> Component.translatable("message.tribalpower.song_bench.no_pulse");
+            case "quiet" -> Component.translatable("message.tribalpower.song_bench.quiet");
             case "empty" -> Component.translatable("message.tribalpower.song_bench.need_item");
             default -> {
                 if (stallReason.startsWith("attunement:")) {
@@ -178,7 +196,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
                         "message.tribalpower.song_bench.working",
                         stage.name(),
                         progress,
-                        stage.workTicks(),
+                        workTicks(stage),
                         linkedTotems
                 );
             }
@@ -293,7 +311,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         singing = tag.getBoolean("Singing");
         progress = tag.getInt("Progress");
         EchoStage stage = EchoStage.forInput(items.get(SLOT));
-        if (stage == null || progress < 0 || progress >= stage.workTicks()) progress = 0;
+        if (stage == null || progress < 0 || progress >= workTicks(stage)) progress = 0;
         linkedTotems = tag.getInt("LinkedTotems");
         stallReason = tag.getString("StallReason");
         sides.load(tag);
@@ -304,7 +322,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.state", statusMessage()));
         EchoStage stage = EchoStage.forInput(items.get(SLOT));
         if (stage != null) {
-            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, stage.workTicks(), stage.pulsePerTick()));
+            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, workTicks(stage), pulsePerTick(stage)));
             if (!LatticeNetwork.hasAttunement(server, pos, RADIUS, stage.requiredAttunement()))
                 lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
                         net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + stage.requiredAttunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));

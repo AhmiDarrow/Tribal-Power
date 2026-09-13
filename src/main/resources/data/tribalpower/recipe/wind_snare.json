@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "CHC",
+    "WBW"
+  ],
+  "key": {
+    "A": {
+      "item": "tribalpower:air_seal"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    }
+  },
+  "result": {
+    "id": "tribalpower:wind_snare",
+    "count": 1
+  }
+}

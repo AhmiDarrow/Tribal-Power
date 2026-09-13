@@ -32,10 +32,13 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         }
         be.tickCounter = 0;
         // Factor maths live in ley/LeyMath so the Ley Lens and Codex diagnostics show the same numbers.
-        int gain = tk.darrow.tribalpower.ley.LeyMath.gain(level, pos);
+        var factors = tk.darrow.tribalpower.ley.LeyMath.factors(level, pos);
+        int gain = factors.gain();
+        gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, gain);
         if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
         }
+        if (factors.pad()) tk.darrow.tribalpower.lattice.Keeping.livingBeat(level, pos);
     }
 
     @Override

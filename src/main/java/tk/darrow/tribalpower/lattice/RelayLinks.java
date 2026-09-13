@@ -51,7 +51,13 @@ public final class RelayLinks {
             if (dest == null || !dest.hasChunkAt(handle.pos)) continue;
             if (!(dest.getBlockEntity(handle.pos) instanceof WirelessRelayBlockEntity other)) continue;
             if (!key.equals(key(other.link()))) continue;
-            double dist = handle.dim == be.getLevel().dimension() ? here.distSqr(handle.pos) : 0;
+            boolean same = handle.dim == be.getLevel().dimension();
+            if (!same && be.tier() < 3) continue;
+            double dist = same ? here.distSqr(handle.pos) : 1e12 + here.distSqr(handle.pos);
+            if (same && be.tier() < 3) {
+                int range = be.tier() == 1 ? 32 : 128;
+                if (dist > (long) range * range) continue;
+            }
             if (best == null || dist < bestDist) { best = other; bestDist = dist; }
         }
         return best;

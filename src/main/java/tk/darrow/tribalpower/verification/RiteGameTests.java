@@ -255,7 +255,7 @@ public class RiteGameTests {
             h.assertTrue(LeyMath.gain(level, roofed) == LeyMath.BASE && b > 0 && b <= 1, "Sheltered ground yields only the base gain");
             int before = LeyMath.gain(level, open);
             h.setBlock(3, 2, 2, Blocks.WATER);
-            h.assertTrue(LeyMath.gain(level, open) == before + LeyMath.WATER, "Adjacent water must add its factor");
+            h.assertTrue(LeyMath.gain(level, open) > before, "Water within 8 must add, " + before + " -> " + LeyMath.gain(level, open));
             h.succeed();
         });
     }

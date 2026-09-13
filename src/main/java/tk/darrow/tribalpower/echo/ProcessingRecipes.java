@@ -22,6 +22,10 @@ public final class ProcessingRecipes {
     public static Formula find(Level level, String station, ItemStack stack) {
         Formula written = findWritten(level, station, stack);
         if (written != null) return written;
+        Formula gear = tk.darrow.tribalpower.item.SpiritGear.rankFormula(station, stack);
+        if (gear != null) return gear;
+        Formula machine = tk.darrow.tribalpower.item.MachineRank.rankFormula(station, stack);
+        if (machine != null) return machine;
         if ("ember_kiln".equals(station)) {
             Formula grit = tk.darrow.tribalpower.grit.GritRegistry.fire(stack);
             if (grit != null) return grit;

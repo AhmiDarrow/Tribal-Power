@@ -22,13 +22,17 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
     }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide) return null;
-        return state.is(ModBlocks.PULSE_ADAPTER.get())
-                ? createTickerHelper(type, ModBlockEntities.PULSE_ADAPTER.get(), PulseAdapterBlockEntity::tick)
-                : null;
+        if (state.is(ModBlocks.PULSE_ADAPTER.get()))
+            return createTickerHelper(type, ModBlockEntities.PULSE_ADAPTER.get(), PulseAdapterBlockEntity::tick);
+        if (state.is(ModBlocks.SPIRIT_CISTERN.get()))
+            return createTickerHelper(type, ModBlockEntities.SPIRIT_CISTERN.get(), SpiritCisternBlockEntity::tick);
+        return null;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
             var be = level.getBlockEntity(pos);
+            if (player.isShiftKeyDown() && tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, be, hit.getDirection()))
+                return InteractionResult.CONSUME;
             if (be instanceof PulseAdapterBlockEntity adapter) player.displayClientMessage(adapter.status(), true);
             if (be instanceof SpiritCisternBlockEntity cistern) player.displayClientMessage(cistern.status(), true);
         }

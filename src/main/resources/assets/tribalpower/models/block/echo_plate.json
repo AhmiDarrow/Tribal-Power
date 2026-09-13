@@ -1,0 +1,11 @@
+{
+  "parent": "tribalpower:block/relay_plate",
+  "textures": {
+    "particle": "tribalpower:block/echo_plate",
+    "side": "tribalpower:block/echo_plate",
+    "stone": "tribalpower:block/loom_stone",
+    "trim": "tribalpower:block/loom_copper",
+    "light": "tribalpower:block/loom_light",
+    "top": "tribalpower:block/echo_plate"
+  }
+}

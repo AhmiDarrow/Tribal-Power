@@ -66,19 +66,19 @@ public final class ModItems {
     // Spiritgear — Pulse-fueled tools
     public static final DeferredItem<Item> SPIRITGEAR_PICKAXE = ITEMS.register(
             "spiritgear_pickaxe",
-            () -> new SpiritgearPickaxeItem(new Item.Properties().durability(512))
+            () -> new SpiritgearPickaxeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
     public static final DeferredItem<Item> SPIRITGEAR_AXE = ITEMS.register(
             "spiritgear_axe",
-            () -> new SpiritgearAxeItem(new Item.Properties().durability(512))
+            () -> new SpiritgearAxeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
     public static final DeferredItem<Item> SPIRITGEAR_SHOVEL = ITEMS.register(
             "spiritgear_shovel",
-            () -> new SpiritgearShovelItem(new Item.Properties().durability(512))
+            () -> new SpiritgearShovelItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
     public static final DeferredItem<Item> SPIRITGEAR_BLADE = ITEMS.register(
             "spiritgear_blade",
-            () -> new SpiritgearBladeItem(new Item.Properties().durability(512))
+            () -> new SpiritgearBladeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
 
     // Block items — pulse / lattice
@@ -153,6 +153,16 @@ public final class ModItems {
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_ROBE = ITEMS.register("spiritweave_robe", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_LEGGINGS = ITEMS.register("spiritweave_leggings", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_BOOTS = ITEMS.register("spiritweave_boots", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> SKY_CHARM = ITEMS.register("sky_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.SKY, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> EMBER_CHARM = ITEMS.register("ember_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.EMBER, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> TIDE_CHARM = ITEMS.register("tide_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.TIDE, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> ROOT_CHARM = ITEMS.register("root_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.ROOT, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> LANTERN_CHARM = ITEMS.register("lantern_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.LANTERN, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> SPINDLE_CHARM = ITEMS.register("spindle_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.SPINDLE, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> WARD_CHARM = ITEMS.register("ward_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.WARD, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> HEARTH_CHARM = ITEMS.register("hearth_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.HEARTH, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> VEIL_CHARM = ITEMS.register("veil_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.VEIL, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> CHORUS_CHARM = ITEMS.register("chorus_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.CHORUS, new Item.Properties()));
     public static final DeferredItem<BlockItem> RITUAL_BRAZIER = ITEMS.registerSimpleBlockItem("ritual_brazier", ModBlocks.RITUAL_BRAZIER);
 
     // The Listening Pit and the Stone Font (design 3.1 sections 6 and 7). The Ritual Mark has no item:

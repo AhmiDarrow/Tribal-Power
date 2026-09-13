@@ -1,0 +1,115 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.5,
+  "downfall": 0.85,
+  "effects": {
+    "fog_color": 4210752,
+    "sky_color": 3828616,
+    "water_color": 2380852,
+    "water_fog_color": 1328688,
+    "foliage_color": 3368550,
+    "grass_color": 3838004,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "particle": {
+      "probability": 0.0002,
+      "options": {
+        "type": "minecraft:end_rod"
+      }
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "tribalpower:reed_stalker",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:rootbound",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:echo_weaver",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "creature": [
+      {
+        "type": "tribalpower:mossback",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:dawn_stag",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:march_walker",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "ambient": [
+      {
+        "type": "tribalpower:spirit_wisp",
+        "weight": 14,
+        "minCount": 2,
+        "maxCount": 6
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {
+    "tribalpower:march_walker": {
+      "energy_budget": 0.12,
+      "charge": 0.8
+    },
+    "tribalpower:spirit_wisp": {
+      "energy_budget": 0.08,
+      "charge": 0.5
+    }
+  },
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [
+      "tribalpower:march_ruin_pillar"
+    ],
+    [],
+    [],
+    [],
+    [
+      "tribalpower:march_ore",
+      "tribalpower:march_moss_patch"
+    ],
+    [],
+    [],
+    [
+      "tribalpower:spirit_reed_patch",
+      "tribalpower:echo_bloom_patch",
+      "tribalpower:march_leaf_patch",
+      "tribalpower:ley_thistle_patch",
+      "tribalpower:march_tree"
+    ],
+    []
+  ]
+}

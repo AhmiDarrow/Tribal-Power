@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " S ",
+    "RER",
+    " B "
+  ],
+  "key": {
+    "S": { "item": "tribalpower:song_vine" },
+    "R": { "item": "minecraft:redstone" },
+    "E": { "item": "tribalpower:echo_shard" },
+    "B": { "item": "tribalpower:bone_chime" }
+  },
+  "result": { "id": "tribalpower:verse_answer", "count": 1 }
+}

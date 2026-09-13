@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.echo.ProcessingRecipes;
+import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 
@@ -39,6 +40,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     private static final int[][] CORNERS = {{2, 2}, {2, -2}, {-2, 2}, {-2, -2}};
     public EchoStationBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.ECHO_STATION.get(), pos, state); }
     public String station() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
+    public int work() { return work; }
     @Override protected NonNullList<ItemStack> getItems() { return items; }
     @Override protected void setItems(NonNullList<ItemStack> value) { items = value; }
     @Override public int getContainerSize() { return 9; }
@@ -49,12 +51,12 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 var recipe = ProcessingRecipes.find(level, station(), items.get(0));
                 return switch(index) {
                     case 0 -> work;
-                    case 1 -> recipe == null ? 1 : recipe.seconds();
+                    case 1 -> recipe == null ? 1 : tk.darrow.tribalpower.item.MachineRank.scaleTime(EchoStationBlockEntity.this, recipe.seconds());
                     case 3 -> sides.pack();
                     case 4 -> worldPosition.getX();
                     case 5 -> worldPosition.getY();
                     case 6 -> worldPosition.getZ();
-                    default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse").indexOf(state));
+                    default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet").indexOf(state));
                 };
             }
             public void set(int index, int value) {}
@@ -142,25 +144,31 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         return false;
     }
     public static void tick(Level level, BlockPos pos, BlockState blockState, EchoStationBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         var recipe = ProcessingRecipes.find(level, be.station(), be.items.get(0));
         if (recipe == null) { be.work = 0; be.recipeId = ""; be.state = "idle"; be.setChanged(); return; }
         if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); }
-        if (be.work < 0 || be.work >= recipe.seconds()) be.work = 0;
         if (level.hasNeighborSignal(pos)) { be.state = "paused"; return; }
         ItemStack result = recipe.result();
         be.arrayed = be.arrayed(level, recipe.attunement());
         if (be.arrayed) be.drainToCache(level);
         if (!be.placeOutput(result, true)) { be.state = "full"; return; }
         if (!LatticeNetwork.hasAttunement(level, pos, 8, recipe.attunement())) { be.state = "attunement"; return; }
+        var keeping = Keeping.voice(level, pos, recipe.attunement());
+        if (keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
+        int seconds = Keeping.stretch(keeping, tk.darrow.tribalpower.item.MachineRank.scaleTime(be, recipe.seconds()));
+        if (be.work < 0) be.work = 0;
         int cost = be.arrayed ? Math.max(1, (int) Math.round(recipe.pulse() * ARRAY_DISCOUNT)) : recipe.pulse();
+        cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(be, cost);
         cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(cost);
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
         LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
         be.state = "working";
         be.work++;
+        Keeping.feedWork(level, pos, recipe.attunement());
         SpiritEffects.ring((ServerLevel)level, pos.getCenter().add(0, 0.55, 0), recipe.attunement(), 0.45, 8);
-        if (be.work >= recipe.seconds()) {
+        if (be.work >= seconds) {
             be.items.get(0).shrink(1);
             be.placeOutput(result, false);
             be.work = 0;
@@ -193,6 +201,12 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
             if (!LatticeNetwork.hasAttunement(server, pos, 8, recipe.attunement()))
                 lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
                         net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + recipe.attunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
+            else {
+                var keeping = Keeping.voice(server, pos, recipe.attunement());
+                if (keeping != Keeping.State.ANSWERED)
+                    lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.keeping." + keeping.name().toLowerCase(java.util.Locale.ROOT))
+                            .withStyle(net.minecraft.ChatFormatting.YELLOW));
+            }
             if (!placeOutput(recipe.result(), true)) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.output_full").withStyle(net.minecraft.ChatFormatting.YELLOW));
             lines.add(net.minecraft.network.chat.Component.translatable(arrayed(server, recipe.attunement())
                     ? "diag.tribalpower.station.arrayed" : "diag.tribalpower.station.no_array"));

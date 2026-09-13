@@ -2,5 +2,25 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "tribalpower:item/spiritgear_axe"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "tribalpower:item/spiritgear_axe_attuned"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "tribalpower:item/spiritgear_axe_bound"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "tribalpower:item/spiritgear_axe_manifested"
+    }
+  ]
 }

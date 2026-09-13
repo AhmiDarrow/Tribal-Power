@@ -43,6 +43,42 @@
           }
         },
         {
+          "biome": "tribalpower:march_snow_fields",
+          "parameters": {
+            "temperature": [-1.0, -0.35],
+            "humidity": [0.2, 1.0],
+            "continentalness": [0.0, 1.0],
+            "erosion": [-0.5, 0.8],
+            "weirdness": [-1.0, 0.4],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "tribalpower:march_ember_wastes",
+          "parameters": {
+            "temperature": [0.65, 1.0],
+            "humidity": [-1.0, -0.25],
+            "continentalness": [-0.3, 0.5],
+            "erosion": [0.0, 1.0],
+            "weirdness": [-0.2, 1.0],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "tribalpower:march_reed_fen",
+          "parameters": {
+            "temperature": [0.1, 0.55],
+            "humidity": [0.45, 1.0],
+            "continentalness": [-1.0, 0.15],
+            "erosion": [0.2, 1.0],
+            "weirdness": [-1.0, 0.2],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
           "biome": "tribalpower:march_steppe",
           "parameters": {
             "temperature": 0.0,

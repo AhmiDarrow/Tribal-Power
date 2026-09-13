@@ -21,6 +21,8 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.grit.GritRegistry;
+import tk.darrow.tribalpower.item.MachineRank;
+import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.pattern.ModPatterns;
 import tk.darrow.tribalpower.pattern.PatternMatcher;
@@ -174,12 +176,13 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     private int seconds(OreBand band, Set<Attunement> voices) {
         int seconds = band.seconds();
         if (voices.contains(Attunement.AIR)) seconds = Math.max(1, (int) Math.round(seconds * 0.65));
-        return seconds;
+        return MachineRank.scaleTime(this, seconds);
     }
 
     private int pulsePerSecond(OreBand band, Set<Attunement> voices) {
         int pulse = band.pulsePerSecond();
         if (voices.contains(Attunement.AIR)) pulse = (int) Math.round(pulse * 1.55);
+        pulse = MachineRank.scalePulse(this, pulse);
         return tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(pulse);
     }
 
@@ -272,6 +275,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     // ---- the beat --------------------------------------------------------------------------
 
     public static void tick(Level level, BlockPos pos, BlockState blockState, ResonanceMeshBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) { be.state = "paused"; return; }
 
@@ -283,6 +287,8 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
         Set<Attunement> voices = be.voices(level, pos);
         if (!voices.contains(Attunement.EARTH)) { be.stall("attunement"); return; }
+        var keeping = Keeping.voice(level, pos, Attunement.EARTH);
+        if (keeping == Keeping.State.QUIET && be.work == 0) { be.stall("quiet"); return; }
 
         Container cache = be.cache(level, pos);
         if (cache == null) { be.stall("cache"); return; }
@@ -308,9 +314,10 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
         be.state = "working";
         be.work++;
+        Keeping.feedWork(level, pos, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.55, 0), Attunement.EARTH, 0.5, 8);
 
-        if (be.work >= be.seconds(band, voices)) {
+        if (be.work >= Keeping.stretch(keeping, be.seconds(band, voices))) {
             be.finish(level, pos, band, voices, substrate, result);
         }
         be.setChanged();

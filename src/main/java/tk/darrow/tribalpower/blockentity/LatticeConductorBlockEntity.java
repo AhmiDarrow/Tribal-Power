@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 import java.util.List;
@@ -58,8 +59,9 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             }
         }
 
-        int available = LatticeNetwork.extractPulseFromGenerators(level, pos, RADIUS, PUSH_PER_CYCLE, true);
-        int want = Math.min(PUSH_PER_CYCLE, available);
+        int push = MachineRank.scalePulse(be, PUSH_PER_CYCLE);
+        int available = LatticeNetwork.extractPulseFromGenerators(level, pos, RADIUS, push, true);
+        int want = Math.min(push, available);
         int taken = LatticeNetwork.extractPulseFromGenerators(level, pos, RADIUS, want, false);
         be.lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
         if (be.lastPulsePushed < taken) {
@@ -131,8 +133,9 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             }
         }
 
-        int available = LatticeNetwork.extractPulseFromGenerators(level, worldPosition, RADIUS, CLICK_PUSH, true);
-        int want = Math.min(CLICK_PUSH, available);
+        int burst = MachineRank.scalePulse(this, CLICK_PUSH);
+        int available = LatticeNetwork.extractPulseFromGenerators(level, worldPosition, RADIUS, burst, true);
+        int want = Math.min(burst, available);
         int taken = LatticeNetwork.extractPulseFromGenerators(level, worldPosition, RADIUS, want, false);
         lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
         if (lastPulsePushed < taken) {

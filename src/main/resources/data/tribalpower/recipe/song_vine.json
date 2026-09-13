@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    { "item": "tribalpower:song_thread" },
+    { "item": "tribalpower:spirit_reed" }
+  ],
+  "result": { "id": "tribalpower:song_vine", "count": 8 }
+}

@@ -39,6 +39,9 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.WATER_SEAL.get());
                         out.accept(ModItems.AIR_SEAL.get());
                         out.accept(ModItems.SPIRIT_SEAL.get());
+                        out.accept(ModItems.LOOM_SEAL.get());
+                        out.accept(ModItems.LOOM_THREAD.get());
+                        out.accept(ModItems.UNSUNG_HEART.get());
                         out.accept(ModItems.SPIRITGEAR_PICKAXE.get());
                         out.accept(ModItems.SPIRITGEAR_AXE.get());
                         out.accept(ModItems.SPIRITGEAR_SHOVEL.get());
@@ -96,6 +99,16 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRITWEAVE_ROBE.get());
                         out.accept(ModItems.SPIRITWEAVE_LEGGINGS.get());
                         out.accept(ModItems.SPIRITWEAVE_BOOTS.get());
+                        out.accept(ModItems.SKY_CHARM.get());
+                        out.accept(ModItems.EMBER_CHARM.get());
+                        out.accept(ModItems.TIDE_CHARM.get());
+                        out.accept(ModItems.ROOT_CHARM.get());
+                        out.accept(ModItems.LANTERN_CHARM.get());
+                        out.accept(ModItems.SPINDLE_CHARM.get());
+                        out.accept(ModItems.WARD_CHARM.get());
+                        out.accept(ModItems.HEARTH_CHARM.get());
+                        out.accept(ModItems.VEIL_CHARM.get());
+                        out.accept(ModItems.CHORUS_CHARM.get());
                         out.accept(ModItems.RITUAL_BRAZIER.get());
                         out.accept(ModItems.LATTICE_TUNER.get());
                         out.accept(ModItems.ITEM_RELAY.get());
@@ -115,6 +128,7 @@ public final class ModCreativeTabs {
                         tk.darrow.tribalpower.rite.world.WorldRiteRegistry.displayItems(out);
                         tk.darrow.tribalpower.ley.LeyRegistry.displayItems(out);
                         tk.darrow.tribalpower.logic.LogicRegistry.displayItems(out);
+                        tk.darrow.tribalpower.device.DeviceRegistry.displayItems(out);
                         tk.darrow.tribalpower.familiar.FamiliarRegistry.displayItems(out);
                         tk.darrow.tribalpower.camp.identity.CampIdentityRegistry.displayItems(out);
                         tk.darrow.tribalpower.world.structure.MarchRegistry.displayItems(out);

@@ -34,6 +34,8 @@ public final class TribalPowerClient {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);
                 event.register(tk.darrow.tribalpower.echo.RelayMenu.TYPE.get(), RelayScreen::new);
                 event.register(tk.darrow.tribalpower.echo.CacheMenu.TYPE.get(), CacheScreen::new);
+                event.register(tk.darrow.tribalpower.charm.CharmMenu.TYPE.get(), CharmScreen::new);
+                event.register(tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_MENU.get(), SealLoomScreen::new);
         });
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);

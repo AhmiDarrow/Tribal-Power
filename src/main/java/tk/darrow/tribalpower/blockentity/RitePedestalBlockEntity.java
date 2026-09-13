@@ -48,6 +48,10 @@ public class RitePedestalBlockEntity extends BlockEntity implements WorldlyConta
 
     public boolean stilled() { return level != null && level.hasNeighborSignal(worldPosition); }
 
+    public static void tick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, RitePedestalBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
+    }
+
     @Override public UUID owner() { return owner; }
     @Override public void setOwner(UUID owner) { this.owner = owner; setChanged(); }
 

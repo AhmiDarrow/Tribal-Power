@@ -5,21 +5,26 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 import tk.darrow.tribalpower.block.ResonanceTotemBlock;
+import tk.darrow.tribalpower.lattice.Keeping;
+import tk.darrow.tribalpower.ley.LeyMath;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandler {
+public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
     private Attunement attunement = Attunement.SPIRIT;
     private final PulseStorage resonance = new PulseStorage(250);
     private final List<BlockPos> links = new ArrayList<>();
+    private int attention = Keeping.TOTAL_TICKS;
 
     public ResonanceTotemBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.RESONANCE_TOTEM.get(), pos, state);
@@ -39,6 +44,35 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
 
     public Attunement getAttunement() {
         return attunement;
+    }
+
+    public static void serverTick(Level level, BlockPos pos, BlockState state, ResonanceTotemBlockEntity be) {
+        if (be.attention <= 0) return;
+        boolean lush = LeyMath.glimpse(level, pos).strength() >= LeyMath.PAD;
+        if (lush && (level.getGameTime() & 1L) != 0L) return;
+        be.attention--;
+        if (be.attention % 200 == 0) be.setChanged();
+    }
+
+    public Keeping.State keeping() {
+        if (attention > Keeping.ANSWERED_TICKS) return Keeping.State.ANSWERED;
+        if (attention > 0) return Keeping.State.DIM;
+        return Keeping.State.QUIET;
+    }
+
+    public int attention() {
+        return attention;
+    }
+
+    public void feed() {
+        attention = Keeping.TOTAL_TICKS;
+        setChanged();
+    }
+
+    /** Test hook. */
+    public void setAttention(int ticks) {
+        attention = Math.max(0, ticks);
+        setChanged();
     }
 
     public List<BlockPos> getLinks() {
@@ -104,6 +138,7 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
             list.add(entry);
         }
         tag.put("Links", list);
+        tag.putInt("Attention", attention);
     }
 
     @Override
@@ -118,5 +153,16 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
             CompoundTag entry = list.getCompound(i);
             links.add(new BlockPos(entry.getInt("X"), entry.getInt("Y"), entry.getInt("Z")));
         }
+        attention = tag.contains("Attention") ? Math.max(0, tag.getInt("Attention")) : Keeping.TOTAL_TICKS;
+    }
+
+    @Override
+    public List<Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        List<Component> lines = new ArrayList<>();
+        Keeping.State state = keeping();
+        lines.add(Component.translatable("diag.tribalpower.totem.keeping." + state.name().toLowerCase(java.util.Locale.ROOT)));
+        if (state != Keeping.State.ANSWERED)
+            lines.add(Component.translatable("diag.tribalpower.totem.wake").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        return lines;
     }
 }

@@ -204,6 +204,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                             || be instanceof LeyCollectorBlockEntity || be instanceof PulseResonatorBlockEntity))
                         handler.insertPulse(DRUM_PULSE, false);
                 }
+        tk.darrow.tribalpower.lattice.Keeping.livingBeat(server, origin);
     }
 
     @Override

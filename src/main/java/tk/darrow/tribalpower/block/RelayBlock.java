@@ -6,10 +6,14 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.Containers;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -42,7 +46,20 @@ public class RelayBlock extends BaseEntityBlock {
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING); }
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(FACING, context.getClickedFace());
+        BlockState state = defaultBlockState().setValue(FACING, context.getClickedFace());
+        return state.canSurvive(context.getLevel(), context.getClickedPos()) ? state : null;
+    }
+    @Override
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        Direction mount = state.getValue(FACING).getOpposite();
+        BlockPos support = pos.relative(mount);
+        BlockState host = level.getBlockState(support);
+        return !host.isAir() && !host.canBeReplaced();
+    }
+    @Override
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbour, LevelAccessor level, BlockPos pos, BlockPos neighbourPos) {
+        return direction == state.getValue(FACING).getOpposite() && !state.canSurvive(level, pos)
+                ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighbour, level, pos, neighbourPos);
     }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPES[state.getValue(FACING).ordinal()];
@@ -59,15 +76,14 @@ public class RelayBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState next, boolean moved) {
+        if (!state.is(next.getBlock()) && level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay)
+            Containers.dropContents(level, pos, relay);
+        super.onRemove(state, level, pos, next, moved);
+    }
+    @Override
     protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
-        var drops = MachineDrops.withSelf(this, super.getDrops(state, builder));
-        var be = builder.getOptionalParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_ENTITY);
-        if (be != null && be.getLevel() != null) {
-            var data = be.saveWithFullMetadata(be.getLevel().registryAccess());
-            for (var stack : drops) if (stack.is(asItem()))
-                stack.set(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA, net.minecraft.world.item.component.CustomData.of(data));
-        }
-        return drops;
+        return MachineDrops.withSelf(this, super.getDrops(state, builder));
     }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
     @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {

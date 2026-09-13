@@ -36,8 +36,10 @@ public class CampBlock extends BaseEntityBlock {
     }
     @Override protected InteractionResult useWithoutItem(BlockState state,Level level,BlockPos pos,Player player,BlockHitResult hit){
         if(!level.isClientSide&&level.getBlockEntity(pos) instanceof CampBlockEntity be){
+            if(player.isShiftKeyDown()&&be.hasInventory()&&be.canAccess(player)&&tk.darrow.tribalpower.lattice.HasSideIo.cycle(player,be,hit.getDirection()))
+                return InteractionResult.CONSUME;
             player.displayClientMessage(be.status(),true);
-            if(be.hasInventory()&&!level.hasNeighborSignal(pos)&&!player.isShiftKeyDown()&&be.canAccess(player))player.openMenu(be);
+            if(be.hasInventory()&&!level.hasNeighborSignal(pos)&&be.canAccess(player))player.openMenu(be);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -54,4 +56,7 @@ public class CampBlock extends BaseEntityBlock {
         return tk.darrow.tribalpower.block.MachineDrops.withSelf(this, super.getDrops(state, builder));
     }
     @Override public net.minecraft.world.level.material.PushReaction getPistonPushReaction(BlockState state){return net.minecraft.world.level.material.PushReaction.BLOCK;}
+    @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) {
+        return tk.darrow.tribalpower.camp.Ownership.canBreak(player.level(), pos, player) && super.canHarvestBlock(state, level, pos, player);
+    }
 }

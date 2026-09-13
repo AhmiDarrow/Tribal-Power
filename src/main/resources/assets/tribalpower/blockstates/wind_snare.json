@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/wind_snare"
+    },
+    "facing=south": {
+      "model": "tribalpower:block/wind_snare",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/wind_snare",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tribalpower:block/wind_snare",
+      "y": 90
+    },
+    "facing=up": {
+      "model": "tribalpower:block/wind_snare",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "tribalpower:block/wind_snare",
+      "x": 90
+    }
+  }
+}

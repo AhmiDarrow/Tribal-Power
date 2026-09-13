@@ -83,7 +83,11 @@ public final class SpiritCodexScreen extends Screen {
             else {showUses=!showUses;recipePage=0;scroll=0;findRecipes();}
             rebuildWidgets();
         });
-        if(recipeItem.isEmpty())button("Recipes",contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
+        if(recipeItem.isEmpty()){
+            button("Recipes",contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
+            String next=tk.darrow.tribalpower.guide.CodexTutorial.next(selected);
+            if(next!=null)button("Next",contentX+144,top+60,48,b->openEntry(next));
+        }
         else {
             button("<",contentX+80,top+60,28,b->{recipePage--;scroll=0;});
             button(">",contentX+112,top+60,28,b->{recipePage++;scroll=0;});
@@ -162,10 +166,10 @@ public final class SpiritCodexScreen extends Screen {
 
     @Override public void render(GuiGraphics g,int mx,int my,float partial) {
         renderBackground(g,mx,my,partial);
-        var book=ResourceLocation.parse("tribalpower:textures/gui/codex/book.png");
-        int seam=sidebar+12;
-        g.blit(book,left,top,seam,bookHeight,0F,0F,480,1003,1568,1003);
-        g.blit(book,left+seam,top,bookWidth-seam,bookHeight,480F,0F,1088,1003,1568,1003);
+        var atlas=ResourceLocation.parse("tribalpower:textures/gui/codex/quest_atlas.png");
+        g.blit(atlas,left,top,bookWidth,bookHeight,0F,0F,1536,1024,1536,1024);
+        g.fill(left+8,top+8,left+sidebar,top+bookHeight-8,0xCC101C27);
+        g.fill(contentX-6,top+80,contentX+contentWidth+6,top+bookHeight-50,0xCC101C27);
         g.drawString(font,"SPIRIT CODEX",left+26,top+12,GOLD,false);
         String mode=spoilers?"THE VEIL IS OPEN":"SPOILER-SAFE";
         g.drawString(font,mode,left+bookWidth-font.width(mode)-26,top+12,TEAL,false);

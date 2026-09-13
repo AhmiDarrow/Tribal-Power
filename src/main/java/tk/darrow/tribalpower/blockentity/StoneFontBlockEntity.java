@@ -18,6 +18,8 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.SpiritEffects;
+import tk.darrow.tribalpower.item.MachineRank;
+import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.pattern.ModPatterns;
 import tk.darrow.tribalpower.pattern.PatternMatcher;
@@ -170,6 +172,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
     }
 
     public static void tick(Level level, BlockPos pos, BlockState blockState, StoneFontBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) { be.state = "paused"; return; }
 
@@ -180,7 +183,11 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         ItemStack result = ask.result(pos);
         if (!be.placeOutput(result, true)) { be.state = "full"; return; }
 
-        int cost = ask.pulsePerSecond(be.grounded);
+        // Cobble is the starter ask: shape and Pulse only. Earth Keeping starts at stone.
+        var keeping = ask == Ask.COBBLE ? Keeping.State.ANSWERED : Keeping.voice(level, pos, Attunement.EARTH);
+        if (ask != Ask.COBBLE && keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
+
+        int cost = MachineRank.scalePulse(be, ask.pulsePerSecond(be.grounded));
         if (ask != Ask.COBBLE) cost = TribalConfig.scaleConsumption(cost);
         if (LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, true) < cost) {
             be.state = "pulse";
@@ -189,8 +196,9 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, false);
         be.state = "working";
         be.work++;
+        if (ask != Ask.COBBLE) Keeping.feedWork(level, pos, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.6, 0), Attunement.EARTH, 0.4, 8);
-        if (be.work >= ask.seconds()) {
+        if (be.work >= Keeping.stretch(keeping, MachineRank.scaleTime(be, ask.seconds()))) {
             if (ask == Ask.OBSIDIAN && be.grounded) {
                 if (be.water.getFluidAmount() < GROUND_COST || be.lava.getFluidAmount() < GROUND_COST) {
                     be.state = "fluid";
@@ -229,7 +237,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         if (ask != null) {
             lines.add(Component.translatable("diag.tribalpower.font.ask",
                     Component.translatable("message.tribalpower.font.ask." + ask.key()),
-                    ask.seconds(), ask.pulsePerSecond(grounded)));
+                    MachineRank.scaleTime(this, ask.seconds()), MachineRank.scalePulse(this, ask.pulsePerSecond(grounded))));
             if (ask == Ask.OBSIDIAN && grounded)
                 lines.add(Component.translatable("diag.tribalpower.font.grounded").withStyle(ChatFormatting.GRAY));
             if (ask != Ask.OBSIDIAN)

@@ -35,7 +35,7 @@ public class PulseAdapterBlockEntity extends BlockEntity {
     public static void tick(Level level, BlockPos pos, BlockState state, PulseAdapterBlockEntity be) {
         if (level.hasNeighborSignal(pos)) return;
         if ((level.getGameTime() + pos.asLong()) % 20 == 0) {
-            int want = Math.min(20, (CAPACITY - be.energy) / 100);
+            int want = Math.min(tk.darrow.tribalpower.item.MachineRank.scalePulse(be, 20), (CAPACITY - be.energy) / 100);
             if (want > 0) { int pulse = LatticeNetwork.extractPulseNearby(level, pos, 8, want, false); be.energy += pulse * 100; if (pulse > 0) be.changed(); }
         }
         int budget = Math.min(1000, be.energy);

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tribalpower:block/seal_loom_front",
+    "north": "tribalpower:block/seal_loom_front",
+    "south": "tribalpower:block/seal_loom_side",
+    "east": "tribalpower:block/seal_loom_side",
+    "west": "tribalpower:block/seal_loom_side",
+    "up": "tribalpower:block/seal_loom_side",
+    "down": "tribalpower:block/seal_loom_side"
+  }
+}

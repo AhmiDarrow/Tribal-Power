@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tribalpower:block/tide_pump_front",
+    "north": "tribalpower:block/tide_pump_front",
+    "south": "tribalpower:block/tide_pump_side",
+    "east": "tribalpower:block/tide_pump_side",
+    "west": "tribalpower:block/tide_pump_side",
+    "up": "tribalpower:block/tide_pump_side",
+    "down": "tribalpower:block/tide_pump_side"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "tribalpower:block/verse_plate",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "tribalpower:block/verse_plate"
+    },
+    "facing=north": {
+      "model": "tribalpower:block/verse_plate",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/verse_plate",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/verse_plate",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tribalpower:block/verse_plate",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

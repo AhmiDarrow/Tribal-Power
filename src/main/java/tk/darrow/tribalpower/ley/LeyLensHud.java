@@ -27,18 +27,18 @@ public final class LeyLensHud {
         g.fill(x, y, x + 2, y + height, 0xFF74DBCB);
         g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.mode." + mode), x + 8, y + 4, 0xFFE7DCC1, false);
         if (mode == LeyLensItem.LEY) {
-            LeyMath.Factors factors = LeyMath.factors(mc.level, mc.player.blockPosition());
+            LeyMath.Factors factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
             int percent = (int) Math.round(factors.strength() * 100);
             Vector3f c = LeyLensItem.colour(factors.strength());
             int colour = 0xFF000000 | ((int) (c.x * 255) << 16) | ((int) (c.y * 255) << 8) | (int) (c.z * 255);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.ley", percent), x + 8, y + 16, 0xFFE7DCC1, false);
             g.fill(x + 8, y + 28, x + 108, y + 31, 0xFF30494A);
-            g.fill(x + 8, y + 28, x + 8 + percent, y + 31, colour);
+            g.fill(x + 8, y + 28, x + 8 + Math.min(100, percent), y + 31, colour);
             StringBuilder tags = new StringBuilder();
             if (factors.sky()) tags.append(factors.night() ? "night sky " : "sky ");
-            if (factors.rain()) tags.append("rain ");
-            if (factors.water()) tags.append("water ");
-            if (factors.greenery()) tags.append("green ");
+            if (factors.rain()) tags.append(factors.thunder() ? "storm " : "rain ");
+            if (factors.water() > 0) tags.append("water ");
+            if (factors.greenery() > 0) tags.append("green ");
             if (tags.isEmpty()) tags.append("sheltered");
             g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
             return;

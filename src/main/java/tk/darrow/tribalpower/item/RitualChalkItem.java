@@ -20,6 +20,7 @@ import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * The chalk does two jobs.
@@ -28,10 +29,13 @@ import java.util.List;
  * within range seals the link.
  *
  * <p>Anywhere else it draws a Ritual Mark on the ground -- the thing that turns scattered devices into a
- * rite (design 3.1 section 7.1). Clicking a drawn mark rubs it out. The chalk is spent when the mark is
- * made, which is why the mark itself drops nothing when it is broken.
+ * rite (design 3.1 section 7.1). Clicking a drawn mark rubs it out. Each stick holds ten marks or links;
+ * a craft still makes four sticks. Rubbing a mark out costs nothing.
  */
 public class RitualChalkItem extends Item {
+    public static final int USES = 10;
+    private static final String TAG_USES = "Uses";
+    private static final String TAG_STICK = "Stick";
     private static final String TAG_LINK = "LatticePending";
     private static final String TAG_X = "X";
     private static final String TAG_Y = "Y";
@@ -97,9 +101,7 @@ public class RitualChalkItem extends Item {
                     linked ? "message.tribalpower.chalk.link" : "message.tribalpower.chalk.already"
             ), true);
         }
-        if (linked && player != null && !player.getAbilities().instabuild) {
-            stack.shrink(1);
-        }
+        if (linked) spend(context);
         return InteractionResult.SUCCESS;
     }
 
@@ -136,17 +138,80 @@ public class RitualChalkItem extends Item {
         level.setBlock(target, state, Block.UPDATE_ALL);
         tk.darrow.tribalpower.sound.ModSounds.play(level, target,
                 tk.darrow.tribalpower.sound.ModSounds.CHALK_DRAW, 0.7F, 1.05F);
-        if (player == null || !player.getAbilities().instabuild) stack.shrink(1);
+        spend(context);
         if (player != null) {
             player.displayClientMessage(Component.translatable("message.tribalpower.chalk.drawn"), true);
         }
         return InteractionResult.SUCCESS;
     }
 
+    private static void spend(UseOnContext context) {
+        Player player = context.getPlayer();
+        if (player != null && player.getAbilities().instabuild) return;
+        ItemStack stack = context.getItemInHand();
+        if (stack.getCount() > 1) {
+            ItemStack one = stack.split(1);
+            consumeUse(one);
+            if (one.isEmpty()) return;
+            if (player != null) {
+                if (!player.getInventory().add(one)) player.drop(one, false);
+            } else {
+                Block.popResource(context.getLevel(), context.getClickedPos(), one);
+            }
+            return;
+        }
+        consumeUse(stack);
+    }
+
+    private static void consumeUse(ItemStack stack) {
+        int left = remaining(stack) - 1;
+        if (left <= 0) {
+            CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+            tag.remove(TAG_USES);
+            tag.remove(TAG_STICK);
+            if (tag.isEmpty()) stack.remove(DataComponents.CUSTOM_DATA);
+            else stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+            stack.shrink(1);
+        } else {
+            writeUses(stack, left);
+        }
+    }
+
+    public static int remaining(ItemStack stack) {
+        CustomData data = stack.get(DataComponents.CUSTOM_DATA);
+        if (data == null) return USES;
+        CompoundTag tag = data.copyTag();
+        return tag.contains(TAG_USES) ? Math.clamp(tag.getInt(TAG_USES), 0, USES) : USES;
+    }
+
+    private static void writeUses(ItemStack stack, int uses) {
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        tag.putInt(TAG_USES, uses);
+        if (!tag.hasUUID(TAG_STICK)) tag.putUUID(TAG_STICK, UUID.randomUUID());
+        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+    }
+
+    @Override
+    public boolean isBarVisible(ItemStack stack) {
+        return remaining(stack) < USES;
+    }
+
+    @Override
+    public int getBarWidth(ItemStack stack) {
+        return Math.round(13.0F * remaining(stack) / USES);
+    }
+
+    @Override
+    public int getBarColor(ItemStack stack) {
+        float t = remaining(stack) / (float) USES;
+        return net.minecraft.util.Mth.hsvToRgb(t / 3.0F, 1.0F, 1.0F);
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.ritual_chalk.desc"));
         tooltip.add(Component.translatable("item.tribalpower.ritual_chalk.marks"));
+        tooltip.add(Component.translatable("item.tribalpower.ritual_chalk.uses", remaining(stack), USES));
         BlockPos pending = readPending(stack);
         if (pending != null) {
             tooltip.add(Component.translatable(

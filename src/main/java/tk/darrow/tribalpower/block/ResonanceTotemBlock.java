@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -63,6 +65,42 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
         return new ResonanceTotemBlockEntity(pos, state, attunement);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return level.isClientSide ? null : createTickerHelper(type, tk.darrow.tribalpower.blockentity.ModBlockEntities.RESONANCE_TOTEM.get(), ResonanceTotemBlockEntity::serverTick);
+    }
+
+    @Override
+    protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state,
+            Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (stack.is(tk.darrow.tribalpower.item.ModItems.BONE_CHIME.get())) {
+            if (!level.isClientSide && level.getBlockEntity(pos) instanceof ResonanceTotemBlockEntity totem) {
+                tk.darrow.tribalpower.lattice.Keeping.relight(totem, (net.minecraft.server.level.ServerLevel) level);
+                player.displayClientMessage(Component.translatable(
+                        "message.tribalpower.totem.keeping." + totem.keeping().name().toLowerCase(java.util.Locale.ROOT),
+                        Component.translatable("attunement.tribalpower." + attunement.getSerializedName())
+                ), true);
+            }
+            return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        boolean gear = tk.darrow.tribalpower.item.SpiritGear.isGear(stack);
+        boolean charm = stack.getItem() instanceof tk.darrow.tribalpower.charm.SpiritCharmItem;
+        if (!player.isShiftKeyDown() || (!gear && !charm)) {
+            return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+        if (!level.isClientSide) {
+            boolean linked = gear
+                    ? tk.darrow.tribalpower.item.SpiritGear.tryLink(player, stack, attunement)
+                    : tk.darrow.tribalpower.charm.SpiritCharmItem.addVoice(player, stack, attunement);
+            if (linked) {
+                tk.darrow.tribalpower.effect.SpiritEffects.ring(
+                        (net.minecraft.server.level.ServerLevel) level, pos.getCenter().add(0, 0.6, 0), attunement, 0.9, 16);
+            }
+        }
+        return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+    }
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
@@ -71,6 +109,12 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
                     Component.translatable("attunement.tribalpower." + attunement.getSerializedName())
             ), true);
             if (level.getBlockEntity(pos) instanceof ResonanceTotemBlockEntity totem) {
+                if (totem.keeping() != tk.darrow.tribalpower.lattice.Keeping.State.ANSWERED)
+                    tk.darrow.tribalpower.lattice.Keeping.relight(totem, (net.minecraft.server.level.ServerLevel) level);
+                player.displayClientMessage(Component.translatable(
+                        "message.tribalpower.totem.keeping." + totem.keeping().name().toLowerCase(java.util.Locale.ROOT),
+                        Component.translatable("attunement.tribalpower." + attunement.getSerializedName())
+                ), true);
                 player.displayClientMessage(Component.translatable(
                         "message.tribalpower.totem.links",
                         totem.getLinks().size()

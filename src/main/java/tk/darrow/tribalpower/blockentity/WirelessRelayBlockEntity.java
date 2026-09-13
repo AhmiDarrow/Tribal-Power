@@ -139,6 +139,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
 
     private void transfer(Level sourceLevel, BlockPos sourcePos, Direction sourceFace, Level destLevel, BlockPos destPos, Direction destFace) {
         int cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(tier() == 3 ? 16 : tier() == 2 ? 8 : 4);
+        cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, cost);
         if (LatticeNetwork.extractPulseNearby(sourceLevel, worldPosition, 8, cost, true) < cost) { updateStatus("pulse"); return; }
         boolean moved = fluid() ? moveFluid(sourceLevel, sourcePos, sourceFace, destLevel, destPos, destFace)
                 : moveItem(sourceLevel, sourcePos, sourceFace, destLevel, destPos, destFace);
@@ -161,7 +162,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (source == null || sink == null || source == sink || source.getSlots() == 0) return false;
         for (int n = 0; n < source.getSlots(); n++) {
             int slot = Math.floorMod(cursor + n, source.getSlots());
-            ItemStack candidate = source.extractItem(slot, 16, true);
+            ItemStack candidate = source.extractItem(slot, tk.darrow.tribalpower.item.MachineRank.itemBurst(this, 16), true);
             if (candidate.isEmpty()) continue;
             int accepted = candidate.getCount() - ItemHandlerHelper.insertItemStacked(sink, candidate, true).getCount();
             if (accepted <= 0) continue;
@@ -190,11 +191,12 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         }
         var source = sourceLevel.getCapability(Capabilities.FluidHandler.BLOCK, sourcePos, sourceFace);
         if (source == null || source == sink) return false;
-        var candidate = source.drain(250, IFluidHandler.FluidAction.SIMULATE);
+        int burst = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, 250);
+        var candidate = source.drain(burst, IFluidHandler.FluidAction.SIMULATE);
         if (candidate.isEmpty()) return false;
         int accepted = sink.fill(candidate, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
-        var actual = source.drain(candidate.copyWithAmount(Math.min(250, accepted)), IFluidHandler.FluidAction.EXECUTE);
+        var actual = source.drain(candidate.copyWithAmount(Math.min(burst, accepted)), IFluidHandler.FluidAction.EXECUTE);
         if (actual.isEmpty()) return false;
         int filled = sink.fill(actual.copy(), IFluidHandler.FluidAction.EXECUTE);
         if (filled < actual.getAmount()) {

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " L ",
+    "PCP",
+    "WBW"
+  ],
+  "key": {
+    "L": {
+      "item": "tribalpower:loom_thread"
+    },
+    "P": {
+      "item": "minecraft:crafting_table"
+    },
+    "C": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    }
+  },
+  "result": {
+    "id": "tribalpower:seal_loom",
+    "count": 1
+  }
+}

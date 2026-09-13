@@ -70,6 +70,22 @@ public final class TribalPower {
         tk.darrow.tribalpower.rite.world.WorldRiteRegistry.register(modBus);
         tk.darrow.tribalpower.ley.LeyRegistry.register(modBus);
         tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
+        tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
+        tk.darrow.tribalpower.charm.CharmSlots.register(modBus);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::incomingDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::drops);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::beforePlace);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::placed);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::dropped);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::beforeBreak);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::drops);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::incomingDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::knockback);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::fall);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::trample);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::playerTick);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);
         modBus.addListener(ModEntityAttributes::onAttributes);
         modBus.addListener(ModEntityAttributes::onSpawnPlacements);
@@ -79,7 +95,8 @@ public final class TribalPower {
                     tk.darrow.tribalpower.camp.CampRegistry.TYPE.get(),(be,side)->be.hasInventory()?new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
                             new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be,side==null?net.minecraft.core.Direction.UP:side)):null);
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
-                    ModBlockEntities.SPIRIT_CISTERN.get(), (be, side) -> be.tank);
+                    ModBlockEntities.SPIRIT_CISTERN.get(), (be, side) ->
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.tank));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
                     ModBlockEntities.PULSE_ADAPTER.get(), (be, side) -> be.handler);
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
@@ -99,7 +116,8 @@ public final class TribalPower {
             // Washing drinks 250 mB a cycle, so the mesh has to be something a bucket or a cistern can
             // actually reach; and the relays speak ItemHandler, where a hopper speaks WorldlyContainer.
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
-                    ModBlockEntities.RESONANCE_MESH.get(), (be, side) -> be.tank);
+                    ModBlockEntities.RESONANCE_MESH.get(), (be, side) ->
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.tank));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     ModBlockEntities.RESONANCE_MESH.get(), (be, side) ->
                             new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
@@ -111,7 +129,25 @@ public final class TribalPower {
                                     side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
                                             : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
-                    ModBlockEntities.STONE_FONT.get(), (be, side) -> be.fluids);
+                    ModBlockEntities.STONE_FONT.get(), (be, side) ->
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.fluids));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    tk.darrow.tribalpower.device.DeviceRegistry.WORKSHOP.get(), (be, side) ->
+                            "wind_snare".equals(be.kind())
+                                    ? new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side))
+                                    : null);
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_TYPE.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                    ModBlockEntities.RITE_PEDESTAL.get(), (be, side) ->
+                            new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                                    side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
+                                            : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
         });
     }
 

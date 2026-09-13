@@ -46,13 +46,16 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
     @Override
     public int currentOutput() {
         if (level == null || stilled()) return 0;
-        return TribalConfig.scaleGeneration(rawOutput(level, worldPosition));
+        int output = TribalConfig.scaleGeneration(rawOutput(level, worldPosition));
+        return output + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, output);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GeneratorBlockEntity be) {
+        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) return;
         int output = TribalConfig.scaleGeneration(be.rawOutput(level, pos));
+        output += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, output);
         if (output <= 0) return;
         int accepted = be.pulse.insertPulse(output, false);
         be.afterProduce(level, pos, accepted);

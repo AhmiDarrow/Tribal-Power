@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " F ",
+    "CDC",
+    "WBW"
+  ],
+  "key": {
+    "F": {
+      "item": "tribalpower:fire_seal"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "tribalpower:bone_chime"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ward_drum",
+    "count": 1
+  }
+}

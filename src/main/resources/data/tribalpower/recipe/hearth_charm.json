@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    { "item": "tribalpower:spiritweave" },
+    { "item": "tribalpower:manifested_ingot" },
+    { "item": "tribalpower:ember_heart" }
+  ],
+  "result": { "id": "tribalpower:hearth_charm", "count": 1 }
+}

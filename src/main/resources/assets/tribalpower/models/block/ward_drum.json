@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tribalpower:block/ward_drum_front",
+    "north": "tribalpower:block/ward_drum_front",
+    "south": "tribalpower:block/ward_drum_side",
+    "east": "tribalpower:block/ward_drum_side",
+    "west": "tribalpower:block/ward_drum_side",
+    "up": "tribalpower:block/ward_drum_side",
+    "down": "tribalpower:block/ward_drum_side"
+  }
+}

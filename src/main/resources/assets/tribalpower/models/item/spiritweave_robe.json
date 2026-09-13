@@ -2,5 +2,25 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "tribalpower:item/spiritweave_robe"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "tribalpower:item/spiritweave_robe_attuned"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "tribalpower:item/spiritweave_robe_bound"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "tribalpower:item/spiritweave_robe_manifested"
+    }
+  ]
 }

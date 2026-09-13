@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "WBR",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "W": {
+      "item": "tribalpower:water_seal"
+    },
+    "B": {
+      "item": "tribalpower:bound_echo"
+    },
+    "R": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "id": "tribalpower:tide_pump",
+    "count": 1
+  }
+}

@@ -82,6 +82,25 @@ public final class LatticeNetwork {
         return found;
     }
 
+    /** Resonance Totems of {@code voice} that {@link #collectAttunements} would count: nearby, plus chalk-linked within {@link #LINK_RANGE}. */
+    public static List<ResonanceTotemBlockEntity> findVoiceTotems(Level level, BlockPos origin, int radius, Attunement voice) {
+        List<ResonanceTotemBlockEntity> found = new ArrayList<>();
+        HashSet<BlockPos> seen = new HashSet<>();
+        for (ResonanceTotemBlockEntity totem : findNearbyTotems(level, origin, radius)) {
+            if (totem.getAttunement() == voice && seen.add(totem.getBlockPos())) found.add(totem);
+            for (BlockPos linked : totem.getLinks()) {
+                if (!linked.closerThan(origin, LINK_RANGE)) continue;
+                BlockEntity be = level.hasChunkAt(linked) ? level.getBlockEntity(linked) : null;
+                if (be instanceof ResonanceTotemBlockEntity linkedTotem && canLink(totem.getBlockPos(), linked)
+                        && linkedTotem.isLinkedTo(totem.getBlockPos()) && linkedTotem.getAttunement() == voice
+                        && seen.add(linkedTotem.getBlockPos())) {
+                    found.add(linkedTotem);
+                }
+            }
+        }
+        return found;
+    }
+
     /**
      * BFS across Ritual Chalk links starting from {@code seed}.
      */

@@ -14,6 +14,7 @@ public class StationMenu extends AbstractContainerMenu {
     static {
         RelayMenu.class.getName();
         CacheMenu.class.getName();
+        tk.darrow.tribalpower.charm.CharmMenu.class.getName();
     }
     private final Container container;
     private final ContainerData data;

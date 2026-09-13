@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/ward_drum"
+    },
+    "facing=south": {
+      "model": "tribalpower:block/ward_drum",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/ward_drum",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "tribalpower:block/ward_drum",
+      "y": 90
+    },
+    "facing=up": {
+      "model": "tribalpower:block/ward_drum",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "tribalpower:block/ward_drum",
+      "x": 90
+    }
+  }
+}

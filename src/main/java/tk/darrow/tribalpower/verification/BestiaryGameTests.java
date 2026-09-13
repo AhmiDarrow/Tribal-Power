@@ -24,7 +24,7 @@ public class BestiaryGameTests {
             h.assertTrue(entity!=null && entity.getMaxHealth()==p.health,"Creature must construct with its authored attributes: "+p.id);
             if(p.attack.equals("ember") || p.attack.equals("bolt"))h.assertTrue(entity.fireImmune(),"Fire spirits should resist fire");
             boolean habitat=false;
-            for(String name:java.util.List.of("march_steppe","march_highlands","march_crystal_fields")) {
+            for(String name:java.util.List.of("march_steppe","march_highlands","march_crystal_fields","march_snow_fields","march_ember_wastes","march_reed_fen")) {
                 var biome=biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:"+name));
                 if(biome!=null)for(var entry:biome.getMobSettings().getMobs(p.animal?MobCategory.CREATURE:MobCategory.MONSTER).unwrap())if(entry.type==entity.getType())habitat=true;
             }
