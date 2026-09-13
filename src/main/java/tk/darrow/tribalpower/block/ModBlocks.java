@@ -391,7 +391,7 @@ public final class ModBlocks {
     /** Hoe March soils into March farmland when the block above is air. */
     public static void tillMarchSoil(BlockEvent.BlockToolModificationEvent event) {
         if (event.getItemAbility() != ItemAbilities.HOE_TILL) return;
-        if (!isMarchTillable(event.getState())) return;
+        if (!isMarchTillable(event.getState()) && !event.getState().is(MARCH_PATH.get())) return;
         var ctx = event.getContext();
         if (ctx != null && !ctx.getLevel().getBlockState(ctx.getClickedPos().above()).isAir()) return;
         event.setFinalState(MARCH_FARMLAND.get().defaultBlockState());

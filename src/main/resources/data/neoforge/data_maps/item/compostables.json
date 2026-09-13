@@ -3,6 +3,7 @@
     "tribalpower:march_sapling": { "chance": 0.3 },
     "tribalpower:march_leaves": { "chance": 0.3 },
     "tribalpower:march_leaf": { "chance": 0.3 },
+    "tribalpower:march_moss": { "chance": 0.65 },
     "tribalpower:spirit_reed": { "chance": 0.5 },
     "tribalpower:echo_bloom": { "chance": 0.65 },
     "tribalpower:ley_thistle": { "chance": 0.65 }

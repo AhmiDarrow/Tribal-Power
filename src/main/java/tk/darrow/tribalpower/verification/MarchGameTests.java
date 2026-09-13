@@ -225,6 +225,22 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get().defaultBlockState()
                         .is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON),
                 "March soil must accept animal spawns");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.FOXES_SPAWNABLE_ON),
+                "March grass must take foxes");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_STONE.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.GOATS_SPAWNABLE_ON),
+                "March stone must take goats in the highlands");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.FROGS_SPAWNABLE_ON),
+                "March moss must take frogs in the reed fen");
+        h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get());
+        h.setBlock(pos.above(), Blocks.AIR);
+        var pathTill = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
+                h.getBlockState(pos), ctx, net.neoforged.neoforge.common.ItemAbilities.HOE_TILL, true);
+        tk.darrow.tribalpower.block.ModBlocks.tillMarchSoil(pathTill);
+        h.assertTrue(pathTill.getFinalState().is(tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get()),
+                "March path with air above must hoe into March farmland");
         var farm = new BlockPos(4, 2, 4);
         h.setBlock(farm, tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get().defaultBlockState());
         h.setBlock(farm.above(), Blocks.STONE);

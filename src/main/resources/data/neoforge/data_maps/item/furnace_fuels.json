@@ -1,0 +1,8 @@
+{
+  "values": {
+    "tribalpower:march_log": { "burn_time": 300 },
+    "tribalpower:march_planks": { "burn_time": 300 },
+    "tribalpower:march_sapling": { "burn_time": 100 },
+    "tribalpower:march_leaf": { "burn_time": 100 }
+  }
+}
