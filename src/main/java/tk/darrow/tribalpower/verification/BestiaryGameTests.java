@@ -142,6 +142,13 @@ public class BestiaryGameTests {
         h.assertTrue(AuroraMath.visibility(6000,0,0,0)==0,"Aurora must disappear at noon");
         h.assertTrue(AuroraMath.visibility(18000,0,1,0)==0 && AuroraMath.visibility(18000,0,0,1)==0,"Rain and thunder must hide the aurora");
         for(long t=-48000;t<=48000;t+=37) {float a=AuroraMath.visibility(t,.5F,.2F,0);h.assertTrue(Float.isFinite(a)&&a>=0&&a<=1,"Sky opacity must remain bounded");}
+        h.assertTrue(tk.darrow.tribalpower.world.MarchSkyMath.dayness(6000,0)>.9,"March day sky must peak at noon");
+        h.assertTrue(tk.darrow.tribalpower.world.MarchSkyMath.dayness(18000,0)<.1,"March day sky must rest at midnight so the aurora can take the night");
+        h.assertTrue(tk.darrow.tribalpower.world.MarchSkyMath.sunAlpha(1,0)>.9 && tk.darrow.tribalpower.world.MarchSkyMath.moonAlpha(1,0)<.05,"Noon keeps the spirit-sun and hides the loom-moon");
+        h.assertTrue(tk.darrow.tribalpower.world.MarchSkyMath.moonAlpha(0,0)>.9 && tk.darrow.tribalpower.world.MarchSkyMath.sunAlpha(0,0)<.05,"Midnight keeps the loom-moon and hides the spirit-sun");
+        float[] noon=tk.darrow.tribalpower.world.MarchSkyMath.zenith(1,0);
+        float[] night=tk.darrow.tribalpower.world.MarchSkyMath.zenith(0,0);
+        h.assertTrue(noon[1]>night[1] && night[2]>night[0],"Day zenith is teal; night zenith is indigo");
         h.succeed();
     }
 }

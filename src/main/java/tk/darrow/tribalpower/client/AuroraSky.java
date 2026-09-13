@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.FogType;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import org.joml.Matrix4f;
 import tk.darrow.tribalpower.world.*;
-/** Camera-centered sky ribbons, rendered before terrain so mountains and roofs occlude them. */
+/** Camera-centered sky ribbons over the March night (and Overworld). Drawn after the skybox so mountains occlude them. */
 public final class AuroraSky {
     private AuroraSky() {}
     public static void render(RenderLevelStageEvent event) {
