@@ -281,6 +281,25 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_SAPLING.get().defaultBlockState()
                         .hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.STAGE),
                 "March saplings must have a growth stage");
+        h.assertTrue(new net.minecraft.world.item.ItemStack(tk.darrow.tribalpower.item.ModItems.MARCH_COBBLE.get())
+                        .is(net.minecraft.tags.ItemTags.STONE_CRAFTING_MATERIALS),
+                "March cobble must craft furnaces and stone recipes");
+        h.assertTrue(new net.minecraft.world.item.ItemStack(tk.darrow.tribalpower.item.ModItems.MARCH_COBBLE.get())
+                        .is(net.minecraft.tags.ItemTags.STONE_TOOL_MATERIALS),
+                "March cobble must craft stone tools");
+        var stone = new BlockPos(6, 2, 1);
+        h.setBlock(stone, tk.darrow.tribalpower.block.ModBlocks.MARCH_STONE.get());
+        var pick = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_PICKAXE);
+        var cobbleDrops = net.minecraft.world.level.block.Block.getDrops(
+                h.getBlockState(stone), h.getLevel(), h.absolutePos(stone), null, player, pick);
+        h.assertTrue(cobbleDrops.stream().anyMatch(s -> s.is(tk.darrow.tribalpower.item.ModItems.MARCH_COBBLE.get())),
+                "March stone without silk must drop cobble");
+        var grassDrop = new BlockPos(6, 2, 2);
+        h.setBlock(grassDrop, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        var soilDrops = net.minecraft.world.level.block.Block.getDrops(
+                h.getBlockState(grassDrop), h.getLevel(), h.absolutePos(grassDrop), null, player, shovel);
+        h.assertTrue(soilDrops.stream().anyMatch(s -> s.is(tk.darrow.tribalpower.item.ModItems.MARCH_SOIL.get())),
+                "March grass without silk must drop soil");
         h.succeed();
     }
 

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": { "item": "tribalpower:march_cobble" },
+  "result": { "id": "tribalpower:march_stone" }
+}
