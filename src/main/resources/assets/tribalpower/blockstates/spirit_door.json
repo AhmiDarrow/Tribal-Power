@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "tribalpower:block/spirit_door"
-    }
+    "facing=north": { "model": "tribalpower:block/spirit_door" },
+    "facing=east": { "model": "tribalpower:block/spirit_door", "y": 90 },
+    "facing=south": { "model": "tribalpower:block/spirit_door", "y": 180 },
+    "facing=west": { "model": "tribalpower:block/spirit_door", "y": 270 }
   }
 }

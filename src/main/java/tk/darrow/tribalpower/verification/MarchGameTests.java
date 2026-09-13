@@ -326,10 +326,34 @@ public class MarchGameTests {
                 h.getBlockState(grassDrop), h.getLevel(), h.absolutePos(grassDrop), null, player, shovel);
         h.assertTrue(soilDrops.stream().anyMatch(s -> s.is(tk.darrow.tribalpower.item.ModItems.MARCH_SOIL.get())),
                 "March grass without silk must drop soil");
-        h.assertTrue(!net.minecraft.world.level.block.Block.isShapeFullBlock(
-                        tk.darrow.tribalpower.block.ModBlocks.SPIRIT_DOOR.get().defaultBlockState()
-                                .getShape(h.getLevel(), h.absolutePos(pos))),
-                "Spirit Door is a gateway frame — walk the middle");
+        var door = tk.darrow.tribalpower.block.ModBlocks.SPIRIT_DOOR.get();
+        var facing = net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING;
+        var playerBox = new AABB(0.2, 0.0, 0.2, 0.8, 1.8, 0.8);
+        h.setBlock(pos, door.defaultBlockState().setValue(facing, net.minecraft.core.Direction.NORTH));
+        h.assertTrue(h.getBlockState(pos).getCollisionShape(h.getLevel(), h.absolutePos(pos))
+                        .toAabbs().stream().noneMatch(box -> box.intersects(playerBox)),
+                "A player must fit through a north Spirit Door");
+        h.setBlock(pos, door.defaultBlockState().setValue(facing, net.minecraft.core.Direction.EAST));
+        h.assertTrue(h.getBlockState(pos).getCollisionShape(h.getLevel(), h.absolutePos(pos))
+                        .toAabbs().stream().noneMatch(box -> box.intersects(playerBox)),
+                "A player must fit through an east Spirit Door");
+        var floor = new BlockPos(4, 2, 5);
+        var crystal = floor.above();
+        h.setBlock(floor, tk.darrow.tribalpower.block.ModBlocks.MARCH_STONE.get());
+        h.setBlock(crystal, tk.darrow.tribalpower.block.ModBlocks.MARCH_CRYSTAL.get());
+        h.assertTrue(h.getBlockState(crystal).canSurvive(h.getLevel(), h.absolutePos(crystal)),
+                "March Crystal must sit on a sturdy floor");
+        h.setBlock(floor, Blocks.AIR);
+        h.assertTrue(h.getBlockState(crystal).isAir(), "March Crystal must pop when its floor is gone");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.COMBINATION_STEP_SOUND_BLOCKS),
+                "March path must blend step sounds like dirt path");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.DAMPENS_VIBRATIONS),
+                "March moss must hush sculk like moss");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LOG.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.OVERWORLD_NATURAL_LOGS),
+                "March logs must count as overworld logs");
         h.succeed();
     }
 
