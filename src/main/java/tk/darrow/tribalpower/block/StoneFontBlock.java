@@ -115,7 +115,7 @@ public class StoneFontBlock extends BaseEntityBlock {
     }
     @Override
     protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
-        return MachineDrops.withSelf(this, super.getDrops(state, builder));
+        return MachineDrops.withSelfAndBlockEntity(this, super.getDrops(state, builder), builder);
     }
 
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }

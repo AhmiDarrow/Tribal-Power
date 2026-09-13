@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "particle": "tribalpower:block/march_soil",
+    "top": "tribalpower:block/march_soil_top",
+    "side": "tribalpower:block/march_grass",
+    "bottom": "tribalpower:block/march_soil"
+  }
+}

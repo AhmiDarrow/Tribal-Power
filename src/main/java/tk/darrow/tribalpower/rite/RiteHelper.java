@@ -76,7 +76,11 @@ public final class RiteHelper {
         // Firm the ground underfoot into dirt paths for footing.
         BlockPos.betweenClosedStream(pos.offset(-2, -1, -2), pos.offset(2, -1, 2)).forEach(p -> {
             BlockState state = server.getBlockState(p);
-            if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT)) {
+            if (state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get())
+                    || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get())
+                    || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get())) {
+                server.setBlock(p, tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get().defaultBlockState(), 3);
+            } else if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT)) {
                 server.setBlock(p, Blocks.DIRT_PATH.defaultBlockState(), 3);
             }
         });

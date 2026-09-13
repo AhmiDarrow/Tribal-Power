@@ -1,7 +1,9 @@
 package tk.darrow.tribalpower.block;
 
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -160,6 +162,16 @@ public final class ModBlocks {
                     .isSuffocating((state, level, pos) -> true))
     );
 
+    public static final DeferredBlock<MarchPathBlock> MARCH_PATH = BLOCKS.register(
+            "march_path",
+            () -> new MarchPathBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_GREEN)
+                    .strength(0.65F)
+                    .sound(SoundType.GRASS)
+                    .isViewBlocking((state, level, pos) -> true)
+                    .isSuffocating((state, level, pos) -> true))
+    );
+
     public static final DeferredBlock<Block> MARCH_GRASS = BLOCKS.registerSimpleBlock(
             "march_grass",
             BlockBehaviour.Properties.of()
@@ -176,12 +188,12 @@ public final class ModBlocks {
                     .sound(SoundType.MOSS)
     );
 
-    public static final DeferredBlock<Block> MARCH_LOG = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<Block> MARCH_LOG = BLOCKS.register(
             "march_log",
-            BlockBehaviour.Properties.of()
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN)
                     .strength(2.0F)
-                    .sound(SoundType.WOOD)
+                    .sound(SoundType.WOOD))
     );
 
     public static final DeferredBlock<Block> MARCH_PLANKS = BLOCKS.registerSimpleBlock(
@@ -358,5 +370,15 @@ public final class ModBlocks {
         var ctx = event.getContext();
         if (ctx != null && !ctx.getLevel().getBlockState(ctx.getClickedPos().above()).isAir()) return;
         event.setFinalState(MARCH_FARMLAND.get().defaultBlockState());
+    }
+
+    /** Shovel March soils into March path when the block above is air. */
+    public static void flattenMarchSoil(BlockEvent.BlockToolModificationEvent event) {
+        if (event.getItemAbility() != ItemAbilities.SHOVEL_FLATTEN) return;
+        if (!isMarchTillable(event.getState())) return;
+        var ctx = event.getContext();
+        if (ctx != null && (ctx.getClickedFace() == Direction.DOWN
+                || !ctx.getLevel().getBlockState(ctx.getClickedPos().above()).isAir())) return;
+        event.setFinalState(MARCH_PATH.get().defaultBlockState());
     }
 }

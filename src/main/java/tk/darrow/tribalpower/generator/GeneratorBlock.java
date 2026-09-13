@@ -132,7 +132,7 @@ public class GeneratorBlock extends BaseEntityBlock {
     }
     @Override
     protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
-        return tk.darrow.tribalpower.block.MachineDrops.withSelf(this, super.getDrops(state, builder));
+        return tk.darrow.tribalpower.block.MachineDrops.withSelfAndBlockEntity(this, super.getDrops(state, builder), builder);
     }
 
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }

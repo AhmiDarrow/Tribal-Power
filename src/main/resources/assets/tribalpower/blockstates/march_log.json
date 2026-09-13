@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "tribalpower:block/march_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "tribalpower:block/march_log"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/march_log_horizontal",
+      "x": 90
     }
   }
 }

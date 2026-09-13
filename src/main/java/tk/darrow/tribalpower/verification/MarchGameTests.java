@@ -234,6 +234,26 @@ public class MarchGameTests {
         h.setBlock(farm, tk.darrow.tribalpower.block.ModBlocks.MARCH_FARMLAND.get().defaultBlockState());
         h.assertTrue(h.getBlockState(farm).getBlock() instanceof net.minecraft.world.level.block.FarmBlock,
                 "March farmland must be a FarmBlock so vanilla crops plant");
+        h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(pos.above(), Blocks.AIR);
+        var shovel = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.WOODEN_SHOVEL);
+        var flatten = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
+                h.getBlockState(pos),
+                new net.minecraft.world.item.context.UseOnContext(
+                        h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, shovel, hit),
+                net.neoforged.neoforge.common.ItemAbilities.SHOVEL_FLATTEN, true);
+        tk.darrow.tribalpower.block.ModBlocks.flattenMarchSoil(flatten);
+        h.assertTrue(flatten.getFinalState().is(tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get()),
+                "March grass with air above must shovel into March path");
+        var path = new BlockPos(1, 2, 1);
+        h.setBlock(path, tk.darrow.tribalpower.block.ModBlocks.MARCH_PATH.get());
+        h.setBlock(path.above(), Blocks.STONE);
+        h.getBlockState(path).tick(h.getLevel(), h.absolutePos(path), h.getLevel().random);
+        h.assertTrue(h.getBlockState(path).is(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get()),
+                "Blocked March path must revert to March soil, not dirt");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LOG.get().defaultBlockState()
+                        .hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.AXIS),
+                "March logs must have an axis so trunks stand upright");
         h.succeed();
     }
 

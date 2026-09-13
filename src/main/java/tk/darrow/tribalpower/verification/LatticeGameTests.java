@@ -461,6 +461,30 @@ public class LatticeGameTests {
         h.succeed();
     }
     @GameTest(template="empty")
+    public static void waveDrumKeepsItsTankWhenBroken(GameTestHelper h) {
+        var pos=new BlockPos(2,1,2);
+        h.setBlock(pos,tk.darrow.tribalpower.generator.GeneratorRegistry.WAVE_DRUM.get());
+        var drum=at(h,pos,tk.darrow.tribalpower.generator.WaveDrumBlockEntity.class);
+        drum.tank.fill(new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER,1000),
+                net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+        var abs=h.absolutePos(pos);
+        var player=h.makeMockServerPlayerInLevel();
+        player.getAbilities().instabuild=false;
+        net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,drum,player,ItemStack.EMPTY);
+        h.setBlock(pos,Blocks.AIR);
+        var items=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,h.getBounds().inflate(4));
+        boolean kept=false;
+        for(var item:items) {
+            var stack=item.getItem();
+            if(!stack.is(tk.darrow.tribalpower.generator.GeneratorRegistry.WAVE_DRUM.get().asItem())) continue;
+            var data=stack.get(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA);
+            h.assertTrue(data!=null,"Wave Drum must keep its block entity on the drop");
+            kept=data.copyTag().contains("Tank");
+        }
+        h.assertTrue(kept,"Wave Drum water must ride on the dropped drum, not void");
+        h.succeed();
+    }
+    @GameTest(template="empty")
     public static void ritualChalkHasTenUsesPerStick(GameTestHelper h) {
         var stack=new ItemStack(ModItems.RITUAL_CHALK.get(),4);
         h.assertTrue(tk.darrow.tribalpower.item.RitualChalkItem.remaining(stack)==tk.darrow.tribalpower.item.RitualChalkItem.USES,"Each chalk stick starts at 10 uses");

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "tribalpower:block/march_leaves"
+    "top": "tribalpower:block/march_leaves_top",
+    "bottom": "tribalpower:block/march_leaves",
+    "side": "tribalpower:block/march_leaves"
   }
 }
