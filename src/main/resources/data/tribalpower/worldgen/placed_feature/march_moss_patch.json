@@ -9,15 +9,19 @@
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:height_range",
-      "height": {
-        "type": "minecraft:uniform",
-        "min_inclusive": {
-          "absolute": 3
-        },
-        "max_inclusive": {
-          "absolute": 5
-        }
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "offset": [0, -1, 0],
+        "blocks": [
+          "tribalpower:march_grass",
+          "tribalpower:march_soil",
+          "tribalpower:march_moss"
+        ]
       }
     },
     {

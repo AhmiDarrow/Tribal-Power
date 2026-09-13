@@ -193,6 +193,41 @@ public class MarchGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void marchSoilsTillToFarmlandWhenAirAbove(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get());
+        h.setBlock(pos.above(), Blocks.AIR);
+        var hoe = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.WOODEN_HOE);
+        var hit = new net.minecraft.world.phys.BlockHitResult(
+                net.minecraft.world.phys.Vec3.atCenterOf(h.absolutePos(pos)),
+                net.minecraft.core.Direction.UP, h.absolutePos(pos), false);
+        var ctx = new net.minecraft.world.item.context.UseOnContext(
+                h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, hoe, hit);
+        var event = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
+                h.getBlockState(pos), ctx, net.neoforged.neoforge.common.ItemAbilities.HOE_TILL, true);
+        tk.darrow.tribalpower.block.ModBlocks.tillMarchSoil(event);
+        h.assertTrue(event.getFinalState().is(Blocks.FARMLAND), "March soil with air above must hoe into farmland");
+        h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(pos.above(), Blocks.STONE);
+        var blocked = new net.neoforged.neoforge.event.level.BlockEvent.BlockToolModificationEvent(
+                h.getBlockState(pos),
+                new net.minecraft.world.item.context.UseOnContext(
+                        h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, hoe, hit),
+                net.neoforged.neoforge.common.ItemAbilities.HOE_TILL, true);
+        tk.darrow.tribalpower.block.ModBlocks.tillMarchSoil(blocked);
+        h.assertTrue(blocked.getFinalState().is(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get()),
+                "March grass with a block above must not till");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON),
+                "March grass must accept animal spawns so pad-runners can appear");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON),
+                "March soil must accept animal spawns");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void loreTabletRecordsReadsInPersistentData(GameTestHelper h) {
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
         h.assertTrue(LoreTabletBlock.readCount(player) == 0, "A new player has read no tablets");

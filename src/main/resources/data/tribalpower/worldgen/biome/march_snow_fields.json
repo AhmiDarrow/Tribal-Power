@@ -99,6 +99,8 @@
       "tribalpower:march_leaf_patch",
       "tribalpower:ley_thistle_patch"
     ],
-    []
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ]
 }

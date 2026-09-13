@@ -1,10 +1,14 @@
 package tk.darrow.tribalpower.block;
 
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import tk.darrow.tribalpower.TribalPower;
@@ -332,4 +336,17 @@ public final class ModBlocks {
 
     public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->
             new RitualBrazierBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F).sound(SoundType.COPPER).lightLevel(s -> 5).noOcclusion()));
+
+    public static boolean isMarchTillable(BlockState state) {
+        return state.is(MARCH_SOIL.get()) || state.is(MARCH_GRASS.get()) || state.is(MARCH_MOSS.get());
+    }
+
+    /** Hoe March soils into vanilla farmland when the block above is air. */
+    public static void tillMarchSoil(BlockEvent.BlockToolModificationEvent event) {
+        if (event.getItemAbility() != ItemAbilities.HOE_TILL) return;
+        if (!isMarchTillable(event.getState())) return;
+        var ctx = event.getContext();
+        if (ctx != null && !ctx.getLevel().getBlockState(ctx.getClickedPos().above()).isAir()) return;
+        event.setFinalState(Blocks.FARMLAND.defaultBlockState());
+    }
 }

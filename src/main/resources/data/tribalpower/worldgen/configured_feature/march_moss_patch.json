@@ -6,8 +6,8 @@
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "tribalpower:march_grass"
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:dirt"
         },
         "state": {
           "Name": "tribalpower:march_moss"
