@@ -67,6 +67,29 @@ public class KeepingGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void glimpseCountsGrassUnderfootAndPadsWithWater(GameTestHelper h) {
+        BlockPos origin = new BlockPos(4, 2, 4);
+        h.setBlock(origin, Blocks.STONE);
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                h.setBlock(4 + dx, 1, 4 + dz, Blocks.GRASS_BLOCK);
+            }
+        }
+        var level = h.getLevel();
+        BlockPos at = h.absolutePos(origin);
+        var dry = LeyMath.glimpse(level, at);
+        h.assertTrue(dry.greenery() > 0, "Grass under a totem must count as greenery, got " + dry.greenery());
+        h.setBlock(3, 2, 4, Blocks.WATER);
+        h.setBlock(5, 2, 4, Blocks.WATER);
+        h.setBlock(4, 2, 3, Blocks.WATER);
+        h.setBlock(4, 2, 5, Blocks.WATER);
+        var lush = LeyMath.glimpse(level, at);
+        h.assertTrue(lush.pad(), "Water beside grass underfoot must be a keeping pad, greenery="
+                + lush.greenery() + " water=" + lush.water() + " gain=" + lush.gain());
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void kinshipTotemCountsAsAnsweredVoice(GameTestHelper h) {
         h.setBlock(4, 2, 4, tk.darrow.tribalpower.tribe.TribeRegistry.KINSHIP_TOTEM.get().defaultBlockState()
                 .setValue(tk.darrow.tribalpower.tribe.KinshipTotemBlock.TRIBE,

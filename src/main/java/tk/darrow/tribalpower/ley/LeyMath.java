@@ -66,13 +66,16 @@ public final class LeyMath {
         boolean thunder = rain && level.isThundering();
         int water = 0, green = 0;
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+        // Totems and the Lens stand on grass, not in it — include the block underfoot.
         for (int dx = -1; dx <= 1; dx++) {
-            for (int dz = -1; dz <= 1; dz++) {
-                cursor.set(pos.getX() + dx, pos.getY(), pos.getZ() + dz);
-                if (!level.hasChunkAt(cursor)) continue;
-                BlockState state = level.getBlockState(cursor);
-                if (water(state)) water++;
-                if (living(state)) green++;
+            for (int dy = -1; dy <= 1; dy++) {
+                for (int dz = -1; dz <= 1; dz++) {
+                    cursor.set(pos.getX() + dx, pos.getY() + dy, pos.getZ() + dz);
+                    if (!level.hasChunkAt(cursor)) continue;
+                    BlockState state = level.getBlockState(cursor);
+                    if (water(state)) water++;
+                    if (living(state)) green++;
+                }
             }
         }
         int waterPts = Math.min(WATER, water);
@@ -183,7 +186,8 @@ public final class LeyMath {
     static boolean living(BlockState state) {
         if (state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(BlockTags.CROPS)
                 || state.is(BlockTags.SAPLINGS)) return true;
-        if (state.is(Blocks.MOSS_BLOCK) || state.is(Blocks.MOSS_CARPET) || state.is(Blocks.SHORT_GRASS)
+        if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.PODZOL) || state.is(Blocks.MYCELIUM)
+                || state.is(Blocks.MOSS_BLOCK) || state.is(Blocks.MOSS_CARPET) || state.is(Blocks.SHORT_GRASS)
                 || state.is(Blocks.TALL_GRASS) || state.is(Blocks.FERN) || state.is(Blocks.LARGE_FERN)
                 || state.is(Blocks.VINE) || state.is(Blocks.GLOW_LICHEN) || state.is(Blocks.SUGAR_CANE)
                 || state.is(Blocks.CACTUS) || state.is(Blocks.BAMBOO) || state.is(Blocks.LILY_PAD)

@@ -243,6 +243,10 @@ public class RiteGameTests {
     public static void leyMathPrefersOpenSky(GameTestHelper h) {
         h.setBlock(2, 2, 2, Blocks.STONE);
         h.setBlock(8, 2, 8, Blocks.STONE);
+        for (int x = 0; x <= 16; x++) for (int z = 0; z <= 16; z++) {
+            h.setBlock(x, 1, z, Blocks.STONE);
+            h.setBlock(x, 0, z, Blocks.STONE);
+        }
         for (int x = 4; x <= 12; x++) for (int z = 4; z <= 12; z++) h.setBlock(x, 6, z, Blocks.STONE);
         var level = h.getLevel();
         BlockPos open = h.absolutePos(new BlockPos(2, 2, 2)), roofed = h.absolutePos(new BlockPos(8, 2, 8));
