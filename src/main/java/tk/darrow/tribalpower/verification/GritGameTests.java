@@ -170,6 +170,11 @@ public class GritGameTests {
         h.assertTrue(kiln != null, "Ember Kiln must smelt iron grit");
         h.assertTrue(kiln.result().is(Items.IRON_INGOT), "Kiln grit must fire into an ingot, got " + kiln.result());
         h.assertTrue(kiln.attunement() == tk.darrow.tribalpower.api.pulse.Attunement.FIRE, "Kiln is Fire work");
+        var mineral = ProcessingRecipes.find(h.getLevel(), "ember_kiln", MineralGritItem.of("iron"));
+        h.assertTrue(mineral != null, "Ember Kiln must smelt mineral grit, not only iron_grit");
+        h.assertTrue(mineral.result().is(Items.IRON_INGOT), "Mineral grit cooking must assemble an ingot, got " + mineral.result());
+        var cobble = ProcessingRecipes.find(h.getLevel(), "ember_kiln", new ItemStack(Items.COBBLESTONE));
+        h.assertTrue(cobble != null && cobble.result().is(Items.STONE), "Kiln must run every furnace recipe, cobble→stone missing");
         h.succeed();
     }
 }
