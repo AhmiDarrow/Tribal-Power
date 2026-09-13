@@ -78,19 +78,13 @@ public class SpiritWispEntity extends PathfinderMob {
             return false;
         }
         BlockState below = level.getBlockState(pos.below());
-        boolean footing = below.is(ModBlocks.MARCH_GRASS.get())
-                || below.is(ModBlocks.MARCH_MOSS.get())
-                || below.is(ModBlocks.MARCH_SOIL.get())
-                || below.is(ModBlocks.MARCH_STONE.get())
-                || below.is(ModBlocks.MARCH_COBBLE.get())
-                || below.is(ModBlocks.MARCH_CRYSTAL.get());
-        if (!footing) {
+        if (!MarchSpawns.wispFooting(below)) {
             return false;
         }
         // Cluster near crystals more often; otherwise require open sky-ish air above.
         if (below.is(ModBlocks.MARCH_CRYSTAL.get())) {
             return true;
         }
-        return level.getBlockState(pos.above()).isAir() && random.nextInt(3) != 0;
+        return level.getBlockState(pos.above()).isAir();
     }
 }

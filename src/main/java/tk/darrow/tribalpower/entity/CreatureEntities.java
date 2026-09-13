@@ -3,7 +3,6 @@ import java.util.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.registries.*;
 import net.neoforged.neoforge.event.entity.*;
@@ -29,7 +28,7 @@ public final class CreatureEntities {
         }
     }
     public static void placements(RegisterSpawnPlacementsEvent e) {
-        ANIMALS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LatticeAnimal::canSpawn,RegisterSpawnPlacementsEvent.Operation.REPLACE));
-        MONSTERS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,RegisterSpawnPlacementsEvent.Operation.REPLACE));
+        ANIMALS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LatticeAnimal::canSpawn,RegisterSpawnPlacementsEvent.Operation.REPLACE));
+        MONSTERS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,MarchSpawns::monster,RegisterSpawnPlacementsEvent.Operation.REPLACE));
     }
 }

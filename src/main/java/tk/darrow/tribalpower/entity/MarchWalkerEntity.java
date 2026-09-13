@@ -18,8 +18,6 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.state.BlockState;
-import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.item.ModItems;
 
 /**
@@ -55,17 +53,6 @@ public class MarchWalkerEntity extends PathfinderMob {
         if (!level.getBlockState(pos).isAir() || !level.getBlockState(pos.above()).isAir()) {
             return false;
         }
-        BlockState below = level.getBlockState(pos.below());
-        boolean footing = below.is(ModBlocks.MARCH_GRASS.get())
-                || below.is(ModBlocks.MARCH_MOSS.get())
-                || below.is(ModBlocks.MARCH_SOIL.get());
-        if (!footing) {
-            return false;
-        }
-        // Prefer living turf; soil spawns are rarer.
-        if (below.is(ModBlocks.MARCH_SOIL.get()) && random.nextInt(4) != 0) {
-            return false;
-        }
-        return true;
+        return MarchSpawns.turf(level.getBlockState(pos.below()));
     }
 }

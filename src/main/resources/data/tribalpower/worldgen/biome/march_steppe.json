@@ -16,7 +16,7 @@
       "offset": 2.0
     },
     "particle": {
-      "probability": 0.0002,
+      "probability": 0.002,
       "options": {
         "type": "minecraft:end_rod"
       }
@@ -28,59 +28,71 @@
         "type": "tribalpower:ashbound",
         "weight": 10,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 3
       },
       {
         "type": "tribalpower:rootbound",
         "weight": 10,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 3
       },
       {
         "type": "tribalpower:rift_hound",
         "weight": 10,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 3
       },
       {
         "type": "tribalpower:echo_weaver",
         "weight": 10,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 3
       }
     ],
     "creature": [
       {
         "type": "tribalpower:march_walker",
-        "weight": 14,
+        "weight": 16,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:dawn_stag",
+        "weight": 12,
         "minCount": 2,
         "maxCount": 4
       },
       {
-        "type": "tribalpower:dawn_stag",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 2
-      },
-      {
         "type": "tribalpower:lantern_fox",
-        "weight": 5,
+        "weight": 8,
         "minCount": 1,
-        "maxCount": 2
+        "maxCount": 3
       },
       {
         "type": "tribalpower:mossback",
-        "weight": 5,
+        "weight": 4,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "minecraft:rabbit",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [
       {
         "type": "tribalpower:spirit_wisp",
-        "weight": 12,
-        "minCount": 2,
-        "maxCount": 5
+        "weight": 18,
+        "minCount": 3,
+        "maxCount": 7
+      },
+      {
+        "type": "minecraft:bat",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "axolotls": [],
@@ -89,16 +101,7 @@
     "water_ambient": [],
     "misc": []
   },
-  "spawn_costs": {
-    "tribalpower:march_walker": {
-      "energy_budget": 0.12,
-      "charge": 0.8
-    },
-    "tribalpower:spirit_wisp": {
-      "energy_budget": 0.08,
-      "charge": 0.5
-    }
-  },
+  "spawn_costs": {},
   "carvers": {},
   "features": [
     [],

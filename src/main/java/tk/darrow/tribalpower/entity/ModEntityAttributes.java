@@ -16,14 +16,14 @@ public final class ModEntityAttributes {
     public static void onSpawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(
                 ModEntities.MARCH_WALKER.get(),
-                SpawnPlacementTypes.ON_GROUND,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 MarchWalkerEntity::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE
         );
         event.register(
                 ModEntities.SPIRIT_WISP.get(),
-                SpawnPlacementTypes.ON_GROUND,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 SpiritWispEntity::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE

@@ -40,6 +40,74 @@ public class BestiaryGameTests {
         h.assertTrue(animals==3 && monsters==10,"Roster must contain three animals and ten hostiles");h.succeed();
     }
     @GameTest(template="empty")
+    public static void marchFaunaStandsOnSnowAndSplitsByBiome(GameTestHelper h) {
+        h.setBlock(2, 5, 2, Blocks.GLOWSTONE);
+        h.setBlock(2, 1, 2, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(3, 1, 2, Blocks.SNOW_BLOCK);
+        h.setBlock(4, 1, 2, tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get());
+        h.setBlock(4, 2, 2, Blocks.SNOW);
+        h.setBlock(5, 1, 2, tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get());
+        h.setBlock(2, 2, 2, Blocks.AIR);
+        h.setBlock(2, 3, 2, Blocks.AIR);
+        h.setBlock(3, 2, 2, Blocks.AIR);
+        h.setBlock(3, 3, 2, Blocks.AIR);
+        h.setBlock(4, 3, 2, Blocks.AIR);
+        h.setBlock(4, 4, 2, Blocks.AIR);
+        h.setBlock(5, 2, 2, Blocks.AIR);
+        h.setBlock(5, 3, 2, Blocks.AIR);
+        var grass = h.absolutePos(new BlockPos(2, 2, 2));
+        var snow = h.absolutePos(new BlockPos(3, 2, 2));
+        var snowLayer = h.absolutePos(new BlockPos(4, 3, 2));
+        var soil = h.absolutePos(new BlockPos(5, 2, 2));
+        var random = h.getLevel().getRandom();
+        h.assertTrue(MarchSpawns.turf(Blocks.SNOW.defaultBlockState()), "Snow layers are March turf");
+        h.assertTrue(MarchSpawns.turf(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get().defaultBlockState()),
+                "Ember soil is March turf");
+        h.assertTrue(LatticeAnimal.canSpawn(CreatureEntities.ANIMALS.get(CreatureProfile.LANTERN_FOX).get(),
+                h.getLevel(), MobSpawnType.NATURAL, grass, random), "Lantern foxes must stand on March grass");
+        h.assertTrue(LatticeAnimal.canSpawn(CreatureEntities.ANIMALS.get(CreatureProfile.LANTERN_FOX).get(),
+                h.getLevel(), MobSpawnType.NATURAL, snow, random), "Lantern foxes must stand on snow");
+        h.assertTrue(LatticeAnimal.canSpawn(CreatureEntities.ANIMALS.get(CreatureProfile.LANTERN_FOX).get(),
+                h.getLevel(), MobSpawnType.NATURAL, snowLayer, random), "Lantern foxes must stand on freeze snow");
+        h.assertTrue(MarchWalkerEntity.checkSpawnRules(ModEntities.MARCH_WALKER.get(),
+                h.getLevel(), MobSpawnType.NATURAL, snow, random), "Walkers must stand on snow");
+        h.assertTrue(MarchWalkerEntity.checkSpawnRules(ModEntities.MARCH_WALKER.get(),
+                h.getLevel(), MobSpawnType.NATURAL, soil, random), "Walkers must stand on Ember soil");
+        h.assertTrue(SpiritWispEntity.checkSpawnRules(ModEntities.SPIRIT_WISP.get(),
+                h.getLevel(), MobSpawnType.NATURAL, snow, random), "Wisps must stand on snow");
+        var biomes = h.getLevel().registryAccess().registryOrThrow(Registries.BIOME);
+        var steppe = biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:march_steppe"));
+        var snowFields = biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:march_snow_fields"));
+        var fen = biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:march_reed_fen"));
+        var ember = biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:march_ember_wastes"));
+        var crystal = biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:march_crystal_fields"));
+        h.assertTrue(hasCreature(steppe, EntityType.RABBIT) && hasCreature(steppe, CreatureEntities.type(CreatureProfile.DAWN_STAG)),
+                "Steppe must graze stags and rabbits");
+        h.assertTrue(hasMob(steppe, MobCategory.AMBIENT, EntityType.BAT), "Steppe caves must keep bats");
+        h.assertTrue(hasCreature(snowFields, EntityType.RABBIT) && hasCreature(snowFields, CreatureEntities.type(CreatureProfile.LANTERN_FOX)),
+                "Snow Fields must keep foxes and rabbits");
+        h.assertTrue(hasCreature(snowFields, EntityType.POLAR_BEAR), "Snow Fields must keep polar bears");
+        h.assertTrue(hasCreature(crystal, EntityType.RABBIT) && hasCreature(crystal, CreatureEntities.type(CreatureProfile.LANTERN_FOX)),
+                "Crystal Fields must keep foxes and rabbits");
+        h.assertTrue(hasCreature(fen, EntityType.FROG) && !fen.getMobSettings().getMobs(MobCategory.WATER_AMBIENT).unwrap().isEmpty(),
+                "Reed Fen must keep frogs and fish");
+        h.assertTrue(hasMob(fen, MobCategory.UNDERGROUND_WATER_CREATURE, EntityType.GLOW_SQUID),
+                "Reed Fen caves must keep glow squid");
+        h.assertTrue(!hasCreature(ember, CreatureEntities.type(CreatureProfile.DAWN_STAG)),
+                "Ember Wastes must stay sparse — no grazing herds");
+        h.succeed();
+    }
+    private static boolean hasCreature(net.minecraft.world.level.biome.Biome biome, EntityType<?> type) {
+        return hasMob(biome, MobCategory.CREATURE, type);
+    }
+    private static boolean hasMob(net.minecraft.world.level.biome.Biome biome, MobCategory category, EntityType<?> type) {
+        if (biome == null) return false;
+        for (var entry : biome.getMobSettings().getMobs(category).unwrap()) {
+            if (entry.type == type) return true;
+        }
+        return false;
+    }
+    @GameTest(template="empty")
     public static void brushingIsRenewableAndCannotSpamOrHarvestBabies(GameTestHelper h) {
         var player=h.makeMockServerPlayerInLevel();
         try {

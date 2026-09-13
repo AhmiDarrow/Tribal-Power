@@ -80,12 +80,14 @@ public final class LeyMath {
         }
         int waterPts = Math.min(WATER, water);
         int greenPts = Math.min(GREENERY, green);
+        int marchPts = level.dimension().equals(ModDimensions.THE_MARCH) ? MARCH : 0;
+        int moonPts = night && level.getMoonBrightness() >= 0.9F ? MOON : 0;
         int raw = BASE;
         if (sky) raw += night ? SKY_NIGHT : SKY_DAY;
         if (rain) raw += RAIN;
         if (thunder) raw += THUNDER;
-        raw += waterPts + greenPts;
-        return new Factors(sky, night, rain, thunder, waterPts, greenPts, 0, 0, 0, 0, 0, raw);
+        raw += waterPts + greenPts + marchPts + moonPts;
+        return new Factors(sky, night, rain, thunder, waterPts, greenPts, 0, 0, 0, marchPts, moonPts, raw);
     }
 
     /** Full pad survey: radius 8, used by the Collector and sneak-Lens print. */

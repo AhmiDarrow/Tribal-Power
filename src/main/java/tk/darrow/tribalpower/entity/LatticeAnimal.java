@@ -8,7 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -199,9 +198,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
     }
     public int forageCooldown() { return forageCooldown; }
     public static boolean canSpawn(EntityType<LatticeAnimal> type,LevelAccessor level,MobSpawnType reason,BlockPos pos,RandomSource random) {
-        var below=level.getBlockState(pos.below());
-        return (below.is(BlockTags.DIRT) || below.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get()) || below.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get()))
-            && level.getRawBrightness(pos,0)>8 && level.getFluidState(pos).isEmpty();
+        return MarchSpawns.animal(type,level,reason,pos,random);
     }
     @Override protected SoundEvent getAmbientSound() { return profile()==CreatureProfile.LANTERN_FOX?SoundEvents.FOX_AMBIENT:SoundEvents.GOAT_AMBIENT; }
     @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return SoundEvents.FOX_HURT; }
