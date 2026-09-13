@@ -120,14 +120,14 @@ public final class ModBlocks {
                     .lightLevel(s -> 7))
     );
 
-    public static final DeferredBlock<Block> SPIRIT_DOOR = BLOCKS.registerSimpleBlock(
+    public static final DeferredBlock<SpiritDoorBlock> SPIRIT_DOOR = BLOCKS.register(
             "spirit_door",
-            BlockBehaviour.Properties.of()
+            () -> new SpiritDoorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_MAGENTA)
                     .strength(4.0F)
                     .sound(SoundType.AMETHYST)
                     .lightLevel(s -> 5)
-                    .noOcclusion()
+                    .noOcclusion())
     );
 
     // The March world blocks

@@ -300,6 +300,10 @@ public class MarchGameTests {
                 h.getBlockState(grassDrop), h.getLevel(), h.absolutePos(grassDrop), null, player, shovel);
         h.assertTrue(soilDrops.stream().anyMatch(s -> s.is(tk.darrow.tribalpower.item.ModItems.MARCH_SOIL.get())),
                 "March grass without silk must drop soil");
+        h.assertTrue(!net.minecraft.world.level.block.Block.isShapeFullBlock(
+                        tk.darrow.tribalpower.block.ModBlocks.SPIRIT_DOOR.get().defaultBlockState()
+                                .getShape(h.getLevel(), h.absolutePos(pos))),
+                "Spirit Door is a gateway frame — walk the middle");
         h.succeed();
     }
 

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "tribalpower:block/march_leaf"
+    "cross": "tribalpower:block/march_sapling"
   }
 }

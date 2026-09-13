@@ -33,11 +33,31 @@ public class TribalKinRenderer extends MobRenderer<TribalKinEntity, TribalKinMod
 
     public TribalKinRenderer(EntityRendererProvider.Context context) {
         super(context, new TribalKinModel(context.bakeLayer(TribalKinModel.LAYER)), 0.4F);
+        addLayer(new GlowLayer(this));
         addLayer(new CloakLayer(this));
     }
 
     @Override
     public ResourceLocation getTextureLocation(TribalKinEntity entity) { return SKINS.get(entity.role()); }
+
+    /** Eyes-layer glow from the cyan thread marks on each role skin. */
+    public static final class GlowLayer extends RenderLayer<TribalKinEntity, TribalKinModel> {
+        private static final Map<KinRole, RenderType> GLOW = new EnumMap<>(KinRole.class);
+        static {
+            for (KinRole role : KinRole.values())
+                GLOW.put(role, RenderType.eyes(ResourceLocation.parse("tribalpower:textures/entity/kin_" + role.id() + "_glow.png")));
+        }
+
+        public GlowLayer(TribalKinRenderer parent) { super(parent); }
+
+        @Override
+        public void render(PoseStack pose, MultiBufferSource buffer, int light, TribalKinEntity entity, float limbSwing, float limbAmount,
+                           float partial, float age, float yaw, float pitch) {
+            if (entity.isInvisible()) return;
+            VertexConsumer consumer = buffer.getBuffer(GLOW.get(entity.role()));
+            getParentModel().renderToBuffer(pose, consumer, 15728880, LivingEntityRenderer.getOverlayCoords(entity, 0), 0xFFFFFFFF);
+        }
+    }
 
     /** Renders the same model again with the cloak texture, coloured by the tribe. */
     public static final class CloakLayer extends RenderLayer<TribalKinEntity, TribalKinModel> {
