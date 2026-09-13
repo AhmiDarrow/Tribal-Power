@@ -193,7 +193,8 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_CYAN)
                     .strength(0.6F)
                     .sound(SoundType.GRASS)
-                    .randomTicks())
+                    .randomTicks()
+                    .ignitedByLava())
     );
 
     public static final DeferredBlock<Block> MARCH_MOSS = BLOCKS.registerSimpleBlock(
@@ -209,7 +210,8 @@ public final class ModBlocks {
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN)
                     .strength(2.0F)
-                    .sound(SoundType.WOOD))
+                    .sound(SoundType.WOOD)
+                    .ignitedByLava())
     );
 
     public static final DeferredBlock<Block> MARCH_PLANKS = BLOCKS.registerSimpleBlock(
@@ -218,6 +220,7 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_BROWN)
                     .strength(2.0F)
                     .sound(SoundType.WOOD)
+                    .ignitedByLava()
     );
 
     public static final DeferredBlock<Block> MARCH_LEAVES = BLOCKS.register(
@@ -228,6 +231,8 @@ public final class ModBlocks {
                     .randomTicks()
                     .sound(SoundType.GRASS)
                     .noOcclusion()
+                    .ignitedByLava()
+                    .pushReaction(PushReaction.DESTROY)
                     .isViewBlocking((s, l, p) -> false)
                     .isSuffocating((s, l, p) -> false))
     );
@@ -243,6 +248,7 @@ public final class ModBlocks {
                     .replaceable()
                     .offsetType(BlockBehaviour.OffsetType.XZ)
                     .pushReaction(PushReaction.DESTROY)
+                    .ignitedByLava()
                     .isViewBlocking((s, l, p) -> false)
                     .isSuffocating((s, l, p) -> false))
     );
@@ -254,7 +260,9 @@ public final class ModBlocks {
                     .noCollission()
                     .randomTicks()
                     .instabreak()
-                    .sound(SoundType.GRASS))
+                    .sound(SoundType.GRASS)
+                    .ignitedByLava()
+                    .pushReaction(PushReaction.DESTROY))
     );
 
     public static final DeferredBlock<Block> MARCH_ORE = BLOCKS.register(
@@ -286,7 +294,8 @@ public final class ModBlocks {
                     .noOcclusion()
                     .replaceable()
                     .offsetType(BlockBehaviour.OffsetType.XZ)
-                    .pushReaction(PushReaction.DESTROY))
+                    .pushReaction(PushReaction.DESTROY)
+                    .ignitedByLava())
     );
 
     public static final DeferredBlock<EchoBloomBlock> ECHO_BLOOM = BLOCKS.register(
@@ -300,6 +309,7 @@ public final class ModBlocks {
                     .replaceable()
                     .offsetType(BlockBehaviour.OffsetType.XZ)
                     .pushReaction(PushReaction.DESTROY)
+                    .ignitedByLava()
                     .lightLevel(s -> 4))
     );
 
@@ -314,6 +324,7 @@ public final class ModBlocks {
                     .replaceable()
                     .offsetType(BlockBehaviour.OffsetType.XZ)
                     .pushReaction(PushReaction.DESTROY)
+                    .ignitedByLava()
                     .lightLevel(s -> 2))
     );
 

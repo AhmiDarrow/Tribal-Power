@@ -354,6 +354,16 @@ public class MarchGameTests {
         h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LOG.get().defaultBlockState()
                         .is(net.minecraft.tags.BlockTags.OVERWORLD_NATURAL_LOGS),
                 "March logs must count as overworld logs");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LOG.get().defaultBlockState().ignitedByLava(),
+                "March logs must catch from lava like oak");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAVES.get().defaultBlockState().ignitedByLava(),
+                "March leaves must catch from lava");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.MINEABLE_WITH_HOE),
+                "March moss must take a hoe, like moss");
+        h.assertTrue(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get().defaultBlockState()
+                        .is(net.minecraft.tags.BlockTags.OCCLUDES_VIBRATION_SIGNALS),
+                "March moss must occlude sculk, like moss");
         h.succeed();
     }
 

@@ -162,6 +162,8 @@ public final class TribalPower {
             fire.setFlammable(ModBlocks.MARCH_SAPLING.get(), 60, 100);
             fire.setFlammable(ModBlocks.MARCH_LEAF.get(), 60, 100);
             fire.setFlammable(ModBlocks.SPIRIT_REED.get(), 60, 100);
+            fire.setFlammable(ModBlocks.ECHO_BLOOM.get(), 60, 100);
+            fire.setFlammable(ModBlocks.LEY_THISTLE.get(), 60, 100);
             LOGGER.info("Tribal Power — shamanic technomancy online");
         });
     }
