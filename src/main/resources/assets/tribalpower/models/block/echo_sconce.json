@@ -1,0 +1,213 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tribalpower:block/loom_copper",
+    "wood": "tribalpower:block/loom_wood",
+    "planks": "tribalpower:block/march_planks",
+    "stone": "tribalpower:block/loom_stone",
+    "trim": "tribalpower:block/loom_copper",
+    "light": "tribalpower:block/loom_stone",
+    "reed": "tribalpower:block/spirit_reed",
+    "leaf": "tribalpower:block/march_leaf",
+    "echo": "tribalpower:block/echo_bloom",
+    "urn": "tribalpower:block/spirit_urn",
+    "mat": "tribalpower:block/woven_mat",
+    "charm": "tribalpower:block/wind_charm",
+    "march_stone": "tribalpower:block/march_stone"
+  },
+  "elements": [
+    {
+      "from": [
+        5,
+        3,
+        15
+      ],
+      "to": [
+        11,
+        13,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        4,
+        14
+      ],
+      "to": [
+        10,
+        12,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#echo"
+        },
+        "south": {
+          "texture": "#echo"
+        },
+        "east": {
+          "texture": "#echo"
+        },
+        "west": {
+          "texture": "#echo"
+        },
+        "up": {
+          "texture": "#echo"
+        },
+        "down": {
+          "texture": "#echo"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        7,
+        12
+      ],
+      "to": [
+        9,
+        9,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        5,
+        11
+      ],
+      "to": [
+        10,
+        11,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#light"
+        },
+        "south": {
+          "texture": "#light"
+        },
+        "east": {
+          "texture": "#light"
+        },
+        "west": {
+          "texture": "#light"
+        },
+        "up": {
+          "texture": "#light"
+        },
+        "down": {
+          "texture": "#light"
+        }
+      }
+    },
+    {
+      "from": [
+        5,
+        5,
+        12
+      ],
+      "to": [
+        6,
+        11,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    },
+    {
+      "from": [
+        10,
+        5,
+        12
+      ],
+      "to": [
+        11,
+        11,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#trim"
+        },
+        "south": {
+          "texture": "#trim"
+        },
+        "east": {
+          "texture": "#trim"
+        },
+        "west": {
+          "texture": "#trim"
+        },
+        "up": {
+          "texture": "#trim"
+        },
+        "down": {
+          "texture": "#trim"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

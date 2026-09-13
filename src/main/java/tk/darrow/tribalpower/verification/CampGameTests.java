@@ -87,4 +87,34 @@ public class CampGameTests {
         for(int i=0;i<10;i++)be.work(h.getLevel());
         h.assertTrue(h.getBlockState(new BlockPos(4,2,1)).getValue(CropBlock.AGE)==0&&be.pulse==12,"Harvest replants and spends one operation");h.succeed();
     }
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void pulseLampLightsFromLatticeAndDimsOnRedstone(GameTestHelper h){
+        h.setBlock(2,2,2,ModBlocks.SHARD_LAMP.get());
+        h.setBlock(3,2,4,ModBlocks.DRUMHEART.get());
+        ((DrumheartBlockEntity)h.getBlockEntity(new BlockPos(3,2,4))).insertPulse(1000,false);
+        h.runAfterDelay(25,()->{
+            h.assertTrue(h.getBlockState(new BlockPos(2,2,2)).getValue(tk.darrow.tribalpower.block.PulseLightBlock.LIT),"Shard Lamp must light from nearby Pulse");
+            h.setBlock(2,2,3,Blocks.REDSTONE_BLOCK);
+            h.runAfterDelay(25,()->{
+                h.assertTrue(!h.getBlockState(new BlockPos(2,2,2)).getValue(tk.darrow.tribalpower.block.PulseLightBlock.LIT),"Redstone must dim the lamp");
+                h.succeed();
+            });
+        });
+    }
+    @GameTest(template="empty")
+    public static void campDecorPopsWithoutAHost(GameTestHelper h){
+        h.setBlock(2,1,2,Blocks.STONE);
+        h.setBlock(2,2,2,ModBlocks.WOVEN_MAT.get());
+        h.setBlock(4,2,2,Blocks.STONE);
+        h.setBlock(3,2,2,ModBlocks.ECHO_SCONCE.get().defaultBlockState().setValue(tk.darrow.tribalpower.block.EchoSconceBlock.FACING,Direction.WEST));
+        h.setBlock(2,3,4,Blocks.STONE);
+        h.setBlock(2,2,4,ModBlocks.WIND_CHARM.get());
+        h.setBlock(2,1,2,Blocks.AIR);
+        h.assertTrue(h.getBlockState(new BlockPos(2,2,2)).isAir(),"Woven Mat pops without a floor");
+        h.setBlock(4,2,2,Blocks.AIR);
+        h.assertTrue(h.getBlockState(new BlockPos(3,2,2)).isAir(),"Echo Sconce pops without a wall");
+        h.setBlock(2,3,4,Blocks.AIR);
+        h.assertTrue(h.getBlockState(new BlockPos(2,2,4)).isAir(),"Wind Charm pops without a ceiling");
+        h.succeed();
+    }
 }

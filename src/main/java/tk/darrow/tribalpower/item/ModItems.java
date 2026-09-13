@@ -174,4 +174,19 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> ANCHOR_STONE = ITEMS.registerSimpleBlockItem("anchor_stone", ModBlocks.ANCHOR_STONE);
     public static final DeferredItem<BlockItem> STONE_FONT = ITEMS.registerSimpleBlockItem("stone_font", ModBlocks.STONE_FONT);
     public static final DeferredItem<BlockItem> PULSE_CAIRN = ITEMS.registerSimpleBlockItem("pulse_cairn", ModBlocks.PULSE_CAIRN);
+
+    public static final DeferredItem<PulseLightBlockItem> GLOW_REED = ITEMS.register("glow_reed",
+            () -> new PulseLightBlockItem(ModBlocks.GLOW_REED.get(), new Item.Properties()));
+    public static final DeferredItem<PulseLightBlockItem> SHARD_LAMP = ITEMS.register("shard_lamp",
+            () -> new PulseLightBlockItem(ModBlocks.SHARD_LAMP.get(), new Item.Properties()));
+    public static final DeferredItem<PulseLightBlockItem> ECHO_SCONCE = ITEMS.register("echo_sconce",
+            () -> new PulseLightBlockItem(ModBlocks.ECHO_SCONCE.get(), new Item.Properties()));
+    public static final DeferredItem<PulseLightBlockItem> EMBER_BOWL = ITEMS.register("ember_bowl",
+            () -> new PulseLightBlockItem(ModBlocks.EMBER_BOWL.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> MARCH_STOOL = ITEMS.registerSimpleBlockItem("march_stool", ModBlocks.MARCH_STOOL);
+    public static final DeferredItem<BlockItem> MARCH_TABLE = ITEMS.registerSimpleBlockItem("march_table", ModBlocks.MARCH_TABLE);
+    public static final DeferredItem<BlockItem> SPIRIT_URN = ITEMS.registerSimpleBlockItem("spirit_urn", ModBlocks.SPIRIT_URN);
+    public static final DeferredItem<BlockItem> WOVEN_MAT = ITEMS.registerSimpleBlockItem("woven_mat", ModBlocks.WOVEN_MAT);
+    public static final DeferredItem<BlockItem> WALL_SHELF = ITEMS.registerSimpleBlockItem("wall_shelf", ModBlocks.WALL_SHELF);
+    public static final DeferredItem<BlockItem> WIND_CHARM = ITEMS.registerSimpleBlockItem("wind_charm", ModBlocks.WIND_CHARM);
 }

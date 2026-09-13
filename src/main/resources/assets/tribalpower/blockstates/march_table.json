@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/march_table"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/march_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/march_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/march_table",
+      "y": 270
+    }
+  }
+}

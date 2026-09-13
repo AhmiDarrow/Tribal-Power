@@ -1,0 +1,6 @@
+{
+  "parent": "tribalpower:block/glow_reed",
+  "textures": {
+    "light": "tribalpower:block/loom_light"
+  }
+}

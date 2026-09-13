@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tribalpower:block/woven_mat",
+    "mat": "tribalpower:block/woven_mat"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        1,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#mat"
+        },
+        "south": {
+          "texture": "#mat"
+        },
+        "east": {
+          "texture": "#mat"
+        },
+        "west": {
+          "texture": "#mat"
+        },
+        "up": {
+          "texture": "#mat"
+        },
+        "down": {
+          "texture": "#mat"
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:cutout"
+}

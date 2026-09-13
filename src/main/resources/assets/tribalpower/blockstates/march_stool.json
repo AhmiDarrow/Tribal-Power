@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/march_stool"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/march_stool",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/march_stool",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/march_stool",
+      "y": 270
+    }
+  }
+}

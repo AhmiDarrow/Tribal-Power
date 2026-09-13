@@ -1,0 +1,6 @@
+{
+  "parent": "tribalpower:block/ember_bowl",
+  "textures": {
+    "light": "tribalpower:block/loom_light"
+  }
+}

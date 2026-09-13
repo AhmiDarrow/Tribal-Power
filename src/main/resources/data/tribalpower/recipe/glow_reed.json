@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R",
+    "C",
+    "R"
+  ],
+  "key": {
+    "R": {
+      "item": "tribalpower:spirit_reed"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "tribalpower:glow_reed",
+    "count": 1
+  }
+}

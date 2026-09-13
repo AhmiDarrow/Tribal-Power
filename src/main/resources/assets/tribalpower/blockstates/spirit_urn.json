@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/spirit_urn"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/spirit_urn",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/spirit_urn",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/spirit_urn",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/glow_reed"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/glow_reed_on"
+    }
+  }
+}

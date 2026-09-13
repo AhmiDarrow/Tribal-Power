@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "tribalpower:march_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "tribalpower:march_table",
+    "count": 1
+  }
+}

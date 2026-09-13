@@ -24,6 +24,11 @@
     "tribalpower:offering_table",
     "tribalpower:march_log",
     "tribalpower:march_planks",
-    "tribalpower:seal_loom"
+    "tribalpower:seal_loom",
+    "tribalpower:glow_reed",
+    "tribalpower:shard_lamp",
+    "tribalpower:march_stool",
+    "tribalpower:march_table",
+    "tribalpower:wall_shelf"
   ]
 }

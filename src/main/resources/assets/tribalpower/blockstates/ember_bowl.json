@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/ember_bowl"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/ember_bowl_on"
+    }
+  }
+}

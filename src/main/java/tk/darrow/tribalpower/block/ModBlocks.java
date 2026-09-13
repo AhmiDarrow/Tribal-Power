@@ -409,6 +409,46 @@ public final class ModBlocks {
     public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->
             new RitualBrazierBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(3F).sound(SoundType.COPPER).lightLevel(s -> 5).noOcclusion()));
 
+    public static final DeferredBlock<PulseLightBlock> GLOW_REED = BLOCKS.register("glow_reed", () ->
+            new PulseLightBlock(PulseLightBlock.Kind.GLOW_REED, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.8F).sound(SoundType.WOOD).noOcclusion()
+                    .ignitedByLava()
+                    .lightLevel(s -> s.getValue(PulseLightBlock.LIT) ? PulseLightBlock.Kind.GLOW_REED.light : 0)));
+    public static final DeferredBlock<PulseLightBlock> SHARD_LAMP = BLOCKS.register("shard_lamp", () ->
+            new PulseLightBlock(PulseLightBlock.Kind.SHARD_LAMP, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN).strength(1.2F).sound(SoundType.WOOD).noOcclusion()
+                    .ignitedByLava()
+                    .lightLevel(s -> s.getValue(PulseLightBlock.LIT) ? PulseLightBlock.Kind.SHARD_LAMP.light : 0)));
+    public static final DeferredBlock<EchoSconceBlock> ECHO_SCONCE = BLOCKS.register("echo_sconce", () ->
+            new EchoSconceBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE).strength(1.0F).sound(SoundType.COPPER).noOcclusion()
+                    .lightLevel(s -> s.getValue(PulseLightBlock.LIT) ? PulseLightBlock.Kind.ECHO_SCONCE.light : 0)));
+    public static final DeferredBlock<PulseLightBlock> EMBER_BOWL = BLOCKS.register("ember_bowl", () ->
+            new PulseLightBlock(PulseLightBlock.Kind.EMBER_BOWL, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE).strength(1.5F).sound(SoundType.STONE).noOcclusion()
+                    .lightLevel(s -> s.getValue(PulseLightBlock.LIT) ? PulseLightBlock.Kind.EMBER_BOWL.light : 0)));
+
+    public static final DeferredBlock<CampDecorBlock> MARCH_STOOL = BLOCKS.register("march_stool", () ->
+            new CampDecorBlock(CampDecorBlock.Kind.STOOL, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BROWN).strength(1.5F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
+    public static final DeferredBlock<CampDecorBlock> MARCH_TABLE = BLOCKS.register("march_table", () ->
+            new CampDecorBlock(CampDecorBlock.Kind.TABLE, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
+    public static final DeferredBlock<CampDecorBlock> SPIRIT_URN = BLOCKS.register("spirit_urn", () ->
+            new CampDecorBlock(CampDecorBlock.Kind.URN, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_CYAN).strength(1.8F).sound(SoundType.STONE).noOcclusion()));
+    public static final DeferredBlock<WovenMatBlock> WOVEN_MAT = BLOCKS.register("woven_mat", () ->
+            new WovenMatBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN).strength(0.1F).sound(SoundType.WOOL).noOcclusion()
+                    .ignitedByLava().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<WallShelfBlock> WALL_SHELF = BLOCKS.register("wall_shelf", () ->
+            new WallShelfBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BROWN).strength(1.2F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
+    public static final DeferredBlock<WindCharmBlock> WIND_CHARM = BLOCKS.register("wind_charm", () ->
+            new WindCharmBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN).instabreak().sound(SoundType.AMETHYST).noOcclusion()
+                    .noCollission().pushReaction(PushReaction.DESTROY)));
+
     public static boolean isMarchTillable(BlockState state) {
         return state.is(MARCH_SOIL.get()) || state.is(MARCH_GRASS.get()) || state.is(MARCH_MOSS.get());
     }

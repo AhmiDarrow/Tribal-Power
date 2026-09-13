@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CMC",
+    " B "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "M": {
+      "item": "tribalpower:echo_bloom"
+    },
+    "B": {
+      "item": "tribalpower:march_cobble"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ember_bowl",
+    "count": 1
+  }
+}

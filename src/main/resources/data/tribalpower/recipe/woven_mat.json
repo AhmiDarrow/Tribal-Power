@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tribalpower:spirit_reed"
+    },
+    {
+      "item": "tribalpower:march_leaf"
+    }
+  ],
+  "result": {
+    "id": "tribalpower:woven_mat",
+    "count": 1
+  }
+}

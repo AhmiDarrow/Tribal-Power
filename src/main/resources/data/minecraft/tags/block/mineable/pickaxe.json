@@ -59,6 +59,10 @@
     "tribalpower:tally_plate",
     "tribalpower:strike_plate",
     "tribalpower:chance_plate",
-    "tribalpower:verse_plate"
+    "tribalpower:verse_plate",
+    "tribalpower:echo_sconce",
+    "tribalpower:ember_bowl",
+    "tribalpower:spirit_urn",
+    "tribalpower:wind_charm"
   ]
 }

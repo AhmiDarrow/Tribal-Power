@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "S",
+    "C"
+  ],
+  "key": {
+    "P": {
+      "item": "tribalpower:march_planks"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "tribalpower:shard_lamp",
+    "count": 1
+  }
+}

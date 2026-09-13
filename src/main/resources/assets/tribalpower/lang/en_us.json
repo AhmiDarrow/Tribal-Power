@@ -845,5 +845,18 @@
   "block.tribalpower.tally_plate.hint": "Counts rising edges on the back. Sneak-use cycles the threshold.",
   "block.tribalpower.strike_plate.hint": "One tick of 15 on a rising back.",
   "block.tribalpower.chance_plate.hint": "Coin flip on each rising back.",
-  "block.tribalpower.verse_plate.hint": "Four-step analog: 4, 8, 12, 15."
+  "block.tribalpower.verse_plate.hint": "Four-step analog: 4, 8, 12, 15.",
+  "block.tribalpower.glow_reed": "Glow Reed",
+  "block.tribalpower.shard_lamp": "Shard Lamp",
+  "block.tribalpower.echo_sconce": "Echo Sconce",
+  "block.tribalpower.ember_bowl": "Ember Bowl",
+  "block.tribalpower.march_stool": "March Stool",
+  "block.tribalpower.march_table": "March Table",
+  "block.tribalpower.spirit_urn": "Spirit Urn",
+  "block.tribalpower.woven_mat": "Woven Mat",
+  "block.tribalpower.wall_shelf": "Wall Shelf",
+  "block.tribalpower.wind_charm": "Wind Charm",
+  "block.tribalpower.pulse_light.desc": "Draws %s Pulse each second from the lattice. Redstone dims it.",
+  "message.tribalpower.pulse_light.lit": "Singing — %s Pulse a second",
+  "message.tribalpower.pulse_light.dark": "Quiet — needs %s Pulse nearby. Redstone also dims it."
 }

@@ -91,4 +91,9 @@ public final class ModBlockEntities {
      */
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RitePedestalBlockEntity>> RITE_PEDESTAL =
             BLOCK_ENTITIES.register("rite_pedestal", () -> BlockEntityType.Builder.of(RitePedestalBlockEntity::new, ModBlocks.RITE_PEDESTAL.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PulseLightBlockEntity>> PULSE_LIGHT =
+            BLOCK_ENTITIES.register("pulse_light", () -> BlockEntityType.Builder.of(PulseLightBlockEntity::new,
+                    ModBlocks.GLOW_REED.get(), ModBlocks.SHARD_LAMP.get(), ModBlocks.ECHO_SCONCE.get(),
+                    ModBlocks.EMBER_BOWL.get()).build(null));
 }

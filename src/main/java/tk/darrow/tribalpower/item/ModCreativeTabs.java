@@ -88,6 +88,16 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRIT_REED.get());
                         out.accept(ModItems.ECHO_BLOOM.get());
                         out.accept(ModItems.LEY_THISTLE.get());
+                        out.accept(ModItems.GLOW_REED.get());
+                        out.accept(ModItems.SHARD_LAMP.get());
+                        out.accept(ModItems.ECHO_SCONCE.get());
+                        out.accept(ModItems.EMBER_BOWL.get());
+                        out.accept(ModItems.MARCH_STOOL.get());
+                        out.accept(ModItems.MARCH_TABLE.get());
+                        out.accept(ModItems.SPIRIT_URN.get());
+                        out.accept(ModItems.WOVEN_MAT.get());
+                        out.accept(ModItems.WALL_SHELF.get());
+                        out.accept(ModItems.WIND_CHARM.get());
                         out.accept(ModItems.IRON_GRIT.get());
                         out.accept(ModItems.GOLD_GRIT.get());
                         out.accept(ModItems.COPPER_GRIT.get());

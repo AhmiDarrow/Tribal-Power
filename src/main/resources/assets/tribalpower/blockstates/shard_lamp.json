@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/shard_lamp"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/shard_lamp_on"
+    }
+  }
+}

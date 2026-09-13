@@ -1,0 +1,6 @@
+{
+  "parent": "tribalpower:block/echo_sconce",
+  "textures": {
+    "light": "tribalpower:block/loom_light"
+  }
+}
