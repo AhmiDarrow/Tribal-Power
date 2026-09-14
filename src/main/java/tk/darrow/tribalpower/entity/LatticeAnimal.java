@@ -20,10 +20,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
+import tk.darrow.tribalpower.familiar.Familiar;
 import tk.darrow.tribalpower.familiar.FamiliarAbilities;
 import tk.darrow.tribalpower.familiar.FamiliarData;
 import tk.darrow.tribalpower.familiar.FamiliarFollowGoal;
 import tk.darrow.tribalpower.familiar.FamiliarSitGoal;
+import tk.darrow.tribalpower.familiar.FamiliarSlots;
 import tk.darrow.tribalpower.familiar.MossbackMenu;
 import tk.darrow.tribalpower.item.CreatureItems;
 import tk.darrow.tribalpower.world.ModDimensions;
@@ -34,7 +36,7 @@ import tk.darrow.tribalpower.world.ModDimensions;
  * {@link FamiliarData} under NBT {@code Lattice}.
  * <p>NBT: {@code ForageCooldown} int, {@code Owner} UUID, {@code Sitting} boolean, {@code Saddlebag} compound with slot-indexed {@code Items} (Mossback), {@code LastLight} long (Lantern Fox), {@code Lattice} compound.
  */
-public class LatticeAnimal extends Animal implements PlayerRideableJumping {
+public class LatticeAnimal extends Animal implements PlayerRideableJumping, Familiar {
     private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.OPTIONAL_UUID);
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
     public static final int SADDLEBAG_SLOTS=FamiliarData.BASE_SADDLEBAG+FamiliarData.EXTRA_SADDLEBAG;
@@ -44,8 +46,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
     private BlockPos lastLight;
     private float riderJumpScale;
     public LatticeAnimal(EntityType<? extends Animal> type,Level level) { super(type,level); }
-    public CreatureProfile profile() { return CreatureProfile.of(getType()); }
-    public FamiliarData lattice() { return lattice; }
+    @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    @Override public FamiliarData lattice() { return lattice; }
     public void applyLattice() { lattice.apply(this,profile()); }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
@@ -67,17 +69,24 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         goalSelector.addGoal(10,new RandomLookAroundGoal(this));
     }
     // ---- bonding state -------------------------------------------------------------------------------------
-    public Optional<UUID> ownerUUID() { return entityData.get(DATA_OWNER); }
-    public boolean isBonded() { return ownerUUID().isPresent(); }
-    public boolean isOwnedBy(Entity entity) { return entity!=null && ownerUUID().map(id->id.equals(entity.getUUID())).orElse(false); }
-    public Player getOwner() { return ownerUUID().map(id->level().getPlayerByUUID(id)).orElse(null); }
-    public void bond(Player owner) { entityData.set(DATA_OWNER,Optional.of(owner.getUUID()));setSitting(false);setPersistenceRequired(); }
-    public boolean isSitting() { return entityData.get(DATA_SITTING); }
-    public void setSitting(boolean sitting) { entityData.set(DATA_SITTING,sitting);if(sitting)getNavigation().stop(); }
+    @Override public Optional<UUID> ownerUUID() { return entityData.get(DATA_OWNER); }
+    @Override public boolean isBonded() { return ownerUUID().isPresent(); }
+    @Override public boolean isOwnedBy(Entity entity) { return entity!=null && ownerUUID().map(id->id.equals(entity.getUUID())).orElse(false); }
+    @Override public Player getOwner() { return ownerUUID().map(id->level().getPlayerByUUID(id)).orElse(null); }
+    @Override public void bond(Player owner) { entityData.set(DATA_OWNER,Optional.of(owner.getUUID()));setSitting(false);setPersistenceRequired(); }
+    @Override public boolean isSitting() { return entityData.get(DATA_SITTING); }
+    @Override public void setSitting(boolean sitting) { entityData.set(DATA_SITTING,sitting);if(sitting)getNavigation().stop(); }
     public SimpleContainer saddlebag() { return saddlebag; }
     public BlockPos lastLight() { return lastLight; }
     public void setLastLight(BlockPos pos) { lastLight=pos; }
-    public boolean unableToMoveToOwner() { return isSitting() || isPassenger() || isVehicle() || mayBeLeashed() || (getOwner()!=null && getOwner().isSpectator()); }
+    @Override public boolean unableToMoveToOwner() { return isSitting() || isPassenger() || isVehicle() || mayBeLeashed() || (getOwner()!=null && getOwner().isSpectator()); }
+    @Override public boolean isAlliedTo(Entity other) {
+        if(isBonded()) {
+            if(other instanceof Player player && isOwnedBy(player))return true;
+            if(other instanceof Familiar fam && fam.isBonded() && ownerUUID().equals(fam.ownerUUID()))return true;
+        }
+        return super.isAlliedTo(other);
+    }
     @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded(); }
     @Override public boolean removeWhenFarAway(double distance) { return !isBonded() && super.removeWhenFarAway(distance); }
     @Override public boolean hurt(DamageSource source,float amount) {
@@ -116,8 +125,13 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
                     return InteractionResult.sidedSuccess(level().isClientSide);
                 }
                 if(!level().isClientSide) {
-                    setSitting(!isSitting());
-                    player.displayClientMessage(Component.translatable(isSitting()?"message.tribalpower.familiar.stay":"message.tribalpower.familiar.follow",getDisplayName()),false);
+                    if(isSitting()) {
+                        boolean followed=FamiliarSlots.tryFollow(this);
+                        player.displayClientMessage(Component.translatable(followed?"message.tribalpower.familiar.follow":"message.tribalpower.familiar.stay",getDisplayName()),false);
+                    } else {
+                        setSitting(true);
+                        player.displayClientMessage(Component.translatable("message.tribalpower.familiar.stay",getDisplayName()),false);
+                    }
                 }
                 return InteractionResult.sidedSuccess(level().isClientSide);
             }
@@ -141,9 +155,11 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
             if(isSitting()) {
                 sitTicks++;
                 if(lattice.expressed(FamiliarData.Mark.DRIFT) && sitTicks>=FamiliarData.DRIFT_SIT_TICKS) {
-                    setSitting(false);
-                    var owner=getOwner();
-                    if(owner!=null)owner.displayClientMessage(Component.translatable("message.tribalpower.familiar.restless",getDisplayName()),true);
+                    if(!FamiliarSlots.tryFollow(this))sitTicks=0;
+                    else {
+                        var owner=getOwner();
+                        if(owner!=null)owner.displayClientMessage(Component.translatable("message.tribalpower.familiar.restless",getDisplayName()),true);
+                    }
                 }
             } else sitTicks=0;
             if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)

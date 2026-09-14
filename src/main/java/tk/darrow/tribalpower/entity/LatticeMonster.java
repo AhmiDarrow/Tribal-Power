@@ -1,41 +1,159 @@
 package tk.darrow.tribalpower.entity;
+
 import java.util.EnumSet;
+import java.util.Optional;
+import java.util.UUID;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.*;
-import net.minecraft.world.effect.*;
-import net.minecraft.world.entity.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-public class LatticeMonster extends Monster {
+import net.minecraft.world.level.ServerLevelAccessor;
+import tk.darrow.tribalpower.familiar.Familiar;
+import tk.darrow.tribalpower.familiar.FamiliarAbilities;
+import tk.darrow.tribalpower.familiar.FamiliarData;
+import tk.darrow.tribalpower.familiar.FamiliarFollowGoal;
+import tk.darrow.tribalpower.familiar.FamiliarOwnerTargetGoals;
+import tk.darrow.tribalpower.familiar.FamiliarRoster;
+import tk.darrow.tribalpower.familiar.FamiliarSitGoal;
+import tk.darrow.tribalpower.familiar.FamiliarSlots;
+import tk.darrow.tribalpower.item.CreatureItems;
+import tk.darrow.tribalpower.world.ModDimensions;
+
+public class LatticeMonster extends Monster implements Familiar {
+    public static final int POUCH_SLOTS=5;
+    private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.OPTIONAL_UUID);
+    private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> DATA_BABY=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
+    private final FamiliarData lattice=new FamiliarData();
+    private final SimpleContainer pouch=new SimpleContainer(POUCH_SLOTS);
+    private int age,inLove,forageCooldown,sitTicks;
+    private UUID lastOwnerAttacker;
+    private BlockPos lastClick;
+
     public LatticeMonster(EntityType<? extends Monster> type,Level level) {
         super(type,level);xpReward=profile().health>=35?8:5;
         if(profile().flying) { moveControl=new FlyingMoveControl(this,12,true);setNoGravity(true); }
     }
-    public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    @Override public FamiliarData lattice() { return lattice; }
+    public void applyLattice() { lattice.apply(this,profile()); }
+    public void ensureLattice(RandomSource random,boolean march) {
+        if(lattice.rolled())return;
+        lattice.rollWild(profile(),random,march);
+        applyLattice();
+    }
+    public SimpleContainer pouch() { return pouch; }
+    public UUID lastOwnerAttacker() { return lastOwnerAttacker; }
+    public void setLastOwnerAttacker(UUID id) { lastOwnerAttacker=id; }
+    public BlockPos lastClick() { return lastClick; }
+    public void setLastClick(BlockPos pos) { lastClick=pos; }
+
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_OWNER,Optional.empty());
+        builder.define(DATA_SITTING,false);
+        builder.define(DATA_BABY,false);
+    }
     @Override protected PathNavigation createNavigation(Level level) {
-        return CreatureProfile.of(getType()).flying?new FlyingPathNavigation(this,level):super.createNavigation(level);
+        return profile().flying?new FlyingPathNavigation(this,level):super.createNavigation(level);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
+        goalSelector.addGoal(1,new FamiliarSitGoal(this));
         goalSelector.addGoal(2,profile().ranged()?new SpiritCastGoal():new MeleeAttackGoal(this,1,false));
+        goalSelector.addGoal(3,new FamiliarFollowGoal(this,1.1));
         goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8):new WaterAvoidingRandomStrollGoal(this,.8));
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,8));
         goalSelector.addGoal(7,new RandomLookAroundGoal(this));
-        targetSelector.addGoal(1,new HurtByTargetGoal(this));
-        targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
+        targetSelector.addGoal(1,new FamiliarOwnerTargetGoals.HurtBy(this));
+        targetSelector.addGoal(2,new FamiliarOwnerTargetGoals.OwnerHurtBy(this));
+        targetSelector.addGoal(3,new FamiliarOwnerTargetGoals.OwnerHurt(this));
+        targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this,Player.class,true) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
     }
-    public boolean canCastAt(LivingEntity target) { return target.isAlive() && distanceToSqr(target)<=144 && hasLineOfSight(target); }
+
+    @Override public Optional<UUID> ownerUUID() { return entityData.get(DATA_OWNER); }
+    @Override public boolean isBonded() { return ownerUUID().isPresent(); }
+    @Override public boolean isOwnedBy(Entity entity) { return entity!=null && ownerUUID().map(id->id.equals(entity.getUUID())).orElse(false); }
+    @Override public Player getOwner() { return ownerUUID().map(id->level().getPlayerByUUID(id)).orElse(null); }
+    @Override public void bond(Player owner) { entityData.set(DATA_OWNER,Optional.of(owner.getUUID()));setSitting(false);setPersistenceRequired();setTarget(null); }
+    @Override public boolean isSitting() { return entityData.get(DATA_SITTING); }
+    @Override public void setSitting(boolean sitting) {
+        entityData.set(DATA_SITTING,sitting);
+        if(sitting) { getNavigation().stop();setTarget(null); }
+    }
+    @Override public boolean unableToMoveToOwner() {
+        return isSitting() || isPassenger() || isVehicle() || mayBeLeashed() || (getOwner()!=null && getOwner().isSpectator());
+    }
+    @Override public boolean isBaby() { return entityData.get(DATA_BABY); }
+    public void setBabyFlag(boolean baby) {
+        entityData.set(DATA_BABY,baby);
+        if(baby && age>=0)age=-24000;
+        if(!baby && age<0)age=0;
+        refreshDimensions();
+    }
+    @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded(); }
+    @Override public boolean removeWhenFarAway(double distance) { return !isBonded() && super.removeWhenFarAway(distance); }
+    @Override public boolean hurt(DamageSource source,float amount) {
+        if(isBonded() && isOwnedBy(source.getEntity()))return false;
+        if(!level().isClientSide && isSitting() && amount>0)setSitting(false);
+        return super.hurt(source,amount);
+    }
     @Override public boolean doHurtTarget(Entity entity) {
+        if(entity instanceof LivingEntity living && FamiliarOwnerTargetGoals.forbidden(this,living))return false;
         boolean hit=super.doHurtTarget(entity);
-        if(hit && entity instanceof LivingEntity target) applyVoice(target);
+        if(hit && entity instanceof LivingEntity target)applyVoice(target);
         return hit;
     }
+    @Override public boolean isAlliedTo(Entity other) {
+        if(isBonded()) {
+            if(other instanceof Player player && isOwnedBy(player))return true;
+            if(other instanceof Familiar fam && fam.isBonded() && ownerUUID().equals(fam.ownerUUID()))return true;
+        }
+        return super.isAlliedTo(other);
+    }
+
+    public boolean canCastAt(LivingEntity target) { return target.isAlive() && distanceToSqr(target)<=144 && hasLineOfSight(target); }
     private void applyVoice(LivingEntity target) {
         switch(profile().attack) {
             case "ember","bolt" -> target.igniteForSeconds(2);
@@ -46,19 +164,165 @@ public class LatticeMonster extends Monster {
             default -> { }
         }
     }
-    @Override public boolean causeFallDamage(float distance,float multiplier,net.minecraft.world.damagesource.DamageSource source) { return !profile().flying && super.causeFallDamage(distance,multiplier,source); }
+
+    public boolean isFood(ItemStack stack) { return stack.is(CreatureItems.REAGENTS.get(profile()).get()); }
+    @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
+        ItemStack tool=player.getItemInHand(hand);
+        if(tool.is(Items.BRUSH) && isBonded() && !isBaby()) {
+            if(!level().isClientSide && forageCooldown==0) {
+                spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2));
+                forageCooldown=1200;
+                tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
+                level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);
+            }
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        if(isBonded() && isOwnedBy(player)) {
+            if(isFood(tool) && !isBaby()) {
+                if(!level().isClientSide && inLove<=0) {
+                    if(!player.getAbilities().instabuild)tool.shrink(1);
+                    inLove=600;
+                    level().broadcastEntityEvent(this,(byte)18);
+                }
+                return InteractionResult.sidedSuccess(level().isClientSide);
+            }
+            if(player.isSecondaryUseActive() && !isFood(tool)) {
+                if(profile()==CreatureProfile.ECHO_WEAVER && tool.isEmpty() && !pouch.isEmpty()) {
+                    if(!level().isClientSide)dumpPouch(player);
+                    return InteractionResult.sidedSuccess(level().isClientSide);
+                }
+                if(!level().isClientSide) {
+                    if(isSitting()) {
+                        boolean followed=FamiliarSlots.tryFollow(this);
+                        player.displayClientMessage(Component.translatable(followed?"message.tribalpower.familiar.follow":"message.tribalpower.familiar.stay",getDisplayName()),false);
+                    } else {
+                        setSitting(true);
+                        player.displayClientMessage(Component.translatable("message.tribalpower.familiar.stay",getDisplayName()),false);
+                    }
+                }
+                return InteractionResult.sidedSuccess(level().isClientSide);
+            }
+        }
+        return super.mobInteract(player,hand);
+    }
+    public void dumpPouch(Player player) {
+        for(int i=0;i<POUCH_SLOTS;i++) {
+            ItemStack stack=pouch.getItem(i);
+            if(stack.isEmpty())continue;
+            if(!player.addItem(stack))spawnAtLocation(stack);
+            pouch.setItem(i,ItemStack.EMPTY);
+        }
+    }
+
+    @Override public void aiStep() {
+        super.aiStep();
+        if(!level().isClientSide) {
+            if(forageCooldown>0)forageCooldown--;
+            if(inLove>0)inLove--;
+            if(age<0) { age++; if(age==0)setBabyFlag(false); }
+            ensureLattice(getRandom(),level() instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH));
+            if(isSitting()) {
+                sitTicks++;
+                if(lattice.expressed(FamiliarData.Mark.DRIFT) && sitTicks>=FamiliarData.DRIFT_SIT_TICKS) {
+                    if(!FamiliarSlots.tryFollow(this) )sitTicks=0;
+                    else {
+                        var owner=getOwner();
+                        if(owner!=null)owner.displayClientMessage(Component.translatable("message.tribalpower.familiar.restless",getDisplayName()),true);
+                    }
+                }
+            } else sitTicks=0;
+            if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)
+                server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
+            if(isBonded() && inLove>0)tryBreed();
+            if(isBonded())FamiliarAbilities.tickMonster(this);
+        }
+    }
+    private void tryBreed() {
+        if(!(level() instanceof ServerLevel server) || isBaby())return;
+        for(LatticeMonster other:server.getEntitiesOfClass(LatticeMonster.class,getBoundingBox().inflate(8),
+                m->m!=this && m.getType()==getType() && m.isBonded() && !m.isBaby() && m.inLove>0)) {
+            var child=CreatureEntities.MONSTERS.get(profile()).get().create(server);
+            if(child==null)return;
+            child.copyPosition(this);
+            child.lattice.copyFrom(FamiliarData.inherit(lattice,other.lattice,profile(),server.random,ownerUUID().orElse(null),other.ownerUUID().orElse(null)));
+            child.applyLattice();
+            child.setBabyFlag(true);
+            server.addFreshEntity(child);
+            inLove=0;other.inLove=0;
+            server.broadcastEntityEvent(this,(byte)18);
+            return;
+        }
+    }
+    @Override public void handleEntityEvent(byte id) {
+        if(id==18) {
+            for(int i=0;i<7;i++)
+                level().addParticle(ParticleTypes.HEART,getX()+getRandom().nextGaussian()*0.3,getY()+getBbHeight()*0.5,getZ()+getRandom().nextGaussian()*0.3,0,0,0);
+        } else super.handleEntityEvent(id);
+    }
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {
+        var result=super.finalizeSpawn(level,difficulty,reason,data);
+        boolean march=level instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH);
+        ensureLattice(level.getRandom(),march);
+        return result;
+    }
+    @Override public void die(DamageSource source) {
+        super.die(source);
+        if(!level().isClientSide) { Containers.dropContents(level(),blockPosition(),pouch);pouch.clearContent(); }
+        FamiliarAbilities.clearClick(this);
+    }
+    @Override public void remove(RemovalReason reason) {
+        if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)
+            FamiliarAbilities.clearClick(this);
+        super.remove(reason);
+    }
+
+    @Override public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        ownerUUID().ifPresent(id->tag.putUUID("Owner",id));
+        tag.putBoolean("Sitting",isSitting());
+        tag.putInt("Age",age);
+        tag.putInt("InLove",inLove);
+        tag.putInt("ForageCooldown",forageCooldown);
+        if(lattice.rolled())tag.put("Lattice",lattice.save());
+        if(!pouch.isEmpty()) {
+            var items=net.minecraft.core.NonNullList.withSize(POUCH_SLOTS,ItemStack.EMPTY);
+            for(int i=0;i<POUCH_SLOTS;i++)items.set(i,pouch.getItem(i));
+            CompoundTag bag=new CompoundTag();ContainerHelper.saveAllItems(bag,items,registryAccess());tag.put("Pouch",bag);
+        }
+        if(lastOwnerAttacker!=null)tag.putUUID("LastOwnerAttacker",lastOwnerAttacker);
+    }
+    @Override public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        entityData.set(DATA_OWNER,tag.hasUUID("Owner")?Optional.of(tag.getUUID("Owner")):Optional.empty());
+        setSitting(tag.getBoolean("Sitting") && isBonded());
+        age=tag.getInt("Age");
+        setBabyFlag(age<0);
+        inLove=Math.max(0,tag.getInt("InLove"));
+        forageCooldown=Math.max(0,tag.getInt("ForageCooldown"));
+        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) { lattice.load(tag.getCompound("Lattice"));applyLattice(); }
+        pouch.clearContent();
+        if(tag.contains("Pouch",Tag.TAG_COMPOUND)) {
+            var items=net.minecraft.core.NonNullList.withSize(POUCH_SLOTS,ItemStack.EMPTY);
+            ContainerHelper.loadAllItems(tag.getCompound("Pouch"),items,registryAccess());
+            for(int i=0;i<POUCH_SLOTS;i++)pouch.setItem(i,items.get(i));
+        }
+        lastOwnerAttacker=tag.hasUUID("LastOwnerAttacker")?tag.getUUID("LastOwnerAttacker"):null;
+        if(isBonded())setPersistenceRequired();
+    }
+
+    @Override public boolean causeFallDamage(float distance,float multiplier,DamageSource source) { return !profile().flying && super.causeFallDamage(distance,multiplier,source); }
     @Override protected SoundEvent getAmbientSound() { return profile().ranged()?SoundEvents.AMETHYST_BLOCK_CHIME:SoundEvents.SOUL_SAND_STEP; }
-    @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return SoundEvents.AMETHYST_BLOCK_HIT; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.AMETHYST_BLOCK_HIT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.AMETHYST_BLOCK_BREAK; }
-    /** Telegraph, line of sight and bounded range apply throughout the cast; no terrain edits. */
+
     private final class SpiritCastGoal extends Goal {
         private int cooldown,windup;
         SpiritCastGoal() { setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK)); }
-        @Override public boolean canUse() { return getTarget()!=null && getTarget().isAlive(); }
+        @Override public boolean canUse() { return getTarget()!=null && getTarget().isAlive() && !isSitting(); }
         @Override public boolean requiresUpdateEveryTick() { return true; }
         @Override public void stop() { windup=0;getNavigation().stop(); }
         @Override public void tick() {
-            var target=getTarget();if(target==null)return;
+            var target=getTarget();if(target==null || isSitting())return;
             if(cooldown>0)cooldown--;
             getLookControl().setLookAt(target,30,30);
             if(!canCastAt(target)) { windup=0;getNavigation().moveTo(target,1);return; }
@@ -66,7 +330,8 @@ public class LatticeMonster extends Monster {
             if(level() instanceof ServerLevel server && windup%4==0)server.sendParticles(ParticleTypes.END_ROD,getX(),getEyeY(),getZ(),2,.12,.12,.12,.01);
             if(++windup<16)return;
             windup=0;cooldown=70;
-            if(target.hurt(damageSources().indirectMagic(LatticeMonster.this,LatticeMonster.this),(float)profile().damage))applyVoice(target);
+            if(FamiliarOwnerTargetGoals.forbidden(LatticeMonster.this,target))return;
+            if(target.hurt(damageSources().indirectMagic(LatticeMonster.this,LatticeMonster.this),(float)(profile().damage*lattice.multiplier(FamiliarData.Thread.FANG))))applyVoice(target);
             level().playSound(null,blockPosition(),SoundEvents.AMETHYST_BLOCK_RESONATE,SoundSource.HOSTILE,.7F,.8F);
         }
     }

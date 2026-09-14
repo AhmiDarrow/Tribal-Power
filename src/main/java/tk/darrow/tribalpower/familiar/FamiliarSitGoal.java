@@ -1,14 +1,21 @@
 package tk.darrow.tribalpower.familiar;
 
 import java.util.EnumSet;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
-import tk.darrow.tribalpower.entity.LatticeAnimal;
 
-/** Holds a bonded animal still while it is ordered to stay (mirrors {@code SitWhenOrderedToGoal}). */
+/** Holds a bonded familiar still while it is ordered to stay. Flying sitters need not touch the ground. */
 public class FamiliarSitGoal extends Goal {
-    private final LatticeAnimal animal;
-    public FamiliarSitGoal(LatticeAnimal animal) { this.animal=animal;setFlags(EnumSet.of(Flag.JUMP,Flag.MOVE)); }
-    @Override public boolean canUse() { return animal.isBonded() && animal.isSitting() && !animal.isInWaterOrBubble() && animal.onGround() && !animal.isVehicle(); }
-    @Override public boolean canContinueToUse() { return animal.isBonded() && animal.isSitting() && !animal.isVehicle(); }
-    @Override public void start() { animal.getNavigation().stop(); }
+    private final Familiar familiar;
+    private final Mob mob;
+    public FamiliarSitGoal(Familiar familiar) {
+        this.familiar=familiar;this.mob=familiar.asMob();
+        setFlags(EnumSet.of(Flag.JUMP,Flag.MOVE));
+    }
+    @Override public boolean canUse() {
+        return familiar.isBonded() && familiar.isSitting() && !mob.isInWaterOrBubble() && !mob.isVehicle()
+                && (familiar.profile().flying || mob.onGround());
+    }
+    @Override public boolean canContinueToUse() { return familiar.isBonded() && familiar.isSitting() && !mob.isVehicle(); }
+    @Override public void start() { mob.getNavigation().stop(); }
 }

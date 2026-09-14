@@ -26,7 +26,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
-import tk.darrow.tribalpower.entity.LatticeAnimal;
+import tk.darrow.tribalpower.familiar.Familiar;
 import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
@@ -209,10 +209,13 @@ public class LeyLensItem extends Item {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
-        if (!(target instanceof LatticeAnimal animal) || !player.isShiftKeyDown()) return InteractionResult.PASS;
+        if (!(target instanceof Familiar familiar) || !player.isShiftKeyDown()) return InteractionResult.PASS;
         if (player.level() instanceof ServerLevel) {
-            animal.ensureLattice(animal.getRandom(), player.level().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH));
-            for (Component line : animal.lattice().lensLines(animal.getDisplayName())) player.sendSystemMessage(line);
+            if (target instanceof tk.darrow.tribalpower.entity.LatticeAnimal animal)
+                animal.ensureLattice(animal.getRandom(), player.level().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH));
+            else if (target instanceof tk.darrow.tribalpower.entity.LatticeMonster monster)
+                monster.ensureLattice(monster.getRandom(), player.level().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH));
+            for (Component line : familiar.lattice().lensLines(familiar.asMob().getDisplayName())) player.sendSystemMessage(line);
         }
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }

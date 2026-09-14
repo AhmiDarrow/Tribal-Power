@@ -18,6 +18,9 @@ public final class FamiliarRegistry {
     /** Invisible, collision-free, replaceable light source (level 10) that a bonded Lantern Fox carries with it. No item, no loot. */
     public static final DeferredBlock<SpiritLightBlock> SPIRIT_LIGHT=BLOCKS.register("spirit_light",()->new SpiritLightBlock(BlockBehaviour.Properties.of()
             .replaceable().noCollission().noOcclusion().noLootTable().air().strength(-1F,3600000F).pushReaction(PushReaction.DESTROY)));
+    /** Invisible one-beat redstone source a sitting Storm Moth leaves. No item, no loot. */
+    public static final DeferredBlock<SpiritClickBlock> SPIRIT_CLICK=BLOCKS.register("spirit_click",()->new SpiritClickBlock(BlockBehaviour.Properties.of()
+            .replaceable().noCollission().noOcclusion().noLootTable().air().strength(-1F,3600000F).pushReaction(PushReaction.DESTROY)));
     public static final DeferredHolder<MenuType<?>,MenuType<MossbackMenu>> SADDLEBAG=MENUS.register("mossback_saddlebag",()->new MenuType<>(MossbackMenu::new,FeatureFlags.DEFAULT_FLAGS));
     public static void displayItems(CreativeModeTab.Output out) { out.accept(BONDING_CHARM.get()); }
     private FamiliarRegistry(){}

@@ -76,6 +76,8 @@ final class CodexDiagrams {
             case "familiars_bonding", "walk_bond_a_familiar" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", FAMILIARS[familiar] + "_spawn_egg", "bonding_charm", "", 0xFFE07A9F, familiar);
             case "familiars_fox" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", "lantern_fox_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 0);
             case "familiars_mossback_stag" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", FAMILIARS[1 + (int) (t / 3) % 2] + "_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 1 + (int) (t / 3) % 2);
+            case "familiars_hostile" -> flow(Kind.FAMILIAR, "VOICE > CHARM > BOND", "bonding_charm", "rift_hound_spawn_egg", "rift_tooth", "", 0xFFE07A9F, 0);
+            case "familiars_company" -> flow(Kind.FAMILIAR, "ONE FIGHTS > TWO HELP", "prism_carapace", "storm_wing", "cinder_knot", "", 0xFFE07A9F, 0);
             case "camps_identity", "walk_found_a_camp" -> flow(Kind.CAMP, "CHARTER > INVITE > SHARE", "camp_charter", "deep_cache", "wayfarer_satchel", "", TEAL, 0);
             case "gear_ranks" -> flow(Kind.UPGRADE, "UPGRADE THE SAME ITEM IN ORDER", "spiritgear_pickaxe", "echo_manifest", "spiritgear_pickaxe", "echo_attune", GOLD, 0);
             case "gear_voices", "walk_totem_bound_gear" -> flow(Kind.FLOW, "SNEAK > TOTEM > VOICE", "spiritgear_pickaxe", "resonance_totem_earth", "spiritgear_pickaxe", "pulse_cell", TEAL, 0);

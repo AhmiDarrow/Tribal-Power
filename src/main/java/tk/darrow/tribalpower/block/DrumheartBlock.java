@@ -93,6 +93,9 @@ public class DrumheartBlock extends BaseEntityBlock {
         if (level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum) {
             if (!level.isClientSide) {
                 int gained = drum.drumBeat();
+                if (gained > 0 && level instanceof ServerLevel server) {
+                    gained += tk.darrow.tribalpower.familiar.FamiliarAbilities.onOwnerDrum(server, pos, player, drum);
+                }
                 player.displayClientMessage(Component.translatable(
                         "message.tribalpower.drumheart.beat", gained, drum.getPulseStored(), drum.getPulseCapacity()
                 ), true);

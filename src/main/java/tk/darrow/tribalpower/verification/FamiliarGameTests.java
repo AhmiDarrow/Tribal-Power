@@ -15,8 +15,12 @@ import tk.darrow.tribalpower.camp.CampHooks;
 import tk.darrow.tribalpower.camp.identity.*;
 import tk.darrow.tribalpower.entity.*;
 import tk.darrow.tribalpower.familiar.*;
+import tk.darrow.tribalpower.block.ModBlocks;
+import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.ley.LeyRegistry;
 import tk.darrow.tribalpower.storage.DeepCacheManager;
+import tk.darrow.tribalpower.tribe.TribeDefinition;
+import tk.darrow.tribalpower.tribe.TribeStanding;
 
 /** Bonded spirits and shared camps (design 3.0 §5-6). */
 @GameTestHolder("tribalpower")
@@ -285,5 +289,122 @@ public class FamiliarGameTests {
         var tag=new CompoundTag();fox.saveWithoutId(tag);
         h.assertTrue(tag.contains("Lattice"),"Bonded animals persist their lattice");
         fox.discard();pocket.discard();plain.discard();h.succeed();
+    }
+    private static LatticeMonster spawnMonster(GameTestHelper h,CreatureProfile profile,int x,int y,int z) {
+        var mob=CreatureEntities.MONSTERS.get(profile).get().create(h.getLevel());
+        var pos=h.absolutePos(new BlockPos(x,y,z));
+        mob.moveTo(pos.getX()+.5,pos.getY(),pos.getZ()+.5,0,0);
+        mob.setNoAi(true);
+        h.getLevel().addFreshEntity(mob);
+        return mob;
+    }
+    private static void voice(GameTestHelper h,net.minecraft.server.level.ServerPlayer player,TribeDefinition tribe) {
+        TribeStanding.add(player,tribe,TribeStanding.get(h.getLevel().getServer(),player.getUUID(),tribe)>=800?0:800);
+    }
+    private static ItemStack bondHostile(GameTestHelper h,net.minecraft.server.level.ServerPlayer player,LatticeMonster mob) {
+        player.getAbilities().instabuild=false;
+        var charm=new ItemStack(FamiliarRegistry.BONDING_CHARM.get(),16);
+        h.assertTrue(BondingCharmItem.attempt(h.getLevel(),player,mob,charm,true) && mob.isBonded(),"A forced remnant attempt must bond");
+        h.assertTrue(charm.getCount()==15,"A charm is spent on a remnant success, got "+charm.getCount());
+        return charm;
+    }
+    @GameTest(template="empty")
+    public static void remnantsNeedVoiceAndSpendCharmOnFail(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        player.getAbilities().instabuild=false;
+        var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
+        var charm=new ItemStack(FamiliarRegistry.BONDING_CHARM.get(),4);
+        player.setItemInHand(InteractionHand.MAIN_HAND,charm);
+        charm.getItem().interactLivingEntity(charm,player,hound,InteractionHand.MAIN_HAND);
+        h.assertTrue(!hound.isBonded() && charm.getCount()==4,"Without Voice the remnant keeps its distance and the charm");
+        voice(h,player,TribeDefinition.CLAW);
+        h.assertTrue(!BondingCharmItem.conclude(h.getLevel(),player,hound,charm,false,true) && !hound.isBonded() && charm.getCount()==3,"A failed remnant charm is spent");
+        h.assertTrue(BondingCharmItem.attempt(h.getLevel(),player,hound,charm,true) && hound.isBonded() && charm.getCount()==2,"Voice plus a successful charm bonds the remnant");
+        var ash=spawnMonster(h,CreatureProfile.ASHBOUND,5,2,5);
+        voice(h,player,TribeDefinition.SPARK);
+        var refuse=new ItemStack(FamiliarRegistry.BONDING_CHARM.get(),2);
+        refuse.getItem().interactLivingEntity(refuse,player,ash,InteractionHand.MAIN_HAND);
+        h.assertTrue(!ash.isBonded() && refuse.getCount()==2,"Ashbound, Rootbound, Reed Stalkers and Hollow Sentinels never answer");
+        hound.discard();ash.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void companyCapsOneCombatAndTwoSupport(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        var at=h.absolutePos(new BlockPos(3,2,3));
+        player.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
+        voice(h,player,TribeDefinition.STONE);
+        voice(h,player,TribeDefinition.CLAW);
+        var a=spawn(h,CreatureProfile.LANTERN_FOX,2,2,2);
+        var b=spawn(h,CreatureProfile.MOSSBACK,3,2,2);
+        var c=spawn(h,CreatureProfile.DAWN_STAG,4,2,2);
+        bond(h,player,a);bond(h,player,b);bond(h,player,c);
+        h.assertTrue(!a.isSitting() && !b.isSitting() && c.isSitting(),"A third helper waits");
+        var fighter=spawnMonster(h,CreatureProfile.SHARDBACK,5,2,3);
+        var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,6,2,3);
+        bondHostile(h,player,fighter);
+        bondHostile(h,player,hound);
+        h.assertTrue(!fighter.isSitting() && hound.isSitting(),"A second fighter waits");
+        fighter.setSitting(true);
+        h.assertTrue(FamiliarSlots.tryFollow(hound) && !hound.isSitting(),"A sitter frees the combat slot");
+        a.discard();b.discard();c.discard();fighter.discard();hound.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void mothClickImpRefundBellCleanseWeaverPouch(GameTestHelper h) {
+        floor(h);
+        var level=h.getLevel();
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.CLOCK);
+        voice(h,player,TribeDefinition.SPARK);
+        voice(h,player,TribeDefinition.SIGIL);
+        voice(h,player,TribeDefinition.SPINDLE);
+        var moth=spawnMonster(h,CreatureProfile.STORM_MOTH,3,2,3);
+        bondHostile(h,player,moth);
+        moth.setSitting(true);
+        h.assertTrue(FamiliarAbilities.placeClick(level,moth) && level.getBlockState(moth.blockPosition()).is(FamiliarRegistry.SPIRIT_CLICK.get()),"A sitting moth leaves a spirit click");
+        level.getBlockState(moth.blockPosition()).tick(level,moth.blockPosition(),level.random);
+        h.assertTrue(!level.getBlockState(moth.blockPosition()).is(FamiliarRegistry.SPIRIT_CLICK.get()),"The click expires on its scheduled tick");
+
+        h.setBlock(4,2,4,ModBlocks.DRUMHEART.get());
+        var drum=(DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));
+        var imp=spawnMonster(h,CreatureProfile.CINDER_IMP,4,2,5);
+        bondHostile(h,player,imp);
+        int before=drum.getPulseStored();
+        drum.drumBeat();
+        h.assertTrue(drum.getPulseStored()>before,"A hand beat stores Pulse without an Imp");
+        int afterBeat=drum.getPulseStored();
+        int refund=FamiliarAbilities.onOwnerDrum(level,h.absolutePos(new BlockPos(4,2,4)),player,drum);
+        h.assertTrue(refund==FamiliarAbilities.IMP_REFUND && drum.getPulseStored()==afterBeat+refund,"A following Imp refunds hand-drum Pulse");
+        imp.setSitting(true);
+        h.assertTrue(FamiliarAbilities.onOwnerDrum(level,h.absolutePos(new BlockPos(4,2,4)),player,drum)==0,"A sitting Imp refunds nothing");
+        int redstoneBefore=drum.getPulseStored();
+        drum.onRedstonePulse();
+        h.assertTrue(drum.getPulseStored()>=redstoneBefore,"A redstone beat never routes through the Imp refund");
+
+        var bell=spawnMonster(h,CreatureProfile.MOURNING_BELL,2,2,5);
+        bondHostile(h,player,bell);
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,200,0));
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WITHER,200,0));
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,200,0));
+        FamiliarAbilities.cleanse(player,false);
+        h.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.POISON),"The bell lifts poison");
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WITHER),"The bell never lifts Wither");
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN),"Without Still, slowness stays");
+        FamiliarAbilities.cleanse(player,true);
+        h.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN),"Still also lifts slowness");
+
+        var weaver=spawnMonster(h,CreatureProfile.ECHO_WEAVER,5,2,5);
+        bondHostile(h,player,weaver);
+        var dropPos=weaver.position();
+        var drop=new net.minecraft.world.entity.item.ItemEntity(level,dropPos.x,dropPos.y,dropPos.z,new ItemStack(Items.DIAMOND,3));
+        drop.setPickUpDelay(0);
+        level.addFreshEntity(drop);
+        h.assertTrue(FamiliarAbilities.forage(level,weaver)>0 && !weaver.pouch().isEmpty(),"A weaver pockets nearby drops");
+        var lens=new ItemStack(LeyRegistry.LEY_LENS.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND,lens);
+        player.setShiftKeyDown(true);
+        h.assertTrue(lens.getItem().interactLivingEntity(lens,player,weaver,InteractionHand.MAIN_HAND).consumesAction(),"The Ley Lens reads a remnant lattice");
+        moth.discard();imp.discard();bell.discard();weaver.discard();h.succeed();
     }
 }

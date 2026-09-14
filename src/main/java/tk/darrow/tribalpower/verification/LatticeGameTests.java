@@ -454,7 +454,7 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void playerMachinesDropWithoutATaggedTool(GameTestHelper h) {
         var ores=java.util.Set.of("march_stone","march_cobble","march_ore");
-        var never=java.util.Set.of("gate_portal","spirit_light");
+        var never=java.util.Set.of("gate_portal","spirit_light","spirit_click");
         for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
             var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);
             if(!id.getNamespace().equals("tribalpower")||never.contains(id.getPath())) continue;
