@@ -490,6 +490,11 @@ public class FamiliarGameTests {
         player.moveTo(child.getX(),child.getY(),child.getZ(),0,0);
         for(int i=0;i<40;i++)child.aiStep();
         h.assertTrue(child.getTarget()==null,"Remnant young do not hunt the player");
+        child.setBabyFlag(false);
+        for(int i=0;i<40;i++)child.aiStep();
+        h.assertTrue(!child.isBaby() && child.isPersistenceRequired() && child.getTarget()==null
+                && !child.isPreventingPlayerRest(player),
+                "Grown remnant young stay, do not hunt, and still let you sleep");
         a.discard();b.discard();child.discard();h.succeed();
     }
     @GameTest(template="empty")

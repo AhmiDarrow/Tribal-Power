@@ -116,7 +116,7 @@ public class LatticeMonster extends Monster implements Familiar {
         targetSelector.addGoal(2,new FamiliarOwnerTargetGoals.OwnerHurtBy(this));
         targetSelector.addGoal(3,new FamiliarOwnerTargetGoals.OwnerHurt(this));
         targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this,Player.class,true) {
-            @Override public boolean canUse() { return !isBaby() && !isBonded() && super.canUse(); }
+            @Override public boolean canUse() { return !isPersistenceRequired() && super.canUse(); }
         });
     }
 
@@ -145,7 +145,7 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded() || isBaby(); }
     @Override public boolean removeWhenFarAway(double distance) { return !isPersistenceRequired() && super.removeWhenFarAway(distance); }
     @Override protected boolean shouldDespawnInPeaceful() { return !isPersistenceRequired(); }
-    @Override public boolean isPreventingPlayerRest(Player player) { return !isBonded() && !isBaby() && super.isPreventingPlayerRest(player); }
+    @Override public boolean isPreventingPlayerRest(Player player) { return !isPersistenceRequired() && super.isPreventingPlayerRest(player); }
     @Override public EntityDimensions getDefaultDimensions(Pose pose) {
         EntityDimensions dimensions=super.getDefaultDimensions(pose);
         return isBaby()?dimensions.scale(0.5F):dimensions;
