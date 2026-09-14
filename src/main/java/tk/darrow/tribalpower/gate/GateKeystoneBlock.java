@@ -139,6 +139,7 @@ public class GateKeystoneBlock extends BaseEntityBlock {
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
         if (level.isClientSide || !(level.getBlockEntity(pos) instanceof GateKeystoneBlockEntity keystone)) return;
         keystone.onNeighbourChanged(neighbourPos);
+        if (tk.darrow.tribalpower.familiar.SpiritClickBlock.is(neighbour)) return;
         keystone.onRedstoneChanged((ServerLevel) level);
     }
 

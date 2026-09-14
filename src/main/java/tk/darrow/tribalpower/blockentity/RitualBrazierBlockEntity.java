@@ -52,12 +52,12 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
      * eats a Rite Tablet nobody asked for.
      */
     public void seedSignal(net.minecraft.world.level.Level level) {
-        lastSignal = level.hasNeighborSignal(worldPosition);
+        lastSignal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         setChanged();
     }
 
     public void onRedstoneChanged(ServerLevel level) {
-        boolean signal = level.hasNeighborSignal(worldPosition);
+        boolean signal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         boolean rising = signal && !lastSignal;
         lastSignal = signal;
         setChanged();
@@ -87,7 +87,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
         if ((level.getGameTime() + pos.asLong()) % 40 != 0) return;
         Attunement element = element(be.seal);
         be.active = false;
-        if (element == null || level.hasNeighborSignal(pos)) return;
+        if (element == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, pos)) return;
         var players = level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(6), p -> p.isAlive() && !p.isSpectator());
         if (players.isEmpty() || !LatticeNetwork.hasAttunement(level, pos, 8, element)
                 || LatticeNetwork.extractPulseNearby(level, pos, 8, 8, true) < 8) return;

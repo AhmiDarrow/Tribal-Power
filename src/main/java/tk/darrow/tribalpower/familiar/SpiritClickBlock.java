@@ -21,6 +21,34 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class SpiritClickBlock extends Block {
     public static final MapCodec<SpiritClickBlock> CODEC=simpleCodec(SpiritClickBlock::new);
     public SpiritClickBlock(Properties properties) { super(properties); }
+    /** Struck-signal machines (drums, braziers, keystones) ignore a moth click; song plates still hear it. */
+    public static boolean is(net.minecraft.world.level.block.Block block) { return block instanceof SpiritClickBlock; }
+    /**
+     * Vanilla {@code hasNeighborSignal} after a click is placed can arrive with neighbour=air, so skipping
+     * only when {@link #is(Block)} is the neighbour is not enough. Song Thread still uses {@code getSignal}.
+     */
+    public static boolean hearsRealSignal(BlockGetter level, BlockPos pos) {
+        for (Direction dir : Direction.values()) {
+            if (signalIgnoringClick(level, pos.relative(dir), dir) > 0) return true;
+        }
+        return false;
+    }
+    private static int signalIgnoringClick(BlockGetter level, BlockPos pos, Direction direction) {
+        BlockState state = level.getBlockState(pos);
+        if (is(state.getBlock())) return 0;
+        int weak = state.getSignal(level, pos, direction);
+        if (!state.isRedstoneConductor(level, pos)) return weak;
+        int strong = 0;
+        for (Direction dir : Direction.values()) {
+            BlockPos from = pos.relative(dir);
+            BlockState source = level.getBlockState(from);
+            if (is(source.getBlock())) continue;
+            int value = source.getDirectSignal(level, from, dir);
+            if (value >= 15) return Math.max(weak, 15);
+            if (value > strong) strong = value;
+        }
+        return Math.max(weak, strong);
+    }
     @Override protected MapCodec<? extends Block> codec() { return CODEC; }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.INVISIBLE; }
     @Override protected VoxelShape getShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) { return Shapes.empty(); }

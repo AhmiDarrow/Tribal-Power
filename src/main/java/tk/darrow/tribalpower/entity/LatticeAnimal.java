@@ -91,7 +91,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     @Override public boolean removeWhenFarAway(double distance) { return !isBonded() && super.removeWhenFarAway(distance); }
     @Override public boolean hurt(DamageSource source,float amount) {
         if(isBonded() && isOwnedBy(source.getEntity()))return false;
-        if(!level().isClientSide && isSitting() && amount>0)setSitting(false);
+        if(!level().isClientSide && isSitting() && amount>0)FamiliarSlots.tryFollow(this);
         return super.hurt(source,amount);
     }
     // ---- food, breeding, brushing ----------------------------------------------------------------------------

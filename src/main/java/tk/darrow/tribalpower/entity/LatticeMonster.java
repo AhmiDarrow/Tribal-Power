@@ -26,9 +26,11 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -134,9 +136,15 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded(); }
     @Override public boolean removeWhenFarAway(double distance) { return !isBonded() && super.removeWhenFarAway(distance); }
+    @Override protected boolean shouldDespawnInPeaceful() { return !isBonded(); }
+    @Override public boolean isPreventingPlayerRest(Player player) { return !isBonded() && super.isPreventingPlayerRest(player); }
+    @Override public EntityDimensions getDefaultDimensions(Pose pose) {
+        EntityDimensions dimensions=super.getDefaultDimensions(pose);
+        return isBaby()?dimensions.scale(0.5F):dimensions;
+    }
     @Override public boolean hurt(DamageSource source,float amount) {
         if(isBonded() && isOwnedBy(source.getEntity()))return false;
-        if(!level().isClientSide && isSitting() && amount>0)setSitting(false);
+        if(!level().isClientSide && isSitting() && amount>0)FamiliarSlots.tryFollow(this);
         return super.hurt(source,amount);
     }
     @Override public boolean doHurtTarget(Entity entity) {
@@ -274,6 +282,14 @@ public class LatticeMonster extends Monster implements Familiar {
         if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)
             FamiliarAbilities.clearClick(this);
         super.remove(reason);
+    }
+    @Override protected void removeAfterChangingDimensions() {
+        FamiliarAbilities.clearClick(this);
+        super.removeAfterChangingDimensions();
+    }
+    @Override public void restoreFrom(Entity source) {
+        super.restoreFrom(source);
+        lastClick=null;
     }
 
     @Override public void addAdditionalSaveData(CompoundTag tag) {

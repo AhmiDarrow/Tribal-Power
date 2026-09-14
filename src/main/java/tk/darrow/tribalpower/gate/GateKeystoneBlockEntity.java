@@ -155,7 +155,7 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
     public boolean lit() { return lit; }
 
     /** Redstone held high takes the plane down and keeps it down. */
-    public boolean stilled() { return level != null && level.hasNeighborSignal(worldPosition); }
+    public boolean stilled() { return level != null && tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition); }
 
     /**
      * Lights the plane, spending the kind's lighting cost out of this keystone's own store.
@@ -206,7 +206,7 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
      * takes a stilled plane down, and transit refuses while stilled.
      */
     public void onRedstoneChanged(ServerLevel level) {
-        boolean signal = level.hasNeighborSignal(worldPosition);
+        boolean signal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         boolean rising = signal && !lastSignal;
         if (signal == lastSignal) return;
         lastSignal = signal;
@@ -239,7 +239,7 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
      * Pulse lighting a gate nobody struck.
      */
     public void seedSignal(Level level) {
-        lastSignal = level.hasNeighborSignal(worldPosition);
+        lastSignal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         setChanged();
     }
 

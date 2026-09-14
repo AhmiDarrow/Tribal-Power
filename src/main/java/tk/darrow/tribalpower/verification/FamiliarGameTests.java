@@ -346,6 +346,8 @@ public class FamiliarGameTests {
         bondHostile(h,player,fighter);
         bondHostile(h,player,hound);
         h.assertTrue(!fighter.isSitting() && hound.isSitting(),"A second fighter waits");
+        hound.hurt(h.getLevel().damageSources().cactus(),1);
+        h.assertTrue(hound.isSitting(),"A waiting fighter does not steal the combat slot when hurt");
         fighter.setSitting(true);
         h.assertTrue(FamiliarSlots.tryFollow(hound) && !hound.isSitting(),"A sitter frees the combat slot");
         a.discard();b.discard();c.discard();fighter.discard();hound.discard();h.succeed();
@@ -406,5 +408,47 @@ public class FamiliarGameTests {
         player.setShiftKeyDown(true);
         h.assertTrue(lens.getItem().interactLivingEntity(lens,player,weaver,InteractionHand.MAIN_HAND).consumesAction(),"The Ley Lens reads a remnant lattice");
         moth.discard();imp.discard();bell.discard();weaver.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void mothClickIsNotADrumAndBondedRemnantsLetYouSleep(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.CLOCK);
+        h.setBlock(4,2,4,ModBlocks.DRUMHEART.get());
+        var drum=(DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));
+        int before=drum.getPulseStored();
+        h.setBlock(4,3,4,FamiliarRegistry.SPIRIT_CLICK.get());
+        h.assertTrue(drum.getPulseStored()==before,"A moth click next to a Drumheart is not a beat");
+        h.setBlock(3,2,4,Blocks.STONE);
+        h.assertTrue(drum.getPulseStored()==before,"A later neighbour update still does not treat a click as a beat");
+        h.setBlock(5,3,4,tk.darrow.tribalpower.logic.LogicRegistry.SONG_THREAD.get());
+        var threadPos=new BlockPos(5,3,4);
+        h.getBlockState(threadPos).tick(h.getLevel(),h.absolutePos(threadPos),h.getLevel().random);
+        h.assertTrue(h.getBlockState(threadPos).getValue(tk.darrow.tribalpower.logic.SongThreadBlock.POWER)>0,"Song Thread still hears a moth click");
+        h.setBlock(4,2,5,Blocks.REDSTONE_BLOCK);
+        h.assertTrue(drum.getPulseStored()>before,"A real rising edge still beats the drum");
+        var moth=spawnMonster(h,CreatureProfile.STORM_MOTH,3,2,3);
+        var wild=spawnMonster(h,CreatureProfile.ASHBOUND,5,2,5);
+        bondHostile(h,player,moth);
+        h.assertTrue(!moth.isPreventingPlayerRest(player),"A bonded remnant does not keep the owner awake");
+        h.assertTrue(wild.isPreventingPlayerRest(player),"A wild remnant still does");
+        moth.setBabyFlag(true);
+        h.assertTrue(moth.getBbHeight()<wild.getBbHeight(),"Remnant young are smaller");
+        moth.discard();wild.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void sittingHelperKeepsTheCapWhenHurt(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        var at=h.absolutePos(new BlockPos(3,2,3));
+        player.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
+        var a=spawn(h,CreatureProfile.LANTERN_FOX,2,2,2);
+        var b=spawn(h,CreatureProfile.MOSSBACK,3,2,2);
+        var c=spawn(h,CreatureProfile.DAWN_STAG,4,2,2);
+        bond(h,player,a);bond(h,player,b);bond(h,player,c);
+        h.assertTrue(c.isSitting(),"The third helper waits");
+        c.hurt(h.getLevel().damageSources().cactus(),1);
+        h.assertTrue(c.isSitting(),"A waiting helper does not steal a follow slot when hurt");
+        a.discard();b.discard();c.discard();h.succeed();
     }
 }

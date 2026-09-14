@@ -111,7 +111,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     @Override
     public int currentOutput() {
         // A drum is beaten, not run: report what the last beat was worth rather than a steady rate.
-        return level != null && level.hasNeighborSignal(worldPosition) ? 0 : lastRedstoneGain;
+        return level != null && tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition) ? 0 : lastRedstoneGain;
     }
 
     @Override
