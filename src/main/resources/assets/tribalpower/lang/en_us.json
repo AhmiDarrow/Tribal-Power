@@ -509,7 +509,7 @@
   "diag.tribalpower.song_bench.stage": "Stage %s: %s / %s ticks, %s Pulse per tick",
   "diag.tribalpower.song_bench.stall": "Stalled: %s",
   "diag.tribalpower.relay.state": "Relay: %s (tier %s, %s)",
-  "diag.tribalpower.relay.unlinked": "Not linked — use the Lattice Tuner",
+  "diag.tribalpower.relay.unlinked": "Not linked — seat the same Bond item in two plates, or use the Lattice Tuner",
   "diag.tribalpower.relay.target": "Target %s, %s, %s in %s, face %s",
   "diag.tribalpower.relay.target_unloaded": "Target chunk is not loaded",
   "diag.tribalpower.relay.target_paused": "Target is locked by redstone",

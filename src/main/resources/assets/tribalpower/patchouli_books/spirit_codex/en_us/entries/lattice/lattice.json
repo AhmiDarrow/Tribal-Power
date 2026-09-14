@@ -61,7 +61,7 @@
     {
       "type": "patchouli:text",
       "title": "Wireless cargo",
-      "text": "Place an item or fluid relay above its source inventory or tank. Use the Lattice Tuner on a destination face, then on the relay. Sneak-use the tuner to replace a previous mark."
+      "text": "Snap a relay plate onto any face of a machine. Seat the same item in both Bond slots, or mark a destination face with the Lattice Tuner then use it on the plate. Do not mark the plate."
     },
     {
       "type": "patchouli:text",
@@ -76,7 +76,7 @@
     {
       "type": "patchouli:text",
       "title": "Cargo controls",
-      "text": "Redstone pauses a relay. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring. Lock the receiver with redstone when you need a remote stop. Bound links survive pickup."
+      "text": "Redstone pauses a relay. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring. Lock the receiver with redstone when you need a remote stop. A tuner-bound destination survives pickup. Bond and Rune drop beside the plate."
     },
     {
       "type": "patchouli:text",

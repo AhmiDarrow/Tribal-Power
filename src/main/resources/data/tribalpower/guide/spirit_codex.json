@@ -149,7 +149,7 @@
     {
       "id": "chapter_30",
       "title": "Cargo controls",
-      "text": "A held signal stills the plate. A comparator tells you why.\n\nHow:\n1. Power the plate with redstone to pause it.\n2. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring.\n3. Lock the receiver with redstone when you need a remote stop.\n4. Bound links survive pickup. The Bond item stays in the plate.\n5. Sneak-click to flip extract and insert without breaking the pair."
+      "text": "A held signal stills the plate. A comparator tells you why.\n\nHow:\n1. Power the plate with redstone to pause it.\n2. Comparator: 0 unlinked, 1 linked but waiting, 15 transferring.\n3. Lock the receiver with redstone when you need a remote stop.\n4. A tuner-bound destination survives pickup. Bond and Rune drop beside the plate.\n5. Sneak-click to flip extract and insert without breaking the pair."
     },
     {
       "id": "chapter_31",

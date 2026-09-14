@@ -652,4 +652,37 @@ public class LatticeGameTests {
             h.succeed();
         });
     }
+    @GameTest(template="empty")
+    public static void relayDropsBondAndKeepsTheTunerMark(GameTestHelper h) {
+        h.setBlock(2,1,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(6,2,2,Blocks.CHEST);
+        var relay=at(h,new BlockPos(2,1,2),WirelessRelayBlockEntity.class);
+        relay.setItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND));
+        relay.setItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.EARTH_SEAL.get()));
+        var dest=h.absolutePos(new BlockPos(6,2,2));
+        h.assertTrue(relay.bind(dest,Direction.UP,h.getLevel().dimension().location().toString()),"The plate accepts a tuner mark");
+        var pos=new BlockPos(2,1,2);
+        var abs=h.absolutePos(pos);
+        var player=h.makeMockServerPlayerInLevel();
+        player.getAbilities().instabuild=false;
+        net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,relay,player,ItemStack.EMPTY);
+        h.setBlock(pos,Blocks.AIR);
+        var items=h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,h.getBounds().inflate(4));
+        int plates=0,diamonds=0,seals=0;
+        boolean kept=false;
+        for(var item:items) {
+            var stack=item.getItem();
+            if(stack.is(ModBlocks.ITEM_RELAY.get().asItem())) {
+                plates+=stack.getCount();
+                var data=stack.get(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA);
+                if(data!=null && data.copyTag().contains("Target") && data.copyTag().getLong("Target")==dest.asLong()) kept=true;
+            }
+            if(stack.is(Items.DIAMOND)) diamonds+=stack.getCount();
+            if(stack.is(ModItems.EARTH_SEAL.get())) seals+=stack.getCount();
+        }
+        h.assertTrue(plates>=1,"The plate must drop itself");
+        h.assertTrue(diamonds==1 && seals==1,"Bond and Rune must dump beside the plate, diamonds="+diamonds+" seals="+seals);
+        h.assertTrue(kept,"A tuner-bound destination survives on the dropped plate");
+        h.succeed();
+    }
 }
