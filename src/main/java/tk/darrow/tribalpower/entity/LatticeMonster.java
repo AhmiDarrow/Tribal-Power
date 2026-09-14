@@ -225,8 +225,7 @@ public class LatticeMonster extends Monster implements Familiar {
         for(int i=0;i<POUCH_SLOTS;i++) {
             ItemStack stack=pouch.getItem(i);
             if(stack.isEmpty())continue;
-            if(!player.addItem(stack))spawnAtLocation(stack);
-            pouch.setItem(i,ItemStack.EMPTY);
+            if(player.addItem(stack))pouch.setItem(i,ItemStack.EMPTY);
         }
     }
 

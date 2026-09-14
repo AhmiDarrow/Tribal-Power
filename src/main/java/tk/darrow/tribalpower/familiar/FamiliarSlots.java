@@ -29,9 +29,12 @@ public final class FamiliarSlots {
 
     /** @return true if the familiar is now following. */
     public static boolean tryFollow(Familiar familiar) {
-        if(!(familiar.asMob().level() instanceof ServerLevel level)) { familiar.setSitting(false);return true; }
-        Player owner=familiar.getOwner();
-        if(owner==null) { familiar.setSitting(false);return true; }
+        if(!(familiar.asMob().level() instanceof ServerLevel level)) return !familiar.isSitting();
+        var ownerId=familiar.ownerUUID().orElse(null);
+        if(ownerId==null) { familiar.setSitting(true);return false; }
+        Player owner=level.getPlayerByUUID(ownerId);
+        // Logged out or in another world: leave sitters sitting so they do not steal a follow slot.
+        if(owner==null) return false;
         if(canFollow(level,owner.getUUID(),familiar)) { familiar.setSitting(false);return true; }
         familiar.setSitting(true);
         owner.displayClientMessage(Component.translatable(

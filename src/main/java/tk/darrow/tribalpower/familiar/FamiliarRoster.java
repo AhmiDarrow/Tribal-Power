@@ -10,9 +10,14 @@ public final class FamiliarRoster {
     public static final int COMBAT_OUT=1,SUPPORT_OUT=2;
     private FamiliarRoster(){}
 
-    /** Bonded company is still a {@link Enemy} remnant; camp defense and spirit tools must skip it. */
+    /**
+     * Bonded company is still a {@link Enemy} remnant; camp-bred persist young stay Enemy too.
+     * Camp defense and spirit tools must skip both, and any nametagged remnant that learned to stay.
+     */
     public static boolean hostile(LivingEntity entity) {
-        return entity instanceof Enemy && !(entity instanceof Familiar familiar && familiar.isBonded());
+        if(!(entity instanceof Enemy))return false;
+        if(entity instanceof Familiar familiar && (familiar.isBonded() || familiar.asMob().isPersistenceRequired()))return false;
+        return true;
     }
 
     public static boolean tameable(CreatureProfile profile) {

@@ -32,16 +32,17 @@ public class FamiliarFollowGoal extends Goal {
     @Override public boolean canUse() {
         LivingEntity target=familiar.getOwner();
         float start=startDistance();
-        if(target==null || familiar.unableToMoveToOwner() || mob.distanceToSqr(target)<start*start)return false;
+        if(target==null || target.level()!=mob.level() || familiar.unableToMoveToOwner() || mob.distanceToSqr(target)<start*start)return false;
         owner=target;return true;
     }
     @Override public boolean canContinueToUse() {
         float stop=stopDistance();
-        return !navigation.isDone() && !familiar.unableToMoveToOwner() && mob.distanceToSqr(owner)>stop*stop;
+        return owner!=null && owner.level()==mob.level() && !navigation.isDone() && !familiar.unableToMoveToOwner() && mob.distanceToSqr(owner)>stop*stop;
     }
     @Override public void start() { recalc=0;oldWaterCost=mob.getPathfindingMalus(PathType.WATER);mob.setPathfindingMalus(PathType.WATER,0); }
     @Override public void stop() { owner=null;navigation.stop();mob.setPathfindingMalus(PathType.WATER,oldWaterCost); }
     @Override public void tick() {
+        if(owner==null || owner.level()!=mob.level())return;
         boolean teleport=mob.distanceToSqr(owner)>=TELEPORT_DISTANCE_SQ;
         if(!teleport)mob.getLookControl().setLookAt(owner,10,mob.getMaxHeadXRot());
         if(--recalc<=0) {
@@ -51,6 +52,7 @@ public class FamiliarFollowGoal extends Goal {
     }
     public static boolean teleportToOwner(Familiar familiar,LivingEntity owner) {
         Mob mob=familiar.asMob();
+        if(owner.level()!=mob.level())return false;
         BlockPos base=owner.blockPosition();
         boolean flying=familiar.profile().flying;
         for(int i=0;i<10;i++) {

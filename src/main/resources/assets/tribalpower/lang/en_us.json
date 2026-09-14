@@ -432,7 +432,7 @@
   "item.tribalpower.rite_still_night.desc": "Hushes hostile spawning within 64 blocks for fifteen minutes. Spirit Seal.",
   "item.tribalpower.rite_ley_binding": "Rite Tablet: Ley Binding",
   "item.tribalpower.rite_ley_binding.desc": "Binds the nearest totem to another within 64 blocks for thirty minutes; Pulse routes along the line. Loom Seal.",
-  "item.tribalpower.rite_tablet.use": "Sneak-use on a Ritual Brazier with a %s seal seated. Draws %s Pulse from the lattice within 8 blocks.",
+  "item.tribalpower.rite_tablet.use": "Sneak-use on a Ritual Brazier with a %s seal seated, inside its Rite Circle. Draws %s Pulse from the lattice within 8 blocks.",
   "item.tribalpower.ley_lens": "Ley Lens",
   "item.tribalpower.ley_lens.desc": "Hold to read the land. Use to cycle ley, pulse zone, voices and machines. Sneak-use on a Ley Collector for its factor breakdown, or on a familiar for its threads.",
   "block.tribalpower.pulse_gauge": "Pulse Gauge",

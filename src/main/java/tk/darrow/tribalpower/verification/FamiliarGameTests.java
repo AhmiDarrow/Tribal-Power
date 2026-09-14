@@ -511,6 +511,40 @@ public class FamiliarGameTests {
         float before=hound.getHealth();
         drum.beat(h.getLevel());
         h.assertTrue(hound.getHealth()==before,"A Ward Drum must not strike bonded company");
-        hound.discard();h.succeed();
+        var cub=spawnMonster(h,CreatureProfile.RIFT_HOUND,2,2,4);
+        cub.setBabyFlag(true);
+        float cubBefore=cub.getHealth();
+        drum.beat(h.getLevel());
+        h.assertTrue(!FamiliarRoster.hostile(cub) && cub.getHealth()==cubBefore,
+                "A Ward Drum must not strike persist remnant young");
+        hound.discard();cub.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aSitterStaysPutWhenTheOwnerIsGone(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
+        bond(h,player,fox);
+        fox.setSitting(true);
+        h.getLevel().getServer().getPlayerList().remove(player);
+        h.assertTrue(!FamiliarSlots.tryFollow(fox) && fox.isSitting(),
+                "A sitter does not stand when the owner is not in this world");
+        fox.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aWeaverKeepsThePouchWhenTheOwnerCannotCarry(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.SPINDLE);
+        var weaver=spawnMonster(h,CreatureProfile.ECHO_WEAVER,3,2,3);
+        bondHostile(h,player,weaver);
+        weaver.pouch().setItem(0,new ItemStack(Items.DIAMOND,3));
+        for(int i=0;i<player.getInventory().getContainerSize();i++)
+            player.getInventory().setItem(i,new ItemStack(Items.COBBLESTONE,64));
+        player.moveTo(weaver.getX(),weaver.getY(),weaver.getZ(),0,0);
+        FamiliarAbilities.forage(h.getLevel(),weaver);
+        h.assertTrue(weaver.pouch().getItem(0).is(Items.DIAMOND) && weaver.pouch().getItem(0).getCount()==3,
+                "A full pack leaves the pouch alone instead of tossing a yo-yo");
+        weaver.discard();h.succeed();
     }
 }

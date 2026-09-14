@@ -1,11 +1,13 @@
 package tk.darrow.tribalpower.blockentity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -23,7 +25,7 @@ import tk.darrow.tribalpower.block.PulseResonatorBlock;
  * they are capped at {@link #UNARRANGED_VOICES}: six-voice resonance only counts when the voices are
  * actually arranged in a ring at radius 3. Placement is the ritual.
  */
-public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, Container, tk.darrow.tribalpower.api.Diagnosable {
+public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandler, WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2500;
     public static final int GAIN_INTERVAL = 20;
     public static final int SLOT = 0;
@@ -181,6 +183,11 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
     public boolean canPlaceItem(int slot, ItemStack stack) {
         return isCatalyst(stack);
     }
+
+    private static final int[] NO_SLOTS = new int[0];
+    @Override public int[] getSlotsForFace(Direction face) { return NO_SLOTS; }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

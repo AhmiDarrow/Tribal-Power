@@ -146,17 +146,18 @@ public class RitualChalkItem extends Item {
     }
 
     private static void spend(UseOnContext context) {
-        Player player = context.getPlayer();
+        spend(context.getItemInHand(), context.getPlayer());
+    }
+
+    /** One mark or link from a stick of ten. Creative play is free. */
+    public static void spend(ItemStack stack, Player player) {
         if (player != null && player.getAbilities().instabuild) return;
-        ItemStack stack = context.getItemInHand();
         if (stack.getCount() > 1) {
             ItemStack one = stack.split(1);
             consumeUse(one);
             if (one.isEmpty()) return;
             if (player != null) {
                 if (!player.getInventory().add(one)) player.drop(one, false);
-            } else {
-                Block.popResource(context.getLevel(), context.getClickedPos(), one);
             }
             return;
         }

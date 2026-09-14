@@ -102,6 +102,14 @@ public class GateKeystoneBlock extends BaseEntityBlock {
         }
 
         if (stack.getItem() instanceof WaystoneCompassItem && player.isShiftKeyDown()) {
+            if (!WaystoneCompassItem.bound(stack)) {
+                if (!level.isClientSide) {
+                    // Land on top of the keystone so travel has a floor; linking also accepts the stone below.
+                    WaystoneCompassItem.bind(stack, level, pos.above());
+                    player.displayClientMessage(Component.translatable("message.tribalpower.waystone.bound"), true);
+                }
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
             return GateLinking.linkWithCompass(stack, level, pos, player)
                     ? ItemInteractionResult.sidedSuccess(level.isClientSide) : ItemInteractionResult.CONSUME;
         }

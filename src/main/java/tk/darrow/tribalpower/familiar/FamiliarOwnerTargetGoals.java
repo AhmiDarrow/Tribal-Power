@@ -17,6 +17,7 @@ public final class FamiliarOwnerTargetGoals {
     public static boolean forbidden(Familiar familiar,LivingEntity target) {
         if(target==null || !target.isAlive())return true;
         if(target instanceof Player)return true;
+        if(target instanceof Familiar && !FamiliarRoster.hostile(target))return true;
         if(target instanceof Familiar other && other.isBonded() && familiar.ownerUUID().equals(other.ownerUUID()))return true;
         if(familiar.lattice().expressed(FamiliarData.Mark.SOFT_MAW)
                 && (target instanceof AbstractVillager || target instanceof AbstractGolem))return true;

@@ -189,6 +189,23 @@ public class GeneratorGameTests {
         h.succeed();
     }
 
+    @GameTest(template = "empty")
+    public static void aHeldSignalIsNotADrumheartBeat(GameTestHelper h) {
+        h.setBlock(new BlockPos(3, 1, 3), Blocks.REDSTONE_BLOCK);
+        DrumheartBlockEntity drum = place(h, new BlockPos(3, 2, 3), ModBlocks.DRUMHEART.get(), DrumheartBlockEntity.class);
+        drum.seedSignal(h.getLevel());
+        int stored = drum.getPulseStored();
+        drum.onRedstoneChanged();
+        h.assertTrue(drum.getPulseStored() == stored, "A held signal is not a beat");
+        h.setBlock(new BlockPos(3, 1, 3), Blocks.AIR);
+        drum.onRedstoneChanged();
+        h.assertTrue(drum.getPulseStored() == stored, "A falling edge is not a beat");
+        h.setBlock(new BlockPos(3, 1, 3), Blocks.REDSTONE_BLOCK);
+        drum.onRedstoneChanged();
+        h.assertTrue(drum.getPulseStored() > stored, "A rising edge is a beat");
+        h.succeed();
+    }
+
     // ---- storage -----------------------------------------------------------------------------------
 
     @GameTest(template = "empty")

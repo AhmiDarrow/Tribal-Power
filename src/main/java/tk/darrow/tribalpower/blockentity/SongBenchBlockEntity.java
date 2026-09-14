@@ -121,7 +121,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
     public void startSong() {
         linkedTotems = level == null ? 0 : LatticeNetwork.countNearbyTotems(level, worldPosition, RADIUS);
-        singing = linkedTotems > 0 && EchoStage.isProcessable(items.get(SLOT));
+        singing = linkedTotems > 0 && EchoStage.isProcessable(items.get(SLOT)) && items.get(SLOT).getCount() == 1;
         if (!singing) {
             progress = 0;
             if (linkedTotems <= 0) {
@@ -223,9 +223,8 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         }
         items.set(SLOT, stack.split(1));
         progress = 0;
-        singing = false;
         stallReason = "";
-        setChanged();
+        startSong();
         return true;
     }
 
@@ -272,7 +271,11 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     public void setItem(int slot, ItemStack stack) {
         items.set(slot, stack);
         progress = 0;
-        setChanged();
+        if (EchoStage.isProcessable(stack) && stack.getCount() == 1) startSong();
+        else {
+            singing = false;
+            setChanged();
+        }
     }
 
     @Override

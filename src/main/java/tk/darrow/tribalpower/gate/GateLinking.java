@@ -66,7 +66,7 @@ public final class GateLinking {
             return false;
         }
         boolean linked = join(server, pos, keystoneAt(server, pending), player, false);
-        if (linked && !player.getAbilities().instabuild) chalk.shrink(1);
+        if (linked) tk.darrow.tribalpower.item.RitualChalkItem.spend(chalk, player);
         return linked;
     }
 

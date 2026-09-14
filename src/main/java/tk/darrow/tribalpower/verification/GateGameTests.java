@@ -1,15 +1,22 @@
 package tk.darrow.tribalpower.verification;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.gate.GateKeystoneBlockEntity;
 import tk.darrow.tribalpower.gate.GatePortal;
 import tk.darrow.tribalpower.gate.GateRegistry;
 import tk.darrow.tribalpower.gate.GateSavedData;
+import tk.darrow.tribalpower.item.ModItems;
+import tk.darrow.tribalpower.item.WaystoneCompassItem;
 
 import java.util.UUID;
 
@@ -181,6 +188,26 @@ public class GateGameTests {
         h.assertFalse(match.found(), "The match must fail");
         h.assertTrue(!match.misses().isEmpty(), "It must say which cell it wanted");
         h.assertTrue(!match.report(3).isEmpty(), "It must produce readable lines");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void sneakUseBindsThenLinksAWaystoneCompass(GameTestHelper h) {
+        BlockPos a = new BlockPos(3, 2, 3);
+        BlockPos b = new BlockPos(3, 2, 9);
+        wayGate(h, a);
+        wayGate(h, b);
+        var player = h.makeMockServerPlayerInLevel();
+        player.setShiftKeyDown(true);
+        ItemStack compass = new ItemStack(ModItems.WAYSTONE_COMPASS.get());
+        var hitA = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(a)), Direction.UP, h.absolutePos(a), false);
+        h.getLevel().getBlockState(h.absolutePos(a)).useItemOn(compass, h.getLevel(), player, InteractionHand.MAIN_HAND, hitA);
+        h.assertTrue(WaystoneCompassItem.bound(compass), "Sneak-use an unbound compass on a keystone binds it");
+        var hitB = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(b)), Direction.UP, h.absolutePos(b), false);
+        h.getLevel().getBlockState(h.absolutePos(b)).useItemOn(compass, h.getLevel(), player, InteractionHand.MAIN_HAND, hitB);
+        GateSavedData data = GateSavedData.get(h.getLevel().getServer());
+        var first = data.at(h.getLevel(), h.absolutePos(a));
+        h.assertTrue(first != null && first.partner() != null, "The bound compass then links the second keystone");
         h.succeed();
     }
 }

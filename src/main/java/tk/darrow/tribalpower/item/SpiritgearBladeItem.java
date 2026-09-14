@@ -61,7 +61,8 @@ public class SpiritgearBladeItem extends SwordItem {
             float sweep = SpiritGear.rank(stack) >= 3 ? 4 : 2;
             AABB box = target.getBoundingBox().inflate(1.5, 0.25, 1.5);
             for (LivingEntity extra : player.level().getEntitiesOfClass(LivingEntity.class, box,
-                    e -> e != player && e != target && e.isAlive())) {
+                    e -> e != player && e != target && e.isAlive()
+                            && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e))) {
                 extra.hurt(player.damageSources().playerAttack(player), sweep);
             }
         } else if (voice == Attunement.LOOM) {

@@ -175,6 +175,26 @@ public class LatticeGameTests {
         h.runAfterDelay(45,()->{h.assertTrue(bench.getItem(0).is(ModItems.ECHO_SHARD.get()),"Invalid saved work must reset instead of overflowing into a permanent stall");h.succeed();});
     }
     @GameTest(template="empty")
+    public static void seatingABenchItemStartsTheSong(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
+        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        var bench=at(h,pos,SongBenchBlockEntity.class);
+        bench.setItem(0,new ItemStack(Items.STONE));
+        h.assertTrue(bench.isSinging(),"A hopper seating a processable item starts the song");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void hoppersCannotStealAResonatorCatalyst(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.PULSE_RESONATOR.get());
+        var resonator=at(h,pos,PulseResonatorBlockEntity.class);
+        resonator.acceptCatalyst(new ItemStack(ModItems.ECHO_SHARD.get()));
+        h.assertTrue(resonator.getSlotsForFace(Direction.DOWN).length==0
+                        && !resonator.canTakeItemThroughFace(0,resonator.getItem(0),Direction.DOWN)
+                        && !resonator.canPlaceItemThroughFace(0,new ItemStack(ModItems.ECHO_SHARD.get()),Direction.UP),
+                "Hoppers have no face into a Resonator");
+        h.succeed();
+    }
+    @GameTest(template="empty")
     public static void staleChalkLinksCannotActivateUnconnectedTotems(GameTestHelper h) {
         h.setBlock(2,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_FIRE.get());
         var earth=at(h,new BlockPos(2,2,2),ResonanceTotemBlockEntity.class);

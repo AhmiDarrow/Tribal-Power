@@ -19,15 +19,26 @@ import java.util.List;
 public class WaystoneCompassItem extends Item {
     private final int tier;
     public WaystoneCompassItem(Properties properties, int tier) { super(properties); this.tier = tier; }
+    public static boolean bound(ItemStack compass) {
+        var data = compass.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        return data.contains("Waypoint") && ResourceLocation.tryParse(data.getString("Dimension")) != null;
+    }
+
+    /** Remember a landing: two clear dry blocks above {@code floor}, same as {@link #useOn}. */
+    public static void bind(ItemStack compass, Level level, BlockPos landing) {
+        CustomData.update(DataComponents.CUSTOM_DATA, compass, tag -> {
+            tag.putLong("Waypoint", landing.asLong());
+            tag.putString("Dimension", level.dimension().location().toString());
+        });
+    }
+
     @Override public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer();
         if (player == null || !player.isShiftKeyDown()) return InteractionResult.PASS;
         if (!context.getLevel().isClientSide) {
             BlockPos floor = context.getClickedPos();
             if (context.getClickedFace() != Direction.UP || !context.getLevel().getBlockState(floor).isFaceSturdy(context.getLevel(), floor, Direction.UP)) return InteractionResult.FAIL;
-            CustomData.update(DataComponents.CUSTOM_DATA, context.getItemInHand(), tag -> {
-                tag.putLong("Waypoint", floor.above().asLong()); tag.putString("Dimension", context.getLevel().dimension().location().toString());
-            });
+            bind(context.getItemInHand(), context.getLevel(), floor.above());
             player.displayClientMessage(Component.translatable("message.tribalpower.waystone.bound"), true);
         }
         return InteractionResult.sidedSuccess(context.getLevel().isClientSide);

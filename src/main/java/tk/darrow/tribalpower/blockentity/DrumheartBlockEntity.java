@@ -39,6 +39,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     private long lastManualBeat = -100;
     private long lastRedstoneBeat = -100;
     private int lastRedstoneGain;
+    private boolean lastSignal;
 
     public DrumheartBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DRUMHEART.get(), pos, state);
@@ -73,6 +74,25 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         }
         setChanged();
         return gained;
+    }
+
+    /**
+     * A drum placed beside a lit torch has to start from the signal that is already there, or the first
+     * unrelated neighbour update is a beat nobody asked for.
+     */
+    public void seedSignal(Level level) {
+        lastSignal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
+        setChanged();
+    }
+
+    /** A struck signal is an edge. Holding the line high is not a faster drum. */
+    public int onRedstoneChanged() {
+        if (level == null) return 0;
+        boolean signal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
+        boolean rising = signal && !lastSignal;
+        lastSignal = signal;
+        setChanged();
+        return rising ? onRedstonePulse() : 0;
     }
 
     /**
@@ -153,6 +173,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         super.saveAdditional(tag, registries);
         pulse.save(tag);
         tag.putInt("RedstoneCooldown", redstoneCooldown);
+        tag.putBoolean("LastSignal", lastSignal);
     }
 
     @Override
@@ -161,6 +182,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         pulse.load(tag);
         redstoneCooldown = net.minecraft.util.Mth.clamp(tag.getInt("RedstoneCooldown"), 0, MIN_SPACING);
         lastRedstoneGain = 0;
+        lastSignal = tag.getBoolean("LastSignal");
     }
 
     @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
