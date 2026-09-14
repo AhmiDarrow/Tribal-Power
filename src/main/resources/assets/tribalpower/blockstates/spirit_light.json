@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "bright=false": {
+      "model": "tribalpower:block/spirit_light"
+    },
+    "bright=true": {
       "model": "tribalpower:block/spirit_light"
     }
   }

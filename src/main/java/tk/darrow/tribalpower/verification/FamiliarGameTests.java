@@ -1,9 +1,12 @@
 package tk.darrow.tribalpower.verification;
 
+import java.util.HashSet;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -12,6 +15,7 @@ import tk.darrow.tribalpower.camp.CampHooks;
 import tk.darrow.tribalpower.camp.identity.*;
 import tk.darrow.tribalpower.entity.*;
 import tk.darrow.tribalpower.familiar.*;
+import tk.darrow.tribalpower.ley.LeyRegistry;
 import tk.darrow.tribalpower.storage.DeepCacheManager;
 
 /** Bonded spirits and shared camps (design 3.0 §5-6). */
@@ -201,5 +205,85 @@ public class FamiliarGameTests {
         fox.discard();
         h.assertTrue(!level.getBlockState(claimed).is(light) && fox.lastLight()==null,"Discarding the fox clears its light");
         h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void wildLatticeVariesAndNeverRollsFour(GameTestHelper h) {
+        var fingerprints=new HashSet<String>();
+        int sawZero=0,sawTwo=0;
+        for(int seed=1;seed<=200;seed++) {
+            var data=new FamiliarData();
+            data.rollWild(CreatureProfile.LANTERN_FOX,RandomSource.create(seed),false);
+            h.assertTrue(data.rolled(),"A wild roll must mark the lattice written");
+            StringBuilder key=new StringBuilder();
+            for(var thread:FamiliarData.Thread.values()) {
+                int a=data.alleleA(thread),b=data.alleleB(thread);
+                h.assertTrue(a>=0 && a<=3 && b>=0 && b<=3,"Wild alleles stay 0-3, got "+a+"/"+b+" on "+thread);
+                if(a==0 || b==0)sawZero++;
+                if(a>=2 || b>=2)sawTwo++;
+                key.append(a).append(b);
+            }
+            key.append(data.markA().id).append(data.markB().id);
+            fingerprints.add(key.toString());
+        }
+        h.assertTrue(fingerprints.size()>20,"Starting tames must not be clones: "+fingerprints.size()+" distinct rolls");
+        h.assertTrue(sawZero>0 && sawTwo>0,"Wild stock includes both weak and strong alleles");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void latticeInheritsMutatesAndFrays(GameTestHelper h) {
+        var mother=new FamiliarData();mother.fill(2);
+        var father=new FamiliarData();father.fill(2);
+        UUID owner=UUID.randomUUID();
+        var child=FamiliarData.inherit(mother,father,CreatureProfile.MOSSBACK,RandomSource.create(7L),owner,owner,0,0,0);
+        h.assertTrue(child.generation()==1 && child.alleleA(FamiliarData.Thread.FRAME)==2 && child.alleleB(FamiliarData.Thread.KEEP)==2,"Unmutated children copy a parent allele per thread");
+        h.assertTrue(child.fray()==1,"The first identical Frame+Fang birth under one owner starts the fray count");
+        var second=FamiliarData.inherit(child,child,CreatureProfile.MOSSBACK,RandomSource.create(8L),owner,owner,0,0,0);
+        var third=FamiliarData.inherit(second,second,CreatureProfile.MOSSBACK,RandomSource.create(9L),owner,owner,0,0,0);
+        h.assertTrue(third.fray()>=3 && third.expressed(FamiliarData.Mark.FRAYED),"Three identical Frame+Fang generations under one owner land Frayed");
+        h.assertTrue(third.phenotype(FamiliarData.Thread.HUM)<2,"Fray lowers Hum");
+        var keen=new FamiliarData();keen.fill(1);keen.setMarks(FamiliarData.Mark.KEEN,FamiliarData.Mark.NONE);
+        h.assertTrue(!keen.expressed(FamiliarData.Mark.KEEN),"Keen is recessive");
+        keen.setMarks(FamiliarData.Mark.KEEN,FamiliarData.Mark.KEEN);
+        h.assertTrue(keen.expressed(FamiliarData.Mark.KEEN),"Two Keen copies express");
+        var clash=new FamiliarData();clash.fill(1);clash.setMarks(FamiliarData.Mark.STONEHIDE,FamiliarData.Mark.DRIFT);
+        h.assertTrue(clash.expressed(FamiliarData.Mark.STONEHIDE) && !clash.expressed(FamiliarData.Mark.DRIFT),"Stonehide wins over Drift");
+        var tag=child.save();
+        var loaded=new FamiliarData();loaded.load(tag);
+        h.assertTrue(loaded.rolled() && loaded.alleleA(FamiliarData.Thread.FRAME)==child.alleleA(FamiliarData.Thread.FRAME) && loaded.generation()==child.generation(),"Lattice NBT round-trips");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void latticeAppliesAndLensReads(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
+        fox.lattice().fill(1);
+        fox.applyLattice();
+        h.assertTrue(Math.abs(fox.getMaxHealth()-CreatureProfile.LANTERN_FOX.health)<0.2,"Phenotype 1 stays on the species baseline");
+        fox.lattice().fill(4);
+        fox.applyLattice();
+        h.assertTrue(fox.getMaxHealth()>CreatureProfile.LANTERN_FOX.health+3,"A 4 Frame fox is tougher than wild stock");
+        var pocket=spawn(h,CreatureProfile.MOSSBACK,5,2,5);
+        pocket.lattice().fill(1);
+        pocket.lattice().setMarks(FamiliarData.Mark.DEEP_POCKET,FamiliarData.Mark.DEEP_POCKET);
+        pocket.applyLattice();
+        bond(h,player,pocket);
+        var closed=new MossbackMenu(1,player.getInventory(),pocket.saddlebag(),pocket);
+        h.assertTrue(closed.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)),"Deep Pocket opens the extra three slots");
+        var plain=spawn(h,CreatureProfile.MOSSBACK,6,2,3);
+        plain.lattice().fill(1);
+        plain.applyLattice();
+        bond(h,player,plain);
+        var locked=new MossbackMenu(2,player.getInventory(),plain.saddlebag(),plain);
+        h.assertTrue(!locked.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)),"Without Deep Pocket the extra slots refuse inserts");
+        var lens=new ItemStack(LeyRegistry.LEY_LENS.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND,lens);
+        player.setShiftKeyDown(true);
+        h.assertTrue(lens.getItem().interactLivingEntity(lens,player,fox,InteractionHand.MAIN_HAND).consumesAction(),"Sneak-use of the Ley Lens reads a lattice animal");
+        var lines=fox.lattice().lensLines(fox.getDisplayName());
+        h.assertTrue(lines.size()>=6 && FamiliarData.dots(4).equals("●●●●○"),"The lens prints five threads as dots");
+        var tag=new CompoundTag();fox.saveWithoutId(tag);
+        h.assertTrue(tag.contains("Lattice"),"Bonded animals persist their lattice");
+        fox.discard();pocket.discard();plain.discard();h.succeed();
     }
 }

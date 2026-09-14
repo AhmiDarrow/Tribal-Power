@@ -17,7 +17,7 @@ public final class FamiliarRegistry {
     public static final DeferredItem<BondingCharmItem> BONDING_CHARM=ITEMS.register("bonding_charm",()->new BondingCharmItem(new Item.Properties().stacksTo(16)));
     /** Invisible, collision-free, replaceable light source (level 10) that a bonded Lantern Fox carries with it. No item, no loot. */
     public static final DeferredBlock<SpiritLightBlock> SPIRIT_LIGHT=BLOCKS.register("spirit_light",()->new SpiritLightBlock(BlockBehaviour.Properties.of()
-            .replaceable().noCollission().noOcclusion().noLootTable().air().strength(-1F,3600000F).lightLevel(s->10).pushReaction(PushReaction.DESTROY)));
+            .replaceable().noCollission().noOcclusion().noLootTable().air().strength(-1F,3600000F).pushReaction(PushReaction.DESTROY)));
     public static final DeferredHolder<MenuType<?>,MenuType<MossbackMenu>> SADDLEBAG=MENUS.register("mossback_saddlebag",()->new MenuType<>(MossbackMenu::new,FeatureFlags.DEFAULT_FLAGS));
     public static void displayItems(CreativeModeTab.Output out) { out.accept(BONDING_CHARM.get()); }
     private FamiliarRegistry(){}

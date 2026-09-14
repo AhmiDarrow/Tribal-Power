@@ -2,6 +2,7 @@ package tk.darrow.tribalpower.entity;
 import java.util.Optional;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
@@ -20,26 +21,37 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.familiar.FamiliarAbilities;
+import tk.darrow.tribalpower.familiar.FamiliarData;
 import tk.darrow.tribalpower.familiar.FamiliarFollowGoal;
 import tk.darrow.tribalpower.familiar.FamiliarSitGoal;
 import tk.darrow.tribalpower.familiar.MossbackMenu;
 import tk.darrow.tribalpower.item.CreatureItems;
+import tk.darrow.tribalpower.world.ModDimensions;
 /**
  * The three gentle March animals. Adults can be bonded with a Bonding Charm (design 3.0 §5); a bonded animal
  * stores {@code Owner} and {@code Sitting}, follows or waits, never despawns, ignores its owner's blows and yields
- * double reagent when brushed. Species abilities live in {@link FamiliarAbilities}.
- * <p>NBT: {@code ForageCooldown} int, {@code Owner} UUID, {@code Sitting} boolean, {@code Saddlebag} compound with slot-indexed {@code Items} (Mossback), {@code LastLight} long (Lantern Fox).
+ * double reagent when brushed. Species abilities live in {@link FamiliarAbilities}. Threads and Marks live on
+ * {@link FamiliarData} under NBT {@code Lattice}.
+ * <p>NBT: {@code ForageCooldown} int, {@code Owner} UUID, {@code Sitting} boolean, {@code Saddlebag} compound with slot-indexed {@code Items} (Mossback), {@code LastLight} long (Lantern Fox), {@code Lattice} compound.
  */
 public class LatticeAnimal extends Animal implements PlayerRideableJumping {
     private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.OPTIONAL_UUID);
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
-    public static final int SADDLEBAG_SLOTS=9;
-    private int forageCooldown;
+    public static final int SADDLEBAG_SLOTS=FamiliarData.BASE_SADDLEBAG+FamiliarData.EXTRA_SADDLEBAG;
+    private int forageCooldown,sitTicks;
     private final SimpleContainer saddlebag=new SimpleContainer(SADDLEBAG_SLOTS);
+    private final FamiliarData lattice=new FamiliarData();
     private BlockPos lastLight;
     private float riderJumpScale;
     public LatticeAnimal(EntityType<? extends Animal> type,Level level) { super(type,level); }
     public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    public FamiliarData lattice() { return lattice; }
+    public void applyLattice() { lattice.apply(this,profile()); }
+    public void ensureLattice(RandomSource random,boolean march) {
+        if(lattice.rolled())return;
+        lattice.rollWild(profile(),random,march);
+        applyLattice();
+    }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder);builder.define(DATA_OWNER,Optional.empty());builder.define(DATA_SITTING,false); }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -47,7 +59,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         goalSelector.addGoal(2,new PanicGoal(this,1.3));
         goalSelector.addGoal(3,new BreedGoal(this,1));
         goalSelector.addGoal(4,new TemptGoal(this,1,this::isFood,false));
-        goalSelector.addGoal(5,new FamiliarFollowGoal(this,1.1,10,3));
+        goalSelector.addGoal(5,new FamiliarFollowGoal(this,1.1));
         goalSelector.addGoal(6,new AvoidEntityGoal<>(this,Monster.class,8,1,1.2));
         goalSelector.addGoal(7,new FollowParentGoal(this,1));
         goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8));
@@ -76,7 +88,15 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
     // ---- food, breeding, brushing ----------------------------------------------------------------------------
     @Override public boolean isFood(ItemStack s) { return s.is(switch(profile()) { case DAWN_STAG -> Items.WHEAT; case LANTERN_FOX -> Items.SWEET_BERRIES; default -> Items.SEAGRASS; }); }
     @Override public boolean canMate(Animal other) { return other.getType()==getType() && super.canMate(other); }
-    @Override public AgeableMob getBreedOffspring(ServerLevel level,AgeableMob mate) { return CreatureEntities.ANIMALS.get(profile()).get().create(level); }
+    @Override public AgeableMob getBreedOffspring(ServerLevel level,AgeableMob mate) {
+        var child=CreatureEntities.ANIMALS.get(profile()).get().create(level);
+        if(child!=null && mate instanceof LatticeAnimal other) {
+            UUID a=ownerUUID().orElse(null),b=other.ownerUUID().orElse(null);
+            child.lattice.copyFrom(FamiliarData.inherit(lattice,other.lattice,profile(),level.random,a,b));
+            child.applyLattice();
+        }
+        return child;
+    }
     @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
         ItemStack tool=player.getItemInHand(hand);
         if(tool.is(Items.BRUSH) && !isBaby()) {
@@ -117,8 +137,25 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         super.aiStep();
         if(!level().isClientSide) {
             if(forageCooldown>0)forageCooldown--;
+            ensureLattice(getRandom(),level() instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH));
+            if(isSitting()) {
+                sitTicks++;
+                if(lattice.expressed(FamiliarData.Mark.DRIFT) && sitTicks>=FamiliarData.DRIFT_SIT_TICKS) {
+                    setSitting(false);
+                    var owner=getOwner();
+                    if(owner!=null)owner.displayClientMessage(Component.translatable("message.tribalpower.familiar.restless",getDisplayName()),true);
+                }
+            } else sitTicks=0;
+            if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)
+                server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded())FamiliarAbilities.tick(this);
         }
+    }
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {
+        var result=super.finalizeSpawn(level,difficulty,reason,data);
+        boolean march=level instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH);
+        ensureLattice(level.getRandom(),march);
+        return result;
     }
     @Override public void remove(RemovalReason reason) {
         if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)FamiliarAbilities.clearLight(this);
@@ -150,7 +187,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         if(isControlledByLocalInstance() && onGround()) {
             if(riderJumpScale>0) {
                 var motion=getDeltaMovement();
-                setDeltaMovement(motion.x,.42*Math.max(.4,riderJumpScale)+.06,motion.z);
+                double lift=.42*(lattice.expressed(FamiliarData.Mark.LEAP)?1.21:1);
+                setDeltaMovement(motion.x,lift*Math.max(.4,riderJumpScale)+.06,motion.z);
                 hasImpulse=true;
                 net.neoforged.neoforge.common.CommonHooks.onLivingJump(this);
             }
@@ -162,7 +200,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         if(forward<=0)forward*=.25F;
         return new Vec3(side,0,forward);
     }
-    @Override protected float getRiddenSpeed(Player rider) { return .32F; }
+    @Override protected float getRiddenSpeed(Player rider) { return (float)(.32*lattice.multiplier(FamiliarData.Thread.STRIDE)); }
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger,EntityDimensions dimensions,float partialTick) { return new Vec3(0,isBaby()?.6:1.05,0); }
     @Override public void onPlayerJump(int power) { if(canJump())riderJumpScale=power>=90?1:.4F+.4F*power/90F; }
     @Override public boolean canJump() { return profile()==CreatureProfile.DAWN_STAG && isBonded() && getControllingPassenger()!=null; }
@@ -180,6 +218,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
             CompoundTag bag=new CompoundTag();ContainerHelper.saveAllItems(bag,items,registryAccess());tag.put("Saddlebag",bag);
         }
         if(lastLight!=null)tag.putLong("LastLight",lastLight.asLong());
+        if(lattice.rolled())tag.put("Lattice",lattice.save());
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
@@ -194,6 +233,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping {
         }
         else if(tag.contains("Saddlebag",Tag.TAG_LIST))saddlebag.fromTag(tag.getList("Saddlebag",Tag.TAG_COMPOUND),registryAccess());
         lastLight=tag.contains("LastLight",Tag.TAG_LONG)?BlockPos.of(tag.getLong("LastLight")):null;
+        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) { lattice.load(tag.getCompound("Lattice"));applyLattice(); }
         if(isBonded())setPersistenceRequired();
     }
     public int forageCooldown() { return forageCooldown; }

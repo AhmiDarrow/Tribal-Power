@@ -11,6 +11,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -25,6 +26,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
+import tk.darrow.tribalpower.entity.LatticeAnimal;
 import tk.darrow.tribalpower.lattice.Keeping;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
@@ -33,7 +35,7 @@ import java.util.List;
 /**
  * Ley Lens: held in either hand it shows a HUD and paints the ground. Right-click cycles the sight
  * mode (ley, pulse zone, voices, machines). Sneak-use on a Ley Collector prints that collector's
- * exact factor breakdown.
+ * exact factor breakdown. Sneak-use on a lattice animal prints its threads and Marks.
  */
 public class LeyLensItem extends Item {
     public static final int GRID = 8;
@@ -203,6 +205,16 @@ public class LeyLensItem extends Item {
             cursor.move(0, -1, 0);
         }
         return Integer.MIN_VALUE;
+    }
+
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+        if (!(target instanceof LatticeAnimal animal) || !player.isShiftKeyDown()) return InteractionResult.PASS;
+        if (player.level() instanceof ServerLevel) {
+            animal.ensureLattice(animal.getRandom(), player.level().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH));
+            for (Component line : animal.lattice().lensLines(animal.getDisplayName())) player.sendSystemMessage(line);
+        }
+        return InteractionResult.sidedSuccess(player.level().isClientSide);
     }
 
     @Override

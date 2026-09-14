@@ -19,21 +19,26 @@ public class FamiliarFollowGoal extends Goal {
     public static final double TELEPORT_DISTANCE_SQ=144;
     private final LatticeAnimal animal;
     private final double speed;
-    private final float startDistance,stopDistance;
     private final PathNavigation navigation;
     private LivingEntity owner;
     private int recalc;
     private float oldWaterCost;
-    public FamiliarFollowGoal(LatticeAnimal animal,double speed,float startDistance,float stopDistance) {
-        this.animal=animal;this.speed=speed;this.startDistance=startDistance;this.stopDistance=stopDistance;navigation=animal.getNavigation();
+    public FamiliarFollowGoal(LatticeAnimal animal,double speed) {
+        this.animal=animal;this.speed=speed;navigation=animal.getNavigation();
         setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK));
     }
+    private float startDistance() { return animal.lattice().followStart(); }
+    private float stopDistance() { return animal.lattice().followStop(); }
     @Override public boolean canUse() {
         LivingEntity target=animal.getOwner();
-        if(target==null || animal.unableToMoveToOwner() || animal.distanceToSqr(target)<startDistance*startDistance)return false;
+        float start=startDistance();
+        if(target==null || animal.unableToMoveToOwner() || animal.distanceToSqr(target)<start*start)return false;
         owner=target;return true;
     }
-    @Override public boolean canContinueToUse() { return !navigation.isDone() && !animal.unableToMoveToOwner() && animal.distanceToSqr(owner)>stopDistance*stopDistance; }
+    @Override public boolean canContinueToUse() {
+        float stop=stopDistance();
+        return !navigation.isDone() && !animal.unableToMoveToOwner() && animal.distanceToSqr(owner)>stop*stop;
+    }
     @Override public void start() { recalc=0;oldWaterCost=animal.getPathfindingMalus(PathType.WATER);animal.setPathfindingMalus(PathType.WATER,0); }
     @Override public void stop() { owner=null;navigation.stop();animal.setPathfindingMalus(PathType.WATER,oldWaterCost); }
     @Override public void tick() {

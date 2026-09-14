@@ -23,10 +23,13 @@ public final class FamiliarAbilities {
     public static void tick(LatticeAnimal animal) {
         if(!(animal.level() instanceof ServerLevel level) || animal.profile()!=CreatureProfile.LANTERN_FOX)return;
         long time=level.getGameTime();
+        boolean night=!level.isDay();
+        int nvPeriod=animal.lattice().abilityPeriod(40,night);
+        int orePeriod=animal.lattice().abilityPeriod(80,night);
         var owner=animal.getOwner();
-        if(time%40==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=NIGHT_VISION_RANGE*NIGHT_VISION_RANGE)
+        if(time%nvPeriod==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=NIGHT_VISION_RANGE*NIGHT_VISION_RANGE)
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,300,0,true,false,true));
-        if(time%80==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=48*48)markOres(level,animal,player);
+        if(time%orePeriod==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=48*48)markOres(level,animal,player);
         if(time%LIGHT_PERIOD==0)carryLight(level,animal);
     }
     /** End-rod glints on every ore block within {@link #ORE_RANGE}, visible only to the owner. */
@@ -47,7 +50,8 @@ public final class FamiliarAbilities {
         var state=level.getBlockState(pos);
         boolean placed=false;
         if(state.isAir() && !state.is(FamiliarRegistry.SPIRIT_LIGHT.get()) && level.getWorldBorder().isWithinBounds(pos)) {
-            level.setBlock(pos,FamiliarRegistry.SPIRIT_LIGHT.get().defaultBlockState(),3);placed=true;
+            var light=FamiliarRegistry.SPIRIT_LIGHT.get().defaultBlockState().setValue(SpiritLightBlock.BRIGHT,animal.lattice().expressed(FamiliarData.Mark.GLOW_VEIN));
+            level.setBlock(pos,light,3);placed=true;
         }
         if(last!=null && level.hasChunkAt(last) && level.getBlockState(last).is(FamiliarRegistry.SPIRIT_LIGHT.get()))level.setBlock(last,Blocks.AIR.defaultBlockState(),3);
         animal.setLastLight(placed?pos.immutable():null);

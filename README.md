@@ -159,11 +159,11 @@ Seal-carvers sell the Still Night tablet at Friend rank (three Attuned Echo and 
 
 ## Bound spirits
 
-A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback Scale or Dawn Velvet) bonds an adult Lantern Fox, Mossback or Dawn Stag with a 60% chance per use; a failed charm is kept. Bonded animals follow within three to ten blocks, teleport past twelve, never despawn, ignore their owner's blows and yield double when brushed. Sneak-use toggles stay and follow.
+A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback Scale or Dawn Velvet) bonds an adult Lantern Fox, Mossback or Dawn Stag with a 60% chance per use; a failed charm is kept. Bonded animals follow within three to ten blocks, teleport past twelve, never despawn, ignore their owner's blows and yield double when brushed. Sneak-use toggles stay and follow. Wild adults roll Frame, Stride, Fang, Hum and Keep (0–3) plus named Marks; sneak-use a Ley Lens to read them. The charm does not reroll. Breed two of the same species for better threads.
 
-- **Lantern Fox:** Night Vision for the owner within eight blocks, glints on ores within six blocks of the fox every four seconds, and a moving Spirit Light (light level 10).
-- **Mossback:** a nine-slot saddlebag (sneak-use with an empty hand); dropped on death.
-- **Dawn Stag:** rideable without a saddle by its owner; hold jump for a short leap.
+- **Lantern Fox:** Night Vision for the owner within eight blocks, glints on ores within six blocks of the fox every four seconds, and a moving Spirit Light (light level 10, 12 with Glow-vein).
+- **Mossback:** a nine-slot saddlebag (sneak-use with an empty hand); twelve with Deep Pocket; dropped on death.
+- **Dawn Stag:** rideable without a saddle by its owner; hold jump for a short leap (higher with Leap).
 
 ## Camps
 
@@ -171,7 +171,7 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 
 ## Ley Sight and Pulse logic
 
-- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, the HUD reads the ley strength where you stand and a 9-by-9 grid of particles colours the ground from blue (quiet) to gold (singing). Sneak-use it on a Ley Collector for its exact factor breakdown. Open sky counts 1 by day and 3 by night; rain, water and greenery add 2 each.
+- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, the HUD reads the ley strength where you stand and a 9-by-9 grid of particles colours the ground from blue (quiet) to gold (singing). Sneak-use it on a Ley Collector for its exact factor breakdown, or on a lattice animal for its threads and Marks. Open sky counts 1 by day and 3 by night; rain, water and greenery add 2 each.
 - **Pulse Gauge:** points at any Pulse holder and emits redstone 0 to 15 in proportion to its charge, refreshed every four ticks; a comparator reads the same.
 - **Pulse Threshold:** emits a full signal while the faced holder is at or above 25, 50, 75 or 100%. Right-click cycles; a comparator reads 1 to 4.
 
