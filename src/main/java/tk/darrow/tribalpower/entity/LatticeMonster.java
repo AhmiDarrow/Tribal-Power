@@ -101,9 +101,15 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
-        goalSelector.addGoal(2,profile().ranged()?new SpiritCastGoal():new MeleeAttackGoal(this,1,false));
+        goalSelector.addGoal(2,profile().ranged()?new SpiritCastGoal():new MeleeAttackGoal(this,1,false) {
+            @Override public boolean canUse() { return (!isBonded() || FamiliarRoster.combat(profile())) && super.canUse(); }
+        });
         goalSelector.addGoal(3,new FamiliarFollowGoal(this,1.1));
-        goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8):new WaterAvoidingRandomStrollGoal(this,.8));
+        goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        }:new WaterAvoidingRandomStrollGoal(this,.8) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         goalSelector.addGoal(6,new LookAtPlayerGoal(this,Player.class,8));
         goalSelector.addGoal(7,new RandomLookAroundGoal(this));
         targetSelector.addGoal(1,new FamiliarOwnerTargetGoals.HurtBy(this));
@@ -334,7 +340,9 @@ public class LatticeMonster extends Monster implements Familiar {
     private final class SpiritCastGoal extends Goal {
         private int cooldown,windup;
         SpiritCastGoal() { setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK)); }
-        @Override public boolean canUse() { return getTarget()!=null && getTarget().isAlive() && !isSitting(); }
+        @Override public boolean canUse() {
+            return (!isBonded() || FamiliarRoster.combat(profile())) && getTarget()!=null && getTarget().isAlive() && !isSitting();
+        }
         @Override public boolean requiresUpdateEveryTick() { return true; }
         @Override public void stop() { windup=0;getNavigation().stop(); }
         @Override public void tick() {

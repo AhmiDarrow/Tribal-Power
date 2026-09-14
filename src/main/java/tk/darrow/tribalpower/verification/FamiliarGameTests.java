@@ -341,9 +341,20 @@ public class FamiliarGameTests {
         var c=spawn(h,CreatureProfile.DAWN_STAG,4,2,2);
         bond(h,player,a);bond(h,player,b);bond(h,player,c);
         h.assertTrue(!a.isSitting() && !b.isSitting() && c.isSitting(),"A third helper waits");
+        player.setItemInHand(InteractionHand.MAIN_HAND,ItemStack.EMPTY);
+        player.setShiftKeyDown(false);
+        c.mobInteract(player,InteractionHand.MAIN_HAND);
+        h.assertTrue(player.getVehicle()==c && !c.isSitting(),"The waiting stag can still be ridden");
+        h.assertTrue(!a.isSitting() && !b.isSitting(),"A rider does not steal a helper slot");
+        player.stopRiding();
+        h.assertTrue(c.isSitting() && player.getVehicle()==null,"A dismount sits the stag when the helper cap is full");
         var fighter=spawnMonster(h,CreatureProfile.SHARDBACK,5,2,3);
         var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,6,2,3);
         bondHostile(h,player,fighter);
+        var prey=spawnMonster(h,CreatureProfile.ASHBOUND,7,2,3);
+        fighter.setLastHurtByMob(prey);
+        h.assertTrue(new FamiliarOwnerTargetGoals.HurtBy(fighter).canUse(),"A fighter answers a blow");
+        prey.discard();
         bondHostile(h,player,hound);
         h.assertTrue(!fighter.isSitting() && hound.isSitting(),"A second fighter waits");
         hound.hurt(h.getLevel().damageSources().cactus(),1);
@@ -367,6 +378,11 @@ public class FamiliarGameTests {
         h.assertTrue(FamiliarAbilities.placeClick(level,moth) && level.getBlockState(moth.blockPosition()).is(FamiliarRegistry.SPIRIT_CLICK.get()),"A sitting moth leaves a spirit click");
         level.getBlockState(moth.blockPosition()).tick(level,moth.blockPosition(),level.random);
         h.assertTrue(!level.getBlockState(moth.blockPosition()).is(FamiliarRegistry.SPIRIT_CLICK.get()),"The click expires on its scheduled tick");
+        moth.setSitting(false);
+        var stray=spawnMonster(h,CreatureProfile.ASHBOUND,6,2,6);
+        moth.setLastHurtByMob(stray);
+        h.assertTrue(!new FamiliarOwnerTargetGoals.HurtBy(moth).canUse(),"A helper does not pick a fight");
+        stray.discard();
 
         h.setBlock(4,2,4,ModBlocks.DRUMHEART.get());
         var drum=(DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));

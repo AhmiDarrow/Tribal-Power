@@ -19,6 +19,8 @@ public final class FamiliarSlots {
         for(Mob mob:level.getEntitiesOfClass(Mob.class,box,m->m.isAlive() && m instanceof Familiar)) {
             Familiar other=(Familiar)mob;
             if(other==self || !other.isBonded() || !owner.equals(other.ownerUUID().orElse(null)) || other.isSitting())continue;
+            Mob ridden=other.asMob();
+            if(ridden.isVehicle() || ridden.isPassenger())continue;
             if(FamiliarRoster.combat(other.profile()))combat++;else support++;
         }
         if(FamiliarRoster.combat(self.profile()))return combat<FamiliarRoster.COMBAT_OUT;

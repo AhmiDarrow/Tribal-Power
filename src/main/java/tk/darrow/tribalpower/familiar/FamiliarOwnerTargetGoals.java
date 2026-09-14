@@ -76,7 +76,7 @@ public final class FamiliarOwnerTargetGoals {
             Mob mob=familiar.asMob();
             LivingEntity attacker=mob.getLastHurtByMob();
             if(attacker==null || familiar.isOwnedBy(attacker) || forbidden(familiar,attacker))return false;
-            if(familiar.isBonded() && familiar.isSitting())return false;
+            if(familiar.isBonded() && (familiar.isSitting() || !FamiliarRoster.combat(familiar.profile())))return false;
             return canAttack(attacker,TargetingConditions.DEFAULT);
         }
         @Override public void start() { mob.setTarget(mob.getLastHurtByMob());super.start(); }

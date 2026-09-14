@@ -58,13 +58,21 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
-        goalSelector.addGoal(2,new PanicGoal(this,1.3));
+        goalSelector.addGoal(2,new PanicGoal(this,1.3) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         goalSelector.addGoal(3,new BreedGoal(this,1));
-        goalSelector.addGoal(4,new TemptGoal(this,1,this::isFood,false));
+        goalSelector.addGoal(4,new TemptGoal(this,1,this::isFood,false) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         goalSelector.addGoal(5,new FamiliarFollowGoal(this,1.1));
-        goalSelector.addGoal(6,new AvoidEntityGoal<>(this,Monster.class,8,1,1.2));
+        goalSelector.addGoal(6,new AvoidEntityGoal<>(this,Monster.class,8,1,1.2) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         goalSelector.addGoal(7,new FollowParentGoal(this,1));
-        goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8));
+        goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         goalSelector.addGoal(9,new LookAtPlayerGoal(this,Player.class,6));
         goalSelector.addGoal(10,new RandomLookAroundGoal(this));
     }
@@ -193,7 +201,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
     // ---- riding (Dawn Stag) ------------------------------------------------------------------------------------
     @Override public LivingEntity getControllingPassenger() {
-        if(profile()==CreatureProfile.DAWN_STAG && isBonded() && getFirstPassenger() instanceof Player rider && isOwnedBy(rider))return rider;
+        if(profile()==CreatureProfile.DAWN_STAG && isBonded() && !isBaby() && getFirstPassenger() instanceof Player rider && isOwnedBy(rider))return rider;
         return super.getControllingPassenger();
     }
     @Override protected void tickRidden(Player rider,Vec3 travel) {
@@ -222,6 +230,10 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     @Override public boolean canJump() { return profile()==CreatureProfile.DAWN_STAG && isBonded() && getControllingPassenger()!=null; }
     @Override public void handleStartJump(int power) { playSound(SoundEvents.GOAT_LONG_JUMP,.5F,1.2F); }
     @Override public void handleStopJump() {}
+    @Override protected void removePassenger(Entity passenger) {
+        super.removePassenger(passenger);
+        if(!level().isClientSide && isBonded())FamiliarSlots.tryFollow(this);
+    }
     // ---- persistence ------------------------------------------------------------------------------------------
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
