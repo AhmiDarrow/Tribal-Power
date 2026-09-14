@@ -17,9 +17,13 @@ public class LatticeTunerItem extends Item {
         var level = context.getLevel(); var player = context.getPlayer(); var pos = context.getClickedPos(); var stack = context.getItemInHand();
         if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, context.getClickedFace(), stack)) return InteractionResult.FAIL;
         var data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
-        if (!player.isShiftKeyDown() && level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay && data.contains("Endpoint")) {
-            boolean ok = relay.bind(BlockPos.of(data.getLong("Endpoint")), Direction.from3DDataValue(data.getInt("Face")), data.getString("Dimension"));
-            player.displayClientMessage(Component.translatable(ok ? "message.tribalpower.tuner.linked" : "message.tribalpower.tuner.range"), true);
+        if (level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) {
+            if (!player.isShiftKeyDown() && data.contains("Endpoint")) {
+                boolean ok = relay.bind(BlockPos.of(data.getLong("Endpoint")), Direction.from3DDataValue(data.getInt("Face")), data.getString("Dimension"));
+                player.displayClientMessage(Component.translatable(ok ? "message.tribalpower.tuner.linked" : "message.tribalpower.tuner.range"), true);
+            } else {
+                player.displayClientMessage(Component.translatable("message.tribalpower.tuner.need_mark"), true);
+            }
         } else {
             CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> {
                 tag.putLong("Endpoint", pos.asLong()); tag.putString("Dimension", level.dimension().location().toString()); tag.putInt("Face", context.getClickedFace().ordinal());

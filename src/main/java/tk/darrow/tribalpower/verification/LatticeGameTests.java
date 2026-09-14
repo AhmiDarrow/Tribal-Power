@@ -439,6 +439,29 @@ public class LatticeGameTests {
         h.assertTrue(PulseCellItem.insertPulse(cell,1200,false)==1200 && PulseCellItem.getPulse(cell)==1200,"Greater cell must hold 1200 Pulse");
         h.succeed();
     }
+    @GameTest(template="empty")
+    public static void tunerMarksAMachineNotThePlate(GameTestHelper h) {
+        h.setBlock(2,1,2,Blocks.STONE);
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(6,2,2,Blocks.CHEST);
+        var player=h.makeMockServerPlayerInLevel();
+        var tuner=new ItemStack(ModItems.LATTICE_TUNER.get());
+        var relayPos=h.absolutePos(new BlockPos(2,2,2));
+        var chestPos=h.absolutePos(new BlockPos(6,2,2));
+        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(relayPos),Direction.NORTH,relayPos,false)));
+        h.assertTrue(!tuner.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().contains("Endpoint"),
+                "A tuner does not mark the plate itself");
+        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(chestPos),Direction.UP,chestPos,false)));
+        h.assertTrue(tuner.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().contains("Endpoint"),
+                "A tuner marks a machine face");
+        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(relayPos),Direction.NORTH,relayPos,false)));
+        var saved=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class).saveWithFullMetadata(h.getLevel().registryAccess());
+        h.assertTrue(saved.contains("Target") && saved.getLong("Target")==chestPos.asLong(),"The plate binds the marked chest, not itself");
+        h.succeed();
+    }
     @GameTest(template="empty", timeoutTicks=100)
     public static void adapterExportsButNeverImportsFE(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.PULSE_ADAPTER.get());power(h);

@@ -247,7 +247,11 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (!taken.isEmpty()) { if (slot == LINK) RelayLinks.index(this); setChanged(); }
         return taken;
     }
-    @Override public ItemStack removeItemNoUpdate(int slot) { return ContainerHelper.takeItem(items, slot); }
+    @Override public ItemStack removeItemNoUpdate(int slot) {
+        ItemStack taken = ContainerHelper.takeItem(items, slot);
+        if (slot == LINK) RelayLinks.index(this);
+        return taken;
+    }
     @Override public void setItem(int slot, ItemStack stack) {
         items.set(slot, stack);
         stack.limitSize(1);

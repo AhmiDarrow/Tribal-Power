@@ -275,6 +275,7 @@
   "message.tribalpower.tuner.marked": "Destination face marked. Use the tuner on a relay to link it.",
   "message.tribalpower.tuner.linked": "Wireless route bound. The plate pulls from the machine it sits on; redstone pauses transfer.",
   "message.tribalpower.tuner.range": "Outside this relay tier: local 32 blocks, longreach 128, astral cross-dimensional.",
+  "message.tribalpower.tuner.need_mark": "Mark a machine face first, not the plate. Sneak-use the tuner on the destination, then use it on the relay.",
   "item.tribalpower.lattice_tuner.desc": "Mark a target face, then use on a relay. Or seat the same item in two relay Bond slots. Sneak-use to replace the mark.",
   "message.tribalpower.adapter.status": "Pulse Adapter %s/%s FE · 1 Pulse → 100 FE · redstone pauses",
   "message.tribalpower.cistern.status": "Spirit Cistern %s/%s mB · buckets and standard fluid pipes accepted",
