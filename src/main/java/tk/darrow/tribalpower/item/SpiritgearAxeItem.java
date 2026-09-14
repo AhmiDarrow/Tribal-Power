@@ -11,7 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -65,7 +65,7 @@ public class SpiritgearAxeItem extends AxeItem {
                 net.minecraft.world.level.block.Block.popResource(level, pos, new ItemStack(Blocks.OAK_SAPLING));
             } else if (voice == Attunement.SPIRIT && level instanceof ServerLevel server) {
                 for (LivingEntity mob : server.getEntitiesOfClass(LivingEntity.class,
-                        player.getBoundingBox().inflate(8), m -> m instanceof Enemy)) {
+                        player.getBoundingBox().inflate(8), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile)) {
                     mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 80, 0));
                 }
             }

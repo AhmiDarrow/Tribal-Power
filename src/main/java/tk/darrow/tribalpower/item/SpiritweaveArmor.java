@@ -11,7 +11,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -146,7 +146,7 @@ public class SpiritweaveArmor extends ArmorItem {
 
     private static void glowHostiles(Player player, int range) {
         for (LivingEntity mob : player.level().getEntitiesOfClass(LivingEntity.class,
-                player.getBoundingBox().inflate(range), m -> m instanceof Enemy)) {
+                player.getBoundingBox().inflate(range), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile)) {
             mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
         }
     }

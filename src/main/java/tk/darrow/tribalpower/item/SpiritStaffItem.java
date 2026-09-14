@@ -7,7 +7,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
@@ -77,7 +77,7 @@ public class SpiritStaffItem extends Item {
             }
             case SPIRIT -> {
                 player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0));
-                for (LivingEntity enemy : level.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(12), e -> e instanceof Enemy))
+                for (LivingEntity enemy : level.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(12), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile))
                     enemy.addEffect(new MobEffectInstance(MobEffects.GLOWING, 240, 0));
             }
             case LOOM -> tether(player, target);
@@ -95,7 +95,7 @@ public class SpiritStaffItem extends Item {
         Vec3 end = player.pick(18, 0, false).getLocation();
         var hit = ProjectileUtil.getEntityHitResult(level, player, start, end,
                 player.getBoundingBox().expandTowards(end.subtract(start)).inflate(1),
-                entity -> entity instanceof Enemy && entity instanceof LivingEntity && entity.isAlive());
+                entity -> entity instanceof LivingEntity living && living.isAlive() && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living));
         return hit != null && hit.getEntity() instanceof LivingEntity living ? living : null;
     }
     /** Tether: draw the target up to {@link #TETHER_PULL} blocks along the thread toward the caster. */

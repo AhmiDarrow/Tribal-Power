@@ -33,7 +33,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -156,7 +156,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new AngerTargetGoal());
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false,
-                e -> role() == KinRole.HUNTER && e instanceof Enemy && e.distanceToSqr(this) <= HUNT_RADIUS * HUNT_RADIUS));
+                e -> role() == KinRole.HUNTER && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.distanceToSqr(this) <= HUNT_RADIUS * HUNT_RADIUS));
     }
 
     @Override

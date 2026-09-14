@@ -102,7 +102,7 @@ public class LatticeMonster extends Monster implements Familiar {
         goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
         goalSelector.addGoal(2,profile().ranged()?new SpiritCastGoal():new MeleeAttackGoal(this,1,false) {
-            @Override public boolean canUse() { return (!isBonded() || FamiliarRoster.combat(profile())) && super.canUse(); }
+            @Override public boolean canUse() { return !isBaby() && (!isBonded() || FamiliarRoster.combat(profile())) && super.canUse(); }
         });
         goalSelector.addGoal(3,new FamiliarFollowGoal(this,1.1));
         goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8) {
@@ -116,7 +116,7 @@ public class LatticeMonster extends Monster implements Familiar {
         targetSelector.addGoal(2,new FamiliarOwnerTargetGoals.OwnerHurtBy(this));
         targetSelector.addGoal(3,new FamiliarOwnerTargetGoals.OwnerHurt(this));
         targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this,Player.class,true) {
-            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+            @Override public boolean canUse() { return !isBaby() && !isBonded() && super.canUse(); }
         });
     }
 
@@ -344,7 +344,7 @@ public class LatticeMonster extends Monster implements Familiar {
         private int cooldown,windup;
         SpiritCastGoal() { setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK)); }
         @Override public boolean canUse() {
-            return (!isBonded() || FamiliarRoster.combat(profile())) && getTarget()!=null && getTarget().isAlive() && !isSitting();
+            return !isBaby() && (!isBonded() || FamiliarRoster.combat(profile())) && getTarget()!=null && getTarget().isAlive() && !isSitting();
         }
         @Override public boolean requiresUpdateEveryTick() { return true; }
         @Override public void stop() { windup=0;getNavigation().stop(); }

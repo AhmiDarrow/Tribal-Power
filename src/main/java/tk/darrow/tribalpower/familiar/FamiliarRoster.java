@@ -1,5 +1,7 @@
 package tk.darrow.tribalpower.familiar;
 
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Enemy;
 import tk.darrow.tribalpower.entity.CreatureProfile;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 
@@ -7,6 +9,11 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
 public final class FamiliarRoster {
     public static final int COMBAT_OUT=1,SUPPORT_OUT=2;
     private FamiliarRoster(){}
+
+    /** Bonded company is still a {@link Enemy} remnant; camp defense and spirit tools must skip it. */
+    public static boolean hostile(LivingEntity entity) {
+        return entity instanceof Enemy && !(entity instanceof Familiar familiar && familiar.isBonded());
+    }
 
     public static boolean tameable(CreatureProfile profile) {
         return switch(profile) {

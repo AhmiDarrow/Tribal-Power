@@ -487,6 +487,25 @@ public class FamiliarGameTests {
         h.assertTrue(!child.isBonded() && child.isPersistenceRequired() && !child.removeWhenFarAway(128*128),
                 "The child is not bonded, and it does not wander off — including Peaceful");
         h.assertTrue(!child.isPreventingPlayerRest(player),"Remnant young do not keep you awake");
+        player.moveTo(child.getX(),child.getY(),child.getZ(),0,0);
+        for(int i=0;i<40;i++)child.aiStep();
+        h.assertTrue(child.getTarget()==null,"Remnant young do not hunt the player");
         a.discard();b.discard();child.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void remnantCompanyIsNotAWardDrumTarget(GameTestHelper h) {
+        floor(h);
+        h.setBlock(4,2,4,tk.darrow.tribalpower.device.DeviceRegistry.WARD_DRUM.get());
+        h.setBlock(4,2,5,ModBlocks.DRUMHEART.get());
+        ((DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,5))).insertPulse(40,false);
+        var drum=(tk.darrow.tribalpower.device.WorkshopBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.CLAW);
+        var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,6,2,4);
+        bondHostile(h,player,hound);
+        float before=hound.getHealth();
+        drum.beat(h.getLevel());
+        h.assertTrue(hound.getHealth()==before,"A Ward Drum must not strike bonded company");
+        hound.discard();h.succeed();
     }
 }

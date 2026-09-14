@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -64,7 +64,9 @@ public final class TribeHooks {
 
     /** Killing a hostile within 24 blocks of a hearth: +1 standing with that hearth's tribe (capped daily). */
     public static void onDeath(LivingDeathEvent event) {
-        if (!(event.getEntity() instanceof Enemy) || !(event.getEntity().level() instanceof ServerLevel level)) return;
+        if (!(event.getEntity() instanceof net.minecraft.world.entity.LivingEntity living)
+                || !tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living)
+                || !(event.getEntity().level() instanceof ServerLevel level)) return;
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
         for (TribeDefinition tribe : hearthsNear(level, event.getEntity().blockPosition(), TribeStanding.KILL_RADIUS))
             TribeStanding.killGain(player, tribe);

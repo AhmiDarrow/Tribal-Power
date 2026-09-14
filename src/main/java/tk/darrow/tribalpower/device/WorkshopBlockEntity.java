@@ -11,7 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Enemy;
+
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -155,7 +155,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse"; return; }
         var box = new AABB(worldPosition).inflate(8);
         for (var living : server.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, box,
-                e -> e instanceof Enemy && e.isAlive() && !(e instanceof Player))) {
+                e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive())) {
             if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false) < cost) break;
             living.hurt(server.damageSources().magic(), 4);
             var push = living.position().subtract(worldPosition.getCenter()).normalize().scale(0.35);
