@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Ley Lens: held in either hand it shows a HUD and paints the ground. Right-click cycles the sight
  * mode (ley, pulse zone, voices, machines). Sneak-use on a Ley Collector prints that collector's
- * exact factor breakdown. Sneak-use on a lattice animal prints its threads and Marks.
+ * exact factor breakdown. Sneak-use on a familiar prints its threads and Marks.
  */
 public class LeyLensItem extends Item {
     public static final int GRID = 8;

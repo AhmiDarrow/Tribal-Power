@@ -484,7 +484,9 @@ public class FamiliarGameTests {
         var young=h.getLevel().getEntitiesOfClass(LatticeMonster.class,a.getBoundingBox().inflate(8),m->m.isBaby() && m.getType()==a.getType());
         h.assertTrue(!young.isEmpty(),"Bonded remnants breed a child");
         var child=young.get(0);
-        h.assertTrue(!child.isBonded() && child.isPersistenceRequired(),"The child is not bonded, and it does not wander off");
+        h.assertTrue(!child.isBonded() && child.isPersistenceRequired() && !child.removeWhenFarAway(128*128),
+                "The child is not bonded, and it does not wander off — including Peaceful");
+        h.assertTrue(!child.isPreventingPlayerRest(player),"Remnant young do not keep you awake");
         a.discard();b.discard();child.discard();h.succeed();
     }
 }

@@ -138,12 +138,14 @@ public class LatticeMonster extends Monster implements Familiar {
         entityData.set(DATA_BABY,baby);
         if(baby && age>=0)age=-24000;
         if(!baby && age<0)age=0;
+        if(baby)setPersistenceRequired();
         refreshDimensions();
     }
-    @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded(); }
-    @Override public boolean removeWhenFarAway(double distance) { return !isBonded() && super.removeWhenFarAway(distance); }
-    @Override protected boolean shouldDespawnInPeaceful() { return !isBonded(); }
-    @Override public boolean isPreventingPlayerRest(Player player) { return !isBonded() && super.isPreventingPlayerRest(player); }
+    @Override public boolean isPersistenceRequired() { return super.isPersistenceRequired() || isBonded() || isBaby(); }
+    @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded() || isBaby(); }
+    @Override public boolean removeWhenFarAway(double distance) { return !isPersistenceRequired() && super.removeWhenFarAway(distance); }
+    @Override protected boolean shouldDespawnInPeaceful() { return !isPersistenceRequired(); }
+    @Override public boolean isPreventingPlayerRest(Player player) { return !isBonded() && !isBaby() && super.isPreventingPlayerRest(player); }
     @Override public EntityDimensions getDefaultDimensions(Pose pose) {
         EntityDimensions dimensions=super.getDefaultDimensions(pose);
         return isBaby()?dimensions.scale(0.5F):dimensions;
@@ -330,7 +332,7 @@ public class LatticeMonster extends Monster implements Familiar {
             for(int i=0;i<POUCH_SLOTS;i++)pouch.setItem(i,items.get(i));
         }
         lastOwnerAttacker=tag.hasUUID("LastOwnerAttacker")?tag.getUUID("LastOwnerAttacker"):null;
-        if(isBonded())setPersistenceRequired();
+        if(isBonded() || isBaby())setPersistenceRequired();
     }
 
     @Override public boolean causeFallDamage(float distance,float multiplier,DamageSource source) { return !profile().flying && super.causeFallDamage(distance,multiplier,source); }
