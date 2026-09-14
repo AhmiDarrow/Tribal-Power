@@ -327,6 +327,22 @@ public class WorkshopGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void sealLoomReturnsContainersToOffsetIngredientSlots(GameTestHelper h) {
+        h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        pulse(h, 4, 2, 5, 40);
+        var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
+        loom.setItem(8, new ItemStack(Items.HONEY_BOTTLE));
+        loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
+        loom.imprint(h.makeMockServerPlayerInLevel());
+        loom.beat(h.getLevel());
+        h.assertTrue(loom.getItem(8).is(Items.GLASS_BOTTLE), "Bottle returns to the original bottom-right ingredient slot");
+        h.assertTrue(loom.getItem(0).isEmpty(), "Trimmed recipe coordinates must not move the bottle to top-left");
+        h.assertTrue(loom.getItem(SealLoomBlockEntity.OUTPUT).is(Items.SUGAR)
+                && loom.getItem(SealLoomBlockEntity.OUTPUT).getCount() == 3, "Craft produces exactly three sugar");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void windSnareDoesNotCatchWithoutPulse(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.WIND_SNARE.get());
         var be = (WorkshopBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));

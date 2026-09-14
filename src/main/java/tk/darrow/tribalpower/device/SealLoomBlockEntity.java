@@ -93,7 +93,8 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
             reason = "Need " + cost + " Pulse";
             return;
         }
-        CraftingInput input = grid();
+        CraftingInput.Positioned positioned = CraftingInput.ofPositioned(3, 3, List.copyOf(items.subList(0, GRID)));
+        CraftingInput input = positioned.input();
         ItemStack result = found.get().value().assemble(input, server.registryAccess());
         if (result.isEmpty()) { reason = "Output full"; return; }
         NonNullList<ItemStack> preview = snapshot();
@@ -103,8 +104,11 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         for (int i = 0; i < GRID; i++) {
             ItemStack slot = preview.get(i);
             if (!slot.isEmpty()) slot.shrink(1);
-            if (i < remain.size() && !remain.get(i).isEmpty()) {
-                ItemStack leftover = remain.get(i).copy();
+            int x = i % 3 - positioned.left(), y = i / 3 - positioned.top();
+            int remainderIndex = y * input.width() + x;
+            if (x >= 0 && x < input.width() && y >= 0 && y < input.height()
+                    && remainderIndex < remain.size() && !remain.get(remainderIndex).isEmpty()) {
+                ItemStack leftover = remain.get(remainderIndex).copy();
                 if (preview.get(i).isEmpty()) preview.set(i, leftover);
                 else if (!storeInto(preview, leftover)) overflow.add(leftover);
             }

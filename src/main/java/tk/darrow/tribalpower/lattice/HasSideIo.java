@@ -17,6 +17,9 @@ public interface HasSideIo {
 
     static boolean cycle(Player player, BlockEntity be, Direction face) {
         if (!(be instanceof HasSideIo io)) return false;
+        if (player.isSpectator() || !player.mayBuild() || face == null) return false;
+        if (be instanceof tk.darrow.tribalpower.camp.Ownership.Owned owned
+                && !tk.darrow.tribalpower.camp.Ownership.check(player.level(), owned.owner(), player)) return false;
         var mode = io.sideIo().cycle(face);
         be.setChanged();
         if (be.getLevel() instanceof net.minecraft.server.level.ServerLevel server)

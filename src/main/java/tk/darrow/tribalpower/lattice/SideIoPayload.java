@@ -23,6 +23,7 @@ public record SideIoPayload(BlockPos pos, int face) implements CustomPacketPaylo
     public static void register(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToServer(TYPE, STREAM_CODEC, (payload, context) -> {
             if (!(context.player() instanceof ServerPlayer player)) return;
+            if (payload.face < 0 || payload.face >= Direction.values().length) return;
             var level = player.serverLevel();
             if (!level.hasChunkAt(payload.pos) || player.distanceToSqr(payload.pos.getCenter()) > 64) return;
             Direction face = Direction.from3DDataValue(payload.face);

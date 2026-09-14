@@ -3,7 +3,6 @@
   "textures": {
     "particle": "tribalpower:block/anchor_stone",
     "side": "tribalpower:block/anchor_stone",
-    "top": "tribalpower:block/anchor_stone_top",
     "wood": "tribalpower:block/loom_wood",
     "stone": "tribalpower:block/loom_stone",
     "trim": "tribalpower:block/loom_copper",

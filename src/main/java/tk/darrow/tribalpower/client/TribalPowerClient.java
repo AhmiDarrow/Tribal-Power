@@ -20,6 +20,7 @@ public final class TribalPowerClient {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(AuroraSky::render);
         installDevHook("tk.darrow.tribalpower.client.VisualVerification");
         installDevHook("tk.darrow.tribalpower.client.ShowcaseVerification");
+        modBus.addListener(PanoramicSky::registerShaders);
         modBus.addListener(TribalColors::items);
         modBus.addListener(TribalColors::blocks);
         modBus.addListener(ClientSetup::onClientSetup);

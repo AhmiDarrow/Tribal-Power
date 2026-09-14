@@ -1,21 +1,13 @@
 package tk.darrow.tribalpower.echo;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.registries.*;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class StationMenu extends AbstractContainerMenu {
-    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, "tribalpower");
-    public static final DeferredHolder<MenuType<?>, MenuType<StationMenu>> TYPE = MENUS.register("echo_station", () -> new MenuType<>(StationMenu::new, FeatureFlags.DEFAULT_FLAGS));
-    static {
-        RelayMenu.class.getName();
-        CacheMenu.class.getName();
-        tk.darrow.tribalpower.charm.CharmMenu.class.getName();
-    }
+    public static final DeferredHolder<MenuType<?>, MenuType<StationMenu>> TYPE = ModMenus.STATION;
     private final Container container;
     private final ContainerData data;
     public StationMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(9), new SimpleContainerData(7)); }

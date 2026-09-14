@@ -2,17 +2,15 @@ package tk.darrow.tribalpower.charm;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import tk.darrow.tribalpower.echo.StationMenu;
 
 public class CharmMenu extends AbstractContainerMenu {
     public static final DeferredHolder<MenuType<?>, MenuType<CharmMenu>> TYPE =
-            StationMenu.MENUS.register("charm_slots", () -> new MenuType<>(CharmMenu::new, FeatureFlags.DEFAULT_FLAGS));
+            tk.darrow.tribalpower.echo.ModMenus.CHARMS;
 
     private final CharmInventory charms;
 

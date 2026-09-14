@@ -1,0 +1,38 @@
+{
+  "description": "Hand-authored native 16px item silhouettes, top-left lighting. Transparent border. No filters or random generation.",
+  "size": 16,
+  "palette": {
+    ".": "00000000",
+    "K": "202332ff",
+    "I": "343953ff",
+    "i": "535b7bff",
+    "T": "317574ff",
+    "t": "60aaa1ff",
+    "C": "e8e0d5ff",
+    "W": "fff2d4ff",
+    "G": "cf9c43ff",
+    "g": "f0ce7aff",
+    "B": "583b2aff",
+    "b": "93613aff",
+    "A": "938878ff",
+    "a": "c0ad8bff"
+  },
+  "destination": "src/main/resources/assets/tribalpower/textures/item",
+  "sprites": {
+    "resonant_core": [
+      ".....KKK.....",
+      "...KKggGKK...",
+      "..KgGTTTGgK..",
+      ".KgTKCtKTTGK.",
+      "KGTKCWCtKTTGK",
+      "KgTKWWWCCKTGK",
+      "KGTKWCWCCTTGK",
+      "KGTTKCCCTKTGK",
+      "KGTtTKCTKTTGK",
+      ".KGTTTtTTGK..",
+      "..KGGTTTGGK..",
+      "...KKGGGKK...",
+      ".....KKK....."
+    ]
+  }
+}

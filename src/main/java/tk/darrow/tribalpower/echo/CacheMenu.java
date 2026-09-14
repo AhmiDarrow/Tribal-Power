@@ -5,7 +5,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.MenuType;
@@ -17,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 /** Six-row cache with packed side-IO synced for the face widget. */
 public class CacheMenu extends AbstractContainerMenu {
     public static final DeferredHolder<MenuType<?>, MenuType<CacheMenu>> TYPE =
-            StationMenu.MENUS.register("cache", () -> new MenuType<>(CacheMenu::new, FeatureFlags.DEFAULT_FLAGS));
+            tk.darrow.tribalpower.echo.ModMenus.CACHE;
     private final Container container;
     private final ContainerData data;
 

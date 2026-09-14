@@ -84,12 +84,12 @@
     [],
     [
       "tribalpower:march_ore",
-      "tribalpower:march_ore_high",
-      "tribalpower:march_crystal_patch"
+      "tribalpower:march_ore_high"
     ],
     [],
     [],
     [
+      "tribalpower:march_crystal_patch",
       "tribalpower:ley_thistle_patch"
     ],
     []

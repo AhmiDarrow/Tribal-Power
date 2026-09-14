@@ -18,6 +18,34 @@ import tk.darrow.tribalpower.world.ModDimensions;
 @PrefixGameTestTemplate(false)
 public class LatticeGameTests {
     @GameTest(template="empty")
+    public static void sideIoRespectsOwnershipAndPlayerMode(GameTestHelper h) {
+        var pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, tk.darrow.tribalpower.camp.CampRegistry.DEVICES.get("offering_table").get());
+        var device = (tk.darrow.tribalpower.camp.CampBlockEntity) h.getBlockEntity(pos);
+        var player = h.makeMockServerPlayerInLevel();
+        try {
+            device.setOwner(java.util.UUID.randomUUID());
+            player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+            var before = device.sideIo().get(Direction.UP);
+            h.assertFalse(tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, device, Direction.UP),
+                    "A configuration packet must not bypass another camp's ownership");
+            h.assertTrue(device.sideIo().get(Direction.UP) == before, "Refused configuration must not mutate IO");
+            device.setOwner(player.getUUID());
+            player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
+            h.assertFalse(tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, device, Direction.UP),
+                    "Spectators cannot configure machines");
+            player.setGameMode(net.minecraft.world.level.GameType.ADVENTURE);
+            h.assertFalse(tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, device, Direction.UP),
+                    "Players without build permission cannot configure machines");
+            player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+            h.assertTrue(tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, device, Direction.UP),
+                    "The owner can still configure the machine in survival");
+            h.assertTrue(device.sideIo().get(Direction.UP) != before, "Allowed configuration must change the face");
+            h.succeed();
+        } finally { h.getLevel().getServer().getPlayerList().remove(player); }
+    }
+
+    @GameTest(template="empty")
     public static void codexHasValidItemsAndSpoilerSafeLanding(GameTestHelper h) {
         var entries=tk.darrow.tribalpower.guide.CodexEntries.ALL;
         h.assertTrue(entries.size()>=54 && !entries.getFirst().spoiler(),"Complete Codex needs a spoiler-safe landing");

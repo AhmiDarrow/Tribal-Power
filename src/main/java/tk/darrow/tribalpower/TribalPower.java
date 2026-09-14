@@ -36,7 +36,7 @@ public final class TribalPower {
         modBus.addListener(tk.darrow.tribalpower.entity.CreatureEntities::attributes);
         modBus.addListener(tk.darrow.tribalpower.entity.CreatureEntities::placements);
         ModCreativeTabs.TABS.register(modBus);
-        tk.darrow.tribalpower.echo.StationMenu.MENUS.register(modBus);
+        tk.darrow.tribalpower.echo.ModMenus.MENUS.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.TYPES.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.SERIALIZERS.register(modBus);
         tk.darrow.tribalpower.item.SpiritweaveArmor.MATERIALS.register(modBus);

@@ -4,7 +4,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.MenuType;
@@ -16,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 /** Bond item + rune. Hoppers never see these slots. */
 public class RelayMenu extends AbstractContainerMenu {
     public static final DeferredHolder<MenuType<?>, MenuType<RelayMenu>> TYPE =
-            StationMenu.MENUS.register("relay", () -> new MenuType<>(RelayMenu::new, FeatureFlags.DEFAULT_FLAGS));
+            tk.darrow.tribalpower.echo.ModMenus.RELAY;
     private final Container container;
     private final ContainerData data;
 

@@ -52,8 +52,10 @@ INTERNAL/
 docs/*_INTERNAL.md
 
 # Authoring only — generated assets already live in src/
-tools/
-art/
+tools/*
+!tools/export_reviewed_pixel_art.py
+art/*
+!art/reviewed-pixel-items.json
 legacy_1_9_4/
 .grok/
 docs/CODEX_ART.md

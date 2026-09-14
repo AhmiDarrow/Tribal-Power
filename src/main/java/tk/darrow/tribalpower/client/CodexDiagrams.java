@@ -16,11 +16,11 @@ import java.util.function.BiConsumer;
  *
  * <p>Every teaching maps to one {@link Flow} (label, end items, moving item, optional middle icon, accent colour and a
  * {@link Kind} that picks the animation) through {@link #flow(Entry, double)}: exact ids first, then id prefixes,
- * then categories. The caller passes the animation time in seconds ({@code 0} when Motion is off).
+ * then categories. The caller holds the animation time steady when Motion is off.
  */
 final class CodexDiagrams {
     static final int HEIGHT = 72;
-    static final int PATTERN_HEIGHT = 108;
+    static final int PATTERN_HEIGHT = 148;
     private static final int INK = 0xFF0C1922, TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, RAIL = 0xFF36555B, DIM = 0xFF29484F;
     private static final String[] TRIBE_REAGENTS = {"echo_shard", "attuned_echo", "mossback_scale", "rift_tooth", "bone_chime", "storm_wing", "lantern_down", "spirit_shard", "loom_thread"};
     private static final String[] RITES = {"rite_rain_calling", "rite_sky_clearing", "rite_dawn_calling", "rite_green_blessing", "rite_still_night", "rite_ley_binding"};
@@ -29,7 +29,7 @@ final class CodexDiagrams {
     private static final String[] STATUS = {"PAUSED", "NO VOICE", "OUTPUT FULL", "HUMMING"};
     private static final int[] STATUS_COLOUR = {0xFFE07A5F, 0xFFE4C18A, 0xFFE4C18A, 0xFF74DBCB};
 
-    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN, RESONATOR, CONDUCTOR }
+    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN, RESONATOR, CONDUCTOR, SEAL, UPGRADE }
 
     /** The placement rites, in the order the Codex teaches them; {@link Flow#variant()} indexes this. */
     private static final tk.darrow.tribalpower.pattern.RitualPattern[] PATTERNS = {
@@ -77,9 +77,9 @@ final class CodexDiagrams {
             case "familiars_fox" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", "lantern_fox_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 0);
             case "familiars_mossback_stag" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", FAMILIARS[1 + (int) (t / 3) % 2] + "_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 1 + (int) (t / 3) % 2);
             case "camps_identity", "walk_found_a_camp" -> flow(Kind.CAMP, "CHARTER > INVITE > SHARE", "camp_charter", "deep_cache", "wayfarer_satchel", "", TEAL, 0);
-            case "gear_ranks" -> flow(Kind.CHAIN, "ATTUNE > BIND > MANIFEST", "spiritgear_pickaxe", "echo_manifest", "spiritgear_pickaxe", "echo_attune", GOLD, 0);
+            case "gear_ranks" -> flow(Kind.UPGRADE, "UPGRADE THE SAME ITEM IN ORDER", "spiritgear_pickaxe", "echo_manifest", "spiritgear_pickaxe", "echo_attune", GOLD, 0);
             case "gear_voices", "walk_totem_bound_gear" -> flow(Kind.FLOW, "SNEAK > TOTEM > VOICE", "spiritgear_pickaxe", "resonance_totem_earth", "spiritgear_pickaxe", "pulse_cell", TEAL, 0);
-            case "machine_ranks" -> flow(Kind.CHAIN, "ATTUNE > BIND > MANIFEST", "echo_shatter", "echo_manifest", "echo_shatter", "echo_attune", GOLD, 0);
+            case "machine_ranks" -> flow(Kind.UPGRADE, "PICK UP > UPGRADE > PLACE AGAIN", "echo_shatter", "echo_manifest", "echo_shatter", "echo_attune", GOLD, 0);
             case "spirit_charms" -> flow(Kind.FLOW, "CRAFT > BIND > WEAR", "sky_charm", "hearth_charm", "veil_charm", "chorus_charm", TEAL, 0);
             case "chapter_30" -> flow(Kind.FLOW, "WEAR > PULSE > BOON", "spiritweave_hood", "pulse_cell", "spiritweave", "", TEAL, 0);
             case "ley_lens" -> flow(Kind.LENS, "HOLD > CYCLE > ZONE", "ley_lens", "ley_collector", "ley_lens", "", GOLD, 0);
@@ -91,7 +91,7 @@ final class CodexDiagrams {
             case "camp_summoning_cradle" -> flow(Kind.FLOW, "BIND > SUMMON > RENEW", "binding_effigy", "summoning_cradle", "spiritweave", "", TEAL, 0);
             case "camp_grove_tender", "walk_grove_tender" -> flow(Kind.FLOW, "PLANT > GROW > HARVEST", "minecraft:wheat_seeds", "minecraft:oak_log", "minecraft:sugar_cane", "grove_tender", 0xFF7BC96F, 1);
             case "workshop_hands" -> flow(Kind.FLOW, "PLACE > PULSE > WORK", "grove_tender", "ward_drum", "seal_loom", "tide_pump", TEAL, 0);
-            case "workshop_seal_loom", "walk_seal_loom" -> flow(Kind.CHAIN, "ARRANGE > IMPRINT > WEAVE", "recipe_seal", "minecraft:stick", "blank_seal", "seal_loom", TEAL, 0);
+            case "workshop_seal_loom", "walk_seal_loom" -> flow(Kind.SEAL, "PLANKS > RECORD RECIPE > STICKS", "recipe_seal", "minecraft:stick", "minecraft:oak_planks", "seal_loom", TEAL, 0);
             case "workshop_tide_pump" -> flow(Kind.FLOW, "DRAW > PUSH > REVERSE", "spirit_cistern", "spirit_cistern", "minecraft:water_bucket", "tide_pump", 0xFF5FB8D9, 0);
             case "workshop_wind_snare" -> flow(Kind.FLOW, "FALL > CATCH > STORE", "minecraft:wheat", "wind_snare", "minecraft:wheat", "", 0xFFC0DAC2, 0);
             case "workshop_ward_drum" -> flow(Kind.FLOW, "LISTEN > STRIKE > SHOVE", "ward_drum", "wake_bell", "bone_chime", "", 0xFFE07A5F, 0);
@@ -115,7 +115,7 @@ final class CodexDiagrams {
             case "pattern_shatter_array" -> new Flow(Kind.PATTERN, "FOUR TOTEMS, ONE CACHE", stack("resonance_totem_earth"), stack("echo_shatter"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 4);
             case "gate_way", "gate_keeping" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
             case "gate_far" -> new Flow(Kind.PATTERN, "FRAME + FOUR ANCHORS", stack("anchor_stone"), stack("gate_sigil"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF62D1C9, 6);
-            case "grit_split" -> flow(Kind.CHAIN, "CRUSH > FIRE | SHATTER", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "echo_shatter", GOLD, 0);
+            case "grit_split" -> flow(Kind.FLOW, "RAW METAL > GRIT > SMELT > INGOT", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "minecraft:furnace", GOLD, 0);
             case "voice_ember_horn" -> flow(Kind.FLOW, "FEED > BURN > GIVE", "minecraft:coal", "ember_horn", "minecraft:coal", "", 0xFFEB8449, 0);
             case "voice_wind_harp" -> flow(Kind.FLOW, "SKY > HEIGHT > STORM", "wind_harp", "pulse_cell", "minecraft:feather", "", 0xFFC0DAC2, 0);
             case "voice_wave_drum" -> flow(Kind.FLOW, "WATER > PIPE > BEAT", "minecraft:water_bucket", "wave_drum", "minecraft:water_bucket", "spirit_cistern", 0xFF5FB8D9, 0);
@@ -137,7 +137,7 @@ final class CodexDiagrams {
     }
 
     static int height(Entry e) {
-        return flow(e, 0).kind() == Kind.PATTERN ? PATTERN_HEIGHT : HEIGHT;
+        return switch(flow(e, 0).kind()) { case PATTERN -> PATTERN_HEIGHT; case SEAL -> 122; default -> HEIGHT; };
     }
 
     /**
@@ -146,7 +146,7 @@ final class CodexDiagrams {
      */
     static int draw(GuiGraphics g, Font font, Entry e, int x, int y, int w, double t, BiConsumer<ItemStack, int[]> item) {
         Flow f = flow(e, t);
-        int h = f.kind() == Kind.PATTERN ? PATTERN_HEIGHT : HEIGHT;
+        int h = height(e);
         g.fill(x, y, x + w, y + h, INK);
         g.fill(x, y, x + 3, y + h, f.accent());
         int bx = x + 8, span = w - 16;
@@ -165,11 +165,26 @@ final class CodexDiagrams {
             case PATTERN -> { pattern(g, font, f, bx, y, span, t, item); return h; }
             case RESONATOR -> { resonator(g, f, bx, y, span, t, item); return h; }
             case CONDUCTOR -> { conductor(g, f, bx, y, span, t, item); return h; }
+            case SEAL -> { seal(g, font, bx, y, span, item); return h; }
+            case UPGRADE -> { upgrade(g, font, f, bx, y, span, item); return h; }
             default -> plain(g, f, bx, y, span, lineStart, lineEnd, railY, t, item);
         }
         item.accept(f.first(), new int[]{bx, y + 29});
         item.accept(f.last(), new int[]{bx + span - 16, y + 29});
         return h;
+    }
+
+    private static void upgrade(GuiGraphics g, Font font, Flow f, int bx, int y, int span,
+                                BiConsumer<ItemStack, int[]> item) {
+        String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
+        String[] labels = {"Attune: rank 1", "Bind: rank 2", "Manifest: rank 3"};
+        item.accept(f.first(), new int[]{bx, y + 27});
+        for (int i = 0; i < stations.length; i++) {
+            int cx = bx + 32 + (span - 32) * i / 3;
+            g.drawString(font, ">", cx - 8, y + 31, GOLD, false);
+            item.accept(stack(stations[i]), new int[]{cx + 8, y + 25});
+            g.drawString(font, font.plainSubstrByWidth(labels[i], (span - 32) / 3 - 4), cx, y + 49, PAPER, false);
+        }
     }
 
     /**
@@ -224,14 +239,37 @@ final class CodexDiagrams {
             int pz = oy + (c.offset().getZ() - minZ) * (size + gap);
             g.fill(px, pz, px + size, pz + size, roleColour(c.predicate().role(), f.accent(), i == lit));
         }
-        String caption = "T" + tier.number() + (layers.size() > 1 ? "  Y=" + layerY : "");
-        g.drawString(font, caption, bx, y + PATTERN_HEIGHT - 12, GOLD, false);
+        String caption = "Tier " + tier.number() + " | Layer " + (layerY>=0?"+":"") + layerY;
+        g.drawString(font, font.plainSubstrByWidth(caption,span), bx, y + 90, GOLD, false);
+        g.drawString(font, font.plainSubstrByWidth("Top = north | 1 square = 1 block",span), bx, y + 102, PAPER, false);
         item.accept(f.first(), new int[]{bx, y + 28});
         item.accept(f.last(), new int[]{bx + span - 16, y + 28});
         if (!course.isEmpty()) {
             ItemStack shown = course.get(lit).predicate().icon();
-            if (!shown.isEmpty()) item.accept(shown, new int[]{bx + span / 2 - 8, y + PATTERN_HEIGHT - 22});
+            if (!shown.isEmpty()) item.accept(shown, new int[]{bx, y + 118});
+            var offset = course.get(lit).offset();
+            String name = course.get(lit).predicate().description().getString();
+            g.drawString(font,font.plainSubstrByWidth(name,span-24),bx+22,y+116,PAPER,false);
+            String position = "Offset: " + offset.getX() + ", " + offset.getY() + ", " + offset.getZ();
+            g.drawString(font,font.plainSubstrByWidth(position,span-24),bx+22,y+128,TEAL,false);
         }
+    }
+
+    private static void seal(GuiGraphics g, Font font, int bx, int y, int span, BiConsumer<ItemStack,int[]> item) {
+        g.drawString(font,"Grid",bx,y+24,PAPER,false);
+        for(int row=0;row<3;row++) for(int col=0;col<3;col++) {
+            int x=bx+col*18, sy=y+38+row*18;
+            g.fill(x,sy,x+17,sy+17,DIM);
+        }
+        item.accept(stack("minecraft:oak_planks"),new int[]{bx,y+38});
+        item.accept(stack("minecraft:oak_planks"),new int[]{bx,y+56});
+        g.drawString(font,"Seal",bx+68,y+24,PAPER,false);
+        item.accept(stack("recipe_seal"),new int[]{bx+70,y+48});
+        g.drawString(font,">",bx+99,y+52,GOLD,false);
+        ItemStack sticks=stack("minecraft:stick");sticks.setCount(4);
+        item.accept(sticks,new int[]{bx+span-26,y+48});
+        g.drawString(font,"Output",bx+span-40,y+24,PAPER,false);
+        g.drawString(font,font.plainSubstrByWidth("2 planks; seal is kept; 6 Pulse per craft",span),bx,y+102,TEAL,false);
     }
 
     private static int roleColour(tk.darrow.tribalpower.pattern.BlockPredicate.Role role, int accent, boolean lit) {

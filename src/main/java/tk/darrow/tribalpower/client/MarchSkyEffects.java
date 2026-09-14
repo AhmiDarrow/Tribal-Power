@@ -8,7 +8,7 @@ import org.joml.Matrix4f;
 
 public final class MarchSkyEffects extends DimensionSpecialEffects {
     public MarchSkyEffects() {
-        super(192, true, SkyType.NONE, false, false);
+        super(Float.NaN, true, SkyType.NONE, false, false);
     }
 
     @Override

@@ -28,6 +28,8 @@ public final class SpiritCodexScreen extends Screen {
     private final List<String> categories = new ArrayList<>(List.of("Contents", "Bookmarks", "Recipe index"));
     private String query="", category="Contents", selected="chapter_1", recipeItem="";
     private boolean spoilers, motion=true, showUses;
+    private double diagramTime;
+    private final long diagramEpoch = System.nanoTime();
     private int left, top, bookWidth, bookHeight, sidebar, contentX, contentWidth, listPage, scroll, maxScroll, recipePage;
     private EditBox search;
     private List<RecipeHolder<?>> recipes=List.of();
@@ -77,7 +79,10 @@ public final class SpiritCodexScreen extends Screen {
             if(spoilers){spoilers=false;category="Contents";query="";listPage=0;history.clear();navigate("chapter_1");}
             else confirmSpoilers(()->{});
         });
-        button(motion?"Motion: on":"Motion: off",left+bookWidth-98,top+bookHeight-25,88,b->{motion=!motion;rebuildWidgets();});
+        button(motion?"Motion: on":"Motion: off",left+bookWidth-98,top+bookHeight-25,88,b->{
+            if(motion)diagramTime=(System.nanoTime()-diagramEpoch)/1_000_000_000.0;
+            motion=!motion;rebuildWidgets();
+        });
         button(recipeItem.isEmpty()?(bookmarks.contains(selected)?"Unmark":"Bookmark"):(showUses?"Show recipes":"Show uses"),contentX,top+60,76,b->{
             if(recipeItem.isEmpty()){if(!bookmarks.remove(selected))bookmarks.add(selected);saveBookmarks();}
             else {showUses=!showUses;recipePage=0;scroll=0;findRecipes();}
@@ -87,6 +92,10 @@ public final class SpiritCodexScreen extends Screen {
             button("Recipes",contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
             String next=tk.darrow.tribalpower.guide.CodexTutorial.next(selected);
             if(next!=null)button("Next",contentX+144,top+60,48,b->openEntry(next));
+            if(!motion) {
+                button("< Step",contentX+198,top+60,54,b->diagramTime=Math.max(0,diagramTime-0.5));
+                button("Step >",contentX+256,top+60,54,b->diagramTime+=0.5);
+            }
         }
         else {
             button("<",contentX+80,top+60,28,b->{recipePage--;scroll=0;});
@@ -108,6 +117,10 @@ public final class SpiritCodexScreen extends Screen {
                     && (category.equals("Contents")||category.equals(e.category())||(category.equals("Bookmarks")&&bookmarks.contains(e.id())))
                     &&(e.title()+" "+e.text()).toLowerCase(Locale.ROOT).contains(needle)) rows.add(new String[]{e.id(),e.title()});
         }
+        if(category.equals("Contents"))rows.sort(Comparator.comparingInt(row->{
+            int index=tk.darrow.tribalpower.guide.CodexTutorial.SEQUENCE.indexOf(row[0]);
+            return index<0?Integer.MAX_VALUE:index;
+        }));
         int count=Math.max(1,(bookHeight-142)/20);listPage=Math.min(listPage,Math.max(0,(rows.size()-1)/count));
         for(int i=listPage*count;i<Math.min(rows.size(),(listPage+1)*count);i++) {
             String[] row=rows.get(i);Button b=button(font.plainSubstrByWidth(row[1],sidebar-20),left+10,top+84+(i%count)*20,sidebar-8,v->{
@@ -156,7 +169,13 @@ public final class SpiritCodexScreen extends Screen {
     }
     private ItemStack stack(String id) {var key=ResourceLocation.tryParse(id.contains(":")?id:"tribalpower:"+id);return key==null?ItemStack.EMPTY:new ItemStack(BuiltInRegistries.ITEM.get(key));}
     private int paragraph(GuiGraphics g,String text,int y,int color) {
-        for(FormattedCharSequence line:font.split(Component.literal(text),contentWidth-12)){g.drawString(font,line,contentX+6,y,color,false);y+=12;}
+        for(String part:text.split("\n",-1)) {
+            if(part.isBlank()){y+=6;continue;}
+            boolean heading=Set.of("Start here","Using this book","Diagrams","When something stops","You need","Steps","Check","Next","If it does not work","If it stays dark","If work stops","Automation","Range","Supply and demand","Important","Timing details","Other inputs","Later","The states","Planning a camp").contains(part);
+            for(FormattedCharSequence line:font.split(Component.literal(part),contentWidth-12)){
+                g.drawString(font,line,contentX+6,y,heading?GOLD:color,false);y+=12;
+            }
+        }
         return y+8;
     }
     private void item(GuiGraphics g,ItemStack item,int x,int y) {
@@ -198,7 +217,8 @@ public final class SpiritCodexScreen extends Screen {
                 y=paragraph(g,"Recipe "+(Math.floorMod(recipePage,recipes.size())+1)+" / "+recipes.size()+"  [< / >]",y,GOLD);
                 if(recipe instanceof LatticeRecipe lattice) {
                     y=paragraph(g,lattice.station().replace('_',' ')+" / "+lattice.attunement().getSerializedName(),y,TEAL);
-                    y=paragraph(g,lattice.seconds()+" seconds | "+lattice.pulse()+" Pulse/s | "+(lattice.seconds()*lattice.pulse())+" total Pulse",y,PAPER);
+                    y=paragraph(g,"Base recipe: "+lattice.seconds()+" seconds | "+lattice.pulse()+" Pulse/s | "+(lattice.seconds()*lattice.pulse())+" total Pulse",y,PAPER);
+                    y=paragraph(g,"Power settings, machine rank and local bonuses can change these values. Use the Codex on the placed machine to check its requirements.",y,TEAL);
                 } else y=paragraph(g,recipe instanceof ShapedRecipe?"Shaped crafting":recipe instanceof ShapelessRecipe?"Shapeless crafting":BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()).toString(),y,TEAL);
                 int columns=recipe instanceof ShapedRecipe shaped?shaped.getWidth():3;
                 int rows=recipe instanceof ShapedRecipe shaped?shaped.getHeight():(recipe.getIngredients().size()+2)/3;
@@ -229,7 +249,7 @@ public final class SpiritCodexScreen extends Screen {
         int size=Math.min(bookHeight<300?64:112,contentWidth-12),height=CodexDiagrams.height(e);
         boolean cover=e.id().equals("chapter_1");
         boolean picture=cover||(!e.picture().isEmpty()&&(e.spoiler()||e.safePicture()));
-        double t=motion?System.currentTimeMillis()/1000.0:0;
+        double t=motion?(System.nanoTime()-diagramEpoch)/1_000_000_000.0:diagramTime;
         int diagramX=contentX+4,diagramWidth=contentWidth-8,diagramY=y,bottom=y;
         if(picture) {
             var pic=ResourceLocation.parse("tribalpower:textures/gui/codex/"+(cover?"cover":e.picture())+".png");
@@ -243,7 +263,7 @@ public final class SpiritCodexScreen extends Screen {
         if(cover)return bottom+8;
         CodexDiagrams.draw(g,font,e,diagramX,diagramY,diagramWidth,t,(stack,pos)->item(g,stack,pos[0],pos[1]));
         bottom=Math.max(bottom,diagramY+height);
-        return paragraph(g,"Illustrated example: use Motion to pause. Live costs and ingredients are shown in Recipes.",bottom+6,0xFF9CB8B9);
+        return paragraph(g,"Use Motion to pause, then the Step buttons to inspect the diagram. Left / Right also steps when search is not focused. Click an item for Recipes. Placement views: top is north, one square is one block.",bottom+6,0xFF9CB8B9);
     }
 
     @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical) {
@@ -261,6 +281,7 @@ public final class SpiritCodexScreen extends Screen {
     @Override public boolean keyPressed(int key,int scan,int modifiers) {
         if(!search.isFocused()&&(key==266||key==267)){scroll=Math.clamp(scroll+(key==266?-100:100),0,maxScroll);return true;}
         if(!search.isFocused()&&!recipeItem.isEmpty()&&(key==262||key==263)){recipePage+=key==262?1:-1;return true;}
+        if(!search.isFocused()&&recipeItem.isEmpty()&&!motion&&(key==262||key==263)){diagramTime=Math.max(0,diagramTime+(key==262?0.5:-0.5));return true;}
         return super.keyPressed(key,scan,modifiers);
     }
     @Override public boolean isPauseScreen(){return false;}

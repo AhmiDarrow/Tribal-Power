@@ -22,6 +22,17 @@ import tk.darrow.tribalpower.world.structure.SilentDrumBlockEntity;
 @GameTestHolder("tribalpower")
 @PrefixGameTestTemplate(false)
 public class MarchGameTests {
+    @GameTest(template = "empty")
+    public static void marchBiomesHaveConsistentFeatureOrder(GameTestHelper h) {
+        var biomes = h.getLevel().registryAccess().registryOrThrow(Registries.BIOME).holders()
+                .filter(holder -> holder.key().location().getNamespace().equals("tribalpower"))
+                .toList();
+        h.assertTrue(biomes.size() >= 6, "Check every March biome together");
+        net.minecraft.world.level.biome.FeatureSorter.buildFeaturesPerStep(
+                biomes, holder -> holder.value().getGenerationSettings().features(), true);
+        h.succeed();
+    }
+
     private static final List<String> TEMPLATES = List.of(
             "tribe_camp_soil", "tribe_camp_stone", "tribe_camp_sprout", "tribe_camp_claw", "tribe_camp_spark",
             "tribe_camp_clock", "tribe_camp_swarm", "tribe_camp_sigil", "tribe_camp_spindle",

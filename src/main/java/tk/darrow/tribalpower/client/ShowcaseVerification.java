@@ -13,6 +13,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,6 +52,16 @@ public final class ShowcaseVerification {
     public static void install() {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::gui);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::screen);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ShowcaseVerification::tick);
+    }
+
+    /** Screen changes must happen outside ClientHooks' iteration over layered screens. */
+    public static void tick(ClientTickEvent.Post event) {
+        if (!ENABLED || !SCREENS) return;
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.level == null || mc.player == null) return;
+        long now = System.currentTimeMillis();
+        if (now >= nextPoll) { nextPoll = now + POLL_MS; poll(mc); }
     }
 
     /** HUD phase: the frame already holds the level and HUD; captures happen here unless a screen is open. */
@@ -63,7 +74,6 @@ public final class ShowcaseVerification {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null || (mc.screen != null) != screenPhase) return;
         long now = System.currentTimeMillis();
-        if (SCREENS && now >= nextPoll) { nextPoll = now + POLL_MS; poll(mc); }
         if (now < nextCapture) return;
         nextCapture = now + INTERVAL_MS;
         grab(mc, "showcase-" + (++captures) + ".png");
