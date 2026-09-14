@@ -35,7 +35,9 @@ public class SpiritStaffItem extends Item {
         ItemStack staff = player.getItemInHand(hand);
         if (!(level instanceof ServerLevel server)) return InteractionResultHolder.success(staff);
         Attunement element = element(staff);
-        if (player.isShiftKeyDown() && element == Attunement.LOOM && !player.getCooldowns().isOnCooldown(this) && findTarget(level, player) == null) {
+        if (player.isShiftKeyDown() && element == Attunement.LOOM && !player.getCooldowns().isOnCooldown(this)
+                && findTarget(level, player) == null
+                && player.pick(5.0, 0.0F, false).getType() != HitResult.Type.BLOCK) {
             return stitch(server, player, staff);
         }
         if (player.isShiftKeyDown()) {

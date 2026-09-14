@@ -82,12 +82,16 @@ public class StoneFontBlock extends BaseEntityBlock {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof StoneFontBlockEntity font) {
             if (!Ownership.check(level, font.owner(), player)) return InteractionResult.CONSUME;
             if (player.isShiftKeyDown()) {
-                // Sneak empties the font by hand; the pattern is the automation, this is the courtesy.
+                boolean had = false;
                 for (int slot = 0; slot < font.getContainerSize(); slot++) {
                     ItemStack stack = font.removeItemNoUpdate(slot);
-                    if (!stack.isEmpty() && !player.getInventory().add(stack)) player.drop(stack, false);
+                    if (!stack.isEmpty()) {
+                        had = true;
+                        if (!player.getInventory().add(stack)) player.drop(stack, false);
+                    }
                 }
-                level.updateNeighbourForOutputSignal(pos, this);
+                if (had) level.updateNeighbourForOutputSignal(pos, this);
+                else tk.darrow.tribalpower.lattice.HasSideIo.cycle(player, font, hit.getDirection());
             }
             player.displayClientMessage(font.status(), true);
         }

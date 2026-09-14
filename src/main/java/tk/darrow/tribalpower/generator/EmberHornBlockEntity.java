@@ -33,7 +33,7 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
     public static final int MAX_RATE = 20;
     public static final int SLOT = 0;
     private static final int[] SLOTS = {SLOT};
-    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
+    private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.station();
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
     @Override public int[] inputSlots(Direction face) { return SLOTS; }
     @Override public int[] outputSlots(Direction face) { return SLOTS; }

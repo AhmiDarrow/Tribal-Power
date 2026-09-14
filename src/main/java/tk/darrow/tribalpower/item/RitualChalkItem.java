@@ -62,6 +62,7 @@ public class RitualChalkItem extends Item {
 
         BlockPos pending = readPending(stack);
         if (pending == null) {
+            keepOne(stack, player);
             writePending(stack, pos);
             if (player != null) {
                 player.displayClientMessage(Component.translatable("message.tribalpower.chalk.mark"), true);
@@ -143,6 +144,14 @@ public class RitualChalkItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.chalk.drawn"), true);
         }
         return InteractionResult.SUCCESS;
+    }
+
+    /** A stack of sticks must not share a pending mark. Leave one in hand. */
+    public static void keepOne(ItemStack stack, Player player) {
+        if (stack.getCount() <= 1) return;
+        if (player != null && player.getAbilities().instabuild) return;
+        ItemStack rest = stack.split(stack.getCount() - 1);
+        if (player != null && !rest.isEmpty() && !player.getInventory().add(rest)) player.drop(rest, false);
     }
 
     private static void spend(UseOnContext context) {

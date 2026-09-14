@@ -547,4 +547,76 @@ public class FamiliarGameTests {
                 "A full pack leaves the pouch alone instead of tossing a yo-yo");
         weaver.discard();h.succeed();
     }
+    @GameTest(template="empty")
+    public static void rideGenesReachTheClientCopy(GameTestHelper h) {
+        floor(h);
+        var stag=spawn(h,CreatureProfile.DAWN_STAG,3,2,3);
+        stag.lattice().fill(4);
+        stag.lattice().setMarks(FamiliarData.Mark.LEAP,FamiliarData.Mark.LEAP);
+        stag.applyLattice();
+        h.assertTrue(stag.rideLeap() && stag.rideStride()==4,"Leap and Stride must sit on synched data so a rider sees them");
+        stag.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aSecondFighterSitsWhenBothAreAlreadyOut(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.STONE);
+        voice(h,player,TribeDefinition.CLAW);
+        var a=spawnMonster(h,CreatureProfile.SHARDBACK,3,2,3);
+        var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
+        bondHostile(h,player,a);bondHostile(h,player,b);
+        a.setSitting(false);b.setSitting(false);
+        a.aiStep();b.aiStep();
+        h.assertTrue(a.isSitting() || b.isSitting(),"A second fighter must sit when both are already following");
+        h.assertTrue(!(!a.isSitting() && !b.isSitting()),"One combat slot");
+        a.discard();b.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void remnantAdultsRestAfterABirth(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.CLAW);
+        var a=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
+        var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
+        bondHostile(h,player,a);bondHostile(h,player,b);
+        var food=new ItemStack(CreatureItems.REAGENTS.get(CreatureProfile.RIFT_HOUND).get(),8);
+        player.setItemInHand(InteractionHand.MAIN_HAND,food);
+        a.mobInteract(player,InteractionHand.MAIN_HAND);
+        b.mobInteract(player,InteractionHand.MAIN_HAND);
+        a.aiStep();
+        int cubs=h.getLevel().getEntitiesOfClass(LatticeMonster.class,a.getBoundingBox().inflate(8),m->m.isBaby()).size();
+        h.assertTrue(cubs==1,"The first birth makes one cub");
+        a.mobInteract(player,InteractionHand.MAIN_HAND);
+        b.mobInteract(player,InteractionHand.MAIN_HAND);
+        a.aiStep();
+        int after=h.getLevel().getEntitiesOfClass(LatticeMonster.class,a.getBoundingBox().inflate(8),m->m.isBaby()).size();
+        h.assertTrue(after==1,"Adults rest after a birth");
+        a.discard();b.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aWildRemnantHitsAPlayer(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        var ash=spawnMonster(h,CreatureProfile.ASHBOUND,3,2,3);
+        h.assertTrue(!FamiliarOwnerTargetGoals.forbidden(ash,player),"Wild remnants may strike a player");
+        var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,5,2,3);
+        voice(h,player,TribeDefinition.CLAW);
+        bondHostile(h,player,hound);
+        h.assertTrue(FamiliarOwnerTargetGoals.forbidden(hound,player),"Bonded remnants never strike players");
+        ash.discard();hound.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void remnantFoodAgesACub(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        var cub=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
+        cub.setBaby(true);
+        var food=new ItemStack(CreatureItems.REAGENTS.get(CreatureProfile.RIFT_HOUND).get(),16);
+        player.setItemInHand(InteractionHand.MAIN_HAND,food);
+        for(int i=0;i<12;i++)cub.mobInteract(player,InteractionHand.MAIN_HAND);
+        h.assertTrue(!cub.isBaby(),"Food ages a remnant cub");
+        cub.discard();h.succeed();
+    }
 }

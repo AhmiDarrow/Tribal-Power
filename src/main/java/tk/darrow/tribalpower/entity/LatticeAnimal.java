@@ -39,6 +39,8 @@ import tk.darrow.tribalpower.world.ModDimensions;
 public class LatticeAnimal extends Animal implements PlayerRideableJumping, Familiar {
     private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.OPTIONAL_UUID);
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Byte> DATA_STRIDE=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Boolean> DATA_LEAP=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
     public static final int SADDLEBAG_SLOTS=FamiliarData.BASE_SADDLEBAG+FamiliarData.EXTRA_SADDLEBAG;
     private int forageCooldown,sitTicks;
     private final SimpleContainer saddlebag=new SimpleContainer(SADDLEBAG_SLOTS);
@@ -48,13 +50,23 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     public LatticeAnimal(EntityType<? extends Animal> type,Level level) { super(type,level); }
     @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
     @Override public FamiliarData lattice() { return lattice; }
-    public void applyLattice() { lattice.apply(this,profile()); }
+    public void applyLattice() {
+        lattice.apply(this,profile());
+        entityData.set(DATA_STRIDE,(byte)lattice.phenotype(FamiliarData.Thread.STRIDE));
+        entityData.set(DATA_LEAP,lattice.expressed(FamiliarData.Mark.LEAP));
+    }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
         lattice.rollWild(profile(),random,march);
         applyLattice();
     }
-    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder);builder.define(DATA_OWNER,Optional.empty());builder.define(DATA_SITTING,false); }
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_OWNER,Optional.empty());
+        builder.define(DATA_SITTING,false);
+        builder.define(DATA_STRIDE,(byte)1);
+        builder.define(DATA_LEAP,false);
+    }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
@@ -170,6 +182,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
                     }
                 }
             } else sitTicks=0;
+            if(isBonded() && !isSitting())FamiliarSlots.enforceCap(this);
             if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)
                 server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded())FamiliarAbilities.tick(this);
@@ -177,8 +190,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {
         var result=super.finalizeSpawn(level,difficulty,reason,data);
-        boolean march=level instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH);
-        ensureLattice(level.getRandom(),march);
+        ensureLattice(level.getRandom(),level.getLevel().dimension().equals(ModDimensions.THE_MARCH));
         return result;
     }
     @Override public void remove(RemovalReason reason) {
@@ -211,7 +223,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         if(isControlledByLocalInstance() && onGround()) {
             if(riderJumpScale>0) {
                 var motion=getDeltaMovement();
-                double lift=.42*(lattice.expressed(FamiliarData.Mark.LEAP)?1.21:1);
+                double lift=.42*(entityData.get(DATA_LEAP)?1.21:1);
                 setDeltaMovement(motion.x,lift*Math.max(.4,riderJumpScale)+.06,motion.z);
                 hasImpulse=true;
                 net.neoforged.neoforge.common.CommonHooks.onLivingJump(this);
@@ -224,7 +236,12 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         if(forward<=0)forward*=.25F;
         return new Vec3(side,0,forward);
     }
-    @Override protected float getRiddenSpeed(Player rider) { return (float)(.32*lattice.multiplier(FamiliarData.Thread.STRIDE)); }
+    @Override protected float getRiddenSpeed(Player rider) {
+        int stride=entityData.get(DATA_STRIDE);
+        return (float)(.32*(1.0+(stride-1)*0.12));
+    }
+    public boolean rideLeap() { return entityData.get(DATA_LEAP); }
+    public int rideStride() { return entityData.get(DATA_STRIDE); }
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger,EntityDimensions dimensions,float partialTick) { return new Vec3(0,isBaby()?.6:1.05,0); }
     @Override public void onPlayerJump(int power) { if(canJump())riderJumpScale=power>=90?1:.4F+.4F*power/90F; }
     @Override public boolean canJump() { return profile()==CreatureProfile.DAWN_STAG && isBonded() && getControllingPassenger()!=null; }

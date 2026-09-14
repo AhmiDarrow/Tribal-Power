@@ -36,11 +36,24 @@ public final class FamiliarSlots {
         // Logged out or in another world: leave sitters sitting so they do not steal a follow slot.
         if(owner==null) return false;
         if(canFollow(level,owner.getUUID(),familiar)) { familiar.setSitting(false);return true; }
+        boolean already=familiar.isSitting();
+        familiar.setSitting(true);
+        if(!already) owner.displayClientMessage(Component.translatable(
+                FamiliarRoster.combat(familiar.profile())?"message.tribalpower.familiar.combat_full":"message.tribalpower.familiar.support_full",
+                familiar.asMob().getDisplayName()),true);
+        return false;
+    }
+
+    /** Sit extras that walked into a full company after a portal or a second bond. */
+    public static void enforceCap(Familiar familiar) {
+        if(familiar.isSitting() || !(familiar.asMob().level() instanceof ServerLevel level))return;
+        Player owner=familiar.getOwner();
+        if(owner==null)return;
+        if(canFollow(level,owner.getUUID(),familiar))return;
         familiar.setSitting(true);
         owner.displayClientMessage(Component.translatable(
                 FamiliarRoster.combat(familiar.profile())?"message.tribalpower.familiar.combat_full":"message.tribalpower.familiar.support_full",
                 familiar.asMob().getDisplayName()),true);
-        return false;
     }
 
     public static void afterBond(Familiar familiar,Player owner) {

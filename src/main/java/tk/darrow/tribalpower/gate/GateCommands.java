@@ -52,6 +52,8 @@ public final class GateCommands {
             return 0;
         }
         GateSavedData.Gate partner = data.unlink(gate.id());
+        GateLinking.extinguish(player.server, gate);
+        GateLinking.extinguish(player.server, partner);
         context.getSource().sendSuccess(() -> partner == null
                 ? Component.translatable("message.tribalpower.gate.already_unlinked", gate.name())
                 : Component.translatable("message.tribalpower.gate.unlinked_pair", gate.name(), partner.name()), false);

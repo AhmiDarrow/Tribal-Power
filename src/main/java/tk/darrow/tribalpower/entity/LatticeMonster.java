@@ -193,9 +193,19 @@ public class LatticeMonster extends Monster implements Familiar {
             }
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
+        if(isFood(tool) && isBaby()) {
+            if(!level().isClientSide) {
+                if(!player.getAbilities().instabuild)tool.shrink(1);
+                int grow=Math.max(1,(int)((-age / 20) * 0.1F));
+                age=Math.min(0,age+grow*20);
+                if(age==0)setBabyFlag(false);
+                level().broadcastEntityEvent(this,(byte)18);
+            }
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
         if(isBonded() && isOwnedBy(player)) {
             if(isFood(tool) && !isBaby()) {
-                if(!level().isClientSide && inLove<=0) {
+                if(!level().isClientSide && inLove<=0 && age==0) {
                     if(!player.getAbilities().instabuild)tool.shrink(1);
                     inLove=600;
                     level().broadcastEntityEvent(this,(byte)18);
@@ -235,6 +245,7 @@ public class LatticeMonster extends Monster implements Familiar {
             if(forageCooldown>0)forageCooldown--;
             if(inLove>0)inLove--;
             if(age<0) { age++; if(age==0)setBabyFlag(false); }
+            else if(age>0)age--;
             ensureLattice(getRandom(),level() instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH));
             if(isSitting()) {
                 sitTicks++;
@@ -246,6 +257,7 @@ public class LatticeMonster extends Monster implements Familiar {
                     }
                 }
             } else sitTicks=0;
+            if(isBonded() && !isSitting())FamiliarSlots.enforceCap(this);
             if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)
                 server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded() && inLove>0)tryBreed();
@@ -253,9 +265,9 @@ public class LatticeMonster extends Monster implements Familiar {
         }
     }
     private void tryBreed() {
-        if(!(level() instanceof ServerLevel server) || isBaby())return;
+        if(!(level() instanceof ServerLevel server) || isBaby() || age>0)return;
         for(LatticeMonster other:server.getEntitiesOfClass(LatticeMonster.class,getBoundingBox().inflate(8),
-                m->m!=this && m.getType()==getType() && m.isBonded() && !m.isBaby() && m.inLove>0)) {
+                m->m!=this && m.getType()==getType() && m.isBonded() && !m.isBaby() && m.inLove>0 && m.age==0)) {
             var child=CreatureEntities.MONSTERS.get(profile()).get().create(server);
             if(child==null)return;
             child.copyPosition(this);
@@ -265,6 +277,7 @@ public class LatticeMonster extends Monster implements Familiar {
             child.setPersistenceRequired();
             server.addFreshEntity(child);
             inLove=0;other.inLove=0;
+            age=6000;other.age=6000;
             server.broadcastEntityEvent(this,(byte)18);
             return;
         }
@@ -277,8 +290,7 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {
         var result=super.finalizeSpawn(level,difficulty,reason,data);
-        boolean march=level instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH);
-        ensureLattice(level.getRandom(),march);
+        ensureLattice(level.getRandom(),level.getLevel().dimension().equals(ModDimensions.THE_MARCH));
         return result;
     }
     @Override public void die(DamageSource source) {

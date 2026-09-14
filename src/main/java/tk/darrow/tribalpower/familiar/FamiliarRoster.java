@@ -11,12 +11,12 @@ public final class FamiliarRoster {
     private FamiliarRoster(){}
 
     /**
-     * Bonded company is still a {@link Enemy} remnant; camp-bred persist young stay Enemy too.
-     * Camp defense and spirit tools must skip both, and any nametagged remnant that learned to stay.
+     * Bonded company is still a {@link Enemy} remnant; camp-bred young stay Enemy too.
+     * Camp defense and spirit tools skip bonded familiars and remnant cubs, not nametagged or Unsung weavers.
      */
     public static boolean hostile(LivingEntity entity) {
         if(!(entity instanceof Enemy))return false;
-        if(entity instanceof Familiar familiar && (familiar.isBonded() || familiar.asMob().isPersistenceRequired()))return false;
+        if(entity instanceof Familiar familiar && (familiar.isBonded() || familiar.asMob().isBaby()))return false;
         return true;
     }
 

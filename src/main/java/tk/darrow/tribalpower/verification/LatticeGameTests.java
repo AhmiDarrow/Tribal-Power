@@ -303,6 +303,40 @@ public class LatticeGameTests {
         });
     }
     @GameTest(template="empty")
+    public static void conductorRefundsAHornWhenTotemsAreFull(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(6,2,2,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(4,2,2),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
+        h.setBlock(2,2,4,tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        var horn=at(h,new BlockPos(2,2,4),tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
+        horn.insertPulse(200,false);
+        int before=horn.getPulseStored();
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(horn.getPulseStored()==before,"Unused extract must return to a horn, stored "+horn.getPulseStored());
+        h.succeed();
+    }
+    @GameTest(template="empty", timeoutTicks=40)
+    public static void aBondedRelayDoesNotFallBackToATunerMark(GameTestHelper h) {
+        h.setBlock(2,1,2,Blocks.STONE);
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(6,2,2,Blocks.CHEST);
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var chestPos=h.absolutePos(new BlockPos(6,2,2));
+        h.assertTrue(relay.bind(chestPos,Direction.UP,h.getLevel().dimension().location().toString()),"Tuner mark seats");
+        relay.setItem(0,new ItemStack(Items.DIAMOND));
+        h.succeedWhen(()->{
+            WirelessRelayBlockEntity.tick(h.getLevel(),h.absolutePos(new BlockPos(2,2,2)),h.getBlockState(new BlockPos(2,2,2)),relay);
+            h.assertTrue(relay.status().equals(net.minecraft.network.chat.Component.translatable("message.tribalpower.relay.unlinked")),
+                    "A Bonded plate waits for its pair instead of dumping into the leftover mark");
+        });
+    }
+    @GameTest(template="empty")
     public static void conductorFeedStartsSongBench(GameTestHelper h) {
         h.setBlock(2,2,2,ModBlocks.SONG_BENCH.get());h.setBlock(4,2,2,ModBlocks.ANCESTRAL_CACHE.get());
         h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_EARTH.get());
@@ -312,6 +346,26 @@ public class LatticeGameTests {
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(bench),java.util.List.of(cache)),"Conductor must feed empty bench");
         h.assertTrue(bench.isSinging(),"Automated feed must start processing without a manual strike");
         h.assertTrue(bench.getItem(0).getCount()==1 && cache.getItem(0).getCount()==1,"Automated feed must conserve items");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aGateDrumKeepsTravelPulseFromTheLattice(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.GATE_DRUM.get());
+        var drum=at(h,pos,GateDrumBlockEntity.class);
+        drum.insertPulse(40,false);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(h.getLevel(),h.absolutePos(pos),8,20,false);
+        h.assertTrue(drum.getPulseStored()==40,"Nearby extract must not steal travel Pulse");
+        h.assertTrue(drum.extractPulse(20,false)==0,"The lattice face of a Gate Drum is closed");
+        h.assertTrue(drum.tryConsumeTravelPulse() && drum.getPulseStored()==20,"Travel still spends the drum");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void aStoneFontTakesWaterOnAnInputFace(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.STONE_FONT.get());
+        var font=at(h,pos,StoneFontBlockEntity.class);
+        var sided=tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(font,Direction.NORTH,font.fluids);
+        h.assertTrue(sided.fill(new FluidStack(Fluids.WATER,250),IFluidHandler.FluidAction.EXECUTE)==250,
+                "A bucket face must be able to fill a new font");
         h.succeed();
     }
     @GameTest(template="empty", timeoutTicks=160)

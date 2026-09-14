@@ -39,7 +39,7 @@ public class BoundEffigyItem extends Item {
         if(!allowed().contains(id))return InteractionResult.FAIL;
         if(!player.level().isClientSide) {
             if(remaining(stack)>0){player.displayClientMessage(Component.literal("This effigy is still bound. Spend its threads before imprinting another spirit."),true);return InteractionResult.FAIL;}
-            bind(stack,id,0);player.displayClientMessage(Component.literal("Spirit imprinted: ").append(targetName(stack)).append(". Awaken it at a Spirit Brazier."),true);
+            bind(stack,id,0);player.displayClientMessage(Component.literal("Spirit imprinted: ").append(targetName(stack)).append(". Awaken it at a Ritual Brazier."),true);
         }
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }
@@ -64,7 +64,7 @@ public class BoundEffigyItem extends Item {
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> tooltip,TooltipFlag flag){
         tooltip.add(targetName(stack));tooltip.add(Component.literal(remaining(stack)+" / "+MAX_USES+" summoning threads"));
         tooltip.add(Component.literal("Sneak-use on a creature to imprint an exhausted effigy."));
-        tooltip.add(Component.literal("Renew at a Spirit Brazier; see the Spirit Codex."));
+        tooltip.add(Component.literal("Renew at a Ritual Brazier; see the Spirit Codex."));
     }
     @Override public boolean isBarVisible(ItemStack stack){return !target(stack).isEmpty();}
     @Override public int getBarWidth(ItemStack stack){return Math.round(13F*remaining(stack)/MAX_USES);}

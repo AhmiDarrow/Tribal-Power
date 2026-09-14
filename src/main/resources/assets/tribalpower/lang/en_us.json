@@ -463,6 +463,7 @@
   "message.tribalpower.rite.green_blessing.done": "The ground around the brazier is blessed.",
   "message.tribalpower.rite.still_night.done": "The night falls still.",
   "message.tribalpower.rite.ley_binding.done": "A ley line hums between two totems.",
+  "message.tribalpower.rite.spring_calling.done": "The cistern becomes a spring.",
   "message.tribalpower.logic.no_target": "No Pulse handler on the arrow side.",
   "message.tribalpower.pulse_gauge.status": "Gauge: %s / %s Pulse → signal %s",
   "message.tribalpower.pulse_threshold.set": "Threshold set to %s%%",

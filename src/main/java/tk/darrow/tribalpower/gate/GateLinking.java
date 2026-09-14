@@ -51,6 +51,7 @@ public final class GateLinking {
         ServerLevel server = (ServerLevel) level;
         CompoundTag data = chalk.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         if (!data.contains("GatePending")) {
+            tk.darrow.tribalpower.item.RitualChalkItem.keepOne(chalk, player);
             CustomData.update(DataComponents.CUSTOM_DATA, chalk, tag -> tag.putLong("GatePending", pos.asLong()));
             say(player, Component.translatable("message.tribalpower.gate.chalk_mark"), false);
             return true;
@@ -148,15 +149,26 @@ public final class GateLinking {
                 net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
                         ResourceLocation.parse(partner.dimension())));
         if (partnerLevel == null) return;
-        if (partnerLevel.getBlockEntity(partner.pos()) instanceof GateKeystoneBlockEntity far) {
-            far.extinguish(partnerLevel);
-            far.refreshTint(partnerLevel);
-        }
+        extinguish(level.getServer(), partner);
         Component message = Component.translatable("message.tribalpower.gate.partner_lost", self.name())
                 .withStyle(ChatFormatting.RED);
         for (Player nearby : partnerLevel.getEntitiesOfClass(Player.class,
                 new AABB(partner.pos()).inflate(16), p -> !p.isSpectator()))
             nearby.displayClientMessage(message, false);
+    }
+
+    /** Loads the chunk first so an Overworld↔March pair actually goes dark. */
+    public static void extinguish(net.minecraft.server.MinecraftServer server, GateSavedData.Gate gate) {
+        if (server == null || gate == null) return;
+        ServerLevel dest = server.getLevel(
+                net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
+                        ResourceLocation.parse(gate.dimension())));
+        if (dest == null) return;
+        dest.getChunk(gate.pos());
+        if (dest.getBlockEntity(gate.pos()) instanceof GateKeystoneBlockEntity far) {
+            far.extinguish(dest);
+            far.refreshTint(dest);
+        }
     }
 
     private static void say(Player player, Component message, boolean bad) {

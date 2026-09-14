@@ -7,6 +7,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import tk.darrow.tribalpower.api.pulse.PulseGenerator;
+import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
@@ -90,12 +92,10 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
                 for (int dz = -RADIUS; dz <= RADIUS && remaining > 0; dz++) {
                     cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
                     var be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (be instanceof DrumheartBlockEntity drum) {
-                        remaining -= drum.insertPulse(remaining, false);
-                    } else if (be instanceof LeyCollectorBlockEntity ley) {
-                        remaining -= ley.insertPulse(remaining, false);
-                    } else if (be instanceof PulseResonatorBlockEntity resonator) {
-                        remaining -= resonator.insertPulse(remaining, false);
+                    if (be instanceof PulseHandler handler && (be instanceof PulseGenerator
+                            || be instanceof PulseCairnBlockEntity || be instanceof LeyCollectorBlockEntity
+                            || be instanceof PulseResonatorBlockEntity)) {
+                        remaining -= handler.insertPulse(remaining, false);
                     }
                 }
             }

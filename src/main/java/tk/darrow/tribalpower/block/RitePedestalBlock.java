@@ -66,7 +66,8 @@ public class RitePedestalBlock extends BaseEntityBlock {
     private static boolean isRiteSeal(ItemStack stack) {
         return stack.is(ModItems.BLANK_SEAL.get()) || stack.is(ModItems.SPIRIT_SEAL.get())
                 || stack.is(ModItems.EARTH_SEAL.get()) || stack.is(ModItems.FIRE_SEAL.get())
-                || stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.AIR_SEAL.get());
+                || stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.AIR_SEAL.get())
+                || stack.is(ModItems.LOOM_SEAL.get());
     }
 
     @Override

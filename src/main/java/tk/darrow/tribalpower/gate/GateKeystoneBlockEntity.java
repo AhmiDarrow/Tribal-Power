@@ -309,7 +309,8 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         be.refreshTint(server);
         if (!be.lit) return;
-        if (be.stilled() || be.kind(level) == null) { be.extinguish(server); return; }
+        if (be.stilled() || be.kind(level) == null
+                || (be.kind(level) == Kind.FAR && !be.loomPresent(level))) { be.extinguish(server); return; }
         if ((level.getGameTime() + pos.asLong()) % 40 == 0) {
             tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
                     tk.darrow.tribalpower.sound.ModSounds.GATE_HUM, 0.18F, 0.85F);

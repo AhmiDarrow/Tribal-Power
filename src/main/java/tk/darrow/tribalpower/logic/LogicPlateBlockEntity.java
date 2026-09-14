@@ -33,7 +33,7 @@ public class LogicPlateBlockEntity extends BlockEntity {
     public String status() { return reason; }
 
     public String cycle() {
-        return switch (kind()) {
+        String next = switch (kind()) {
             case HEARTBEAT -> {
                 period = period >= 160 ? 20 : period * 2;
                 yield "Heartbeat every " + period + " ticks";
@@ -48,6 +48,8 @@ public class LogicPlateBlockEntity extends BlockEntity {
             }
             default -> reason;
         };
+        setChanged();
+        return next;
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, LogicPlateBlockEntity be) {

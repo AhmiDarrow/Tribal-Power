@@ -82,6 +82,11 @@ public class TheUnsungEntity extends Monster {
         setPersistenceRequired();
     }
 
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return false;
+    }
+
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400).add(Attributes.ARMOR, 8).add(Attributes.KNOCKBACK_RESISTANCE, 1)
                 .add(Attributes.MOVEMENT_SPEED, 0.26).add(Attributes.ATTACK_DAMAGE, 10).add(Attributes.FOLLOW_RANGE, 48).add(Attributes.ATTACK_KNOCKBACK, 1.5).add(Attributes.STEP_HEIGHT, 1.5);
@@ -243,7 +248,6 @@ public class TheUnsungEntity extends Monster {
             double a = random.nextDouble() * Math.PI * 2, d = 3 + random.nextDouble() * 2;
             weaver.moveTo(getX() + Math.cos(a) * d, getY() + 0.5, getZ() + Math.sin(a) * d, random.nextFloat() * 360F, 0);
             weaver.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), MobSpawnType.MOB_SUMMONED, null);
-            weaver.setPersistenceRequired();
             if (getTarget() != null) weaver.setTarget(getTarget());
             server.addFreshEntity(weaver);
             weavers.add(weaver.getUUID());

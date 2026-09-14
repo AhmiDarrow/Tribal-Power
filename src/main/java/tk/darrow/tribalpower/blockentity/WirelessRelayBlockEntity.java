@@ -98,6 +98,10 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
             be.tickPair(level, partner);
             return;
         }
+        if (!tk.darrow.tribalpower.lattice.RelayLinks.key(be.link()).isEmpty()) {
+            be.updateStatus("unlinked");
+            return;
+        }
         if (be.target == null) { be.updateStatus("unlinked"); return; }
         be.tickBound(level, pos);
     }

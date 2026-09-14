@@ -24,7 +24,8 @@ public class GateDrumBlockEntity extends BlockEntity implements PulseHandler {
         if (pulse.getPulseStored() < TRAVEL_COST) {
             return false;
         }
-        extractPulse(TRAVEL_COST, false);
+        pulse.extractPulse(TRAVEL_COST, false);
+        setChanged();
         return true;
     }
 
@@ -57,11 +58,8 @@ public class GateDrumBlockEntity extends BlockEntity implements PulseHandler {
 
     @Override
     public int extractPulse(int amount, boolean simulate) {
-        int n = pulse.extractPulse(amount, simulate);
-        if (!simulate && n > 0) {
-            setChanged();
-        }
-        return n;
+        // Travel Pulse is for the drum. Draining it from the lattice would strand travellers.
+        return 0;
     }
 
     @Override
