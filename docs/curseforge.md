@@ -40,6 +40,9 @@ Uploaded 2026-09-12: `tribalpower-3.3.1.jar` as file **8869162** ("Tribal Power 
 ## 3.3.2 — Ember Kiln smelts grit
 Uploaded 2026-09-12: `tribalpower-3.3.2.jar` as file **8869249** ("Tribal Power 3.3.2 - Ember Kiln smelts grit", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.2.md`. Kiln runs every furnace smelting recipe, including mineral grit. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.2
 
+## 3.4.1 — Camp lamps and March sky
+Uploaded 2026-09-13: `tribalpower-3.4.1.jar` as file **8876593** ("Tribal Power 3.4.1 - Camp lamps and March sky", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.1.md`. Cheap Pulse lamps, camp furniture, dedicated-server menus, Seal Loom bottles, Side-IO ownership, March feature order, panoramic sky. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.1
+
 ## 3.4.0 — Keeping, March biomes, ranked gear
 Uploaded 2026-09-13: `tribalpower-3.4.0.jar` as file **8871059** ("Tribal Power 3.4.0 - Keeping and the March", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.0.md`. March Snow Fields, Ember Wastes and Reed Fen; Keeping on Resonance Totems; Ley Collector pad; ranked Spiritgear and machines; face-mounted plates. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.0
 
