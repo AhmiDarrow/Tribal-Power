@@ -18,6 +18,7 @@ public class MossbackScreen extends AbstractContainerScreen<MossbackMenu> {
         g.fill(x+1,y+1,x+175,y+16,0xFF1F3A2E);
         g.fill(x+6,y+18,x+170,y+58,0xFF14262C);
         for(var slot:menu.slots) {
+            if(!slot.isActive())continue;
             g.fill(x+slot.x-1,y+slot.y-1,x+slot.x+17,y+slot.y+17,0xFF081317);
             g.renderOutline(x+slot.x-1,y+slot.y-1,18,18,0xFF385456);
         }

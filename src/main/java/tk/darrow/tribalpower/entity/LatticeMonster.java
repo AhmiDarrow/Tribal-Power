@@ -261,6 +261,7 @@ public class LatticeMonster extends Monster implements Familiar {
             child.lattice.copyFrom(FamiliarData.inherit(lattice,other.lattice,profile(),server.random,ownerUUID().orElse(null),other.ownerUUID().orElse(null)));
             child.applyLattice();
             child.setBabyFlag(true);
+            child.setPersistenceRequired();
             server.addFreshEntity(child);
             inLove=0;other.inLove=0;
             server.broadcastEntityEvent(this,(byte)18);

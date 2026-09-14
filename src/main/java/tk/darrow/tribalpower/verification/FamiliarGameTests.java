@@ -17,6 +17,7 @@ import tk.darrow.tribalpower.entity.*;
 import tk.darrow.tribalpower.familiar.*;
 import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
+import tk.darrow.tribalpower.item.CreatureItems;
 import tk.darrow.tribalpower.ley.LeyRegistry;
 import tk.darrow.tribalpower.storage.DeepCacheManager;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
@@ -273,13 +274,13 @@ public class FamiliarGameTests {
         pocket.applyLattice();
         bond(h,player,pocket);
         var closed=new MossbackMenu(1,player.getInventory(),pocket.saddlebag(),pocket);
-        h.assertTrue(closed.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)),"Deep Pocket opens the extra three slots");
+        h.assertTrue(closed.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)) && closed.getSlot(9).isActive(),"Deep Pocket opens the extra three slots");
         var plain=spawn(h,CreatureProfile.MOSSBACK,6,2,3);
         plain.lattice().fill(1);
         plain.applyLattice();
         bond(h,player,plain);
         var locked=new MossbackMenu(2,player.getInventory(),plain.saddlebag(),plain);
-        h.assertTrue(!locked.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)),"Without Deep Pocket the extra slots refuse inserts");
+        h.assertTrue(!locked.getSlot(9).mayPlace(new ItemStack(Items.SEAGRASS)) && !locked.getSlot(9).isActive(),"Without Deep Pocket the extra slots stay closed");
         var lens=new ItemStack(LeyRegistry.LEY_LENS.get());
         player.setItemInHand(InteractionHand.MAIN_HAND,lens);
         player.setShiftKeyDown(true);
@@ -466,5 +467,24 @@ public class FamiliarGameTests {
         c.hurt(h.getLevel().damageSources().cactus(),1);
         h.assertTrue(c.isSitting(),"A waiting helper does not steal a follow slot when hurt");
         a.discard();b.discard();c.discard();h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void bondedRemnantsBreedAPersistentChild(GameTestHelper h) {
+        floor(h);
+        var player=h.makeMockServerPlayerInLevel();
+        voice(h,player,TribeDefinition.CLAW);
+        var a=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
+        var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
+        bondHostile(h,player,a);bondHostile(h,player,b);
+        var food=new ItemStack(CreatureItems.REAGENTS.get(CreatureProfile.RIFT_HOUND).get(),2);
+        player.setItemInHand(InteractionHand.MAIN_HAND,food);
+        a.mobInteract(player,InteractionHand.MAIN_HAND);
+        b.mobInteract(player,InteractionHand.MAIN_HAND);
+        a.aiStep();
+        var young=h.getLevel().getEntitiesOfClass(LatticeMonster.class,a.getBoundingBox().inflate(8),m->m.isBaby() && m.getType()==a.getType());
+        h.assertTrue(!young.isEmpty(),"Bonded remnants breed a child");
+        var child=young.get(0);
+        h.assertTrue(!child.isBonded() && child.isPersistenceRequired(),"The child is not bonded, and it does not wander off");
+        a.discard();b.discard();child.discard();h.succeed();
     }
 }
