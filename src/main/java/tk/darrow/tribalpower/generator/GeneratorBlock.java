@@ -87,7 +87,7 @@ public class GeneratorBlock extends BaseEntityBlock {
                     if (filled < taken) generator.insertPulse(taken - filled, false);
                     player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
                             "message.tribalpower.pulse_cell.charge", filled, PulseCellItem.getPulse(stack),
-                            PulseCellItem.capacity(stack), generator.getPulseStored()), true);
+                            PulseCellItem.capacity(stack), state.getBlock().getName(), generator.getPulseStored()), true);
                 }
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
             }

@@ -20,13 +20,14 @@ import java.util.List;
  * The Drumhearts' craft (design 3.1 section 9.1): fire fed by hand or by hopper.
  *
  * <p>Burn time divided by twenty is Pulse, delivered at up to {@link #MAX_RATE} a second. Coal is 80,
- * a coal block 800, a lava bucket 1,000, a blaze rod 120. The rate ceiling is the real cap: scaling means
- * more horns, and horns are a tribe craft.
+ * a coal block 800, a lava bucket 1,000, a blaze rod 120. {@link #MAX_RATE} is the unranked cap; rank
+ * adds 15% Pulse a second per rank. Scaling further means more horns, and horns are a tribe craft.
  *
  * <p>This is the generator most likely to be pointed at a loop, so the arithmetic is stated plainly. The
- * pit's common band spends 140 Pulse a cycle and returns one coal ore block; shattering it costs 40 more
- * and yields 2 coal worth 160, against 180 spent. Fortune closes that to break-even and cannot be
- * automated, because the mod has no fake players. No automatable loop is net positive.
+ * pit's common band spends 280 Pulse a cycle before pack settings and returns one coal ore block;
+ * shattering it costs 80 more (360 spent, 2 coal worth 160). The default 2.0 consumption multiplier
+ * doubles those spends. Fortune still cannot turn a profit, and cannot be automated. No automatable
+ * loop is net positive.
  */
 public class EmberHornBlockEntity extends GeneratorBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo {
     public static final int CAPACITY = 1000;

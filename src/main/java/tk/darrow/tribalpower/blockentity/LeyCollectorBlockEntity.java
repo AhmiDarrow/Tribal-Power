@@ -14,8 +14,8 @@ import tk.darrow.tribalpower.api.pulse.PulseStorage;
  */
 public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2000;
+    /** Collection beat: {@link tk.darrow.tribalpower.ley.LeyMath#factors} gain is added every 40 ticks (two seconds). */
     public static final int GAIN_INTERVAL = 40;
-    public static final int GAIN_AMOUNT = 2;
 
     private final PulseStorage pulse = new PulseStorage(CAPACITY);
     private int tickCounter;

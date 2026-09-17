@@ -88,6 +88,7 @@ public class DrumheartBlock extends BaseEntityBlock {
                         filled,
                         PulseCellItem.getPulse(stack),
                         PulseCellItem.capacity(stack),
+                        state.getBlock().getName(),
                         drum.getPulseStored()
                 ), true);
             }

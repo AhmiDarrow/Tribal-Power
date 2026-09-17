@@ -99,6 +99,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
                         filled,
                         PulseCellItem.getPulse(stack),
                         PulseCellItem.capacity(stack),
+                        state.getBlock().getName(),
                         resonator.getPulseStored()
                 ), true);
             }

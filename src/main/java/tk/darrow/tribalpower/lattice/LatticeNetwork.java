@@ -232,7 +232,9 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Pull Pulse only from Drumhearts / Ley Collectors / Pulse Resonators near {@code origin}.
+     * Pull Pulse from nearby generators: Drumheart, Ley Collector, Pulse Resonator,
+     * or any {@link tk.darrow.tribalpower.api.pulse.PulseGenerator} (Wind Harp, Wave Drum,
+     * Ember Horn, Loom Anchor, Wake Bell). Totem buffers and other stores are skipped.
      */
     public static int extractPulseFromGenerators(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
         return drainHandlers(level, origin, radius, amount, true, simulate);
@@ -313,8 +315,8 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Move one Echo-stage item along the lattice: finished grit into caches,
-     * processable grit from caches into empty benches, or bench-to-bench handoff.
+     * Move one Echo-stage item along the lattice: finished products into caches,
+     * processable feeds from caches into empty benches, or bench-to-bench handoff.
      * @return true if an item moved
      */
     public static boolean routeEchoItems(Level level, List<SongBenchBlockEntity> benches,
@@ -476,7 +478,8 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Pull Pulse from nearby Drumhearts, Ley Collectors, Pulse Resonators, then Totems.
+     * Pull Pulse from nearby generators first (Drumheart, Ley Collector, Pulse Resonator, or any
+     * {@link tk.darrow.tribalpower.api.pulse.PulseGenerator}), then totem buffers.
      * @return amount actually extracted
      */
     public static int extractPulseNearby(Level level, BlockPos origin, int radius, int amount) {

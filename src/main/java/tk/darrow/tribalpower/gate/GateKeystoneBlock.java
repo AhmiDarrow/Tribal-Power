@@ -84,13 +84,14 @@ public class GateKeystoneBlock extends BaseEntityBlock {
                 int transfer = Math.min(available, Math.min(GateKeystoneBlockEntity.CELL_CHARGE,
                         keystone.getPulseCapacity() - keystone.getPulseStored()));
                 if (transfer <= 0) {
-                    player.displayClientMessage(Component.translatable(
-                            available <= 0 ? "message.tribalpower.gate.cell_empty" : "message.tribalpower.gate.full"), true);
+                    player.displayClientMessage(available <= 0
+                            ? Component.translatable("message.tribalpower.gate.cell_empty")
+                            : Component.translatable("message.tribalpower.gate.full", state.getBlock().getName()), true);
                 } else {
                     PulseCellItem.extractPulse(stack, transfer, false);
                     int gained = keystone.insertPulse(transfer, false);
                     player.displayClientMessage(Component.translatable("message.tribalpower.gate.charge",
-                            gained, keystone.getPulseStored(), keystone.getPulseCapacity()), true);
+                            state.getBlock().getName(), gained, keystone.getPulseStored(), keystone.getPulseCapacity()), true);
                 }
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);

@@ -47,7 +47,7 @@ public final class GritRegistry {
     public static final String TAG_INGOTS = "ingots/";
     public static final String TAG_GEMS = "gems/";
 
-    /** Shattering is Earth work, four seconds, ten Pulse a second -- the same terms as a written recipe. */
+    /** Shattering is Earth work, four seconds, twenty Pulse a second -- the same terms as a written recipe. */
     public static final String STATION = "echo_shatter";
     public static final int SHATTER_SECONDS = 4;
     public static final int SHATTER_PULSE = 20;

@@ -34,7 +34,7 @@ public enum OreBand {
      * belongs to HOT alone.
      */
     DEEP(2, 15, 32, List.of("gold", "redstone", "lapis")),
-    /** Fire's bargain: the Nether's ores without the Nether, at twice the Pulse. Never ancient debris. */
+    /** Fire's bargain: the Nether's ores without the Nether, at 36 Pulse a second. Never ancient debris. */
     HOT(2, 20, 36, List.of("quartz")),
     /** Spirit's bargain, and where a modded metal the scan discovered ends up. */
     RARE(2, 40, 24, List.of("diamond", "emerald"));

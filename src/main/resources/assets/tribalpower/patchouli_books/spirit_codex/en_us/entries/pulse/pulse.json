@@ -6,22 +6,22 @@
     {
       "type": "patchouli:text",
       "title": "Spirit Pulse",
-      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers."
+      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers. Each totem holds 250 Pulse."
     },
     {
       "type": "patchouli:text",
       "title": "Drumheart",
-      "text": "Strike empty-handed. Beats about one second apart yield 24 Pulse; offbeat hits yield 10. Redstone rising edges give 5, with an 8-tick cooldown. Build a clock to automate rhythm."
+      "text": "The Drumheart holds 1,000 Pulse. Strike empty-handed, about one second apart, for 24 Pulse. Offbeat hits yield 10. Redstone uses the same tempo: a rising edge 17 to 23 ticks after the last beat is 24, anything else 10, nothing closer than 8 ticks. A one-second Heartbeat plate makes 24 a second. Rank adds 15% Pulse a beat per rank."
     },
     {
       "type": "patchouli:text",
       "title": "Ley Collector",
-      "text": "Open sky, night, rain, nearby water and living greenery strengthen collection. Place it thoughtfully. A redstone signal pauses generation."
+      "text": "The Ley Collector holds 2,000 Pulse. Each beat starts at 1. Open sky adds 1 by day or 3 at night; rain 2; thunder 1 more; water up to 4; plants up to 4; totem voices up to 3; a hearth 1; animals up to 2; The March 2; a full moon 1. Cap 16. A roof loses sky, rain and storm; water, plants, voices, a hearth and animals still add. It adds Pulse every two seconds; the Lens total is that beat, not Pulse a second. When the Lens beat is at least 8 of 16, nearby totems stay answered. How full the collector is does not pad them. You do not have to stand there. A redstone signal pauses generation. Rank it for 15% Pulse a second per rank, not the workshop 118%."
     },
     {
       "type": "patchouli:text",
       "title": "Pulse Resonator",
-      "text": "This is not a furnace. Coal and wood do nothing.$(br)$(br)1. Place the Resonator.$(br)2. Right-click it with an Echo catalyst (start with an Echo Shard).$(br)3. Place two different Resonance Totems within 8 blocks.$(br)4. It lights and makes Pulse. The crystal stays seated.$(br)5. Sneak empty-handed to lift the catalyst."
+      "text": "This is not a furnace. Coal and wood do nothing. The Resonator holds 2,500 Pulse.$(br)$(br)1. Place the Resonator.$(br)2. Right-click it with an Echo catalyst (start with an Echo Shard).$(br)3. Place two different Resonance Totems within 8 blocks. Only Answered totems count; Quiet voices do not. Kinship Totems add extra tribe voices.$(br)4. It lights and makes Pulse. The crystal stays seated. Rank the Resonator itself for 15% Pulse a second per rank; pack generation settings do not change the base rate.$(br)5. Sneak empty-handed to lift the catalyst."
     },
     {
       "type": "patchouli:multiblock",
@@ -41,7 +41,7 @@
           "F": "tribalpower:resonance_totem_fire"
         }
       },
-      "text": "Click Visualize, then seat an Echo Shard. Two different voices within 8 is the whole of it."
+      "text": "Click Visualize, then seat an Echo Shard. Two Answered voices within 8 is enough to start. Quiet voices do not count; Kinship Totems add extra tribe voices."
     },
     {
       "type": "patchouli:text",
@@ -75,12 +75,27 @@
           "T": "tribalpower:resonance_totem_earth"
         }
       },
-      "text": "Totems at radius 3, same floor. A heap nearby only counts five voices; six needs this ring. Mix the six voices among the eight slots."
+      "text": "Totems at radius 3, same floor. Only Answered Resonance Totems count; Quiet voices do not. A heap nearby only counts five voices total, kinship included; six elements plus kinship needs this ring. Mix the six voices among the eight slots."
     },
     {
       "type": "patchouli:text",
       "title": "Carry the beat",
-      "text": "Use a Pulse Cell on a Drumheart or Resonator to charge it. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. Carry charged cells for spells, tools and travel. A lever on the Resonator pauses it."
+      "text": "Use a Pulse Cell on a Drumheart (25 Pulse per use), a Resonator (100 Pulse per use), or a voice-craft such as a Wind Harp (100 Pulse per use) to fill the cell from that store. A Ley Collector does not fill a cell this way. Ordinary cells hold 200 Pulse; Greater Cells hold 1,200. A cell on a Gate Drum adds up to 25 Pulse per use into the drum; a cell on a gate keystone adds up to 100. Travel spends that store, not a cell in your pocket. A pocket cell is not in range for workshops or tablet rites."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Voice crafts",
+      "text": "Ember Horn: furnace fuel. Burn time divided by twenty is Pulse, at most 20 a second unranked. Rank adds 15% Pulse a second per rank. Coal is 80, a coal block 800, a lava bucket 1,000, a blaze rod 120.$(br)$(br)Wind Harp: under a roof it makes nothing. Open sky is 2 a second at y 80; six in a high storm unranked. Rank adds 15% Pulse a second per rank. Harps within 12 share the wind.$(br)$(br)Wave Drum: 3 a second beside water (crowded within 8); 10 a second drinking 100 mB/s from its 4,000 mB tank. Rain doubles either. Rank adds 15% Pulse a second per rank. Piped drums are not crowded."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Bell, cairn, anchor",
+      "text": "Wake Bell: 20 Pulse for a hostile death, 5 for a passive one, at most 8 a second unranked from a 2,000 reservoir. Rank adds 15% Pulse a second per rank. Only the nearest bell hears a death.$(br)$(br)Pulse Cairn: 4,000 each, swallows 200 Pulse a second, stack five.$(br)$(br)Loom Anchor: 1 Pulse a second per distinct voice within 8, including Quiet, max 6, doubled with a live Ley Binding. Kinship Totems lend the tribe's element into that six, not a seventh voice. Rank adds 15% Pulse a second per rank."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Keeping",
+      "text": "A totem you use stays answered for about 40 minutes of loaded time, then dim for another 40, then quiet. Quiet pauses new work; dim work takes about 30% longer. Neither dumps the queue. Strike the totem or use a Bone Chime to wake it. A roofed hole forgets you faster. Open sky, water and greenery last twice as long."
     }
   ]
 }

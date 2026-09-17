@@ -6,17 +6,17 @@
     {
       "type": "patchouli:text",
       "title": "Echo workshops",
-      "text": "The four Echo stations process real batches. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work."
+      "text": "Six Echo stations process real batches: Shatter, Attune, Bind, Manifest, Ember Kiln and Unweave. Feed slot 0 from above or the sides; extract finished items below. Each has a work display and eight output slots. Full output pauses work. The Kiln smelts with Pulse (cobble becomes stone; grit becomes an ingot). Each furnace smelt is 10 seconds and 32 Pulse a second before pack settings. Unweave needs Loom; yields are on the Echo Unweave page."
     },
     {
       "type": "patchouli:text",
       "title": "Shatter",
-      "text": "Earth turns stone into Echo Shards. Raw iron, copper and gold become two grits each. Smelt or blast grits into ingots. Shared raw-material tags accept compatible ores from other mods."
+      "text": "Earth turns stone, deepslate or March stone into Echo Shards. Cobble is the hammer chain (gravel), not shards. Raw metals become two grit each; silk-touched gem ore shatters straight to the gem. Sit Shatter on an Ember Kiln, Output into Input, so grit walks into ingots."
     },
     {
       "type": "patchouli:text",
       "title": "Attune and Bind",
-      "text": "Fire turns Echo Shards into Attuned Echoes. Water binds them into Bound Echoes. Bind also turns wool into Spiritweave and dirt into clay. Check JEI for time and Pulse costs."
+      "text": "Fire turns Echo Shards into Attuned Echoes. Water binds them into Bound Echoes. Bind also turns wool into Spiritweave and dirt into clay. Check Recipes in the Spirit Codex, or JEI when it is installed, for time and Pulse costs."
     },
     {
       "type": "patchouli:text",
@@ -25,13 +25,18 @@
     },
     {
       "type": "patchouli:text",
+      "title": "Echo Unweave",
+      "text": "Loom reverses the lattice. A Manifested Ingot becomes 2 Bound Echoes. A Resonant Core becomes 3 Manifested Ingots. Spiritweave becomes wool. Damaged Spiritgear becomes one Manifested Ingot. Fresh undamaged tools refuse. Missing Loom pauses and spends nothing."
+    },
+    {
+      "type": "patchouli:text",
       "title": "Song Bench",
-      "text": "The original single-item workshop remains. Insert an Echo-stage ingredient and click empty-handed to sing; sneak-click to retrieve it. Dedicated Echo stations are better for sustained batches."
+      "text": "The original single-item workshop remains. Insert an Echo-stage ingredient (stone for a shard, not cobble) and click empty-handed to sing; sneak-click to retrieve it. Shatter spends 8 Pulse a tick for 2 seconds. Attune 10 a tick for 3 seconds. Bind 12 a tick for 4 seconds. Manifest 16 a tick for 5 seconds. Dedicated Echo stations use written recipes, cost much less Pulse, and are better for sustained batches."
     },
     {
       "type": "patchouli:text",
       "title": "Other workshops",
-      "text": "Lattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. JEI displays them when installed."
+      "text": "Lattice recipes use the normal recipe manager and sync to clients. Datapacks can add tribalpower:lattice recipes using shared ingredient tags. Recipes in the Spirit Codex list them, and JEI does too when it is installed."
     }
   ]
 }

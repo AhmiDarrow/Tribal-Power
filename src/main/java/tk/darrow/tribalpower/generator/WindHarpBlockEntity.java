@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * The Pattern-weavers' craft (design 3.1 section 9.1): free Pulse, and therefore capped Pulse.
  *
- * <p>Two a second at y 80 under open sky, six a second high in a storm, nothing at all under a roof.
+ * <p>Two a second at y 80 under open sky, six a second unranked high in a storm, nothing at all under a roof.
  * Harps within {@link WindMath#CROWD_RANGE} divide the wind between them, so a wall of harps is a wall of
  * decorations (design 3.1 section 9.5).
  */

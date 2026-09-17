@@ -135,7 +135,7 @@ public final class MachineRank {
     }
 
     /**
-     * Twice Spiritgear's station cost: Attune 16s/48, Bind 20s/64, Manifest 24s/80.
+     * Twice Spiritgear's station cost: Attune 16s/48 Pulse a second, Bind 20s/64, Manifest 24s/80.
      */
     public static ProcessingRecipes.Formula rankFormula(String station, ItemStack stack) {
         if (!isMachine(stack)) return null;

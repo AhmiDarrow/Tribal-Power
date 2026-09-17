@@ -5,13 +5,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "Five voices",
-      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Place the needed totem within 8 blocks of the station; missing voices pause work safely."
+      "title": "Six voices",
+      "text": "Earth shatters. Fire attunes. Water binds. Spirit manifests. Air lends motion. Loom unweaves. Place the needed totem within 8 blocks of the station; missing voices pause work safely. Kinship Totems lend that tribe's element to nearby stations. On a Pulse Resonator they also add extra tribe voices, not a seventh element."
     },
     {
       "type": "patchouli:text",
       "title": "Chalk and conductor",
-      "text": "The Conductor does not make Pulse. It moves Pulse you already have.$(br)$(br)1. Place two Resonance Totems.$(br)2. Ritual Chalk on the first, then the second (within 16).$(br)3. Place the Conductor within 8 of them.$(br)4. Place a Drumheart, Ley Collector or Resonator within 8 of the Conductor.$(br)5. It pulls up to 10 Pulse a second into totem buffers. Click for a 25-Pulse burst."
+      "text": "The Conductor does not make Pulse. It moves Pulse you already have.$(br)$(br)1. Place two Resonance Totems.$(br)2. Ritual Chalk on the first, then the second (within 16).$(br)3. Place the Conductor within 8 of them.$(br)4. Place a generator within 8: a Drumheart, Ley Collector, Pulse Resonator, or a voice-craft such as a Wind Harp.$(br)5. It pulls up to 10 Pulse a second from nearby generators into totem buffers. Each totem holds 250 Pulse. Ranked conductors pull more. Click for a 25-Pulse burst."
     },
     {
       "type": "patchouli:multiblock",
@@ -40,13 +40,23 @@
     },
     {
       "type": "patchouli:text",
+      "title": "Stone Font",
+      "text": "Slots are output only. Unbraced, it makes cobble at 4 Pulse a second for 2 seconds, no Earth. Pack settings do not touch cobble. Brace plus Earth makes stone at 16 Pulse a second before pack settings. Obsidian needs brace plus Earth and either Fire and Water voices (24 Pulse a second for 12 seconds) or 250 mB water and lava (6 Pulse a second), both before pack settings. The default 2.0 consumption multiplier doubles stone and obsidian, not cobble. A pack pit-speed setting shortens every ask without raising Pulse a second, so it also cheapens each block. Below y 0 the cobble and stone asks become deepslate. Unbraced piping does nothing and does not open obsidian."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pulse logic",
+      "text": "Point a Pulse Gauge at a Drumheart, Resonator or cell-holding machine for 0 to 15. Point a Pulse Threshold the same way. Empty-handed use cycles 25, 50, 75, 100 percent. It emits while stored Pulse is at or above that percent, so a direct wire pauses a machine when Pulse is high. Put an Inverse plate on the line to pause when Pulse is too low."
+    },
+    {
+      "type": "patchouli:text",
       "title": "What it moves",
-      "text": "Every second: up to 10 Pulse from nearby generators into linked totems. Song Benches that need help are filled first.$(br)$(br)Every two seconds: Echo items between Song Benches and nearby Ancestral Caches, while the lattice holds Pulse.$(br)$(br)A lever pauses it. No network means the totems are not chalk-linked. No Pulse means bring a generator closer."
+      "text": "Every second: up to 10 Pulse from nearby generators — Drumheart, Ley Collector, Pulse Resonator, or any voice-craft generator — into linked totems. Each totem holds 250 Pulse. Ranked conductors pull more. Song Benches that need help are filled first.$(br)$(br)Every two seconds: Echo items between Song Benches and nearby Ancestral Caches, while the lattice holds Pulse.$(br)$(br)A lever pauses it. No network means the totems are not chalk-linked. No Pulse means bring a generator closer."
     },
     {
       "type": "patchouli:text",
       "title": "Ancestral Cache",
-      "text": "A local 54-slot inventory for camp supplies. Hoppers and item pipes work normally. A redstone signal locks access and automation. A comparator reads how full it is."
+      "text": "A local 54-slot inventory for camp supplies. Open it and set each face to Input, Output, Both or Closed. Set touching faces to Output into Input to feed a neighbour with no hopper. Hoppers and pipes honour those faces. A redstone signal locks access and automation. A comparator reads how full it is."
     },
     {
       "type": "patchouli:text",
@@ -66,12 +76,12 @@
     {
       "type": "patchouli:text",
       "title": "Cargo tiers",
-      "text": "Local relays reach 32 blocks. Longreach relays reach 128. Astral relays have no distance limit and can cross dimensions. Transfers cost 4, 8 or 16 Pulse per successful beat."
+      "text": "Local relays reach 32 blocks. Longreach relays reach 128. Astral relays have no distance limit and can cross dimensions. Transfers cost 4, 8 or 16 Pulse per successful beat before pack settings. The default 2.0 consumption multiplier doubles those costs. Rank 1/2/3 then pays 118% / 143% / 182% of the scaled cost and moves that much more cargo (about 19 / 23 / 29 items, or 294 / 357 / 455 mB)."
     },
     {
       "type": "patchouli:text",
       "title": "Cargo rhythm",
-      "text": "Each second, a relay moves up to 16 items or 250 mB. Both ends must already be loaded. Unloaded or full destinations pause safely. Relays never keep distant chunks loaded themselves."
+      "text": "Each second, a relay moves up to 16 items or 250 mB. Ranked plates move more per beat and spend more Pulse, so Pulse per item stays about even. Both ends must already be loaded. Unloaded or full destinations pause safely. Relays never keep distant chunks loaded themselves."
     },
     {
       "type": "patchouli:text",
@@ -81,7 +91,37 @@
     {
       "type": "patchouli:text",
       "title": "Pulse to FE",
-      "text": "The Pulse Adapter converts 1 Pulse into 100 FE, up to 20 Pulse each second. It buffers 16,000 FE and exports to standard energy receivers. Redstone stops conversion and extraction."
+      "text": "The Pulse Adapter converts 1 Pulse into 100 FE, up to 20 Pulse each second. Ranked adapters convert more Pulse, and more FE, in the same second. It buffers 16,000 FE and exports to standard energy receivers. It cannot receive FE. Redstone stops conversion and extraction."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Machine ranks",
+      "text": "Workshops, relays, conductors, adapters and camp hands learn rank in Echo Attune, Bind, then Manifest, at twice Spiritgear's station cost: Attune 16s/48 Pulse a second, Bind 20s/64, Manifest 24s/80. Rank 1 runs at 85% time and 118% Pulse. Rank 2 at 70% and 143%. Rank 3 at 55% and 182%. Pulse per craft stays about even. Ranked generators add 15% Pulse a second per rank, not the workshop 118%."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Listening Pit",
+      "text": "The Resonance Mesh turns substrate plus a sample into ore. Earth is required. The sample is a filter, not an ingredient. Friend standing with the Grit-singers is required even for common ore; a stranger's pit stalls. The mesh holds a 200 Pulse buffer. Common: coal, copper and iron at 10 seconds and 28 Pulse a second on two stone, before pack settings. Deep: gold, redstone and lapis at 15 seconds and 32 on two March Stone. Quartz is not in the deep band. Hot: Nether quartz and gold at 20 seconds and 36, with Fire. Rare: diamond, emerald and scan finds at 40 seconds and 24. One iron cycle spends 280 Pulse before pack settings (560 at the default 2.0 multiplier)."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Deep Listening",
+      "text": "The seven by seven doubles the corner bracing and opens the deep, hot and rare bands. Seat a totem at each cardinal edge. Stand a Tribe Hearth or a Grit-singer Kinship Totem inside the pattern: deep, hot and rare all need it; common does not. Grit-singer standing: Friend for common (even on a small pit). Kin for deep and hot. Voice for rare. Hot wants Fire. Rare wants Spirit."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Verse Call and Answer",
+      "text": "Sixteen verses. Snap a Verse Call onto a face; it reads redstone from every side except its facing. Snap a Verse Answer within 32 blocks, same world; it sings out of its facing. Sneak-use either plate to cycle verse 1 to 16. The Answer copies that strength; it is not always 15. Several Calls of one verse: the Answer takes the loudest."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Kinship Totem",
+      "text": "Shapeless: one Tribe Mark, the matching Resonance Totem, and two Spiritweave. On a Pulse Resonator it is an extra tribe voice: Quiet kinship still counts; Quiet Resonance Totems do not. On stations and the Loom Anchor it only lends the tribe's element; it is not a seventh voice. A heap still caps at five total; a Voice Ring lets six elements plus nine tribes add up to fifteen. A Grit-singer Kinship Totem or a Tribe Hearth inside Deep Listening is required for deep, hot and rare, not only rare."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Camp hands",
+      "text": "Raise Pulse within 8 from a Drumheart, Ley Collector, Pulse Resonator, or a voice-craft such as a Wind Harp.$(br)$(br)Seal Loom: Recipe Seal in the dedicated seal slot beside the grid, not in the three-by-three. 6 Pulse each result.$(br)$(br)Wind Snare: 2 Pulse per dropped stack, up to eight stacks a second, within 8. A lever pauses catch and hoppers.$(br)$(br)Ward Drum: 8 Pulse, one hostile a second for 4 magic and a shove, never players. Comparator 15 on a hit.$(br)$(br)Tide Pump: 250 mB for 4 Pulse between tanks on both faces. It is not a tank."
     },
     {
       "type": "patchouli:text",

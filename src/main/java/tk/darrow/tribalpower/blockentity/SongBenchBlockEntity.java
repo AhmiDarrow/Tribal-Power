@@ -157,7 +157,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     }
 
     /**
-     * Conductor assist target: singing and Pulse-starved, or seated grit waiting to sing.
+     * Conductor assist target: singing and Pulse-starved, or a seated Echo-stage item waiting to sing.
      */
     public boolean wantsPulseAssist() {
         ItemStack stack = items.get(SLOT);

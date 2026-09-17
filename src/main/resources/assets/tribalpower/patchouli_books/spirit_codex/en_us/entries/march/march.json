@@ -6,7 +6,7 @@
     {
       "type": "patchouli:text",
       "title": "Waystone paths",
-      "text": "Sneak-use a compass on the top of a solid floor to bind a landing. Use it to return. Keep two clear dry blocks above the floor. Power the landing floor with redstone to lock arrival."
+      "text": "Sneak-use a compass on the top of a solid floor to bind a landing. Use it to return. Keep two clear dry blocks above the floor. A blocked landing refuses and spends nothing; Pulse is taken only after the floor is clear and dry. Power the landing floor with redstone to lock arrival."
     },
     {
       "type": "patchouli:text",
@@ -16,7 +16,7 @@
     {
       "type": "patchouli:text",
       "title": "The March",
-      "text": "The Gate Drum opens the way to The March. Bring charged cells and prepare a return route. March materials unlock Astral transport, the final tier for both travellers and cargo."
+      "text": "The Gate Drum is a charged portal, not a Drumheart. A Pulse Cell adds up to 25 Pulse each use; sneak empty-handed adds 5. The drum holds 200. Empty-handed use spends 20 stored Pulse and walks you through. Redstone locks the drum. A blocked landing refunds that 20. Bind a return compass first. March materials unlock Astral transport, the Loom voice, and the last of the tablets. A Way Gate lights at 400 Pulse of 600 and spends 20 to travel, with a one-second cooldown. A Far Gate lights at 1,200 Pulse of 2,000 and spends 120 to travel, with a two-second cooldown."
     },
     {
       "type": "patchouli:text",
@@ -36,7 +36,7 @@
     {
       "type": "patchouli:text",
       "title": "Beyond the Gate",
-      "text": "Steppe: yellow pad-runners. Highlands: Great-leaning mountain birds and Drum Circles. Crystal Fields: the Loom-stitcher spire. Snow Fields: Wonderful yellows. Ember Wastes: Flame birds. Reed Fen: gysahl thickets. Ester waits at Clowder Hall only after you have walked the March."
+      "text": "Steppe: Dawn Stags, rabbits, Ashbound, Rootbound, Rift Hounds, Echo Weavers, Ancestor Halls. Highlands: Drum Circles, The Unsung, Hollow Sentinels, Storm Moths, Cinder Imps. Crystal Fields: the Loom-stitcher spire, Lantern Foxes, Shardbacks, Mourning Bells. Snow Fields: foxes, rabbits, polar bears. Ember Wastes: sparse fire country. Reed Fen: frogs, fish, Reed Stalkers. Bind a return compass."
     },
     {
       "type": "patchouli:text",
@@ -47,6 +47,16 @@
       "type": "patchouli:text",
       "title": "Returning the song",
       "text": "Bring creature reagents to the Echo workshops. Gentle animal harvests, Storm Wings and Echo Silk bind into Spiritweave under Water. Other hostile remnants attune into two Attuned Echoes under Spirit. Existing recipes remain available."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Drum Circle",
+      "text": "Twelve lantern-topped pillars ring a Silent Drum in the March highlands. Strike empty-handed or with a Bone Chime: four beats about a second apart (16 to 28 ticks). A wrong beat thuds and resets. Each drum answers once per twenty minutes of real time, and never while its keeper is already awake."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Unsung",
+      "text": "Beat (above two thirds): a shockwave every 3 seconds hits everyone within 8 blocks for 6 and knocks back. Sneak to brace for half damage and no knockback. Its swipe deals 10. Chorus: every 8 seconds it calls two Echo Weavers, up to six, and shockwaves every 2.5 seconds. Silence (below one third): invulnerable over the drum, slow weaving bolts. Play the four-beat on the Silent Drum to resync: stunned 8 seconds at double damage. Silence returns 12 seconds after each resync. Leave for 30 seconds and it resets."
     }
   ]
 }

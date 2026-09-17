@@ -58,14 +58,15 @@ public class GateDrumBlock extends BaseEntityBlock {
                 int room = drum.getPulseCapacity() - drum.getPulseStored();
                 int transfer = Math.min(available, Math.min(room, GateDrumBlockEntity.CELL_CHARGE));
                 if (transfer <= 0) {
-                    player.displayClientMessage(Component.translatable(
-                            available <= 0 ? "message.tribalpower.gate.cell_empty" : "message.tribalpower.gate.full"
-                    ), true);
+                    player.displayClientMessage(available <= 0
+                            ? Component.translatable("message.tribalpower.gate.cell_empty")
+                            : Component.translatable("message.tribalpower.gate.full", state.getBlock().getName()), true);
                 } else {
                     PulseCellItem.extractPulse(stack, transfer, false);
                     int gained = drum.insertPulse(transfer, false);
                     player.displayClientMessage(Component.translatable(
-                            "message.tribalpower.gate.charge", gained, drum.getPulseStored(), drum.getPulseCapacity()
+                            "message.tribalpower.gate.charge", state.getBlock().getName(),
+                            gained, drum.getPulseStored(), drum.getPulseCapacity()
                     ), true);
                 }
             }
@@ -86,7 +87,8 @@ public class GateDrumBlock extends BaseEntityBlock {
             if (player.isShiftKeyDown()) {
                 int gained = drum.manualCharge();
                 serverPlayer.displayClientMessage(Component.translatable(
-                        "message.tribalpower.gate.charge", gained, drum.getPulseStored(), drum.getPulseCapacity()
+                        "message.tribalpower.gate.charge", state.getBlock().getName(),
+                        gained, drum.getPulseStored(), drum.getPulseCapacity()
                 ), true);
                 return InteractionResult.CONSUME;
             }

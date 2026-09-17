@@ -15,6 +15,7 @@ import net.minecraft.world.item.crafting.*;
 import tk.darrow.tribalpower.echo.LatticeRecipe;
 import tk.darrow.tribalpower.guide.CodexEntries;
 import tk.darrow.tribalpower.guide.CodexEntries.Entry;
+import tk.darrow.tribalpower.integration.jei.CodexJeiLinks;
 
 import java.nio.file.Files;
 import java.util.*;
@@ -88,18 +89,22 @@ public final class SpiritCodexScreen extends Screen {
             else {showUses=!showUses;recipePage=0;scroll=0;findRecipes();}
             rebuildWidgets();
         });
+        boolean jei=CodexJeiLinks.available();
         if(recipeItem.isEmpty()){
             button("Recipes",contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
+            int x=contentX+144;
+            if(jei){button("JEI",x,top+60,36,b->{Entry e=current(); if(e!=null)openJei(stack("tribalpower:"+e.icon()),false);});x+=40;}
             String next=tk.darrow.tribalpower.guide.CodexTutorial.next(selected);
-            if(next!=null)button("Next",contentX+144,top+60,48,b->openEntry(next));
+            if(next!=null){button("Next",x,top+60,48,b->openEntry(next));x+=52;}
             if(!motion) {
-                button("< Step",contentX+198,top+60,54,b->diagramTime=Math.max(0,diagramTime-0.5));
-                button("Step >",contentX+256,top+60,54,b->diagramTime+=0.5);
+                button("< Step",x,top+60,54,b->diagramTime=Math.max(0,diagramTime-0.5));
+                button("Step >",x+58,top+60,54,b->diagramTime+=0.5);
             }
         }
         else {
             button("<",contentX+80,top+60,28,b->{recipePage--;scroll=0;});
             button(">",contentX+112,top+60,28,b->{recipePage++;scroll=0;});
+            if(jei)button("JEI",contentX+144,top+60,36,b->openJei(stack(recipeItem),showUses));
         }
         rebuildList();
     }
@@ -134,7 +139,8 @@ public final class SpiritCodexScreen extends Screen {
         catch(java.io.IOException ignored) { }
     }
     private void confirmSpoilers(Runnable after) {
-        minecraft.setScreen(new ConfirmScreen(yes->{if(yes){spoilers=true;after.run();}minecraft.setScreen(this);},
+        // Restore this screen first. Opening JEI in after() must not be replaced by setScreen(this).
+        minecraft.setScreen(new ConfirmScreen(yes->{if(yes)spoilers=true;minecraft.setScreen(this);if(yes)after.run();},
                 Component.literal("Beyond the veil — spoilers"),Component.literal("The full wiki reveals creatures, materials, recipes and late-game discoveries. Reveal them for this reading session?"),
                 Component.literal("Reveal knowledge"),Component.literal("Keep discovering")));
     }
@@ -157,6 +163,11 @@ public final class SpiritCodexScreen extends Screen {
         // Full recipe graphs can expose progression even through an early ingredient's uses.
         if(!spoilers){confirmSpoilers(()->openRecipes(id));return;}
         remember();navigate("item:"+id);
+    }
+    private void openJei(ItemStack stack, boolean uses) {
+        if(stack.isEmpty()||!CodexJeiLinks.available())return;
+        if(!spoilers){confirmSpoilers(()->openJei(stack,uses));return;}
+        CodexJeiLinks.show(stack,uses);
     }
     private void remember(){if(history.size()>=128)history.removeLast();history.push(recipeItem.isEmpty()?selected:"item:"+recipeItem);}
     private void findRecipes() {
@@ -210,7 +221,7 @@ public final class SpiritCodexScreen extends Screen {
             }
         } else {
             ItemStack focus=stack(recipeItem);item(g,focus,contentX+6,y);y=paragraph(g,focus.getHoverName().getString()+(showUses?" — uses":""),y+24,GOLD);
-            y=paragraph(g,"Click ingredients to follow their recipes. Left/right arrow keys change variants.",y,TEAL);
+            y=paragraph(g,"Click ingredients to follow their recipes. Left/right arrow keys change variants."+(CodexJeiLinks.available()?" Right-click an item, or the JEI button, to open Just Enough Items.":""),y,TEAL);
             if(recipes.isEmpty())y=paragraph(g,showUses?"No registered recipe consumes this item as an ingredient. It may have a use in the world instead.":"No crafting or processing recipe is registered for this item. It may come from exploration, harvesting, trading or loot. Consult the relevant teaching.",y,PAPER);
             else {
                 Recipe<?> recipe=recipes.get(Math.floorMod(recipePage,recipes.size())).value();
@@ -263,7 +274,7 @@ public final class SpiritCodexScreen extends Screen {
         if(cover)return bottom+8;
         CodexDiagrams.draw(g,font,e,diagramX,diagramY,diagramWidth,t,(stack,pos)->item(g,stack,pos[0],pos[1]));
         bottom=Math.max(bottom,diagramY+height);
-        return paragraph(g,"Use Motion to pause, then the Step buttons to inspect the diagram. Left / Right also steps when search is not focused. Click an item for Recipes. Placement views: top is north, one square is one block.",bottom+6,0xFF9CB8B9);
+        return paragraph(g,"Motion off, then Step or Left/Right to inspect. Click an item for Recipes; right-click opens JEI when it is installed. Placement views: top is north, one square is one block.",bottom+6,0xFF9CB8B9);
     }
 
     @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical) {
@@ -271,12 +282,24 @@ public final class SpiritCodexScreen extends Screen {
         listPage=Math.max(0,listPage+(vertical<0?1:-1));rebuildWidgets();return true;
     }
     @Override public boolean mouseClicked(double x,double y,int button) {
-        if(button==0&&y>=top+88&&y<top+bookHeight-55) {
-            for(Hit h:hits)if(x>=h.x&&x<h.x+16&&y>=h.y&&y<h.y+16){openRecipes(BuiltInRegistries.ITEM.getKey(h.item.getItem()).toString());return true;}
-            if(recipeItem.isEmpty()&&x>=contentX&&x<contentX+contentWidth)
+        if(y>=top+88&&y<top+bookHeight-55) {
+            for(Hit h:hits)if(x>=h.x&&x<h.x+16&&y>=h.y&&y<h.y+16){
+                if(button==1&&CodexJeiLinks.available()){openJei(h.item,!recipeItem.isEmpty()&&showUses);return true;}
+                if(button==0){openRecipes(BuiltInRegistries.ITEM.getKey(h.item.getItem()).toString());return true;}
+            }
+            if(button==0&&recipeItem.isEmpty()&&x>=contentX&&x<contentX+contentWidth)
                 for(Link link:links)if(y>=link.y()&&y<link.y()+16&&link.y()>=top+88&&link.y()+16<=top+bookHeight-55){openEntry(link.id());return true;}
         }
         return super.mouseClicked(x,y,button);
+    }
+    public int bookLeft(){return left;}
+    public int bookTop(){return top;}
+    public int bookWidth(){return bookWidth;}
+    public int bookHeight(){return bookHeight;}
+    public record ItemHover(ItemStack item,int x,int y) {}
+    public ItemHover itemHover(double x,double y) {
+        for(Hit h:hits)if(x>=h.x&&x<h.x+16&&y>=h.y&&y<h.y+16)return new ItemHover(h.item,h.x,h.y);
+        return null;
     }
     @Override public boolean keyPressed(int key,int scan,int modifiers) {
         if(!search.isFocused()&&(key==266||key==267)){scroll=Math.clamp(scroll+(key==266?-100:100),0,maxScroll);return true;}

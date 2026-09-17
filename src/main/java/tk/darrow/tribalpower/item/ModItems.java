@@ -94,7 +94,7 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> SONG_BENCH = ITEMS.registerSimpleBlockItem("song_bench", ModBlocks.SONG_BENCH);
     public static final DeferredItem<BlockItem> LATTICE_CONDUCTOR = ITEMS.registerSimpleBlockItem("lattice_conductor", ModBlocks.LATTICE_CONDUCTOR);
 
-    // Echo stage stations (markers / future dedicated processors; Song Bench does live refinement)
+    // Dedicated Echo stations. The Song Bench still refines one Echo-stage item at a time.
     public static final DeferredItem<BlockItem> ECHO_SHATTER = ITEMS.registerSimpleBlockItem("echo_shatter", ModBlocks.ECHO_SHATTER);
     public static final DeferredItem<BlockItem> ECHO_ATTUNE = ITEMS.registerSimpleBlockItem("echo_attune", ModBlocks.ECHO_ATTUNE);
     public static final DeferredItem<BlockItem> ECHO_BIND = ITEMS.registerSimpleBlockItem("echo_bind", ModBlocks.ECHO_BIND);

@@ -27,8 +27,9 @@ import java.util.List;
  * A collector surveys {@link #RADIUS} (the lattice listen range). The Lens HUD uses a cheap
  * glimpse so painting the ground does not scan a cube every frame.
  *
- * <p>Gain per collection beat is capped at {@link #MAX_GAIN}. A roofed hole stays at {@link #BASE}.
- * A grove with sky, water, plants, voices and life can reach the cap without matching a Resonator.
+ * <p>Gain per collection beat is capped at {@link #MAX_GAIN}. A roof drops sky, rain and storm;
+ * a roofed hole without water, plants, voices, hearth or animals stays at {@link #BASE}.
+ * A grove with sky, water, plants, voices, hearth and life can reach the cap without matching a Resonator.
  */
 public final class LeyMath {
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;

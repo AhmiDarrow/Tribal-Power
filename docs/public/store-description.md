@@ -12,13 +12,13 @@ Strike the Drumheart in rhythm, gather environmental energy with the Ley Collect
 
 ## A living, automated workshop
 
-Progress through Echo Shatter, Attune, Bind, and Manifest. Dedicated batch stations provide progress screens, eight output slots, and hopper or pipe automation. The Lattice Conductor moves Pulse along chalk-linked totems and routes Song Bench items. Store goods in 54-slot Ancestral Caches and personal Deep Caches, carry a Wayfarer Satchel, and hold fluids in Spirit Cisterns.
+Progress through Echo Shatter, Attune, Bind, Manifest, Kiln and Unweave. Dedicated batch stations provide progress screens, eight output slots, and hopper or pipe automation. The Lattice Conductor moves Pulse along chalk-linked totems and routes Song Bench items. Store goods in 54-slot Ancestral Caches and personal Deep Caches, carry a Wayfarer Satchel, and hold fluids in Spirit Cisterns.
 
 Redstone pauses workshops, generators, relays, and rites, while comparators report stored resources. The Drumheart responds to rising-edge beats. Standard item, fluid, and energy capabilities support other mods; datapack recipes use normal ingredients and tags, with optional JEI recipe display and KubeJS custom recipe support.
 
 ## The illustrated Spirit Codex
 
-A full standalone book with 131 teachings, creature portraits, animated examples, search, bookmarks, and live crafting and processing recipes. Click ingredients to follow their recipes, explore related teachings, and pause animations whenever you like. Advanced knowledge stays behind an explicit spoiler warning.
+A full standalone book with 210 teachings, creature portraits, animated examples, search, bookmarks, and live crafting and processing recipes. Click ingredients to follow their recipes, explore related teachings, and pause animations whenever you like. Advanced knowledge stays behind an explicit spoiler warning.
 
 ## A camp that keeps working
 
@@ -38,7 +38,7 @@ Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear 
 
 ## The March and the Returning Song
 
-Reach the March through the Gate Drum and explore three biomes under its twilight sky. Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten new hostile spirits. Brush adult animals for renewable materials and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
+Reach the March through the Gate Drum and explore six biomes under its twilight sky. Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten new hostile spirits. Brush adult animals for renewable materials and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
 
 Animated night auroras and constellations bring the skies to life. Client settings control brightness, detail, and dimension coverage; the effect can be disabled for shader packs with their own skies.
 
@@ -60,4 +60,4 @@ Craft a Bone Chime, Spirit Shard, and Drumheart. Strike the drum and charge a Pu
 
 Tribal Power works standalone. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), its workshops, rituals, transport, bestiary and camp systems are woven into the pack story and quest progression. The pack is optional.
 
-Version 3.2.2. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 3.4.1. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).

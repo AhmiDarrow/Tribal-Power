@@ -10,8 +10,8 @@ import tk.darrow.tribalpower.item.ModItems;
 
 /**
  * Code-defined Echo refine table: Shatter → Attune → Bind → Manifest.
- * Live processing runs on the Song Bench (not a furnace, not the shrine marker blocks).
- * Each stage needs Spirit Pulse from nearby generators/totems and a matching Resonance Totem.
+ * Live processing runs on the Song Bench. Dedicated Echo stations use written lattice recipes
+ * and cost much less Pulse. Each stage needs Spirit Pulse from nearby generators and a matching Resonance Totem.
  */
 public enum EchoStage {
     SHATTER(Attunement.EARTH, 40, 8),

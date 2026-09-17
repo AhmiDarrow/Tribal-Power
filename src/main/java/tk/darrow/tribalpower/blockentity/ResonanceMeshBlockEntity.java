@@ -44,7 +44,7 @@ import java.util.Set;
  * <p>Each voice trades one resource for another rather than multiplying yield. Water washes for an extra
  * output every third cycle at the price of 250 mB. Air quickens the cycle and charges more Pulse a second
  * for it, so the Pulse per item is unchanged and only throughput moves. Fire opens the Nether's ores at
- * twice the Pulse. Spirit listens a band deeper. The Loom halves the substrate.
+ * 36 Pulse a second. Spirit listens a band deeper. The Loom halves the substrate.
  *
  * <p>Design note: the design says the depth band selects the table while Fire and Spirit "unlock" the hot
  * and rare bands. Taken literally that would mean lighting a Fire totem costs you access to iron. Resolved

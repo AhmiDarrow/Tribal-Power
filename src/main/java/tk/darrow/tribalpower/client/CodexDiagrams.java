@@ -29,7 +29,7 @@ final class CodexDiagrams {
     private static final String[] STATUS = {"PAUSED", "NO VOICE", "OUTPUT FULL", "HUMMING"};
     private static final int[] STATUS_COLOUR = {0xFFE07A5F, 0xFFE4C18A, 0xFFE4C18A, 0xFF74DBCB};
 
-    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN, RESONATOR, CONDUCTOR, SEAL, UPGRADE }
+    enum Kind { FLOW, BEATS, TABLET, CHAIN, RITE, FAMILIAR, CAMP, LENS, LOGIC, DIAGNOSE, PATTERN, RESONATOR, CONDUCTOR, SEAL, UPGRADE, CISTERN }
 
     /** The placement rites, in the order the Codex teaches them; {@link Flow#variant()} indexes this. */
     private static final tk.darrow.tribalpower.pattern.RitualPattern[] PATTERNS = {
@@ -66,12 +66,12 @@ final class CodexDiagrams {
         TribeDefinition cycling = TribeDefinition.byOrdinal((int) (t / 3) % TribeDefinition.values().length);
         int rite = (int) (t / 3) % RITES.length, familiar = (int) (t / 3) % FAMILIARS.length;
         Flow exact = switch (id) {
-            case "tribes_kinship_totem" -> new Flow(Kind.FLOW, "MARK > BIND > VOICE", cycling.stamped(TribeRegistry.TRIBE_MARK.get()), cycling.stamped(TribeRegistry.KINSHIP_TOTEM_ITEM.get()), stack("spiritweave"), ItemStack.EMPTY, 0xFF000000 | cycling.colour(), cycling.ordinal());
+            case "tribes_kinship_totem", "walk_kinship_totem" -> new Flow(Kind.FLOW, "MARK > BIND > VOICE", cycling.stamped(TribeRegistry.TRIBE_MARK.get()), cycling.stamped(TribeRegistry.KINSHIP_TOTEM_ITEM.get()), stack("spiritweave"), ItemStack.EMPTY, 0xFF000000 | cycling.colour(), cycling.ordinal());
             case "tribes_standing", "tribes_kin", "walk_first_camp" -> tribe(cycling);
             case "march_the_unsung", "walk_wake_the_unsung" -> flow(Kind.BEATS, "BEAT x4 > WAKE > RESYNC", "bone_chime", "unsung_heart", "silent_drum", "", 0xFFE07A5F, 0);
             case "march_drum_circle" -> flow(Kind.BEATS, "BEAT x4 > WAKE > RESYNC", "bone_chime", "silent_drum", "silent_drum", "", 0xFFE07A5F, 0);
             case "march_ancestor_hall", "march_crystal_spire" -> flow(Kind.FLOW, "FIND > READ > KEEP", "lore_tablet", "spirit_codex", "loom_thread", "", GOLD, 0);
-            case "loom_sixth_voice", "walk_sixth_voice" -> flow(Kind.CHAIN, "WEAVE > UNWEAVE", "echo_shard", "manifested_ingot", "manifested_ingot", "echo_unweave", 0xFF62D1C9, 0);
+            case "loom_sixth_voice", "walk_sixth_voice", "echo_unweave", "walk_echo_unweave" -> flow(Kind.CHAIN, "WEAVE > UNWEAVE", "echo_shard", "manifested_ingot", "manifested_ingot", "echo_unweave", 0xFF62D1C9, 0);
             case "rite_world_rites", "rite_land_rites", "walk_first_rite" -> flow(Kind.RITE, "SEAL > RITE > CHANGE", RITE_SEALS[rite], RITES[rite], RITES[rite], "ritual_brazier", GOLD, rite);
             case "familiars_bonding", "walk_bond_a_familiar" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", FAMILIARS[familiar] + "_spawn_egg", "bonding_charm", "", 0xFFE07A9F, familiar);
             case "familiars_fox" -> flow(Kind.FAMILIAR, "CHARM > BOND > FOLLOW", "bonding_charm", "lantern_fox_spawn_egg", "bonding_charm", "", 0xFFE07A9F, 0);
@@ -81,50 +81,71 @@ final class CodexDiagrams {
             case "camps_identity", "walk_found_a_camp" -> flow(Kind.CAMP, "CHARTER > INVITE > SHARE", "camp_charter", "deep_cache", "wayfarer_satchel", "", TEAL, 0);
             case "gear_ranks" -> flow(Kind.UPGRADE, "UPGRADE THE SAME ITEM IN ORDER", "spiritgear_pickaxe", "echo_manifest", "spiritgear_pickaxe", "echo_attune", GOLD, 0);
             case "gear_voices", "walk_totem_bound_gear" -> flow(Kind.FLOW, "SNEAK > TOTEM > VOICE", "spiritgear_pickaxe", "resonance_totem_earth", "spiritgear_pickaxe", "pulse_cell", TEAL, 0);
-            case "machine_ranks" -> flow(Kind.UPGRADE, "PICK UP > UPGRADE > PLACE AGAIN", "echo_shatter", "echo_manifest", "echo_shatter", "echo_attune", GOLD, 0);
-            case "spirit_charms" -> flow(Kind.FLOW, "CRAFT > BIND > WEAR", "sky_charm", "hearth_charm", "veil_charm", "chorus_charm", TEAL, 0);
-            case "chapter_30" -> flow(Kind.FLOW, "WEAR > PULSE > BOON", "spiritweave_hood", "pulse_cell", "spiritweave", "", TEAL, 0);
-            case "ley_lens" -> flow(Kind.LENS, "HOLD > CYCLE > ZONE", "ley_lens", "ley_collector", "ley_lens", "", GOLD, 0);
+            case "machine_ranks", "walk_machine_ranks" -> flow(Kind.UPGRADE, "PICK UP > UPGRADE > PLACE AGAIN", "echo_shatter", "echo_manifest", "echo_shatter", "echo_attune", GOLD, 0);
+            case "spirit_charms", "walk_spirit_charm" -> flow(Kind.FLOW, "CRAFT > BIND > WEAR", "sky_charm", "hearth_charm", "veil_charm", "chorus_charm", TEAL, 0);
+            case "chapter_30", "walk_spiritweave" -> flow(Kind.FLOW, "WEAR > PULSE > BOON", "spiritweave_hood", "pulse_cell", "spiritweave", "", TEAL, 0);
+            case "ley_lens", "walk_ley_lens" -> flow(Kind.LENS, "HOLD > CYCLE > ZONE", "ley_lens", "ley_collector", "ley_lens", "", GOLD, 0);
             case "keeping" -> flow(Kind.FLOW, "USE > KEEP > WAKE", "resonance_totem_earth", "bone_chime", "ley_collector", "drumheart", TEAL, 0);
+            case "chapter_5", "walk_ley_collector" -> flow(Kind.FLOW, "SKY > LISTEN > GIVE", "ley_collector", "pulse_cell", "ley_lens", "", GOLD, 0);
             case "pulse_logic" -> flow(Kind.LOGIC, "STORE > MEASURE > SWITCH", "drumheart", "minecraft:redstone_lamp", "pulse_gauge", "pulse_threshold", 0xFFE07A5F, 0);
+            case "walk_pulse_threshold" -> flow(Kind.LOGIC, "TOO EMPTY > INVERSE > PAUSE", "drumheart", "minecraft:redstone_lamp", "pulse_gauge", "inverse_plate", 0xFFE07A5F, 1);
             case "codex_diagnostics" -> flow(Kind.DIAGNOSE, "SNEAK-USE > LISTEN > MEND", "spirit_codex", "echo_shatter", "spirit_codex", "", TEAL, 0);
-            case "camp_binding_effigy" -> flow(Kind.FLOW, "IMPRINT > AWAKEN > RENEW", "binding_effigy", "pulse_cell", "spiritweave", "", TEAL, 0);
+            case "camp_binding_effigy", "walk_binding_effigy" -> flow(Kind.FLOW, "IMPRINT > AWAKEN > RENEW", "binding_effigy", "pulse_cell", "spiritweave", "", TEAL, 0);
             case "camp_binding_ritual" -> flow(Kind.FLOW, "IMPRINT > AWAKEN > RENEW", "ritual_brazier", "binding_effigy", "spiritweave", "", TEAL, 0);
             case "camp_summoning_cradle" -> flow(Kind.FLOW, "BIND > SUMMON > RENEW", "binding_effigy", "summoning_cradle", "spiritweave", "", TEAL, 0);
             case "camp_grove_tender", "walk_grove_tender" -> flow(Kind.FLOW, "PLANT > GROW > HARVEST", "minecraft:wheat_seeds", "minecraft:oak_log", "minecraft:sugar_cane", "grove_tender", 0xFF7BC96F, 1);
             case "workshop_hands" -> flow(Kind.FLOW, "PLACE > PULSE > WORK", "grove_tender", "ward_drum", "seal_loom", "tide_pump", TEAL, 0);
             case "workshop_seal_loom", "walk_seal_loom" -> flow(Kind.SEAL, "PLANKS > RECORD RECIPE > STICKS", "recipe_seal", "minecraft:stick", "minecraft:oak_planks", "seal_loom", TEAL, 0);
-            case "workshop_tide_pump" -> flow(Kind.FLOW, "DRAW > PUSH > REVERSE", "spirit_cistern", "spirit_cistern", "minecraft:water_bucket", "tide_pump", 0xFF5FB8D9, 0);
-            case "workshop_wind_snare" -> flow(Kind.FLOW, "FALL > CATCH > STORE", "minecraft:wheat", "wind_snare", "minecraft:wheat", "", 0xFFC0DAC2, 0);
-            case "workshop_ward_drum" -> flow(Kind.FLOW, "LISTEN > STRIKE > SHOVE", "ward_drum", "wake_bell", "bone_chime", "", 0xFFE07A5F, 0);
+            case "chapter_18", "walk_spirit_cistern" -> flow(Kind.CISTERN, "FILL > LOCK > KEEP", "minecraft:water_bucket", "spirit_cistern", "minecraft:water_bucket", "minecraft:comparator", 0xFF5FB8D9, 0);
+            case "workshop_tide_pump", "walk_tide_pump" -> flow(Kind.FLOW, "DRAW > PUSH > REVERSE", "spirit_cistern", "spirit_cistern", "minecraft:water_bucket", "tide_pump", 0xFF5FB8D9, 0);
+            case "workshop_wind_snare", "walk_wind_snare" -> flow(Kind.FLOW, "FALL > CATCH > STORE", "minecraft:wheat", "wind_snare", "minecraft:wheat", "", 0xFFC0DAC2, 0);
+            case "workshop_ward_drum", "walk_ward_drum" -> flow(Kind.FLOW, "LISTEN > STRIKE > SHOVE", "ward_drum", "wake_bell", "bone_chime", "", 0xFFE07A5F, 0);
             case "song_thread", "walk_song_clock" -> flow(Kind.LOGIC, "HUM > CARRY > DECAY", "song_thread", "drumheart", "heartbeat_plate", "pulse_gauge", 0xFF62D1C9, 0);
-            case "song_vine" -> flow(Kind.LOGIC, "CLICK FACE > CRAWL > CORNER", "song_vine", "song_thread", "song_vine", "spirit_reed", 0xFF62D1C9, 0);
-            case "verse_wireless" -> flow(Kind.LOGIC, "CALL > VERSE > ANSWER", "verse_call", "verse_answer", "echo_shard", "air_seal", 0xFF62D1C9, 0);
+            case "song_vine", "walk_song_vine" -> flow(Kind.LOGIC, "CLICK FACE > CRAWL > CORNER", "song_vine", "song_thread", "song_vine", "spirit_reed", 0xFF62D1C9, 0);
+            case "verse_wireless", "walk_verse_wireless" -> flow(Kind.LOGIC, "CALL > VERSE > ANSWER", "verse_call", "verse_answer", "echo_shard", "air_seal", 0xFF62D1C9, 0);
             case "logic_plates" -> flow(Kind.LOGIC, "SNAP > LISTEN > SING", "chorus_plate", "song_thread", "gathering_plate", "memory_plate", 0xFFE07A5F, 0);
             case "logic_gates" -> flow(Kind.LOGIC, "LEFT + RIGHT > FACE", "chorus_plate", "hush_plate", "discord_plate", "gathering_plate", 0xFFE07A5F, 0);
             case "logic_unary" -> flow(Kind.LOGIC, "BACK > FACE", "inverse_plate", "echo_plate", "song_thread", "", TEAL, 0);
             case "logic_memory" -> flow(Kind.LOGIC, "SET > HOLD > STEP", "memory_plate", "verse_plate", "tally_plate", "", GOLD, 0);
             case "logic_clocks" -> flow(Kind.LOGIC, "TICK > DELAY > TAP", "heartbeat_plate", "strike_plate", "drift_plate", "chance_plate", 0xFFE07A5F, 0);
-            case "camp_wayanchor" -> flow(Kind.FLOW, "SUPPLY > SUSTAIN > RELEASE", "wayanchor", "pulse_cell", "wayanchor", "", TEAL, 0);
-            case "camp_hush_totem" -> flow(Kind.FLOW, "SUPPLY > WARD > REST", "hush_totem", "pulse_cell", "hush_totem", "", TEAL, 0);
+            case "camp_wayanchor", "walk_wayanchor" -> flow(Kind.FLOW, "SUPPLY > SUSTAIN > RELEASE", "wayanchor", "pulse_cell", "wayanchor", "", TEAL, 0);
+            case "camp_hush_totem", "walk_hush_totem" -> flow(Kind.FLOW, "SUPPLY > WARD > REST", "hush_totem", "pulse_cell", "hush_totem", "", TEAL, 0);
             case "pattern_intro" -> new Flow(Kind.PATTERN, "BUILD THE SHAPE", stack("ritual_chalk"), stack("anchor_stone"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, (int) (t / 5) % PATTERNS.length);
-            case "pattern_stone_font" -> new Flow(Kind.PATTERN, "FONT + FOUR MARKS", stack("ritual_chalk"), stack("stone_font"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 0);
-            case "pattern_listening_pit", "pit_deep_listening" -> new Flow(Kind.PATTERN, "ANCHOR > CHALK > MESH", stack("anchor_stone"), stack("resonance_mesh"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 1);
+            case "pattern_stone_font", "walk_stone_font" -> new Flow(Kind.PATTERN, "FONT + FOUR MARKS", stack("ritual_chalk"), stack("stone_font"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 0);
+            case "pattern_listening_pit", "pit_deep_listening", "walk_listening_pit" -> new Flow(Kind.PATTERN, "ANCHOR > CHALK > MESH", stack("anchor_stone"), stack("resonance_mesh"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 1);
             case "pattern_rite_circle" -> new Flow(Kind.PATTERN, "BRAZIER + FOUR PEDESTALS", stack("rite_pedestal"), stack("ritual_brazier"), ItemStack.EMPTY, ItemStack.EMPTY, GOLD, 2);
             case "chapter_6", "chapter_7", "walk_pulse_resonator" -> flow(Kind.RESONATOR, "SEAT > TWO VOICES > HUM", "echo_shard", "pulse_resonator", "echo_shard", "resonance_totem_earth", TEAL, 0);
             case "chapter_10", "walk_lattice_conductor" -> flow(Kind.CONDUCTOR, "CHALK > PULL > PUSH", "drumheart", "lattice_conductor", "ritual_chalk", "resonance_totem_earth", GOLD, 0);
-            case "pattern_voice_ring" -> new Flow(Kind.PATTERN, "TOTEMS AT RADIUS THREE", stack("resonance_totem_earth"), stack("pulse_resonator"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 3);
-            case "pattern_shatter_array" -> new Flow(Kind.PATTERN, "FOUR TOTEMS, ONE CACHE", stack("resonance_totem_earth"), stack("echo_shatter"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 4);
-            case "gate_way", "gate_keeping" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
+            case "pattern_voice_ring", "walk_voice_ring" -> new Flow(Kind.PATTERN, "TOTEMS AT RADIUS THREE", stack("resonance_totem_earth"), stack("pulse_resonator"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 3);
+            case "pattern_shatter_array", "walk_shatter_array" -> new Flow(Kind.PATTERN, "FOUR TOTEMS, ONE CACHE", stack("resonance_totem_earth"), stack("echo_shatter"), ItemStack.EMPTY, ItemStack.EMPTY, TEAL, 4);
+            case "gate_way", "gate_keeping", "walk_way_gate" -> new Flow(Kind.PATTERN, "TWELVE STONES, ONE KEY", stack("gate_frame"), stack("gate_keystone"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF5FB871, 5);
             case "gate_far" -> new Flow(Kind.PATTERN, "FRAME + FOUR ANCHORS", stack("anchor_stone"), stack("gate_sigil"), ItemStack.EMPTY, ItemStack.EMPTY, 0xFF62D1C9, 6);
-            case "grit_split" -> flow(Kind.FLOW, "RAW METAL > GRIT > SMELT > INGOT", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "minecraft:furnace", GOLD, 0);
-            case "voice_ember_horn" -> flow(Kind.FLOW, "FEED > BURN > GIVE", "minecraft:coal", "ember_horn", "minecraft:coal", "", 0xFFEB8449, 0);
-            case "voice_wind_harp" -> flow(Kind.FLOW, "SKY > HEIGHT > STORM", "wind_harp", "pulse_cell", "minecraft:feather", "", 0xFFC0DAC2, 0);
-            case "voice_wave_drum" -> flow(Kind.FLOW, "WATER > PIPE > BEAT", "minecraft:water_bucket", "wave_drum", "minecraft:water_bucket", "spirit_cistern", 0xFF5FB8D9, 0);
-            case "voice_wake_bell" -> flow(Kind.FLOW, "DEATH > HOLD > TOLL", "wake_bell", "pulse_cell", "spirit_shard", "", 0xFFA688DD, 0);
-            case "voice_loom_anchor" -> flow(Kind.FLOW, "VOICES > THREAD > GIVE", "resonance_totem_loom", "loom_anchor", "loom_thread", "", 0xFF62D1C9, 0);
-            case "voice_pulse_cairn" -> flow(Kind.FLOW, "BURST > HOLD > STEADY", "wake_bell", "pulse_cairn", "pulse_cell", "", TEAL, 0);
-            case "automation_contract" -> flow(Kind.LOGIC, "HELD STILLS > STRUCK CALLS", "minecraft:lever", "minecraft:redstone_lamp", "minecraft:redstone", "minecraft:comparator", 0xFFE07A5F, 0);
+            case "grit_split" -> flow(Kind.FLOW, "RAW METAL > GRIT > SMELT > INGOT", "minecraft:raw_iron", "minecraft:iron_ingot", "iron_grit", "ember_kiln", GOLD, 0);
+            case "voice_ember_horn", "walk_ember_horn" -> flow(Kind.FLOW, "FEED > BURN > GIVE", "minecraft:coal", "ember_horn", "minecraft:coal", "", 0xFFEB8449, 0);
+            case "voice_wind_harp", "walk_wind_harp" -> flow(Kind.FLOW, "SKY > HEIGHT > STORM", "wind_harp", "pulse_cell", "minecraft:feather", "", 0xFFC0DAC2, 0);
+            case "voice_wave_drum", "walk_wave_drum" -> flow(Kind.FLOW, "WATER > PIPE > BEAT", "minecraft:water_bucket", "wave_drum", "minecraft:water_bucket", "spirit_cistern", 0xFF5FB8D9, 0);
+            case "voice_wake_bell", "walk_wake_bell" -> flow(Kind.FLOW, "DEATH > HOLD > TOLL", "wake_bell", "pulse_cell", "spirit_shard", "", 0xFFA688DD, 0);
+            case "voice_loom_anchor", "walk_loom_anchor" -> flow(Kind.FLOW, "VOICES > THREAD > GIVE", "resonance_totem_loom", "loom_anchor", "loom_thread", "", 0xFF62D1C9, 0);
+            case "voice_pulse_cairn", "walk_pulse_cairn" -> flow(Kind.FLOW, "BURST > HOLD > STEADY", "wake_bell", "pulse_cairn", "pulse_cell", "", TEAL, 0);
+            case "chapter_12" -> flow(Kind.CHAIN, "STONE > SHARD  /  ORE > GRIT", "minecraft:stone", "echo_shard", "minecraft:cobblestone", "echo_shatter", TEAL, 0);
+            case "chapter_13", "walk_echo_chain" -> flow(Kind.CHAIN, "SHARD > ATTUNE > BIND", "echo_shard", "bound_echo", "echo_shard", "echo_attune", GOLD, 0);
+            case "ember_kiln", "walk_ember_kiln" -> flow(Kind.CHAIN, "GRIT > FIRE > INGOT", "iron_grit", "minecraft:iron_ingot", "iron_grit", "ember_kiln", GOLD, 0);
+
+            case "chapter_19", "walk_snap_relay" -> flow(Kind.FLOW, "SNAP > BOND > MOVE", "lattice_tuner", "ancestral_cache", "minecraft:wheat", "", TEAL, 0);
+            case "chapter_24", "walk_waystone" -> flow(Kind.FLOW, "BIND > WALK > LAND", "waystone_compass", "waystone_compass", "pulse_cell", "", GOLD, 0);
+            case "chapter_23", "walk_pulse_adapter" -> flow(Kind.FLOW, "PULSE > FE > EXPORT", "pulse_adapter", "pulse_cell", "pulse_adapter", "", TEAL, 0);
+            case "chapter_16", "walk_ancestral_cache" -> flow(Kind.FLOW, "FACE > OUTPUT > INPUT", "ancestral_cache", "echo_shatter", "minecraft:stone", "", TEAL, 0);
+            case "chapter_17", "walk_deep_cache" -> flow(Kind.FLOW, "OPEN > SHARE > LOCK", "deep_cache", "wayfarer_satchel", "pulse_cell", "", TEAL, 0);
+            case "chapter_26", "walk_gate_drum" -> flow(Kind.FLOW, "CHARGE > WALK > RETURN", "gate_drum", "waystone_compass", "pulse_cell", "", GOLD, 0);
+            case "rite_spring_calling", "walk_spring_calling" -> flow(Kind.RITE, "CIRCLE > SEAL > SPRING", "rite_pedestal", "spirit_cistern", "water_seal", "ritual_brazier", GOLD, 0);
+            case "chapter_27", "walk_sixfold_staff" -> flow(Kind.FLOW, "SNEAK > VOICE > CAST", "spirit_staff", "pulse_cell", "spirit_staff", "", TEAL, 0);
+            case "chapter_29", "walk_resonance_maul" -> flow(Kind.FLOW, "SNEAK > FACE > 3x3", "resonance_maul", "minecraft:stone", "pulse_cell", "", GOLD, 0);
+            case "camp_offering_table", "walk_offering_table" -> flow(Kind.FLOW, "PLACE > STORE > LOCK", "offering_table", "minecraft:hopper", "minecraft:wheat", "minecraft:comparator", GOLD, 0);
+            case "camp_rain_chime", "walk_rain_chime" -> flow(Kind.FLOW, "RAIN > RING > SIGNAL", "rain_chime", "minecraft:comparator", "ley_collector", "", 0xFF5FB8D9, 0);
+            case "camp_spirit_lantern", "walk_spirit_lantern" -> flow(Kind.FLOW, "PLACE > LIGHT > CAMP", "spirit_lantern", "hush_totem", "spirit_lantern", "", GOLD, 0);
+            case "camp_pulse_lights" -> flow(Kind.FLOW, "SUPPLY > LIGHT > DIM", "shard_lamp", "ember_bowl", "glow_reed", "pulse_cell", GOLD, 0);
+            case "camp_wind_charm" -> flow(Kind.FLOW, "HANG > CEILING > WALK", "wind_charm", "wind_charm", "wind_charm", "", TEAL, 0);
+            case "automation_contract" -> flow(Kind.LOGIC, "HELD PAUSES > STRUCK CALLS", "minecraft:lever", "minecraft:redstone_lamp", "minecraft:redstone", "minecraft:comparator", 0xFFE07A5F, 0);
             default -> null;
         };
         if (exact != null) return exact;
@@ -139,7 +160,7 @@ final class CodexDiagrams {
     }
 
     static int height(Entry e) {
-        return switch(flow(e, 0).kind()) { case PATTERN -> PATTERN_HEIGHT; case SEAL -> 122; default -> HEIGHT; };
+        return switch(flow(e, 0).kind()) { case PATTERN -> PATTERN_HEIGHT; case SEAL -> 122; case CISTERN -> 78; default -> HEIGHT; };
     }
 
     /**
@@ -169,6 +190,7 @@ final class CodexDiagrams {
             case CONDUCTOR -> { conductor(g, f, bx, y, span, t, item); return h; }
             case SEAL -> { seal(g, font, bx, y, span, item); return h; }
             case UPGRADE -> { upgrade(g, font, f, bx, y, span, item); return h; }
+            case CISTERN -> { cistern(g, font, f, bx, y, span, t, item); return h; }
             default -> plain(g, f, bx, y, span, lineStart, lineEnd, railY, t, item);
         }
         item.accept(f.first(), new int[]{bx, y + 29});
@@ -272,6 +294,33 @@ final class CodexDiagrams {
         item.accept(sticks,new int[]{bx+span-26,y+48});
         g.drawString(font,"Output",bx+span-40,y+24,PAPER,false);
         g.drawString(font,font.plainSubstrByWidth("2 planks; seal is kept; 6 Pulse per craft",span),bx,y+102,TEAL,false);
+    }
+
+    /** Top-down one layer: bucket in, lever lock, comparator out; pickup keeps the fluid. */
+    private static void cistern(GuiGraphics g, Font font, Flow f, int bx, int y, int span, double t,
+                                BiConsumer<ItemStack, int[]> item) {
+        int size = 12, gap = 2, cols = 3, rows = 3;
+        int gridW = cols * (size + gap), gridH = rows * (size + gap);
+        int ox = bx + span / 2 - gridW / 2, oy = y + 20;
+        for (int gx = 0; gx < cols; gx++)
+            for (int gz = 0; gz < rows; gz++) {
+                int px = ox + gx * (size + gap), pz = oy + gz * (size + gap);
+                g.fill(px, pz, px + size, pz + size, DIM);
+            }
+        double cycle = t % 8;
+        double fill = cycle < 5 ? cycle / 5 : 1;
+        boolean locked = cycle >= 3 && cycle < 6;
+        boolean packed = cycle >= 6;
+        int cx = ox + (size + gap), cy = oy + (size + gap);
+        g.fill(cx, cy, cx + size, cy + size, packed ? PAPER : lerp(DIM, f.accent(), 0.35 + 0.65 * fill));
+        item.accept(stack("minecraft:lever"), new int[]{ox + size + gap, oy - 2});
+        item.accept(stack("minecraft:water_bucket"), new int[]{ox - 4, oy + size + gap - 2});
+        item.accept(stack("spirit_cistern"), new int[]{cx - 2, cy - 2});
+        item.accept(stack("tide_pump"), new int[]{ox + 2 * (size + gap) - 2, oy + size + gap - 2});
+        item.accept(stack("minecraft:comparator"), new int[]{ox + size + gap, oy + 2 * (size + gap) - 2});
+        if (locked) g.fill(cx - 1, cy - 1, cx + size + 1, cy + size + 1, 0x66E07A5F);
+        String caption = packed ? "PICK UP KEEPS FLUID" : "Top = north | 1 square = 1 block";
+        g.drawString(font, font.plainSubstrByWidth(caption, span), bx, y + 64, packed ? TEAL : PAPER, false);
     }
 
     private static int roleColour(tk.darrow.tribalpower.pattern.BlockPredicate.Role role, int accent, boolean lit) {
@@ -559,6 +608,8 @@ final class CodexDiagrams {
     /** A drumheart filling a meter; the gauge arrow turns with it and the lamp lights past the threshold. */
     private static void logic(GuiGraphics g, Font font, Flow f, int bx, int y, int span, int lineStart, int lineEnd, int railY, double t, BiConsumer<ItemStack, int[]> item) {
         double fill = (t / 8) % 1;
+        boolean inverse = f.variant() == 1;
+        boolean hot = inverse ? fill < 0.5 : fill >= 0.5;
         int mx = lineStart + 2, mw = lineEnd - lineStart - 4;
         g.fill(mx, y + 31, mx + mw, y + 41, DIM);
         g.fill(mx, y + 31, mx + (int) (mw * fill), y + 41, fill >= 0.5 ? 0xFFE07A5F : TEAL);
@@ -568,12 +619,12 @@ final class CodexDiagrams {
         int cx = lineStart + 32, cy = y + 62; double ang = Math.PI + fill * Math.PI;
         g.fill(cx - 9, cy + 1, cx + 10, cy + 2, RAIL);
         for (int n = 0; n < 8; n++) { int px = cx + (int) Math.round(Math.cos(ang) * n), py = cy + (int) Math.round(Math.sin(ang) * n); g.fill(px, py, px + 1, py + 1, GOLD); }
-        String readout = "signal " + (fill >= 0.5 ? "15" : String.valueOf((int) (fill * 15)));
-        g.drawString(font, readout, lineStart + 48, y + 54, fill >= 0.5 ? 0xFFE07A5F : TEAL, false);
+        String readout = "signal " + (hot ? "15" : String.valueOf(inverse ? 0 : (int) (fill * 15)));
+        g.drawString(font, readout, lineStart + 48, y + 54, hot ? 0xFFE07A5F : TEAL, false);
         item.accept(f.middle(), new int[]{lineEnd - 18, y + 50});
-        // the lamp at the far end lights when the stored charge passes the threshold
+        // lamp: Threshold is live while full; Inverse is live while empty
         int lx = bx + span - 16, ly = y + 29;
-        g.fill(lx - 3, ly - 3, lx + 19, ly + 19, fill >= 0.5 ? 0xFFFFD27A : 0xFF3A2A1A);
+        g.fill(lx - 3, ly - 3, lx + 19, ly + 19, hot ? 0xFFFFD27A : 0xFF3A2A1A);
     }
 
     /** The Codex over a station with a status readout cycling through what diagnostics report. */

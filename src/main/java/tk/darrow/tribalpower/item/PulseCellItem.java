@@ -11,7 +11,8 @@ import net.minecraft.world.item.component.CustomData;
 import java.util.List;
 
 /**
- * Portable Spirit Pulse buffer. Fill at a Drumheart; Spiritgear drains cells from inventory.
+ * Portable Spirit Pulse buffer. Fill from a Drumheart (25), a Resonator (100), or a voice-craft
+ * generator (100). Spiritgear drains cells from inventory.
  */
 public class PulseCellItem extends Item {
     public static final int CAPACITY = 200;
