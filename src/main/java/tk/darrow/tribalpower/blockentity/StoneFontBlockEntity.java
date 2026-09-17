@@ -187,8 +187,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         var keeping = ask == Ask.COBBLE ? Keeping.State.ANSWERED : Keeping.voice(level, pos, Attunement.EARTH);
         if (ask != Ask.COBBLE && keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
 
-        int cost = MachineRank.scalePulse(be, ask.pulsePerSecond(be.grounded));
-        if (ask != Ask.COBBLE) cost = TribalConfig.scaleConsumption(cost);
+        int cost = be.pulseCost(ask);
         if (LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, true) < cost) {
             be.state = "pulse";
             return;
@@ -198,7 +197,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         be.work++;
         if (ask != Ask.COBBLE) Keeping.feedWork(level, pos, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.6, 0), Attunement.EARTH, 0.4, 8);
-        if (be.work >= Keeping.stretch(keeping, MachineRank.scaleTime(be, ask.seconds()))) {
+        if (be.work >= be.workSeconds(ask)) {
             if (ask == Ask.OBSIDIAN && be.grounded) {
                 if (be.water.getFluidAmount() < GROUND_COST || be.lava.getFluidAmount() < GROUND_COST) {
                     be.state = "fluid";
@@ -216,6 +215,18 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         }
         be.setChanged();
         level.updateNeighbourForOutputSignal(pos, blockState.getBlock());
+    }
+
+    private int pulseCost(Ask ask) {
+        int cost = MachineRank.scalePulse(this, ask.pulsePerSecond(grounded));
+        if (ask != Ask.COBBLE) cost = TribalConfig.scaleConsumption(cost);
+        return cost;
+    }
+
+    private int workSeconds(Ask ask) {
+        int seconds = MachineRank.scaleTime(this, ask.seconds());
+        var keeping = ask == Ask.COBBLE || level == null ? Keeping.State.ANSWERED : Keeping.voice(level, worldPosition, Attunement.EARTH);
+        return Keeping.stretch(keeping, seconds);
     }
 
     private void reset(String why) {
@@ -237,7 +248,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         if (ask != null) {
             lines.add(Component.translatable("diag.tribalpower.font.ask",
                     Component.translatable("message.tribalpower.font.ask." + ask.key()),
-                    MachineRank.scaleTime(this, ask.seconds()), MachineRank.scalePulse(this, ask.pulsePerSecond(grounded))));
+                    workSeconds(ask), pulseCost(ask)));
             if (ask == Ask.OBSIDIAN && grounded)
                 lines.add(Component.translatable("diag.tribalpower.font.grounded").withStyle(ChatFormatting.GRAY));
             if (ask != Ask.OBSIDIAN)

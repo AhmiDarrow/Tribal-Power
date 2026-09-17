@@ -79,7 +79,7 @@
     {
       "id": "chapter_16",
       "title": "Carry the beat",
-      "text": "A Pulse Cell stores Pulse you can carry. Fill it from a Drumheart, a Resonator, or a voice-craft, then spend it on tools, rites and travel. A cell in your pocket is not a nearby generator \u2014 workshops still need Pulse within 8 blocks.\n\nHow:\n1. Craft a Pulse Cell. Use it on a Drumheart (25 Pulse per use), a Resonator (100 Pulse per use), or a voice-craft such as a Wind Harp (100 Pulse per use) to fill the cell from that store. The generator loses the Pulse; the cell gains it. A Ley Collector does not fill a cell this way.\n2. Ordinary cells hold 200 Pulse. Greater Cells hold 1,200.\n3. Carry charged cells for spells, Spiritgear, charms, travel and tablet rites. A pocket cell is not in range for workshops or tablet rites.\n4. A cell on a Gate Drum adds up to 25 Pulse per use into the drum; a cell on a gate keystone adds up to 100. Travel spends that store, not a cell in your pocket.\n5. A Pulse Gauge pointed at a cell-holding machine reads how full it is."
+      "text": "A Pulse Cell stores Pulse you can carry. Fill it from a Drumheart, a Resonator, or a voice-craft, then spend it on tools, spells and travel. A cell in your pocket is not a nearby generator \u2014 workshops still need Pulse within 8 blocks.\n\nHow:\n1. Craft a Pulse Cell. Use it on a Drumheart (25 Pulse per use), a Resonator (100 Pulse per use), or a voice-craft such as a Wind Harp (100 Pulse per use) to fill the cell from that store. The generator loses the Pulse; the cell gains it. A Ley Collector does not fill a cell this way.\n2. Ordinary cells hold 200 Pulse. Greater Cells hold 1,200.\n3. Carry charged cells for spells, Spiritgear, charms and travel. A pocket cell is not in range for workshops or tablet rites.\n4. A cell on a Gate Drum adds up to 25 Pulse per use into the drum; a cell on a gate keystone adds up to 100. Travel spends that store, not a cell in your pocket.\n5. A Pulse Gauge pointed at a cell-holding machine reads how full it is."
     },
     {
       "id": "chapter_17",
@@ -119,7 +119,7 @@
     {
       "id": "chapter_24",
       "title": "Echo Unweave",
-      "text": "Echo Unweave (Loom) reverses the lattice. Missing Loom pauses and spends nothing.\n\nHow:\n1. Place Echo Unweave. Loom Resonance Totem within 8.\n2. Feed a Manifested Ingot for 2 Bound Echoes, a Resonant Core for 3 Manifested Ingots, Spiritweave for wool, or damaged Spiritgear for one Manifested Ingot.\n3. Fresh undamaged tools refuse Unweave.\n4. Sit Bind or Manifest Output into this station if you want a reverse chain without a hopper.\n5. Rank it in Echo Attune, Bind, then Manifest. A lever pauses insert and work."
+      "text": "Echo Unweave (Loom) reverses the lattice. Missing Loom pauses and spends nothing.\n\nHow:\n1. Place Echo Unweave. Loom Resonance Totem within 8.\n2. Feed a Manifested Ingot for 2 Bound Echoes, a Bound Echo for 2 Attuned Echoes, an Attuned Echo for 2 Echo Shards, a Resonant Core for 3 Manifested Ingots, Spiritweave for 2 wool, or damaged Spiritgear for one Manifested Ingot.\n3. Fresh undamaged tools refuse Unweave.\n4. Sit Bind or Manifest Output into this station if you want a reverse chain without a hopper.\n5. Rank it in Echo Attune, Bind, then Manifest. A lever pauses insert and work."
     },
     {
       "id": "chapter_25",
@@ -334,7 +334,7 @@
     {
       "id": "chapter_67",
       "title": "The sixth voice",
-      "text": "The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung.\n\nHow:\n1. Loot an Ancestor Hall for Loom Thread. Read the tablets.\n2. Wake The Unsung for an Unsung Heart.\n3. Craft the Loom totem: Unsung Heart, two threads, four March Crystals and two March Planks.\n4. Echo Unweave reverses the lattice: a Manifested Ingot into 2 Bound Echoes, a Resonant Core into 3 Manifested Ingots, Spiritweave into wool, and damaged Spiritgear into one Manifested Ingot. Fresh undamaged tools refuse.\n5. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch."
+      "text": "The sixth voice is the thread itself. Loom Thread comes from Ancestor Halls and The Unsung.\n\nHow:\n1. Loot an Ancestor Hall for Loom Thread. Read the tablets.\n2. Wake The Unsung for an Unsung Heart.\n3. Craft the Loom totem: Unsung Heart, two threads, four March Crystals and two March Planks.\n4. Echo Unweave reverses the lattice: a Manifested Ingot into 2 Bound Echoes, a Bound Echo into 2 Attuned Echoes, an Attuned Echo into 2 Echo Shards, a Resonant Core into 3 Manifested Ingots, Spiritweave into 2 wool, and damaged Spiritgear into one Manifested Ingot. Fresh undamaged tools refuse.\n5. A Loom Seal in a Brazier threads 2 Pulse into carried cells every 2 seconds with Luck. The Sixfold Staff gains Tether and, sneaking with no target, Stitch."
     },
     {
       "id": "chapter_68",
@@ -984,7 +984,7 @@
     {
       "id": "chapter_197",
       "title": "Walkthrough: unweave a lattice product",
-      "text": "Goal: reverse a lattice product at Echo Unweave.\n\nYou need\nEcho Unweave, a Loom Resonance Totem, Pulse within 8, and a lattice product (Manifested Ingot, Resonant Core, Spiritweave, or damaged Spiritgear).\n\nSteps\n1. Place Echo Unweave. Loom totem within 8.\n2. Feed a Manifested Ingot for 2 Bound Echoes, a Resonant Core for 3 Manifested Ingots, Spiritweave for wool, or damaged Spiritgear for one Manifested Ingot. Fresh undamaged tools refuse Unweave.\n3. Keep Pulse in range and output space free.\n4. Rank the station in Echo Attune, Bind, then Manifest if you want it faster.\n\nCheck\nThe input is consumed and the reversed product sits in the output. Missing Loom pauses and spends nothing.\n\nIf it does not work\nSneak-use this book on the station. Fresh Spiritgear must take damage first. Read The sixth voice.\n\nNext\nRead The sixth voice, then Walkthrough: wear Spiritweave."
+      "text": "Goal: reverse a lattice product at Echo Unweave.\n\nYou need\nEcho Unweave, a Loom Resonance Totem, Pulse within 8, and a lattice product (Manifested Ingot, Resonant Core, Spiritweave, or damaged Spiritgear).\n\nSteps\n1. Place Echo Unweave. Loom totem within 8.\n2. Feed a Manifested Ingot for 2 Bound Echoes, a Bound Echo for 2 Attuned Echoes, an Attuned Echo for 2 Echo Shards, a Resonant Core for 3 Manifested Ingots, Spiritweave for 2 wool, or damaged Spiritgear for one Manifested Ingot. Fresh undamaged tools refuse Unweave.\n3. Keep Pulse in range and output space free.\n4. Rank the station in Echo Attune, Bind, then Manifest if you want it faster.\n\nCheck\nThe input is consumed and the reversed product sits in the output. Missing Loom pauses and spends nothing.\n\nIf it does not work\nSneak-use this book on the station. Fresh Spiritgear must take damage first. Read The sixth voice.\n\nNext\nRead The sixth voice, then Walkthrough: wear Spiritweave."
     },
     {
       "id": "chapter_198",

@@ -65,6 +65,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         lastManualBeat = now;
         int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval));
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
+        lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
         if (level instanceof net.minecraft.server.level.ServerLevel server) {
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server, worldPosition.getCenter().add(0, 0.4, 0),
@@ -106,10 +107,13 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         int value = beatValue(interval);
         lastRedstoneBeat = now;
         redstoneCooldown = MIN_SPACING;
-        lastRedstoneGain = value;
-        if (value <= 0) return 0;
+        if (value <= 0) {
+            lastRedstoneGain = 0;
+            return 0;
+        }
         int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value);
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
+        lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
         strike(value == ON_TEMPO);
         setChanged();

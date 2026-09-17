@@ -62,6 +62,7 @@ public class WaveDrumBlockEntity extends GeneratorBlockEntity implements tk.darr
     public List<Component> breakdown() {
         if (level == null) return List.of();
         List<Component> lines = new java.util.ArrayList<>(WaveMath.breakdown(level, worldPosition, piped()));
+        lines.add(Component.translatable("wave.tribalpower.total", currentOutput()));
         lines.add(Component.translatable("wave.tribalpower.tank", tank.getFluidAmount(), TANK_CAPACITY));
         return lines;
     }

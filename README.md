@@ -44,31 +44,31 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
 
 - **Drumheart:** deliberate beats about a second apart yield more Pulse. A redstone clock automates its rising-edge rhythm.
 - **Ley Collector:** sky, night, rain, nearby water and living greenery influence collection.
-- **Pulse Resonator:** seat a reusable Echo catalyst (right-click; it is not burned) and place at least two distinct Resonance Totems within 8 blocks. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are ranks 1–4. Gain each second is `(2 × voices) + (2 × rank)`. A heap of totems counts at most five voices; six needs the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift the catalyst.
+- **Pulse Resonator:** seat a reusable Echo catalyst (right-click; it is not burned) and place at least two distinct Resonance Totems within 8 blocks. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are ranks 1–4. Gain each second is `(2 × voices) + (2 × rank)`, plus 15% Pulse a second per machine rank. Kinship Totems add extra tribe voices. A heap counts at most five voices total; six elements plus kinship need the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift the catalyst.
 - **Pulse Cells:** ordinary cells hold 200 Pulse; Greater Cells hold 1,200.
-- **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
+- **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second unranked. Ranked adapters convert more. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
 
 ## Storage and automation
 
 Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers.
 
-A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
+A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
 Wireless relays are thin plates that snap onto a machine face. Seat the same item in two Bond slots to pair them, or mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Sneak-click a plate to switch extract or insert.
 
 Each Echo station and Ancestral Cache has a six-face IO pad. Sneak-use an empty hand on a face to cycle Input, Output, Both or Closed. Hoppers and pipes honour those faces.
 
-1. **Local:** 32 blocks in the same dimension; 4 Pulse per successful transfer.
-2. **Longreach:** 128 blocks in the same dimension; 8 Pulse.
-3. **Astral:** unlimited distance, including other dimensions; 16 Pulse.
+1. **Local:** 32 blocks in the same dimension; 4 Pulse per successful transfer before pack settings.
+2. **Longreach:** 128 blocks in the same dimension; 8 Pulse before pack settings.
+3. **Astral:** unlimited distance, including other dimensions; 16 Pulse before pack settings.
 
-Each beat transfers up to 16 items or 250 mB, once per second. Both endpoints must already be loaded. Relays never force-load remote chunks; an explicitly powered Wayanchor can sustain an endpoint. Full or unloaded destinations pause safely; pending fluid from a changing third-party receiver is retained.
+Each beat transfers up to 16 items or 250 mB, once per second. Ranked plates move more cargo and spend more Pulse. Both endpoints must already be loaded. Relays never force-load remote chunks; an explicitly powered Wayanchor can sustain an endpoint. Full or unloaded destinations pause safely; pending fluid from a changing third-party receiver is retained.
 
 ## A camp that keeps working
 
 - **Wayanchor:** sustains its own ticking chunk for 16 Pulse/s, with a 2,400-Pulse buffer and a limit of 32 active anchors per dimension. Redstone, removal or exhausted power releases its ticket.
 - **Hush Totem:** prevents hostile spawning within 24 blocks for 8 Pulse/s. Existing mobs remain; commands and spawn eggs are exempt. Keep hostile summoning outside its ward.
-- **Grove Tender:** plants and harvests a 9-by-9 crop bed, at most one action per second. Planting costs 4 Pulse; harvest and replant costs 12. Seeds enter the top row; outputs leave below. Full storage preserves crops, and player protection events apply.
+- **Grove Tender:** place it yourself so it is claimed. It plants and harvests a 9-by-9 crop bed, at most one action per second. Planting costs 4 Pulse; harvest and replant costs 12; urging trees costs 16. Seeds enter the top row; outputs leave below. Full storage preserves crops, and player protection events apply.
 - **Summoning Cradle:** use a Binding Effigy to harmlessly imprint one of 21 supported species. Awaken it at a Spirit-sealed Ritual Brazier with Earth, Air and Spirit voices, three Spiritweave and 200 Pulse. Each binding permits **512 successful summons**, then needs the ritual again. Every summon costs 80 Pulse and one Spiritweave; failed attempts consume nothing. The effigy preserves its count through saves and pickup. A comparator reads remaining binding strength. Eight nearby mobs pause summoning.
 - **Spirit Lantern, Rain Chime and Offering Table:** carved, functional decorations providing full light, weather signals and 27-slot storage. The chime reports clear/rain/thunder as 0/8/15.
 
@@ -90,7 +90,7 @@ The **Sixfold Staff** switches voices with sneak-use: Earth slows hostiles, Fire
 
 The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in the main hand, costing 8 Pulse per broken block. Normal player breaking checks and protection events still apply.
 
-**Spiritweave armor** provides night sight, resistance, speed and conditional slow falling. Each active piece consumes 2 Pulse every four seconds. Original Spiritgear tools remain available.
+**Spiritweave armor** provides night sight, resistance, speed and conditional slow falling. Unlinked pieces spend 2 Pulse every four seconds; a bound voice spends 3. Original Spiritgear tools remain available.
 
 Seat a reusable seal in a **Ritual Brazier** with its matching totem nearby. Earth grants haste, Fire resists flame, Water regenerates, Air slows falls, Spirit grants night sight, and Loom threads 2 Pulse into carried cells every two seconds with Luck. A six-block blessing consumes 8 Pulse every two seconds while players are present. Sneak empty-handed to recover the seal.
 
@@ -138,7 +138,7 @@ Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered th
 
 **Loom** joins Earth, Fire, Water, Air and Spirit. **Loom Thread** comes from Ancestor Hall chests, The Unsung and Loom-stitcher trades at Friend rank. An **Unsung Heart**, two Loom Thread, four March Crystal and two March Planks make the **Resonance Totem (Loom)**, a distinct voice for the Resonator.
 
-- **Echo Unweave** (fifth Echo station, Loom): Manifested Ingot → 2 Bound Echo, Bound Echo → 2 Attuned Echo, Attuned Echo → 2 Echo Shards, Spiritweave → 2 Wool, Resonant Core → 3 Manifested Ingots, and worn Spiritgear (any tool in `#tribalpower:spiritgear_tools` with durability damage; the `tribalpower:damaged` ingredient type) → 1 Manifested Ingot. Datapacks use `"station": "echo_unweave"`.
+- **Echo Unweave** (sixth Echo station, Loom): Manifested Ingot → 2 Bound Echo, Bound Echo → 2 Attuned Echo, Attuned Echo → 2 Echo Shards, Spiritweave → 2 Wool, Resonant Core → 3 Manifested Ingots, and worn Spiritgear (any tool in `#tribalpower:spiritgear_tools` with durability damage; the `tribalpower:damaged` ingredient type) → 1 Manifested Ingot. Datapacks use `"station": "echo_unweave"`.
 - **Loom Seal** (Blank Seal, Loom Thread, Spirit Shard): in a Ritual Brazier the *Tension* blessing refills 2 Pulse into carried cells every two seconds and grants Luck.
 - **Sixfold Staff:** the item id stays `spirit_staff`. Loom mode *Tether* pulls the target up to eight blocks toward you for 6 Pulse; sneak-cast with no target, *Stitch* blinks you six blocks forward for 10.
 
@@ -171,7 +171,7 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 
 ## Ley Sight and Pulse logic
 
-- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, the HUD reads the ley strength where you stand and a 9-by-9 grid of particles colours the ground from blue (quiet) to gold (singing). Sneak-use it on a Ley Collector for its exact factor breakdown, or on a lattice animal for its threads and Marks. Open sky counts 1 by day and 3 by night; rain, water and greenery add 2 each.
+- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, the HUD reads the ley strength where you stand and a 17-by-17 grid of particles colours the ground from blue (quiet) to gold (singing). Sneak-use it on a Ley Collector for its exact factor breakdown, or on a lattice animal for its threads and Marks. Open sky counts 1 by day and 3 by night; rain adds 2; water and greenery add 4 each.
 - **Pulse Gauge:** points at any Pulse holder and emits redstone 0 to 15 in proportion to its charge, refreshed every four ticks; a comparator reads the same.
 - **Pulse Threshold:** emits a full signal while the faced holder is at or above 25, 50, 75 or 100%. Right-click cycles; a comparator reads 1 to 4.
 
@@ -193,6 +193,6 @@ Night skies carry an animated aurora and nine small constellations. The March ha
 
 ## Illustrated Spirit Codex
 
-Use the Spirit Codex item for an interactive native wiki: searchable teachings (107 in 3.0, with nine tribe crests, the March structures, the twelve Lore Tablets and six step-by-step Walkthroughs), a picture on every 3.0 page (thirteen creature portraits plus the Kin, The Unsung and the bonded familiars, and Blender vignettes of the real block models for the structures, rites, camps, ley sight, Pulse logic and diagnostics), a per-system animated diagram on every page (tribe offerings, the Unsung's four-beat and boss bar, Echo Unweave running the lattice backwards, the six rites' effects, familiar tricks, the ley grid, the Pulse Gauge driving a lamp), bookmarks, related-page links, and crafting/Echo recipe and use cards from the current world. No Patchouli or JEI is required. Advanced discoveries and the full recipe graph require an explicit spoiler choice per reading session. Pictures on spoiler-free pages are limited to the page's own item. Hide spoilers returns to the safe landing page. Motion toggles animation; scroll or use Page Up / Page Down to read longer pages.
+Use the Spirit Codex item for an interactive native wiki: searchable teachings (210, with nine tribe crests, the March structures, the twelve Lore Tablets and walkthroughs), a picture on every 3.0 page (thirteen creature portraits plus the Kin, The Unsung and the bonded familiars, and Blender vignettes of the real block models for the structures, rites, camps, ley sight, Pulse logic and diagnostics), a per-system animated diagram on every page (tribe offerings, the Unsung's four-beat and boss bar, Echo Unweave running the lattice backwards, the six rites' effects, familiar tricks, the ley grid, the Pulse Gauge driving a lamp), bookmarks, related-page links, and crafting/Echo recipe and use cards from the current world. No Patchouli or JEI is required. Advanced discoveries and the full recipe graph require an explicit spoiler choice per reading session. Pictures on spoiler-free pages are limited to the page's own item. Hide spoilers returns to the safe landing page. Motion toggles animation; scroll or use Page Up / Page Down to read longer pages.
 
 ![Spirit Codex](docs/images/codex-cover.png)

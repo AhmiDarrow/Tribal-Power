@@ -75,7 +75,6 @@ public final class WaveMath {
                 f.piped() ? PIPED : f.water() ? PASSIVE : 0, PIPED_COST));
         lines.add(Component.translatable(f.rain() ? "wave.tribalpower.rain" : "wave.tribalpower.clear"));
         if (!f.piped()) lines.add(Component.translatable("wave.tribalpower.crowd", f.crowd(), CROWD_RANGE));
-        lines.add(Component.translatable("wave.tribalpower.total", f.gain()));
         return lines;
     }
 }

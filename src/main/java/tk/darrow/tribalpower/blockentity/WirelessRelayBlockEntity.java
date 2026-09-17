@@ -141,9 +141,13 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         return tier() >= 3 || dest.distSqr(worldPosition) <= (long) range * range;
     }
 
-    private void transfer(Level sourceLevel, BlockPos sourcePos, Direction sourceFace, Level destLevel, BlockPos destPos, Direction destFace) {
+    private int pulseCost() {
         int cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(tier() == 3 ? 16 : tier() == 2 ? 8 : 4);
-        cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, cost);
+        return tk.darrow.tribalpower.item.MachineRank.scalePulse(this, cost);
+    }
+
+    private void transfer(Level sourceLevel, BlockPos sourcePos, Direction sourceFace, Level destLevel, BlockPos destPos, Direction destFace) {
+        int cost = pulseCost();
         if (LatticeNetwork.extractPulseNearby(sourceLevel, worldPosition, 8, cost, true) < cost) { updateStatus("pulse"); return; }
         boolean moved = fluid() ? moveFluid(sourceLevel, sourcePos, sourceFace, destLevel, destPos, destFace)
                 : moveItem(sourceLevel, sourcePos, sourceFace, destLevel, destPos, destFace);
@@ -291,7 +295,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
             else if (destination.hasNeighborSignal(target)) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.target_paused").withStyle(net.minecraft.ChatFormatting.YELLOW));
         }
         if (!server.hasChunkAt(host())) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.source_unloaded").withStyle(net.minecraft.ChatFormatting.RED));
-        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.cost", tier() == 3 ? 16 : tier() == 2 ? 8 : 4));
+        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.cost", pulseCost()));
         if (!pending.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.relay.pending", pending.getAmount()));
         return lines;
     }

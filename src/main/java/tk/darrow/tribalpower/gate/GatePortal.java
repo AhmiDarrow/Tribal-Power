@@ -136,7 +136,7 @@ public final class GatePortal {
 
         if (!keystone.spendTravel(kind)) {
             if (entity instanceof ServerPlayer player)
-                player.displayClientMessage(Component.translatable("message.tribalpower.gate.need_pulse",
+                player.displayClientMessage(Component.translatable("message.tribalpower.gate.need_pulse_keystone",
                         kind.travelCost(), keystone.getPulseStored()), true);
             entity.setPortalCooldown(WAY_COOLDOWN);
             return;

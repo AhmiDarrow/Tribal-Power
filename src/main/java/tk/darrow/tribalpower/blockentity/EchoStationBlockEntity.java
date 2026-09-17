@@ -51,7 +51,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 var recipe = ProcessingRecipes.find(level, station(), items.get(0));
                 return switch(index) {
                     case 0 -> work;
-                    case 1 -> recipe == null ? 1 : tk.darrow.tribalpower.item.MachineRank.scaleTime(EchoStationBlockEntity.this, recipe.seconds());
+                    case 1 -> recipe == null ? 1 : EchoStationBlockEntity.this.workSeconds(recipe);
                     case 3 -> sides.pack();
                     case 4 -> worldPosition.getX();
                     case 5 -> worldPosition.getY();
@@ -157,11 +157,9 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (!LatticeNetwork.hasAttunement(level, pos, 8, recipe.attunement())) { be.state = "attunement"; return; }
         var keeping = Keeping.voice(level, pos, recipe.attunement());
         if (keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
-        int seconds = Keeping.stretch(keeping, tk.darrow.tribalpower.item.MachineRank.scaleTime(be, recipe.seconds()));
+        int seconds = be.workSeconds(recipe);
         if (be.work < 0) be.work = 0;
-        int cost = be.arrayed ? Math.max(1, (int) Math.round(recipe.pulse() * ARRAY_DISCOUNT)) : recipe.pulse();
-        cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(be, cost);
-        cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(cost);
+        int cost = be.pulsePerSecond(recipe);
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
         LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
         be.state = "working";
@@ -196,7 +194,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.state", status()));
         if (recipe == null) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.no_recipe"));
         else {
-            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.recipe", recipe.result().getHoverName(), work, recipe.seconds(), recipe.pulse(),
+            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.recipe", recipe.result().getHoverName(), work, workSeconds(recipe), pulsePerSecond(recipe),
                     net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + recipe.attunement().getSerializedName())));
             if (!LatticeNetwork.hasAttunement(server, pos, 8, recipe.attunement()))
                 lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
@@ -212,5 +210,20 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                     ? "diag.tribalpower.station.arrayed" : "diag.tribalpower.station.no_array"));
         }
         return lines;
+    }
+
+    /** Rank, dim stretch and the live totem — the same seconds the tick waits. */
+    private int workSeconds(ProcessingRecipes.Formula recipe) {
+        int seconds = tk.darrow.tribalpower.item.MachineRank.scaleTime(this, recipe.seconds());
+        if (level == null) return seconds;
+        return Keeping.stretch(Keeping.voice(level, worldPosition, recipe.attunement()), seconds);
+    }
+
+    /** Array discount, rank and pack consumption — the same Pulse the tick draws. */
+    private int pulsePerSecond(ProcessingRecipes.Formula recipe) {
+        boolean discounted = level != null && arrayed(level, recipe.attunement());
+        int cost = discounted ? Math.max(1, (int) Math.round(recipe.pulse() * ARRAY_DISCOUNT)) : recipe.pulse();
+        cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, cost);
+        return tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(cost);
     }
 }

@@ -174,7 +174,7 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         // A signal that is still high a second later is a held one, and the beat takes the plane
         // back down; transit is refused while stilled either way.
         if (pulse.getPulseStored() < kind.lightCost())
-            return Component.translatable("message.tribalpower.gate.need_pulse", kind.lightCost(), pulse.getPulseStored());
+            return Component.translatable("message.tribalpower.gate.need_pulse_keystone", kind.lightCost(), pulse.getPulseStored());
         pulse.extractPulse(kind.lightCost(), false);
         lit = true;
         record(level);

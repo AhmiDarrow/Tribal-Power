@@ -26,7 +26,7 @@
     {
       "type": "patchouli:text",
       "title": "Echo Unweave",
-      "text": "Loom reverses the lattice. A Manifested Ingot becomes 2 Bound Echoes. A Resonant Core becomes 3 Manifested Ingots. Spiritweave becomes wool. Damaged Spiritgear becomes one Manifested Ingot. Fresh undamaged tools refuse. Missing Loom pauses and spends nothing."
+      "text": "Loom reverses the lattice. A Manifested Ingot becomes 2 Bound Echoes. A Bound Echo becomes 2 Attuned Echoes. An Attuned Echo becomes 2 Echo Shards. A Resonant Core becomes 3 Manifested Ingots. Spiritweave becomes 2 wool. Damaged Spiritgear becomes one Manifested Ingot. Fresh undamaged tools refuse. Missing Loom pauses and spends nothing."
     },
     {
       "type": "patchouli:text",

@@ -155,7 +155,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     /** Comparator: progress through the cycle, and nothing at all when the pattern is broken. */
     public int progressSignal() {
         if (!"working".equals(state)) return 0;
-        int seconds = seconds(band, voices(level, worldPosition));
+        int seconds = cycleSeconds(band, voices(level, worldPosition));
         if (seconds <= 0 || work <= 0) return seconds <= 0 ? 0 : 1;
         // work is observed over 1..seconds-1, because the last beat finishes the cycle and resets it.
         // Spread that across 1..15 so "about to finish" is readable in redstone.
@@ -165,7 +165,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
     public Component status() {
         return Component.translatable("message.tribalpower.mesh." + state,
-                Component.translatable("band.tribalpower." + band.key()), work, seconds(band, voices(level, worldPosition)));
+                Component.translatable("band.tribalpower." + band.key()), work, cycleSeconds(band, voices(level, worldPosition)));
     }
 
     private Set<Attunement> voices(Level level, BlockPos pos) {
@@ -177,6 +177,12 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         int seconds = band.seconds();
         if (voices.contains(Attunement.AIR)) seconds = Math.max(1, (int) Math.round(seconds * 0.65));
         return MachineRank.scaleTime(this, seconds);
+    }
+
+    private int cycleSeconds(OreBand band, Set<Attunement> voices) {
+        int seconds = seconds(band, voices);
+        if (level == null) return seconds;
+        return Keeping.stretch(Keeping.voice(level, worldPosition, Attunement.EARTH), seconds);
     }
 
     private int pulsePerSecond(OreBand band, Set<Attunement> voices) {
@@ -317,7 +323,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         Keeping.feedWork(level, pos, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.55, 0), Attunement.EARTH, 0.5, 8);
 
-        if (be.work >= Keeping.stretch(keeping, be.seconds(band, voices))) {
+        if (be.work >= be.cycleSeconds(band, voices)) {
             be.finish(level, pos, band, voices, substrate, result);
         }
         be.setChanged();
@@ -450,7 +456,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         }
         lines.add(Component.translatable("diag.tribalpower.mesh.band",
                 Component.translatable("band.tribalpower." + selected.key()),
-                seconds(selected, voices), pulsePerSecond(selected, voices)));
+                cycleSeconds(selected, voices), pulsePerSecond(selected, voices)));
         StringBuilder substrates = new StringBuilder();
         for (ItemStack stack : substrate(selected, voices)) {
             if (!substrates.isEmpty()) substrates.append(", ");

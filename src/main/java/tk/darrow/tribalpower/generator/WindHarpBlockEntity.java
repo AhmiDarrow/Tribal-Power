@@ -38,6 +38,9 @@ public class WindHarpBlockEntity extends GeneratorBlockEntity {
 
     @Override
     public List<Component> breakdown() {
-        return level == null ? List.of() : WindMath.breakdown(level, worldPosition);
+        if (level == null) return List.of();
+        java.util.ArrayList<Component> lines = new java.util.ArrayList<>(WindMath.breakdown(level, worldPosition));
+        lines.add(Component.translatable("wind.tribalpower.total", currentOutput(), WindMath.MAX_GAIN));
+        return lines;
     }
 }

@@ -29,7 +29,10 @@ public class StationMenu extends AbstractContainerMenu {
     }
     public int work() { return data.get(0); }
     public int duration() { return Math.max(1, data.get(1)); }
-    public String statusKey() { return "message.tribalpower.station." + new String[]{"idle", "working", "paused", "full", "attunement", "pulse"}[Math.max(0, Math.min(5, data.get(2)))]; }
+    public String statusKey() {
+        String[] states = {"idle", "working", "paused", "full", "attunement", "pulse", "quiet"};
+        return "message.tribalpower.station." + states[Math.max(0, Math.min(states.length - 1, data.get(2)))];
+    }
     @Override public boolean stillValid(Player player) { return container.stillValid(player); }
     @Override public void removed(Player player) { super.removed(player); container.stopOpen(player); }
     @Override public ItemStack quickMoveStack(Player player, int index) {

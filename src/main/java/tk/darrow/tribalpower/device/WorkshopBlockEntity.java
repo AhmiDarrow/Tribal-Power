@@ -115,7 +115,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
 
     private void vacuum(ServerLevel server) {
         int cost = 2;
-        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse per item"; return; }
+        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse per stack"; return; }
         var box = new AABB(worldPosition).inflate(8);
         int pulled = 0;
         for (ItemEntity entity : server.getEntitiesOfClass(ItemEntity.class, box, e -> !e.isRemoved() && !e.getItem().isEmpty())) {

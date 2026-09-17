@@ -90,7 +90,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         be.stallReason = "";
         be.progress++;
         if (keeping != Keeping.State.QUIET) Keeping.feedWork(level, pos, needed);
-        if (be.progress >= Keeping.stretch(keeping, be.workTicks(stage))) {
+        if (be.progress >= be.workNeed(stage)) {
             ItemStack out = new ItemStack(stage.output());
             be.items.set(SLOT, out);
             be.progress = 0;
@@ -113,6 +113,12 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
     private int workTicks(EchoStage stage) {
         return MachineRank.scaleTime(this, stage.workTicks());
+    }
+
+    private int workNeed(EchoStage stage) {
+        int ticks = workTicks(stage);
+        if (level == null) return ticks;
+        return Keeping.stretch(Keeping.voice(level, worldPosition, stage.requiredAttunement()), ticks);
     }
 
     private int pulsePerTick(EchoStage stage) {
@@ -196,7 +202,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
                         "message.tribalpower.song_bench.working",
                         stage.name(),
                         progress,
-                        workTicks(stage),
+                        workNeed(stage),
                         linkedTotems
                 );
             }
@@ -314,7 +320,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         singing = tag.getBoolean("Singing");
         progress = tag.getInt("Progress");
         EchoStage stage = EchoStage.forInput(items.get(SLOT));
-        if (stage == null || progress < 0 || progress >= workTicks(stage)) progress = 0;
+        if (stage == null || progress < 0 || progress > Keeping.stretch(Keeping.State.DIM, workTicks(stage))) progress = 0;
         linkedTotems = tag.getInt("LinkedTotems");
         stallReason = tag.getString("StallReason");
         sides.load(tag);
@@ -325,12 +331,12 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.state", statusMessage()));
         EchoStage stage = EchoStage.forInput(items.get(SLOT));
         if (stage != null) {
-            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, workTicks(stage), pulsePerTick(stage)));
+            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, workNeed(stage), pulsePerTick(stage)));
             if (!LatticeNetwork.hasAttunement(server, pos, RADIUS, stage.requiredAttunement()))
                 lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
                         net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + stage.requiredAttunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
         }
-        if (!stallReason.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stall", stallReason).withStyle(net.minecraft.ChatFormatting.YELLOW));
+        if (!stallReason.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stall", statusMessage()).withStyle(net.minecraft.ChatFormatting.YELLOW));
         return lines;
     }
 }

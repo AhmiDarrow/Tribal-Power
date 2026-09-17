@@ -86,7 +86,7 @@ public final class WindMath {
                 : f.rain() ? "wind.tribalpower.rain" : "wind.tribalpower.calm",
                 f.thunder() ? THUNDER : f.rain() ? RAIN : 0));
         lines.add(Component.translatable("wind.tribalpower.crowd", f.crowd(), CROWD_RANGE));
-        lines.add(Component.translatable("wind.tribalpower.total", f.gain(), MAX_GAIN));
+        lines.add(Component.translatable("wind.tribalpower.landscape", f.gain(), MAX_GAIN));
         return lines;
     }
 }

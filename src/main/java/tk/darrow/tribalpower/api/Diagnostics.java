@@ -14,6 +14,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
+import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.ley.LeyMath;
@@ -132,8 +133,10 @@ public final class Diagnostics {
                     if (be == null) continue;
                     String perSecond;
                     if (be instanceof DrumheartBlockEntity) perSecond = "beat";
-                    else if (be instanceof LeyCollectorBlockEntity) {
-                        perSecond = level.hasNeighborSignal(cursor) ? "0" : String.format("%.1f", LeyMath.gain(level, cursor) * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
+                    else if (be instanceof LeyCollectorBlockEntity collector) {
+                        int gain = LeyMath.gain(level, cursor);
+                        gain += MachineRank.bonusGain(collector, gain);
+                        perSecond = level.hasNeighborSignal(cursor) ? "0" : String.format("%.1f", gain * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
                     } else if (be instanceof PulseResonatorBlockEntity resonator) perSecond = Integer.toString(resonator.getGain());
                     else if (be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator generator)
                         perSecond = Integer.toString(generator.currentOutput());
