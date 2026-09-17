@@ -23,11 +23,6 @@ import tk.darrow.tribalpower.api.pulse.PulseStorage;
  */
 public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.pulse.PulseGenerator, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 1000;
-    public static final int BEAT_GAIN = 10;
-    /** @deprecated the redstone path pays by tempo now; kept so old references still compile. */
-    @Deprecated
-    public static final int REDSTONE_GAIN = 5;
-
     public static final int MIN_SPACING = 8;
     public static final int TEMPO_MIN = 17;
     public static final int TEMPO_MAX = 23;

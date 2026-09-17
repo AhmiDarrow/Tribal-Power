@@ -67,10 +67,6 @@ public class WaveDrumBlockEntity extends GeneratorBlockEntity implements tk.darr
         return lines;
     }
 
-    public Component tankStatus() {
-        return Component.translatable("message.tribalpower.cistern.status", tank.getFluidAmount(), TANK_CAPACITY);
-    }
-
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
