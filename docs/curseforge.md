@@ -40,6 +40,9 @@ Uploaded 2026-09-12: `tribalpower-3.3.1.jar` as file **8869162** ("Tribal Power 
 ## 3.3.2 — Ember Kiln smelts grit
 Uploaded 2026-09-12: `tribalpower-3.3.2.jar` as file **8869249** ("Tribal Power 3.3.2 - Ember Kiln smelts grit", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.2.md`. Kiln runs every furnace smelting recipe, including mineral grit. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.2
 
+## 3.4.3 — Spiritgear and Spiritweave art pass
+Uploaded 2026-09-18: `tribalpower-3.4.3.jar` as file **8914264** ("Tribal Power 3.4.3 - Spiritgear and Spiritweave art pass", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.3.md`. Art only: Spiritgear ranks, Spiritweave icons and worn body, Resonance Maul, Sixfold Staff, Wayfarer Satchel, Spiritweave bolt. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.3
+
 ## 3.4.2 — Diagnose lockstep, Codex chrome, ranked adapter
 Uploaded 2026-09-17: `tribalpower-3.4.2.jar` as file **8908289** ("Tribal Power 3.4.2 - Diagnose lockstep, Codex chrome, ranked adapter", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.2.md`. Ranked Pulse Adapter rate, device status lang keys, Codex chrome i18n, teaching lockstep with live Java. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.2
 
