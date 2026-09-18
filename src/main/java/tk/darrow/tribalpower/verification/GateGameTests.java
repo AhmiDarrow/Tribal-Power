@@ -197,7 +197,7 @@ public class GateGameTests {
         BlockPos b = new BlockPos(3, 2, 9);
         wayGate(h, a);
         wayGate(h, b);
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.setShiftKeyDown(true);
         ItemStack compass = new ItemStack(ModItems.WAYSTONE_COMPASS.get());
         var hitA = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(a)), Direction.UP, h.absolutePos(a), false);

@@ -34,7 +34,8 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     public String ownerName="Skybound";
     int cursor;
     boolean active;
-    String reason="Waiting";
+    String reason="waiting";
+    String reasonName="";
     public CampBlockEntity(BlockPos pos,BlockState state){
         super(CampRegistry.TYPE.get(),pos,state);
         String path=BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
@@ -70,10 +71,23 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     }
     @Override public boolean canTakeItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).extract()&&(!kind().equals("summoning_cradle")||slot==0&&BoundEffigyItem.remaining(stack)==0);}
     public Component status(){
-        var status=Component.literal(reason+" | "+pulse+" / "+CAPACITY+" Pulse");
-        if(kind().equals("summoning_cradle"))status.append(" | ").append(BoundEffigyItem.targetName(items.get(0))).append(" | "+BoundEffigyItem.remaining(items.get(0))+" threads");
-        return status;
+        if(kind().equals("summoning_cradle"))
+            return Component.translatable("message.tribalpower.hand.cradle_line",reasonComponent(),pulse,CAPACITY,BoundEffigyItem.targetName(items.get(0)),BoundEffigyItem.remaining(items.get(0)));
+        return Component.translatable("message.tribalpower.hand.line",reasonComponent(),pulse,CAPACITY);
     }
+    Component reasonComponent(){
+        return switch(reason){
+            case "need_anchor"->Component.translatable("message.tribalpower.hand.need_anchor",CampHooks.SOLO_ANCHOR_CAP,CampHooks.CAMP_ANCHOR_BUDGET);
+            case "summoned"->Component.translatable("message.tribalpower.hand.summoned",reasonName);
+            case "waiting","paused","wait_pulse","holding","hush","cradle_slots","lantern","thunder","rain","clear","offerings",
+                    "bind_effigy","need_summon","crowded","peaceful","hush_block","need_floor","tending","unclaimed",
+                    "output_full","berries","urged","plant_protected","planted","planted_cocoa","crop_protected","need_seed",
+                    "replanted","harvested"->Component.translatable("message.tribalpower.hand."+reason);
+            default->Component.literal(reason);
+        };
+    }
+    void setReason(String key){reason=key;reasonName="";}
+    void setReason(String key,String name){reason=key;reasonName=name;}
     public int signal(){
         if(level==null||level.hasNeighborSignal(worldPosition))return 0;
         if(kind().equals("rain_chime"))return level.isThundering()?15:level.isRaining()?8:0;
@@ -84,7 +98,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         if(level instanceof ServerLevel server){
             if(kind().equals("wayanchor"))CampHooks.anchor(server,worldPosition,owner,false);
             if(kind().equals("hush_totem"))CampHooks.ward(server,worldPosition,false);
-            active=false;reason="Paused by redstone";
+            active=false;setReason("paused");
             if(level.getBlockState(worldPosition).is(getBlockState().getBlock())&&getBlockState().getValue(CampBlock.LIT))level.setBlock(worldPosition,getBlockState().setValue(CampBlock.LIT,false),3);
         }
     }
@@ -97,7 +111,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     }
     public void work(ServerLevel server){
         if(server.hasNeighborSignal(worldPosition)){deactivate();return;}
-        active=false;reason="Waiting for Pulse";
+        active=false;setReason("wait_pulse");
         String kind=kind();
         if(!Set.of("spirit_lantern","rain_chime","offering_table").contains(kind)){
             int add=LatticeNetwork.extractPulseNearby(server,worldPosition,8,Math.min(80,CAPACITY-pulse),false);
@@ -105,17 +119,17 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         }
         switch(kind){
             case "wayanchor" -> {
-                if(pulse>=16&&CampHooks.anchor(server,worldPosition,owner,true)){spend(16);active=true;reason="Holding this chunk";}
-                else {CampHooks.anchor(server,worldPosition,owner,false);reason="Need 16 Pulse/s; maximum "+CampHooks.SOLO_ANCHOR_CAP+" anchors per dimension, or "+CampHooks.CAMP_ANCHOR_BUDGET+" shared by a camp";}
+                if(pulse>=16&&CampHooks.anchor(server,worldPosition,owner,true)){spend(16);active=true;setReason("holding");}
+                else {CampHooks.anchor(server,worldPosition,owner,false);setReason("need_anchor");}
             }
-            case "hush_totem" -> {active=pulse>=8;if(active){spend(8);reason="Hostile spawn ward: 24 blocks";}CampHooks.ward(server,worldPosition,active);}
-            case "summoning_cradle" -> {reason="Effigy in slot 1; Spiritweave in slot 2";if((server.getGameTime()+worldPosition.asLong())%200==0)summon(server);}
+            case "hush_totem" -> {active=pulse>=8;if(active){spend(8);setReason("hush");}CampHooks.ward(server,worldPosition,active);}
+            case "summoning_cradle" -> {setReason("cradle_slots");if((server.getGameTime()+worldPosition.asLong())%200==0)summon(server);}
             case "grove_tender" -> GroveWork.tend(this, server);
-            case "spirit_lantern" -> {active=true;reason="Lantern lit; redstone dims it";}
-            case "rain_chime" -> {active=server.isRaining();reason=server.isThundering()?"Thunder: signal 15":active?"Rain: signal 8":"Clear skies: signal 0";
+            case "spirit_lantern" -> {active=true;setReason("lantern");}
+            case "rain_chime" -> {active=server.isRaining();setReason(server.isThundering()?"thunder":active?"rain":"clear");
                 if(active&&(server.getGameTime()+worldPosition.asLong())%200==0)server.playSound(null,worldPosition,net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,net.minecraft.sounds.SoundSource.BLOCKS,0.25F,1.4F);
             }
-            case "offering_table" -> {active=true;reason="27 offering slots; comparator reads fullness";}
+            case "offering_table" -> {active=true;setReason("offerings");}
         }
     }
     void spendPublic(int amount){spend(amount);}
@@ -125,25 +139,25 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     public boolean summon(ServerLevel server){
         if(server.hasNeighborSignal(worldPosition))return false;
         ItemStack effigy=items.get(0),offering=items.get(1);
-        if(BoundEffigyItem.remaining(effigy)==0){reason="Bind or renew the effigy";return false;}
-        if(pulse<80||!offering.is(ModItems.SPIRITWEAVE.get())){reason="Needs 80 Pulse and 1 Spiritweave per summon";return false;}
-        if(server.getEntitiesOfClass(Mob.class,new AABB(worldPosition).inflate(12)).size()>=8){reason="Eight nearby mobs: waiting";return false;}
+        if(BoundEffigyItem.remaining(effigy)==0){setReason("bind_effigy");return false;}
+        if(pulse<80||!offering.is(ModItems.SPIRITWEAVE.get())){setReason("need_summon");return false;}
+        if(server.getEntitiesOfClass(Mob.class,new AABB(worldPosition).inflate(12)).size()>=8){setReason("crowded");return false;}
         var type=BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(BoundEffigyItem.target(effigy)));
-        if(type.getCategory()==MobCategory.MONSTER&&server.getDifficulty()==Difficulty.PEACEFUL){reason="Hostile spirits sleep in Peaceful";return false;}
+        if(type.getCategory()==MobCategory.MONSTER&&server.getDifficulty()==Difficulty.PEACEFUL){setReason("peaceful");return false;}
         for(int attempt=0;attempt<8;attempt++){
             BlockPos pos=worldPosition.offset(server.random.nextInt(7)-3,0,server.random.nextInt(7)-3);
             if(pos.equals(worldPosition)||!server.hasChunkAt(pos)||!server.getWorldBorder().isWithinBounds(pos)||!server.getBlockState(pos.below()).isFaceSturdy(server,pos.below(),Direction.UP))continue;
-            if(type.getCategory()==MobCategory.MONSTER&&CampHooks.warded(server,pos)){reason="A Hush Totem blocks this summoning";continue;}
+            if(type.getCategory()==MobCategory.MONSTER&&CampHooks.warded(server,pos)){setReason("hush_block");continue;}
             var entity=type.create(server);if(!(entity instanceof Mob mob))return false;
             mob.moveTo(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5,server.random.nextFloat()*360,0);
             if(!server.noCollision(mob)||server.containsAnyLiquid(mob.getBoundingBox()))continue;
             EventHooks.finalizeMobSpawn(mob,server,server.getCurrentDifficultyAt(pos),MobSpawnType.SPAWNER,null);
             if(mob.isSpawnCancelled()||!server.addFreshEntity(mob))continue;
-            offering.shrink(1);BoundEffigyItem.spend(effigy);spend(80);active=true;reason="Summoned "+mob.getName().getString();CampHooks.award(server,owner,"first_summon");
+            offering.shrink(1);BoundEffigyItem.spend(effigy);spend(80);active=true;setReason("summoned",mob.getName().getString());CampHooks.award(server,owner,"first_summon");
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server,pos.getCenter(),tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT,1,16);
             return true;
         }
-        reason="Clear a safe floor within 3 blocks";return false;
+        setReason("need_floor");return false;
     }
     private NonNullList<ItemStack> copyItems(){var result=NonNullList.withSize(27,ItemStack.EMPTY);for(int i=0;i<27;i++)result.set(i,items.get(i).copy());return result;}
     public static boolean storeDrops(NonNullList<ItemStack> slots,List<ItemStack> drops){

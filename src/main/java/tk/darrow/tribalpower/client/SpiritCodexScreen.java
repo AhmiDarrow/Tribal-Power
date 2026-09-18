@@ -39,7 +39,7 @@ public final class SpiritCodexScreen extends Screen {
     private final List<Link> links=new ArrayList<>();
 
     public SpiritCodexScreen() {
-        super(Component.literal("Spirit Codex"));
+        super(Component.translatable("gui.tribalpower.codex.title"));
         CodexEntries.ALL.stream().map(Entry::category).distinct().forEach(categories::add);
         try {
             var file=Minecraft.getInstance().gameDirectory.toPath().resolve("config/tribalpower-codex-bookmarks.txt");
@@ -49,7 +49,10 @@ public final class SpiritCodexScreen extends Screen {
     }
 
     private Button button(String text,int x,int y,int w,java.util.function.Consumer<Button> action) {
-        return addRenderableWidget(new Button(x,y,w,18,Component.literal(text),action::accept,narration -> narration.get()) {
+        return button(Component.literal(text),x,y,w,action);
+    }
+    private Button button(Component text,int x,int y,int w,java.util.function.Consumer<Button> action) {
+        return addRenderableWidget(new Button(x,y,w,18,text,action::accept,narration -> narration.get()) {
             @Override protected void renderWidget(GuiGraphics g,int mx,int my,float partial) {
                 boolean highlighted=isHoveredOrFocused();
                 g.fillGradient(getX(),getY(),getX()+getWidth(),getY()+getHeight(),highlighted?0xFF345A5D:0xFF223A45,0xFF142530);
@@ -63,48 +66,50 @@ public final class SpiritCodexScreen extends Screen {
         bookWidth=Math.min(width-12,720); bookHeight=Math.min(height-12,430);
         left=(width-bookWidth)/2; top=(height-bookHeight)/2;
         sidebar=Math.min(166,bookWidth/3);contentX=left+sidebar+18;contentWidth=bookWidth-sidebar-32;
-        search=addRenderableWidget(new EditBox(font,left+10,top+36,bookWidth-20,18,Component.literal("Search the Codex")));
-        search.setMaxLength(96);search.setHint(Component.literal("Search teachings and items..."));search.setValue(query);
+        search=addRenderableWidget(new EditBox(font,left+10,top+36,bookWidth-20,18,Component.translatable("gui.tribalpower.codex.search")));
+        search.setMaxLength(96);search.setHint(Component.translatable("gui.tribalpower.codex.search_hint"));search.setValue(query);
         search.setResponder(value->{query=value;listPage=0; rebuildList();});
-        button(category,left+10,top+60,sidebar-8,b->{
+        button(categoryLabel(category),left+10,top+60,sidebar-8,b->{
             List<String> visible=categories.stream().filter(c->spoilers||c.equals("Contents")||c.equals("Bookmarks")||CodexEntries.ALL.stream().anyMatch(e->e.category().equals(c)&&visible(e))).toList();
             String next=visible.get((visible.indexOf(category)+1)%visible.size());
             category=next;listPage=0;rebuildWidgets();
         });
         button("<",left+10,top+bookHeight-49,28,b->{listPage=Math.max(0,listPage-1);rebuildWidgets();});
         button(">",left+42,top+bookHeight-49,28,b->{listPage++;rebuildWidgets();});
-        button("Home",left+76,top+bookHeight-49,sidebar-74,b->{category="Contents";query="";listPage=0;openEntry("chapter_1");});
-        button("Back",left+10,top+bookHeight-25,46,b->{if(history.isEmpty())onClose();else navigate(history.pop());});
-        button("Close",left+60,top+bookHeight-25,46,b->onClose());
-        button(spoilers?"Hide spoilers":"Spoilers...",left+110,top+bookHeight-25,86,b->{
+        button(Component.translatable("gui.tribalpower.codex.home"),left+76,top+bookHeight-49,sidebar-74,b->{category="Contents";query="";listPage=0;openEntry("chapter_1");});
+        button(Component.translatable("gui.tribalpower.codex.back"),left+10,top+bookHeight-25,46,b->{if(history.isEmpty())onClose();else navigate(history.pop());});
+        button(Component.translatable("gui.tribalpower.codex.close"),left+60,top+bookHeight-25,46,b->onClose());
+        button(Component.translatable(spoilers?"gui.tribalpower.codex.hide_spoilers":"gui.tribalpower.codex.spoilers"),left+110,top+bookHeight-25,86,b->{
             if(spoilers){spoilers=false;category="Contents";query="";listPage=0;history.clear();navigate("chapter_1");}
             else confirmSpoilers(()->{});
         });
-        button(motion?"Motion: on":"Motion: off",left+bookWidth-98,top+bookHeight-25,88,b->{
+        button(Component.translatable(motion?"gui.tribalpower.codex.motion_on":"gui.tribalpower.codex.motion_off"),left+bookWidth-98,top+bookHeight-25,88,b->{
             if(motion)diagramTime=(System.nanoTime()-diagramEpoch)/1_000_000_000.0;
             motion=!motion;rebuildWidgets();
         });
-        button(recipeItem.isEmpty()?(bookmarks.contains(selected)?"Unmark":"Bookmark"):(showUses?"Show recipes":"Show uses"),contentX,top+60,76,b->{
+        button(recipeItem.isEmpty()
+                ?Component.translatable(bookmarks.contains(selected)?"gui.tribalpower.codex.unmark":"gui.tribalpower.codex.bookmark")
+                :Component.translatable(showUses?"gui.tribalpower.codex.show_recipes":"gui.tribalpower.codex.show_uses"),contentX,top+60,76,b->{
             if(recipeItem.isEmpty()){if(!bookmarks.remove(selected))bookmarks.add(selected);saveBookmarks();}
             else {showUses=!showUses;recipePage=0;scroll=0;findRecipes();}
             rebuildWidgets();
         });
         boolean jei=CodexJeiLinks.available();
         if(recipeItem.isEmpty()){
-            button("Recipes",contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
+            button(Component.translatable("gui.tribalpower.codex.recipes"),contentX+80,top+60,60,b->{Entry e=current(); if(e!=null)openRecipes("tribalpower:"+e.icon());});
             int x=contentX+144;
-            if(jei){button("JEI",x,top+60,36,b->{Entry e=current(); if(e!=null)openJei(stack("tribalpower:"+e.icon()),false);});x+=40;}
+            if(jei){button(Component.translatable("gui.tribalpower.codex.jei"),x,top+60,36,b->{Entry e=current(); if(e!=null)openJei(stack("tribalpower:"+e.icon()),false);});x+=40;}
             String next=tk.darrow.tribalpower.guide.CodexTutorial.next(selected);
-            if(next!=null){button("Next",x,top+60,48,b->openEntry(next));x+=52;}
+            if(next!=null){button(Component.translatable("gui.tribalpower.codex.next"),x,top+60,48,b->openEntry(next));x+=52;}
             if(!motion) {
-                button("< Step",x,top+60,54,b->diagramTime=Math.max(0,diagramTime-0.5));
-                button("Step >",x+58,top+60,54,b->diagramTime+=0.5);
+                button(Component.translatable("gui.tribalpower.codex.step_back"),x,top+60,54,b->diagramTime=Math.max(0,diagramTime-0.5));
+                button(Component.translatable("gui.tribalpower.codex.step_forward"),x+58,top+60,54,b->diagramTime+=0.5);
             }
         }
         else {
             button("<",contentX+80,top+60,28,b->{recipePage--;scroll=0;});
             button(">",contentX+112,top+60,28,b->{recipePage++;scroll=0;});
-            if(jei)button("JEI",contentX+144,top+60,36,b->openJei(stack(recipeItem),showUses));
+            if(jei)button(Component.translatable("gui.tribalpower.codex.jei"),contentX+144,top+60,36,b->openJei(stack(recipeItem),showUses));
         }
         rebuildList();
     }
@@ -141,8 +146,8 @@ public final class SpiritCodexScreen extends Screen {
     private void confirmSpoilers(Runnable after) {
         // Restore this screen first. Opening JEI in after() must not be replaced by setScreen(this).
         minecraft.setScreen(new ConfirmScreen(yes->{if(yes)spoilers=true;minecraft.setScreen(this);if(yes)after.run();},
-                Component.literal("Beyond the veil — spoilers"),Component.literal("The full wiki reveals creatures, materials, recipes and late-game discoveries. Reveal them for this reading session?"),
-                Component.literal("Reveal knowledge"),Component.literal("Keep discovering")));
+                Component.translatable("gui.tribalpower.codex.spoilers_title"),Component.translatable("gui.tribalpower.codex.spoilers_body"),
+                Component.translatable("gui.tribalpower.codex.spoilers_yes"),Component.translatable("gui.tribalpower.codex.spoilers_no")));
     }
     /** Spoiler pages stay veiled unless revealed for the session or unlocked in-world (Tribe Mark held, tablet read). */
     private boolean visible(Entry e){return spoilers||!e.spoiler()||CodexUnlocks.unlocked(e);}
@@ -189,6 +194,20 @@ public final class SpiritCodexScreen extends Screen {
         }
         return y+8;
     }
+    private int paragraph(GuiGraphics g,Component text,int y,int color) {
+        for(FormattedCharSequence line:font.split(text,contentWidth-12)){
+            g.drawString(font,line,contentX+6,y,color,false);y+=12;
+        }
+        return y+8;
+    }
+    private Component categoryLabel(String id) {
+        return switch(id) {
+            case "Contents" -> Component.translatable("gui.tribalpower.codex.contents");
+            case "Bookmarks" -> Component.translatable("gui.tribalpower.codex.bookmarks");
+            case "Recipe index" -> Component.translatable("gui.tribalpower.codex.recipe_index");
+            default -> Component.literal(id);
+        };
+    }
     private void item(GuiGraphics g,ItemStack item,int x,int y) {
         g.fill(x-1,y-1,x+17,y+17,0xFF23373F);g.renderItem(item,x,y);g.renderItemDecorations(font,item,x,y);
         if(y>=top+86&&y+16<=top+bookHeight-55)hits.add(new Hit(x,y,item));
@@ -200,10 +219,10 @@ public final class SpiritCodexScreen extends Screen {
         g.blit(atlas,left,top,bookWidth,bookHeight,0F,0F,1536,1024,1536,1024);
         g.fill(left+8,top+8,left+sidebar,top+bookHeight-8,0xCC101C27);
         g.fill(contentX-6,top+80,contentX+contentWidth+6,top+bookHeight-50,0xCC101C27);
-        g.drawString(font,"SPIRIT CODEX",left+26,top+12,GOLD,false);
-        String mode=spoilers?"THE VEIL IS OPEN":"SPOILER-SAFE";
+        g.drawString(font,Component.translatable("gui.tribalpower.codex.header"),left+26,top+12,GOLD,false);
+        Component mode=Component.translatable(spoilers?"gui.tribalpower.codex.veil_open":"gui.tribalpower.codex.spoiler_safe");
         g.drawString(font,mode,left+bookWidth-font.width(mode)-26,top+12,TEAL,false);
-        if(listButtons.isEmpty())g.drawString(font,"No matching pages",left+12,top+87,0xFF9CB8B9,false);
+        if(listButtons.isEmpty())g.drawString(font,Component.translatable("gui.tribalpower.codex.no_pages"),left+12,top+87,0xFF9CB8B9,false);
         hits.clear();int start=top+88;
         g.enableScissor(contentX,start,contentX+contentWidth,top+bookHeight-55);
         int y=start-scroll;
@@ -212,25 +231,30 @@ public final class SpiritCodexScreen extends Screen {
             y=paragraph(g,e.title(),y,GOLD);
             y=illustration(g,e,y);
             y=paragraph(g,e.text(),y,PAPER);
-            y=paragraph(g,"RELATED TEACHINGS",y+6,TEAL);
-            String hint=CodexUnlocks.hint(e.category());
+            y=paragraph(g,Component.translatable("gui.tribalpower.codex.related"),y+6,TEAL);
+            Component hint=CodexUnlocks.hint(e.category());
             if(hint!=null)y=paragraph(g,hint,y,TEAL);
             for(Entry other:CodexEntries.ALL) if(!other.id().equals(e.id())&&other.category().equals(e.category())&&visible(other)) {
                 g.drawString(font,"> "+font.plainSubstrByWidth(other.title(),contentWidth-22),contentX+6,y,GOLD,false);
                 links.add(new Link(y,other.id()));y+=16;
             }
         } else {
-            ItemStack focus=stack(recipeItem);item(g,focus,contentX+6,y);y=paragraph(g,focus.getHoverName().getString()+(showUses?" — uses":""),y+24,GOLD);
-            y=paragraph(g,"Click ingredients to follow their recipes. Left/right arrow keys change variants."+(CodexJeiLinks.available()?" Right-click an item, or the JEI button, to open Just Enough Items.":""),y,TEAL);
-            if(recipes.isEmpty())y=paragraph(g,showUses?"No registered recipe consumes this item as an ingredient. It may have a use in the world instead.":"No crafting or processing recipe is registered for this item. It may come from exploration, harvesting, trading or loot. Consult the relevant teaching.",y,PAPER);
+            ItemStack focus=stack(recipeItem);item(g,focus,contentX+6,y);
+            y=paragraph(g,Component.translatable(showUses?"gui.tribalpower.codex.item_uses":"gui.tribalpower.codex.item_recipes",focus.getHoverName()),y+24,GOLD);
+            y=paragraph(g,Component.translatable(CodexJeiLinks.available()?"gui.tribalpower.codex.recipe_intro_jei":"gui.tribalpower.codex.recipe_intro"),y,TEAL);
+            if(recipes.isEmpty())y=paragraph(g,Component.translatable(showUses?"gui.tribalpower.codex.no_uses":"gui.tribalpower.codex.no_recipe"),y,PAPER);
             else {
                 Recipe<?> recipe=recipes.get(Math.floorMod(recipePage,recipes.size())).value();
-                y=paragraph(g,"Recipe "+(Math.floorMod(recipePage,recipes.size())+1)+" / "+recipes.size()+"  [< / >]",y,GOLD);
+                y=paragraph(g,Component.translatable("gui.tribalpower.codex.recipe_n",Math.floorMod(recipePage,recipes.size())+1,recipes.size()),y,GOLD);
                 if(recipe instanceof LatticeRecipe lattice) {
-                    y=paragraph(g,lattice.station().replace('_',' ')+" / "+lattice.attunement().getSerializedName(),y,TEAL);
-                    y=paragraph(g,"Base recipe: "+lattice.seconds()+" seconds | "+lattice.pulse()+" Pulse/s | "+(lattice.seconds()*lattice.pulse())+" total Pulse",y,PAPER);
-                    y=paragraph(g,"Power settings, machine rank and local bonuses can change these values. Use the Codex on the placed machine to check its requirements.",y,TEAL);
-                } else y=paragraph(g,recipe instanceof ShapedRecipe?"Shaped crafting":recipe instanceof ShapelessRecipe?"Shapeless crafting":BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()).toString(),y,TEAL);
+                    y=paragraph(g,Component.translatable("gui.tribalpower.codex.lattice_kind",
+                            Component.translatable("block.tribalpower."+lattice.station()),
+                            Component.translatable("attunement.tribalpower."+lattice.attunement().getSerializedName())),y,TEAL);
+                    y=paragraph(g,Component.translatable("gui.tribalpower.codex.lattice_base",lattice.seconds(),lattice.pulse(),lattice.seconds()*lattice.pulse()),y,PAPER);
+                    y=paragraph(g,Component.translatable("gui.tribalpower.codex.lattice_note"),y,TEAL);
+                } else y=paragraph(g,recipe instanceof ShapedRecipe?Component.translatable("gui.tribalpower.codex.shaped")
+                        :recipe instanceof ShapelessRecipe?Component.translatable("gui.tribalpower.codex.shapeless")
+                        :Component.literal(String.valueOf(BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()))),y,TEAL);
                 int columns=recipe instanceof ShapedRecipe shaped?shaped.getWidth():3;
                 int rows=recipe instanceof ShapedRecipe shaped?shaped.getHeight():(recipe.getIngredients().size()+2)/3;
                 int index=0;
@@ -241,7 +265,7 @@ public final class SpiritCodexScreen extends Screen {
                 }
                 item(g,recipe.getResultItem(minecraft.level.registryAccess()),contentX+Math.min(110,contentWidth-24),y+20);
                 g.drawString(font,">",contentX+82,y+24,GOLD,false);y+=Math.max(rows*20,60)+12;
-                y=paragraph(g,"Recipes reflect this world's active datapacks. Hover an item for its name; click it to explore further.",y,PAPER);
+                y=paragraph(g,Component.translatable("gui.tribalpower.codex.recipe_datapacks"),y,PAPER);
             }
         }
         maxScroll=Math.max(0,y+scroll-(top+bookHeight-55));
@@ -274,7 +298,7 @@ public final class SpiritCodexScreen extends Screen {
         if(cover)return bottom+8;
         CodexDiagrams.draw(g,font,e,diagramX,diagramY,diagramWidth,t,(stack,pos)->item(g,stack,pos[0],pos[1]));
         bottom=Math.max(bottom,diagramY+height);
-        return paragraph(g,"Motion off, then Step or Left/Right to inspect. Click an item for Recipes; right-click opens JEI when it is installed. Placement views: top is north, one square is one block.",bottom+6,0xFF9CB8B9);
+        return paragraph(g,Component.translatable("gui.tribalpower.codex.diagram_hint"),bottom+6,0xFF9CB8B9);
     }
 
     @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical) {

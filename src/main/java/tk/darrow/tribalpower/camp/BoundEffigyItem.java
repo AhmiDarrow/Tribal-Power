@@ -32,14 +32,14 @@ public class BoundEffigyItem extends Item {
     public static int remaining(ItemStack stack){return stack.getItem() instanceof BoundEffigyItem&&!target(stack).isEmpty()?Math.clamp(data(stack).getInt("Summons"),0,MAX_USES):0;}
     public static void bind(ItemStack stack,String id,int uses){var tag=data(stack);tag.putString("BoundSpirit",allowed().contains(id)?id:"");tag.putInt("Summons",Math.clamp(uses,0,MAX_USES));stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));}
     public static void spend(ItemStack stack){bind(stack,target(stack),remaining(stack)-1);}
-    public static Component targetName(ItemStack stack){var id=ResourceLocation.tryParse(target(stack));return id==null?Component.literal("Unbound"):BuiltInRegistries.ENTITY_TYPE.get(id).getDescription();}
+    public static Component targetName(ItemStack stack){var id=ResourceLocation.tryParse(target(stack));return id==null?Component.translatable("message.tribalpower.effigy.unbound"):BuiltInRegistries.ENTITY_TYPE.get(id).getDescription();}
     @Override public InteractionResult interactLivingEntity(ItemStack stack,Player player,LivingEntity target,InteractionHand hand) {
         if(!(target instanceof Mob)||!player.isShiftKeyDown())return InteractionResult.PASS;
         String id=BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
         if(!allowed().contains(id))return InteractionResult.FAIL;
         if(!player.level().isClientSide) {
-            if(remaining(stack)>0){player.displayClientMessage(Component.literal("This effigy is still bound. Spend its threads before imprinting another spirit."),true);return InteractionResult.FAIL;}
-            bind(stack,id,0);player.displayClientMessage(Component.literal("Spirit imprinted: ").append(targetName(stack)).append(". Awaken it at a Ritual Brazier."),true);
+            if(remaining(stack)>0){player.displayClientMessage(Component.translatable("message.tribalpower.effigy.still_bound"),true);return InteractionResult.FAIL;}
+            bind(stack,id,0);player.displayClientMessage(Component.translatable("message.tribalpower.effigy.imprinted",targetName(stack)),true);
         }
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }
@@ -52,19 +52,19 @@ public class BoundEffigyItem extends Item {
         boolean ready=!target(effigy).isEmpty()&&remaining(effigy)==0&&brazier.seal().is(ModItems.SPIRIT_SEAL.get())&&!level.hasNeighborSignal(pos)
                 &&LatticeNetwork.hasAttunement(level,pos,8,Attunement.EARTH)&&LatticeNetwork.hasAttunement(level,pos,8,Attunement.AIR)&&LatticeNetwork.hasAttunement(level,pos,8,Attunement.SPIRIT)
                 &&cloth>=3&&LatticeNetwork.extractPulseNearby(level,pos,8,200,true)>=200;
-        if(!ready){player.displayClientMessage(Component.literal("Binding needs an exhausted imprint, Spirit-sealed Brazier, Earth/Air/Spirit voices, 3 Spiritweave and 200 Pulse. Redstone must be off."),true);return InteractionResult.FAIL;}
+        if(!ready){player.displayClientMessage(Component.translatable("message.tribalpower.effigy.need_bind"),true);return InteractionResult.FAIL;}
         LatticeNetwork.extractPulseNearby(level,pos,8,200,false);
         int owed=3;for(int i=0;i<player.getInventory().getContainerSize()&&owed>0;i++){var item=player.getInventory().getItem(i);if(item.is(ModItems.SPIRITWEAVE.get())){int n=Math.min(owed,item.getCount());item.shrink(n);owed-=n;}}
         bind(effigy,target(effigy),MAX_USES);player.getInventory().setChanged();
         CampHooks.award((ServerLevel)level,player.getUUID(),"bind_effigy");
         tk.darrow.tribalpower.effect.SpiritEffects.ring((ServerLevel)level,pos.getCenter(),Attunement.SPIRIT,2,24);
-        player.displayClientMessage(Component.literal("The spirit answers. 512 summoning threads are bound."),true);
+        player.displayClientMessage(Component.translatable("message.tribalpower.effigy.bound",MAX_USES),true);
         return InteractionResult.SUCCESS;
     }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> tooltip,TooltipFlag flag){
-        tooltip.add(targetName(stack));tooltip.add(Component.literal(remaining(stack)+" / "+MAX_USES+" summoning threads"));
-        tooltip.add(Component.literal("Sneak-use on a creature to imprint an exhausted effigy."));
-        tooltip.add(Component.literal("Renew at a Ritual Brazier; see the Spirit Codex."));
+        tooltip.add(targetName(stack));tooltip.add(Component.translatable("message.tribalpower.effigy.threads",remaining(stack),MAX_USES));
+        tooltip.add(Component.translatable("message.tribalpower.effigy.imprint_hint"));
+        tooltip.add(Component.translatable("message.tribalpower.effigy.renew_hint"));
     }
     @Override public boolean isBarVisible(ItemStack stack){return !target(stack).isEmpty();}
     @Override public int getBarWidth(ItemStack stack){return Math.round(13F*remaining(stack)/MAX_USES);}

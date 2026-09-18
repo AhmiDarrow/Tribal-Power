@@ -104,7 +104,7 @@ public class WorkshopGameTests {
         be.beat(h.getLevel());
         h.assertTrue(from.tank.getFluidAmount() == 750 && to.tank.getFluidAmount() == 250,
                 "Extract mode draws 250 mB from the face into the back, from=" + from.tank.getFluidAmount() + " to=" + to.tank.getFluidAmount() + " " + be.status().getString());
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         be.cycle(player);
         be.beat(h.getLevel());
         h.assertTrue(from.tank.getFluidAmount() == 1000 && to.tank.getFluidAmount() == 0,
@@ -148,7 +148,7 @@ public class WorkshopGameTests {
         loom.setItem(0, new ItemStack(Items.OAK_PLANKS));
         loom.setItem(3, new ItemStack(Items.OAK_PLANKS));
         loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         loom.imprint(player);
         h.assertTrue(RecipeSealItem.recipeId(loom.getItem(SealLoomBlockEntity.SEAL)) != null, "Blank seal must imprint a recipe");
         loom.setItem(0, new ItemStack(Items.OAK_PLANKS, 4));
@@ -314,7 +314,7 @@ public class WorkshopGameTests {
         loom.setItem(0, new ItemStack(Items.OAK_PLANKS, 4));
         loom.setItem(3, new ItemStack(Items.OAK_PLANKS, 4));
         loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
-        loom.imprint(h.makeMockServerPlayerInLevel());
+        loom.imprint(VerificationPlayers.inLevel(h));
         loom.setItem(SealLoomBlockEntity.OUTPUT, new ItemStack(Items.STICK, 62));
         for (int i = SealLoomBlockEntity.OUTPUT + 1; i < SealLoomBlockEntity.SIZE; i++)
             loom.setItem(i, new ItemStack(Items.DIRT, 64));
@@ -333,7 +333,7 @@ public class WorkshopGameTests {
         var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         loom.setItem(8, new ItemStack(Items.HONEY_BOTTLE));
         loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
-        loom.imprint(h.makeMockServerPlayerInLevel());
+        loom.imprint(VerificationPlayers.inLevel(h));
         loom.beat(h.getLevel());
         h.assertTrue(loom.getItem(8).is(Items.GLASS_BOTTLE), "Bottle returns to the original bottom-right ingredient slot");
         h.assertTrue(loom.getItem(0).isEmpty(), "Trimmed recipe coordinates must not move the bottle to top-left");

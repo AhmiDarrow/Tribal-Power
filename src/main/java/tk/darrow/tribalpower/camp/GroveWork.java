@@ -34,8 +34,8 @@ final class GroveWork {
     }
 
     static void tend(CampBlockEntity be, ServerLevel server) {
-        be.reason = "Tending a 9x9 bed, trees and cane";
-        if (be.owner == null) { be.reason = "Place this tender yourself to claim it"; return; }
+        be.setReason("tending");
+        if (be.owner == null) { be.setReason("unclaimed"); return; }
         if (be.pulse < 4) return;
         var farmer = FakePlayerFactory.get(server, new GameProfile(be.owner, be.ownerName));
         for (int scan = 0; scan < 9; scan++) {
@@ -68,9 +68,9 @@ final class GroveWork {
             if (be.pulse < 12) return false;
             List<ItemStack> drops = new ArrayList<>(Block.getDrops(state, server, pos, null, farmer, ItemStack.EMPTY));
             var preview = be.copyItemsPublic();
-            if (!CampBlockEntity.storeDrops(preview, drops)) { be.reason = "Output full; crop preserved"; return true; }
+            if (!CampBlockEntity.storeDrops(preview, drops)) { be.setReason("output_full"); return true; }
             if (!server.setBlock(pos, state.setValue(SweetBerryBushBlock.AGE, 1), 3)) return false;
-            be.replaceItems(preview); be.spendPublic(12); be.active = true; be.reason = "Picked berries"; return true;
+            be.replaceItems(preview); be.spendPublic(12); be.active = true; be.setReason("berries"); return true;
         }
         if (block instanceof SugarCaneBlock || block instanceof CactusBlock || block instanceof BambooStalkBlock) {
             BlockPos top = pos;
@@ -96,7 +96,7 @@ final class GroveWork {
                 || state.getBlock() instanceof SweetBerryBushBlock || state.getBlock() instanceof BambooSaplingBlock)) {
             if (!growable.isBonemealSuccess(server, server.random, pos, state)) return false;
             growable.performBonemeal(server, server.random, pos, state);
-            be.spendPublic(16); be.active = true; be.reason = "Urged a plant to grow"; return true;
+            be.spendPublic(16); be.active = true; be.setReason("urged"); return true;
         }
         return false;
     }
@@ -115,8 +115,8 @@ final class GroveWork {
             if (!planted.canSurvive(server, pos)) continue;
             var snapshot = BlockSnapshot.create(server.dimension(), server, pos);
             if (!server.setBlock(pos, planted, 3)) continue;
-            if (EventHooks.onBlockPlace(farmer, snapshot, Direction.UP)) { snapshot.restore(3); be.reason = "Planting protected"; return false; }
-            seed.shrink(1); be.spendPublic(4); be.active = true; be.reason = "Planted"; return true;
+            if (EventHooks.onBlockPlace(farmer, snapshot, Direction.UP)) { snapshot.restore(3); be.setReason("plant_protected"); return false; }
+            seed.shrink(1); be.spendPublic(4); be.active = true; be.setReason("planted"); return true;
         }
         return false;
     }
@@ -128,8 +128,8 @@ final class GroveWork {
             if (!planted.canSurvive(server, pos)) continue;
             var snapshot = BlockSnapshot.create(server.dimension(), server, pos);
             if (!server.setBlock(pos, planted, 3)) continue;
-            if (EventHooks.onBlockPlace(farmer, snapshot, dir)) { snapshot.restore(3); be.reason = "Planting protected"; return false; }
-            seed.shrink(1); be.spendPublic(4); be.active = true; be.reason = "Planted cocoa"; return true;
+            if (EventHooks.onBlockPlace(farmer, snapshot, dir)) { snapshot.restore(3); be.setReason("plant_protected"); return false; }
+            seed.shrink(1); be.spendPublic(4); be.active = true; be.setReason("planted_cocoa"); return true;
         }
         return false;
     }
@@ -149,17 +149,17 @@ final class GroveWork {
                                           BlockPos pos, BlockState state, BlockState replant, net.minecraft.world.item.Item seed, int cost) {
         if (be.pulse < cost) return false;
         if (NeoForge.EVENT_BUS.post(new BlockEvent.BreakEvent(server, pos, state, farmer)).isCanceled()) {
-            be.reason = "Crop protected"; return false;
+            be.setReason("crop_protected"); return false;
         }
         List<ItemStack> drops = new ArrayList<>(Block.getDrops(state, server, pos, null, farmer, ItemStack.EMPTY));
         boolean reserved = false;
         for (var drop : drops) if (drop.is(seed) && !drop.isEmpty()) { drop.shrink(1); reserved = true; break; }
         var preview = be.copyItemsPublic();
         if (!reserved) for (int i = 0; i < 9; i++) if (preview.get(i).is(seed)) { preview.get(i).shrink(1); reserved = true; break; }
-        if (!reserved) { be.reason = "Needs one seed to replant"; return false; }
-        if (!CampBlockEntity.storeDrops(preview, drops)) { be.reason = "Output full; crop preserved"; return true; }
+        if (!reserved) { be.setReason("need_seed"); return false; }
+        if (!CampBlockEntity.storeDrops(preview, drops)) { be.setReason("output_full"); return true; }
         if (!server.setBlock(pos, replant, 3)) return false;
-        be.replaceItems(preview); be.spendPublic(cost); be.active = true; be.reason = "Harvested and replanted"; return true;
+        be.replaceItems(preview); be.spendPublic(cost); be.active = true; be.setReason("replanted"); return true;
     }
 
     private static boolean breakLoose(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer,
@@ -169,8 +169,8 @@ final class GroveWork {
         if (NeoForge.EVENT_BUS.post(new BlockEvent.BreakEvent(server, pos, state, farmer)).isCanceled()) return false;
         List<ItemStack> drops = new ArrayList<>(Block.getDrops(state, server, pos, null, farmer, ItemStack.EMPTY));
         var preview = be.copyItemsPublic();
-        if (!CampBlockEntity.storeDrops(preview, drops)) { be.reason = "Output full; crop preserved"; return true; }
+        if (!CampBlockEntity.storeDrops(preview, drops)) { be.setReason("output_full"); return true; }
         if (!server.setBlock(pos, Blocks.AIR.defaultBlockState(), 3)) return false;
-        be.replaceItems(preview); be.spendPublic(cost); be.active = true; be.reason = "Harvested"; return true;
+        be.replaceItems(preview); be.spendPublic(cost); be.active = true; be.setReason("harvested"); return true;
     }
 }

@@ -41,6 +41,12 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         if (factors.pad()) tk.darrow.tribalpower.lattice.Keeping.livingBeat(level, pos);
     }
 
+    /** Landscape beat plus machine rank — the same Pulse the tick inserts. */
+    public int currentBeat(Level world, BlockPos pos) {
+        int gain = tk.darrow.tribalpower.ley.LeyMath.gain(world, pos);
+        return gain + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, gain);
+    }
+
     @Override
     public int getPulseStored() {
         return pulse.getPulseStored();
@@ -86,6 +92,8 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     @Override
     public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel level, BlockPos pos) {
         java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>(tk.darrow.tribalpower.ley.LeyMath.breakdown(level, pos));
+        lines.add(net.minecraft.network.chat.Component.translatable("ley.tribalpower.live", currentBeat(level, pos),
+                tk.darrow.tribalpower.ley.LeyMath.MAX_GAIN));
         lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.ley_collector.beat", GAIN_INTERVAL - tickCounter));
         return lines;
     }

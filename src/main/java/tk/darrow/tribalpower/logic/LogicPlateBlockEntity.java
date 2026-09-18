@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,7 +20,9 @@ public class LogicPlateBlockEntity extends BlockEntity {
     private int step;
     private boolean lastLeft;
     private boolean lastBack;
-    private String reason = "Listening";
+    private String reason = "listening";
+    private int reasonA;
+    private int reasonB;
 
     public LogicPlateBlockEntity(BlockPos pos, BlockState state) {
         super(LogicRegistry.PLATE_TYPE.get(), pos, state);
@@ -30,23 +33,36 @@ public class LogicPlateBlockEntity extends BlockEntity {
         return LogicKind.fromId(BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath());
     }
 
-    public String status() { return reason; }
+    public Component status() {
+        return switch (reason) {
+            case "heartbeat" -> Component.translatable("message.tribalpower.logic.heartbeat", reasonA);
+            case "drift" -> Component.translatable("message.tribalpower.logic.drift", reasonA, reasonB);
+            case "tally" -> Component.translatable("message.tribalpower.logic.tally", reasonA, reasonB);
+            case "verse" -> Component.translatable("message.tribalpower.logic.verse", reasonA);
+            case "listening", "chorus_sings", "chorus_waits", "gathering_open", "gathering_quiet",
+                    "discord_split", "discord_even", "hush_holds", "hush_breaks", "inverse_flipped",
+                    "inverse_pressed", "echo_carries", "echo_silent", "memory_set", "memory_clear",
+                    "strike", "strike_wait", "chance_yes", "chance_no"
+                    -> Component.translatable("message.tribalpower.logic." + reason);
+            default -> Component.literal(reason);
+        };
+    }
 
-    public String cycle() {
-        String next = switch (kind()) {
+    public Component cycle() {
+        Component next = switch (kind()) {
             case HEARTBEAT -> {
                 period = period >= 160 ? 20 : period * 2;
-                yield "Heartbeat every " + period + " ticks";
+                yield Component.translatable("message.tribalpower.logic.cycle.heartbeat", period);
             }
             case DRIFT -> {
                 wait = wait >= 32 ? 4 : wait * 2;
-                yield "Drift " + wait + " ticks";
+                yield Component.translatable("message.tribalpower.logic.cycle.drift", wait);
             }
             case TALLY -> {
                 threshold = threshold >= 8 ? 1 : threshold + 1;
-                yield "Tally " + threshold;
+                yield Component.translatable("message.tribalpower.logic.cycle.tally", threshold);
             }
-            default -> reason;
+            default -> status();
         };
         setChanged();
         return next;
@@ -62,49 +78,49 @@ public class LogicPlateBlockEntity extends BlockEntity {
         int out = 0;
         LogicKind kind = be.kind();
         switch (kind) {
-            case CHORUS -> { out = leftOn && rightOn ? 15 : 0; be.reason = "Chorus " + (out > 0 ? "sings" : "waits"); }
-            case GATHERING -> { out = leftOn || rightOn ? 15 : 0; be.reason = "Gathering " + (out > 0 ? "open" : "quiet"); }
-            case DISCORD -> { out = leftOn ^ rightOn ? 15 : 0; be.reason = "Discord " + (out > 0 ? "split" : "even"); }
-            case HUSH -> { out = !(leftOn && rightOn) ? 15 : 0; be.reason = "Hush " + (out > 0 ? "holds" : "breaks"); }
-            case INVERSE -> { out = backOn ? 0 : 15; be.reason = "Inverse " + (out > 0 ? "flipped" : "pressed"); }
-            case ECHO -> { out = backOn ? 15 : 0; be.reason = "Echo " + (out > 0 ? "carries" : "silent"); }
+            case CHORUS -> { out = leftOn && rightOn ? 15 : 0; be.setReason(out > 0 ? "chorus_sings" : "chorus_waits"); }
+            case GATHERING -> { out = leftOn || rightOn ? 15 : 0; be.setReason(out > 0 ? "gathering_open" : "gathering_quiet"); }
+            case DISCORD -> { out = leftOn ^ rightOn ? 15 : 0; be.setReason(out > 0 ? "discord_split" : "discord_even"); }
+            case HUSH -> { out = !(leftOn && rightOn) ? 15 : 0; be.setReason(out > 0 ? "hush_holds" : "hush_breaks"); }
+            case INVERSE -> { out = backOn ? 0 : 15; be.setReason(out > 0 ? "inverse_flipped" : "inverse_pressed"); }
+            case ECHO -> { out = backOn ? 15 : 0; be.setReason(out > 0 ? "echo_carries" : "echo_silent"); }
             case MEMORY -> {
                 if (leftOn) be.memory = 15;
                 if (rightOn) be.memory = 0;
                 out = be.memory;
-                be.reason = out > 0 ? "Memory set" : "Memory clear";
+                be.setReason(out > 0 ? "memory_set" : "memory_clear");
             }
             case HEARTBEAT -> {
                 be.delay++;
                 if (be.delay >= be.period) { be.delay = 0; out = 15; }
-                be.reason = "Heartbeat " + be.period + "t";
+                be.setReason("heartbeat", be.period, 0);
             }
             case DRIFT -> {
                 if (backOn) { if (be.delay < be.wait) be.delay++; }
                 else be.delay = 0;
                 out = be.delay >= be.wait ? 15 : 0;
-                be.reason = "Drift " + be.delay + "/" + be.wait;
+                be.setReason("drift", be.delay, be.wait);
             }
             case TALLY -> {
                 if (backOn && !be.lastBack) be.memory = Math.min(15, be.memory + 1);
                 if (leftOn && !be.lastLeft) be.memory = 0;
                 out = be.memory >= be.threshold ? 15 : 0;
-                be.reason = "Tally " + be.memory + "/" + be.threshold;
+                be.setReason("tally", be.memory, be.threshold);
             }
             case STRIKE -> {
                 out = backOn && !be.lastBack ? 15 : 0;
-                be.reason = out > 0 ? "Strike" : "Waiting for a rising edge";
+                be.setReason(out > 0 ? "strike" : "strike_wait");
             }
             case CHANCE -> {
                 if (backOn && !be.lastBack) be.memory = level.random.nextBoolean() ? 15 : 0;
                 if (!backOn) be.memory = 0;
                 out = be.memory;
-                be.reason = "Chance " + (out > 0 ? "yes" : "no");
+                be.setReason(out > 0 ? "chance_yes" : "chance_no");
             }
             case VERSE -> {
                 if (backOn && !be.lastBack) be.step = (be.step + 1) % 4;
                 out = new int[]{4, 8, 12, 15}[be.step];
-                be.reason = "Verse step " + (be.step + 1);
+                be.setReason("verse", be.step + 1, 0);
             }
         }
         be.lastBack = backOn;
@@ -115,6 +131,9 @@ public class LogicPlateBlockEntity extends BlockEntity {
             be.setChanged();
         }
     }
+
+    private void setReason(String key) { reason = key; reasonA = 0; reasonB = 0; }
+    private void setReason(String key, int a, int b) { reason = key; reasonA = a; reasonB = b; }
 
     private static int input(Level level, BlockPos pos, Direction side) {
         BlockPos neighbor = pos.relative(side);
@@ -151,6 +170,8 @@ public class LogicPlateBlockEntity extends BlockEntity {
         tag.putBoolean("LastLeft", lastLeft);
         tag.putBoolean("LastBack", lastBack);
         tag.putString("Reason", reason);
+        tag.putInt("ReasonA", reasonA);
+        tag.putInt("ReasonB", reasonB);
     }
 
     @Override
@@ -165,5 +186,8 @@ public class LogicPlateBlockEntity extends BlockEntity {
         lastLeft = tag.getBoolean("LastLeft");
         lastBack = tag.getBoolean("LastBack");
         reason = tag.getString("Reason");
+        if (reason.isEmpty()) reason = "listening";
+        reasonA = tag.getInt("ReasonA");
+        reasonB = tag.getInt("ReasonB");
     }
 }

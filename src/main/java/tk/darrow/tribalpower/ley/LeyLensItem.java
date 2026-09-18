@@ -231,6 +231,8 @@ public class LeyLensItem extends Item {
             for (Component line : LeyMath.breakdown(server, pos))
                 player.sendSystemMessage(Component.literal("  · ").withStyle(ChatFormatting.DARK_AQUA).append(line.copy().withStyle(ChatFormatting.GRAY)));
             player.sendSystemMessage(Component.literal("  · ").withStyle(ChatFormatting.DARK_AQUA)
+                    .append(Component.translatable("ley.tribalpower.live", collector.currentBeat(server, pos), LeyMath.MAX_GAIN).withStyle(ChatFormatting.GRAY)));
+            player.sendSystemMessage(Component.literal("  · ").withStyle(ChatFormatting.DARK_AQUA)
                     .append(Component.translatable("diag.tribalpower.stored", collector.getPulseStored(), collector.getPulseCapacity()).withStyle(ChatFormatting.GRAY)));
         }
         return InteractionResult.sidedSuccess(context.getLevel().isClientSide);

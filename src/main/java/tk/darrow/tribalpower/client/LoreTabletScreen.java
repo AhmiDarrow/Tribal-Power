@@ -30,7 +30,7 @@ public final class LoreTabletScreen extends Screen {
         g.fill(x, y, x + w, y + 1, TEAL);
         g.fill(x + 6, y + 6, x + w - 6, y + h - 6, PAPER_DARK);
         g.fill(x + 7, y + 7, x + w - 7, y + h - 7, PAPER);
-        g.drawCenteredString(font, Component.literal("Tablet " + (tablet + 1) + " of " + LoreTabletBlock.TABLETS).withStyle(s -> s.withColor(GOLD)), x + w / 2, y + 12, GOLD);
+        g.drawCenteredString(font, Component.translatable("screen.tribalpower.lore_tablet.index", tablet + 1, LoreTabletBlock.TABLETS).withStyle(s -> s.withColor(GOLD)), x + w / 2, y + 12, GOLD);
         g.drawCenteredString(font, title, x + w / 2, y + 24, INK);
         g.fill(x + 24, y + 35, x + w - 24, y + 36, GOLD);
         List<FormattedCharSequence> lines = font.split(Component.translatable("lore.tribalpower.tablet." + tablet + ".text"), w - 32);

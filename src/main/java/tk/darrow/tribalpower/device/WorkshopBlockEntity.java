@@ -30,7 +30,9 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo {
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private boolean extract = true;
-    private String reason = "Waiting";
+    private String reason = "waiting";
+    private int reasonN;
+    private String reasonName = "";
     private FluidStack pending = FluidStack.EMPTY;
     private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.mesh();
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
@@ -43,13 +45,25 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
 
     public String kind() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
 
-    public Component status() { return Component.literal(reason); }
+    public Component status() {
+        return switch (reason) {
+            case "need_pulse" -> Component.translatable("message.tribalpower.workshop.need_pulse", reasonN);
+            case "need_pulse_stack" -> Component.translatable("message.tribalpower.workshop.need_pulse_stack", reasonN);
+            case "drawing" -> Component.translatable("message.tribalpower.workshop.drawing", reasonN);
+            case "pushing" -> Component.translatable("message.tribalpower.workshop.pushing", reasonN);
+            case "caught" -> Component.translatable("message.tribalpower.workshop.caught", reasonN);
+            case "struck" -> Component.translatable("message.tribalpower.workshop.struck", reasonName);
+            case "waiting", "paused", "need_tanks", "dest_full", "nothing", "listening", "idle_ward", "draw_face", "push_face"
+                    -> Component.translatable("message.tribalpower.workshop." + reason);
+            default -> Component.literal(reason);
+        };
+    }
 
     public int signal() {
         return switch (kind()) {
             case "tide_pump" -> extract ? 15 : 1;
             case "wind_snare" -> AbstractContainerMenu.getRedstoneSignalFromContainer(this);
-            case "ward_drum" -> reason.startsWith("Struck") ? 15 : 0;
+            case "ward_drum" -> "struck".equals(reason) || reason.startsWith("Struck") ? 15 : 0;
             default -> 0;
         };
     }
@@ -57,7 +71,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     public void cycle(Player player) {
         if ("tide_pump".equals(kind())) {
             extract = !extract;
-            reason = extract ? "Drawing from the face" : "Pushing into the face";
+            setReason(extract ? "draw_face" : "push_face");
             player.displayClientMessage(status(), true);
             setChanged();
         } else player.displayClientMessage(status(), true);
@@ -71,15 +85,18 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     }
 
     public void beat(ServerLevel server) {
-        if (server.hasNeighborSignal(worldPosition)) { reason = "Paused by redstone"; return; }
+        if (server.hasNeighborSignal(worldPosition)) { setReason("paused"); return; }
         switch (kind()) {
             case "tide_pump" -> pump(server);
             case "wind_snare" -> vacuum(server);
             case "ward_drum" -> fight(server);
         }
-        boolean lit = !reason.startsWith("Paused") && !reason.startsWith("Need") && !reason.startsWith("Waiting");
-        if (getBlockState().getValue(WorkshopBlock.LIT) != lit)
-            server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, lit), 3);
+        boolean idle = switch (reason) {
+            case "waiting", "paused", "need_pulse", "need_pulse_stack", "need_tanks" -> true;
+            default -> reason.startsWith("Paused") || reason.startsWith("Need") || reason.startsWith("Waiting");
+        };
+        if (getBlockState().getValue(WorkshopBlock.LIT) != !idle)
+            server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, !idle), 3);
         server.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
     }
 
@@ -89,33 +106,33 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         BlockPos back = worldPosition.relative(face.getOpposite());
         IFluidHandler from = server.getCapability(Capabilities.FluidHandler.BLOCK, extract ? front : back, extract ? face.getOpposite() : face);
         IFluidHandler to = server.getCapability(Capabilities.FluidHandler.BLOCK, extract ? back : front, extract ? face : face.getOpposite());
-        if (from == null || to == null) { reason = "Need a tank on both faces"; return; }
+        if (from == null || to == null) { setReason("need_tanks"); return; }
         int cost = 4;
-        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse"; return; }
+        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
         if (!pending.isEmpty()) {
             int flushed = to.fill(pending.copy(), IFluidHandler.FluidAction.EXECUTE);
             if (flushed > 0) { pending.shrink(flushed); setChanged(); }
-            if (!pending.isEmpty()) { reason = "Destination full"; return; }
+            if (!pending.isEmpty()) { setReason("dest_full"); return; }
         }
         FluidStack drained = from.drain(250, IFluidHandler.FluidAction.SIMULATE);
-        if (drained.isEmpty()) { reason = "Nothing to move"; return; }
+        if (drained.isEmpty()) { setReason("nothing"); return; }
         int filled = to.fill(drained, IFluidHandler.FluidAction.SIMULATE);
-        if (filled <= 0) { reason = "Destination full"; return; }
+        if (filled <= 0) { setReason("dest_full"); return; }
         FluidStack moved = from.drain(filled, IFluidHandler.FluidAction.EXECUTE);
-        if (moved.isEmpty()) { reason = "Nothing to move"; return; }
+        if (moved.isEmpty()) { setReason("nothing"); return; }
         int accepted = to.fill(moved, IFluidHandler.FluidAction.EXECUTE);
         if (accepted < moved.getAmount()) {
             pending = moved.copy();
             pending.setAmount(moved.getAmount() - accepted);
         }
         LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false);
-        reason = extract ? "Drawing " + accepted + " mB" : "Pushing " + accepted + " mB";
+        setReason(extract ? "drawing" : "pushing", accepted);
         setChanged();
     }
 
     private void vacuum(ServerLevel server) {
         int cost = 2;
-        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse per stack"; return; }
+        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse_stack", cost); return; }
         var box = new AABB(worldPosition).inflate(8);
         int pulled = 0;
         for (ItemEntity entity : server.getEntitiesOfClass(ItemEntity.class, box, e -> !e.isRemoved() && !e.getItem().isEmpty())) {
@@ -128,7 +145,8 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             pulled++;
             if (pulled >= 8) break;
         }
-        reason = pulled > 0 ? "Caught " + pulled + " stacks" : "Listening for dropped items";
+        if (pulled > 0) setReason("caught", pulled);
+        else setReason("listening");
     }
 
     private ItemStack insertLeftover(ItemStack stack, boolean simulate) {
@@ -152,7 +170,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
 
     private void fight(ServerLevel server) {
         int cost = 8;
-        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { reason = "Need " + cost + " Pulse"; return; }
+        if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
         var box = new AABB(worldPosition).inflate(8);
         for (var living : server.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, box,
                 e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive())) {
@@ -161,12 +179,16 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             var push = living.position().subtract(worldPosition.getCenter()).normalize().scale(0.35);
             living.setDeltaMovement(living.getDeltaMovement().add(push.x, 0.15, push.z));
             living.hurtMarked = true;
-            reason = "Struck " + living.getName().getString();
+            setReason("struck", living.getName().getString());
             setChanged();
             return;
         }
-        reason = "No hostiles within 8";
+        setReason("idle_ward");
     }
+
+    private void setReason(String key) { reason = key; reasonN = 0; reasonName = ""; }
+    private void setReason(String key, int n) { reason = key; reasonN = n; reasonName = ""; }
+    private void setReason(String key, String name) { reason = key; reasonN = 0; reasonName = name; }
 
     @Override protected NonNullList<ItemStack> getItems() { return items; }
     @Override protected void setItems(NonNullList<ItemStack> value) { items = value; }
@@ -187,6 +209,8 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         ContainerHelper.saveAllItems(tag, items, registries);
         tag.putBoolean("Extract", extract);
         tag.putString("Reason", reason);
+        tag.putInt("ReasonN", reasonN);
+        tag.putString("ReasonName", reasonName);
         if (!pending.isEmpty()) tag.put("Pending", pending.save(registries));
         sides.save(tag);
     }
@@ -196,6 +220,9 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         ContainerHelper.loadAllItems(tag, items, registries);
         extract = !tag.contains("Extract") || tag.getBoolean("Extract");
         reason = tag.getString("Reason");
+        if (reason.isEmpty()) reason = "waiting";
+        reasonN = tag.getInt("ReasonN");
+        reasonName = tag.getString("ReasonName");
         pending = FluidStack.parseOptional(registries, tag.getCompound("Pending"));
         sides.load(tag);
     }

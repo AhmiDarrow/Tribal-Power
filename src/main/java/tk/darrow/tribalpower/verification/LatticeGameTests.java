@@ -22,7 +22,7 @@ public class LatticeGameTests {
         var pos = new BlockPos(2, 2, 2);
         h.setBlock(pos, tk.darrow.tribalpower.camp.CampRegistry.DEVICES.get("offering_table").get());
         var device = (tk.darrow.tribalpower.camp.CampBlockEntity) h.getBlockEntity(pos);
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         try {
             device.setOwner(java.util.UUID.randomUUID());
             player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
@@ -51,7 +51,7 @@ public class LatticeGameTests {
         h.assertTrue(entries.size()>=54 && !entries.getFirst().spoiler(),"Complete Codex needs a spoiler-safe landing");
         h.assertTrue(entries.stream().anyMatch(e->"chapter_1".equals(e.id()) && e.text().contains("JEI")),"The landing page must mention JEI as an optional recipe link");
         h.assertTrue(entries.stream().anyMatch(e->"walk_pulse_resonator".equals(e.id()) && e.text().contains("Echo Shard")),"Codex must teach seating a Resonator");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_lattice_conductor".equals(e.id()) && e.text().contains("Ritual Chalk")),"Codex must teach running a Conductor");
+        h.assertTrue(entries.stream().anyMatch(e->"walk_lattice_conductor".equals(e.id()) && e.text().contains("Ritual Chalk") && e.text().contains("voice-craft")),"A Conductor walkthrough must name voice-crafts, not only the three starter drums");
         h.assertTrue(entries.stream().anyMatch(e->"walk_offering_table".equals(e.id()) && e.text().contains("27") && !e.text().contains("Standing still applies")),"Offering Table is storage, not a hearth");
         h.assertTrue(entries.stream().anyMatch(e->"walk_spring_calling".equals(e.id()) && e.text().contains("Rite Pedestals")),"Spring Calling is a tablet rite and needs its circle");
         h.assertTrue(entries.stream().anyMatch(e->"walk_pulse_threshold".equals(e.id()) && e.text().contains("Inverse") && e.text().contains("at or above")),"A Threshold sings while Pulse is high");
@@ -96,7 +96,7 @@ public class LatticeGameTests {
         h.assertTrue(entries.stream().anyMatch(e->"Sixfold Staff".equals(e.title()) && e.text().contains("within 12 blocks")),"Spirit staff reveal reaches 12 blocks");
         h.assertTrue(entries.stream().anyMatch(e->"Ley Collector".equals(e.title()) && e.text().contains("holds 2,000 Pulse") && e.text().contains("15% Pulse a second per rank") && !e.text().contains("hum harder")),"A Ley Collector holds 2,000 Pulse and ranks at 15% per rank");
         h.assertTrue(entries.stream().anyMatch(e->"Pulse Resonator".equals(e.title()) && e.text().contains("holds 2,500 Pulse")),"A Pulse Resonator holds 2,500 Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Spirit Pulse".equals(e.title()) && e.text().contains("Each totem holds 250 Pulse")),"Totem buffers hold 250 Pulse");
+        h.assertTrue(entries.stream().anyMatch(e->"Spirit Pulse".equals(e.title()) && e.text().contains("Each totem holds 250 Pulse") && e.text().contains("tools, spells and travel") && !e.text().contains("tools and other uses")),"A Pulse Cell carries Pulse for tools, spells and travel");
         h.assertTrue(entries.stream().anyMatch(e->"Chalk and conductor".equals(e.title()) && e.text().contains("voice-craft") && e.text().contains("nearby generators") && e.text().contains("Each totem holds 250 Pulse")),"A Conductor drains any nearby generator, not only the three starter drums");
         h.assertTrue(entries.stream().anyMatch(e->"Resonance Maul".equals(e.title()) && e.text().contains("rests one second")),"The Resonance Maul rests one second after a break");
         h.assertTrue(entries.stream().anyMatch(e->"Spirit Charms".equals(e.title()) && e.text().contains("one projectile in four")),"Ward turns aside one projectile in four");
@@ -114,7 +114,8 @@ public class LatticeGameTests {
         h.assertTrue(entries.stream().anyMatch(e->"Sixfold Staff".equals(e.title()) && e.text().contains("up to 8 blocks")),"Loom tether pulls up to 8 blocks");
         h.assertTrue(entries.stream().anyMatch(e->"Spiritgear ranks".equals(e.title()) && e.text().contains("8 seconds and 24 Pulse a second")),"Spiritgear Attune is 8s/24 Pulse a second, half the machine formula");
         h.assertTrue(entries.stream().anyMatch(e->"Tribal Kin".equals(e.title()) && e.text().contains("every 6 seconds") && e.text().contains("Drumheart, Ley Collector or Pulse Resonator") && !e.text().contains("generators within 8 blocks")),"A Drummer feeds Drumheart, Ley Collector and Pulse Resonator only");
-        h.assertTrue(entries.stream().anyMatch(e->"Standing".equals(e.title()) && e.text().contains("60 standing") && e.text().contains("at most 40 Pulse")),"Hearth offerings cap at 60 standing a day; a cell drains at most 40 Pulse");
+        h.assertTrue(entries.stream().anyMatch(e->"Standing".equals(e.title()) && e.text().contains("60 standing") && e.text().contains("at most 40 Pulse") && e.text().contains("breaking a banner costs 5") && !e.text().contains("camp blocks")),"Hearth offerings cap at 60 standing a day; a banner costs 5, not generic camp blocks");
+        h.assertTrue(entries.stream().anyMatch(e->"Redstone language".equals(e.title()) && e.text().contains("other than the Drumheart") && !e.text().contains("and every generator")),"Held redstone pauses generators other than the Drumheart");
         h.assertTrue(entries.stream().anyMatch(e->"Pulse lights".equals(e.title()) && e.text().contains("1 Pulse a second") && e.text().contains("Glow Reed") && e.text().contains("Wind Charm")),"Pulse lights draw 1 or 2 Pulse a second; a Wind Charm spends none");
         h.assertTrue(entries.stream().anyMatch(e->"Wind Charm".equals(e.title()) && e.text().contains("no collision") && e.text().contains("spends no Pulse")),"A Wind Charm hangs from a ceiling, has no collision, and spends no Pulse");
         h.assertTrue(entries.stream().anyMatch(e->"Ember Horn".equals(e.title()) && e.text().contains("15% Pulse a second per rank") && !e.text().contains("the rate is the real cap")),"An Ember Horn's 20 a second is the unranked cap; rank adds 15%");
@@ -185,7 +186,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=100)
     public static void playerWaypointObeysLockCostAndCooldown(GameTestHelper h) {
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         try {
             player.getAbilities().instabuild=false;
             var boat=h.spawn(net.minecraft.world.entity.EntityType.BOAT,new BlockPos(2,2,2));
@@ -614,7 +615,7 @@ public class LatticeGameTests {
         h.setBlock(2,1,2,Blocks.STONE);
         h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
         h.setBlock(6,2,2,Blocks.CHEST);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var tuner=new ItemStack(ModItems.LATTICE_TUNER.get());
         var relayPos=h.absolutePos(new BlockPos(2,2,2));
         var chestPos=h.absolutePos(new BlockPos(6,2,2));
@@ -636,6 +637,11 @@ public class LatticeGameTests {
     public static void adapterExportsButNeverImportsFE(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.PULSE_ADAPTER.get());power(h);
         var adapter=at(h,pos,PulseAdapterBlockEntity.class);
+        h.assertTrue(adapter.pulseRate()==PulseAdapterBlockEntity.RATE,"Unranked adapter converts 20 Pulse/s");
+        tk.darrow.tribalpower.item.MachineRank.apply(adapter,1);
+        h.assertTrue(adapter.pulseRate()==tk.darrow.tribalpower.item.MachineRank.scalePulse(adapter,PulseAdapterBlockEntity.RATE),
+                "Ranked adapter convert rate must match scalePulse of 20");
+        h.assertTrue(adapter.pulseRate()>PulseAdapterBlockEntity.RATE,"Rank 1 must convert more than 20 Pulse/s");
         h.assertTrue(adapter.handler.receiveEnergy(1000,false)==0,"FE must not convert back to Pulse");
         h.runAfterDelay(45,()->{
             h.assertTrue(adapter.handler.getEnergyStored()>0,"Adapter must convert nearby Pulse");
@@ -665,7 +671,7 @@ public class LatticeGameTests {
         station.setItem(0,new ItemStack(Items.STONE,8));
         station.setItem(1,new ItemStack(ModItems.ECHO_SHARD.get(),3));
         var abs=h.absolutePos(pos);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild=false;
         net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,station,player,ItemStack.EMPTY);
         h.setBlock(pos,Blocks.AIR);
@@ -689,7 +695,7 @@ public class LatticeGameTests {
         drum.tank.fill(new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER,1000),
                 net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
         var abs=h.absolutePos(pos);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild=false;
         net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,drum,player,ItemStack.EMPTY);
         h.setBlock(pos,Blocks.AIR);
@@ -833,7 +839,7 @@ public class LatticeGameTests {
         h.assertTrue(relay.bind(dest,Direction.UP,h.getLevel().dimension().location().toString()),"The plate accepts a tuner mark");
         var pos=new BlockPos(2,1,2);
         var abs=h.absolutePos(pos);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild=false;
         net.minecraft.world.level.block.Block.dropResources(h.getBlockState(pos),h.getLevel(),abs,relay,player,ItemStack.EMPTY);
         h.setBlock(pos,Blocks.AIR);

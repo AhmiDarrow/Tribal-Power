@@ -142,14 +142,14 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
 
     /** Comparator output: progress through the current cycle, 0 when nothing is being asked. */
     public int progressSignal() {
-        int seconds = asking.seconds();
+        int seconds = workSeconds(asking);
         if (!"working".equals(state) || seconds <= 0) return 0;
         return Math.max(1, Math.min(15, 1 + 14 * work / seconds));
     }
 
     public Component status() {
         return Component.translatable("message.tribalpower.font." + state,
-                Component.translatable("message.tribalpower.font.ask." + asking.key()), work, asking.seconds());
+                Component.translatable("message.tribalpower.font.ask." + asking.key()), work, workSeconds(asking));
     }
 
     /** The best tier this font can reach right now, given its shape and the voices around it. */

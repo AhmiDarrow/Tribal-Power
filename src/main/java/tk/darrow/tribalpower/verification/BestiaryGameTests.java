@@ -109,7 +109,7 @@ public class BestiaryGameTests {
     }
     @GameTest(template="empty")
     public static void brushingIsRenewableAndCannotSpamOrHarvestBabies(GameTestHelper h) {
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         try {
             player.getAbilities().instabuild=false;player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.BRUSH));
             var animal=h.spawn(CreatureEntities.ANIMALS.get(CreatureProfile.DAWN_STAG).get(),new BlockPos(3,2,3));animal.setNoAi(true);

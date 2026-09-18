@@ -1,5 +1,6 @@
 package tk.darrow.tribalpower.client;
 
+import net.minecraft.network.chat.Component;
 import tk.darrow.tribalpower.guide.CodexEntries.Entry;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.world.structure.LoreTabletBlock;
@@ -36,10 +37,10 @@ public final class CodexUnlocks {
     }
 
     /** One-line progress hint for a category, or null. */
-    public static String hint(String category) {
+    public static Component hint(String category) {
         return switch (category) {
-            case "The Nine Tribes" -> tribesUnlocked() + " of " + TribeDefinition.values().length + " tribes met";
-            case "Lore Tablets" -> tabletsUnlocked() + " of " + LoreTabletBlock.TABLETS + " tablets read";
+            case "The Nine Tribes" -> Component.translatable("gui.tribalpower.codex.tribes_met", tribesUnlocked(), TribeDefinition.values().length);
+            case "Lore Tablets" -> Component.translatable("gui.tribalpower.codex.tablets_read", tabletsUnlocked(), LoreTabletBlock.TABLETS);
             default -> null;
         };
     }

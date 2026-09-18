@@ -1,7 +1,6 @@
 package tk.darrow.tribalpower.ley;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -198,12 +197,5 @@ public final class LeyMath {
             return true;
         return state.is(ModBlocks.MARCH_MOSS.get()) || state.is(ModBlocks.MARCH_GRASS.get())
                 || state.is(ModBlocks.MARCH_LEAVES.get()) || state.is(ModBlocks.MARCH_LEAF.get());
-    }
-
-    /** @deprecated kept so old 4-neighbour checks still compile; use {@link #factors}. */
-    @Deprecated
-    public static boolean adjacent(Level level, BlockPos pos, Direction direction) {
-        return living(level.getBlockState(pos.relative(direction)))
-                || water(level.getBlockState(pos.relative(direction)));
     }
 }

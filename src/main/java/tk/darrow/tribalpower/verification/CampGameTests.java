@@ -31,7 +31,7 @@ public class CampGameTests {
     }
     @GameTest(template="empty")
     public static void bindingRitualRequiresAllVoicesAndSpendsOnce(GameTestHelper h){
-        var player=h.makeMockServerPlayerInLevel();var effigy=new ItemStack(CampRegistry.EFFIGY.get());BoundEffigyItem.bind(effigy,"minecraft:cow",0);
+        var player=VerificationPlayers.inLevel(h);var effigy=new ItemStack(CampRegistry.EFFIGY.get());BoundEffigyItem.bind(effigy,"minecraft:cow",0);
         player.setItemInHand(InteractionHand.MAIN_HAND,effigy);player.getInventory().add(new ItemStack(ModItems.SPIRITWEAVE.get(),3));
         h.setBlock(4,2,4,ModBlocks.RITUAL_BRAZIER.get());var pos=h.absolutePos(new BlockPos(4,2,4));
         var brazier=(RitualBrazierBlockEntity)h.getLevel().getBlockEntity(pos);brazier.setSeal(new ItemStack(ModItems.SPIRIT_SEAL.get()));

@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.logic;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -108,8 +107,8 @@ public class LogicPlateBlock extends BaseEntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof LogicPlateBlockEntity plate) {
-            if (player.isShiftKeyDown()) player.displayClientMessage(Component.literal(plate.cycle()), true);
-            else player.displayClientMessage(Component.literal(plate.status()), true);
+            if (player.isShiftKeyDown()) player.displayClientMessage(plate.cycle(), true);
+            else player.displayClientMessage(plate.status(), true);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

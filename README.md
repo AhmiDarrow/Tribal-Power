@@ -38,7 +38,7 @@ Continue through Fire / Echo Attune, Water / Echo Bind, Spirit / Echo Manifest a
 
 Each Echo station has a batch input, eight output slots, a progress screen and status readout. Faces default to feed on the sides and top, extract below; the IO pad in the UI changes that. Missing power, missing attunement or full output pauses the batch without consuming its input. The original single-item Song Bench remains available.
 
-The Spirit Codex provides the in-game guide. JEI, when installed, displays lattice recipes, attunements, duration and total Pulse cost.
+The Spirit Codex provides the in-game guide. JEI, when installed, displays lattice recipes, attunements, duration and total Pulse cost before pack settings.
 
 ## Power with a place in the world
 
@@ -90,7 +90,7 @@ The **Sixfold Staff** switches voices with sneak-use: Earth slows hostiles, Fire
 
 The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in the main hand, costing 8 Pulse per broken block. Normal player breaking checks and protection events still apply.
 
-**Spiritweave armor** provides night sight, resistance, speed and conditional slow falling. Unlinked pieces spend 2 Pulse every four seconds; a bound voice spends 3. Original Spiritgear tools remain available.
+**Spiritweave armor** unlinked: hood night sight, robe resistance, leggings speed, boots slow falling when descending. Unlinked pieces spend 2 Pulse every four seconds; sneak-use a piece on a Resonance Totem (40 Pulse) to replace that boon with the totem's voice (3 Pulse). Mixed voices are intended. Original Spiritgear tools remain available.
 
 Seat a reusable seal in a **Ritual Brazier** with its matching totem nearby. Earth grants haste, Fire resists flame, Water regenerates, Air slows falls, Spirit grants night sight, and Loom threads 2 Pulse into carried cells every two seconds with Luck. A six-block blessing consumes 8 Pulse every two seconds while players are present. Sneak empty-handed to recover the seal.
 
@@ -112,17 +112,17 @@ Recipes live under data/<namespace>/recipe/ and use the normal server recipe man
   "result": {"id": "tribalpower:iron_grit", "count": 2},
   "attunement": "earth",
   "seconds": 4,
-  "pulse_per_second": 10
+  "pulse_per_second": 20
 }
 ```
 
-Use a standard ingredient, including compatible mod ingredients. Station names are echo_shatter, echo_attune, echo_bind, echo_manifest and echo_unweave. KubeJS can register this JSON with event.custom. Pack-specific recipes belong in the pack; standalone recipes never require Ninjacat Skies.
+Use a standard ingredient, including compatible mod ingredients. Station names are echo_shatter, echo_attune, echo_bind, echo_manifest, echo_unweave and ember_kiln. KubeJS can register this JSON with event.custom. Pack-specific recipes belong in the pack; standalone recipes never require Ninjacat Skies.
 
 ## The Nine Tribes
 
-Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered them. Their camps still stand: Pad-keepers (plains), Grit-singers (mountains), Rootbinders (forests), Edge-walkers (taiga), Drumhearts (savanna), Pattern-weavers (birch), Colony-keepers (flower meadows), Seal-carvers (dark forests) and Loom-stitchers (the March crystal fields only). Every tribe also keeps a March camp. Each camp holds four **Tribal Kin**: an Elder who trades, a Drummer whose beat feeds 2 Pulse into generators within eight blocks, a Hunter who strikes hostiles within twelve blocks, and a Weaver who returns to the loom in their hut every minute or so to work it. Kin never despawn and wander within sixteen blocks of their camp.
+Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered them. Their camps still stand: Pad-keepers (plains), Grit-singers (mountains), Rootbinders (forests), Edge-walkers (taiga), Drumhearts (savanna), Pattern-weavers (birch), Colony-keepers (flower meadows), Seal-carvers (dark forests) and Loom-stitchers (the March crystal fields only). Every tribe also keeps a March camp. Each camp holds four **Tribal Kin**: an Elder who trades, a Drummer whose beat feeds 2 Pulse into a Drumheart, Ley Collector or Pulse Resonator within eight blocks, a Hunter who strikes hostiles within twelve blocks, and a Weaver who returns to the loom in their hut every minute or so to work it. Kin never despawn and wander within sixteen blocks of their camp.
 
-- **Standing:** right-click a **Tribe Hearth** with a favoured item (+3), the tribe's reagent (+8), any food (+1) or a charged Pulse Cell (+2 per 10 Pulse, up to 40 drained). Hostile kills within 24 blocks of a hearth give +1 (twenty per day per tribe); a completed trade gives +2. Hurting Kin costs 25 and turns the Hunters on you for a minute; breaking camp blocks costs 5, the hearth 40. Ranks: Guest 50, Friend 150, Kin 400, Voice 800. `/tribalpower standing [player]` prints all nine. A comparator on the hearth reads the last visitor's rank.
+- **Standing:** right-click a **Tribe Hearth** with a favoured item (+3), the tribe's reagent (+8), any food (+1) or a charged Pulse Cell (+2 per 10 Pulse, up to 40 drained). Hostile kills within 24 blocks of a hearth give +1 (twenty per day per tribe); a completed trade gives +2. Hurting Kin costs 25 and turns the Hunters on you for a minute; breaking a tribe banner costs 5, the hearth 40. Generic camp blocks do not cost standing. Ranks: Guest 50, Friend 150, Kin 400, Voice 800. `/tribalpower standing [player]` prints all nine. A comparator on the hearth reads the last visitor's rank.
 - **Trades:** Elders open a merchant screen with two offers per rank (Guest, Friend, Kin), paid in the tribe's favoured items and Echo tiers. At Voice the Elder gives a **Tribe Mark** once. Camp members trade at the camp's standing when it beats their own.
 - **Tribe Banners** decorate camps in the tribe colour and glyph.
 - **Kinship Totem:** a Tribe Mark, the Resonance Totem of the tribe's voice and two Spiritweave. It lends that voice to nearby stations and counts as an extra distinct voice for the Pulse Resonator, tracked per tribe, so nine tribes beside six totems make fifteen voices.

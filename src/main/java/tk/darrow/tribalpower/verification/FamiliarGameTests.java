@@ -46,7 +46,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void bondingStoresOwnerAndSurvivesNbtRoundTrip(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
         bond(h,player,fox);
         h.assertTrue(fox.ownerUUID().orElse(null).equals(player.getUUID()) && fox.isOwnedBy(player),"Bonding must store the owner");
@@ -72,7 +72,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void sittingStopsMovement(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var owner=h.absolutePos(new BlockPos(1,2,1));player.moveTo(owner.getX()+.5,owner.getY(),owner.getZ()+.5,0,0);
         var stag=spawn(h,CreatureProfile.DAWN_STAG,6,2,6);
         bond(h,player,stag);
@@ -87,7 +87,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void mossbackSaddlebagPersists(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var mossback=spawn(h,CreatureProfile.MOSSBACK,3,2,3);
         bond(h,player,mossback);
         mossback.saddlebag().setItem(0,new ItemStack(Items.SEAGRASS,7));
@@ -100,14 +100,14 @@ public class FamiliarGameTests {
         var menu=new MossbackMenu(1,player.getInventory(),mossback.saddlebag(),mossback);
         player.moveTo(mossback.getX()+1,mossback.getY(),mossback.getZ(),0,0);
         h.assertTrue(menu.stillValid(player),"The owner may keep the saddlebag open");
-        var stranger=h.makeMockServerPlayerInLevel();stranger.moveTo(mossback.getX()+1,mossback.getY(),mossback.getZ(),0,0);
+        var stranger=VerificationPlayers.inLevel(h);stranger.moveTo(mossback.getX()+1,mossback.getY(),mossback.getZ(),0,0);
         h.assertTrue(!menu.stillValid(stranger),"Strangers may not");
         mossback.discard();h.succeed();
     }
     @GameTest(template="empty")
     public static void campCreateInviteJoinSharesVault(GameTestHelper h) {
         var server=h.getLevel().getServer();
-        var a=h.makeMockServerPlayerInLevel();var b=h.makeMockServerPlayerInLevel();
+        var a=VerificationPlayers.inLevel(h);var b=VerificationPlayers.inLevel(h);
         var data=Camps.data(server);
         String name="Test camp "+UUID.randomUUID().toString().substring(0,4);
         var camp=data.create(name,a.getUUID());
@@ -121,7 +121,7 @@ public class FamiliarGameTests {
         vaultA.setItem(3,new ItemStack(Items.DIAMOND,5));
         var vaultB=DeepCacheManager.openContainer(server,b.getUUID(),false);
         h.assertTrue(vaultB instanceof CampVaultContainer && vaultB.getItem(3).is(Items.DIAMOND) && vaultB.getItem(3).getCount()==5,"Members open the same camp vault");
-        h.assertTrue(vaultB.stillValid(b) && !vaultB.stillValid(h.makeMockServerPlayerInLevel()),"Only members keep the camp vault open");
+        h.assertTrue(vaultB.stillValid(b) && !vaultB.stillValid(VerificationPlayers.inLevel(h)),"Only members keep the camp vault open");
         var personal=DeepCacheManager.openContainer(server,b.getUUID(),true);
         h.assertTrue(!(personal instanceof CampVaultContainer) && personal.getItem(3).isEmpty(),"Personal mode opens the private vault");
         var tag=data.save(new CompoundTag(),server.registryAccess());
@@ -137,7 +137,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void anchorBudgetEnforced(GameTestHelper h) {
         var server=h.getLevel().getServer();var level=h.getLevel();
-        var a=h.makeMockServerPlayerInLevel();var b=h.makeMockServerPlayerInLevel();
+        var a=VerificationPlayers.inLevel(h);var b=VerificationPlayers.inLevel(h);
         var data=Camps.data(server);
         var camp=data.create("Anchor camp "+UUID.randomUUID().toString().substring(0,4),a.getUUID());
         data.invite(camp,a.getUUID(),b.getUUID());data.join(camp,b.getUUID());
@@ -164,7 +164,7 @@ public class FamiliarGameTests {
     public static void foxLightClearedOnDimensionChangeAndKeptOffWater(GameTestHelper h) {
         floor(h);
         var level=h.getLevel();var server=level.getServer();
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
         bond(h,player,fox);
         var light=FamiliarRegistry.SPIRIT_LIGHT.get();
@@ -194,7 +194,7 @@ public class FamiliarGameTests {
     public static void spiritLightSweepKeepsClaimedLights(GameTestHelper h) {
         floor(h);
         var level=h.getLevel();
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var fox=spawn(h,CreatureProfile.LANTERN_FOX,1,2,1);
         bond(h,player,fox);
         var light=FamiliarRegistry.SPIRIT_LIGHT.get();
@@ -260,7 +260,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void latticeAppliesAndLensReads(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
         fox.lattice().fill(1);
         fox.applyLattice();
@@ -312,7 +312,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void remnantsNeedVoiceAndSpendCharmOnFail(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild=false;
         var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
         var charm=new ItemStack(FamiliarRegistry.BONDING_CHARM.get(),4);
@@ -332,7 +332,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void companyCapsOneCombatAndTwoSupport(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var at=h.absolutePos(new BlockPos(3,2,3));
         player.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
         voice(h,player,TribeDefinition.STONE);
@@ -368,7 +368,7 @@ public class FamiliarGameTests {
     public static void mothClickImpRefundBellCleanseWeaverPouch(GameTestHelper h) {
         floor(h);
         var level=h.getLevel();
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.CLOCK);
         voice(h,player,TribeDefinition.SPARK);
         voice(h,player,TribeDefinition.SIGIL);
@@ -429,7 +429,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void mothClickIsNotADrumAndBondedRemnantsLetYouSleep(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.CLOCK);
         h.setBlock(4,2,4,ModBlocks.DRUMHEART.get());
         var drum=(DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));
@@ -456,7 +456,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void sittingHelperKeepsTheCapWhenHurt(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var at=h.absolutePos(new BlockPos(3,2,3));
         player.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
         var a=spawn(h,CreatureProfile.LANTERN_FOX,2,2,2);
@@ -471,7 +471,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void bondedRemnantsBreedAPersistentChild(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.CLAW);
         var a=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
         var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
@@ -504,7 +504,7 @@ public class FamiliarGameTests {
         h.setBlock(4,2,5,ModBlocks.DRUMHEART.get());
         ((DrumheartBlockEntity)h.getBlockEntity(new BlockPos(4,2,5))).insertPulse(40,false);
         var drum=(tk.darrow.tribalpower.device.WorkshopBlockEntity)h.getBlockEntity(new BlockPos(4,2,4));
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.CLAW);
         var hound=spawnMonster(h,CreatureProfile.RIFT_HOUND,6,2,4);
         bondHostile(h,player,hound);
@@ -522,7 +522,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void aSitterStaysPutWhenTheOwnerIsGone(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var fox=spawn(h,CreatureProfile.LANTERN_FOX,3,2,3);
         bond(h,player,fox);
         fox.setSitting(true);
@@ -534,7 +534,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void aWeaverKeepsThePouchWhenTheOwnerCannotCarry(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.SPINDLE);
         var weaver=spawnMonster(h,CreatureProfile.ECHO_WEAVER,3,2,3);
         bondHostile(h,player,weaver);
@@ -560,7 +560,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void aSecondFighterSitsWhenBothAreAlreadyOut(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.STONE);
         voice(h,player,TribeDefinition.CLAW);
         var a=spawnMonster(h,CreatureProfile.SHARDBACK,3,2,3);
@@ -575,7 +575,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void remnantAdultsRestAfterABirth(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         voice(h,player,TribeDefinition.CLAW);
         var a=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
         var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
@@ -597,7 +597,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void aWildRemnantHitsAPlayer(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
         var ash=spawnMonster(h,CreatureProfile.ASHBOUND,3,2,3);
         h.assertTrue(!FamiliarOwnerTargetGoals.forbidden(ash,player),"Wild remnants may strike a player");
@@ -610,7 +610,7 @@ public class FamiliarGameTests {
     @GameTest(template="empty")
     public static void remnantFoodAgesACub(GameTestHelper h) {
         floor(h);
-        var player=h.makeMockServerPlayerInLevel();
+        var player=VerificationPlayers.inLevel(h);
         var cub=spawnMonster(h,CreatureProfile.RIFT_HOUND,3,2,3);
         cub.setBaby(true);
         var food=new ItemStack(CreatureItems.REAGENTS.get(CreatureProfile.RIFT_HOUND).get(),16);

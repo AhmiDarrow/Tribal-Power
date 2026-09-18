@@ -27,7 +27,7 @@ public class CodexUnlockGameTests {
         data.grantMark(id, TribeDefinition.SPINDLE);
         h.assertTrue(data.marks(id) == ((1 << TribeDefinition.SPARK.ordinal()) | (1 << TribeDefinition.SPINDLE.ordinal())),
                 "The mask accumulates exactly the granted tribes, got " + data.marks(id));
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         data.grantMark(player.getUUID(), TribeDefinition.CLAW);
         var payload = CodexUnlocksPayload.of(player);
         h.assertTrue(payload.tribes() == (1 << TribeDefinition.CLAW.ordinal()) && payload.tablets() == 0,
@@ -38,7 +38,7 @@ public class CodexUnlockGameTests {
 
     @GameTest(template = "empty")
     public static void tabletReadSetsTabletBit(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         h.assertTrue(LoreTabletBlock.readMask(player) == 0, "A fresh player has read no tablets");
         h.assertTrue(LoreTabletBlock.markRead(player, 4), "The first read of a tablet reports true");
         h.assertTrue(!LoreTabletBlock.markRead(player, 4), "Re-reading the same tablet reports false");

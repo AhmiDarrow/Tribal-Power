@@ -171,7 +171,7 @@ public class PatternGameTests {
         // Every pattern that claims to be a rite is joined with chalk marks. Without a way to draw one,
         // the Stone Font, the Listening Pit and the Rite Circle cannot be built outside creative at all.
         h.setBlock(2, 1, 2, Blocks.STONE);
-        net.minecraft.server.level.ServerPlayer player = h.makeMockServerPlayerInLevel();
+        net.minecraft.server.level.ServerPlayer player = VerificationPlayers.inLevel(h);
         net.minecraft.world.item.ItemStack chalk =
                 new net.minecraft.world.item.ItemStack(ModItems.RITUAL_CHALK.get(), 4);
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, chalk);

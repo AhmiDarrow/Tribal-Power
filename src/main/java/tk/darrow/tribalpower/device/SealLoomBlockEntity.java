@@ -39,7 +39,9 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
     private static final int[] INPUT_SLOTS = java.util.stream.IntStream.range(0, GRID).toArray();
     private static final int[] OUTPUT_SLOTS = java.util.stream.IntStream.range(OUTPUT, SIZE).toArray();
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
-    private String reason = "Seat a Recipe Seal";
+    private String reason = "seat";
+    private int reasonN;
+    private String reasonName = "";
     private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.station();
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
     @Override public int[] inputSlots(Direction face) { return INPUT_SLOTS; }
@@ -49,7 +51,16 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         super(DeviceRegistry.SEAL_LOOM_TYPE.get(), pos, state);
     }
 
-    public Component status() { return Component.literal(reason); }
+    public Component status() {
+        return switch (reason) {
+            case "imprint" -> Component.translatable("message.tribalpower.seal_loom.imprint", reasonName);
+            case "need_pulse" -> Component.translatable("message.tribalpower.seal_loom.need_pulse", reasonN);
+            case "wove" -> Component.translatable("message.tribalpower.seal_loom.wove", reasonName);
+            case "seat", "paused", "need_blank", "arrange", "mismatch", "output_full"
+                    -> Component.translatable("message.tribalpower.seal_loom." + reason);
+            default -> Component.literal(reason);
+        };
+    }
 
     public static void tick(Level level, BlockPos pos, BlockState state, SealLoomBlockEntity be) {
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
@@ -59,7 +70,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
     }
 
     public void beat(ServerLevel server) {
-        if (server.hasNeighborSignal(worldPosition)) { reason = "Paused by redstone"; return; }
+        if (server.hasNeighborSignal(worldPosition)) { setReason("paused"); return; }
         craft(server);
     }
 
@@ -67,38 +78,38 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         if (level == null || level.isClientSide) return;
         ItemStack seal = items.get(SEAL);
         if (!(seal.getItem() instanceof RecipeSealItem) || !RecipeSealItem.isBlank(seal)) {
-            reason = "Needs a blank Recipe Seal";
+            setReason("need_blank");
             player.displayClientMessage(status(), true);
             return;
         }
         Optional<RecipeHolder<CraftingRecipe>> found = match((ServerLevel) level);
         if (found.isEmpty()) {
-            reason = "Arrange a recipe in the three-by-three";
+            setReason("arrange");
             player.displayClientMessage(status(), true);
             return;
         }
         RecipeSealItem.imprint(seal, found.get().id());
-        reason = "Imprinted " + found.get().id();
+        setReason("imprint", found.get().id().toString());
         player.displayClientMessage(status(), true);
         setChanged();
     }
 
     private void craft(ServerLevel server) {
         ResourceLocation id = RecipeSealItem.recipeId(items.get(SEAL));
-        if (id == null) { reason = "Seat a Recipe Seal"; return; }
+        if (id == null) { setReason("seat"); return; }
         Optional<RecipeHolder<CraftingRecipe>> found = match(server);
-        if (found.isEmpty() || !found.get().id().equals(id)) { reason = "Ingredients do not match the seal"; return; }
+        if (found.isEmpty() || !found.get().id().equals(id)) { setReason("mismatch"); return; }
         int cost = COST;
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) {
-            reason = "Need " + cost + " Pulse";
+            setReason("need_pulse", cost);
             return;
         }
         CraftingInput.Positioned positioned = CraftingInput.ofPositioned(3, 3, List.copyOf(items.subList(0, GRID)));
         CraftingInput input = positioned.input();
         ItemStack result = found.get().value().assemble(input, server.registryAccess());
-        if (result.isEmpty()) { reason = "Output full"; return; }
+        if (result.isEmpty()) { setReason("output_full"); return; }
         NonNullList<ItemStack> preview = snapshot();
-        if (!storeInto(preview, result.copy())) { reason = "Output full"; return; }
+        if (!storeInto(preview, result.copy())) { setReason("output_full"); return; }
         List<ItemStack> remain = found.get().value().getRemainingItems(input);
         List<ItemStack> overflow = new ArrayList<>();
         for (int i = 0; i < GRID; i++) {
@@ -116,7 +127,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false);
         items = preview;
         for (ItemStack extra : overflow) Block.popResource(server, worldPosition, extra);
-        reason = "Wove " + result.getHoverName().getString();
+        setReason("wove", result.getHoverName().getString());
         setChanged();
     }
 
@@ -147,6 +158,10 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         return remaining.isEmpty();
     }
 
+    private void setReason(String key) { reason = key; reasonN = 0; reasonName = ""; }
+    private void setReason(String key, int n) { reason = key; reasonN = n; reasonName = ""; }
+    private void setReason(String key, String name) { reason = key; reasonN = 0; reasonName = name; }
+
     @Override protected NonNullList<ItemStack> getItems() { return items; }
     @Override protected void setItems(NonNullList<ItemStack> value) { items = value; }
     @Override public int getContainerSize() { return SIZE; }
@@ -170,6 +185,8 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         tag.putString("Reason", reason);
+        tag.putInt("ReasonN", reasonN);
+        tag.putString("ReasonName", reasonName);
         sides.save(tag);
     }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
@@ -177,6 +194,9 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, items, registries);
         reason = tag.getString("Reason");
+        if (reason.isEmpty()) reason = "seat";
+        reasonN = tag.getInt("ReasonN");
+        reasonName = tag.getString("ReasonName");
         sides.load(tag);
     }
 }

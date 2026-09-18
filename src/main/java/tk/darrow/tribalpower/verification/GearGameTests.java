@@ -38,7 +38,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty")
     public static void sneakUseWritesAndOverwritesVoice(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
         ItemStack cell = PulseCellItem.createFilled(200);
@@ -61,7 +61,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty")
     public static void linkWithoutPulseFails(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
         player.setItemInHand(InteractionHand.MAIN_HAND, pick);
@@ -91,7 +91,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty", timeoutTicks = 40)
     public static void earthPickOpensThreeByThreeOnce(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
@@ -121,7 +121,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty", timeoutTicks = 40)
     public static void firePickSmeltsIronOre(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
@@ -172,7 +172,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty", timeoutTicks = 120)
     public static void fireHoodGrantsFireResistNotNightVision(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         ItemStack hood = new ItemStack(ModItems.SPIRITWEAVE_HOOD.get());
         SpiritGear.setVoice(hood, Attunement.FIRE);
@@ -203,7 +203,7 @@ public class GearGameTests {
 
     @GameTest(template = "empty")
     public static void eightCharmsAndSkyGrantsFlight(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         player.getAbilities().instabuild = false;
         h.assertTrue(tk.darrow.tribalpower.charm.CharmKind.values().length >= 10, "At least ten Spirit Charms");
         ItemStack sky = new ItemStack(ModItems.SKY_CHARM.get());

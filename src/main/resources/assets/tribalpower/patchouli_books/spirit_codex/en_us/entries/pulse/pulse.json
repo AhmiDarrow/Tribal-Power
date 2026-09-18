@@ -6,7 +6,7 @@
     {
       "type": "patchouli:text",
       "title": "Spirit Pulse",
-      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers. Each totem holds 250 Pulse."
+      "text": "Pulse comes from rhythm, landscape and harmony. Keep a generator within 8 blocks of your workshop. Machines draw from generators first, then totem buffers. Each totem holds 250 Pulse. A Pulse Cell carries Pulse for tools, spells and travel; a pocket cell is not a nearby generator."
     },
     {
       "type": "patchouli:text",

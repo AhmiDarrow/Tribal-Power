@@ -60,7 +60,7 @@ public class TribeGameTests {
         BlockPos pos = h.absolutePos(rel);
         var hearth = (TribeHearthBlockEntity) h.getLevel().getBlockEntity(pos);
         hearth.setTribe(TribeDefinition.STONE);
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         int before = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
         ItemStack ore = new ItemStack(Items.RAW_IRON, 4);
         player.setItemInHand(InteractionHand.MAIN_HAND, ore);

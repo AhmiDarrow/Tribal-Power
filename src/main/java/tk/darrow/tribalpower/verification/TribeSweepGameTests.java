@@ -79,7 +79,7 @@ public class TribeSweepGameTests {
     /** First-meeting flags must live under PlayerPersisted so death and dimension changes keep them. */
     @GameTest(template = "empty")
     public static void metFlagsSurviveClone(GameTestHelper h) {
-        var player = h.makeMockServerPlayerInLevel();
+        var player = VerificationPlayers.inLevel(h);
         h.assertFalse(TribeHooks.hasMet(player, TribeDefinition.SWARM), "A new player has not met the Colony-keepers");
         TribeHooks.markMet(player, TribeDefinition.SWARM);
         TribeHooks.markMet(player, TribeDefinition.SIGIL);
