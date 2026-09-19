@@ -1,0 +1,211 @@
+{
+  "name": "Ancestral Cache",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "A big **54-slot** store for camp supplies, with a trick a chest does not have: set its faces, and it feeds or empties the Tribal Power machines touching it, with no hopper and no relay."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Setting its faces",
+      "text": [
+        "Open it and use the IO pad to set each face to **Input**, **Output**, **Both** or **Closed**. Crouching and right-clicking a face with an empty hand cycles it too.",
+        "Touching Tribal Power machines pass up to **16 items a second** across a face that gives (Output or Both) into a face that takes (Input or Both). Two Both faces never trade, so stacks cannot ping-pong between them.",
+        "A station's bottom face is Output, so a cache sitting under a station catches everything it makes. Set a face to Output against a station's Input side and it feeds the station."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A station that empties itself",
+      "steps": [
+        {
+          "caption": "Set an Ancestral Cache down where the output should go.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stand Echo Shatter on top of it; a station's bottom face is Output.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Give Shatter its Earth totem and Pulse, as usual.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Shards now drop straight into the cache, no hopper needed.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tips",
+      "text": [
+        "Hoppers and pipes honour the same face settings, so a Closed face turns them away too.",
+        "Neighbours use faces; relays are for distance. See [Wireless cargo](wireless_cargo).",
+        "A lever locks both the menu and the automation. A comparator reads how full it is."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    }
+  ]
+}

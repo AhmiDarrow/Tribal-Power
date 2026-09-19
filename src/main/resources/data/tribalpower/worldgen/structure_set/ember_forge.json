@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:ember_forge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 14,
+    "salt": 8257541
+  }
+}

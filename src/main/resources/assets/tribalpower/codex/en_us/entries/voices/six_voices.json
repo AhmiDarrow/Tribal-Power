@@ -1,0 +1,244 @@
+{
+  "name": "The six voices",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Every Echo station needs two things besides its input: Pulse, and a **Resonance Totem** of the right voice within **8 blocks**.",
+        "The totem is a teacher, not a generator. Without the right voice a station waits and spends nothing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Which voice does what",
+      "text": [
+        "- **Earth**: Echo Shatter and the Stone Font.",
+        "- **Fire**: Echo Attune and the Ember Kiln.",
+        "- **Water**: Echo Bind.",
+        "- **Spirit**: Echo Manifest.",
+        "- **Air**: motion and song.",
+        "- **Loom**: Echo Unweave and Far Gates. It is the last voice; see [The sixth voice](sixth_voice).",
+        "Craft the totem you need and place it near the station. Crouch and right-click a paused station with this book: it names the voice it is missing."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "The right teacher",
+      "steps": [
+        {
+          "caption": "Echo Shatter with stone inside, and a charged drum beside it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "A Fire totem is the wrong voice for Shatter. The station waits and spends nothing.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Swap it for an Earth totem and the work begins.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voices, not blocks",
+      "text": [
+        "Stations count voices, not totems: two Earth totems are still one voice. Having many different voices matters to the Pulse Resonator and the Loom Anchor, which make more Pulse for every **distinct** voice around them.",
+        "Kinship Totems lend their tribe's element to nearby stations. On a Pulse Resonator they also add extra tribe voices, but never a seventh element.",
+        "A totem chalk-linked to one near the station lends its voice too, if it stands within 16 blocks of the station.",
+        "Each totem also holds **250 Pulse** for the lattice, and it has to be kept awake: see [Keeping](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A generator for every voice",
+      "text": [
+        "Each voice also has a generator of its own, the craft of the tribe that keeps it:",
+        "- **Earth**: the Drumheart.",
+        "- **Fire**: the Ember Horn, of the [Drumhearts](tribe_spark).",
+        "- **Air**: the Wind Harp, of the [Pattern-weavers](tribe_clock).",
+        "- **Water**: the Wave Drum, of the [Rootbinders](tribe_sprout).",
+        "- **Spirit**: the Wake Bell, of the [Seal-carvers](tribe_sigil).",
+        "- **Loom**: the Loom Anchor, of the [Loom-stitchers](tribe_spindle).",
+        "Get all six producing within **32 blocks** of each other and you earn **Six voices singing**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

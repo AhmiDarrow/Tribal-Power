@@ -1,0 +1,70 @@
+{
+  "name": "Living things of the March",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Two kinds of creature carry the old song. **Gentle animals** (the Dawn Stag, Lantern Fox and Mossback) give you reagents when you brush them. **Remnants** are broken guardians and wild spirits; they fight, and drop their reagent when they fall.",
+        "Reagents go into your Echo workshops, and into the Bonding Charm that makes any of them a companion.",
+        "The March also has quiet life that gives nothing but meat or company: March Walkers and Spirit Wisps."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hold a **Brush** and use it on an adult. Young animals yield nothing. Each animal rests for **one minute** between harvests.",
+        "Breed them with **wheat** (Dawn Stag), **sweet berries** (Lantern Fox) and **seagrass** (Mossback).",
+        "Bond an adult with a [Bonding Charm](familiars) to get **double** the reagent and keep a companion."
+      ],
+      "title": "Gentle harvesting"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ashbound, Rootbound and Reed Stalkers haunt Overworld forests and swamps, and the March too. Like all remnants they need darkness to spawn, so light your paths.",
+        "Keep water close to Ashbound; their blows set you alight. Rootbound roots you in place for a moment: wait it out. Reed Stalkers poison, so bring milk or keep your distance.",
+        "A Hush Totem, or the Still Night rite, keeps a camp from growing a new pack overnight."
+      ],
+      "title": "Broken guardians"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Storm Moths, Cinder Imps and Mourning Bells cast from up to **12 blocks** away. They gather a bright cluster of motes first: that is your warning.",
+        "They need a clear line to you. Step behind solid cover and the spell is interrupted. Their spells never burn or replace terrain.",
+        "A charged staff is useful for keeping your distance. The Unsung's shockwave is a different fight; sneak against it, as its own page explains."
+      ],
+      "title": "Answering a spell"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Dawn Velvet, Lantern Down, Mossback Scale, Storm Wing and Echo Silk bind into **2 Spiritweave** each under Water, in an Echo Bind.",
+        "- Every other remnant reagent attunes into **2 Attuned Echoes** under Spirit, in an Echo Attune.",
+        "The Rootbinders favour Mossback Scale and the Colony-keepers favour Lantern Down, so what you brush also buys standing. Open the recipes in this book, or in JEI if you have it, to follow any reagent into your workshop."
+      ],
+      "title": "Returning the song"
+    },
+    {
+      "type": "text",
+      "text": [
+        "After dusk, the Overworld sky unfolds in slow curtains of green and violet. It is brightest at midnight, and rain or thunder hide it. The March carries a colder sky of its own.",
+        "It is the sky trying to remember a schedule. It gives no Pulse by itself, though a Ley Collector under it does.",
+        "The client settings can lower its detail or turn it off, which is handy with shader packs."
+      ],
+      "title": "The veil at night"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sneak-use this Codex on anything that has gone silent to read what it is doing.",
+        "Each creature has its own page in this chapter: where it lives, how it fights, what it gives and whether it will bond."
+      ],
+      "title": "Field notes"
+    }
+  ]
+}

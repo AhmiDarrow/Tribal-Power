@@ -1,0 +1,23 @@
+{
+  "name": "Keeping totems awake",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Totems like company. One that is used stays **Answered** for about 40 minutes of loaded time. After that it turns **Dim** for another 40 minutes, and matching stations work about 30% slower. Then it falls **Quiet**, and new work may pause even with Pulse to spare.",
+        "Waking a totem is easy: interact with it, or ring a **Bone Chime** near it. Using its station keeps it awake too, and so do nearby players, Kin and a strong Ley Collector.",
+        "Totems in the open, near water and plants, stay awake twice as long. A roofed hole forgets you faster."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where to read more",
+      "text": [
+        "The full rules are on the [Keeping](keeping) page. If a station has stopped and its power is fine, a quiet totem is the usual reason, and the Codex will tell you when you crouch and right-click the station."
+      ]
+    }
+  ]
+}

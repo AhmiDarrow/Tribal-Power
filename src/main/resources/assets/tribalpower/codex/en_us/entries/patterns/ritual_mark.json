@@ -1,0 +1,40 @@
+{
+  "name": "Ritual Mark",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "Chalk is how you draw a pattern together. Each stick draws **Ritual Marks** on the ground, and the marks are what join a machine to the shape around it.",
+        "The same chalk also seals lasting links between Resonance Totems."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drawing marks",
+      "text": [
+        "Right-click the top of a solid block to draw a mark on it. Each mark spends **one use**, and a stick holds **ten**.",
+        "Right-click a mark with chalk to rub it out. Erasing costs nothing, so fix mistakes freely.",
+        "A broken mark drops nothing: the chalk already paid for it. In creative mode chalk is never used up."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Linking totems",
+      "text": [
+        "Right-click one Resonance Totem with chalk, then a second within **16 blocks**, to seal a Lattice link between them (see [Lattice Conductor](lattice_conductor)). A link that takes spends one use.",
+        "Clicking the same totem twice cancels the link you started. Two totems already linked stay linked and cost nothing more."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "One craft makes **four** sticks of ten uses each."
+    }
+  ],
+  "next": "anchor_stone"
+}

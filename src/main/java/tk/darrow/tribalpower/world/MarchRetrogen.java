@@ -27,7 +27,7 @@ import tk.darrow.tribalpower.config.TribalConfig;
  */
 public final class MarchRetrogen {
     /** Bump when March terrain changes enough that old chunks should not sit beside new ones. */
-    public static final int WORLDGEN_VERSION = 2;
+    public static final int WORLDGEN_VERSION = 3;
     private static final String MARKER = "tribalpower_march_worldgen.txt";
     private static final String PLAYER_VERSION = "TribalMarchWorldgen";
     /** Everything chunk-shaped. The dimension's {@code data} folder holds no Tribal Power state. */

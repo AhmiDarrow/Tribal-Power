@@ -5,6 +5,15 @@
     "tribalpower:march_leaf",
     "tribalpower:march_sapling",
     "tribalpower:march_moss",
-    "tribalpower:woven_mat"
+    "tribalpower:woven_mat",
+    "tribalpower:willow_strand",
+    "tribalpower:willow_leaves",
+    "tribalpower:hearthoak_leaves",
+    "tribalpower:bellcap_leaves",
+    "tribalpower:frostpine_leaves",
+    "tribalpower:cinder_leaves",
+    "tribalpower:strider_leaves",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots"
   ]
 }

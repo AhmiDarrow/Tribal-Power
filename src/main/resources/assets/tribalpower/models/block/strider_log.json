@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tribalpower:block/strider_log_top",
+    "side": "tribalpower:block/strider_log"
+  }
+}

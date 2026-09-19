@@ -1,0 +1,87 @@
+{
+  "name": "Ritual Brazier",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "The brazier holds one elemental seal and turns it into a standing blessing for everyone nearby. It is also the heart of every tablet rite."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lighting a blessing",
+      "text": [
+        "Right-click the brazier with a seal to seat it. The seal is never used up; crouch with an empty hand to take it back.",
+        "Keep that seal's totem within **8 blocks**, and Pulse in the Lattice nearby. While anyone stands within **6 blocks**, the brazier spends **8 Pulse every two seconds** and blesses them all. With nobody near, it spends nothing.",
+        "A held redstone signal pauses it; stored Pulse is not dumped. A struck signal fires its seated rite (see [Rite Circle](rite_circle))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The blessings",
+      "text": [
+        "- **Earth**: haste.",
+        "- **Fire**: fire resistance.",
+        "- **Water**: regeneration.",
+        "- **Air**: slow falling.",
+        "- **Spirit**: night sight.",
+        "- **Loom**: luck, and each beat threads **2 Pulse** into a carried Pulse Cell with room."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seals",
+      "text": [
+        "Every seal starts blank: paper, a Spirit Shard and a Bone Chime make **two** Blank Seals.",
+        "Add dirt for Earth, charcoal for Fire, a water bucket for Water, a feather for Air, a Spirit Shard for Spirit, or Loom Thread and a Spirit Shard for the Loom.",
+        "Seals also go into charms and Rite Tablets. A tablet recipe always hands its seal back."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

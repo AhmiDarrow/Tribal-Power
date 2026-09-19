@@ -1,0 +1,189 @@
+{
+  "name": "Keeping",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Totems need attention as well as power. A totem you use stays awake; one you ignore slowly goes to sleep. This is called **Keeping**, and a totem is always in one of three states:",
+        "- **Answered**: awake, for about **40 minutes** of loaded time after it was last used.",
+        "- **Dim**: fading, for another **40 minutes**. Matching stations take about **30% longer**.",
+        "- **Quiet**: asleep. New work may pause, even with Pulse to spare.",
+        "The clock only runs while the totem's chunk is loaded. A full generator does not wake a quiet totem by itself."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Waking a totem",
+      "text": [
+        "Right-click the totem with an empty hand, or use a **Bone Chime** on it. It answers at once.",
+        "Drumming a Drumheart by hand wakes every totem within 8 blocks. So do Kin drummers from the tribes, and a Ley Collector whose beat is 8 or more.",
+        "Work keeps totems awake: every second a matching station works, it feeds the totems of its voice. That keeps an answered or dim totem going, but it will not wake one that has already gone quiet.",
+        "A Heartbeat plate can keep a Drumheart producing power, but redstone beats do not keep totems awake."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Waking a quiet totem",
+      "steps": [
+        {
+          "caption": "This Shatter has Pulse and an Earth totem, but it has stopped: its totem has gone quiet.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Use a Bone Chime on the totem, or right-click it with an empty hand, to wake it.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "The station picks its work back up, and every second it works keeps the totem answered.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Planning a camp",
+      "text": [
+        "Totems in lush places stay awake **twice as long**: open sky, water and plants right around a totem slow its clock by half. A roofed hole forgets you faster.",
+        "Kinship Totems never go quiet.",
+        "The Ley Lens voice sight tints totems gold when answered, dull when dim and grey when quiet. And when a station stops while its power looks fine, crouch and right-click it with this book: it says whether its totem is dim or quiet."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

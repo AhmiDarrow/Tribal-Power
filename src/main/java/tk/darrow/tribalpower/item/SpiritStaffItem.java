@@ -54,7 +54,7 @@ public class SpiritStaffItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
             return InteractionResultHolder.fail(staff);
         }
-        if (!SpiritgearHelper.tryConsumePulse(player, cost(element))) {
+        if (!GearCell.spend(player, staff, cost(element))) {
             SpiritgearHelper.notifyStarved(player); return InteractionResultHolder.fail(staff);
         }
         switch(element) {
@@ -140,7 +140,7 @@ public class SpiritStaffItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.stitch_blocked"), true);
             return InteractionResultHolder.fail(staff);
         }
-        if (!SpiritgearHelper.tryConsumePulse(player, STITCH_COST)) {
+        if (!GearCell.spend(player, staff, STITCH_COST)) {
             SpiritgearHelper.notifyStarved(player); return InteractionResultHolder.fail(staff);
         }
         Vec3 from = player.position();

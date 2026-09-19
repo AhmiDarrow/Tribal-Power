@@ -1,0 +1,194 @@
+{
+  "name": "Pulse Adapter",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Power makes Pulse; many other mods run on Forge Energy (FE). The Pulse Adapter is a one-way bridge: it turns Pulse from your generators into FE and hands it to the machines touching it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Setting it up",
+      "text": [
+        "Place the Adapter within **8 blocks** of a generator, and right against the FE machine it should feed. It pushes energy into any energy receiver on any of its faces.",
+        "It converts **1 Pulse into 100 FE**, up to **20 Pulse** each second. Ranked adapters convert more Pulse, and so make more FE, in the same second.",
+        "It buffers **16,000 FE** and exports to standard energy receivers. It cannot receive FE, so nothing can feed energy back into it."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A bridge to FE",
+      "steps": [
+        {
+          "caption": "A generator holds the Pulse you want to spend.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place the Adapter within 8 blocks of it. Each second it turns up to 20 Pulse into 2,000 FE.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set your FE machine against any other face; the Adapter pushes energy into it by itself.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "A lever beside it stops both conversion and extraction.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When nothing flows",
+      "text": [
+        "Redstone stops conversion and extraction. A comparator reads how full the FE buffer is.",
+        "If the FE machine sits idle, either there is no Pulse in range or the receiver is full. Crouch and right-click the Adapter with this book to see its buffer and rate."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "Needs a Resonant Core from Echo Manifest."
+    }
+  ]
+}

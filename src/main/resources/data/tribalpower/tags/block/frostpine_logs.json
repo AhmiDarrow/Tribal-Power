@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:frostpine_log",
+    "tribalpower:frostpine_wood",
+    "tribalpower:stripped_frostpine_log",
+    "tribalpower:stripped_frostpine_wood"
+  ]
+}

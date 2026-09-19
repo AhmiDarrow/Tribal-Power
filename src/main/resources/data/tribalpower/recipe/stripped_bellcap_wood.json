@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:stripped_bellcap_log"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "tribalpower:stripped_bellcap_wood"
+  }
+}

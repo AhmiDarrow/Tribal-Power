@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_sapling"
+    "tribalpower:march_sapling",
+    "tribalpower:willow_sapling",
+    "tribalpower:hearthoak_sapling",
+    "tribalpower:bellcap_sapling",
+    "tribalpower:frostpine_sapling",
+    "tribalpower:cinder_sapling",
+    "tribalpower:strider_sapling"
   ]
 }

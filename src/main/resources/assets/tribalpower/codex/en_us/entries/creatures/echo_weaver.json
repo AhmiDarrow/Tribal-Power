@@ -1,0 +1,43 @@
+{
+  "name": "Echo Weaver",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg"
+  ],
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "image",
+      "image": "echo_weaver",
+      "text": [
+        "An eight-legged keeper of broken songs. Its bite slows prey."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Echo Weavers creep across the March Steppe, the Crystal Fields and the Reed Fen. The Unsung also calls them in its Chorus.",
+        "It has **26 health** and **3 armour** and bites for **4**, slowing you for 3 seconds. It never places webs or damages your camp."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Echo Silk**.",
+        "Echo Silk binds into 2 Spiritweave under Water."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** with the **Loom-stitchers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "A bonded weaver picks up drops around it and tosses them to you. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

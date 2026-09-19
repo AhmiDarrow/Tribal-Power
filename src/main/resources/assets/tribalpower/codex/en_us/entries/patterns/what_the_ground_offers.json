@@ -1,0 +1,66 @@
+{
+  "name": "What the ground offers",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "What the pit calls up",
+      "text": [
+        "The pit calls up exactly what a silk-touch mining trip would: the **raw item** for a metal, the **ore block** for a gem. Each cycle eats its substrate and gives one result.",
+        "Substrates are renewable on purpose: stone from a [Stone Font](stone_font), March Stone from cobble."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The four bands",
+      "text": [
+        "- **Common**: coal, copper and iron. **10 seconds** at **28 Pulse a second**, on **two stone**.",
+        "- **Deep**: gold, redstone and lapis. **15 seconds** at **32**, on **two March Stone**. Quartz is not in this band.",
+        "- **Hot**: the Nether's quartz and gold ore. **20 seconds** at **36**, on two March Stone, with **Fire**.",
+        "- **Rare**: diamond, emerald, and any metal or gem the grit scan found in your pack. **40 seconds** at **24**, on **four March Stone and a Spirit Shard**, with **Spirit**. About one rare cycle in four gives double."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Which band it hears",
+      "text": [
+        "Deep, hot and rare need [Deep Listening](listening_pit) and the standing to match. Without a sample, a pit below **y 0** listens one band deeper, and Spirit takes it one deeper again.",
+        "If standing or shape will not carry it that far, the pit settles for the deepest band it may reach instead of stalling.",
+        "Below y 0, or over deepslate, gems come up as deepslate ores."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Samples",
+      "text": [
+        "A sample is a filter, never an ingredient. Seat one by right-clicking the mesh with a raw metal, grit or gem.",
+        "A material the sample names weighs **six times** as much as anything else in the band. A sample also asks for the deepest band that holds it and the pit may reach: gold means the hot band when Fire is lit, the deep band otherwise.",
+        "A sample no reachable band holds is ignored, and the Codex says so."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voices at the pit",
+      "text": [
+        "Earth is required. Each other voice trades one thing for another; none is a plain multiplier.",
+        "- **Water** washes: one extra output every **third** cycle, for **250 mB** from the mesh's tank. Fill it with a bucket; it holds 4,000 mB.",
+        "- **Air** quickens the cycle to about **0.65** of its time and charges about **1.55 times** the Pulse a second. Pulse per item does not move.",
+        "- **Fire** opens the hot band at 36 Pulse a second.",
+        "- **Spirit** listens a band deeper and opens the rare one.",
+        "- **The Loom** halves the substrate, rounded up."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it costs",
+      "text": [
+        "The Pulse figures above are before pack settings. The default **2.0** consumption multiplier doubles them, so one iron cycle is **280 Pulse** on two stone before settings and **560** at the shipped default.",
+        "A pack pit-speed setting shortens the cycle without raising Pulse a second, so it also cheapens each cycle.",
+        "Mining still costs less Pulse per ingot. The pit's gift is that it never runs out."
+      ]
+    }
+  ]
+}

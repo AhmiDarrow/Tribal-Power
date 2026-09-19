@@ -1,0 +1,44 @@
+{
+  "name": "Deep Cache",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "One vault, everywhere. Every Deep Cache you place opens the same personal **54-slot** vault, so a chest at home and one at a far outpost hold the same things. A Wayfarer Satchel opens it from your pocket."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Opening it",
+      "text": [
+        "Once you have set foot in the March, you are attuned and every opening is free.",
+        "Until then, each opening costs **5 Pulse** from a Pulse Cell you carry.",
+        "The vault belongs to you, not to the block. Breaking a Deep Cache loses nothing; place another and your things are there.",
+        "A lever locks that cache block. The vault itself is never emptied by a pause."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Wayfarer Satchel",
+      "text": [
+        "The satchel opens the same vault from anywhere, with the same attunement rule. It is a key, not a bag: nothing is stored in the item itself, so it cannot be duplicated or lost with its contents.",
+        "If you belong to a [shared camp](shared_camps), a Deep Cache or satchel opens the camp's shared vault. Crouch as you open it to switch to your personal vault and back; it remembers your choice. The camp vault is a separate inventory."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Ley Lens",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "A glass pane, a Copper Resonator and a Spirit Shard make a lens for ley sight. Look through it and you see what the land and your camp are doing: how strong the ley is, where Pulse reaches, which totems are awake and which machines are working."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Four sights",
+      "text": [
+        "Hold it in either hand and use it to cycle through four sights:",
+        "- **Ley**: paints the ground in a **17 by 17** square, blue where the land is quiet and gold where it sings.",
+        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** ring they can reach.",
+        "- **Voices**: tints nearby totems gold when answered, dull when dim, grey when quiet.",
+        "- **Machines**: marks the Tribal Power machines around you.",
+        "While you hold it, a line on your screen shows the ley strength where you stand."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Reading the ground",
+      "text": "Gold is where a Ley Collector would sing loudest; blue is where it would barely hum."
+    },
+    {
+      "type": "text",
+      "title": "Up close",
+      "text": [
+        "Sneak-use the lens on a Ley Collector to print that collector's exact factor breakdown in chat: the same numbers it collects with.",
+        "Sneak-use it on a lattice animal or remnant to print its threads and Marks. The charm does not change those rolls.",
+        "The ley sight counts the same things the collector does, for a beat from 1 to **16**. A beat of **8 or more** keeps nearby totems awake; the Pulse stored in a collector does not. A roof takes away sky, rain and storm, but water, plants, voices, a hearth and animals still add."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

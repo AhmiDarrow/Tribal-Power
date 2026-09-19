@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:march_stone_brick_slab"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:chiseled_march_stone_bricks"
+  }
+}

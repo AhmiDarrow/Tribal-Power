@@ -1,0 +1,431 @@
+{
+  "name": "Wireless cargo",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Move items or fluid between two machines without a line of pipes. Snap a relay plate onto a face of each, pair them, and every second the cargo jumps across.",
+        "Relays are for distance. For machines that touch, set their faces instead."
+      ],
+      "title": "Wireless cargo"
+    },
+    {
+      "type": "text",
+      "title": "Snapping and pairing",
+      "text": [
+        "Place a plate against a face of a machine or chest. It works the block it is stuck to.",
+        "Right-click a plate to open it. Put the **same item** in the **Bond** slot of both plates and they pair; a renamed or otherwise marked item makes a private pair. Hoppers can never steal the Bond or Rune.",
+        "Crouch and right-click a plate to switch it between **extract** and **insert**. Set the sending plate to extract and the receiving one to insert.",
+        "Keep Pulse within 8 blocks of the **sending** plate."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A relay pair",
+      "steps": [
+        {
+          "caption": "Two chests some distance apart.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Snap an Item Relay onto the top of each.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Put the same item in the Bond slot of both plates to pair them.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              1,
+              0
+            ],
+            "item": "minecraft:amethyst_shard"
+          }
+        },
+        {
+          "caption": "Crouch-click the receiving plate so it inserts; the other extracts.",
+          "highlight": [
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pulse near the sending plate, and up to 16 items a second cross over.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Items or fluid",
+      "text": [
+        "Each second a relay moves up to **16 items** or **250 mB**.",
+        "Item and Fluid relays carry what their name says. A **Water Seal** in the **Rune** slot makes any plate carry fluid; an **Earth Seal** makes it carry items.",
+        "For fluid, park a Spirit Cistern at each end. Relays move fluid; they do not store it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Three distances",
+      "text": [
+        "- **Item** and **Fluid Relays** reach **32 blocks**. Base cost **4 Pulse** per beat that moves something.",
+        "- **Longreach** relays reach **128 blocks**. Base cost **8**.",
+        "- **Astral** relays have no distance limit and cross between worlds. Base cost **16**.",
+        "The pack's consumption multiplier, **2.0** by default, doubles those. A beat that moves nothing costs nothing.",
+        "Ranked plates (see [Machine ranks](machine_ranks)) pay **118%**, **143%** or **182%** of that and move as much more: about **19 / 23 / 29** items or **294 / 357 / 455 mB**. Pulse per item stays about even."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Lattice Tuner",
+      "text": [
+        "The other way to aim a plate. Right-click the face of the block you want goods delivered to; the tuner remembers that face. Then right-click the plate with the tuner to bind it. Mark the destination, never the plate.",
+        "A tuner-bound plate needs an empty Bond slot, and the same distance limits apply.",
+        "A tuner binding survives picking the plate up. Breaking a plate drops its Bond and Rune beside it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Controls and when it waits",
+      "text": [
+        "A steady redstone signal pauses a plate. Power the receiving plate, or the tuner's target block, to stop a transfer from the far end.",
+        "A comparator on a plate reads **0** unlinked, **1** linked but waiting, **15** while moving cargo.",
+        "Both ends must already be loaded. An unloaded or full destination makes the relay wait; nothing is ever voided. Relays never load chunks themselves, so put a Wayanchor at the far end if it must work while you are away.",
+        "Crouch and right-click a plate with this book to see its link, cost and why it is waiting."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

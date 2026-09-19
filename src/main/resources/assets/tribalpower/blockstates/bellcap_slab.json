@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/bellcap_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/bellcap_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/bellcap_planks"
+    }
+  }
+}

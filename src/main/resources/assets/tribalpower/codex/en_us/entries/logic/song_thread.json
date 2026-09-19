@@ -1,0 +1,267 @@
+{
+  "name": "Song Thread",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "Redstone is a shout; Song Thread is a hummed line through the air. It carries a signal from **0 to 15** in all **six directions**, up and down included, and needs nothing to rest on."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Running a line",
+      "text": [
+        "Power drops by **one per block**, like dust. Keep a line short if you need a full 15 at the far end, or refresh it with an Echo plate.",
+        "Vanilla dust, levers, song plates, Song Vines and comparators all speak to it.",
+        "It carries weakly: it will not power the stone it touches, so it never latches. A wall of thread is a wall of song. For a tendril that hugs stone around corners, see [Song Vine](song_vine)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A song clock",
+      "steps": [
+        {
+          "caption": "Set down a Drumheart. On its own it needs you to keep the beat.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mount a Heartbeat plate on the side of a block, facing the drum. The face it points out of is its output.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Run Song Thread from the plate's face to the drum.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Crouch and use the plate until it reads 20 ticks: one beat a second.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Each beat on time adds 24 Pulse, so the drum fills while nothing is spending it.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Keeping time",
+      "text": [
+        "A Drumheart counts beats **17 to 23 ticks** apart as on time, worth **24 Pulse**. Faster pulses earn less, and beats under 8 ticks apart are ignored, so a steady one-second Heartbeat lands every beat.",
+        "If the drum does not fill, check the plate's facing, its support block and the thread, and remove any constant power nearby. Get the clock and drum working before you add thresholds or memory plates.",
+        "Add a [Pulse Gauge](pulse_gauge) if you want the stored amount as a signal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "Redstone around Loom Thread makes **eight**."
+    }
+  ],
+  "next": "song_vine"
+}

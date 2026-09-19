@@ -1,0 +1,229 @@
+{
+  "name": "How stations work",
+  "icon": "minecraft:hopper",
+  "order": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Echo stations turn one thing into another: stone into shards, shards into stronger crystals, ore into grit, grit into metal. Every recipe needs three things together: the right **input**, a matching **Resonance Totem** within 8 blocks, and enough **Pulse** within 8 blocks.",
+        "Open a station, put the ingredient in its input slot, and take the results from its eight output slots. Keep some output space free; a full station stops.",
+        "Recipes in this book, or JEI when it is installed, show each recipe's time, Pulse and voice."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A first layout",
+      "steps": [
+        {
+          "caption": "Generator, station and totem can all sit side by side on one floor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A hopper under the station collects its output, because the bottom face exports by default.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "A lever, or any redstone signal, pauses the station. Nothing is lost while it waits.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Faces and automation",
+      "text": [
+        "Every face of a station has a setting: **Input**, **Output**, **Both** or **Closed**. By default the five upper faces accept items and the bottom exports them. Change a face with the station's side controls, or crouch and right-click that face with an empty hand to cycle it. Hoppers follow the same settings.",
+        "Tribal Power machines that touch pass items between themselves, up to 16 a second: set the source face to Output and the receiving face to Input. A Both face against a Both face moves nothing, so items never bounce back and forth.",
+        "Since the bottom is Output and the top is Input by default, a station sitting on another hands its results straight down with no setup. Relays are for distance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "If work stops",
+      "text": [
+        "Crouch and right-click the station with this book. It says whether it is waiting for Pulse, needs its totem, has a quiet totem, is full, or is paused by redstone.",
+        "A quiet totem stops **new** work; a craft already under way still finishes.",
+        "Pack settings scale Pulse costs. Recipe numbers are **before** the pack's consumption multiplier, which is **2.0** by default: a recipe listed at 16 Pulse a second draws 32. Diagnostics show the real cost for your setup.",
+        "A comparator reads how full a station is. Datapacks can add their own tribalpower:lattice recipes, using shared ingredient tags."
+      ]
+    }
+  ]
+}

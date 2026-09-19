@@ -1,7 +1,5 @@
 package tk.darrow.tribalpower.client;
 
-import net.minecraft.network.chat.Component;
-import tk.darrow.tribalpower.guide.CodexEntries.Entry;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.world.structure.LoreTabletBlock;
 
@@ -22,26 +20,17 @@ public final class CodexUnlocks {
     public static int tribesUnlocked() { return Integer.bitCount(tribes & ((1 << TribeDefinition.values().length) - 1)); }
     public static int tabletsUnlocked() { return Integer.bitCount(tablets & ((1 << LoreTabletBlock.TABLETS) - 1)); }
 
-    /** True for a {@code tribe_<id>} page whose Mark the player holds or a {@code tablet_<n>} page they have read. */
-    public static boolean unlocked(Entry entry) {
-        String id = entry.id();
-        if (id.startsWith("tribe_")) {
+    /** True when a Codex entry's {@code unlock} ("tribe:&lt;id&gt;" or "tablet:&lt;n&gt;") has been earned in the world. */
+    public static boolean unlocked(String unlock) {
+        if (unlock == null || unlock.isEmpty()) return false;
+        if (unlock.startsWith("tribe:")) {
             for (TribeDefinition tribe : TribeDefinition.values())
-                if (id.equals("tribe_" + tribe.id())) return tribeUnlocked(tribe);
+                if (unlock.equals("tribe:" + tribe.id())) return tribeUnlocked(tribe);
             return false;
         }
-        if (id.startsWith("tablet_")) {
-            try { return tabletUnlocked(Integer.parseInt(id.substring(7))); } catch (NumberFormatException e) { return false; }
+        if (unlock.startsWith("tablet:")) {
+            try { return tabletUnlocked(Integer.parseInt(unlock.substring(7))); } catch (NumberFormatException e) { return false; }
         }
         return false;
-    }
-
-    /** One-line progress hint for a category, or null. */
-    public static Component hint(String category) {
-        return switch (category) {
-            case "The Nine Tribes" -> Component.translatable("gui.tribalpower.codex.tribes_met", tribesUnlocked(), TribeDefinition.values().length);
-            case "Lore Tablets" -> Component.translatable("gui.tribalpower.codex.tablets_read", tabletsUnlocked(), LoreTabletBlock.TABLETS);
-            default -> null;
-        };
     }
 }

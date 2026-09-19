@@ -1,0 +1,27 @@
+{
+  "name": "Spirit Lantern",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 90,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "A carved copper-and-wood lantern that lights the camp at level **15** and never needs fuel or Pulse. Its crystal glows in the same colours as the living lattice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Using it",
+      "text": [
+        "Set them along the paths between workshops. A lever or any redstone signal dims one, and a comparator reads 15 while it is lit.",
+        "It is a light, not a ward: hostiles still need darkness to spawn, so light plus a Hush Totem makes a quiet camp.",
+        "If you would rather your lights ran on the lattice, the Glow Reed, Shard Lamp, Echo Sconce and Ember Bowl draw a trickle of Pulse instead. See [Pulse lights](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

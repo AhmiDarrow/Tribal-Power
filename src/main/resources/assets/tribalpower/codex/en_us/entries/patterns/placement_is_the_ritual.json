@@ -1,0 +1,35 @@
+{
+  "name": "Placement is the ritual",
+  "icon": "tribalpower:spirit_codex",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Built, not crafted",
+      "text": [
+        "Some machines only wake when the blocks around them sit in the right shape. The machine in the middle is the **anchor**; the shape around it is its **pattern**.",
+        "The anchors are the Stone Font, the Resonance Mesh, the Ritual Brazier, the Pulse Resonator, the Echo Shatter and the Gate Keystone. Each has its own page in this book, with its shape built up block by block.",
+        "Any rotation works, so face the shape whichever way suits your camp."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Checking your work",
+      "text": [
+        "Crouch and right-click the anchor with this book. It names the tier the shape has reached, which way it faces, and the first **three** things still missing, and it shows ghosts where they belong.",
+        "Many patterns have a bigger second tier. Those usually ask for [Anchor Stones](anchor_stone) braced at the corners, and give the machine more to do in return.",
+        "Shapes are joined with [Ritual Marks](ritual_mark), drawn with Ritual Chalk."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "The smallest shape",
+      "text": "A Stone Font and four chalk marks. It is the easiest pattern to learn on, and it runs on a hand-played drum."
+    }
+  ],
+  "next": "ritual_mark"
+}

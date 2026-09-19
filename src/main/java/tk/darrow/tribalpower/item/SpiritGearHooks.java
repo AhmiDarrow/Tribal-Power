@@ -106,8 +106,27 @@ public final class SpiritGearHooks {
         }
     }
 
+    /** A Manifested blade heals a tenth of every blow that actually lands (after shields and invulnerability). */
+    public static void dealtDamage(net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Post event) {
+        if (event.getNewDamage() <= 0 || !(event.getSource().getEntity() instanceof Player striker)
+                || event.getSource().getDirectEntity() != striker) return;
+        ItemStack blade = striker.getMainHandItem();
+        if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) striker.heal(event.getNewDamage() * SpiritGear.LIFESTEAL);
+    }
+
     public static void incomingDamage(LivingIncomingDamageEvent event) {
+        // A Manifested blade: bosses take a quarter more, and a tenth of every blow comes back as health.
+        if (event.getSource().getEntity() instanceof Player striker && event.getSource().getDirectEntity() == striker) {
+            ItemStack blade = striker.getMainHandItem();
+            if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) {
+                if (event.getEntity().getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))
+                    event.setAmount(event.getAmount() * SpiritGear.BOSS_BONUS);
+            }
+        }
         if (!(event.getEntity() instanceof Player player)) return;
+        int set = SpiritGear.setRank(player);
+        if (set >= 3) event.setAmount(event.getAmount() * SpiritGear.MANIFESTED_SET);
+        else if (set >= 2) event.setAmount(event.getAmount() * SpiritGear.BOUND_SET);
         ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
         ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
@@ -167,9 +186,24 @@ public final class SpiritGearHooks {
         }
     }
 
+    private static final String KEPT_HEALTH = "TribalKeptHealth";
+
+    /**
+     * Health above 20 from ranked Spiritweave is lost on a relog: the save loads before the armour's bonus comes
+     * back, and health is clamped to the plain maximum. Keep it at logout and give it back once the armour is on.
+     */
+    public static void keepHealth(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        Player player = event.getEntity();
+        if (player.getHealth() > 20) player.getPersistentData().putFloat(KEPT_HEALTH, player.getHealth());
+    }
+
     public static void playerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         if (player.level().isClientSide) return;
+        if (player.tickCount > 5 && player.getPersistentData().contains(KEPT_HEALTH)) {
+            player.setHealth(Math.min(player.getMaxHealth(), player.getPersistentData().getFloat(KEPT_HEALTH)));
+            player.getPersistentData().remove(KEPT_HEALTH);
+        }
         SpiritGear.endSwing();
         ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
@@ -190,6 +224,11 @@ public final class SpiritGearHooks {
             int reach = SpiritGear.rank(boots) >= 3 ? 6 : 4;
             if (stitch(server, player, reach)) player.getCooldowns().addCooldown(boots.getItem(), 160);
         }
+
+        // A whole Manifested set mends its wearer: a heart every four seconds, paid in Pulse.
+        if (player.tickCount % 80 == 0 && player.getHealth() < player.getMaxHealth() && SpiritGear.setRank(player) >= 3
+                && (player.getAbilities().instabuild || GearCell.spend(player, player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST), 4)))
+            player.heal(2.0F);
 
         if (player instanceof ServerPlayer serverPlayer && player.level() instanceof ServerLevel server
                 && player.getMainHandItem().getItem() instanceof SpiritgearPickaxeItem

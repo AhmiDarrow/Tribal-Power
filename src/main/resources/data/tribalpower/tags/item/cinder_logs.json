@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:cinder_log",
+    "tribalpower:cinder_wood",
+    "tribalpower:stripped_cinder_log",
+    "tribalpower:stripped_cinder_wood"
+  ]
+}

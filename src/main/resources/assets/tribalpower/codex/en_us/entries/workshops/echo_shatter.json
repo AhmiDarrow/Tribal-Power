@@ -1,0 +1,239 @@
+{
+  "name": "Echo Shatter",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "The Earth station, and the first one you will build. Echo Shatter has two jobs: breaking **stone** into Echo Shards, the crystal that powers a Pulse Resonator, and crushing blocks and ores into something smaller."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Making shards",
+      "text": [
+        "Put **stone** or **deepslate** in; March Stone works too. Cobblestone does not make shards, so smelt it to stone first.",
+        "A shard takes **2 seconds** at **16 Pulse a second** before pack settings. A reserve lets a slower generator finish a batch.",
+        "It needs an Earth totem within 8 blocks and a charged generator. The shard is the small, reusable catalyst for your first Pulse Resonator."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Crushing",
+      "text": [
+        "- Cobblestone, cobbled deepslate and March Cobble become gravel; gravel becomes sand.",
+        "- Sand becomes dust when the supported sieving mod is installed, or clay otherwise.",
+        "- Diorite becomes quartz. March Ore becomes two Spirit Shards.",
+        "- Raw metals and metal ores become **two grit** each, in 4 seconds at 20 Pulse a second before pack settings. See [Metals and gems](metals_and_gems).",
+        "- Silk-touched gem ores shatter straight to the gem, at twice the ore's own drop.",
+        "Recipes in this book, or JEI, show the exact inputs and outputs in your pack."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Grit walks down",
+      "steps": [
+        {
+          "caption": "An Ember Kiln with its Fire totem.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Sit Echo Shatter on top of it, with an Earth totem nearby.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Shatter's bottom face outputs and the Kiln's top face accepts, so grit drops straight in.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Add a generator, feed raw iron into the top, and take ingots from the Kiln.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Going further",
+      "text": [
+        "Build the [Shatter Array](shatter_array) pattern around it and it pays a quarter less Pulse and empties its output into an Ancestral Cache beneath it.",
+        "Ranks make it faster; see Machine ranks. A lever pauses it."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "What Shatter makes from stone and deepslate."
+    }
+  ]
+}

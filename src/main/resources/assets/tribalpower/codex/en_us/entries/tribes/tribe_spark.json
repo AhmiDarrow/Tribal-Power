@@ -1,0 +1,54 @@
+{
+  "name": "Drumhearts",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Drumhearts",
+      "text": [
+        "“The drum is not loud. The drum is steady. Be the drum.”",
+        "Strand of **Spark**, voice of **Fire**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "Every engine in the March still keeps the Drumhearts' time. Their craft is **drums and Pulse**: one beat a breath apart, and the copper answers.",
+        "Their camps stand in **savanna**, and a second camp keeps the old road on the March steppe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Bone Chime**, worth **+8** standing at their hearth.",
+        "They also favour a Copper Ingot, Raw Copper or a Copper Resonator: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 6 Copper Ingots for a Bone Chime; 3 Copper Ingots for a Copper Resonator.",
+        "**Friend**: 2 Attuned Echo for a Pulse Cell; 2 Bone Chimes and 6 Copper Ingots for an Ember Horn.",
+        "**Kin**: a Resonant Core for a Greater Pulse Cell; 4 Bound Echo for a Drumheart.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Drumhearts' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_fire} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
+        "A charged Pulse Cell pleases the Drumhearts as it pleases every hearth: **+2 for every 10 Pulse**, up to +8. Their Guest trade for Bone Chimes feeds straight back into their reagent."
+      ]
+    }
+  ]
+}

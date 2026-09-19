@@ -105,6 +105,25 @@ public class PitGameTests {
         });
     }
 
+    /**
+     * The pattern walls the mesh in (chalk on every side, stone below, the cache on top), so stone stocked in
+     * the cache must reach it: that is how a built pit is fed by hand, hopper or relay.
+     */
+    @GameTest(template = "empty", timeoutTicks = 400)
+    public static void aPitFeedsItselfFromItsCache(GameTestHelper h) {
+        GritRegistry.rebuild();
+        ResonanceMeshBlockEntity mesh = pit(h);
+        feed(h, 1000);
+        var cache = (net.minecraft.world.Container) h.getLevel().getBlockEntity(h.absolutePos(MESH.above()));
+        cache.setItem(0, new ItemStack(Items.STONE, 64));
+        h.assertTrue(mesh.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A).isEmpty(), "The mesh starts with no substrate of its own");
+        h.succeedWhen(() -> {
+            ResonanceMeshBlockEntity live = (ResonanceMeshBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH));
+            h.assertTrue(cache.getItem(0).getCount() < 64, "The pit must draw stone from its cache, state is " + live.state());
+            h.assertTrue("working".equals(live.state()), "Stocked from the cache, the pit must run, state is " + live.state());
+        });
+    }
+
     @GameTest(template = "empty", timeoutTicks = 200)
     public static void pitStallsRatherThanVoidingWhenTheCacheIsFull(GameTestHelper h) {
         GritRegistry.rebuild();

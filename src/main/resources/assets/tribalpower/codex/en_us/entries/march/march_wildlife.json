@@ -1,0 +1,35 @@
+{
+  "name": "Wild life of the March",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 35,
+  "items": [
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:raw_glimmerfin",
+      "title": "In the water",
+      "text": [
+        "The March's meres, pools and tarns are full of life.",
+        "- **Glimmerfin**: small fish with lit fins that swim in schools. Catch one in a water bucket, or cook it.",
+        "- **Drift Bell**: a slow, glowing jelly. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while.",
+        "- **Veil Ray**: wide and shy; it glides away from anyone who comes near. Drops March Leather.",
+        "- **Silt Eel**: lives in the Reed Fen and bites anyone wading in its water. Smoke it for a good meal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In the air",
+      "text": [
+        "**Loom Swifts** wheel over the open land in loose flocks, and drop a feather or two.",
+        "Closer to the ground the air is busy with insects: **fireflies** over the fen and steppe at night, **reed darters** skimming the water by day, **glasswings** fluttering over the blooms of the Crystal Fields, and **cinder gnats** drifting up from the Ember Wastes. They are only light and motion; they cannot be caught, and they cost your world nothing."
+      ]
+    }
+  ]
+}

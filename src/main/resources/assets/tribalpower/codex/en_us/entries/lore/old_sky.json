@@ -1,0 +1,19 @@
+{
+  "name": "The world that was",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Before the void had a name, the sky was a floor. Nine Strands (Soil, Stone, Sprout, Claw, Spark, Clock, Swarm, Sigil and Spindle) were pulled taut by nine tribes. Continents hung from that lattice the way fruit hangs from a well-kept vine.",
+        "Weather ran along it. Rain knew where to fall. Nothing dropped that was not meant to.",
+        "Roads were sung into the thread and walked. Crops rooted into Strand as much as soil. Drums under one pad were heard as Pulse under another.",
+        "The Loom was not a god and it was not a machine. It was nine agreements kept at once. When the tribes pulled together, the horizon stayed put. That is the whole of the old physics.",
+        "From that pull came this craft: Pulse, lattice, seal, and the road into the March. The engines are still out there. Orphaned, humming, sacred. Treat them like an inheritance, not a scrap pile."
+      ]
+    }
+  ]
+}

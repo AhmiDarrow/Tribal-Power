@@ -1,0 +1,229 @@
+{
+  "name": "Pulse Cairn",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": [
+        "A cairn of stones that holds a beat. It stores up to **4,000 Pulse** and drinks the surplus of nearby generators, up to **200 a second**. Bursty generators fill it; hungry machines draw on it steadily."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stacking",
+      "text": [
+        "Stack cairns in a column: each of the first **five** holds its own 4,000 Pulse. The sixth stone on a pile is just a stone.",
+        "A cairn only pulls from **generators** within 8 blocks, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
+        "A comparator against a cairn reads how full it is. A redstone signal stops it filling."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A column of stones",
+      "steps": [
+        {
+          "caption": "Set a cairn beside a generator that comes in bursts, such as a Wake Bell.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stack more on top. Each one holds its own 4,000 Pulse.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Five is the limit: 20,000 Pulse in one column. A sixth stone would hold nothing.",
+          "place": [
+            {
+              "pos": [
+                0,
+                3,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                4,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              0,
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A comparator against a stone reads how full it is.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where it shines",
+      "text": [
+        "Sit a cairn beside a Wake Bell and a Listening Pit, and the bell's bursts become the steady draw the pit wants.",
+        "Both ends need to be loaded. Sneak-use this book on a cairn to see where it sits in its column."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Six March Stone, two Bound Echoes and a Pulse Cell."
+    }
+  ]
+}

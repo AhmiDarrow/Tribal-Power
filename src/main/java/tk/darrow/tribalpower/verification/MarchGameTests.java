@@ -36,7 +36,13 @@ public class MarchGameTests {
     private static final List<String> TEMPLATES = List.of(
             "tribe_camp_soil", "tribe_camp_stone", "tribe_camp_sprout", "tribe_camp_claw", "tribe_camp_spark",
             "tribe_camp_clock", "tribe_camp_swarm", "tribe_camp_sigil", "tribe_camp_spindle",
-            "ancestor_hall", "drum_circle", "crystal_spire");
+            "ancestor_hall", "drum_circle", "crystal_spire",
+            "frozen_longhall", "ice_cairn", "hunters_lodge", "aurora_watch", "ember_forge",
+            "cinder_spire", "slag_ring", "ash_tomb", "remnant_den", "wayfarers_shrine",
+            "grazing_stones", "abandoned_waystation", "fallen_drum_tower", "watchfire_beacon", "echo_quarry",
+            "storm_altar", "seal_carvers_retreat", "old_gate_ruin",
+            "shattered_observatory", "resonance_obelisk", "loom_ruin", "crystal_grotto", "stilt_village_ruin",
+            "sunken_shrine", "reed_weir", "bog_barrow", "spirit_well");
 
     private static SilentDrumBlockEntity drum(GameTestHelper h, BlockPos pos) {
         h.setBlock(pos, MarchRegistry.SILENT_DRUM.get());
@@ -389,6 +395,30 @@ public class MarchGameTests {
                 "The TribalTabletsRead bitmask must track exactly the tablets read");
         h.assertTrue(player.getPersistentData().getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG).getInt(LoreTabletBlock.READ_KEY) == ((1 << 4) | (1 << 11)),
                 "Reads are stored under PlayerPersisted/TribalTabletsRead");
+        h.succeed();
+    }
+
+    /** No structure carries the Seal-carvers' Rite: The Unsung drops it, and placing it gives that tablet. */
+    @GameTest(template = "empty")
+    public static void theUnsungDropsTheSealCarversRite(GameTestHelper h) {
+        var level = h.getLevel();
+        var unsung = MarchRegistry.THE_UNSUNG.get().create(level);
+        h.assertTrue(unsung != null, "The Unsung must be creatable");
+        var key = net.minecraft.resources.ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.parse("tribalpower:entities/the_unsung"));
+        var params = new net.minecraft.world.level.storage.loot.LootParams.Builder(level)
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.THIS_ENTITY, unsung)
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN, h.absoluteVec(new net.minecraft.world.phys.Vec3(2, 2, 2)))
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.DAMAGE_SOURCE, level.damageSources().generic())
+                .create(net.minecraft.world.level.storage.loot.parameters.LootContextParamSets.ENTITY);
+        List<ItemStack> drops = level.getServer().reloadableRegistries().getLootTable(key).getRandomItems(params);
+        ItemStack tablet = drops.stream().filter(s -> s.is(MarchRegistry.LORE_TABLET_ITEM.get())).findFirst().orElse(ItemStack.EMPTY);
+        h.assertTrue(!tablet.isEmpty(), "The Unsung must drop a Lore Tablet, dropped " + drops);
+
+        BlockPos pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, MarchRegistry.LORE_TABLET.get());
+        net.minecraft.world.item.BlockItem.updateCustomBlockEntityTag(level, null, h.absolutePos(pos), tablet);
+        var placed = (tk.darrow.tribalpower.world.structure.LoreTabletBlockEntity) level.getBlockEntity(h.absolutePos(pos));
+        h.assertTrue(placed.tablet() == 7, "The dropped tablet must place as tablet 7, the Seal-carvers' Rite, but was " + placed.tablet());
         h.succeed();
     }
 }

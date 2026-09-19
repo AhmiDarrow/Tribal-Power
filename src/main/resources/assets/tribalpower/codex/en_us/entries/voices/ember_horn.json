@@ -1,0 +1,210 @@
+{
+  "name": "Ember Horn",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "The Drumhearts' craft: a horn that burns furnace fuel into Pulse. Coal, charcoal, lava, blaze rods: whatever a furnace burns, the horn turns into steady power.",
+        "It holds **1,000 Pulse**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Feeding it",
+      "text": [
+        "Right-click it with fuel, or let a hopper or relay feed it. The fuel's burn time divided by twenty is its Pulse: coal is **80**, a coal block **800**, a lava bucket **1,000**, a blaze rod **120**.",
+        "It lets that Pulse out at up to **20 a second**. More fuel does not raise the cap; it only lasts longer.",
+        "It lights the next piece only when it has room, so a full horn wastes nothing. The empty bucket from lava comes back out; nothing else can be pulled from a lit fire."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A horn that feeds itself",
+      "steps": [
+        {
+          "caption": "Place the horn where machines within 8 blocks can draw on it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A hopper on top feeds it fuel.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A chest of coal above the hopper keeps it burning for a long while: every coal is 80 Pulse.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A lever beside it pauses the horn. The fuel simply waits.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scaling up",
+      "text": [
+        "Unranked, the horn makes at most **20 a second**. Ranking adds **15% Pulse a second** per rank. Beyond that, build more horns.",
+        "No loop you can automate turns fuel into more fuel than it burns. Even coal called up by the Listening Pit costs more Pulse to fetch and shatter than it gives back.",
+        "An empty-handed click tells you what it makes and holds. Crouch and right-click it with this book to see the fuel and the burn still owed.",
+        "Horns are the [Drumhearts'](tribe_spark) craft: the recipe needs a Cinder Knot and a Fire Seal, and the Drumhearts trade a horn to anyone they call Friend."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

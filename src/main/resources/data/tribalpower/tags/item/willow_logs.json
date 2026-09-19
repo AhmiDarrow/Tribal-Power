@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:willow_log",
+    "tribalpower:willow_wood",
+    "tribalpower:stripped_willow_log",
+    "tribalpower:stripped_willow_wood"
+  ]
+}

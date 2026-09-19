@@ -1,0 +1,50 @@
+{
+  "name": "Land rites",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "Land rites change a region for a while: faster crops, fewer hostiles, or a borrowed link between distant totems.",
+        "They follow the same rules as every tablet rite: the matching seal, the circle, and the Pulse within 8 blocks."
+      ],
+      "title": "Land rites"
+    },
+    {
+      "type": "text",
+      "title": "The three land rites",
+      "text": [
+        "- **Green Blessing** (Earth, **600** Pulse, a Knotted Root): blesses the **nine chunks** around the brazier for twenty minutes. Crops, saplings and stems there take extra random ticks and sparkle green.",
+        "- **Still Night** (Spirit, **600**, a Sentinel Sigil): hushes hostile spawning within **64 blocks** for fifteen minutes, like a wide Hush Totem. Seal-carvers sell this tablet to Friends.",
+        "- **Ley Binding** (Loom, **1,200**, Loom Thread): ties the brazier's nearest Resonance Totem to another within **64 blocks** for thirty minutes. A Lattice Conductor routes Pulse along the humming thread as if the totems stood side by side."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Before you cast",
+      "text": [
+        "Draw the circle first: missing pedestals fail the cast without spending the tablet.",
+        "Four matching totems on the circle's cardinals cut the cost by a quarter and double the time: Green Blessing then lasts forty minutes for 450 Pulse."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

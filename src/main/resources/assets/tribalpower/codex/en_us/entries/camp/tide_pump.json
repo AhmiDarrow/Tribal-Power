@@ -1,0 +1,233 @@
+{
+  "name": "Tide Pump",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Moves fluid from one tank to the tank on its other side, **250 mB** a second. Water from a Spirit Cistern into a Wave Drum, lava from one store to another: any fluid tank works, from this mod or another.",
+        "It is a pump, not a tank. It keeps nothing when you break it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Which way it pumps",
+      "text": [
+        "The pump has a front, the face with the arrow. Like a furnace, it is placed with that face toward you, and you can aim it up or down as well as sideways.",
+        "By default it **draws from the tank at its front** and **pushes into the tank at its back**. Crouch and right-click it with an empty hand to reverse that; right-click normally to hear which way it is set.",
+        "A comparator reads **15** while it draws from the front and **1** while it pushes into the front."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tank to tank",
+      "steps": [
+        {
+          "caption": "Two tanks with a gap between them. The one on the right is full.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place the Tide Pump between them with its arrow face toward the full tank.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Put Pulse within 8 blocks: each second it moves 250 mB for 4 Pulse.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Fluid flows out of the front tank and into the back one.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Crouch and right-click the pump to reverse it; now the left tank empties into the right.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tips",
+      "text": [
+        "Both tanks must accept the same fluid, and the receiving tank needs room.",
+        "Ranking it shortens the beat; Pulse per 250 mB stays **4**. A lever pauses it.",
+        "Because the pump stores nothing, pair it with a Spirit Cistern, or a Wave Drum, wherever the fluid should stay put."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Crystal Spire",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "A tapering spire of March Crystal in the Crystal Fields, with a waystation at its foot."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "At the foot of the spire is a small camp: a hearth, banners, a Loom totem, beds and a loom. Two Loom-stitchers of the Spindle tribe live there, an Elder and a Weaver.",
+        "It is the only kind of camp the Loom-stitchers keep, and it only appears in the Crystal Fields. A Lore Tablet hangs inside."
+      ],
+      "title": "The waystation"
+    },
+    {
+      "type": "text",
+      "text": [
+        "They welcome **March Crystal**, **Loom Thread** and compasses as offerings. Each one raises your [standing](standing) with the tribe.",
+        "At **Friend** standing they open Loom Thread trades, which is the steady supply you want once you have looted the Ancestor Halls near you.",
+        "Their full story is on the [Loom-stitchers](tribe_spindle) page."
+      ],
+      "title": "Trading with the Loom-stitchers"
+    },
+    {
+      "type": "text",
+      "text": [
+        "The Crystal Fields are terraced mesas, and it is easy to lose your bearings among the crystal. Bind a compass before you wander.",
+        "Shardbacks shove hard near the ledges. Keep your back away from the drops."
+      ],
+      "title": "Getting around"
+    }
+  ]
+}

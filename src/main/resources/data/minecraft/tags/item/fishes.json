@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:smoked_silt_eel"
+  ]
+}

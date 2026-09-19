@@ -1,0 +1,18 @@
+{
+  "name": "When the agreements failed",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Something severed the Loom. This Codex does not know what. Neither did the tribes, by the end. One moment the sky was a floor. The next, the agreements failed in the same breath.",
+        "The Pad-keepers felt it first: hearths went cold while the sky still looked whole. Then the Rootbinders' living anchors held for a season, and that season is why anything is still up here.",
+        "Guardians snapped in their arenas. Songs kept playing with nobody to hear them. Gate-paths stayed open into nowhere.",
+        "The Cut was not a war. It was a knot coming undone. Continents fell in the space of a drum-roll. What did not fall is a pad of earth the Strands still remember. You are standing on leftovers that learned how to be a floor."
+      ]
+    }
+  ]
+}

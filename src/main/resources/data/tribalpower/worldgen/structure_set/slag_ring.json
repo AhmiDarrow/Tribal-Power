@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:slag_ring",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 26,
+    "separation": 12,
+    "salt": 8257543,
+    "exclusion_zone": {
+      "other_set": "tribalpower:cinder_spire",
+      "chunk_count": 3
+    }
+  }
+}

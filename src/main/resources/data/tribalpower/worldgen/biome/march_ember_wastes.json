@@ -26,21 +26,27 @@
     "monster": [
       {
         "type": "tribalpower:cinder_imp",
-        "weight": 12,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 14,
+        "minCount": 2,
+        "maxCount": 4
       },
       {
         "type": "tribalpower:rift_hound",
-        "weight": 8,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 10,
+        "minCount": 3,
+        "maxCount": 5
       },
       {
         "type": "tribalpower:ashbound",
-        "weight": 8,
+        "weight": 12,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:storm_moth",
+        "weight": 6,
         "minCount": 1,
-        "maxCount": 3
+        "maxCount": 2
       }
     ],
     "creature": [
@@ -104,10 +110,14 @@
       "tribalpower:march_vanilla_diamond_large"
     ],
     [
-      "tribalpower:march_amethyst_pocket"
+      "tribalpower:march_amethyst_pocket",
+      "tribalpower:march_veil_lichen",
+      "tribalpower:march_echo_roots",
+      "tribalpower:march_lantern_caps"
     ],
     [],
     [
+      "tribalpower:march_cinder_snag_scatter",
       "tribalpower:march_crystal_sparse",
       "tribalpower:ley_thistle_waste"
     ],

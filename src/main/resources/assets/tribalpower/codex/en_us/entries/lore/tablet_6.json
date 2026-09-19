@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Colony-keepers' Hive",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a Drum Circle in the March, in the Colony-keepers' words:",
+        "“You do not own a hive. You are on good terms with it. Offer honey, plant the March flowers, and the swarm will route Pulse through the comb for you. Take without asking and the comb goes quiet. It is very patient about this.”"
+      ]
+    }
+  ]
+}

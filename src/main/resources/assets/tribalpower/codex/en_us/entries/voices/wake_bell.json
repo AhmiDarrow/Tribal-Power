@@ -1,0 +1,185 @@
+{
+  "name": "Wake Bell",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "The Seal-carvers' craft: a bell that mourns the dead. Every creature that dies near it pays Pulse into its reservoir, so a mob farm becomes a power plant."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "How it pays",
+      "text": [
+        "A death within **16 blocks** pays **20 Pulse** for a hostile and **5** for a passive creature. Players' deaths pay nothing.",
+        "Deaths fill a reservoir of **2,000**, which the bell lets out at most **8 a second** unranked. Ranking adds **15% Pulse a second** per rank. A big farm fills the reservoir and then idles; anything past the brim is lost.",
+        "Only the **nearest** bell hears a death, so stacking bells buys nothing. A bell paused by redstone hears nothing at all."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A bell by the farm",
+      "steps": [
+        {
+          "caption": "Hang the bell within 16 blocks of where things die.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Each kill fills its reservoir; the bell lets it out at up to 8 Pulse a second.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A Pulse Cairn beside it swallows those bursts as fast as they come.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Machines within 8 blocks of the cairn draw a steady line, however uneven the kills.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tips",
+      "text": [
+        "A dark farm or a Ward Drum's killing ground both work. Players are never a Ward Drum's target, and the bell still hears every death it causes.",
+        "A Listening Pit wants a steady draw, so pair the bell with a Pulse Cairn.",
+        "Bells are the [Seal-carvers'](tribe_sigil) craft: the recipe needs a Bell Fragment and a Spirit Seal, and the Seal-carvers trade a bell to their Kin."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

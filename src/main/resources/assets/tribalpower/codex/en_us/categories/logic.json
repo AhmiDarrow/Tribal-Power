@@ -1,0 +1,6 @@
+{
+  "name": "Redstone & Logic",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "description": "Every machine listens to redstone. Song plates, threads and verses let you build clocks, gates and wireless signals the tribal way."
+}

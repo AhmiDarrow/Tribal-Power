@@ -1,0 +1,42 @@
+{
+  "name": "Camp hands",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "The Pattern-weavers taught the camp to keep working after the singer left. These are the machines that farm, gather, craft, pump and keep watch while you are off doing something else.",
+        "- The **Grove Tender** plants and harvests a 9-by-9 bed.",
+        "- The **Wind Snare** picks dropped items up off the ground.",
+        "- The **Seal Loom** crafts one crafting-table recipe over and over.",
+        "- The **Tide Pump** moves fluid from one tank to another.",
+        "- The **Ward Drum** strikes hostiles that wander into camp."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rules they all share",
+      "text": [
+        "Each one draws Pulse from generators within **8 blocks** and only pays when it actually does something. An idle hand costs nothing.",
+        "A steady redstone signal, such as a lever, pauses it. A comparator reads what it is doing or how full it is; each entry says which.",
+        "The Seal Loom, Tide Pump, Wind Snare and Ward Drum can be ranked in Echo Attune, then Echo Bind, then Echo Manifest (see [Machine ranks](machine_ranks)). A ranked hand beats faster, every **85%**, **70%** or **55%** of a second, but the Pulse per job stays the same, so the lattice feels the extra speed."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Keeping the camp",
+      "text": [
+        "Other camp blocks look after the place itself rather than doing chores:",
+        "- A **Hush Totem** stops hostiles spawning.",
+        "- A **Wayanchor** keeps a distant chunk awake.",
+        "- **Spirit Lanterns** and the [Pulse lights](pulse_lights) light the paths.",
+        "- A **Rain Chime** turns the weather into a redstone signal.",
+        "- An **Offering Table** is a 27-slot store beside a hearth.",
+        "Crouch and right-click any of them with this book when something will not start."
+      ]
+    }
+  ]
+}

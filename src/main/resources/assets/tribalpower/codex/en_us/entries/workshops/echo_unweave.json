@@ -1,0 +1,191 @@
+{
+  "name": "Echo Unweave",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "The Loom station runs the lattice backwards. Echo Unweave takes a finished product apart into more of the step before it, and turns worn Spiritgear back into metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it takes apart",
+      "text": [
+        "- Manifested Ingot: **2** Bound Echoes.",
+        "- Bound Echo: **2** Attuned Echoes.",
+        "- Attuned Echo: **2** Echo Shards.",
+        "- Resonant Core: **3** Manifested Ingots.",
+        "- Spiritweave: **2** wool.",
+        "- Damaged Spiritgear: **1** Manifested Ingot.",
+        "Fresh, undamaged tools are refused: Spiritgear has to take damage first.",
+        "It needs a Loom Resonance Totem within 8 blocks. Missing Loom pauses it, and it spends nothing."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Unweaving a core",
+      "steps": [
+        {
+          "caption": "Place Echo Unweave with the Loom totem within 8 blocks.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Keep Pulse in range and some output space free.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A Resonant Core goes in; three Manifested Ingots come out.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chaining it",
+      "text": [
+        "Sit Bind or Manifest Output into this station for a reverse chain without a hopper.",
+        "Rank it in Echo Attune, Bind, then Manifest if you want it faster. A lever pauses insert and work.",
+        "If it will not start, crouch and right-click it with this book, and read [The sixth voice](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

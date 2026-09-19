@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_button",
+    "tribalpower:willow_button",
+    "tribalpower:hearthoak_button",
+    "tribalpower:bellcap_button",
+    "tribalpower:frostpine_button",
+    "tribalpower:cinder_button",
+    "tribalpower:strider_button"
+  ]
+}

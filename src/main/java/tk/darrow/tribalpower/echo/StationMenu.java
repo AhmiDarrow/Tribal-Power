@@ -5,43 +5,74 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import tk.darrow.tribalpower.blockentity.EchoStationBlockEntity;
 
+/** Echo station: input, two catalyst slots, eight outputs, then the player's inventory. */
 public class StationMenu extends AbstractContainerMenu {
     public static final DeferredHolder<MenuType<?>, MenuType<StationMenu>> TYPE = ModMenus.STATION;
+    public static final int WIDTH = 208, HEIGHT = 212;
+    public static final int INPUT_X = 15, INPUT_Y = 36, CATALYST_Y = 70, OUTPUT_X = 76, OUTPUT_Y = 34;
+    public static final int INVENTORY_X = 24, INVENTORY_Y = 130;
+    private static final int MACHINE_SLOTS = EchoStationBlockEntity.SIZE;
+    private static final String[] STATES = {"idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst"};
     private final Container container;
     private final ContainerData data;
-    public StationMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(9), new SimpleContainerData(7)); }
-    public int ioPacked() { return data.get(3); }
-    public net.minecraft.core.BlockPos machinePos() { return new net.minecraft.core.BlockPos(data.get(4), data.get(5), data.get(6)); }
+
+    public StationMenu(int id, Inventory inventory) {
+        this(id, inventory, new SimpleContainer(MACHINE_SLOTS), new SimpleContainerData(8));
+    }
+
     public StationMenu(int id, Inventory inventory, Container container, ContainerData data) {
-        super(TYPE.get(), id); this.container = container; this.data = data;
-        checkContainerSize(container, 9); checkContainerDataCount(data, 7);
+        super(TYPE.get(), id);
+        this.container = container;
+        this.data = data;
+        checkContainerSize(container, MACHINE_SLOTS);
+        checkContainerDataCount(data, 8);
         container.startOpen(inventory.player);
-        addSlot(new Slot(container, 0, 26, 42) {
+        addSlot(new Slot(container, 0, INPUT_X, INPUT_Y) {
             @Override public boolean mayPlace(ItemStack stack) { return container.canPlaceItem(0, stack); }
         });
-        for (int i = 0; i < 8; i++) addSlot(new Slot(container, i + 1, 89 + (i % 4) * 18, 33 + (i / 4) * 18) {
+        for (int i = 0; i < 8; i++) addSlot(new Slot(container, i + 1, OUTPUT_X + (i % 4) * 18, OUTPUT_Y + (i / 4) * 18) {
             @Override public boolean mayPlace(ItemStack stack) { return false; }
         });
-        for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * 18, 104 + row * 18));
-        for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, 8 + col * 18, 162));
+        for (int i = 0; i < 2; i++) {
+            int slot = EchoStationBlockEntity.CATALYST_A + i;
+            addSlot(new Slot(container, slot, INPUT_X + i * 18, CATALYST_Y) {
+                @Override public boolean mayPlace(ItemStack stack) { return container.canPlaceItem(slot, stack); }
+            });
+        }
+        for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++)
+            addSlot(new Slot(inventory, col + row * 9 + 9, INVENTORY_X + col * 18, INVENTORY_Y + row * 18));
+        for (int col = 0; col < 9; col++) addSlot(new Slot(inventory, col, INVENTORY_X + col * 18, INVENTORY_Y + 58));
         addDataSlots(data);
     }
+
+    public int ioPacked() { return data.get(3); }
+    public net.minecraft.core.BlockPos machinePos() { return new net.minecraft.core.BlockPos(data.get(4), data.get(5), data.get(6)); }
     public int work() { return data.get(0); }
     public int duration() { return Math.max(1, data.get(1)); }
-    public String statusKey() {
-        String[] states = {"idle", "working", "paused", "full", "attunement", "pulse", "quiet"};
-        return "message.tribalpower.station." + states[Math.max(0, Math.min(states.length - 1, data.get(2)))];
-    }
+    public int pulsePerSecond() { return data.get(7); }
+    public ItemStack input() { return container.getItem(0); }
+    public String state() { return STATES[Math.max(0, Math.min(STATES.length - 1, data.get(2)))]; }
+    public String statusKey() { return "message.tribalpower.station." + state(); }
+
     @Override public boolean stillValid(Player player) { return container.stillValid(player); }
     @Override public void removed(Player player) { super.removed(player); container.stopOpen(player); }
-    @Override public ItemStack quickMoveStack(Player player, int index) {
+
+    @Override
+    public ItemStack quickMoveStack(Player player, int index) {
         Slot slot = slots.get(index);
         if (!slot.hasItem()) return ItemStack.EMPTY;
         ItemStack stack = slot.getItem(), original = stack.copy();
-        if (index < 9) { if (!moveItemStackTo(stack, 9, slots.size(), true)) return ItemStack.EMPTY; }
-        else if (!container.canPlaceItem(0, stack) || !moveItemStackTo(stack, 0, 1, false)) return ItemStack.EMPTY;
-        if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
+        if (index < MACHINE_SLOTS) {
+            if (!moveItemStackTo(stack, MACHINE_SLOTS, slots.size(), true)) return ItemStack.EMPTY;
+        } else if (container.canPlaceItem(0, stack) && moveItemStackTo(stack, 0, 1, false)) {
+            // Anything the station can work goes to the input first.
+        } else if (!container.canPlaceItem(EchoStationBlockEntity.CATALYST_A, stack) || !moveItemStackTo(stack, 9, 11, false)) {
+            return ItemStack.EMPTY;
+        }
+        if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY);
+        else slot.setChanged();
         slot.onTake(player, stack);
         return original;
     }

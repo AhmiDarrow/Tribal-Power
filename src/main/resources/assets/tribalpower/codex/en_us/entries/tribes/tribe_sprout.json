@@ -1,0 +1,54 @@
+{
+  "name": "Rootbinders",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Rootbinders",
+      "text": [
+        "“Roots are the only rope the void respects.”",
+        "Strand of **Sprout**, voice of **Water**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Rootbinders planted the first living anchors on the falling islands and bound them root to root. Their anchors held for a season, and that season is why anything is still up here. Their craft is **living anchors and March flora**.",
+        "Their camps stand in **forests** and jungles, and a second camp keeps the old road on the March steppe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Mossback Scale**, worth **+8** standing at their hearth.",
+        "They also favour saplings, seeds, a Moss Block or Spirit Reed: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 4 Oak Saplings for 3 Spirit Reed; 12 Wheat Seeds for 8 Bone Meal.",
+        "**Friend**: 6 Spirit Reed for a Wave Drum; 8 Moss Blocks for a Mossback Scale.",
+        "**Kin**: 8 Echo Shards for 6 March Logs; 2 Spiritweave for 2 Echo Blooms.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Rootbinders' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_water} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Water**.",
+        "The Rootbinders are the only tribe that sells a **Wave Drum**, the Water generator."
+      ]
+    }
+  ]
+}

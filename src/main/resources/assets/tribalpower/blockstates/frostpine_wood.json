@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/frostpine_wood"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/frostpine_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/frostpine_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

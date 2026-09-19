@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_leaves"
+    "tribalpower:march_leaves",
+    "tribalpower:willow_leaves",
+    "tribalpower:hearthoak_leaves",
+    "tribalpower:bellcap_leaves",
+    "tribalpower:frostpine_leaves",
+    "tribalpower:cinder_leaves",
+    "tribalpower:strider_leaves"
   ]
 }

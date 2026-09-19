@@ -56,6 +56,33 @@
           "name": "tribalpower:music_disc_drum_circle"
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tribalpower:lore_tablet",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:block_entity_data": {
+                  "id": "tribalpower:lore_tablet",
+                  "Tablet": 7
+                }
+              }
+            },
+            {
+              "function": "minecraft:set_name",
+              "target": "item_name",
+              "name": {
+                "translate": "lore.tribalpower.tablet.7.title"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

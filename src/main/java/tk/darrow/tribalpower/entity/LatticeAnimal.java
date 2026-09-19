@@ -41,6 +41,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Byte> DATA_STRIDE=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> DATA_LEAP=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> DATA_STATS=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.INT);
     public static final int SADDLEBAG_SLOTS=FamiliarData.BASE_SADDLEBAG+FamiliarData.EXTRA_SADDLEBAG;
     private int forageCooldown,sitTicks;
     private final SimpleContainer saddlebag=new SimpleContainer(SADDLEBAG_SLOTS);
@@ -54,7 +55,9 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         lattice.apply(this,profile());
         entityData.set(DATA_STRIDE,(byte)lattice.phenotype(FamiliarData.Thread.STRIDE));
         entityData.set(DATA_LEAP,lattice.expressed(FamiliarData.Mark.LEAP));
+        entityData.set(DATA_STATS,lattice.pack());
     }
+    @Override public int syncedStats() { return entityData.get(DATA_STATS); }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
         lattice.rollWild(profile(),random,march);
@@ -66,6 +69,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         builder.define(DATA_SITTING,false);
         builder.define(DATA_STRIDE,(byte)1);
         builder.define(DATA_LEAP,false);
+        builder.define(DATA_STATS,0);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -123,11 +127,20 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             UUID a=ownerUUID().orElse(null),b=other.ownerUUID().orElse(null);
             child.lattice.copyFrom(FamiliarData.inherit(lattice,other.lattice,profile(),level.random,a,b));
             child.applyLattice();
+            // As with wolves, the young of two companions of one owner are born into that owner's company.
+            Player owner=getOwner();
+            if(owner!=null && other.isOwnedBy(owner))child.bond(owner);
         }
         return child;
     }
     @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
         ItemStack tool=player.getItemInHand(hand);
+        if(isFood(tool)) {
+            // Like a wolf: food tames a wild one in time and heals a hurt companion; a healthy companion falls in love.
+            InteractionResult fed=tk.darrow.tribalpower.familiar.FamiliarCare.feed(this,player,hand,tool);
+            if(fed!=null)return fed;
+            if(!isBonded() && !isBaby())return InteractionResult.PASS;
+        }
         if(tool.is(Items.BRUSH) && !isBaby()) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1));

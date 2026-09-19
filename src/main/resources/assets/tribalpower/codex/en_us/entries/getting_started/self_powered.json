@@ -1,0 +1,184 @@
+{
+  "name": "Power that keeps going",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Drumming gets you started, but a camp needs power while you are away. The [Pulse Resonator](pulse_resonator) makes Pulse on its own once you seat a crystal in it and give it company.",
+        "Take the Echo Shard from your Shatter and right-click the Resonator with it. The shard stays inside for good; it is never used up.",
+        "Then place totems of **two different voices** nearby, for example Earth and Fire. Two Earth totems still count as one voice."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Seating the Resonator",
+      "steps": [
+        {
+          "caption": "Place the Pulse Resonator on open ground.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click it with an Echo Shard. The shard sits inside as its catalyst and is never used up.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Add an Earth totem within 8 blocks.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Add a second, different voice, such as Fire. Now it makes 6 Pulse a second by itself.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A slow start",
+      "text": [
+        "Six Pulse a second is modest; a busy station can spend it faster than that. Let a reserve build up, and read the [Pulse Resonator](pulse_resonator) page when you are ready for stronger crystals and more voices."
+      ]
+    }
+  ]
+}

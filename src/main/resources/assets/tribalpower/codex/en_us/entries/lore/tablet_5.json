@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Pattern-weavers' Song",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kept in a Seal-carvers' camp, in the Pattern-weavers' words:",
+        "“A factory is a song that has stopped needing the singer. We wrote the timings on clock-wheels and moth dust and let the Loom carry the tune. When the Cut came the songs kept playing. Some are playing still. Listen for the click before the hum.”"
+      ]
+    }
+  ]
+}

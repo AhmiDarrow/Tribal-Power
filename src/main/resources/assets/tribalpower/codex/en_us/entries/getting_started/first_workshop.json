@@ -1,0 +1,191 @@
+{
+  "name": "Your first workshop",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tribal Power's workshops are called **Echo stations**. Each one needs three things close together: something to work on, Pulse to spend, and the right **Resonance Totem** nearby to give it its voice.",
+        "The first station you want is [Echo Shatter](echo_shatter). It breaks stone into an **Echo Shard**, the little crystal that will let you make power without drumming.",
+        "Shatter needs an **Earth** totem. The totem is not a power source. Think of it as the station's teacher: without it, the station waits and spends nothing."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Shatter's corner",
+      "steps": [
+        {
+          "caption": "Put Echo Shatter down beside your Drumheart.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Add an Earth Resonance Totem within 8 blocks. Right beside it is simplest.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Open Shatter and put in stone. Cobblestone only gives gravel, so smelt it first.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Keep the drum charged. In a few seconds an Echo Shard comes out.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "If it will not start",
+      "text": [
+        "Crouch and right-click the station with this book. It will say whether it lacks Pulse, its totem, or room in its output.",
+        "A lever or any steady redstone signal pauses a station. Nothing is lost while it waits."
+      ]
+    }
+  ]
+}

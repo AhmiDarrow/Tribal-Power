@@ -1,0 +1,396 @@
+{
+  "name": "Pulse lights",
+  "icon": "tribalpower:shard_lamp",
+  "order": 100,
+  "items": [
+    "tribalpower:glow_reed",
+    "tribalpower:echo_sconce",
+    "tribalpower:ember_bowl"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:shard_lamp",
+      "text": [
+        "Camp lamps that run on the lattice. Each draws a small trickle of Pulse every second from generators within **8 blocks**, and goes dark the moment it cannot pay. They hold no buffer."
+      ],
+      "title": "Pulse lights"
+    },
+    {
+      "type": "text",
+      "title": "The four lamps",
+      "text": [
+        "- **Glow Reed**: light 10, **1 Pulse** a second.",
+        "- **Shard Lamp**: light 12, **1 Pulse** a second.",
+        "- **Echo Sconce**: light 11, **1 Pulse** a second. It hangs on a sturdy wall and drops if the wall goes.",
+        "- **Ember Bowl**: light 14, **2 Pulse** a second.",
+        "Right-click one to see whether it is lit and what it costs. A lever or redstone signal dims it at once, and a comparator reads 15 while it is lit, 0 when dark.",
+        "The Spirit Lantern still lights with no Pulse at all."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Lighting a path",
+      "steps": [
+        {
+          "caption": "Start with a generator; every lamp within 8 blocks of it can draw on it.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Glow Reeds and Shard Lamps light up as soon as they can pay.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:shard_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "An Echo Sconce needs a sturdy wall to hang on.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "minecraft:stone_bricks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:echo_sconce[facing=north,lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "An Ember Bowl is the brightest, at 2 Pulse a second.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ember_bowl[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "A lever beside a lamp dims it; when the generator runs dry, they all go dark.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:glow_reed[lit=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glow_reed"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:shard_lamp"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_sconce"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_bowl"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Grit-singers' Mesh",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kept in a Seal-carvers' camp, in the Grit-singers' words:",
+        "“The mesh does not find the ore. The mesh gives the ore somewhere to land. Sing low over raw stone and it loosens; sing lower and it shatters into echo. Our meshes still hang in the halls, humming to nothing. Bring them ore and they will hum to you.”"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "name": "Wind Snare",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "A chest that gathers. The Wind Snare pulls dropped items off the ground around it and keeps them in **27 slots**, so a farm, a Shatter line or a mob pit never leaves a mess behind.",
+        "It only lifts items lying loose. It never takes from chests or machines."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "How it catches",
+      "text": [
+        "On every beat, once a second, it scoops up to **8 stacks** lying within **8 blocks**. The catch area is a cube, so it reaches as far up and down as it does sideways.",
+        "Each stack costs **2 Pulse** from a generator within 8. No Pulse, no catch; it waits and spends nothing.",
+        "Ranking it shortens the beat. Pulse per stack stays 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A snare over a cache",
+      "steps": [
+        {
+          "caption": "Put an Ancestral Cache where the catch should end up.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set the Wind Snare on top. Its bottom face is Output, so everything it catches drops into the cache.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Give it Pulse within 8 blocks: 2 for every stack it lifts.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Anything lying within 8 blocks, even on the far side of the farm, is pulled in.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "A lever pauses both the catching and the faces, for when you want to pick something up yourself.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Getting the catch out",
+      "text": [
+        "Open it like a chest. Hoppers and pipes take from the **bottom** face; the other faces accept items. Crouch and right-click a face with an empty hand to cycle it: Both, Input, Output, Closed.",
+        "Sitting on an Ancestral Cache or another Tribal Power store, its bottom face pushes up to **16 items a second** down with no hopper at all.",
+        "A comparator reads how full it is: handy for a warning lamp when the snare needs emptying."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

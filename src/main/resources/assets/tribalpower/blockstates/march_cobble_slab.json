@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/march_cobble_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/march_cobble_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/march_cobble"
+    }
+  }
+}

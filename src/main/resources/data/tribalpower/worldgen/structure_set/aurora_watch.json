@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:aurora_watch",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 29,
+    "salt": 8257540,
+    "exclusion_zone": {
+      "other_set": "tribalpower:hunters_lodge",
+      "chunk_count": 3
+    }
+  }
+}

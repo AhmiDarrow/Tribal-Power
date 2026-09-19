@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:strider_planks"
+    }
+  },
+  "result": {
+    "count": 4,
+    "id": "tribalpower:strider_stairs"
+  }
+}

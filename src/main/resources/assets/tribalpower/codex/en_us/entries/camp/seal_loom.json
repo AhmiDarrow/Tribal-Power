@@ -1,0 +1,231 @@
+{
+  "name": "Seal Loom",
+  "icon": "tribalpower:seal_loom",
+  "order": 60,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "A crafting table that works on its own. Teach it one crafting-table recipe on a Recipe Seal, keep its grid stocked, and it weaves one result a second for **6 Pulse** each. The seal is never used up."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Teaching it a recipe",
+      "text": [
+        "Make a **Recipe Seal** from a Blank Seal and paper, then open the loom. The seal goes in its own slot beside the grid, not in the middle of the three-by-three.",
+        "Lay out the recipe in the grid exactly as you would at a crafting table: for sticks, one plank above another.",
+        "Close the screen, crouch and right-click the loom with an **empty hand**. The seal records the recipe and its tooltip names it.",
+        "Only a blank seal can be taught. For a new recipe, make a new seal; changing the grid never changes what an old seal remembers."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Letting it run",
+      "text": [
+        "With the seal seated and the right items in the right slots, it crafts once a beat for **6 Pulse** from a generator within 8. Two planks give four sticks, and the seal stays.",
+        "Results fill its nine output slots and leave through the **bottom** face. Leftovers such as empty buckets go back into the grid.",
+        "Ranking shortens the beat; Pulse per craft stays 6. A lever pauses it, and a comparator reads how full it is."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A stick loom",
+      "steps": [
+        {
+          "caption": "Place the Seal Loom with Pulse within 8 blocks.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Seat a Recipe Seal in its seal slot, lay out the recipe, and crouch-click with an empty hand.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "A hopper above keeps the grid topped up; each item goes into the first slot that takes it.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A hopper below pulls the results out of the bottom face.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Feeding it",
+      "text": [
+        "A hopper drops each item into the first grid slot that will take it. That suits one-slot recipes such as logs into planks. For a shaped recipe, fill the slots it uses by hand with full stacks and it crafts until one runs out. If the grid stops matching the seal, it waits and spends nothing.",
+        "Crouch and right-click a face while holding an item to change that face: Both, Input, Output or Closed.",
+        "Test one batch before you connect bulk storage."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Imprint it at the loom; one seal remembers one recipe."
+    }
+  ]
+}

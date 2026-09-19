@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:willow_planks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:willow_slab"
+  }
+}

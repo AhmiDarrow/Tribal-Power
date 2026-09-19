@@ -1,0 +1,27 @@
+{
+  "name": "Using this book",
+  "icon": "tribalpower:spirit_codex",
+  "order": 0,
+  "next": "first_power",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_codex",
+      "text": [
+        "Everything in Tribal Power runs on **Pulse**, a living energy you make by keeping a rhythm, reading the land, or letting crystals and totems sing to each other.",
+        "This book follows a camp from its first drumbeat to machines that look after themselves. Turn the page with the arrows at the bottom, or the arrow keys."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When a machine goes quiet",
+      "text": [
+        "Crouch and right-click any Tribal Power block with this book in your hand. The block tells you what it is missing: power, a totem's voice, room in its output, or a redstone signal holding it paused.",
+        "That one habit answers most questions faster than any page can.",
+        "- **Blue words** are links to other pages.",
+        "- **Items** on a page can be clicked to open the page about them. Right-click opens JEI, if you have it.",
+        "- **Scenes** play a build step by step. Use the small arrows under a scene, and drag it to turn it around."
+      ]
+    }
+  ]
+}

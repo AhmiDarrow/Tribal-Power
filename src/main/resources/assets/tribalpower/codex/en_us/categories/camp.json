@@ -1,0 +1,6 @@
+{
+  "name": "Camp Machines",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Devices that look after a camp for you: they farm, gather, guard, pump, light the way and keep chunks awake."
+}

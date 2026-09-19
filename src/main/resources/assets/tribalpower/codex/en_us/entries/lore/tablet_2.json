@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Rootbinders' Rope",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tablet:2",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a sunken Ancestor Hall, in the Rootbinders' words:",
+        "“Roots are the only rope the void respects. We planted the first anchors on the falling islands and bound them island to island, root to root. Half of them held. Plant a sapling in the March soil and you will feel it pull toward the others.”"
+      ]
+    }
+  ]
+}

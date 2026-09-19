@@ -1,0 +1,42 @@
+{
+  "name": "Rootbound",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "image",
+      "image": "rootbound",
+      "text": [
+        "A grove guardian twisted by a severed ley line. Slow but sturdy."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rootbound lurk in Overworld forests, and on the March Steppe and in the Reed Fen.",
+        "It has **38 health** and **5 armour** and hits for **6**. Each blow roots you, slowing you for 3 seconds. It is slow itself, so step back, wait out the roots, and strike again."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Knotted Roots**.",
+        "A Knotted Root attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "No charm will bond a Rootbound."
+      ],
+      "title": "It will not bond"
+    }
+  ]
+}

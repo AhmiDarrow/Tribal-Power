@@ -65,6 +65,7 @@ public class LatticeMonster extends Monster implements Familiar {
     private static final EntityDataAccessor<Optional<UUID>> DATA_OWNER=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.OPTIONAL_UUID);
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> DATA_BABY=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> DATA_STATS=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.INT);
     private final FamiliarData lattice=new FamiliarData();
     private final SimpleContainer pouch=new SimpleContainer(POUCH_SLOTS);
     private int age,inLove,forageCooldown,sitTicks;
@@ -77,7 +78,8 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
     @Override public FamiliarData lattice() { return lattice; }
-    public void applyLattice() { lattice.apply(this,profile()); }
+    public void applyLattice() { lattice.apply(this,profile());entityData.set(DATA_STATS,lattice.pack()); }
+    @Override public int syncedStats() { return entityData.get(DATA_STATS); }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
         lattice.rollWild(profile(),random,march);
@@ -94,6 +96,7 @@ public class LatticeMonster extends Monster implements Familiar {
         builder.define(DATA_OWNER,Optional.empty());
         builder.define(DATA_SITTING,false);
         builder.define(DATA_BABY,false);
+        builder.define(DATA_STATS,0);
     }
     @Override protected PathNavigation createNavigation(Level level) {
         return profile().flying?new FlyingPathNavigation(this,level):super.createNavigation(level);
@@ -143,6 +146,12 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public boolean isPersistenceRequired() { return super.isPersistenceRequired() || isBonded() || isBaby(); }
     @Override public boolean requiresCustomPersistence() { return super.requiresCustomPersistence() || isBonded() || isBaby(); }
+    /** Elites are worth triple; read from their saved modifier so it survives a reload. */
+    @Override protected int getBaseExperienceReward() {
+        var health=getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        int base=super.getBaseExperienceReward();
+        return health!=null && health.hasModifier(MarchThreat.ELITE) ? base*3 : base;
+    }
     @Override public boolean removeWhenFarAway(double distance) { return !isPersistenceRequired() && super.removeWhenFarAway(distance); }
     @Override protected boolean shouldDespawnInPeaceful() { return !isPersistenceRequired(); }
     @Override public boolean isPreventingPlayerRest(Player player) { return !isPersistenceRequired() && super.isPreventingPlayerRest(player); }
@@ -192,6 +201,11 @@ public class LatticeMonster extends Monster implements Familiar {
                 level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);
             }
             return InteractionResult.sidedSuccess(level().isClientSide);
+        }
+        if(isFood(tool) && !isBaby()) {
+            // Its own reagent tames a wild remnant in time (Voice permitting) and heals a hurt companion.
+            InteractionResult fed=tk.darrow.tribalpower.familiar.FamiliarCare.feed(this,player,hand,tool);
+            if(fed!=null)return fed;
         }
         if(isFood(tool) && isBaby()) {
             if(!level().isClientSide) {
@@ -275,6 +289,9 @@ public class LatticeMonster extends Monster implements Familiar {
             child.applyLattice();
             child.setBabyFlag(true);
             child.setPersistenceRequired();
+            // As with wolves, the young of two companions of one owner are born into that owner's company.
+            Player owner=getOwner();
+            if(owner!=null && other.isOwnedBy(owner))child.bond(owner);
             server.addFreshEntity(child);
             inLove=0;other.inLove=0;
             age=6000;other.age=6000;
@@ -290,7 +307,9 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {
         var result=super.finalizeSpawn(level,difficulty,reason,data);
-        ensureLattice(level.getRandom(),level.getLevel().dimension().equals(ModDimensions.THE_MARCH));
+        boolean march=level.getLevel().dimension().equals(ModDimensions.THE_MARCH);
+        ensureLattice(level.getRandom(),march);
+        if(march && (reason==MobSpawnType.NATURAL || reason==MobSpawnType.CHUNK_GENERATION)) MarchThreat.empower(this,level,difficulty);
         return result;
     }
     @Override public void die(DamageSource source) {

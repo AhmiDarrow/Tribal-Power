@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: The Unsung",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a sunken Ancestor Hall, about the drum no one struck:",
+        "“A drum was carried out of every falling camp so the beat would not stop. The last drum was carried into the circle and no one was left to strike it. Its keeper went hollow waiting. Wake it with the four-beat and it will rise to be struck. Sneak when it beats. Resync it when it goes silent. It only wants the rhythm back.”"
+      ]
+    }
+  ]
+}

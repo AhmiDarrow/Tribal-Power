@@ -1,0 +1,43 @@
+{
+  "name": "Cinder Imp",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "image",
+      "image": "cinder_imp",
+      "text": [
+        "A nimble ember spirit. It gathers sparks before a burning bolt."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cinder Imps flit through the March Highlands and are most common in the Ember Wastes.",
+        "It has **18 health** and **1 armour** and is immune to fire. From up to 12 blocks away it casts a bolt for **4 damage** that sets you alight for 2 seconds. The bolt never ignites terrain. Cover breaks the cast."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Cinder Knots**.",
+        "A Cinder Knot attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** with the **Drumhearts**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "A bonded imp gives back a little Pulse each time you play a Drumheart by hand. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Storm Moth",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "image",
+      "image": "storm_moth",
+      "text": [
+        "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Storm Moths fly over the March Highlands and Snow Fields.",
+        "It has **20 health** and no armour. It hangs back and casts a gust from up to 12 blocks away: **4 damage** and a strong push. Break its line of sight and the spell fails."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Storm Wings**.",
+        "A Storm Wing binds into 2 Spiritweave under Water."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** with the **Pattern-weavers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "A bonded moth that sits leaves a small invisible click of redstone once a second, a free clock for your contraptions. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

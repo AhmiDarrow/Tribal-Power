@@ -189,16 +189,110 @@ public class GearGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void machineRankCostsMoreThanGearAndBindRefusesZero(GameTestHelper h) {
+    public static void gearRanksAreCostlyAndBindRefusesZero(GameTestHelper h) {
         ItemStack station = new ItemStack(ModItems.ECHO_SHATTER.get());
         h.assertTrue(ProcessingRecipes.find(h.getLevel(), "echo_bind", station) == null, "Machine Bind refuses rank 0");
         var attune = ProcessingRecipes.find(h.getLevel(), "echo_attune", station);
-        h.assertTrue(attune != null && attune.seconds() == 16 && attune.pulse() == 48,
-                "Machine Attune is 16s/48 Pulse");
+        h.assertTrue(attune != null && attune.seconds() == 16 && attune.pulse() == 48 && attune.catalysts().isEmpty(),
+                "Machine Attune is 16s/48 Pulse and needs no catalyst");
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
         var gear = ProcessingRecipes.find(h.getLevel(), "echo_attune", pick);
-        h.assertTrue(gear != null && gear.seconds() == 8 && gear.pulse() == 24, "Gear Attune stays 8s/24");
+        h.assertTrue(gear != null && gear.seconds() == 45 && gear.pulse() == 48, "Gear Attune is 45s at 48 Pulse a second");
+        h.assertTrue(gear.catalysts().size() == 1 && gear.catalysts().getFirst().is(ModItems.ATTUNED_ECHO.get())
+                && gear.catalysts().getFirst().getCount() == 4, "Gear Attune consumes 4 Attuned Echo");
+        ItemStack bound = SpiritGear.withRank(pick, 2);
+        var manifest = ProcessingRecipes.find(h.getLevel(), "echo_manifest", bound);
+        h.assertTrue(manifest != null && manifest.seconds() == 180 && manifest.pulse() == 96, "Gear Manifest is 180s at 96 Pulse a second");
+        h.assertTrue(manifest.catalysts().stream().anyMatch(s -> s.is(ModItems.LOOM_THREAD.get()) && s.getCount() == 4)
+                && manifest.catalysts().stream().anyMatch(s -> s.is(ModItems.RESONANT_CORE.get()) && s.getCount() == 2),
+                "Manifest consumes 2 Resonant Cores and 4 Loom Thread (a boss drop)");
         h.succeed();
+    }
+
+    /** A station waits for its catalysts, and uses them up when the rank lands. */
+    @GameTest(template = "empty", timeoutTicks = 1400)
+    public static void aRankNeedsAndSpendsItsCatalysts(GameTestHelper h) {
+        BlockPos pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, ModBlocks.ECHO_ATTUNE.get());
+        h.setBlock(3, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        h.setBlock(2, 2, 3, ModBlocks.PULSE_RESONATOR.get());
+        var resonator = (tk.darrow.tribalpower.api.pulse.PulseHandler) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(2, 2, 3)));
+        var station = (tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(pos));
+        station.setItem(0, new ItemStack(ModItems.SPIRITGEAR_BLADE.get()));
+        h.runAfterDelay(45, () -> {
+            h.assertTrue(station.getItem(0).is(ModItems.SPIRITGEAR_BLADE.get()) && station.work() == 0,
+                    "Without catalysts the station must wait, not work");
+            station.setItem(tk.darrow.tribalpower.blockentity.EchoStationBlockEntity.CATALYST_A, new ItemStack(ModItems.ATTUNED_ECHO.get(), 5));
+        });
+        h.onEachTick(() -> resonator.insertPulse(200, false));
+        h.succeedWhen(() -> {
+            ItemStack done = java.util.stream.IntStream.rangeClosed(1, 8).mapToObj(station::getItem)
+                    .filter(s -> s.is(ModItems.SPIRITGEAR_BLADE.get())).findFirst().orElse(ItemStack.EMPTY);
+            h.assertTrue(!done.isEmpty() && SpiritGear.rank(done) == 1, "The blade must come out Attuned");
+            h.assertTrue(station.getItem(tk.darrow.tribalpower.blockentity.EchoStationBlockEntity.CATALYST_A).getCount() == 1,
+                    "Exactly four Attuned Echo must be used");
+        });
+    }
+
+    /** A piece spends its own seated cell first, reaches for carried cells only once it runs dry, and takes a bigger cell. */
+    @GameTest(template = "empty")
+    public static void gearSpendsItsOwnCellFirst(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
+        ItemStack seated = new ItemStack(ModItems.PULSE_CELL.get());
+        tk.darrow.tribalpower.item.PulseCellItem.setPulse(seated, 50);
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.offer(pick, seated) == ItemStack.EMPTY, "An empty piece takes the cell whole");
+        ItemStack carried = new ItemStack(ModItems.PULSE_CELL.get());
+        tk.darrow.tribalpower.item.PulseCellItem.setPulse(carried, 100);
+        player.getInventory().add(carried);
+        ItemStack held = player.getInventory().items.stream().filter(s -> s.is(ModItems.PULSE_CELL.get())).findFirst().orElseThrow();
+
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.spend(player, pick, 30), "30 Pulse is affordable");
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.pulse(pick) == 20 && tk.darrow.tribalpower.item.PulseCellItem.getPulse(held) == 100,
+                "The carried cell must stay untouched while the seated cell has charge");
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.spend(player, pick, 30), "The rest comes from the carried cell");
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.pulse(pick) == 0 && tk.darrow.tribalpower.item.PulseCellItem.getPulse(held) == 90,
+                "Only the shortfall comes from the carried cell, got " + tk.darrow.tribalpower.item.PulseCellItem.getPulse(held));
+
+        ItemStack greater = new ItemStack(ModItems.GREATER_PULSE_CELL.get());
+        tk.darrow.tribalpower.item.PulseCellItem.setPulse(greater, 500);
+        ItemStack back = tk.darrow.tribalpower.item.GearCell.offer(pick, greater);
+        h.assertTrue(back != null && back.is(ModItems.PULSE_CELL.get()), "Upgrading hands the plain cell back");
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.capacity(pick) == 1200 && tk.darrow.tribalpower.item.GearCell.pulse(pick) == 500,
+                "The Greater cell is seated with its charge");
+        ItemStack topUp = new ItemStack(ModItems.PULSE_CELL.get());
+        tk.darrow.tribalpower.item.PulseCellItem.setPulse(topUp, 100);
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.offer(pick, topUp) == topUp && tk.darrow.tribalpower.item.GearCell.pulse(pick) == 600
+                && tk.darrow.tribalpower.item.PulseCellItem.getPulse(topUp) == 0, "A smaller cell tops the seated one up");
+        h.succeed();
+    }
+
+    /** Ranks are worth having: a Manifested blade and a Manifested robe carry much more than plain ones. */
+    @GameTest(template = "empty")
+    public static void ranksRaiseTheNumbers(GameTestHelper h) {
+        ItemStack plain = new ItemStack(ModItems.SPIRITGEAR_BLADE.get());
+        double plainDamage = damage(plain), topDamage = damage(SpiritGear.withRank(plain, 3));
+        h.assertTrue(topDamage - plainDamage >= 10 - 0.01, "A Manifested blade hits 10 harder, got " + plainDamage + " -> " + topDamage);
+        ItemStack robe = SpiritGear.withRank(new ItemStack(ModItems.SPIRITWEAVE_ROBE.get()), 3);
+        double health = sum(robe, EquipmentSlot.CHEST, net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
+        double armor = sum(robe, EquipmentSlot.CHEST, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR);
+        h.assertTrue(health >= 4 - 0.01, "A Manifested robe adds 4 health, got " + health);
+        h.assertTrue(armor >= 11 - 0.01, "A Manifested robe is 11 armour, got " + armor);
+        h.succeed();
+    }
+
+    private static double damage(ItemStack stack) {
+        return sum(stack, EquipmentSlot.MAINHAND, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE);
+    }
+
+    /** Every modifier a stack gives in a slot, rank bonuses included. */
+    private static double sum(ItemStack stack, EquipmentSlot slot,
+                              net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> wanted) {
+        double[] total = {0};
+        stack.forEachModifier(slot, (attribute, modifier) -> {
+            if (attribute.is(wanted)) total[0] += modifier.amount();
+        });
+        return total[0];
     }
 
     @GameTest(template = "empty")

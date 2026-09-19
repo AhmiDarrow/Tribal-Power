@@ -1,0 +1,43 @@
+{
+  "name": "Dawn Stag",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "image",
+      "image": "dawn_stag",
+      "text": [
+        "A dawn grazer that carries the old forest song in its antlers. Brush adults for Dawn Velvet."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Dawn Stags graze in Overworld forests, and in the March on the Steppe, in the Highlands and in the Reed Fen. They spawn on open, well-lit ground.",
+        "A stag has **24 health** and **1 armour**. It is gentle: it runs when hurt and keeps away from monsters. Breed two with **wheat**."
+      ],
+      "title": "Where you find it"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brush an adult for **Dawn Velvet**, once a minute. Velvet binds into 2 Spiritweave under Water.",
+        "If you hunt one, it drops **1 to 3 Raw Game** and **0 to 2 March Leather**; Looting adds up to one more of each, and a stag that dies burning drops its meat already cooked. See [Game and leather](game_and_leather)."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Bond an adult with a Bonding Charm and it becomes a mount that needs no saddle. Use it to climb on, steer with your gaze, hold jump for a short leap and sneak to get off.",
+        "It carries only the one it is bonded to. A stag with a strong Stride thread runs faster, and the rare **Leap** mark jumps higher. More on the [familiar gifts](familiar_gifts) page."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

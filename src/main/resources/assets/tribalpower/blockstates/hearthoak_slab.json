@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/hearthoak_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/hearthoak_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/hearthoak_planks"
+    }
+  }
+}

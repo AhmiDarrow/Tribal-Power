@@ -1,0 +1,45 @@
+{
+  "name": "Holding is the work",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Mending is not a private miracle. Seat a Strand and your pad notices. Seat nine and the cut above your pad closes.",
+        "Read every tablet. Strike the Silent Drum when you are ready. Offer at hearths. Ask politely, smaller than the old world asked.",
+        "The world does not snap back. It learns to hold."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "The tablets",
+      "text": [
+        "The tribes left twelve stone tablets behind. Look for them on the walls of Seal-carver camps and, in the March, in sunken **Ancestor Halls**, Drum Circles and Crystal Spires. Right-click one to read it.",
+        "Each tablet you read is recorded here, in the Lore chapter, and its words open as a page of their own."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "The chapter counts how many of the twelve you have read. Tablets you have not found yet stay hidden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tablets of your own",
+      "text": [
+        "You can craft Lore Tablets from March Stone and an Echo Shard to hang in a hall of your own. A crafted tablet carries the first fragment, the Pad-keepers' Hearth; in creative, sneak-use it to cycle through the twelve.",
+        "A tablet has to hang on the side of a solid block."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

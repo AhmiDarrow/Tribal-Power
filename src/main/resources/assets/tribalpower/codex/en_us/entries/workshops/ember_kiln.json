@@ -1,0 +1,231 @@
+{
+  "name": "Ember Kiln",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "The Fire station smelts with Pulse instead of coal. Whatever a furnace smelts, the Kiln smelts: cobble becomes stone, grit becomes an ingot. It needs a Fire totem within 8 blocks."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Using it",
+      "text": [
+        "Feed it any furnace input and take the furnace result. No fuel is burned.",
+        "Each smelt takes **10 seconds** at **32 Pulse a second** before pack settings; the default 2.0 consumption multiplier doubles that.",
+        "Grit always fires into its ingot, even modded grit a furnace cannot read.",
+        "A lever pauses it, and so does a full output. Missing Fire pauses it and spends nothing."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Cobble to stone",
+      "steps": [
+        {
+          "caption": "Place the Kiln with a Fire totem within 8 blocks.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Keep Pulse in range: a generator beside it will do.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Put cobble in and take stone out. No coal is burned.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "A hopper under the Kiln carries the results away.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automating it",
+      "text": [
+        "Sit Echo Shatter on the Kiln, Output into Input, so grit walks down: that is the default for a station sitting on another, so it just works. [Metals and gems](metals_and_gems) shows a whole ore line.",
+        "Put a hopper or cache under it if you want the ingots collected.",
+        "Rank it in Echo Attune, Bind, then Manifest like any other workshop."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

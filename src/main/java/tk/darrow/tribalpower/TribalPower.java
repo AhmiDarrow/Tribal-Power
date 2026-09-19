@@ -28,6 +28,10 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
         tk.darrow.tribalpower.world.MarchOres.init();
+        tk.darrow.tribalpower.world.MarchBuilding.init();
+        tk.darrow.tribalpower.world.MarchWoods.init();
+        tk.darrow.tribalpower.world.MarchDecor.init();
+        tk.darrow.tribalpower.world.MarchTrees.init();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
@@ -49,6 +53,8 @@ public final class TribalPower {
         tk.darrow.tribalpower.camp.identity.CampStanding.register();
         tk.darrow.tribalpower.world.structure.MarchRegistry.register(modBus);
         tk.darrow.tribalpower.world.MarchFeatures.register(modBus);
+        tk.darrow.tribalpower.wildlife.Wildlife.register(modBus);
+        tk.darrow.tribalpower.world.MarchStructures.register(modBus);
         tk.darrow.tribalpower.tribe.TribeRegistry.register(modBus);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
@@ -56,6 +62,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.gate.DrumRite::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onClone);
@@ -84,12 +91,19 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::beforeBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::drops);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::incomingDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::dealtDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::keepHealth);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::broken);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::knockback);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::fall);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::trample);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::stackedOn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);
         NeoForge.EVENT_BUS.addListener(ModBlocks::tillMarchSoil);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchWoods::strip);
         NeoForge.EVENT_BUS.addListener(ModBlocks::flattenMarchSoil);
         modBus.addListener(ModEntityAttributes::onAttributes);
         modBus.addListener(ModEntityAttributes::onSpawnPlacements);
@@ -168,6 +182,20 @@ public final class TribalPower {
             fire.setFlammable(ModBlocks.MARCH_LEAVES.get(), 30, 60);
             fire.setFlammable(ModBlocks.MARCH_SAPLING.get(), 60, 100);
             fire.setFlammable(ModBlocks.MARCH_LEAF.get(), 60, 100);
+            // The March's own woods burn like any wood, except Cinderwood, which grew up in the Ember Wastes.
+            for (var entry : tk.darrow.tribalpower.world.MarchWoods.SETS.entrySet()) {
+                var set = entry.getValue();
+                if (entry.getKey() != tk.darrow.tribalpower.world.MarchWoods.Wood.CINDER) {
+                    for (var log : java.util.List.of(set.log, set.wood, set.strippedLog, set.strippedWood)) fire.setFlammable(log.get(), 5, 5);
+                    fire.setFlammable(set.planks.get(), 5, 20);
+                    for (String part : new String[]{"stairs", "slab", "fence", "fence_gate"})
+                        fire.setFlammable(net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation
+                                .fromNamespaceAndPath(MOD_ID, entry.getKey().id + "_" + part)), 5, 20);
+                }
+                fire.setFlammable(set.leaves.get(), 30, 60);
+                fire.setFlammable(set.sapling.get(), 60, 100);
+            }
+            fire.setFlammable(tk.darrow.tribalpower.world.MarchTrees.WILLOW_STRAND.get(), 15, 100);
             fire.setFlammable(ModBlocks.SPIRIT_REED.get(), 60, 100);
             fire.setFlammable(ModBlocks.ECHO_BLOOM.get(), 60, 100);
             fire.setFlammable(ModBlocks.LEY_THISTLE.get(), 60, 100);

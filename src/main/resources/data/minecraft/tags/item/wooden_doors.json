@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_door",
+    "tribalpower:willow_door",
+    "tribalpower:hearthoak_door",
+    "tribalpower:bellcap_door",
+    "tribalpower:frostpine_door",
+    "tribalpower:cinder_door",
+    "tribalpower:strider_door"
+  ]
+}

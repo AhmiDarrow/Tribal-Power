@@ -1,0 +1,38 @@
+{
+  "name": "Wayanchor",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Keeps one chunk working while you are far away. A relay endpoint, a Listening Pit or a gate in a distant chunk stops when nobody is near; a Wayanchor keeps its chunk loaded for **16 Pulse** a second."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Running one",
+      "text": [
+        "Place it inside the chunk that must stay awake. It holds exactly that one chunk, not a radius around it.",
+        "It keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from generators within 8. You can also top it up with a Pulse Cell.",
+        "Redstone, or an empty reserve, lets the chunk go. Breaking the anchor lets it go at once.",
+        "Right-click it to see whether it is holding. A comparator reads 15 while it is."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limits and uses",
+      "text": [
+        "Up to **32** anchors can run in each world. Members of a [shared camp](shared_camps) instead share **12** between them, counted across every world, so agree on which chunks matter.",
+        "Relays never keep chunks loaded themselves. If both ends of a relay must work while you travel, put an anchor at the far end.",
+        "Gates hold their far end awake for a few seconds when someone arrives, so a gate needs an anchor only if something there must keep running."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

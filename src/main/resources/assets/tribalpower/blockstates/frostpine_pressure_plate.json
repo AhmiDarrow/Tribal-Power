@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tribalpower:block/frostpine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tribalpower:block/frostpine_pressure_plate_down"
+    }
+  }
+}

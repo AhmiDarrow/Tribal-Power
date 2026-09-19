@@ -1,0 +1,34 @@
+{
+  "name": "Anchor Stone",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Anchor Stones brace the corners of a pattern. They do nothing else: no Pulse, no inventory, no upkeep.",
+        "A shape that has them reaches a tier higher than one that does not."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Placing them",
+      "text": [
+        "Set them where the Codex shows ghosts at the corners, then leave them be. They are not generators and need nothing from you.",
+        "Break one and the pattern drops a tier until you put it back.",
+        "- **Stone Font**: four, at the corners of a 5x5, for stone and obsidian.",
+        "- **Listening Pit**: four for the 5x5 pit, eight for Deep Listening.",
+        "- **Far Gate**: four, at the corners of its footprint."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Four March Stone and an Echo Shard make **four**."
+    }
+  ],
+  "next": "stone_font"
+}

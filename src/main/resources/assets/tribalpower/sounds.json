@@ -72,5 +72,59 @@
         "stream": true
       }
     ]
+  },
+  "gate_rite_1": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_1",
+        "stream": true
+      }
+    ]
+  },
+  "gate_rite_2": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_2",
+        "stream": true
+      }
+    ]
+  },
+  "gate_rite_3": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_3",
+        "stream": true
+      }
+    ]
+  },
+  "gate_rite_4": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_4",
+        "stream": true
+      }
+    ]
+  },
+  "gate_rite_5": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_5",
+        "stream": true
+      }
+    ]
+  },
+  "gate_rite_6": {
+    "subtitle": "subtitles.tribalpower.gate_rite",
+    "sounds": [
+      {
+        "name": "tribalpower:rite/rite_6",
+        "stream": true
+      }
+    ]
   }
 }

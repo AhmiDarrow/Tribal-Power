@@ -1,0 +1,286 @@
+{
+  "name": "Metals and gems",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "Grit is crushed metal waiting for the fire. Shattering raw metal gives **two grit** for each piece, and each grit smelts into an ingot, so every ore gives you twice the metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Metals",
+      "text": [
+        "Put a raw metal item, or a silk-touched metal ore, into Echo Shatter: **4 seconds** at **20 Pulse a second** before pack settings, for two grit.",
+        "Smelt the grit into an ingot in a furnace, a blast furnace or the Ember Kiln.",
+        "Iron, gold and copper have grit of their own. Modded metals ride one **Mineral Grit** item that names its own material, and they light up with no datapack. Netherite is never crushed; it has to be earned in the Nether."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gems and minerals",
+      "text": [
+        "Silk-touched gem ore shatters straight into the gem, at **twice** the ore's own drop:",
+        "- Coal, diamond, emerald and quartz give **two**.",
+        "- Redstone and lapis give **eight**.",
+        "- Modded gems give two.",
+        "The gem itself is never an input."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "An ore line",
+      "steps": [
+        {
+          "caption": "The Ember Kiln at the bottom, with its Fire totem.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Echo Shatter on top, with an Earth totem. Its grit falls straight into the Kiln.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "A chest of raw ore feeds the Shatter through a hopper, and the drum below powers both stations.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A hopper under the Kiln catches the ingots in a chest.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Where to go next",
+  "icon": "tribalpower:gate_drum",
+  "order": 60,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "You now have a camp that makes its own power. From here, follow whatever you are curious about:",
+        "- [Workshops](echo_attune) turn shards into stronger crystals, metals and upgrades.",
+        "- [Camp Machines](grove_tender) farm, gather and guard while you are busy.",
+        "- [Storage & Travel](ancestral_cache) moves goods without pipes, and you with them.",
+        "- [Patterns](placement_is_the_ritual) are built rather than crafted: the Stone Font and the Listening Pit.",
+        "- The [Gate Drum](gate_drum) opens the way to the March, when you are ready for it."
+      ]
+    }
+  ]
+}

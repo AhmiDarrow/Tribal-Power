@@ -1,0 +1,202 @@
+{
+  "name": "Waystone compasses",
+  "icon": "tribalpower:waystone_compass",
+  "order": 50,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Mark a spot, then come back to it in a blink. A compass remembers one landing floor and carries you there for a little Pulse from a cell in your pack."
+      ],
+      "title": "Waystone compasses"
+    },
+    {
+      "type": "text",
+      "title": "Binding and using",
+      "text": [
+        "Crouch and right-click the **top** of a solid block to bind that floor as your landing.",
+        "Right-click in the air to travel. The trip is paid from Pulse Cells anywhere in your inventory, and a **5-second** cooldown follows.",
+        "You land standing on the bound floor, so it needs **two clear, dry blocks** above it, and nothing nasty right next to it: fire, lava, magma, cactus, a lit campfire, berry bushes, wither roses or powder snow.",
+        "If there is nowhere safe to stand, the trip refuses and spends nothing. Pulse is only taken once the landing is clear. You cannot travel while riding."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A landing",
+      "steps": [
+        {
+          "caption": "Pick a solid floor block for your landing.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Crouch and right-click its top face with the compass to bind it.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Keep the two blocks above it clear and dry; that is where you will stand.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A lever powering the floor locks arrival, for when you want the door shut.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Three compasses",
+      "text": [
+        "- **Waystone Compass**: up to **128 blocks** away, same world, **20 Pulse**.",
+        "- **Horizon Compass**: any distance in the same world, **40 Pulse**.",
+        "- **Astral Compass**: any distance, across worlds, **100 Pulse**. The only one that brings you home from the March.",
+        "A Waystone Compass also links a pair of Way Gates (see [Way Gate](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Totem-bound gear",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Giving gear a voice",
+      "text": [
+        "Any Spiritgear tool or Spiritweave piece can answer one totem voice. Place a Resonance Totem, carry a charged Pulse Cell, and crouch-use the piece on the totem.",
+        "Binding spends **40 Pulse**. The totem is not used up, the action bar names the voice, and you can overwrite it any time the same way. Empty-handed clicks still read the totem as usual.",
+        "Mixed sets are intended: a Fire hood is fire resistance, not night sight. The Loom voice needs a Loom totem (see [The sixth voice](sixth_voice)).",
+        "A fully bound set costs up to **12 Pulse every four seconds**.",
+        "You can tell a bound piece at a glance: its trims glow in its voice's colour, Earth green, Fire orange, Water blue, Air pale mint, Spirit violet and Loom cyan, in your hand and when worn. The higher its rank, the brighter it burns."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On a pickaxe",
+      "text": [
+        "- **Earth** opens a **3 by 3** of stone with each block; the extra blocks spend Pulse the same way as the first.",
+        "- **Fire** smelts what it mines.",
+        "- **Water** mines with silk touch.",
+        "- **Air** gives haste.",
+        "- **Spirit** makes nearby ores glint every few seconds, within 6 blocks (10 at rank 3).",
+        "- **Loom** mines for **0 Pulse**, and even starved it usually spares the edge.",
+        "The axe, shovel and blade each take the voices their own way; the tooltip shows the bound voice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On Spiritweave",
+      "text": [
+        "- **Earth**: the hood turns aside one projectile in five (about one in three at rank 3); the robe gives resistance; the leggings push through cobwebs, berry bushes and soul sand; the boots cut knockback and never trample farmland.",
+        "- **Fire**: hood and robe give fire resistance, and the robe sets attackers alight for 3 seconds; the leggings give speed in lava and the Nether; the boots ignore hot floors.",
+        "- **Water**: the hood gives water breathing; the robe regenerates you when struck (longer at rank 3); the leggings give dolphin's grace; the boots freeze still water underfoot."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "More Spiritweave voices",
+      "text": [
+        "- **Air**: the hood gives night sight; the robe ignores knockback; the leggings give speed (stronger at rank 3); the boots give slow falling.",
+        "- **Spirit**: the hood gives night sight and makes hostiles within 12 blocks glow; the robe gives resistance and makes attackers glow; the leggings give speed and a taller step; the boots cancel fall damage, and at rank 3 bounce you back up from a drop of 4 or more.",
+        "- **Loom**: the hood gives luck; the robe sometimes threads the Pulse it spent back into your cell; the leggings push through cobwebs and berry bushes; the boots let you crouch-walk forward to stitch **4 blocks** (**6** at rank 3), then rest 8 seconds."
+      ]
+    }
+  ]
+}

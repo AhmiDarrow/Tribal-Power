@@ -1,0 +1,64 @@
+{
+  "name": "Way Gate",
+  "icon": "tribalpower:gate_keystone",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "A doorway to another doorway. Build two stone frames, link their keystones, light one, and anything that walks in comes out of the other: players, animals, mobs and dropped items alike."
+      ],
+      "title": "Way Gate"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Building the frame",
+      "text": "A five-by-five ring without its corners, keystone in the middle of the bottom row. The inside, three wide and three tall, stays empty."
+    },
+    {
+      "type": "text",
+      "title": "Frames and keystone",
+      "text": [
+        "One craft of six March Stone, two copper and an Echo Shard makes **four Gate Frames**. A ring takes **11** frames, and the keystone itself takes four more, with a Resonant Core, a Spirit Shard and a Pulse Cell.",
+        "The keystone holds the gate's Pulse, up to **600**. Right-click it with a Pulse Cell to pour in up to **100** a time. A lit gate also tops itself up by up to 40 a second from generators within 8 blocks.",
+        "Only the player who placed a keystone, and their camp, can charge, light or break it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Linking a pair",
+      "text": [
+        "Build the second gate within the same world.",
+        "- **Compass:** crouch and right-click the first keystone with an unbound Waystone Compass to bind it there, then crouch and right-click the second keystone with that compass.",
+        "- **Chalk:** right-click one keystone with Ritual Chalk, then the other, up to **64 blocks** apart.",
+        "- A Gate Sigil works too; see [Far Gate](far_gate).",
+        "The pair answers both ways. **/tribalpower gate list** names every pair."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lighting and crossing",
+      "text": [
+        "Right-click the keystone with an empty hand to light it: **400 Pulse** from its store. Right-click again to let it go dark. A struck redstone signal toggles it the same way, while a held signal keeps it dark and refuses travel.",
+        "Each crossing takes **20 Pulse** from the gate you walk into. You land inside the partner's frame, lit or not. A **one-second** cooldown stops you bouncing straight back. Riders and vehicles cannot pass.",
+        "A comparator reads **0** unlinked, **1 to 14** for stored Pulse, and **15** as something crosses.",
+        "See [Keeping the way](keeping_the_way) for what happens when things go wrong."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

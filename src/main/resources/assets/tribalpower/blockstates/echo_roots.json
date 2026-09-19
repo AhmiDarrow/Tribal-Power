@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "tribalpower:block/echo_roots"
+    },
+    "waterlogged=true": {
+      "model": "tribalpower:block/echo_roots"
+    }
+  }
+}

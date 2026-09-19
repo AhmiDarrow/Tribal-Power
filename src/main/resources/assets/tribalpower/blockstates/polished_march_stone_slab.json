@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/polished_march_stone_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/polished_march_stone_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/polished_march_stone"
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "name": "Lattice Conductor",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": [
+        "The Lattice Conductor moves Pulse around your camp. It makes none of its own: it pulls Pulse from the generators near it and pushes it along chalk lines into the buffers of your Resonance Totems, where stations far from any generator can spend it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drawing the lattice",
+      "text": [
+        "Totems are joined with **Ritual Chalk**. Right-click one totem, then another within **16 blocks**. \"Lattice link sealed\" means it worked. Clicking the same totem twice cancels the pending mark. A stick of chalk is good for ten links or marks.",
+        "Linked totems form a network. Each totem's buffer holds **250 Pulse**, and any machine within 8 blocks of a totem can spend what is in it.",
+        "A chalk line carries voices too: a station counts the voice of a totem that is chalk-linked to one near it, as long as that partner stands within 16 blocks of the station."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A lattice across the camp",
+      "steps": [
+        {
+          "caption": "Two totems stand apart. Any voices will do.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click the first totem with Ritual Chalk to mark it.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:ritual_chalk"
+          }
+        },
+        {
+          "caption": "Then right-click the second, up to 16 blocks away: the lattice link is sealed.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:ritual_chalk"
+          }
+        },
+        {
+          "caption": "Place the Conductor within 8 blocks of the totems, and a generator within 8 blocks of the Conductor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Each second it fills the totem buffers, and a station beside the far totem can spend that Pulse.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "How it works",
+      "text": [
+        "Every second the Conductor pulls up to **10 Pulse** from generators within 8 blocks and spreads it across the linked totems. Ranked conductors move more.",
+        "Right-click it for a **25-Pulse** burst and a status line.",
+        "Song Benches on the lattice that need help are filled first. Every **two seconds**, while the lattice holds Pulse, it also moves Echo items between Song Benches and Ancestral Caches near the totems.",
+        "The [Ley Binding](world_rites) rite can join two distant totems for a while, and the Conductor routes along that thread as if they stood side by side."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When it goes quiet",
+      "text": [
+        "A lever or any redstone signal on the Conductor pauses it.",
+        "\"No network\" means the totems are not chalk-linked; a network needs at least two.",
+        "\"No Pulse\" means there is nothing to move: bring a generator within 8 blocks of the Conductor and charge it.",
+        "Sneak-use this book on it for the network size, the last Pulse pushed, and what is missing.",
+        "The lattice carries Pulse, not goods. To move items over distance, use [relays](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

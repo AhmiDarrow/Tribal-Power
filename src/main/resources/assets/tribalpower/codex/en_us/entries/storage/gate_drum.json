@@ -1,0 +1,156 @@
+{
+  "name": "Gate Drum",
+  "icon": "tribalpower:gate_drum",
+  "order": 60,
+  "next": "the_march",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "The door to the March, the world the tribes left behind. It needs no Pulse: **beat out its rhythm** and the rhythm itself opens the way."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Crossing over",
+      "text": [
+        "Right-click the drum with an **empty hand** to begin the **Gate Rite**. A drumming song begins, 20 to 30 seconds of drums, drone, flute and chant, and its drum beats fall toward a line on four drums in a row: **A** is the deep frame drum, **S** the low tom, **D** the high hand drum and **F** the rattle. Strike each as it reaches the line, with the music. The rattle counts you in, and the rhythm builds as the song goes.",
+        "Land **60%** of the beats and the gate opens, carrying you through. Pressing when no beat is there counts against you, so keep to the rhythm rather than drumming at random. Fail, or stop with **Esc**, and just strike the drum to try again.",
+        "The world does not stop while you drum, so clear the area first. A redstone signal locks the drum.",
+        "You arrive on the surface of the March at the same spot on the map. You cannot cross while riding. Your first visit attunes you to the Deep Cache, so opening one is free from then on."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Opening the way",
+      "steps": [
+        {
+          "caption": "Place the Gate Drum somewhere with room around it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click it empty-handed and beat out the rhythm on A, S, D and F to walk into the March.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Coming home",
+      "text": [
+        "In the March, beat the rite on **any** Gate Drum to go home, so pack a second drum to set down there.",
+        "It takes you back to where you left, onto the nearest safe spot beside it, clear of campfires, slabs and wiring. If that spot is gone, it takes you to your spawn point.",
+        "Your return point is kept even if you die in the March.",
+        "An Astral Compass bound at home works too. A Waystone or Horizon Compass stays within one world, so it cannot bring you back."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Before you go",
+      "text": [
+        "Take food, armour and full Pulse Cells.",
+        "The March has six lands: Steppe, Highlands, Crystal Fields, Snow Fields, Ember Wastes and Reed Fen. Read every tablet in an [Ancestor Hall](ancestor_hall), and look for [Drum Circles](drum_circle) in the highlands.",
+        "See [The March](the_march) for what lives there."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Reed Stalker",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "image",
+      "image": "reed_stalker",
+      "text": [
+        "A marsh hunter concealed among spirit reeds. Fast strikes carry a short poison."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reed Stalkers hide in Overworld swamps and mangrove swamps, in the March Reed Fen and in the Crystal Fields.",
+        "It has **22 health** and **1 armour**, moves fast and hits for **4**. Each bite poisons you for 3 seconds. Bring milk, or keep your distance and let it come to you."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Reed Fangs**.",
+        "A Reed Fang attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "No charm will bond a Reed Stalker."
+      ],
+      "title": "It will not bond"
+    }
+  ]
+}

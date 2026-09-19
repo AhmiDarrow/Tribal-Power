@@ -1,0 +1,101 @@
+{
+  "name": "Spirit Charms",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Charms are worn seals. Each carries a totem voice and a boon, and you can wear up to **three** in Tribal Power's own charm slots. No other mod is needed."
+      ],
+      "title": "Spirit Charms"
+    },
+    {
+      "type": "text",
+      "title": "Wearing charms",
+      "text": [
+        "Use a charm to wear it. Crouch-use any charm to open the three slots.",
+        "Worn charms cost **2 Pulse per voice every two seconds** from a carried Pulse Cell. When the cells run dry the boons stop, Sky's flight with them, so recharge or unequip.",
+        "Voices add up across everything you wear, but the same voice twice gives its boon once."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The ten charms",
+      "text": [
+        "- **Sky** (Air): creative flight while Pulse lasts.",
+        "- **Ember** (Fire): fire resistance, and attackers catch flame for 3 seconds.",
+        "- **Tide** (Water): water breathing and a swimmer's grace.",
+        "- **Root** (Earth): resistance.",
+        "- **Lantern** (Spirit): night sight.",
+        "- **Spindle** (Loom): luck, and about three times in ten it refunds up to **2 Pulse** into a carried cell every two seconds.",
+        "- **Ward** (Earth): turns aside about one projectile in four, or one in two if Spirit is also on your charms.",
+        "- **Hearth** (Fire): keeps you fed.",
+        "- **Veil** (Spirit): hides you while you sneak.",
+        "- **Chorus**: starts silent, and learns from a brazier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chorus and extra voices",
+      "text": [
+        "A silent Chorus still costs 2. Crouch-use it on a Ritual Brazier with **three different totems** within 8 blocks and **200 Pulse**, and it binds every voice nearby.",
+        "Crouch-use a charm on a Resonance Totem to add that voice for **40 Pulse**. More voices cost more to wear and do more.",
+        "Ward and Hearth carry Earth and Fire, so they also give resistance and fire resistance. Air gives slow falling as well, unless Fire is worn too."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    }
+  ]
+}

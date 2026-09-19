@@ -1,0 +1,8 @@
+{
+  "name": "Lore",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "The story of the world that was, and the tablets the tribes left for whoever came after.",
+  "spoiler": true,
+  "progress": "tablets"
+}

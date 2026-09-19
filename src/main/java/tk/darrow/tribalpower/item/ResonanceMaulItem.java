@@ -28,8 +28,8 @@ public class ResonanceMaulItem extends PickaxeItem {
             if (context.getItemInHand().isEmpty() || !state.is(BlockTags.MINEABLE_WITH_PICKAXE) || state.getDestroySpeed(player.level(), pos) < 0
                     || !context.getItemInHand().isCorrectToolForDrops(state) || !player.level().mayInteract(player, pos)
                     || !player.mayUseItemAt(pos, context.getClickedFace(), context.getItemInHand())) continue;
-            if (!player.isCreative() && SpiritgearHelper.availablePulse(player) < 8) break;
-            if (player.gameMode.destroyBlock(pos)) { SpiritgearHelper.tryConsumePulse(player, 8); broken++; }
+            if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < 8) break;
+            if (player.gameMode.destroyBlock(pos)) { GearCell.spend(player, context.getItemInHand(), 8); broken++; }
         }
         if (broken > 0) {
             SpiritEffects.ring(player.serverLevel(), center.getCenter(), Attunement.EARTH, 1.3, 16);

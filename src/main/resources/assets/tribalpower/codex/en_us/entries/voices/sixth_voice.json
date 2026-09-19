@@ -1,0 +1,202 @@
+{
+  "name": "The sixth voice",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "The sixth voice is the thread itself. The Loom totem is the last Resonance Totem, and it comes from the March: **Loom Thread** from the Ancestor Halls, and a heart from The Unsung."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Finding the thread",
+      "text": [
+        "The sunken Ancestor Halls in the March steppe and highlands keep Loom Thread in their two chests. Read the four tablets on your way out.",
+        "The Loom-stitchers also trade a thread to Friends, for six March Crystals.",
+        "Carve a **Loom Seal**: a Blank Seal, one Loom Thread and a Spirit Shard, shapeless. Seated in a Ritual Brazier with Pulse nearby, it threads **2 Pulse** into the cells you carry every **two seconds**, with Luck."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Before the totem",
+      "text": [
+        "Build Echo Unweave: March Stone around a Copper Resonator, a Spirit Shard and two Loom Thread. It needs the Loom voice within 8 blocks, and until you have the totem only a Loom-stitcher Kinship Totem or a Loom-stitcher camp can lend it.",
+        "Then wake The Unsung at a Drum Circle and take its **Unsung Heart**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Seating the sixth voice",
+      "steps": [
+        {
+          "caption": "A Pulse Resonator and Echo Unweave, a few blocks apart.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place the Loom totem within 8 blocks of both.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Unweave can now work, and the Resonator hears one more distinct voice.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What Loom opens",
+      "text": [
+        "Craft the Loom totem from four March Crystals, two Loom Thread and two March Planks around the Unsung Heart.",
+        "With Loom in reach, Echo Unweave turns ingots back into echoes, cores into ingots, Spiritweave into wool and damaged Spiritgear into a Manifested Ingot.",
+        "The Sixfold Staff gains Tether and, sneaking with no target, Stitch. The Ley Binding rite needs the Loom seal, and Far Gates need the Loom voice."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Far Gate",
+  "icon": "tribalpower:gate_sigil",
+  "order": 80,
+  "spoiler": true,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "A gate that crosses between worlds. The Far Gate is a taller frame, braced with Anchor Stones and voiced by the Loom, and linked with a Gate Sigil. The Loom voice is what puts other worlds behind The Unsung."
+      ],
+      "title": "Far Gate"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Building the frame",
+      "text": "The ring is one course taller, around an inside three wide and four tall. Four Anchor Stones stand at the corners of its footprint, in front of and behind the frame."
+    },
+    {
+      "type": "text",
+      "title": "What it needs",
+      "text": [
+        "Thirteen Gate Frames, a Gate Keystone and four [Anchor Stones](anchor_stone).",
+        "The **Loom** voice within **8 blocks** of the keystone (see [The sixth voice](sixth_voice)). Without it the gate will not light, and a lit one goes dark.",
+        "A keystone in a Far Gate frame holds up to **2,000 Pulse**. Pour it in with Pulse Cells, up to 100 a time."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Gate Sigil",
+      "text": [
+        "Craft a sigil from a Blank Seal, Loom Thread and a Spirit Shard.",
+        "Crouch and right-click one keystone with it to write that gate down. Then right-click the other keystone to tie the two together, both ways, even in another world.",
+        "Both ends must be Far Gates to cross between worlds. A server can switch Far Gates off entirely."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lighting and crossing",
+      "text": [
+        "Lighting costs **1,200 Pulse** from the gate's own **2,000**. Each crossing costs **120** and is followed by a **two-second** cooldown.",
+        "Everything else works like a Way Gate: hand or a struck signal to light, landing inside the far frame, refusal and refund when there is nowhere to stand.",
+        "Arriving in the March through a Far Gate counts as a visit, just like the Gate Drum."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

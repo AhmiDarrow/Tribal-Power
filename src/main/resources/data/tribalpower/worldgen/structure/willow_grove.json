@@ -1,0 +1,7 @@
+{
+  "type": "tribalpower:willow_grove",
+  "biomes": "#tribalpower:has_structure/willow_grove",
+  "step": "vegetal_decoration",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

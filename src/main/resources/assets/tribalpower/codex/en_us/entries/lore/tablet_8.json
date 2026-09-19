@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Loom-stitchers' Thread",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a Crystal Spire or a Loom-stitchers' camp, in their own words:",
+        "“The Loom was never one thread. It was nine agreeing. We held the Spindle and stitched the tribes' strands into one cloth over the sky. When eight pulls became eight arguments, the cloth tore along our seam. We are still stitching. Bring crystal. Bring thread.”"
+      ]
+    }
+  ]
+}

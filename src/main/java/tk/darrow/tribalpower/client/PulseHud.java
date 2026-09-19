@@ -14,7 +14,9 @@ public final class PulseHud {
         var held = mc.player.getMainHandItem();
         if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
                 && !(held.getItem() instanceof ResonanceMaulItem) && !held.is(ModItems.SPIRITGEAR_BLADE.get())) return;
-        int pulse = SpiritgearHelper.availablePulse(mc.player), capacity = 0;
+        // A piece's own seated cell counts too: it is what the piece spends first.
+        int pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
+        int capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
         for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
         capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
         int x = mc.getWindow().getGuiScaledWidth()-128, y = mc.getWindow().getGuiScaledHeight()-69;

@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Drumhearts' Beat",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a Drum Circle in the March, in the Drumhearts' words:",
+        "“The drum is not loud. The drum is steady. Be the drum. One beat a breath apart, and the copper answers; miss a beat and it forgets you. Every engine in the March still keeps our time. Strike, wait, strike. That is the whole of it.”"
+      ]
+    }
+  ]
+}

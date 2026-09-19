@@ -1,0 +1,236 @@
+{
+  "name": "What familiars do",
+  "icon": "tribalpower:lantern_down",
+  "order": 180,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiar_lantern_fox",
+      "text": [
+        "A bonded Lantern Fox lights the way."
+      ],
+      "title": "Lantern Fox"
+    },
+    {
+      "type": "text",
+      "text": [
+        "An invisible **Spirit Light** travels with it at light **10**; the Glow-vein mark raises that to **12**.",
+        "You have Night Vision while you stay within **8 blocks** of it.",
+        "Every **4 seconds** it marks ores within **6 blocks** of itself with glints only you can see. Keen shortens that wait; Hum and nightfall change the tempo too."
+      ],
+      "title": "The fox's lantern"
+    },
+    {
+      "type": "image",
+      "image": "familiar_mossback",
+      "text": [
+        "A bonded Mossback carries your things."
+      ],
+      "title": "Mossback"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sneak-use it with an **empty hand** to open a **9-slot** saddlebag, or **12** with Deep Pocket.",
+        "Sneak-use it while **holding an item** to make it wait or follow. If it dies, the bag spills on the ground."
+      ],
+      "title": "The Mossback's saddlebag"
+    },
+    {
+      "type": "image",
+      "image": "familiar_dawn_stag",
+      "text": [
+        "A bonded Dawn Stag can be ridden without a saddle."
+      ],
+      "title": "Dawn Stag"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Use it to climb on. Steer with your gaze, hold jump for a short leap and sneak to dismount. It carries only the one it is bonded to.",
+        "Stride makes it faster; the Leap mark jumps higher. Brush any bonded animal for **double** reagent, once a minute."
+      ],
+      "title": "Riding the stag"
+    },
+    {
+      "type": "text",
+      "text": [
+        "They strike whoever struck you, and whoever you strike. They are brave, not unbeatable: they still lose to the guardians.",
+        "**Soft Maw** keeps them from biting villagers or golems. **Track** (two copies, hounds only) glints the last foe that hurt you, anywhere within 48 blocks."
+      ],
+      "title": "Fighters: Shardback and Rift Hound"
+    },
+    {
+      "type": "text",
+      "text": [
+        "A **sitting** Storm Moth leaves an invisible **Spirit Click** of redstone **15** once a second, for 2 ticks. Click-true holds it 2 ticks more. It is not a drum: Drumhearts, braziers and keystones ignore it, but song plates and redstone hear it.",
+        "A **following** Cinder Imp refunds **4 Pulse** each time you play a Drumheart by hand within **8 blocks**. Redstone beats get nothing, and only one imp pays per beat. Tempo (two copies) refunds 2 more, **6** in all."
+      ],
+      "title": "Storm Moth and Cinder Imp"
+    },
+    {
+      "type": "scene",
+      "title": "A moth as a clock",
+      "steps": [
+        {
+          "caption": "Set a redstone lamp where your moth will sit, and sneak-use the moth to make it wait beside it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Once a second an invisible Spirit Click appears where the moth hovers.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "The lamp beside it flickers on with every click: a free one-second clock.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A Drumheart on the other side hears nothing, because drums ignore the click.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "A following Mourning Bell within **8 blocks** clears poison, weakness, hunger, mining fatigue, blindness and nausea from you. Still (two copies) also clears slowness. It never lifts Wither.",
+        "A following Echo Weaver picks up drops within **4 blocks** into a **five-slot** pouch and tosses them to you. Gather (two copies) reaches **8**. Sneak-use it empty-handed to empty the pouch yourself.",
+        "Brush a bonded remnant for **double** its reagent, once a minute."
+      ],
+      "title": "Mourning Bell and Echo Weaver"
+    }
+  ]
+}

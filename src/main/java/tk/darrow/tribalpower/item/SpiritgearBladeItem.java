@@ -35,7 +35,7 @@ public class SpiritgearBladeItem extends SwordItem {
             return;
         }
         boolean paid = player.getAbilities().instabuild
-                || SpiritgearHelper.tryConsumePulse(player, SpiritGear.hitCost(stack));
+                || GearCell.spend(player, stack, SpiritGear.hitCost(stack));
         if (!paid) {
             if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             SpiritgearHelper.notifyStarved(player);

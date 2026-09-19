@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_planks_slab",
+    "tribalpower:willow_slab",
+    "tribalpower:hearthoak_slab",
+    "tribalpower:bellcap_slab",
+    "tribalpower:frostpine_slab",
+    "tribalpower:cinder_slab",
+    "tribalpower:strider_slab"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "glow=false,tip=false": {
+      "model": "tribalpower:block/willow_strand"
+    },
+    "glow=true,tip=false": {
+      "model": "tribalpower:block/willow_strand"
+    },
+    "glow=false,tip=true": {
+      "model": "tribalpower:block/willow_strand_tip"
+    },
+    "glow=true,tip=true": {
+      "model": "tribalpower:block/willow_strand_glow"
+    }
+  }
+}

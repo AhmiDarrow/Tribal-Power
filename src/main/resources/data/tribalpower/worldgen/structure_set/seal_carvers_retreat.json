@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:seal_carvers_retreat",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 29,
+    "salt": 6162440
+  }
+}

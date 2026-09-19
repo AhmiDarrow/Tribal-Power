@@ -1,0 +1,43 @@
+{
+  "name": "Mossback",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg"
+  ],
+  "next": "game_and_leather",
+  "pages": [
+    {
+      "type": "image",
+      "image": "mossback",
+      "text": [
+        "A patient wetland gardener with a living shell. Brush adults for a naturally shed Mossback Scale."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mossbacks wade in Overworld swamps and mangrove swamps. In the March they crowd the Reed Fen, and a few wander the Crystal Fields, the Steppe and the Snow Fields.",
+        "A Mossback has **30 health** and **6 armour**, and moves slowly. It is gentle and backs away from monsters. Breed two with **seagrass**."
+      ],
+      "title": "Where you find it"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brush an adult for a **Mossback Scale**, once a minute. Scales bind into 2 Spiritweave under Water, and the Rootbinders favour them as an offering.",
+        "If you hunt one it drops **2 to 4 Raw Game**, more with Looting, cooked if it died burning."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "A bonded Mossback is a walking saddlebag with **9 slots** (12 with the Deep Pocket mark). It drops everything in its bag if it dies.",
+        "See the [familiar gifts](familiar_gifts) page for how to open the bag and send it to wait."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

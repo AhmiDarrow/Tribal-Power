@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Pad-keepers' Hearth",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kept on the wall of a Seal-carvers' camp, in the Pad-keepers' words:",
+        "“We never called it dirt. We called it what was left, and we kept it warm. When the ground fell away we carried it in baskets, a pad at a time, and set a hearth on every pad we saved. Feed the hearth bread and moss. It remembers who fed it.”"
+      ]
+    }
+  ]
+}

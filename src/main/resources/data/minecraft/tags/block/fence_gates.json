@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_fence_gate",
+    "tribalpower:willow_fence_gate",
+    "tribalpower:hearthoak_fence_gate",
+    "tribalpower:bellcap_fence_gate",
+    "tribalpower:frostpine_fence_gate",
+    "tribalpower:cinder_fence_gate",
+    "tribalpower:strider_fence_gate"
+  ]
+}

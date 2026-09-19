@@ -1,0 +1,73 @@
+{
+  "name": "Stone Font",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "The Stone Font asks stone to stay. Give it Pulse and the right shape around it, and it fills itself with cobblestone, then stone, then obsidian.",
+        "Unbraced cobble is cheap enough to run on a hand-played [Drumheart](drumheart), so this is the first pattern most camps build."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Cobble: the font and four marks",
+      "text": "Draw a chalk mark on each side of the font, on the same floor."
+    },
+    {
+      "type": "text",
+      "title": "Cobble",
+      "text": [
+        "With its four marks and a Drumheart within **8 blocks**, the font makes **one cobblestone every 2 seconds** at **4 Pulse a second**. No voice is needed.",
+        "Its slots are output only: do not hopper cobble in, the font makes its own. Take the output by hand, with a hopper, or with a relay.",
+        "Font cobble is for building and for hammering into gravel and sand. Echo Shatter makes Echo Shards only from stone, not cobble, and stone is what the next tier makes."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Stone and obsidian: brace it",
+      "text": "Keep the four marks and add an Anchor Stone at each corner of a 5x5 around the font."
+    },
+    {
+      "type": "text",
+      "title": "Stone",
+      "text": [
+        "Braced, and with the **Earth** voice in reach, the font makes **stone every 3 seconds** at **16 Pulse a second**. That stone is exactly what Echo Shatter turns into Echo Shards.",
+        "Earth has to be Answered (see [Keeping](keeping)); a quiet Earth totem stops the stone. Cobble never needs Earth."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsidian",
+      "text": [
+        "Obsidian needs the brace and Earth, plus one of two things:",
+        "- **Fire and Water** voices both in reach: obsidian every **12 seconds** at **24 Pulse a second**.",
+        "- Or pipe in **250 mB of water and 250 mB of lava** for each block: the same obsidian at only **6 Pulse a second**. The font holds up to 4,000 mB of each.",
+        "Piping into an unbraced font does nothing. If Fire and Water are both present, the font uses the voices and leaves its tanks alone."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Depth, ranks and settings",
+      "text": [
+        "Below **y 0** the font gives the deepslate of each tier instead: cobbled deepslate, then deepslate. Obsidian stays obsidian.",
+        "Rank the font like any other workshop: faster asks, more Pulse a second.",
+        "The pack's default **2.0** consumption multiplier doubles the Pulse for stone and obsidian, never for cobble. A pack pit-speed setting shortens every ask without raising Pulse a second, so it also makes each block cheaper.",
+        "If the font sits idle, crouch and right-click it with the Codex. It names missing marks, anchors and voices."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

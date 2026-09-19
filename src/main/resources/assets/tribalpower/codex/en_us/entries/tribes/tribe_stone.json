@@ -1,0 +1,54 @@
+{
+  "name": "Grit-singers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Grit-singers",
+      "text": [
+        "“The mesh does not find the ore. The mesh gives the ore somewhere to land.”",
+        "Strand of **Stone**, voice of **Earth**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Grit-singers sang low over raw stone until it loosened, and lower still until it shattered into echo. Their craft is **the Echo Shatter and the meshes**.",
+        "Their camps stand in **mountains** and on stony shores, and a second camp keeps the old road in the March highlands."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Attuned Echo**, worth **+8** standing at their hearth.",
+        "They also favour raw ores, ore blocks, Iron Grit, Gold Grit or Copper Grit: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 4 Raw Iron for 3 Echo Shards; 4 Attuned Echo and 8 March Stone for a Resonance Mesh.",
+        "**Friend**: 6 Iron Grit for 2 Attuned Echo; 3 Raw Gold for 4 Gold Grit.",
+        "**Kin**: 6 Attuned Echo for 2 Bound Echo; 4 Bound Echo for an Echo Shatter.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Grit-singers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_earth} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Earth**.",
+        "Your standing with the Grit-singers decides how deep a [Listening Pit](listening_pit) may listen: **Friend** for common ore, **Kin** for the deep and hot bands, **Voice** for the rare one. Their Kinship Totem is one of the two ways to open the deeper bands."
+      ]
+    }
+  ]
+}

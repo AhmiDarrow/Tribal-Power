@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_pressure_plate",
+    "tribalpower:willow_pressure_plate",
+    "tribalpower:hearthoak_pressure_plate",
+    "tribalpower:bellcap_pressure_plate",
+    "tribalpower:frostpine_pressure_plate",
+    "tribalpower:cinder_pressure_plate",
+    "tribalpower:strider_pressure_plate"
+  ]
+}

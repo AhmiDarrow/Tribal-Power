@@ -1,0 +1,58 @@
+{
+  "name": "Under the March",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "The March is hollow underneath. Dig down or follow a cave mouth and you find huge caverns held up by stone pillars, long winding tunnels, deep canyons cut open to the sky, and every vanilla ore set in March Stone. Bring plenty of light. Remnants spawn in the dark down there just as they do on the surface."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "March Coal, Iron, Copper, Gold, Redstone, Lapis Lazuli, Diamond and Emerald Ore mine and smelt exactly like their vanilla twins. Only the rock around them is different.",
+        "- Coal: any pickaxe.",
+        "- Iron, Copper and Lapis: a stone pickaxe or better.",
+        "- Gold, Redstone, Diamond and Emerald: an iron pickaxe or better.",
+        "They drop the same raw materials and gems, Fortune works, and Silk Touch keeps the ore block, which you can smelt directly. A bonded Lantern Fox marks all of them, and March Ore too."
+      ],
+      "title": "Mining the eight ores"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Coal: **y 0** to **192**.",
+        "- Iron: everywhere, richest in the middle depths and again high in the mountains.",
+        "- Copper: **y -16** to **112**.",
+        "- Gold: deep, up to **y 32**. Lapis: **y -32** to **32**. Redstone: below **y 16**.",
+        "- Diamond: below **y 16**, now and then in a large vein.",
+        "- Emerald: **only in the Highlands**, from **y 48** up. They are common there, so it is worth the climb."
+      ],
+      "title": "Where to look"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Here and there a cave wall opens into a small amethyst pocket: a few amethyst blocks set in the rock, with buds and, if you are lucky, a full cluster growing into the cave.",
+        "There is no budding amethyst in them, so they never regrow. Take what is there and move on.",
+        "Amethyst Shards attune into Spirit Shards in an Echo Attune, which makes a pocket a nice find early in the March."
+      ],
+      "title": "Amethyst pockets"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "tribalpower:block/moon_lily",
+        "y": 0
+      },
+      {
+        "model": "tribalpower:block/moon_lily",
+        "y": 90
+      },
+      {
+        "model": "tribalpower:block/moon_lily",
+        "y": 180
+      },
+      {
+        "model": "tribalpower:block/moon_lily",
+        "y": 270
+      }
+    ]
+  }
+}

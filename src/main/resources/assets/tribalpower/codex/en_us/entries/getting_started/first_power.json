@@ -1,0 +1,140 @@
+{
+  "name": "Your first Pulse",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Every camp starts with a drum. The [Drumheart](drumheart) turns a steady beat into stored Pulse, which the machines around it can spend.",
+        "Craft one, set it down where you plan to work, and play it: right-click with an **empty hand**, about **once a second**. A beat on time is worth far more than frantic clicking.",
+        "Keep going until the drum holds a few hundred Pulse. That reserve is what your first workshop will run on."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Keeping the beat",
+      "steps": [
+        {
+          "caption": "Set the Drumheart down where you plan to build your first workshop.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "With an empty hand, right-click it about once a second. Each beat on time adds 24 Pulse.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Too fast and the beats land off time and add less. Find a steady rhythm instead.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "The drum holds 1,000 Pulse. Machines within **8 blocks** can draw from it."
+    }
+  ]
+}

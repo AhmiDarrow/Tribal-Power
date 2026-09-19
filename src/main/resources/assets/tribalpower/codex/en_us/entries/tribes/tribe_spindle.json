@@ -1,0 +1,54 @@
+{
+  "name": "Loom-stitchers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Loom-stitchers",
+      "text": [
+        "“The Loom was never one thread. It was nine agreeing.”",
+        "Strand of **Spindle**, voice of **Loom**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Loom-stitchers held the Spindle and stitched the other tribes' strands into one cloth over the sky. When the cloth tore, it tore along their seam, and they are still stitching. Their craft is **gate-paths and the reweave**.",
+        "Their camps stand **only in the March**, in the crystal fields. You will have to cross over to meet them."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Loom Thread**, worth **+8** standing at their hearth.",
+        "They also favour March Crystal, a Compass, a Waystone Compass or a Horizon Compass: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 4 March Crystal for 3 Echo Shards; a Compass for 8 March Planks.",
+        "**Friend**: 6 March Crystal for a Loom Thread; 4 Attuned Echo for a Waystone Compass.",
+        "**Kin**: 4 Bound Echo and a Loom Thread for a Loom Anchor; 2 Loom Thread for a Loom Seal.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Loom-stitchers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_loom} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Loom**.",
+        "Their Friend trade turns March Crystal into Loom Thread, which is also their reagent. They are the only tribe that sells a **Loom Anchor**."
+      ]
+    }
+  ]
+}

@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_log"
+    "tribalpower:march_log",
+    "#tribalpower:willow_logs",
+    "#tribalpower:hearthoak_logs",
+    "#tribalpower:bellcap_logs",
+    "#tribalpower:frostpine_logs",
+    "#tribalpower:cinder_logs",
+    "#tribalpower:strider_logs"
   ]
 }

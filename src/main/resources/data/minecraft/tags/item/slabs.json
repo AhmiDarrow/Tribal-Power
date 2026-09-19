@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_stone_slab",
+    "tribalpower:march_cobble_slab",
+    "tribalpower:march_stone_brick_slab",
+    "tribalpower:polished_march_stone_slab"
+  ]
+}

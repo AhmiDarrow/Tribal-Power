@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:hearthoak_log",
+    "tribalpower:hearthoak_wood",
+    "tribalpower:stripped_hearthoak_log",
+    "tribalpower:stripped_hearthoak_wood"
+  ]
+}

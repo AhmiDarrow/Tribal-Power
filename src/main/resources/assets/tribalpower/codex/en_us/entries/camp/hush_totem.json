@@ -1,0 +1,37 @@
+{
+  "name": "Hush Totem",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Peace for the whole camp. While it is fed, the Hush Totem stops hostiles from spawning within **24 blocks**, for **8 Pulse** a second."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Keeping it quiet",
+      "text": [
+        "Place it in the middle of camp with generators within 8. It keeps a reserve of **2,400 Pulse** to bridge a quiet spell, and refills it by up to **80 Pulse** a second. Right-click it with a Pulse Cell to top it up by hand.",
+        "It stops natural spawns and spawner spawns, including a Summoning Cradle's hostiles.",
+        "It does not remove mobs already there, it does not stop animals, and it never overrules commands or spawn eggs.",
+        "Redstone silences it at once. A comparator reads 15 while it is hushing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Living with it",
+      "text": [
+        "Hostiles can still walk in from outside the circle, so keep the edges lit as well, or set a Ward Drum at the gate.",
+        "If you run a Summoning Cradle for hostiles, keep it more than 24 blocks from the totem, or put the totem on a lever and switch between peace and summoning.",
+        "A Spirit Lantern and a Hush Totem together make a quiet camp."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

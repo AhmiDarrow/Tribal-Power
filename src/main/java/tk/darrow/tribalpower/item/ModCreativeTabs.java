@@ -83,7 +83,12 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_MOSS.get());
                         out.accept(ModItems.MARCH_LOG.get());
                         out.accept(ModItems.MARCH_PLANKS.get());
+                        tk.darrow.tribalpower.world.MarchBuilding.ITEMS.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.MARCH_LEAVES.get());
+                        tk.darrow.tribalpower.world.MarchWoods.ITEMS.values().forEach(item -> out.accept(item.get()));
+                        out.accept(tk.darrow.tribalpower.world.MarchTrees.WILLOW_STRAND_ITEM.get());
+                        tk.darrow.tribalpower.world.MarchDecor.ITEMS.values().forEach(item -> out.accept(item.get()));
+                        tk.darrow.tribalpower.wildlife.Wildlife.tabItems().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.MARCH_LEAF.get());
                         out.accept(ModItems.MARCH_SAPLING.get());
                         out.accept(ModItems.MARCH_ORE.get());

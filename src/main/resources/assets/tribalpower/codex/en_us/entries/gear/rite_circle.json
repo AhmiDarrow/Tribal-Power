@@ -1,0 +1,52 @@
+{
+  "name": "Rite Circle",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "A Rite Pedestal holds and shows one item. Four of them around a Ritual Brazier make the **Rite Circle**, which every tablet rite needs, Spring Calling included.",
+        "A brazier's standing blessing does not need it: that only wants the seated seal and its totem."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Draw the circle",
+      "text": "Brazier in the middle, four Rite Pedestals on the diagonals, chalk joining them."
+    },
+    {
+      "type": "text",
+      "title": "Using the circle",
+      "text": [
+        "If the circle is incomplete, a tablet rite names the missing pieces and the tablet is not spent. Crouch and right-click the brazier with the Codex to see ghosts.",
+        "Tablets can wait on the pedestals. A struck redstone signal on the brazier fires the seated rite with a pedestal's tablet that matches the seal, and a comparator reads whether a pedestal is occupied. That is how you put a [rite on a clock](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Voices on the cardinals",
+      "text": "Seat four totems of the rite's own voice on the cardinals: the rite costs a quarter less and lasts twice as long."
+    },
+    {
+      "type": "text",
+      "title": "The stronger circle",
+      "text": [
+        "The four cardinal totems only count when they match the rite being cast, so a Water circle helps Rain Calling and Spring Calling but not Dawn Calling.",
+        "It is optional. A plain circle casts every rite at full price."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

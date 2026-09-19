@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:ash_tomb",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 44,
+    "separation": 24,
+    "salt": 8257544,
+    "exclusion_zone": {
+      "other_set": "tribalpower:slag_ring",
+      "chunk_count": 4
+    }
+  }
+}

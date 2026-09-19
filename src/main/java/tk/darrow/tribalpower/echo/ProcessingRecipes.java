@@ -8,7 +8,12 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 /** Station lookup over Minecraft's synced recipe manager, including external ingredient extensions. */
 public final class ProcessingRecipes {
     private ProcessingRecipes() {}
-    public record Formula(ResourceLocation id, LatticeRecipe recipe) {
+    /**
+     * A station's work for one input. {@code catalysts} are extra items that must sit in the station's catalyst
+     * slots for the whole job and are used up when it finishes (gear ranks use them; written recipes do not).
+     */
+    public record Formula(ResourceLocation id, LatticeRecipe recipe, java.util.List<ItemStack> catalysts) {
+        public Formula(ResourceLocation id, LatticeRecipe recipe) { this(id, recipe, java.util.List.of()); }
         public ItemStack result() { return recipe.output().copy(); }
         public int seconds() { return recipe.seconds(); }
         public int pulse() { return recipe.pulse(); }

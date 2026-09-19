@@ -1,0 +1,51 @@
+{
+  "name": "Sixfold Staff",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "A staff that speaks all six voices. Choose one, point, and cast.",
+        "It spends Pulse from a Pulse Cell you carry, never its own durability."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The six spells",
+      "text": [
+        "Crouch and use to cycle Earth, Fire, Water, Air, Spirit and Loom; the action bar names the voice. Use to cast.",
+        "- **Earth** (12 Pulse): a 4-damage blow that slows the foe heavily for 5 seconds.",
+        "- **Fire** (18): an 8-damage strike that sets the foe alight for 4 seconds.",
+        "- **Water** (24): heals and cleanses you. It puts out fire, clears poison, and gives regeneration for 5 seconds and water breathing for 30.",
+        "- **Air** (16): a short leap forward and slow falling for 6 seconds.",
+        "- **Spirit** (20): night sight for 30 seconds, and every hostile within **12 blocks** glows for 12.",
+        "- **Loom** (6): tethers a foe, drawing it up to **8 blocks** toward you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stitching",
+      "text": [
+        "With Loom chosen, crouch-use when no foe is in your sights and no block is close ahead: the staff **stitches** you **6 blocks** forward through open air for **10 Pulse**. It refuses to land you in solid blocks or hazards.",
+        "Because of that, to cycle on from Loom, look at a nearby block or a foe while you crouch-use."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reach and rest",
+      "text": [
+        "Earth, Fire and Loom need a hostile target. They reach **18 blocks** and stop at solid blocks; with no target they do not fire and cost nothing.",
+        "After a cast the staff rests: **8 seconds** after Water, **2 seconds** after the others, **1.5 seconds** after a stitch.",
+        "It drinks from any Pulse Cell you carry, offhand first. If the cells are dry, the cast does not fire."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

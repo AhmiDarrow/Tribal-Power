@@ -1,0 +1,71 @@
+{
+  "name": "Tribal Kin",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribal_kin",
+      "text": [
+        "Every camp keeps four Kin: an **Elder**, a **Drummer**, a **Hunter** and a **Weaver**. They wander within **16 blocks** of their camp and never despawn. Right-click any of them to see their job and your rank with the tribe."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "The Elder",
+      "text": [
+        "The Elder trades once you are a **Guest**. Each tribe has six offers, two for each rank from Guest to Kin, and every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trading with the Elder",
+      "text": [
+        "An Elder has nothing for a Stranger. Bring an offering to the hearth first.",
+        "Stock is limited. An offer can be taken **12 times** a day, **8** if it asks for two different items, and **6** if it sells a creature reagent. The Elder restocks once every Minecraft day, and closing the screen does not refill it.",
+        "When you reach **Voice**, talk to the Elder once more. They press the tribe's **Tribe Mark** into your hand, once for each tribe. Keep it safe: it becomes a [Kinship Totem](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "The Drummer",
+      "text": [
+        "Every **6 seconds** the Drummer strikes a beat that feeds **2 Pulse** into each Drumheart, Ley Collector and Pulse Resonator within **8 blocks**. Wind Harps, Wave Drums and Ember Horns take none of it. The beat also keeps nearby totems awake."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "The Hunter",
+      "text": [
+        "The Hunter watches the camp's edge and strikes hostile mobs within **12 blocks**. Hurt any Kin, though, and the Hunter comes for you for a **minute**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "The Weaver",
+      "text": [
+        "Every **40 to 90 seconds** the Weaver walks to the nearest loom within **12 blocks** of camp (or a Song Bench, if there is no loom) and works it for **six seconds**. That pose is the work. It does not craft anything for you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Living beside them",
+      "text": [
+        "Kin are neutral and patient. They will stand beside your machines, drum for your generators and guard your nights for as long as you like.",
+        "Never hit them. A stray sword swing costs **25** standing and turns the whole camp against you. See [Tribes and standing](standing) for everything else that angers a tribe.",
+        "The four spawn eggs are for creative builders who want to set up a camp of their own."
+      ]
+    }
+  ]
+}

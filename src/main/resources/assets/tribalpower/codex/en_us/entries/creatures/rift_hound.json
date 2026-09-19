@@ -1,0 +1,43 @@
+{
+  "name": "Rift Hound",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "image",
+      "image": "rift_hound",
+      "text": [
+        "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rift Hounds hunt on the March Steppe, in the Highlands and in the Ember Wastes.",
+        "It has **28 health** and **2 armour** and hits for **5**. It is the fastest of the remnants, so you will not easily outrun one. Turn and fight with your back to a wall."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Rift Teeth**.",
+        "A Rift Tooth attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** with the **Edge-walkers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "A bonded hound is a fighter, and the rare **Track** mark shows you the last foe that hurt you. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

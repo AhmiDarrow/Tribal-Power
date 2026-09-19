@@ -19,5 +19,7 @@ public interface Familiar {
     boolean isSitting();
     void setSitting(boolean sitting);
     boolean unableToMoveToOwner();
+    /** {@link FamiliarData#pack()} as last synced, readable on the client. */
+    int syncedStats();
     default Mob asMob() { return (Mob) this; }
 }

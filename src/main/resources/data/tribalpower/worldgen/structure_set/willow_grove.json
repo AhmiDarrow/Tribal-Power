@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:willow_grove",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 12,
+    "separation": 5,
+    "salt": 5706010
+  }
+}

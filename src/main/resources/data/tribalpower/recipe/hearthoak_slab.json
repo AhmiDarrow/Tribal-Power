@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:hearthoak_planks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:hearthoak_slab"
+  }
+}

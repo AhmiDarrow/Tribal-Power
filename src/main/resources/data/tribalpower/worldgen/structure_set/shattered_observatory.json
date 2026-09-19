@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:shattered_observatory",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 52,
+    "separation": 32,
+    "salt": 7327489,
+    "exclusion_zone": {
+      "other_set": "tribalpower:crystal_spire",
+      "chunk_count": 3
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Building with the March",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 45,
+  "items": [
+    "tribalpower:chiseled_march_stone_bricks",
+    "tribalpower:polished_march_stone",
+    "tribalpower:march_stone_stairs",
+    "tribalpower:march_stone_slab",
+    "tribalpower:march_stone_wall",
+    "tribalpower:march_cobble_stairs",
+    "tribalpower:march_cobble_slab",
+    "tribalpower:march_cobble_wall",
+    "tribalpower:march_stone_brick_stairs",
+    "tribalpower:march_stone_brick_slab",
+    "tribalpower:march_stone_brick_wall",
+    "tribalpower:polished_march_stone_stairs",
+    "tribalpower:polished_march_stone_slab",
+    "tribalpower:march_planks_stairs",
+    "tribalpower:march_planks_slab",
+    "tribalpower:march_fence",
+    "tribalpower:march_fence_gate",
+    "tribalpower:march_door",
+    "tribalpower:march_trapdoor",
+    "tribalpower:march_pressure_plate",
+    "tribalpower:march_button"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_stone_bricks",
+      "title": "Building with the March",
+      "text": [
+        "March stone, cobble and planks make a full building set. Four March Stone in a square give **March Stone Bricks**; four bricks give **Polished March Stone**; two brick slabs stacked give **Chiseled March Stone Bricks**, carved with a drum and a teal eye.",
+        "Every stone has **stairs** and **slabs**, and all but polished stone have **walls**. The Stonecutter turns plain March Stone into any of them with no waste."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_door",
+      "title": "March wood",
+      "text": [
+        "March planks work like any other wood: stairs, slabs, a fence and a fence gate, a door with lit window slits, a trapdoor, a pressure plate and a button. The usual recipes apply, and they burn like other wood."
+      ]
+    }
+  ]
+}

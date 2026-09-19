@@ -1,0 +1,53 @@
+{
+  "name": "World rites",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Tablet rites reach past the camp and change the world itself. Carve a tablet, seat the matching seal in a Ritual Brazier inside its circle, and spend the Pulse."
+      ],
+      "title": "Weather rites"
+    },
+    {
+      "type": "text",
+      "title": "Carving and casting",
+      "text": [
+        "Each tablet is two stone, a creature reagent and the matching seal, shapeless. The seal is handed back.",
+        "Seat that seal in the brazier (its blessing keeps running), draw the [Rite Circle](rite_circle), and gather the full cost within **8 blocks** of the brazier: a well-stocked Drumheart, a Resonator with a good catalyst, or several generators together. A cell in your pocket does not count. A Pulse Gauge or the Codex shows the total.",
+        "Crouch and use the tablet on the brazier. If the Lattice holds less than the cost, nothing is spent; otherwise the tablet is consumed and the Pulse drawn."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The three weather rites",
+      "text": [
+        "- **Rain Calling** (Water, **400** Pulse, a Reed Fang): twenty minutes of rain, and stronger Ley Collectors while it lasts. Start here.",
+        "- **Sky Clearing** (Air, **400**, a Storm Wing): forty minutes of clear sky.",
+        "- **Dawn Calling** (Fire, **800**, an Ember Heart): hurries the night to sunrise, unless the game rule tribalpower:allowDawnRite is off.",
+        "Four matching totems on the circle's cardinals take a quarter off the cost and double the time. A held redstone signal on the brazier refuses the rite.",
+        "Next, try the [land rites](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    }
+  ],
+  "next": "land_rites"
+}

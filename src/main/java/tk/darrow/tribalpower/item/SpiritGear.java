@@ -116,10 +116,7 @@ public final class SpiritGear {
     }
 
     public static float destroySpeed(ItemStack stack, float base) {
-        if (base > 1.0F && rank(stack) >= 3) {
-            return base * (Tiers.NETHERITE.getSpeed() / Tiers.DIAMOND.getSpeed());
-        }
-        return base;
+        return base > 1.0F ? base * MINING[rank(stack)] : base;
     }
 
     public static void beginSwing(Player player, ItemStack tool, boolean pulsePaid, boolean aoe) {
@@ -141,7 +138,7 @@ public final class SpiritGear {
         if (player.getAbilities().instabuild) return true;
         int cost = mineCost(stack);
         if (cost <= 0) return true;
-        return SpiritgearHelper.tryConsumePulse(player, cost);
+        return GearCell.spend(player, stack, cost);
     }
 
     public static void finishDurability(Player player, ItemStack stack, boolean paid) {
@@ -164,7 +161,7 @@ public final class SpiritGear {
 
     public static boolean tryLink(Player player, ItemStack stack, Attunement attunement) {
         if (!isGear(stack)) return false;
-        if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, LINK_COST)) {
+        if (!player.getAbilities().instabuild && !GearCell.spend(player, stack, LINK_COST)) {
             SpiritgearHelper.notifyStarved(player);
             return false;
         }
@@ -195,15 +192,15 @@ public final class SpiritGear {
         switch (station) {
             case "echo_attune" -> {
                 if (from != 0) return null;
-                to = 1; attunement = Attunement.FIRE; seconds = 8; pulse = 24; step = "attune";
+                to = 1; attunement = Attunement.FIRE; seconds = 45; pulse = 48; step = "attune";
             }
             case "echo_bind" -> {
                 if (from != 1) return null;
-                to = 2; attunement = Attunement.WATER; seconds = 10; pulse = 32; step = "bind";
+                to = 2; attunement = Attunement.WATER; seconds = 90; pulse = 64; step = "bind";
             }
             case "echo_manifest" -> {
                 if (from != 2) return null;
-                to = 3; attunement = Attunement.SPIRIT; seconds = 12; pulse = 40; step = "manifest";
+                to = 3; attunement = Attunement.SPIRIT; seconds = 180; pulse = 96; step = "manifest";
             }
             default -> { return null; }
         }
@@ -212,7 +209,92 @@ public final class SpiritGear {
                 "spiritgear/" + step + "/" + BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath());
         LatticeRecipe recipe = new LatticeRecipe(station, Ingredient.of(stack.getItem()), output,
                 seconds, pulse, attunement);
-        return new ProcessingRecipes.Formula(id, recipe);
+        return new ProcessingRecipes.Formula(id, recipe, catalysts(to));
+    }
+
+    /**
+     * What each rank consumes besides Pulse and time, per piece: the next crystal for Attuned and Bound, and for
+     * Manifested two Resonant Cores and Loom Thread, which only The Unsung gives. Top gear waits on that fight.
+     */
+    public static List<ItemStack> catalysts(int toRank) {
+        return switch (toRank) {
+            case 1 -> List.of(new ItemStack(ModItems.ATTUNED_ECHO.get(), 4));
+            case 2 -> List.of(new ItemStack(ModItems.BOUND_ECHO.get(), 4));
+            case 3 -> List.of(new ItemStack(ModItems.RESONANT_CORE.get(), 2), new ItemStack(ModItems.LOOM_THREAD.get(), 4));
+            default -> List.of();
+        };
+    }
+
+    public static boolean isCatalyst(ItemStack stack) {
+        return stack.is(ModItems.ATTUNED_ECHO.get()) || stack.is(ModItems.BOUND_ECHO.get())
+                || stack.is(ModItems.RESONANT_CORE.get()) || stack.is(ModItems.LOOM_THREAD.get());
+    }
+
+    // ---- what a rank is worth -------------------------------------------------------------------
+
+    /** Extra armour per piece by rank, per slot: a full Manifested set is 29, one short of the cap. */
+    private static final int[][] ARMOR_BONUS = {
+            {0, 1, 1, 2},   // head
+            {0, 1, 2, 3},   // chest
+            {0, 1, 2, 2},   // legs
+            {0, 1, 1, 2}};  // feet
+    private static final double[] TOUGHNESS_BONUS = {0, 1, 2, 3};
+    private static final double[] KNOCKBACK_BONUS = {0, 0.05, 0.10, 0.15};
+    private static final double[] HEALTH_BONUS = {0, 1, 2, 4};
+    private static final double[] BLADE_DAMAGE = {0, 2, 5, 10};
+    private static final double[] BLADE_SPEED = {0, 0, 0.1, 0.2};
+    private static final double[] TOOL_DAMAGE = {0, 1, 2, 3};
+    private static final float[] MINING = {1.0F, 1.2F, 1.45F, 1.8F};
+    /** Incoming damage taken with a whole set of Bound (or better) and of Manifested pieces. */
+    public static final float BOUND_SET = 0.9F, MANIFESTED_SET = 0.8F;
+    /** A Manifested blade hits bosses harder and gives some of the blow back as health. */
+    public static final float BOSS_BONUS = 1.25F, LIFESTEAL = 0.1F;
+
+    /** Adds rank bonuses to a piece's attributes. Everything here scales with rank alone; voices add perks. */
+    public static void rankAttributes(net.neoforged.neoforge.event.ItemAttributeModifierEvent event) {
+        ItemStack stack = event.getItemStack();
+        int rank = rank(stack);
+        if (rank <= 0) return;
+        if (stack.getItem() instanceof SpiritweaveArmor armor) {
+            var slot = armor.getEquipmentSlot();
+            var group = net.minecraft.world.entity.EquipmentSlotGroup.bySlot(slot);
+            int row = switch (slot) { case HEAD -> 0; case CHEST -> 1; case LEGS -> 2; default -> 3; };
+            String name = slot.getName();
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR, "spiritweave_armor_" + name, ARMOR_BONUS[row][rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR_TOUGHNESS, "spiritweave_toughness_" + name, TOUGHNESS_BONUS[rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, "spiritweave_knockback_" + name, KNOCKBACK_BONUS[rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, "spiritweave_health_" + name, HEALTH_BONUS[rank], group);
+        } else if (stack.getItem() instanceof SpiritgearBladeItem) {
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, "spiritgear_blade_damage", BLADE_DAMAGE[rank],
+                    net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED, "spiritgear_blade_speed", BLADE_SPEED[rank],
+                    net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
+        } else if (isTool(stack)) {
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, "spiritgear_tool_damage", TOOL_DAMAGE[rank],
+                    net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
+        }
+    }
+
+    private static void add(net.neoforged.neoforge.event.ItemAttributeModifierEvent event,
+                            net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute, String id, double amount,
+                            net.minecraft.world.entity.EquipmentSlotGroup group) {
+        if (amount == 0) return;
+        event.addModifier(attribute, new net.minecraft.world.entity.ai.attributes.AttributeModifier(
+                ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, id), amount,
+                net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), group);
+    }
+
+    /** The lowest rank among four worn Spiritweave pieces, or -1 when the set is not complete. */
+    public static int setRank(Player player) {
+        int lowest = MAX_RANK;
+        for (var slot : new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,
+                net.minecraft.world.entity.EquipmentSlot.CHEST, net.minecraft.world.entity.EquipmentSlot.LEGS,
+                net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            ItemStack worn = player.getItemBySlot(slot);
+            if (!isArmor(worn)) return -1;
+            lowest = Math.min(lowest, rank(worn));
+        }
+        return lowest;
     }
 
     public static List<ProcessingRecipes.Formula> allRankFormulae() {
@@ -241,6 +323,21 @@ public final class SpiritGear {
                 attunement -> lines.add(Component.translatable("item.tribalpower.spiritgear.voice",
                         Component.translatable("attunement.tribalpower." + attunement.getSerializedName()))),
                 () -> lines.add(Component.translatable("item.tribalpower.spiritgear.unlinked")));
+        int rank = rank(stack);
+        if (rank < MAX_RANK) {
+            String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
+            List<Component> parts = new ArrayList<>();
+            for (ItemStack want : catalysts(rank + 1)) parts.add(Component.literal(want.getCount() + " ").append(want.getHoverName()));
+            lines.add(Component.translatable("item.tribalpower.spiritgear.next_rank",
+                    Component.translatable("block.tribalpower." + stations[rank]),
+                    net.minecraft.network.chat.ComponentUtils.formatList(parts, Component.literal(", ")))
+                    .withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
+        }
+        if (isArmor(stack) && rank >= 2)
+            lines.add(Component.translatable(rank >= 3 ? "item.tribalpower.spiritweave.set_manifested" : "item.tribalpower.spiritweave.set_bound")
+                    .withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
+        if (stack.getItem() instanceof SpiritgearBladeItem && rank >= 3)
+            lines.add(Component.translatable("item.tribalpower.spiritgear_blade.manifested").withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
     }
 
     public static boolean chance(ItemStack stack, float base) {

@@ -1,0 +1,254 @@
+{
+  "name": "Attune and Bind",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "Echo Attune (Fire) turns Echo Shards into **Attuned Echoes**. Its partner, Echo Bind (Water), turns Attuned Echoes into **Bound Echoes**.",
+        "These are the middle steps of the lattice: materials for better machines, and stronger crystals for your Pulse Resonator."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Attune",
+      "text": [
+        "Place Echo Attune with a Fire totem within 8 blocks and feed it Echo Shards. Each becomes an Attuned Echo in **3 seconds** at **20 Pulse a second** before pack settings.",
+        "Attune also turns an Amethyst Shard into a Spirit Shard.",
+        "Trophies from March creatures, such as an Ember Heart, a Reed Fang or a Rift Tooth, attune into **two** Attuned Echoes each, but those need the **Spirit** voice, not Fire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bind",
+      "text": [
+        "Place Echo Bind with a Water totem within 8 blocks and feed it Attuned Echoes. Each becomes a Bound Echo in **4 seconds** at **24 Pulse a second** before pack settings.",
+        "Bind also turns wool into **Spiritweave**, and dirt into **four clay balls**. Soft creature drops such as Dawn Velvet, Lantern Down or Storm Wing bind into two Spiritweave each."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A chain with no hoppers",
+      "steps": [
+        {
+          "caption": "Place Echo Bind with a Water totem beside it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Sit Echo Attune on top, with a Fire totem nearby.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Attune's bottom face outputs into Bind's top face by default, so echoes walk down on their own.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Feed shards into the top and take Bound Echoes from Bind.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chaining",
+      "text": [
+        "Sit Attune on Bind, or beside it with the touching faces set Output into Input, and the chain walks without a hopper. Never face Both into Both.",
+        "Sit Bind on Echo Manifest to carry on to ingots and cores.",
+        "A lever pauses either station. If nothing moves, check the voices and the Pulse with this book."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

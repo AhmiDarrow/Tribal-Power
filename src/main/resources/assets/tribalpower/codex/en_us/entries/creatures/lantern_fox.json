@@ -1,0 +1,43 @@
+{
+  "name": "Lantern Fox",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "image",
+      "image": "lantern_fox",
+      "text": [
+        "A shy dusk forager whose tail marks safe paths. Brush adults for Lantern Down."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lantern Foxes live in Overworld forests and almost everywhere in the March: most of all in the Snow Fields, but also on the Steppe, in the Highlands, the Crystal Fields and the Reed Fen.",
+        "A fox has **14 health** and no armour. It bolts when hurt and avoids monsters. Breed two with **sweet berries**."
+      ],
+      "title": "Where you find it"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brush an adult for **Lantern Down**, once a minute. Down binds into 2 Spiritweave under Water, and the Colony-keepers favour it as an offering.",
+        "A fox drops nothing if it dies, so brushing is the only way to get its down."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "A bonded fox is a lantern that follows you. It carries an invisible light wherever it walks, gives you Night Vision while you stay close, and marks nearby ores with glints only you can see.",
+        "The details are on the [familiar gifts](familiar_gifts) page."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

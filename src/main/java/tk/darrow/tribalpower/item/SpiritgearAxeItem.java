@@ -95,7 +95,7 @@ public class SpiritgearAxeItem extends AxeItem {
         InteractionResult result = super.useOn(context);
         if (result.consumesAction() && player != null && !player.level().isClientSide && !player.getAbilities().instabuild) {
             ItemStack stack = context.getItemInHand();
-            if (SpiritgearHelper.tryConsumePulse(player, SpiritGear.useCost(stack))) {
+            if (GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
                 stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
             } else {
                 if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);

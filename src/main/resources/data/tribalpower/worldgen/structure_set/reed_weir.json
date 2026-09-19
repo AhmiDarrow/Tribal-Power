@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:reed_weir",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 24,
+    "salt": 7327495
+  }
+}

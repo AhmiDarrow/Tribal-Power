@@ -63,7 +63,7 @@ public class SpiritgearShovelItem extends ShovelItem {
         if (result.consumesAction() && player instanceof ServerPlayer server && !server.level().isClientSide) {
             ItemStack stack = context.getItemInHand();
             boolean paid = server.getAbilities().instabuild
-                    || SpiritgearHelper.tryConsumePulse(server, SpiritGear.useCost(stack));
+                    || GearCell.spend(server, stack, SpiritGear.useCost(stack));
             if (!server.getAbilities().instabuild) {
                 if (paid) stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
                 else {

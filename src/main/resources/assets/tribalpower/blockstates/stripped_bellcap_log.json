@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/stripped_bellcap_log"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/stripped_bellcap_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/stripped_bellcap_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

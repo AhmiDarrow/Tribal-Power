@@ -1,0 +1,17 @@
+{
+  "name": "Tablet: Seal-carvers' Rite",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "No ruin keeps this tablet. The Unsung carries it, and gives it up when it falls; hang it on a wall to read it.",
+        "In the Seal-carvers' own words, cut as carefully as a seal:",
+        "“Spirit goes where it is asked politely and stays where it is fed. A seal is a polite request carved in stone. A brazier is the meal. We cut blank seals by the thousand before the Cut, and asked for far too much. Ask for a little. Feed it well.”"
+      ]
+    }
+  ]
+}

@@ -33,20 +33,26 @@
       {
         "type": "tribalpower:storm_moth",
         "weight": 10,
-        "minCount": 1,
+        "minCount": 2,
         "maxCount": 3
       },
       {
         "type": "tribalpower:cinder_imp",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 4
       },
       {
         "type": "tribalpower:rift_hound",
-        "weight": 10,
+        "weight": 12,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:shardback",
+        "weight": 6,
         "minCount": 1,
-        "maxCount": 3
+        "maxCount": 2
       }
     ],
     "creature": [
@@ -97,8 +103,22 @@
     ],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
-    "water_ambient": [],
+    "water_creature": [
+      {
+        "type": "tribalpower:veil_ray",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "tribalpower:glimmerfin",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
     "misc": []
   },
   "spawn_costs": {},
@@ -111,7 +131,9 @@
   },
   "features": [
     [],
-    [],
+    [
+      "tribalpower:march_tarn"
+    ],
     [
       "tribalpower:march_boulder_field",
       "tribalpower:march_ruin_pillar"
@@ -133,14 +155,21 @@
       "tribalpower:march_vanilla_lapis",
       "tribalpower:march_vanilla_diamond",
       "tribalpower:march_vanilla_diamond_large",
-      "tribalpower:march_vanilla_emerald"
+      "tribalpower:march_vanilla_emerald",
+      "tribalpower:march_silt_bed"
     ],
     [
-      "tribalpower:march_amethyst_pocket"
+      "tribalpower:march_amethyst_pocket",
+      "tribalpower:march_veil_lichen",
+      "tribalpower:march_echo_roots",
+      "tribalpower:march_lantern_caps"
     ],
     [],
     [
       "tribalpower:march_trees_grove",
+      "tribalpower:march_frostpine_scatter",
+      "tribalpower:march_lilies",
+      "tribalpower:march_ribbon_weed",
       "tribalpower:march_bush",
       "tribalpower:march_crystal_sparse",
       "tribalpower:march_leaf_dense",

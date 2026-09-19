@@ -22,7 +22,8 @@ import tk.darrow.tribalpower.entity.CreatureProfile;
 
 /**
  * Five-thread bloodline plus named Marks on a lattice creature. Written at spawn; a Bonding Charm does not reroll.
- * Phenotype 1 matches today's {@link CreatureProfile} baselines. Wild stock never rolls a 4.
+ * Phenotype 1 matches today's {@link CreatureProfile} baselines. Wild stock never rolls a 4; only breeding reaches
+ * 4 and the Exalted 5. Two parents both strong in a thread can pass on a step above either of them.
  */
 public final class FamiliarData {
     public enum Thread { FRAME, STRIDE, FANG, HUM, KEEP }
@@ -63,6 +64,10 @@ public final class FamiliarData {
     public static final ResourceLocation KNOCKBACK = ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "lattice_knockback");
     public static final int BASE_SADDLEBAG = 9, EXTRA_SADDLEBAG = 3;
     public static final int DRIFT_SIT_TICKS = 1200;
+    /** Highest allele: reached only by breeding. */
+    public static final int MAX = 5;
+    /** Chance, per thread, that parents both at 3 or better lift their child a step. */
+    public static final float LINE_BREEDING = 0.25F;
 
     private static final Mark[] WILD_COMMON = { Mark.QUIET_THREAD, Mark.STONEHIDE, Mark.DRIFT, Mark.KEEN, Mark.SOFT_MAW, Mark.NIGHT_HUM };
     private static final float WILD_SPARK = 0.03F, WILD_SPARK_MARK = 0.15F, LEAN_BUMP = 0.40F;
@@ -85,7 +90,7 @@ public final class FamiliarData {
     public int phenotype(Thread thread) {
         int value = Math.round((alleleA(thread) + alleleB(thread)) / 2F);
         if (thread == Thread.HUM && expressed(Mark.FRAYED)) value -= 1;
-        return Mth.clamp(value, 0, 4);
+        return Mth.clamp(value, 0, MAX);
     }
 
     /** Phenotype 1 is the species baseline; each step is ±12%. */
@@ -218,7 +223,7 @@ public final class FamiliarData {
     }
 
     public void fill(int value) {
-        byte allele = (byte) Mth.clamp(value, 0, 4);
+        byte allele = (byte) Mth.clamp(value, 0, MAX);
         for (int i = 0; i < a.length; i++) { a[i] = allele; b[i] = allele; }
         markA = Mark.NONE;
         markB = Mark.NONE;
@@ -229,8 +234,8 @@ public final class FamiliarData {
     }
 
     public void setAlleles(Thread thread, int first, int second) {
-        a[thread.ordinal()] = (byte) Mth.clamp(first, 0, 4);
-        b[thread.ordinal()] = (byte) Mth.clamp(second, 0, 4);
+        a[thread.ordinal()] = (byte) Mth.clamp(first, 0, MAX);
+        b[thread.ordinal()] = (byte) Mth.clamp(second, 0, MAX);
         rolled = true;
     }
 
@@ -251,6 +256,13 @@ public final class FamiliarData {
             child.a[thread.ordinal()] = (byte) pick(mother, thread, random);
             child.b[thread.ordinal()] = (byte) pick(father, thread, random);
             mutateThread(child, thread, random, mutation, sameOwner ? ownerBonus : 0);
+            // Line breeding: two strong parents can give a child better than either.
+            if (mother.rolled && father.rolled && mother.phenotype(thread) >= 3 && father.phenotype(thread) >= 3
+                    && random.nextFloat() < LINE_BREEDING) {
+                int i = thread.ordinal();
+                if (child.alleleA(thread) <= child.alleleB(thread)) child.a[i] = (byte) Math.min(MAX, child.alleleA(thread) + 1);
+                else child.b[i] = (byte) Math.min(MAX, child.alleleB(thread) + 1);
+            }
         }
         child.markA = random.nextBoolean() ? mother.markA : mother.markB;
         child.markB = random.nextBoolean() ? father.markA : father.markB;
@@ -283,11 +295,11 @@ public final class FamiliarData {
         int i = thread.ordinal();
         if (random.nextFloat() < mutation) {
             int delta = random.nextBoolean() ? 1 : -1;
-            if (random.nextBoolean()) child.a[i] = (byte) Mth.clamp(child.alleleA(thread) + delta, 0, 4);
-            else child.b[i] = (byte) Mth.clamp(child.alleleB(thread) + delta, 0, 4);
+            if (random.nextBoolean()) child.a[i] = (byte) Mth.clamp(child.alleleA(thread) + delta, 0, MAX);
+            else child.b[i] = (byte) Mth.clamp(child.alleleB(thread) + delta, 0, MAX);
         } else if (bonus > 0 && random.nextFloat() < bonus) {
-            if (random.nextBoolean()) child.a[i] = (byte) Mth.clamp(child.alleleA(thread) + 1, 0, 4);
-            else child.b[i] = (byte) Mth.clamp(child.alleleB(thread) + 1, 0, 4);
+            if (random.nextBoolean()) child.a[i] = (byte) Mth.clamp(child.alleleA(thread) + 1, 0, MAX);
+            else child.b[i] = (byte) Mth.clamp(child.alleleB(thread) + 1, 0, MAX);
         }
     }
 
@@ -363,9 +375,36 @@ public final class FamiliarData {
     }
 
     public static String dots(int phenotype) {
-        int filled = Mth.clamp(phenotype, 0, 4);
-        return "●".repeat(filled) + "○".repeat(5 - filled);
+        int filled = Mth.clamp(phenotype, 0, MAX);
+        return "●".repeat(filled) + "○".repeat(MAX - filled);
     }
+
+    /** The sum of all five threads: 5 is a plain wild creature, 25 a perfect Exalted line. */
+    public int bloodline() {
+        int sum = 0;
+        for (Thread thread : Thread.values()) sum += phenotype(thread);
+        return sum;
+    }
+
+    /**
+     * Everything the stat panel shows, packed into one synced int: five 3-bit phenotypes, the two expressed Marks
+     * (5 bits each), the generation (capped at 63) and the sparked flag.
+     */
+    public int pack() {
+        int packed = 0;
+        for (Thread thread : Thread.values()) packed |= phenotype(thread) << (thread.ordinal() * 3);
+        List<Mark> marks = expressedMarks();
+        if (marks.size() > 0) packed |= marks.get(0).ordinal() << 15;
+        if (marks.size() > 1) packed |= marks.get(1).ordinal() << 20;
+        packed |= Math.min(63, generation) << 25;
+        if (sparked) packed |= 1 << 31;
+        return packed;
+    }
+
+    public static int unpackThread(int packed, Thread thread) { return (packed >>> (thread.ordinal() * 3)) & 7; }
+    public static Mark unpackMark(int packed, int slot) { return Mark.values()[Math.min(Mark.values().length - 1, (packed >>> (slot == 0 ? 15 : 20)) & 31)]; }
+    public static int unpackGeneration(int packed) { return (packed >>> 25) & 63; }
+    public static boolean unpackSparked(int packed) { return (packed >>> 31) != 0; }
 
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
@@ -384,8 +423,8 @@ public final class FamiliarData {
     public void load(CompoundTag tag) {
         for (Thread thread : Thread.values()) {
             byte[] pair = tag.getByteArray(cap(thread.name()));
-            a[thread.ordinal()] = (byte) (pair.length > 0 ? Mth.clamp(pair[0], 0, 4) : 1);
-            b[thread.ordinal()] = (byte) (pair.length > 1 ? Mth.clamp(pair[1], 0, 4) : 1);
+            a[thread.ordinal()] = (byte) (pair.length > 0 ? Mth.clamp(pair[0], 0, MAX) : 1);
+            b[thread.ordinal()] = (byte) (pair.length > 1 ? Mth.clamp(pair[1], 0, MAX) : 1);
         }
         markA = Mark.NONE;
         markB = Mark.NONE;

@@ -1,0 +1,54 @@
+{
+  "name": "Edge-walkers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Edge-walkers",
+      "text": [
+        "“Boots first. Then the bridge. Then the courage; it arrives on its own.”",
+        "Strand of **Claw**, voice of **Fire**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Edge-walkers walked the rift edge where the thread frayed thinnest and set footholds for everyone who came after. Their craft is **Spiritgear and footholds**.",
+        "Their camps stand in **taiga**, and a second camp keeps the old road in the March highlands."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Rift Tooth**, worth **+8** standing at their hearth.",
+        "They also favour Leather, an Iron Ingot or Raw Iron: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 6 Leather for 2 Echo Shards; 4 Iron Ingots for Leather Boots.",
+        "**Friend**: 3 Attuned Echo and 4 Leather for Spiritweave Boots; 8 Iron Ingots for a Rift Tooth.",
+        "**Kin**: 3 Bound Echo for a Spiritgear Blade; 3 Bound Echo for a Spiritgear Pickaxe.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Edge-walkers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_fire} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
+        "Buying a Rift Tooth at Friend is a safer way to get their reagent than hunting Rift Hounds."
+      ]
+    }
+  ]
+}

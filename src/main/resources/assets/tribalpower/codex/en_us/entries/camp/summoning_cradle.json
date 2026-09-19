@@ -1,0 +1,673 @@
+{
+  "name": "Summoning Cradle",
+  "icon": "tribalpower:summoning_cradle",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:binding_effigy"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:summoning_cradle",
+      "text": [
+        "Call living spirits without hunting for them. A Binding Effigy remembers one creature without harming it; a Summoning Cradle then calls that creature up, again and again, while it has Pulse and Spiritweave.",
+        "The binding is a ritual, on purpose. It is not a spawn-egg shortcut."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Imprinting an effigy",
+      "text": [
+        "Craft an empty **Binding Effigy**, then crouch and right-click an eligible creature with it. The creature is not hurt.",
+        "Cows, sheep, pigs, chickens, zombies, skeletons, spiders, creepers and the **thirteen** Tribal Power creatures can be imprinted. Bosses cannot.",
+        "A live binding cannot be overwritten; spend its threads first. The tooltip names the imprint and the threads left.",
+        "An imprint alone has no summons. It must be woven through the three-voice binding."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The three-voice binding",
+      "text": [
+        "Seat a **Spirit Seal** in a Ritual Brazier. Place **Earth**, **Air** and **Spirit** totems within 8 blocks, have **200 Pulse** within reach, and carry **three Spiritweave**.",
+        "With no redstone on the brazier, right-click it with your imprinted, empty effigy. The three voices knot **512** summoning threads into it, taking the Pulse and the Spiritweave.",
+        "An exhausted effigy is renewed the same way, or you can first imprint a different creature onto it.",
+        "If something is missing, the brazier says so."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "The three-voice binding",
+      "steps": [
+        {
+          "caption": "Set a Ritual Brazier down and seat a Spirit Seal in it.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spirit_seal"
+          }
+        },
+        {
+          "caption": "Earth, Air and Spirit totems within 8 blocks give the three voices.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A generator nearby supplies the 200 Pulse.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Carry three Spiritweave and right-click the brazier with the imprinted effigy: 512 threads.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:binding_effigy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Running the cradle",
+      "text": [
+        "The bound effigy goes in the cradle's **first** slot and Spiritweave in the **second**.",
+        "Every **ten seconds** it tries once to call the creature onto a clear, dry floor within **3 blocks**, on its own level. A summon costs **80 Pulse**, **one Spiritweave** and **one thread**. A failed or blocked try spends nothing.",
+        "The cradle keeps a **2,400 Pulse** reserve and refills it by up to 80 a second from generators within 8."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A cradle floor",
+      "steps": [
+        {
+          "caption": "Place the cradle on a flat floor with room around it.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:summoning_cradle"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pulse within 8 blocks: each summon costs 80.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "The bound effigy goes in the first slot, Spiritweave in the second.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spiritweave"
+          }
+        },
+        {
+          "caption": "Creatures appear on clear, dry floor within 3 blocks, one every ten seconds.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ],
+            [
+              2,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limits and automation",
+      "text": [
+        "It pauses while **8 or more** mobs are within 12 blocks, so move them away. Hostiles are never called in Peaceful or inside a Hush Totem's circle.",
+        "A comparator reads the threads left. Redstone pauses everything.",
+        "Hoppers can feed Spiritweave in from above or the sides. The bottom face hands out only an exhausted effigy, ready for renewal.",
+        "Breaking the cradle drops the same effigy with its remaining threads intact."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:summoning_cradle"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:binding_effigy"
+    }
+  ]
+}

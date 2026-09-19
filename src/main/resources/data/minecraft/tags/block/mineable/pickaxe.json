@@ -71,6 +71,20 @@
     "tribalpower:march_redstone_ore",
     "tribalpower:march_lapis_ore",
     "tribalpower:march_diamond_ore",
-    "tribalpower:march_emerald_ore"
+    "tribalpower:march_emerald_ore",
+    "tribalpower:march_stone_bricks",
+    "tribalpower:chiseled_march_stone_bricks",
+    "tribalpower:polished_march_stone",
+    "tribalpower:march_stone_stairs",
+    "tribalpower:march_stone_slab",
+    "tribalpower:march_cobble_stairs",
+    "tribalpower:march_cobble_slab",
+    "tribalpower:march_stone_brick_stairs",
+    "tribalpower:march_stone_brick_slab",
+    "tribalpower:polished_march_stone_stairs",
+    "tribalpower:polished_march_stone_slab",
+    "tribalpower:march_stone_wall",
+    "tribalpower:march_cobble_wall",
+    "tribalpower:march_stone_brick_wall"
   ]
 }

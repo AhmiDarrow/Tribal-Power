@@ -1,0 +1,43 @@
+{
+  "name": "Shardback",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "image",
+      "image": "shardback",
+      "text": [
+        "A crystal-field scavenger armoured in singing stone. Keep your distance from its heavy shove."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Shardbacks roam the March Crystal Fields.",
+        "It has **36 health** and **8 armour** and hits for **5**. Every blow shoves you back hard, which is dangerous on the terraces. Fight it away from ledges."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Prism Carapaces**.",
+        "A Prism Carapace attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** standing with the **Grit-singers**, then use a Bonding Charm on an adult. Two tries in five succeed; a failed charm is spent.",
+        "A bonded Shardback is a fighter: it strikes whoever hurts you and whoever you strike. The rare **Brace** mark makes it hard to knock back. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

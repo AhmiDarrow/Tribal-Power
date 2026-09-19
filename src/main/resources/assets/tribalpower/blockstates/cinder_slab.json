@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/cinder_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/cinder_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/cinder_planks"
+    }
+  }
+}

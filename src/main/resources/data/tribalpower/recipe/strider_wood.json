@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:strider_log"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "tribalpower:strider_wood"
+  }
+}

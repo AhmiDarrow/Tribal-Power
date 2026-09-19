@@ -1,0 +1,42 @@
+{
+  "name": "Hollow Sentinel",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "image",
+      "image": "hollow_sentinel",
+      "text": [
+        "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hollow Sentinels walk the March Highlands and Snow Fields, and three keep watch in every [Ancestor Hall](ancestor_hall).",
+        "It has **44 health** and **6 armour**, the toughest of the remnants, and hits for **6**. Each blow gives you Weakness for 4 seconds. Light and a charged staff help."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Sentinel Sigils**.",
+        "A Sentinel Sigil attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "No charm will bond a Hollow Sentinel. It serves the halls, not you."
+      ],
+      "title": "It will not bond"
+    }
+  ]
+}

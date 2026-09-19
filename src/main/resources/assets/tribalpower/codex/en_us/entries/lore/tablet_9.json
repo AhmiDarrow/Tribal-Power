@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: The Cut",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "From a sunken Ancestor Hall, signed by no single tribe:",
+        "“No one struck the Loom. It was pulled from nine sides until one strand gave, and then the rest went like a rope through a hand. The continents fell in the space of a drum-roll. What did not fall drifted into the March and sank slow. Nine tribes, one hall, no one to blame.”"
+      ]
+    }
+  ]
+}

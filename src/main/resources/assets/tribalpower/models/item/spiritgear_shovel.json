@@ -1,7 +1,23 @@
 {
   "parent": "minecraft:item/handheld",
+  "loader": "neoforge:item_layers",
   "textures": {
-    "layer0": "tribalpower:item/spiritgear_shovel"
+    "layer0": "tribalpower:item/spiritgear_shovel",
+    "layer1": "tribalpower:item/spiritgear_shovel_glow"
+  },
+  "render_types": {
+    "minecraft:translucent": [
+      1
+    ]
+  },
+  "neoforge_data": {
+    "layers": {
+      "1": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      }
+    }
   },
   "overrides": [
     {

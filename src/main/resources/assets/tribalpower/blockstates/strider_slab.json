@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/strider_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/strider_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/strider_planks"
+    }
+  }
+}

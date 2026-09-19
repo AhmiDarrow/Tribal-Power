@@ -1,0 +1,47 @@
+{
+  "name": "Ancestor Hall",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Sunken stone halls in the March Steppe and Highlands. Only a ladder shaft shows at the surface."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ancestor Halls are buried: look for a ladder shaft dropping into the ground. Below are three rooms under Loom-wood beams, lit by old lanterns.",
+        "**Hollow Sentinels** keep the side rooms, three of them in every hall. They hit hard and weaken your grip, so light the rooms as you go and keep a charged staff handy for distance."
+      ],
+      "title": "Finding one"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Four **Lore Tablets** hang on the walls. Right-click each one to read it; the first read is recorded in this Codex, which counts how many of the **12** fragments you have found. Drum Circles and the Crystal Spire hold the rest.",
+        "Two chests stand at the far end. Each always holds **2 to 4 Loom Thread**, plus a handful of echoes, Echo Shards, Spirit Shards, Spiritweave, March Crystal or a Blank Seal, and sometimes an elemental seal.",
+        "Loom Thread is the reason most people come. It is the first step toward [the sixth voice](sixth_voice)."
+      ],
+      "title": "What the hall keeps"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eight March Stone around an Echo Shard carve **2 Lore Tablets**. Hang them on a wall at home to mark your own hall; they sit flat against the block behind them and fall if it is removed."
+      ],
+      "title": "Tablets of your own"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

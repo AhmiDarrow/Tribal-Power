@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_planks"
+    "tribalpower:march_planks",
+    "tribalpower:willow_planks",
+    "tribalpower:hearthoak_planks",
+    "tribalpower:bellcap_planks",
+    "tribalpower:frostpine_planks",
+    "tribalpower:cinder_planks",
+    "tribalpower:strider_planks"
   ]
 }

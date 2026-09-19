@@ -1,0 +1,57 @@
+{
+  "name": "Game and leather",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "spoiler": true,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "March animals feed you as well as the Overworld's do. Their meat is **Raw Game**, and a Dawn Stag's hide gives **March Leather**.",
+        "Roast Game is as filling as a steak, which makes long trips through the March much easier."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Dawn Stag**: 1 to 3 Raw Game and 0 to 2 March Leather.",
+        "- **Mossback**: 2 to 4 Raw Game.",
+        "- **March Walker**: 1 to 3 Raw Game.",
+        "Looting adds up to one more of each. An animal that dies burning drops its meat already roasted."
+      ],
+      "title": "Where it comes from"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raw Game restores **3** hunger and not much saturation. Roast Game restores **8** with high saturation.",
+        "Cook it in a furnace, a smoker (twice as fast) or on a campfire (slowest, but no fuel).",
+        "Both count as meat: wolves will eat it, and other mods treat it as raw or cooked meat."
+      ],
+      "title": "Cooking and eating"
+    },
+    {
+      "type": "text",
+      "text": [
+        "One March Leather crafts into one ordinary leather, so anything that asks for leather, like a Silent Drum, is only a crafting step away.",
+        "It also counts as leather for other mods that accept any leather."
+      ],
+      "title": "March Leather"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "One March Leather makes one leather."
+    }
+  ]
+}

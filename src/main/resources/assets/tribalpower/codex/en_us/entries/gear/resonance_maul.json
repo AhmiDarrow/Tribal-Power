@@ -1,0 +1,31 @@
+{
+  "name": "Resonance Maul",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "A heavy diamond-tier pick that clears a **3 by 3** plane in one swing, paid for in Pulse. Tunnels and quarries go three times faster."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Swinging it",
+      "text": [
+        "Hold it in your main hand and crouch-use a block face. The maul breaks the 3 by 3 plane around that block, square to the face you hit.",
+        "Each block costs **8 Pulse** from a Pulse Cell you carry. If Pulse runs out mid-swing, the remaining blocks stay. After a swing that breaks anything, the maul rests **one second**.",
+        "It only takes what a pickaxe could, and only what its diamond tier can harvest. Normal player block protection still applies.",
+        "Swung without crouching, it is an ordinary pickaxe.",
+        "A totem-bound Earth pick opens 3 by 3 the same way; see [Totem-bound gear](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

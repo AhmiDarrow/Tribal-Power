@@ -1,0 +1,28 @@
+{
+  "name": "Codex diagnostics",
+  "icon": "tribalpower:spirit_codex",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ask the block",
+      "text": [
+        "Crouch and right-click any Tribal block with the Spirit Codex and it explains itself in plain words.",
+        "- Stored Pulse, every generator within **8 blocks** with its output this second, the voices present, the Pulse it could draw, and whether redstone is pausing it.",
+        "- Workshops name their recipe, and any missing voice or full output.",
+        "- Relays report unloaded or locked endpoints.",
+        "- Braziers list the rites their seal allows.",
+        "- Pattern anchors show ghosts of missing pieces and name the first three."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Make it a habit",
+      "text": [
+        "Whenever something sits still, ask it before you start taking the build apart. Nine times in ten the answer is one line: a quiet voice, a full output, a held signal, or a missing mark."
+      ]
+    }
+  ]
+}

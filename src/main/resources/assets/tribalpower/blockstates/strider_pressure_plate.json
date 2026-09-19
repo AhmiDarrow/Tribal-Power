@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tribalpower:block/strider_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tribalpower:block/strider_pressure_plate_down"
+    }
+  }
+}

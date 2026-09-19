@@ -1,0 +1,258 @@
+{
+  "name": "Kinship Totem",
+  "icon": "tribalpower:kinship_totem",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribe_mark"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kinship_totem",
+      "text": [
+        "A totem carved from a tribe's Mark. Beside a Pulse Resonator it is an **extra voice**, counted for the tribe rather than for its element, so it adds Pulse even where that element already sings.",
+        "It never goes quiet, and it lends its tribe's voice to any station nearby."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Earning the Mark",
+      "text": [
+        "Raise your standing with a tribe to **Voice (800)**, then talk to that tribe's Elder. The Elder presses a **Tribe Mark** into your hand. Each tribe gives its Mark only once.",
+        "The Mark carries the tribe's name and its saying. Earning it also opens that tribe's page in this book.",
+        "Guest and Friend are not enough. If you are short, trade and offer until you reach Voice; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_kinship_totem",
+      "title": "Carving the totem",
+      "text": [
+        "Put the Tribe Mark, the **Resonance Totem of that tribe's voice** and **two Spiritweave** anywhere in a crafting grid. The Mark is spent into the totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Which totem goes with which Mark",
+      "text": [
+        "- **Earth**: Pad-keepers, Grit-singers.",
+        "- **Water**: Rootbinders.",
+        "- **Fire**: Edge-walkers, Drumhearts.",
+        "- **Air**: Pattern-weavers, Colony-keepers.",
+        "- **Spirit**: Seal-carvers.",
+        "- **Loom**: Loom-stitchers.",
+        "Right-click a placed Kinship Totem to see its tribe and the voice it lends."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "An extra voice",
+      "steps": [
+        {
+          "caption": "A Pulse Resonator with an Earth and a Fire totem sings two voices.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A Drumhearts' Kinship Totem adds a third voice, even though Fire is already here.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "A Pad-keepers' totem adds a fourth. Each new tribe is worth 2 more Pulse a second.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=0]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "A second totem from the same tribe adds nothing. The Resonator counts tribes, not blocks.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:kinship_totem[tribe=4]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On a Pulse Resonator",
+      "text": [
+        "Every distinct tribe with a Kinship Totem within **8 blocks** counts as one more voice. Kinship Totems never go quiet, so they always count; Resonance Totems only count while Answered.",
+        "The Resonator still needs at least one **Resonance Totem** of its own. Kinship Totems alone will not start it.",
+        "A loose heap still stops at **five voices** in total. Build a [Voice Ring](voice_ring) and the cap lifts: six elements plus all nine tribes add up to **fifteen**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On stations and the Loom Anchor",
+      "text": [
+        "Within 8 blocks of a workshop or the Loom Anchor, a Kinship Totem only **lends its tribe's element**, as if a Resonance Totem of that voice stood there. It is not a seventh voice.",
+        "Because it never goes quiet, it is a good way to keep a station's voice awake in a spot you rarely visit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In the Listening Pit",
+      "text": [
+        "The deep, hot and rare ore bands of a [Listening Pit](listening_pit) all need a **Grit-singer Kinship Totem**, or a **Tribe Hearth**, standing inside the pattern.",
+        "Standing with the Grit-singers still sets the limit: **Kin** for the deep and hot bands, **Voice** for the rare one."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:kinship_totem",
+      "text": "Tribe Mark, the matching Resonance Totem and two Spiritweave, in any order."
+    }
+  ]
+}

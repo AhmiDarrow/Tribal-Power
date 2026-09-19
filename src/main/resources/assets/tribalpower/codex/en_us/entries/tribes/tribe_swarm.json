@@ -1,0 +1,54 @@
+{
+  "name": "Colony-keepers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Colony-keepers",
+      "text": [
+        "“You do not own a hive. You are on good terms with it.”",
+        "Strand of **Swarm**, voice of **Air**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Colony-keepers routed Pulse through the comb and planted the March flowers for their swarms. Take without asking and the comb goes quiet. Their craft is **hives and March flowers**.",
+        "Their camps stand in **flower forests**, meadows and cherry groves, and a second camp keeps the old road on the March steppe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Lantern Down**, worth **+8** standing at their hearth.",
+        "They also favour a Honey Bottle, Honeycomb, a Honey Block or any flower: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 4 Honeycomb for 2 Echo Shards; 2 Honey Bottles for 2 Ley Thistles.",
+        "**Friend**: 8 Honeycomb for 2 Echo Blooms; 2 Honey Blocks for a Lantern Down.",
+        "**Kin**: 4 Attuned Echo for a Ley Collector; 2 Bound Echo for 3 Spiritweave.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Colony-keepers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_air} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
+        "Their Kin trade for Spiritweave is handy: every Kinship Totem needs two."
+      ]
+    }
+  ]
+}

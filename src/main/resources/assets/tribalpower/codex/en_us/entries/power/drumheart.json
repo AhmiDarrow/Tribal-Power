@@ -1,0 +1,168 @@
+{
+  "name": "Drumheart",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "The first generator you will build, and the one you will keep coming back to. The Drumheart stores up to **1,000 Pulse**, and every beat you give it adds more."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Playing it",
+      "text": [
+        "Right-click with an **empty hand**, about **once a second**. A beat on time gives **24 Pulse**; one off the rhythm gives **10**. A steady pace beats fast clicking.",
+        "Machines within **8 blocks** draw from the drum while they work. To carry power somewhere else, use a **Pulse Cell** on the drum."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Playing it by redstone",
+      "steps": [
+        {
+          "caption": "A Drumheart on its own needs you to keep the beat.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set a Heartbeat plate beside it, ticking once a second.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Every pulse from the plate is a beat. The drum now fills itself while you work elsewhere.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The rhythm, exactly",
+      "text": [
+        "Redstone beats **17 to 23 game ticks** apart count as on time. Beats less than **8 ticks** apart are ignored. Twenty ticks is one second at normal server speed.",
+        "A held redstone signal does not pause the Drumheart; only the rising edge of a pulse counts as a beat.",
+        "Ranking the drum adds **15% Pulse a beat** per rank (not the workshop 118%)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

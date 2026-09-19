@@ -1,0 +1,54 @@
+{
+  "name": "Pattern-weavers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 90,
+  "spoiler": true,
+  "unlock": "tribe:clock",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_clock",
+      "title": "Pattern-weavers",
+      "text": [
+        "“A factory is a song that has stopped needing the singer.”",
+        "Strand of **Clock**, voice of **Air**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Pattern-weavers wrote their timings on clock-wheels and moth dust and let the Loom carry the tune. When the Cut came, their songs kept playing. Their craft is **timed songs and automation**.",
+        "Their camps stand in **birch forests**, and a second camp keeps the old road in the March crystal fields."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Storm Wing**, worth **+8** standing at their hearth.",
+        "They also favour Redstone, a Clock, a Repeater or a Comparator: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 8 Redstone for 2 Echo Shards; a Clock for 4 Repeaters.",
+        "**Friend**: 2 Attuned Echo for 4 Comparators; 16 Redstone for a Storm Wing.",
+        "**Kin**: 3 Bound Echo for a Lattice Conductor; 2 Bound Echo for a Wind Harp.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Pattern-weavers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_air} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
+        "The Pattern-weavers are the only tribe that sells a **Wind Harp**, the Air generator."
+      ]
+    }
+  ]
+}

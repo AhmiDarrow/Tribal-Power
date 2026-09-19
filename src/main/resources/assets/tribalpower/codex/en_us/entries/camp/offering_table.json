@@ -1,0 +1,28 @@
+{
+  "name": "Offering Table",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "A 27-slot camp store with a nicer face than a chest. Put it beside a hearth or a cradle to keep offerings, food and Spiritweave close at hand. It needs no Pulse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Using it",
+      "text": [
+        "It is storage, not a second Tribe Hearth. Offerings that raise a tribe's standing go on the hearth itself (see [Standing](standing)); the table grants nothing.",
+        "Only the player who placed it, their camp, or anyone at all if nobody claimed it, can open it.",
+        "Hoppers and pipes can fill or empty it from every side. Crouch and right-click a face with an empty hand to change that face: Both, Input, Output or Closed.",
+        "A comparator reads how full it is. A redstone signal locks both the menu and the automation."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

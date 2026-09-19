@@ -304,6 +304,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         if (band != be.band) { be.band = band; be.work = 0; be.calling = ""; }
 
         List<ItemStack> substrate = be.substrate(band, voices);
+        if (!be.hasSubstrate(substrate)) be.restock(cache, substrate);
         if (!be.hasSubstrate(substrate)) { be.stall("substrate"); return; }
 
         if (be.calling.isEmpty()) {
@@ -383,6 +384,34 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
             if (found < want.getCount()) return false;
         }
         return true;
+    }
+
+    /**
+     * Draws substrate from the pit's own cache. The pattern walls the mesh in with chalk on every side and
+     * stone below, so the cache is the one place a player, hopper or relay can reach; stocking it with stone
+     * keeps the pit fed. Only what this band consumes is taken, never the sample, and never the ores the pit
+     * has put there itself.
+     */
+    private void restock(Container cache, List<ItemStack> cost) {
+        for (ItemStack want : cost) {
+            for (int from = 0; from < cache.getContainerSize(); from++) {
+                ItemStack offered = cache.getItem(from);
+                if (!ItemStack.isSameItemSameComponents(offered, want)) continue;
+                for (int slot : new int[]{SUBSTRATE_A, SUBSTRATE_B}) {
+                    ItemStack held = getItem(slot);
+                    if (!held.isEmpty() && !ItemStack.isSameItemSameComponents(held, want)) continue;
+                    int room = want.getMaxStackSize() - held.getCount();
+                    int moved = Math.min(room, offered.getCount());
+                    if (moved <= 0) continue;
+                    if (held.isEmpty()) setItem(slot, offered.copyWithCount(moved));
+                    else held.grow(moved);
+                    offered.shrink(moved);
+                    cache.setChanged();
+                    setChanged();
+                    if (offered.isEmpty()) break;
+                }
+            }
+        }
     }
 
     private void takeSubstrate(List<ItemStack> cost) {

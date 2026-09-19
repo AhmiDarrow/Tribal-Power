@@ -484,8 +484,8 @@ public class FamiliarGameTests {
         var young=h.getLevel().getEntitiesOfClass(LatticeMonster.class,a.getBoundingBox().inflate(8),m->m.isBaby() && m.getType()==a.getType());
         h.assertTrue(!young.isEmpty(),"Bonded remnants breed a child");
         var child=young.get(0);
-        h.assertTrue(!child.isBonded() && child.isPersistenceRequired() && !child.removeWhenFarAway(128*128),
-                "The child is not bonded, and it does not wander off — including Peaceful");
+        h.assertTrue(child.isBonded() && child.isPersistenceRequired() && !child.removeWhenFarAway(128*128),
+                "The child joins its parents' owner, and it does not wander off — including Peaceful");
         h.assertTrue(!child.isPreventingPlayerRest(player),"Remnant young do not keep you awake");
         player.moveTo(child.getX(),child.getY(),child.getZ(),0,0);
         for(int i=0;i<40;i++)child.aiStep();
@@ -618,5 +618,43 @@ public class FamiliarGameTests {
         for(int i=0;i<12;i++)cub.mobInteract(player,InteractionHand.MAIN_HAND);
         h.assertTrue(!cub.isBaby(),"Food ages a remnant cub");
         cub.discard();h.succeed();
+    }
+    /** Like a wolf: a wild stag bonds after being fed wheat a few times, and wheat heals it once it is yours. */
+    @GameTest(template="empty")
+    public static void foodTamesAndHealsLikeAWolf(GameTestHelper h) {
+        floor(h);
+        var player=VerificationPlayers.inLevel(h);
+        player.getAbilities().instabuild=false;
+        var stag=spawn(h,CreatureProfile.DAWN_STAG,3,2,3);
+        player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.WHEAT,64));
+        for(int i=0;i<60 && !stag.isBonded();i++)stag.mobInteract(player,InteractionHand.MAIN_HAND);
+        h.assertTrue(stag.isBonded() && stag.isOwnedBy(player),"Wheat must tame a wild stag in time");
+        h.assertTrue(player.getMainHandItem().getCount()<64,"Taming feeds spend the food");
+        stag.setHealth(stag.getMaxHealth()-6);
+        float before=stag.getHealth();
+        stag.mobInteract(player,InteractionHand.MAIN_HAND);
+        h.assertTrue(stag.getHealth()>before,"Food heals a hurt companion");
+        stag.discard();h.succeed();
+    }
+
+    /** Selective breeding pays: two strong parents can give a child better than either, up to the bred-only 5. */
+    @GameTest(template="empty")
+    public static void lineBreedingClimbsPastWildStock(GameTestHelper h) {
+        var mother=new FamiliarData();mother.fill(3);
+        var father=new FamiliarData();father.fill(3);
+        var random=RandomSource.create(11L);
+        int best=0;
+        for(int i=0;i<200;i++) {
+            var child=FamiliarData.inherit(mother,father,CreatureProfile.RIFT_HOUND,random,null,null);
+            for(var thread:FamiliarData.Thread.values())best=Math.max(best,child.phenotype(thread));
+        }
+        h.assertTrue(best>=4,"Parents at 3 must sometimes breed a 4, best was "+best);
+        var elite=new FamiliarData();elite.fill(5);
+        h.assertTrue(elite.phenotype(FamiliarData.Thread.FANG)==5 && elite.multiplier(FamiliarData.Thread.FANG)>1.47,"An Exalted thread is +48%");
+        int packed=elite.pack();
+        h.assertTrue(FamiliarData.unpackThread(packed,FamiliarData.Thread.KEEP)==5 && elite.bloodline()==25,"Stats pack for the client panel");
+        var tag=elite.save();var loaded=new FamiliarData();loaded.load(tag);
+        h.assertTrue(loaded.phenotype(FamiliarData.Thread.FRAME)==5,"A 5 survives saving");
+        h.succeed();
     }
 }

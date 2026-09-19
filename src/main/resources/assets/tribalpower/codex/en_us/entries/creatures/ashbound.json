@@ -1,0 +1,42 @@
+{
+  "name": "Ashbound",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ashbound",
+      "text": [
+        "The remains of a broken fire rite. Its blows set you alight."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ashbound walk Overworld forests at night, and in the March they roam the Steppe and the Ember Wastes.",
+        "It has **24 health** and **2 armour** and hits for **4**. Each hit sets you on fire for 2 seconds, and it is immune to fire itself. Keep water close, or fight it where you can step into a pool."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Ember Hearts**.",
+        "An Ember Heart attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "No charm will bond an Ashbound. Light your paths and it stays away."
+      ],
+      "title": "It will not bond"
+    }
+  ]
+}

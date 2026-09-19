@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:bellcap_log",
+    "tribalpower:bellcap_wood",
+    "tribalpower:stripped_bellcap_log",
+    "tribalpower:stripped_bellcap_wood"
+  ]
+}

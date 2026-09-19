@@ -1,0 +1,53 @@
+{
+  "name": "Places of the March",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 65,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruins and camps",
+      "text": [
+        "The tribes left more behind than halls and drum circles. Every land of the March has its own remains, most of them with a chest worth opening, and a few guarded by what still walks there.",
+        "The deepest of them, the **Old Gate Ruin**, the **Ash Tomb** and the **Crystal Grotto**, keep their best chests behind Hollow Sentinels, and those chests can hold a **Resonant Core** or **Loom Thread**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Steppe and the Highlands",
+      "text": [
+        "- **Wayfarer's Shrine**: a roofed roadside shrine on an old path, with an offering chest.",
+        "- **Grazing Stones**: a ring of standing stones around a salt-lick.",
+        "- **Abandoned Waystation**: a ruined relay post, one mast still standing.",
+        "- **Fallen Drum Tower**: a broken tower; its great drum lies in the grass.",
+        "- **Watchfire Beacon**: a stone tower on a knoll with its signal fire still lit.",
+        "- **Echo Quarry**: a terraced pit with March ores in its walls and a crane at the rim.",
+        "- **Storm Altar**: a tuff altar under a lightning rod.",
+        "- **Seal-Carver's Retreat**: rooms cut into a crag, with a workshop and a loft.",
+        "- **Old Gate Ruin**: a half-buried Way Gate over a guarded hall and a barred vault."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Snow Fields and the Ember Wastes",
+      "text": [
+        "- **Frozen Longhall**, **Ice Cairn**, **Hunter's Lodge** and **Aurora Watch** in the snow.",
+        "- **Ember Forge**, **Cinder Spire** and **Slag Ring** in the ash, and the **Remnant Den** where survivors held out.",
+        "- **Ash Tomb**: a buried tomb under the Wastes, and one of the three deep places worth the risk."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Crystal Fields and the Reed Fen",
+      "text": [
+        "- **Shattered Observatory**: a star-chart terrace under a broken dome.",
+        "- **Resonance Obelisk**: a crystal-capped obelisk over a hidden vault.",
+        "- **Loom Ruin**: a fallen great loom, cloth still hanging.",
+        "- **Crystal Grotto**: a spiral stair down to a geode cave and a vault behind an iron door.",
+        "- **Stilt Village**, **Sunken Shrine**, **Reed Weir** and **Bog Barrow** in the fen.",
+        "- **Spirit Well**: a roofed well ringed with blooms, its offering chest at the bottom of the water."
+      ]
+    }
+  ]
+}

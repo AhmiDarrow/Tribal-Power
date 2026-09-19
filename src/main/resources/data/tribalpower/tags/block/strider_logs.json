@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:strider_log",
+    "tribalpower:strider_wood",
+    "tribalpower:stripped_strider_log",
+    "tribalpower:stripped_strider_wood"
+  ]
+}

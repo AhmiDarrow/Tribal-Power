@@ -1,0 +1,64 @@
+{
+  "name": "The March",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "The March is where the thread frayed thinnest and the fallen ground came to rest. Halls lie sunk to the lintel. Camps keep time with no one at the drum. Crystal grows where the Loom's tension still pools.",
+        "Everything there still answers a beat. That is not haunting. That is a world that never learned how to quit.",
+        "You go there for things you cannot find at home: **March Crystal**, **Loom Thread** and the **Unsung Heart**. They open Astral transport, the Loom voice and the last of the Lore Tablets."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "The way in is a [Gate Drum](gate_drum). It needs no Pulse: beat out the **Gate Rite** on it, four drums on **A**, **S**, **D** and **F**, and the rhythm opens the way.",
+        "Use it with an empty hand to step through; each trip spends **20** stored Pulse. A redstone signal locks the drum, and if the landing is blocked you get the 20 back.",
+        "Striking a Gate Drum in the March always brings you home: to the spot you left from, or to your spawn if that is gone. Your return point survives death, so a bad trip never strands you.",
+        "Later, a pair of [Way Gates](way_gate) is the bulk route."
+      ],
+      "title": "Getting there and back"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Walk in with charged Pulse cells, food and a steady hand. Bind a return compass to a dry floor at home before you leave; the March is big and every biome looks new the first time.",
+        "Remnants spawn wherever it is dark, above ground and below, so carry torches or lanterns and light the way back to your drum."
+      ],
+      "title": "Packing for it"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Steppe**: rolling grass with copses and lone trees. March Walkers, Dawn Stags, Lantern Foxes, rabbits and a few Mossbacks graze. Ashbound, Rootbound, Rift Hounds and Echo Weavers hunt. [Ancestor Halls](ancestor_hall) sink here.",
+        "- **Highlands**: stone, moss and tree groves. Goats, Dawn Stags, foxes, walkers and rabbits. Hollow Sentinels, Storm Moths, Cinder Imps and Rift Hounds. Home of the [Drum Circles](drum_circle), more Ancestor Halls, and the only emeralds.",
+        "- **Crystal Fields**: terraced mesas of calcite and stone, bristling with March Crystal. Foxes, rabbits, Mossbacks and walkers; Reed Stalkers, Shardbacks, Mourning Bells and Echo Weavers. The [Crystal Spire](crystal_spire) stands here."
+      ],
+      "title": "Steppe, Highlands, Crystal Fields"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Snow Fields**: snow and packed ice over March grass. Lantern Foxes, rabbits, walkers, a few Mossbacks and polar bears. Hollow Sentinels, Storm Moths and Mourning Bells.",
+        "- **Ember Wastes**: dry basalt country with no rain. Only March Walkers graze there. Cinder Imps, Rift Hounds and Ashbound roam.",
+        "- **Reed Fen**: mud channels thick with Spirit Reed. Mossbacks, Dawn Stags, frogs, foxes and walkers; fish, squid and glow squid in the water. Reed Stalkers, Rootbound and Echo Weavers lurk in the wet.",
+        "Spirit Wisps drift through all six."
+      ],
+      "title": "Snow Fields, Ember Wastes, Reed Fen"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Read every Lore Tablet in the [Ancestor Halls](ancestor_hall). The Codex records each one.",
+        "- When you are ready, strike a Silent Drum four beats, a breath apart, and face [The Unsung](the_unsung).",
+        "- Bring March Crystal, Loom Thread and an Unsung Heart home. Together they open [the sixth voice](sixth_voice).",
+        "- Visit the Loom-stitchers at the [Crystal Spire](crystal_spire) for Loom Thread trades."
+      ],
+      "title": "What to do there"
+    }
+  ]
+}

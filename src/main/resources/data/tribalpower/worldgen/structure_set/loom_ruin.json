@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:loom_ruin",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 44,
+    "separation": 26,
+    "salt": 7327491,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_spindle",
+      "chunk_count": 3
+    }
+  }
+}

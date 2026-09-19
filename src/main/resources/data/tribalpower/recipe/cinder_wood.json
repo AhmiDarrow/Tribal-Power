@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:cinder_log"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "tribalpower:cinder_wood"
+  }
+}

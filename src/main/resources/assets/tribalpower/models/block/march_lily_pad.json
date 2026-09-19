@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/lily_pad",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "tribalpower:block/march_lily_pad",
+    "particle": "tribalpower:block/march_lily_pad"
+  }
+}

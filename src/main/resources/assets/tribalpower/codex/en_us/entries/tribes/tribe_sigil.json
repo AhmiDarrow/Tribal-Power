@@ -1,0 +1,54 @@
+{
+  "name": "Seal-carvers",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Seal-carvers",
+      "text": [
+        "“Spirit goes where it is asked politely and stays where it is fed.”",
+        "Strand of **Sigil**, voice of **Spirit**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who they are",
+      "text": [
+        "The Seal-carvers cut blank seals by the thousand before the Cut, and asked for far too much. A seal is a polite request carved in stone; a brazier is the meal. Their craft is **seals and rites**.",
+        "Their camps stand in **dark forests**, and a second camp keeps the old road in the March highlands."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they want",
+      "text": [
+        "Their reagent is the **Spirit Shard**, worth **+8** standing at their hearth.",
+        "They also favour a Blank Seal or any element seal: **+3** each. Any other food is worth **+1**, and a charged Pulse Cell **+2 for every 10 Pulse**, up to +8.",
+        "Remember the hearth takes at most **60** standing a day from offerings; see [Tribes and standing](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the Elder trades",
+      "text": [
+        "**Guest**: 2 Spirit Shards for a Blank Seal; 4 Echo Shards for 4 Ritual Chalk.",
+        "**Friend**: a Blank Seal and 2 Spirit Shards for a Spirit Seal; 3 Attuned Echo and 2 Spirit Shards for the Rite Tablet: Still Night.",
+        "**Kin**: 3 Bound Echo for a Ritual Brazier; 4 Bound Echo for a Wake Bell.",
+        "Every trade earns **+2** standing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their Mark and totem",
+      "text": [
+        "At **Voice** the Elder gives you the Seal-carvers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_spirit} and two Spiritweave into their [Kinship Totem](kinship_totem).",
+        "Beside a Pulse Resonator it is one more voice; beside a station it lends **Spirit**.",
+        "Their Friend trade for a Rite Tablet is a shortcut past the hunt for its reagents. They are also the only tribe that sells a **Wake Bell**."
+      ]
+    }
+  ]
+}

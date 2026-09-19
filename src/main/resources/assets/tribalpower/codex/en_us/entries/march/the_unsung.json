@@ -1,0 +1,65 @@
+{
+  "name": "The Unsung",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "image",
+      "image": "the_unsung",
+      "text": [
+        "A hollow drum-spirit with two rune arms and a cracked mask. It only wants the rhythm back."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "The Unsung never wanders in on its own. It only rises when someone plays the four-beat on a [Silent Drum](drum_circle), and it returns to that drum in its last phase.",
+        "It has **400 health** and **8 armour**, cannot be knocked back and shrugs off potion effects. A boss bar tracks its three phases: Beat, Chorus and Silence.",
+        "Bring food, armour, charged Pulse cells, a Bone Chime and a tested way home. A friend makes it much easier."
+      ],
+      "title": "Before the first beat"
+    },
+    {
+      "type": "text",
+      "text": [
+        "While it is above two thirds of its health, a shockwave rolls out **every 3 seconds** and hits everyone within **8 blocks** for **6**, with a hard knockback.",
+        "Sneak just before it lands to brace: you take **half damage** and no knockback.",
+        "Its arm swipe deals **10**, so keep the drum between you when it closes in."
+      ],
+      "title": "Beat"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Below two thirds it starts calling **two Echo Weavers every 8 seconds**, up to **six** at once, and the shockwaves come every **2.5 seconds**.",
+        "Clear the weavers before they slow you. Their bite leaves you sluggish, and you still have shockwaves to brace against."
+      ],
+      "title": "Chorus"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Below one third it hovers over the drum and cannot be hurt. Every 2 seconds it fires a slow weaving bolt: **5 damage**, Slowness and Weakness. Bolts break on solid blocks, so cover helps.",
+        "Walk to the Silent Drum and play the four-beat again. That resyncs it: it is **stunned for 8 seconds** and takes **double damage**.",
+        "Silence returns **12 seconds** after each resync, so hit hard, then play again."
+      ],
+      "title": "Silence"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- An **Unsung Heart**, which crafts the Loom totem ([the sixth voice](sixth_voice)).",
+        "- **16 to 24 Loom Thread**.",
+        "- **4 Resonant Cores**.",
+        "- A **Music Disc** of the Drum Circle. - The [Seal-carvers' Rite](tablet_7), the one Lore Tablet no ruin keeps. Hang it on a wall and read it.",
+        "If no one stays within **48 blocks** for **30 seconds**, it resets: it vanishes with its weavers and the drum is ready to play again."
+      ],
+      "title": "What it leaves"
+    }
+  ]
+}

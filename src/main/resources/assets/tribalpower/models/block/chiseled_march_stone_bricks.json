@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tribalpower:block/chiseled_march_stone_bricks"
+  }
+}

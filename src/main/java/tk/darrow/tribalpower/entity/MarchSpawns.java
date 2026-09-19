@@ -48,8 +48,11 @@ public final class MarchSpawns {
         if (level.getDifficulty() == Difficulty.PEACEFUL) {
             return false;
         }
+        boolean march = level.getLevel().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH);
         if (!Monster.isDarkEnoughToSpawn(level, pos, random)) {
-            return false;
+            // The March is the spirits' country: they walk it by day too, a third as often, but never where
+            // torchlight or a lantern falls, so a lit camp stays safe.
+            if (!march || level.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0 || random.nextInt(3) != 0) return false;
         }
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);

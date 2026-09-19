@@ -1,0 +1,263 @@
+{
+  "name": "Pulse Gauge and Threshold",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "The Pulse Gauge turns stored Pulse into redstone. Point it at a Drumheart, a Resonator or any machine holding Pulse, and it gives off **0 to 15** by how full that store is.",
+        "Its sibling, the **Pulse Threshold**, answers a plain yes or no: is the store at least this full?"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pulse Gauge",
+      "text": [
+        "Place it against the block you want to read; its arrow points into the block you clicked. It emits from **every face except the arrow**, weakly from the sides and strongly out of its back.",
+        "The signal is **0** when the store is empty, then climbs from 1 to 15 as it fills. It updates every 4 ticks, and a comparator reading the gauge gets the same number.",
+        "Right-click it to see stored Pulse, capacity and signal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pulse Threshold",
+      "text": [
+        "Place it the same way, arrow into the store. Right-click with an empty hand to cycle **25, 50, 75 and 100%**; it starts at 50.",
+        "It emits a full **15** while stored Pulse is at or above that share, and nothing below it. Like the gauge, it never emits from its arrow face, so it does not disturb the store it watches. A comparator reads the setting as 1 to 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pause or protect",
+      "text": [
+        "A held signal pauses machines. Wired straight to a machine, a Threshold pauses it while the store is **full enough**.",
+        "Usually you want the opposite: pause a hungry station while the drum runs **low**, so a reserve stays for you. Put an **Inverse plate** on the line. Now 'too empty' is the live signal: below the setting, Inverse sings and the station pauses; once the drum recovers, Inverse goes quiet and work resumes.",
+        "Test with one hungry station before you wire the whole camp."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Keeping a reserve",
+      "steps": [
+        {
+          "caption": "A Drumheart feeds an Echo Shatter three blocks away.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Place a Pulse Threshold against the drum, arrow in. Right-click it to choose 25, 50, 75 or 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Mount an Inverse plate on the back of the Threshold, facing the station. It reads the block it sits on.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Below the setting the Threshold goes quiet, Inverse sings, and the station waits until the drum refills.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

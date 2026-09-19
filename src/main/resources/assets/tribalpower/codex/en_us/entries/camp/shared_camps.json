@@ -1,0 +1,55 @@
+{
+  "name": "Shared camps",
+  "icon": "tribalpower:camp_charter",
+  "order": 150,
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Playing with friends? Found a camp together. A camp is a named group with one shared vault, devices every member can use, and tribe standing pooled between you."
+      ],
+      "title": "Shared camps"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "One camp, many hands",
+      "text": "Everything a member places opens for the whole camp."
+    },
+    {
+      "type": "text",
+      "title": "Founding and inviting",
+      "text": [
+        "Run **/tribalpower camp create <name>** (up to 24 characters). You become its first member and its leader.",
+        "To invite someone, run **/tribalpower camp invite <player>**, or craft a **Camp Charter** and right-click the player with it. The charter is never used up. Right-clicking the air with it shows your camp.",
+        "An invitation lasts **five minutes**. The invitee accepts with **/tribalpower camp join <name>**.",
+        "You can only belong to one camp at a time."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What members share",
+      "text": [
+        "- **Devices.** Members count as owners of each other's cradles, tenders, anchors, keystones and locked menus.",
+        "- **The vault.** Any Deep Cache or Wayfarer Satchel opens the camp's shared **54-slot** vault. Crouch as you open one to switch between that and your personal vault; it remembers your choice.",
+        "- **Standing.** A quarter of every member's tribe standing lands on the camp, and a Tribal Kin Elder trades at the camp's rank when it beats your own.",
+        "- **Anchors.** The camp shares **12** Wayanchors, counted across every world."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Running the camp",
+      "text": [
+        "**/tribalpower camp info** lists members and anchors. The leader can **rename** the camp and **kick** members. Anyone can **leave**.",
+        "When the last member leaves, the camp dissolves and its vault spills out at their feet.",
+        "Kinship Totems can lend your camp every tribe's voice once the tribes know you."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

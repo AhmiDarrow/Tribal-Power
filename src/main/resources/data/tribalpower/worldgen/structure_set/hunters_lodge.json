@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:hunters_lodge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 36,
+    "separation": 22,
+    "salt": 8257539,
+    "exclusion_zone": {
+      "other_set": "tribalpower:ice_cairn",
+      "chunk_count": 3
+    }
+  }
+}

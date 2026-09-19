@@ -1,0 +1,16 @@
+{
+  "name": "Tablet: Edge-walkers' Boots",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kept in a Seal-carvers' camp, in the Edge-walkers' words:",
+        "“Boots first. Then the bridge. Then the courage; it arrives on its own. We walked the rift edge where the thread frayed thinnest and set footholds for the rest. A foothold is iron, leather and a promise not to look down.”"
+      ]
+    }
+  ]
+}

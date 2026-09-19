@@ -18,7 +18,7 @@ Redstone pauses workshops, generators, relays, and rites, while comparators repo
 
 ## The illustrated Spirit Codex
 
-A full standalone book with 210 teachings, creature portraits, animated examples, search, bookmarks, and live crafting and processing recipes. Click ingredients to follow their recipes, explore related teachings, and pause animations whenever you like. Advanced knowledge stays behind an explicit spoiler warning.
+A full standalone book, written the way one player would explain the mod to another, with creature portraits, animated examples, search, bookmarks, and live crafting and processing recipes. Every mention of another entry or item is a link you can click. Advanced knowledge stays behind an explicit spoiler warning.
 
 ## A camp that keeps working
 
@@ -36,13 +36,17 @@ Summoning Cradles call creatures through ritual-bound effigies. Harmlessly impri
 
 Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Pulse-powered Spiritweave armor, excavate with the Resonance Maul, and sustain nearby blessings through Ritual Braziers and reusable elemental seals.
 
+Rank Spiritgear and Spiritweave up to Manifested with hard-won catalysts: a Manifested blade hits bosses harder and heals you with every blow, and a full Manifested set is built for the hardest fights. Seat a Pulse Cell inside any piece so it spends its own charge first, and upgrade it to a Greater cell as you grow. Totem-bound gear glows in its voice's colour.
+
 ## The March and the Returning Song
 
-Reach the March through the Gate Drum, and strike a drum there to come home. Six biomes lie under its twilight sky: the open Steppe, the terraced Crystal Fields, the Highlands, the mud channels of the Reed Fen, the Snow Fields and the basalt Ember Wastes. Every block and plant is painted for the March, and the grass and leaves take each biome's colour. Flora grows in groves and drifts, held to a budget so the dimension stays smooth.
+Reach the March through the Gate Drum by beating out the Gate Rite: a drumming song of drums, drone, flute and chant, played on A, S, D and F. Beat it on any drum there to come home. Six biomes lie under its twilight sky: the open Steppe, the terraced Crystal Fields, the Highlands, the mud channels of the Reed Fen, the Snow Fields and the basalt Ember Wastes. Every block and plant is painted for the March, and the grass and leaves take each biome's colour. Flora grows in groves and drifts, held to a budget so the dimension stays smooth.
 
-Below, the caves open into caverns and canyons. Every vanilla ore is found set in March slate, and small amethyst pockets glint on the cave walls.
+Six trees grow only here, each with its own wood: the Hearthoak, Bellcap, Frostpine, Cinder Snag and Strider, and in groves across the fen and highlands the Weeping Colossus, over a hundred blocks tall, trailing curtains of climbable strands. Meres and pools hold lilies, ribbon weed, schooling Glimmerfin, glowing Drift Bells, Veil Rays and Silt Eels; flocks of Loom Swifts and clouds of fireflies fill the air. Twenty-seven ruins, shrines, towers and guarded vaults wait to be found, and the spirits walk by day and night, some rising as Elites.
 
-Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten hostile spirits. Brush adult animals for renewable materials, hunt Dawn Stags, Mossbacks and March Walkers for game and March Leather, and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
+Below, the caves open into caverns and canyons lit by veil lichen and lantern caps. Every vanilla ore is found set in March slate, and small amethyst pockets glint on the cave walls.
+
+Win March creatures over like wolves, with food or a Bonding Charm, and breed them for better stats: sneak and look at any creature to read its bloodline, and breed strong to strong for lines no wild creature can match. Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten hostile spirits. Brush adult animals for renewable materials, hunt Dawn Stags, Mossbacks and March Walkers for game and March Leather, and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
 
 Animated night auroras and constellations bring the skies to life. Client settings control brightness, detail, and dimension coverage; the effect can be disabled for shader packs with their own skies.
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "tribalpower:cinder_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:cinder_button"
+  }
+}

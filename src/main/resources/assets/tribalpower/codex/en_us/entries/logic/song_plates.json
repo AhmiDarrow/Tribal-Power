@@ -1,0 +1,360 @@
+{
+  "name": "Song plates",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "items": [
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate",
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate",
+    "tribalpower:memory_plate",
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate",
+    "tribalpower:verse_plate"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:chorus_plate",
+      "text": [
+        "Thirteen small plates, each doing one clear job with redstone: gates, memory, clocks and counters.",
+        "Snap one onto a block face the way you snap a relay. The face it points out of is its **output**."
+      ],
+      "title": "Song plates"
+    },
+    {
+      "type": "text",
+      "title": "Which side is which",
+      "text": [
+        "A plate's **back** is the block it is mounted on. Its front points away from that block; it powers only the block right in front, and only weakly, so it never latches through stone.",
+        "- **Unary** plates (Inverse, Echo, Drift, Strike, Chance, Tally, Verse) read the **back**. Power the block they sit on: a lever on it, dust into it, or mount the plate straight onto a Pulse Threshold.",
+        "- **Binary** plates (Chorus, Gathering, Discord, Hush) read **left and right**, as seen from behind the plate. On a floor or ceiling, left is west and right is east.",
+        "- **Memory** reads left to set and right to clear. **Heartbeat** needs no input.",
+        "Right-click a plate to hear what it is doing. Crouch-use Heartbeat, Drift or Tally to change its count."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chorus, Gathering, Discord, Hush",
+      "text": [
+        "Four ways two voices can agree:",
+        "- **Chorus** (AND) sings only when left and right are both live.",
+        "- **Gathering** (OR) sings when either side is live.",
+        "- **Discord** (XOR) sings when the sides disagree.",
+        "- **Hush** (NAND) sings unless both sides are live.",
+        "The answer is **15 or 0** from the facing. Put Song Thread on that face to carry it on."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Inverse and Echo",
+      "text": [
+        "One voice, turned or carried.",
+        "- **Inverse** (NOT) sings while its back is quiet, and hushes when the back is live.",
+        "- **Echo** (BUFFER) copies the back: live stays live, at a full 15.",
+        "Use Inverse to turn a Pulse Threshold into a 'too empty' alarm. Use Echo to bring a fading Song Thread back to full strength."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Memory, Tally, Verse",
+      "text": [
+        "These plates remember.",
+        "- **Memory**: a live left sets it to 15; a live right clears it. The output stays until told otherwise. If both are live, clear wins.",
+        "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
+        "- **Verse**: starts at **4** with no pulse. Each rising edge on the back steps it to **8**, then **12**, then **15**, then back to 4. A comparator reads the same number.",
+        "The Verse plate is not the wireless pair; for that see [Verse Call and Answer](verse_link)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Heartbeat, Drift, Strike, Chance",
+      "text": [
+        "- **Heartbeat** pulses **15 for one tick**, then rests. Crouch-use cycles **20, 40, 80, 160** ticks, then back to 20; it starts at 20, one second.",
+        "- **Drift** copies the back only after it has stayed live for **4, 8, 16 or 32** ticks (crouch-use to cycle; it starts at 4), and drops as soon as the back falls.",
+        "- **Strike** gives one tick of 15 on a rising back, then goes quiet: the struck signal Drumhearts and braziers listen for.",
+        "- **Chance** flips a coin on each rising back: 15 or 0, held until the back falls.",
+        "A one-second Heartbeat on a Drumheart is a **24-Pulse** beat when the edge lands in tempo."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Two switches, one station",
+      "steps": [
+        {
+          "caption": "An Echo Shatter we want to pause from either of two places.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Mount a Gathering plate on the block, pointing at the station. That face is its output.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gathering_plate[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set a lever on its left and another on its right: those are its two inputs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Either lever on and the plate sings 15 into the station, which pauses and keeps everything it holds.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Swap in a Chorus plate and it waits for both levers before it sings.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:chorus_plate[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:discord_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

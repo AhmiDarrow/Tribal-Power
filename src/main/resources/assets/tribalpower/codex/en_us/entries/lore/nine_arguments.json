@@ -1,0 +1,17 @@
+{
+  "name": "Nine arguments",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "No tribe could hold the sky alone. Soil without Stone is warmth with nowhere to stand. Spark without Clock is a beat with no song. Sigil without Spindle is a promise with no road home.",
+        "The old world was not peace. It was maintenance. Eight pulls became eight arguments. The cloth tore along the Loom-stitchers' seam, and then the rest went like a rope through a hand.",
+        "The Cut was not a war. It was nine jobs left undone in the same breath."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "name": "Rain Chime",
+  "icon": "tribalpower:rain_chime",
+  "order": 110,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Turns the weather into a redstone signal. The Rain Chime needs no Pulse and no fuel, and it does not make Pulse either. It just tells you what the sky is doing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reading it",
+      "text": [
+        "Put a comparator against it: **8** in rain, **15** in a thunderstorm, **0** under clear skies. Weather is world-wide, so a roof does not mute it.",
+        "It also chimes softly every **ten seconds** while it rains.",
+        "A redstone signal into the chime mutes it and sets its output to 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A weather tell",
+      "steps": [
+        {
+          "caption": "Place the chime where a comparator can read it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A comparator facing away from it reads the weather.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Here it lights a lamp whenever it rains, and brighter logic can tell rain (8) from thunder (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ideas",
+      "text": [
+        "Pause a Ley Collector or switch camp lights on with the weather. Use the thunder reading as a warning before you head out.",
+        "No fuel, no upkeep: once it is placed it just listens."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

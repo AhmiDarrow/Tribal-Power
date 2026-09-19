@@ -1,0 +1,43 @@
+{
+  "name": "Mourning Bell",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "image",
+      "image": "mourning_bell",
+      "text": [
+        "A floating relic that remembers the lost tribes. Its telegraphed chime slows."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mourning Bells float over the March Crystal Fields and Snow Fields.",
+        "It has **28 health** and **3 armour**. From up to 12 blocks away it rings a chime for **4 damage** that slows you for 3 seconds. Shelter interrupts the song."
+      ],
+      "title": "Where and how"
+    },
+    {
+      "type": "text",
+      "text": [
+        "It drops **1 to 2 Bell Fragments**.",
+        "A Bell Fragment attunes into 2 Attuned Echoes under Spirit."
+      ],
+      "title": "What it gives"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Voice** with the **Seal-carvers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "A bonded bell clears poison, weakness and other hexes from you while it follows. See [familiar gifts](familiar_gifts)."
+      ],
+      "title": "As a familiar"
+    }
+  ]
+}

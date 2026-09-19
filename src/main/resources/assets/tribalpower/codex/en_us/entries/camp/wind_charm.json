@@ -1,0 +1,28 @@
+{
+  "name": "Wind Charm",
+  "icon": "tribalpower:wind_charm",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "A hanging decoration of reed and copper for porches and doorways. It spends no Pulse and has no job; it is there to look nice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hanging it",
+      "text": [
+        "Place it against the underside of a sturdy ceiling. It hangs in the space below.",
+        "You can walk straight through it: it has no collision.",
+        "Break the block above it and it pops off.",
+        "Redstone does nothing to it. It is not a Pulse light, and not a Wind Harp."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "name": "Tribes and standing",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Nine tribes once kept the Loom, one Strand each, and their camps still keep time. Every camp is built around a **Tribe Hearth**.",
+        "Feed the hearth and the tribe starts to know you. That is your **standing**, and it opens their trades, their secrets and, in the end, their Mark."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "A tribe camp",
+      "text": [
+        "A camp is easy to spot: a hearth trailing coloured smoke, a Tribe Banner beside it, and four Kin going about their day. The banner's colour names the tribe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where the tribes live",
+      "text": [
+        "Each tribe camps in the land that suits its Strand:",
+        "- **Pad-keepers**: plains.",
+        "- **Grit-singers**: mountains and stony shores.",
+        "- **Rootbinders**: forests and jungles.",
+        "- **Edge-walkers**: taiga.",
+        "- **Drumhearts**: savanna.",
+        "- **Pattern-weavers**: birch forests.",
+        "- **Colony-keepers**: flower forests, meadows and cherry groves.",
+        "- **Seal-carvers**: dark forests.",
+        "- **Loom-stitchers**: only the crystal fields of the March.",
+        "Every tribe but the Loom-stitchers also keeps a second camp on the old road in [the March](the_march)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Your first visit",
+      "steps": [
+        {
+          "caption": "Every camp is built around its Tribe Hearth. This is where you make friends.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "The Tribe Banner beside it names the tribe by its colour. Leave it standing.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "A loom nearby is where the camp's Weaver works. The four Kin never stray more than 16 blocks.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click the hearth with something the tribe favours. Bread earns the Pad-keepers' +3 standing.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click it with an empty hand any time to see your standing and your rank.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What to offer",
+      "text": [
+        "Right-click the hearth with an offering in your hand. It takes one item at a time:",
+        "- The tribe's **reagent**: **+8** standing.",
+        "- A **favoured** item: **+3**.",
+        "- Any other **food**: **+1**.",
+        "- A charged **Pulse Cell**: the hearth drinks up to **40 Pulse** from it and gives **+2 for every 10**, so at most **+8**. The cell needs at least 10 Pulse in it.",
+        "Each tribe's own page lists its reagent and favourites. Things the tribe has no use for stay in your hand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "How fast it grows",
+      "text": [
+        "A tribe's hearth accepts at most **60 standing a day** from your offerings. After that it tells you the tribe has taken all it will today. Seventeen favoured offerings (51) or seven reagents (56) are enough for **Guest** on your first day.",
+        "Two more roads are open. Kill a hostile mob within **24 blocks** of a hearth for **+1**, up to **twenty a day** for each tribe. And every trade with the Elder gives **+2**. Trades do not count against the hearth's daily limit, so once you are a Guest, trading is the quickest road up.",
+        "Voice takes many days. Offerings alone will never get you there in one."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The ranks",
+      "text": [
+        "- **Stranger** (below 50): the Elder has nothing for you yet.",
+        "- **Guest** (50): the Elder opens the first two trades.",
+        "- **Friend** (150): two more trades.",
+        "- **Kin** (400): the last two trades.",
+        "- **Voice** (800): the Elder presses a **Tribe Mark** into your hand, once for each tribe. The Mark is the key to a [Kinship Totem](kinship_totem), and it opens that tribe's own page in this book.",
+        "Your standing with the Grit-singers also decides how deep a [Listening Pit](listening_pit) may listen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What never to do",
+      "text": [
+        "- **Hitting a Kin** costs **25** standing, and every Kin of that tribe within 24 blocks turns on you. The Hunters attack you for a **minute**.",
+        "- **Breaking the hearth** costs **40** and sets the Hunters on you the same way.",
+        "- **Breaking a banner** costs **5**.",
+        "Standing can fall below a rank you have earned. A red message tells you when you have slipped."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Keeping count",
+      "text": [
+        "Type **/tribalpower standing** to see all nine tribes at once, with your standing and rank for each.",
+        "A comparator next to a hearth reads the rank of the last player who used it: **0** for a Stranger up to **15** for a Voice. Handy for a door that only opens for friends of the tribe.",
+        "If you belong to a [shared camp](shared_camps), your camp pools its standing. An Elder deals with you at your own standing or the camp's, whichever is higher."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "name": "March ground and growth",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "The March has its own ground: March Grass over March Soil, March Stone underneath, and its own trees, flowers and crystal.",
+        "Most of it works like the Overworld blocks you know, with a few differences worth learning before you start building there."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**March Stone** is the rock of the whole world. It needs at least a **stone pickaxe**, and breaks into **March Cobble** unless you use Silk Touch. Smelt the cobble to get the stone back.",
+        "Under the grass is **March Soil**. Grass drops soil unless you use Silk Touch, and it only spreads onto March Soil, in good light. Bone meal on March Grass sprouts tufts of **March Leaf**.",
+        "**March Moss** carpets the Reed Fen and the Highlands. Some biomes add vanilla ground: calcite in the Crystal Fields, snow and packed ice in the Snow Fields, smooth basalt in the Ember Wastes, mud in the Fen.",
+        "An Echo Shatter crushes March Stone into an Echo Shard, and March Cobble into gravel."
+      ],
+      "title": "Stone and soil"
+    },
+    {
+      "type": "text",
+      "text": [
+        "A hoe turns March Soil, Grass or Moss into **March Farmland**, as long as the space above it is clear. Water within **4 blocks** keeps it wet. Left dry, or trampled, it goes back to March Soil, never to Overworld dirt.",
+        "A shovel flattens the same blocks into **March Path**, which also returns to March Soil when something covers it.",
+        "March Saplings grow on March turf and on March Farmland."
+      ],
+      "title": "Farming and paths"
+    },
+    {
+      "type": "scene",
+      "title": "Working March ground",
+      "steps": [
+        {
+          "caption": "March Grass over March Soil: most of the ground you will walk on.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A hoe tills grass into March Farmland, as long as nothing sits on top.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Water within four blocks keeps it wet; dry farmland slowly turns back into March Soil.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "A shovel flattens grass into March Path for your trails.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "A March Sapling takes root on the grass that is left.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "March trees grow in groves in the Highlands, in copses and alone on the Steppe, and in their own shapes in the Fen and the Snow Fields.",
+        "A **March Log** makes **4 March Planks**. March Leaves drop saplings now and then (Fortune helps) and one or two sticks; shears or Silk Touch keep the leaves themselves.",
+        "March Planks go into a lot of Tribal Power: drums, the Loom totem, stools and tables. March Grass, Moss, Leaves and Leaf tufts all count as living green around a Ley Collector."
+      ],
+      "title": "Trees"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Spirit Reed** grows thick in the Reed Fen and sparse on the Steppe. It goes into Song Vine, Glow Reed, the Wind Charm, the Woven Mat and the Tablet of the Spring Calling, and the Rootbinders accept it as an offering.",
+        "- **Echo Bloom** grows in drifts, in whole fields across the Crystal Fields, and sheds little motes of light. It goes into the Ember Bowl.",
+        "- **Ley Thistle** is scattered over most of the March and the Ember Wastes. It is decoration: pick it for your camp.",
+        "All three can be replanted on any March ground, even bare stone, and all three burn."
+      ],
+      "title": "Flowers and reeds"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**March Crystal** grows on the surface, thickest in the Crystal Fields. It glows at light **10**, needs a solid block beneath it, and drops itself with any tool. It builds the Loom totem, the Loom Anchor, the Wayanchor, the Summoning Cradle and the Astral compass and relays, and the Loom-stitchers love it. Spirit Wisps gather around it.",
+        "**March Ore** is spirit ore in the stone, mostly deep below **y -8**, with more higher up in some biomes. It needs a stone pickaxe and drops **1 to 2 Spirit Shards** (Fortune adds more). With Silk Touch you keep the block, and an Echo Shatter turns it into **2 Spirit Shards**."
+      ],
+      "title": "Crystal and March Ore"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Smelt March Cobble back into March Stone."
+    },
+    {
+      "type": "text",
+      "title": "Water and caves",
+      "text": [
+        "The March's meres wear **March Lily Pads**, and now and then a **Moon Lily** that glows over the water at night. **Ribbon Weed** sways beneath them, rooted in beds of grey **March Silt** and clay.",
+        "Below ground, cave walls and ceilings carry faintly glowing **Veil Lichen**, **Echo Roots** hang from the rock, and **Lantern Caps**, small glowing mushrooms, light the cave floors.",
+        "Shears keep the weed, the lichen and the roots."
+      ]
+    }
+  ]
+}

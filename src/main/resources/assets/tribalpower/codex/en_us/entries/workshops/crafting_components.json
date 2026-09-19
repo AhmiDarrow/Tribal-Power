@@ -1,0 +1,41 @@
+{
+  "name": "Spirit Shards and Resonators",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Two humble parts turn up in almost every Tribal Power recipe: the **Spirit Shard** and the **Copper Resonator**. Make a stack of each early and you will rarely be held up.",
+        "Both start from a **Bone Chime**: a bone, a string and an amethyst shard make two."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where they come from",
+      "text": [
+        "A Spirit Shard is an amethyst shard, a redstone dust and a Bone Chime, crafted together. Each craft gives **two**.",
+        "A Copper Resonator is four copper ingots around a Bone Chime. Each craft also gives **two**.",
+        "Once you reach the March, **March Ore** is the cheaper source of shards: put it through [Echo Shatter](echo_shatter) with an Earth totem and it breaks into **two Spirit Shards** in 4 seconds, at 20 Pulse a second before pack settings."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "The Bone Chime also wakes quiet totems when you ring it nearby."
+    }
+  ]
+}

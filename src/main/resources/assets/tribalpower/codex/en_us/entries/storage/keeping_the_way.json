@@ -1,0 +1,37 @@
+{
+  "name": "Keeping the way",
+  "icon": "minecraft:map",
+  "order": 90,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Gates are built to be safe. A gate always lands you **inside the far gate's own frame** and never digs, builds or clears anything to make room.",
+        "If there is nowhere to stand inside the far frame, the trip refuses and the Pulse goes back into the keystone.",
+        "The far end is held loaded for **ten seconds** around your arrival, so a partner in an unloaded chunk still answers. Only a [Wayanchor](wayanchor) keeps it loaded longer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When a gate breaks",
+      "text": [
+        "Break a keystone and its partner is released at once and goes dark. Anyone standing within 16 blocks of the partner is told which gate was lost.",
+        "**/tribalpower gate list** shows every gate and what it answers. **/tribalpower gate unlink <name>** cuts a thread by hand.",
+        "To relink, use a compass, chalk or sigil again as in [Way Gate](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When a gate will not work",
+      "text": [
+        "- **\"This keystone has no frame around it\"**: a frame block is missing or misplaced. Check against the pattern.",
+        "- **Needs Pulse**: charge the keystone; lighting and travel both come from its own store.",
+        "- **Goes dark by itself**: a redstone signal is held on it, or a Far Gate lost its Loom voice.",
+        "- **\"The thread finds nothing\"**: the gate is lit but not linked.",
+        "Crouch and right-click a keystone with this book for its full state."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Listening Pit",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "The Resonance Mesh is the heart of the Listening Pit: a braced pit that listens ore out of renewable stone.",
+        "Feed it stone, give it Pulse and the Earth voice, and raw metal and gem ore land in a cache on top of it. It will never run dry the way a mine does."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "The pit",
+      "text": "A 5x5 floor of stone or deepslate, Anchor Stones on the corners, chalk from each edge to the middle, and the mesh at the centre."
+    },
+    {
+      "type": "text",
+      "title": "Before it listens",
+      "text": [
+        "The pit needs all of these, and the Codex names whichever is missing:",
+        "- The **Earth** voice within 8 blocks, Answered.",
+        "- An **Ancestral Cache** touching the mesh. With chalk on all four sides and stone beneath, that means **on top**. The mesh empties everything into it, so you need no hopper.",
+        "- Pulse from the Lattice. The mesh keeps its own **200 Pulse** buffer so a bursty generator does not stutter the cycle.",
+        "- **Friend** standing with the Grit-singers, even for common ore. A stranger's pit stalls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Feeding it",
+      "text": [
+        "Keep the **Ancestral Cache** on top stocked with stone: the pit takes its **substrate** from there, and puts the ore it hears back into the same cache. The chalk and stone wall the mesh in on every other side, so the cache is where your hands, hoppers and relays feed it.",
+        "Right-click the mesh with a **sample**, such as raw iron, to steer what it calls up. The sample is a filter and is never consumed; crouch with an empty hand to take it back. See [What the ground offers](what_the_ground_offers).",
+        "Keep the drum or generator outside the 5x5: the whole floor belongs to the pit. Rank the mesh like any other workshop."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Deep Listening",
+      "text": "Seven by seven: two rings of Anchor Stones on the corners, and a totem of any voice at each cardinal edge."
+    },
+    {
+      "type": "text",
+      "title": "Deep Listening",
+      "text": [
+        "The 7x7 doubles the corner bracing and seats a totem at each cardinal edge. It opens the **deep**, **hot** and **rare** bands.",
+        "All three also need a **Tribe Hearth** or a **Grit-singer Kinship Totem** standing inside the pattern. Common ore does not.",
+        "Grit-singer standing: **Friend** for common (even on a small pit), **Kin** for deep and hot, **Voice** for rare. Hot also wants Fire; rare wants Spirit. The Codex names what you still lack."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

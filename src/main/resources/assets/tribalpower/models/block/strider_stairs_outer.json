@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "tribalpower:block/strider_planks",
+    "top": "tribalpower:block/strider_planks",
+    "side": "tribalpower:block/strider_planks"
+  }
+}

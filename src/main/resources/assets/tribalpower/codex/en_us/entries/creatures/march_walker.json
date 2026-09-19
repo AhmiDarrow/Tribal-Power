@@ -1,0 +1,25 @@
+{
+  "name": "March Walker",
+  "icon": "tribalpower:raw_game",
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "The March Walker is the quiet grazer of the March, a stocky, pig-shaped creature you will see in herds on the Steppe. It lives in every March biome, and it is the only grazer that braves the Ember Wastes.",
+        "It has **18 health** and **1 armour**. It is shy: it keeps about ten blocks from monsters and panics when hurt."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hold a **Spirit Shard** and walkers wander after you, curious. That is the easy way to lead a few home or into a pen.",
+        "They spawn on March turf, soil, moss and snow, in open air.",
+        "A walker drops **1 to 3 Raw Game**, more with Looting, already roasted if it died burning. It cannot be bred, brushed or bonded."
+      ],
+      "title": "Living with walkers"
+    }
+  ]
+}

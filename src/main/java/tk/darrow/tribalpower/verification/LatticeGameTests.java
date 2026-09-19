@@ -45,118 +45,69 @@ public class LatticeGameTests {
         } finally { h.getLevel().getServer().getPlayerList().remove(player); }
     }
 
+    /**
+     * The Spirit Codex resolves: every category, item, block state, link, "next" and unlock points at something
+     * real, the chapters a new player sees first are spoiler-free, and the facts other tests pin in Java are
+     * still what the book says ({@link CodexFacts}).
+     */
     @GameTest(template="empty")
-    public static void codexHasValidItemsAndSpoilerSafeLanding(GameTestHelper h) {
-        var entries=tk.darrow.tribalpower.guide.CodexEntries.ALL;
-        h.assertTrue(entries.size()>=54 && !entries.getFirst().spoiler(),"Complete Codex needs a spoiler-safe landing");
-        h.assertTrue(entries.stream().anyMatch(e->"chapter_1".equals(e.id()) && e.text().contains("JEI")),"The landing page must mention JEI as an optional recipe link");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_pulse_resonator".equals(e.id()) && e.text().contains("Echo Shard")),"Codex must teach seating a Resonator");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_lattice_conductor".equals(e.id()) && e.text().contains("Ritual Chalk") && e.text().contains("voice-craft")),"A Conductor walkthrough must name voice-crafts, not only the three starter drums");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_offering_table".equals(e.id()) && e.text().contains("27") && !e.text().contains("Standing still applies")),"Offering Table is storage, not a hearth");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_spring_calling".equals(e.id()) && e.text().contains("Rite Pedestals")),"Spring Calling is a tablet rite and needs its circle");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_pulse_threshold".equals(e.id()) && e.text().contains("Inverse") && e.text().contains("at or above")),"A Threshold sings while Pulse is high");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_rain_chime".equals(e.id()) && e.text().contains("Comparator: 8 for rain")),"Rain Chime is a weather comparator, not an open-sky generator");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_gate_drum".equals(e.id()) && e.text().contains("Travel costs 20") && e.text().contains("25 Pulse") && !e.text().contains("Place and strike")),"The Gate Drum spends stored Pulse; a cell adds 25 per use");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_spring_calling".equals(e.id()) && !e.text().contains("while you stand still")),"A spring fills the cistern without the player standing there");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_ley_collector".equals(e.id()) && e.text().contains("You do not have to stand there") && !e.text().contains("base trickle")),"A Ley Collector generates from landscape; a roof is weaker, not dead");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_binding_effigy".equals(e.id()) && e.text().contains("80 Pulse")),"A Summoning Cradle spends 80 Pulse per summon");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_voice_ring".equals(e.id()) && e.text().contains("Only Answered Resonance Totems count")),"The Voice Ring still requires Answered totems");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_kinship_totem".equals(e.id()) && e.text().contains("caps at five")),"Kinship fifteen-voice totals need a Voice Ring");
-        h.assertTrue(entries.stream().anyMatch(e->"chapter_26".equals(e.id()) && e.text().contains("spends 20 stored Pulse") && e.text().contains("refunds that 20") && !e.text().contains("Place and strike")),"The March page must not teach striking the Gate Drum; a blocked landing refunds travel");
-        h.assertTrue(entries.stream().anyMatch(e->"Machine ranks".equals(e.title()) && e.text().contains("Attune 16s/48 Pulse a second")),"Machine rank formulae are twice Spiritgear: Attune 16s/48 Pulse a second");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_waystone".equals(e.id()) && e.text().contains("spends nothing") && !e.text().contains("refunds Pulse")),"A compass checks the landing before it spends Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Waystone paths".equals(e.title()) && e.text().contains("spends nothing")),"Waystone paths must not teach a blocked compass as a refund");
-        h.assertTrue(entries.stream().anyMatch(e->"rite_spring_calling".equals(e.id()) && e.text().contains("Rite Pedestals")),"Spring Calling teaching must require the circle");
-        h.assertTrue(entries.stream().anyMatch(e->"pulse_logic".equals(e.id()) && e.text().contains("Inverse") && e.text().contains("at or above")),"Pulse logic must teach Threshold polarity");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_loom_anchor".equals(e.id()) && e.text().contains("Quiet totems still count")),"Loom Anchor counts nearby voices even when they are quiet");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_stone_font".equals(e.id()) && e.text().contains("output only") && !e.text().contains("Cobble in, stone out")),"The Stone Font produces cobble; it does not take cobble as input");
-        h.assertTrue(entries.stream().anyMatch(e->"gate_far".equals(e.id()) && e.text().contains("1,200 Pulse")),"Far Gate lighting is 1200 of 2000, not the Way Gate 400");
-        h.assertTrue(entries.stream().anyMatch(e->"voice_loom_anchor".equals(e.id()) && e.text().contains("Quiet totems still count")),"Loom Anchor page must count quiet totems");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_verse_wireless".equals(e.id()) && e.text().contains("copies that strength")),"A Verse Answer copies the Call; it is not always 15");
-        h.assertTrue(entries.stream().anyMatch(e->"ember_kiln".equals(e.id()) && e.text().contains("Cobble becomes stone") && e.text().contains("32 Pulse a second")),"Ember Kiln cobble is a furnace smelt; Pulse is per second, not per craft");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_ember_kiln".equals(e.id()) && e.text().contains("Cobble becomes stone") && e.text().contains("32 Pulse a second") && !e.text().contains("Grit or cobble goes in")),"Kiln walkthrough must not treat cobble as an ingot path; Pulse is per second");
-        h.assertTrue(entries.stream().anyMatch(e->"pit_bands".equals(e.id()) && e.text().contains("28 Pulse") && !e.text().contains("14 Pulse") && !e.text().contains("lapis and quartz")),"Pit bands must match OreBand: 28/32 Pulse, quartz is hot only");
-        h.assertTrue(entries.stream().anyMatch(e->"pit_sample".equals(e.id()) && e.text().contains("280 Pulse") && !e.text().contains("70 Pulse")),"Iron from the pit spends 280 Pulse a cycle, not the old 70");
-        h.assertTrue(entries.stream().anyMatch(e->"voice_pulse_cairn".equals(e.id()) && e.text().contains("200 Pulse a second")),"A cairn swallows 200 Pulse a second");
-        h.assertTrue(entries.stream().anyMatch(e->"spirit_charms".equals(e.id()) && e.text().contains("silent Chorus still costs 2")),"An unbound Chorus still spends Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"gate_way".equals(e.id()) && e.text().contains("one-second cooldown")),"Way Gates apply a one-second bounce-back cooldown");
-        h.assertTrue(entries.stream().anyMatch(e->"camp_grove_tender".equals(e.id()) && e.text().contains("Place it yourself")),"A Grove Tender must be placed by a player to claim it");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_listening_pit".equals(e.id()) && e.text().contains("Quartz needs Fire") && e.text().contains("Friend standing")),"The pit walkthrough must not send quartz to the deep band; Friend standing is required even for common");
-        h.assertTrue(entries.stream().anyMatch(e->"Deep Listening".equals(e.title()) && e.text().contains("Kin for deep and hot") && e.text().contains("Deep, hot and rare all need it") && !e.text().contains("Voice and their kinship for rare")),"Deep Listening kinship is required for deep, hot and rare, not only rare");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_kinship_totem".equals(e.id()) && e.text().contains("not only rare")),"Kinship teaching must not claim Deep Listening kinship is rare-only");
-        h.assertTrue(entries.stream().anyMatch(e->"Pulse to FE".equals(e.title()) && e.text().contains("cannot receive FE")),"The Pulse Adapter exports FE and cannot receive it");
-        h.assertTrue(entries.stream().anyMatch(e->"Walkthrough: convert Pulse to FE".equals(e.title()) && e.text().contains("cannot receive FE")),"The adapter walkthrough must say it cannot receive FE");
-        h.assertTrue(entries.stream().anyMatch(e->"Song Bench".equals(e.title()) && e.text().contains("8 Pulse a tick") && e.text().contains("cost much less")),"The Song Bench is hungrier than dedicated Echo stations");
-        h.assertTrue(entries.stream().anyMatch(e->"Spirit Charms".equals(e.title()) && e.text().contains("40 Pulse each")),"Adding a charm voice costs 40 Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Keeping".equals(e.title()) && e.text().contains("40 minutes of loaded time") && e.text().contains("30% longer")),"Keeping dim stretches station time about 30%");
-        h.assertTrue(entries.stream().anyMatch(e->"Tribal Kin".equals(e.title()) && e.text().contains("once per Minecraft day")),"Elders restock once per Minecraft day");
-        h.assertTrue(entries.stream().anyMatch(e->"Machine ranks".equals(e.title()) && e.text().contains("15% Pulse a second per rank") && !e.text().contains("Ranked generators hum harder")),"Ranked generators add 15% per rank, not workshop 118%");
-        h.assertTrue(entries.stream().anyMatch(e->"Drumheart".equals(e.title()) && e.text().contains("holds 1,000 Pulse") && e.text().contains("15% Pulse a beat per rank")),"A Drumheart holds 1,000 Pulse and ranks at 15% per beat");
-        h.assertTrue(entries.stream().anyMatch(e->"Totem-bound gear".equals(e.title()) && e.text().contains("one projectile in five")),"An Earth hood turns aside one projectile in five");
-        h.assertTrue(entries.stream().anyMatch(e->"Sixfold Staff".equals(e.title()) && e.text().contains("within 12 blocks")),"Spirit staff reveal reaches 12 blocks");
-        h.assertTrue(entries.stream().anyMatch(e->"Ley Collector".equals(e.title()) && e.text().contains("holds 2,000 Pulse") && e.text().contains("15% Pulse a second per rank") && !e.text().contains("hum harder")),"A Ley Collector holds 2,000 Pulse and ranks at 15% per rank");
-        h.assertTrue(entries.stream().anyMatch(e->"Pulse Resonator".equals(e.title()) && e.text().contains("holds 2,500 Pulse")),"A Pulse Resonator holds 2,500 Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Spirit Pulse".equals(e.title()) && e.text().contains("Each totem holds 250 Pulse") && e.text().contains("tools, spells and travel") && !e.text().contains("tools and other uses")),"A Pulse Cell carries Pulse for tools, spells and travel");
-        h.assertTrue(entries.stream().anyMatch(e->"Chalk and conductor".equals(e.title()) && e.text().contains("voice-craft") && e.text().contains("nearby generators") && e.text().contains("Each totem holds 250 Pulse")),"A Conductor drains any nearby generator, not only the three starter drums");
-        h.assertTrue(entries.stream().anyMatch(e->"Resonance Maul".equals(e.title()) && e.text().contains("rests one second")),"The Resonance Maul rests one second after a break");
-        h.assertTrue(entries.stream().anyMatch(e->"Spirit Charms".equals(e.title()) && e.text().contains("one projectile in four")),"Ward turns aside one projectile in four");
-        h.assertTrue(entries.stream().anyMatch(e->"Spiritgear ranks".equals(e.title()) && e.text().contains("mining costs 2") && e.text().contains("a hit costs 3")),"Spiritgear action Pulse is 2 to mine and 3 to hit");
-        h.assertTrue(entries.stream().anyMatch(e->"Loom Anchor".equals(e.title()) && e.text().contains("15% Pulse a second per rank") && !e.text().contains("hum harder")),"A ranked Loom Anchor adds 15% Pulse a second per rank");
-        h.assertTrue(entries.stream().anyMatch(e->"What the ground offers".equals(e.title()) && e.text().contains("before pack settings") && e.text().contains("28 Pulse")),"Pit Pulse is the OreBand table before the consumption multiplier");
-        h.assertTrue(entries.stream().anyMatch(e->"Sample and substrate".equals(e.title()) && e.text().contains("280 Pulse") && e.text().contains("before pack settings") && e.text().contains("560 at the default")),"One iron cycle is 280 before pack settings, 560 at default 2.0");
-        h.assertTrue(entries.stream().anyMatch(e->"Listening Pit".equals(e.title()) && e.text().contains("200 Pulse buffer")),"The Resonance Mesh holds a 200 Pulse buffer");
-        h.assertTrue(entries.stream().anyMatch(e->"Ley Lens".equals(e.title()) && e.text().contains("3 at night") && e.text().contains("Cap 16")),"Ley Lens must name LeyMath factor amounts");
-        h.assertTrue(entries.stream().anyMatch(e->"Totem-bound gear".equals(e.title()) && e.text().contains("Earth hood")),"Totem-bound armor perks must be named, not only pick perks");
-        h.assertTrue(entries.stream().anyMatch(e->"Cargo tiers".equals(e.title()) && e.text().contains("before pack settings") && e.text().contains("Cost 4 Pulse")),"Relay Pulse is the table before the consumption multiplier");
-        h.assertTrue(entries.stream().anyMatch(e->"Stone Font".equals(e.title()) && e.text().contains("do not touch cobble") && e.text().contains("before pack settings")),"Stone Font cobble is exempt from pack consumption; stone and obsidian are not");
-        h.assertTrue(entries.stream().anyMatch(e->"Shatter".equals(e.title()) && e.text().contains("20 Pulse a second before pack settings")),"Grit shatter is 4s/20 Pulse before pack settings");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_waystone".equals(e.id()) && e.text().contains("Fill a Pulse Cell") && !e.text().contains("Charge a Pulse Cell")),"A blocked compass trip does not ask you to charge a cell as if the landing spent Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Sixfold Staff".equals(e.title()) && e.text().contains("up to 8 blocks")),"Loom tether pulls up to 8 blocks");
-        h.assertTrue(entries.stream().anyMatch(e->"Spiritgear ranks".equals(e.title()) && e.text().contains("8 seconds and 24 Pulse a second")),"Spiritgear Attune is 8s/24 Pulse a second, half the machine formula");
-        h.assertTrue(entries.stream().anyMatch(e->"Tribal Kin".equals(e.title()) && e.text().contains("every 6 seconds") && e.text().contains("Drumheart, Ley Collector or Pulse Resonator") && !e.text().contains("generators within 8 blocks")),"A Drummer feeds Drumheart, Ley Collector and Pulse Resonator only");
-        h.assertTrue(entries.stream().anyMatch(e->"Standing".equals(e.title()) && e.text().contains("60 standing") && e.text().contains("at most 40 Pulse") && e.text().contains("breaking a banner costs 5") && !e.text().contains("camp blocks")),"Hearth offerings cap at 60 standing a day; a banner costs 5, not generic camp blocks");
-        h.assertTrue(entries.stream().anyMatch(e->"Redstone language".equals(e.title()) && e.text().contains("other than the Drumheart") && !e.text().contains("and every generator")),"Held redstone pauses generators other than the Drumheart");
-        h.assertTrue(entries.stream().anyMatch(e->"Pulse lights".equals(e.title()) && e.text().contains("1 Pulse a second") && e.text().contains("Glow Reed") && e.text().contains("Wind Charm")),"Pulse lights draw 1 or 2 Pulse a second; a Wind Charm spends none");
-        h.assertTrue(entries.stream().anyMatch(e->"Wind Charm".equals(e.title()) && e.text().contains("no collision") && e.text().contains("spends no Pulse")),"A Wind Charm hangs from a ceiling, has no collision, and spends no Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"Ember Horn".equals(e.title()) && e.text().contains("15% Pulse a second per rank") && !e.text().contains("the rate is the real cap")),"An Ember Horn's 20 a second is the unranked cap; rank adds 15%");
-        h.assertTrue(entries.stream().anyMatch(e->"Camp blessings".equals(e.title()) && e.text().contains("Loom grants luck") && e.text().contains("threads 2 Pulse")),"Camp blessings must include the Loom luck and cell-tension beat");
-        h.assertTrue(entries.stream().anyMatch(e->"Ley Lens".equals(e.title()) && e.text().contains("weaker, not dead") && !e.text().contains("starves a collector")),"Ley Lens must not teach that a roof starves a collector");
-        h.assertTrue(entries.stream().anyMatch(e->"Ley Collector".equals(e.title()) && e.text().contains("a hearth and animals still add") && e.text().contains("every two seconds") && e.text().contains("that beat, not Pulse a second") && e.text().contains("8 of 16") && !e.text().contains("half the cap")),"A Ley Collector pads totems from landscape strength (8 of 16), not stored Pulse");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_ley_collector".equals(e.id()) && e.text().contains("every two seconds")),"Ley Collector walkthrough must name the two-second beat");
-        h.assertTrue(entries.stream().anyMatch(e->"Pulse Resonator".equals(e.title()) && e.text().contains("kinship included")),"A Resonator heap caps at five voices including kinship");
-        h.assertTrue(entries.stream().anyMatch(e->"Walkthrough: your first rite".equals(e.title()) && e.text().contains("A cell in your pocket is not in range") && !e.text().contains("Greater Pulse Cell in a Drumheart")),"Tablet rites spend nearby generator Pulse, not a seated cell");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_stone_font".equals(e.id()) && e.text().contains("24 Pulse a second") && e.text().contains("obsidian at 6")),"Stone Font walkthrough must name both obsidian Pulse rates");
-        h.assertTrue(entries.stream().anyMatch(e->"Carry the beat".equals(e.title()) && e.text().contains("fill the cell from that store") && e.text().contains("25 Pulse per use") && e.text().contains("voice-craft") && e.text().contains("Ley Collector does not fill") && !e.text().contains("spend it on tools, rites") && !e.text().contains("travel and tablet rites")),"A cell fills from a Drumheart (25), Resonator or voice-craft (100); a Ley Collector does not fill a cell");
-        h.assertTrue(entries.stream().anyMatch(e->"Walkthrough: tend a grove".equals(e.title()) && e.text().contains("voice-craft") && !e.text().contains("Drumheart or Resonator within 8")),"A Grove Tender drinks from any nearby generator");
-        h.assertTrue(entries.stream().anyMatch(e->"Staff costs".equals(e.title()) && e.text().contains("Stitch rests 1.5 seconds")),"Loom stitch cooldown is 30 ticks, not the two-second voice rest");
-        h.assertTrue(entries.stream().anyMatch(e->"Walkthrough: cast the Sixfold Staff".equals(e.title()) && e.text().contains("Stitch rests 1.5 seconds")),"Staff walkthrough must name the stitch rest");
-        h.assertTrue(entries.stream().anyMatch(e->"Spiritweave".equals(e.title()) && e.text().contains("Unlinked pieces spend 2 Pulse") && e.text().contains("3 Pulse upkeep")),"Bound Spiritweave spends 3 Pulse; unlinked spends 2");
-        h.assertTrue(entries.stream().anyMatch(e->"Verse Call and Answer".equals(e.title()) && e.text().contains("copies that strength")),"A Verse Answer copies analog strength; it is not always 15");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_wind_harp".equals(e.id()) && e.text().contains("unranked cap") && e.text().contains("15% Pulse a second per rank") && !e.text().contains("the whole of the wind")),"A Wind Harp's six a second is the unranked cap; rank adds 15%");
-        h.assertTrue(entries.stream().anyMatch(e->"walk_wake_bell".equals(e.id()) && e.text().contains("unranked") && e.text().contains("15% Pulse a second per rank")),"A Wake Bell's 8 a second is the unranked cap; rank adds 15%");
-        h.assertTrue(entries.stream().anyMatch(e->"Loom Anchor".equals(e.title()) && e.text().contains("not a seventh voice") && !e.text().contains("extra tribe voices toward that count")),"A Loom Anchor kinship totem lends an element, not a seventh voice");
-        h.assertTrue(entries.stream().anyMatch(e->"Combat and company".equals(e.title()) && e.text().contains("refunds 4 Pulse") && !e.text().contains("a little Pulse")),"A Cinder Imp refunds 4 Pulse on a hand-drum, Tempo +2");
-        h.assertTrue(entries.stream().anyMatch(e->"Stone Font".equals(e.title()) && e.text().contains("pit-speed")),"Stone Font asks honour the same pit-speed setting as the pit");
-        h.assertTrue(entries.stream().anyMatch(e->"Wave Drum".equals(e.title()) && e.text().contains("15% Pulse a second per rank")),"A ranked Wave Drum adds 15% Pulse a second per rank");
-        h.assertTrue(entries.stream().anyMatch(e->"Six voices".equals(e.title()) && e.text().contains("lend that tribe's element")),"Kinship Totems lend an element to stations; extra tribe voices are Resonator-only");
-        h.assertTrue(entries.stream().anyMatch(e->"Camp hands".equals(e.title()) && e.text().contains("voice-craft")),"Camp hands drink from any nearby generator, including voice-crafts");
-        h.assertTrue(entries.stream().anyMatch(e->"Pulse Resonator".equals(e.title()) && e.text().contains("15% Pulse a second per rank")),"A ranked Resonator adds 15% Pulse a second per rank");
-        h.assertTrue(entries.stream().anyMatch(e->"Kinship Totem".equals(e.title()) && e.text().contains("not a seventh voice")),"Kinship on a Loom or station is an element, not a seventh voice");
-        h.assertTrue(entries.stream().anyMatch(e->"Hush Totem".equals(e.title()) && e.text().contains("2,400-Pulse reserve")),"Camp devices share a 2,400 Pulse reserve");
-        h.assertTrue(entries.stream().anyMatch(e->"Hush Totem".equals(e.title()) && e.text().contains("refill up to 80 Pulse a second")),"Camp devices refill up to 80 Pulse a second from nearby generators");
-        h.assertTrue(entries.stream().anyMatch(e->"Wayanchor".equals(e.title()) && e.text().contains("refill up to 80 Pulse a second")),"A Wayanchor refills up to 80 Pulse a second from nearby generators");
-        h.assertTrue(entries.stream().anyMatch(e->"Sixfold Staff".equals(e.title()) && e.text().contains("ignites for 4 seconds") && e.text().contains("18 blocks") && !e.text().contains("nearby enemies")),"Staff Fire ignites 4 seconds; offensive spells reach 18 blocks");
-        h.assertTrue(entries.stream().anyMatch(e->"Combat and company".equals(e.title()) && e.text().contains("within 4 blocks") && e.text().contains("reaches 8") && !e.text().contains("nearby drops")),"An Echo Weaver gathers within 4 blocks; Gather reaches 8");
-        h.assertTrue(entries.stream().anyMatch(e->"Echo Unweave".equals(e.title()) && e.text().contains("2 Attuned Echoes") && e.text().contains("2 Echo Shards") && e.text().contains("2 wool")),"Unweave reverses Bound Echo, Attuned Echo and Spiritweave as well as Ingot and Core");
-        var ids=new java.util.HashSet<String>();
-        for(var entry:entries) {
-            h.assertTrue(ids.add(entry.id()),"Duplicate Codex id: "+entry.id());
-            var id=net.minecraft.resources.ResourceLocation.parse("tribalpower:"+entry.icon());
-            h.assertTrue(net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(id),"Unknown Codex item: "+id);
-            h.assertTrue(!entry.text().isBlank(),"Empty teaching: "+entry.id());
-            if(!entry.picture().isEmpty())h.assertTrue(entry.spoiler()||entry.safePicture(),"Pictures need spoiler protection unless the catalog marks them safe: "+entry.id());
-            if(entry.safePicture())h.assertTrue(!entry.picture().isEmpty()&&!entry.spoiler(),"safe_picture is only for pictured, spoiler-free pages: "+entry.id());
+    public static void codexIsWholeAndConsistent(GameTestHelper h) {
+        var book=CodexFiles.english();
+        h.assertTrue(book.entries().size()>=80,"The Codex should hold the whole mod, found "+book.entries().size()+" entries");
+        h.assertTrue(!book.landing().isBlank(),"The Codex needs a landing page");
+        var first=book.categories().getFirst();
+        h.assertTrue(!first.spoiler() && book.in(first.id()).stream().noneMatch(e->e.spoiler()),"The first chapter must be spoiler-free: "+first.id());
+        var link=java.util.regex.Pattern.compile("\\[[^\\]]+\\]\\(([a-z0-9_]+)\\)");
+        var itemRef=java.util.regex.Pattern.compile("\\{item:([a-z0-9_.:/-]+)\\}");
+        java.util.function.Consumer<String> item=id->h.assertTrue(net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(tk.darrow.tribalpower.client.codex.CodexBook.itemId(id)),"Unknown Codex item: "+id);
+        java.util.function.BiConsumer<String,String> text=(where,body)->{
+            var m=link.matcher(body);
+            while(m.find())h.assertTrue(book.byId().containsKey(m.group(1)),where+" links to a missing entry: "+m.group(1));
+            var i=itemRef.matcher(body);
+            while(i.find())item.accept(i.group(1));
+        };
+        for(var c:book.categories()) {
+            item.accept(c.icon());
+            h.assertTrue(!book.in(c.id()).isEmpty(),"Empty chapter: "+c.id());
+            text.accept("chapter "+c.id(),c.description());
         }
+        text.accept("landing",book.landing());
+        for(var e:book.entries()) {
+            h.assertTrue(book.category(e.category())!=null,e.id()+" sits in a missing chapter "+e.category());
+            h.assertTrue(!e.name().isBlank() && !e.pages().isEmpty(),"Empty entry: "+e.id());
+            e.items().forEach(item);
+            if(!e.next().isEmpty())h.assertTrue(book.byId().containsKey(e.next()),e.id()+" continues to a missing entry "+e.next());
+            if(!e.unlock().isEmpty())h.assertTrue(e.spoiler() && e.unlock().matches("(tribe:[a-z]+|tablet:\\d+)"),e.id()+" has a malformed unlock "+e.unlock());
+            for(var page:e.pages()) {
+                text.accept(e.id(),page.text());
+                switch(page) {
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Spotlight s -> item.accept(s.item());
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Recipe r -> item.accept(r.item());
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Image i -> h.assertTrue(
+                            LatticeGameTests.class.getClassLoader().getResource("assets/tribalpower/textures/gui/codex/"+i.image()+".png")!=null,e.id()+" shows a missing picture "+i.image());
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Pattern pattern -> h.assertTrue(
+                            java.util.Set.of("stone_font","listening_pit","rite_circle","voice_ring","shatter_array","way_gate","far_gate").contains(pattern.pattern()),e.id()+" draws an unknown pattern "+pattern.pattern());
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Scene scene -> {
+                        h.assertTrue(!scene.steps().isEmpty(),e.id()+" has an empty scene");
+                        for(var step:scene.steps()) {
+                            h.assertTrue(!step.caption().isBlank(),e.id()+" has a scene step with no caption");
+                            text.accept(e.id(),step.caption());
+                            for(var placed:step.place()) {
+                                try {
+                                    net.minecraft.commands.arguments.blocks.BlockStateParser.parseForBlock(net.minecraft.core.registries.BuiltInRegistries.BLOCK.asLookup(),
+                                            placed.state().contains(":")?placed.state():"tribalpower:"+placed.state(),false);
+                                } catch(com.mojang.brigadier.exceptions.CommandSyntaxException bad) {
+                                    h.fail(e.id()+" places an unknown block "+placed.state());
+                                }
+                            }
+                            if(step.use()!=null)item.accept(step.use().item());
+                        }
+                    }
+                    default -> { }
+                }
+            }
+        }
+        CodexFacts.check(h,book);
         h.succeed();
     }
     @GameTest(template="empty")
@@ -445,15 +396,36 @@ public class LatticeGameTests {
         h.assertTrue(bench.getItem(0).getCount()==1 && cache.getItem(0).getCount()==1,"Automated feed must conserve items");
         h.succeed();
     }
+    /** The Gate Rite: a fair, playable pattern, identical on both sides, and a server that is not easily fooled. */
     @GameTest(template="empty")
-    public static void aGateDrumKeepsTravelPulseFromTheLattice(GameTestHelper h) {
+    public static void theGateRiteIsFairAndHardToFool(GameTestHelper h) {
+        var rite=tk.darrow.tribalpower.gate.DrumRite.pattern(1234L);
+        var again=tk.darrow.tribalpower.gate.DrumRite.pattern(1234L);
+        h.assertTrue(rite.equals(again),"Client and server must build the same pattern from a seed");
+        for(long seed=0;seed<tk.darrow.tribalpower.gate.DrumRite.trackCount();seed++) {
+            var p=tk.darrow.tribalpower.gate.DrumRite.pattern(seed);
+            h.assertTrue(p.playMs()>=20000 && p.playMs()<=30000,"A rite lasts 20 to 30 seconds, got "+p.playMs());
+            h.assertTrue(p.notes().size()>=30,"A rite has a real rhythm, got "+p.notes().size()+" beats");
+            for(int i=1;i<p.notes().size();i++)
+                h.assertTrue(p.notes().get(i).timeMs()-p.notes().get(i-1).timeMs()>=100,"Beats are never closer than 100 ms");
+        }
+        h.assertTrue(tk.darrow.tribalpower.gate.DrumRite.accuracy(40,120,40)<tk.darrow.tribalpower.gate.DrumRite.PASS,"Mashing all four drums on every beat does not pass");
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.GATE_DRUM.get());
-        var drum=at(h,pos,GateDrumBlockEntity.class);
-        drum.insertPulse(40,false);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(h.getLevel(),h.absolutePos(pos),8,20,false);
-        h.assertTrue(drum.getPulseStored()==40,"Nearby extract must not steal travel Pulse");
-        h.assertTrue(drum.extractPulse(20,false)==0,"The lattice face of a Gate Drum is closed");
-        h.assertTrue(drum.tryConsumeTravelPulse() && drum.getPulseStored()==20,"Travel still spends the drum");
+        var player=VerificationPlayers.inLevel(h);
+        var abs=h.absolutePos(pos);
+        player.moveTo(abs.getX()+1.5,abs.getY(),abs.getZ()+0.5);
+        int total=rite.notes().size();
+        // Too soon: a result that arrives before the rhythm could have been played is refused.
+        tk.darrow.tribalpower.gate.DrumRite.beginAt(player,abs,1234L,20);
+        h.assertTrue(!tk.darrow.tribalpower.gate.DrumRite.finish(player,new tk.darrow.tribalpower.gate.DrumRite.Result(abs,1234L,total,0,false)),"An early result is refused");
+        // On time but off the beat: fails, and the drum keeps its Pulse.
+        long ticks=rite.endMs()/50;
+        tk.darrow.tribalpower.gate.DrumRite.beginAt(player,abs,1234L,ticks);
+        h.assertTrue(!tk.darrow.tribalpower.gate.DrumRite.finish(player,new tk.darrow.tribalpower.gate.DrumRite.Result(abs,1234L,total/2,0,false)),"Half the beats does not open the gate");
+        // A result without a rite, or for another seed, is ignored.
+        h.assertTrue(!tk.darrow.tribalpower.gate.DrumRite.finish(player,new tk.darrow.tribalpower.gate.DrumRite.Result(abs,1234L,total,0,false)),"No rite, no gate");
+        tk.darrow.tribalpower.gate.DrumRite.beginAt(player,abs,99L,ticks);
+        h.assertTrue(!tk.darrow.tribalpower.gate.DrumRite.finish(player,new tk.darrow.tribalpower.gate.DrumRite.Result(abs,1234L,total,0,false)),"The seed must match");
         h.succeed();
     }
     @GameTest(template="empty")
@@ -654,6 +626,8 @@ public class LatticeGameTests {
     public static void playerMachinesDropWithoutATaggedTool(GameTestHelper h) {
         var ores=new java.util.HashSet<>(java.util.Set.of("march_stone","march_cobble","march_ore"));
         tk.darrow.tribalpower.world.MarchOres.BLOCKS.keySet().forEach(mineral->ores.add("march_"+mineral+"_ore"));
+        // The stone half of the March building set mines like vanilla stone.
+        tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().stream().filter(id->id.contains("stone")||id.contains("cobble")).forEach(ores::add);
         var never=java.util.Set.of("gate_portal","spirit_light","spirit_click");
         for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
             var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);

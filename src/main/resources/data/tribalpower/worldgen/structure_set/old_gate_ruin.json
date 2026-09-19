@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:old_gate_ruin",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 72,
+    "separation": 43,
+    "salt": 6162697,
+    "exclusion_zone": {
+      "other_set": "tribalpower:ancestor_hall",
+      "chunk_count": 4
+    }
+  }
+}

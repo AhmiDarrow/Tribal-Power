@@ -1,0 +1,218 @@
+{
+  "name": "Spirit Pulse",
+  "icon": "tribalpower:pulse_cell",
+  "order": 5,
+  "items": [
+    "tribalpower:greater_pulse_cell"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cell",
+      "text": [
+        "Pulse is the living energy every Tribal Power machine runs on. Generators make it, machines spend it, and a **Pulse Cell** lets you carry some in your pocket for tools, spells and travel.",
+        "A plain cell holds **200 Pulse**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where Pulse lives",
+      "text": [
+        "Pulse is stored energy. A generator such as the Drumheart, the Ley Collector or the Pulse Resonator makes it and keeps it in its own store. A machine reaches out and spends it while it works.",
+        "Machines only look **8 blocks** around themselves. Pulse stored in a generator farther away, or in an unloaded chunk, cannot help. For your first workshop, simply put the generator right beside the machine.",
+        "Machines drain nearby generators first, then stores such as the totem buffers a [Lattice Conductor](lattice_conductor) fills (each Resonance Totem holds **250 Pulse**) and Pulse Cairns."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Supply and demand",
+      "text": [
+        "A machine can run for a while from a reserve even when it spends faster than you generate. If it keeps starting and stopping, compare the Pulse it needs with what your generators make, then add generation or build a bigger reserve.",
+        "Totems are not generators. A matching totem gives a station its voice, called **attunement**; it does not make power. Crouch and right-click a machine with this book and it reports power and attunement separately."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Filling a cell",
+      "steps": [
+        {
+          "caption": "A charged Drumheart holds the Pulse you drummed into it.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Right-click it with a Pulse Cell: each use moves up to 25 Pulse from the drum into the cell.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "A Pulse Resonator gives up to 100 per use, and so does a voice-craft such as a Wind Harp.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:pulse_cell"
+          }
+        },
+        {
+          "caption": "The generator loses what the cell gains. A Ley Collector cannot fill a cell this way.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Carrying it",
+      "text": [
+        "A Pulse Cell holds **200 Pulse**; a **Greater Pulse Cell** holds **1,200**. Carry charged cells for spells, Spiritgear, charms and travel, which all draw on cells in your inventory.",
+        "A cell in your pocket is **not** a nearby generator. Workshops and tablet rites still need Pulse within 8 blocks of them.",
+        "To pay for a Way Gate, use a cell on its keystone (up to **100** per use); the trip spends that store, not the cell in your pocket. A Gate Drum needs no Pulse at all: its rite opens it.",
+        "A [Pulse Gauge](pulse_gauge) pointed at a machine that holds Pulse reads how full it is."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cell"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_pulse_cell",
+      "text": "Needs Resonant Cores from Echo Manifest."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/willow_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/willow_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/willow_planks"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:cinder_spire",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 30,
+    "separation": 15,
+    "salt": 8257542,
+    "exclusion_zone": {
+      "other_set": "tribalpower:ember_forge",
+      "chunk_count": 3
+    }
+  }
+}

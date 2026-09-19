@@ -1,0 +1,18 @@
+{
+  "name": "What mending means",
+  "icon": "tribalpower:lore_tablet",
+  "order": 30,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "You are not putting continents back. You are teaching nine voices to agree again, one camp at a time.",
+        "A chalk link is a promise. A seated catalyst is a conversation restarted. A tablet rite is asking politely, smaller than the old world asked.",
+        "The March kept the halls, the drums, the tablets. Read every tablet. Strike the Silent Drum when you are ready. Tell the camps we are sorry it took so long.",
+        "The world does not snap back. It learns to hold."
+      ]
+    }
+  ]
+}

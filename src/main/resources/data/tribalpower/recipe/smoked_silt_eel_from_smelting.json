@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "tribalpower:raw_silt_eel"
+  },
+  "result": {
+    "id": "tribalpower:smoked_silt_eel"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Continents of thread",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "A continent was a pad that had forgotten it was a pad. Fields ran because Soil ran with them. Rivers kept manners because Sprout taught water where to sit. Cities did not float. They hung, and hanging felt like standing.",
+        "Roads were sung, not cut. Pulse under one hearth was heard as Pulse under the next. Night was an appointment the Seal-carvers kept. Storms were a Drumheart argument walked back before dawn.",
+        "You can still see the habit in the aurora. It is the sky trying to remember a schedule."
+      ]
+    }
+  ]
+}

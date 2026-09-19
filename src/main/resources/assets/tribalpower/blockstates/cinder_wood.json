@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/cinder_wood"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/cinder_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/cinder_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

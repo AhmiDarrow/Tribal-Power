@@ -106,6 +106,12 @@ public class TribalJeiPlugin implements IModPlugin {
         @Override public void setRecipe(IRecipeLayoutBuilder builder,LatticeRecipe recipe,IFocusGroup focus) {
             builder.addInputSlot(20,23).addIngredients(recipe.ingredient());
             builder.addOutputSlot(121,23).addItemStack(recipe.output());
+            // Gear ranks also consume catalysts from the station's catalyst slots.
+            var output = recipe.output();
+            if (tk.darrow.tribalpower.item.SpiritGear.isGear(output)) {
+                var catalysts = tk.darrow.tribalpower.item.SpiritGear.catalysts(tk.darrow.tribalpower.item.SpiritGear.rank(output));
+                for (int i = 0; i < catalysts.size(); i++) builder.addInputSlot(62 + i * 18, 44).addItemStack(catalysts.get(i));
+            }
         }
         @Override public void draw(LatticeRecipe recipe,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
             var font=Minecraft.getInstance().font;

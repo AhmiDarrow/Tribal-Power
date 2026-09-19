@@ -1,0 +1,91 @@
+{
+  "name": "Bonding a familiar",
+  "icon": "tribalpower:bonding_charm",
+  "order": 170,
+  "spoiler": true,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "A familiar follows you, waits where you tell it, never despawns and sheds double reagent when brushed."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Craft it from **two Spiritweave**, a **Spirit Shard** and **one creature reagent**: Dawn Velvet, Lantern Down, Mossback Scale, Prism Carapace, Rift Tooth, Cinder Knot, Storm Wing, Bell Fragment or Echo Silk.",
+        "Any one of them works, and the finished charm bonds any creature that will answer, whichever reagent went in. Brush a gentle animal for its reagent, or take one from a fallen remnant."
+      ],
+      "title": "The Bonding Charm"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Every creature carries five threads: **Frame** (health), **Stride** (speed), **Fang** (damage), **Hum** (how often its gift works) and **Keep** (armour). Each step up or down is worth 12%.",
+        "**Sneak and look at any March creature** to see its threads, its Marks, its generation and its **bloodline**, the five threads added up. Your own companions show theirs whenever you look at them.",
+        "Wild threads roll 0 to 3, so two foxes from the same clearing are not clones. Only breeding reaches 4, and the **Exalted** 5. Choose the one you want to keep: bonding never rerolls anything."
+      ],
+      "title": "Read it first"
+    },
+    {
+      "type": "text",
+      "text": [
+        "There are two ways to bond an adult. Young ones cannot be bonded.",
+        "- **Feed it**, the way you would win over a wolf. Gentle animals take their usual food and bond about one time in three; remnants take their own reagent and bond one time in five. Every try spends the food.",
+        "- **The Bonding Charm** is quicker: three tries in five for gentle animals, two in five for remnants. A failed charm is only spent on a remnant.",
+        "Remnants need **Voice** standing (800) with their tribe either way. Hearts mean it worked; smoke means it did not. Ashbound, Rootbound, Reed Stalkers and Hollow Sentinels never answer.",
+        "Feed a hurt companion its food to heal it."
+      ],
+      "title": "Bonding"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Shardback: the **Grit-singers**.",
+        "- Rift Hound: the **Edge-walkers**.",
+        "- Cinder Imp: the **Drumhearts**.",
+        "- Storm Moth: the **Pattern-weavers**.",
+        "- Mourning Bell: the **Seal-carvers**.",
+        "- Echo Weaver: the **Loom-stitchers**.",
+        "See [standing](standing) for how to earn it."
+      ],
+      "title": "Which tribe for which remnant"
+    },
+    {
+      "type": "text",
+      "text": [
+        "A familiar follows once you are **10 blocks** away and teleports to you past **12**. Sneak-use it to make it wait, and again to call it back. It never despawns and ignores your blows.",
+        "**One fighter** (a Shardback or Rift Hound) and **two helpers** may follow at once. Sitters and anything being ridden do not count. Extras sit down and tell you why.",
+        "A waiting familiar that gets hurt stands up and follows, if there is room in your company."
+      ],
+      "title": "Keeping company"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Breed two bonded companions of the same species by feeding both their food while they stand close. As with wolves, the young of two companions you own are **born into your company**, and more food helps them grow.",
+        "Each child takes one half of every thread from each parent, sometimes nudged up or down. Pairs you own together improve a little more often.",
+        "**Breed strong to strong.** When both parents are 3 or better in a thread, the child has a one-in-four chance to go a step higher than either, which is the only way to 4 and the Exalted 5. A line bred with care ends up far stronger than anything wild.",
+        "Careful with copying: breeding the same Frame and Fang three generations running under one owner **Frays** the line and lowers its Hum."
+      ],
+      "title": "Breeding better threads"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Marks are named quirks. Some show with one copy; the rest need a copy from both parents.",
+        "- One copy: **Quiet Thread** (follows from 8 blocks, stops at 2), **Stonehide** (+1 armour, a little slower), **Drift** (quicker, 2 less health, gets restless after a minute of waiting), **Soft Maw** (will not bite villagers or golems), **Glow-vein** (fox), **Brace** (Shardback).",
+        "- Two copies: **Keen** (gift works faster), **Night Hum** (faster at night), **Kin Mark** (born to one owner's pair, a touch more armour), and the species marks **Leap**, **Deep Pocket**, **Track**, **Tempo**, **Click-true**, **Still** and **Gather**.",
+        "A few March-born wild creatures are **Sparked**: they glitter, and carry a strong copy of the thread their species leans toward."
+      ],
+      "title": "Marks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Any one of the nine creature reagents fills the middle slot."
+    }
+  ]
+}

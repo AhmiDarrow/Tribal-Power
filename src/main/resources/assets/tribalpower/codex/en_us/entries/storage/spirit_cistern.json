@@ -1,0 +1,194 @@
+{
+  "name": "Spirit Cistern",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "The camp's tank. It holds one fluid, up to **16,000 mB** (16 buckets), and it keeps its fluid when you pick it up, so you can move a full tank without spilling a drop."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Filling and reading it",
+      "text": [
+        "Right-click it with a bucket to fill or empty it. Right-click with an empty hand to read the fluid and amount.",
+        "Standard fluid pipes, a Tide Pump or a fluid relay can fill and drain it. A second fluid will not go in until the tank is empty.",
+        "A comparator facing away from it reads **0** when empty, then **1 to 15** as it fills.",
+        "Crouch and right-click a face with an empty hand to set that face: Both, Input, Output or Closed. Touching Tribal Power machines move up to **250 mB** a second across a giving face into a taking one."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A kept tank",
+      "steps": [
+        {
+          "caption": "Place the cistern and pour in a bucket; an empty-handed click should read 1,000 of 16,000 mB.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "A comparator facing away from it reads how full it is.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A lever on it locks filling and draining, even by remote relays. The fluid stays.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Break it and the dropped cistern still holds the water; place it again and it is still full.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Good to know",
+      "text": [
+        "Relays and the Tide Pump move fluid; they are not tanks. Put a cistern at each end.",
+        "A Wave Drum also keeps its own water tank when broken.",
+        "[Spring Calling](spring_calling) can mark a placed cistern as a spring so it refills itself with water. Moving the block ends the spring; water already inside still rides on the item."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

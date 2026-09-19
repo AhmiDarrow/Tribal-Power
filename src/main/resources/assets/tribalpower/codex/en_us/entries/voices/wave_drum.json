@@ -1,0 +1,360 @@
+{
+  "name": "Wave Drum",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "The Rootbinders' craft. The Wave Drum makes Pulse from water: a little from a pond beside it, a lot from water poured into it. It is a generator, not a spare tank.",
+        "It holds **1,000 Pulse**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Two ways to feed it",
+      "text": [
+        "**Beside water.** Water touching any face of the drum gives **3 Pulse a second**. Drums within **8 blocks** share that, so two neighbours make half each.",
+        "**Its own water.** Fill its internal tank with a bucket, a Spirit Cistern or a fluid relay, and it makes **10 a second**, drinking **100 mB a second**. Nothing crowds this tier; the water is already the price. It only drinks when it actually delivers Pulse.",
+        "Rain doubles either tier. Ranking adds **15% Pulse a second** per rank. The tank holds **4,000 mB**, and water only."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Beside a pond",
+      "steps": [
+        {
+          "caption": "Set the Wave Drum down at the water's edge.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Water touching any face of the drum gives it 3 Pulse a second.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A second drum within 8 blocks shares that pond: each now makes half.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A drum that feeds itself",
+      "steps": [
+        {
+          "caption": "A dry drum on its own makes nothing.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set it against a Spirit Cistern. The cistern pours water into the drum by itself.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "With water of its own the drum makes 10 Pulse a second, drinking 100 mB a second.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A Spring Calling on the cistern refills it, so the whole thing runs on its own.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Moving it",
+      "text": [
+        "Break the drum and the dropped item keeps the water in its tank. Pair a Tide Pump if you need the water to move on after it arrives: relays and the Tide Pump move fluid, they are not storage.",
+        "A [Spring Calling](spring_calling) on a nearby Spirit Cistern is how the water refills itself.",
+        "A redstone signal pauses it, and a paused drum takes no water. A dry drum only ever gets the beside-water tier. Crouch and right-click it with this book to see which tier it is on and what is in the tank.",
+        "Drums are the [Rootbinders'](tribe_sprout) craft: the recipe needs a Knotted Root and a Water Seal, and the Rootbinders trade a drum to Friends for Spirit Reeds."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

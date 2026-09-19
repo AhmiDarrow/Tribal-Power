@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:sunken_shrine",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 44,
+    "separation": 26,
+    "salt": 7327494,
+    "exclusion_zone": {
+      "other_set": "tribalpower:stilt_village_ruin",
+      "chunk_count": 3
+    }
+  }
+}

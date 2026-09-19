@@ -1,0 +1,34 @@
+{
+  "name": "Shatter Array",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "A braced Echo Shatter",
+      "text": [
+        "The Shatter Array is an optional brace for your [Echo Shatter](echo_shatter). Centre the station in a five by five, stand a totem at each corner, and set an Ancestral Cache directly beneath it.",
+        "In return the station spends **a quarter less Pulse** and empties its output straight into the cache below.",
+        "It is entirely optional: the station works exactly as before without it."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "The array",
+      "text": "Four totems on the corners, two blocks out on the diagonals, and the cache under the station."
+    },
+    {
+      "type": "text",
+      "title": "Getting it right",
+      "text": [
+        "All four corner totems must be the voice of the recipe the station is running. For shards from stone that is **Earth**. A wrong voice at any corner simply means no discount.",
+        "The array is drawn around the Echo Shatter only; the other Echo stations do not take it.",
+        "A redstone signal on the cache stops the emptying. Crouch and right-click the station with the Codex to see ghosts and whether it counts as arrayed."
+      ]
+    }
+  ]
+}

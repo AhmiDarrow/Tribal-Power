@@ -21,10 +21,14 @@ public final class TribalPowerClient {
         installDevHook("tk.darrow.tribalpower.client.VisualVerification");
         installDevHook("tk.darrow.tribalpower.client.ShowcaseVerification");
         modBus.addListener(PanoramicSky::registerShaders);
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent event) -> event.registerReloadListener(new tk.darrow.tribalpower.client.codex.CodexBook.Loader()));
         modBus.addListener(TribalColors::items);
+        modBus.addListener(VoiceGlow::items);
+        modBus.addListener(VoiceGlow::layers);
         modBus.addListener(TribalColors::blocks);
         modBus.addListener(ClientSetup::onClientSetup);
         modBus.addListener(ClientSetup::registerRenderers);
+        tk.darrow.tribalpower.client.wildlife.WildlifeClient.register(modBus);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {
             for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->GeneratedCreatureLayers.create(p.id));
             event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
@@ -39,6 +43,7 @@ public final class TribalPowerClient {
                 event.register(tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_MENU.get(), SealLoomScreen::new);
         });
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FamiliarInspectHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) ->
                 event.register(tk.darrow.tribalpower.familiar.FamiliarRegistry.SADDLEBAG.get(), MossbackScreen::new));

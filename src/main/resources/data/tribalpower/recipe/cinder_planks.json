@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "tribalpower:cinder_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "tribalpower:cinder_planks"
+  }
+}

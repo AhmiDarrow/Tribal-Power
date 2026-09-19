@@ -1,0 +1,293 @@
+{
+  "name": "Machine ranks",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Workshops and generators can be ranked, the same way Spiritgear is: seat the machine in Echo Attune, then Echo Bind, then Echo Manifest. Each rank makes it faster, and it pays for the speed in Pulse.",
+        "Each step takes Pulse and time, but no catalysts:",
+        "- Attune (Fire): **16 seconds** at **48 Pulse a second**, for rank 1.",
+        "- Bind (Water): **20 seconds** at **64**, for rank 2.",
+        "- Manifest (Spirit): **24 seconds** at **80**, for rank 3.",
+        "You cannot skip a step: Bind refuses a rank 0 machine, and Manifest wants rank 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Three voices, three ranks",
+      "steps": [
+        {
+          "caption": "Pick the machine up. As an item, it goes into Echo Attune with a Fire totem for rank 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Then into Echo Bind, with Water, for rank 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Then into Echo Manifest, with Spirit, for rank 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Place it again. The rank rides on the block, and on the item when you pick it up.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What a rank does",
+      "text": [
+        "- Rank 1: **85%** of the time, **118%** of the Pulse a second.",
+        "- Rank 2: **70%** of the time, **143%** of the Pulse.",
+        "- Rank 3: **55%** of the time, **182%** of the Pulse.",
+        "Pulse per craft stays about even: the extra speed is paid on the lattice.",
+        "Generators work differently: each rank adds **15% Pulse a second**, not the workshop 118%. Relays move more and pay more Pulse for the extra cargo. Camp hands beat faster at the same Pulse per move."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Which machines",
+      "text": [
+        "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Pulse Adapter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
+        "The tooltip names the rank. If a station will not take the machine, it is the wrong station for its current rank; crouch and right-click the station with this book."
+      ]
+    }
+  ]
+}

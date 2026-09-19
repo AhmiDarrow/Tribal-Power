@@ -1,0 +1,8 @@
+{
+  "name": "The Nine Tribes",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Nine tribes once kept the Loom. Their camps still stand; earn their standing and their marks.",
+  "spoiler": true,
+  "progress": "tribes"
+}

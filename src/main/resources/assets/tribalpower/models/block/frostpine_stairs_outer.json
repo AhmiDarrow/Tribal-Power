@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "tribalpower:block/frostpine_planks",
+    "top": "tribalpower:block/frostpine_planks",
+    "side": "tribalpower:block/frostpine_planks"
+  }
+}

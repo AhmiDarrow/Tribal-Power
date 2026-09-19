@@ -1,0 +1,24 @@
+{
+  "name": "Spirit Wisp",
+  "icon": "tribalpower:echo_bloom",
+  "order": 60,
+  "spoiler": true,
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Spirit Wisps are small drifting spirits of the March, trailing little motes of light. They float rather than walk and never take fall damage.",
+        "You find them in all six biomes, in loose groups over grass, stone and crystal. They gather most around March Crystal."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "A wisp watches you from a distance but keeps about four blocks away, and it flees if something startles it.",
+        "It has only **6 health**, never attacks and drops nothing. Think of it as the March's fireflies: a sign you are somewhere the thread still hums."
+      ],
+      "title": "Their habits"
+    }
+  ]
+}

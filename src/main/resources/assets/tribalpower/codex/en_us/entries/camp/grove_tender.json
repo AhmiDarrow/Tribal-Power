@@ -1,0 +1,697 @@
+{
+  "name": "Grove Tender",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "A farmhand that never sleeps. The Grove Tender plants, grows and harvests the 9-by-9 bed around it, and keeps the harvest in its own store until you, a hopper or a cache takes it away.",
+        "It handles crops, saplings, sugar cane, cactus, bamboo, sweet berries, nether wart and cocoa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Setting it up",
+      "text": [
+        "**Place it yourself.** The tender remembers who placed it and works with that player's permissions, so land protection still applies. A tender nobody claimed does nothing.",
+        "It works on its **own level**: its bed is the square reaching **4 blocks** out on every side, at the tender's height. So set it at crop height, on a block sunk into the farmland, not on top of the crops.",
+        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "A tended bed",
+      "steps": [
+        {
+          "caption": "Till the ground, and sink an Ancestral Cache into the middle of it.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stand the Grove Tender on the cache, so it sits at crop height; the water keeps the farmland wet.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Put Pulse within 8 blocks and give it seeds; it plants one spot a second for 4 Pulse.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "Ripe wheat is cut and replanted for 12 Pulse, keeping one seed back.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "The tender's bottom face is Output, so the harvest drops into the cache with no hopper.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What each job costs",
+      "text": [
+        "Once a second it looks along its bed and does **one** job:",
+        "- **Plant** an empty spot: **4 Pulse**.",
+        "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall.",
+        "- **Urge** a sapling, stem, crop, cocoa pod, berry bush or bamboo shoot to grow, like bone meal: **16 Pulse**.",
+        "When the bed has nothing to do, it fells logs and clears leaves above it, in a column **9 wide and 11 tall** from its own level up, for **12 Pulse** a block."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Soil, trees and power",
+      "text": [
+        "Each plant needs its usual ground: farmland near water for crops, dirt for saplings, sand for cactus, sand or dirt beside water for cane, soul sand for nether wart, and jungle logs in the bed for cocoa.",
+        "For a tree farm, feed it saplings. It plants them on dirt, urges them up, then takes the logs and leaves.",
+        "The tender keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from generators within 8. Right-click it with a Pulse Cell to top it up by hand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "When it stops",
+      "text": [
+        "Right-click it to see what it is doing and how much Pulse it holds. If its store is full it leaves ripe plants standing and waits, so empty it, or give it a cache to drop into.",
+        "A lever pauses the work and locks the inventory. A comparator reads how full it is.",
+        "Crouch and right-click a face with an empty hand to change what that face does: Both, Input, Output or Closed.",
+        "A Wind Snare nearby catches anything that still ends up on the ground, and a Seal Loom can turn the harvest into something else."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

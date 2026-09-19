@@ -73,11 +73,11 @@ public class SpiritweaveArmor extends ArmorItem {
         if (getType() == Type.BOOTS) {
             if (player.fallDistance > 1 && SpiritGear.voice(stack).orElse(null) == null
                     && !player.hasEffect(MobEffects.SLOW_FALLING)
-                    && SpiritgearHelper.tryConsumePulse(player, SpiritGear.armorCost(stack)))
+                    && GearCell.spend(player, stack, SpiritGear.armorCost(stack)))
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
             if (SpiritGear.voice(stack).orElse(null) == Attunement.AIR && player.fallDistance > 1
                     && !player.hasEffect(MobEffects.SLOW_FALLING)
-                    && SpiritgearHelper.tryConsumePulse(player, SpiritGear.armorCost(stack)))
+                    && GearCell.spend(player, stack, SpiritGear.armorCost(stack)))
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
             return;
         }
@@ -85,11 +85,11 @@ public class SpiritweaveArmor extends ArmorItem {
         if (level.getGameTime() % 80 != 0) return;
         Attunement voice = SpiritGear.voice(stack).orElse(null);
         int cost = SpiritGear.armorCost(stack);
-        boolean paid = SpiritgearHelper.tryConsumePulse(player, cost);
+        boolean paid = GearCell.spend(player, stack, cost);
         if (!paid) return;
         if (voice == Attunement.LOOM && getType() == Type.CHESTPLATE
                 && player.getRandom().nextFloat() < (SpiritGear.rank(stack) >= 3 ? 0.50F : 0.30F)) {
-            PulseCellItem.insertPulse(findCell(player), cost, false);
+            GearCell.refund(player, stack, cost);
         }
         apply(player, stack, voice);
     }
@@ -151,13 +151,6 @@ public class SpiritweaveArmor extends ArmorItem {
         }
     }
 
-    private static ItemStack findCell(Player player) {
-        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-            ItemStack stack = player.getInventory().getItem(i);
-            if (stack.getItem() instanceof PulseCellItem) return stack;
-        }
-        return ItemStack.EMPTY;
-    }
 
     private static void freeze(Player player, int radius) {
         BlockPos origin = player.blockPosition();

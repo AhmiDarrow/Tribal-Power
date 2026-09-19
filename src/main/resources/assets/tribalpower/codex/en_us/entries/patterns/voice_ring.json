@@ -1,0 +1,33 @@
+{
+  "name": "Voice Ring",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Six voices, arranged",
+      "text": [
+        "A [Pulse Resonator](pulse_resonator) counts at most **five** voices from a loose heap of totems, Kinship Totems included. To count all six elements plus kinship, the voices have to be **arranged**.",
+        "The Voice Ring is eight slots around the Resonator, **three blocks** out on the cardinals and the diagonals, all on the Resonator's own level. Eight, because six evenly spaced totems do not fit on a square grid."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "The ring",
+      "text": "A totem in every one of the eight slots, three blocks from the Resonator."
+    },
+    {
+      "type": "text",
+      "title": "Filling the ring",
+      "text": [
+        "Every slot needs a totem, but only **distinct** voices count, the sixth included. Two Earth totems are still one voice, so spare slots can hold duplicates.",
+        "Only **Answered** totems count; a quiet one has to be woken first (see [Keeping](keeping)).",
+        "Seat the catalyst as usual. Crouch and right-click the Resonator with the Codex to see ghosts of missing slots and the voice count."
+      ]
+    }
+  ]
+}

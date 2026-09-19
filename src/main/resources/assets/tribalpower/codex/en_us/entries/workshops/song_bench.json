@@ -1,0 +1,212 @@
+{
+  "name": "Song Bench",
+  "icon": "tribalpower:song_bench",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "The lattice's all-rounder. Seat one Echo-stage item and the bench sings it up the lattice, stage by stage, as long as each stage's voice is nearby.",
+        "It costs far more Pulse than the dedicated stations, so use it for single items, not batches."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Singing",
+      "text": [
+        "Place the bench with its totems within 8 blocks. Right-click it with an Echo-stage item to seat it: stone for a shard (not cobble), an Echo Shard, an Attuned Echo or a Bound Echo. It holds one at a time.",
+        "Click with an empty hand to sing. Crouch and click to take the item back.",
+        "It keeps singing into the next stage whenever it can, and stops at a Manifested Ingot."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it costs",
+      "text": [
+        "- Shatter (Earth): **8 Pulse a tick** for 2 seconds.",
+        "- Attune (Fire): **10 a tick** for 3 seconds.",
+        "- Bind (Water): **12 a tick** for 4 seconds.",
+        "- Manifest (Spirit): **16 a tick** for 5 seconds.",
+        "The dedicated stations (Shatter, Attune, Bind, Manifest, Kiln, Unweave) use written recipes and cost much less.",
+        "Ranking it in Echo Attune, Bind, then Manifest shortens the song; Pulse per tick rises and Pulse per craft stays about even."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "One stone, two songs",
+      "steps": [
+        {
+          "caption": "A Song Bench with a generator in range.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "With an Earth totem nearby, seated stone is sung into an Echo Shard.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Add a Fire totem and the bench carries on, singing the shard into an Attuned Echo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On the lattice",
+      "text": [
+        "A Lattice Conductor fills Song Benches on its network first. Every two seconds it also moves Echo items between Song Benches and Ancestral Caches near the totems.",
+        "A redstone signal pauses the bench."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ]
+}

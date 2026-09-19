@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_planks_stairs",
+    "tribalpower:willow_stairs",
+    "tribalpower:hearthoak_stairs",
+    "tribalpower:bellcap_stairs",
+    "tribalpower:frostpine_stairs",
+    "tribalpower:cinder_stairs",
+    "tribalpower:strider_stairs"
+  ]
+}
