@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 3.6.2 — Plain sight
+Uploaded 2026-09-19: `tribalpower-3.6.2.jar` as file **8925225** ("Tribal Power 3.6.2 - Plain sight", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_3.6.2.md`. Art pass (creature drops, echo catalysts, grits, exotic wood sets, machine tops) plus bug fixes: gate bounce, Six Voices timing, bonded weavers, familiar health, unpaid charms, camp anchors, Spiritgear swing ownership, tank faces, logic plate saves, and a much cheaper per-tick Pulse draw. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.6.2
+
 ## 3.6.1 — Safe keeping
 Uploaded 2026-09-19: `tribalpower-3.6.1.jar` as file **8923709** ("Tribal Power 3.6.1 - Safe keeping", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_3.6.1.md`. Bug sweep: owner-only breaking of claimed devices, other mods' flight no longer revoked, seated cells returned when Spiritweave breaks, safer March retrogen, persistent dock-stall stock, rite and hearth fixes, per-tick cost cuts. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.6.1
 
