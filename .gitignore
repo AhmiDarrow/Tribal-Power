@@ -55,6 +55,8 @@ docs/*_INTERNAL.md
 tools/*
 !tools/export_reviewed_pixel_art.py
 !tools/polish_gear_art.py
+!tools/paint_material_art.py
+!tools/_repo_guard.py
 art/*
 !art/reviewed-pixel-items.json
 legacy_1_9_4/
