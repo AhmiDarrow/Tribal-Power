@@ -357,7 +357,12 @@ public class LatticeMonster extends Monster implements Familiar {
         setBabyFlag(age<0);
         inLove=Math.max(0,tag.getInt("InLove"));
         forageCooldown=Math.max(0,tag.getInt("ForageCooldown"));
-        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) { lattice.load(tag.getCompound("Lattice"));applyLattice(); }
+        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) {
+            lattice.load(tag.getCompound("Lattice"));applyLattice();
+            // The lattice health bonus is transient, so the saved Health was clamped to the base maximum on load
+            // (and then read as "full"). Restore the real value now the bonus is back.
+            if(tag.contains("Health",Tag.TAG_ANY_NUMERIC))setHealth(Math.min(tag.getFloat("Health"),getMaxHealth()));
+        }
         pouch.clearContent();
         if(tag.contains("Pouch",Tag.TAG_COMPOUND)) {
             var items=net.minecraft.core.NonNullList.withSize(POUCH_SLOTS,ItemStack.EMPTY);

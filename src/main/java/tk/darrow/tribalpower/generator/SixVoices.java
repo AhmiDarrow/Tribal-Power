@@ -47,7 +47,9 @@ public final class SixVoices {
 
     /** Awards anyone standing in the middle of a full elemental plant. */
     public static void check(ServerLevel level, BlockPos origin) {
-        if (level.getGameTime() % CHECK_TICKS != 0) return;
+        // Generators produce on a per-position phase ((time + pos) % 20 == 0), so the check shares that phase;
+        // a plain time % CHECK_TICKS gate only ever lined up for one anchor position in twenty.
+        if (Math.floorMod(level.getGameTime() + origin.asLong(), CHECK_TICKS) >= 20) return;
         if (producing(level, origin).size() < Attunement.values().length) return;
         for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class,
                 new AABB(origin).inflate(RANGE), p -> !p.isSpectator()))

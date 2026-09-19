@@ -120,6 +120,8 @@ public final class CharmHooks {
 
     public static void incomingDamage(LivingIncomingDamageEvent event) {
         if (!(event.getEntity() instanceof Player player)) return;
+        // Unpaid upkeep switches every other charm effect off in playerTick; the reactive ones follow suit.
+        if (!PULSE_OK.getOrDefault(player.getUUID(), true)) return;
         Set<Attunement> voices = new HashSet<>();
         boolean ward = false;
         for (ItemStack charm : CharmSlots.equipped(player)) {

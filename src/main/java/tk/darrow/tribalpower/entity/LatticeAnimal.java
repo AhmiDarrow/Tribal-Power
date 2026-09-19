@@ -291,7 +291,12 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         }
         else if(tag.contains("Saddlebag",Tag.TAG_LIST))saddlebag.fromTag(tag.getList("Saddlebag",Tag.TAG_COMPOUND),registryAccess());
         lastLight=tag.contains("LastLight",Tag.TAG_LONG)?BlockPos.of(tag.getLong("LastLight")):null;
-        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) { lattice.load(tag.getCompound("Lattice"));applyLattice(); }
+        if(tag.contains("Lattice",Tag.TAG_COMPOUND)) {
+            lattice.load(tag.getCompound("Lattice"));applyLattice();
+            // The lattice health bonus is transient, so the saved Health was clamped to the base maximum on load
+            // (and then read as "full"). Restore the real value now the bonus is back.
+            if(tag.contains("Health",Tag.TAG_ANY_NUMERIC))setHealth(Math.min(tag.getFloat("Health"),getMaxHealth()));
+        }
         if(isBonded())setPersistenceRequired();
     }
     public int forageCooldown() { return forageCooldown; }

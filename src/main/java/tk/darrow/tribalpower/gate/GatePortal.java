@@ -114,7 +114,13 @@ public final class GatePortal {
 
     /** Walks {@code entity} through the plane at {@code pos}, if everything a gate needs is true. */
     public static void onEntityInside(ServerLevel level, BlockPos pos, Entity entity) {
-        if (entity.isPassenger() || entity.isVehicle() || entity.isOnPortalCooldown()) return;
+        if (entity.isPassenger() || entity.isVehicle()) return;
+        if (entity.isOnPortalCooldown()) {
+            // Arrivals land inside the partner's plane: keep the cooldown topped up while they stand in it, as
+            // vanilla portals do, or anything that stays put (a player, a dropped item) bounces back and forth.
+            entity.setPortalCooldown(Math.max(entity.getPortalCooldown(), WAY_COOLDOWN));
+            return;
+        }
         GateKeystoneBlockEntity keystone = keystoneFor(level, pos);
         if (keystone == null || !keystone.lit() || keystone.stilled()) return;
         GateKeystoneBlockEntity.Kind kind = keystone.kind(level);

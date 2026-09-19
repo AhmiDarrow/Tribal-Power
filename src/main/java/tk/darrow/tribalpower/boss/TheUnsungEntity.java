@@ -219,7 +219,7 @@ public class TheUnsungEntity extends Monster {
 
     /** No one stayed: the drum falls silent again and may be struck anew. */
     public void resetAndDespawn(ServerLevel server) {
-        for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver) weaver.discard();
+        for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver && !bonded(weaver)) weaver.discard();
         weavers.clear();
         if (drumPos != null && server.getBlockEntity(drumPos) instanceof SilentDrumBlockEntity drum) drum.onBossReset();
         server.playSound(null, blockPosition(), SoundEvents.WITHER_AMBIENT, SoundSource.HOSTILE, 1F, 0.4F);
@@ -245,8 +245,13 @@ public class TheUnsungEntity extends Monster {
     }
 
     /** Living Echo Weavers this Unsung summoned (stale ids are dropped). */
+    /** A summoned weaver a player bonded mid-fight is theirs now: it no longer counts, and is not cleaned up. */
+    private static boolean bonded(net.minecraft.world.entity.Entity weaver) {
+        return weaver instanceof tk.darrow.tribalpower.familiar.Familiar familiar && familiar.isBonded();
+    }
+
     public int weaversAlive(ServerLevel server) {
-        weavers.removeIf(id -> !(server.getEntity(id) instanceof LivingEntity living) || !living.isAlive());
+        weavers.removeIf(id -> !(server.getEntity(id) instanceof LivingEntity living) || !living.isAlive() || bonded(living));
         return weavers.size();
     }
 
@@ -363,7 +368,7 @@ public class TheUnsungEntity extends Monster {
         super.die(source);
         if (!dead) return; // a cancelled LivingDeathEvent leaves it alive: keep its Weavers and say nothing
         if (level() instanceof ServerLevel server) {
-            for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver) weaver.discard();
+            for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver && !bonded(weaver)) weaver.discard();
             weavers.clear();
             SpiritEffects.ring(server, position().add(0, 1, 0), Attunement.LOOM, 6, 24);
             server.sendParticles(ParticleTypes.SOUL, getX(), getY() + 2, getZ(), 60, 1.5, 1.5, 1.5, 0.05);

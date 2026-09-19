@@ -45,7 +45,8 @@ public final class CampHooks {
     public static int campAnchors(net.minecraft.server.MinecraftServer server,UUID campId){
         var camp=tk.darrow.tribalpower.camp.identity.Camps.data(server).camp(campId);if(camp==null)return 0;
         int count=0;
-        for(var entry:ANCHORS.entrySet())for(var owner:entry.getValue().values())if(owner!=null&&camp.isMember(owner))count++;
+        // The weak map can still hold levels of a single-player world closed earlier this session; skip them.
+        for(var entry:ANCHORS.entrySet())if(entry.getKey().getServer()==server)for(var owner:entry.getValue().values())if(owner!=null&&camp.isMember(owner))count++;
         return count;
     }
     public static int anchors(ServerLevel level){var anchors=ANCHORS.get(level);return anchors==null?0:anchors.size();}
