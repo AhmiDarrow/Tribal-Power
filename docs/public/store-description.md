@@ -38,7 +38,11 @@ Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear 
 
 ## The March and the Returning Song
 
-Reach the March through the Gate Drum and explore six biomes under its twilight sky. Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten new hostile spirits. Brush adult animals for renewable materials and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
+Reach the March through the Gate Drum, and strike a drum there to come home. Six biomes lie under its twilight sky: the open Steppe, the terraced Crystal Fields, the Highlands, the mud channels of the Reed Fen, the Snow Fields and the basalt Ember Wastes. Every block and plant is painted for the March, and the grass and leaves take each biome's colour. Flora grows in groves and drifts, held to a budget so the dimension stays smooth.
+
+Below, the caves open into caverns and canyons. Every vanilla ore is found set in March slate, and small amethyst pockets glint on the cave walls.
+
+Discover three breedable animals — Dawn Stag, Lantern Fox, and Mossback — and ten hostile spirits. Brush adult animals for renewable materials, hunt Dawn Stags, Mossbacks and March Walkers for game and March Leather, and process guardian reagents through Echo recipes. Some creatures also inhabit Overworld forests and swamps.
 
 Animated night auroras and constellations bring the skies to life. Client settings control brightness, detail, and dimension coverage; the effect can be disabled for shader packs with their own skies.
 
@@ -56,8 +60,12 @@ The Drumheart's redstone tempo is retuned: a one-second clock is a large buff, a
 
 Craft a Bone Chime, Spirit Shard, and Drumheart. Strike the drum and charge a Pulse Cell. Place an Earth Totem and Echo Shatter near a generator, then process stone into Echo Shards and raw metals into grit. Consult the Spirit Codex as you expand.
 
+## With Chocobos Reborn
+
+Optional. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/chocobos-reborn) installed, chocobos roam the March: Flame birds hatch in the Ember Wastes, birds on Snow Fields ice can roll Wonderful, farms stand on the Steppe and Highlands, and Wild Gysahl grows in the Reed Fen. Tribal Power never needs it.
+
 ## Standalone and Ninjacat Skies
 
 Tribal Power works standalone. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), its workshops, rituals, transport, bestiary and camp systems are woven into the pack story and quest progression. The pack is optional.
 
-Version 3.4.1. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 3.5.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
