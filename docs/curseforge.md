@@ -45,6 +45,11 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 3.6.0 — The living March
+Uploaded 2026-09-19: `tribalpower-3.6.0.jar` as file **8922875** ("Tribal Power 3.6.0 - The living March", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_3.6.0.md`. Codex readability overhaul, catalyst gear ranks and seated gear cells, the Gate Rite (drum music minigame; the Gate Drum needs no Pulse), 27 March structures, six trees with wood sets and Weeping Colossus groves, March building set, lakes with water and cave decoration, aquatic and aerial wildlife, a more dangerous March, wolf-like companions with line breeding, one-time March retrogen (worldgen 3). GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.6.0
+
+Project description refreshed for 3.6.0 (`docs/public/store-description.md` → `.html`); paste the HTML into the Author Console.
+
 ## 3.4.3 — Spiritgear and Spiritweave art pass
 Uploaded 2026-09-18: `tribalpower-3.4.3.jar` as file **8914264** ("Tribal Power 3.4.3 - Spiritgear and Spiritweave art pass", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.3.md`. Art only: Spiritgear ranks, Spiritweave icons and worn body, Resonance Maul, Sixfold Staff, Wayfarer Satchel, Spiritweave bolt. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.3
 
