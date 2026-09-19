@@ -148,8 +148,9 @@ public final class RiteHelper {
             living.hurtMarked = true;
         }
 
-        if (server.isRaining()) {
-            server.setWeatherParameters(6000, 0, false, false);
+        ServerLevel overworld = server.getServer().overworld(); // other dimensions derive their weather from it
+        if (overworld.isRaining()) {
+            overworld.setWeatherParameters(6000, 0, false, false);
         }
         server.sendParticles(ParticleTypes.CLOUD, pos.getX() + 0.5, pos.getY() + 1.2, pos.getZ() + 0.5,
                 24, 1.0, 0.6, 1.0, 0.04);

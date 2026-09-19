@@ -73,7 +73,8 @@ public final class TribeStanding {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_down",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(ChatFormatting.RED));
         }
-        for (StandingListener l : LISTENERS) l.onStandingChanged(player, tribe, after - before, after);
+        // The requested delta, not after-before: personal standing floors at 0, the camp mirror does not.
+        for (StandingListener l : LISTENERS) l.onStandingChanged(player, tribe, delta, after);
         return after;
     }
 
@@ -87,6 +88,12 @@ public final class TribeStanding {
         if (allowed <= 0) return 0;
         add(player, tribe, allowed);
         return allowed;
+    }
+
+    /** Offering standing still available today, without spending it. */
+    public static int offerRoom(ServerPlayer player, TribeDefinition tribe) {
+        long day = player.serverLevel().getDayTime() / 24000L;
+        return OFFER_CAP_PER_DAY - TribeStandingSavedData.get(player.server).offeringsToday(player.getUUID(), tribe, day);
     }
 
     /** +1 per hostile kill within {@link #KILL_RADIUS} of a hearth, capped per Minecraft day per tribe. */

@@ -38,6 +38,10 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     private int progress;
     private int linkedTotems;
     private String stallReason = "";
+    private Attunement scannedFor;
+    private long rescanAt, fedAt;
+    private boolean attuned;
+    private Keeping.State keeping;
 
     public SongBenchBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.SONG_BENCH.get(), pos, state);
@@ -63,19 +67,25 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
             return;
         }
 
-        be.linkedTotems = LatticeNetwork.countNearbyTotems(level, pos, RADIUS);
+        Attunement needed = stage.requiredAttunement();
+        // Totems, attunement and keeping each scan the lattice radius; a second of staleness is fine.
+        if (needed != be.scannedFor || level.getGameTime() >= be.rescanAt) {
+            be.scannedFor = needed;
+            be.rescanAt = level.getGameTime() + 20;
+            be.linkedTotems = LatticeNetwork.countNearbyTotems(level, pos, RADIUS);
+            be.attuned = be.linkedTotems > 0 && LatticeNetwork.hasAttunement(level, pos, RADIUS, needed);
+            be.keeping = be.attuned ? Keeping.voice(level, pos, needed) : null;
+        }
         if (be.linkedTotems <= 0) {
             be.stall("no_totems");
             return;
         }
-
-        Attunement needed = stage.requiredAttunement();
-        if (!LatticeNetwork.hasAttunement(level, pos, RADIUS, needed)) {
+        if (!be.attuned) {
             be.stall("attunement:" + needed.getSerializedName());
             return;
         }
 
-        var keeping = Keeping.voice(level, pos, needed);
+        var keeping = be.keeping;
         if (keeping == Keeping.State.QUIET && be.progress == 0) {
             be.stall("quiet");
             return;
@@ -89,8 +99,11 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
         be.stallReason = "";
         be.progress++;
-        if (keeping != Keeping.State.QUIET) Keeping.feedWork(level, pos, needed);
-        if (be.progress >= be.workNeed(stage)) {
+        if (keeping != Keeping.State.QUIET && level.getGameTime() >= be.fedAt) {
+            be.fedAt = level.getGameTime() + 20;
+            Keeping.feedWork(level, pos, needed);
+        }
+        if (be.progress >= Keeping.stretch(keeping, be.workTicks(stage))) {
             ItemStack out = new ItemStack(stage.output());
             be.items.set(SLOT, out);
             be.progress = 0;
@@ -126,6 +139,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     }
 
     public void startSong() {
+        scannedFor = null;
         linkedTotems = level == null ? 0 : LatticeNetwork.countNearbyTotems(level, worldPosition, RADIUS);
         singing = linkedTotems > 0 && EchoStage.isProcessable(items.get(SLOT)) && items.get(SLOT).getCount() == 1;
         if (!singing) {

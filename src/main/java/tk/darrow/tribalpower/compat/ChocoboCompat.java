@@ -44,9 +44,10 @@ public final class ChocoboCompat {
         if (type != MobSpawnType.NATURAL && type != MobSpawnType.CHUNK_GENERATION) return;
         var mob = event.getEntity();
         if (!BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).equals(CHOCOBO)) return;
-        var level = event.getLevel().getLevel();
-        if (!level.dimension().equals(ModDimensions.THE_MARCH)) return;
-        if (level.getBiome(mob.blockPosition()).is(EMBER_WASTES)) mob.getPersistentData().putBoolean(PENDING, true);
+        // Chunk-generation spawns run on a worldgen thread: read the biome from the region, not the ServerLevel.
+        var region = event.getLevel();
+        if (!region.getLevel().dimension().equals(ModDimensions.THE_MARCH)) return;
+        if (region.getBiome(mob.blockPosition()).is(EMBER_WASTES)) mob.getPersistentData().putBoolean(PENDING, true);
     }
 
     /** The bird settles its own colour while finalising, so ours is applied once it joins the level. */

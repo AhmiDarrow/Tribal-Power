@@ -27,6 +27,7 @@ public final class TribalPower {
         modBus.addListener((net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent event)->event.register(tk.darrow.tribalpower.camp.CampHooks.TICKETS));
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.Ownership::guardBreak);
         tk.darrow.tribalpower.world.MarchOres.init();
         tk.darrow.tribalpower.world.MarchBuilding.init();
         tk.darrow.tribalpower.world.MarchWoods.init();
@@ -62,6 +63,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
         modBus.addListener(tk.darrow.tribalpower.gate.DrumRite::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
@@ -94,6 +96,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::dealtDamage);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::keepHealth);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::broken);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::armorBroken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::knockback);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::fall);
@@ -110,6 +113,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.register(ModDimensions.class);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onServerAboutToStart);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onLogin);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.gate.DrumRite::onLogout);
         tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
         tk.darrow.tribalpower.compat.ChocoboCompat.register();
         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);

@@ -1,5 +1,10 @@
 package tk.darrow.tribalpower.world;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -39,18 +44,22 @@ public final class TravelSafety {
                 && level.getFluidState(feet).isEmpty() && level.getFluidState(head).isEmpty();
     }
 
+    /** Box offsets nearest first, per (horizontal, vertical); ties keep scan order, as the old full scan did. */
+    private static final Map<Long, List<BlockPos>> SHELLS = new ConcurrentHashMap<>();
+
     /** Closest standable spot to {@code centre}, nearest first; null when the neighbourhood has none. */
     public static BlockPos nearestStand(Level level, BlockPos centre, int horizontal, int vertical) {
-        BlockPos best = null;
-        double bestDistance = Double.MAX_VALUE;
-        for (BlockPos pos : BlockPos.betweenClosed(centre.offset(-horizontal, -vertical, -horizontal),
-                centre.offset(horizontal, vertical, horizontal))) {
-            double distance = pos.distSqr(centre);
-            if (distance < bestDistance && canStand(level, pos)) {
-                best = pos.immutable();
-                bestDistance = distance;
-            }
+        List<BlockPos> offsets = SHELLS.computeIfAbsent(((long) horizontal << 32) | (vertical & 0xFFFFFFFFL), key -> {
+            List<BlockPos> all = new ArrayList<>();
+            for (BlockPos pos : BlockPos.betweenClosed(-horizontal, -vertical, -horizontal, horizontal, vertical, horizontal))
+                all.add(pos.immutable());
+            all.sort(Comparator.comparingInt(pos -> pos.getX() * pos.getX() + pos.getY() * pos.getY() + pos.getZ() * pos.getZ()));
+            return List.copyOf(all);
+        });
+        for (BlockPos offset : offsets) {
+            BlockPos pos = centre.offset(offset);
+            if (canStand(level, pos)) return pos;
         }
-        return best;
+        return null;
     }
 }

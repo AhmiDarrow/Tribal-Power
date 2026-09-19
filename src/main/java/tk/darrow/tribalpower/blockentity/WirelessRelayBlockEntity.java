@@ -117,6 +117,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (destLevel == null || !destLevel.hasChunkAt(partner.getBlockPos()) || !level.hasChunkAt(host())) { updateStatus("unloaded"); return; }
         if (destLevel.hasNeighborSignal(partner.getBlockPos())) { updateStatus("paused"); return; }
         BlockPos destHost = partner.host();
+        if (!destLevel.hasChunkAt(destHost)) { updateStatus("unloaded"); return; }
         if (destHost.equals(host()) && destLevel == level) { updateStatus("waiting"); return; }
         transfer(level, host(), facing(), destLevel, destHost, partner.facing());
     }

@@ -28,6 +28,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     private String recipeId = "";
     private String state = "idle";
     private boolean arrayed;
+    private int shownSeconds = 1, shownPulse;
     private final tk.darrow.tribalpower.pattern.PatternState array =
             new tk.darrow.tribalpower.pattern.PatternState(tk.darrow.tribalpower.pattern.ModPatterns.SHATTER_ARRAY);
     private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.station();
@@ -52,12 +53,12 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     @Override protected AbstractContainerMenu createMenu(int id, Inventory inv) {
         return new tk.darrow.tribalpower.echo.StationMenu(id, inv, this, new ContainerData() {
             public int get(int index) {
-                var recipe = ProcessingRecipes.find(level, station(), items.get(0));
+                // The beat stores these; recomputing here rescanned the lattice per index, per viewer, per tick.
                 return switch(index) {
                     case 0 -> work;
-                    case 1 -> recipe == null ? 1 : EchoStationBlockEntity.this.workSeconds(recipe);
+                    case 1 -> shownSeconds;
                     case 3 -> sides.pack();
-                    case 7 -> recipe == null ? 0 : EchoStationBlockEntity.this.pulsePerSecond(recipe);
+                    case 7 -> shownPulse;
                     case 4 -> worldPosition.getX();
                     case 5 -> worldPosition.getY();
                     case 6 -> worldPosition.getZ();
@@ -171,12 +172,14 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         var recipe = ProcessingRecipes.find(level, be.station(), be.items.get(0));
-        if (recipe == null) { be.work = 0; be.recipeId = ""; be.state = "idle"; be.setChanged(); return; }
+        if (recipe == null) { be.work = 0; be.recipeId = ""; be.state = "idle"; be.shownSeconds = 1; be.shownPulse = 0; be.setChanged(); return; }
         if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); }
         if (level.hasNeighborSignal(pos)) { be.state = "paused"; return; }
         ItemStack result = recipe.result();
         be.arrayed = be.arrayed(level, recipe.attunement());
         if (be.arrayed) be.drainToCache(level);
+        be.shownSeconds = be.workSeconds(recipe);
+        be.shownPulse = be.pulsePerSecond(recipe);
         // Taking a piece apart hands back the Pulse Cell seated in it.
         ItemStack freedCell = tk.darrow.tribalpower.item.GearCell.accepts(result) ? ItemStack.EMPTY
                 : tk.darrow.tribalpower.item.GearCell.asStack(be.items.get(0));
@@ -185,9 +188,9 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (!LatticeNetwork.hasAttunement(level, pos, 8, recipe.attunement())) { be.state = "attunement"; return; }
         var keeping = Keeping.voice(level, pos, recipe.attunement());
         if (keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
-        int seconds = be.workSeconds(recipe);
+        int seconds = be.shownSeconds;
         if (be.work < 0) be.work = 0;
-        int cost = be.pulsePerSecond(recipe);
+        int cost = be.shownPulse;
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
         LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
         be.state = "working";

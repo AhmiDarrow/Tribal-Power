@@ -567,10 +567,11 @@ public class FamiliarGameTests {
         var b=spawnMonster(h,CreatureProfile.RIFT_HOUND,4,2,3);
         bondHostile(h,player,a);bondHostile(h,player,b);
         a.setSitting(false);b.setSitting(false);
-        a.aiStep();b.aiStep();
-        h.assertTrue(a.isSitting() || b.isSitting(),"A second fighter must sit when both are already following");
-        h.assertTrue(!(!a.isSitting() && !b.isSitting()),"One combat slot");
-        a.discard();b.discard();h.succeed();
+        // The cap is checked about once a second, so let the pair tick rather than stepping them once.
+        h.succeedWhen(()->{
+            h.assertTrue(a.isSitting() || b.isSitting(),"A second fighter must sit when both are already following");
+            a.discard();b.discard();
+        });
     }
     @GameTest(template="empty")
     public static void remnantAdultsRestAfterABirth(GameTestHelper h) {

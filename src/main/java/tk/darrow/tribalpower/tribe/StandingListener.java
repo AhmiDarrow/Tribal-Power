@@ -10,7 +10,7 @@ public interface StandingListener {
     /**
      * @param player  player whose standing changed
      * @param tribe   tribe concerned
-     * @param delta   applied change (may be negative)
+     * @param delta   requested change (may be negative; not reduced by the personal floor at 0)
      * @param total   new standing after the change
      */
     void onStandingChanged(ServerPlayer player, TribeDefinition tribe, int delta, int total);

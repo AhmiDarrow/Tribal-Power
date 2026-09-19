@@ -119,7 +119,10 @@ public class LatticeMonster extends Monster implements Familiar {
         targetSelector.addGoal(2,new FamiliarOwnerTargetGoals.OwnerHurtBy(this));
         targetSelector.addGoal(3,new FamiliarOwnerTargetGoals.OwnerHurt(this));
         targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this,Player.class,true) {
-            @Override public boolean canUse() { return !isPersistenceRequired() && super.canUse(); }
+            // Bred stock stays peaceful (persistent), but a name tag also sets persistence and must not tame a wild hostile.
+            @Override public boolean canUse() {
+                return !isBonded() && !isBaby() && (!isPersistenceRequired() || hasCustomName()) && super.canUse();
+            }
         });
     }
 

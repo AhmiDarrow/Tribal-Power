@@ -2,9 +2,11 @@ package tk.darrow.tribalpower.charm;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
@@ -94,15 +96,25 @@ public final class CharmHooks {
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
     }
 
+    // Persisted so a restart mid-flight still revokes; flight granted by anything else is left alone.
+    private static final String GRANTED_FLIGHT = "tribalpower:charm_flight";
+
     private static void setFlight(Player player, boolean allow) {
-        boolean creative = player.getAbilities().instabuild || player.isSpectator();
-        boolean mayfly = creative || allow;
-        if (player.getAbilities().mayfly == mayfly) {
-            if (!mayfly) player.getAbilities().flying = false;
+        net.minecraft.nbt.CompoundTag data = player.getPersistentData();
+        boolean granted = data.getBoolean(GRANTED_FLIGHT);
+        if (allow) {
+            if (!player.getAbilities().mayfly) {
+                player.getAbilities().mayfly = true;
+                player.onUpdateAbilities();
+                data.putBoolean(GRANTED_FLIGHT, true);
+            }
             return;
         }
-        player.getAbilities().mayfly = mayfly;
-        if (!mayfly) player.getAbilities().flying = false;
+        if (!granted) return;
+        data.remove(GRANTED_FLIGHT);
+        if (player.getAbilities().instabuild || player.isSpectator() || !player.getAbilities().mayfly) return;
+        player.getAbilities().mayfly = false;
+        player.getAbilities().flying = false;
         player.onUpdateAbilities();
     }
 
@@ -130,7 +142,13 @@ public final class CharmHooks {
         CharmInventory inv = CharmSlots.of(player);
         for (int i = 0; i < CharmInventory.SIZE; i++) {
             ItemStack stack = inv.removeItemNoUpdate(i);
-            if (!stack.isEmpty()) player.drop(stack, true, false);
+            if (stack.isEmpty()) continue;
+            ItemEntity item = new ItemEntity(player.level(), player.getX(), player.getEyeY() - 0.3, player.getZ(), stack);
+            item.setPickUpDelay(40);
+            float speed = player.getRandom().nextFloat() * 0.5F;
+            float angle = player.getRandom().nextFloat() * Mth.TWO_PI;
+            item.setDeltaMovement(-Mth.sin(angle) * speed, 0.2F, Mth.cos(angle) * speed);
+            event.getDrops().add(item);
         }
         inv.clearContent();
     }

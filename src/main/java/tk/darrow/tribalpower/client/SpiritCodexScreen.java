@@ -563,13 +563,20 @@ public final class SpiritCodexScreen extends Screen {
 
     // ------------------------------------------------------------------ recipes
 
+    /** Per (item, uses) lookups; dropped when the level's RecipeManager changes (reload, new world). */
+    private final Map<String, List<RecipeHolder<?>>> recipeCache = new HashMap<>();
+    private Object recipeCacheOwner;
+
     private List<RecipeHolder<?>> recipesFor(ItemStack stack, boolean uses) {
         if (minecraft.level == null || stack.isEmpty()) return List.of();
-        return minecraft.level.getRecipeManager().getRecipes().stream().filter(h -> {
-            ItemStack output = h.value().getResultItem(minecraft.level.registryAccess());
-            return uses ? h.value().getIngredients().stream().anyMatch(i -> i.test(stack))
-                    : !output.isEmpty() && output.is(stack.getItem());
-        }).sorted(Comparator.comparing(h -> h.id().toString())).toList();
+        var manager = minecraft.level.getRecipeManager();
+        if (manager != recipeCacheOwner) { recipeCache.clear(); recipeCacheOwner = manager; }
+        return recipeCache.computeIfAbsent(BuiltInRegistries.ITEM.getKey(stack.getItem()) + (uses ? "/uses" : "/makes"), k ->
+                manager.getRecipes().stream().filter(h -> {
+                    ItemStack output = h.value().getResultItem(minecraft.level.registryAccess());
+                    return uses ? h.value().getIngredients().stream().anyMatch(i -> i.test(stack))
+                            : !output.isEmpty() && output.is(stack.getItem());
+                }).sorted(Comparator.comparing(h -> h.id().toString())).toList());
     }
 
     private void recipe(GuiGraphics g, Page page, ItemStack output, int x, int y) {

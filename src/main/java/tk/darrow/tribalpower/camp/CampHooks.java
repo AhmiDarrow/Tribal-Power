@@ -71,11 +71,15 @@ public final class CampHooks {
         var advancement=level.getServer().getAdvancements().get(ResourceLocation.parse("tribalpower:"+name));
         if(advancement!=null)player.getAdvancements().award(advancement,"done");
     }
+    /** Structure and chunk-generation spawns run on worldgen threads; the ward maps are server-thread only. */
+    private static boolean worldgen(MobSpawnType type){return type==MobSpawnType.STRUCTURE||type==MobSpawnType.CHUNK_GENERATION;}
     public static void spawn(MobSpawnEvent.SpawnPlacementCheck event){
+        if(worldgen(event.getSpawnType()))return;
         if(event.getEntityType().getCategory()==MobCategory.MONSTER&&event.getSpawnType()!=MobSpawnType.COMMAND&&event.getSpawnType()!=MobSpawnType.SPAWN_EGG
                 &&warded(event.getLevel().getLevel(),event.getPos()))event.setResult(MobSpawnEvent.SpawnPlacementCheck.Result.FAIL);
     }
     public static void finalizeSpawn(net.neoforged.neoforge.event.entity.living.FinalizeSpawnEvent event){
+        if(worldgen(event.getSpawnType()))return;
         if(event.getEntity().getType().getCategory()==MobCategory.MONSTER&&event.getSpawnType()!=MobSpawnType.COMMAND&&event.getSpawnType()!=MobSpawnType.SPAWN_EGG
                 &&warded(event.getLevel().getLevel(),event.getEntity().blockPosition()))event.setSpawnCancelled(true);
     }

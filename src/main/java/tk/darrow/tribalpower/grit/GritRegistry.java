@@ -114,10 +114,21 @@ public final class GritRegistry {
         }
     }
 
-    private static final Map<String, Material> MATERIALS = new LinkedHashMap<>();
-    /** Every shattering input, mapped to the material it belongs to. */
-    private static final Map<Item, Material> INPUTS = new HashMap<>();
-    private static final Map<Item, Material> BY_GRIT = new HashMap<>();
+    /**
+     * One scan's results. Readers on other threads see the old table or the new one, never one being
+     * refilled: each rebuild publishes fresh unmodifiable maps.
+     *
+     * @param inputs every shattering input, mapped to the material it belongs to
+     */
+    private record Tables(Map<String, Material> materials, Map<Item, Material> inputs, Map<Item, Material> byGrit) {}
+
+    private static volatile Tables TABLES = new Tables(Map.of(), Map.of(), Map.of());
+
+    private static Tables tables() {
+        Tables tables = TABLES;
+        if (tables.materials().isEmpty()) { rebuild(); tables = TABLES; }
+        return tables;
+    }
 
     private GritRegistry() {}
 
@@ -129,9 +140,9 @@ public final class GritRegistry {
     }
 
     public static synchronized void rebuild() {
-        MATERIALS.clear();
-        INPUTS.clear();
-        BY_GRIT.clear();
+        Map<String, Material> materials = new LinkedHashMap<>();
+        Map<Item, Material> inputs = new HashMap<>();
+        Map<Item, Material> byGrit = new HashMap<>();
 
         Map<String, List<Item>> raws = new HashMap<>();
         Map<String, List<Item>> ores = new HashMap<>();
@@ -179,14 +190,16 @@ public final class GritRegistry {
             // A material whose return would be nothing is not a material: skip rather than synthesise a void recipe.
             if (material.shatterResult().isEmpty()) continue;
 
-            MATERIALS.put(name, material);
+            materials.put(name, material);
             // Metals accept the raw item and the ore block; gems accept the ore block only, never the gem.
-            if (material.metal()) for (Item item : rawItems) INPUTS.putIfAbsent(item, material);
-            for (Item item : oreItems) INPUTS.putIfAbsent(item, material);
-            if (material.metal()) BY_GRIT.putIfAbsent(stackFor(name).getItem(), material);
+            if (material.metal()) for (Item item : rawItems) inputs.putIfAbsent(item, material);
+            for (Item item : oreItems) inputs.putIfAbsent(item, material);
+            if (material.metal()) byGrit.putIfAbsent(stackFor(name).getItem(), material);
         }
-        TribalPower.LOGGER.debug("Grit scan: {} materials ({} metal)", MATERIALS.size(),
-                MATERIALS.values().stream().filter(Material::metal).count());
+        // unmodifiableMap, not Map.copyOf, keeps the sorted order materials() hands out.
+        TABLES = new Tables(java.util.Collections.unmodifiableMap(materials), Map.copyOf(inputs), Map.copyOf(byGrit));
+        TribalPower.LOGGER.debug("Grit scan: {} materials ({} metal)", materials.size(),
+                materials.values().stream().filter(Material::metal).count());
     }
 
     /** What one shatter of a mineral gives back, or null when nothing knows. */
@@ -230,20 +243,17 @@ public final class GritRegistry {
     // ---- lookup ----------------------------------------------------------------------------
 
     public static Collection<Material> materials() {
-        if (MATERIALS.isEmpty()) rebuild();
-        return MATERIALS.values();
+        return tables().materials().values();
     }
 
     public static Material material(String name) {
-        if (MATERIALS.isEmpty()) rebuild();
-        return MATERIALS.get(name);
+        return tables().materials().get(name);
     }
 
     /** The material a shattering input belongs to, or null when it is not one. */
     public static Material inputMaterial(ItemStack stack) {
         if (stack.isEmpty()) return null;
-        if (MATERIALS.isEmpty()) rebuild();
-        return INPUTS.get(stack.getItem());
+        return tables().inputs().get(stack.getItem());
     }
 
     /**
@@ -333,7 +343,7 @@ public final class GritRegistry {
     /** Every shattering the scan implies, for JEI: synthesised recipes are invisible otherwise. */
     public static List<ProcessingRecipes.Formula> allFormulae() {
         List<ProcessingRecipes.Formula> out = new ArrayList<>();
-        for (Map.Entry<Item, Material> entry : INPUTS.entrySet()) {
+        for (Map.Entry<Item, Material> entry : tables().inputs().entrySet()) {
             ItemStack input = new ItemStack(entry.getKey());
             ProcessingRecipes.Formula formula = formula(STATION, input);
             if (formula != null) out.add(formula);

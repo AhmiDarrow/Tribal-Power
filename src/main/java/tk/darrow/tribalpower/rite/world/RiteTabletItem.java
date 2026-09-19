@@ -96,14 +96,16 @@ public class RiteTabletItem extends Item {
     /** The rite's world effect. Returns a failure reason when it cannot take effect. */
     @Nullable
     private static Component apply(ServerLevel level, BlockPos pos, WorldRite rite, int duration) {
+        // Other dimensions derive weather and time from the Overworld; setting them there is a no-op.
+        ServerLevel overworld = level.getServer().overworld();
         switch (rite) {
-            case RAIN_CALLING -> level.setWeatherParameters(0, duration, true, false);
-            case SKY_CLEARING -> level.setWeatherParameters(duration, 0, false, false);
+            case RAIN_CALLING -> overworld.setWeatherParameters(0, duration, true, false);
+            case SKY_CLEARING -> overworld.setWeatherParameters(duration, 0, false, false);
             case DAWN_CALLING -> {
                 if (!level.getGameRules().getBoolean(WorldRiteRegistry.ALLOW_DAWN_RITE))
                     return Component.translatable("message.tribalpower.rite.dawn_disabled");
-                long day = level.getDayTime();
-                level.setDayTime((day / 24000L + 1L) * 24000L);
+                long day = overworld.getDayTime();
+                overworld.setDayTime((day / 24000L + 1L) * 24000L);
             }
             case GREEN_BLESSING -> GreenBlessing.bless(level, pos, duration);
             case STILL_NIGHT -> TemporaryWards.add(level, pos, 64, duration);

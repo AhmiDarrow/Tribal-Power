@@ -188,7 +188,13 @@ public final class GatePortal {
         ChunkPos chunk = new ChunkPos(partner.pos());
         destination.getChunkSource().addRegionTicket(TICKET, chunk, 2, chunk);
         if (destination.getChunkSource().getChunk(chunk.x, chunk.z, true) == null) return null;
-        if (!(destination.getBlockEntity(partner.pos()) instanceof GateKeystoneBlockEntity keystone)) return null;
+        if (!(destination.getBlockEntity(partner.pos()) instanceof GateKeystoneBlockEntity keystone)) {
+            // The chunk is loaded and the keystone is gone (a reset March, a replaced block): forget the record
+            // and darken the near end, so the thread stops answering to nothing.
+            GateSavedData.Gate near = GateSavedData.get(destination.getServer()).remove(partner.id());
+            if (near != null) GateLinking.extinguish(destination.getServer(), near);
+            return null;
+        }
         GateKeystoneBlockEntity.Kind kind = keystone.kind(destination);
         if (kind == null) return null;
         for (BlockPos cell : interior(destination, keystone, kind)) {

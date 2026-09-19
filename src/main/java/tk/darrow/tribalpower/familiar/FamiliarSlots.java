@@ -13,9 +13,8 @@ public final class FamiliarSlots {
 
     public static boolean canFollow(ServerLevel level,UUID owner,Familiar self) {
         int combat=0,support=0;
-        var ownerPlayer=level.getPlayerByUUID(owner);
+        // A fixed box around the familiar: spanning it and a distant owner could cover thousands of chunks.
         AABB box=self.asMob().getBoundingBox().inflate(96);
-        if(ownerPlayer!=null)box=box.minmax(ownerPlayer.getBoundingBox().inflate(96));
         for(Mob mob:level.getEntitiesOfClass(Mob.class,box,m->m.isAlive() && m instanceof Familiar)) {
             Familiar other=(Familiar)mob;
             if(other==self || !other.isBonded() || !owner.equals(other.ownerUUID().orElse(null)) || other.isSitting())continue;
@@ -47,6 +46,8 @@ public final class FamiliarSlots {
     /** Sit extras that walked into a full company after a portal or a second bond. */
     public static void enforceCap(Familiar familiar) {
         if(familiar.isSitting() || !(familiar.asMob().level() instanceof ServerLevel level))return;
+        // Runs from every follower's tick; a second or so late is fine, a wide entity search each tick is not.
+        if((familiar.asMob().tickCount+familiar.asMob().getId())%20!=0)return;
         Player owner=familiar.getOwner();
         if(owner==null)return;
         if(canFollow(level,owner.getUUID(),familiar))return;

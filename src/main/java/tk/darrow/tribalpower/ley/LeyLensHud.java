@@ -12,6 +12,9 @@ import org.joml.Vector3f;
  * Register {@code LeyLensHud::render} on the NeoForge bus from the client mod class only.
  */
 public final class LeyLensHud {
+    private static long nextScan;
+    private static java.util.Set<tk.darrow.tribalpower.api.pulse.Attunement> voices;
+
     private LeyLensHud() {}
 
     public static void render(RenderGuiEvent.Post event) {
@@ -45,19 +48,17 @@ public final class LeyLensHud {
         }
         var pos = mc.player.blockPosition();
         int r = tk.darrow.tribalpower.lattice.LatticeNetwork.DEFAULT_RADIUS;
+        long now = mc.level.getGameTime();
+        boolean due = now >= nextScan || now < nextScan - 20;
+        if (due) nextScan = now + 20;
         if (mode == LeyLensItem.PULSE) {
-            int stored = 0, cap = 0, n = 0;
-            for (var be : nearby(mc, pos, r)) {
-                if (be instanceof tk.darrow.tribalpower.api.pulse.PulseHandler pulse && pulse.getPulseCapacity() > 0) {
-                    stored += pulse.getPulseStored();
-                    cap += pulse.getPulseCapacity();
-                    n++;
-                }
-            }
+            // Pulse stores are server-side only; ask once a second.
+            if (due) net.neoforged.neoforge.network.PacketDistributor.sendToServer(new LensPulsePayload(0, 0, 0));
+            LensPulsePayload reading = LensPulsePayload.latest;
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.zone", r), x + 8, y + 16, 0xFF99C9BD, false);
-            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.pulse", stored, cap, n), x + 8, y + 28, 0xFF65D7C0, false);
+            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.pulse", reading.stored(), reading.capacity(), reading.count()), x + 8, y + 28, 0xFF65D7C0, false);
         } else if (mode == LeyLensItem.VOICE) {
-            var voices = tk.darrow.tribalpower.lattice.LatticeNetwork.collectAttunements(mc.level, pos, r);
+            if (due || voices == null) voices = tk.darrow.tribalpower.lattice.LatticeNetwork.collectAttunements(mc.level, pos, r);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.voices", voices.size()), x + 8, y + 16, 0xFF99C9BD, false);
             String names = voices.stream().map(v -> v.getSerializedName()).reduce((a, b) -> a + " " + b).orElse("none");
             g.drawString(mc.font, mc.font.plainSubstrByWidth(names, 100), x + 8, y + 28, 0xFF74DBCB, false);

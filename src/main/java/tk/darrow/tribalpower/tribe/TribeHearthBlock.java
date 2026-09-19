@@ -66,7 +66,11 @@ public class TribeHearthBlock extends BaseEntityBlock {
         if (stack.getItem() instanceof PulseCellItem) {
             if (PulseCellItem.getPulse(stack) < 10) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             if (player instanceof ServerPlayer sp) {
-                int drained = PulseCellItem.extractPulse(stack, TribeStanding.MAX_CELL_DRAIN, false);
+                int room = TribeStanding.offerRoom(sp, tribe);
+                if (room <= 0) { sated(sp, tribe); return ItemInteractionResult.sidedSuccess(level.isClientSide); }
+                // Draw only what today's remaining room can turn into standing.
+                int want = Math.min(TribeStanding.MAX_CELL_DRAIN, (room + TribeStanding.GAIN_PULSE_PER_10 - 1) / TribeStanding.GAIN_PULSE_PER_10 * 10);
+                int drained = PulseCellItem.extractPulse(stack, want, false);
                 int gain = drained / 10 * TribeStanding.GAIN_PULSE_PER_10;
                 offered(sp, hearth, gain, pos);
             }
@@ -85,9 +89,15 @@ public class TribeHearthBlock extends BaseEntityBlock {
     public static int offer(ServerPlayer player, TribeHearthBlockEntity hearth, ItemStack stack, boolean consume) {
         int value = hearth.tribe().offeringValue(stack);
         if (value <= 0) return 0;
+        if (TribeStanding.offerRoom(player, hearth.tribe()) <= 0) { sated(player, hearth.tribe()); return 0; }
         if (consume) stack.shrink(1);
         offered(player, hearth, value, hearth.getBlockPos());
         return value;
+    }
+
+    private static void sated(ServerPlayer player, TribeDefinition tribe) {
+        player.displayClientMessage(Component.translatable("message.tribalpower.hearth.sated",
+                tribe.displayNameComponent(), TribeStanding.OFFER_CAP_PER_DAY).withStyle(net.minecraft.ChatFormatting.YELLOW), true);
     }
 
     private static void offered(ServerPlayer player, TribeHearthBlockEntity hearth, int gain, BlockPos pos) {
@@ -95,11 +105,7 @@ public class TribeHearthBlock extends BaseEntityBlock {
         // The hearth only takes so much in a day: renewable ore must not feed the standing that unlocks it.
         int granted = TribeStanding.offerGain(player, tribe, gain);
         int total = TribeStanding.get(player.server, player.getUUID(), tribe);
-        if (granted <= 0) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.hearth.sated",
-                    tribe.displayNameComponent(), TribeStanding.OFFER_CAP_PER_DAY).withStyle(net.minecraft.ChatFormatting.YELLOW), true);
-            return;
-        }
+        if (granted <= 0) { sated(player, tribe); return; }
         gain = granted;
         hearth.touched(player.getUUID(), TribeRank.of(total));
         var server = player.serverLevel();

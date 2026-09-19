@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -15,6 +16,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import tk.darrow.tribalpower.blockentity.GateDrumBlockEntity;
@@ -31,7 +33,8 @@ import tk.darrow.tribalpower.world.ModDimensions;
 public final class DrumRite {
     /** Share of notes that must land for the portal to open. Stray presses count a little against you. */
     public static final double PASS = 0.60;
-    private static final long SLACK_TICKS = 40, EXPIRE_TICKS = 20 * 60;
+    /** Wall-clock like the client, so a server below 20 TPS still accepts a rite that really took its length. */
+    private static final long SLACK_MS = 2000, EXPIRE_MS = 60_000;
     private static final Map<UUID, Session> SESSIONS = new ConcurrentHashMap<>();
 
     private DrumRite() {}
@@ -75,20 +78,24 @@ public final class DrumRite {
 
     // ------------------------------------------------------------------ server
 
-    private record Session(BlockPos pos, long seed, long startTick) {}
+    private record Session(BlockPos pos, long seed, long startMs) {}
 
     /** Starts a rite at a full drum. */
     public static void begin(ServerPlayer player, BlockPos pos) {
         long seed = player.getRandom().nextLong();
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, player.serverLevel().getGameTime()));
+        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, Util.getMillis()));
         player.serverLevel().playSound(null, pos, tk.darrow.tribalpower.sound.ModSounds.GATE_HUM.get(), SoundSource.BLOCKS, 0.8F, 0.8F);
         PacketDistributor.sendToPlayer(player, new Start(pos, seed));
     }
 
     /** For tests: a session that began {@code ticksAgo} ticks ago. */
     public static long beginAt(ServerPlayer player, BlockPos pos, long seed, long ticksAgo) {
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, player.serverLevel().getGameTime() - ticksAgo));
+        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, Util.getMillis() - ticksAgo * 50));
         return seed;
+    }
+
+    public static void onLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        SESSIONS.remove(event.getEntity().getUUID());
     }
 
     /** Settles a rite. Returns true when the portal opened. */
@@ -101,11 +108,13 @@ public final class DrumRite {
         }
         var level = player.serverLevel();
         Pattern pattern = pattern(session.seed);
-        long elapsed = level.getGameTime() - session.startTick;
-        long needed = pattern.endMs() / 50 - SLACK_TICKS;
-        if (elapsed < needed || elapsed > needed + EXPIRE_TICKS) return false;
-        if (player.distanceToSqr(session.pos.getCenter()) > 8 * 8 || !(level.getBlockEntity(session.pos) instanceof GateDrumBlockEntity))
+        long elapsed = Util.getMillis() - session.startMs;
+        long needed = pattern.endMs() - SLACK_MS;
+        if (elapsed < needed || elapsed > needed + EXPIRE_MS
+                || player.distanceToSqr(session.pos.getCenter()) > 8 * 8 || !(level.getBlockEntity(session.pos) instanceof GateDrumBlockEntity)) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.gate.rite_refused"), false);
             return false;
+        }
         int total = pattern.notes().size();
         double accuracy = accuracy(Math.min(result.hits, total), Math.max(0, result.strays), total);
         int percent = (int) Math.round(accuracy * 100);

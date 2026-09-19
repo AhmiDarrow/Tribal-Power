@@ -1211,6 +1211,7 @@
   "gui.tribalpower.rite.score": "%s%% · %s perfect · best run %s",
   "message.tribalpower.gate.rite_failed": "The rhythm broke at %s%%; the gate needs %s%%. Strike the drum to try again.",
   "message.tribalpower.gate.rite_opened": "The gate answers your rhythm (%s%%).",
+  "message.tribalpower.gate.rite_refused": "The drum did not hear the rite through: stay beside it for the whole rhythm, then strike it to try again.",
   "message.tribalpower.gate.rite_stopped": "You stop drumming. Strike the drum to begin again.",
   "message.tribalpower.gate.cell_empty": "That Pulse Cell holds no charge",
   "message.tribalpower.gate.full": "%s is fully charged",

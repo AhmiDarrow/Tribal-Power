@@ -61,6 +61,8 @@ import tk.darrow.tribalpower.world.structure.SilentDrumBlockEntity;
 public class TheUnsungEntity extends Monster {
     public static final int PHASE_BEAT = 1, PHASE_CHORUS = 2, PHASE_SILENCE = 3;
     public static final int STUN_TICKS = 160, RESYNC_WINDOW = 240;
+    /** Silence without a drum to strike (spawn egg, broken drum) still opens a window this often. */
+    public static final int DRUMLESS_INTERVAL = 200;
     public static final int SHOCK_INTERVAL_BEAT = 60, SHOCK_INTERVAL_CHORUS = 50;
     public static final int SUMMON_INTERVAL = 160, MAX_WEAVERS = 6, BOLT_INTERVAL = 40;
     public static final double SHOCK_RADIUS = 8, RESET_RANGE = 48;
@@ -72,7 +74,7 @@ public class TheUnsungEntity extends Monster {
 
     private final ServerBossEvent bossEvent = new ServerBossEvent(Component.translatable("entity.tribalpower.the_unsung"), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.NOTCHED_6);
     private BlockPos drumPos;
-    private int shockTimer = 40, summonTimer = 60, boltTimer = 30, stunTicks, vulnerableTicks, awayTicks, lastPhase;
+    private int shockTimer = 40, summonTimer = 60, boltTimer = 30, stunTicks, vulnerableTicks, awayTicks, lastPhase, drumlessTicks;
     private final List<UUID> weavers = new ArrayList<>();
     private final List<Bolt> bolts = new ArrayList<>();
 
@@ -180,6 +182,10 @@ public class TheUnsungEntity extends Monster {
                     floatToDrum();
                     if (--boltTimer <= 0) { fireBolt(server); boltTimer = BOLT_INTERVAL; }
                 }
+                if (vulnerableTicks == 0 && !hasDrum(server) && ++drumlessTicks >= DRUMLESS_INTERVAL) {
+                    drumlessTicks = 0;
+                    resync();
+                }
                 if (vulnerableTicks == 0 && tickCount % 4 == 0)
                     server.sendParticles(new DustParticleOptions(SpiritEffects.color(Attunement.SPIRIT), 1.2F), getX() + (random.nextDouble() - 0.5) * 3, getY() + random.nextDouble() * 4, getZ() + (random.nextDouble() - 0.5) * 3, 1, 0, 0, 0, 0);
             }
@@ -187,6 +193,10 @@ public class TheUnsungEntity extends Monster {
         if (tickCount % 20 == 0 && phase != PHASE_SILENCE) {
             SpiritEffects.ring(server, position().add(0, 0.2, 0), Attunement.SPIRIT, 1.8, 10);
         }
+    }
+
+    private boolean hasDrum(ServerLevel server) {
+        return drumPos != null && (!server.hasChunkAt(drumPos) || server.getBlockEntity(drumPos) instanceof SilentDrumBlockEntity);
     }
 
     private void enterPhase(ServerLevel server, int phase) {

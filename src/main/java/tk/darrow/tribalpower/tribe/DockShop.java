@@ -45,14 +45,21 @@ public final class DockShop {
     }
 
     public static MerchantOffers offers(String stall) {
+        return offers(stall, new int[0]);
+    }
+
+    /** Offers for {@code stall} with {@code uses[i]} already spent on the i-th listing. */
+    public static MerchantOffers offers(String stall, int[] uses) {
         String key = stall == null || stall.isBlank() ? DEFAULT_STALL : stall;
         MerchantOffers out = new MerchantOffers();
         for (Listing listing : LISTINGS) {
             if (!listing.stall.equals(key)) continue;
+            int i = out.size();
+            int used = i < uses.length ? Math.min(uses[i], listing.maxUses) : 0;
             out.add(new MerchantOffer(
-                    new ItemCost(listing.cost.getItem(), listing.cost.getCount()),
+                    new ItemCost(listing.cost.getItem(), listing.cost.getCount()), java.util.Optional.empty(),
                     listing.result.copy(),
-                    listing.maxUses, 0, 0.0F));
+                    used, listing.maxUses, 0, 0.0F));
         }
         return out;
     }

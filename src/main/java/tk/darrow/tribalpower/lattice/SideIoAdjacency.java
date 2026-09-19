@@ -107,7 +107,10 @@ public final class SideIoAdjacency {
         if (candidate.isEmpty()) return;
         int accepted = sink.fill(candidate, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return;
-        var actual = source.drain(candidate.copyWithAmount(Math.min(burst, accepted)), IFluidHandler.FluidAction.EXECUTE);
+        // Drain-only sources cannot take a leftover back, so the exact drain must be one the sink takes whole.
+        var probe = source.drain(candidate.copyWithAmount(Math.min(burst, accepted)), IFluidHandler.FluidAction.SIMULATE);
+        if (probe.isEmpty() || sink.fill(probe.copy(), IFluidHandler.FluidAction.SIMULATE) < probe.getAmount()) return;
+        var actual = source.drain(probe.copy(), IFluidHandler.FluidAction.EXECUTE);
         if (actual.isEmpty()) return;
         int filled = sink.fill(actual.copy(), IFluidHandler.FluidAction.EXECUTE);
         if (filled < actual.getAmount()) {

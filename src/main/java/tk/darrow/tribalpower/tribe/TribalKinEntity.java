@@ -327,10 +327,14 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         return list;
     }
 
+    /** Stall stock keeps its spent uses like the Elder's (TradeUses, indexed by listing) and restocks with the day. */
     public MerchantOffers stallOffers() {
+        long day = level().getDayTime() / 24000L;
+        if (restockDay != day) { restockDay = day; Arrays.fill(tradeUses, 0); offers = null; }
         if (offers == null || offersRank != null) {
-            offers = DockShop.offers(stallId());
+            offers = DockShop.offers(stallId(), tradeUses);
             offersRank = null;
+            if (tradeUses.length != offers.size()) tradeUses = Arrays.copyOf(tradeUses, offers.size());
         }
         return offers;
     }
@@ -351,9 +355,9 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
 
     /** Index into {@link TribeDefinition#trades()} of a live offer, or -1. */
     private int tradeIndex(MerchantOffer offer) {
-        if (offers == null || offersRank == null) return -1;
+        if (offers == null) return -1;
         int slot = offers.indexOf(offer);
-        if (slot < 0) return -1;
+        if (slot < 0 || offersRank == null) return slot; // stall offers are indexed by listing
         List<TribeDefinition.Offer> all = tribe().trades();
         for (int i = 0, seen = 0; i < all.size(); i++) {
             if (offersRank.ordinal() < all.get(i).rank().ordinal()) continue;
@@ -364,6 +368,9 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
 
     @Override public void setTradingPlayer(@Nullable Player player) { tradingPlayer = player; }
     @Override @Nullable public Player getTradingPlayer() { return tradingPlayer; }
+    // As AbstractVillager: dropping the customer invalidates the open MerchantMenu, which then closes.
+    @Override public void die(DamageSource cause) { super.die(cause); setTradingPlayer(null); }
+    @Override public void remove(RemovalReason reason) { setTradingPlayer(null); super.remove(reason); }
 
     @Override
     public MerchantOffers getOffers() {
@@ -378,7 +385,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         offer.increaseUses();
         int index = tradeIndex(offer);
         if (index >= 0 && index < tradeUses.length) tradeUses[index] = offer.getUses();
-        if (tradingPlayer instanceof ServerPlayer sp) {
+        // Stall trades need no standing and give none: their stock restocks daily and would farm it without bound.
+        if (!stall() && tradingPlayer instanceof ServerPlayer sp) {
             TribeStanding.add(sp, tribe(), TribeStanding.GAIN_TRADE);
         }
     }

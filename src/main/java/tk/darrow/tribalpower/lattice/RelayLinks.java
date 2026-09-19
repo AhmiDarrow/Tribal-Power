@@ -7,10 +7,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /** Relays that share the same link item are a pair. */
 public final class RelayLinks {
@@ -24,15 +24,17 @@ public final class RelayLinks {
         return BuiltInRegistries.ITEM.getKey(stack.getItem()) + "|" + stack.getComponentsPatch();
     }
 
+    // Server-only: the client's relays share dimension keys and positions with the server's.
     public static void index(WirelessRelayBlockEntity be) {
+        if (be.getLevel() == null || be.getLevel().isClientSide) return;
         drop(be);
         String key = key(be.link());
         if (key.isEmpty() || be.getLevel() == null) return;
-        BY_KEY.computeIfAbsent(key, k -> new ArrayList<>()).add(new Handle(be.getLevel().dimension(), be.getBlockPos().immutable()));
+        BY_KEY.computeIfAbsent(key, k -> new CopyOnWriteArrayList<>()).add(new Handle(be.getLevel().dimension(), be.getBlockPos().immutable()));
     }
 
     public static void drop(WirelessRelayBlockEntity be) {
-        if (be.getLevel() == null) return;
+        if (be.getLevel() == null || be.getLevel().isClientSide) return;
         Handle self = new Handle(be.getLevel().dimension(), be.getBlockPos());
         BY_KEY.values().forEach(list -> list.removeIf(h -> h.equals(self)));
     }
@@ -45,7 +47,7 @@ public final class RelayLinks {
         WirelessRelayBlockEntity best = null;
         double bestDist = Double.MAX_VALUE;
         BlockPos here = be.getBlockPos();
-        for (Handle handle : List.copyOf(list)) {
+        for (Handle handle : list) {
             if (handle.pos.equals(here) && handle.dim == be.getLevel().dimension()) continue;
             var dest = be.getLevel().getServer() == null ? null : be.getLevel().getServer().getLevel(handle.dim);
             if (dest == null || !dest.hasChunkAt(handle.pos)) continue;

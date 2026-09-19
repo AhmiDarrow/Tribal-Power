@@ -59,6 +59,17 @@ public final class Ownership {
         return !(be instanceof Owned owned) || canAccess(level, owned.owner(), player);
     }
 
+    /** canHarvestBlock only withholds drops; the block (and its inventory) would still go, so cancel the break itself. Ops keep their override. */
+    public static void guardBreak(net.neoforged.neoforge.event.level.BlockEvent.BreakEvent event) {
+        var block = event.getState().getBlock();
+        if (!(block instanceof CampBlock || block instanceof tk.darrow.tribalpower.block.StoneFontBlock
+                || block instanceof tk.darrow.tribalpower.gate.GateKeystoneBlock || block instanceof tk.darrow.tribalpower.block.ResonanceMeshBlock)) return;
+        Player player = event.getPlayer();
+        if (!(event.getLevel() instanceof Level level) || player.hasPermissions(2) || canBreak(level, event.getPos(), player)) return;
+        event.setCanceled(true);
+        player.displayClientMessage(Component.translatable("message.tribalpower.not_yours"), true);
+    }
+
     /** A block entity that remembers who placed it. */
     public interface Owned {
         UUID owner();

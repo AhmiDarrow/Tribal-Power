@@ -49,6 +49,22 @@ public final class CodexScene {
         return blocks;
     }
 
+    /** Scene step lists are immutable per loaded book, so their layouts are kept by identity. */
+    private static final Map<List<CodexBook.Step>, List<Map<BlockPos, BlockState>>> LAYOUTS = new java.util.IdentityHashMap<>();
+
+    /** blocksAt for every step, then (at index size) the union of them all, which sets the framing. */
+    private static List<Map<BlockPos, BlockState>> layout(List<CodexBook.Step> steps) {
+        var cached = LAYOUTS.get(steps);
+        if (cached != null) return cached;
+        if (LAYOUTS.size() > 64) LAYOUTS.clear(); // old books after a resource reload
+        List<Map<BlockPos, BlockState>> out = new java.util.ArrayList<>();
+        Map<BlockPos, BlockState> all = new LinkedHashMap<>();
+        for (int i = 0; i < steps.size(); i++) { Map<BlockPos, BlockState> at = blocksAt(steps, i); out.add(at); all.putAll(at); }
+        out.add(all);
+        LAYOUTS.put(steps, out);
+        return out;
+    }
+
     public static BlockState state(String text) {
         return STATES.computeIfAbsent(text, key -> {
             try {
@@ -67,8 +83,8 @@ public final class CodexScene {
     public static void draw(GuiGraphics g, List<CodexBook.Step> steps, int step, int x, int y, int w, int h,
                             float yaw, double fresh, double time) {
         if (steps.isEmpty()) return;
-        Map<BlockPos, BlockState> all = new LinkedHashMap<>();
-        for (int i = 0; i < steps.size(); i++) all.putAll(blocksAt(steps, i));
+        List<Map<BlockPos, BlockState>> layout = layout(steps);
+        Map<BlockPos, BlockState> all = layout.get(steps.size());
         if (all.isEmpty()) return;
         int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
         for (BlockPos p : all.keySet()) {
@@ -82,7 +98,7 @@ public final class CodexScene {
 
         CodexBook.Step current = steps.get(Math.min(step, steps.size() - 1));
         List<BlockPos> added = current.place().stream().map(CodexBook.Placed::pos).toList();
-        Map<BlockPos, BlockState> shown = blocksAt(steps, step);
+        Map<BlockPos, BlockState> shown = layout.get(Math.clamp(step, 0, steps.size() - 1));
         Minecraft mc = Minecraft.getInstance();
         var buffers = mc.renderBuffers().bufferSource();
         var pose = g.pose();

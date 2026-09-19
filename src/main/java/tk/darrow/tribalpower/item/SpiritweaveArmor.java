@@ -49,6 +49,13 @@ public class SpiritweaveArmor extends ArmorItem {
     }
 
     @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        GearCell.armorDamaged(stack, entity);
+        return super.damageItem(stack, amount, entity, onBroken);
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level.isClientSide || !(entity instanceof Player player)) return;

@@ -136,6 +136,27 @@ public final class GearCell {
         if (!event.getEntity().getInventory().add(cell)) event.getEntity().drop(cell, false);
     }
 
+    // Worn armor breaks through hurtAndBreak, which never fires PlayerDestroyItemEvent. The last piece damaged is
+    // remembered with its cell; the ITEM_BROKEN stat that follows a real break (that stack now empty) returns it.
+    private record Damaged(ItemStack gear, Item item, ItemStack cell) {}
+    private static final java.util.Map<java.util.UUID, Damaged> DAMAGED = new java.util.HashMap<>();
+
+    static void armorDamaged(ItemStack gear, net.minecraft.world.entity.LivingEntity entity) {
+        if (!(entity instanceof net.minecraft.server.level.ServerPlayer player)) return;
+        ItemStack cell = asStack(gear);
+        if (cell.isEmpty()) DAMAGED.remove(player.getUUID());
+        else DAMAGED.put(player.getUUID(), new Damaged(gear, gear.getItem(), cell));
+    }
+
+    public static void armorBroken(net.neoforged.neoforge.event.StatAwardEvent event) {
+        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
+                || event.getStat().getType() != net.minecraft.stats.Stats.ITEM_BROKEN) return;
+        Damaged damaged = DAMAGED.get(player.getUUID());
+        if (damaged == null || !damaged.gear().isEmpty() || event.getStat().getValue() != damaged.item()) return;
+        DAMAGED.remove(player.getUUID());
+        if (!player.getInventory().add(damaged.cell())) player.drop(damaged.cell(), false);
+    }
+
     public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent event) {
         if (!accepts(event.getItemStack())) return;
         appendTooltip(event.getItemStack(), event.getToolTip());

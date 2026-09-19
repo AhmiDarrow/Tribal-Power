@@ -125,7 +125,12 @@ public final class CodexBook {
                 categories.add(new Category(stem(parts[1]), str(json, "name"), str(json, "icon"), text(json, "description"),
                         json.has("order") ? json.get("order").getAsInt() : 100, bool(json, "spoiler"), str(json, "progress")));
             } else if (parts[0].equals("entries") && parts.length == 3) {
-                entries.add(entry(parts[1], stem(parts[2]), json));
+                // One malformed entry (no pages, bad scene) must not take the whole book down with it.
+                try {
+                    entries.add(entry(parts[1], stem(parts[2]), json));
+                } catch (RuntimeException error) {
+                    TribalPower.LOGGER.warn("Spirit Codex entry {} skipped: {}", path, error.toString());
+                }
             }
         });
         categories.sort(Comparator.comparingInt(Category::order).thenComparing(Category::id));
@@ -236,7 +241,9 @@ public final class CodexBook {
         return file.endsWith(".json") ? file.substring(0, file.length() - 5) : file;
     }
 
+    /** Called while rendering, so a malformed id resolves to an unregistered one instead of throwing. */
     public static ResourceLocation itemId(String id) {
-        return ResourceLocation.parse(id.contains(":") ? id : TribalPower.MOD_ID + ":" + id);
+        ResourceLocation key = ResourceLocation.tryParse(id.contains(":") ? id : TribalPower.MOD_ID + ":" + id);
+        return key != null ? key : ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "missing");
     }
 }
