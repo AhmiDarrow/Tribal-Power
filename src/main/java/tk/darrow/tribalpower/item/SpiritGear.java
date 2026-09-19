@@ -127,6 +127,16 @@ public final class SpiritGear {
         SWING.remove();
     }
 
+    /**
+     * The swing in progress for {@code player}, or null. The swing is only cleared on the next player tick, so a
+     * stale one (another player's, or an earlier break's) must never be picked up by a different break.
+     */
+    @org.jetbrains.annotations.Nullable
+    public static Swing swingFor(Player player) {
+        Swing swing = SWING.get();
+        return swing != null && swing.player() == player ? swing : null;
+    }
+
     public static Optional<Swing> swing() {
         return Optional.ofNullable(SWING.get());
     }

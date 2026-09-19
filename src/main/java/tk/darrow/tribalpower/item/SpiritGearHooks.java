@@ -42,14 +42,16 @@ public final class SpiritGearHooks {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
         ItemStack tool = player.getMainHandItem();
         if (!SpiritGear.isTool(tool)) return;
-        if (SpiritGear.SWING.get() != null) return;
+        // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
+        SpiritGear.Swing current = SpiritGear.swingFor(player);
+        if (current != null && current.aoe()) return;
         boolean paid = player.getAbilities().instabuild || SpiritGear.consumeForMine(player, tool);
         SpiritGear.beginSwing(player, tool, paid, false);
     }
 
     public static void drops(BlockDropsEvent event) {
         SpiritGear.Swing swing = SpiritGear.SWING.get();
-        if (swing == null || !swing.pulsePaid()) return;
+        if (swing == null || !swing.pulsePaid() || event.getBreaker() != swing.player()) return;
         ItemStack tool = swing.tool();
         Attunement voice = SpiritGear.voice(tool).orElse(null);
         if (voice == null) return;
@@ -209,6 +211,11 @@ public final class SpiritGearHooks {
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         Attunement legVoice = SpiritGear.voice(legs).orElse(null);
         Attunement bootVoice = SpiritGear.voice(boots).orElse(null);
+        // The leggings grant their step bonus from their own tick; take it back here once they are no longer worn.
+        var step = player.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.STEP_HEIGHT);
+        if (step != null && step.hasModifier(SpiritweaveArmor.STEP)
+                && !(legs.getItem() instanceof SpiritweaveArmor && legVoice == Attunement.SPIRIT))
+            step.removeModifier(SpiritweaveArmor.STEP);
 
         if (legVoice == Attunement.EARTH || legVoice == Attunement.LOOM) {
             BlockState feet = player.level().getBlockState(player.blockPosition());

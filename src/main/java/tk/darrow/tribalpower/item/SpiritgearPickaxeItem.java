@@ -43,7 +43,7 @@ public class SpiritgearPickaxeItem extends PickaxeItem {
                 || state.getDestroySpeed(level, pos) == 0.0F) {
             return super.mineBlock(stack, level, state, pos, entity);
         }
-        SpiritGear.Swing parent = SpiritGear.SWING.get();
+        SpiritGear.Swing parent = SpiritGear.swingFor(player);
         boolean aoe = parent != null && parent.aoe();
         boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
         if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);

@@ -16,8 +16,8 @@ public class ResonanceMaulItem extends PickaxeItem {
     public ResonanceMaulItem(Properties properties) { super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 3, -3.1F))); }
     @Override public InteractionResult useOn(UseOnContext context) {
         if (context.getHand() != net.minecraft.world.InteractionHand.MAIN_HAND) return InteractionResult.PASS;
+        if (context.getPlayer() == null || !context.getPlayer().isShiftKeyDown()) return InteractionResult.PASS;
         if (!(context.getPlayer() instanceof ServerPlayer player)) return InteractionResult.SUCCESS;
-        if (!player.isShiftKeyDown()) return InteractionResult.PASS;
         if (player.getCooldowns().isOnCooldown(this)) return InteractionResult.FAIL;
         Direction.Axis axis = context.getClickedFace().getAxis();
         BlockPos center = context.getClickedPos();

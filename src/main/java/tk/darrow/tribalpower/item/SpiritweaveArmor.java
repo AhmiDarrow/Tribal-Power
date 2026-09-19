@@ -37,7 +37,7 @@ public class SpiritweaveArmor extends ArmorItem {
                     20, SoundEvents.ARMOR_EQUIP_DIAMOND, () -> Ingredient.of(ModItems.SPIRITWEAVE.get()),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("tribalpower", "spiritweave"))),
                     2F, 0.05F));
-    private static final ResourceLocation STEP = ResourceLocation.fromNamespaceAndPath("tribalpower", "spirit_step");
+    static final ResourceLocation STEP = ResourceLocation.fromNamespaceAndPath("tribalpower", "spirit_step");
 
     public SpiritweaveArmor(Type type, Properties properties) {
         super(MATERIAL, type, properties.durability(type.getDurability(33)));

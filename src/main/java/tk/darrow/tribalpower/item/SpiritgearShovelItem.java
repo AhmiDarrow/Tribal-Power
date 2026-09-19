@@ -42,7 +42,7 @@ public class SpiritgearShovelItem extends ShovelItem {
                 || state.getDestroySpeed(level, pos) == 0.0F) {
             return super.mineBlock(stack, level, state, pos, entity);
         }
-        SpiritGear.Swing parent = SpiritGear.SWING.get();
+        SpiritGear.Swing parent = SpiritGear.swingFor(player);
         boolean aoe = parent != null && parent.aoe();
         boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
         if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
@@ -75,11 +75,16 @@ public class SpiritgearShovelItem extends ShovelItem {
                 BlockPos center = context.getClickedPos();
                 for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
                     if (x == 0 && z == 0) continue;
+                    BlockPos at = center.offset(x, 0, z);
+                    if (!server.level().mayInteract(server, at)
+                            || !server.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
+                    int damage = stack.getDamageValue();
                     UseOnContext neighbour = new UseOnContext(server, context.getHand(),
                             new net.minecraft.world.phys.BlockHitResult(
                                     context.getClickLocation().add(x, 0, z),
                                     context.getClickedFace(), center.offset(x, 0, z), false));
                     super.useOn(neighbour);
+                    if (!stack.isEmpty()) stack.setDamageValue(damage);
                 }
             }
         }
