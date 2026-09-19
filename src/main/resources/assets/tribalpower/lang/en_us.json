@@ -91,6 +91,10 @@
   "block.tribalpower.spirit_reed": "Spirit Reed",
   "block.tribalpower.echo_bloom": "Echo Bloom",
   "block.tribalpower.ley_thistle": "Ley Thistle",
+  "item.tribalpower.raw_game": "Raw Game",
+  "item.tribalpower.roast_game": "Roast Game",
+  "item.tribalpower.march_leather": "March Leather",
+  "message.tribalpower.march.retrogen": "The March has been reshaped since you last walked it. You wake on new ground; the old land is kept in this save's tribalpower_backups folder.",
   "entity.tribalpower.spirit_wisp": "Spirit Wisp",
   "entity.tribalpower.march_walker": "March Walker",
   "attunement.tribalpower.earth": "Earth",
@@ -1039,5 +1043,13 @@
   "message.tribalpower.effigy.bound": "The spirit answers. %s summoning threads are bound.",
   "message.tribalpower.effigy.threads": "%s / %s summoning threads",
   "message.tribalpower.effigy.imprint_hint": "Sneak-use on a creature to imprint an exhausted effigy.",
-  "message.tribalpower.effigy.renew_hint": "Renew at a Ritual Brazier; see the Spirit Codex."
+  "message.tribalpower.effigy.renew_hint": "Renew at a Ritual Brazier; see the Spirit Codex.",
+  "block.tribalpower.march_coal_ore": "March Coal Ore",
+  "block.tribalpower.march_iron_ore": "March Iron Ore",
+  "block.tribalpower.march_copper_ore": "March Copper Ore",
+  "block.tribalpower.march_gold_ore": "March Gold Ore",
+  "block.tribalpower.march_redstone_ore": "March Redstone Ore",
+  "block.tribalpower.march_lapis_ore": "March Lapis Lazuli Ore",
+  "block.tribalpower.march_diamond_ore": "March Diamond Ore",
+  "block.tribalpower.march_emerald_ore": "March Emerald Ore"
 }

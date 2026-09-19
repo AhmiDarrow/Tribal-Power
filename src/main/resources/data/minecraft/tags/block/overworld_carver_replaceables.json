@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_grass",
+    "tribalpower:march_moss",
+    "tribalpower:march_ore"
+  ]
+}

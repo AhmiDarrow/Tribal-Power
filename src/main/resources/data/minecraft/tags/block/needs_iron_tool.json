@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ]
+}

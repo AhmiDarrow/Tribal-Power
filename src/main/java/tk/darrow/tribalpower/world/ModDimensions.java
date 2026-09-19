@@ -27,46 +27,31 @@ public final class ModDimensions {
 
     private ModDimensions() {}
 
+    private static final String RETURN_DIMENSION = "TribalGateReturnDimension";
+    private static final String RETURN_POS = "TribalGateReturn";
+
     /**
      * Gate Drum travel: Overworld ↔ The March with a cleared landing pad.
-     * Landing resolves the motion-blocking surface so noise hills/valleys stay safe.
+     * The outbound leg is conservative; the return leg always resolves somewhere safe, because a
+     * drum struck in the March must never strand the player there.
      */
     public static boolean travelThroughGate(ServerPlayer player) {
         if (player.isPassenger()) return false;
         ServerLevel current = player.serverLevel();
         boolean returning = current.dimension().equals(THE_MARCH);
-        var memory = player.getPersistentData();
-        var returnId = ResourceLocation.tryParse(memory.getString("TribalGateReturnDimension"));
-        ResourceKey<Level> targetKey = returning
-                ? (returnId == null ? Level.OVERWORLD : ResourceKey.create(Registries.DIMENSION, returnId)) : THE_MARCH;
-        ServerLevel target = player.server.getLevel(targetKey);
+        ServerLevel target = returning ? returnLevel(player) : player.server.getLevel(THE_MARCH);
         if (target == null) {
-            TribalPower.LOGGER.warn("Dimension {} is not loaded", targetKey.location());
+            TribalPower.LOGGER.warn("Gate Drum target dimension is not loaded");
             return false;
         }
 
-        int x = player.blockPosition().getX();
-        int z = player.blockPosition().getZ();
-        BlockPos remembered = returning && memory.contains("TribalGateReturn") ? BlockPos.of(memory.getLong("TribalGateReturn")) : null;
-        if (remembered != null) { x = remembered.getX(); z = remembered.getZ(); }
-        if (!target.getWorldBorder().isWithinBounds(new BlockPos(x, target.getMinBuildHeight(), z))
-                || (remembered != null && !TravelSafety.withinBounds(target, remembered))) return false;
-        // Force destination chunk generation before heightmap / pad work.
-        target.getChunk(x >> 4, z >> 4);
-
-        int surfaceY = remembered == null ? findSafeSurfaceY(target, x, z) : remembered.getY()-1;
-        BlockPos ground = new BlockPos(x, surfaceY, z);
-        if (!TravelSafety.withinBounds(target, ground.above()) || TravelSafety.hasHazard(target, ground.above()) || target.hasNeighborSignal(ground)
-                || !target.getBlockState(ground.above()).getCollisionShape(target, ground.above()).isEmpty()
-                || !target.getBlockState(ground.above(2)).getCollisionShape(target, ground.above(2)).isEmpty()) return false;
-        ensureLandingPad(target, ground);
-        if (!target.getBlockState(ground).isFaceSturdy(target, ground, net.minecraft.core.Direction.UP)
-                || !target.getFluidState(ground.above()).isEmpty() || !target.getFluidState(ground.above(2)).isEmpty()) return false;
+        BlockPos feet = returning ? resolveReturn(target, player) : resolveArrival(target, player.blockPosition());
+        if (feet == null) return false;
         BlockPos origin = player.blockPosition();
 
         if (player.changeDimension(new DimensionTransition(
                 target,
-                new Vec3(x + 0.5, ground.getY() + 1.0, z + 0.5),
+                new Vec3(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5),
                 Vec3.ZERO,
                 player.getYRot(),
                 player.getXRot(),
@@ -74,15 +59,82 @@ public final class ModDimensions {
         )) == null) return false;
         player.fallDistance = 0;
         if (!returning) {
-            memory.putString("TribalGateReturnDimension", current.dimension().location().toString());
-            memory.putLong("TribalGateReturn", origin.asLong());
-        }
-        if (targetKey.equals(THE_MARCH)) {
+            var memory = gateMemory(player);
+            memory.putString(RETURN_DIMENSION, current.dimension().location().toString());
+            memory.putLong(RETURN_POS, origin.asLong());
             DeepCacheManager.markVisited(player);
         }
         return true;
     }
 
+    /** Return memory survives death and respawn, unlike the root of the persistent data. */
+    private static net.minecraft.nbt.CompoundTag gateMemory(ServerPlayer player) {
+        var root = player.getPersistentData();
+        var persisted = root.getCompound(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG);
+        root.put(net.minecraft.world.entity.player.Player.PERSISTED_NBT_TAG, persisted);
+        // Adopt a return point written by 3.4.3 and earlier.
+        if (!persisted.contains(RETURN_POS) && root.contains(RETURN_POS)) {
+            persisted.putLong(RETURN_POS, root.getLong(RETURN_POS));
+            persisted.putString(RETURN_DIMENSION, root.getString(RETURN_DIMENSION));
+        }
+        return persisted;
+    }
+
+    private static ServerLevel returnLevel(ServerPlayer player) {
+        String stored = gateMemory(player).getString(RETURN_DIMENSION);
+        var id = stored.isEmpty() ? null : ResourceLocation.tryParse(stored);
+        ServerLevel level = id == null ? null : player.server.getLevel(ResourceKey.create(Registries.DIMENSION, id));
+        // A missing or unloaded home (no memory, removed dimension mod) still leads out of the March.
+        return level == null || level.dimension().equals(THE_MARCH) ? player.server.overworld() : level;
+    }
+
+    /** Surface landing on a cleared pad in the column of {@code from}; null when that column is unsafe. */
+    static BlockPos resolveArrival(ServerLevel target, BlockPos from) {
+        int x = from.getX();
+        int z = from.getZ();
+        if (!target.getWorldBorder().isWithinBounds(new BlockPos(x, target.getMinBuildHeight(), z))) return null;
+        // Force destination chunk generation before heightmap / pad work.
+        target.getChunk(x >> 4, z >> 4);
+        return padAt(target, x, z);
+    }
+
+    private static BlockPos resolveReturn(ServerLevel target, ServerPlayer player) {
+        var memory = gateMemory(player);
+        boolean remembers = memory.contains(RETURN_POS)
+                && target.dimension().location().toString().equals(memory.getString(RETURN_DIMENSION));
+        BlockPos remembered = remembers ? BlockPos.of(memory.getLong(RETURN_POS)) : null;
+        if (remembered != null && TravelSafety.withinBounds(target, remembered)) {
+            target.getChunk(remembered.getX() >> 4, remembered.getZ() >> 4);
+            // Beside the home drum first, touching nothing: bases have campfires, slabs and wiring.
+            BlockPos stand = TravelSafety.nearestStand(target, remembered, 6, 4);
+            if (stand != null) return stand;
+            BlockPos pad = padAt(target, remembered.getX(), remembered.getZ());
+            if (pad != null) return pad;
+        }
+        BlockPos spawn = player.getRespawnDimension().equals(target.dimension()) && player.getRespawnPosition() != null
+                ? player.getRespawnPosition() : target.getSharedSpawnPos();
+        target.getChunk(spawn.getX() >> 4, spawn.getZ() >> 4);
+        BlockPos stand = TravelSafety.nearestStand(target, spawn, 8, 6);
+        if (stand != null) return stand;
+        BlockPos pad = padAt(target, spawn.getX(), spawn.getZ());
+        if (pad != null) return pad;
+        // Last resort: the spawn column itself, on a fabricated pad.
+        BlockPos ground = new BlockPos(spawn.getX(), findSafeSurfaceY(target, spawn.getX(), spawn.getZ()), spawn.getZ());
+        ensureLandingPad(target, ground);
+        return ground.above();
+    }
+
+    /** Surface landing with a cleared pad; null when the column is unsafe. Returns the feet position. */
+    private static BlockPos padAt(ServerLevel target, int x, int z) {
+        BlockPos ground = new BlockPos(x, findSafeSurfaceY(target, x, z), z);
+        if (!TravelSafety.withinBounds(target, ground.above()) || TravelSafety.hasHazard(target, ground.above())
+                || !target.getBlockState(ground.above()).getCollisionShape(target, ground.above()).isEmpty()
+                || !target.getBlockState(ground.above(2)).getCollisionShape(target, ground.above(2)).isEmpty()) return null;
+        ensureLandingPad(target, ground);
+        if (!target.getBlockState(ground).isFaceSturdy(target, ground, net.minecraft.core.Direction.UP)
+                || !target.getFluidState(ground.above()).isEmpty() || !target.getFluidState(ground.above(2)).isEmpty()) return null;
+        return ground.above();
+    }
     private static int findSafeSurfaceY(ServerLevel level, int x, int z) {
         int min = level.getMinBuildHeight() + 1;
         int max = level.getMaxBuildHeight() - 3;

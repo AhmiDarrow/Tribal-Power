@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chocobosreborn"
+    }
+  ],
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "tribalpower:march_steppe",
+    "tribalpower:march_highlands",
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_crystal_fields"
+  ],
+  "spawners": [
+    {
+      "type": "chocobosreborn:chocobo",
+      "weight": 6,
+      "minCount": 2,
+      "maxCount": 4
+    }
+  ]
+}

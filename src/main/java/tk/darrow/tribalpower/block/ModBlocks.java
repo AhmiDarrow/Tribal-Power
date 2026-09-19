@@ -324,8 +324,7 @@ public final class ModBlocks {
                     .replaceable()
                     .offsetType(BlockBehaviour.OffsetType.XZ)
                     .pushReaction(PushReaction.DESTROY)
-                    .ignitedByLava()
-                    .lightLevel(s -> 2))
+                    .ignitedByLava())
     );
 
     private static DeferredBlock<ResonanceTotemBlock> totem(String id, Attunement attunement, MapColor color) {

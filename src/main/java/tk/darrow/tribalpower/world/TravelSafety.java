@@ -27,4 +27,30 @@ public final class TravelSafety {
         }
         return false;
     }
+    /** A spot where a player can stand without anything being built or cleared. */
+    public static boolean canStand(Level level, BlockPos feet) {
+        if (!withinBounds(level, feet) || hasHazard(level, feet)) return false;
+        BlockPos ground = feet.below();
+        BlockPos head = feet.above();
+        return !level.getBlockState(ground).getCollisionShape(level, ground).isEmpty()
+                && level.getFluidState(ground).isEmpty()
+                && level.getBlockState(feet).getCollisionShape(level, feet).isEmpty()
+                && level.getBlockState(head).getCollisionShape(level, head).isEmpty()
+                && level.getFluidState(feet).isEmpty() && level.getFluidState(head).isEmpty();
+    }
+
+    /** Closest standable spot to {@code centre}, nearest first; null when the neighbourhood has none. */
+    public static BlockPos nearestStand(Level level, BlockPos centre, int horizontal, int vertical) {
+        BlockPos best = null;
+        double bestDistance = Double.MAX_VALUE;
+        for (BlockPos pos : BlockPos.betweenClosed(centre.offset(-horizontal, -vertical, -horizontal),
+                centre.offset(horizontal, vertical, horizontal))) {
+            double distance = pos.distSqr(centre);
+            if (distance < bestDistance && canStand(level, pos)) {
+                best = pos.immutable();
+                bestDistance = distance;
+            }
+        }
+        return best;
+    }
 }

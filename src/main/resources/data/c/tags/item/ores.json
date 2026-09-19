@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_ore"
+    "tribalpower:march_ore",
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
   ]
 }

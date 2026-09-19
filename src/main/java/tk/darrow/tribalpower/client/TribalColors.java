@@ -16,8 +16,14 @@ import tk.darrow.tribalpower.grit.MineralGritItem;
  *
  * <p>A gate's plane takes the colour of where it goes -- green for the Overworld, teal for The March, red
  * for the Nether -- so a player can tell two gates apart at a glance without opening anything.
+ *
+ * <p>March turf, March Leaf and March Leaves are painted grey and take the biome's grass / foliage colour,
+ * so the six March biomes differ underfoot without six sets of textures.
  */
 public final class TribalColors {
+    /** Steppe turf and canopy: what the tinted March blocks look like in the hand. */
+    private static final int MARCH_GRASS = 0x4A8F7A, MARCH_FOLIAGE = 0x3D9A8C;
+
     private TribalColors() {}
 
     public static void items(RegisterColorHandlersEvent.Item event) {
@@ -28,6 +34,9 @@ public final class TribalColors {
             int rgb = material == null ? 0xC8C8C8 : MineralGritItem.tint(material);
             return 0xFF000000 | rgb;
         }, GritItems.MINERAL_GRIT.get());
+        event.register((stack, layer) -> 0xFF000000 | MARCH_GRASS,
+                tk.darrow.tribalpower.item.ModItems.MARCH_GRASS.get(), tk.darrow.tribalpower.item.ModItems.MARCH_LEAF.get());
+        event.register((stack, layer) -> 0xFF000000 | MARCH_FOLIAGE, tk.darrow.tribalpower.item.ModItems.MARCH_LEAVES.get());
     }
 
     public static void blocks(RegisterColorHandlersEvent.Block event) {
@@ -38,5 +47,11 @@ public final class TribalColors {
             GateKeystoneBlockEntity keystone = GatePortal.keystoneFor(world, pos);
             return keystone == null ? GateTint.UNKNOWN : keystone.destinationTint();
         }, GateRegistry.GATE_PORTAL.get());
+        event.register((state, level, pos, layer) -> level == null || pos == null ? MARCH_GRASS
+                        : net.minecraft.client.renderer.BiomeColors.getAverageGrassColor(level, pos),
+                tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get(), tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAF.get());
+        event.register((state, level, pos, layer) -> level == null || pos == null ? MARCH_FOLIAGE
+                        : net.minecraft.client.renderer.BiomeColors.getAverageFoliageColor(level, pos),
+                tk.darrow.tribalpower.block.ModBlocks.MARCH_LEAVES.get());
     }
 }

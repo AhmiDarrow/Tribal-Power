@@ -3,6 +3,6 @@
   "textures": {
     "top": "minecraft:block/snow",
     "bottom": "tribalpower:block/march_soil",
-    "side": "tribalpower:block/march_grass"
+    "side": "tribalpower:block/march_grass_snow"
   }
 }

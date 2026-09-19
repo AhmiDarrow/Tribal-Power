@@ -27,6 +27,7 @@ public final class TribalPower {
         modBus.addListener((net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent event)->event.register(tk.darrow.tribalpower.camp.CampHooks.TICKETS));
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
+        tk.darrow.tribalpower.world.MarchOres.init();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
@@ -47,6 +48,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.identity.CampCommands::register);
         tk.darrow.tribalpower.camp.identity.CampStanding.register();
         tk.darrow.tribalpower.world.structure.MarchRegistry.register(modBus);
+        tk.darrow.tribalpower.world.MarchFeatures.register(modBus);
         tk.darrow.tribalpower.tribe.TribeRegistry.register(modBus);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
@@ -92,6 +94,11 @@ public final class TribalPower {
         modBus.addListener(ModEntityAttributes::onAttributes);
         modBus.addListener(ModEntityAttributes::onSpawnPlacements);
         NeoForge.EVENT_BUS.register(ModDimensions.class);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onServerAboutToStart);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onLogin);
+        tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
+        tk.darrow.tribalpower.compat.ChocoboCompat.register();
+        if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);
         modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     tk.darrow.tribalpower.camp.CampRegistry.TYPE.get(),(be,side)->be.hasInventory()?new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,

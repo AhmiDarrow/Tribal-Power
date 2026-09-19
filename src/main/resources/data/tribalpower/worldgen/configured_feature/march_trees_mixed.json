@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.18,
+        "feature": {
+          "feature": "tribalpower:march_tree_elder",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.22,
+        "feature": {
+          "feature": "tribalpower:march_tree_spire",
+          "placement": []
+        }
+      }
+    ],
+    "default": {
+      "feature": "tribalpower:march_tree",
+      "placement": []
+    }
+  }
+}

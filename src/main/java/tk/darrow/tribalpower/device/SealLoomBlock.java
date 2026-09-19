@@ -21,8 +21,34 @@ import tk.darrow.tribalpower.block.MachineDrops;
 
 public class SealLoomBlock extends BaseEntityBlock {
     public static final MapCodec<SealLoomBlock> CODEC = simpleCodec(SealLoomBlock::new);
+    /** The loom's front turns to whoever sets it down. Looms placed before 3.5 keep facing north. */
+    public static final net.minecraft.world.level.block.state.properties.DirectionProperty FACING =
+            net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING;
 
-    public SealLoomBlock(Properties properties) { super(properties); }
+    public SealLoomBlock(Properties properties) {
+        super(properties);
+        registerDefaultState(stateDefinition.any().setValue(FACING, net.minecraft.core.Direction.NORTH));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<net.minecraft.world.level.block.Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext context) {
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    @Override
+    protected BlockState rotate(BlockState state, net.minecraft.world.level.block.Rotation rotation) {
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+    }
+
+    @Override
+    protected BlockState mirror(BlockState state, net.minecraft.world.level.block.Mirror mirror) {
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
 
     @Override protected MapCodec<? extends BaseEntityBlock> codec() { return CODEC; }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }

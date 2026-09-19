@@ -23,6 +23,12 @@ public final class ModItems {
 
     // Materials / pulse reagents
     public static final DeferredItem<Item> SPIRIT_SHARD = ITEMS.registerSimpleItem("spirit_shard");
+    // March game. Raw and roast game are tagged as meat; March Leather is tagged c:leathers and tans down to leather.
+    public static final DeferredItem<Item> RAW_GAME = ITEMS.registerSimpleItem("raw_game",
+            new Item.Properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(3).saturationModifier(0.3F).build()));
+    public static final DeferredItem<Item> ROAST_GAME = ITEMS.registerSimpleItem("roast_game",
+            new Item.Properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(8).saturationModifier(0.8F).build()));
+    public static final DeferredItem<Item> MARCH_LEATHER = ITEMS.registerSimpleItem("march_leather");
     public static final DeferredItem<Item> BONE_CHIME = ITEMS.registerSimpleItem("bone_chime");
     public static final DeferredItem<Item> COPPER_RESONATOR = ITEMS.registerSimpleItem("copper_resonator");
     public static final DeferredItem<PulseCellItem> PULSE_CELL = ITEMS.register(

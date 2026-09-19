@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 32,
+    "tries": 10,
     "xz_spread": 5,
     "y_spread": 2,
     "feature": {
@@ -20,10 +20,19 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:would_survive",
-            "state": {
-              "Name": "tribalpower:ley_thistle"
-            }
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "tribalpower:ley_thistle"
+                }
+              }
+            ]
           }
         }
       ]

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 40,
-    "xz_spread": 6,
+    "tries": 16,
+    "xz_spread": 4,
     "y_spread": 2,
     "feature": {
       "feature": {
@@ -20,10 +20,19 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:would_survive",
-            "state": {
-              "Name": "tribalpower:echo_bloom"
-            }
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:air"
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "tribalpower:echo_bloom"
+                }
+              }
+            ]
           }
         }
       ]

@@ -1,0 +1,15 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "tribalpower:mod_version",
+      "modid": "chocobosreborn",
+      "minimum": "1.0.4"
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": [
+    "tribalpower:march_reed_fen"
+  ],
+  "features": "chocobosreborn:wild_gysahl_thicket",
+  "step": "vegetal_decoration"
+}

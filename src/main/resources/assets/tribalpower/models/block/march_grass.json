@@ -1,8 +1,11 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "top": "tribalpower:block/march_grass_top",
+    "particle": "tribalpower:block/march_soil",
     "bottom": "tribalpower:block/march_soil",
-    "side": "tribalpower:block/march_grass"
+    "top": "tribalpower:block/march_grass_top",
+    "side": "tribalpower:block/march_soil",
+    "overlay": "tribalpower:block/march_grass_side_overlay"
   }
 }

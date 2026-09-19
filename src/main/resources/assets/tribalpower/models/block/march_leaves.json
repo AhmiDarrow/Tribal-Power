@@ -1,9 +1,7 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "minecraft:block/leaves",
   "render_type": "minecraft:cutout_mipped",
   "textures": {
-    "top": "tribalpower:block/march_leaves_top",
-    "bottom": "tribalpower:block/march_leaves",
-    "side": "tribalpower:block/march_leaves"
+    "all": "tribalpower:block/march_leaves"
   }
 }

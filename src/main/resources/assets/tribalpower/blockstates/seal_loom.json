@@ -1,27 +1,8 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "tribalpower:block/seal_loom"
-    },
-    "facing=south": {
-      "model": "tribalpower:block/seal_loom",
-      "y": 180
-    },
-    "facing=west": {
-      "model": "tribalpower:block/seal_loom",
-      "y": 270
-    },
-    "facing=east": {
-      "model": "tribalpower:block/seal_loom",
-      "y": 90
-    },
-    "facing=up": {
-      "model": "tribalpower:block/seal_loom",
-      "x": 270
-    },
-    "facing=down": {
-      "model": "tribalpower:block/seal_loom",
-      "x": 90
-    }
+    "facing=north": { "model": "tribalpower:block/seal_loom" },
+    "facing=east": { "model": "tribalpower:block/seal_loom", "y": 90 },
+    "facing=south": { "model": "tribalpower:block/seal_loom", "y": 180 },
+    "facing=west": { "model": "tribalpower:block/seal_loom", "y": 270 }
   }
 }

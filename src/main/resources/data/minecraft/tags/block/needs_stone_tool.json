@@ -3,6 +3,9 @@
   "values": [
     "tribalpower:march_stone",
     "tribalpower:march_cobble",
-    "tribalpower:march_ore"
+    "tribalpower:march_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_lapis_ore"
   ]
 }

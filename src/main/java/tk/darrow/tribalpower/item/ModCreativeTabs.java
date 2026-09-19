@@ -23,6 +23,9 @@ public final class ModCreativeTabs {
                         CreatureItems.REAGENTS.values().forEach(item -> out.accept(item.get()));
                         CreatureItems.EGGS.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.SPIRIT_SHARD.get());
+                        out.accept(ModItems.RAW_GAME.get());
+                        out.accept(ModItems.ROAST_GAME.get());
+                        out.accept(ModItems.MARCH_LEATHER.get());
                         out.accept(ModItems.BONE_CHIME.get());
                         out.accept(ModItems.COPPER_RESONATOR.get());
                         out.accept(ModItems.PULSE_CELL.get());
@@ -84,6 +87,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_LEAF.get());
                         out.accept(ModItems.MARCH_SAPLING.get());
                         out.accept(ModItems.MARCH_ORE.get());
+                        tk.darrow.tribalpower.world.MarchOres.ITEMS.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.MARCH_CRYSTAL.get());
                         out.accept(ModItems.SPIRIT_REED.get());
                         out.accept(ModItems.ECHO_BLOOM.get());

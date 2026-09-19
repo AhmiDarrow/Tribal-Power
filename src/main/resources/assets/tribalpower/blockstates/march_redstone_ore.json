@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/march_redstone_ore"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/march_redstone_ore"
+    }
+  }
+}

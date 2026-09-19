@@ -1,0 +1,33 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chocobosreborn"
+    }
+  ],
+  "type": "chocobosreborn:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:any_of",
+      "terms": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": "#minecraft:hoes"
+          }
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.12
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:block_state_property",
+      "block": "tribalpower:march_leaf"
+    }
+  ],
+  "item": "chocobosreborn:gysahl_green_seeds",
+  "count": 1,
+  "chance": 1.0
+}

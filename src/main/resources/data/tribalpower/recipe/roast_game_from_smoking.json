@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "tribalpower:raw_game"
+  },
+  "result": {
+    "id": "tribalpower:roast_game"
+  },
+  "experience": 0.35,
+  "cookingtime": 100
+}

@@ -1,0 +1,149 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_y": -64,
+      "to_y": 320,
+      "from_value": -64.0,
+      "to_value": 320.0
+    },
+    "points": [
+      {
+        "location": -64.0,
+        "value": 0.0,
+        "derivative": 0.0
+      },
+      {
+        "location": 55.99,
+        "value": 0.0,
+        "derivative": 0.0
+      },
+      {
+        "location": 56.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 67.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 68.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 79.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 80.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 91.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 92.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 103.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 104.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 115.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 116.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 127.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 128.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 139.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 140.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 151.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 152.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 163.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 164.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 175.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 176.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 187.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 188.0,
+        "value": 1.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 199.99,
+        "value": 0.0,
+        "derivative": -0.08333333333333333
+      },
+      {
+        "location": 200.0,
+        "value": 0.0,
+        "derivative": 0.0
+      }
+    ]
+  }
+}

@@ -60,6 +60,13 @@ neoForge {
             gameDirectory = project.file('build/verification')
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
+        // Generates real March chunks, checks the flora/light budget, writes build/march-survey/march_survey.png.
+        marchSurvey {
+            server()
+            gameDirectory = project.file('build/march-survey')
+            programArgument '--nogui'
+            jvmArgument '-Dtribalpower.marchSurvey=true'
+        }
         // Disposable: load the frozen 3.0 save under build/migration-3.0 (copied to build/migration-3.1-load).
         migration31 {
             server()

@@ -70,3 +70,6 @@ _review_copy.py
 _review_copy.bat
 fetch_3.0.1_and_3.1.0.py
 fetch_3.0.1_and_3.1.0.bat
+
+# CurseForge author token (tools/upload_curseforge.py)
+tools/secrets/

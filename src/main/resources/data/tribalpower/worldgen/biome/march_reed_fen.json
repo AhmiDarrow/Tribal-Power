@@ -129,7 +129,13 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "tribalpower:march_cave",
+      "tribalpower:march_cave_deep",
+      "minecraft:canyon"
+    ]
+  },
   "features": [
     [],
     [],
@@ -141,16 +147,27 @@
     [],
     [
       "tribalpower:march_ore",
-      "tribalpower:march_moss_patch"
+      "tribalpower:march_vanilla_coal",
+      "tribalpower:march_vanilla_iron",
+      "tribalpower:march_vanilla_iron_upper",
+      "tribalpower:march_vanilla_iron_small",
+      "tribalpower:march_vanilla_copper",
+      "tribalpower:march_vanilla_gold",
+      "tribalpower:march_vanilla_redstone",
+      "tribalpower:march_vanilla_lapis",
+      "tribalpower:march_vanilla_diamond",
+      "tribalpower:march_vanilla_diamond_large"
+    ],
+    [
+      "tribalpower:march_amethyst_pocket"
     ],
     [],
-    [],
     [
-      "tribalpower:march_tree",
-      "tribalpower:echo_bloom_patch",
-      "tribalpower:spirit_reed_patch",
-      "tribalpower:march_leaf_patch",
-      "tribalpower:ley_thistle_patch"
+      "tribalpower:march_trees_fen",
+      "tribalpower:march_bush",
+      "tribalpower:march_leaf_dense",
+      "tribalpower:spirit_reed_dense",
+      "tribalpower:echo_bloom_drift"
     ],
     []
   ]

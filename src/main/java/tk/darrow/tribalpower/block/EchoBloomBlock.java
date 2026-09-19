@@ -26,20 +26,12 @@ public class EchoBloomBlock extends MarchPlantBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (random.nextInt(3) == 0) {
+        // Blooms grow in drifts, so each one stays sparse; a field of them still reads as motes.
+        if (random.nextInt(14) == 0) {
             double x = pos.getX() + 0.3 + random.nextDouble() * 0.4;
             double y = pos.getY() + 0.4 + random.nextDouble() * 0.5;
             double z = pos.getZ() + 0.3 + random.nextDouble() * 0.4;
             level.addParticle(ParticleTypes.END_ROD, x, y, z, 0.0, 0.01, 0.0);
-        }
-        if (random.nextInt(8) == 0) {
-            level.addParticle(
-                    ParticleTypes.ENCHANT,
-                    pos.getX() + 0.5, pos.getY() + 0.7, pos.getZ() + 0.5,
-                    (random.nextDouble() - 0.5) * 0.2,
-                    0.05,
-                    (random.nextDouble() - 0.5) * 0.2
-            );
         }
     }
 }

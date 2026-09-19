@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:add",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:interpolated",
+      "argument": "minecraft:overworld/depth"
+    },
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 0.8,
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": 1.0,
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": -1.0,
+          "argument2": "tribalpower:march/terrace_mask"
+        }
+      }
+    }
+  },
+  "argument2": {
+    "type": "minecraft:mul",
+    "argument1": -0.0703125,
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": "tribalpower:march/terrace_mask",
+      "argument2": "tribalpower:march/terrace_saw"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "tribalpower:mod_version",
+      "modid": "chocobosreborn",
+      "minimum": "1.0.4"
+    }
+  ],
+  "type": "neoforge:add_features",
+  "biomes": [
+    "tribalpower:march_steppe",
+    "tribalpower:march_highlands"
+  ],
+  "features": "chocobosreborn:wild_gysahl_scatter",
+  "step": "vegetal_decoration"
+}
