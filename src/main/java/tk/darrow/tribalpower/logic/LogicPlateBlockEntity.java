@@ -77,6 +77,9 @@ public class LogicPlateBlockEntity extends BlockEntity {
         boolean leftOn = left > 0, rightOn = right > 0, backOn = back > 0;
         int out = 0;
         LogicKind kind = be.kind();
+        // Memory, Tally, Chance and Verse hold state that must survive a reload even when the output does not change.
+        int memoryBefore = be.memory, stepBefore = be.step;
+        boolean backBefore = be.lastBack, leftBefore = be.lastLeft;
         switch (kind) {
             case CHORUS -> { out = leftOn && rightOn ? 15 : 0; be.setReason(out > 0 ? "chorus_sings" : "chorus_waits"); }
             case GATHERING -> { out = leftOn || rightOn ? 15 : 0; be.setReason(out > 0 ? "gathering_open" : "gathering_quiet"); }
@@ -125,6 +128,8 @@ public class LogicPlateBlockEntity extends BlockEntity {
         }
         be.lastBack = backOn;
         be.lastLeft = leftOn;
+        if (be.memory != memoryBefore || be.step != stepBefore || backOn != backBefore || leftOn != leftBefore)
+            be.setChanged();
         if (state.getValue(LogicPlateBlock.POWER) != out) {
             level.setBlock(pos, state.setValue(LogicPlateBlock.POWER, out), 3);
             level.updateNeighborsAt(pos.relative(facing), state.getBlock());

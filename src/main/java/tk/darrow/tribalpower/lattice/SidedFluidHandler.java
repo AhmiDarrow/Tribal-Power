@@ -15,6 +15,18 @@ public record SidedFluidHandler(IFluidHandler inner, SideIo.Mode mode) implement
         return new SidedFluidHandler(inner, mode);
     }
 
+    /**
+     * For machines whose tanks only feed their own work (Stone Font, Resonance Mesh): a face may fill them but never
+     * drain them. Their bottom face defaults to OUTPUT for items, which otherwise emptied the input tanks into a
+     * cistern or pipe below.
+     */
+    public static IFluidHandler wrapInput(BlockEntity be, Direction side, IFluidHandler inner) {
+        IFluidHandler sided = wrap(be, side, inner);
+        if (sided == null || side == null) return sided;
+        return sided instanceof SidedFluidHandler handler && handler.mode().insert()
+                ? new SidedFluidHandler(inner, SideIo.Mode.INPUT) : null;
+    }
+
     @Override public int getTanks() { return inner.getTanks(); }
     @Override public FluidStack getFluidInTank(int tank) { return inner.getFluidInTank(tank); }
     @Override public int getTankCapacity(int tank) { return inner.getTankCapacity(tank); }

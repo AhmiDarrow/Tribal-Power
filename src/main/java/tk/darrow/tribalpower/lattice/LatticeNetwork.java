@@ -503,28 +503,38 @@ public final class LatticeNetwork {
 
     private static int drainHandlers(Level level, BlockPos origin, int radius, int amount,
                                      boolean generatorsFirst, boolean simulate) {
-        int taken = 0;
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -radius; dx <= radius && taken < amount; dx++) {
-            for (int dy = -radius; dy <= radius && taken < amount; dy++) {
-                for (int dz = -radius; dz <= radius && taken < amount; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (!(be instanceof PulseHandler handler)) {
-                        continue;
-                    }
+        // Every machine calls this each working tick, often twice (simulate, then draw). Probing all 17^3 positions
+        // of the cube cost thousands of block-entity lookups per call; the loaded chunks' block-entity maps hold only
+        // the few that exist. Candidates are then drained in the same x, y, z order the cube walk used.
+        List<BlockEntity> found = new ArrayList<>();
+        int minY = origin.getY() - radius, maxY = origin.getY() + radius;
+        int minX = origin.getX() - radius, maxX = origin.getX() + radius;
+        int minZ = origin.getZ() - radius, maxZ = origin.getZ() + radius;
+        for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
+            for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) continue;
+                for (BlockEntity be : chunk.getBlockEntities().values()) {
+                    if (!(be instanceof PulseHandler) || be.isRemoved()) continue;
+                    BlockPos p = be.getBlockPos();
+                    if (p.getX() < minX || p.getX() > maxX || p.getY() < minY || p.getY() > maxY || p.getZ() < minZ || p.getZ() > maxZ) continue;
                     boolean isGenerator = be instanceof DrumheartBlockEntity
                             || be instanceof LeyCollectorBlockEntity
                             || be instanceof PulseResonatorBlockEntity
                             // The six voices of 3.1 all implement PulseGenerator, so they need no case of their own.
                             || be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator;
-                    if (generatorsFirst != isGenerator) {
-                        continue;
-                    }
-                    int got = handler.extractPulse(amount - taken, simulate);
-                    taken += got;
+                    if (generatorsFirst == isGenerator) found.add(be);
                 }
             }
+        }
+        if (found.size() > 1)
+            found.sort(java.util.Comparator.comparingInt((BlockEntity be) -> be.getBlockPos().getX())
+                    .thenComparingInt(be -> be.getBlockPos().getY())
+                    .thenComparingInt(be -> be.getBlockPos().getZ()));
+        int taken = 0;
+        for (BlockEntity be : found) {
+            if (taken >= amount) break;
+            taken += ((PulseHandler) be).extractPulse(amount - taken, simulate);
         }
         return taken;
     }

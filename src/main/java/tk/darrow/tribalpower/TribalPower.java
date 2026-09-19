@@ -144,7 +144,7 @@ public final class TribalPower {
             // actually reach; and the relays speak ItemHandler, where a hopper speaks WorldlyContainer.
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
                     ModBlockEntities.RESONANCE_MESH.get(), (be, side) ->
-                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.tank));
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrapInput(be, side, be.tank));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     ModBlockEntities.RESONANCE_MESH.get(), (be, side) ->
                             new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
@@ -157,7 +157,7 @@ public final class TribalPower {
                                             : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
                     ModBlockEntities.STONE_FONT.get(), (be, side) ->
-                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.fluids));
+                            tk.darrow.tribalpower.lattice.SidedFluidHandler.wrapInput(be, side, be.fluids));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     tk.darrow.tribalpower.device.DeviceRegistry.WORKSHOP.get(), (be, side) ->
                             "wind_snare".equals(be.kind())

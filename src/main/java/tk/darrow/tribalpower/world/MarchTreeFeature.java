@@ -110,7 +110,9 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
     }
 
     private static Predicate<BlockPos> writable(WorldGenLevel level) {
-        if (!(level instanceof WorldGenRegion region)) return pos -> !level.isOutsideBuildHeight(pos);
+        // A sapling growing in the live world: never reach into unloaded chunks (a colossus spans ~3 chunks), which
+        // would load or generate them synchronously on the server thread.
+        if (!(level instanceof WorldGenRegion region)) return pos -> !level.isOutsideBuildHeight(pos) && level.hasChunkAt(pos);
         ChunkPos centre = region.getCenter();
         return pos -> !level.isOutsideBuildHeight(pos)
                 && Math.abs((pos.getX() >> 4) - centre.x) <= 1 && Math.abs((pos.getZ() >> 4) - centre.z) <= 1;
