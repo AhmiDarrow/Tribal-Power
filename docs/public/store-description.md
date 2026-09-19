@@ -72,4 +72,4 @@ Optional. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/ch
 
 Tribal Power works standalone. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), its workshops, rituals, transport, bestiary and camp systems are woven into the pack story and quest progression. The pack is optional.
 
-Version 3.5.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 3.6.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
