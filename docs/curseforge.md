@@ -40,6 +40,9 @@ Uploaded 2026-09-12: `tribalpower-3.3.1.jar` as file **8869162** ("Tribal Power 
 ## 3.3.2 — Ember Kiln smelts grit
 Uploaded 2026-09-12: `tribalpower-3.3.2.jar` as file **8869249** ("Tribal Power 3.3.2 - Ember Kiln smelts grit", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.3.2.md`. Kiln runs every furnace smelting recipe, including mineral grit. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.3.2
 
+## 3.5.0 — The March reborn
+Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 3.5.0 - The March reborn", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py` (the author token is read from `tools/secrets/.env`, git-ignored, or Ninjacat Skies' copy). Changelog is `docs/RELEASE_3.5.0.md`. March performance and terrain overhaul, repainted March, March-slate vanilla ores, caves and amethyst, game meat and leather, Gate Drum return, one-time March retrogen, optional Chocobos Reborn compat (Wild Gysahl with Chocobos Reborn 1.0.4+, file 8918139). GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.5.0
+
 ## 3.4.3 — Spiritgear and Spiritweave art pass
 Uploaded 2026-09-18: `tribalpower-3.4.3.jar` as file **8914264** ("Tribal Power 3.4.3 - Spiritgear and Spiritweave art pass", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_3.4.3.md`. Art only: Spiritgear ranks, Spiritweave icons and worn body, Resonance Maul, Sixfold Staff, Wayfarer Satchel, Spiritweave bolt. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.4.3
 
