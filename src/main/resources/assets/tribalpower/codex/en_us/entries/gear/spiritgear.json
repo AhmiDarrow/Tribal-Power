@@ -6,14 +6,16 @@
   "items": [
     "tribalpower:spiritgear_axe",
     "tribalpower:spiritgear_shovel",
-    "tribalpower:spiritgear_blade"
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
   ],
   "pages": [
     {
       "type": "spotlight",
       "item": "tribalpower:spiritgear_pickaxe",
       "text": [
-        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel and blade. They start diamond-hard with **1,024 durability**.",
+        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They start diamond-hard with **1,024 durability**.",
         "While they can draw Pulse from a carried cell they spare their edge: every paid action mends a point of wear instead of costing one."
       ],
       "title": "Spiritgear tools"
@@ -49,6 +51,19 @@
       ]
     },
     {
+      "type": "text",
+      "title": "Shears and hoe",
+      "text": [
+        "The **Spiritgear Shears** trim leaves, wool, vines and cobweb, and rank and bind like the rest of the set.",
+        "- **Earth**: a swing takes the whole 3x3 face of foliage.  - **Air**: trimming costs no Pulse and no wear at all.",
+        "- **Water**: a sheared sheep is left its fleece, always at Manifested.  - **Fire**: used on a beehive it smokes the bees calm, so no swarm.",
+        "- **Spirit**: what it shears is mended afterwards, and nearby beasts worth shearing glow.  - **Loom**: the cuttings come straight to hand.",
+        "The **Spiritgear Hoe** reaps and sows in one motion: use it on a ripe crop and the harvest drops while one seed goes back into the ground.",
+        "- **Earth**: turns a 3x3 of soil at once.  - **Water**: its furrows come out wet, and fields you walk past stay watered.",
+        "- **Air**: reaps a 3x3.  - **Loom**: reaps a 5x5 and spends no Pulse doing it.  - **Spirit**: a quarter of harvests come back doubled."
+      ]
+    },
+    {
       "type": "recipe",
       "item": "tribalpower:spiritgear_pickaxe"
     },
@@ -63,6 +78,14 @@
     {
       "type": "recipe",
       "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
     },
     {
       "type": "text",

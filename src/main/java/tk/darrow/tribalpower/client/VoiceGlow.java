@@ -57,7 +57,8 @@ public final class VoiceGlow {
     public static void items(RegisterColorHandlersEvent.Item event) {
         event.register((stack, layer) -> layer == 1 ? tint(stack) : 0xFFFFFFFF,
                 ModItems.SPIRITGEAR_PICKAXE.get(), ModItems.SPIRITGEAR_AXE.get(), ModItems.SPIRITGEAR_SHOVEL.get(),
-                ModItems.SPIRITGEAR_BLADE.get(), ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
+                ModItems.SPIRITGEAR_BLADE.get(), ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
+                ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
     }
 
@@ -79,6 +80,9 @@ public final class VoiceGlow {
 
     /** The trims of worn Spiritweave, drawn again full-bright in the voice's colour. */
     static final class Worn<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> {
+        /** Hoisted: this ran once per entity per frame, for every humanoid on screen. */
+        private static final EquipmentSlot[] WORN_SLOTS = {EquipmentSlot.HEAD, EquipmentSlot.CHEST,
+                EquipmentSlot.LEGS, EquipmentSlot.FEET};
         private final HumanoidModel<T> inner, outer;
 
         Worn(RenderLayerParent<T, M> parent, HumanoidModel<T> inner, HumanoidModel<T> outer) {
@@ -90,7 +94,7 @@ public final class VoiceGlow {
         @Override
         public void render(PoseStack pose, MultiBufferSource buffers, int light, T entity, float limbSwing, float limbSwingAmount,
                            float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-            for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
+            for (EquipmentSlot slot : WORN_SLOTS) {
                 ItemStack stack = entity.getItemBySlot(slot);
                 if (!(stack.getItem() instanceof SpiritweaveArmor)) continue;
                 int tint = tint(stack);

@@ -30,12 +30,27 @@ public class StationScreen extends AbstractContainerScreen<StationMenu> {
     private int ioX() { return leftPos + 168; }
     private int ioY() { return topPos + 34; }
 
-    /** The job for the item in the input slot, worked out here from the synced recipes. */
+    private ItemStack lookedUp = ItemStack.EMPTY;
+    private ProcessingRecipes.Formula cached;
+
+    /**
+     * The job for the item in the input slot, worked out from the synced recipes. The lookup walks every
+     * recipe in the pack, and both renderBg and renderLabels want it, so it is only redone when the input
+     * changes rather than twice per frame.
+     */
     private ProcessingRecipes.Formula formula() {
-        if (minecraft == null || minecraft.level == null || menu.input().isEmpty()) return null;
-        var state = minecraft.level.getBlockState(menu.machinePos());
-        String station = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
-        return ProcessingRecipes.find(minecraft.level, station, menu.input());
+        if (minecraft == null || minecraft.level == null || menu.input().isEmpty()) {
+            lookedUp = ItemStack.EMPTY;
+            return cached = null;
+        }
+        ItemStack input = menu.input();
+        if (!ItemStack.matches(input, lookedUp)) {
+            lookedUp = input.copy();
+            var state = minecraft.level.getBlockState(menu.machinePos());
+            String station = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
+            cached = ProcessingRecipes.find(minecraft.level, station, input);
+        }
+        return cached;
     }
 
     @Override

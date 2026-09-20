@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " I ",
+    "IFI",
+    " C "
+  ],
+  "key": {
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "F": {
+      "item": "tribalpower:spirit_flask"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    }
+  },
+  "result": {
+    "id": "tribalpower:greater_spirit_flask",
+    "count": 1
+  }
+}

@@ -86,6 +86,28 @@ public final class ModItems {
             "spiritgear_blade",
             () -> new SpiritgearBladeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
+    public static final DeferredItem<Item> SPIRITGEAR_SHEARS = ITEMS.register(
+            "spiritgear_shears",
+            () -> new SpiritgearShearsItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+    );
+    public static final DeferredItem<Item> SPIRITGEAR_HOE = ITEMS.register(
+            "spiritgear_hoe",
+            () -> new SpiritgearHoeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+    );
+
+    // Carried kit — a tank for the road, a wrench for machine faces, a wand for walls
+    public static final DeferredItem<SpiritFlaskItem> SPIRIT_FLASK = ITEMS.register(
+            "spirit_flask",
+            () -> new SpiritFlaskItem(new Item.Properties(), 4 * net.neoforged.neoforge.fluids.FluidType.BUCKET_VOLUME)
+    );
+    public static final DeferredItem<SpiritFlaskItem> GREATER_SPIRIT_FLASK = ITEMS.register(
+            "greater_spirit_flask",
+            () -> new SpiritFlaskItem(new Item.Properties(), 16 * net.neoforged.neoforge.fluids.FluidType.BUCKET_VOLUME)
+    );
+    public static final DeferredItem<TotemWrenchItem> TOTEM_WRENCH = ITEMS.register(
+            "totem_wrench", () -> new TotemWrenchItem(new Item.Properties()));
+    public static final DeferredItem<WeaversWandItem> WEAVERS_WAND = ITEMS.register(
+            "weavers_wand", () -> new WeaversWandItem(new Item.Properties()));
 
     // Block items — pulse / lattice
     public static final DeferredItem<BlockItem> DRUMHEART = ITEMS.registerSimpleBlockItem("drumheart", ModBlocks.DRUMHEART);

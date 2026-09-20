@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " C ",
+    " W ",
+    " S "
+  ],
+  "key": {
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "tribalpower:weavers_wand",
+    "count": 1
+  }
+}

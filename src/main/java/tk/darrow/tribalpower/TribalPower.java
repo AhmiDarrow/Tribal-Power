@@ -35,6 +35,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.world.MarchTrees.init();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        tk.darrow.tribalpower.item.SpiritFlaskItem.COMPONENTS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModEntities.ENTITIES.register(modBus);
         tk.darrow.tribalpower.entity.CreatureEntities.ENTITIES.register(modBus);
@@ -63,6 +64,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.storage.SortPayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
         modBus.addListener(tk.darrow.tribalpower.gate.DrumRite::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
@@ -84,6 +86,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
         tk.darrow.tribalpower.charm.CharmSlots.register(modBus);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::loggedOut);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::incomingDamage);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::drops);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::beforePlace);
@@ -118,6 +121,10 @@ public final class TribalPower {
         tk.darrow.tribalpower.compat.ChocoboCompat.register();
         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);
         modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
+            // The flask is a tank in the hand: pipes, tanks and other mods fill it like any container.
+            event.registerItem(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.ITEM,
+                    (stack, context) -> tk.darrow.tribalpower.item.SpiritFlaskItem.handler(stack),
+                    ModItems.SPIRIT_FLASK.get(), ModItems.GREATER_SPIRIT_FLASK.get());
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     tk.darrow.tribalpower.camp.CampRegistry.TYPE.get(),(be,side)->be.hasInventory()?new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
                             new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be,side==null?net.minecraft.core.Direction.UP:side)):null);

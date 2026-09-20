@@ -7,6 +7,9 @@ import tk.darrow.tribalpower.item.*;
 
 /** Contextual rather than permanent HUD chrome. Only appears while holding Pulse equipment. */
 public final class PulseHud {
+    private static long readAt = Long.MIN_VALUE;
+    private static int pulse, capacity;
+
     private PulseHud() {}
     public static void render(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
@@ -14,11 +17,16 @@ public final class PulseHud {
         var held = mc.player.getMainHandItem();
         if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
                 && !(held.getItem() instanceof ResonanceMaulItem) && !held.is(ModItems.SPIRITGEAR_BLADE.get())) return;
-        // A piece's own seated cell counts too: it is what the piece spends first.
-        int pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
-        int capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
-        for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
-        capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
+        // A piece's own seated cell counts too: it is what the piece spends first. Both sums walk the
+        // whole inventory, so they are taken once a tick rather than once a frame.
+        long now = mc.level == null ? 0 : mc.level.getGameTime();
+        if (now != readAt) {
+            readAt = now;
+            pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
+            capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
+            for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
+            capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
+        }
         int x = mc.getWindow().getGuiScaledWidth()-128, y = mc.getWindow().getGuiScaledHeight()-69;
         var g = event.getGuiGraphics();
         g.fill(x, y, x+116, y+34, 0xD9101B22); g.fill(x, y, x+2, y+34, 0xFFB58A58);

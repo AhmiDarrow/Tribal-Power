@@ -1,0 +1,44 @@
+{
+  "name": "Wrench and wand",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Totem Wrench",
+      "text": [
+        "Every machine in the camp faces somewhere, and sooner or later it faces the wrong way. Use the wrench on a block and it turns, without breaking and replacing it.",
+        "**Sneak-use a machine's face** and that face steps through Both, Input, Output and Closed \u2014 the same setting the machine's own side pad shows, reachable from outside the screen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it costs",
+      "text": [
+        "A turn takes **1 Pulse** from any cell you carry. With no Pulse on you the wrench wears a point of its **512** instead, so it still works on a bad day.",
+        "It refuses blocks that cannot turn, and it refuses another tribe's machines, same as an empty hand would."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Weaver's Wand",
+      "text": [
+        "Click the face of a block and the wand carries that face outward across every neighbour like it: up to **32 blocks** in one sweep.",
+        "The blocks come from your pack and cost **2 Pulse** each. It only fills open air, never replacing anything that is already there, so a floor is laid in a click and nothing underneath is lost."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

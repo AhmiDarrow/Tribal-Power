@@ -31,9 +31,11 @@ VOID = [(8, 14, 22), (12, 22, 32), (18, 34, 46), (26, 50, 62), (38, 70, 80)]
 VOICES = [(132, 173, 94), (235, 132, 73), (95, 184, 217), (192, 218, 194), (166, 136, 221), (98, 209, 201)]
 
 RANKS = [("", BONE, 0), ("_attuned", COPPER, 1), ("_bound", GLOW, 2), ("_manifested", GOLD, 3)]
-TOOLS = ["spiritgear_pickaxe", "spiritgear_axe", "spiritgear_shovel", "spiritgear_blade"]
+TOOLS = ["spiritgear_pickaxe", "spiritgear_axe", "spiritgear_shovel", "spiritgear_blade",
+         "spiritgear_shears", "spiritgear_hoe"]
 WEAVE = ["spiritweave_hood", "spiritweave_robe", "spiritweave_leggings", "spiritweave_boots"]
-SINGLES = ["resonance_maul", "spirit_staff", "wayfarer_satchel", "spiritweave"]
+SINGLES = ["resonance_maul", "spirit_staff", "wayfarer_satchel", "spiritweave",
+           "spirit_flask", "greater_spirit_flask", "totem_wrench", "weavers_wand"]
 OWNED = {n + s for n in TOOLS + WEAVE for s, _, _ in RANKS} | set(SINGLES)
 
 
@@ -123,6 +125,39 @@ def haft(img, x0, y0, length, ramp=WOOD, wraps=(), wrap_ramp=BONE, cap=None):
     if cap:
         for dx, dy, tone in ((-1, 0, 3), (0, 0, 2), (-1, 1, 2), (0, 1, 1), (1, 1, 1), (0, 2, 0), (-2, 1, 3), (-1, 2, 1)):
             put(img, x0 + dx, y0 + dy, cap[tone])
+
+
+def hole(img, shape):
+    """Clear a shape back to nothing — an open jaw or a ring's eye, not a dark blob."""
+    mask = Image.new("L", img.size, 0)
+    shape(ImageDraw.Draw(mask))
+    m = mask.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            if m[x, y]:
+                img.putpixel((x, y), (0, 0, 0, 0))
+
+
+def taper(img, a, b, w0, w1, ramp, lo=1.0, hi=3.4, light=(-1, -1)):
+    """A stroke from a to b whose width runs from w0 to w1 — blades, shanks and slim shafts."""
+    pts = set()
+    steps = 96
+    for i in range(steps + 1):
+        t = i / steps
+        cx, cy = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
+        r = (w0 + (w1 - w0) * t) / 2
+        span = int(math.ceil(r))
+        for dx in range(-span, span + 1):
+            for dy in range(-span, span + 1):
+                if dx * dx + dy * dy <= r * r:
+                    pts.add((round(cx) + dx, round(cy) + dy))
+    region(img, lambda d: d.point(sorted(pts), fill=255), ramp, lo=lo, hi=hi, light=light)
+    return pts
+
+
+def ring(img, cx, cy, outer, inner, ramp):
+    region(img, ellipse(cx - outer, cy - outer, cx + outer, cy + outer), ramp, lo=1.4, hi=3.6)
+    hole(img, ellipse(cx - inner, cy - inner, cx + inner, cy + inner))
 
 
 def glint(img, x, y, c=(255, 255, 255)):
@@ -352,6 +387,146 @@ def bolt():
     # Turned corner showing the paler underside.
     region(img, poly([(22, 20), (27, 19), (28, 22), (24, 25)]), CLOTH, lo=3, hi=4.4, bevel=False)
     dots(img, [(22, 21), (23, 23), (24, 25)], CLOTH[0])
+    outline(img)
+    return img
+
+
+def shears(rank):
+    """Vanilla's read: the closed blades as one round head with the seam between them, a thin grip
+    curling around its lower left to the rivet, and the grey tail below the corner. The grip carries the
+    rank the way vanilla's red one carries its colour."""
+    img = new()
+    _, ramp, _ = fittings(rank)
+    fit = ramp if rank else LEATHER
+    # Closed blades: a round head with a hairline of daylight between the two.
+    head = set()
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).ellipse((13, 3, 28, 18), fill=255)
+    m = mask.load()
+    for y in range(32):
+        for x in range(32):
+            if m[x, y]:
+                head.add((x, y))
+    region(img, ellipse(13, 3, 28, 18), METAL, lo=1.2, hi=3.4)
+    seam = taper(img, (16, 15), (26, 5), 2, 1, VOID, lo=0.4, hi=1.8)
+    dots(img, [(x, y) for x, y in head
+               if (x, y - 1) not in head and (x - 1, y) not in head and (x, y) not in seam], METAL[4])
+    dots(img, [(x, y) for x, y in head
+               if (x, y + 1) not in head and (x + 1, y) not in head and (x, y) not in seam], METAL[1])
+    dots(img, [(22, 4), (23, 4), (24, 5)], METAL[4])
+    # Grip: a thin loop curling round the lower left of the head, its mouth where the blades point.
+    region(img, lambda d: d.arc((6, 4, 25, 25), 30, 276, fill=255, width=4), fit, lo=1.4, hi=3.6)
+    region(img, lambda d: d.arc((8, 6, 23, 23), 36, 270, fill=255, width=1), fit, lo=3.4, hi=4.4, bevel=False)
+    # The grey tail below the corner, ending in its rivet.
+    taper(img, (7, 22), (5, 27), 4, 4, METAL, lo=0.8, hi=2.6)
+    dots(img, [(4, 27), (5, 27)], METAL[0])
+    put(img, 6, 23, METAL[4])
+    # Rivet where the grip closes on the blades.
+    region(img, ellipse(17, 18, 21, 22), fit, lo=1.4, hi=3.6)
+    core = GLOW if rank >= 2 else fit
+    put(img, 19, 20, core[4])
+    put(img, 19, 21, core[1])
+    rune(img, [(19, 9), (21, 7), (23, 5)], rank)
+    if rank == 3:
+        glint(img, 24, 4)
+    outline(img)
+    return img
+
+
+def hoe(rank):
+    """Flat blade set square across the top of the haft, edge down-left, socket binding over the joint."""
+    img = new()
+    wraps, ramp, cap = fittings(rank)
+    haft(img, 5, 27, 17, wraps=wraps, wrap_ramp=ramp, cap=cap)
+    region(img, poly([(6, 3), (19, 3), (21, 7), (20, 10), (8, 9)]), METAL, lo=1.2, hi=3.2)
+    # Ground edge along the underside, and the hammered ridge above it.
+    dots(img, [(x, 9) for x in range(9, 19)] + [(8, 8), (19, 9)], METAL[4])
+    dots(img, [(x, 8) for x in range(10, 19)], METAL[3])
+    dots(img, [(x, 5) for x in range(8, 18)], METAL[1])
+    dots(img, [(x, 4) for x in range(7, 18)], METAL[3])
+    sock = ramp if rank else LEATHER
+    region(img, poly([(18, 8), (20, 5), (24, 9), (21, 12)]), sock, lo=1.5, hi=3.5)
+    if rank >= 2:
+        dots(img, [(20, 8), (21, 8)], GLOW[4])
+        dots(img, [(20, 9), (21, 9)], GLOW[3])
+    rune(img, [(9, 6), (11, 6), (13, 6), (15, 6), (17, 6)], rank)
+    if rank == 3:
+        glint(img, 12, 3)
+    outline(img)
+    return img
+
+
+def flask(big=False):
+    """A gourd bound in leather with a copper collar and a window of light down its front."""
+    img = new()
+    band = GOLD if big else COPPER
+    body = ellipse(6, 10, 25, 29) if not big else ellipse(3, 8, 28, 30)
+    region(img, body, LEATHER, lo=1.0, hi=3.4)
+    # Neck and collar.
+    region(img, rect(13, 3, 18, 11), LEATHER, lo=1.4, hi=3.0)
+    region(img, rect(12, 2, 19, 4), band, lo=1.4, hi=3.8)
+    region(img, rect(12, 8, 19, 10), band, lo=1.2, hi=3.4)
+    # The window: void behind, then the fluid light inside it.
+    win = rect(13, 13, 18, 26) if not big else rect(11, 12, 20, 27)
+    region(img, win, VOID, lo=0, hi=1.0, bevel=False)
+    inner = rect(14, 15, 17, 25) if not big else rect(12, 14, 19, 26)
+    region(img, inner, GLOW, lo=1.2, hi=3.6, bevel=False)
+    dots(img, [(14, 17), (14, 19)] if not big else [(13, 16), (13, 18), (13, 20)], GLOW[4])
+    # Straps around the body and a stitched seam down each flank.
+    for y in (14, 22) if not big else (13, 21, 27):
+        region(img, rect(5 if big else 7, y, 27 if big else 24, y + 1), band, lo=1.0, hi=3.2)
+    dots(img, [(8, y) for y in range(16, 26, 2)], LEATHER[4])
+    dots(img, [(23, y) for y in range(16, 26, 2)], LEATHER[1])
+    if big:
+        dots(img, [(5, 19), (6, 17), (26, 19), (25, 17)], GOLD[4])
+        for (x, y), c in zip([(9, 11), (22, 11), (9, 29), (22, 29)], VOICES[::2]):
+            put(img, x, y, c)
+    outline(img)
+    return img
+
+
+def greater_flask():
+    return flask(big=True)
+
+
+def wrench():
+    """A ring head with its mouth open to the up-right, a plain shank and a copper-bound grip."""
+    img = new()
+    taper(img, (6, 28), (21, 13), 5, 4, METAL, lo=1.0, hi=3.0)
+    region(img, ellipse(17, 1, 30, 14), METAL, lo=1.2, hi=3.4)
+    hole(img, ellipse(20, 4, 27, 11))
+    hole(img, poly([(25, 0), (33, 3), (33, 8), (26, 9)]))
+    dots(img, [(21, 2), (22, 2), (20, 3), (19, 4)], METAL[4])
+    dots(img, [(22, 13), (23, 13), (24, 12)], METAL[1])
+    dots(img, [(19, 9), (20, 10)], METAL[1])
+    # Grip: three copper wraps across the lower shank, and the rivet above them.
+    for i in range(3):
+        region(img, poly([(6 + i * 3, 27 - i * 3), (9 + i * 3, 24 - i * 3), (11 + i * 3, 26 - i * 3), (8 + i * 3, 29 - i * 3)]),
+               COPPER, lo=1.4, hi=3.4)
+    put(img, 17, 17, COPPER[4])
+    put(img, 18, 18, COPPER[1])
+    outline(img)
+    return img
+
+
+def wand():
+    """A slim rod whose forked head holds a small stone caught in a weave of thread."""
+    img = new()
+    taper(img, (4, 29), (19, 14), 4, 3, WOOD, lo=1.0, hi=3.0)
+    # Cloth bindings down the rod.
+    for i, (x, y) in enumerate(((7, 26), (9, 24), (14, 19), (16, 17))):
+        region(img, poly([(x, y), (x + 2, y - 2), (x + 3, y - 1), (x + 1, y + 1)]), CLOTH, lo=1.6, hi=3.8)
+    # Two tines opening from the head, thread strung between them.
+    taper(img, (19, 14), (22, 4), 3, 1, WOOD, lo=1.2, hi=3.0)
+    taper(img, (19, 14), (29, 11), 3, 1, WOOD, lo=1.0, hi=2.6)
+    for a, b in (((21, 6), (27, 11)), ((22, 8), (26, 13)), ((20, 10), (24, 14))):
+        taper(img, a, b, 1, 1, CLOTH, lo=2.4, hi=4.0)
+    # The stone: small, cut, and lit from within.
+    region(img, poly([(23, 7), (27, 10), (24, 14), (20, 11)]), GLOW, lo=1.0, hi=3.8)
+    dots(img, [(23, 9), (23, 10), (24, 9)], GLOW[4])
+    put(img, 25, 12, GLOW[1])
+    for (x, y), c in zip([(21, 5), (29, 11), (5, 28)], VOICES[1::2]):
+        put(img, x, y, c)
     outline(img)
     return img
 
@@ -665,8 +840,11 @@ def layer_2():
 
 
 PAINTERS = {"spiritgear_pickaxe": pickaxe, "spiritgear_axe": axe, "spiritgear_shovel": shovel, "spiritgear_blade": blade,
+            "spiritgear_shears": shears, "spiritgear_hoe": hoe,
             "spiritweave_hood": hood, "spiritweave_robe": robe, "spiritweave_leggings": leggings, "spiritweave_boots": boots}
-SINGLE_PAINTERS = {"resonance_maul": maul, "spirit_staff": staff, "wayfarer_satchel": satchel, "spiritweave": bolt}
+SINGLE_PAINTERS = {"resonance_maul": maul, "spirit_staff": staff, "wayfarer_satchel": satchel, "spiritweave": bolt,
+                   "spirit_flask": flask, "greater_spirit_flask": greater_flask, "totem_wrench": wrench,
+                   "weavers_wand": wand}
 
 
 def main() -> None:

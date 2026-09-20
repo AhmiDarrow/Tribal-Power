@@ -25,16 +25,33 @@ public final class CharmHooks {
 
     private CharmHooks() {}
 
+    /** Forget a player's last Pulse verdict when they log out, so the map cannot grow without bound. */
+    public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        PULSE_OK.remove(event.getEntity().getUUID());
+    }
+
     public static void playerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         if (player.level().isClientSide) return;
-        Set<Attunement> voices = new HashSet<>();
+        CharmInventory worn = CharmSlots.of(player);
+        Set<Attunement> voices = null;
         int cost = 0;
         boolean flight = false;
-        for (ItemStack charm : CharmSlots.equipped(player)) {
-            voices.addAll(SpiritCharmItem.voices(charm));
-            cost += SpiritCharmItem.pulseCost(charm);
-            if (SpiritCharmItem.grantsFlight(charm)) flight = true;
+        // Read each charm's voices once. This runs every tick for every player, and voices() parses the
+        // charm's tag, so asking it three times per charm (voices, cost, flight) was three times the work.
+        for (int i = 0; i < CharmInventory.SIZE; i++) {
+            ItemStack charm = worn.getItem(i);
+            if (charm.isEmpty()) continue;
+            Set<Attunement> theirs = SpiritCharmItem.voices(charm);
+            if (voices == null) voices = new HashSet<>();
+            voices.addAll(theirs);
+            cost += 2 * Math.max(1, theirs.size());
+            if (theirs.contains(Attunement.AIR)) flight = true;
+        }
+        if (voices == null) {
+            // Nothing worn: no Pulse to spend, no effects to apply, and flight to take back if it was given.
+            setFlight(player, false);
+            return;
         }
         boolean due = player.level().getGameTime() % 40 == 0;
         boolean last = PULSE_OK.getOrDefault(player.getUUID(), true);
@@ -52,7 +69,7 @@ public final class CharmHooks {
             return;
         }
         if (player.level().getGameTime() % 80 == 0) apply(player, voices);
-        applyKinds(player);
+        applyKinds(player, worn);
         if (voices.contains(Attunement.LOOM) && player.level().getGameTime() % 40 == 0
                 && player.getRandom().nextFloat() < 0.30F && cost > 0) {
             for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
@@ -66,9 +83,11 @@ public final class CharmHooks {
         setFlight(player, flight);
     }
 
-    private static void applyKinds(Player player) {
+    private static void applyKinds(Player player, CharmInventory worn) {
         long time = player.level().getGameTime();
-        for (ItemStack charm : CharmSlots.equipped(player)) {
+        if (time % 80 != 0 && !player.isShiftKeyDown()) return;
+        for (int i = 0; i < CharmInventory.SIZE; i++) {
+            ItemStack charm = worn.getItem(i);
             if (!(charm.getItem() instanceof SpiritCharmItem item)) continue;
             if (item.kind == CharmKind.HEARTH && time % 80 == 0) {
                 player.getFoodData().eat(1, 0.4F);

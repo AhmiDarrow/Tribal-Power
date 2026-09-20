@@ -13,6 +13,9 @@ import org.joml.Vector3f;
  */
 public final class LeyLensHud {
     private static long nextScan;
+    private static long leyReadAt = Long.MIN_VALUE;
+    private static LeyMath.Factors factors;
+    private static int[] counts;
     private static java.util.Set<tk.darrow.tribalpower.api.pulse.Attunement> voices;
 
     private LeyLensHud() {}
@@ -29,26 +32,32 @@ public final class LeyLensHud {
         g.fill(x, y, x + width, y + height, 0xD9101B22);
         g.fill(x, y, x + 2, y + height, 0xFF74DBCB);
         g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.mode." + mode), x + 8, y + 4, 0xFFE7DCC1, false);
+        long time = mc.level.getGameTime();
         if (mode == LeyLensItem.LEY) {
-            LeyMath.Factors factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
-            int percent = (int) Math.round(factors.strength() * 100);
-            Vector3f c = LeyLensItem.colour(factors.strength());
+            // The reading takes a sweep of the surrounding blocks and the weather; a frame is far too often.
+            if (factors == null || time != leyReadAt) {
+                leyReadAt = time;
+                factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
+            }
+            LeyMath.Factors reading = factors;
+            int percent = (int) Math.round(reading.strength() * 100);
+            Vector3f c = LeyLensItem.colour(reading.strength());
             int colour = 0xFF000000 | ((int) (c.x * 255) << 16) | ((int) (c.y * 255) << 8) | (int) (c.z * 255);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.ley", percent), x + 8, y + 16, 0xFFE7DCC1, false);
             g.fill(x + 8, y + 28, x + 108, y + 31, 0xFF30494A);
             g.fill(x + 8, y + 28, x + 8 + Math.min(100, percent), y + 31, colour);
             StringBuilder tags = new StringBuilder();
-            if (factors.sky()) tags.append(factors.night() ? "night sky " : "sky ");
-            if (factors.rain()) tags.append(factors.thunder() ? "storm " : "rain ");
-            if (factors.water() > 0) tags.append("water ");
-            if (factors.greenery() > 0) tags.append("green ");
+            if (reading.sky()) tags.append(reading.night() ? "night sky " : "sky ");
+            if (reading.rain()) tags.append(reading.thunder() ? "storm " : "rain ");
+            if (reading.water() > 0) tags.append("water ");
+            if (reading.greenery() > 0) tags.append("green ");
             if (tags.isEmpty()) tags.append("sheltered");
             g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
             return;
         }
         var pos = mc.player.blockPosition();
         int r = tk.darrow.tribalpower.lattice.LatticeNetwork.DEFAULT_RADIUS;
-        long now = mc.level.getGameTime();
+        long now = time;
         boolean due = now >= nextScan || now < nextScan - 20;
         if (due) nextScan = now + 20;
         if (mode == LeyLensItem.PULSE) {
@@ -63,13 +72,17 @@ public final class LeyLensHud {
             String names = voices.stream().map(v -> v.getSerializedName()).reduce((a, b) -> a + " " + b).orElse("none");
             g.drawString(mc.font, mc.font.plainSubstrByWidth(names, 100), x + 8, y + 28, 0xFF74DBCB, false);
         } else {
-            int stations = 0, relays = 0, caches = 0;
-            for (var be : nearby(mc, pos, r)) {
-                if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) stations++;
-                else if (be instanceof tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) relays++;
-                else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) caches++;
+            // Counting the machines walks every block entity in four chunks: once a second is plenty.
+            if (due || counts == null) {
+                int stations = 0, relays = 0, caches = 0;
+                for (var be : nearby(mc, pos, r)) {
+                    if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) stations++;
+                    else if (be instanceof tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) relays++;
+                    else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) caches++;
+                }
+                counts = new int[]{stations, relays, caches};
             }
-            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.machines", stations, relays, caches), x + 8, y + 16, 0xFF99C9BD, false);
+            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.machines", counts[0], counts[1], counts[2]), x + 8, y + 16, 0xFF99C9BD, false);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.hint"), x + 8, y + 28, 0xFF667A80, false);
         }
     }

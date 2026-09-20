@@ -24,6 +24,8 @@ import java.util.List;
  */
 public final class GreenBlessing {
     public static final int EXTRA_TICKS = 3;
+    /** How many ticks apart the growth pass runs; each pass carries that many ticks' worth of samples. */
+    public static final int SAMPLE_INTERVAL = 4;
     public static final int CHUNK_RADIUS = 1;
 
     private GreenBlessing() {}
@@ -47,6 +49,8 @@ public final class GreenBlessing {
     }
 
     public static void tick(ServerLevel level) {
+        // Sample every fourth tick with four times the samples: the same growth for a quarter of the work.
+        if (level.getGameTime() % SAMPLE_INTERVAL != 0) return;
         List<ChunkPos> chunks = RiteSavedData.get(level.getServer()).blessedChunks(level);
         if (chunks.isEmpty()) return;
         RandomSource random = level.random;
@@ -61,7 +65,7 @@ public final class GreenBlessing {
                 LevelChunkSection section = sections[s];
                 if (section == null || !section.isRandomlyTicking()) continue;
                 int minY = chunk.getSectionYFromSectionIndex(s) << 4;
-                for (int i = 0; i < EXTRA_TICKS; i++) {
+                for (int i = 0; i < EXTRA_TICKS * SAMPLE_INTERVAL; i++) {
                     int r = random.nextInt();
                     int x = r & 15, y = (r >> 8) & 15, z = (r >> 16) & 15;
                     BlockState state = section.getBlockState(x, y, z);

@@ -41,7 +41,8 @@ public final class SpiritGear {
     public static boolean isTool(ItemStack stack) {
         Item item = stack.getItem();
         return item instanceof SpiritgearPickaxeItem || item instanceof SpiritgearAxeItem
-                || item instanceof SpiritgearShovelItem || item instanceof SpiritgearBladeItem;
+                || item instanceof SpiritgearShovelItem || item instanceof SpiritgearBladeItem
+                || item instanceof SpiritgearShearsItem || item instanceof SpiritgearHoeItem;
     }
 
     public static boolean isArmor(ItemStack stack) {
@@ -52,10 +53,19 @@ public final class SpiritGear {
         return isTool(stack) || isArmor(stack);
     }
 
+    /**
+     * Read the piece's tag without copying it. {@code copyTag()} deep-copies the whole compound, and
+     * these two are read several times per tick per worn piece and again for every frame the piece is
+     * drawn, so the copy dominated. Nothing here mutates what it reads; the writers still go through
+     * {@link CustomData#update}.
+     */
+    private static net.minecraft.nbt.CompoundTag tag(ItemStack stack) {
+        return stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
+    }
+
     public static int rank(ItemStack stack) {
         if (!isGear(stack)) return 0;
-        return Math.clamp(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                .copyTag().getInt(RANK_KEY), 0, MAX_RANK);
+        return Math.clamp(tag(stack).getInt(RANK_KEY), 0, MAX_RANK);
     }
 
     public static void setRank(ItemStack stack, int rank) {
@@ -72,15 +82,19 @@ public final class SpiritGear {
         return rank(stack) >= 3;
     }
 
+    private static final java.util.Map<String, Optional<Attunement>> VOICES = voiceLookup();
+
+    private static java.util.Map<String, Optional<Attunement>> voiceLookup() {
+        java.util.Map<String, Optional<Attunement>> map = new java.util.HashMap<>();
+        for (Attunement attunement : Attunement.values()) map.put(attunement.getSerializedName(), Optional.of(attunement));
+        return java.util.Map.copyOf(map);
+    }
+
     public static Optional<Attunement> voice(ItemStack stack) {
         if (!isGear(stack)) return Optional.empty();
-        String name = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                .copyTag().getString(VOICE_KEY);
+        String name = tag(stack).getString(VOICE_KEY);
         if (name == null || name.isEmpty()) return Optional.empty();
-        for (Attunement attunement : Attunement.values()) {
-            if (attunement.getSerializedName().equals(name)) return Optional.of(attunement);
-        }
-        return Optional.empty();
+        return VOICES.getOrDefault(name, Optional.empty());
     }
 
     public static void setVoice(ItemStack stack, Attunement attunement) {
@@ -311,6 +325,7 @@ public final class SpiritGear {
         List<Item> pieces = List.of(
                 ModItems.SPIRITGEAR_PICKAXE.get(), ModItems.SPIRITGEAR_AXE.get(),
                 ModItems.SPIRITGEAR_SHOVEL.get(), ModItems.SPIRITGEAR_BLADE.get(),
+                ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
                 ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
         String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};

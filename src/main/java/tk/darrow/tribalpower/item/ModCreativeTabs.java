@@ -49,6 +49,8 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRITGEAR_AXE.get());
                         out.accept(ModItems.SPIRITGEAR_SHOVEL.get());
                         out.accept(ModItems.SPIRITGEAR_BLADE.get());
+                        out.accept(ModItems.SPIRITGEAR_SHEARS.get());
+                        out.accept(ModItems.SPIRITGEAR_HOE.get());
                         out.accept(ModItems.DRUMHEART.get());
                         out.accept(ModItems.LEY_COLLECTOR.get());
                         out.accept(ModItems.PULSE_RESONATOR.get());
@@ -132,6 +134,10 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.CHORUS_CHARM.get());
                         out.accept(ModItems.RITUAL_BRAZIER.get());
                         out.accept(ModItems.LATTICE_TUNER.get());
+                        out.accept(ModItems.TOTEM_WRENCH.get());
+                        out.accept(ModItems.WEAVERS_WAND.get());
+                        out.accept(ModItems.SPIRIT_FLASK.get());
+                        out.accept(ModItems.GREATER_SPIRIT_FLASK.get());
                         out.accept(ModItems.ITEM_RELAY.get());
                         out.accept(ModItems.FLUID_RELAY.get());
                         out.accept(ModItems.LONGREACH_ITEM_RELAY.get());

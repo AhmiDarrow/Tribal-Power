@@ -45,7 +45,9 @@ public final class SpiritGearHooks {
         // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
         SpiritGear.Swing current = SpiritGear.swingFor(player);
         if (current != null && current.aoe()) return;
-        boolean paid = player.getAbilities().instabuild || SpiritGear.consumeForMine(player, tool);
+        boolean paid = player.getAbilities().instabuild
+                || (tool.getItem() instanceof SpiritgearShearsItem && SpiritgearShearsItem.freeTrim(tool))
+                || SpiritGear.consumeForMine(player, tool);
         SpiritGear.beginSwing(player, tool, paid, false);
     }
 
@@ -72,7 +74,8 @@ public final class SpiritGearHooks {
                     event.getPos().getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.CLAY_BALL)));
         }
 
-        if (voice == Attunement.LOOM && tool.getItem() instanceof SpiritgearAxeItem && swing.player() != null) {
+        if (voice == Attunement.LOOM && swing.player() != null
+                && (tool.getItem() instanceof SpiritgearAxeItem || tool.getItem() instanceof SpiritgearShearsItem)) {
             for (ItemEntity drop : event.getDrops()) {
                 drop.setPos(swing.player().getX(), swing.player().getY() + 0.2, swing.player().getZ());
                 drop.setPickUpDelay(0);
@@ -288,28 +291,53 @@ public final class SpiritGearHooks {
     }
 
     private static void glintOres(ServerLevel level, ServerPlayer owner, int range) {
-        BlockPos center = owner.blockPosition();
-        int marked = 0;
-        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
-                center.offset(range, range, range))) {
-            if (!level.getBlockState(pos).is(Tags.Blocks.ORES)) continue;
-            level.sendParticles(owner, ParticleTypes.END_ROD, true,
-                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 3, 0.35, 0.35, 0.35, 0);
-            if (++marked >= 96) break;
-        }
+        sweep(level, owner, range, 96, 3, 0.35, state -> state.is(Tags.Blocks.ORES));
     }
 
     private static void glintBuried(ServerLevel level, ServerPlayer owner, int range) {
+        sweep(level, owner, range, 32, 4, 0.25, state -> state.is(Blocks.CHEST) || state.is(Blocks.TRAPPED_CHEST)
+                || state.is(Blocks.BARREL) || state.is(Blocks.SPAWNER) || state.is(Blocks.TRIAL_SPAWNER));
+    }
+
+    /**
+     * Mark what the filter finds around the player. The cube is walked a chunk section at a time and any
+     * section whose palette cannot hold a match is skipped whole — most of them, underground or not —
+     * instead of reading all 9,261 block states of a radius-10 cube every sweep.
+     */
+    private static void sweep(ServerLevel level, ServerPlayer owner, int range, int cap, int count, double spread,
+                              java.util.function.Predicate<BlockState> filter) {
         BlockPos center = owner.blockPosition();
+        int minX = center.getX() - range, maxX = center.getX() + range;
+        int minZ = center.getZ() - range, maxZ = center.getZ() + range;
+        int minY = Math.max(level.getMinBuildHeight(), center.getY() - range);
+        int maxY = Math.min(level.getMaxBuildHeight() - 1, center.getY() + range);
+        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
         int marked = 0;
-        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
-                center.offset(range, range, range))) {
-            var state = level.getBlockState(pos);
-            if (!state.is(Blocks.CHEST) && !state.is(Blocks.TRAPPED_CHEST) && !state.is(Blocks.BARREL)
-                    && !state.is(Blocks.SPAWNER) && !state.is(Blocks.TRIAL_SPAWNER)) continue;
-            level.sendParticles(owner, ParticleTypes.END_ROD, true,
-                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 4, 0.25, 0.25, 0.25, 0);
-            if (++marked >= 32) break;
+        for (int cx = minX >> 4; cx <= maxX >> 4 && marked < cap; cx++) {
+            for (int cz = minZ >> 4; cz <= maxZ >> 4 && marked < cap; cz++) {
+                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) continue;
+                var sections = chunk.getSections();
+                for (int sy = minY >> 4; sy <= maxY >> 4 && marked < cap; sy++) {
+                    int index = chunk.getSectionIndexFromSectionY(sy);
+                    if (index < 0 || index >= sections.length) continue;
+                    var section = sections[index];
+                    if (section == null || section.hasOnlyAir() || !section.maybeHas(filter)) continue;
+                    int baseY = sy << 4;
+                    for (int y = Math.max(minY, baseY); y <= Math.min(maxY, baseY + 15) && marked < cap; y++) {
+                        for (int x = Math.max(minX, cx << 4); x <= Math.min(maxX, (cx << 4) + 15) && marked < cap; x++) {
+                            for (int z = Math.max(minZ, cz << 4); z <= Math.min(maxZ, (cz << 4) + 15) && marked < cap; z++) {
+                                if (!filter.test(section.getBlockState(x & 15, y & 15, z & 15))) continue;
+                                cursor.set(x, y, z);
+                                level.sendParticles(owner, ParticleTypes.END_ROD, true,
+                                        cursor.getX() + 0.5, cursor.getY() + 0.5, cursor.getZ() + 0.5,
+                                        count, spread, spread, spread, 0);
+                                marked++;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

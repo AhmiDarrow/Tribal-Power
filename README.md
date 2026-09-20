@@ -52,7 +52,9 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
 
 ## Storage and automation
 
-Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers.
+Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers. The **Spirit Flask** is a tank for the road at 4,000 mB, the **Greater Spirit Flask** at 16,000: use either on a tank, machine or fluid source to fill it, sneak-use to pour a bucket back out. Both are ordinary fluid containers, so pipes and other mods fill them in place.
+
+Every inventory worth tidying carries a small **Tidy** button above its slots: your own pack, caches, and any chest, barrel, shulker box or hopper. It merges stacks and orders the rest, never touching the hotbar, armour or a machine's slots. Turn it off with `sortButtons` in the client config.
 
 A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
@@ -93,6 +95,10 @@ The **Sixfold Staff** switches voices with sneak-use: Earth slows hostiles, Fire
 The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in the main hand, costing 8 Pulse per broken block. Normal player breaking checks and protection events still apply.
 
 **Spiritweave armor** unlinked: hood night sight, robe resistance, leggings speed, boots slow falling when descending. Unlinked pieces spend 2 Pulse every four seconds; sneak-use a piece on a Resonance Totem (40 Pulse) to replace that boon with the totem's voice (3 Pulse). Mixed voices are intended. Original Spiritgear tools remain available.
+
+**Spiritgear Shears** and a **Spiritgear Hoe** join the set and rank and bind the same way. The shears take a 3x3 face of foliage with Earth, trim for nothing with Air, leave a sheep its fleece with Water, smoke a hive calm with Fire, mend what they shear with Spirit and send cuttings to hand with Loom. The hoe reaps and sows a ripe crop in one use: Earth turns a 3x3 of soil, Water keeps its furrows and nearby fields wet, Air reaps a 3x3, Loom a 5x5 for no Pulse, and Spirit doubles part of the harvest.
+
+The **Totem Wrench** turns a block without breaking it, and sneak-used on a machine face steps that face through Both, Input, Output and Closed for 1 Pulse. The **Weaver's Wand** carries the face you click across every matching neighbour, up to 32 blocks, spending blocks from your pack and 2 Pulse each.
 
 Seat a reusable seal in a **Ritual Brazier** with its matching totem nearby. Earth grants haste, Fire resists flame, Water regenerates, Air slows falls, Spirit grants night sight, and Loom threads 2 Pulse into carried cells every two seconds with Luck. A six-block blessing consumes 8 Pulse every two seconds while players are present. Sneak empty-handed to recover the seal.
 

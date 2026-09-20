@@ -127,21 +127,14 @@ public class LeyLensItem extends Item {
     private static void paintPulse(ServerLevel server, ServerPlayer player, BlockPos origin) {
         int radius = LatticeNetwork.DEFAULT_RADIUS;
         ring(server, player, origin, radius, PULSE_COL);
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
         int shown = 0;
-        for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -radius; dy <= radius; dy++) {
-                for (int dz = -radius; dz <= radius; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    if (!server.hasChunkAt(cursor)) continue;
-                    BlockEntity be = server.getBlockEntity(cursor);
-                    if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
-                    float fill = pulse.getPulseCapacity() == 0 ? 0 : (float) pulse.getPulseStored() / pulse.getPulseCapacity();
-                    DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
-                    server.sendParticles(player, core, false, cursor.getX() + 0.5, cursor.getY() + 1.15, cursor.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
-                    if (shown++ < 4) ring(server, player, cursor.immutable(), radius, PULSE_COL);
-                }
-            }
+        for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, radius)) {
+            if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
+            BlockPos at = be.getBlockPos();
+            float fill = (float) pulse.getPulseStored() / pulse.getPulseCapacity();
+            DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
+            server.sendParticles(player, core, false, at.getX() + 0.5, at.getY() + 1.15, at.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
+            if (shown++ < 4) ring(server, player, at, radius, PULSE_COL);
         }
     }
 
@@ -162,24 +155,16 @@ public class LeyLensItem extends Item {
 
     private static void paintMachines(ServerLevel server, ServerPlayer player, BlockPos origin) {
         int r = LatticeNetwork.DEFAULT_RADIUS;
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -r; dx <= r; dx++) {
-            for (int dy = -r; dy <= r; dy++) {
-                for (int dz = -r; dz <= r; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    if (!server.hasChunkAt(cursor)) continue;
-                    BlockEntity be = server.getBlockEntity(cursor);
-                    if (be == null) continue;
-                    Vector3f col = null;
-                    if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) col = STRONG;
-                    else if (be instanceof WirelessRelayBlockEntity) col = PULSE_COL;
-                    else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) col = WEAK;
-                    else if (be instanceof PulseHandler) col = new Vector3f(0.85F, 0.7F, 0.35F);
-                    if (col == null) continue;
-                    server.sendParticles(player, new DustParticleOptions(col, 0.95F), false,
-                            cursor.getX() + 0.5, cursor.getY() + 1.1, cursor.getZ() + 0.5, 1, 0.1, 0.05, 0.1, 0);
-                }
-            }
+        for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, r)) {
+            Vector3f col = null;
+            if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) col = STRONG;
+            else if (be instanceof WirelessRelayBlockEntity) col = PULSE_COL;
+            else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) col = WEAK;
+            else if (be instanceof PulseHandler) col = new Vector3f(0.85F, 0.7F, 0.35F);
+            if (col == null) continue;
+            BlockPos at = be.getBlockPos();
+            server.sendParticles(player, new DustParticleOptions(col, 0.95F), false,
+                    at.getX() + 0.5, at.getY() + 1.1, at.getZ() + 0.5, 1, 0.1, 0.05, 0.1, 0);
         }
     }
 

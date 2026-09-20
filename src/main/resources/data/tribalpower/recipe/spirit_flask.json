@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " R ",
+    "LWL",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "tribalpower:copper_resonator"
+    },
+    "L": {
+      "item": "tribalpower:march_leather"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spirit_flask",
+    "count": 1
+  }
+}

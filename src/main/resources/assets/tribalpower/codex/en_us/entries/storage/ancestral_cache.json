@@ -206,6 +206,15 @@
     {
       "type": "recipe",
       "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "The tidy button",
+      "text": [
+        "Every inventory worth tidying carries a small **Tidy** button in the empty corner above its slots: your own pack, this cache, the [Deep Cache](deep_cache), and any chest, barrel, shulker box or hopper.",
+        "A press merges what can be merged and lays the rest out in order. Your hotbar and your armour are never moved, and a machine's slots are left alone \u2014 the button only appears where every slot takes anything.",
+        "Turn it off with **sortButtons** in the client config if it crowds another mod's screen."
+      ]
     }
   ]
 }

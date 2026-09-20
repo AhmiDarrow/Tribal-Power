@@ -46,10 +46,18 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         return attunement;
     }
 
+    /** Cached ley reading: the land around a totem changes on the scale of weather, not of ticks. */
+    private boolean lush;
+    private long lushReadAt = Long.MIN_VALUE;
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, ResonanceTotemBlockEntity be) {
         if (be.attention <= 0) return;
-        boolean lush = LeyMath.glimpse(level, pos).strength() >= LeyMath.PAD;
-        if (lush && (level.getGameTime() & 1L) != 0L) return;
+        long now = level.getGameTime();
+        if (now - be.lushReadAt >= 100L || be.lushReadAt == Long.MIN_VALUE) {
+            be.lush = LeyMath.glimpse(level, pos).strength() >= LeyMath.PAD;
+            be.lushReadAt = now;
+        }
+        if (be.lush && (now & 1L) != 0L) return;
         be.attention--;
         if (be.attention % 200 == 0) be.setChanged();
     }

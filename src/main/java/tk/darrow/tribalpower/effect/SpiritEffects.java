@@ -19,7 +19,13 @@ public final class SpiritEffects {
             case LOOM -> new Vector3f(0.38F, 0.82F, 0.79F);
         };
     }
+    /** Nobody within sight of it: every packet below would be built and thrown away, so don't build them. */
+    private static boolean unseen(ServerLevel level, Vec3 at) {
+        return !level.hasNearbyAlivePlayer(at.x, at.y, at.z, 48.0);
+    }
+
     public static void ring(ServerLevel level, Vec3 center, Attunement element, double radius, int points) {
+        if (unseen(level, center)) return;
         DustParticleOptions dust = new DustParticleOptions(color(element), 0.85F);
         int count = Math.max(4, Math.min(24, points));
         double phase = level.getGameTime() * 0.025;
@@ -29,6 +35,7 @@ public final class SpiritEffects {
         }
     }
     public static void beam(ServerLevel level, Vec3 from, Vec3 to, Attunement element) {
+        if (unseen(level, from) && unseen(level, to)) return;
         DustParticleOptions dust = new DustParticleOptions(color(element), 0.9F);
         int count = Math.min(32, Math.max(2, (int)(from.distanceTo(to) * 2)));
         for (int i = 0; i <= count; i++) {

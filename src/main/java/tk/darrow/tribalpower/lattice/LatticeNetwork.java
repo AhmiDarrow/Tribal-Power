@@ -62,23 +62,47 @@ public final class LatticeNetwork {
         return findNearbyTotems(level, origin, radius).size();
     }
 
-    public static List<ResonanceTotemBlockEntity> findNearbyTotems(Level level, BlockPos origin, int radius) {
-        List<ResonanceTotemBlockEntity> found = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -radius; dy <= radius; dy++) {
-                for (int dz = -radius; dz <= radius; dz++) {
-                    if (dx == 0 && dy == 0 && dz == 0) {
-                        continue;
-                    }
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (be instanceof ResonanceTotemBlockEntity totem) {
-                        found.add(totem);
-                    }
+    /**
+     * Every block entity of {@code type} inside the box, found by walking the loaded chunks' block-entity
+     * maps instead of probing each of the box's positions. A radius-8 cube is 4,913 lookups a call and this
+     * runs on machine beats; the chunk maps hold only the handful of block entities that actually exist.
+     * Results come back in the same x, y, z order the cube walk used, so callers see no change.
+     */
+    private static <T extends BlockEntity> List<T> inBox(Level level, Class<T> type,
+                                                         int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
+        List<T> found = new ArrayList<>();
+        for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
+            for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) continue;
+                for (BlockEntity be : chunk.getBlockEntities().values()) {
+                    if (be.isRemoved() || !type.isInstance(be)) continue;
+                    BlockPos at = be.getBlockPos();
+                    if (at.getX() < minX || at.getX() > maxX || at.getY() < minY || at.getY() > maxY
+                            || at.getZ() < minZ || at.getZ() > maxZ) continue;
+                    found.add(type.cast(be));
                 }
             }
         }
+        if (found.size() > 1)
+            found.sort(java.util.Comparator.comparingInt((T be) -> be.getBlockPos().getX())
+                    .thenComparingInt(be -> be.getBlockPos().getY())
+                    .thenComparingInt(be -> be.getBlockPos().getZ()));
+        return found;
+    }
+
+    /** Every block entity within {@code radius}, in the same order a walk of the cube would have found them. */
+    public static List<BlockEntity> blockEntitiesAround(Level level, BlockPos origin, int radius) {
+        return inBox(level, BlockEntity.class,
+                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
+                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius);
+    }
+
+    public static List<ResonanceTotemBlockEntity> findNearbyTotems(Level level, BlockPos origin, int radius) {
+        List<ResonanceTotemBlockEntity> found = inBox(level, ResonanceTotemBlockEntity.class,
+                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
+                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius);
+        found.removeIf(totem -> totem.getBlockPos().equals(origin));
         return found;
     }
 
@@ -184,50 +208,37 @@ public final class LatticeNetwork {
     }
 
     public static List<SongBenchBlockEntity> findSongBenchesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
-        Set<BlockPos> seen = new HashSet<>();
-        List<SongBenchBlockEntity> found = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (BlockPos hub : hubs) {
-            for (int dx = -radius; dx <= radius; dx++) {
-                for (int dy = -radius; dy <= radius; dy++) {
-                    for (int dz = -radius; dz <= radius; dz++) {
-                        cursor.set(hub.getX() + dx, hub.getY() + dy, hub.getZ() + dz);
-                        BlockPos key = cursor.immutable();
-                        if (!seen.add(key)) {
-                            continue;
-                        }
-                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
-                        if (be instanceof SongBenchBlockEntity bench) {
-                            found.add(bench);
-                        }
-                    }
-                }
-            }
-        }
-        return found;
+        return nearHubs(level, SongBenchBlockEntity.class, hubs, radius);
     }
 
     public static List<AncestralCacheBlockEntity> findCachesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
-        Set<BlockPos> seen = new HashSet<>();
-        List<AncestralCacheBlockEntity> found = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+        return nearHubs(level, AncestralCacheBlockEntity.class, hubs, radius);
+    }
+
+    /**
+     * One pass over the box the hubs span, then a range test per candidate. The old walk repeated a whole
+     * radius-8 cube for every hub and allocated a BlockPos per position to dedupe them; a conductor with
+     * eight hubs paid tens of thousands of block-entity lookups a second for a handful of benches.
+     */
+    private static <T extends BlockEntity> List<T> nearHubs(Level level, Class<T> type,
+                                                            Collection<BlockPos> hubs, int radius) {
+        if (hubs.isEmpty()) return List.of();
+        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE;
+        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
         for (BlockPos hub : hubs) {
-            for (int dx = -radius; dx <= radius; dx++) {
-                for (int dy = -radius; dy <= radius; dy++) {
-                    for (int dz = -radius; dz <= radius; dz++) {
-                        cursor.set(hub.getX() + dx, hub.getY() + dy, hub.getZ() + dz);
-                        BlockPos key = cursor.immutable();
-                        if (!seen.add(key)) {
-                            continue;
-                        }
-                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
-                        if (be instanceof AncestralCacheBlockEntity cache) {
-                            found.add(cache);
-                        }
-                    }
-                }
-            }
+            minX = Math.min(minX, hub.getX() - radius); maxX = Math.max(maxX, hub.getX() + radius);
+            minY = Math.min(minY, hub.getY() - radius); maxY = Math.max(maxY, hub.getY() + radius);
+            minZ = Math.min(minZ, hub.getZ() - radius); maxZ = Math.max(maxZ, hub.getZ() + radius);
         }
+        List<T> found = inBox(level, type, minX, minY, minZ, maxX, maxY, maxZ);
+        found.removeIf(be -> {
+            BlockPos at = be.getBlockPos();
+            for (BlockPos hub : hubs) {
+                if (Math.abs(at.getX() - hub.getX()) <= radius && Math.abs(at.getY() - hub.getY()) <= radius
+                        && Math.abs(at.getZ() - hub.getZ()) <= radius) return false;
+            }
+            return true;
+        });
         return found;
     }
 

@@ -73,7 +73,9 @@ public class SpiritweaveArmor extends ArmorItem {
         }
         if (player.getItemBySlot(getEquipmentSlot()) != stack) return;
 
-        if (getType() == Type.BOOTS && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
+        // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
+        if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0
+                && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
             freeze(player, SpiritGear.rank(stack) >= 3 ? 3 : 2);
         }
 

@@ -1,0 +1,36 @@
+{
+  "name": "Spirit Flask",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "A tank you can carry. The flask holds one fluid, **4,000 mB** (4 buckets) \u2014 the **Greater Spirit Flask** holds **16,000 mB**, as much as a [Spirit Cistern](spirit_cistern).",
+        "It never splits into a stack of buckets, and the amount it holds shows as a bar under the icon in the fluid's own colour."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Filling and pouring",
+      "text": [
+        "- **Use it on a tank or machine** (a cistern, a Wave Drum, a fluid relay, another mod's tank) and it draws from it; if it cannot draw, it pours in what it carries instead.",
+        "- **Use it on a fluid source in the world** and it drinks a bucket of it.",
+        "- **Sneak-use** and it pours a bucket back out in front of you.",
+        "Other mods see it as an ordinary fluid container, so pipes and filling machines can fill and drain it while it sits in your pack."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}
