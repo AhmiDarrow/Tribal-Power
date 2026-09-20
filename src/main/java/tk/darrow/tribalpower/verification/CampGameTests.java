@@ -117,4 +117,125 @@ public class CampGameTests {
         h.assertTrue(h.getBlockState(new BlockPos(2,2,4)).isAir(),"Wind Charm pops without a ceiling");
         h.succeed();
     }
+
+    // ---- Wall Shelf ------------------------------------------------------------------------
+    // The shelf holds four things along its board. It is furniture, so a player's hands are the
+    // only way on and off it: no face is open to a hopper, and a comparator reads how full it is.
+
+    /** Builds a shelf on the south face of a wall at (2,2,2) and hands back its block entity. */
+    private static CampDisplayBlockEntity shelf(GameTestHelper h) {
+        h.setBlock(2, 2, 2, Blocks.STONE);
+        BlockPos pos = new BlockPos(2, 2, 3);
+        h.setBlock(pos, ModBlocks.WALL_SHELF.get().defaultBlockState()
+                .setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, Direction.SOUTH));
+        return (CampDisplayBlockEntity) h.getBlockEntity(pos);
+    }
+
+    @GameTest(template = "empty")
+    public static void shelfTakesOneItemPerPlaceAndGivesItBack(GameTestHelper h) {
+        CampDisplayBlockEntity board = shelf(h);
+        ItemStack held = new ItemStack(Items.DIAMOND, 3);
+
+        ItemStack left = board.place(0, held);
+        h.assertTrue(board.at(0).is(Items.DIAMOND) && board.at(0).getCount() == 1,
+                "A shelf shows one item, not the stack");
+        h.assertTrue(left.getCount() == 2, "The rest of the stack stays in hand");
+
+        h.assertTrue(board.place(0, new ItemStack(Items.EMERALD)).getCount() == 1,
+                "A taken place refuses a second item");
+        h.assertTrue(board.at(0).is(Items.DIAMOND), "and keeps what was already there");
+
+        h.assertTrue(board.take(0).is(Items.DIAMOND), "Taking gives the item back");
+        h.assertTrue(board.at(0).isEmpty(), "and leaves the place bare");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void shelfFillsTheNextFreePlaceAndThenRefuses(GameTestHelper h) {
+        CampDisplayBlockEntity board = shelf(h);
+        for (int i = 0; i < CampDisplayBlockEntity.MAX_SLOTS; i++) {
+            h.assertTrue(board.freeSlotFrom(0) == i, "The next free place is " + i);
+            board.place(board.freeSlotFrom(0), new ItemStack(Items.STICK));
+        }
+        h.assertTrue(board.freeSlotFrom(0) == -1, "A full board reports no free place");
+        h.assertTrue(board.filledSlotFrom(2) == 2, "Taking starts from the place clicked");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void shelfSpillsWhatItHoldsWhenBroken(GameTestHelper h) {
+        CampDisplayBlockEntity board = shelf(h);
+        board.place(1, new ItemStack(Items.GOLD_INGOT));
+        h.setBlock(2, 2, 3, Blocks.AIR);
+        h.succeedWhen(() -> h.assertItemEntityPresent(Items.GOLD_INGOT, new BlockPos(2, 2, 3), 2.0));
+    }
+
+    @GameTest(template = "empty")
+    public static void shelfDropsWhenItsWallGoesAndIsClosedToHoppers(GameTestHelper h) {
+        CampDisplayBlockEntity board = shelf(h);
+        h.assertTrue(board.getSlotsForFace(Direction.UP).length == 0
+                        && board.getSlotsForFace(Direction.SOUTH).length == 0,
+                "No face is open, so hoppers and pipes leave furniture alone");
+        h.assertTrue(!board.canPlaceItemThroughFace(0, new ItemStack(Items.STICK), Direction.UP),
+                "Nothing can be pushed onto a shelf");
+
+        h.assertTrue(board.signal() == 0, "A bare board reads 0");
+        board.place(0, new ItemStack(Items.STICK));
+        board.place(1, new ItemStack(Items.STICK));
+        h.assertTrue(board.signal() > 0 && board.signal() < 15, "A half-full board reads between");
+        for (int i = 2; i < CampDisplayBlockEntity.MAX_SLOTS; i++) board.place(i, new ItemStack(Items.STICK));
+        h.assertTrue(board.signal() == 15, "A full board reads 15");
+
+        h.setBlock(2, 2, 2, Blocks.AIR);
+        h.assertTrue(h.getBlockState(new BlockPos(2, 2, 3)).isAir(), "The shelf falls with its wall");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void tableTakesFourAndUrnTakesOne(GameTestHelper h) {
+        h.setBlock(3, 1, 3, ModBlocks.MARCH_TABLE.get());
+        var table = (CampDisplayBlockEntity) h.getBlockEntity(new BlockPos(3, 1, 3));
+        h.assertTrue(table.capacity() == 4, "A table top has four places");
+        for (int i = 0; i < 4; i++) table.place(i, new ItemStack(Items.BREAD));
+        h.assertTrue(table.freeSlotFrom(0) == -1 && table.signal() == 15, "A laid table is full and reads 15");
+
+        h.setBlock(5, 1, 3, ModBlocks.SPIRIT_URN.get());
+        var urn = (CampDisplayBlockEntity) h.getBlockEntity(new BlockPos(5, 1, 3));
+        h.assertTrue(urn.capacity() == 1, "An urn is a single vessel");
+        urn.place(0, new ItemStack(Items.BONE));
+        h.assertTrue(urn.freeSlotFrom(0) == -1, "A filled urn takes nothing more");
+        h.assertTrue(urn.signal() == 15, "A filled urn reads full");
+        h.assertTrue(urn.place(1, new ItemStack(Items.BONE)).getCount() == 1,
+                "There is no second place in an urn to put anything");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void stoolSeatsOnePlayerAndClearsUpAfterThem(GameTestHelper h) {
+        BlockPos stool = new BlockPos(4, 1, 4);
+        h.setBlock(stool, ModBlocks.MARCH_STOOL.get());
+        var player = VerificationPlayers.inLevel(h);
+
+        h.assertTrue(tk.darrow.tribalpower.entity.SeatEntity.sit(h.getLevel(), h.absolutePos(stool), player, 0.4),
+                "A free stool seats the player");
+        h.assertTrue(player.isPassenger(), "and the player is riding it");
+
+        var second = VerificationPlayers.inLevel(h);
+        h.assertTrue(!tk.darrow.tribalpower.entity.SeatEntity.sit(h.getLevel(), h.absolutePos(stool), second, 0.4),
+                "A taken stool seats nobody else");
+
+        player.stopRiding();
+        h.succeedWhen(() -> h.assertTrue(
+                h.getLevel().getEntitiesOfClass(tk.darrow.tribalpower.entity.SeatEntity.class,
+                        new net.minecraft.world.phys.AABB(h.absolutePos(stool)).inflate(2.0)).isEmpty(),
+                "Standing up leaves no seat behind"));
+    }
+
+    @GameTest(template = "empty")
+    public static void stoolHoldsNothingAndHasNoBlockEntity(GameTestHelper h) {
+        h.setBlock(3, 1, 5, ModBlocks.MARCH_STOOL.get());
+        h.assertTrue(h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(3, 1, 5))) == null,
+                "A stool is for sitting on, so it carries no block entity");
+        h.succeed();
+    }
 }

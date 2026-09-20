@@ -18,5 +18,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.MARCH_WALKER.get(), MarchWalkerRenderer::new);
         event.registerEntityRenderer(tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get(), tk.darrow.tribalpower.boss.client.TheUnsungRenderer::new);
         event.registerEntityRenderer(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get(), TribalKinRenderer::new);
+        event.registerEntityRenderer(ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.CAMP_DISPLAY.get(), CampDisplayRenderer::new);
     }
 }

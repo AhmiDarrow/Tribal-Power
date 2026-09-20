@@ -57,6 +57,15 @@ public final class ModBlockEntities {
                     GateDrumBlockEntity::new, ModBlocks.GATE_DRUM.get()
             ).build(null));
 
+    /** Camp furniture that holds what you set on it: the shelf's board, the table's top, the urn's mouth. */
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CampDisplayBlockEntity>> CAMP_DISPLAY =
+            BLOCK_ENTITIES.register("camp_display", () -> BlockEntityType.Builder.of(
+                    CampDisplayBlockEntity::new,
+                    ModBlocks.WALL_SHELF.get(),
+                    ModBlocks.MARCH_TABLE.get(),
+                    ModBlocks.SPIRIT_URN.get()
+            ).build(null));
+
     private ModBlockEntities() {}
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SpiritCisternBlockEntity>> SPIRIT_CISTERN =
             BLOCK_ENTITIES.register("spirit_cistern", () -> BlockEntityType.Builder.of(SpiritCisternBlockEntity::new, ModBlocks.SPIRIT_CISTERN.get()).build(null));

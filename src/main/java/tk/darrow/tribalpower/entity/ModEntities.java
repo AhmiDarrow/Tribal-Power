@@ -23,5 +23,14 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build("tribalpower:march_walker"));
 
+    /** Invisible, unsaved, unsummonable: it exists only while somebody is sitting on a stool. */
+    public static final DeferredHolder<EntityType<?>, EntityType<SeatEntity>> SEAT =
+            ENTITIES.register("seat", () -> EntityType.Builder.of(SeatEntity::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .noSave()
+                    .noSummon()
+                    .clientTrackingRange(8)
+                    .build("tribalpower:seat"));
+
     private ModEntities() {}
 }

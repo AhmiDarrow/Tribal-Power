@@ -17,7 +17,7 @@
       "item": "tribalpower:copper_resonator"
     },
     "E": {
-      "item": "minecraft:amethyst_shard"
+      "tag": "minecraft:wool"
     }
   },
   "result": {

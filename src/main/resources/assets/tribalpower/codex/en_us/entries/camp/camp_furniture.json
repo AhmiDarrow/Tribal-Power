@@ -14,7 +14,7 @@
       "type": "spotlight",
       "item": "tribalpower:march_table",
       "text": [
-        "A camp should feel lived in. These pieces are made from March wood, stone, reed and leaves. They do nothing but look good, and need no Pulse."
+        "A camp should feel lived in. These pieces are made from March wood, stone, reed and leaves, and none of them ask for Pulse. They are not only scenery: set things down on the shelf, the table and the urn, sit on the stool, and the charm rings when you knock it."
       ],
       "title": "Camp furniture"
     },
@@ -22,11 +22,13 @@
       "type": "text",
       "title": "The pieces",
       "text": [
-        "- **March Table** and **March Stool**: face you when placed.",
-        "- **Spirit Urn**: a stone pot for a shelf or a corner.",
+        "- **March Table**: faces you when placed, and holds four things on its top.",
+        "- **March Stool**: faces you when placed. Use it empty-handed to sit down; sneak or use it again to get up.",
+        "- **Spirit Urn**: a stone pot for a shelf or a corner. It holds one thing in its mouth.",
         "- **Woven Mat**: a thin rug that needs a sturdy floor under it.",
-        "- **Wall Shelf**: hangs on the side of a sturdy block and drops if the wall goes.",
-        "For hanging decorations, see the Wind Charm."
+        "- **Wall Shelf**: hangs on the side of a sturdy block and drops if the wall goes. Use it holding something to set that down on the board, empty-handed to take it back. Four things fit, one to a place, and a comparator reads how full it is.",
+        "Anything you set down stays where you put it, falls with the piece if it breaks, and can be read by a comparator. Hoppers and pipes leave furniture alone — the caches are for storing things.",
+        "For hanging decorations, see the Wind Charm; knock it and it rings."
       ]
     },
     {

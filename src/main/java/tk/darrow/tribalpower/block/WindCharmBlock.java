@@ -2,6 +2,11 @@ package tk.darrow.tribalpower.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
@@ -59,5 +64,20 @@ public class WindCharmBlock extends Block {
                     pos.getX() + 0.5, pos.getY() + 0.4, pos.getZ() + 0.5,
                     (random.nextDouble() - 0.5) * 0.02, -0.01, (random.nextDouble() - 0.5) * 0.02);
         }
+        // A charm that never sounds is only a shape hanging from a beam. Rare and quiet, so a camp
+        // full of them stays somewhere you want to stand.
+        if (random.nextInt(220) == 0) {
+            level.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                    SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS,
+                    0.25F, 0.8F + random.nextFloat() * 0.6F, false);
+        }
+    }
+
+    /** Nudge it and it rings. */
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        level.playSound(player, pos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS,
+                0.5F, 0.9F + level.getRandom().nextFloat() * 0.4F);
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 }
