@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 3.7.1 — Put it down somewhere
+Uploaded 2026-09-20: `tribalpower-3.7.1.jar` as file **8934331** ("Tribal Power 3.7.1 - Put it down somewhere", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_3.7.1.md`. Frees three recipes that shared a grid with another and so could not be crafted (March Planks Slab vs Wall Shelf, Drift Plate vs Hush Plate, Gate Sigil vs Loom Seal); `RecipeGameTests` now fails the build if any two crafting recipes ever claim one grid again. Camp furniture gains use: the Wall Shelf, March Table and Spirit Urn hold what you set on them, the March Stool seats you, and the Wind Charm rings. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.7.1
+
 ## 3.7.0 — The carried kit
 Uploaded 2026-09-20: `tribalpower-3.7.0.jar` as file **8933246** ("Tribal Power 3.7.0 - The carried kit", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_3.7.0.md`. Adds Spiritgear Shears and Hoe, the Spirit Flask and Greater Spirit Flask, the Totem Wrench and the Weaver's Wand, plus a Tidy button on player, cache and vanilla container screens. Carries a broad performance pass: neighbour lookups instead of cube scans, cheaper rank and voice reads, per-tick instead of per-frame HUD and screen work. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.7.0
 
