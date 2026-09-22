@@ -1,0 +1,57 @@
+{
+  "name": "Builder's Chalk",
+  "icon": "tribalpower:builders_chalk",
+  "order": 15,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "Ritual Chalk marks totems and is spent doing it. This is the other kind: a builder's stick, kept for measuring. Hold it and it stands a **hologram** of a shape in the world — a ghost block in every space the shape still needs — so you lay real blocks inside the ghosts instead of counting and hoping.",
+        "It never wears out, and it places nothing and breaks nothing. The hologram is drawn on your own screen alone; nobody else sees it, and the server does no work for it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Working it",
+      "text": [
+        "**Use** it to change shape. **Sneak and right-click** to grow it, **sneak and left-click** to shrink it; the size wraps round at either end. Sneaking with the chalk out never breaks a block, so you can size it standing inside your own walls.",
+        "**Use it on a block to set the layout down.** The hologram stops following you and stands on that spot — and it keeps standing while the chalk sits **anywhere in your hotbar**, so you can put it away, take up blocks and build inside the ghosts. Use it on the same spot again to rub the mark out.",
+        "A chalk with no mark set only draws while it is in your hand, so a layout never trails your feet while you are swinging a pickaxe.",
+        "A ghost stands only where a block is still wanted. Fill one and it goes out, so what is left glowing is exactly what is left to build."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Size",
+      "text": [
+        "Sizes run from **2** to **128**, measured out from the mark — so the largest circle is **257 blocks across**. The step opens out as it grows, fine near a hut and coarse near a curtain wall, so the whole range is eighteen flicks rather than a hundred and twenty-six.",
+        "The hologram reaches about **48 blocks**, and on a shape big enough to flood the view it draws in closer rather than thinning out. Walk the line and it keeps up with you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The shapes",
+      "text": [
+        "- **Square**, **Circle**, **Cross** and **Hexagon**: flat outlines for a footprint.",
+        "- **Walls**: a square footprint stood up three courses, which is a room.",
+        "- **Dome**: the shell of a hemisphere, for a roof.",
+        "- **Hut**: four walls with a doorway on one face and a stepped roof above them.",
+        "- **Longhouse**: a hall twice as long as it is wide, with a ridge beam and two gables.",
+        "- **Lattice camp**: the square a machine at the mark really reaches, and the four spots a Resonance Totem would stand on to carry that reach outward."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Why the square, and not a circle",
+      "text": [
+        "Every Pulse scan in the camp measures each direction on its own, so a machine's reach is a **cube**, not a ball. A block eight east and eight north of a generator is in range; one ten blocks due east is not, however much closer the second looks on a map.",
+        "That is why **Lattice camp** draws a square. Set it to **8** and it is exactly the zone a Drumheart, a station or a Lattice Conductor works within."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

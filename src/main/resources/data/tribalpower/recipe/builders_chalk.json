@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "tribalpower:ritual_chalk"
+    },
+    {
+      "item": "tribalpower:spirit_shard"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:builders_chalk"
+  }
+}

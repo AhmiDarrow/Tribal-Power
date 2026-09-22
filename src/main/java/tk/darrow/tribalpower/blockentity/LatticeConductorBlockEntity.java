@@ -27,6 +27,8 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
     private int tickCounter;
     private int networkSize;
     private int lastPulsePushed;
+    /** What the last draw found in range. Tells a dry camp apart from a lattice that is simply full. */
+    private int lastSourceAvailable;
     private boolean assistActive;
     private boolean lastItemRouted;
 
@@ -46,6 +48,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         if (!LatticeNetwork.isConductable(network)) {
             be.assistActive = false;
             be.lastPulsePushed = 0;
+            be.lastSourceAvailable = 0;
             be.lastItemRouted = false;
             be.setChanged();
             return;
@@ -62,9 +65,10 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         }
 
         int push = MachineRank.scalePulse(be, PUSH_PER_CYCLE);
-        int available = LatticeNetwork.extractPulseFromGenerators(level, pos, RADIUS, push, true);
-        int want = Math.min(push, available);
-        int taken = LatticeNetwork.extractPulseFromGenerators(level, pos, RADIUS, want, false);
+        int available = LatticeNetwork.extractPulseForConductor(level, pos, RADIUS, push, true);
+        be.lastSourceAvailable = available;
+        int want = Math.min(Math.min(push, available), LatticeNetwork.roomInTotems(network));
+        int taken = LatticeNetwork.extractPulseForConductor(level, pos, RADIUS, want, false);
         be.lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
         if (be.lastPulsePushed < taken) {
             // Refund unused extract into the first nearby generator by re-inserting via network leftover —
@@ -85,19 +89,13 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         if (amount <= 0) {
             return;
         }
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
         int remaining = amount;
-        for (int dx = -RADIUS; dx <= RADIUS && remaining > 0; dx++) {
-            for (int dy = -RADIUS; dy <= RADIUS && remaining > 0; dy++) {
-                for (int dz = -RADIUS; dz <= RADIUS && remaining > 0; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    var be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (be instanceof PulseHandler handler && (be instanceof PulseGenerator
-                            || be instanceof PulseCairnBlockEntity || be instanceof LeyCollectorBlockEntity
-                            || be instanceof PulseResonatorBlockEntity)) {
-                        remaining -= handler.insertPulse(remaining, false);
-                    }
-                }
+        for (var be : LatticeNetwork.blockEntitiesAround(level, origin, RADIUS)) {
+            if (remaining <= 0) break;
+            if (be instanceof PulseHandler handler && (be instanceof PulseGenerator
+                    || be instanceof PulseCairnBlockEntity || be instanceof LeyCollectorBlockEntity
+                    || be instanceof PulseResonatorBlockEntity)) {
+                remaining -= handler.insertPulse(remaining, false);
             }
         }
     }
@@ -119,6 +117,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         if (!LatticeNetwork.isConductable(network)) {
             assistActive = false;
             lastPulsePushed = 0;
+            lastSourceAvailable = 0;
             setChanged();
             return Component.translatable("message.tribalpower.conductor.no_network");
         }
@@ -134,9 +133,10 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         }
 
         int burst = MachineRank.scalePulse(this, CLICK_PUSH);
-        int available = LatticeNetwork.extractPulseFromGenerators(level, worldPosition, RADIUS, burst, true);
-        int want = Math.min(burst, available);
-        int taken = LatticeNetwork.extractPulseFromGenerators(level, worldPosition, RADIUS, want, false);
+        int available = LatticeNetwork.extractPulseForConductor(level, worldPosition, RADIUS, burst, true);
+        lastSourceAvailable = available;
+        int want = Math.min(Math.min(burst, available), LatticeNetwork.roomInTotems(network));
+        int taken = LatticeNetwork.extractPulseForConductor(level, worldPosition, RADIUS, want, false);
         lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
         if (lastPulsePushed < taken) {
             refundPulse(level, worldPosition, taken - lastPulsePushed);
@@ -179,6 +179,16 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         return lastPulsePushed;
     }
 
+    /** Pulse the last draw could see in range, whether or not the lattice had room for it. */
+    public int getLastSourceAvailable() {
+        return lastSourceAvailable;
+    }
+
+    /** Nothing moved only because every linked totem is already holding its 250. */
+    public boolean isLatticeFull() {
+        return lastPulsePushed == 0 && lastSourceAvailable > 0;
+    }
+
     public boolean isAssistActive() {
         return assistActive;
     }
@@ -196,7 +206,9 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             if (assistActive) lines.add(Component.translatable("diag.tribalpower.conductor.assist"));
             if (lastItemRouted) lines.add(Component.translatable("diag.tribalpower.conductor.items"));
             if (lastPulsePushed == 0) {
-                lines.add(Component.translatable("diag.tribalpower.conductor.no_pulse").withStyle(net.minecraft.ChatFormatting.YELLOW));
+                lines.add(Component.translatable(isLatticeFull()
+                        ? "diag.tribalpower.conductor.buffers_full"
+                        : "diag.tribalpower.conductor.no_pulse").withStyle(net.minecraft.ChatFormatting.YELLOW));
             }
         }
         return lines;
@@ -208,6 +220,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         tag.putInt("TickCounter", tickCounter);
         tag.putInt("NetworkSize", networkSize);
         tag.putInt("LastPulsePushed", lastPulsePushed);
+        tag.putInt("LastSourceAvailable", lastSourceAvailable);
         tag.putBoolean("AssistActive", assistActive);
         tag.putBoolean("LastItemRouted", lastItemRouted);
     }
@@ -218,6 +231,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         tickCounter = tag.getInt("TickCounter");
         networkSize = tag.getInt("NetworkSize");
         lastPulsePushed = tag.getInt("LastPulsePushed");
+        lastSourceAvailable = tag.getInt("LastSourceAvailable");
         assistActive = tag.getBoolean("AssistActive");
         lastItemRouted = tag.getBoolean("LastItemRouted");
     }

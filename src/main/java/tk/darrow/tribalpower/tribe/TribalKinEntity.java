@@ -194,16 +194,13 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             server.sendParticles(dust, getX() + Math.cos(a) * 1.4, getY() + 0.3, getZ() + Math.sin(a) * 1.4, 1, 0, 0, 0, 0);
         }
         BlockPos origin = blockPosition();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -DRUM_RADIUS; dx <= DRUM_RADIUS; dx++)
-            for (int dy = -DRUM_RADIUS; dy <= DRUM_RADIUS; dy++)
-                for (int dz = -DRUM_RADIUS; dz <= DRUM_RADIUS; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = server.hasChunkAt(cursor) ? server.getBlockEntity(cursor) : null;
-                    if (be instanceof PulseHandler handler && (be instanceof DrumheartBlockEntity
-                            || be instanceof LeyCollectorBlockEntity || be instanceof PulseResonatorBlockEntity))
-                        handler.insertPulse(DRUM_PULSE, false);
-                }
+        // The drummers walk with the camp, so this beat runs wherever they wander: read the loaded chunks'
+        // block-entity maps rather than probing all 4,913 positions of the cube.
+        for (BlockEntity be : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(server, origin, DRUM_RADIUS)) {
+            if (be instanceof PulseHandler handler && (be instanceof DrumheartBlockEntity
+                    || be instanceof LeyCollectorBlockEntity || be instanceof PulseResonatorBlockEntity))
+                handler.insertPulse(DRUM_PULSE, false);
+        }
         tk.darrow.tribalpower.lattice.Keeping.livingBeat(server, origin);
     }
 

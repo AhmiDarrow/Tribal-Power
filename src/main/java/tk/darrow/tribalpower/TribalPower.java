@@ -28,6 +28,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.Ownership::guardBreak);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.building.BuildersChalkItem::shrink);
         tk.darrow.tribalpower.world.MarchOres.init();
         tk.darrow.tribalpower.world.MarchBuilding.init();
         tk.darrow.tribalpower.world.MarchWoods.init();

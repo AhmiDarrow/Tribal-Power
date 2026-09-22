@@ -294,6 +294,7 @@
         "A lever or any redstone signal on the Conductor pauses it.",
         "\"No network\" means the totems are not chalk-linked; a network needs at least two.",
         "\"No Pulse\" means there is nothing to move: bring a generator within 8 blocks of the Conductor and charge it.",
+        "\"The lattice is full\" is not a fault: every linked totem is already holding its 250 Pulse and there is nowhere to put more. The Conductor starts again the moment a station spends some.",
         "Sneak-use this book on it for the network size, the last Pulse pushed, and what is missing.",
         "The lattice carries Pulse, not goods. To move items over distance, use [relays](wireless_cargo)."
       ]

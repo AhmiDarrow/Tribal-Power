@@ -369,6 +369,122 @@ public class LatticeGameTests {
         h.assertTrue(horn.getPulseStored()==before,"Unused extract must return to a horn, stored "+horn.getPulseStored());
         h.succeed();
     }
+    /** A Cairn eats the same generators the Conductor draws on, so the Conductor must be able to read it back. */
+    @GameTest(template="empty")
+    public static void conductorLiftsACairnsHeldBeatOntoTheLattice(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        h.setBlock(2,2,5,ModBlocks.PULSE_CAIRN.get());
+        var cairn=at(h,new BlockPos(2,2,5),PulseCairnBlockEntity.class);
+        cairn.insertPulse(500,false);
+        h.assertTrue(cairn.getPulseStored()==500,"Cairn must hold what it was given, holds "+cairn.getPulseStored());
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(conductor.getLastPulsePushed()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "A Cairn alone must feed the lattice, pushed "+conductor.getLastPulsePushed());
+        h.assertTrue(earth.getPulseStored()+fire.getPulseStored()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "Cairn Pulse must land in the totems, earth "+earth.getPulseStored()+" fire "+fire.getPulseStored());
+        h.assertTrue(cairn.getPulseStored()==500-LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "Cairn must be drawn down by exactly what moved, holds "+cairn.getPulseStored());
+        h.succeed();
+    }
+    /** Pulse a station has already claimed is not the Conductor's to take back. */
+    @GameTest(template="empty")
+    public static void conductorDoesNotRobAStationsOwnBuffer(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        h.setBlock(2,2,5,ModBlocks.RESONANCE_MESH.get());
+        var mesh=at(h,new BlockPos(2,2,5),ResonanceMeshBlockEntity.class);
+        mesh.insertPulse(mesh.getPulseCapacity(),false);
+        int held=mesh.getPulseStored();
+        h.assertTrue(held>0,"Listening Pit must hold its buffer for the test");
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(mesh.getPulseStored()==held,"A station's claimed Pulse must survive, holds "+mesh.getPulseStored());
+        h.assertTrue(conductor.getLastPulsePushed()==0,"Nothing drawable means nothing pushed");
+        h.assertTrue(!conductor.isLatticeFull(),"Empty totems with no source is dry, not full");
+        h.succeed();
+    }
+    /** A charged camp with full totems is not a dry one: the Conductor must not cry "No Pulse" at it. */
+    @GameTest(template="empty")
+    public static void fullLatticeIsReportedAsFullNotAsNoPulse(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
+        h.setBlock(2,2,5,ModBlocks.PULSE_RESONATOR.get());
+        var resonator=at(h,new BlockPos(2,2,5),PulseResonatorBlockEntity.class);
+        resonator.insertPulse(resonator.getPulseCapacity(),false);
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(conductor.getNetworkSize()==2,"Conductor must see the linked pair, saw "+conductor.getNetworkSize());
+        h.assertTrue(conductor.getLastPulsePushed()==0,"Full buffers accept nothing, pushed "+conductor.getLastPulsePushed());
+        h.assertTrue(conductor.getLastSourceAvailable()>0,
+                "A charged generator in range must still read as available, saw "+conductor.getLastSourceAvailable());
+        h.assertTrue(conductor.isLatticeFull(),"A charged camp with full totems must report full, not dry");
+        h.assertTrue(resonator.getPulseStored()==resonator.getPulseCapacity(),
+                "A full lattice must not draw Pulse it can only hand straight back, source at "+resonator.getPulseStored());
+        var lines=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
+        h.assertTrue(lines.contains("conductor.buffers_full") && !lines.contains("conductor.no_pulse"),
+                "Diagnosis must name the full lattice, said "+lines);
+        h.succeed();
+    }
+    /** A camp with room but no charged generator is the genuine dry case, and must still say so. */
+    @GameTest(template="empty")
+    public static void anEmptyCampStillReportsNoPulse(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(!conductor.isLatticeFull(),"An empty camp is dry, not full");
+        var lines=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
+        h.assertTrue(lines.contains("conductor.no_pulse") && !lines.contains("conductor.buffers_full"),
+                "Diagnosis must still name a dry camp, said "+lines);
+        h.succeed();
+    }
+    /** The plain camp wiring of the Codex scene: a live generator by the Conductor, two chalk-linked totems. */
+    @GameTest(template="empty")
+    public static void conductorMovesGeneratorPulseOntoTheLattice(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        h.setBlock(6,2,2,ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        var earth=at(h,new BlockPos(4,2,2),ResonanceTotemBlockEntity.class);
+        var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
+        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        h.setBlock(2,2,4,tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        var horn=at(h,new BlockPos(2,2,4),tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
+        horn.insertPulse(200,false);
+        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
+        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
+            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        h.assertTrue(conductor.getNetworkSize()==2,"Conductor must see both totems, saw "+conductor.getNetworkSize());
+        h.assertTrue(conductor.getLastPulsePushed()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "Conductor must push a full cycle from a live generator, pushed "+conductor.getLastPulsePushed());
+        h.assertTrue(earth.getPulseStored()+fire.getPulseStored()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "Pushed Pulse must land in totem buffers, earth "+earth.getPulseStored()+" fire "+fire.getPulseStored());
+        h.assertTrue(horn.getPulseStored()==200-LatticeConductorBlockEntity.PUSH_PER_CYCLE,
+                "Generator must be drawn down by exactly what moved, stored "+horn.getPulseStored());
+        h.succeed();
+    }
     @GameTest(template="empty", timeoutTicks=40)
     public static void aBondedRelayDoesNotFallBackToATunerMark(GameTestHelper h) {
         h.setBlock(2,1,2,Blocks.STONE);

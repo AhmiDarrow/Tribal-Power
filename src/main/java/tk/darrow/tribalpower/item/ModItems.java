@@ -106,6 +106,8 @@ public final class ModItems {
     );
     public static final DeferredItem<TotemWrenchItem> TOTEM_WRENCH = ITEMS.register(
             "totem_wrench", () -> new TotemWrenchItem(new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.building.BuildersChalkItem> BUILDERS_CHALK = ITEMS.register(
+            "builders_chalk", () -> new tk.darrow.tribalpower.building.BuildersChalkItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<WeaversWandItem> WEAVERS_WAND = ITEMS.register(
             "weavers_wand", () -> new WeaversWandItem(new Item.Properties()));
 

@@ -10,6 +10,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
+import tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.SongBenchBlockEntity;
@@ -23,6 +24,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 
 /**
  * Totem Lattice helpers — proximity scans, chalk links, Conductor routing, and Pulse draw.
@@ -249,6 +251,37 @@ public final class LatticeNetwork {
      */
     public static int extractPulseFromGenerators(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
         return drainHandlers(level, origin, radius, amount, true, simulate);
+    }
+
+    /**
+     * What a Conductor may lift onto the lattice: live generators first, then a Pulse Cairn's held beat.
+     *
+     * <p>A Cairn swallows {@link PulseCairnBlockEntity#FILL_RATE} a second out of the same generators the
+     * Conductor draws on, so a camp with a Cairn in it used to starve the lattice outright — the Cairn won
+     * every beat and the Conductor could not see where the Pulse had gone. Totems are the Conductor's
+     * destination and a station's buffer is Pulse it has already claimed, so neither is ever drained here.
+     */
+    public static int extractPulseForConductor(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
+        if (amount <= 0) {
+            return 0;
+        }
+        int remaining = amount - drainHandlers(level, origin, radius, amount, true, simulate);
+        if (remaining > 0) {
+            remaining -= drain(level, origin, radius, remaining, be -> be instanceof PulseCairnBlockEntity, simulate);
+        }
+        return amount - remaining;
+    }
+
+    /**
+     * How much the linked totems could still accept. Pulse that cannot land must not be drawn: taking it
+     * and handing it back costs a full refund sweep every beat once a camp is charged.
+     */
+    public static int roomInTotems(List<ResonanceTotemBlockEntity> totems) {
+        long room = 0;
+        for (ResonanceTotemBlockEntity totem : totems) {
+            room += Math.max(0, totem.getPulseCapacity() - totem.getPulseStored());
+        }
+        return (int) Math.min(room, Integer.MAX_VALUE);
     }
 
     /**
@@ -512,8 +545,21 @@ public final class LatticeNetwork {
         return amount - remaining;
     }
 
+    private static boolean isGenerator(BlockEntity be) {
+        return be instanceof DrumheartBlockEntity
+                || be instanceof LeyCollectorBlockEntity
+                || be instanceof PulseResonatorBlockEntity
+                // The six voices of 3.1 all implement PulseGenerator, so they need no case of their own.
+                || be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator;
+    }
+
     private static int drainHandlers(Level level, BlockPos origin, int radius, int amount,
                                      boolean generatorsFirst, boolean simulate) {
+        return drain(level, origin, radius, amount, be -> isGenerator(be) == generatorsFirst, simulate);
+    }
+
+    private static int drain(Level level, BlockPos origin, int radius, int amount,
+                             Predicate<BlockEntity> accept, boolean simulate) {
         // Every machine calls this each working tick, often twice (simulate, then draw). Probing all 17^3 positions
         // of the cube cost thousands of block-entity lookups per call; the loaded chunks' block-entity maps hold only
         // the few that exist. Candidates are then drained in the same x, y, z order the cube walk used.
@@ -529,12 +575,7 @@ public final class LatticeNetwork {
                     if (!(be instanceof PulseHandler) || be.isRemoved()) continue;
                     BlockPos p = be.getBlockPos();
                     if (p.getX() < minX || p.getX() > maxX || p.getY() < minY || p.getY() > maxY || p.getZ() < minZ || p.getZ() > maxZ) continue;
-                    boolean isGenerator = be instanceof DrumheartBlockEntity
-                            || be instanceof LeyCollectorBlockEntity
-                            || be instanceof PulseResonatorBlockEntity
-                            // The six voices of 3.1 all implement PulseGenerator, so they need no case of their own.
-                            || be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator;
-                    if (generatorsFirst == isGenerator) found.add(be);
+                    if (accept.test(be)) found.add(be);
                 }
             }
         }

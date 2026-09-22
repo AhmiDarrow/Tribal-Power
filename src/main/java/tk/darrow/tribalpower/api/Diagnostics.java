@@ -14,10 +14,8 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
-import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
-import tk.darrow.tribalpower.ley.LeyMath;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,28 +122,17 @@ public final class Diagnostics {
     /** Nearby generators with their output this second. */
     public static List<Component> generators(ServerLevel level, BlockPos origin) {
         List<Component> lines = new ArrayList<>();
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -RADIUS; dx <= RADIUS; dx++) {
-            for (int dy = -RADIUS; dy <= RADIUS; dy++) {
-                for (int dz = -RADIUS; dz <= RADIUS; dz++) {
-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
-                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
-                    if (be == null) continue;
-                    String perSecond;
-                    if (be instanceof DrumheartBlockEntity) perSecond = "beat";
-                    else if (be instanceof LeyCollectorBlockEntity collector) {
-                        int gain = LeyMath.gain(level, cursor);
-                        gain += MachineRank.bonusGain(collector, gain);
-                        perSecond = level.hasNeighborSignal(cursor) ? "0" : String.format("%.1f", gain * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
-                    } else if (be instanceof PulseResonatorBlockEntity resonator) perSecond = Integer.toString(resonator.getGain());
-                    else if (be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator generator)
-                        perSecond = Integer.toString(generator.currentOutput());
-                    else continue;
-                    PulseHandler handler = (PulseHandler) be;
-                    lines.add(Component.translatable("diag.tribalpower.generator", be.getBlockState().getBlock().getName(),
-                            (int) Math.round(Math.sqrt(origin.distSqr(cursor))), handler.getPulseStored(), handler.getPulseCapacity(), perSecond));
-                }
-            }
+        for (BlockEntity be : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(level, origin, RADIUS)) {
+            BlockPos cursor = be.getBlockPos();
+            String perSecond;
+            if (be instanceof DrumheartBlockEntity) perSecond = "beat";
+            else if (be instanceof LeyCollectorBlockEntity || be instanceof PulseResonatorBlockEntity
+                    || be instanceof tk.darrow.tribalpower.api.pulse.PulseGenerator)
+                perSecond = Integer.toString(tk.darrow.tribalpower.api.pulse.PulseRate.perSecond(level, cursor, be));
+            else continue;
+            PulseHandler handler = (PulseHandler) be;
+            lines.add(Component.translatable("diag.tribalpower.generator", be.getBlockState().getBlock().getName(),
+                    (int) Math.round(Math.sqrt(origin.distSqr(cursor))), handler.getPulseStored(), handler.getPulseCapacity(), perSecond));
         }
         return lines;
     }

@@ -123,10 +123,10 @@ public class LeyLensItem extends Item {
         }
     }
 
-    /** Pulse-handling blocks, and an 8-block ring showing the draw/listen zone around you and each core. */
+    /** Pulse-handling blocks, and the 8-block draw/listen zone around you and each core. */
     private static void paintPulse(ServerLevel server, ServerPlayer player, BlockPos origin) {
         int radius = LatticeNetwork.DEFAULT_RADIUS;
-        ring(server, player, origin, radius, PULSE_COL);
+        zone(server, player, origin, radius, PULSE_COL, true);
         int shown = 0;
         for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, radius)) {
             if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
@@ -134,7 +134,7 @@ public class LeyLensItem extends Item {
             float fill = (float) pulse.getPulseStored() / pulse.getPulseCapacity();
             DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
             server.sendParticles(player, core, false, at.getX() + 0.5, at.getY() + 1.15, at.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
-            if (shown++ < 4) ring(server, player, at, radius, PULSE_COL);
+            if (shown++ < 4) zone(server, player, at, radius, PULSE_COL, false);
         }
     }
 
@@ -168,17 +168,41 @@ public class LeyLensItem extends Item {
         }
     }
 
-    private static void ring(ServerLevel server, ServerPlayer player, BlockPos center, int radius, Vector3f colour) {
+    /**
+     * The draw zone is a cube, not a sphere: every scan in the mod tests each axis against the radius on
+     * its own ({@link LatticeNetwork#blockEntitiesAround}). A ring drew a boundary the game never uses and
+     * read as "out of range" at the very corners that are in it, so this traces the real square footprint.
+     *
+     * @param posts corner columns marking the zone's full vertical reach — worth the particles for the
+     *              player's own zone, too noisy for every machine's
+     */
+    private static void zone(ServerLevel server, ServerPlayer player, BlockPos center, int radius,
+                             Vector3f colour, boolean posts) {
         DustParticleOptions dust = new DustParticleOptions(colour, 0.55F);
-        for (int i = 0; i < 16; i++) {
-            double a = i * (Math.PI * 2 / 16);
-            int x = center.getX() + (int) Math.round(Math.cos(a) * radius);
-            int z = center.getZ() + (int) Math.round(Math.sin(a) * radius);
-            BlockPos.MutableBlockPos at = new BlockPos.MutableBlockPos(x, center.getY() + 1, z);
-            int ground = groundY(server, at, 8);
-            if (ground == Integer.MIN_VALUE) continue;
-            server.sendParticles(player, dust, false, x + 0.5, ground + 1.06, z + 0.5, 1, 0, 0, 0, 0);
+        BlockPos.MutableBlockPos at = new BlockPos.MutableBlockPos();
+        int step = posts ? 2 : 4;
+        for (int offset = -radius; offset <= radius; offset += step) {
+            edge(server, player, dust, at, center, center.getX() + offset, center.getZ() - radius);
+            edge(server, player, dust, at, center, center.getX() + offset, center.getZ() + radius);
+            edge(server, player, dust, at, center, center.getX() - radius, center.getZ() + offset);
+            edge(server, player, dust, at, center, center.getX() + radius, center.getZ() + offset);
         }
+        if (!posts) return;
+        DustParticleOptions faint = new DustParticleOptions(colour, 0.4F);
+        for (int sx = -1; sx <= 1; sx += 2)
+            for (int sz = -1; sz <= 1; sz += 2)
+                for (int dy = -radius; dy <= radius; dy += 4)
+                    server.sendParticles(player, faint, false, center.getX() + sx * radius + 0.5,
+                            center.getY() + dy + 0.5, center.getZ() + sz * radius + 0.5, 1, 0, 0, 0, 0);
+    }
+
+    /** One footprint mark, laid on whatever ground is under it so the outline follows the terrain. */
+    private static void edge(ServerLevel server, ServerPlayer player, DustParticleOptions dust,
+                             BlockPos.MutableBlockPos at, BlockPos center, int x, int z) {
+        at.set(x, center.getY() + 1, z);
+        int ground = groundY(server, at, 8);
+        if (ground == Integer.MIN_VALUE) return;
+        server.sendParticles(player, dust, false, x + 0.5, ground + 1.06, z + 0.5, 1, 0, 0, 0, 0);
     }
 
     /** Y of the first block with a solid top below {@code from}, scanning at most {@code depth} blocks; MIN_VALUE if none. */

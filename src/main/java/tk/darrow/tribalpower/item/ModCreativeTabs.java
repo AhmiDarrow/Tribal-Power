@@ -31,6 +31,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.PULSE_CELL.get());
                         out.accept(PulseCellItem.createFilled(PulseCellItem.CAPACITY));
                         out.accept(ModItems.RITUAL_CHALK.get());
+                        out.accept(ModItems.BUILDERS_CHALK.get());
                         out.accept(ModItems.MUSIC_DISC_DRUM_CIRCLE.get());
                         out.accept(ModItems.ECHO_SHARD.get());
                         out.accept(ModItems.ATTUNED_ECHO.get());

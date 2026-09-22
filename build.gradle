@@ -35,6 +35,10 @@ neoForge {
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+            // Every other run here is capped. Without one the JVM takes a quarter of the machine as
+            // its max heap, which on a 64 GB box is 16 GB a dev client will happily grow into while
+            // a real instance is also open.
+            jvmArgument '-Xmx4G'
             ideName = 'Tribal Power Client'
         }
         server {

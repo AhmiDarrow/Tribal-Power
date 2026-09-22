@@ -67,7 +67,9 @@ public class LatticeConductorBlock extends BaseEntityBlock {
         if (!level.isClientSide) {
             player.displayClientMessage(conductor.conductOnce(), true);
             if (conductor.getNetworkSize() >= 2 && conductor.getLastPulsePushed() == 0) {
-                player.displayClientMessage(Component.translatable("message.tribalpower.conductor.no_pulse"), true);
+                player.displayClientMessage(Component.translatable(conductor.isLatticeFull()
+                        ? "message.tribalpower.conductor.buffers_full"
+                        : "message.tribalpower.conductor.no_pulse"), true);
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
