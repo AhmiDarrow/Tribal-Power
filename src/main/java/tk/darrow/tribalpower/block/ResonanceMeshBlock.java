@@ -89,7 +89,7 @@ public class ResonanceMeshBlock extends BaseEntityBlock {
             if (!Ownership.check(level, mesh.owner(), player)) return InteractionResult.CONSUME;
             if (player.isShiftKeyDown()) {
                 ItemStack sample = mesh.removeItemNoUpdate(ResonanceMeshBlockEntity.SAMPLE);
-                if (!sample.isEmpty() && !player.getInventory().add(sample)) player.drop(sample, false);
+                if (!sample.isEmpty()) tk.darrow.tribalpower.item.SpiritgearHelper.give(player, sample);
             }
             player.displayClientMessage(mesh.status(), true);
         }

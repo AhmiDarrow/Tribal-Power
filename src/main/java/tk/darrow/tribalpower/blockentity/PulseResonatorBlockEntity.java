@@ -152,6 +152,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
     /** True when the totems stand in a ring rather than in a heap. */
     public boolean isRinged() { return ringed; }
     public static int catalystRank(ItemStack stack) {
+        if (stack.isEmpty()) return 0;
         if (stack.is(tk.darrow.tribalpower.item.ModItems.RESONANT_CORE.get())) return 4;
         if (stack.is(tk.darrow.tribalpower.item.ModItems.BOUND_ECHO.get())) return 3;
         if (stack.is(tk.darrow.tribalpower.item.ModItems.ATTUNED_ECHO.get())) return 2;

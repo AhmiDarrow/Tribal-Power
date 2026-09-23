@@ -107,7 +107,7 @@ public class RitePedestalBlock extends BaseEntityBlock {
                 && !pedestal.held().isEmpty()) {
             if (!Ownership.check(level, pedestal.owner(), player)) return InteractionResult.CONSUME;
             ItemStack taken = pedestal.removeItemNoUpdate(RitePedestalBlockEntity.SLOT);
-            if (!player.getInventory().add(taken)) player.drop(taken, false);
+            tk.darrow.tribalpower.item.SpiritgearHelper.give(player, taken);
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

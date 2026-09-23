@@ -279,7 +279,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                 if (!data.hasMark(sp.getUUID(), tribe)) {
                     data.grantMark(sp.getUUID(), tribe);
                     ItemStack mark = tribe.stamped(TribeRegistry.TRIBE_MARK.get());
-                    if (!sp.getInventory().add(mark)) sp.drop(mark, false);
+                    tk.darrow.tribalpower.item.SpiritgearHelper.give(sp, mark);
                     sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.mark", tribe.displayNameComponent())
                             .withStyle(TribeStanding.colour(tribe)));
                     tk.darrow.tribalpower.camp.CampHooks.award(sp.serverLevel(), sp.getUUID(), "tribes/mark");

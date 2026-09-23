@@ -76,7 +76,7 @@ public final class CampDisplay {
         if (slot < 0) return InteractionResult.PASS;
         if (!level.isClientSide) {
             ItemStack taken = display.take(slot);
-            if (!player.getInventory().add(taken)) player.drop(taken, false);
+            tk.darrow.tribalpower.item.SpiritgearHelper.give(player, taken);
             level.playSound(null, pos, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.7F, 1.2F);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

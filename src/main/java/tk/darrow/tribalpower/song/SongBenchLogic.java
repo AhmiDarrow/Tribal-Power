@@ -80,13 +80,16 @@ public final class SongBenchLogic {
             return Attempt.fail("message.tribalpower.song_bench.need_item");
         }
         if (voice == null || !voices(level, origin).contains(voice)) return Attempt.fail("message.tribalpower.song_bench.no_totems");
-        if (!paper.is(Items.PAPER)) return Attempt.fail("message.tribalpower.song_bench.need_paper");
-        if (!(chalk.getItem() instanceof RitualChalkItem) || RitualChalkItem.remaining(chalk) <= 0) {
+        if (paper.isEmpty() || !paper.is(Items.PAPER)) return Attempt.fail("message.tribalpower.song_bench.need_paper");
+        if (chalk.isEmpty() || !(chalk.getItem() instanceof RitualChalkItem) || RitualChalkItem.remaining(chalk) <= 0) {
             return Attempt.fail("message.tribalpower.song_bench.need_chalk");
         }
         SongVerse verse = new SongVerse(sequence, voice);
         boolean intoBook = false;
-        if (book.getItem() instanceof SongbookItem songbook && songbook.tier().accepts(sequence.size())) {
+        if (book.getItem() instanceof SongbookItem songbook) {
+            if (!songbook.tier().accepts(sequence.size())) {
+                return Attempt.fail("message.tribalpower.song_bench.book_short", songbook.tier().longest);
+            }
             if (SongPages.pages(book).size() >= songbook.tier().pages) return Attempt.fail("message.tribalpower.song_bench.book_full");
             intoBook = true;
         } else if (!output.isEmpty()) {
@@ -109,6 +112,15 @@ public final class SongBenchLogic {
         for (var entry : needed.entrySet()) ReagentPouch.consumeEmpowered(pouch, entry.getKey(), entry.getValue());
         paper.shrink(1);
         RitualChalkItem.spend(chalk, player);
+        // A count of zero still answers is(PAPER) and still reports a full stick of chalk. Clear the slot.
+        if (bench instanceof tk.darrow.tribalpower.blockentity.SongBenchBlockEntity song) {
+            if (song.getItem(tk.darrow.tribalpower.blockentity.SongBenchBlockEntity.PAPER).isEmpty()) {
+                song.setItem(tk.darrow.tribalpower.blockentity.SongBenchBlockEntity.PAPER, ItemStack.EMPTY);
+            }
+            if (song.getItem(tk.darrow.tribalpower.blockentity.SongBenchBlockEntity.CHALK).isEmpty()) {
+                song.setItem(tk.darrow.tribalpower.blockentity.SongBenchBlockEntity.CHALK, ItemStack.EMPTY);
+            }
+        }
         if (intoBook) {
             SongPages.add(book, ((SongbookItem) book.getItem()).tier(), verse);
             return Attempt.done("message.tribalpower.song_bench.bound", verse.name());

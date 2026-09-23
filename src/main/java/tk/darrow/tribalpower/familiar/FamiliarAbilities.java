@@ -171,7 +171,8 @@ public final class FamiliarAbilities {
         for(int i=0;i<LatticeMonster.POUCH_SLOTS;i++) {
             ItemStack stack=weaver.pouch().getItem(i);
             if(stack.isEmpty())continue;
-            if(owner.addItem(stack))weaver.pouch().setItem(i,ItemStack.EMPTY);
+            owner.getInventory().add(stack);
+            if(stack.isEmpty())weaver.pouch().setItem(i,ItemStack.EMPTY);
             // Inventory full: leave the stack in the pouch. Spawning it with the default pickup delay
             // lets forage pocket it again on the next beat.
             return;

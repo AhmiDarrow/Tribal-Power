@@ -40,6 +40,23 @@ public final class Reagents {
         return CreatureItems.REAGENTS.get(profile).get();
     }
 
+    /**
+     * How many of this reagent one withdrawal can put in the main inventory.
+     * A click moves at most one stack, and room is the sum of every partial stack plus one empty slot.
+     */
+    public static int inventoryRoom(Player player, CreatureProfile profile) {
+        Item item = item(profile);
+        int limit = new ItemStack(item).getMaxStackSize();
+        int room = 0;
+        boolean empty = false;
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.isEmpty()) empty = true;
+            else if (stack.is(item)) room += limit - stack.getCount();
+        }
+        if (empty) room += limit;
+        return Math.min(limit, Math.max(room, 0));
+    }
+
     /** The pouch a pickup should fill: the selected hotbar pouch, otherwise the first one on the hotbar. */
     public static @Nullable ItemStack hotbarPouch(Player player) {
         ItemStack selected = player.getInventory().getSelected();

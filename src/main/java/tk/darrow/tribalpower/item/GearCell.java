@@ -92,6 +92,9 @@ public final class GearCell {
         int room = capacity(gear) - pulse(gear), own = Math.min(room, amount);
         if (own > 0) set(gear, cell(gear), pulse(gear) + own);
         int rest = amount - own;
+        // Spend reaches the offhand before the hotbar. That cell is not in inventory.items.
+        if (rest > 0 && player.getOffhandItem().getItem() instanceof PulseCellItem)
+            rest -= PulseCellItem.insertPulse(player.getOffhandItem(), rest, false);
         for (ItemStack stack : player.getInventory().items) {
             if (rest <= 0) break;
             if (stack.getItem() instanceof PulseCellItem) rest -= PulseCellItem.insertPulse(stack, rest, false);
@@ -136,7 +139,7 @@ public final class GearCell {
     public static void broken(net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent event) {
         ItemStack cell = asStack(event.getOriginal());
         if (cell.isEmpty() || event.getEntity().level().isClientSide) return;
-        if (!event.getEntity().getInventory().add(cell)) event.getEntity().drop(cell, false);
+        SpiritgearHelper.give(event.getEntity(), cell);
     }
 
     // Worn armor breaks through hurtAndBreak, which never fires PlayerDestroyItemEvent. The last piece damaged is
@@ -157,7 +160,7 @@ public final class GearCell {
         Damaged damaged = DAMAGED.get(player.getUUID());
         if (damaged == null || !damaged.gear().isEmpty() || event.getStat().getValue() != damaged.item()) return;
         DAMAGED.remove(player.getUUID());
-        if (!player.getInventory().add(damaged.cell())) player.drop(damaged.cell(), false);
+        SpiritgearHelper.give(player, damaged.cell());
     }
 
     public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent event) {

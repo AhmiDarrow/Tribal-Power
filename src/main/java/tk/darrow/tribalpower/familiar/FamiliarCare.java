@@ -22,6 +22,12 @@ public final class FamiliarCare {
 
     private FamiliarCare() {}
 
+    private static void spendFood(Player player, ItemStack food) {
+        if (player.getAbilities().instabuild) return;
+        food.shrink(1);
+        if (food.isEmpty()) player.getInventory().removeItem(food);
+    }
+
     /** Returns the interaction result, or null when feeding does not apply here and the caller carries on. */
     public static InteractionResult feed(Familiar familiar, Player player, InteractionHand hand, ItemStack food) {
         var mob = familiar.asMob();
@@ -36,7 +42,7 @@ public final class FamiliarCare {
                 return InteractionResult.sidedSuccess(client);
             }
             if (player.level() instanceof ServerLevel level) {
-                if (!player.getAbilities().instabuild) food.shrink(1);
+                spendFood(player, food);
                 float chance = tribe == null ? ANIMAL_TAME : REMNANT_TAME;
                 BondingCharmItem.conclude(level, player, familiar, ItemStack.EMPTY, level.random.nextFloat() < chance, false);
             }
@@ -44,7 +50,7 @@ public final class FamiliarCare {
         }
         if (familiar.isOwnedBy(player) && mob.getHealth() < mob.getMaxHealth()) {
             if (player.level() instanceof ServerLevel level) {
-                if (!player.getAbilities().instabuild) food.shrink(1);
+                spendFood(player, food);
                 mob.heal(FamiliarRoster.voiceTribe(familiar.profile()) == null ? ANIMAL_HEAL : REMNANT_HEAL);
                 level.sendParticles(ParticleTypes.HAPPY_VILLAGER, mob.getX(), mob.getY() + mob.getBbHeight() * 0.8, mob.getZ(),
                         5, 0.4, 0.3, 0.4, 0.02);

@@ -11,17 +11,18 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import java.util.List;
 
 /**
- * The veins near one player, sent so the client can draw them. The braid's motion is not in the
- * packet: the client scrolls it from the game clock, so the ropes flow on every frame.
+ * The veins near one player, sent so the client can draw them. The thread's motion is not in the
+ * packet: the client scrolls it from the game clock. The last byte is the totem voice.
  */
 public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
-    public static final int MAX = 6;
+    public static final int MAX = LeyField.VIEW;
     public static final Type<LeyRopePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "ley_ropes"));
-    /** Ten floats. StreamCodec.composite stops at six, so the rope is written by hand. */
+    /** Ten floats and the voice. StreamCodec.composite stops at six, so the rope is written by hand. */
     public static final StreamCodec<ByteBuf, Rope> ROPE = new StreamCodec<>() {
         @Override public Rope decode(ByteBuf buf) {
             return new Rope(buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
-                    buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat());
+                    buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
+                    buf.readUnsignedByte());
         }
 
         @Override public void encode(ByteBuf buf, Rope rope) {
@@ -35,6 +36,7 @@ public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
             buf.writeFloat(rope.yAmp());
             buf.writeFloat(rope.yFreq());
             buf.writeFloat(rope.travel());
+            buf.writeByte(rope.voice());
         }
     };
     public static final StreamCodec<ByteBuf, LeyRopePayload> STREAM_CODEC = StreamCodec.composite(
@@ -54,11 +56,11 @@ public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
             if (ropes.size() >= MAX) break;
             ropes.add(new Rope((float) rope.x(), (float) rope.y(), (float) rope.z(), (float) rope.angle(),
                     (float) rope.amp(), (float) rope.freq(), (float) rope.phase(), (float) rope.yAmp(),
-                    (float) rope.yFreq(), (float) rope.travel()));
+                    (float) rope.yFreq(), (float) rope.travel(), rope.voice()));
         }
         return new LeyRopePayload(List.copyOf(ropes));
     }
 
     public record Rope(float x, float y, float z, float angle, float amp, float freq, float phase,
-                       float yAmp, float yFreq, float travel) {}
+                       float yAmp, float yFreq, float travel, int voice) {}
 }

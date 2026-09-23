@@ -87,7 +87,7 @@ public class StoneFontBlock extends BaseEntityBlock {
                     ItemStack stack = font.removeItemNoUpdate(slot);
                     if (!stack.isEmpty()) {
                         had = true;
-                        if (!player.getInventory().add(stack)) player.drop(stack, false);
+                        tk.darrow.tribalpower.item.SpiritgearHelper.give(player, stack);
                     }
                 }
                 if (had) level.updateNeighbourForOutputSignal(pos, this);

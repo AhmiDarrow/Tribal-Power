@@ -151,7 +151,7 @@ public class RitualChalkItem extends Item {
         if (stack.getCount() <= 1) return;
         if (player != null && player.getAbilities().instabuild) return;
         ItemStack rest = stack.split(stack.getCount() - 1);
-        if (player != null && !rest.isEmpty() && !player.getInventory().add(rest)) player.drop(rest, false);
+        if (player != null) SpiritgearHelper.give(player, rest);
     }
 
     private static void spend(UseOnContext context) {
@@ -166,7 +166,7 @@ public class RitualChalkItem extends Item {
             consumeUse(one);
             if (one.isEmpty()) return;
             if (player != null) {
-                if (!player.getInventory().add(one)) player.drop(one, false);
+                SpiritgearHelper.give(player, one);
             }
             return;
         }

@@ -1,12 +1,18 @@
 package tk.darrow.tribalpower.verification;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.building.BuildPattern;
+import tk.darrow.tribalpower.building.BuildersChalkItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
+import tk.darrow.tribalpower.pattern.BlockPredicate;
+import tk.darrow.tribalpower.pattern.RitualPattern;
 
 import java.util.HashSet;
 import java.util.List;
@@ -19,7 +25,8 @@ public class BuildingGameTests {
     /** A guide that repeats a position or strays past its own size would mislead whoever built to it. */
     @GameTest(template="empty")
     public static void everyPatternStaysInsideItsOwnSize(GameTestHelper h) {
-        for (BuildPattern pattern : BuildPattern.values())
+        for (BuildPattern pattern : BuildPattern.values()) {
+            if (pattern.rite() != null) continue; // a rite is a fixed footprint; its own test checks it
             for (int size : BuildPattern.SIZES) {
                 if (size > 24) continue;   // the whole ladder, up to where the solids get big; 128 has its own test
                 List<BlockPos> marks = pattern.offsets(size);
@@ -32,6 +39,7 @@ public class BuildingGameTests {
                             pattern + " at " + size + " stands " + p.getY() + " high");
                 }
             }
+        }
         h.succeed();
     }
 
@@ -143,6 +151,69 @@ public class BuildingGameTests {
                 "Cycling back from the first shape must wrap to the last");
         h.assertTrue(BuildPattern.byIndex(BuildPattern.values().length) == BuildPattern.SQUARE,
                 "Cycling past the last shape must wrap to the first");
+        h.succeed();
+    }
+
+    /**
+     * The rite shapes are the multiblocks themselves. The mark is the machine, air stays open, and an
+     * unknown tier falls back to the first layout rather than inventing a third footprint.
+     */
+    @GameTest(template="empty")
+    public static void riteLayoutsMatchTheStructuresTheyName(GameTestHelper h) {
+        int rites = 0;
+        for (BuildPattern pattern : BuildPattern.values()) {
+            RitualPattern rite = pattern.rite();
+            if (rite == null) continue;
+            rites++;
+            for (RitualPattern.Tier tier : rite.tiers()) {
+                List<BlockPos> marks = pattern.offsets(tier.number());
+                HashSet<BlockPos> expected = new HashSet<>();
+                expected.add(BlockPos.ZERO);
+                for (RitualPattern.Cell cell : tier.cells()) {
+                    if (cell.predicate().trivial() || cell.predicate().role() == BlockPredicate.Role.AIR) continue;
+                    Vec3i offset = cell.offset();
+                    expected.add(new BlockPos(offset.getX(), offset.getY(), offset.getZ()));
+                }
+                HashSet<BlockPos> got = new HashSet<>(marks);
+                h.assertTrue(got.size() == marks.size(), pattern + " tier " + tier.number() + " repeats a cell");
+                if (!got.equals(expected)) {
+                    BlockPos sample = null;
+                    String which = "missing";
+                    for (BlockPos p : expected) if (!got.contains(p)) { sample = p; break; }
+                    if (sample == null) {
+                        which = "extra";
+                        for (BlockPos p : got) if (!expected.contains(p)) { sample = p; break; }
+                    }
+                    h.assertTrue(false, pattern + " tier " + tier.number() + " " + which + " " + sample
+                            + " (drew " + got.size() + ", the rite wants " + expected.size() + ")");
+                }
+            }
+        }
+        h.assertTrue(rites == 7, "The chalk must carry every placement rite, found " + rites);
+        List<BlockPos> pit = BuildPattern.LISTENING_PIT.offsets(1);
+        h.assertTrue(pit.contains(BlockPos.ZERO), "The Listening Pit marks where the mesh stands");
+        h.assertTrue(pit.contains(new BlockPos(0, -1, 0)), "The pit floor sits under the mesh");
+        h.assertTrue(pit.contains(new BlockPos(2, 0, 2)), "Tier 1 braces the near corner");
+        h.assertTrue(!pit.contains(new BlockPos(3, 0, 3)), "Tier 1 is the 5 by 5, not the deep pit");
+        List<BlockPos> deep = BuildPattern.LISTENING_PIT.offsets(2);
+        h.assertTrue(deep.contains(new BlockPos(3, 0, 0)), "Deep Listening seats a totem on the cardinal");
+        h.assertTrue(deep.contains(new BlockPos(3, 0, 3)), "Deep Listening braces the outer corner");
+        h.assertTrue(deep.contains(new BlockPos(0, -1, 3)), "Deep Listening floors the whole 7 by 7");
+        h.assertTrue(!BuildPattern.LISTENING_PIT.offsets(99).contains(new BlockPos(3, 0, 3)),
+                "An unknown tier falls back to the first layout");
+        h.assertTrue(!BuildPattern.WAY_GATE.offsets(1).contains(new BlockPos(0, 1, 0)),
+                "The inside of a Way Gate stays open");
+        h.assertTrue(BuildPattern.WAY_GATE.offsets(1).contains(new BlockPos(-2, 1, 0)),
+                "A Way Gate still draws its frame");
+        h.assertTrue(BuildPattern.SHATTER_ARRAY.offsets(1).contains(new BlockPos(0, -1, 0)),
+                "The Shatter Array marks the cache under the station");
+        h.assertTrue(BuildPattern.VOICE_RING.offsets(1).contains(new BlockPos(3, 0, 0)),
+                "The Voice Ring seats a totem three out on the cardinal");
+        h.assertTrue(BuildPattern.turn(new BlockPos(-2, 1, 0), Rotation.CLOCKWISE_90).equals(new BlockPos(0, 1, -2)),
+                "A clockwise turn swings the gate frame onto the west");
+        h.assertTrue(BuildersChalkItem.facing(Direction.SOUTH) == Rotation.NONE, "Looking south keeps the written rite");
+        h.assertTrue(BuildersChalkItem.facing(Direction.EAST) == Rotation.COUNTERCLOCKWISE_90,
+                "Looking east turns the rite to face east");
         h.succeed();
     }
 }

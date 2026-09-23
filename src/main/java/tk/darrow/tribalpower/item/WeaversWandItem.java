@@ -119,8 +119,9 @@ public class WeaversWandItem extends Item {
     private static void take(Player player, net.minecraft.world.item.Item block) {
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (!stack.is(block)) continue;
+            if (stack.isEmpty() || !stack.is(block)) continue;
             stack.shrink(1);
+            if (stack.isEmpty()) player.getInventory().removeItem(stack);
             player.getInventory().setChanged();
             return;
         }

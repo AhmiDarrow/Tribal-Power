@@ -55,10 +55,8 @@ public final class SongCast {
 
     private static void hold(LivingEntity target, SongVerse verse) {
         int amplifier = Math.min(3, verse.power() - 1);
+        if (verse.voice() == Attunement.WATER) amplifier = Math.min(4, amplifier + 1);
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, verse.duration(), amplifier));
-        if (verse.voice() == Attunement.WATER) {
-            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, verse.duration(), amplifier));
-        }
     }
 
     private static void ward(ServerPlayer player, SongVerse verse) {

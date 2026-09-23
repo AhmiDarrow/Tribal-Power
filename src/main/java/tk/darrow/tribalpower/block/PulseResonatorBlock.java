@@ -138,9 +138,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
             if (player.isShiftKeyDown()) {
                 ItemStack taken = resonator.takeCatalyst();
                 if (!taken.isEmpty()) {
-                    if (!player.addItem(taken)) {
-                        player.drop(taken, false);
-                    }
+                    tk.darrow.tribalpower.item.SpiritgearHelper.give(player, taken);
                     player.displayClientMessage(Component.translatable(
                             "message.tribalpower.pulse_resonator.removed_fuel"
                     ), true);

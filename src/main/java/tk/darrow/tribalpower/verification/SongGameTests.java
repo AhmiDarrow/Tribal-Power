@@ -16,8 +16,10 @@ import tk.darrow.tribalpower.entity.CreatureProfile;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.item.RitualChalkItem;
 import tk.darrow.tribalpower.song.Note;
+import tk.darrow.tribalpower.song.PouchMenu;
 import tk.darrow.tribalpower.song.PulseBowItem;
 import tk.darrow.tribalpower.song.ReagentPouch;
+import tk.darrow.tribalpower.song.SongBenchMenu;
 import tk.darrow.tribalpower.song.ReagentPouchHooks;
 import tk.darrow.tribalpower.song.Reagents;
 import tk.darrow.tribalpower.song.SongBenchLogic;
@@ -96,7 +98,7 @@ public class SongGameTests {
             h.assertTrue(verse != null && verse.reagents().equals(order), "The sheet remembers the order");
             h.assertTrue(verse.shape() == SongShape.BOLT && verse.power() == 1 && verse.voice() == Attunement.FIRE, "Lead ember is a fire bolt");
             h.assertTrue(verse.riders().equals(List.of(Note.QUIET)), "The second note is the only rider");
-            h.assertTrue(bench.getItem(0).isEmpty(), "Paper is spent");
+            h.assertTrue(bench.getItem(0).isEmpty() && !bench.getItem(0).is(Items.PAPER), "Paper leaves the slot");
             h.assertTrue(RitualChalkItem.remaining(bench.getItem(1)) == RitualChalkItem.USES - 1, "One chalk mark is spent");
             h.assertTrue(ReagentPouch.empowered(pouch, CreatureProfile.ASHBOUND) == 0, "The sheet spent the empowered heart");
 
@@ -129,5 +131,98 @@ public class SongGameTests {
         h.assertTrue(PulseBowItem.cost(1.0F, true) == PulseBowItem.PLAIN_PULSE + PulseBowItem.VERSE_PULSE, "A verse arrow adds its price");
         h.assertTrue(PulseBowItem.cost(0.05F, true) == 0, "A twitch does not spend Pulse");
         h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void lastPaperAndLastChalkLeaveTheSlot(GameTestHelper h) {
+        var pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, ModBlocks.SONG_BENCH.get());
+        h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        var bench = at(h, pos, SongBenchBlockEntity.class);
+        at(h, new BlockPos(2, 2, 4), DrumheartBlockEntity.class).insertPulse(200, false);
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = false;
+            var pouch = new ItemStack(ModItems.REAGENT_POUCH.get());
+            player.getInventory().setItem(0, pouch);
+            ReagentPouch.addRaw(pouch, CreatureProfile.ASHBOUND, 2);
+            ReagentPouch.addRaw(pouch, CreatureProfile.DAWN_STAG, 4);
+            var level = (net.minecraft.server.level.ServerLevel) h.getLevel();
+            var origin = bench.getBlockPos();
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.ASHBOUND);
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.ASHBOUND);
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.DAWN_STAG);
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.DAWN_STAG);
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.DAWN_STAG);
+            SongBenchLogic.empower(level, origin, bench, pouch, CreatureProfile.DAWN_STAG);
+            var chalk = new ItemStack(ModItems.RITUAL_CHALK.get());
+            for (int i = 0; i < RitualChalkItem.USES - 1; i++) RitualChalkItem.spend(chalk, player);
+            h.assertTrue(RitualChalkItem.remaining(chalk) == 1, "The stick has one mark left");
+            bench.setItem(SongBenchBlockEntity.PAPER, new ItemStack(Items.PAPER, 1));
+            bench.setItem(SongBenchBlockEntity.CHALK, chalk);
+            bench.setVoice(Attunement.FIRE);
+            var order = List.of(CreatureProfile.ASHBOUND.reagent, CreatureProfile.DAWN_STAG.reagent, CreatureProfile.DAWN_STAG.reagent);
+            var written = SongBenchLogic.write(level, origin, bench, player, pouch, order, Attunement.FIRE,
+                    bench.getItem(SongBenchBlockEntity.PAPER), bench.getItem(SongBenchBlockEntity.CHALK),
+                    ItemStack.EMPTY, ItemStack.EMPTY);
+            h.assertTrue(written.ok(), written.message().getString());
+            h.assertFalse(bench.getItem(SongBenchBlockEntity.PAPER).is(Items.PAPER), "The last paper is gone");
+            h.assertFalse(bench.getItem(SongBenchBlockEntity.CHALK).getItem() instanceof RitualChalkItem, "The last chalk mark is gone");
+            bench.setItem(SongBenchBlockEntity.PAPER, new ItemStack(Items.PAPER, 1));
+            var again = SongBenchLogic.write(level, origin, bench, player, pouch, order, Attunement.FIRE,
+                    bench.getItem(SongBenchBlockEntity.PAPER), bench.getItem(SongBenchBlockEntity.CHALK),
+                    ItemStack.EMPTY, ItemStack.EMPTY);
+            h.assertFalse(again.ok(), "A cleared chalk slot cannot write another sheet");
+            h.assertTrue(bench.getItem(SongBenchBlockEntity.PAPER).getCount() == 1, "The refused write keeps its paper");
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+    }
+
+    @GameTest(template = "empty")
+    public static void lastVerseArrowLeavesTheInventory(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = false;
+            var arrow = VerseArrowItem.create(CreatureProfile.ASHBOUND, Attunement.FIRE, 1);
+            player.getInventory().setItem(0, arrow);
+            h.assertTrue(PulseBowItem.findVerse(player) == arrow, "The verse arrow is in the hotbar");
+            PulseBowItem.takeVerse(player, arrow);
+            h.assertTrue(player.getInventory().getItem(0).isEmpty(), "The last arrow leaves the slot");
+            h.assertTrue(PulseBowItem.findVerse(player) == null, "An emptied slot is not another arrow");
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+    }
+
+    @GameTest(template = "empty")
+    public static void withdrawingAPouchKeepsWhatDoesNotFit(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = false;
+            var pouch = new ItemStack(ModItems.REAGENT_POUCH.get());
+            player.getInventory().setItem(0, pouch);
+            ReagentPouch.addRaw(pouch, CreatureProfile.DAWN_STAG, 64);
+            var reagent = Reagents.item(CreatureProfile.DAWN_STAG);
+            for (int slot = 1; slot < player.getInventory().items.size(); slot++)
+                player.getInventory().setItem(slot, new ItemStack(Items.COBBLESTONE, 64));
+            player.getInventory().setItem(10, new ItemStack(reagent, 60));
+            h.assertTrue(Reagents.inventoryRoom(player, CreatureProfile.DAWN_STAG) == 4,
+                    "Four fit beside a full inventory");
+            var menu = new PouchMenu(0, player.getInventory(), 0);
+            h.assertTrue(menu.clickMenuButton(player, SongBenchMenu.WITHDRAW + CreatureProfile.DAWN_STAG.ordinal()),
+                    "Taking from the pouch is accepted");
+            int held = 0;
+            for (ItemStack stack : player.getInventory().items) if (stack.is(reagent)) held += stack.getCount();
+            int stored = ReagentPouch.raw(pouch, CreatureProfile.DAWN_STAG);
+            h.assertTrue(stored == 60, "The pouch keeps what the inventory cannot hold, left " + stored);
+            h.assertTrue(held == 64, "The four that fit stay in the inventory, holds " + held);
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
     }
 }

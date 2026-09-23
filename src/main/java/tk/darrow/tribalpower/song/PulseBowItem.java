@@ -62,24 +62,31 @@ public class PulseBowItem extends Item {
         if (pull < 0.1F) return;
         ItemStack arrow = findVerse(player);
         int price = cost(pull, arrow != null);
-        if (!level.isClientSide) {
-            if (!GearCell.spend(player, bow, price)) {
-                SpiritgearHelper.notifyStarved(player);
-                return;
-            }
-            if (arrow != null && !player.getAbilities().instabuild) arrow.shrink(1);
-            if (player instanceof net.minecraft.server.level.ServerPlayer server) {
-                SonicBolt.shoot(server, bow, arrow == null ? null : VerseArrowItem.verse(arrow), pull);
-            }
-            bow.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
+        if (level.isClientSide) return;
+        if (!GearCell.spend(player, bow, price)) {
+            SpiritgearHelper.notifyStarved(player);
+            return;
         }
+        if (arrow != null) takeVerse(player, arrow);
+        if (player instanceof net.minecraft.server.level.ServerPlayer server) {
+            SonicBolt.shoot(server, bow, arrow == null ? null : VerseArrowItem.verse(arrow), pull);
+        }
+        bow.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.3F + pull * 0.3F);
         player.awardStat(Stats.ITEM_USED.get(this));
     }
 
+    /** Shrinks one verse arrow. The last one leaves the slot, so a later draw cannot sing it again. */
+    public static void takeVerse(Player player, ItemStack arrow) {
+        if (player.getAbilities().instabuild) return;
+        arrow.shrink(1);
+        if (arrow.isEmpty()) player.getInventory().removeItem(arrow);
+    }
+
     /** The first verse arrow in the inventory, hotbar included. */
     public static @Nullable ItemStack findVerse(Player player) {
-        Predicate<ItemStack> verse = stack -> stack.getItem() instanceof VerseArrowItem && VerseArrowItem.verse(stack) != null;
+        Predicate<ItemStack> verse = stack -> !stack.isEmpty()
+                && stack.getItem() instanceof VerseArrowItem && VerseArrowItem.verse(stack) != null;
         for (ItemStack stack : player.getInventory().items) {
             if (verse.test(stack)) return stack;
         }

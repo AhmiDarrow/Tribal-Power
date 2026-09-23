@@ -247,7 +247,7 @@ public final class SpiritGear {
      * Snapshots the input so voice and damage survive the station.
      */
     public static ProcessingRecipes.Formula rankFormula(String station, ItemStack stack) {
-        if (!isGear(stack)) return null;
+        if (stack.isEmpty() || !isGear(stack)) return null;
         int from = rank(stack);
         int to;
         Attunement attunement;

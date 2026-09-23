@@ -70,6 +70,23 @@ public class FamiliarGameTests {
         fox.discard();baby.discard();h.succeed();
     }
     @GameTest(template="empty")
+    public static void oneWheatHealsOnce(GameTestHelper h) {
+        floor(h);
+        var player=VerificationPlayers.inLevel(h);
+        var stag=spawn(h,CreatureProfile.DAWN_STAG,3,2,3);
+        bond(h,player,stag);
+        h.assertTrue(stag.hurt(h.getLevel().damageSources().magic(),6),"Magic can wound a familiar");
+        float hurt=stag.getHealth();
+        player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.WHEAT));
+        stag.mobInteract(player,InteractionHand.MAIN_HAND);
+        float healed=stag.getHealth();
+        h.assertTrue(healed==hurt+FamiliarCare.ANIMAL_HEAL,"Wheat heals "+FamiliarCare.ANIMAL_HEAL+", health "+healed+" from "+hurt);
+        stag.mobInteract(player,InteractionHand.MAIN_HAND);
+        h.assertTrue(stag.getHealth()==healed,"A spent wheat does not heal again");
+        h.assertTrue(!player.getMainHandItem().is(Items.WHEAT),"The wheat leaves the hand");
+        stag.discard();h.succeed();
+    }
+    @GameTest(template="empty")
     public static void sittingStopsMovement(GameTestHelper h) {
         floor(h);
         var player=VerificationPlayers.inLevel(h);
@@ -657,5 +674,30 @@ public class FamiliarGameTests {
         var tag=elite.save();var loaded=new FamiliarData();loaded.load(tag);
         h.assertTrue(loaded.phenotype(FamiliarData.Thread.FRAME)==5,"A 5 survives saving");
         h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void dumpingAWeaverPouchKeepsWhatDoesNotFit(GameTestHelper h) {
+        floor(h);
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = false;
+            var weaver = spawnMonster(h, CreatureProfile.ECHO_WEAVER, 3, 2, 3);
+            weaver.pouch().setItem(0, new ItemStack(Items.DIAMOND, 64));
+            for (int slot = 0; slot < player.getInventory().items.size(); slot++)
+                player.getInventory().setItem(slot, new ItemStack(Items.DIRT, 64));
+            player.getInventory().setItem(10, new ItemStack(Items.DIAMOND, 60));
+            weaver.dumpPouch(player);
+            int held = 0;
+            for (ItemStack stack : player.getInventory().items)
+                if (stack.is(Items.DIAMOND)) held += stack.getCount();
+            h.assertTrue(held == 64, "Four diamonds move across, holds " + held);
+            h.assertTrue(weaver.pouch().getItem(0).is(Items.DIAMOND) && weaver.pouch().getItem(0).getCount() == 60,
+                    "The pouch keeps the rest, holds " + weaver.pouch().getItem(0).getCount());
+            weaver.discard();
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
     }
 }

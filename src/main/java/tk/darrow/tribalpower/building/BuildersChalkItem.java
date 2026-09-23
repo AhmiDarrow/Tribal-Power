@@ -2,6 +2,7 @@ package tk.darrow.tribalpower.building;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Rotation;
 
 import java.util.List;
 
@@ -28,11 +30,16 @@ import java.util.List;
  * <p>Unlike Ritual Chalk it is never spent. It places nothing and breaks nothing: this class only keeps
  * the setting on the stack, and {@link ChalkGhostRenderer} draws from that setting on the holder's own
  * client. Nothing is sent to the server for it and no other player sees it.
+ *
+ * <p>Past the building shapes the same stick stands the placement rites. The mark is the machine, and
+ * sneaking steps the tier instead of the size, so a Listening Pit can be the first layout or the deep one
+ * without losing the hut you had sized a moment ago.
  */
 public class BuildersChalkItem extends Item {
     /** How far from a set mark the hologram still stands. */
     public static final int ANCHOR_RANGE = 192;
-    private static final String SHAPE = "ChalkShape", SIZE = "ChalkSize", MARK = "ChalkMark", DIM = "ChalkDim";
+    private static final String SHAPE = "ChalkShape", SIZE = "ChalkSize", TIER = "ChalkTier",
+            ROT = "ChalkRot", MARK = "ChalkMark", DIM = "ChalkDim";
 
     public BuildersChalkItem(Properties properties) {
         super(properties);
@@ -52,6 +59,43 @@ public class BuildersChalkItem extends Item {
         if (stack.isEmpty()) return BuildPattern.MIN_SIZE;
         CompoundTag tag = data(stack);
         return BuildPattern.clampSize(tag.contains(SIZE) ? tag.getInt(SIZE) : 5);
+    }
+
+    /** The rite tier on the stack, or 1 for a building shape and for a tier the rite does not have. */
+    public static int tier(ItemStack stack) {
+        var rite = shape(stack).rite();
+        if (rite == null) return 1;
+        int stored = data(stack).getInt(TIER);
+        return rite.tier(stored) == null ? 1 : stored;
+    }
+
+    /** Half-extent for a building shape, tier number for a rite. What the hologram is drawn from. */
+    public static int scale(ItemStack stack) {
+        return shape(stack).rite() == null ? size(stack) : tier(stack);
+    }
+
+    /**
+     * How a rite is turned. A set mark keeps the facing it was planted with. While the layout follows
+     * you, it turns to the way you are looking, and a building shape never turns.
+     */
+    public static Rotation rotation(ItemStack stack, Player player) {
+        if (shape(stack).rite() == null) return Rotation.NONE;
+        if (mark(stack) != null) {
+            int stored = data(stack).getInt(ROT);
+            Rotation[] all = Rotation.values();
+            if (stored >= 0 && stored < all.length) return all[stored];
+        }
+        return facing(player.getDirection());
+    }
+
+    /** Pattern +Z, the way the rite was written, swings around to this horizontal facing. */
+    public static Rotation facing(Direction direction) {
+        return switch (direction) {
+            case WEST -> Rotation.CLOCKWISE_90;
+            case NORTH -> Rotation.CLOCKWISE_180;
+            case EAST -> Rotation.COUNTERCLOCKWISE_90;
+            default -> Rotation.NONE;
+        };
     }
 
     /** Where the chalk has set its mark, or null while the hologram follows the holder. */
@@ -74,10 +118,21 @@ public class BuildersChalkItem extends Item {
         CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.putInt(SIZE, next));
     }
 
-    private static void setMark(ItemStack stack, BlockPos pos, String dimension) {
+    /** One tier up or down, wrapping at either end. A single-tier rite stays where it is. */
+    private static void stepTier(ItemStack stack, boolean up) {
+        var rite = shape(stack).rite();
+        int max = rite.maxTier();
+        int current = tier(stack);
+        int next = up ? (current >= max ? 1 : current + 1) : (current <= 1 ? max : current - 1);
+        CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.putInt(TIER, next));
+    }
+
+    private static void setMark(ItemStack stack, BlockPos pos, String dimension, Direction facing) {
+        int rotation = facing(facing).ordinal();
         CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> {
             tag.putLong(MARK, pos.asLong());
             tag.putString(DIM, dimension);
+            tag.putInt(ROT, rotation);
         });
     }
 
@@ -125,7 +180,7 @@ public class BuildersChalkItem extends Item {
                 clearMark(stack);
                 player.displayClientMessage(Component.translatable("message.tribalpower.chalk.rubbed"), true);
             } else {
-                setMark(stack, target, level.dimension().location().toString());
+                setMark(stack, target, level.dimension().location().toString(), player.getDirection());
                 player.displayClientMessage(Component.translatable("message.tribalpower.chalk.marked",
                         target.getX(), target.getY(), target.getZ()), true);
             }
@@ -149,7 +204,8 @@ public class BuildersChalkItem extends Item {
     }
 
     private static void resize(Player player, ItemStack stack, boolean up) {
-        stepSize(stack, up);
+        if (shape(stack).rite() != null) stepTier(stack, up);
+        else stepSize(stack, up);
         player.displayClientMessage(setting(stack), true);
         player.level().playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME,
                 SoundSource.PLAYERS, 0.4F, up ? 1.4F : 0.7F);
@@ -158,8 +214,12 @@ public class BuildersChalkItem extends Item {
     // ---- readouts ----------------------------------------------------------------------------------
 
     public static Component setting(ItemStack stack) {
+        BuildPattern shape = shape(stack);
+        if (shape.rite() != null)
+            return Component.translatable("message.tribalpower.chalk.rite",
+                    Component.translatable(shape.key()), tier(stack));
         return Component.translatable("message.tribalpower.chalk.setting",
-                Component.translatable(shape(stack).key()), size(stack), size(stack) * 2 + 1);
+                Component.translatable(shape.key()), size(stack), size(stack) * 2 + 1);
     }
 
     @Override
@@ -172,7 +232,8 @@ public class BuildersChalkItem extends Item {
                         marked.getX(), marked.getY(), marked.getZ())).withStyle(ChatFormatting.DARK_AQUA));
         if (marked != null)
             tooltip.add(Component.translatable("gui.tribalpower.chalk.stays").withStyle(ChatFormatting.DARK_AQUA));
-        tooltip.add(Component.translatable("gui.tribalpower.chalk.hint").withStyle(ChatFormatting.DARK_GRAY));
+        tooltip.add(Component.translatable(shape(stack).rite() == null
+                ? "gui.tribalpower.chalk.hint" : "gui.tribalpower.chalk.rite_hint").withStyle(ChatFormatting.DARK_GRAY));
         tooltip.add(Component.translatable("gui.tribalpower.chalk.never_spent").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

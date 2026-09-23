@@ -1,7 +1,12 @@
 package tk.darrow.tribalpower.building;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
+import net.minecraft.world.level.block.Rotation;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
+import tk.darrow.tribalpower.pattern.BlockPredicate;
+import tk.darrow.tribalpower.pattern.ModPatterns;
+import tk.darrow.tribalpower.pattern.RitualPattern;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -22,9 +27,13 @@ import java.util.Set;
  * walked band by band rather than by testing every position of the box they sit in — a size-128 dome
  * tested that way is eight and a half million checks to find a hundred thousand marks.
  *
- * <p>{@link #LATTICE_CAMP} is the odd one out and means something in the game's own terms: at size
- * {@value LatticeNetwork#DEFAULT_RADIUS} its square is exactly the cube a machine draws from, because
- * every Pulse scan tests each axis on its own.
+ * <p>{@link #LATTICE_CAMP} is the odd one out among the building shapes and means something in the game's
+ * own terms: at size {@value LatticeNetwork#DEFAULT_RADIUS} its square is exactly the cube a machine
+ * draws from, because every Pulse scan tests each axis on its own.
+ *
+ * <p>The constants from {@link #STONE_FONT} on are the placement rites. They do not grow with the size
+ * ladder. {@code size} there is a tier number, the mark is the machine, and the marks are the cells
+ * that rite still wants a block in. Open air, and cells that accept anything, stay dark.
  */
 public enum BuildPattern {
     SQUARE,
@@ -35,7 +44,14 @@ public enum BuildPattern {
     DOME,
     HUT,
     LONGHOUSE,
-    LATTICE_CAMP;
+    LATTICE_CAMP,
+    STONE_FONT,
+    LISTENING_PIT,
+    RITE_CIRCLE,
+    VOICE_RING,
+    SHATTER_ARRAY,
+    WAY_GATE,
+    FAR_GATE;
 
     public static final int MIN_SIZE = 2;
     public static final int MAX_SIZE = 128;
@@ -74,15 +90,69 @@ public enum BuildPattern {
         return SIZES[SIZES.length - 1];
     }
 
-    /** The translation key for this pattern's name. */
-    public String key() {
-        return "gui.tribalpower.chalk.shape." + name().toLowerCase(Locale.ROOT);
+    /**
+     * The placement rite this shape stands in for, or null for a building shape that grows with size.
+     * Appended after the building shapes so a chalk that already remembers a shape index keeps it.
+     */
+    public RitualPattern rite() {
+        return switch (this) {
+            case STONE_FONT -> ModPatterns.STONE_FONT;
+            case LISTENING_PIT -> ModPatterns.LISTENING_PIT;
+            case RITE_CIRCLE -> ModPatterns.RITE_CIRCLE;
+            case VOICE_RING -> ModPatterns.VOICE_RING;
+            case SHATTER_ARRAY -> ModPatterns.SHATTER_ARRAY;
+            case WAY_GATE -> ModPatterns.WAY_GATE;
+            case FAR_GATE -> ModPatterns.FAR_GATE;
+            default -> null;
+        };
     }
 
-    /** Offsets from the mark, deduplicated, ordered low to high so a sampled subset still reads as the shape. */
+    /** The translation key for this pattern's name. */
+    public String key() {
+        RitualPattern rite = rite();
+        return rite == null
+                ? "gui.tribalpower.chalk.shape." + name().toLowerCase(Locale.ROOT)
+                : rite.translationKey();
+    }
+
+    /**
+     * Offsets from the mark, deduplicated, ordered low to high so a sampled subset still reads as the shape.
+     * For a building shape {@code size} is the half-extent. For a rite it is the tier, and an unknown tier
+     * falls back to the first layout.
+     */
     public List<BlockPos> offsets(int size) {
-        int r = clampSize(size);
         Set<BlockPos> out = new LinkedHashSet<>();
+        if (rite() != null) riteMarks(out, size);
+        else geometry(out, clampSize(size));
+        List<BlockPos> list = new ArrayList<>(out);
+        list.sort(Comparator.comparingInt((BlockPos p) -> p.getY())
+                .thenComparingInt(BlockPos::getX)
+                .thenComparingInt(BlockPos::getZ));
+        return List.copyOf(list);
+    }
+
+    /** The same turn a rite match uses, so a chalk layout and a finished build share a facing. */
+    public static BlockPos turn(BlockPos offset, Rotation rotation) {
+        int x = offset.getX();
+        int z = offset.getZ();
+        int turnedX = switch (rotation) {
+            case NONE -> x;
+            case CLOCKWISE_90 -> -z;
+            case CLOCKWISE_180 -> -x;
+            case COUNTERCLOCKWISE_90 -> z;
+        };
+        int turnedZ = switch (rotation) {
+            case NONE -> z;
+            case CLOCKWISE_90 -> x;
+            case CLOCKWISE_180 -> -z;
+            case COUNTERCLOCKWISE_90 -> -x;
+        };
+        return new BlockPos(turnedX, offset.getY(), turnedZ);
+    }
+
+    // ---- shapes ------------------------------------------------------------------------------------
+
+    private void geometry(Set<BlockPos> out, int r) {
         switch (this) {
             case SQUARE -> square(out, r, 0);
             case CIRCLE -> circle(out, r, 0);
@@ -100,15 +170,22 @@ public enum BuildPattern {
             case HUT -> hut(out, r);
             case LONGHOUSE -> longhouse(out, r);
             case LATTICE_CAMP -> latticeCamp(out, r);
+            default -> throw new IllegalStateException("No geometry for " + this);
         }
-        List<BlockPos> list = new ArrayList<>(out);
-        list.sort(Comparator.comparingInt((BlockPos p) -> p.getY())
-                .thenComparingInt(BlockPos::getX)
-                .thenComparingInt(BlockPos::getZ));
-        return List.copyOf(list);
     }
 
-    // ---- shapes ------------------------------------------------------------------------------------
+    /** The machine at the mark, plus every cell that wants a real block. Air and "anything" stay clear. */
+    private void riteMarks(Set<BlockPos> out, int tierNumber) {
+        RitualPattern.Tier tier = rite().tier(tierNumber);
+        if (tier == null) tier = rite().tier(1);
+        out.add(BlockPos.ZERO);
+        for (RitualPattern.Cell cell : tier.cells()) {
+            BlockPredicate predicate = cell.predicate();
+            if (predicate.trivial() || predicate.role() == BlockPredicate.Role.AIR) continue;
+            Vec3i offset = cell.offset();
+            out.add(new BlockPos(offset.getX(), offset.getY(), offset.getZ()));
+        }
+    }
 
     private static void square(Set<BlockPos> out, int r, int y) {
         for (int d = -r; d <= r; d++) {

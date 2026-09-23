@@ -10,10 +10,12 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,7 +48,7 @@ public final class ChalkGhostRenderer {
     /** The worked-out plan: packed positions that still want a block, and what it was worked out for. */
     private static long[] ghosts = new long[MAX_GHOSTS];
     private static int count;
-    private static int forShape = -1, forSize = -1;
+    private static int forShape = -1, forSize = -1, forRotation = -1;
     private static long forOrigin = Long.MIN_VALUE, builtAt = Long.MIN_VALUE;
     /** The world is remembered by name, never by reference: a static field holding a ClientLevel would
      *  keep every chunk and entity of a world you had already left alive for as long as the game ran. */
@@ -63,7 +65,7 @@ public final class ChalkGhostRenderer {
     /** Dropped on world change so a plan never survives into a level it was not worked out for. */
     public static void forget() {
         count = 0;
-        forShape = forSize = -1;
+        forShape = forSize = forRotation = -1;
         forOrigin = Long.MIN_VALUE;
         builtAt = Long.MIN_VALUE;
         forDimension = "";
@@ -89,7 +91,7 @@ public final class ChalkGhostRenderer {
             return;
         }
 
-        plan(level, stack, origin);
+        plan(level, player, stack, origin);
         if (count == 0) return;
 
         Vec3 camera = event.getCamera().getPosition();
@@ -123,22 +125,24 @@ public final class ChalkGhostRenderer {
     }
 
     /** Rebuild the standing plan when it no longer matches the chalk, the spot, or the world. */
-    private static void plan(ClientLevel level, ItemStack stack, BlockPos origin) {
+    private static void plan(ClientLevel level, LocalPlayer player, ItemStack stack, BlockPos origin) {
         BuildPattern pattern = BuildersChalkItem.shape(stack);
-        int size = BuildersChalkItem.size(stack);
+        int scale = BuildersChalkItem.scale(stack);
+        int rotation = BuildersChalkItem.rotation(stack, player).ordinal();
         long originKey = origin.asLong();
         long now = level.getGameTime();
         String dimension = level.dimension().location().toString();
-        boolean stale = !forDimension.equals(dimension) || forShape != pattern.index() || forSize != size
-                || forOrigin != originKey || now - builtAt >= REFRESH || now < builtAt;
+        boolean stale = !forDimension.equals(dimension) || forShape != pattern.index() || forSize != scale
+                || forRotation != rotation || forOrigin != originKey || now - builtAt >= REFRESH || now < builtAt;
         if (!stale) return;
         forDimension = dimension;
         forShape = pattern.index();
-        forSize = size;
+        forSize = scale;
+        forRotation = rotation;
         forOrigin = originKey;
         builtAt = now;
 
-        List<BlockPos> offsets = offsets(pattern, size);
+        List<BlockPos> offsets = offsets(pattern, scale, Rotation.values()[rotation]);
         BlockPos eye = Minecraft.getInstance().player.blockPosition();
         int reach = VIEW;
         count = gather(level, offsets, origin, eye, reach);
@@ -149,11 +153,20 @@ public final class ChalkGhostRenderer {
         }
     }
 
-    private static List<BlockPos> offsets(BuildPattern pattern, int size) {
-        if (pattern != cachedPattern || size != cachedSize) {
-            cachedOffsets = pattern.offsets(size);
+    private static int cachedRotation = -1;
+
+    private static List<BlockPos> offsets(BuildPattern pattern, int size, Rotation rotation) {
+        if (pattern != cachedPattern || size != cachedSize || rotation.ordinal() != cachedRotation) {
+            List<BlockPos> raw = pattern.offsets(size);
+            if (rotation == Rotation.NONE) cachedOffsets = raw;
+            else {
+                List<BlockPos> turned = new ArrayList<>(raw.size());
+                for (BlockPos offset : raw) turned.add(BuildPattern.turn(offset, rotation));
+                cachedOffsets = List.copyOf(turned);
+            }
             cachedPattern = pattern;
             cachedSize = size;
+            cachedRotation = rotation.ordinal();
         }
         return cachedOffsets;
     }

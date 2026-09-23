@@ -193,7 +193,7 @@ public class LatticeMonster extends Monster implements Familiar {
         }
     }
 
-    public boolean isFood(ItemStack stack) { return stack.is(CreatureItems.REAGENTS.get(profile()).get()); }
+    public boolean isFood(ItemStack stack) { return !stack.isEmpty() && stack.is(CreatureItems.REAGENTS.get(profile()).get()); }
     @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
         ItemStack tool=player.getItemInHand(hand);
         if(tool.is(Items.BRUSH) && isBonded() && !isBaby()) {
@@ -212,7 +212,7 @@ public class LatticeMonster extends Monster implements Familiar {
         }
         if(isFood(tool) && isBaby()) {
             if(!level().isClientSide) {
-                if(!player.getAbilities().instabuild)tool.shrink(1);
+                if(!player.getAbilities().instabuild){tool.shrink(1);if(tool.isEmpty())player.getInventory().removeItem(tool);}
                 int grow=Math.max(1,(int)((-age / 20) * 0.1F));
                 age=Math.min(0,age+grow*20);
                 if(age==0)setBabyFlag(false);
@@ -223,7 +223,7 @@ public class LatticeMonster extends Monster implements Familiar {
         if(isBonded() && isOwnedBy(player)) {
             if(isFood(tool) && !isBaby()) {
                 if(!level().isClientSide && inLove<=0 && age==0) {
-                    if(!player.getAbilities().instabuild)tool.shrink(1);
+                    if(!player.getAbilities().instabuild){tool.shrink(1);if(tool.isEmpty())player.getInventory().removeItem(tool);}
                     inLove=600;
                     level().broadcastEntityEvent(this,(byte)18);
                 }
@@ -252,7 +252,8 @@ public class LatticeMonster extends Monster implements Familiar {
         for(int i=0;i<POUCH_SLOTS;i++) {
             ItemStack stack=pouch.getItem(i);
             if(stack.isEmpty())continue;
-            if(player.addItem(stack))pouch.setItem(i,ItemStack.EMPTY);
+            player.getInventory().add(stack);
+            if(stack.isEmpty())pouch.setItem(i,ItemStack.EMPTY);
         }
     }
 

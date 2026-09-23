@@ -54,7 +54,7 @@ public class BoundEffigyItem extends Item {
                 &&cloth>=3&&LatticeNetwork.extractPulseNearby(level,pos,8,200,true)>=200;
         if(!ready){player.displayClientMessage(Component.translatable("message.tribalpower.effigy.need_bind"),true);return InteractionResult.FAIL;}
         LatticeNetwork.extractPulseNearby(level,pos,8,200,false);
-        int owed=3;for(int i=0;i<player.getInventory().getContainerSize()&&owed>0;i++){var item=player.getInventory().getItem(i);if(item.is(ModItems.SPIRITWEAVE.get())){int n=Math.min(owed,item.getCount());item.shrink(n);owed-=n;}}
+        int owed=3;for(int i=0;i<player.getInventory().getContainerSize()&&owed>0;i++){var item=player.getInventory().getItem(i);if(item.isEmpty()||!item.is(ModItems.SPIRITWEAVE.get()))continue;int n=Math.min(owed,item.getCount());item.shrink(n);if(item.isEmpty())player.getInventory().removeItem(item);owed-=n;}
         bind(effigy,target(effigy),MAX_USES);player.getInventory().setChanged();
         CampHooks.award((ServerLevel)level,player.getUUID(),"bind_effigy");
         tk.darrow.tribalpower.effect.SpiritEffects.ring((ServerLevel)level,pos.getCenter(),Attunement.SPIRIT,2,24);

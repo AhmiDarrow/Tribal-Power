@@ -50,7 +50,7 @@ public class RitualBrazierBlock extends BaseEntityBlock {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
             if (player.isShiftKeyDown()) {
                 ItemStack seal = be.seal(); be.setSeal(ItemStack.EMPTY);
-                if (!player.getInventory().add(seal)) player.drop(seal, false);
+                tk.darrow.tribalpower.item.SpiritgearHelper.give(player, seal);
             } else player.displayClientMessage(be.status(), true);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

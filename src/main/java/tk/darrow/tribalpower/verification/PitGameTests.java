@@ -23,6 +23,7 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.tribe.TribeRank;
 import tk.darrow.tribalpower.tribe.TribeStandingSavedData;
 
+import java.util.List;
 import java.util.UUID;
 
 /** The Listening Pit (design 3.1 section 7). */
@@ -298,6 +299,34 @@ public class PitGameTests {
             }
         h.assertTrue(OreBand.COMMON.substrate().getFirst().is(Items.STONE), "The common band runs on Stone Font stone");
         h.assertTrue(OreBand.RARE.substrate().size() == 2, "The rare band costs March Stone and a Spirit Shard");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aSpentSubstrateSlotIsNotStillStone(GameTestHelper h) {
+        ResonanceMeshBlockEntity mesh = pit(h);
+        mesh.setItem(ResonanceMeshBlockEntity.SUBSTRATE_A, new ItemStack(Items.STONE, 2));
+        try {
+            var take = ResonanceMeshBlockEntity.class.getDeclaredMethod("takeSubstrate", List.class);
+            take.setAccessible(true);
+            take.invoke(mesh, List.of(new ItemStack(Items.STONE, 2)));
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+        ItemStack left = mesh.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A);
+        h.assertTrue(left.isEmpty() && !left.is(Items.STONE), "Eating the last stone must clear the slot");
+        var cache = (AncestralCacheBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(MESH.above()));
+        cache.setItem(0, new ItemStack(Items.STONE, 2));
+        try {
+            var restock = ResonanceMeshBlockEntity.class.getDeclaredMethod("restock", net.minecraft.world.Container.class, List.class);
+            restock.setAccessible(true);
+            restock.invoke(mesh, cache, List.of(new ItemStack(Items.STONE, 2)));
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+        ItemStack cached = cache.getItem(0);
+        h.assertTrue(cached.isEmpty() && !cached.is(Items.STONE), "Drawing the last cache stone must clear that slot");
+        h.assertTrue(mesh.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A).getCount() == 2, "The mesh receives the stone the cache gave up");
         h.succeed();
     }
 }

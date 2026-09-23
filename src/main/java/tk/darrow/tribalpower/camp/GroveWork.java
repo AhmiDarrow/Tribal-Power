@@ -24,7 +24,7 @@ final class GroveWork {
     private GroveWork() {}
 
     static boolean isSeed(ItemStack stack) {
-        if (!(stack.getItem() instanceof BlockItem blockItem)) return false;
+        if (stack.isEmpty() || !(stack.getItem() instanceof BlockItem blockItem)) return false;
         Block block = blockItem.getBlock();
         return block instanceof CropBlock || block instanceof SaplingBlock || block instanceof StemBlock
                 || block instanceof SugarCaneBlock || block instanceof CactusBlock
@@ -109,27 +109,27 @@ final class GroveWork {
             BlockState planted = crop.defaultBlockState();
             if (crop instanceof CropBlock c) planted = c.getStateForAge(0);
             if (crop instanceof CocoaBlock) {
-                if (plantCocoa(be, server, farmer, pos, seed)) return true;
+                if (plantCocoa(be, server, farmer, pos, seed, slot)) return true;
                 continue;
             }
             if (!planted.canSurvive(server, pos)) continue;
             var snapshot = BlockSnapshot.create(server.dimension(), server, pos);
             if (!server.setBlock(pos, planted, 3)) continue;
             if (EventHooks.onBlockPlace(farmer, snapshot, Direction.UP)) { snapshot.restore(3); be.setReason("plant_protected"); return false; }
-            seed.shrink(1); be.spendPublic(4); be.active = true; be.setReason("planted"); return true;
+            seed.shrink(1); if (seed.isEmpty()) be.setItem(slot, ItemStack.EMPTY); be.spendPublic(4); be.active = true; be.setReason("planted"); return true;
         }
         return false;
     }
 
     private static boolean plantCocoa(CampBlockEntity be, ServerLevel server,
-            net.minecraft.world.entity.player.Player farmer, BlockPos pos, ItemStack seed) {
+            net.minecraft.world.entity.player.Player farmer, BlockPos pos, ItemStack seed, int slot) {
         for (Direction dir : Direction.Plane.HORIZONTAL) {
             BlockState planted = Blocks.COCOA.defaultBlockState().setValue(CocoaBlock.FACING, dir);
             if (!planted.canSurvive(server, pos)) continue;
             var snapshot = BlockSnapshot.create(server.dimension(), server, pos);
             if (!server.setBlock(pos, planted, 3)) continue;
             if (EventHooks.onBlockPlace(farmer, snapshot, dir)) { snapshot.restore(3); be.setReason("plant_protected"); return false; }
-            seed.shrink(1); be.spendPublic(4); be.active = true; be.setReason("planted_cocoa"); return true;
+            seed.shrink(1); if (seed.isEmpty()) be.setItem(slot, ItemStack.EMPTY); be.spendPublic(4); be.active = true; be.setReason("planted_cocoa"); return true;
         }
         return false;
     }
@@ -155,7 +155,12 @@ final class GroveWork {
         boolean reserved = false;
         for (var drop : drops) if (drop.is(seed) && !drop.isEmpty()) { drop.shrink(1); reserved = true; break; }
         var preview = be.copyItemsPublic();
-        if (!reserved) for (int i = 0; i < 9; i++) if (preview.get(i).is(seed)) { preview.get(i).shrink(1); reserved = true; break; }
+        if (!reserved) for (int i = 0; i < 9; i++) if (!preview.get(i).isEmpty() && preview.get(i).is(seed)) {
+            preview.get(i).shrink(1);
+            if (preview.get(i).isEmpty()) preview.set(i, ItemStack.EMPTY);
+            reserved = true;
+            break;
+        }
         if (!reserved) { be.setReason("need_seed"); return false; }
         if (!CampBlockEntity.storeDrops(preview, drops)) { be.setReason("output_full"); return true; }
         if (!server.setBlock(pos, replant, 3)) return false;

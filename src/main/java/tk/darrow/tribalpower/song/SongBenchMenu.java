@@ -158,10 +158,15 @@ public class SongBenchMenu extends AbstractContainerMenu {
     private SongBenchLogic.Attempt withdraw(Player player, ItemStack pouch, int ordinal) {
         CreatureProfile profile = profile(ordinal);
         if (profile == null || pouch == null) return SongBenchLogic.Attempt.fail("message.tribalpower.song_bench.no_pouch");
-        int taken = ReagentPouch.takeRaw(pouch, profile, profileItemRoom(player, profile));
+        int room = Reagents.inventoryRoom(player, profile);
+        if (room <= 0) {
+            return SongBenchLogic.Attempt.fail(ReagentPouch.raw(pouch, profile) > 0
+                    ? "message.tribalpower.song_bench.no_room"
+                    : "message.tribalpower.song_bench.no_raw");
+        }
+        int taken = ReagentPouch.takeRaw(pouch, profile, room);
         if (taken <= 0) return SongBenchLogic.Attempt.fail("message.tribalpower.song_bench.no_raw");
-        ItemStack stack = new ItemStack(Reagents.item(profile), taken);
-        if (!player.getInventory().add(stack)) player.drop(stack, false);
+        PouchMenu.give(player, new ItemStack(Reagents.item(profile), taken));
         return SongBenchLogic.Attempt.done("message.tribalpower.song_bench.taken", taken,
                 net.minecraft.network.chat.Component.translatable("item.tribalpower." + profile.reagent));
     }
@@ -192,16 +197,6 @@ public class SongBenchMenu extends AbstractContainerMenu {
     private static CreatureProfile profile(int ordinal) {
         CreatureProfile[] values = CreatureProfile.values();
         return ordinal < 0 || ordinal >= values.length ? null : values[ordinal];
-    }
-
-    private static int profileItemRoom(Player player, CreatureProfile profile) {
-        int room = 0;
-        var item = Reagents.item(profile);
-        for (ItemStack stack : player.getInventory().items) {
-            if (stack.isEmpty()) return 64;
-            if (stack.is(item)) room = Math.max(room, 64 - stack.getCount());
-        }
-        return Math.max(room, 0);
     }
 
     @Override

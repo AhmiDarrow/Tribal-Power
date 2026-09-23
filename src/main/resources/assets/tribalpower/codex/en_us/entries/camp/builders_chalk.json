@@ -15,7 +15,7 @@
       "type": "text",
       "title": "Working it",
       "text": [
-        "**Use** it to change shape. **Sneak and right-click** to grow it, **sneak and left-click** to shrink it; the size wraps round at either end. Sneaking with the chalk out never breaks a block, so you can size it standing inside your own walls.",
+        "**Use** it to change shape. **Sneak and right-click** to grow it, **sneak and left-click** to shrink it; the size wraps round at either end. On a placement rite the same sneak steps the tier, and the size you had set is left alone. Sneaking with the chalk out never breaks a block, so you can size it standing inside your own walls.",
         "**Use it on a block to set the layout down.** The hologram stops following you and stands on that spot — and it keeps standing while the chalk sits **anywhere in your hotbar**, so you can put it away, take up blocks and build inside the ghosts. Use it on the same spot again to rub the mark out.",
         "A chalk with no mark set only draws while it is in your hand, so a layout never trails your feet while you are swinging a pickaxe.",
         "A ghost stands only where a block is still wanted. Fill one and it goes out, so what is left glowing is exactly what is left to build."
@@ -47,6 +47,16 @@
       "text": [
         "Every Pulse scan in the camp measures each direction on its own, so a machine's reach is a **cube**, not a ball. A block eight east and eight north of a generator is in range; one ten blocks due east is not, however much closer the second looks on a map.",
         "That is why **Lattice camp** draws a square. Set it to **8** and it is exactly the zone a Drumheart, a station or a Lattice Conductor works within."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The rites",
+      "text": [
+        "Past Lattice camp the chalk takes up the mod's multiblocks, in the order you meet them: **Stone Font**, **Listening Pit**, **Rite Circle**, **Voice Ring**, **Shatter Array**, **Way Gate**, **Far Gate**.",
+        "The mark is where the machine stands. A ghost is a block that rite still wants — ritual marks, anchor stones, totems, pedestals, the stone floor under a Listening Pit, the cache under an Echo station, the frame of a gate. The open inside of a gate stays dark, because that space has to stay clear.",
+        "Sneak raises the tier. The Listening Pit starts as the **5 by 5**; the next tier is Deep Listening, the **7 by 7** with totems on the cardinals. The Stone Font and the Rite Circle have a second tier too. The Voice Ring, Shatter Array and both gates are a single layout.",
+        "A rite turns to face the way you are looking, and stays turned once you set the mark. Look along the gate before you plant it."
       ]
     },
     {

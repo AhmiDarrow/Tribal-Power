@@ -90,7 +90,10 @@ public class TribeHearthBlock extends BaseEntityBlock {
         int value = hearth.tribe().offeringValue(stack);
         if (value <= 0) return 0;
         if (TribeStanding.offerRoom(player, hearth.tribe()) <= 0) { sated(player, hearth.tribe()); return 0; }
-        if (consume) stack.shrink(1);
+        if (consume) {
+            stack.shrink(1);
+            if (stack.isEmpty()) player.getInventory().removeItem(stack);
+        }
         offered(player, hearth, value, hearth.getBlockPos());
         return value;
     }

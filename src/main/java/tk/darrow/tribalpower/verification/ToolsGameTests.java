@@ -124,6 +124,27 @@ public class ToolsGameTests {
         for (int x = 1; x <= 3; x++) for (int z = 1; z <= 3; z++)
             if (h.getBlockState(new BlockPos(x, 2, z)).is(Blocks.STONE)) laid++;
         h.assertTrue(laid == 9, "The wand carries the whole face upward, laid " + laid);
+        h.assertTrue(player.getInventory().getItem(1).getCount() == 7, "Nine of the sixteen stone are spent");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void wandSpendsALaterStackAfterTheFirstRunsOut(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        player.setGameMode(GameType.SURVIVAL);
+        player.getAbilities().instabuild = false;
+        ItemStack wand = new ItemStack(ModItems.WEAVERS_WAND.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, wand);
+        player.getInventory().setItem(1, new ItemStack(Items.STONE, 1));
+        player.getInventory().setItem(2, new ItemStack(Items.STONE, 8));
+        player.getInventory().setItem(3, PulseCellItem.createFilled(400));
+        for (int x = 1; x <= 3; x++) for (int z = 1; z <= 3; z++) h.setBlock(new BlockPos(x, 1, z), Blocks.STONE);
+        BlockPos clicked = h.absolutePos(new BlockPos(2, 1, 2));
+        wand.useOn(new UseOnContext(h.getLevel(), player, InteractionHand.MAIN_HAND, wand,
+                new BlockHitResult(Vec3.atCenterOf(clicked), Direction.UP, clicked, false)));
+        int left = player.getInventory().countItem(Items.STONE);
+        h.assertTrue(left == 0, "Both stacks are spent, " + left + " stone remained");
+        h.assertTrue(!player.getInventory().getItem(1).is(Items.STONE), "The emptied slot is clear");
         h.succeed();
     }
 

@@ -47,11 +47,16 @@ public class PouchMenu extends AbstractContainerMenu {
         if (ordinal < 0 || ordinal >= values.length) return false;
         CreatureProfile profile = values[ordinal];
         ItemStack pouch = pouch();
-        int taken = ReagentPouch.takeRaw(pouch, profile, 64);
+        int room = Reagents.inventoryRoom(player, profile);
+        if (room <= 0) return true;
+        int taken = ReagentPouch.takeRaw(pouch, profile, room);
         if (taken <= 0) return true;
-        ItemStack stack = new ItemStack(Reagents.item(profile), taken);
-        if (!player.getInventory().add(stack)) player.drop(stack, false);
+        give(player, new ItemStack(Reagents.item(profile), taken));
         return true;
+    }
+
+    static void give(Player player, ItemStack stack) {
+        tk.darrow.tribalpower.item.SpiritgearHelper.give(player, stack);
     }
 
     @Override

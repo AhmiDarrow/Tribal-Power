@@ -140,7 +140,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         if(server.hasNeighborSignal(worldPosition))return false;
         ItemStack effigy=items.get(0),offering=items.get(1);
         if(BoundEffigyItem.remaining(effigy)==0){setReason("bind_effigy");return false;}
-        if(pulse<80||!offering.is(ModItems.SPIRITWEAVE.get())){setReason("need_summon");return false;}
+        if(pulse<80||offering.isEmpty()||!offering.is(ModItems.SPIRITWEAVE.get())){setReason("need_summon");return false;}
         if(server.getEntitiesOfClass(Mob.class,new AABB(worldPosition).inflate(12)).size()>=8){setReason("crowded");return false;}
         var type=BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse(BoundEffigyItem.target(effigy)));
         if(type.getCategory()==MobCategory.MONSTER&&server.getDifficulty()==Difficulty.PEACEFUL){setReason("peaceful");return false;}
@@ -153,7 +153,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
             if(!server.noCollision(mob)||server.containsAnyLiquid(mob.getBoundingBox()))continue;
             EventHooks.finalizeMobSpawn(mob,server,server.getCurrentDifficultyAt(pos),MobSpawnType.SPAWNER,null);
             if(mob.isSpawnCancelled()||!server.addFreshEntity(mob))continue;
-            offering.shrink(1);BoundEffigyItem.spend(effigy);spend(80);active=true;setReason("summoned",mob.getName().getString());CampHooks.award(server,owner,"first_summon");
+            offering.shrink(1);if(offering.isEmpty())setItem(1,ItemStack.EMPTY);BoundEffigyItem.spend(effigy);spend(80);active=true;setReason("summoned",mob.getName().getString());CampHooks.award(server,owner,"first_summon");
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server,pos.getCenter(),tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT,1,16);
             return true;
         }

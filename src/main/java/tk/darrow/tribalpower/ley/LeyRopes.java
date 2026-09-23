@@ -4,6 +4,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import tk.darrow.tribalpower.item.SpiritGear;
 
@@ -34,7 +35,7 @@ public final class LeyRopes {
         return SpiritGear.gogglesOpen(hood);
     }
 
-    /** At most once every half second. The braid between packets is animated on the client. */
+    /** At most once every half second. The thread between packets is animated on the client. */
     public static void sync(ServerPlayer player) {
         if (!sees(player)) return;
         long now = player.serverLevel().getGameTime();
@@ -43,5 +44,10 @@ public final class LeyRopes {
         if (last != null && last == now) return;
         SENT.put(player.getUUID(), now);
         PacketDistributor.sendToPlayer(player, LeyRopePayload.capture(player));
+    }
+
+    /** Drop the send clock so a long-running server does not keep every player who ever looked. */
+    public static void loggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
+        SENT.remove(event.getEntity().getUUID());
     }
 }

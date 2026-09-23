@@ -62,6 +62,30 @@ public class CampGameTests {
         h.assertTrue(!be.summon(h.getLevel()),"Exhausted effigy cannot summon again");h.succeed();
     }
     @GameTest(template="empty")
+    public static void lastOfferingCannotSummonAgain(GameTestHelper h){
+        var be=camp(h,"summoning_cradle",4,2,4);be.pulse=160;
+        var effigy=new ItemStack(CampRegistry.EFFIGY.get());BoundEffigyItem.bind(effigy,"minecraft:chicken",2);
+        be.setItem(0,effigy);be.setItem(1,new ItemStack(ModItems.SPIRITWEAVE.get(),1));
+        for(int x=1;x<=7;x++)for(int z=1;z<=7;z++)h.setBlock(x,1,z,Blocks.STONE);
+        h.assertTrue(be.summon(h.getLevel()),"The last Spiritweave must still summon once");
+        h.assertTrue(!be.getItem(1).is(ModItems.SPIRITWEAVE.get()),"The spent offering leaves the slot");
+        h.assertTrue(!be.summon(h.getLevel())&&BoundEffigyItem.remaining(effigy)==1&&be.pulse==80,
+                "A count of zero is not another offering");
+        h.succeed();
+    }
+    @GameTest(template="empty")
+    public static void oneSeedPlantsOneCrop(GameTestHelper h){
+        var be=camp(h,"grove_tender",5,2,5);be.owner=java.util.UUID.randomUUID();be.pulse=20;
+        h.setBlock(4,1,5,Blocks.FARMLAND);h.setBlock(6,1,5,Blocks.FARMLAND);
+        be.setItem(0,new ItemStack(Items.WHEAT_SEEDS,1));
+        for(int i=0;i<20;i++)be.work(h.getLevel());
+        int crops=0;
+        for(int x=1;x<=8;x++)for(int z=1;z<=8;z++)if(h.getBlockState(new BlockPos(x,2,z)).is(Blocks.WHEAT))crops++;
+        h.assertTrue(crops==1,"One seed plants one crop, planted "+crops);
+        h.assertTrue(!be.getItem(0).is(Items.WHEAT_SEEDS),"The spent seed leaves the slot");
+        h.succeed();
+    }
+    @GameTest(template="empty")
     public static void wardStopsImmediatelyOnRedstone(GameTestHelper h){
         var be=camp(h,"hush_totem",4,2,4);be.pulse=16;be.work(h.getLevel());var pos=be.getBlockPos();
         h.assertTrue(CampHooks.warded(h.getLevel(),pos.offset(10,0,0)),"Paid ward protects its radius");

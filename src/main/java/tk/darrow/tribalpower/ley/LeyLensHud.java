@@ -61,8 +61,9 @@ public final class LeyLensHud {
             Vector3f c = LeyLensItem.colour(percent / 100.0);
             int colour = 0xFF000000 | ((int) (c.x * 255) << 16) | ((int) (c.y * 255) << 8) | (int) (c.z * 255);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.ley", percent), x + 8, y + 16, 0xFFE7DCC1, false);
-            g.fill(x + 8, y + 28, x + width - 8, y + 31, 0xFF30494A);
-            g.fill(x + 8, y + 28, x + 8 + Math.min(width - 16, percent), y + 31, colour);
+            int span = width - 16;
+            g.fill(x + 8, y + 28, x + 8 + span, y + 31, 0xFF30494A);
+            g.fill(x + 8, y + 28, x + 8 + Math.round(span * (percent / 100.0F)), y + 31, colour);
             StringBuilder tags = new StringBuilder();
             if (ley.sky()) tags.append(ley.night() ? "night sky " : "sky ");
             if (ley.rain()) tags.append(ley.thunder() ? "storm " : "rain ");

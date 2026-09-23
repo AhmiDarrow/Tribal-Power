@@ -49,6 +49,14 @@ public class MarchGameTests {
         return (SilentDrumBlockEntity) h.getBlockEntity(pos);
     }
 
+    /** The circle's altar: the cap under the drum, and a candle on each corner beside it. */
+    private static void altar(GameTestHelper h, BlockPos drum) {
+        h.setBlock(drum.below(), Blocks.POLISHED_DEEPSLATE);
+        for (int dx : new int[] {-1, 1}) {
+            for (int dz : new int[] {-1, 1}) h.setBlock(drum.offset(dx, 0, dz), Blocks.CANDLE);
+        }
+    }
+
     private static List<TheUnsungEntity> bosses(GameTestHelper h) {
         return h.getLevel().getEntitiesOfClass(TheUnsungEntity.class, h.getBounds().inflate(8));
     }
@@ -57,6 +65,7 @@ public class MarchGameTests {
     public static void silentDrumWakesOnRhythmAndIgnoresWrongOne(GameTestHelper h) {
         var pos = new BlockPos(2, 2, 2);
         drum(h, pos);
+        altar(h, pos);
         // four beats 20 ticks apart: the rhythm lands and The Unsung rises bound to this drum
         for (int i = 0; i < 4; i++) h.runAtTickTime(1 + i * 20L, () -> ((SilentDrumBlockEntity) h.getBlockEntity(pos)).strike(null));
         h.runAtTickTime(70, () -> {
@@ -82,6 +91,39 @@ public class MarchGameTests {
         h.runAtTickTime(69, () -> h.assertTrue(((SilentDrumBlockEntity) h.getBlockEntity(wrong)).strike(null) == 1, "A beat 40 ticks later starts over"));
         h.runAtTickTime(170, () -> {
             h.assertTrue(bosses(h).isEmpty(), "A wrong rhythm must never wake The Unsung");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120)
+    public static void aDrumWithoutAnAltarDoesNotWake(GameTestHelper h) {
+        var pos = new BlockPos(2, 2, 2);
+        drum(h, pos);
+        for (int i = 0; i < 4; i++) h.runAtTickTime(1 + i * 20L, () -> ((SilentDrumBlockEntity) h.getBlockEntity(pos)).strike(null));
+        h.runAtTickTime(90, () -> {
+            h.assertTrue(bosses(h).isEmpty(), "A correct four-beat on a drum with no altar must not wake The Unsung");
+            h.assertFalse(((SilentDrumBlockEntity) h.getBlockEntity(pos)).resting(), "A refused wake must not start the drum's rest");
+            h.succeed();
+        });
+    }
+
+    /** A drum must not adopt an Unsung that rose for some other drum, altar or not. */
+    @GameTest(template = "empty", timeoutTicks = 120)
+    public static void aDrumDoesNotClaimAnUnsungBoundElsewhere(GameTestHelper h) {
+        var pos = new BlockPos(2, 2, 2);
+        drum(h, pos);
+        altar(h, pos);
+        var stranger = h.spawn(MarchRegistry.THE_UNSUNG.get(), new BlockPos(6, 2, 2));
+        stranger.bindDrum(h.absolutePos(new BlockPos(8, 2, 8)));
+        for (int i = 0; i < 4; i++) h.runAtTickTime(1 + i * 20L, () -> ((SilentDrumBlockEntity) h.getBlockEntity(pos)).strike(null));
+        h.runAtTickTime(90, () -> {
+            var alive = bosses(h);
+            h.assertTrue(alive.size() == 2, "This drum wakes its own Unsung and leaves the other, found " + alive.size());
+            h.assertTrue(alive.stream().anyMatch(boss -> h.absolutePos(pos).equals(boss.drumPos())),
+                    "The woken Unsung must be bound to this drum");
+            h.assertTrue(alive.stream().anyMatch(boss -> h.absolutePos(new BlockPos(8, 2, 8)).equals(boss.drumPos())),
+                    "The other Unsung must stay bound where it was");
+            alive.forEach(TheUnsungEntity::discard);
             h.succeed();
         });
     }

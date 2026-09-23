@@ -134,6 +134,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                     if (moved <= 0) continue;
                     held.grow(moved);
                     stack.shrink(moved);
+                    if (stack.isEmpty()) items.set(slot, ItemStack.EMPTY);
                     drained = true;
                 }
             }
@@ -198,7 +199,9 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         Keeping.feedWork(level, pos, recipe.attunement());
         SpiritEffects.ring((ServerLevel)level, pos.getCenter().add(0, 0.55, 0), recipe.attunement(), 0.45, 8);
         if (be.work >= seconds) {
-            be.items.get(0).shrink(1);
+            ItemStack input = be.items.get(0);
+            input.shrink(1);
+            if (input.isEmpty()) be.items.set(0, ItemStack.EMPTY);
             be.takeCatalysts(recipe);
             be.placeOutput(result, false);
             if (!freedCell.isEmpty()) be.placeOutput(freedCell, false);
@@ -267,6 +270,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 if (!ItemStack.isSameItem(held, want)) continue;
                 int taken = Math.min(remaining, held.getCount());
                 held.shrink(taken);
+                if (held.isEmpty()) items.set(slot, ItemStack.EMPTY);
                 remaining -= taken;
             }
         }

@@ -119,7 +119,10 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         List<ItemStack> overflow = new ArrayList<>();
         for (int i = 0; i < GRID; i++) {
             ItemStack slot = preview.get(i);
-            if (!slot.isEmpty()) slot.shrink(1);
+            if (!slot.isEmpty()) {
+                slot.shrink(1);
+                if (slot.isEmpty()) preview.set(i, ItemStack.EMPTY);
+            }
             int x = i % 3 - positioned.left(), y = i / 3 - positioned.top();
             int remainderIndex = y * input.width() + x;
             if (x >= 0 && x < input.width() && y >= 0 && y < input.height()

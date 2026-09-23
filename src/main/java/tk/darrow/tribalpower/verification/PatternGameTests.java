@@ -3,6 +3,9 @@ package tk.darrow.tribalpower.verification;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.material.Fluids;
@@ -192,6 +195,35 @@ public class PatternGameTests {
                 player, net.minecraft.world.InteractionHand.MAIN_HAND, onMark));
         h.assertBlockNotPresent(ModBlocks.RITUAL_MARK.get(), 2, 2, 2);
         h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void emptyingAFontKeepsStoneTheInventoryCannotHold(GameTestHelper h) {
+        BlockPos local = new BlockPos(2, 2, 2);
+        h.setBlock(local, ModBlocks.STONE_FONT.get());
+        StoneFontBlockEntity font = (StoneFontBlockEntity) h.getBlockEntity(local);
+        font.setItem(0, new ItemStack(Items.COBBLESTONE, 64));
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = false;
+            for (int slot = 0; slot < player.getInventory().items.size(); slot++)
+                player.getInventory().setItem(slot, new ItemStack(Items.DIRT, 64));
+            player.getInventory().setItem(10, new ItemStack(Items.COBBLESTONE, 60));
+            ItemStack taken = font.removeItemNoUpdate(0);
+            tk.darrow.tribalpower.item.SpiritgearHelper.give(player, taken);
+            int held = 0;
+            for (ItemStack stack : player.getInventory().items)
+                if (stack.is(Items.COBBLESTONE)) held += stack.getCount();
+            int loose = 0;
+            for (ItemEntity entity : h.getLevel().getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(4)))
+                if (entity.getItem().is(Items.COBBLESTONE)) loose += entity.getItem().getCount();
+            h.assertTrue(font.getItem(0).isEmpty(), "The font gives the stack up");
+            h.assertTrue(held == 64, "Four cobble fit in the inventory, holds " + held);
+            h.assertTrue(loose == 60, "The rest drops, loose " + loose);
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
     }
 
 }

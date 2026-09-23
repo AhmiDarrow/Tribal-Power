@@ -413,6 +413,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
                     if (held.isEmpty()) setItem(slot, offered.copyWithCount(moved));
                     else held.grow(moved);
                     offered.shrink(moved);
+                    if (offered.isEmpty()) cache.setItem(from, ItemStack.EMPTY);
                     cache.setChanged();
                     setChanged();
                     if (offered.isEmpty()) break;
@@ -430,6 +431,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
                 if (!ItemStack.isSameItemSameComponents(held, want)) continue;
                 int taken = Math.min(remaining, held.getCount());
                 held.shrink(taken);
+                if (held.isEmpty()) setItem(slot, ItemStack.EMPTY);
                 remaining -= taken;
             }
         }
@@ -443,7 +445,11 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
             ItemStack stack = getItem(slot);
             if (stack.isEmpty()) continue;
             int moved = insert(cache, stack);
-            if (moved > 0) { stack.shrink(moved); setChanged(); }
+            if (moved > 0) {
+                stack.shrink(moved);
+                if (stack.isEmpty()) setItem(slot, ItemStack.EMPTY);
+                setChanged();
+            }
         }
     }
 

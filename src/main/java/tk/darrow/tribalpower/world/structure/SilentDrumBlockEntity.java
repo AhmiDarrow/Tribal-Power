@@ -12,6 +12,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractCandleBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -22,7 +24,8 @@ import tk.darrow.tribalpower.effect.SpiritEffects;
 /**
  * Records strike timestamps. Four beats spaced {@link #MIN_GAP}–{@link #MAX_GAP} ticks apart wake The Unsung
  * (once per {@link #COOLDOWN_MILLIS} of real time; a second wake while one is alive is ignored) or, while The
- * Unsung is in its Silence phase, resync it so it can be struck.
+ * Unsung is in its Silence phase, resync it so it can be struck. A first waking only happens on the altar:
+ * polished deepslate under the drum, and a candle at each of the four corners, the way the Drum Circle is built.
  */
 public class SilentDrumBlockEntity extends BlockEntity {
     public static final int BEATS_NEEDED = 4;
@@ -84,6 +87,11 @@ public class SilentDrumBlockEntity extends BlockEntity {
             server.playSound(null, worldPosition, SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 1.2F, resynced ? 0.6F : 1.4F);
             return;
         }
+        if (!onAltar(server)) {
+            if (player != null) player.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.no_altar"), true);
+            server.playSound(null, worldPosition, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.9F, 0.45F);
+            return;
+        }
         long real = System.currentTimeMillis();
         if (real - lastWakeMillis < COOLDOWN_MILLIS) {
             if (player != null) player.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.resting",
@@ -107,13 +115,32 @@ public class SilentDrumBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    /** The Unsung this drum woke, if still alive and within range. */
+    /** The Drum Circle's altar: the cap under the drum, and a candle on each corner beside it. */
+    private boolean onAltar(ServerLevel server) {
+        if (!server.getBlockState(worldPosition.below()).is(Blocks.POLISHED_DEEPSLATE)) return false;
+        for (int dx : new int[] {-1, 1}) {
+            for (int dz : new int[] {-1, 1}) {
+                if (!(server.getBlockState(worldPosition.offset(dx, 0, dz)).getBlock() instanceof AbstractCandleBlock))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * The Unsung this drum woke, if it is still alive and still bound to this block. Another drum's
+     * keeper, or one standing nearby with no drum of its own, is not this drum's fight.
+     */
     public TheUnsungEntity livingBoss(ServerLevel server) {
-        if (boss != null && server.getEntity(boss) instanceof TheUnsungEntity unsung && unsung.isAlive()) return unsung;
+        if (boss != null && server.getEntity(boss) instanceof TheUnsungEntity unsung && boundHere(unsung)) return unsung;
         for (TheUnsungEntity unsung : server.getEntitiesOfClass(TheUnsungEntity.class, new AABB(worldPosition).inflate(BOSS_RANGE)))
-            if (unsung.isAlive()) { boss = unsung.getUUID(); return unsung; }
+            if (boundHere(unsung)) { boss = unsung.getUUID(); return unsung; }
         boss = null;
         return null;
+    }
+
+    private boolean boundHere(TheUnsungEntity unsung) {
+        return unsung.isAlive() && worldPosition.equals(unsung.drumPos());
     }
 
     /** Called by The Unsung when it resets because no player stayed near: the drum may be struck again at once. */

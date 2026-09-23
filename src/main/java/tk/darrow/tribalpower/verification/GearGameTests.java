@@ -178,14 +178,17 @@ public class GearGameTests {
         SpiritGear.setVoice(hood, Attunement.FIRE);
         player.setItemSlot(EquipmentSlot.HEAD, hood);
         player.getInventory().setItem(1, PulseCellItem.createFilled(200));
-        int wait = (int) ((80 - (h.getLevel().getGameTime() % 80)) % 80);
-        h.runAfterDelay(Math.max(1, wait), () -> {
+        long mod = h.getLevel().getGameTime() % 80;
+        int wait = mod == 0 ? 0 : (int) (80 - mod);
+        Runnable check = () -> {
             ItemStack worn = player.getItemBySlot(EquipmentSlot.HEAD);
             worn.getItem().inventoryTick(worn, h.getLevel(), player, 39, false);
             h.assertTrue(player.hasEffect(MobEffects.FIRE_RESISTANCE), "Fire hood grants fire resistance");
             h.assertFalse(player.hasEffect(MobEffects.NIGHT_VISION), "Fire hood replaces night vision");
             h.succeed();
-        });
+        };
+        if (wait == 0) check.run();
+        else h.runAfterDelay(wait, check);
     }
 
     @GameTest(template = "empty")
@@ -198,6 +201,9 @@ public class GearGameTests {
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
         var gear = ProcessingRecipes.find(h.getLevel(), "echo_attune", pick);
         h.assertTrue(gear != null && gear.seconds() == 45 && gear.pulse() == 48, "Gear Attune is 45s at 48 Pulse a second");
+        ItemStack spent = pick.copy();
+        spent.shrink(1);
+        h.assertTrue(ProcessingRecipes.find(h.getLevel(), "echo_attune", spent) == null, "A spent piece is not ranked again");
         h.assertTrue(gear.catalysts().size() == 1 && gear.catalysts().getFirst().is(ModItems.ATTUNED_ECHO.get())
                 && gear.catalysts().getFirst().getCount() == 4, "Gear Attune consumes 4 Attuned Echo");
         ItemStack bound = SpiritGear.withRank(pick, 2);
@@ -311,6 +317,23 @@ public class GearGameTests {
                 "Hearth is food, not flight");
         h.assertTrue(!tk.darrow.tribalpower.charm.SpiritCharmItem.grantsFlight(new ItemStack(ModItems.VEIL_CHARM.get())),
                 "Veil is stealth, not flight");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void refundPaysTheOffhandCellBack(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack robe = new ItemStack(ModItems.SPIRITWEAVE_ROBE.get());
+        ItemStack cell = new ItemStack(ModItems.PULSE_CELL.get());
+        PulseCellItem.setPulse(cell, 40);
+        player.setItemSlot(EquipmentSlot.OFFHAND, cell);
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.spend(player, robe, 8), "The offhand cell can pay");
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 32,
+                "Spend takes the offhand cell, left " + PulseCellItem.getPulse(player.getOffhandItem()));
+        int returned = tk.darrow.tribalpower.item.GearCell.refund(player, robe, 8);
+        h.assertTrue(returned == 8, "The refund finds a home, returned " + returned);
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 40,
+                "The offhand cell is paid back, holds " + PulseCellItem.getPulse(player.getOffhandItem()));
         h.succeed();
     }
 }

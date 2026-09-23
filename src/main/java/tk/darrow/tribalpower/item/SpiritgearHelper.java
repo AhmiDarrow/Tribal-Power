@@ -71,4 +71,11 @@ public final class SpiritgearHelper {
             player.displayClientMessage(Component.translatable("message.tribalpower.spiritgear.pulse"), true);
         }
     }
+
+    /** {@code Inventory.add} returns true after a partial insert and leaves the rest in the stack. */
+    public static void give(Player player, ItemStack stack) {
+        if (stack.isEmpty()) return;
+        player.getInventory().add(stack);
+        if (!stack.isEmpty()) player.drop(stack, false);
+    }
 }

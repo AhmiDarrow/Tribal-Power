@@ -25,6 +25,8 @@ public final class ProcessingRecipes {
      * synthesises one for any metal or gem it discovered in the common tags (design 3.1 section 1.4).
      */
     public static Formula find(Level level, String station, ItemStack stack) {
+        // A spent input stays its item at count zero. Ranking that ghost would mint pieces forever.
+        if (stack == null || stack.isEmpty()) return null;
         Formula written = findWritten(level, station, stack);
         if (written != null) return written;
         Formula gear = tk.darrow.tribalpower.item.SpiritGear.rankFormula(station, stack);

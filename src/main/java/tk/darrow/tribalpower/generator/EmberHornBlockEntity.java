@@ -80,7 +80,7 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
         burning = worth;
         ItemStack remainder = fuel.getCraftingRemainingItem();
         fuel.shrink(1);
-        if (!remainder.isEmpty() && fuel.isEmpty()) items.set(SLOT, remainder);
+        if (fuel.isEmpty()) items.set(SLOT, remainder.isEmpty() ? ItemStack.EMPTY : remainder);
         updateLit(level, pos, true);
         tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
                 tk.darrow.tribalpower.sound.ModSounds.EMBER_HORN_ROAR, 0.55F, 0.95F);
