@@ -17,7 +17,7 @@ import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
-public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
+public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.api.pulse.PulseSpend {
     /** Where the Rite Circle seats its pedestals, as offsets from the brazier. Rotation-invariant as a set. */
     private static final int[][] PEDESTALS = {{2, 2}, {2, -2}, {-2, 2}, {-2, -2}};
 
@@ -25,6 +25,17 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     private boolean active;
     private boolean lastSignal;
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
+    /** Eight Pulse every two seconds while a blessing is up, reported as four a second. */
+    @Override
+    public int spendPerSecond() {
+        if (level == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition)) return 0;
+        Attunement voice = element(seal);
+        if (voice == null) return 0;
+        if (level.getEntitiesOfClass(Player.class, new AABB(worldPosition).inflate(6), p -> p.isAlive() && !p.isSpectator()).isEmpty()) return 0;
+        if (!LatticeNetwork.hasAttunement(level, worldPosition, 8, voice)) return 0;
+        return 4;
+    }
+
     public ItemStack seal() { return seal; }
     public void setSeal(ItemStack stack) { seal = stack; active = false; setChanged(); }
     public Component status() {

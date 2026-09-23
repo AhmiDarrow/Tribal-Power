@@ -54,12 +54,12 @@ public class KeepingGameTests {
         h.setBlock(origin, Blocks.STONE);
         var level = h.getLevel();
         h.runAfterDelay(8, () -> {
-            int roofed = LeyMath.gain(level, h.absolutePos(origin));
+            int roofed = LeyMath.factors(level, h.absolutePos(origin)).environment();
             h.setBlock(4, 2, 12, Blocks.WATER);
-            int eight = LeyMath.gain(level, h.absolutePos(origin));
+            int eight = LeyMath.factors(level, h.absolutePos(origin)).environment();
             h.setBlock(4, 2, 12, Blocks.AIR);
             h.setBlock(4, 2, 13, Blocks.WATER);
-            int nine = LeyMath.gain(level, h.absolutePos(origin));
+            int nine = LeyMath.factors(level, h.absolutePos(origin)).environment();
             h.assertTrue(eight > roofed, "Water eight away must add, " + roofed + " -> " + eight);
             h.assertTrue(nine == roofed, "Water nine away must not add, roofed=" + roofed + " nine=" + nine);
             h.succeed();

@@ -15,7 +15,12 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import java.util.List;
 
 /**
- * Routes Spirit Pulse along chalk-linked Resonance Totems and assists Song Benches / caches on the lattice.
+ * Extends the Pulse zone, and fills chalk-linked Resonance Totem buffers.
+ *
+ * <p>The zone needs no chalk. Conductors within {@link LatticeNetwork#DEFAULT_RADIUS} of each other
+ * form a line, and a machine within that radius of any of them draws generators, cairns and totem
+ * buffers the line can reach. Chalk is only the second job: two linked totems, and this block pulls
+ * generator Pulse into those buffers.
  */
 public class LatticeConductorBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
@@ -119,7 +124,8 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             lastPulsePushed = 0;
             lastSourceAvailable = 0;
             setChanged();
-            return Component.translatable("message.tribalpower.conductor.no_network");
+            return Component.translatable("message.tribalpower.conductor.zone",
+                    LatticeNetwork.countConductorZone(level, worldPosition, RADIUS));
         }
 
         List<BlockPos> hubs = LatticeNetwork.networkHubs(network);
@@ -198,6 +204,10 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         java.util.List<Component> lines = new java.util.ArrayList<>();
         if (server.hasNeighborSignal(pos)) {
             lines.add(Component.translatable("message.tribalpower.redstone.locked").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        }
+        int zone = LatticeNetwork.countConductorZone(server, pos, RADIUS);
+        if (zone > 0) {
+            lines.add(Component.translatable("diag.tribalpower.conductor.zone", zone));
         }
         if (networkSize < 2) {
             lines.add(Component.translatable("diag.tribalpower.conductor.no_network").withStyle(net.minecraft.ChatFormatting.YELLOW));

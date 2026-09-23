@@ -29,6 +29,8 @@ public final class VoiceGlow {
     private static final ResourceLocation[] ARMOUR = {
             ResourceLocation.fromNamespaceAndPath("tribalpower", "textures/models/armor/spiritweave_layer_1_glow.png"),
             ResourceLocation.fromNamespaceAndPath("tribalpower", "textures/models/armor/spiritweave_layer_2_glow.png")};
+    private static final ResourceLocation GOGGLES =
+            ResourceLocation.fromNamespaceAndPath("tribalpower", "textures/models/armor/spiritweave_goggles.png");
 
     private VoiceGlow() {}
 
@@ -97,8 +99,6 @@ public final class VoiceGlow {
             for (EquipmentSlot slot : WORN_SLOTS) {
                 ItemStack stack = entity.getItemBySlot(slot);
                 if (!(stack.getItem() instanceof SpiritweaveArmor)) continue;
-                int tint = tint(stack);
-                if ((tint >>> 24) == 0) continue;
                 boolean legs = slot == EquipmentSlot.LEGS;
                 HumanoidModel<T> model = legs ? inner : outer;
                 getParentModel().copyPropertiesTo(model);
@@ -110,6 +110,12 @@ public final class VoiceGlow {
                     case FEET -> { model.rightLeg.visible = true; model.leftLeg.visible = true; }
                     default -> { }
                 }
+                if (slot == EquipmentSlot.HEAD && SpiritGear.goggles(stack)) {
+                    model.renderToBuffer(pose, buffers.getBuffer(RenderType.eyes(GOGGLES)), 0xF000F0,
+                            OverlayTexture.NO_OVERLAY, 0xFFFFFFFF);
+                }
+                int tint = tint(stack);
+                if ((tint >>> 24) == 0) continue;
                 // Additive and full-bright: the colour is the brightness, so scale it by the rank's strength.
                 float s = (tint >>> 24) / 255F;
                 int r = (int) (((tint >> 16) & 255) * s), g = (int) (((tint >> 8) & 255) * s), b = (int) ((tint & 255) * s);

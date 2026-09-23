@@ -7,7 +7,7 @@
       "type": "spotlight",
       "item": "tribalpower:lattice_conductor",
       "text": [
-        "The Lattice Conductor moves Pulse around your camp. It makes none of its own: it pulls Pulse from the generators near it and pushes it along chalk lines into the buffers of your Resonance Totems, where stations far from any generator can spend it."
+        "The Lattice Conductor moves Pulse around your camp. It makes none of its own. Place conductors within 8 of each other and a machine within 8 of any of them draws from the generators, Pulse Cairns and totem buffers that line can reach. One craft makes four, which is a line long enough to walk a workshop away from its generator. Chalk-linked Resonance Totems are the other job: the Conductor fills their buffers so a station beside a totem can spend that store too."
       ]
     },
     {
@@ -16,6 +16,7 @@
       "text": [
         "Totems are joined with **Ritual Chalk**. Right-click one totem, then another within **16 blocks**. \"Lattice link sealed\" means it worked. Clicking the same totem twice cancels the pending mark. A stick of chalk is good for ten links or marks.",
         "Linked totems form a network. Each totem's buffer holds **250 Pulse**, and any machine within 8 blocks of a totem can spend what is in it.",
+        "Conductors extend the zone without that chalk. Set them within 8 of each other, the first within 8 of a generator. A machine within 8 of any conductor on the line draws the generators, Pulse Cairns and totem buffers the line reaches. A redstone signal on a conductor cuts that block out of the line. The four from one craft are enough to cross a camp.",
         "A chalk line carries voices too: a station counts the voice of a totem that is chalk-linked to one near it, as long as that partner stands within 16 blocks of the station."
       ]
     },
@@ -283,7 +284,7 @@
       "text": [
         "Every second the Conductor pulls up to **10 Pulse** from generators within 8 blocks and spreads it across the linked totems. Ranked conductors move more.",
         "Right-click it for a **25-Pulse** burst and a status line.",
-        "Song Benches on the lattice that need help are filled first. Every **two seconds**, while the lattice holds Pulse, it also moves Echo items between Song Benches and Ancestral Caches near the totems.",
+        "The Conductor fills the linked totem buffers. Echo stations and caches move their own items with hoppers.",
         "The [Ley Binding](world_rites) rite can join two distant totems for a while, and the Conductor routes along that thread as if they stood side by side."
       ]
     },
@@ -291,8 +292,8 @@
       "type": "text",
       "title": "When it goes quiet",
       "text": [
-        "A lever or any redstone signal on the Conductor pauses it.",
-        "\"No network\" means the totems are not chalk-linked; a network needs at least two.",
+        "A lever or any redstone signal pauses totem filling and cuts that conductor out of the Pulse zone.",
+        "Clicking a conductor that has no chalk link reports the Pulse zone. The zone does not need totems. \"No network\" on the Codex reading means those totem buffers are not linked yet; a totem network still needs at least two.",
         "\"No Pulse\" means there is nothing to move: bring a generator within 8 blocks of the Conductor and charge it.",
         "\"The lattice is full\" is not a fault: every linked totem is already holding its 250 Pulse and there is nowhere to put more. The Conductor starts again the moment a station spends some.",
         "Sneak-use this book on it for the network size, the last Pulse pushed, and what is missing.",

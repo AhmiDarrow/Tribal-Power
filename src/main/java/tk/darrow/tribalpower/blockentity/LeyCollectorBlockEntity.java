@@ -10,7 +10,7 @@ import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 
 /**
- * Slow ambient Spirit Pulse siphon — steady mid-game generation without constant drumming.
+ * Siphons Spirit Pulse from the ley lines that pass through it, with a smaller gift from the land around it.
  */
 public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
     public static final int CAPACITY = 2000;

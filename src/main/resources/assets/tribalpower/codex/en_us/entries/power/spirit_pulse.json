@@ -19,7 +19,7 @@
       "title": "Where Pulse lives",
       "text": [
         "Pulse is stored energy. A generator such as the Drumheart, the Ley Collector or the Pulse Resonator makes it and keeps it in its own store. A machine reaches out and spends it while it works.",
-        "Machines only look **8 blocks** around themselves. Pulse stored in a generator farther away, or in an unloaded chunk, cannot help. For your first workshop, simply put the generator right beside the machine.",
+        "Machines only look **8 blocks** around themselves. Pulse stored in a generator farther away, or in an unloaded chunk, cannot help. For your first workshop, simply put the generator right beside the machine. A line of Lattice Conductors, each within 8 of the next, extends that same reach.",
         "Machines drain nearby generators first, then stores such as the totem buffers a [Lattice Conductor](lattice_conductor) fills (each Resonance Totem holds **250 Pulse**) and Pulse Cairns."
       ]
     },

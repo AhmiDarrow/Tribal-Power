@@ -6,6 +6,8 @@ import net.minecraft.world.inventory.MenuType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import tk.darrow.tribalpower.charm.CharmMenu;
+import tk.darrow.tribalpower.song.PouchMenu;
+import tk.darrow.tribalpower.song.SongBenchMenu;
 
 /** Register every shared menu before registry events, independently of screen class loading. */
 public final class ModMenus {
@@ -18,6 +20,10 @@ public final class ModMenus {
             MENUS.register("cache", () -> new MenuType<>(CacheMenu::new, FeatureFlags.DEFAULT_FLAGS));
     public static final DeferredHolder<MenuType<?>, MenuType<CharmMenu>> CHARMS =
             MENUS.register("charm_slots", () -> new MenuType<>(CharmMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final DeferredHolder<MenuType<?>, MenuType<SongBenchMenu>> SONG_BENCH =
+            MENUS.register("song_bench", () -> new MenuType<>(SongBenchMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final DeferredHolder<MenuType<?>, MenuType<PouchMenu>> REAGENT_POUCH =
+            MENUS.register("reagent_pouch", () -> new MenuType<>(PouchMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     private ModMenus() {}
 }

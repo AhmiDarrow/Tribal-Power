@@ -23,6 +23,14 @@ public final class ModEntities {
                     .clientTrackingRange(10)
                     .build("tribalpower:march_walker"));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<tk.darrow.tribalpower.song.SonicBolt>> SONIC_BOLT =
+            ENTITIES.register("sonic_bolt", () -> EntityType.Builder.<tk.darrow.tribalpower.song.SonicBolt>of(
+                            tk.darrow.tribalpower.song.SonicBolt::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(8)
+                    .updateInterval(1)
+                    .build("tribalpower:sonic_bolt"));
+
     /** Invisible, unsaved, unsummonable: it exists only while somebody is sitting on a stool. */
     public static final DeferredHolder<EntityType<?>, EntityType<SeatEntity>> SEAT =
             ENTITIES.register("seat", () -> EntityType.Builder.of(SeatEntity::new, MobCategory.MISC)

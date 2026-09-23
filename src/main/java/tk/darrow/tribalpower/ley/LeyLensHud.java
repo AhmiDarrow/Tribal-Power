@@ -24,13 +24,18 @@ public final class LeyLensHud {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null || mc.options.hideGui || mc.screen != null || mc.player.isSpectator()) return;
         ItemStack lens = LeyLensItem.held(mc.player);
-        if (lens.isEmpty()) return;
-        int mode = LeyLensItem.mode(lens);
+        boolean lensActive = !lens.isEmpty() && LeyLensItem.mode(lens) != LeyLensItem.OFF;
+        boolean goggles = LeyRopes.goggles(mc.player);
+        if (!lensActive && !goggles) return;
+        int mode = lensActive ? LeyLensItem.mode(lens) : LeyLensItem.LEY;
         // Pulse mode lists a row per machine, so the panel grows to fit what it actually found.
+        LensPulsePayload reading = LensPulsePayload.latest;
         java.util.List<LensPulsePayload.Entry> rows = mode == LeyLensItem.PULSE
-                ? LensPulsePayload.latest.machines() : java.util.List.of();
-        int width = mode == LeyLensItem.PULSE ? 152 : 116;
-        int height = 46 + (rows.isEmpty() ? 0 : 4 + rows.size() * 10);
+                ? reading.machines() : java.util.List.of();
+        boolean more = mode == LeyLensItem.PULSE && reading.count() > rows.size();
+        int rowBlock = rows.isEmpty() ? 0 : 6 + rows.size() * 10 + (more ? 10 : 0);
+        int width = mode == LeyLensItem.PULSE ? 188 : mode == LeyLensItem.LEY ? 148 : 116;
+        int height = mode == LeyLensItem.PULSE ? 52 + rowBlock : mode == LeyLensItem.LEY ? 58 : 46;
         int x = mc.getWindow().getGuiScaledWidth() - width - 12, y = mc.getWindow().getGuiScaledHeight() - 69 - height - 4;
         var g = event.getGuiGraphics();
         g.fill(x, y, x + width, y + height, 0xD9101B22);
@@ -43,20 +48,32 @@ public final class LeyLensHud {
                 leyReadAt = time;
                 factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
             }
-            LeyMath.Factors reading = factors;
-            int percent = (int) Math.round(reading.strength() * 100);
-            Vector3f c = LeyLensItem.colour(reading.strength());
+            LeyMath.Factors ley = factors;
+            boolean due = time >= nextScan || time < nextScan - 20;
+            if (due) {
+                nextScan = time + 20;
+                net.neoforged.neoforge.network.PacketDistributor.sendToServer(LeySightPayload.empty());
+            }
+            LeySightPayload sight = LeySightPayload.latest;
+            int percent = LeySightPayload.seen
+                    ? (int) Math.round(sight.gain() * 100.0 / LeyMath.MAX_GAIN)
+                    : (int) Math.round(ley.strength() * 100);
+            Vector3f c = LeyLensItem.colour(percent / 100.0);
             int colour = 0xFF000000 | ((int) (c.x * 255) << 16) | ((int) (c.y * 255) << 8) | (int) (c.z * 255);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.ley", percent), x + 8, y + 16, 0xFFE7DCC1, false);
             g.fill(x + 8, y + 28, x + width - 8, y + 31, 0xFF30494A);
             g.fill(x + 8, y + 28, x + 8 + Math.min(width - 16, percent), y + 31, colour);
             StringBuilder tags = new StringBuilder();
-            if (reading.sky()) tags.append(reading.night() ? "night sky " : "sky ");
-            if (reading.rain()) tags.append(reading.thunder() ? "storm " : "rain ");
-            if (reading.water() > 0) tags.append("water ");
-            if (reading.greenery() > 0) tags.append("green ");
+            if (ley.sky()) tags.append(ley.night() ? "night sky " : "sky ");
+            if (ley.rain()) tags.append(ley.thunder() ? "storm " : "rain ");
+            if (ley.water() > 0) tags.append("water ");
+            if (ley.greenery() > 0) tags.append("green ");
             if (tags.isEmpty()) tags.append("sheltered");
             g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
+            Component veins = sight.lines() <= 0
+                    ? Component.translatable("gui.tribalpower.lens.lines_none")
+                    : Component.translatable("gui.tribalpower.lens.lines", sight.lines());
+            g.drawString(mc.font, veins, x + 8, y + 46, sight.lines() > 0 ? 0xFF74DBCB : 0xFF667A80, false);
             return;
         }
         var pos = mc.player.blockPosition();
@@ -67,10 +84,12 @@ public final class LeyLensHud {
         if (mode == LeyLensItem.PULSE) {
             // Pulse stores are server-side only; ask once a second.
             if (due) net.neoforged.neoforge.network.PacketDistributor.sendToServer(LensPulsePayload.empty());
-            LensPulsePayload reading = LensPulsePayload.latest;
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.zone", r), x + 8, y + 16, 0xFF99C9BD, false);
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.pulse", reading.stored(), reading.capacity(), reading.count()), x + 8, y + 28, 0xFF65D7C0, false);
-            int rowY = y + 42;
+            int flowColour = reading.incoming() >= reading.outgoing() ? 0xFF65D7C0 : 0xFFE07A6A;
+            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.flow", reading.incoming(), reading.outgoing()),
+                    x + 8, y + 40, flowColour, false);
+            int rowY = y + 52;
             for (LensPulsePayload.Entry entry : rows) {
                 machineRow(mc, g, entry, x, rowY, width);
                 rowY += 10;
@@ -105,18 +124,20 @@ public final class LeyLensHud {
      */
     private static void machineRow(Minecraft mc, net.minecraft.client.gui.GuiGraphics g,
                                    LensPulsePayload.Entry entry, int x, int rowY, int width) {
-        String value = entry.stored() + "/" + entry.capacity();
-        String rate = entry.perSecond() > 0 ? "  +" + entry.perSecond() + "/s" : "";
+        String value = entry.capacity() > 0 ? entry.stored() + "/" + entry.capacity() : "";
+        int signed = entry.perSecond() > 0 ? entry.perSecond() : -entry.draw();
+        String rate = signed > 0 ? "  +" + signed + "/s" : signed < 0 ? "  " + signed + "/s" : "";
         int valueWidth = mc.font.width(value + rate);
         float fill = entry.capacity() <= 0 ? 0F : Math.min(1F, (float) entry.stored() / entry.capacity());
         int store = 0xFF000000 | (lerp(0xC9, 0x65, fill) << 16) | (lerp(0x7A, 0xD7, fill) << 8) | lerp(0x80, 0xC0, fill);
         Component name = mc.level == null ? Component.empty()
                 : mc.level.getBlockState(entry.pos()).getBlock().getName();
-        g.drawString(mc.font, mc.font.plainSubstrByWidth(name.getString(), width - 20 - valueWidth),
+        g.drawString(mc.font, mc.font.plainSubstrByWidth(name.getString(), Math.max(24, width - 20 - valueWidth)),
                 x + 8, rowY, 0xFFE7DCC1, false);
-        g.drawString(mc.font, value, x + width - 8 - valueWidth, rowY, store, false);
+        if (!value.isEmpty())
+            g.drawString(mc.font, value, x + width - 8 - valueWidth, rowY, store, false);
         if (!rate.isEmpty())
-            g.drawString(mc.font, rate, x + width - 8 - mc.font.width(rate), rowY, 0xFFF0C95E, false);
+            g.drawString(mc.font, rate, x + width - 8 - mc.font.width(rate), rowY, signed > 0 ? 0xFFF0C95E : 0xFFE07A6A, false);
     }
 
     private static int lerp(int from, int to, float t) {

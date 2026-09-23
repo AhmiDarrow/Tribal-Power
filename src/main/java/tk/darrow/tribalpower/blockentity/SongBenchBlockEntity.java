@@ -1,301 +1,149 @@
 package tk.darrow.tribalpower.blockentity;
 
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.api.pulse.Attunement;
-import tk.darrow.tribalpower.echo.EchoStage;
-import tk.darrow.tribalpower.item.MachineRank;
-import tk.darrow.tribalpower.lattice.Keeping;
-import tk.darrow.tribalpower.lattice.LatticeNetwork;
+import tk.darrow.tribalpower.item.RitualChalkItem;
+import tk.darrow.tribalpower.song.Reagents;
+import tk.darrow.tribalpower.song.SongBenchMenu;
+import tk.darrow.tribalpower.song.SongSheetItem;
+import tk.darrow.tribalpower.song.SongbookItem;
+import tk.darrow.tribalpower.song.VerseArrowItem;
 
 /**
- * Lattice hub that advances Echo-stage materials when Pulse and the right attunement are present.
+ * Where a reagent becomes empowered, a sheet is written, and a verse arrow is fletched. Echo refining
+ * lives on the dedicated stations. This bench only sings.
  */
-public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
-    public static final int SLOT = 0;
-    private static final int[] SLOTS_ARR = {0};
-    private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
-    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
-    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return SLOTS_ARR; }
-    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return SLOTS_ARR; }
-    @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack); }
-    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && !singing; }
-    public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
+public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, MenuProvider,
+        tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
+    public static final int PAPER = 0, CHALK = 1, BOOK = 2, OUTPUT = 3, SIZE = 4;
+    private static final int[] INPUTS = {PAPER, CHALK};
+    private static final int[] OUTPUTS = {OUTPUT};
 
-    private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
-    private boolean singing;
-    private int progress;
-    private int linkedTotems;
-    private String stallReason = "";
-    private Attunement scannedFor;
-    private long rescanAt, fedAt;
-    private boolean attuned;
-    private Keeping.State keeping;
+    private final NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
+    private final List<String> sequence = new ArrayList<>();
+    private String voice = "";
+    private final tk.darrow.tribalpower.lattice.SideIo sides =
+            new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
 
     public SongBenchBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.SONG_BENCH.get(), pos, state);
     }
 
+    /** Old worlds may still have an Echo item seated. Put it back in the world instead of deleting it. */
     public static void serverTick(Level level, BlockPos pos, BlockState state, SongBenchBlockEntity be) {
-        tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
-        if (!be.singing || level.hasNeighborSignal(pos)) {
-            return;
-        }
-
-        ItemStack stack = be.items.get(SLOT);
-        // Other mods and saved data can bypass slot limits. Preserve excess input for recovery.
-        if (stack.getCount() > 1) {
-            be.singing = false;
-            be.progress = 0;
-            be.setChanged();
-            return;
-        }
-        EchoStage stage = EchoStage.forInput(stack);
-        if (stage == null) {
-            be.stall("empty");
-            return;
-        }
-
-        Attunement needed = stage.requiredAttunement();
-        // Totems, attunement and keeping each scan the lattice radius; a second of staleness is fine.
-        if (needed != be.scannedFor || level.getGameTime() >= be.rescanAt) {
-            be.scannedFor = needed;
-            be.rescanAt = level.getGameTime() + 20;
-            be.linkedTotems = LatticeNetwork.countNearbyTotems(level, pos, RADIUS);
-            be.attuned = be.linkedTotems > 0 && LatticeNetwork.hasAttunement(level, pos, RADIUS, needed);
-            be.keeping = be.attuned ? Keeping.voice(level, pos, needed) : null;
-        }
-        if (be.linkedTotems <= 0) {
-            be.stall("no_totems");
-            return;
-        }
-        if (!be.attuned) {
-            be.stall("attunement:" + needed.getSerializedName());
-            return;
-        }
-
-        var keeping = be.keeping;
-        if (keeping == Keeping.State.QUIET && be.progress == 0) {
-            be.stall("quiet");
-            return;
-        }
-        int needPulse = be.pulsePerTick(stage);
-        if (LatticeNetwork.extractPulseNearby(level, pos, RADIUS, needPulse, true) < needPulse) {
-            be.stall("pulse");
-            return;
-        }
-        LatticeNetwork.extractPulseNearby(level, pos, RADIUS, needPulse, false);
-
-        be.stallReason = "";
-        be.progress++;
-        if (keeping != Keeping.State.QUIET && level.getGameTime() >= be.fedAt) {
-            be.fedAt = level.getGameTime() + 20;
-            Keeping.feedWork(level, pos, needed);
-        }
-        if (be.progress >= Keeping.stretch(keeping, be.workTicks(stage))) {
-            ItemStack out = new ItemStack(stage.output());
-            be.items.set(SLOT, out);
-            be.progress = 0;
-            // Continue into the next Echo stage when still processable; stop on Manifested Ingot.
-            if (!EchoStage.isProcessable(out)) {
-                be.singing = false;
+        for (int slot = 0; slot < BOOK; slot++) {
+            ItemStack stack = be.items.get(slot);
+            if (!stack.isEmpty() && !be.canPlaceItem(slot, stack)) {
+                Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
+                be.items.set(slot, ItemStack.EMPTY);
+                be.setChanged();
             }
-            be.setChanged();
-        } else {
+        }
+        ItemStack book = be.items.get(BOOK);
+        if (!book.isEmpty() && !(book.getItem() instanceof SongbookItem)) {
+            Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, book);
+            be.items.set(BOOK, ItemStack.EMPTY);
             be.setChanged();
         }
     }
 
-    private void stall(String reason) {
-        if (!reason.equals(stallReason)) {
-            stallReason = reason;
+    public List<String> sequence() {
+        return List.copyOf(sequence);
+    }
+
+    public @Nullable Attunement voice() {
+        return voice.isEmpty() ? null : Attunement.byName(voice);
+    }
+
+    public void setVoice(Attunement attunement) {
+        voice = attunement == null ? "" : attunement.getSerializedName();
+        setChanged();
+    }
+
+    public boolean append(String reagentId) {
+        if (sequence.size() >= 7 || Reagents.byId(reagentId) == null) return false;
+        sequence.add(reagentId);
+        setChanged();
+        return true;
+    }
+
+    public void pop() {
+        if (!sequence.isEmpty()) {
+            sequence.remove(sequence.size() - 1);
             setChanged();
         }
     }
 
-    private int workTicks(EchoStage stage) {
-        return MachineRank.scaleTime(this, stage.workTicks());
-    }
-
-    private int workNeed(EchoStage stage) {
-        int ticks = workTicks(stage);
-        if (level == null) return ticks;
-        return Keeping.stretch(Keeping.voice(level, worldPosition, stage.requiredAttunement()), ticks);
-    }
-
-    private int pulsePerTick(EchoStage stage) {
-        return MachineRank.scalePulse(this, stage.pulsePerTick());
-    }
-
-    public void startSong() {
-        scannedFor = null;
-        linkedTotems = level == null ? 0 : LatticeNetwork.countNearbyTotems(level, worldPosition, RADIUS);
-        singing = linkedTotems > 0 && EchoStage.isProcessable(items.get(SLOT)) && items.get(SLOT).getCount() == 1;
-        if (!singing) {
-            progress = 0;
-            if (linkedTotems <= 0) {
-                stallReason = "no_totems";
-            } else if (!EchoStage.isProcessable(items.get(SLOT))) {
-                stallReason = "empty";
-            }
-        } else {
-            stallReason = "";
+    public void clearSequence() {
+        if (!sequence.isEmpty()) {
+            sequence.clear();
+            setChanged();
         }
-        setChanged();
     }
 
-    public void stopSong() {
-        singing = false;
-        setChanged();
-    }
-
-    public boolean isSinging() {
-        return singing;
-    }
-
-    public int getProgress() {
-        return progress;
-    }
-
-    public int getLinkedTotems() {
-        return linkedTotems;
-    }
-
-    public String getStallReason() {
-        return stallReason;
-    }
-
-    /**
-     * Conductor assist target: singing and Pulse-starved, or a seated Echo-stage item waiting to sing.
-     */
+    /** Conductors used to feed this bench Pulse for Echo work. Songs pay in a single draw instead. */
     public boolean wantsPulseAssist() {
-        ItemStack stack = items.get(SLOT);
-        if (!EchoStage.isProcessable(stack)) {
-            return false;
-        }
-        if (singing) {
-            return "pulse".equals(stallReason) || stallReason.isEmpty();
-        }
-        return true;
+        return false;
     }
 
-    public Component statusMessage() {
-        ItemStack stack = items.get(SLOT);
-        EchoStage stage = EchoStage.forInput(stack);
-        if (!singing) {
-            return Component.translatable("message.tribalpower.song_bench.idle");
-        }
-        if (stage == null) {
-            return Component.translatable("message.tribalpower.song_bench.need_item");
-        }
-        return switch (stallReason) {
-            case "no_totems" -> Component.translatable("message.tribalpower.song_bench.no_totems");
-            case "pulse" -> Component.translatable("message.tribalpower.song_bench.no_pulse");
-            case "quiet" -> Component.translatable("message.tribalpower.song_bench.quiet");
-            case "empty" -> Component.translatable("message.tribalpower.song_bench.need_item");
-            default -> {
-                if (stallReason.startsWith("attunement:")) {
-                    String name = stallReason.substring("attunement:".length());
-                    yield Component.translatable(
-                            "message.tribalpower.song_bench.need_attunement",
-                            Component.translatable("attunement.tribalpower." + name)
-                    );
-                }
-                yield Component.translatable(
-                        "message.tribalpower.song_bench.working",
-                        stage.name(),
-                        progress,
-                        workNeed(stage),
-                        linkedTotems
-                );
-            }
-        };
-    }
+    @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
+    @Override public int[] inputSlots(Direction face) { return INPUTS; }
+    @Override public int[] outputSlots(Direction face) { return OUTPUTS; }
+    @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
 
-    public ItemStack takeItem() {
-        if (level != null && level.hasNeighborSignal(worldPosition)) return ItemStack.EMPTY;
-        ItemStack stack = items.get(SLOT);
-        if (stack.isEmpty()) {
-            return ItemStack.EMPTY;
-        }
-        items.set(SLOT, ItemStack.EMPTY);
-        progress = 0;
-        singing = false;
-        setChanged();
-        return stack;
-    }
-
-    public boolean insertItem(ItemStack stack) {
-        if (level != null && level.hasNeighborSignal(worldPosition)) return false;
-        if (stack.isEmpty() || !EchoStage.isProcessable(stack) || !items.get(SLOT).isEmpty()) {
-            return false;
-        }
-        items.set(SLOT, stack.split(1));
-        progress = 0;
-        stallReason = "";
-        startSong();
-        return true;
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction face) {
+        return level != null && !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack);
     }
 
     @Override
-    public int getContainerSize() {
-        return 1;
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
+        return level != null && !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && slot == OUTPUT;
     }
 
-    @Override
-    public int getMaxStackSize() { return 1; }
-
-    @Override
-    public boolean isEmpty() {
-        return items.get(SLOT).isEmpty();
-    }
-
-    @Override
-    public ItemStack getItem(int slot) {
-        return items.get(slot);
-    }
+    @Override public int getContainerSize() { return SIZE; }
+    @Override public boolean isEmpty() { return items.stream().allMatch(ItemStack::isEmpty); }
+    @Override public ItemStack getItem(int slot) { return items.get(slot); }
 
     @Override
     public ItemStack removeItem(int slot, int amount) {
-        ItemStack result = ContainerHelper.removeItem(items, slot, amount);
-        if (!result.isEmpty()) {
-            progress = 0;
-            setChanged();
-        }
-        return result;
+        ItemStack removed = ContainerHelper.removeItem(items, slot, amount);
+        if (!removed.isEmpty()) setChanged();
+        return removed;
     }
 
     @Override
     public ItemStack removeItemNoUpdate(int slot) {
-        ItemStack removed = ContainerHelper.takeItem(items, slot);
-        if (!removed.isEmpty()) {
-            progress = 0;
-            singing = false;
-            setChanged();
-        }
-        return removed;
+        return ContainerHelper.takeItem(items, slot);
     }
 
     @Override
     public void setItem(int slot, ItemStack stack) {
         items.set(slot, stack);
-        progress = 0;
-        if (EchoStage.isProcessable(stack) && stack.getCount() == 1) startSong();
-        else {
-            singing = false;
-            setChanged();
-        }
+        setChanged();
     }
 
     @Override
@@ -306,23 +154,42 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     @Override
     public void clearContent() {
         items.clear();
-        progress = 0;
-        singing = false;
+        sequence.clear();
+        setChanged();
     }
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
-        return EchoStage.isProcessable(stack);
+        return switch (slot) {
+            case PAPER -> stack.is(Items.PAPER);
+            case CHALK -> stack.getItem() instanceof RitualChalkItem;
+            case BOOK -> stack.getItem() instanceof SongbookItem;
+            default -> false;
+        };
+    }
+
+    public boolean canPlaceOutput(ItemStack stack) {
+        return stack.getItem() instanceof SongSheetItem || stack.getItem() instanceof VerseArrowItem;
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.tribalpower.song_bench");
+    }
+
+    @Override
+    public @Nullable AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+        return new SongBenchMenu(id, inventory, this);
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
-        tag.putBoolean("Singing", singing);
-        tag.putInt("Progress", progress);
-        tag.putInt("LinkedTotems", linkedTotems);
-        tag.putString("StallReason", stallReason);
+        ListTag list = new ListTag();
+        for (String id : sequence) list.add(StringTag.valueOf(id));
+        tag.put("Sequence", list);
+        tag.putString("Voice", voice);
         sides.save(tag);
     }
 
@@ -331,26 +198,26 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         super.loadAdditional(tag, registries);
         items.clear();
         ContainerHelper.loadAllItems(tag, items, registries);
-        singing = tag.getBoolean("Singing");
-        progress = tag.getInt("Progress");
-        EchoStage stage = EchoStage.forInput(items.get(SLOT));
-        if (stage == null || progress < 0 || progress > Keeping.stretch(Keeping.State.DIM, workTicks(stage))) progress = 0;
-        linkedTotems = tag.getInt("LinkedTotems");
-        stallReason = tag.getString("StallReason");
+        sequence.clear();
+        ListTag list = tag.getList("Sequence", Tag.TAG_STRING);
+        for (int i = 0; i < list.size() && sequence.size() < 7; i++) {
+            String id = list.getString(i);
+            if (Reagents.byId(id) != null) sequence.add(id);
+        }
+        voice = tag.getString("Voice");
         sides.load(tag);
     }
 
-    @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
-        java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
-        lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.state", statusMessage()));
-        EchoStage stage = EchoStage.forInput(items.get(SLOT));
-        if (stage != null) {
-            lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stage", stage.name(), progress, workNeed(stage), pulsePerTick(stage)));
-            if (!LatticeNetwork.hasAttunement(server, pos, RADIUS, stage.requiredAttunement()))
-                lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.station.missing_attunement",
-                        net.minecraft.network.chat.Component.translatable("attunement.tribalpower." + stage.requiredAttunement().getSerializedName())).withStyle(net.minecraft.ChatFormatting.YELLOW));
+    @Override
+    public List<Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
+        List<Component> lines = new ArrayList<>();
+        lines.add(Component.translatable("diag.tribalpower.song_bench.state", sequence.size()));
+        Attunement singing = voice();
+        if (singing != null) {
+            lines.add(Component.translatable("diag.tribalpower.song_bench.voice",
+                    Component.translatable("attunement.tribalpower." + singing.getSerializedName())));
         }
-        if (!stallReason.isEmpty()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.song_bench.stall", statusMessage()).withStyle(net.minecraft.ChatFormatting.YELLOW));
+        lines.add(Component.translatable("diag.tribalpower.song_bench.empower", tk.darrow.tribalpower.song.SongBenchLogic.EMPOWER_PULSE));
         return lines;
     }
 }

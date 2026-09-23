@@ -127,7 +127,22 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> SONG_BENCH = ITEMS.registerSimpleBlockItem("song_bench", ModBlocks.SONG_BENCH);
     public static final DeferredItem<BlockItem> LATTICE_CONDUCTOR = ITEMS.registerSimpleBlockItem("lattice_conductor", ModBlocks.LATTICE_CONDUCTOR);
 
-    // Dedicated Echo stations. The Song Bench still refines one Echo-stage item at a time.
+    public static final DeferredItem<tk.darrow.tribalpower.song.ReagentPouchItem> REAGENT_POUCH = ITEMS.register(
+            "reagent_pouch", () -> new tk.darrow.tribalpower.song.ReagentPouchItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<tk.darrow.tribalpower.song.SongSheetItem> SONG_SHEET = ITEMS.register(
+            "song_sheet", () -> new tk.darrow.tribalpower.song.SongSheetItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<tk.darrow.tribalpower.song.SongbookItem> SONGBOOK = ITEMS.register(
+            "songbook", () -> new tk.darrow.tribalpower.song.SongbookItem(tk.darrow.tribalpower.song.SongbookTier.FIRST, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.song.SongbookItem> BOUND_SONGBOOK = ITEMS.register(
+            "bound_songbook", () -> new tk.darrow.tribalpower.song.SongbookItem(tk.darrow.tribalpower.song.SongbookTier.BOUND, new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<tk.darrow.tribalpower.song.SongbookItem> CHORUS_SONGBOOK = ITEMS.register(
+            "chorus_songbook", () -> new tk.darrow.tribalpower.song.SongbookItem(tk.darrow.tribalpower.song.SongbookTier.CHORUS, new Item.Properties().rarity(Rarity.RARE)));
+    public static final DeferredItem<tk.darrow.tribalpower.song.PulseBowItem> PULSE_BOW = ITEMS.register(
+            "pulse_bow", () -> new tk.darrow.tribalpower.song.PulseBowItem(new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.song.VerseArrowItem> VERSE_ARROW = ITEMS.register(
+            "verse_arrow", () -> new tk.darrow.tribalpower.song.VerseArrowItem(new Item.Properties().stacksTo(64)));
+
+    // Dedicated Echo stations. The Song Bench writes songs. The stations still refine Echo.
     public static final DeferredItem<BlockItem> ECHO_SHATTER = ITEMS.registerSimpleBlockItem("echo_shatter", ModBlocks.ECHO_SHATTER);
     public static final DeferredItem<BlockItem> ECHO_ATTUNE = ITEMS.registerSimpleBlockItem("echo_attune", ModBlocks.ECHO_ATTUNE);
     public static final DeferredItem<BlockItem> ECHO_BIND = ITEMS.registerSimpleBlockItem("echo_bind", ModBlocks.ECHO_BIND);

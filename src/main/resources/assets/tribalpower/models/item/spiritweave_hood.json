@@ -37,6 +37,30 @@
         "custom_model_data": 3
       },
       "model": "tribalpower:item/spiritweave_hood_manifested"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "tribalpower:item/spiritweave_hood_goggles"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 5
+      },
+      "model": "tribalpower:item/spiritweave_hood_attuned_goggles"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 6
+      },
+      "model": "tribalpower:item/spiritweave_hood_bound_goggles"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7
+      },
+      "model": "tribalpower:item/spiritweave_hood_manifested_goggles"
     }
   ]
 }

@@ -43,7 +43,7 @@ import java.util.Set;
  * producing the deepslate analogue of each tier's stone, so tier 1 yields cobbled deepslate and tier 2
  * deepslate -- otherwise tier 2 would be a downgrade underground.
  */
-public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
+public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk.darrow.tribalpower.api.pulse.PulseSpend {
     public static final int SLOTS = 4;
 
     /** What the font can ask for, in the order it is asked. */
@@ -215,6 +215,13 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity {
         }
         be.setChanged();
         level.updateNeighbourForOutputSignal(pos, blockState.getBlock());
+    }
+
+    @Override
+    public int spendPerSecond() {
+        if (stilled() || asking == null) return 0;
+        if (!"working".equals(state) && !"pulse".equals(state)) return 0;
+        return pulseCost(asking);
     }
 
     private int pulseCost(Ask ask) {

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": { "item": "tribalpower:bound_songbook" },
+    "M": { "item": "tribalpower:manifested_ingot" },
+    "S": { "item": "tribalpower:spirit_shard" }
+  },
+  "pattern": [" S ", "MBM", " S "],
+  "result": { "count": 1, "id": "tribalpower:chorus_songbook" }
+}

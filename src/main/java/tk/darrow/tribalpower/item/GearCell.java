@@ -22,7 +22,10 @@ public final class GearCell {
 
     /** Equipment that can carry a cell: Spiritgear, Spiritweave, the Resonance Maul and the Sixfold Staff. */
     public static boolean accepts(ItemStack stack) {
-        return SpiritGear.isGear(stack) || stack.getItem() instanceof ResonanceMaulItem || stack.getItem() instanceof SpiritStaffItem;
+        return SpiritGear.isGear(stack) || stack.getItem() instanceof ResonanceMaulItem
+                || stack.getItem() instanceof SpiritStaffItem
+                || stack.getItem() instanceof tk.darrow.tribalpower.song.SongbookItem
+                || stack.getItem() instanceof tk.darrow.tribalpower.song.PulseBowItem;
     }
 
     /** The seated cell's item, or null. */

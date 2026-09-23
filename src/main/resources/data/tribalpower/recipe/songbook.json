@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": { "item": "minecraft:paper" },
+    "B": { "item": "minecraft:book" },
+    "C": { "item": "tribalpower:copper_resonator" },
+    "S": { "item": "tribalpower:spirit_shard" }
+  },
+  "pattern": ["PCP", "BSB", "P P"],
+  "result": { "count": 1, "id": "tribalpower:songbook" }
+}

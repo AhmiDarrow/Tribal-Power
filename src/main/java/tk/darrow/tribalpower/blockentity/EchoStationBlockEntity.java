@@ -21,7 +21,7 @@ import tk.darrow.tribalpower.effect.SpiritEffects;
  * Slot 0 input, slots 1-8 output, slots 9-10 catalysts (for work that consumes more than its input, such as
  * gear ranks). One work beat per second; no per-tick lattice volume scans.
  */
-public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
+public class EchoStationBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo, tk.darrow.tribalpower.api.pulse.PulseSpend {
     public static final int CATALYST_A = 9, CATALYST_B = 10, SIZE = 11;
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
     private int work;
@@ -277,6 +277,13 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         int seconds = tk.darrow.tribalpower.item.MachineRank.scaleTime(this, recipe.seconds());
         if (level == null) return seconds;
         return Keeping.stretch(Keeping.voice(level, worldPosition, recipe.attunement()), seconds);
+    }
+
+    @Override
+    public int spendPerSecond() {
+        // "pulse" is the starved beat: it still wants this much, which is the deficit the lens is for.
+        if (!"working".equals(state) && !"pulse".equals(state)) return 0;
+        return Math.max(0, shownPulse);
     }
 
     /** Array discount, rank and pack consumption — the same Pulse the tick draws. */

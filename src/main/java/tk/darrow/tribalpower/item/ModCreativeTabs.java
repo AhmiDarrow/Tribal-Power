@@ -62,6 +62,13 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.RESONANCE_TOTEM_SPIRIT.get());
                         out.accept(ModItems.RESONANCE_TOTEM_LOOM.get());
                         out.accept(ModItems.SONG_BENCH.get());
+                        out.accept(ModItems.REAGENT_POUCH.get());
+                        out.accept(ModItems.SONG_SHEET.get());
+                        out.accept(ModItems.SONGBOOK.get());
+                        out.accept(ModItems.BOUND_SONGBOOK.get());
+                        out.accept(ModItems.CHORUS_SONGBOOK.get());
+                        out.accept(ModItems.PULSE_BOW.get());
+                        out.accept(ModItems.VERSE_ARROW.get());
                         out.accept(ModItems.LATTICE_CONDUCTOR.get());
                         out.accept(ModItems.ECHO_SHATTER.get());
                         out.accept(ModItems.ECHO_ATTUNE.get());

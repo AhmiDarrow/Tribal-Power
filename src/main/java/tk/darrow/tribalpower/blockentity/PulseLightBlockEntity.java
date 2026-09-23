@@ -8,9 +8,14 @@ import tk.darrow.tribalpower.block.PulseLightBlock;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 /** Draws a trickle of Pulse each second. No buffer: nearby lattice or it goes dark. */
-public class PulseLightBlockEntity extends BlockEntity {
+public class PulseLightBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.pulse.PulseSpend {
     public PulseLightBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PULSE_LIGHT.get(), pos, state);
+    }
+
+    @Override
+    public int spendPerSecond() {
+        return getBlockState().getBlock() instanceof PulseLightBlock light ? light.kind().cost : 1;
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, PulseLightBlockEntity be) {

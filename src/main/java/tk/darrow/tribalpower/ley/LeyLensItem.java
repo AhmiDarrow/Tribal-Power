@@ -33,15 +33,15 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import java.util.List;
 
 /**
- * Ley Lens: held in either hand it shows a HUD and paints the ground. Right-click cycles the sight
- * mode (ley, pulse zone, voices, machines). Sneak-use on a Ley Collector prints that collector's
+ * Ley Lens: held in either hand it shows a HUD and, in ley sight, the veins passing near you. Right-click cycles the sight
+ * mode (ley, pulse zone, voices, machines, off). Sneak-use on a Ley Collector prints that collector's
  * exact factor breakdown. Sneak-use on a familiar prints its threads and Marks.
  */
 public class LeyLensItem extends Item {
     public static final int GRID = 8;
     public static final int INTERVAL = 10;
-    public static final int MODES = 4;
-    public static final int LEY = 0, PULSE = 1, VOICE = 2, MACHINE = 3;
+    public static final int MODES = 5;
+    public static final int LEY = 0, PULSE = 1, VOICE = 2, MACHINE = 3, OFF = 4;
     private static final Vector3f WEAK = new Vector3f(0.25F, 0.45F, 1.0F);
     private static final Vector3f STRONG = new Vector3f(1.0F, 0.82F, 0.25F);
     private static final Vector3f PULSE_COL = new Vector3f(0.45F, 0.85F, 0.78F);
@@ -104,22 +104,8 @@ public class LeyLensItem extends Item {
             case PULSE -> paintPulse(server, player, origin);
             case VOICE -> paintVoices(server, player, origin);
             case MACHINE -> paintMachines(server, player, origin);
-            default -> paintLey(server, player, origin);
-        }
-    }
-
-    private static void paintLey(ServerLevel server, ServerPlayer player, BlockPos origin) {
-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
-        for (int dx = -GRID; dx <= GRID; dx++) {
-            for (int dz = -GRID; dz <= GRID; dz++) {
-                cursor.set(origin.getX() + dx, origin.getY() + 1, origin.getZ() + dz);
-                int ground = groundY(server, cursor, 6);
-                if (ground == Integer.MIN_VALUE) continue;
-                cursor.setY(ground + 1);
-                double strength = LeyMath.glimpse(server, cursor).strength();
-                DustParticleOptions dust = new DustParticleOptions(colour(strength), 0.6F + (float) strength * 0.6F);
-                server.sendParticles(player, dust, false, cursor.getX() + 0.5, ground + 1.08, cursor.getZ() + 0.5, 1, 0, 0, 0, 0);
-            }
+            case OFF -> { }
+            default -> LeyRopes.sync(player);
         }
     }
 

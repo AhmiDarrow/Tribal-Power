@@ -37,6 +37,16 @@ import java.util.List;
 public final class SpiritGearHooks {
     private SpiritGearHooks() {}
 
+    /** Sneak-click with an empty hand while the hood is worn, the same off switch as using the hood itself. */
+    public static void toggleWornGoggles(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickEmpty event) {
+        if (event.getLevel().isClientSide()) return;
+        Player player = event.getEntity();
+        if (!player.isShiftKeyDown()) return;
+        ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
+        if (!SpiritGear.goggles(hood)) return;
+        SpiritGear.toggleGoggles(player, hood);
+    }
+
     /** Pulse and voice must be recorded here: vanilla drops run before {@code Item#mineBlock}. */
     public static void beforeBreak(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;

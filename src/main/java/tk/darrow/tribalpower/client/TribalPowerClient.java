@@ -42,10 +42,13 @@ public final class TribalPowerClient {
                 event.register(tk.darrow.tribalpower.charm.CharmMenu.TYPE.get(), CharmScreen::new);
                 event.register(tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_MENU.get(), SealLoomScreen::new);
                 event.register(tk.darrow.tribalpower.bench.BenchRegistry.MENU.get(), BenchScreen::new);
+                event.register(tk.darrow.tribalpower.echo.ModMenus.SONG_BENCH.get(), SongBenchScreen::new);
+                event.register(tk.darrow.tribalpower.echo.ModMenus.REAGENT_POUCH.get(), PouchScreen::new);
         });
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FamiliarInspectHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(LeyRopeRenderer::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.building.ChalkGhostRenderer::render);
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) ->
                 event.register(tk.darrow.tribalpower.familiar.FamiliarRegistry.SADDLEBAG.get(), MossbackScreen::new));
@@ -60,7 +63,10 @@ public final class TribalPowerClient {
         modBus.addListener(TribeClient::itemColours);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ItemHints::tooltip);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(SortButtons::onScreenInit);
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> CodexUnlocks.reset());
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> {
+            CodexUnlocks.reset();
+            tk.darrow.tribalpower.ley.LeyRopePayload.latest = new tk.darrow.tribalpower.ley.LeyRopePayload(java.util.List.of());
+        });
     }
 
     /** Screenshot drivers stay on the compile classpath for Gradle runs; the published jar omits them. */

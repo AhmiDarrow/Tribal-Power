@@ -67,6 +67,8 @@ public final class TribalPower {
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
         modBus.addListener(tk.darrow.tribalpower.storage.SortPayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
+        modBus.addListener(tk.darrow.tribalpower.ley.LeySightPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.ley.LeyRopePayload::register);
         modBus.addListener(tk.darrow.tribalpower.gate.DrumRite::register);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onRespawn);
@@ -107,7 +109,9 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::fall);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::trample);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::toggleWornGoggles);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::stackedOn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentPouchHooks::onPickup);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);
         NeoForge.EVENT_BUS.addListener(ModBlocks::tillMarchSoil);

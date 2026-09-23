@@ -38,14 +38,14 @@ Craft a Bone Chime, Spirit Shard and Drumheart. Strike the drum, then charge a P
 
 Continue through Fire / Echo Attune, Water / Echo Bind, Spirit / Echo Manifest and Loom / Echo Unweave. Bound Echo becomes Manifested Ingot; manifest the ingot again for a Resonant Core. Water also binds wool into Spiritweave.
 
-Each Echo station has a batch input, eight output slots, a progress screen and status readout. Faces default to feed on the sides and top, extract below; the IO pad in the UI changes that. Missing power, missing attunement or full output pauses the batch without consuming its input. The original single-item Song Bench remains available.
+Each Echo station has a batch input, eight output slots, a progress screen and status readout. Faces default to feed on the sides and top, extract below; the IO pad in the UI changes that. Missing power, missing attunement or full output pauses the batch without consuming its input. The Song Bench empowers reagents and writes song sheets. It does not refine Echo.
 
 The Spirit Codex provides the in-game guide. JEI, when installed, displays lattice recipes, attunements, duration and total Pulse cost before pack settings.
 
 ## Power with a place in the world
 
 - **Drumheart:** deliberate beats about a second apart yield more Pulse. A redstone clock automates its rising-edge rhythm.
-- **Ley Collector:** sky, night, rain, nearby water and living greenery influence collection.
+- **Ley Collector:** drinks the ley lines that pass through it (up to six meeting in the rarest places) and still takes a smaller gift from sky, night, rain, water, plants and animals. The land's share of a beat is capped at 6; the beat is still capped at 16.
 - **Pulse Resonator:** seat a reusable Echo catalyst (right-click; it is not burned) and place at least two distinct Resonance Totems within 8 blocks. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are ranks 1–4. Gain each second is `(2 × voices) + (2 × rank)`, plus 15% Pulse a second per machine rank. Kinship Totems add extra tribe voices. A heap counts at most five voices total; six elements plus kinship need the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift the catalyst.
 - **Pulse Cells:** ordinary cells hold 200 Pulse; Greater Cells hold 1,200.
 - **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second unranked. Ranked adapters convert more. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
@@ -56,7 +56,7 @@ Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vau
 
 Every inventory worth tidying carries a small **Tidy** button above its slots: your own pack, caches, and any chest, barrel, shulker box or hopper. It merges stacks and orders the rest, never touching the hotbar, armour or a machine's slots. Turn it off with `sortButtons` in the client config.
 
-A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
+A Lattice Conductor does not make Pulse. Place conductors within 8 of each other and a machine within 8 of any of them draws generators, Pulse Cairns and totem buffers that line can reach. A redstone signal cuts that conductor out of the line. Ritual Chalk still joins two Resonance Totems (within 16): a Conductor within 8 of them and of a generator pulls up to 10 Pulse a second into those totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
 Wireless relays are thin plates that snap onto a machine face. Seat the same item in two Bond slots to pair them, or mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Sneak-click a plate to switch extract or insert.
 
@@ -179,7 +179,7 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 
 ## Ley Sight and Pulse logic
 
-- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, the HUD reads the ley strength where you stand and a 17-by-17 grid of particles colours the ground from blue (quiet) to gold (singing). Sneak-use it on a Ley Collector for its exact factor breakdown, or on a lattice animal for its threads and Marks. Open sky counts 1 by day and 3 by night; rain adds 2; water and greenery add 4 each.
+- **Ley Lens** (glass pane, Copper Resonator, Spirit Shard): held in either hand, use cycles ley sight, the Pulse zone, voices, machines, and off. Ley sight draws each nearby vein as a flowing rope of pink, green, gold and cyan, with a bright node every dozen blocks, and the HUD reads the collector's beat. The land's share of a beat is capped at 6, and each line touching the collector adds 2. Craft the lens into a Spiritweave Hood for ley goggles; sneak-use the hood to turn those off. Sneak-use the lens on a Ley Collector for its exact factor breakdown, or on a lattice animal for its threads and Marks. Open sky counts 1 by day and 3 by night; rain adds 2; water and greenery add 4 each.
 - **Pulse Gauge:** points at any Pulse holder and emits redstone 0 to 15 in proportion to its charge, refreshed every four ticks; a comparator reads the same.
 - **Pulse Threshold:** emits a full signal while the faced holder is at or above 25, 50, 75 or 100%. Right-click cycles; a comparator reads 1 to 4.
 

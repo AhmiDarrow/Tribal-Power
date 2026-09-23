@@ -195,11 +195,11 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void directBenchRemovalClearsInFlightWork(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());
-        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.STONE));
-        var tag=bench.saveWithoutMetadata(h.getLevel().registryAccess());tag.putInt("Progress",20);tag.putBoolean("Singing",true);
-        bench.loadWithComponents(tag,h.getLevel().registryAccess());
-        h.assertTrue(bench.removeItemNoUpdate(0).getCount()==1,"Direct removal must return the input");
-        h.assertTrue(bench.getProgress()==0 && !bench.isSinging(),"Removing the input must cancel in-flight work");
+        var bench=at(h,pos,SongBenchBlockEntity.class);
+        bench.append(tk.darrow.tribalpower.entity.CreatureProfile.DAWN_STAG.reagent);
+        bench.append(tk.darrow.tribalpower.entity.CreatureProfile.LANTERN_FOX.reagent);
+        bench.clearContent();
+        h.assertTrue(bench.sequence().isEmpty(),"Clearing the bench must drop the verse being written");
         h.succeed();
     }
     @GameTest(template="empty", timeoutTicks=120)
@@ -212,23 +212,26 @@ public class LatticeGameTests {
         station.loadWithComponents(tag,h.getLevel().registryAccess());
         h.runAfterDelay(85,()->{h.assertTrue(station.getItem(0).isEmpty() && station.getItem(1).is(ModItems.ECHO_SHARD.get()),"Invalid station progress must reset and finish normally");h.succeed();});
     }
-    @GameTest(template="empty", timeoutTicks=100)
+    @GameTest(template="empty")
     public static void invalidSavedBenchProgressCannotOverflowAndStall(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
-        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var bench=at(h,pos,SongBenchBlockEntity.class);bench.setItem(0,new ItemStack(Items.STONE));
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());
+        var bench=at(h,pos,SongBenchBlockEntity.class);
         var tag=bench.saveWithoutMetadata(h.getLevel().registryAccess());
-        tag.putBoolean("Singing",true);tag.putInt("Progress",Integer.MAX_VALUE);
+        var list=new net.minecraft.nbt.ListTag();
+        list.add(net.minecraft.nbt.StringTag.valueOf("not_a_reagent"));
+        list.add(net.minecraft.nbt.StringTag.valueOf(tk.darrow.tribalpower.entity.CreatureProfile.DAWN_STAG.reagent));
+        tag.put("Sequence", list);
         bench.loadWithComponents(tag,h.getLevel().registryAccess());
-        h.runAfterDelay(45,()->{h.assertTrue(bench.getItem(0).is(ModItems.ECHO_SHARD.get()),"Invalid saved work must reset instead of overflowing into a permanent stall");h.succeed();});
+        h.assertTrue(bench.sequence().size()==1 && bench.sequence().get(0).equals("dawn_velvet"),
+                "A saved verse must drop reagent ids the game does not know");
+        h.succeed();
     }
     @GameTest(template="empty")
     public static void seatingABenchItemStartsTheSong(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
-        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());
         var bench=at(h,pos,SongBenchBlockEntity.class);
-        bench.setItem(0,new ItemStack(Items.STONE));
-        h.assertTrue(bench.isSinging(),"A hopper seating a processable item starts the song");
+        h.assertTrue(bench.canPlaceItem(0, new ItemStack(Items.PAPER)),"Paper seats on the bench");
+        h.assertFalse(bench.canPlaceItem(0, new ItemStack(Items.STONE)),"Stone is no longer a Song Bench feed");
         h.succeed();
     }
     /**
@@ -461,26 +464,23 @@ public class LatticeGameTests {
         relay.bind(h.absolutePos(new BlockPos(6,2,2)),Direction.UP,h.getLevel().dimension().location().toString());
         h.runAfterDelay(45,()->{h.assertTrue(source.countItem(Items.DIAMOND)==64 && sink.isEmpty(),"Unpowered transfer must not extract or duplicate items");h.succeed();});
     }
-    @GameTest(template="empty", timeoutTicks=100)
+    @GameTest(template="empty")
     public static void oversizedBenchInputIsNotCollapsedIntoOneOutput(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());power(h);
-        h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.SONG_BENCH.get());
         var bench=at(h,pos,SongBenchBlockEntity.class);
-        bench.setItem(0,new ItemStack(Items.STONE,32));bench.startSong();
-        h.runAfterDelay(45,()->{
-            h.assertTrue(bench.getItem(0).is(Items.STONE) && bench.getItem(0).getCount()==32,"Malformed oversized input must remain recoverable, never become one output");
-            h.succeed();
-        });
+        bench.setItem(0,new ItemStack(Items.PAPER,32));
+        h.assertTrue(bench.getItem(0).is(Items.PAPER) && bench.getItem(0).getCount()==32,"A stack of paper stays a stack of paper");
+        h.succeed();
     }
     @GameTest(template="empty")
     public static void oversizedBenchHandoffConservesRemainder(GameTestHelper h) {
         h.setBlock(2,2,2,ModBlocks.SONG_BENCH.get());h.setBlock(4,2,2,ModBlocks.SONG_BENCH.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var from=at(h,new BlockPos(2,2,2),SongBenchBlockEntity.class);
         var to=at(h,new BlockPos(4,2,2),SongBenchBlockEntity.class);
-        from.setItem(0,new ItemStack(Items.STONE,32));
-        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(from,to),java.util.List.of()),"Handoff must deliver one item");
-        h.assertTrue(from.getItem(0).getCount()==31 && to.getItem(0).getCount()==1,"Handoff must retain all excess items at source");
+        from.setItem(0,new ItemStack(Items.PAPER,32));
+        h.assertFalse(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(from,to),java.util.List.of()),
+                "The conductor no longer hands items between Song Benches");
+        h.assertTrue(from.getItem(0).getCount()==32 && to.getItem(0).isEmpty(),"Paper stays where it was seated");
         h.succeed();
     }
     @GameTest(template="empty", timeoutTicks=100)
@@ -492,12 +492,11 @@ public class LatticeGameTests {
         var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
         tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
         earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
-        h.setBlock(4,2,4,ModBlocks.SONG_BENCH.get());h.setBlock(6,2,4,ModBlocks.ANCESTRAL_CACHE.get());
-        var bench=at(h,new BlockPos(4,2,4),SongBenchBlockEntity.class);
+        h.setBlock(6,2,4,ModBlocks.ANCESTRAL_CACHE.get());
         var cache=at(h,new BlockPos(6,2,4),AncestralCacheBlockEntity.class);
-        bench.setItem(0,new ItemStack(ModItems.MANIFESTED_INGOT.get()));
+        cache.setItem(0,new ItemStack(ModItems.MANIFESTED_INGOT.get()));
         h.runAfterDelay(45,()->{
-            h.assertTrue(bench.isEmpty() && cache.countItem(ModItems.MANIFESTED_INGOT.get())==1,"Full charged buffers must not stall finished item routing");
+            h.assertTrue(cache.countItem(ModItems.MANIFESTED_INGOT.get())==1,"A full lattice must not move or delete cache items");
             h.assertTrue(earth.getPulseStored()==earth.getPulseCapacity() && fire.getPulseStored()==fire.getPulseCapacity(),"Routing must not discard stored Pulse");
             h.succeed();
         });
@@ -637,6 +636,70 @@ public class LatticeGameTests {
                 "Generator must be drawn down by exactly what moved, stored "+horn.getPulseStored());
         h.succeed();
     }
+    /**
+     * A craft yields four conductors so a line of them can walk the Pulse zone out to a machine.
+     * The machine's own 8-block cube never sees the horn. Only the second conductor does.
+     */
+    @GameTest(template="empty")
+    public static void conductorsExtendThePulseZone(GameTestHelper h) {
+        var machine = new BlockPos(2, 2, 2);
+        var origin = h.absolutePos(machine);
+        var level = h.getLevel();
+        h.setBlock(14, 2, 14, tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        var horn = at(h, new BlockPos(14, 2, 14), tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
+        horn.insertPulse(80, false);
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
+                "A horn twelve blocks off is outside a machine's own zone");
+        h.assertTrue(horn.getPulseStored() == 80, "A probe must not spend the horn");
+
+        h.setBlock(2, 2, 10, ModBlocks.LATTICE_CONDUCTOR.get());
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
+                "One conductor that cannot see the horn must not invent a path");
+
+        h.setBlock(14, 2, 6, ModBlocks.LATTICE_CONDUCTOR.get());
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
+                "A conductor more than 8 from the line must not join it");
+        h.setBlock(14, 2, 6, Blocks.AIR);
+
+        h.setBlock(10, 2, 14, ModBlocks.LATTICE_CONDUCTOR.get());
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 10,
+                "Two conductors within 8 of each other must reach the horn");
+        h.assertTrue(horn.getPulseStored() == 80, "Seeing the horn through the line must not spend it");
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, false) == 10,
+                "The machine must draw the horn through the line");
+        h.assertTrue(horn.getPulseStored() == 70, "The horn must lose exactly the draw, stored " + horn.getPulseStored());
+
+        h.setBlock(14, 2, 12, ModBlocks.RESONANCE_MESH.get());
+        var mesh = at(h, new BlockPos(14, 2, 12), ResonanceMeshBlockEntity.class);
+        mesh.insertPulse(mesh.getPulseCapacity(), false);
+        int meshHeld = mesh.getPulseStored();
+        h.setBlock(14, 2, 13, ModBlocks.PULSE_CAIRN.get());
+        var cairn = at(h, new BlockPos(14, 2, 13), PulseCairnBlockEntity.class);
+        cairn.insertPulse(40, false);
+        int drawn = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 1000, false);
+        h.assertTrue(drawn == 70 + 40, "The line takes the horn and then the cairn, drew " + drawn);
+        h.assertTrue(horn.getPulseStored() == 0 && cairn.getPulseStored() == 0, "Horn and cairn must be the stores that emptied");
+        h.assertTrue(mesh.getPulseStored() == meshHeld, "A station buffer on the line must stay claimed, holds " + mesh.getPulseStored());
+
+        h.setBlock(9, 2, 14, Blocks.REDSTONE_BLOCK);
+        h.setBlock(13, 2, 14, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        var totem = at(h, new BlockPos(13, 2, 14), ResonanceTotemBlockEntity.class);
+        totem.insertPulse(25, false);
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 25, false) == 0,
+                "Redstone on the linking conductor cuts the zone");
+        h.assertTrue(totem.getPulseStored() == 25, "A cut line must leave the totem buffer alone");
+        h.setBlock(9, 2, 14, Blocks.AIR);
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 25, false) == 25,
+                "A totem buffer on the line is spendable without a chalk link");
+        h.assertTrue(totem.getPulseStored() == 0, "The totem must spend through the zone");
+
+        h.setBlock(10, 2, 14, Blocks.AIR);
+        totem.insertPulse(10, false);
+        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, false) == 0,
+                "Breaking the line drops the far totem back out of reach");
+        h.assertTrue(totem.getPulseStored() == 10, "An unreachable totem must keep its Pulse");
+        h.succeed();
+    }
     @GameTest(template="empty", timeoutTicks=40)
     public static void aBondedRelayDoesNotFallBackToATunerMark(GameTestHelper h) {
         h.setBlock(2,1,2,Blocks.STONE);
@@ -655,13 +718,12 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void conductorFeedStartsSongBench(GameTestHelper h) {
         h.setBlock(2,2,2,ModBlocks.SONG_BENCH.get());h.setBlock(4,2,2,ModBlocks.ANCESTRAL_CACHE.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var bench=at(h,new BlockPos(2,2,2),SongBenchBlockEntity.class);
         var cache=at(h,new BlockPos(4,2,2),AncestralCacheBlockEntity.class);
         cache.setItem(0,new ItemStack(Items.STONE,2));
-        h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(bench),java.util.List.of(cache)),"Conductor must feed empty bench");
-        h.assertTrue(bench.isSinging(),"Automated feed must start processing without a manual strike");
-        h.assertTrue(bench.getItem(0).getCount()==1 && cache.getItem(0).getCount()==1,"Automated feed must conserve items");
+        h.assertFalse(tk.darrow.tribalpower.lattice.LatticeNetwork.routeEchoItems(h.getLevel(),java.util.List.of(bench),java.util.List.of(cache)),
+                "The conductor no longer feeds the Song Bench");
+        h.assertTrue(cache.getItem(0).getCount()==2,"Stone stays in the cache");
         h.succeed();
     }
     /** The Gate Rite: a fair, playable pattern, identical on both sides, and a server that is not easily fooled. */
@@ -997,7 +1059,29 @@ public class LatticeGameTests {
         tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
         h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.MACHINE,"Third use is machines");
         tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
-        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.LEY,"Fourth use wraps to ley");
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.OFF,"Fourth use turns the lens off");
+        tk.darrow.tribalpower.ley.LeyLensItem.cycle(lens);
+        h.assertTrue(tk.darrow.tribalpower.ley.LeyLensItem.mode(lens)==tk.darrow.tribalpower.ley.LeyLensItem.LEY,"Fifth use wraps to ley");
+        h.succeed();
+    }
+    /** Pulse sight must total generation against the spend, and a lever must take the spend off the total. */
+    @GameTest(template="empty")
+    public static void leyLensTotalsPulseInAgainstOut(GameTestHelper h) {
+        var origin = new BlockPos(2, 2, 2);
+        h.setBlock(origin, ModBlocks.LEY_COLLECTOR.get());
+        h.setBlock(4, 2, 2, ModBlocks.EMBER_BOWL.get());
+        var level = h.getLevel();
+        var collector = at(h, origin, LeyCollectorBlockEntity.class);
+        int made = tk.darrow.tribalpower.api.pulse.PulseRate.perSecond(level, h.absolutePos(origin), collector);
+        var zone = tk.darrow.tribalpower.ley.LensPulsePayload.measureZone(level, h.absolutePos(origin));
+        h.assertTrue(made > 0, "A collector under open test sky must be making Pulse, made " + made);
+        h.assertTrue(zone.incoming() == made, "In is the generator total, saw " + zone.incoming());
+        h.assertTrue(zone.outgoing() == tk.darrow.tribalpower.block.PulseLightBlock.Kind.EMBER_BOWL.cost,
+                "Out is the bowl's draw, saw " + zone.outgoing());
+        h.setBlock(4, 3, 2, Blocks.REDSTONE_BLOCK);
+        var locked = tk.darrow.tribalpower.ley.LensPulsePayload.measureZone(level, h.absolutePos(origin));
+        h.assertTrue(locked.outgoing() == 0, "A lever on the bowl takes it out of the spend, saw " + locked.outgoing());
+        h.assertTrue(locked.incoming() == made, "Locking the bowl must not change what the collector makes, saw " + locked.incoming());
         h.succeed();
     }
     @GameTest(template="empty")

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": { "item": "tribalpower:songbook" },
+    "E": { "item": "tribalpower:bound_echo" },
+    "W": { "item": "tribalpower:spiritweave" }
+  },
+  "pattern": [" W ", "EBE", " W "],
+  "result": { "count": 1, "id": "tribalpower:bound_songbook" }
+}

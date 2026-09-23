@@ -28,7 +28,7 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.lattice.RelayLinks;
 
 /** Face-mounted plate. Pulls from the host machine into a paired relay or a tuner-bound face. */
-public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, WorldlyContainer, MenuProvider {
+public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, WorldlyContainer, MenuProvider, tk.darrow.tribalpower.api.pulse.PulseSpend {
     public static final int LINK = 0, RUNE = 1;
     private static final int[] NO_HOPPER = new int[0];
     private final NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
@@ -140,6 +140,13 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (dest.equals(worldPosition) || dest.equals(host())) return false;
         int range = tier() == 1 ? 32 : 128;
         return tier() >= 3 || dest.distSqr(worldPosition) <= (long) range * range;
+    }
+
+    @Override
+    public int spendPerSecond() {
+        // "pulse" means a transfer is waiting on power. "waiting" has nothing to move, so it spends nothing.
+        if (!"working".equals(status) && !"pulse".equals(status)) return 0;
+        return pulseCost();
     }
 
     private int pulseCost() {

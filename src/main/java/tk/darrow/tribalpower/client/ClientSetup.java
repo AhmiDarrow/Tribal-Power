@@ -8,7 +8,16 @@ public final class ClientSetup {
     private ClientSetup() {}
 
     public static void onClientSetup(FMLClientSetupEvent event) {
-        // Client hooks reserved for pulse overlays / lattice line rendering.
+        event.enqueueWork(() -> {
+            var bow = tk.darrow.tribalpower.item.ModItems.PULSE_BOW.get();
+            net.minecraft.client.renderer.item.ItemProperties.register(bow,
+                    net.minecraft.resources.ResourceLocation.withDefaultNamespace("pull"),
+                    (stack, level, entity, seed) -> entity == null || entity.getUseItem() != stack ? 0F
+                            : (stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F);
+            net.minecraft.client.renderer.item.ItemProperties.register(bow,
+                    net.minecraft.resources.ResourceLocation.withDefaultNamespace("pulling"),
+                    (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1F : 0F);
+        });
     }
 
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -19,6 +28,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get(), tk.darrow.tribalpower.boss.client.TheUnsungRenderer::new);
         event.registerEntityRenderer(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get(), TribalKinRenderer::new);
         event.registerEntityRenderer(ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.SONIC_BOLT.get(), SonicBoltRenderer::new);
         event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.CAMP_DISPLAY.get(), CampDisplayRenderer::new);
         event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.TRIBAL_BENCH.get(), CampDisplayRenderer::new);
     }

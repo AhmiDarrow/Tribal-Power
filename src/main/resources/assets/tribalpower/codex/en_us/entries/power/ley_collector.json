@@ -7,7 +7,7 @@
       "type": "spotlight",
       "item": "tribalpower:ley_collector",
       "text": [
-        "A generator that listens to the land instead of your hands. Set it under open sky among water, plants and life, and it adds Pulse every **two seconds** without you standing there.",
+        "A generator that drinks the planet's ley lines. Set it where a line passes, among open sky, water, plants and life, and it adds Pulse every **two seconds** without you standing there.",
         "It holds **2,000 Pulse**."
       ]
     },
@@ -23,7 +23,7 @@
         "- Totem voices: up to **+3**, one per distinct voice.",
         "- A Tribe Hearth **+1**. Animals: up to **+2**, one per pair.",
         "- In the March **+2**; under a full moon **+1**.",
-        "The beat is capped at **16**. The number a Ley Lens shows is that beat, not Pulse a second."
+        "Those gifts are the land's share, and that share is capped at **6**. The rest of the beat is the ley line the collector is touching: **+2** for each line, and only the rarest places bring **six** lines together. The beat is still capped at **16**. The number a Ley Lens shows is that beat, not Pulse a second. Hold the lens to see the lines themselves."
       ]
     },
     {
@@ -450,7 +450,7 @@
       "type": "text",
       "title": "Tuning it",
       "text": [
-        "Sneak-use a Ley Lens on the collector to print the exact breakdown, factor by factor. Holding the lens paints the ground in a **17 by 17** square, so you can find the best spot before you build.",
+        "Sneak-use a Ley Lens on the collector to print the exact breakdown, factor by factor. Ley sight draws the ropes that pass near you, so you can stand in one before you build.",
         "A redstone signal pauses it.",
         "Ranking it in Echo Attune, then Bind, then Manifest adds **15% Pulse a beat** per rank, not the workshop 118%.",
         "If it seems weak, crouch and right-click it with this book."

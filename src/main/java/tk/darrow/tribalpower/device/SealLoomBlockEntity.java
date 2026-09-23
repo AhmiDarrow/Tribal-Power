@@ -30,12 +30,17 @@ import java.util.List;
 import java.util.Optional;
 
 /** 3x3 grid, one Recipe Seal, nine output slots. Sneak-use imprints a matching recipe onto a blank seal. */
-public class SealLoomBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo {
+public class SealLoomBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo, tk.darrow.tribalpower.api.pulse.PulseSpend {
     public static final int GRID = 9;
     public static final int SEAL = 9;
     public static final int OUTPUT = 10;
     public static final int SIZE = 19;
     public static final int COST = 6;
+
+    @Override
+    public int spendPerSecond() {
+        return "need_pulse".equals(reason) || "wove".equals(reason) ? COST : 0;
+    }
     private static final int[] INPUT_SLOTS = java.util.stream.IntStream.range(0, GRID).toArray();
     private static final int[] OUTPUT_SLOTS = java.util.stream.IntStream.range(OUTPUT, SIZE).toArray();
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);

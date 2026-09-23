@@ -12,14 +12,16 @@
     },
     {
       "type": "text",
-      "title": "Four sights",
+      "title": "Five sights",
       "text": [
-        "Hold it in either hand and use it to cycle through four sights:",
-        "- **Ley**: paints the ground in a **17 by 17** square, blue where the land is quiet and gold where it sings.",
-        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** ring they can reach.",
+        "Hold it in either hand and use it to cycle through five sights:",
+        "- **Ley**: draws the ley lines near you. Each one is a rope of pink, green, gold and cyan, and the braid keeps flowing along it. They are the planet's Pulse, not blocks. A bright node pulses every dozen blocks. Where several meet, the ropes share one heart. Craft a Ley Lens into a Spiritweave Hood and the hood's goggles show the same ropes while you wear it.",
+        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** ring they can reach. The panel totals Pulse coming in each second against Pulse the machines there are spending.",
         "- **Voices**: tints nearby totems gold when answered, dull when dim, grey when quiet.",
         "- **Machines**: marks the Tribal Power machines around you.",
-        "While you hold it, a line on your screen shows the ley strength where you stand."
+        "- **Off**: the glass goes dark. No ropes, no panel, no marks.",
+        "While a sight is on, a line on your screen shows the ley strength where you stand. Off hides that line.",
+        "A Spiritweave Hood with ley goggles shows the ropes while you wear it. Sneak-use the hood, or sneak-click with an empty hand while it is on your head, to turn the goggles off and on again."
       ]
     },
     {
@@ -34,7 +36,7 @@
       "text": [
         "Sneak-use the lens on a Ley Collector to print that collector's exact factor breakdown in chat: the same numbers it collects with.",
         "Sneak-use it on a lattice animal or remnant to print its threads and Marks. The charm does not change those rolls.",
-        "The ley sight counts the same things the collector does, for a beat from 1 to **16**. A beat of **8 or more** keeps nearby totems awake; the Pulse stored in a collector does not. A roof takes away sky, rain and storm, but water, plants, voices, a hearth and animals still add."
+        "The ley sight counts the same beat the collector does, from 1 to **16**. The land's share stops at 6. Each ley line the collector touches adds 2, and six lines is as many as ever meet. A beat of **8 or more** keeps nearby totems awake; the Pulse stored in a collector does not. A roof takes away sky, rain and storm, but the lines stay, and water, plants, voices, a hearth and animals still add. The collector gets weaker, not dead."
       ]
     },
     {

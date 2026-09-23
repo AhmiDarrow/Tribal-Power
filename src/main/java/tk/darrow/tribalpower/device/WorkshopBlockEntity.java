@@ -27,7 +27,7 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
-public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo {
+public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer, tk.darrow.tribalpower.lattice.HasSideIo, tk.darrow.tribalpower.api.pulse.PulseSpend {
     private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
     private boolean extract = true;
     private String reason = "waiting";
@@ -44,6 +44,23 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     }
 
     public String kind() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
+
+    @Override
+    public int spendPerSecond() {
+        int unit = switch (kind()) {
+            case "tide_pump" -> 4;
+            case "wind_snare" -> 2;
+            case "ward_drum" -> 8;
+            default -> 0;
+        };
+        if (unit == 0) return 0;
+        return switch (reason) {
+            case "drawing", "pushing", "need_pulse", "struck" -> unit;
+            case "caught" -> unit * Math.max(1, reasonN);
+            case "need_pulse_stack" -> unit;
+            default -> 0;
+        };
+    }
 
     public Component status() {
         return switch (reason) {

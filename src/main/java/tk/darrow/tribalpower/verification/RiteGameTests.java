@@ -254,12 +254,14 @@ public class RiteGameTests {
         h.runAfterDelay(10, () -> {
             h.assertTrue(level.canSeeSky(open.above()), "Test position must see the sky");
             h.assertTrue(!level.canSeeSky(roofed.above()), "Roofed position must not see the sky");
-            double a = LeyMath.strength(level, open), b = LeyMath.strength(level, roofed);
-            h.assertTrue(a > b, "Open sky must strengthen ley: " + a + " vs " + b);
-            h.assertTrue(LeyMath.gain(level, roofed) == LeyMath.BASE && b > 0 && b <= 1, "Sheltered ground yields only the base gain");
-            int before = LeyMath.gain(level, open);
+            var openF = LeyMath.factors(level, open);
+            var roofF = LeyMath.factors(level, roofed);
+            h.assertTrue(openF.environment() > roofF.environment(),
+                    "Open sky must strengthen the land survey: " + openF.environment() + " vs " + roofF.environment());
+            h.assertTrue(roofF.environment() == LeyMath.BASE, "Sheltered ground yields only the base land, got " + roofF.environment());
+            int before = openF.environment();
             h.setBlock(3, 2, 2, Blocks.WATER);
-            h.assertTrue(LeyMath.gain(level, open) > before, "Water within 8 must add, " + before + " -> " + LeyMath.gain(level, open));
+            h.assertTrue(LeyMath.factors(level, open).environment() > before, "Water within 8 must add to the land, " + before);
             h.succeed();
         });
     }

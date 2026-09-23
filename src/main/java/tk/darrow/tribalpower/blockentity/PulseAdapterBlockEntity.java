@@ -32,7 +32,7 @@ import java.util.List;
  * <p>Sixty Pulse a second is more than a zone of drums can feed, so running one flat out wants a
  * Resonator behind it. That coupling is deliberate: the bridge to FE should cost a real generator.
  */
-public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable {
+public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable, tk.darrow.tribalpower.api.pulse.PulseSpend {
     private int energy;
     public static final int CAPACITY = 48000;
     public static final int RATE = 60;
@@ -55,6 +55,13 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable 
         if (level != null) level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
     }
     public int pulseRate() { return MachineRank.scalePulse(this, RATE); }
+
+    @Override
+    public int spendPerSecond() {
+        int room = (CAPACITY - energy) / FE_PER_PULSE;
+        if (room <= 0) return 0;
+        return Math.min(pulseRate(), room);
+    }
     public Component status() {
         return Component.translatable("message.tribalpower.adapter.status", energy, CAPACITY, pulseRate(), RATE);
     }

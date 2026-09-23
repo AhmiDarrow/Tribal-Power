@@ -51,7 +51,7 @@ import java.util.Set;
  * here as: depth picks the default band, and a sample naming something in an unlocked deeper band asks for
  * that band instead. Unlocks widen what can be asked for; they never narrow it.
  */
-public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implements PulseHandler {
+public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implements PulseHandler, tk.darrow.tribalpower.api.pulse.PulseSpend {
     public static final int SAMPLE = 0;
     public static final int SUBSTRATE_A = 1;
     public static final int SUBSTRATE_B = 2;
@@ -183,6 +183,13 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         int seconds = seconds(band, voices);
         if (level == null) return seconds;
         return Keeping.stretch(Keeping.voice(level, worldPosition, Attunement.EARTH), seconds);
+    }
+
+    @Override
+    public int spendPerSecond() {
+        if (stilled() || level == null) return 0;
+        if (!"working".equals(state) && !"pulse".equals(state)) return 0;
+        return pulsePerSecond(band, voices(level, worldPosition));
     }
 
     private int pulsePerSecond(OreBand band, Set<Attunement> voices) {

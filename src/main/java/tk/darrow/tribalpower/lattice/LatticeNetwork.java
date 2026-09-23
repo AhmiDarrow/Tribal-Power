@@ -9,6 +9,7 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
+import tk.darrow.tribalpower.blockentity.LatticeConductorBlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
@@ -32,6 +33,11 @@ import java.util.function.Predicate;
 public final class LatticeNetwork {
     public static final int DEFAULT_RADIUS = 8;
     public static final int LINK_RANGE = 16;
+    /**
+     * Safety stop for one draw walking a conductor line. Gameplay does not cap the line at the four a
+     * craft gives; this only keeps a solid cube of conductors from scanning the whole loaded world.
+     */
+    public static final int MAX_CONDUCTOR_CHAIN = 64;
 
     private LatticeNetwork() {}
 
@@ -359,68 +365,12 @@ public final class LatticeNetwork {
     }
 
     /**
-     * Move one Echo-stage item along the lattice: finished products into caches,
-     * processable feeds from caches into empty benches, or bench-to-bench handoff.
-     * @return true if an item moved
+     * Echo items no longer travel through the Song Bench. The bench writes songs. Stations and
+     * caches move their own items with hoppers. Kept so a conductor tick stays a single call.
+     * @return false, always
      */
     public static boolean routeEchoItems(Level level, List<SongBenchBlockEntity> benches,
                                          List<AncestralCacheBlockEntity> caches) {
-        // Finished products: Song Bench → Ancestral Cache
-        for (SongBenchBlockEntity bench : benches) {
-            ItemStack stack = bench.getItem(SongBenchBlockEntity.SLOT);
-            if (stack.isEmpty() || EchoStage.isProcessable(stack) || bench.isSinging()) {
-                continue;
-            }
-            if (level.hasNeighborSignal(bench.getBlockPos())) continue;
-            if (insertIntoAny(caches, stack.copyWithCount(1))) {
-                bench.removeItem(SongBenchBlockEntity.SLOT, 1);
-                return true;
-            }
-        }
-
-        // Feed: Ancestral Cache → empty Song Bench
-        for (AncestralCacheBlockEntity cache : caches) {
-            if (level.hasNeighborSignal(cache.getBlockPos())) continue;
-            int slot = findProcessableSlot(cache);
-            if (slot < 0) {
-                continue;
-            }
-            ItemStack feed = cache.getItem(slot).copyWithCount(1);
-            for (SongBenchBlockEntity bench : benches) {
-                if (level.hasNeighborSignal(bench.getBlockPos())) continue;
-                if (bench.insertItem(feed.copy())) {
-                    cache.removeItem(slot, 1);
-                    bench.startSong();
-                    return true;
-                }
-            }
-        }
-
-        // Bench → bench handoff of idle processable grit
-        for (int i = 0; i < benches.size(); i++) {
-            SongBenchBlockEntity from = benches.get(i);
-            if (level.hasNeighborSignal(from.getBlockPos())) continue;
-            ItemStack stack = from.getItem(SongBenchBlockEntity.SLOT);
-            if (stack.isEmpty() || !EchoStage.isProcessable(stack) || from.isSinging()) {
-                continue;
-            }
-            for (int j = 0; j < benches.size(); j++) {
-                if (i == j) {
-                    continue;
-                }
-                SongBenchBlockEntity to = benches.get(j);
-                if (level.hasNeighborSignal(to.getBlockPos())) continue;
-                if (!to.isEmpty()) {
-                    continue;
-                }
-                ItemStack moved = stack.copyWithCount(1);
-                if (to.insertItem(moved)) {
-                    from.removeItem(SongBenchBlockEntity.SLOT, 1);
-                    to.startSong();
-                    return true;
-                }
-            }
-        }
         return false;
     }
 
@@ -523,7 +473,10 @@ public final class LatticeNetwork {
 
     /**
      * Pull Pulse from nearby generators first (Drumheart, Ley Collector, Pulse Resonator, or any
-     * {@link tk.darrow.tribalpower.api.pulse.PulseGenerator}), then totem buffers.
+     * {@link tk.darrow.tribalpower.api.pulse.PulseGenerator}), then other stores in that same cube.
+     * Whatever is still wanted is drawn through Lattice Conductors: each conductor within {@code radius}
+     * of the last extends the zone, and the draw may take generators, Pulse Cairns and totem buffers
+     * beside any conductor on that line. A station's own buffer is never reached this way.
      * @return amount actually extracted
      */
     public static int extractPulseNearby(Level level, BlockPos origin, int radius, int amount) {
@@ -542,7 +495,93 @@ public final class LatticeNetwork {
         if (remaining > 0) {
             remaining -= drainHandlers(level, origin, radius, remaining, false, simulate);
         }
+        if (remaining > 0) {
+            remaining -= extractThroughConductors(level, origin, radius, remaining, simulate);
+        }
         return amount - remaining;
+    }
+
+    /** Conductors on the line a draw from {@code origin} would walk, including one standing at the origin. */
+    public static int countConductorZone(Level level, BlockPos origin, int radius) {
+        return conductorZone(level, origin, radius).size();
+    }
+
+    /**
+     * Breadth-first across conductors. A redstone signal cuts that block out of the line, the same way
+     * it pauses the conductor's own totem fill. The walk starts at every conductor already inside the
+     * caller's cube, so a machine never has to be the block that begins the chain.
+     */
+    private static List<LatticeConductorBlockEntity> conductorZone(Level level, BlockPos origin, int radius) {
+        ArrayDeque<LatticeConductorBlockEntity> queue = new ArrayDeque<>();
+        HashSet<BlockPos> seen = new HashSet<>();
+        for (LatticeConductorBlockEntity seed : inBox(level, LatticeConductorBlockEntity.class,
+                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
+                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius)) {
+            if (level.hasNeighborSignal(seed.getBlockPos())) continue;
+            if (seen.add(seed.getBlockPos().immutable())) queue.add(seed);
+        }
+        List<LatticeConductorBlockEntity> zone = new ArrayList<>();
+        while (!queue.isEmpty() && zone.size() < MAX_CONDUCTOR_CHAIN) {
+            LatticeConductorBlockEntity current = queue.removeFirst();
+            zone.add(current);
+            if (zone.size() >= MAX_CONDUCTOR_CHAIN) break;
+            BlockPos at = current.getBlockPos();
+            for (LatticeConductorBlockEntity next : inBox(level, LatticeConductorBlockEntity.class,
+                    at.getX() - radius, at.getY() - radius, at.getZ() - radius,
+                    at.getX() + radius, at.getY() + radius, at.getZ() + radius)) {
+                if (level.hasNeighborSignal(next.getBlockPos())) continue;
+                if (seen.add(next.getBlockPos().immutable())) queue.add(next);
+            }
+        }
+        return zone;
+    }
+
+    /**
+     * Sources a conductor line may lend to a machine. Generators first, then cairns, then totem buffers.
+     * Positions already inside the caller's own cube were drained by the local pass and must not be
+     * counted twice. Station buffers stay where they are: the line moves camp Pulse, not a machine's claim.
+     */
+    private static int extractThroughConductors(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
+        List<LatticeConductorBlockEntity> zone = conductorZone(level, origin, radius);
+        if (zone.isEmpty() || amount <= 0) return 0;
+        HashSet<BlockPos> seen = new HashSet<>();
+        List<BlockEntity> generators = new ArrayList<>();
+        List<BlockEntity> cairns = new ArrayList<>();
+        List<BlockEntity> totems = new ArrayList<>();
+        for (LatticeConductorBlockEntity conductor : zone) {
+            for (BlockEntity be : blockEntitiesAround(level, conductor.getBlockPos(), radius)) {
+                BlockPos at = be.getBlockPos();
+                if (inCube(origin, radius, at) || be.isRemoved() || !(be instanceof PulseHandler)) continue;
+                if (!seen.add(at.immutable())) continue;
+                if (isGenerator(be)) generators.add(be);
+                else if (be instanceof PulseCairnBlockEntity) cairns.add(be);
+                else if (be instanceof ResonanceTotemBlockEntity) totems.add(be);
+            }
+        }
+        int taken = drainOrdered(generators, amount, simulate);
+        if (taken < amount) taken += drainOrdered(cairns, amount - taken, simulate);
+        if (taken < amount) taken += drainOrdered(totems, amount - taken, simulate);
+        return taken;
+    }
+
+    private static boolean inCube(BlockPos origin, int radius, BlockPos at) {
+        return Math.abs(at.getX() - origin.getX()) <= radius
+                && Math.abs(at.getY() - origin.getY()) <= radius
+                && Math.abs(at.getZ() - origin.getZ()) <= radius;
+    }
+
+    private static int drainOrdered(List<BlockEntity> found, int amount, boolean simulate) {
+        if (amount <= 0 || found.isEmpty()) return 0;
+        if (found.size() > 1)
+            found.sort(java.util.Comparator.comparingInt((BlockEntity be) -> be.getBlockPos().getX())
+                    .thenComparingInt(be -> be.getBlockPos().getY())
+                    .thenComparingInt(be -> be.getBlockPos().getZ()));
+        int taken = 0;
+        for (BlockEntity be : found) {
+            if (taken >= amount) break;
+            taken += ((PulseHandler) be).extractPulse(amount - taken, simulate);
+        }
+        return taken;
     }
 
     private static boolean isGenerator(BlockEntity be) {

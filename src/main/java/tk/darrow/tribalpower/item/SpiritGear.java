@@ -74,8 +74,49 @@ public final class SpiritGear {
             if (clamped <= 0) tag.remove(RANK_KEY);
             else tag.putInt(RANK_KEY, clamped);
         });
-        if (clamped <= 0) stack.remove(DataComponents.CUSTOM_MODEL_DATA);
-        else stack.set(DataComponents.CUSTOM_MODEL_DATA, new net.minecraft.world.item.component.CustomModelData(clamped));
+        model(stack);
+    }
+
+    private static final String GOGGLES_KEY = "Goggles";
+
+    /** Ley goggles fitted to a Spiritweave Hood. Worn, they show the flowing ropes. */
+    public static boolean goggles(ItemStack stack) {
+        return stack.is(ModItems.SPIRITWEAVE_HOOD.get()) && tag(stack).getBoolean(GOGGLES_KEY);
+    }
+
+    public static void setGoggles(ItemStack stack, boolean on) {
+        CustomData.update(DataComponents.CUSTOM_DATA, stack, data -> {
+            if (on) data.putBoolean(GOGGLES_KEY, true);
+            else data.remove(GOGGLES_KEY);
+        });
+        model(stack);
+    }
+
+    private static final String GOGGLES_OFF = "GogglesOff";
+
+    /** Fitted goggles that have not been switched off. */
+    public static boolean gogglesOpen(ItemStack stack) {
+        return goggles(stack) && !tag(stack).getBoolean(GOGGLES_OFF);
+    }
+
+    /** Switches fitted goggles between ley sight and off. Returns whether they are open now. */
+    public static boolean toggleGoggles(Player player, ItemStack stack) {
+        if (!goggles(stack)) return false;
+        boolean open = !gogglesOpen(stack);
+        CustomData.update(DataComponents.CUSTOM_DATA, stack, data -> {
+            if (open) data.remove(GOGGLES_OFF);
+            else data.putBoolean(GOGGLES_OFF, true);
+        });
+        player.displayClientMessage(Component.translatable(open
+                ? "message.tribalpower.goggles.on" : "message.tribalpower.goggles.off"), true);
+        return open;
+    }
+
+    /** Rank uses 1–3. Goggles add 4, so a manifested hood with goggles is 7 and both models survive. */
+    private static void model(ItemStack stack) {
+        int cmd = rank(stack) + (goggles(stack) ? 4 : 0);
+        if (cmd <= 0) stack.remove(DataComponents.CUSTOM_MODEL_DATA);
+        else stack.set(DataComponents.CUSTOM_MODEL_DATA, new net.minecraft.world.item.component.CustomModelData(cmd));
     }
 
     public static boolean foil(ItemStack stack) {
@@ -363,6 +404,10 @@ public final class SpiritGear {
                     .withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
         if (stack.getItem() instanceof SpiritgearBladeItem && rank >= 3)
             lines.add(Component.translatable("item.tribalpower.spiritgear_blade.manifested").withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
+        if (goggles(stack))
+            lines.add(Component.translatable(gogglesOpen(stack)
+                    ? "item.tribalpower.spiritweave.goggles" : "item.tribalpower.spiritweave.goggles_off")
+                    .withStyle(net.minecraft.ChatFormatting.AQUA));
     }
 
     public static boolean chance(ItemStack stack, float base) {

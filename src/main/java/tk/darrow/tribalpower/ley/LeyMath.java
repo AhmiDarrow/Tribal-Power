@@ -47,13 +47,26 @@ public final class LeyMath {
     public static final int MOON = 1;
     /** Soft cap so a cathedral grove is strong ambient, not a Resonator. */
     public static final int MAX_GAIN = 16;
+    /**
+     * The land's share of a beat. Sky, water, plants and the rest still add, and then they stop:
+     * the rest of a full beat is ley lines the collector is actually touching.
+     */
+    public static final int LAND_CAP = 6;
     public static final double PAD = 0.5;
 
     private LeyMath() {}
 
     public record Factors(boolean sky, boolean night, boolean rain, boolean thunder, int water, int greenery,
-                          int voices, int hearth, int life, int march, int moon, int raw) {
-        public int gain() { return Math.min(MAX_GAIN, raw); }
+                          int voices, int hearth, int life, int march, int moon, int raw,
+                          int lines, int linePoints, boolean column) {
+        /** Uncapped land survey, before the land cap and before ley lines. */
+        public int environment() { return raw; }
+
+        public int gain() {
+            int land = column ? Math.min(MAX_GAIN, raw) : Math.min(LAND_CAP, raw);
+            return Math.min(MAX_GAIN, land + linePoints);
+        }
+
         public double strength() { return gain() / (double) MAX_GAIN; }
         public boolean pad() { return strength() >= PAD; }
     }
@@ -87,7 +100,7 @@ public final class LeyMath {
         if (rain) raw += RAIN;
         if (thunder) raw += THUNDER;
         raw += waterPts + greenPts + marchPts + moonPts;
-        return new Factors(sky, night, rain, thunder, waterPts, greenPts, 0, 0, 0, marchPts, moonPts, raw);
+        return new Factors(sky, night, rain, thunder, waterPts, greenPts, 0, 0, 0, marchPts, moonPts, raw, 0, 0, true);
     }
 
     /** Full pad survey: radius 8, used by the Collector and sneak-Lens print. */
@@ -146,7 +159,14 @@ public final class LeyMath {
         if (rain) raw += RAIN;
         if (thunder) raw += THUNDER;
         raw += waterPts + greenPts + voicePts + hearthPts + lifePts + marchPts + moonPts;
-        return new Factors(sky, night, rain, thunder, waterPts, greenPts, voicePts, hearthPts, lifePts, marchPts, moonPts, raw);
+        int lines = 0, linePoints = 0;
+        if (level instanceof net.minecraft.server.level.ServerLevel server) {
+            LeyField.Reading ley = LeyField.sample(server, pos);
+            lines = ley.lines();
+            linePoints = ley.points();
+        }
+        return new Factors(sky, night, rain, thunder, waterPts, greenPts, voicePts, hearthPts, lifePts, marchPts, moonPts,
+                raw, lines, linePoints, false);
     }
 
     public static int gain(Level level, BlockPos pos) {
@@ -176,6 +196,9 @@ public final class LeyMath {
         lines.add(Component.translatable(f.life() > 0 ? "ley.tribalpower.life" : "ley.tribalpower.life_none", f.life()));
         if (f.march() > 0) lines.add(Component.translatable("ley.tribalpower.march", f.march()));
         if (f.moon() > 0) lines.add(Component.translatable("ley.tribalpower.moon", f.moon()));
+        lines.add(Component.translatable("ley.tribalpower.land", Math.min(LAND_CAP, f.environment()), LAND_CAP));
+        lines.add(Component.translatable(f.lines() > 0 ? "ley.tribalpower.lines" : "ley.tribalpower.lines_none",
+                f.lines(), f.linePoints()));
         lines.add(Component.translatable("ley.tribalpower.total", f.gain(), MAX_GAIN, (int) Math.round(f.strength() * 100)));
         if (f.pad()) lines.add(Component.translatable("ley.tribalpower.pad"));
         return lines;

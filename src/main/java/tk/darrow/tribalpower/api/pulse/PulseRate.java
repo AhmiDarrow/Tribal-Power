@@ -32,4 +32,13 @@ public final class PulseRate {
         // A Drumheart reports what its last beat was worth; the six voices report their steady rate.
         return be instanceof PulseGenerator generator ? Math.max(0, generator.currentOutput()) : 0;
     }
+
+    /**
+     * Pulse a second this block is trying to spend. Zero for generators, stores, and anything a lever has stopped.
+     * Starved machines still count: the lens is how you see that out has outgrown in.
+     */
+    public static int drawPerSecond(ServerLevel level, BlockPos pos, BlockEntity be) {
+        if (!(be instanceof PulseSpend spend) || level.hasNeighborSignal(pos)) return 0;
+        return Math.max(0, spend.spendPerSecond());
+    }
 }

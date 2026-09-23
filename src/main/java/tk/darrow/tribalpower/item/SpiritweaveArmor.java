@@ -12,6 +12,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -43,6 +45,17 @@ public class SpiritweaveArmor extends ArmorItem {
         super(MATERIAL, type, properties.durability(type.getDurability(33)));
     }
 
+    /** Sneak-use on a hood that has ley goggles switches them off, or back on. A plain click still wears it. */
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (getType() == Type.HELMET && player.isShiftKeyDown() && SpiritGear.goggles(stack)) {
+            if (!level.isClientSide) SpiritGear.toggleGoggles(player, stack);
+            return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+        }
+        return super.use(level, player, hand);
+    }
+
     @Override
     public boolean isFoil(ItemStack stack) {
         return SpiritGear.foil(stack) || super.isFoil(stack);
@@ -72,6 +85,8 @@ public class SpiritweaveArmor extends ArmorItem {
             }
         }
         if (player.getItemBySlot(getEquipmentSlot()) != stack) return;
+        if (getType() == Type.HELMET && SpiritGear.goggles(stack) && player instanceof net.minecraft.server.level.ServerPlayer wearer)
+            tk.darrow.tribalpower.ley.LeyRopes.sync(wearer);
 
         // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
         if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0

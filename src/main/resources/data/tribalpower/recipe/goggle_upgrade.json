@@ -1,0 +1,9 @@
+{
+  "type": "tribalpower:goggle_upgrade",
+  "category": "equipment",
+  "ingredients": [
+    { "item": "tribalpower:spiritweave_hood" },
+    { "item": "tribalpower:ley_lens" }
+  ],
+  "result": { "count": 1, "id": "tribalpower:spiritweave_hood" }
+}

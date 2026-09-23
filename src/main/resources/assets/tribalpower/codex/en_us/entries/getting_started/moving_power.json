@@ -9,7 +9,8 @@
       "text": [
         "Machines only draw from generators within 8 blocks. Once your camp spreads out, you will want Pulse to travel.",
         "Draw a chalk line between two totems: right-click one with **Ritual Chalk**, then the other (up to 16 blocks apart). \"Lattice link sealed\" means it worked.",
-        "A [Lattice Conductor](lattice_conductor) placed near those totems and near a generator will then pull Pulse from the generator and fill the totems, which hold 250 Pulse each. Stations near any linked totem can draw on it."
+        "A [Lattice Conductor](lattice_conductor) placed near those totems and near a generator will then pull Pulse from the generator and fill the totems, which hold 250 Pulse each. Stations near any linked totem can draw on it.",
+        "Conductors also extend the zone by themselves. Place them within 8 of each other, and within 8 of the generator. A machine within 8 of any conductor on that line draws the Pulse the line can reach, totems or not. One craft makes four."
       ]
     },
     {
