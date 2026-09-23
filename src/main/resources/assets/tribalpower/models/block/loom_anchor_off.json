@@ -4,10 +4,10 @@
     "particle": "tribalpower:block/loom_anchor",
     "side": "tribalpower:block/loom_anchor",
     "top": "tribalpower:block/loom_anchor_top",
-    "wood": "tribalpower:block/loom_wood",
-    "stone": "tribalpower:block/loom_stone",
-    "trim": "tribalpower:block/loom_copper",
-    "light": "tribalpower:block/loom_stone"
+    "wood": "tribalpower:block/hearth_wood",
+    "stone": "tribalpower:block/hearth_stone",
+    "trim": "tribalpower:block/hearth_copper",
+    "light": "tribalpower:block/hearth_stone"
   },
   "elements": [
     {

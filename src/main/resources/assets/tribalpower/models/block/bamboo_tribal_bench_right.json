@@ -5,7 +5,7 @@
     "top": "tribalpower:block/bamboo_bench_top",
     "frame": "tribalpower:block/bamboo_bench_frame",
     "shelf": "tribalpower:block/bamboo_bench_shelf",
-    "trim": "tribalpower:block/loom_copper"
+    "trim": "tribalpower:block/hearth_copper"
   },
   "elements": [
     {

@@ -59,6 +59,8 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         if (output <= 0) return;
         int accepted = be.pulse.insertPulse(output, false);
         be.afterProduce(level, pos, accepted);
+        // A full buffer accepts nothing. Do not dirty the chunk or wake neighbours for that.
+        if (accepted <= 0) return;
         be.setChanged();
         level.updateNeighbourForOutputSignal(pos, state.getBlock());
     }

@@ -4,8 +4,8 @@
   "textures": {
     "particle": "tribalpower:block/tribe_banner_spark",
     "cloth": "tribalpower:block/tribe_banner_spark",
-    "wood": "tribalpower:block/loom_wood",
-    "trim": "tribalpower:block/loom_copper"
+    "wood": "tribalpower:block/hearth_wood",
+    "trim": "tribalpower:block/hearth_copper"
   },
   "elements": [
     {

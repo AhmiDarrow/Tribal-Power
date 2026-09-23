@@ -5,8 +5,8 @@
     "particle": "tribalpower:block/tribe_hearth",
     "side": "tribalpower:block/tribe_hearth",
     "top": "tribalpower:block/tribe_hearth_top",
-    "stone": "tribalpower:block/loom_stone",
-    "trim": "tribalpower:block/loom_copper",
+    "stone": "tribalpower:block/hearth_stone",
+    "trim": "tribalpower:block/hearth_copper",
     "embers": "tribalpower:block/tribe_hearth_embers"
   },
   "elements": [

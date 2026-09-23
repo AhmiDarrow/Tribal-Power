@@ -5,8 +5,8 @@
     "side": "tribalpower:block/pulse_threshold_side",
     "front": "tribalpower:block/pulse_threshold_front",
     "back": "tribalpower:block/pulse_threshold_back",
-    "trim": "tribalpower:block/loom_copper",
-    "light": "tribalpower:block/loom_light"
+    "trim": "tribalpower:block/hearth_copper",
+    "light": "tribalpower:block/crystal_pale"
   },
   "elements": [
     {

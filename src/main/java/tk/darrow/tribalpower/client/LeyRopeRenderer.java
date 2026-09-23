@@ -52,6 +52,13 @@ public final class LeyRopeRenderer {
 
     private LeyRopeRenderer() {}
 
+    /** Totems do not move every frame. The bend is rebuilt with the rope packet, about twice a second. */
+    private static long magnetStamp = Long.MIN_VALUE;
+    private static net.minecraft.core.BlockPos magnetAt = net.minecraft.core.BlockPos.ZERO;
+    private static java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Magnet> magnets = java.util.List.of();
+    private static LeyRopePayload pullsFor;
+    private static final java.util.ArrayList<java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull>> PULLS = new java.util.ArrayList<>();
+
     public static void render(RenderLevelStageEvent event) {
         if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_PARTICLES) return;
         Minecraft mc = Minecraft.getInstance();
@@ -80,11 +87,30 @@ public final class LeyRopeRenderer {
             var buffer = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
             var rawLook = event.getCamera().getLookVector();
             Vec3 look = new Vec3(rawLook.x(), rawLook.y(), rawLook.z());
-            var magnets = tk.darrow.tribalpower.ley.LeyMagnets.near(mc.level, mc.player.blockPosition());
+            long stamp = mc.level.getGameTime() / 10;
+            var at = mc.player.blockPosition();
+            if (stamp != magnetStamp || !at.equals(magnetAt)) {
+                magnetStamp = stamp;
+                magnetAt = at.immutable();
+                magnets = tk.darrow.tribalpower.ley.LeyMagnets.near(mc.level, magnetAt);
+                pullsFor = null;
+            }
+            if (pullsFor != LeyRopePayload.latest) {
+                pullsFor = LeyRopePayload.latest;
+                PULLS.clear();
+                for (LeyRopePayload.Rope raw : ropes) {
+                    LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
+                            raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice());
+                    PULLS.add(tk.darrow.tribalpower.ley.LeyMagnets.pulls(magnets, rope));
+                }
+            }
+            int i = 0;
             for (LeyRopePayload.Rope raw : ropes) {
                 LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
                         raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice());
-                draw(buffer, matrix, rope, ticks, look, tk.darrow.tribalpower.ley.LeyMagnets.pulls(magnets, rope));
+                var pull = i < PULLS.size() ? PULLS.get(i) : java.util.List.<tk.darrow.tribalpower.ley.LeyMagnets.Pull>of();
+                i++;
+                draw(buffer, matrix, rope, ticks, look, pull);
             }
             var mesh = buffer.build();
             if (mesh != null) BufferUploader.drawWithShader(mesh);
@@ -108,9 +134,9 @@ public final class LeyRopeRenderer {
         if (voice < 0 || voice >= HALO_RGB.length) voice = 0;
         float[] halo = HALO_RGB[voice];
         float[] core = CORE_RGB[voice];
+        Vec3 a = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, from, pulls);
         for (double t = from; t < to; t += step) {
             double t2 = Math.min(to, t + step);
-            Vec3 a = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, t, pulls);
             Vec3 b = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, t2, pulls);
             float wave = 0.62F + 0.38F * (float) Math.pow(Math.max(0, Math.sin(t * 0.22 - ticks * SHIMMER)), 1.35);
             double spin = t * TWIST - ticks * FLOW;
@@ -124,6 +150,7 @@ public final class LeyRopeRenderer {
                     glow(buffer, matrix, tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, node, pulls), look, 0.5 * pulse, halo, core);
                 }
             }
+            a = b;
         }
     }
 

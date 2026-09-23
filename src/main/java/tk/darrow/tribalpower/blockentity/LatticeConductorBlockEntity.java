@@ -47,6 +47,11 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         if (be.tickCounter % TICK_INTERVAL != 0) {
             return;
         }
+        int sizeWas = be.networkSize;
+        int pushedWas = be.lastPulsePushed;
+        int availableWas = be.lastSourceAvailable;
+        boolean assistWas = be.assistActive;
+        boolean routedWas = be.lastItemRouted;
 
         List<ResonanceTotemBlockEntity> network = LatticeNetwork.collectChalkNetworkNear(level, pos, RADIUS);
         be.networkSize = network.size();
@@ -55,7 +60,9 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             be.lastPulsePushed = 0;
             be.lastSourceAvailable = 0;
             be.lastItemRouted = false;
-            be.setChanged();
+            if (be.networkSize != sizeWas || pushedWas != 0 || availableWas != 0 || assistWas || routedWas) {
+                be.setChanged();
+            }
             return;
         }
 
@@ -87,7 +94,11 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         } else {
             be.lastItemRouted = false;
         }
-        be.setChanged();
+        // The beat still runs. The chunk is marked only when a number a reload would care about moved.
+        if (be.networkSize != sizeWas || be.lastPulsePushed != pushedWas || be.lastSourceAvailable != availableWas
+                || be.assistActive != assistWas || be.lastItemRouted != routedWas) {
+            be.setChanged();
+        }
     }
 
     private static void refundPulse(Level level, BlockPos origin, int amount) {

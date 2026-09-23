@@ -5,7 +5,7 @@
     "top": "tribalpower:block/acacia_bench_top",
     "frame": "tribalpower:block/acacia_bench_frame",
     "shelf": "tribalpower:block/acacia_bench_shelf",
-    "trim": "tribalpower:block/loom_copper"
+    "trim": "tribalpower:block/hearth_copper"
   },
   "elements": [
     {

@@ -159,9 +159,16 @@ public final class LeyField {
                             ((vh >>> 4) & 1023) / 1023.0 * Math.PI * 2,
                             22 + ((vh >>> 14) & 31),
                             0.016 + ((vh >>> 18) & 7) * 0.0025);
+                    boolean voiced = false;
+                    for (LeyMagnets.Magnet magnet : magnets) {
+                        if (magnet.voice() == voice) { voiced = true; break; }
+                    }
+                    // No totem of this colour can bend the thread, so a vein whose whole sway
+                    // stays outside the tube never needs the sine search.
+                    if (!voiced && outOfReach(vein, point, reach)) continue;
                     Rope rope = new Rope(vein.origin.x, vein.origin.y, vein.origin.z, vein.angle, vein.amp, vein.freq,
                             vein.phase, vein.yAmp, vein.yFreq, 0, voice.ordinal());
-                    List<LeyMagnets.Pull> pulls = LeyMagnets.pulls(magnets, rope);
+                    List<LeyMagnets.Pull> pulls = voiced ? LeyMagnets.pulls(magnets, rope) : List.of();
                     double travel = vein.travel(point);
                     if (pulls.isEmpty() && (travel < -24 || travel > REACH + 24)) continue;
                     double bestT = clamp(travel, 0, REACH);
@@ -169,6 +176,10 @@ public final class LeyField {
                     // The worm bends enough that the straight projection can sit a short way off.
                     // A totem's pull is wider still: do not discard a thread it has taken hold of.
                     if (pulls.isEmpty() && best > reach + vein.amp * 1.6 + vein.yAmp * 1.5) continue;
+                    if (best <= 0.5) {
+                        if (best <= reach) hits.add(new Hit(vein, voice, best, bestT));
+                        continue;
+                    }
                     for (double span = 24; span >= 3; span *= 0.5) {
                         double stride = span / 4.0;
                         for (double nudge = -span; nudge <= span; nudge += stride) {
@@ -197,6 +208,26 @@ public final class LeyField {
                 ox + Math.cos(angle) * t + sx * lateral,
                 oy + lift,
                 oz + Math.sin(angle) * t + sz * lateral);
+    }
+
+    /**
+     * True when even the vein's widest sway cannot reach {@code reach}. The sine is bounded,
+     * so this never drops a thread the full search would have kept.
+     */
+    private static boolean outOfReach(Vein vein, Vec3 point, double reach) {
+        double travel = vein.travel(point);
+        if (travel < -24 || travel > REACH + 24) return true;
+        double t = clamp(travel, 0, REACH);
+        double cx = vein.origin.x + Math.cos(vein.angle) * t;
+        double cz = vein.origin.z + Math.sin(vein.angle) * t;
+        double dx = point.x - cx;
+        double dz = point.z - cz;
+        double perp = Math.sqrt(dx * dx + dz * dz);
+        double latMax = vein.amp * 2.76;
+        double liftMax = vein.yAmp * 2.64;
+        double minX = Math.max(0, perp - latMax);
+        double minY = Math.max(0, Math.abs(point.y - vein.origin.y) - liftMax);
+        return Math.hypot(minX, minY) > reach;
     }
 
     private static Vec3 at(Rope rope, double t, List<LeyMagnets.Pull> pulls) {

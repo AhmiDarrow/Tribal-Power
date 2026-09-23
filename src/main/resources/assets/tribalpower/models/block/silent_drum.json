@@ -4,7 +4,7 @@
     "particle": "tribalpower:block/silent_drum",
     "side": "tribalpower:block/silent_drum",
     "top": "tribalpower:block/silent_drum_top",
-    "stone": "tribalpower:block/loom_stone"
+    "stone": "tribalpower:block/hearth_stone"
   },
   "elements": [
     {

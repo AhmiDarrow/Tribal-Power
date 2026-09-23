@@ -1,6 +1,6 @@
 {
   "parent": "tribalpower:block/shard_lamp",
   "textures": {
-    "light": "tribalpower:block/loom_light"
+    "light": "tribalpower:block/crystal_pale"
   }
 }

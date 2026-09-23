@@ -1,6 +1,6 @@
 {
   "parent": "tribalpower:block/pulse_resonator",
   "textures": {
-    "light": "tribalpower:block/loom_light"
+    "crystal": "tribalpower:block/hearth_ember"
   }
 }
