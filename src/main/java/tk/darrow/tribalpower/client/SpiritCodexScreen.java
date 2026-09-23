@@ -128,8 +128,11 @@ public final class SpiritCodexScreen extends Screen {
         search.setResponder(value -> {
             query = value;
             listPage = 0;
+            // The first letter opens search and rebuilds this box, which would drop the caret.
+            boolean typing = search.isFocused();
             if (!value.isBlank() && view != View.SEARCH) go(new State(View.SEARCH, "", "", 0, ""), false);
             else if (value.isBlank() && view == View.SEARCH) go(new State(View.LANDING, "", "", 0, ""), false);
+            if (typing) setFocused(search);
         });
         button(Component.literal("✕"), left + bookWidth - 40, top + 9, 24, b -> onClose());
         int by = top + bookHeight - 30;

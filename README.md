@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 3.6.2.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 4.0.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,13 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 3.6.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 4.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Previous 3.8.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.8.0)
+- [Previous 3.7.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.1)
+- [Previous 3.7.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.0)
+- [Previous 3.6.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.6.2)
+- [Previous 3.6.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.6.0)
+- [Previous 3.5.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.5.0)
 - [Previous 3.4.2 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.4.2)
 - [Previous 3.4.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.4.1)
 - [Previous 3.4.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.4.0)
@@ -46,9 +52,10 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
 
 - **Drumheart:** deliberate beats about a second apart yield more Pulse. A redstone clock automates its rising-edge rhythm.
 - **Ley Collector:** drinks the ley lines that pass through it. The lines are a web across every dimension, and up to six meet in the rarest places. It still takes a smaller gift from sky, night, rain, water, plants and animals. The land's share of a beat is capped at 6; the beat is still capped at 16.
-- **Pulse Resonator:** seat a reusable Echo catalyst (right-click; it is not burned) and place at least two distinct Resonance Totems within 8 blocks. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are ranks 1–4. Gain each second is `(2 × voices) + (2 × rank)`, plus 15% Pulse a second per machine rank. Kinship Totems add extra tribe voices. A heap counts at most five voices total; six elements plus kinship need the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift the catalyst.
+- **Pulse Resonator:** seat an Echo catalyst and place distinct Resonance Totems within 8 blocks. Voices multiply, and the catalyst multiplies on top: six voices under a Resonant Core make 144 Pulse a second. The catalyst wears by the Pulse it has actually made, and crumbles when that life is spent. Echo Shard, Attuned Echo, Bound Echo and Resonant Core are the four tiers. Kinship Totems add extra tribe voices. A heap counts at most five voices total; six elements plus kinship need the Voice Ring at radius 3. Coal and wood are not fuel. Sneak empty-handed to lift what is left of the catalyst.
 - **Pulse Cells:** ordinary cells hold 200 Pulse; Greater Cells hold 1,200.
-- **Pulse Adapter:** one-way conversion of 1 Pulse into 100 FE, at up to 20 Pulse per second unranked. Ranked adapters convert more. Stores 16,000 FE and exposes the standard NeoForge energy capability. FE cannot feed back into Pulse.
+- **Harmonic Energizer** (the Pulse Adapter block): 1 Pulse becomes 100 FE. Unranked it draws 60 Pulse a second, which is 300 FE a tick, and a rank 3 energizer reaches about 545 FE a tick. It stores 48,000 FE, exposes the standard energy capability, and cannot take FE back in. Redstone pauses it.
+- **Lattice Converter:** FE back into Pulse, up to 40 a second. It starts at 220 FE a Pulse, and every distinct totem voice within 8 blocks knocks 20 off, down to a floor of 120. That floor sits above the Energizer's payout, so the two cannot close a loop that makes energy from nothing.
 
 ## Storage and automation
 

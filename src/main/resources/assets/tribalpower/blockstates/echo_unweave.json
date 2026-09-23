@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "tribalpower:block/echo_unweave"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/echo_unweave",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/echo_unweave",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/echo_unweave",
+      "y": 270
     }
   }
 }

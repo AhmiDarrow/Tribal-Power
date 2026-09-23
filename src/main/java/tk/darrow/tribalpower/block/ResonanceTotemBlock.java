@@ -24,7 +24,7 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 
 public class ResonanceTotemBlock extends BaseEntityBlock {
-    private static final VoxelShape SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
+    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0);
 
     public static final MapCodec<ResonanceTotemBlock> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(

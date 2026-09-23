@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "tribalpower:block/ember_kiln"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/ember_kiln",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/ember_kiln",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/ember_kiln",
+      "y": 270
     }
   }
 }
