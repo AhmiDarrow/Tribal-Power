@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:polished_moonstone"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:polished_moonstone_stairs"
+  }
+}

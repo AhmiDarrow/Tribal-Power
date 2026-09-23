@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ggg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "tribalpower:quartz_glass"
+    }
+  },
+  "result": {
+    "id": "tribalpower:quartz_glass_pane",
+    "count": 16
+  }
+}

@@ -131,6 +131,34 @@ public final class ModBlocks {
                     .noOcclusion())
     );
 
+    // The Glimmer Ridge: a mineral mountain of the March. Moonstone is the body of the ridge,
+    // moss agate the seams running through it.
+    public static final DeferredBlock<Block> MOONSTONE = BLOCKS.registerSimpleBlock(
+            "moonstone",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .strength(1.5F, 6.0F)
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops()
+    );
+    public static final DeferredBlock<MarchQuartzBlock> MARCH_QUARTZ = BLOCKS.register(
+            "march_quartz", () -> new MarchQuartzBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.QUARTZ)
+                    .strength(1.0F)
+                    .sound(SoundType.AMETHYST_CLUSTER)
+                    .lightLevel(s -> 2)
+                    .noOcclusion()
+                    .noCollission()
+                    .pushReaction(net.minecraft.world.level.material.PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> MOSS_AGATE = BLOCKS.registerSimpleBlock(
+            "moss_agate",
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .strength(1.6F, 6.0F)
+                    .sound(SoundType.CALCITE)
+                    .requiresCorrectToolForDrops()
+    );
+
     // The March world blocks
     public static final DeferredBlock<Block> MARCH_STONE = BLOCKS.registerSimpleBlock(
             "march_stone",
@@ -358,6 +386,29 @@ public final class ModBlocks {
     public static final DeferredBlock<RelayBlock> ASTRAL_ITEM_RELAY = relay("astral_item_relay");
     public static final DeferredBlock<RelayBlock> ASTRAL_FLUID_RELAY = relay("astral_fluid_relay");
     public static final DeferredBlock<LatticeUtilityBlock> PULSE_ADAPTER = utility("pulse_adapter");
+    /** FE back into Pulse. The Harmonic Energizer's opposite number. */
+    public static final DeferredBlock<LatticeUtilityBlock> LATTICE_CONVERTER = utility("lattice_converter");
+    /**
+     * A crafting table that keeps its grid, two blocks wide, with a shelf along the back -- one in
+     * every wood, so a bench matches the camp it stands in. Keyed by wood id.
+     */
+    public static final java.util.Map<String, DeferredBlock<TribalBenchBlock>> TRIBAL_BENCHES =
+            java.util.Collections.unmodifiableMap(benches());
+
+    private static java.util.Map<String, DeferredBlock<TribalBenchBlock>> benches() {
+        java.util.Map<String, DeferredBlock<TribalBenchBlock>> out = new java.util.LinkedHashMap<>();
+        for (var wood : tk.darrow.tribalpower.bench.BenchWoods.ALL)
+            out.put(wood.id(), BLOCKS.register(wood.block(),
+                    () -> new TribalBenchBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD)
+                            .strength(2.5F).sound(SoundType.WOOD).noOcclusion())));
+        return out;
+    }
+
+    /** Every bench, for the block entity type and for anything that treats them alike. */
+    public static net.minecraft.world.level.block.Block[] allBenches() {
+        return TRIBAL_BENCHES.values().stream().map(DeferredBlock::get)
+                .toArray(net.minecraft.world.level.block.Block[]::new);
+    }
     public static final DeferredBlock<LatticeUtilityBlock> SPIRIT_CISTERN = utility("spirit_cistern");
 
     // The Listening Pit and the Stone Font (design 3.1 sections 6 and 7)

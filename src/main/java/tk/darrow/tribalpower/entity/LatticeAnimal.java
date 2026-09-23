@@ -48,7 +48,22 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     private final FamiliarData lattice=new FamiliarData();
     private BlockPos lastLight;
     private float riderJumpScale;
-    public LatticeAnimal(EntityType<? extends Animal> type,Level level) { super(type,level); }
+    public LatticeAnimal(EntityType<? extends Animal> type,Level level) {
+        super(type,level);
+        // Flight lived only in LatticeMonster, so a passive flyer bobbed on the spot and walked.
+        if(CreatureProfile.of(type).flying) { moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,12,true); setNoGravity(true); }
+    }
+
+    @Override protected net.minecraft.world.entity.ai.navigation.PathNavigation createNavigation(Level level) {
+        return CreatureProfile.of(getType()).flying
+                ? new net.minecraft.world.entity.ai.navigation.FlyingPathNavigation(this,level)
+                : super.createNavigation(level);
+    }
+
+    /** A flyer takes no fall damage; it is meant to be in the air. */
+    @Override public boolean causeFallDamage(float distance,float multiplier,net.minecraft.world.damagesource.DamageSource source) {
+        return !CreatureProfile.of(getType()).flying && super.causeFallDamage(distance,multiplier,source);
+    }
     @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
     @Override public FamiliarData lattice() { return lattice; }
     public void applyLattice() {
@@ -82,6 +97,10 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
         goalSelector.addGoal(5,new FamiliarFollowGoal(this,1.1));
+        if(CreatureProfile.of(getType()).flying)
+            goalSelector.addGoal(6,new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal(this,.8) {
+                @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+            });
         goalSelector.addGoal(6,new AvoidEntityGoal<>(this,Monster.class,8,1,1.2) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });

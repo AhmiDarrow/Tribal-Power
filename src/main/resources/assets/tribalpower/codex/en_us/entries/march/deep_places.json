@@ -1,0 +1,48 @@
+{
+  "name": "Deep places of the March",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Below the digging",
+      "text": [
+        "Everything else the March buried is only just buried — a barrow under the turf, a tomb a dozen blocks down. These four are further in, sunk in the stone itself, with no shaft and no doorway. You find them by mining, or by following a cave that opens where it should not.",
+        "Take a torch. None of them is lit all the way through, and the things living down there were there first."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Deep Temple",
+      "text": [
+        "A pillared hall of March stone brick, sealed in rock: a stepped altar under the middle of it with a **Lore Tablet** set on its back-stone, spirit lanterns either side, and a chest in each far corner. The floor is laid in polished stone, and the way in fell shut a long time ago.",
+        "It keeps the old things — bound echoes, seals, attuned work."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Delving Gallery",
+      "text": [
+        "Somebody worked this seam and stopped. Propped timber, plank roofing, ore still in the walls, and one end under a fall of rubble that probably explains the stopping. A chest of tools and rations near the mouth.",
+        "Shallower than the rest: you meet these where ore is still worth taking."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Glimmer Vault",
+      "text": [
+        "Only under the **Glimmer Ridge**. A dressed chamber of moonstone and polished moonstone with moss agate laid into the floor in rings, lit quartz glass set in the vault above, and March Quartz grown out of the stone — up from the floor, down from the roof.",
+        "Whoever cut it was showing off. The chest holds the ridge's own stone, and glowstone for the lighting of it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Ossuary",
+      "text": [
+        "A crypt: alcoves cut in three courses along both long walls, bone laid in them, cobweb across the rest, and a spirit lantern every few paces that somehow still burns. One chest at the far end.",
+        "The deepest of the four. It is mostly bone and rot, but not only that."
+      ]
+    }
+  ]
+}

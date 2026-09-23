@@ -590,4 +590,33 @@ public final class LatticeNetwork {
         }
         return taken;
     }
+
+    /**
+     * Push Pulse out into whatever nearby will hold it, storage before generators.
+     *
+     * <p>The mirror of {@link #extractPulseNearby}, for the Lattice Converter. Totems and caches are
+     * filled first and generators last, because a generator's buffer is its own working room and
+     * filling it only stops it generating.
+     *
+     * @return amount actually taken by the lattice
+     */
+    public static int insertPulseNearby(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
+        if (amount <= 0) return 0;
+        int remaining = amount;
+        remaining -= fill(level, origin, radius, remaining, be -> !isGenerator(be), simulate);
+        if (remaining > 0) remaining -= fill(level, origin, radius, remaining, LatticeNetwork::isGenerator, simulate);
+        return amount - remaining;
+    }
+
+    private static int fill(Level level, BlockPos origin, int radius, int amount,
+                            Predicate<BlockEntity> accept, boolean simulate) {
+        int given = 0;
+        for (BlockEntity be : blockEntitiesAround(level, origin, radius)) {
+            if (given >= amount) break;
+            if (be.isRemoved() || !(be instanceof PulseHandler handler)) continue;
+            if (be.getBlockPos().equals(origin) || !accept.test(be)) continue;
+            given += handler.insertPulse(amount - given, simulate);
+        }
+        return given;
+    }
 }

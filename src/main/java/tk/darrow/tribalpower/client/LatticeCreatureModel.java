@@ -19,6 +19,11 @@ public class LatticeCreatureModel<T extends Mob> extends HierarchicalModel<T> {
             if(root.hasChild("arm"+i))root.getChild("arm"+i).xRot=Mth.cos(swing*.6662F+i*Mth.PI)*amount*.65F;
             if(root.hasChild("wing"+i))root.getChild("wing"+i).yRot=Mth.sin(age*.28F)*.55F*(i==0?1:-1);
         }
+        // Legless creatures: a wave travels down a serpent or a coil, and trailing parts drift.
+        for(int i=0;i<8;i++) {
+            if(root.hasChild("seg"+i)) {var seg=root.getChild("seg"+i);seg.yRot=Mth.sin(age*.12F-i*.55F)*.22F+Mth.sin(swing*.6F-i*.5F)*amount*.35F;}
+            if(root.hasChild("tendril"+i)) {var t=root.getChild("tendril"+i);t.xRot=Mth.cos(age*.09F+i*.7F)*.18F;t.zRot=Mth.sin(age*.07F+i*.9F)*.18F;}
+        }
         if(root.hasChild("tail"))root.getChild("tail").yRot=Mth.sin(age*.08F)*.15F;
         if(CreatureProfile.of(entity.getType()).flying)root.y=Mth.sin(age*.08F)*1.4F;
         if(entity.isBaby()) {root.xScale=.55F;root.yScale=.55F;root.zScale=.55F;root.y+=10.8F;}

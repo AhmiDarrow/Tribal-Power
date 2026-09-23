@@ -231,6 +231,158 @@ public class LatticeGameTests {
         h.assertTrue(bench.isSinging(),"A hopper seating a processable item starts the song");
         h.succeed();
     }
+    /**
+     * The Lattice Converter takes FE, will not give it back, and puts Pulse into the lattice.
+     *
+     * <p>The one-way handler is what keeps it from feeding the Harmonic Energizer that fed it.
+     */
+    @GameTest(template="empty")
+    public static void theConverterTurnsFeIntoLatticePulse(GameTestHelper h) {
+        BlockPos at=new BlockPos(2,2,2), sink=new BlockPos(4,2,2);
+        h.setBlock(at, tk.darrow.tribalpower.block.ModBlocks.LATTICE_CONVERTER.get());
+        h.setBlock(sink, tk.darrow.tribalpower.block.ModBlocks.DRUMHEART.get());
+        var converter=at(h,at,tk.darrow.tribalpower.blockentity.LatticeConverterBlockEntity.class);
+        var drum=at(h,sink,DrumheartBlockEntity.class);
+
+        h.assertTrue(converter.handler.canReceive() && !converter.handler.canExtract(),
+                "The Converter takes FE and never gives it back");
+        h.assertTrue(converter.handler.extractEnergy(10_000,false)==0,"FE must not come back out");
+
+        int fed=converter.handler.receiveEnergy(40_000,false);
+        h.assertTrue(fed>0,"The Converter must accept FE, took "+fed);
+        int before=drum.getPulseStored();
+        // Run it long enough for its once-a-second beat to land whatever the world time is.
+        h.onEachTick(()->tk.darrow.tribalpower.blockentity.LatticeConverterBlockEntity.tick(
+                h.getLevel(), h.absolutePos(at), h.getBlockState(at), converter));
+        h.succeedWhen(()->{
+            h.assertTrue(drum.getPulseStored()>before,
+                    "The Converter must push Pulse into the lattice; drum still holds "+drum.getPulseStored());
+            h.assertTrue(converter.getEnergy()<fed,"Making Pulse must cost it FE");
+        });
+    }
+
+    /**
+     * Drums crowd each other out, so a shed full of them is not an answer to everything.
+     *
+     * <p>Two drums on a one-second clock paid 48 a second forever and beat every other generator in
+     * the mod. Only {@link DrumheartBlockEntity#MAX_PER_ZONE} in any zone earn now; the rest still
+     * beat and still sound, but pay nothing.
+     */
+    @GameTest(template="empty")
+    public static void onlyTwoDrumsInAZoneEarn(GameTestHelper h) {
+        BlockPos[] crowded={new BlockPos(1,2,1),new BlockPos(2,2,1),new BlockPos(3,2,1),new BlockPos(4,2,1)};
+        for(BlockPos p:crowded) h.setBlock(p, tk.darrow.tribalpower.block.ModBlocks.DRUMHEART.get());
+        int paying=0;
+        for(BlockPos p:crowded) if(at(h,p,DrumheartBlockEntity.class).paysInZone()) paying++;
+        h.assertTrue(paying==DrumheartBlockEntity.MAX_PER_ZONE,
+                "Four drums in one zone: exactly "+DrumheartBlockEntity.MAX_PER_ZONE
+                        +" must earn, "+paying+" did");
+        // And the ones that are crowded out really do earn nothing, not merely less.
+        int earned=0;
+        for(BlockPos p:crowded) {
+            var drum=at(h,p,DrumheartBlockEntity.class);
+            if(!drum.paysInZone()) earned+=drum.onRedstonePulse();
+        }
+        h.assertTrue(earned==0,"A crowded drum must pay nothing, paid "+earned);
+        h.succeed();
+    }
+
+    /** Spread them past a zone apart and every one of them earns again. */
+    @GameTest(template="empty")
+    public static void drumsSpreadBeyondAZoneAllEarn(GameTestHelper h) {
+        int gap=DrumheartBlockEntity.ZONE_RADIUS+1;
+        BlockPos[] spread={new BlockPos(1,2,1),new BlockPos(1+gap,2,1)};
+        for(BlockPos p:spread) h.setBlock(p, tk.darrow.tribalpower.block.ModBlocks.DRUMHEART.get());
+        for(BlockPos p:spread)
+            h.assertTrue(at(h,p,DrumheartBlockEntity.class).paysInZone(),
+                    "A drum more than a zone away from the others must still earn");
+        h.succeed();
+    }
+
+    /**
+     * Every catalyst tier has to be a real upgrade, in output and in how long it lasts.
+     *
+     * <p>Rank was an addend: at six voices the four catalysts paid 48, 60, 72 and 84, so walking a
+     * Resonant Core out to the ring bought a third more than the shard already sitting in it. It
+     * multiplies now, and each tier must still outlast the one below.
+     */
+    @GameTest(template="empty")
+    public static void everyCatalystTierIsARealUpgrade(GameTestHelper h) {
+        for(int voices=2;voices<=6;voices++) {
+            int previous=0;
+            for(int rank=1;rank<=4;rank++) {
+                int gain=PulseResonatorBlockEntity.gainFor(voices,rank);
+                h.assertTrue(gain>previous,
+                        "At "+voices+" voices, rank "+rank+" must beat rank "+(rank-1)
+                                +"; made "+gain+" against "+previous);
+                // A tier is only worth fetching if it is worth appreciably more, not a few Pulse.
+                h.assertTrue(rank==1 || gain>=previous*5/4,
+                        "At "+voices+" voices, rank "+rank+" must be at least a quarter better than "
+                                +previous+", made "+gain);
+                previous=gain;
+            }
+        }
+        // No catalyst at all is no Pulse at all, whatever the voices.
+        h.assertTrue(PulseResonatorBlockEntity.gainFor(6,0)==0,"No catalyst must make nothing");
+        h.succeed();
+    }
+
+    /**
+     * A built Resonator has to be worth building.
+     *
+     * <p>It paid {@code 2 * voices + 2 * rank}: twenty a second for six voices in a ring under a
+     * Resonant Core. A Drumheart on a one-second clock pays {@link DrumheartBlockEntity#ON_TEMPO}
+     * a beat, so two drums and a repeater loop beat the whole ritual, and nothing here noticed
+     * because no test had ever read the Resonator's output.
+     */
+    @GameTest(template="empty")
+    public static void aBuiltResonatorOutEarnsABankOfDrums(GameTestHelper h) {
+        int full = PulseResonatorBlockEntity.gainFor(6, 4);          // six voices, ringed, top catalyst
+        int twoDrums = 2 * DrumheartBlockEntity.ON_TEMPO;            // both on a 20 tick clock
+        h.assertTrue(full > twoDrums,
+                "A full six-voice ring under a Resonant Core must beat two clocked drums; made "
+                        + full + " against " + twoDrums);
+        // Voices have to multiply, or the sixth is not worth fetching: the step from five to six
+        // must be bigger than the step from two to three.
+        int lateStep = PulseResonatorBlockEntity.gainFor(6, 4) - PulseResonatorBlockEntity.gainFor(5, 4);
+        int earlyStep = PulseResonatorBlockEntity.gainFor(3, 4) - PulseResonatorBlockEntity.gainFor(2, 4);
+        h.assertTrue(lateStep > earlyStep,
+                "Voices must multiply, not add: late step " + lateStep + ", early step " + earlyStep);
+        // And the ring has to pay for itself, since an unarranged heap is capped.
+        h.assertTrue(PulseResonatorBlockEntity.gainFor(6, 4)
+                        > PulseResonatorBlockEntity.gainFor(PulseResonatorBlockEntity.UNARRANGED_VOICES, 4),
+                "Arranging the totems in a ring must be worth doing");
+        h.succeed();
+    }
+
+    /**
+     * The catalyst is not permanent. It was, which made a built Resonator free forever; it now wears
+     * by the Pulse it has actually delivered, so a bigger resonator eats catalysts faster.
+     */
+    @GameTest(template="empty")
+    public static void aResonatorCatalystWearsOutAndCrumbles(GameTestHelper h) {
+        BlockPos pos=new BlockPos(2,2,2);
+        h.setBlock(pos, tk.darrow.tribalpower.block.ModBlocks.PULSE_RESONATOR.get());
+        var resonator=at(h,pos,PulseResonatorBlockEntity.class);
+        resonator.acceptCatalyst(new ItemStack(ModItems.ECHO_SHARD.get()));
+        h.assertTrue(resonator.catalystCount()==1,"The shard must seat");
+        h.assertTrue(resonator.catalystLife()>0.99F,"A fresh catalyst is whole");
+        int life=PulseResonatorBlockEntity.endurance(1);
+        resonator.wearCatalyst(life/2);
+        h.assertTrue(Math.abs(resonator.catalystLife()-0.5F)<0.02F,
+                "Half its Pulse spent is half its life gone, saw "+resonator.catalystLife());
+        resonator.wearCatalyst(life/2+1);
+        h.assertTrue(resonator.catalystCount()==0,"A spent catalyst must crumble, not linger");
+        // Every rank has to have a life, and a better catalyst has to last longer.
+        int previous=0;
+        for(int rank=1;rank<=4;rank++) {
+            int endurance=PulseResonatorBlockEntity.endurance(rank);
+            h.assertTrue(endurance>previous,"Rank "+rank+" must outlast rank "+(rank-1));
+            previous=endurance;
+        }
+        h.succeed();
+    }
+
     @GameTest(template="empty")
     public static void hoppersCannotStealAResonatorCatalyst(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.PULSE_RESONATOR.get());
@@ -740,10 +892,12 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty")
     public static void playerMachinesDropWithoutATaggedTool(GameTestHelper h) {
-        var ores=new java.util.HashSet<>(java.util.Set.of("march_stone","march_cobble","march_ore"));
+        var ores=new java.util.HashSet<>(java.util.Set.of("march_stone","march_cobble","march_ore",
+                "moonstone","moss_agate"));   // the Glimmer Ridge is world stone and mines like it
         tk.darrow.tribalpower.world.MarchOres.BLOCKS.keySet().forEach(mineral->ores.add("march_"+mineral+"_ore"));
         // The stone half of the March building set mines like vanilla stone.
-        tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().stream().filter(id->id.contains("stone")||id.contains("cobble")).forEach(ores::add);
+        tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().stream()
+                .filter(id->id.contains("stone")||id.contains("cobble")||id.contains("agate")).forEach(ores::add);
         var never=java.util.Set.of("gate_portal","spirit_light","spirit_click");
         for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
             var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);

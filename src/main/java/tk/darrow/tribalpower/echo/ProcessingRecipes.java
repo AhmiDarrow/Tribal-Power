@@ -31,6 +31,8 @@ public final class ProcessingRecipes {
         if (gear != null) return gear;
         Formula machine = tk.darrow.tribalpower.item.MachineRank.rankFormula(station, stack);
         if (machine != null) return machine;
+        Formula glass = tk.darrow.tribalpower.block.QuartzGlass.litFormula(station, stack);
+        if (glass != null) return glass;
         if ("ember_kiln".equals(station)) {
             Formula grit = tk.darrow.tribalpower.grit.GritRegistry.fire(stack);
             if (grit != null) return grit;

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "tribalpower:block/moss_agate_bricks_0",
+    "top": "tribalpower:block/moss_agate_bricks_0",
+    "side": "tribalpower:block/moss_agate_bricks_0"
+  }
+}

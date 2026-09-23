@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_steppe",
+    "tribalpower:march_highlands",
+    "tribalpower:march_crystal_fields",
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_glimmer_ridge"
+  ]
+}

@@ -4,6 +4,7 @@ import net.minecraft.client.model.geom.builders.*;
 /** Exported from art/creatures/tribal_bestiary.blend by tools/blender_bestiary.py. */
 public final class GeneratedCreatureLayers {
 public static LayerDefinition create(String id) {
+id = tk.darrow.tribalpower.entity.CreatureRigs.rig(id);
 MeshDefinition mesh=new MeshDefinition(); var root=mesh.getRoot();
 switch(id) {
 case "dawn_stag" -> {
@@ -135,7 +136,11 @@ root.addOrReplaceChild("halo",CubeListBuilder.create().texOffs(128,128).addBox(-
 root.addOrReplaceChild("arm0",CubeListBuilder.create().texOffs(128,160).addBox(-1.5F,0.0F,-1.5F,3.0F,15.0F,3.0F).texOffs(192,160).addBox(-3.0F,15.0F,-2.0F,6.0F,3.0F,4.0F).texOffs(0,192).addBox(-3.0F,18.0F,-1.0F,1.5F,4.0F,2.0F).texOffs(64,192).addBox(-0.75F,18.0F,-1.0F,1.5F,4.0F,2.0F).texOffs(128,192).addBox(1.5F,18.0F,-1.0F,1.5F,4.0F,2.0F),PartPose.offset(-14.0F,3.0F,-0.0F));
 root.addOrReplaceChild("arm1",CubeListBuilder.create().texOffs(192,192).addBox(-1.5F,0.0F,-1.5F,3.0F,15.0F,3.0F).texOffs(0,224).addBox(-3.0F,15.0F,-2.0F,6.0F,3.0F,4.0F).texOffs(64,224).addBox(-3.0F,18.0F,-1.0F,1.5F,4.0F,2.0F).texOffs(128,224).addBox(-0.75F,18.0F,-1.0F,1.5F,4.0F,2.0F).texOffs(192,224).addBox(1.5F,18.0F,-1.0F,1.5F,4.0F,2.0F),PartPose.offset(14.0F,3.0F,-0.0F));
 }
-default -> throw new IllegalArgumentException("Unknown creature: "+id);
+default -> {
+var march=GeneratedMarchLayers.mesh(id);
+if(march!=null) return LayerDefinition.create(march,256,256);
+throw new IllegalArgumentException("Unknown creature: "+id);
+}
 }
 return LayerDefinition.create(mesh,256,256);
 }

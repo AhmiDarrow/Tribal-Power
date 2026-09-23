@@ -24,7 +24,7 @@ public class BestiaryGameTests {
             h.assertTrue(entity!=null && entity.getMaxHealth()==p.health,"Creature must construct with its authored attributes: "+p.id);
             if(p.attack.equals("ember") || p.attack.equals("bolt"))h.assertTrue(entity.fireImmune(),"Fire spirits should resist fire");
             boolean habitat=false;
-            for(String name:java.util.List.of("march_steppe","march_highlands","march_crystal_fields","march_snow_fields","march_ember_wastes","march_reed_fen")) {
+            for(String name:java.util.List.of("march_steppe","march_highlands","march_crystal_fields","march_snow_fields","march_ember_wastes","march_reed_fen","march_glimmer_ridge","march_shallows")) {
                 var biome=biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:"+name));
                 if(biome!=null)for(var entry:biome.getMobSettings().getMobs(p.animal?MobCategory.CREATURE:MobCategory.MONSTER).unwrap())if(entry.type==entity.getType())habitat=true;
             }
@@ -32,12 +32,40 @@ public class BestiaryGameTests {
             h.assertTrue(CreatureItems.REAGENTS.get(p).get()!=Items.AIR && CreatureItems.EGGS.get(p).get()!=Items.AIR,"Every creature needs its registered reagent and spawn egg");
             if(p.animal)animals++;else monsters++;
         }
-        // 3.0 roster (design §9): the Tribal Kin and The Unsung join the three animals and ten hostiles.
+        // 3.9 roster: the Tribal Kin and The Unsung join 11 animals and 14 hostiles. The March ran
+        // three animals to ten hostiles until now, which is why its open ground felt empty and
+        // nothing at all lived in its caves.
         var kin=tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get().create(h.getLevel());
         h.assertTrue(kin!=null && kin.getMaxHealth()==30 && kin.getType().getCategory()==MobCategory.MISC,"Tribal Kin must construct as a persistent MISC mob");
         var unsung=tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get().create(h.getLevel());
         h.assertTrue(unsung!=null && unsung.getMaxHealth()==400 && unsung.fireImmune() && unsung.getType().getCategory()==MobCategory.MONSTER,"The Unsung must construct with 400 HP, fire immunity and the MONSTER category");
-        h.assertTrue(animals==3 && monsters==10,"Roster must contain three animals and ten hostiles");h.succeed();
+        h.assertTrue(animals==45 && monsters==34,"Roster must contain 45 animals and 34 hostiles");h.succeed();
+    }
+    /**
+     * Every creature must have a loot table that actually loaded, and it must drop that creature.
+     *
+     * <p>Twelve of them shipped naming "minecraft:looting_enchant", which is not a loot function in
+     * 1.21.1. The whole table failed to parse and was dropped, so those creatures died and left
+     * nothing at all -- and no test noticed, because nothing here had ever read a loot table.
+     */
+    @GameTest(template="empty")
+    public static void everyCreatureDropsSomething(GameTestHelper h) {
+        var registries=h.getLevel().getServer().reloadableRegistries();
+        var problems=new java.util.ArrayList<String>();
+        for(var p:CreatureProfile.values()) {
+            var key=net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower","entities/"+p.id));
+            if(!registries.getKeys(net.minecraft.core.registries.Registries.LOOT_TABLE).contains(key.location())) {
+                problems.add(p.id+": no loot table loaded (a parse error drops the whole table)");
+                continue;
+            }
+            var table=registries.getLootTable(key);
+            if(table==net.minecraft.world.level.storage.loot.LootTable.EMPTY)
+                problems.add(p.id+": loot table loaded empty");
+        }
+        h.assertTrue(problems.isEmpty(),problems.size()+" loot problem(s): "
+                +String.join(" | ",problems.subList(0,Math.min(6,problems.size()))));
+        h.succeed();
     }
     @GameTest(template="empty")
     public static void marchFaunaStandsOnSnowAndSplitsByBiome(GameTestHelper h) {
@@ -97,6 +125,45 @@ public class BestiaryGameTests {
                 "Ember Wastes must stay sparse — no grazing herds");
         h.succeed();
     }
+    /**
+     * Every land biome must have something in the air, something on the ground, something in its
+     * caves and something in its water. The March used to run three animals to ten hostiles and most
+     * of its ground stood empty; this keeps a biome from being added without anything living in it.
+     */
+    @GameTest(template="empty")
+    public static void everyBiomeIsInhabitedInEveryLayer(GameTestHelper h) {
+        var biomes = h.getLevel().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME);
+        var flying = java.util.Set.of("storm_moth", "mourning_bell", "glimmer_moth", "dust_flitter",
+                "veil_drifter", "ember_drifter");
+        var caves = java.util.Set.of("deep_lurker", "pale_stalker", "gloom_crawler", "stone_grub");
+        java.util.List<String> gaps = new java.util.ArrayList<>();
+        for (var entry : biomes.entrySet()) {
+            var id = entry.getKey().location();
+            if (!id.getNamespace().equals("tribalpower") || !id.getPath().startsWith("march_")) continue;
+            if (id.getPath().equals("march_shallows")) continue;      // open sea, judged on its water
+            var settings = entry.getValue().getMobSettings();
+            int air = 0, ground = 0, cave = 0, water = 0;
+            for (var category : MobCategory.values()) {
+                for (var spawn : settings.getMobs(category).unwrap()) {
+                    var key = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(spawn.type);
+                    String name = key == null ? "" : key.getPath();
+                    boolean wet = category == MobCategory.WATER_CREATURE || category == MobCategory.WATER_AMBIENT
+                            || category == MobCategory.UNDERGROUND_WATER_CREATURE;
+                    if (wet) water++;
+                    else if (flying.contains(name)) air++;
+                    else if (caves.contains(name)) cave++;
+                    else ground++;
+                }
+            }
+            if (air == 0) gaps.add(id.getPath() + ": nothing in the air");
+            if (ground == 0) gaps.add(id.getPath() + ": nothing on the ground");
+            if (cave == 0) gaps.add(id.getPath() + ": nothing in its caves");
+            if (water == 0) gaps.add(id.getPath() + ": nothing in its water");
+        }
+        h.assertTrue(gaps.isEmpty(), gaps.size() + " empty layer(s): " + String.join(" | ", gaps));
+        h.succeed();
+    }
+
     private static boolean hasCreature(net.minecraft.world.level.biome.Biome biome, EntityType<?> type) {
         return hasMob(biome, MobCategory.CREATURE, type);
     }

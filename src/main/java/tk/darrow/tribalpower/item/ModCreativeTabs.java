@@ -87,6 +87,10 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.MARCH_LOG.get());
                         out.accept(ModItems.MARCH_PLANKS.get());
                         tk.darrow.tribalpower.world.MarchBuilding.ITEMS.values().forEach(item -> out.accept(item.get()));
+                        out.accept(ModItems.MOONSTONE.get());
+                        out.accept(ModItems.MOSS_AGATE.get());
+                        out.accept(ModItems.MARCH_QUARTZ.get());
+                        tk.darrow.tribalpower.block.QuartzGlass.ITEMS.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.MARCH_LEAVES.get());
                         tk.darrow.tribalpower.world.MarchWoods.ITEMS.values().forEach(item -> out.accept(item.get()));
                         out.accept(tk.darrow.tribalpower.world.MarchTrees.WILLOW_STRAND_ITEM.get());
@@ -146,6 +150,8 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.ASTRAL_ITEM_RELAY.get());
                         out.accept(ModItems.ASTRAL_FLUID_RELAY.get());
                         out.accept(ModItems.PULSE_ADAPTER.get());
+                        out.accept(ModItems.LATTICE_CONVERTER.get());
+                        ModItems.TRIBAL_BENCHES.values().forEach(item -> out.accept(item.get()));
                         out.accept(ModItems.SPIRIT_CISTERN.get());
                         out.accept(ModItems.WAYSTONE_COMPASS.get());
                         out.accept(ModItems.HORIZON_COMPASS.get());

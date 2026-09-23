@@ -1,0 +1,280 @@
+{
+  "has_precipitation": true,
+  "temperature": -0.1,
+  "downfall": 0.2,
+  "effects": {
+    "fog_color": 13297151,
+    "sky_color": 12511231,
+    "water_color": 6737151,
+    "water_fog_color": 3231151,
+    "foliage_color": 8046947,
+    "grass_color": 9226835,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 5000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "particle": {
+      "probability": 0.004,
+      "options": {
+        "type": "minecraft:end_rod"
+      }
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "tribalpower:hollow_sentinel",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:storm_moth",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:cinder_imp",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:rift_hound",
+        "weight": 12,
+        "minCount": 3,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:shardback",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:deep_lurker",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:pale_stalker",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:veil_drifter",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:gloom_crawler",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:facet_stalker",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:ridge_kobold",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "minecraft:goat",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:dawn_stag",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:lantern_fox",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:march_walker",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:rabbit",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:ridge_grazer",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:glimmer_moth",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:dust_flitter",
+        "weight": 9,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:crag_bounder",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:stone_grub",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:ember_drifter",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:magma_creeper",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:prism_grazer",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:shardmoth",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:glowgrub",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:glimmer_fay",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [
+      {
+        "type": "tribalpower:spirit_wisp",
+        "weight": 14,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:bat",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "tribalpower:glimmerfin",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "tribalpower:drift_bell",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "tribalpower:march_cave",
+      "tribalpower:march_cave_deep",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "tribalpower:march_tarn"
+    ],
+    [
+      "tribalpower:march_boulder_field",
+      "tribalpower:march_ruin_pillar"
+    ],
+    [],
+    [],
+    [],
+    [
+      "tribalpower:march_ore",
+      "tribalpower:march_ore_mid",
+      "tribalpower:march_ore_high",
+      "tribalpower:march_vanilla_coal",
+      "tribalpower:march_vanilla_iron",
+      "tribalpower:march_vanilla_iron_upper",
+      "tribalpower:march_vanilla_iron_small",
+      "tribalpower:march_vanilla_copper",
+      "tribalpower:march_vanilla_gold",
+      "tribalpower:march_vanilla_redstone",
+      "tribalpower:march_vanilla_lapis",
+      "tribalpower:march_vanilla_diamond",
+      "tribalpower:march_vanilla_diamond_large",
+      "tribalpower:march_vanilla_emerald",
+      "tribalpower:march_silt_bed",
+      "tribalpower:moonstone_body",
+      "tribalpower:moss_agate_seam"
+    ],
+    [
+      "tribalpower:march_amethyst_pocket",
+      "tribalpower:march_veil_lichen",
+      "tribalpower:march_echo_roots",
+      "tribalpower:march_lantern_caps"
+    ],
+    [],
+    [
+      "tribalpower:march_crystal_sparse",
+      "tribalpower:march_quartz_scatter",
+      "tribalpower:march_quartz_cave",
+      "tribalpower:march_quartz_cave_roof"
+    ],
+    []
+  ]
+}

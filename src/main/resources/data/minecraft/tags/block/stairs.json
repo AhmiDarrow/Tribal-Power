@@ -4,6 +4,12 @@
     "tribalpower:march_stone_stairs",
     "tribalpower:march_cobble_stairs",
     "tribalpower:march_stone_brick_stairs",
-    "tribalpower:polished_march_stone_stairs"
+    "tribalpower:polished_march_stone_stairs",
+    "tribalpower:moonstone_stairs",
+    "tribalpower:polished_moonstone_stairs",
+    "tribalpower:moonstone_brick_stairs",
+    "tribalpower:moss_agate_stairs",
+    "tribalpower:polished_moss_agate_stairs",
+    "tribalpower:moss_agate_brick_stairs"
   ]
 }

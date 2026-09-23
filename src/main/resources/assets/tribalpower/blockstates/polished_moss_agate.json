@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "tribalpower:block/polished_moss_agate_0"
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_0",
+        "y": 90
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_0",
+        "y": 180
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_0",
+        "y": 270
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_1"
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_1",
+        "y": 90
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_1",
+        "y": 180
+      },
+      {
+        "model": "tribalpower:block/polished_moss_agate_1",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -17,9 +17,9 @@
       "type": "text",
       "title": "Getting it running",
       "text": [
-        "Right-click the Resonator with an **Echo Shard** (from [Echo Shatter](echo_shatter)). The crystal stays inside as a catalyst and never wears out. Crouch with an empty hand to lift it back out.",
+        "Right-click the Resonator with an **Echo Shard** (from [Echo Shatter](echo_shatter)). The crystal sits inside as a catalyst and is slowly spent by the Pulse it makes, so a hard-working Resonator needs it replaced. Crouch with an empty hand to lift out what is left of it.",
         "Then give it at least **two different voices** within 8 blocks, such as an Earth and a Fire totem. It counts voices, not blocks: two Earth totems are still one voice.",
-        "A shard and two voices make **6 Pulse a second**."
+        "A shard and two voices make **8 Pulse a second**. Voices multiply rather than add: each one you bring is worth more than the last, so the whole ring is worth far more than the sum of its totems. The catalyst multiplies on top of that, so every tier is a real step up: at six voices an Echo Shard makes 48 a second, an Attuned Echo 72, a Bound Echo 96, and a Resonant Core 144. Better catalysts last longer too."
       ]
     },
     {

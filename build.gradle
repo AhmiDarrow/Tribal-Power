@@ -173,6 +173,17 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+// The survey generates and scans seven sites inside a single server tick, which the watchdog calls
+// a crash at sixty seconds. It is a diagnostic run, not a live server, so the watchdog is turned off
+// for it rather than the survey being cut short.
+tasks.matching { it.name == 'runMarchSurvey' }.configureEach {
+    doFirst {
+        def dir = file('build/march-survey')
+        dir.mkdirs()
+        new File(dir, 'server.properties').text = ['max-tick-time=-1', 'online-mode=false', 'sync-chunk-writes=false'].join(System.lineSeparator())
+    }
+}
+
 tasks.withType(AbstractArchiveTask).configureEach {
     preserveFileTimestamps = false
     reproducibleFileOrder = true

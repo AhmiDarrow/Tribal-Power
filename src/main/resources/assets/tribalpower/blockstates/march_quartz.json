@@ -1,0 +1,84 @@
+{
+  "variants": {
+    "vertical_direction=up,waterlogged=false": [
+      {
+        "model": "tribalpower:block/march_quartz_cluster"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_wide"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_twin"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_low"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_point_tall"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_point_leaning"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_bed"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_spread"
+      }
+    ],
+    "vertical_direction=up,waterlogged=true": [
+      {
+        "model": "tribalpower:block/march_quartz_cluster"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_wide"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_twin"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_low"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_point_tall"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_point_leaning"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_bed"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_cluster_spread"
+      }
+    ],
+    "vertical_direction=down,waterlogged=false": [
+      {
+        "model": "tribalpower:block/march_quartz_hanging"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_long"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_short"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_row"
+      }
+    ],
+    "vertical_direction=down,waterlogged=true": [
+      {
+        "model": "tribalpower:block/march_quartz_hanging"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_long"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_short"
+      },
+      {
+        "model": "tribalpower:block/march_quartz_hanging_row"
+      }
+    ]
+  }
+}

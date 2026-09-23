@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "tribalpower:block/moonstone_bricks",
+    "top": "tribalpower:block/moonstone_bricks",
+    "side": "tribalpower:block/moonstone_bricks"
+  }
+}

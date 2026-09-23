@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CRC",
+    "EME",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "E": {
+      "item": "tribalpower:attuned_echo"
+    },
+    "M": {
+      "item": "tribalpower:resonant_core"
+    }
+  },
+  "result": {
+    "id": "tribalpower:lattice_converter",
+    "count": 1
+  }
+}

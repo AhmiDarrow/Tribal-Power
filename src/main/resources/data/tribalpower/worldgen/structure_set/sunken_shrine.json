@@ -7,12 +7,12 @@
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 44,
-    "separation": 26,
+    "spacing": 36,
+    "separation": 18,
     "salt": 7327494,
     "exclusion_zone": {
       "other_set": "tribalpower:stilt_village_ruin",
-      "chunk_count": 3
+      "chunk_count": 2
     }
   }
 }

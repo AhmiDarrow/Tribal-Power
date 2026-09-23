@@ -76,6 +76,10 @@ public final class ModBlockEntities {
                     ModBlocks.ASTRAL_ITEM_RELAY.get(), ModBlocks.ASTRAL_FLUID_RELAY.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PulseAdapterBlockEntity>> PULSE_ADAPTER =
             BLOCK_ENTITIES.register("pulse_adapter", () -> BlockEntityType.Builder.of(PulseAdapterBlockEntity::new, ModBlocks.PULSE_ADAPTER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LatticeConverterBlockEntity>> LATTICE_CONVERTER =
+            BLOCK_ENTITIES.register("lattice_converter", () -> BlockEntityType.Builder.of(LatticeConverterBlockEntity::new, ModBlocks.LATTICE_CONVERTER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TribalBenchBlockEntity>> TRIBAL_BENCH =
+            BLOCK_ENTITIES.register("tribal_bench", () -> BlockEntityType.Builder.of(TribalBenchBlockEntity::new, ModBlocks.allBenches()).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RitualBrazierBlockEntity>> RITUAL_BRAZIER =
             BLOCK_ENTITIES.register("ritual_brazier", () -> BlockEntityType.Builder.of(RitualBrazierBlockEntity::new, ModBlocks.RITUAL_BRAZIER.get()).build(null));

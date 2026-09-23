@@ -16,11 +16,26 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import java.util.ArrayList;
 import java.util.List;
 
-/** One-way conversion: 1 Pulse = 100 FE. Cannot receive FE, so conversion never feeds itself. */
+/**
+ * One-way conversion from Pulse to Forge Energy. Cannot receive FE, so conversion never feeds itself.
+ *
+ * <p>The rate is set against the FE mods this is actually played beside. It used to draw 20 Pulse a
+ * second at 100 FE each: 2,000 FE a second, or 100 FE/t, which is less than a Mekanism Enrichment
+ * Chamber needs to run (125 FE/t) and below a Powah basic furnator. One adapter could not power one
+ * machine, so nobody built one.
+ *
+ * <p>The ratio stays 1 Pulse = 100 FE, which is the number the Codex has always given. What changed
+ * is throughput: it draws {@link #RATE} Pulse a second now rather than 20, so it puts out 6,000 FE a
+ * second, or <b>300 FE/t</b>, and a rank 3 adapter reaches 545. See {@link PulseEconomy} for where
+ * that sits among the pack's own generators and what it is measured against.
+ *
+ * <p>Sixty Pulse a second is more than a zone of drums can feed, so running one flat out wants a
+ * Resonator behind it. That coupling is deliberate: the bridge to FE should cost a real generator.
+ */
 public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable {
     private int energy;
-    public static final int CAPACITY = 16000;
-    public static final int RATE = 20;
+    public static final int CAPACITY = 48000;
+    public static final int RATE = 60;
     public static final int FE_PER_PULSE = 100;
     public PulseAdapterBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.PULSE_ADAPTER.get(), pos, state); }
     public final IEnergyStorage handler = new IEnergyStorage() {

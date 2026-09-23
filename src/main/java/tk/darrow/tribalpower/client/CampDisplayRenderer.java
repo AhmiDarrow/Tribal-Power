@@ -13,8 +13,14 @@ import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.block.CampDisplay;
 import tk.darrow.tribalpower.blockentity.CampDisplayBlockEntity;
 
-/** Draws what has been set down on camp furniture: a shelf's board, a table's top, an urn's mouth. */
-public class CampDisplayRenderer implements BlockEntityRenderer<CampDisplayBlockEntity> {
+/**
+ * Draws what has been set down on camp furniture: a shelf's board, a table's top, an urn's mouth.
+ *
+ * <p>Generic over the block entity so anything that is display plus something else can use it. The
+ * Tribal Bench is display plus a crafting grid, and has its own block entity type; bound to the
+ * camp display type alone, its shelf held items that nobody could see.
+ */
+public class CampDisplayRenderer<T extends CampDisplayBlockEntity> implements BlockEntityRenderer<T> {
     private static final float SCALE = 0.4F;
 
     private final ItemRenderer itemRenderer;
@@ -24,7 +30,7 @@ public class CampDisplayRenderer implements BlockEntityRenderer<CampDisplayBlock
     }
 
     @Override
-    public void render(CampDisplayBlockEntity display, float partialTick, PoseStack pose,
+    public void render(T display, float partialTick, PoseStack pose,
                        MultiBufferSource buffers, int light, int overlay) {
         BlockState state = display.getBlockState();
         float yaw = -CampDisplay.facingOf(state).toYRot();

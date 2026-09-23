@@ -4,6 +4,12 @@
     "tribalpower:march_stone_slab",
     "tribalpower:march_cobble_slab",
     "tribalpower:march_stone_brick_slab",
-    "tribalpower:polished_march_stone_slab"
+    "tribalpower:polished_march_stone_slab",
+    "tribalpower:moonstone_slab",
+    "tribalpower:polished_moonstone_slab",
+    "tribalpower:moonstone_brick_slab",
+    "tribalpower:moss_agate_slab",
+    "tribalpower:polished_moss_agate_slab",
+    "tribalpower:moss_agate_brick_slab"
   ]
 }

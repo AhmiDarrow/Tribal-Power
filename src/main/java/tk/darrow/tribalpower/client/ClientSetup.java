@@ -20,5 +20,6 @@ public final class ClientSetup {
         event.registerEntityRenderer(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get(), TribalKinRenderer::new);
         event.registerEntityRenderer(ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.CAMP_DISPLAY.get(), CampDisplayRenderer::new);
+        event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.TRIBAL_BENCH.get(), CampDisplayRenderer::new);
     }
 }

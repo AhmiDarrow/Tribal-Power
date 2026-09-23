@@ -1,5 +1,5 @@
 {
-  "name": "Pulse Adapter",
+  "name": "Harmonic Energizer",
   "icon": "tribalpower:pulse_adapter",
   "order": 70,
   "pages": [
@@ -7,7 +7,7 @@
       "type": "spotlight",
       "item": "tribalpower:pulse_adapter",
       "text": [
-        "Tribal Power makes Pulse; many other mods run on Forge Energy (FE). The Pulse Adapter is a one-way bridge: it turns Pulse from your generators into FE and hands it to the machines touching it."
+        "Tribal Power makes Pulse; many other mods run on Forge Energy (FE). The Harmonic Energizer is a one-way bridge: it turns Pulse from your generators into FE and hands it to the machines touching it. Its opposite number, the Lattice Converter, brings FE back the other way."
       ]
     },
     {

@@ -157,6 +157,7 @@
       "text": [
         "Redstone beats **17 to 23 game ticks** apart count as on time. Beats less than **8 ticks** apart are ignored. Twenty ticks is one second at normal server speed.",
         "A held redstone signal does not pause the Drumheart; only the rising edge of a pulse counts as a beat.",
+        "Drums crowd each other out. Only **two drums in a zone** — the same 8-block reach a machine draws through — make Pulse; any more still beat and still sound, but earn nothing. Spread them further apart than that and every one of them pays again.",
         "Ranking the drum adds **15% Pulse a beat** per rank (not the workshop 118%)."
       ]
     },

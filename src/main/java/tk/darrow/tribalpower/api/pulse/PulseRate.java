@@ -22,7 +22,7 @@ public final class PulseRate {
     public static int perSecond(ServerLevel level, BlockPos pos, BlockEntity be) {
         if (be instanceof LeyCollectorBlockEntity collector) {
             if (level.hasNeighborSignal(pos)) return 0;
-            int gain = LeyMath.gain(level, pos);
+            int gain = LeyCollectorBlockEntity.beatFor(LeyMath.gain(level, pos));
             gain += MachineRank.bonusGain(collector, gain);
             return (int) Math.round(gain * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
         }

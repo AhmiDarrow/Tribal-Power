@@ -22,14 +22,21 @@ final class CodexFacts {
 
     static final List<Fact> FACTS = List.of(
             Fact.of("drumheart", "A Drumheart holds 1,000 Pulse and ranks at 15% per beat", "1,000 Pulse", "15% Pulse a beat"),
+            // Stacking drums used to be the answer to every power problem. The cap is the rule
+            // that stopped it, so the book has to keep saying so.
+            Fact.of("drumheart", "Only two drums in a zone earn", "two drums in a zone"),
             Fact.of("pulse_resonator", "A Resonator holds 2,500 Pulse, ranks at 15%, and a heap caps at five voices including kinship", "2,500 Pulse", "15% Pulse a second", "five voices", "Kinship"),
             Fact.of("pulse_resonator", "Seating a Resonator uses an Echo Shard", "Echo Shard"),
+            // The catalyst used to be permanent and the book said so. It is spent by use now,
+            // and the book must not go back to promising otherwise.
+            Fact.of("pulse_resonator", "The Resonator catalyst is spent by the Pulse it makes",
+                    "spent").never("never wears out"),
             Fact.of("lattice_conductor", "A Conductor links chalked totems and drains any nearby generator, voice-crafts included", "Ritual Chalk", "250 Pulse", "generators within 8 blocks"),
             Fact.of("spirit_pulse", "Totems hold 250 Pulse; a cell carries Pulse for tools, spells and travel", "250 Pulse", "25 Pulse"),
             Fact.of("keeping", "Keeping: 40 minutes Answered, Dim stretches station time about 30%", "40 minutes", "30%"),
             Fact.of("ley_collector", "A Ley Collector holds 2,000 Pulse, beats every two seconds and ranks at 15%", "2,000 Pulse", "two seconds", "15%").never("base trickle", "hum harder"),
             Fact.of("ley_lens", "Ley Lens: a roof makes a collector weaker, not dead", "16").never("starves a collector"),
-            Fact.of("pulse_adapter", "The Pulse Adapter exports FE and cannot receive it", "FE"),
+            Fact.of("pulse_adapter", "The Harmonic Energizer exports FE and cannot receive it", "FE"),
             Fact.of("six_voices", "Kinship Totems lend a tribe's element to stations", "Kinship"),
             Fact.of("ember_horn", "A ranked Ember Horn adds 15% Pulse a second per rank", "15%").never("the rate is the real cap"),
             Fact.of("wind_harp", "A ranked Wind Harp adds 15% Pulse a second per rank", "15%").never("the whole of the wind"),

@@ -85,6 +85,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.ley.LeyRegistry.register(modBus);
         tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
+        tk.darrow.tribalpower.bench.BenchRegistry.register(modBus);
         tk.darrow.tribalpower.charm.CharmSlots.register(modBus);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::playerTick);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::loggedOut);
@@ -134,6 +135,8 @@ public final class TribalPower {
                             tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.tank));
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
                     ModBlockEntities.PULSE_ADAPTER.get(), (be, side) -> be.handler);
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
+                    ModBlockEntities.LATTICE_CONVERTER.get(), (be, side) -> be.handler);
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     ModBlockEntities.ECHO_STATION.get(), (be, side) ->
                             new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,

@@ -34,9 +34,18 @@ public class CampDisplayBlockEntity extends BlockEntity implements WorldlyContai
         super(ModBlockEntities.CAMP_DISPLAY.get(), pos, state);
     }
 
+    /** For furniture that is display plus something else, such as the Tribal Bench and its grid. */
+    protected CampDisplayBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,
+                                     BlockPos pos, BlockState state) {
+        super(type, pos, state);
+    }
+
     /** How many places this piece has. An urn is a single vessel; a board and a table top take four. */
     public static int capacityOf(BlockState state) {
-        return state.is(ModBlocks.SPIRIT_URN.get()) ? 1 : MAX_SLOTS;
+        if (state.is(ModBlocks.SPIRIT_URN.get())) return 1;
+        // Each half of a bench carries two of the four places along its back board.
+        if (state.getBlock() instanceof tk.darrow.tribalpower.block.TribalBenchBlock) return 2;
+        return MAX_SLOTS;
     }
 
     public int capacity() {
@@ -93,7 +102,7 @@ public class CampDisplayBlockEntity extends BlockEntity implements WorldlyContai
         return filled == 0 ? 0 : Math.max(1, filled * 15 / capacity());
     }
 
-    private void sync() {
+    protected void sync() {
         setChanged();
         if (level != null) {
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);

@@ -37,7 +37,7 @@ public final class CampDisplay {
         double x = hit.x - pos.getX();
         double z = hit.z - pos.getZ();
 
-        if (state.is(ModBlocks.WALL_SHELF.get())) {
+        if (state.is(ModBlocks.WALL_SHELF.get()) || state.getBlock() instanceof TribalBenchBlock) {
             double along = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
                 case NORTH -> x;
                 case SOUTH -> 1.0 - x;
@@ -99,10 +99,20 @@ public final class CampDisplay {
         if (state.is(ModBlocks.SPIRIT_URN.get())) {
             return new Vec3(0.5, 14.0 / 16.0, 0.5);                       // the mouth of the pot
         }
-        if (state.is(ModBlocks.WALL_SHELF.get())) {
+        if (state.is(ModBlocks.WALL_SHELF.get()) || state.getBlock() instanceof TribalBenchBlock) {
             int capacity = CampDisplayBlockEntity.capacityOf(state);
             float along = (slot + 0.5F) / capacity;
             float depth = 3.0F / 16.0F;
+            if (state.getBlock() instanceof TribalBenchBlock) {
+                // The bench board stands above its top, not against a wall, so it sits higher.
+                float d = 4.0F / 16.0F;
+                return switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                    case NORTH -> new Vec3(along, 1.0, 1.0 - d);
+                    case SOUTH -> new Vec3(1.0 - along, 1.0, d);
+                    case WEST -> new Vec3(1.0 - d, 1.0, 1.0 - along);
+                    default -> new Vec3(d, 1.0, along);
+                };
+            }
             return switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
                 case NORTH -> new Vec3(along, 9.0 / 16.0, 1.0 - depth);
                 case SOUTH -> new Vec3(1.0 - along, 9.0 / 16.0, depth);

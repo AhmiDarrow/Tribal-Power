@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "tribalpower:block/moss_agate_brick_0"
+      },
+      {
+        "model": "tribalpower:block/moss_agate_brick_1"
+      },
+      {
+        "model": "tribalpower:block/moss_agate_brick_2"
+      },
+      {
+        "model": "tribalpower:block/moss_agate_brick_3"
+      }
+    ]
+  }
+}

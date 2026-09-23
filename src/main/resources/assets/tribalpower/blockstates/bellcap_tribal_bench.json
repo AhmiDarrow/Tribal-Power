@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,part=left": {
+      "model": "tribalpower:block/bellcap_tribal_bench_left"
+    },
+    "facing=east,part=left": {
+      "model": "tribalpower:block/bellcap_tribal_bench_left",
+      "y": 90
+    },
+    "facing=south,part=left": {
+      "model": "tribalpower:block/bellcap_tribal_bench_left",
+      "y": 180
+    },
+    "facing=west,part=left": {
+      "model": "tribalpower:block/bellcap_tribal_bench_left",
+      "y": 270
+    },
+    "facing=north,part=right": {
+      "model": "tribalpower:block/bellcap_tribal_bench_right"
+    },
+    "facing=east,part=right": {
+      "model": "tribalpower:block/bellcap_tribal_bench_right",
+      "y": 90
+    },
+    "facing=south,part=right": {
+      "model": "tribalpower:block/bellcap_tribal_bench_right",
+      "y": 180
+    },
+    "facing=west,part=right": {
+      "model": "tribalpower:block/bellcap_tribal_bench_right",
+      "y": 270
+    }
+  }
+}

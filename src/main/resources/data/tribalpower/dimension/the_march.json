@@ -7,37 +7,28 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "tribalpower:march_steppe",
+          "biome": "tribalpower:march_shallows",
           "parameters": {
-            "temperature": [-0.15, 0.55],
-            "humidity": [-0.35, 0.45],
-            "continentalness": [-0.2, 0.55],
-            "erosion": [-0.2, 0.55],
-            "weirdness": [-0.6, 0.35],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "tribalpower:march_highlands",
-          "parameters": {
-            "temperature": [-0.65, 0.05],
-            "humidity": [-0.55, 0.15],
-            "continentalness": [0.25, 1.0],
-            "erosion": [-1.0, -0.15],
-            "weirdness": [-0.35, 0.55],
-            "depth": 0.0,
-            "offset": 0.0
-          }
-        },
-        {
-          "biome": "tribalpower:march_crystal_fields",
-          "parameters": {
-            "temperature": [0.15, 0.85],
-            "humidity": [-1.0, -0.1],
-            "continentalness": [-0.45, 0.35],
-            "erosion": [0.1, 0.85],
-            "weirdness": [0.45, 1.0],
+            "temperature": [
+              -0.9,
+              0.9
+            ],
+            "humidity": [
+              -0.9,
+              0.9
+            ],
+            "continentalness": [
+              -1.1,
+              -0.38
+            ],
+            "erosion": [
+              -0.9,
+              1.1
+            ],
+            "weirdness": [
+              -1.1,
+              1.1
+            ],
             "depth": 0.0,
             "offset": 0.0
           }
@@ -45,11 +36,26 @@
         {
           "biome": "tribalpower:march_snow_fields",
           "parameters": {
-            "temperature": [-1.0, -0.35],
-            "humidity": [0.2, 1.0],
-            "continentalness": [0.0, 1.0],
-            "erosion": [-0.5, 0.8],
-            "weirdness": [-1.0, 0.4],
+            "temperature": [
+              -0.8,
+              -0.4
+            ],
+            "humidity": [
+              -0.8,
+              0.8
+            ],
+            "continentalness": [
+              -0.34,
+              1.2
+            ],
+            "erosion": [
+              -0.8,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
             "depth": 0.0,
             "offset": 0.0
           }
@@ -57,11 +63,80 @@
         {
           "biome": "tribalpower:march_ember_wastes",
           "parameters": {
-            "temperature": [0.65, 1.0],
-            "humidity": [-1.0, -0.25],
-            "continentalness": [-0.3, 0.5],
-            "erosion": [0.0, 1.0],
-            "weirdness": [-0.2, 0.44],
+            "temperature": [
+              0.6,
+              0.9
+            ],
+            "humidity": [
+              -0.8,
+              0.8
+            ],
+            "continentalness": [
+              -0.34,
+              1.2
+            ],
+            "erosion": [
+              -0.8,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "tribalpower:march_glimmer_ridge",
+          "parameters": {
+            "temperature": [
+              -0.2,
+              0.02
+            ],
+            "humidity": [
+              -0.8,
+              0.8
+            ],
+            "continentalness": [
+              0.08,
+              1.2
+            ],
+            "erosion": [
+              -0.8,
+              -0.06
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "tribalpower:march_highlands",
+          "parameters": {
+            "temperature": [
+              0.02,
+              0.2
+            ],
+            "humidity": [
+              -0.8,
+              0.8
+            ],
+            "continentalness": [
+              0.08,
+              1.2
+            ],
+            "erosion": [
+              -0.8,
+              -0.06
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
             "depth": 0.0,
             "offset": 0.0
           }
@@ -69,11 +144,53 @@
         {
           "biome": "tribalpower:march_reed_fen",
           "parameters": {
-            "temperature": [0.1, 0.55],
-            "humidity": [0.45, 1.0],
-            "continentalness": [-0.3, 0.3],
-            "erosion": [0.2, 1.0],
-            "weirdness": [-1.0, 0.2],
+            "temperature": [
+              -0.2,
+              0.2
+            ],
+            "humidity": [
+              0.08,
+              0.8
+            ],
+            "continentalness": [
+              -0.34,
+              0.24
+            ],
+            "erosion": [
+              0.06,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "tribalpower:march_crystal_fields",
+          "parameters": {
+            "temperature": [
+              -0.2,
+              0.2
+            ],
+            "humidity": [
+              -0.8,
+              -0.08
+            ],
+            "continentalness": [
+              -0.34,
+              0.34
+            ],
+            "erosion": [
+              -0.2,
+              1.0
+            ],
+            "weirdness": [
+              0.1,
+              1.0
+            ],
             "depth": 0.0,
             "offset": 0.0
           }
@@ -81,13 +198,28 @@
         {
           "biome": "tribalpower:march_steppe",
           "parameters": {
-            "temperature": 0.0,
-            "humidity": 0.0,
-            "continentalness": 0.0,
-            "erosion": 0.0,
-            "weirdness": 0.0,
+            "temperature": [
+              -0.24,
+              0.24
+            ],
+            "humidity": [
+              -0.2,
+              0.2
+            ],
+            "continentalness": [
+              -0.32,
+              0.16
+            ],
+            "erosion": [
+              -0.08,
+              0.4
+            ],
+            "weirdness": [
+              -0.3,
+              0.24
+            ],
             "depth": 0.0,
-            "offset": 0.15
+            "offset": 0.0
           }
         }
       ]

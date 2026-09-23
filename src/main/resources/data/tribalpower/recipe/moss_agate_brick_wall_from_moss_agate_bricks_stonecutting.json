@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:moss_agate_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:moss_agate_brick_wall"
+  }
+}

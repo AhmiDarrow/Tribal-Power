@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:polished_moonstone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:polished_moonstone_slab"
+  }
+}

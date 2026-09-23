@@ -35,12 +35,22 @@ public final class MarchBuilding {
     public static final DeferredBlock<Block> STONE_BRICKS = cube("march_stone_bricks", ModBlocks.MARCH_STONE);
     public static final DeferredBlock<Block> CHISELED_STONE_BRICKS = cube("chiseled_march_stone_bricks", ModBlocks.MARCH_STONE);
     public static final DeferredBlock<Block> POLISHED_STONE = cube("polished_march_stone", ModBlocks.MARCH_STONE);
+    public static final DeferredBlock<Block> POLISHED_MOONSTONE = cube("polished_moonstone", ModBlocks.MOONSTONE);
+    public static final DeferredBlock<Block> MOONSTONE_BRICKS = cube("moonstone_bricks", ModBlocks.MOONSTONE);
+    public static final DeferredBlock<Block> POLISHED_MOSS_AGATE = cube("polished_moss_agate", ModBlocks.MOSS_AGATE);
+    public static final DeferredBlock<Block> MOSS_AGATE_BRICKS = cube("moss_agate_bricks", ModBlocks.MOSS_AGATE);
 
     static {
         stoneSet("march_stone", ModBlocks.MARCH_STONE, true);
         stoneSet("march_cobble", ModBlocks.MARCH_COBBLE, true);
         stoneSet("march_stone_brick", STONE_BRICKS, true);
         stoneSet("polished_march_stone", POLISHED_STONE, false);
+        stoneSet("moonstone", ModBlocks.MOONSTONE, true);
+        stoneSet("polished_moonstone", POLISHED_MOONSTONE, false);
+        stoneSet("moonstone_brick", MOONSTONE_BRICKS, true);
+        stoneSet("moss_agate", ModBlocks.MOSS_AGATE, true);
+        stoneSet("polished_moss_agate", POLISHED_MOSS_AGATE, false);
+        stoneSet("moss_agate_brick", MOSS_AGATE_BRICKS, true);
 
         Supplier<BlockBehaviour.Properties> wood = () -> BlockBehaviour.Properties.ofFullCopy(ModBlocks.MARCH_PLANKS.get());
         stairsAndSlab("march_planks", ModBlocks.MARCH_PLANKS);
@@ -57,7 +67,7 @@ public final class MarchBuilding {
 
     private MarchBuilding() {}
 
-    public static void init() {}
+    public static void init() { tk.darrow.tribalpower.block.QuartzGlass.init(); }
 
     private static void stoneSet(String prefix, DeferredBlock<? extends Block> base, boolean wall) {
         stairsAndSlab(prefix, base);

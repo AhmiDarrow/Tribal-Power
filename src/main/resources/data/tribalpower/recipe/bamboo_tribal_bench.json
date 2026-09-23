@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PCP",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:bamboo_planks"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "id": "tribalpower:bamboo_tribal_bench",
+    "count": 1
+  }
+}

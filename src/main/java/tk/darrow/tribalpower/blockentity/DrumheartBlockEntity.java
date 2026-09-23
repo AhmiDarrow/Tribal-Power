@@ -29,12 +29,30 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     public static final int ON_TEMPO = 24;
     public static final int OFF_TEMPO = 10;
 
+    /**
+     * Drums that share a zone crowd each other out: only this many in any one of them make Pulse.
+     *
+     * <p>A drum is cheap, a repeater loop is cheaper, and the pair of them paid 24 a second each
+     * forever. Stacking them in a shed beat every other generator in the mod, including a full
+     * six-voice Resonator ring, so the answer to any power problem was "another drum". The cap is
+     * per zone rather than per chunk because a zone is the unit the mod already teaches -- the
+     * 8-block cube the Ley Lens draws and a Conductor draws through -- and chunk borders are
+     * invisible, which would have let two drums three blocks apart both pay while two drums
+     * fifteen blocks apart did not.
+     *
+     * <p>Drums beyond the cap still beat, still sound, and still hold Pulse. They simply earn none.
+     */
+    public static final int MAX_PER_ZONE = 2;
+    public static final int ZONE_RADIUS = tk.darrow.tribalpower.lattice.LatticeNetwork.DEFAULT_RADIUS;
+
     private final PulseStorage pulse = new PulseStorage(CAPACITY);
     private int redstoneCooldown;
     private long lastManualBeat = -100;
     private long lastRedstoneBeat = -100;
     private int lastRedstoneGain;
     private boolean lastSignal;
+    private long zoneCheckedAt = Long.MIN_VALUE;
+    private boolean zonePays = true;
 
     public DrumheartBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DRUMHEART.get(), pos, state);
@@ -52,13 +70,47 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         return interval >= TEMPO_MIN && interval <= TEMPO_MAX ? ON_TEMPO : OFF_TEMPO;
     }
 
+    /**
+     * Whether this drum is one of the {@link #MAX_PER_ZONE} in its zone that earn.
+     *
+     * <p>Ranked by encoded position so the same drums pay every beat and the output of a bank does
+     * not flicker between them. Re-checked once a second, so breaking a drum frees its neighbour up
+     * within a second rather than instantly.
+     */
+    public boolean paysInZone() {
+        if (level == null) return true;
+        long now = level.getGameTime();
+        if (now - zoneCheckedAt < 20 && zoneCheckedAt != Long.MIN_VALUE) return zonePays;
+        zoneCheckedAt = now;
+        long mine = worldPosition.asLong();
+        int ahead = 0;
+        for (var other : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(
+                level, worldPosition, ZONE_RADIUS)) {
+            if (!(other instanceof DrumheartBlockEntity drum) || drum == this) continue;
+            if (drum.getBlockPos().asLong() < mine) ahead++;
+        }
+        zonePays = ahead < MAX_PER_ZONE;
+        return zonePays;
+    }
+
+    /** How many drums stand in this one's zone, itself included. Used by the diagnosis. */
+    public int drumsInZone() {
+        if (level == null) return 1;
+        int found = 0;
+        for (var other : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(
+                level, worldPosition, ZONE_RADIUS))
+            if (other instanceof DrumheartBlockEntity) found++;
+        return Math.max(1, found);
+    }
+
     public int drumBeat() {
         long now = level == null ? 0 : level.getGameTime();
         long interval = now - lastManualBeat;
         if (interval < MIN_SPACING) return 0;
         boolean inTime = interval >= TEMPO_MIN && interval <= TEMPO_MAX;
         lastManualBeat = now;
-        int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval));
+        int beat = paysInZone()
+                ? tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval)) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
         lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
@@ -106,7 +158,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
             lastRedstoneGain = 0;
             return 0;
         }
-        int beat = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value);
+        int beat = paysInZone() ? tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
         lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
@@ -130,7 +182,8 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     @Override
     public int currentOutput() {
         // A drum is beaten, not run: report what the last beat was worth rather than a steady rate.
-        return level != null && tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition) ? 0 : lastRedstoneGain;
+        if (level != null && tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition)) return 0;
+        return paysInZone() ? lastRedstoneGain : 0;
     }
 
     @Override

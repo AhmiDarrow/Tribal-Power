@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:moonstone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:moonstone_brick_wall"
+  }
+}

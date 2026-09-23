@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:block/lit_cyan_quartz_glass"
+  }
+}

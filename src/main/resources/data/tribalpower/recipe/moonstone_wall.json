@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:moonstone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:moonstone_wall"
+  }
+}

@@ -285,7 +285,7 @@
       "type": "text",
       "title": "Which machines",
       "text": [
-        "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Pulse Adapter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
+        "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Harmonic Energizer, Lattice Converter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
         "The tooltip names the rank. If a station will not take the machine, it is the wrong station for its current rank; crouch and right-click the station with this book."
       ]
     }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/moonstone_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/moonstone_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/moonstone"
+    }
+  }
+}

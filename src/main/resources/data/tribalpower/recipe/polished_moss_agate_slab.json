@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:polished_moss_agate"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:polished_moss_agate_slab"
+  }
+}

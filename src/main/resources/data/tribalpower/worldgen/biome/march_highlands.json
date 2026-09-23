@@ -53,6 +53,48 @@
         "weight": 6,
         "minCount": 1,
         "maxCount": 2
+      },
+      {
+        "type": "tribalpower:deep_lurker",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:pale_stalker",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:veil_drifter",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:gloom_crawler",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:scree_lurcher",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:crag_troll",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:barrow_shade",
+        "weight": 7,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "creature": [
@@ -85,6 +127,66 @@
         "weight": 6,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "tribalpower:ridge_grazer",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:dust_flitter",
+        "weight": 9,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:crag_bounder",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:stone_grub",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:ember_drifter",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:magma_creeper",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:cragcoat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:bouldersnout",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:updrifter",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:grove_elder",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
       }
     ],
     "ambient": [

@@ -112,6 +112,9 @@ public final class ModItems {
             "weavers_wand", () -> new WeaversWandItem(new Item.Properties()));
 
     // Block items — pulse / lattice
+    public static final DeferredItem<BlockItem> MARCH_QUARTZ = ITEMS.registerSimpleBlockItem("march_quartz", ModBlocks.MARCH_QUARTZ);
+    public static final DeferredItem<BlockItem> MOONSTONE = ITEMS.registerSimpleBlockItem("moonstone", ModBlocks.MOONSTONE);
+    public static final DeferredItem<BlockItem> MOSS_AGATE = ITEMS.registerSimpleBlockItem("moss_agate", ModBlocks.MOSS_AGATE);
     public static final DeferredItem<BlockItem> DRUMHEART = ITEMS.registerSimpleBlockItem("drumheart", ModBlocks.DRUMHEART);
     public static final DeferredItem<BlockItem> LEY_COLLECTOR = ITEMS.registerSimpleBlockItem("ley_collector", ModBlocks.LEY_COLLECTOR);
     public static final DeferredItem<BlockItem> PULSE_RESONATOR = ITEMS.registerSimpleBlockItem("pulse_resonator", ModBlocks.PULSE_RESONATOR);
@@ -168,6 +171,17 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> ASTRAL_ITEM_RELAY = ITEMS.registerSimpleBlockItem("astral_item_relay", ModBlocks.ASTRAL_ITEM_RELAY);
     public static final DeferredItem<BlockItem> ASTRAL_FLUID_RELAY = ITEMS.registerSimpleBlockItem("astral_fluid_relay", ModBlocks.ASTRAL_FLUID_RELAY);
     public static final DeferredItem<BlockItem> PULSE_ADAPTER = ITEMS.registerSimpleBlockItem("pulse_adapter", ModBlocks.PULSE_ADAPTER);
+    public static final DeferredItem<BlockItem> LATTICE_CONVERTER = ITEMS.registerSimpleBlockItem("lattice_converter", ModBlocks.LATTICE_CONVERTER);
+    /** A block item per bench wood, in the same order the woods are declared. */
+    public static final java.util.Map<String, DeferredItem<BlockItem>> TRIBAL_BENCHES = benchItems();
+
+    private static java.util.Map<String, DeferredItem<BlockItem>> benchItems() {
+        java.util.Map<String, DeferredItem<BlockItem>> out = new java.util.LinkedHashMap<>();
+        for (var wood : tk.darrow.tribalpower.bench.BenchWoods.ALL)
+            out.put(wood.id(), ITEMS.registerSimpleBlockItem(wood.block(),
+                    ModBlocks.TRIBAL_BENCHES.get(wood.id())));
+        return java.util.Collections.unmodifiableMap(out);
+    }
     public static final DeferredItem<LatticeTunerItem> LATTICE_TUNER = ITEMS.register("lattice_tuner", () -> new LatticeTunerItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<WaystoneCompassItem> WAYSTONE_COMPASS = ITEMS.register("waystone_compass", () -> new WaystoneCompassItem(new Item.Properties().stacksTo(1), 1));
     public static final DeferredItem<WaystoneCompassItem> HORIZON_COMPASS = ITEMS.register("horizon_compass", () -> new WaystoneCompassItem(new Item.Properties().stacksTo(1), 2));

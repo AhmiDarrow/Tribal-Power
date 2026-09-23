@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:polished_moss_agate"
+  },
+  "result": {
+    "count": 2,
+    "id": "tribalpower:polished_moss_agate_slab"
+  }
+}

@@ -302,6 +302,25 @@ public class LatticeMonster extends Monster implements Familiar {
             return;
         }
     }
+    private net.minecraft.server.level.ServerBossEvent bossBar;
+    /** Created on demand, so the ordinary hostiles carry nothing extra. */
+    private net.minecraft.server.level.ServerBossEvent bossBar() {
+        if(bossBar==null) bossBar=new net.minecraft.server.level.ServerBossEvent(getDisplayName(),
+                net.minecraft.world.BossEvent.BossBarColor.GREEN,net.minecraft.world.BossEvent.BossBarOverlay.NOTCHED_10);
+        return bossBar;
+    }
+    @Override public void startSeenByPlayer(net.minecraft.server.level.ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        if(profile().boss()) bossBar().addPlayer(player);
+    }
+    @Override public void stopSeenByPlayer(net.minecraft.server.level.ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        if(bossBar!=null) bossBar.removePlayer(player);
+    }
+    @Override public void customServerAiStep() {
+        super.customServerAiStep();
+        if(profile().boss()) bossBar().setProgress(getHealth()/getMaxHealth());
+    }
     @Override public void handleEntityEvent(byte id) {
         if(id==18) {
             for(int i=0;i<7;i++)
@@ -313,6 +332,7 @@ public class LatticeMonster extends Monster implements Familiar {
         boolean march=level.getLevel().dimension().equals(ModDimensions.THE_MARCH);
         ensureLattice(level.getRandom(),march);
         if(march && (reason==MobSpawnType.NATURAL || reason==MobSpawnType.CHUNK_GENERATION)) MarchThreat.empower(this,level,difficulty);
+        if(profile().boss()) BossEscort.spawn(this,level,reason);
         return result;
     }
     @Override public void die(DamageSource source) {
@@ -323,6 +343,7 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override public void remove(RemovalReason reason) {
         if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)
             FamiliarAbilities.clearClick(this);
+        if(bossBar!=null) bossBar.removeAllPlayers();
         super.remove(reason);
     }
     @Override protected void removeAfterChangingDimensions() {

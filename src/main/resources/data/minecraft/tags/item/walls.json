@@ -3,6 +3,10 @@
   "values": [
     "tribalpower:march_stone_wall",
     "tribalpower:march_cobble_wall",
-    "tribalpower:march_stone_brick_wall"
+    "tribalpower:march_stone_brick_wall",
+    "tribalpower:moonstone_wall",
+    "tribalpower:moonstone_brick_wall",
+    "tribalpower:moss_agate_wall",
+    "tribalpower:moss_agate_brick_wall"
   ]
 }

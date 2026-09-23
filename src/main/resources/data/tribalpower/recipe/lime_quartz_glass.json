@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ggg",
+    "gdg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "tribalpower:quartz_glass"
+    },
+    "d": {
+      "item": "minecraft:lime_dye"
+    }
+  },
+  "result": {
+    "id": "tribalpower:lime_quartz_glass",
+    "count": 8
+  }
+}

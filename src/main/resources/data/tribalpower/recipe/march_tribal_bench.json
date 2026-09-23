@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PCP",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "item": "tribalpower:march_planks"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "id": "tribalpower:march_tribal_bench",
+    "count": 1
+  }
+}

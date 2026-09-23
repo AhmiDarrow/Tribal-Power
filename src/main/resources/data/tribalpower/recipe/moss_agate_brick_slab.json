@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:moss_agate_bricks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:moss_agate_brick_slab"
+  }
+}

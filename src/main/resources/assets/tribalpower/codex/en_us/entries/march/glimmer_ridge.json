@@ -1,0 +1,54 @@
+{
+  "name": "The Glimmer Ridge",
+  "icon": "tribalpower:moonstone",
+  "order": 22,
+  "items": [
+    "tribalpower:moonstone",
+    "tribalpower:moss_agate",
+    "tribalpower:march_quartz",
+    "tribalpower:quartz_glass"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:moonstone",
+      "text": [
+        "Where the March throws up its highest ground, the stone changes. The Glimmer Ridge is a mountain of **moonstone** — pale, faintly lit from within, bright enough that a camp on its slopes needs fewer torches than it thinks.",
+        "Nothing grows up there. The ridge is bare rock, weather and crystal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the ridge is made of",
+      "text": [
+        "- **Moonstone** is the body of it: the whole mountain, from the surface down. It carries a little light of its own.",
+        "- **Moss Agate** runs through the moonstone in seams, and shows at the surface in patches. Milky stone with dark green moss caught inside it — no two blocks of it are alike.",
+        "- **March Quartz** grows in the open and thick in the ridge's caves: clear crystal, on floors and hanging from ceilings. It is see-through, so what stands behind it shows through.",
+        "All three take the full building treatment — polished, bricks, stairs, slabs and walls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quartz Glass",
+      "text": [
+        "Melt March Quartz in a furnace and it becomes **Quartz Glass**: clear crystal panes cut with a facet pattern, not the plain stuff. Dye it with any of the sixteen colours, eight panes to a dye, and cut it into glass panes six at a time.",
+        "Unlike ordinary glass it does not shatter when you take it down. You get the pane back."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Binding light into glass",
+      "text": [
+        "Seat a pane of Quartz Glass in an **Echo Attune** and put **glowstone dust** in the catalyst slot. In six seconds, at 24 Pulse a second, the light is bound into the crystal and you have a **lit** pane that shines on its own — no lamp, no redstone, and it keeps whatever colour it had.",
+        "The catalyst is spent; the colour is not. Lit glass cannot be lit twice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Finding it",
+      "text": [
+        "The ridge sits high and unworn — look where the March is at its most mountainous and least weathered. Its haze is paler than the rest of the March, and you will see it glowing before you reach it."
+      ]
+    }
+  ]
+}

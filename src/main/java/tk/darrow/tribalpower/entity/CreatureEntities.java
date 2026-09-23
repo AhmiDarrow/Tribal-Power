@@ -12,7 +12,12 @@ public final class CreatureEntities {
     public static final Map<CreatureProfile,DeferredHolder<EntityType<?>,EntityType<LatticeMonster>>> MONSTERS=new EnumMap<>(CreatureProfile.class);
     static {
         for(var p:CreatureProfile.values()) {
-            if(p.animal) ANIMALS.put(p,ENTITIES.register(p.id,()->EntityType.Builder.of(LatticeAnimal::new,MobCategory.CREATURE).sized(p.width,p.height).clientTrackingRange(10).build("tribalpower:"+p.id)));
+            // Fire immunity follows the profile, not the temperament: the lava dwellers are passive.
+            if(p.animal) ANIMALS.put(p,ENTITIES.register(p.id,()-> {
+                var builder=EntityType.Builder.of(LatticeAnimal::new,MobCategory.CREATURE).sized(p.width,p.height).clientTrackingRange(10);
+                if(p.attack.equals("ember") || p.attack.equals("bolt"))builder.fireImmune();
+                return builder.build("tribalpower:"+p.id);
+            }));
             else MONSTERS.put(p,ENTITIES.register(p.id,()-> {
                 var builder=EntityType.Builder.of(LatticeMonster::new,MobCategory.MONSTER).sized(p.width,p.height).clientTrackingRange(10);
                 if(p.attack.equals("ember") || p.attack.equals("bolt"))builder.fireImmune();
@@ -28,7 +33,26 @@ public final class CreatureEntities {
         }
     }
     public static void placements(RegisterSpawnPlacementsEvent e) {
-        ANIMALS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LatticeAnimal::canSpawn,RegisterSpawnPlacementsEvent.Operation.REPLACE));
-        MONSTERS.forEach((p,t)->e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,MarchSpawns::monster,RegisterSpawnPlacementsEvent.Operation.REPLACE));
+        // Each creature is handed the rule for where it actually lives. One shared rule (turf, daylight,
+        // no fluid) meant the cave dwellers could never spawn in a cave and the lava dwellers could never
+        // spawn near lava: both were registered into biomes and appeared nowhere.
+        ANIMALS.forEach((p,t)->{
+            var habitat=CreatureHabitat.of(p);
+            e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,heightmapFor(habitat),
+                    (type,level,reason,pos,random)->habitat.allowsAnimal(level,pos),
+                    RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        });
+        MONSTERS.forEach((p,t)->{
+            var habitat=CreatureHabitat.of(p);
+            e.register(t.get(),SpawnPlacementTypes.NO_RESTRICTIONS,heightmapFor(habitat),
+                    (type,level,reason,pos,random)->habitat.allowsMonster(level,pos,random,type),
+                    RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        });
+    }
+
+    /** Cave and lava dwellers are placed by the motion-blocking floor, not the surface above them. */
+    private static Heightmap.Types heightmapFor(CreatureHabitat habitat) {
+        return habitat==CreatureHabitat.CAVE||habitat==CreatureHabitat.LAVA
+                ?Heightmap.Types.MOTION_BLOCKING:Heightmap.Types.MOTION_BLOCKING_NO_LEAVES;
     }
 }
