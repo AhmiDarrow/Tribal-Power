@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 4.0.1 — One hearth
+Uploaded 2026-09-23: `tribalpower-4.0.1.jar` as file **8958670** ("Tribal Power 4.0.1 - One hearth", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_4.0.1.md`. The rest of the camp uses the hearth stone, wood and copper, and idle generators and conductors no longer dirty their chunk every beat. Pulse numbers are unchanged. The first upload attempt returned HTTP 500 and did not take; the retry is this file. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v4.0.1
+
 ## 4.0.0 — The camp answers
 Uploaded 2026-09-23: `tribalpower-4.0.0.jar` as file **8958138** ("Tribal Power 4.0.0 - The camp answers", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_4.0.0.md`. Bestiary of fifty-four March creatures and the Weeping Colossus, Song Bench, songbooks, Pulse Bow, Pulse rebalanced against the pack (Harmonic Energizer at 300 FE/t, Lattice Converter, spent Resonator catalysts, two earning drums a zone, Ley Collector yield tripled), colored ley web that totems can bend, hearth workshops and carved totems with copper bands, Builder's Chalk rite ghosts, and The Unsung only from its altar. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v4.0.0
 
