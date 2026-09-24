@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:tide_shell"
+    },
+    "title": "Tide Drummer stilled",
+    "description": "Face the Tide Drummer at the Tide Stone in the Shallows and win.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:march/drum_remembers"
+}

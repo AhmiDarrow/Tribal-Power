@@ -263,6 +263,7 @@ public class TheUnsungEntity extends Monster {
             double a = random.nextDouble() * Math.PI * 2, d = 3 + random.nextDouble() * 2;
             weaver.moveTo(getX() + Math.cos(a) * d, getY() + 0.5, getZ() + Math.sin(a) * d, random.nextFloat() * 360F, 0);
             weaver.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), MobSpawnType.MOB_SUMMONED, null);
+            weaver.addTag(tk.darrow.tribalpower.guardian.GuardianEntity.SUMMONED_TAG);
             if (getTarget() != null) weaver.setTarget(getTarget());
             server.addFreshEntity(weaver);
             weavers.add(weaver.getUUID());
@@ -375,8 +376,10 @@ public class TheUnsungEntity extends Monster {
             weavers.clear();
             SpiritEffects.ring(server, position().add(0, 1, 0), Attunement.LOOM, 6, 24);
             server.sendParticles(ParticleTypes.SOUL, getX(), getY() + 2, getZ(), 60, 1.5, 1.5, 1.5, 0.05);
-            for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE)))
+            for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE))) {
                 player.displayClientMessage(Component.translatable("message.tribalpower.unsung.stilled"), false);
+                if (player instanceof ServerPlayer sp) tk.darrow.tribalpower.quest.QuestEvents.trial(sp, tk.darrow.tribalpower.tribe.TribeDefinition.SPINDLE);
+            }
         }
     }
 

@@ -42,7 +42,8 @@ public class MarchGameTests {
             "grazing_stones", "abandoned_waystation", "fallen_drum_tower", "watchfire_beacon", "echo_quarry",
             "storm_altar", "seal_carvers_retreat", "old_gate_ruin",
             "shattered_observatory", "resonance_obelisk", "loom_ruin", "crystal_grotto", "stilt_village_ruin",
-            "sunken_shrine", "reed_weir", "bog_barrow", "spirit_well");
+            "sunken_shrine", "reed_weir", "bog_barrow", "spirit_well",
+            "slag_throne", "drowned_root", "cairn_ring", "singing_fracture", "sealed_gate", "tide_stone", "trampled_ring", "roost");
 
     private static SilentDrumBlockEntity drum(GameTestHelper h, BlockPos pos) {
         h.setBlock(pos, MarchRegistry.SILENT_DRUM.get());

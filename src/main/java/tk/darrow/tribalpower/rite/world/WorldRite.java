@@ -13,7 +13,9 @@ public enum WorldRite {
     /** Rain Calling's small sibling: cheap, repeatable, and where a base's water comes from. */
     SPRING_CALLING("rite_spring_calling", Attunement.WATER, 300, 10 * 60 * 20),
     /** Heals, cleanses and blesses everyone in the circle, calls back remnants on its pedestals, and stays open a while. */
-    HEALING_CIRCLE("rite_healing_circle", Attunement.SPIRIT, 500, 10 * 60 * 20);
+    HEALING_CIRCLE("rite_healing_circle", Attunement.SPIRIT, 500, 10 * 60 * 20),
+    /** The finale: nine relics in a Loom circle, and the Loom agrees again. Its cost is read from the config. */
+    NINTH_AGREEMENT("rite_ninth_agreement", Attunement.LOOM, 2000, 0);
 
     private final String tabletId;
     private final Attunement element;
@@ -29,7 +31,7 @@ public enum WorldRite {
 
     public String tabletId() { return tabletId; }
     public Attunement element() { return element; }
-    public int cost() { return cost; }
+    public int cost() { return this == NINTH_AGREEMENT ? tk.darrow.tribalpower.config.TribalConfig.ninthAgreementCost() : cost; }
     public int durationTicks() { return durationTicks; }
     public String key() { return name().toLowerCase(java.util.Locale.ROOT); }
 }

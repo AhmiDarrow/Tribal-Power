@@ -1,0 +1,27 @@
+{
+  "name": "The Ninth Agreement",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "One finale",
+      "text": [
+        "The Loom was nine threads agreeing. Finish all nine tribes' stories, the eight [guardians](guardians) and The Unsung, and you hold nine relics. Craft the tablet from the eight cores and an Unsung Heart, draw a **Loom circle** (a Loom seal seated at the brazier), and perform the rite with all nine relics on you.",
+        "The Loom agrees. Nine lights rise from the circle, one in each tribe's colour, and the March answers your voice from then on."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What changes",
+      "text": [
+        "For the one who made the agreement: every tribe treats you as **Kin** at the least, whatever your standing; all nine boons settle on you for a while; and the March's aurora burns full and steady every night you stand under it.",
+        "The agreement is yours for good in that world. The rite can be performed once per player; a second time only lights the circle."
+      ]
+    }
+  ]
+}

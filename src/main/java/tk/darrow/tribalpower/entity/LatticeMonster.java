@@ -156,6 +156,9 @@ public class LatticeMonster extends Monster implements Familiar {
         return health!=null && health.hasModifier(MarchThreat.ELITE) ? base*tk.darrow.tribalpower.config.TribalConfig.eliteXpMultiplier() : base;
     }
     @Override public boolean removeWhenFarAway(double distance) { return !isPersistenceRequired() && super.removeWhenFarAway(distance); }
+    /** A boss's summoned creatures drop nothing: the fight is the reward, not the adds. */
+    @Override protected boolean shouldDropLoot() { return !getTags().contains(tk.darrow.tribalpower.guardian.GuardianEntity.SUMMONED_TAG) && super.shouldDropLoot(); }
+    @Override public boolean shouldDropExperience() { return !getTags().contains(tk.darrow.tribalpower.guardian.GuardianEntity.SUMMONED_TAG) && super.shouldDropExperience(); }
     @Override protected boolean shouldDespawnInPeaceful() { return !isPersistenceRequired(); }
     /** Caps a spawn attempt's pack, whatever the spawn table asks for. */
     @Override public int getMaxSpawnClusterSize() { return tk.darrow.tribalpower.config.TribalConfig.maxGroupSize(); }

@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:prism_core"
+    },
+    "title": "Prism Serpent stilled",
+    "description": "Face the Prism Serpent at the Singing Fracture in the Crystal Fields and win.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:march/drum_remembers"
+}

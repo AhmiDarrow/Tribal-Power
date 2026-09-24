@@ -34,6 +34,8 @@ public final class TribalPowerClient {
             event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
             event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
             event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
+            for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
+                event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> GeneratedGuardianLayers.create(guardian.id));
         });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) -> {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);
@@ -72,7 +74,7 @@ public final class TribalPowerClient {
             tk.darrow.tribalpower.ley.LensPulsePayload.latest = tk.darrow.tribalpower.ley.LensPulsePayload.empty();
             tk.darrow.tribalpower.ley.LeySightPayload.latest = new tk.darrow.tribalpower.ley.LeySightPayload(0, 0, 0);
             tk.darrow.tribalpower.ley.LeySightPayload.seen = false;
-            tk.darrow.tribalpower.quest.QuestStatePayload.latest = new tk.darrow.tribalpower.quest.QuestStatePayload(java.util.List.of());
+            tk.darrow.tribalpower.quest.QuestStatePayload.latest = tk.darrow.tribalpower.quest.QuestStatePayload.EMPTY;
         });
     }
 

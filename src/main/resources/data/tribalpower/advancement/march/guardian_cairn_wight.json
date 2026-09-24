@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:cairn_stone"
+    },
+    "title": "Cairn Wight stilled",
+    "description": "Face the Cairn Wight at the Cairn Ring in the Snow Fields and win.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:march/drum_remembers"
+}

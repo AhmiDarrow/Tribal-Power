@@ -60,6 +60,13 @@
         "If no one stays within **48 blocks** for **30 seconds**, it resets: it vanishes with its weavers and the drum is ready to play again."
       ],
       "title": "What it leaves"
+    },
+    {
+      "type": "text",
+      "title": "The Loom-stitchers' trial",
+      "text": [
+        "The Unsung is the guardian the Loom-stitchers' story ends at: still it with their story at its last step, and their relic is yours. Its Echo Weavers drop nothing now, and it needs open sky above the drum to rise. See [The guardians](guardians)."
+      ]
     }
   ]
 }

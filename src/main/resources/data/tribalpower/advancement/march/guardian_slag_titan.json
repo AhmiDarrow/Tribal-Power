@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "tribalpower:slag_core"
+    },
+    "title": "Slag Titan stilled",
+    "description": "Face the Slag Titan at the Slag Throne in the Ember Wastes and win.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "tribalpower:march/drum_remembers"
+}

@@ -79,7 +79,8 @@ public class RiteTabletItem extends Item {
         int duration = circle.duration(rite.durationTicks());
         int available = LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, true);
         if (available < cost) return Component.translatable("message.tribalpower.rite.no_pulse", available, cost);
-        Component failure = apply(level, brazierPos, rite, duration);
+        Component failure = rite == WorldRite.NINTH_AGREEMENT ? tk.darrow.tribalpower.finale.NinthAgreement.check(level, player) : apply(level, brazierPos, rite, duration);
+        if (failure == null && rite == WorldRite.NINTH_AGREEMENT) tk.darrow.tribalpower.finale.NinthAgreement.perform(level, brazierPos, player);
         if (failure != null) return failure;
         LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, false);
         celebrate(level, brazierPos, rite);

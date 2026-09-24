@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tribalpower:prism_core"
+    },
+    {
+      "item": "tribalpower:loom_thread"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "tribalpower:resonant_core"
+  }
+}

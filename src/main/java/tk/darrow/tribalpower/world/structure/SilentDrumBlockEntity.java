@@ -99,6 +99,11 @@ public class SilentDrumBlockEntity extends BlockEntity {
             server.playSound(null, worldPosition, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.9F, 0.5F);
             return;
         }
+        if (!headroom(server)) {
+            if (player != null) player.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.no_room"), true);
+            server.playSound(null, worldPosition, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.9F, 0.45F);
+            return;
+        }
         TheUnsungEntity unsung = MarchRegistry.THE_UNSUNG.get().create(server);
         if (unsung == null) return;
         unsung.moveTo(worldPosition.getX() + 0.5, worldPosition.getY() + 1.0, worldPosition.getZ() + 0.5, server.random.nextFloat() * 360F, 0);
@@ -113,6 +118,18 @@ public class SilentDrumBlockEntity extends BlockEntity {
         for (Player near : server.getEntitiesOfClass(Player.class, new AABB(worldPosition).inflate(BOSS_RANGE)))
             near.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.wake"), false);
         setChanged();
+    }
+
+    /** Room above the drum for The Unsung to rise into: it is 4.2 blocks tall and 3.2 wide, and a ceiling would trap it. */
+    private boolean headroom(ServerLevel server) {
+        for (int y = 1; y <= 5; y++)
+            for (int dx = -2; dx <= 2; dx++)
+                for (int dz = -2; dz <= 2; dz++) {
+                    BlockPos at = worldPosition.offset(dx, y, dz);
+                    var state = server.getBlockState(at);
+                    if (!state.getCollisionShape(server, at).isEmpty() && !(state.getBlock() instanceof AbstractCandleBlock)) return false;
+                }
+        return true;
     }
 
     /** The Drum Circle's altar: the cap under the drum, and a candle on each corner beside it. */

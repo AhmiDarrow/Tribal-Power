@@ -18,7 +18,8 @@ public final class AuroraSky {
         if(march?!SkyConfig.MARCH.get():!level.dimension().equals(Level.OVERWORLD)||!SkyConfig.OVERWORLD.get())return;
         if(event.getCamera().getFluidInCamera()!=FogType.NONE)return;
         float partial=event.getPartialTick().getGameTimeDeltaPartialTick(false);
-        float alpha=AuroraMath.visibility(level.getDayTime(),partial,level.getRainLevel(partial),level.getThunderLevel(partial))*SkyConfig.INTENSITY.get().floatValue();
+        boolean agreed=march && tk.darrow.tribalpower.quest.QuestStatePayload.latest.agreed();
+        float alpha=AuroraMath.visibility(level.getDayTime(),partial,agreed?0:level.getRainLevel(partial),agreed?0:level.getThunderLevel(partial))*SkyConfig.INTENSITY.get().floatValue();
         if(alpha<.005F)return;
         double time=(level.getGameTime()+(double)partial)/20D;
         int segments=48*(SkyConfig.QUALITY.get()+1);

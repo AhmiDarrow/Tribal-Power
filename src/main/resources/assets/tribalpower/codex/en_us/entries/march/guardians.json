@@ -1,0 +1,115 @@
+{
+  "name": "The guardians",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eight guardians",
+      "text": [
+        "Every March biome keeps a **guardian**: the thing each tribe's story ends at (see [Elders, requests and stories](elders_and_stories)). They are bosses in every sense: a boss bar, no knockback, no potions, no Soul Urn, two phases, and a fight worth preparing for.",
+        "A guardian never wanders in. Each has a **ground** in its biome, a ring of stone with a **Guardian Altar** at its centre, and it rises only from that altar: the altar must sit on polished deepslate with a lit candle at each corner (altar or nothing), there must be room above it, and it rests about twenty minutes between calls.",
+        "Sneak-use the altar with an empty hand and it tells you what it wants: a fistful of that biome's reagent, eight by default. Lay it on and stand back."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Two phases",
+      "text": [
+        "At half health every guardian is **roused**: its signature attack comes faster and harder, and it calls its biome's creatures to its side. Those creatures drop nothing and vanish when it falls. Leave the ground for half a minute and the guardian goes back to sleep; the altar still needs its rest.",
+        "When it falls, everyone within reach who is on that tribe's story finishes the **trial**, and its **core** drops with a heap of its biome's reagents."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:slag_core",
+      "title": "Slag Titan",
+      "text": [
+        "**The Slag Throne in the Ember Wastes**. Called with Magma Scales. Sneak to brace against its slams; in its second phase the rings ignite and Cinder Imps rise from the slag.",
+        "Drops the **Slag Core**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:fen_heart",
+      "title": "Bog Matriarch",
+      "text": [
+        "**The Drowned Root in the Reed Fen**. Called with Reed Fangs. Its snare drags you in and slows you; keep to solid ground, and cut down the Reed Stalkers it calls before they swarm.",
+        "Drops the **Fen Heart**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:cairn_stone",
+      "title": "Cairn Wight",
+      "text": [
+        "**The Cairn Ring in the Snow Fields**. Called with Rime Mandibles. Its breath freezes everything in front of it. Circle behind; the Rime Crawlers it calls are slow.",
+        "Drops the **Cairn Stone**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:prism_core",
+      "title": "Prism Serpent",
+      "text": [
+        "**The Singing Fracture in the Crystal Fields**. Called with Prism Carapace. It fires bolts of light that mark you glowing. Strafe, close in, and watch the second bolt it adds in phase two.",
+        "Drops the **Prism Core**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vault_seal",
+      "title": "Vault Sentinel",
+      "text": [
+        "**The Sealed Gate on Glimmer Ridge**. Called with Sentinel Sigils. The heaviest armour in the March, and a sweep that throws you off the ridge. In phase two it wards itself for three seconds at a time: wait it out.",
+        "Drops the **Vault Seal**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_shell",
+      "title": "Tide Drummer",
+      "text": [
+        "**The Tide Stone in the Shallows**. Called with Brine Fangs. Each beat pulls everyone toward it and hurts. Fight it from the shore with your back to something solid.",
+        "Drops the **Tide Shell**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:herd_horn",
+      "title": "Stampede Spirit",
+      "text": [
+        "**The Trampled Ring on the Steppe**. Called with Shank Sinew. It charges. Sidestep and hit it as it passes; when Burrow Gnashers surface, stand on a block.",
+        "Drops the **Herd Horn**."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:storm_plume",
+      "title": "Storm Roc",
+      "text": [
+        "**The Roost on the Highlands**. Called with Storm Wings. It swoops and throws you into the air, and in phase two lightning follows each swoop. A bow and a roof help more than a shield.",
+        "Drops the **Storm Plume**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the cores are for",
+      "text": [
+        "Each core with a Loom Thread makes six {item:tribalpower:resonant_core}, the fastest way to them in the game. All eight cores together with an {item:tribalpower:unsung_heart} make the tablet of [The Ninth Agreement](ninth_agreement)."
+      ]
+    }
+  ]
+}

@@ -52,6 +52,17 @@ public final class TribalConfig {
     public static final ModConfigSpec.DoubleValue REQUEST_SCALE;
     public static final ModConfigSpec.IntValue REQUESTS_PER_MARK;
     public static final ModConfigSpec.BooleanValue ELDER_DIALOGUE;
+    public static final ModConfigSpec.DoubleValue GUARDIAN_HEALTH_SCALE;
+    public static final ModConfigSpec.DoubleValue GUARDIAN_DAMAGE_SCALE;
+    public static final ModConfigSpec.IntValue GUARDIAN_CALL_COST;
+    public static final ModConfigSpec.IntValue GUARDIAN_COOLDOWN_MINUTES;
+    public static final ModConfigSpec.IntValue GUARDIAN_ABILITY_INTERVAL;
+    public static final ModConfigSpec.IntValue GUARDIAN_ADDS_INTERVAL;
+    public static final ModConfigSpec.IntValue GUARDIAN_ADDS_PER_WAVE;
+    public static final ModConfigSpec.IntValue GUARDIAN_MAX_ADDS;
+    public static final ModConfigSpec.IntValue GUARDIAN_RESET_SECONDS;
+    public static final ModConfigSpec.IntValue NINTH_AGREEMENT_COST;
+    public static final ModConfigSpec.IntValue NINTH_AGREEMENT_BOON_MINUTES;
     public static final ModConfigSpec.IntValue DISH_BOON;
     public static final ModConfigSpec.DoubleValue HEARTH_SCALE;
     public static final ModConfigSpec.BooleanValue HEARTH_HEAT;
@@ -368,6 +379,19 @@ public final class TribalConfig {
         REQUESTS_PER_MARK = b.comment("Every this many finished requests for one tribe pays a Tribe Mark.").defineInRange("requestsPerMark", 3, 1, 100);
         ELDER_DIALOGUE = b.comment("Whether an Elder opens a conversation. When false the Elder trades at once, as before.").define("elderDialogue", true);
         b.pop();
+        b.comment("The guardians of the March and the last rite.").push("guardians");
+        GUARDIAN_HEALTH_SCALE = b.comment("Scales every guardian's health.").defineInRange("guardianHealthScale", 1.0, 0.1, 10.0);
+        GUARDIAN_DAMAGE_SCALE = b.comment("Scales every guardian's damage.").defineInRange("guardianDamageScale", 1.0, 0.1, 10.0);
+        GUARDIAN_CALL_COST = b.comment("Reagents laid on a Guardian Altar to call its guardian.").defineInRange("guardianCallCost", 8, 1, 64);
+        GUARDIAN_COOLDOWN_MINUTES = b.comment("Game minutes an altar rests between calls.").defineInRange("guardianCooldownMinutes", 20, 0, 1440);
+        GUARDIAN_ABILITY_INTERVAL = b.comment("Ticks between a guardian's signature attacks (shorter when roused).").defineInRange("guardianAbilityInterval", 80, 20, 600);
+        GUARDIAN_ADDS_INTERVAL = b.comment("Ticks between waves of creatures a roused guardian calls.").defineInRange("guardianAddsInterval", 300, 40, 2400);
+        GUARDIAN_ADDS_PER_WAVE = b.comment("Creatures a guardian calls per wave.").defineInRange("guardianAddsPerWave", 2, 0, 10);
+        GUARDIAN_MAX_ADDS = b.comment("Most creatures a guardian keeps at its side.").defineInRange("guardianMaxAdds", 6, 0, 30);
+        GUARDIAN_RESET_SECONDS = b.comment("Seconds without a player near before a guardian goes back to sleep.").defineInRange("guardianResetSeconds", 30, 5, 600);
+        NINTH_AGREEMENT_COST = b.comment("Pulse the Ninth Agreement rite draws.").defineInRange("ninthAgreementCost", 2000, 0, 100000);
+        NINTH_AGREEMENT_BOON_MINUTES = b.comment("Minutes all nine boons last after the Ninth Agreement.").defineInRange("ninthAgreementBoonMinutes", 30, 1, 1440);
+        b.pop();
         SPEC = b.build();
     }
 
@@ -419,6 +443,17 @@ public final class TribalConfig {
     public static double requestStandingScale() { return get(REQUEST_SCALE); }
     public static int requestsPerMark() { return get(REQUESTS_PER_MARK); }
     public static boolean elderDialogue() { return get(ELDER_DIALOGUE); }
+    public static double guardianHealthScale() { return get(GUARDIAN_HEALTH_SCALE); }
+    public static double guardianDamageScale() { return get(GUARDIAN_DAMAGE_SCALE); }
+    public static int guardianCallCost() { return get(GUARDIAN_CALL_COST); }
+    public static int guardianCooldownMinutes() { return get(GUARDIAN_COOLDOWN_MINUTES); }
+    public static int guardianAbilityInterval() { return get(GUARDIAN_ABILITY_INTERVAL); }
+    public static int guardianAddsInterval() { return get(GUARDIAN_ADDS_INTERVAL); }
+    public static int guardianAddsPerWave() { return get(GUARDIAN_ADDS_PER_WAVE); }
+    public static int guardianMaxAdds() { return get(GUARDIAN_MAX_ADDS); }
+    public static int guardianResetSeconds() { return get(GUARDIAN_RESET_SECONDS); }
+    public static int ninthAgreementCost() { return get(NINTH_AGREEMENT_COST); }
+    public static int ninthAgreementBoonMinutes() { return get(NINTH_AGREEMENT_BOON_MINUTES); }
     public static int dishBoonMinutes() { return get(DISH_BOON); }
     public static double hearthCookScale() { return get(HEARTH_SCALE); }
     public static boolean hearthNeedsHeat() { return get(HEARTH_HEAT); }

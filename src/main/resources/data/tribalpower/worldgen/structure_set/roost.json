@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:roost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 32,
+    "salt": 6946824,
+    "exclusion_zone": {
+      "other_set": "tribalpower:drum_circle",
+      "chunk_count": 4
+    }
+  }
+}

@@ -15,7 +15,7 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
  * ordinal order: the open request (empty when none) and its progress, requests finished, the story step and its
  * progress, and whether the relic is held.
  */
-public record QuestStatePayload(List<TribeState> tribes) implements CustomPacketPayload {
+public record QuestStatePayload(List<TribeState> tribes, boolean agreed) implements CustomPacketPayload {
     public static final Type<QuestStatePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "quest_state"));
 
     public record TribeState(String request, int requestProgress, int completed, int step, int stepProgress, boolean relic) {
@@ -26,10 +26,11 @@ public record QuestStatePayload(List<TribeState> tribes) implements CustomPacket
     }
 
     public static final StreamCodec<ByteBuf, QuestStatePayload> STREAM_CODEC = StreamCodec.composite(
-            TribeState.CODEC.apply(ByteBufCodecs.list()), QuestStatePayload::tribes, QuestStatePayload::new);
+            TribeState.CODEC.apply(ByteBufCodecs.list()), QuestStatePayload::tribes, ByteBufCodecs.BOOL, QuestStatePayload::agreed, QuestStatePayload::new);
 
-    /** What the client last heard; read by the Codex. */
-    public static volatile QuestStatePayload latest = new QuestStatePayload(List.of());
+    public static final QuestStatePayload EMPTY = new QuestStatePayload(List.of(), false);
+    /** What the client last heard; read by the Codex and the sky. */
+    public static volatile QuestStatePayload latest = EMPTY;
 
     public static QuestStatePayload of(ServerPlayer player) {
         QuestSavedData data = QuestSavedData.get(player.server);
@@ -40,7 +41,7 @@ public record QuestStatePayload(List<TribeState> tribes) implements CustomPacket
                     data.completed(player.getUUID(), tribe), data.step(player.getUUID(), tribe), data.stepProgress(player.getUUID(), tribe),
                     data.hasRelic(player.getUUID(), tribe)));
         }
-        return new QuestStatePayload(List.copyOf(out));
+        return new QuestStatePayload(List.copyOf(out), tk.darrow.tribalpower.finale.NinthAgreement.agreed(player));
     }
 
     public TribeState of(TribeDefinition tribe) {

@@ -1,0 +1,37 @@
+{
+  "type": "tribalpower:seal_keeping_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tribalpower:slag_core"
+    },
+    {
+      "item": "tribalpower:fen_heart"
+    },
+    {
+      "item": "tribalpower:cairn_stone"
+    },
+    {
+      "item": "tribalpower:prism_core"
+    },
+    {
+      "item": "tribalpower:vault_seal"
+    },
+    {
+      "item": "tribalpower:tide_shell"
+    },
+    {
+      "item": "tribalpower:herd_horn"
+    },
+    {
+      "item": "tribalpower:storm_plume"
+    },
+    {
+      "item": "tribalpower:unsung_heart"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:rite_ninth_agreement"
+  }
+}

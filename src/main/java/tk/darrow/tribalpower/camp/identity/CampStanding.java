@@ -21,6 +21,7 @@ public final class CampStanding implements StandingListener {
     }
     /** Personal standing or the camp's mirrored standing, whichever is higher. */
     public static int effectiveStanding(ServerPlayer player,TribeDefinition tribe) {
-        return Math.max(TribeStanding.get(player.server,player.getUUID(),tribe),Camps.campStanding(player.server,player.getUUID(),tribe.id()));
+        return Math.max(Math.max(TribeStanding.get(player.server,player.getUUID(),tribe),Camps.campStanding(player.server,player.getUUID(),tribe.id())),
+                tk.darrow.tribalpower.finale.NinthAgreement.standingFloor(player));
     }
 }

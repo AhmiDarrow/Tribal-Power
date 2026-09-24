@@ -26,6 +26,9 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.SPIRIT_WISP.get(), SpiritWispRenderer::new);
         event.registerEntityRenderer(ModEntities.MARCH_WALKER.get(), MarchWalkerRenderer::new);
         event.registerEntityRenderer(tk.darrow.tribalpower.world.structure.MarchRegistry.THE_UNSUNG.get(), tk.darrow.tribalpower.boss.client.TheUnsungRenderer::new);
+        for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
+            event.registerEntityRenderer(tk.darrow.tribalpower.guardian.GuardianRegistry.ENTITIES.get(guardian).get(),
+                    context -> new tk.darrow.tribalpower.guardian.client.GuardianRenderer(context, guardian));
         event.registerEntityRenderer(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBAL_KIN.get(), TribalKinRenderer::new);
         event.registerEntityRenderer(ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.SONIC_BOLT.get(), SonicBoltRenderer::new);
