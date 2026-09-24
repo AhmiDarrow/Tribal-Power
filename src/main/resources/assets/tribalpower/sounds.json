@@ -126,5 +126,223 @@
         "stream": true
       }
     ]
+  },
+  "music.march_steppe": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_steppe",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_highlands": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_highlands",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_glimmer_ridge": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_glimmer_ridge",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_snow_fields": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_snow_fields",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_ember_wastes": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_ember_wastes",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_reed_fen": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_reed_fen",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_crystal_fields": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_crystal_fields",
+        "stream": true
+      }
+    ]
+  },
+  "music.march_shallows": {
+    "sounds": [
+      {
+        "name": "tribalpower:music/march_shallows",
+        "stream": true
+      }
+    ]
+  },
+  "boss.the_unsung": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/the_unsung",
+        "stream": true
+      }
+    ]
+  },
+  "boss.colossus_warden": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/colossus_warden",
+        "stream": true
+      }
+    ]
+  },
+  "boss.slag_titan": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/slag_titan",
+        "stream": true
+      }
+    ]
+  },
+  "boss.bog_matriarch": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/bog_matriarch",
+        "stream": true
+      }
+    ]
+  },
+  "boss.cairn_wight": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/cairn_wight",
+        "stream": true
+      }
+    ]
+  },
+  "boss.prism_serpent": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/prism_serpent",
+        "stream": true
+      }
+    ]
+  },
+  "boss.vault_sentinel": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/vault_sentinel",
+        "stream": true
+      }
+    ]
+  },
+  "boss.tide_drummer": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/tide_drummer",
+        "stream": true
+      }
+    ]
+  },
+  "boss.stampede_spirit": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/stampede_spirit",
+        "stream": true
+      }
+    ]
+  },
+  "boss.storm_roc": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/storm_roc",
+        "stream": true
+      }
+    ]
+  },
+  "boss.finale": {
+    "sounds": [
+      {
+        "name": "tribalpower:boss/finale",
+        "stream": true
+      }
+    ]
+  },
+  "stinger.festival": {
+    "sounds": [
+      "tribalpower:stinger/festival"
+    ],
+    "subtitle": "subtitles.tribalpower.stinger.festival"
+  },
+  "stinger.surge": {
+    "sounds": [
+      "tribalpower:stinger/surge"
+    ],
+    "subtitle": "subtitles.tribalpower.stinger.surge"
+  },
+  "stinger.weather": {
+    "sounds": [
+      "tribalpower:stinger/weather"
+    ],
+    "subtitle": "subtitles.tribalpower.stinger.weather"
+  },
+  "guardian.slag_titan": {
+    "sounds": [
+      "tribalpower:guardian/slag_titan"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.bog_matriarch": {
+    "sounds": [
+      "tribalpower:guardian/bog_matriarch"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.cairn_wight": {
+    "sounds": [
+      "tribalpower:guardian/cairn_wight"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.prism_serpent": {
+    "sounds": [
+      "tribalpower:guardian/prism_serpent"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.vault_sentinel": {
+    "sounds": [
+      "tribalpower:guardian/vault_sentinel"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.tide_drummer": {
+    "sounds": [
+      "tribalpower:guardian/tide_drummer"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.stampede_spirit": {
+    "sounds": [
+      "tribalpower:guardian/stampede_spirit"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "guardian.storm_roc": {
+    "sounds": [
+      "tribalpower:guardian/storm_roc"
+    ],
+    "subtitle": "subtitles.tribalpower.guardian.roar"
   }
 }

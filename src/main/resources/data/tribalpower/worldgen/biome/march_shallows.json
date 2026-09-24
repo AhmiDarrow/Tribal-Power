@@ -20,6 +20,12 @@
       "options": {
         "type": "minecraft:end_rod"
       }
+    },
+    "music": {
+      "sound": "tribalpower:music.march_shallows",
+      "min_delay": 6000,
+      "max_delay": 18000,
+      "replace_current_music": false
     }
   },
   "spawners": {

@@ -20,6 +20,12 @@
       "options": {
         "type": "minecraft:ash"
       }
+    },
+    "music": {
+      "sound": "tribalpower:music.march_ember_wastes",
+      "min_delay": 6000,
+      "max_delay": 18000,
+      "replace_current_music": false
     }
   },
   "spawners": {

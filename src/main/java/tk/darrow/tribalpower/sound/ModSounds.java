@@ -34,6 +34,24 @@ public final class ModSounds {
     public static final java.util.List<DeferredHolder<SoundEvent, SoundEvent>> GATE_RITE =
             java.util.stream.IntStream.rangeClosed(1, 6).mapToObj(i -> register("gate_rite_" + i)).toList();
 
+    /** The March's music (tools/generate_march_music.py): a track per biome, a theme per boss and the finale, stingers, and the guardians' voices. */
+    public static final java.util.List<String> MARCH_BIOMES = java.util.List.of("march_steppe", "march_highlands", "march_glimmer_ridge", "march_snow_fields",
+            "march_ember_wastes", "march_reed_fen", "march_crystal_fields", "march_shallows");
+    public static final java.util.Map<String, DeferredHolder<SoundEvent, SoundEvent>> BIOME_MUSIC = new java.util.LinkedHashMap<>();
+    public static final java.util.Map<String, DeferredHolder<SoundEvent, SoundEvent>> BOSS_THEMES = new java.util.LinkedHashMap<>();
+    public static final java.util.Map<String, DeferredHolder<SoundEvent, SoundEvent>> GUARDIAN_VOICES = new java.util.LinkedHashMap<>();
+    public static final DeferredHolder<SoundEvent, SoundEvent> STINGER_FESTIVAL = register("stinger.festival");
+    public static final DeferredHolder<SoundEvent, SoundEvent> STINGER_SURGE = register("stinger.surge");
+    public static final DeferredHolder<SoundEvent, SoundEvent> STINGER_WEATHER = register("stinger.weather");
+    static {
+        for (String biome : MARCH_BIOMES) BIOME_MUSIC.put(biome, register("music." + biome));
+        for (String boss : java.util.List.of("the_unsung", "colossus_warden", "finale")) BOSS_THEMES.put(boss, register("boss." + boss));
+        for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values()) {
+            BOSS_THEMES.put(guardian.id, register("boss." + guardian.id));
+            GUARDIAN_VOICES.put(guardian.id, register("guardian." + guardian.id));
+        }
+    }
+
     private static DeferredHolder<SoundEvent, SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(
                 ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, name)));

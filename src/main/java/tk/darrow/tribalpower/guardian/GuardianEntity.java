@@ -441,7 +441,10 @@ public class GuardianEntity extends Monster {
         }
     }
 
-    @Override protected SoundEvent getAmbientSound() {
+    @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
+    @Override public int getAmbientSoundInterval() { return 160; }
+    /** The vanilla voice each guardian had before it found its own; kept for the hurt sound's timbre. */
+    protected SoundEvent fallbackVoice() {
         return switch (guardian().ability) {
             case SLAM -> SoundEvents.BLAZE_AMBIENT;
             case SNARE -> SoundEvents.RAVAGER_AMBIENT;
@@ -454,9 +457,9 @@ public class GuardianEntity extends Monster {
         };
     }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return guardian().ability == Guardian.Ability.SWEEP ? SoundEvents.ANVIL_PLACE : SoundEvents.RAVAGER_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.WITHER_DEATH; }
+    @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
     @Override protected float getSoundVolume() { return 1.5F; }
-    @Override public float getVoicePitch() { return 0.6F; }
+    @Override public float getVoicePitch() { return isDeadOrDying() ? 0.45F : 0.8F + random.nextFloat() * 0.2F; }
 
     // ---- persistence ---------------------------------------------------------------------------------------------
 
