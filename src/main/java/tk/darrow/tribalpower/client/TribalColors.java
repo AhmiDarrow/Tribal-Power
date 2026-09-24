@@ -37,6 +37,36 @@ public final class TribalColors {
         event.register((stack, layer) -> 0xFF000000 | MARCH_GRASS,
                 tk.darrow.tribalpower.item.ModItems.MARCH_GRASS.get(), tk.darrow.tribalpower.item.ModItems.MARCH_LEAF.get());
         event.register((stack, layer) -> 0xFF000000 | MARCH_FOLIAGE, tk.darrow.tribalpower.item.ModItems.MARCH_LEAVES.get());
+        // a flask's window is tinted the colour of what it holds
+        event.register((stack, layer) -> {
+            if (layer != 1) return 0xFFFFFFFF;
+            var fluid = tk.darrow.tribalpower.item.SpiritFlaskItem.contents(stack);
+            return fluid.isEmpty() ? 0xFFFFFFFF : fluidColour(fluid);
+        }, tk.darrow.tribalpower.item.ModItems.SPIRIT_FLASK.get(), tk.darrow.tribalpower.item.ModItems.GREATER_SPIRIT_FLASK.get());
+    }
+
+    private static final java.util.Map<net.minecraft.world.level.material.Fluid, Integer> FLUID_AVERAGE = new java.util.HashMap<>();
+
+    /** A fluid's colour for a tint: its own tint when it has one (water), else the average of its still texture (lava). */
+    public static int fluidColour(net.neoforged.neoforge.fluids.FluidStack fluid) {
+        var extensions = net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions.of(fluid.getFluid());
+        int tint = extensions.getTintColor(fluid);
+        if ((tint & 0xFFFFFF) != 0xFFFFFF) return 0xFF000000 | tint;
+        return FLUID_AVERAGE.computeIfAbsent(fluid.getFluid(), f -> {
+            try {
+                var sprite = net.minecraft.client.Minecraft.getInstance().getTextureAtlas(net.minecraft.world.inventory.InventoryMenu.BLOCK_ATLAS).apply(extensions.getStillTexture(fluid));
+                var image = sprite.contents().getOriginalImage();
+                long r = 0, g = 0, b = 0, n = 0;
+                for (int x = 0; x < image.getWidth(); x++) for (int y = 0; y < image.getHeight(); y++) {
+                    int abgr = image.getPixelRGBA(x, y);
+                    if ((abgr >>> 24) == 0) continue;
+                    r += abgr & 0xFF; g += abgr >> 8 & 0xFF; b += abgr >> 16 & 0xFF; n++;
+                }
+                return n == 0 ? 0xFFFFFFFF : 0xFF000000 | (int) (r / n) << 16 | (int) (g / n) << 8 | (int) (b / n);
+            } catch (Exception e) {
+                return 0xFFFFFFFF;
+            }
+        });
     }
 
     public static void blocks(RegisterColorHandlersEvent.Block event) {

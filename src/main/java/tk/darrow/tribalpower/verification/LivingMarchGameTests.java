@@ -54,7 +54,9 @@ public final class LivingMarchGameTests {
         // The scheduler's own step runs without a player and rolls a surge when it is due.
         data.setLastSurgeEnd(now - TribalConfig.surgeEveryMinutes() * 1200L - 1);
         MarchEvents.tick(level, now);
-        h.assertTrue(data.surgeVoice(now) != null, "A due surge begins");
+        long warning = TribalConfig.eventWarningSeconds() * 20L;
+        h.assertTrue(warning == 0 ? data.surgeVoice(now) != null : data.surgePending(now) != null && data.surgeVoice(now) == null, "A due surge is announced first");
+        h.assertTrue(data.surgeVoice(now + warning) != null, "And runs once the warning is over");
         h.assertTrue(data.expireSurge(data.surgeUntil()), "And ends when its time is up");
         data.setSurge(null, 0);
         h.succeed();

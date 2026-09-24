@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:item/greater_spirit_flask",
+    "layer1": "tribalpower:item/greater_spirit_flask_fill_2"
+  }
+}

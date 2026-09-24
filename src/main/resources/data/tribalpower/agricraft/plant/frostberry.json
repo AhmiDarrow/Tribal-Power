@@ -24,7 +24,7 @@
       "item": "tribalpower:frostberry",
       "min": 1,
       "max": 3,
-      "chance": 0.95,
+      "chance": 1.0,
       "required": true
     }
   ],

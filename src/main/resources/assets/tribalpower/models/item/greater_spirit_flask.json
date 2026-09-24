@@ -2,5 +2,31 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "tribalpower:item/greater_spirit_flask"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "tribalpower:fill": 0.125
+      },
+      "model": "tribalpower:item/greater_spirit_flask_fill_1"
+    },
+    {
+      "predicate": {
+        "tribalpower:fill": 0.375
+      },
+      "model": "tribalpower:item/greater_spirit_flask_fill_2"
+    },
+    {
+      "predicate": {
+        "tribalpower:fill": 0.625
+      },
+      "model": "tribalpower:item/greater_spirit_flask_fill_3"
+    },
+    {
+      "predicate": {
+        "tribalpower:fill": 0.875
+      },
+      "model": "tribalpower:item/greater_spirit_flask_fill_4"
+    }
+  ]
 }

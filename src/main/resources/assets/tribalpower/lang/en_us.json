@@ -2621,5 +2621,9 @@
   "description.agricraft.tribalpower.glimmer_bean": "A climbing bean of the Glimmer Ridge that holds a faint light.",
   "plant.agricraft.tribalpower.steppe_grain": "Steppe Grain",
   "seed.agricraft.tribalpower.steppe_grain": "Steppe Grain Seeds",
-  "description.agricraft.tribalpower.steppe_grain": "Bearded grain of the open Steppe, bowing when it ripens."
+  "description.agricraft.tribalpower.steppe_grain": "Bearded grain of the open Steppe, bowing when it ripens.",
+  "message.tribalpower.weather.gathers": "%s gathers over the March. It settles in %s: find shelter.",
+  "message.tribalpower.surge.gathers": "The ley stirs. Every %s thread will run bright in %s: leave the bare crossings.",
+  "message.tribalpower.time.minutes": "%s minutes",
+  "message.tribalpower.time.seconds": "%s seconds"
 }

@@ -21,8 +21,10 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 public class MarchEventsSavedData extends SavedData {
     public static final String FILE_ID = "tribalpower_march_events";
     private final long[] weatherUntil = new long[MarchWeather.values().length];
+    /** When each weather sets in: announced at the roll, felt from here. Zero with no weather rolled. */
+    private final long[] weatherFrom = new long[MarchWeather.values().length];
     private int surgeVoice = -1;
-    private long surgeUntil, lastSurgeEnd, lastWeatherRoll, lastFestivalDay = -1;
+    private long surgeFrom, surgeUntil, lastSurgeEnd, lastWeatherRoll, lastFestivalDay = -1;
     private final Map<UUID, Set<Long>> festivals = new HashMap<>();
 
     public static MarchEventsSavedData get(MinecraftServer server) {
@@ -30,9 +32,15 @@ public class MarchEventsSavedData extends SavedData {
     }
 
     // ---- weather ----
-    public boolean weatherActive(MarchWeather weather, long now) { return weatherUntil[weather.ordinal()] > now; }
+    public boolean weatherActive(MarchWeather weather, long now) { return weatherUntil[weather.ordinal()] > now && weatherFrom[weather.ordinal()] <= now; }
+    /** Rolled and announced, not yet felt. */
+    public boolean weatherPending(MarchWeather weather, long now) { return weatherUntil[weather.ordinal()] > now && weatherFrom[weather.ordinal()] > now; }
     public long weatherUntil(MarchWeather weather) { return weatherUntil[weather.ordinal()]; }
-    public void setWeather(MarchWeather weather, long until) { weatherUntil[weather.ordinal()] = until; setDirty(); }
+    public long weatherFrom(MarchWeather weather) { return weatherFrom[weather.ordinal()]; }
+    /** A weather felt at once, until the given time. */
+    public void setWeather(MarchWeather weather, long until) { setWeather(weather, 0, until); }
+    /** A weather that sets in at {@code from} and runs until {@code until}. */
+    public void setWeather(MarchWeather weather, long from, long until) { weatherFrom[weather.ordinal()] = from; weatherUntil[weather.ordinal()] = until; setDirty(); }
     public long lastWeatherRoll() { return lastWeatherRoll; }
     public void setLastWeatherRoll(long at) { lastWeatherRoll = at; setDirty(); }
 
@@ -40,17 +48,23 @@ public class MarchEventsSavedData extends SavedData {
     public boolean expireWeather(long now) {
         boolean changed = false;
         for (int i = 0; i < weatherUntil.length; i++)
-            if (weatherUntil[i] != 0 && weatherUntil[i] <= now) { weatherUntil[i] = 0; changed = true; }
+            if (weatherUntil[i] != 0 && weatherUntil[i] <= now) { weatherUntil[i] = 0; weatherFrom[i] = 0; changed = true; }
         if (changed) setDirty();
         return changed;
     }
 
     // ---- surge ----
-    public Attunement surgeVoice(long now) { return surgeVoice >= 0 && surgeUntil > now ? Attunement.values()[surgeVoice] : null; }
+    public Attunement surgeVoice(long now) { return surgeVoice >= 0 && surgeUntil > now && surgeFrom <= now ? Attunement.values()[surgeVoice] : null; }
+    /** The voice of a surge rolled and announced but not yet running, or null. */
+    public Attunement surgePending(long now) { return surgeVoice >= 0 && surgeUntil > now && surgeFrom > now ? Attunement.values()[surgeVoice] : null; }
     public long surgeUntil() { return surgeUntil; }
+    public long surgeFrom() { return surgeFrom; }
     public long lastSurgeEnd() { return lastSurgeEnd; }
-    public void setSurge(Attunement voice, long until) {
+    /** A surge running at once. */
+    public void setSurge(Attunement voice, long until) { setSurge(voice, 0, until); }
+    public void setSurge(Attunement voice, long from, long until) {
         surgeVoice = voice == null ? -1 : voice.ordinal();
+        surgeFrom = from;
         surgeUntil = until;
         setDirty();
     }
@@ -90,6 +104,9 @@ public class MarchEventsSavedData extends SavedData {
         System.arraycopy(until, 0, data.weatherUntil, 0, Math.min(until.length, data.weatherUntil.length));
         data.surgeVoice = tag.contains("SurgeVoice") ? tag.getInt("SurgeVoice") : -1;
         data.surgeUntil = tag.getLong("SurgeUntil");
+        data.surgeFrom = tag.getLong("SurgeFrom");
+        long[] from = tag.getLongArray("WeatherFrom");
+        System.arraycopy(from, 0, data.weatherFrom, 0, Math.min(from.length, data.weatherFrom.length));
         data.lastSurgeEnd = tag.getLong("LastSurgeEnd");
         data.lastWeatherRoll = tag.getLong("LastWeatherRoll");
         data.lastFestivalDay = tag.contains("LastFestivalDay") ? tag.getLong("LastFestivalDay") : -1;
@@ -107,6 +124,8 @@ public class MarchEventsSavedData extends SavedData {
         tag.putLongArray("Weather", weatherUntil.clone());
         tag.putInt("SurgeVoice", surgeVoice);
         tag.putLong("SurgeUntil", surgeUntil);
+        tag.putLong("SurgeFrom", surgeFrom);
+        tag.putLongArray("WeatherFrom", weatherFrom.clone());
         tag.putLong("LastSurgeEnd", lastSurgeEnd);
         tag.putLong("LastWeatherRoll", lastWeatherRoll);
         tag.putLong("LastFestivalDay", lastFestivalDay);

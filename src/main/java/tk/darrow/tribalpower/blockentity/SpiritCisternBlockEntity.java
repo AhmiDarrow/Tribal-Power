@@ -25,7 +25,10 @@ public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.t
         }
         @Override protected void onContentsChanged() {
             setChanged();
-            if (level != null) level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+            if (level != null) {
+                level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);   // the windows show the level
+            }
         }
     };
     private boolean paused() { return level != null && level.hasNeighborSignal(worldPosition); }
@@ -34,6 +37,8 @@ public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.t
     public static void tick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, SpiritCisternBlockEntity be) {
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
     }
+    @Override public CompoundTag getUpdateTag(HolderLookup.Provider registries) { CompoundTag tag = super.getUpdateTag(registries); tag.put("Tank", tank.writeToNBT(registries, new CompoundTag())); return tag; }
+    @Override public net.minecraft.network.protocol.Packet<net.minecraft.network.protocol.game.ClientGamePacketListener> getUpdatePacket() { return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this); }
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.saveAdditional(tag, registries); tag.put("Tank", tank.writeToNBT(registries, new CompoundTag())); sides.save(tag); }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.loadAdditional(tag, registries); tank.readFromNBT(registries, tag.getCompound("Tank")); sides.load(tag); }
 }

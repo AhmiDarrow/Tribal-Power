@@ -144,12 +144,8 @@ public final class WeaponAnimations {
         part.yRot = 0.0F;
         HumanoidArm attackArm = entity.swingingArm == InteractionHand.OFF_HAND ? entity.getMainArm().getOpposite() : entity.getMainArm();
         float t = arm == attackArm ? model.attackTime : 0.0F;
-        // the resting carry: a thrusting weapon is couched, the arm a little forward and turned in
-        if (kind == WeaponKind.Swing.THRUST || kind == WeaponKind.Swing.STAB) {
-            float carry = v(k + ".third.carry", kind == WeaponKind.Swing.THRUST ? -0.9F : -0.4F);
-            part.xRot = Mth.lerp(0.7F, part.xRot, carry);
-            part.yRot = i * v(k + ".third.carryYaw", -0.15F);
-        }
+        // at rest a thrusting weapon stands along the hanging arm (its model lies along the forearm); only the
+        // thrust itself moves the arm, straight out and back
         if (t <= 0.0F) return;
         float f = 1.0F - t;
         f *= f;
@@ -164,9 +160,9 @@ public final class WeaponAnimations {
         switch (kind) {
             case THRUST, STAB -> {
                 // the arm straightens forward and comes back; no chop, no roll
-                float forward = v(k + ".third.forward", kind == WeaponKind.Swing.STAB ? -1.35F : -1.6F);
+                float forward = v(k + ".third.forward", kind == WeaponKind.Swing.STAB ? -1.35F : -1.5F);
                 part.xRot = Mth.lerp(s, rest, forward) + swipe;
-                part.yRot = i * v(k + ".third.yaw", -0.3F) * s;
+                part.yRot = i * v(k + ".third.yaw", -0.2F) * s;
                 part.zRot = -roll;
             }
             case CHOP -> {

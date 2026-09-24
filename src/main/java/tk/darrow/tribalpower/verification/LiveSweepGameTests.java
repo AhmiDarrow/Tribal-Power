@@ -280,4 +280,22 @@ public final class LiveSweepGameTests {
         h.assertTrue(tender.canTakeItemThroughFace(9, new ItemStack(Items.WHEAT), net.minecraft.core.Direction.EAST), "The store is");
         h.succeed();
     }
+
+    /** A rolled weather or surge is announced first and felt only when the warning runs out, then stays felt to its end. */
+    @GameTest(template = "empty")
+    public static void marchEventsGiveWarningBeforeTheySetIn(GameTestHelper h) {
+        var data = tk.darrow.tribalpower.event.MarchEventsSavedData.get(h.getLevel().getServer());
+        long now = h.getLevel().getGameTime();
+        var weather = tk.darrow.tribalpower.event.MarchWeather.ASHFALL;
+        data.setWeather(weather, now + 200, now + 800);
+        h.assertTrue(data.weatherPending(weather, now) && !data.weatherActive(weather, now), "Rolled: pending, not felt");
+        h.assertTrue(data.weatherActive(weather, now + 200) && !data.weatherPending(weather, now + 200), "Felt once the warning is over");
+        h.assertFalse(data.weatherActive(weather, now + 800), "And gone at its end");
+        data.setSurge(tk.darrow.tribalpower.api.pulse.Attunement.WATER, now + 100, now + 500);
+        h.assertTrue(data.surgeVoice(now) == null && data.surgePending(now) == tk.darrow.tribalpower.api.pulse.Attunement.WATER, "A surge is pending first");
+        h.assertTrue(data.surgeVoice(now + 100) == tk.darrow.tribalpower.api.pulse.Attunement.WATER, "Then it runs");
+        h.assertTrue(tk.darrow.tribalpower.event.MarchEvents.span(2400).getString().contains("2"), "Two minutes read as minutes");
+        data.setWeather(weather, 0); data.setSurge(null, 0);
+        h.succeed();
+    }
 }

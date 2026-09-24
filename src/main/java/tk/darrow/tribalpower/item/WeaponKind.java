@@ -15,7 +15,7 @@ public enum WeaponKind {
     /** Long reach; a sprinting thrust hits harder. trait = extra damage fraction while sprinting. */
     SPEAR(7.0, 1.3, 1.5, false, false, 0.35, 0.0, Swing.THRUST),
     /** Reach and weight; sweeps and breaks shields. trait = sweeping damage ratio added. */
-    HALBERD(10.0, 0.9, 1.0, true, true, 0.25, -0.04, Swing.SWEEP),
+    HALBERD(10.0, 0.9, 1.0, true, true, 0.25, -0.04, Swing.SLASH),
     /** Heavy cleaver; sweeps and breaks shields. trait = sweeping damage ratio added. */
     BATTLE_AXE(11.0, 0.8, 0.0, true, true, 0.35, -0.06, Swing.CHOP),
     /** The heaviest blow; breaks shields and armour. trait = fraction of the target's armour dealt as bonus damage. */
@@ -23,7 +23,7 @@ public enum WeaponKind {
     /** Quick and close; a strike from behind lands far harder. trait = damage multiplier from behind. */
     DAGGER(4.5, 2.4, -0.5, false, false, 1.75, 0.05, Swing.STAB),
     /** Reaps a ring around the wielder. trait = fraction of the blow dealt to every hostile nearby. */
-    SCYTHE(8.0, 1.0, 0.5, false, false, 0.5, -0.02, Swing.SWEEP),
+    SCYTHE(8.0, 1.0, 0.5, false, false, 0.5, -0.02, Swing.SLASH),
     /** Two hands of steel; the widest sweep. trait = sweeping damage ratio added. */
     GREATSWORD(10.0, 0.85, 0.5, true, false, 0.5, -0.06, Swing.SLASH),
     /** Three points and a long reach; hits harder on anything wet. trait = extra damage fraction vs targets in water or rain. */

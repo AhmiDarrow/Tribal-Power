@@ -11,7 +11,8 @@
     "manifest": "tribalpower:block/crystal_manifest",
     "threads": "tribalpower:block/seal_loom_threads",
     "disc": "tribalpower:block/seal_loom_disc",
-    "drum": "tribalpower:block/drumheart_top"
+    "drum": "tribalpower:block/drumheart_top",
+    "pane": "tribalpower:block/crystal_pane"
   },
   "elements": [
     {
@@ -512,19 +513,19 @@
       ],
       "faces": {
         "north": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "east": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "west": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "up": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "down": {
-          "texture": "#crystal"
+          "texture": "#pane"
         }
       }
     },
@@ -541,19 +542,19 @@
       ],
       "faces": {
         "south": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "east": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "west": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "up": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "down": {
-          "texture": "#crystal"
+          "texture": "#pane"
         }
       }
     },
@@ -570,19 +571,19 @@
       ],
       "faces": {
         "north": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "south": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "west": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "up": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "down": {
-          "texture": "#crystal"
+          "texture": "#pane"
         }
       }
     },
@@ -599,21 +600,22 @@
       ],
       "faces": {
         "north": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "south": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "east": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "up": {
-          "texture": "#crystal"
+          "texture": "#pane"
         },
         "down": {
-          "texture": "#crystal"
+          "texture": "#pane"
         }
       }
     }
-  ]
+  ],
+  "render_type": "minecraft:translucent"
 }

@@ -25,6 +25,7 @@ public final class TribalConfig {
 
     public static final ModConfigSpec.IntValue DAY_SPAWN_ONE_IN;
     public static final ModConfigSpec.IntValue NIGHT_CROWD_CAP;
+    public static final ModConfigSpec.IntValue EVENT_WARNING_SECONDS;
     public static final ModConfigSpec.IntValue DAY_CROWD_CAP;
     public static final ModConfigSpec.IntValue CROWD_RADIUS;
     public static final ModConfigSpec.IntValue MAX_GROUP_SIZE;
@@ -440,6 +441,7 @@ public final class TribalConfig {
         FESTIVAL_STANDING = b.comment("Standing the Elder's festival gift pays.").defineInRange("festivalStanding", 40, 0, 1000);
         FESTIVAL_RITE_STANDING = b.comment("Standing a rite in a festival camp pays on top of the usual.").defineInRange("festivalRiteStanding", 30, 0, 1000);
         FESTIVAL_FEAST_STANDING = b.comment("Standing for eating a feast by a festival hearth.").defineInRange("festivalFeastStanding", 20, 0, 1000);
+        EVENT_WARNING_SECONDS = b.comment("Seconds of warning before a March weather or a ley surge sets in, so players can reach shelter (0 for none).").defineInRange("eventWarningSeconds", 120, 0, 900);
         WANDERING_SPIRITS_ENABLED = b.comment("Whether wandering spirits appear.").define("wanderingSpiritsEnabled", true);
         WANDERING_SPIRIT_ONE_IN = b.comment("A spirit appears near a March player one time in this many five-second checks (360 is about once a game day).").defineInRange("wanderingSpiritOneIn", 360, 1, 100000);
         WANDERING_SPIRIT_LIFE = b.comment("Seconds a wandering spirit lingers before it fades.").defineInRange("wanderingSpiritLifeSeconds", 120, 5, 3600);
@@ -528,6 +530,7 @@ public final class TribalConfig {
     public static boolean wanderingSpiritsEnabled() { return get(WANDERING_SPIRITS_ENABLED); }
     public static int wanderingSpiritOneIn() { return get(WANDERING_SPIRIT_ONE_IN); }
     public static int wanderingSpiritLifeSeconds() { return get(WANDERING_SPIRIT_LIFE); }
+    public static int eventWarningSeconds() { return get(EVENT_WARNING_SECONDS); }
     public static int dishBoonMinutes() { return get(DISH_BOON); }
     public static double hearthCookScale() { return get(HEARTH_SCALE); }
     public static boolean hearthNeedsHeat() { return get(HEARTH_HEAT); }

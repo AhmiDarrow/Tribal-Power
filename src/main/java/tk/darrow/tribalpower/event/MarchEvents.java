@@ -69,9 +69,18 @@ public final class MarchEvents {
             data.setLastWeatherRoll(now);
             double perCheck = TribalConfig.weatherChancePerHour() * CHECK / 1000.0;
             for (MarchWeather weather : MarchWeather.values()) {
-                if (data.weatherActive(weather, now) || level.random.nextDouble() >= perCheck) continue;
+                if (data.weatherActive(weather, now) || data.weatherPending(weather, now) || level.random.nextDouble() >= perCheck) continue;
                 int minutes = TribalConfig.weatherMinutesMin() + level.random.nextInt(Math.max(1, TribalConfig.weatherMinutesMax() - TribalConfig.weatherMinutesMin() + 1));
-                data.setWeather(weather, now + minutes * 1200L);
+                long warning = TribalConfig.eventWarningSeconds() * 20L;
+                data.setWeather(weather, now + warning, now + warning + minutes * 1200L);
+                if (warning > 0) announce(level, Component.translatable("message.tribalpower.weather.gathers", Component.translatable(weather.key()), span(warning)).withStyle(ChatFormatting.YELLOW));
+                changed = true;
+            }
+        }
+        // a weather whose warning has run out sets in now
+        for (MarchWeather weather : MarchWeather.values()) {
+            long from = data.weatherFrom(weather);
+            if (data.weatherActive(weather, now) && from > now - CHECK && from <= now) {
                 announce(level, Component.translatable("message.tribalpower.weather.begins", Component.translatable(weather.key())).withStyle(ChatFormatting.GRAY));
                 changed = true;
             }
@@ -81,10 +90,16 @@ public final class MarchEvents {
             announce(level, Component.translatable("message.tribalpower.surge.ends").withStyle(ChatFormatting.GRAY));
             changed = true;
         }
-        if (TribalConfig.surgesEnabled() && data.surgeVoice(now) == null && now - data.lastSurgeEnd() >= TribalConfig.surgeEveryMinutes() * 1200L) {
+        if (TribalConfig.surgesEnabled() && data.surgeVoice(now) == null && data.surgePending(now) == null && now - data.lastSurgeEnd() >= TribalConfig.surgeEveryMinutes() * 1200L) {
             Attunement voice = Attunement.values()[level.random.nextInt(Attunement.values().length)];
-            data.setSurge(voice, now + TribalConfig.surgeMinutes() * 1200L);
-            announce(level, Component.translatable("message.tribalpower.surge.begins", Component.translatable("attunement.tribalpower." + voice.getSerializedName()))
+            long warning = TribalConfig.eventWarningSeconds() * 20L;
+            data.setSurge(voice, now + warning, now + warning + TribalConfig.surgeMinutes() * 1200L);
+            if (warning > 0) announce(level, Component.translatable("message.tribalpower.surge.gathers", Component.translatable("attunement.tribalpower." + voice.getSerializedName()), span(warning))
+                    .withStyle(ChatFormatting.YELLOW));
+            changed = true;
+        }
+        if (data.surgeVoice(now) != null && data.surgeFrom() > now - CHECK && data.surgeFrom() <= now) {
+            announce(level, Component.translatable("message.tribalpower.surge.begins", Component.translatable("attunement.tribalpower." + data.surgeVoice(now).getSerializedName()))
                     .withStyle(ChatFormatting.AQUA));
             changed = true;
         }
@@ -100,8 +115,15 @@ public final class MarchEvents {
         return changed;
     }
 
+    /** A span of ticks as "two minutes" or "40 seconds". */
+    public static Component span(long ticks) {
+        long seconds = Math.max(1, ticks / 20);
+        return seconds % 60 == 0 ? Component.translatable("message.tribalpower.time.minutes", seconds / 60)
+                : Component.translatable("message.tribalpower.time.seconds", seconds);
+    }
+
     private static void announce(ServerLevel level, Component message) {
-        for (ServerPlayer player : level.players()) player.sendSystemMessage(message);
+        for (ServerPlayer player : level.players()) { player.sendSystemMessage(message); player.displayClientMessage(message, true); }
     }
 
     // ---- the players -----------------------------------------------------------------------------------------------

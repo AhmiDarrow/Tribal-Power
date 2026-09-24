@@ -17,6 +17,11 @@ public final class ClientSetup {
             net.minecraft.client.renderer.item.ItemProperties.register(bow,
                     net.minecraft.resources.ResourceLocation.withDefaultNamespace("pulling"),
                     (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1F : 0F);
+            // the flasks show their fill: four steps of the window, tinted the fluid's colour
+            for (var flask : java.util.List.of(tk.darrow.tribalpower.item.ModItems.SPIRIT_FLASK.get(), tk.darrow.tribalpower.item.ModItems.GREATER_SPIRIT_FLASK.get()))
+                net.minecraft.client.renderer.item.ItemProperties.register(flask,
+                        net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "fill"),
+                        (stack, level, entity, seed) -> (float) tk.darrow.tribalpower.item.SpiritFlaskItem.contents(stack).getAmount() / flask.capacity());
             var crossbow = tk.darrow.tribalpower.kit.KitRegistry.PULSE_CROSSBOW.get();
             net.minecraft.client.renderer.item.ItemProperties.register(crossbow,
                     net.minecraft.resources.ResourceLocation.withDefaultNamespace("pull"),
@@ -44,6 +49,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         event.registerEntityRenderer(ModEntities.SONIC_BOLT.get(), SonicBoltRenderer::new);
         event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.CAMP_DISPLAY.get(), CampDisplayRenderer::new);
+        event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.SPIRIT_CISTERN.get(), SpiritCisternRenderer::new);
         event.registerBlockEntityRenderer(tk.darrow.tribalpower.blockentity.ModBlockEntities.TRIBAL_BENCH.get(), CampDisplayRenderer::new);
     }
 }

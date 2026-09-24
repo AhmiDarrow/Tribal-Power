@@ -210,7 +210,7 @@ Everything with a number is in `config/tribalpower-common.toml`, by section:
 | `quests` | Request rewards, requests per Tribe Mark, whether Elders talk at all (`elderDialogue`) |
 | `camp` | Whether the automated hands need their voices' totems (`automationNeedsVoices`), the Grove Tender's watering cost |
 | `guardians` | `guardiansEnabled`, health and damage scales, the call's cost, altar rest, attack and wave timings, add caps, the Ninth Agreement's cost and boon |
-| `events` | Each event family on or off (weather, surges, festivals, wandering spirits), their timing, yields and rewards |
+| `events` | Each event family on or off (weather, surges, festivals, wandering spirits), their timing, yields and rewards, and the warning before a weather or surge sets in (`eventWarningSeconds`) |
 
 Datapacks can replace or add:
 
