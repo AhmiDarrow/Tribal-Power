@@ -73,6 +73,7 @@ public class GuardianAltarBlockEntity extends BlockEntity {
         if (!offered.is(guardian.callItem()))
             return Component.translatable("message.tribalpower.guardian_altar.wants", Component.translatable(guardian.nameKey()),
                     TribalConfig.guardianCallCost(), guardian.callItem().getDescription());
+        if (!TribalConfig.guardiansEnabled()) return Component.translatable("message.tribalpower.guardian_altar.disabled");
         if (living(server) != null) return Component.translatable("message.tribalpower.guardian_altar.awake", Component.translatable(guardian.nameKey()));
         if (!onAltar(server)) return Component.translatable("message.tribalpower.guardian_altar.no_altar");
         long cooldown = TribalConfig.guardianCooldownMinutes() * 1200L;

@@ -15,7 +15,7 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
  * ordinal order: the open request (empty when none) and its progress, requests finished, the story step and its
  * progress, and whether the relic is held.
  */
-public record QuestStatePayload(List<TribeState> tribes, boolean agreed) implements CustomPacketPayload {
+public record QuestStatePayload(List<TribeState> tribes, boolean agreed, String nextStep) implements CustomPacketPayload {
     public static final Type<QuestStatePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "quest_state"));
 
     public record TribeState(String request, int requestProgress, int completed, int step, int stepProgress, boolean relic) {
@@ -26,9 +26,10 @@ public record QuestStatePayload(List<TribeState> tribes, boolean agreed) impleme
     }
 
     public static final StreamCodec<ByteBuf, QuestStatePayload> STREAM_CODEC = StreamCodec.composite(
-            TribeState.CODEC.apply(ByteBufCodecs.list()), QuestStatePayload::tribes, ByteBufCodecs.BOOL, QuestStatePayload::agreed, QuestStatePayload::new);
+            TribeState.CODEC.apply(ByteBufCodecs.list()), QuestStatePayload::tribes, ByteBufCodecs.BOOL, QuestStatePayload::agreed,
+            ByteBufCodecs.STRING_UTF8, QuestStatePayload::nextStep, QuestStatePayload::new);
 
-    public static final QuestStatePayload EMPTY = new QuestStatePayload(List.of(), false);
+    public static final QuestStatePayload EMPTY = new QuestStatePayload(List.of(), false, "");
     /** What the client last heard; read by the Codex and the sky. */
     public static volatile QuestStatePayload latest = EMPTY;
 
@@ -41,7 +42,7 @@ public record QuestStatePayload(List<TribeState> tribes, boolean agreed) impleme
                     data.completed(player.getUUID(), tribe), data.step(player.getUUID(), tribe), data.stepProgress(player.getUUID(), tribe),
                     data.hasRelic(player.getUUID(), tribe)));
         }
-        return new QuestStatePayload(List.copyOf(out), tk.darrow.tribalpower.finale.NinthAgreement.agreed(player));
+        return new QuestStatePayload(List.copyOf(out), tk.darrow.tribalpower.finale.NinthAgreement.agreed(player), tk.darrow.tribalpower.guide.NextStep.of(player));
     }
 
     public TribeState of(TribeDefinition tribe) {

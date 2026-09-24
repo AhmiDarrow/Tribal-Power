@@ -257,6 +257,7 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Pattern p -> SCENE_H + 52;
             case CodexBook.Quests q -> 96;
             case CodexBook.Events e -> 64;
+            case CodexBook.NextStep n -> 56;
             default -> 0;
         };
     }
@@ -572,10 +573,32 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Events e -> {
                 return events(g, x, y);
             }
+            case CodexBook.NextStep n -> {
+                return nextStep(g, x, y);
+            }
             default -> {
                 return y;
             }
         }
+    }
+
+    /** The guided path's next step, from the last state the server sent. */
+    private int nextStep(GuiGraphics g, int x, int y) {
+        String step = tk.darrow.tribalpower.quest.QuestStatePayload.latest.nextStep();
+        if (step.isEmpty()) step = tk.darrow.tribalpower.guide.NextStep.SPINE.get(0);
+        int w = pageWidth - 8;
+        g.fill(x, y, x + w, y + 52, 0x22000000);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.next_step"), x + 4, y + 4, GOLD, false);
+        int index = tk.darrow.tribalpower.guide.NextStep.index(step);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.next_step.progress", Math.min(index + 1, tk.darrow.tribalpower.guide.NextStep.SPINE.size()),
+                tk.darrow.tribalpower.guide.NextStep.SPINE.size()), x + 4, y + 14, DIM, false);
+        int ly = y + 26;
+        for (var line : font.split(Component.translatable(tk.darrow.tribalpower.guide.NextStep.key(step)), w - 8)) {
+            if (ly > y + 46) break;
+            g.drawString(font, line, x + 4, ly, INK, false);
+            ly += 10;
+        }
+        return y + 56;
     }
 
     /** The March's weather, surge and festival, from the last state the server sent. */

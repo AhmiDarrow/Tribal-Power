@@ -195,6 +195,34 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 
 Sneak-use the Spirit Codex on any Tribal block: stored Pulse, every generator within eight blocks with its output this second, attunements present, drawable Pulse and redstone state. Workshops name their recipe and any missing voice or full output; relays report unloaded or locked endpoints; braziers list the rites their seal allows. Blocks implement `Diagnosable`; others get a default report.
 
+## The March, 4.x
+
+The 4.x releases give the March a life of its own. Tribe **Elders talk**: conversations, daily requests, a seven-step story per tribe ending at a **guardian trial**, and a relic for each. Eight **guardians** keep the eight March countries, called from altars at their grounds; The Unsung keeps the ninth trial, and the **Ninth Agreement** rite closes the story for anyone carrying all nine relics. The March has **weather** of its own, **ley surges**, tribe **festival days** and **wandering spirits**, and its own music. Its history is carved into **Carved Stones** and **Murals** that the Codex's **Chronicle** assembles, and the Codex's *Where to go next* page keeps one concrete **next step** in view.
+
+## Pack-maker configuration
+
+Everything with a number is in `config/tribalpower-common.toml`, by section:
+
+| Section | What it holds |
+|---|---|
+| `balance`, `world`, `march` | Pulse economy, generation, March spawn and threat numbers, sleep rules |
+| `weapons`, `anointing`, `healing`, `kit`, `effects`, `cuisine` | Weapon stats, anointment powers, remedies, kit tiers, blessings and boons, dishes and feasts |
+| `quests` | Request rewards, requests per Tribe Mark, whether Elders talk at all (`elderDialogue`) |
+| `guardians` | `guardiansEnabled`, health and damage scales, the call's cost, altar rest, attack and wave timings, add caps, the Ninth Agreement's cost and boon |
+| `events` | Each event family on or off (weather, surges, festivals, wandering spirits), their timing, yields and rewards |
+
+Datapacks can replace or add:
+
+- **Elder dialogue**: `data/tribalpower/dialogue/<tribe>/*.json` (roots with conditions, nodes with choices, actions); texts are lang keys. Files for one tribe merge.
+- **Hearth Pot meals**: `data/tribalpower/recipe/hearth/*.json` (`tribalpower:hearth`, up to four ingredients and an optional container).
+- **Echo station and kiln recipes**: `tribalpower:lattice` (above).
+- **Structure spacing and biomes**: `worldgen/structure_set/<name>.json` and `tags/worldgen/biome/has_structure/<name>.json`, including the guardian grounds (`slag_throne`, `drowned_root`, `cairn_ring`, `singing_fracture`, `sealed_gate`, `tide_stone`, `trampled_ring`, `roost`).
+- **Spawn weights**: the `spawners` block of each `worldgen/biome/march_*.json`; biome music in its `effects.music`.
+- **Paintings and crests**: `painting_variant/*.json` with the `minecraft:placeable` tag, and `banner_pattern/*.json` with the `tribalpower:pattern_item/<tribe>` tags.
+- **Codex pages**: `assets/tribalpower/codex/en_us/` (a resource pack), one JSON per entry.
+
+The client config (`tribalpower-client.toml`) holds the aurora and the Tidy buttons.
+
 ## Development
 
 Java 21. `gradlew build` produces the jar; `gradlew runVerification` runs the server GameTests. Art and generator scripts stay in the local checkout and are not part of this repository.

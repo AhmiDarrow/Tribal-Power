@@ -38,6 +38,9 @@ public class TribalJeiPlugin implements IModPlugin {
     public record KettleBrew(tk.darrow.tribalpower.healing.Remedy remedy, tk.darrow.tribalpower.healing.Remedies.Form form) {}
     public static final RecipeType<KettleBrew> KETTLE = RecipeType.create("tribalpower","spirit_kettle",KettleBrew.class);
     public static final RecipeType<tk.darrow.tribalpower.cuisine.HearthRecipe> HEARTH = RecipeType.create("tribalpower","hearth",tk.darrow.tribalpower.cuisine.HearthRecipe.class);
+    public static final RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Rite> RITE = RecipeType.create("tribalpower","rite",tk.darrow.tribalpower.integration.CompatDisplays.Rite.class);
+    public static final RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Call> CALL = RecipeType.create("tribalpower","guardian_call",tk.darrow.tribalpower.integration.CompatDisplays.Call.class);
+    public static final RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Anoint> ANOINT = RecipeType.create("tribalpower","anointing",tk.darrow.tribalpower.integration.CompatDisplays.Anoint.class);
     private static IJeiRuntime runtime;
     @Override public ResourceLocation getPluginUid() { return ResourceLocation.fromNamespaceAndPath("tribalpower","jei"); }
     @Override public void onRuntimeAvailable(IJeiRuntime value) { runtime = value; }
@@ -79,6 +82,9 @@ public class TribalJeiPlugin implements IModPlugin {
         registration.addRecipeCategories(new Category(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new KettleCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new HearthCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new RiteCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new CallCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new AnointCategory(registration.getJeiHelpers().getGuiHelper()));
     }
     @Override public void registerRecipes(IRecipeRegistration registration) {
         var level=Minecraft.getInstance().level;
@@ -99,6 +105,13 @@ public class TribalJeiPlugin implements IModPlugin {
             for(var form:tk.darrow.tribalpower.healing.Remedies.Form.values()) brews.add(new KettleBrew(remedy,form));
         registration.addRecipes(KETTLE,brews);
         if (level!=null) registration.addRecipes(HEARTH,level.getRecipeManager().getAllRecipesFor(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_TYPE.get()).stream().map(h -> h.value()).toList());
+        registration.addRecipes(RITE,tk.darrow.tribalpower.integration.CompatDisplays.rites());
+        registration.addRecipes(CALL,tk.darrow.tribalpower.integration.CompatDisplays.calls());
+        registration.addRecipes(ANOINT,tk.darrow.tribalpower.integration.CompatDisplays.anointments());
+        for (var relic : tk.darrow.tribalpower.quest.QuestRegistry.RELICS.values()) registration.addIngredientInfo(relic.get(),Component.translatable("jei.tribalpower.relic"));
+        for (var pattern : tk.darrow.tribalpower.lore.LoreRegistry.PATTERN_ITEMS.values()) registration.addIngredientInfo(pattern.get(),Component.translatable("jei.tribalpower.pattern"));
+        registration.addIngredientInfo(tk.darrow.tribalpower.lore.LoreRegistry.CARVED_STONE_ITEM.get(),Component.translatable("jei.tribalpower.carving"));
+        registration.addIngredientInfo(tk.darrow.tribalpower.lore.LoreRegistry.MURAL_ITEM.get(),Component.translatable("jei.tribalpower.carving"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SWEAT_STONES_ITEM.get(),Component.translatable("jei.tribalpower.sweat_lodge"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_REMNANT.get(),Component.translatable("jei.tribalpower.spirit_remnant"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_SALVE.get(),Component.translatable("jei.tribalpower.spirit_sickness"));
@@ -121,6 +134,9 @@ public class TribalJeiPlugin implements IModPlugin {
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_KETTLE_ITEM.get()),KETTLE);
         registration.addRecipeCatalyst(new ItemStack(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_ITEM.get()),HEARTH);
+        registration.addRecipeCatalyst(new ItemStack(ModItems.RITUAL_BRAZIER.get()),RITE);
+        registration.addRecipeCatalyst(new ItemStack(tk.darrow.tribalpower.guardian.GuardianRegistry.ALTAR_ITEM.get()),CALL);
+        registration.addRecipeCatalyst(new ItemStack(ModItems.SONG_BENCH.get()),ANOINT);
         registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get(),ModItems.EMBER_KILN.get());
         for (var bench : tk.darrow.tribalpower.block.ModBlocks.allBenches())
             registration.addRecipeCatalyst(new ItemStack(bench), RecipeTypes.CRAFTING);
@@ -195,6 +211,65 @@ public class TribalJeiPlugin implements IModPlugin {
             var font=Minecraft.getInstance().font;
             g.fill(72,28,112,32,0xFF438F80);g.drawString(font,">",113,26,0xFF997445,false);
             g.drawString(font,Component.translatable("gui.tribalpower.hearth_pot.seconds",recipe.seconds()),70,40,0xFF526A61,false);
+        }
+    }
+    /** A world rite: its tablet and the seal its circle wants, and the Pulse it draws. */
+    private static class RiteCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Rite> {
+        private final IDrawable icon;
+        RiteCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(ModItems.LOOM_SEAL.get()); }
+        @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Rite> getRecipeType() { return RITE; }
+        @Override public Component getTitle() { return Component.translatable("gui.tribalpower.rite_recipes"); }
+        @Override public IDrawable getIcon() { return icon; }
+        @Override public int getWidth() { return 160; }
+        @Override public int getHeight() { return 44; }
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Rite rite,IFocusGroup focus) {
+            builder.addInputSlot(4,14).addItemStack(rite.tablet());
+            builder.addInputSlot(24,14).addItemStack(rite.seal());
+        }
+        @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Rite rite,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
+            var font=Minecraft.getInstance().font;
+            g.drawString(font,Component.translatable("item.tribalpower."+rite.rite().tabletId()),48,6,0xFF526A61,false);
+            g.drawString(font,Component.translatable("gui.tribalpower.rite.circle",Component.translatable("attunement.tribalpower."+rite.rite().element().getSerializedName()),rite.cost()),48,22,0xFF526A61,false);
+        }
+    }
+    /** A guardian's call: the reagents laid on its altar, and what rises. */
+    private static class CallCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Call> {
+        private final IDrawable icon;
+        CallCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.guardian.GuardianRegistry.ALTAR_ITEM.get()); }
+        @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Call> getRecipeType() { return CALL; }
+        @Override public Component getTitle() { return Component.translatable("gui.tribalpower.altar_recipes"); }
+        @Override public IDrawable getIcon() { return icon; }
+        @Override public int getWidth() { return 160; }
+        @Override public int getHeight() { return 44; }
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Call call,IFocusGroup focus) {
+            builder.addInputSlot(4,14).addItemStack(call.reagents());
+            builder.addInputSlot(24,14).addItemStack(call.altar());
+            builder.addOutputSlot(82,14).addItemStack(call.rises());
+        }
+        @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Call call,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
+            var font=Minecraft.getInstance().font;
+            g.fill(48,20,76,24,0xFF438F80);g.drawString(font,">",77,18,0xFF997445,false);
+            g.drawString(font,Component.translatable(call.guardian().nameKey()),104,6,0xFF526A61,false);
+            g.drawString(font,Component.translatable("biome.tribalpower."+call.guardian().biome),104,22,0xFF526A61,false);
+        }
+    }
+    /** An anointment: reagents of one Note worked into a weapon at the Song Bench. */
+    private static class AnointCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Anoint> {
+        private final IDrawable icon;
+        AnointCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(ModItems.SPIRITGEAR_BLADE.get()); }
+        @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Anoint> getRecipeType() { return ANOINT; }
+        @Override public Component getTitle() { return Component.translatable("gui.tribalpower.anoint_recipes"); }
+        @Override public IDrawable getIcon() { return icon; }
+        @Override public int getWidth() { return 160; }
+        @Override public int getHeight() { return 44; }
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Anoint anoint,IFocusGroup focus) {
+            builder.addInputSlot(4,14).addItemStacks(anoint.reagents());
+            builder.addInputSlot(24,14).addItemStacks(anoint.weapons());
+        }
+        @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Anoint anoint,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
+            var font=Minecraft.getInstance().font;
+            g.drawString(font,Component.translatable(tk.darrow.tribalpower.integration.CompatDisplays.anointmentKey(anoint.anointment())),48,6,0xFF526A61,false);
+            g.drawString(font,Component.translatable("gui.tribalpower.anoint.cost",tk.darrow.tribalpower.config.TribalConfig.anointReagentCost(),tk.darrow.tribalpower.config.TribalConfig.anointPulseCost()),48,22,0xFF526A61,false);
         }
     }
     private record BookGui(Class<? extends Screen> screenClass, int guiLeft, int guiTop, int guiXSize, int guiYSize,

@@ -52,6 +52,7 @@ public final class TribalConfig {
     public static final ModConfigSpec.DoubleValue REQUEST_SCALE;
     public static final ModConfigSpec.IntValue REQUESTS_PER_MARK;
     public static final ModConfigSpec.BooleanValue ELDER_DIALOGUE;
+    public static final ModConfigSpec.BooleanValue GUARDIANS_ENABLED;
     public static final ModConfigSpec.DoubleValue GUARDIAN_HEALTH_SCALE;
     public static final ModConfigSpec.DoubleValue GUARDIAN_DAMAGE_SCALE;
     public static final ModConfigSpec.IntValue GUARDIAN_CALL_COST;
@@ -400,6 +401,7 @@ public final class TribalConfig {
         ELDER_DIALOGUE = b.comment("Whether an Elder opens a conversation. When false the Elder trades at once, as before.").define("elderDialogue", true);
         b.pop();
         b.comment("The guardians of the March and the last rite.").push("guardians");
+        GUARDIANS_ENABLED = b.comment("Whether Guardian Altars answer at all. Off, the guardians never rise and the stories stop at their trial.").define("guardiansEnabled", true);
         GUARDIAN_HEALTH_SCALE = b.comment("Scales every guardian's health.").defineInRange("guardianHealthScale", 1.0, 0.1, 10.0);
         GUARDIAN_DAMAGE_SCALE = b.comment("Scales every guardian's damage.").defineInRange("guardianDamageScale", 1.0, 0.1, 10.0);
         GUARDIAN_CALL_COST = b.comment("Reagents laid on a Guardian Altar to call its guardian.").defineInRange("guardianCallCost", 8, 1, 64);
@@ -485,6 +487,7 @@ public final class TribalConfig {
     public static double requestStandingScale() { return get(REQUEST_SCALE); }
     public static int requestsPerMark() { return get(REQUESTS_PER_MARK); }
     public static boolean elderDialogue() { return get(ELDER_DIALOGUE); }
+    public static boolean guardiansEnabled() { return get(GUARDIANS_ENABLED); }
     public static double guardianHealthScale() { return get(GUARDIAN_HEALTH_SCALE); }
     public static double guardianDamageScale() { return get(GUARDIAN_DAMAGE_SCALE); }
     public static int guardianCallCost() { return get(GUARDIAN_CALL_COST); }

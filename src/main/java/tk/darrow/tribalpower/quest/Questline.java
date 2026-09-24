@@ -87,6 +87,10 @@ public final class Questline {
                 tk.darrow.tribalpower.item.SpiritgearHelper.give(player, new ItemStack(QuestRegistry.RELICS.get(tribe).get()));
             }
             tk.darrow.tribalpower.camp.CampHooks.award(player.serverLevel(), player.getUUID(), "tribes/story_" + tribe.id());
+            tk.darrow.tribalpower.camp.CampHooks.award(player.serverLevel(), player.getUUID(), "tribes/first_story");
+            boolean all = true;
+            for (TribeDefinition other : TribeDefinition.values()) all &= data.hasRelic(player.getUUID(), other);
+            if (all) tk.darrow.tribalpower.camp.CampHooks.award(player.serverLevel(), player.getUUID(), "tribes/all_stories");
             player.sendSystemMessage(Component.translatable("message.tribalpower.questline.done", tribe.displayNameComponent())
                     .withStyle(net.minecraft.ChatFormatting.GOLD));
             tk.darrow.tribalpower.tribe.CodexUnlocksPayload.sync(player);

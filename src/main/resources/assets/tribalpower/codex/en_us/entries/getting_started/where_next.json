@@ -1,8 +1,15 @@
 {
   "name": "Where to go next",
   "icon": "tribalpower:gate_drum",
-  "order": 60,
+  "order": 5,
   "pages": [
+    {
+      "type": "next_step",
+      "title": "Next step",
+      "text": [
+        "One concrete thing to do, read from where you are on the path from the first hearth to the Ninth Agreement. It changes as you go."
+      ]
+    },
     {
       "type": "text",
       "text": [

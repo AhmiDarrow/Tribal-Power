@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/melee_weapon",
+    "#c:tools/ranged_weapon",
+    "#c:tools/mining_tool",
+    "#c:tools/shear",
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_hoe",
+    "tribalpower:spiritgear_rattle",
+    "tribalpower:totem_wrench",
+    "tribalpower:weavers_wand",
+    "tribalpower:builders_chalk"
+  ]
+}

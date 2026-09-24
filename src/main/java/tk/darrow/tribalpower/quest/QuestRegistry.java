@@ -44,6 +44,9 @@ public final class QuestRegistry {
         NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerRespawnEvent event) -> {
             if (event.getEntity() instanceof ServerPlayer player) QuestEvents.sync(player);
         });
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.AdvancementEvent.AdvancementEarnEvent event) -> {
+            if (event.getEntity() instanceof ServerPlayer player) QuestEvents.sync(player);
+        });
     }
 
     public static void displayItems(CreativeModeTab.Output out) {

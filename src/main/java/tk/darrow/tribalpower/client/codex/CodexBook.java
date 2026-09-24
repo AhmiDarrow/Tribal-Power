@@ -44,7 +44,7 @@ public final class CodexBook {
     public record Entry(String id, String category, String name, String icon, boolean spoiler, String unlock,
                         int order, List<String> items, List<Page> pages, String next) {}
 
-    public sealed interface Page permits Text, Spotlight, Recipe, Image, Scene, Pattern, Quests, Events {
+    public sealed interface Page permits Text, Spotlight, Recipe, Image, Scene, Pattern, Quests, Events, NextStep {
         String title();
         String text();
     }
@@ -56,6 +56,9 @@ public final class CodexBook {
 
     /** What the March is doing now: its weather, its surge, whose festival it is. */
     public record Events(String title, String text) implements Page {}
+
+    /** The one thing to do next on the guided path. */
+    public record NextStep(String title, String text) implements Page {}
 
     /** A big item with its name, and text beneath. */
     public record Spotlight(String item, String title, String text) implements Page {}
@@ -194,6 +197,7 @@ public final class CodexBook {
             case "scene" -> new Scene(title, text, steps(json.getAsJsonArray("steps")));
             case "quests" -> new Quests(str(json, "tribe"), title, text);
             case "events" -> new Events(title, text);
+            case "next_step" -> new NextStep(title, text);
             default -> new Text(title, text);
         };
     }

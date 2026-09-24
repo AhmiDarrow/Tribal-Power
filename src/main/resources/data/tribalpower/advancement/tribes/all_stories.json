@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "id": "tribalpower:rite_ninth_agreement"
+      "id": "tribalpower:relic_spindle"
     },
-    "title": "The Ninth Agreement",
-    "description": "Bring all nine relics to a Loom circle and make the Loom agree again.",
+    "title": "Nine relics",
+    "description": "Finish every tribe's story.",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -15,5 +15,5 @@
       "trigger": "minecraft:impossible"
     }
   },
-  "parent": "tribalpower:tribes/all_stories"
+  "parent": "tribalpower:tribes/first_story"
 }

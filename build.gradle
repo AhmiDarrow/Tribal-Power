@@ -21,6 +21,10 @@ sourceSets.main.resources {
 
 repositories {
     maven { url = 'https://maven.blamejared.com' }
+    exclusiveContent {
+        forRepository { maven { name = 'Modrinth'; url = 'https://api.modrinth.com/maven' } }
+        filter { includeGroup 'maven.modrinth' }
+    }
 }
 
 neoForge {
@@ -146,6 +150,9 @@ configurations {
 dependencies {
     compileOnly 'mezz.jei:jei-1.21.1-common-api:19.51.0.418'
     compileOnly 'mezz.jei:jei-1.21.1-neoforge-api:19.51.0.418'
+    // EMI and Jade plugins compile against the shipped jars; neither is needed at runtime.
+    compileOnly 'maven.modrinth:emi:1.1.24+1.21.1+neoforge'
+    compileOnly 'maven.modrinth:jade:15.10.6+neoforge'
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
