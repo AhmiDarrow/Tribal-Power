@@ -109,7 +109,10 @@ public class SilentDrumBlockEntity extends BlockEntity {
         unsung.moveTo(worldPosition.getX() + 0.5, worldPosition.getY() + 1.0, worldPosition.getZ() + 0.5, server.random.nextFloat() * 360F, 0);
         unsung.bindDrum(worldPosition);
         unsung.finalizeSpawn(server, server.getCurrentDifficultyAt(worldPosition), MobSpawnType.EVENT, null);
-        server.addFreshEntity(unsung);
+        if (!server.addFreshEntity(unsung)) {   // a ward refused it: the drum has not spoken
+            if (player != null) player.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.warded"), true);
+            return;
+        }
         boss = unsung.getUUID();
         lastWakeMillis = real;
         server.playSound(null, worldPosition, SoundEvents.WITHER_SPAWN, SoundSource.HOSTILE, 1.0F, 0.55F);

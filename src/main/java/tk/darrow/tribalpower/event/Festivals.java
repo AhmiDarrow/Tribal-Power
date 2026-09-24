@@ -29,12 +29,13 @@ public final class Festivals {
     /** Whose festival a day is, or null: the cycle is split into nine slots and the first day of each is the festival. */
     public static TribeDefinition tribeOn(long day) {
         if (!TribalConfig.festivalsEnabled()) return null;
-        int cycle = Math.max(9, TribalConfig.festivalCycleDays());
-        int slot = cycle / 9;
+        int tribes = TribeDefinition.values().length;
+        int cycle = Math.max(tribes, TribalConfig.festivalCycleDays());
+        int slot = (cycle + tribes - 1) / tribes;
         long inCycle = Math.floorMod(day, cycle);
         if (inCycle % slot != 0) return null;
         int index = (int) (inCycle / slot);
-        return index < TribeDefinition.values().length ? TribeDefinition.values()[index] : null;
+        return index < tribes ? TribeDefinition.values()[index] : null;
     }
 
     /** Whose festival it is today, or null. */
@@ -71,6 +72,8 @@ public final class Festivals {
         ServerLevel level = player.serverLevel();
         for (TribeDefinition tribe : TribeHooks.hearthsNear(level, at, 24)) {
             if (!active(tribe, level)) continue;
+            // once per festival: the feast key sits above the join keys in the same record
+            if (!MarchEventsSavedData.get(player.server).join(player.getUUID(), tribe.ordinal() + 16, day(level))) continue;
             TribeStanding.add(player, tribe, TribalConfig.festivalFeastStanding());
             player.displayClientMessage(Component.translatable("message.tribalpower.festival.feast", tribe.displayNameComponent()).withStyle(ChatFormatting.GOLD), true);
         }

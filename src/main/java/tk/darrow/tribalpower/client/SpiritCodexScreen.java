@@ -610,10 +610,11 @@ public final class SpiritCodexScreen extends Screen {
         for (var weather : tk.darrow.tribalpower.event.MarchWeather.values()) if (state.weather(weather)) running.add(Component.translatable(weather.key()));
         Component sky = running.isEmpty() ? Component.translatable("gui.tribalpower.codex.events.clear") : Component.translatable("gui.tribalpower.codex.events.weather",
                 running.stream().map(Component::getString).collect(java.util.stream.Collectors.joining(", ")));
-        g.drawString(font, sky, x + 4, y + 6, INK, false);
+        g.drawString(font, font.split(sky, w - 8).get(0), x + 4, y + 6, INK, false);
         var surge = state.surge();
         g.drawString(font, surge == null ? Component.translatable("gui.tribalpower.codex.events.no_surge")
-                : Component.translatable("gui.tribalpower.codex.events.surge", Component.translatable("attunement.tribalpower." + surge.getSerializedName()), state.surgeSeconds() / 60),
+                : Component.translatable("gui.tribalpower.codex.events.surge", Component.translatable("attunement.tribalpower." + surge.getSerializedName()),
+                        state.surgeSecondsLeft(minecraft.level == null ? 0 : minecraft.level.getGameTime()) / 60),
                 x + 4, y + 22, surge == null ? DIM : GOLD, false);
         var festival = state.festival();
         g.drawString(font, festival == null ? Component.translatable("gui.tribalpower.codex.events.no_festival")
@@ -634,10 +635,10 @@ public final class SpiritCodexScreen extends Screen {
         Component request = template == null ? Component.translatable("gui.tribalpower.codex.quests.no_request")
                 : template.name().copy().append(": ").append(template.describe());
         int ly = y + 14;
-        for (var line : font.split(request, w - 8)) { g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
+        for (var line : font.split(request, w - 8)) { if (ly > y + 24) break; g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
         if (template != null && (template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.SLAY || template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.RITE))
             g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.progress", state.requestProgress(), template.count()), x + 4, ly, DIM, false);
-        g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.completed", state.completed()), x + 4, y + 40, DIM, false);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.completed", state.completed()), x + 4, y + 44, DIM, false);
         g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.story"), x + 4, y + 54, GOLD, false);
         var step = tk.darrow.tribalpower.quest.Questline.step(tribe, state.step());
         Component story = step == null ? Component.translatable(state.relic() ? "gui.tribalpower.codex.quests.story_done" : "gui.tribalpower.codex.quests.story_done")

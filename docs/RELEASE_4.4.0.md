@@ -25,6 +25,15 @@ The March writes its history down, hands you a path through it, and opens up to 
 
 - Every guardian's boss bar takes its tribe's voice colour, the Drummers, Hunters and Weavers of every camp have a word for you, and the Hearth Pot has a handle and a ladle.
 
+## Fixes from the sweep
+
+- Elders now rotate through every request in their pool over the week (half of them never came up), and a player may finish three requests a day across the tribes (`requestsPerDay`); the Elder says so when the day's work is done. A wall raised for a tribe has to be built: a chalk mark set into a hillside no longer counts.
+- A story whose next step is a rank you already hold moves straight on instead of waiting for standing to change.
+- Guardian Altars no longer take your reagents or start their rest when a ward refuses the guardian; the Silent Drum likewise. A guardian that wanders out of loaded chunks still counts as awake; one that goes back to sleep unbeaten frees its altar at once. Bolts stop at walls. Spectators no longer finish trials. The Storm Roc fights from the air instead of trying to bite.
+- March weather no longer spawns spirits under torchlight; its fog never sees further than what was already set; its ambience plays one sound at a time and fades between weathers. Weather chance is per game hour, as the config says. Festival days spread evenly over any cycle length; a feast pays its festival thanks once per festival.
+- Murals drop once, keep their chapter when picked up, and come down whole when their wall or any part goes; carved stones fall with their wall. Reading a carving opens its page only once the read has counted.
+- The Codex "Next step" no longer pins on an optional step already skipped, and the March page keeps counting down a surge while you read.
+
 ## For pack makers
 
 - **Guardians can be switched off** (`guardiansEnabled`), and every event family, request reward, guardian number and rite cost has a config line. The README's new *Pack-maker configuration* section lists every section and what a datapack can override: Elder dialogue, hearth recipes, structure spacing, spawn weights, paintings and crests.

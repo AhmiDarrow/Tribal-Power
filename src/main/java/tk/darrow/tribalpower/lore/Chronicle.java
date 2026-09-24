@@ -46,9 +46,20 @@ public final class Chronicle {
         return true;
     }
 
-    /** Right-click on a carving: mark it, and say what it was. */
+    /** Server → client: open the fragment's page. Sent only once the read has counted, so what you see is what you keep. */
+    public record Show(int fragment) implements net.minecraft.network.protocol.common.custom.CustomPacketPayload {
+        public static final Type<Show> TYPE = new Type<>(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "chronicle_show"));
+        public static final net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, Show> STREAM_CODEC =
+                net.minecraft.network.codec.ByteBufCodecs.VAR_INT.map(Show::new, Show::fragment);
+        @Override public Type<? extends net.minecraft.network.protocol.common.custom.CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Right-click on a carving: mark it, say what it was, and open its page. */
     public static void read(Player player, int fragment) {
         boolean first = markRead(player, fragment);
+        if (player instanceof ServerPlayer sp && sp.connection != null && sp.connection.getConnection().channel() != null
+                && net.neoforged.neoforge.network.registration.NetworkRegistry.hasChannel(sp.connection, Show.TYPE.id()))
+            net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(sp, new Show(Math.floorMod(fragment, FRAGMENTS)));
         player.displayClientMessage(Component.translatable(first ? "message.tribalpower.chronicle.found" : "message.tribalpower.chronicle.again",
                 Component.translatable(titleKey(fragment)), readCount(player), FRAGMENTS).withStyle(first ? ChatFormatting.GOLD : ChatFormatting.GRAY), true);
     }

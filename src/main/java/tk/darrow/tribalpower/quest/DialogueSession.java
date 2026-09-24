@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import tk.darrow.tribalpower.camp.identity.CampStanding;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.tribe.TribalKinEntity;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.tribe.TribeRank;
@@ -48,10 +49,12 @@ public final class DialogueSession {
     }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar("1");
+        var registrar = event.registrar("2");
         registrar.playToClient(Open.TYPE, Open.STREAM_CODEC, (payload, context) ->
                 tk.darrow.tribalpower.client.DialogueScreen.open(payload));
         registrar.playToClient(QuestStatePayload.TYPE, QuestStatePayload.STREAM_CODEC, (payload, context) -> QuestStatePayload.latest = payload);
+        registrar.playToClient(tk.darrow.tribalpower.lore.Chronicle.Show.TYPE, tk.darrow.tribalpower.lore.Chronicle.Show.STREAM_CODEC, (payload, context) ->
+                tk.darrow.tribalpower.client.FragmentScreen.open(payload.fragment()));
         registrar.playToServer(Choose.TYPE, Choose.STREAM_CODEC, (payload, context) -> {
             if (context.player() instanceof ServerPlayer player) choose(player, payload);
         });
@@ -75,16 +78,27 @@ public final class DialogueSession {
         for (Dialogue.Choice choice : node.choices()) if (holds(player, kin.tribe(), choice.conditions())) choices.add(choice.text());
         if (player.connection == null || player.connection.getConnection().channel() == null
                 || !net.neoforged.neoforge.network.registration.NetworkRegistry.hasChannel(player.connection, Open.TYPE.id())) return false;
+        SHOWN.put(player.getUUID(), kin.getId() + ":" + node.id());
         PacketDistributor.sendToPlayer(player, new Open(kin.getId(), kin.tribe().ordinal(), node.id(), node.text(), List.copyOf(choices)));
         return true;
     }
 
+    /** The node each player was last shown, keyed by kin entity id: a choice is only honoured from that node. */
+    private static final java.util.Map<java.util.UUID, String> SHOWN = new java.util.concurrent.ConcurrentHashMap<>();
+
+    /** Whether this Kin talks at all: a camp Elder, not a stall, with dialogue on. */
+    public static boolean talks(TribalKinEntity kin) {
+        return kin.role() == tk.darrow.tribalpower.tribe.KinRole.ELDER && !kin.stall() && TribalConfig.elderDialogue();
+    }
+
     private static void choose(ServerPlayer player, Choose payload) {
-        if (!(player.level().getEntity(payload.kin()) instanceof TribalKinEntity kin) || player.distanceToSqr(kin) > 64) return;
+        if (!(player.level().getEntity(payload.kin()) instanceof TribalKinEntity kin) || player.distanceToSqr(kin) > 64 || !talks(kin)) return;
+        if (!(payload.kin() + ":" + payload.node()).equals(SHOWN.get(player.getUUID()))) return;
         Dialogue.Tree tree = Dialogue.tree(kin.tribe());
         if (tree == null) return;
         Dialogue.Node node = tree.node(payload.node());
         if (node == null) return;
+        SHOWN.remove(player.getUUID());
         for (Dialogue.Choice choice : node.choices()) {
             if (!choice.text().equals(payload.choice()) || !holds(player, kin.tribe(), choice.conditions())) continue;
             boolean stay = true;
@@ -92,13 +106,21 @@ public final class DialogueSession {
             if (stay && !choice.next().isEmpty()) show(player, kin, tree, choice.next());
             return;
         }
+        // Nothing matched: the world moved between the showing and the choosing. Start again from the top.
+        begin(player, kin);
     }
 
     // ---- conditions ------------------------------------------------------------------------------------------------
 
     public static boolean holds(ServerPlayer player, TribeDefinition tribe, List<Dialogue.Condition> conditions) {
-        for (Dialogue.Condition condition : conditions) if (!holds(player, tribe, condition)) return false;
-        return true;
+        try {
+            for (Dialogue.Condition condition : conditions) if (!holds(player, tribe, condition)) return false;
+            return true;
+        } catch (RuntimeException e) {
+            // A datapack typo in a value must not crash the interaction; it fails the gate instead.
+            tk.darrow.tribalpower.TribalPower.LOGGER.warn("Bad dialogue condition for {}: {}", tribe.id(), e.toString());
+            return false;
+        }
     }
 
     private static boolean holds(ServerPlayer player, TribeDefinition tribe, Dialogue.Condition condition) {
@@ -125,9 +147,13 @@ public final class DialogueSession {
             };
             case "relic" -> data.hasRelic(player.getUUID(), tribe) == Boolean.parseBoolean(value);
             case "completed_min" -> data.completed(player.getUUID(), tribe) >= Integer.parseInt(value);
+            case "requests_left" -> (Requests.day(player.serverLevel()) >= 0 && QuestSavedData.get(player.server).requestsToday(player.getUUID(), Requests.day(player.serverLevel())) < TribalConfig.requestsPerDay()) == Boolean.parseBoolean(value);
             case "festival" -> tk.darrow.tribalpower.event.Festivals.active(tribe, player.level()) == Boolean.parseBoolean(value);
             case "festival_joined" -> tk.darrow.tribalpower.event.Festivals.joined(player, tribe, tk.darrow.tribalpower.event.Festivals.day(player.level())) == Boolean.parseBoolean(value);
-            default -> true;
+            default -> {
+                tk.darrow.tribalpower.TribalPower.LOGGER.warn("Unknown dialogue condition '{}' for {}: treated as false", condition.kind(), tribe.id());
+                yield false;
+            }
         };
     }
 
@@ -153,6 +179,9 @@ public final class DialogueSession {
             case "give" -> tk.darrow.tribalpower.item.SpiritgearHelper.give(player, stack(value));
             case "take" -> {
                 ItemStack wanted = stack(value);
+                int have = 0;
+                for (ItemStack stack : player.getInventory().items) if (ItemStack.isSameItem(stack, wanted)) have += stack.getCount();
+                if (have < wanted.getCount()) return false;
                 int left = wanted.getCount();
                 for (int i = 0; i < player.getInventory().items.size() && left > 0; i++) {
                     ItemStack stack = player.getInventory().items.get(i);
@@ -164,7 +193,11 @@ public final class DialogueSession {
             }
             case "offer_request" -> {
                 Requests.Template offered = Requests.offer(player, tribe);
-                if (offered != null) player.sendSystemMessage(Component.translatable("message.tribalpower.request.offered", tribe.displayNameComponent(), offered.name())
+                if (offered == null) {
+                    player.sendSystemMessage(Component.translatable("message.tribalpower.request.spent", tribe.displayNameComponent()).withStyle(ChatFormatting.GRAY));
+                    return false;
+                }
+                player.sendSystemMessage(Component.translatable("message.tribalpower.request.offered", tribe.displayNameComponent(), offered.name())
                         .append(": ").append(offered.describe()).withStyle(TribeStanding.colour(tribe)));
             }
             case "turn_in_request" -> Requests.turnIn(player, tribe);

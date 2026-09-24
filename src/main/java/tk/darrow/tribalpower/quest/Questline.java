@@ -81,6 +81,11 @@ public final class Questline {
         data.setStep(player.getUUID(), tribe, step + 1, 0);
         player.sendSystemMessage(Component.translatable("message.tribalpower.questline.step", tribe.displayNameComponent(), step + 1, STEPS)
                 .withStyle(tk.darrow.tribalpower.tribe.TribeStanding.colour(tribe)));
+        Step next = step(tribe, step + 1);
+        if (next != null && next.kind() == Kind.RANK && ready(player, tribe)) {
+            advance(player, tribe);   // already Friend: the rank step is met the moment it is set
+            return;
+        }
         if (step + 1 >= STEPS) {
             if (!data.hasRelic(player.getUUID(), tribe)) {
                 data.grantRelic(player.getUUID(), tribe);

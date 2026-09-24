@@ -15,6 +15,7 @@ import tk.darrow.tribalpower.event.MarchWeather;
 public final class MarchWeatherClient {
     private static MarchWeather current;
     private static float blend;
+    private static net.minecraft.client.resources.sounds.SoundInstance ambience;
 
     private MarchWeatherClient() {}
 
@@ -28,8 +29,11 @@ public final class MarchWeatherClient {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null || mc.isPaused()) return;
         MarchWeather weather = here();
-        current = weather != null ? weather : current;
-        blend = Mth.clamp(blend + (weather != null ? 0.02F : -0.02F), 0, 1);
+        // a different weather fades the old one out first, then takes its place
+        boolean same = weather == current;
+        if (weather != null && current == null) { current = weather; same = true; }
+        blend = Mth.clamp(blend + (weather != null && same ? 0.02F : -0.02F), 0, 1);
+        if (!same && blend <= 0) current = weather;
         if (weather == null) return;
         var random = mc.level.random;
         for (int i = 0; i < 12; i++) {
@@ -37,21 +41,22 @@ public final class MarchWeatherClient {
             double fall = weather == MarchWeather.WHITEOUT ? -0.12 : weather == MarchWeather.ASHFALL ? -0.05 : weather == MarchWeather.FEN_MIST ? 0.0 : 0.01;
             mc.level.addParticle(weather.particle, x, y, z, (random.nextDouble() - 0.5) * 0.08, fall, (random.nextDouble() - 0.5) * 0.08);
         }
-        if (mc.player.tickCount % 90 == 0) {
+        if (mc.player.tickCount % 40 == 0 && (ambience == null || !mc.getSoundManager().isActive(ambience))) {
             var sound = switch (weather) {
                 case ASHFALL -> SoundEvents.CAMPFIRE_CRACKLE;
                 case GLIMMER_STORM -> SoundEvents.AMETHYST_BLOCK_CHIME;
                 case WHITEOUT -> SoundEvents.ELYTRA_FLYING;
                 case FEN_MIST -> SoundEvents.AMBIENT_UNDERWATER_LOOP;
             };
-            mc.level.playLocalSound(BlockPos.containing(mc.player.position()), sound, net.minecraft.sounds.SoundSource.WEATHER, 0.35F, weather == MarchWeather.WHITEOUT ? 0.5F : 0.8F, false);
+            ambience = net.minecraft.client.resources.sounds.SimpleSoundInstance.forLocalAmbience(sound, weather == MarchWeather.WHITEOUT ? 0.5F : 0.8F, 0.35F);
+            mc.getSoundManager().play(ambience);
         }
     }
 
     public static void fog(ViewportEvent.RenderFog event) {
         if (blend <= 0 || current == null || event.getCamera().getFluidInCamera() != FogType.NONE) return;
         if (event.getMode() != FogRenderer.FogMode.FOG_TERRAIN) return;
-        float far = Mth.lerp(blend, event.getFarPlaneDistance(), current.sight);
+        float far = Math.min(event.getFarPlaneDistance(), Mth.lerp(blend, event.getFarPlaneDistance(), current.sight));
         event.setNearPlaneDistance(Math.min(event.getNearPlaneDistance(), far * 0.25F));
         event.setFarPlaneDistance(far);
         event.setFogShape(FogShape.SPHERE);
@@ -65,5 +70,5 @@ public final class MarchWeatherClient {
         event.setBlue(Mth.lerp(blend, event.getBlue(), current.blue));
     }
 
-    public static void reset() { current = null; blend = 0; }
+    public static void reset() { current = null; blend = 0; ambience = null; }
 }

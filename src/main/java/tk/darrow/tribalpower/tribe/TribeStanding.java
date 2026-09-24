@@ -63,7 +63,6 @@ public final class TribeStanding {
         int after = data.set(player.getUUID(), tribe, before + delta);
         TribeRank was = TribeRank.of(before);
         TribeRank now = TribeRank.of(after);
-        tk.darrow.tribalpower.quest.QuestEvents.standingChanged(player, tribe);
         if (now.ordinal() > was.ordinal()) {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_up",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(colour(tribe)));
@@ -74,6 +73,7 @@ public final class TribeStanding {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_down",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(ChatFormatting.RED));
         }
+        tk.darrow.tribalpower.quest.QuestEvents.standingChanged(player, tribe);
         // The requested delta, not after-before: personal standing floors at 0, the camp mirror does not.
         for (StandingListener l : LISTENERS) l.onStandingChanged(player, tribe, delta, after);
         return after;

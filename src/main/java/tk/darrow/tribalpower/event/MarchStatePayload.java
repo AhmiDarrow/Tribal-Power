@@ -13,12 +13,12 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 
 /** Server → client: which March weathers run, which voice surges and for how long, and whose festival it is. */
-public record MarchStatePayload(int weatherMask, int surgeVoice, int surgeSeconds, int festivalTribe) implements CustomPacketPayload {
+public record MarchStatePayload(int weatherMask, int surgeVoice, long surgeUntil, int festivalTribe) implements CustomPacketPayload {
     public static final Type<MarchStatePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "march_state"));
     public static final StreamCodec<ByteBuf, MarchStatePayload> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.VAR_INT, MarchStatePayload::weatherMask, ByteBufCodecs.INT, MarchStatePayload::surgeVoice,
-            ByteBufCodecs.VAR_INT, MarchStatePayload::surgeSeconds, ByteBufCodecs.INT, MarchStatePayload::festivalTribe, MarchStatePayload::new);
-    public static final MarchStatePayload EMPTY = new MarchStatePayload(0, -1, 0, -1);
+            ByteBufCodecs.VAR_LONG, MarchStatePayload::surgeUntil, ByteBufCodecs.INT, MarchStatePayload::festivalTribe, MarchStatePayload::new);
+    public static final MarchStatePayload EMPTY = new MarchStatePayload(0, -1, 0L, -1);
     public static volatile MarchStatePayload latest = EMPTY;
 
     public static MarchStatePayload of(ServerLevel level) {
@@ -28,7 +28,7 @@ public record MarchStatePayload(int weatherMask, int surgeVoice, int surgeSecond
         for (MarchWeather weather : MarchWeather.values()) if (data.weatherActive(weather, now)) mask |= 1 << weather.ordinal();
         Attunement surge = data.surgeVoice(now);
         TribeDefinition festival = Festivals.tribeOn(Festivals.day(level));
-        return new MarchStatePayload(mask, surge == null ? -1 : surge.ordinal(), surge == null ? 0 : (int) ((data.surgeUntil() - now) / 20),
+        return new MarchStatePayload(mask, surge == null ? -1 : surge.ordinal(), surge == null ? 0L : data.surgeUntil(),
                 festival == null ? -1 : festival.ordinal());
     }
 
@@ -39,6 +39,8 @@ public record MarchStatePayload(int weatherMask, int surgeVoice, int surgeSecond
 
     public boolean weather(MarchWeather weather) { return (weatherMask & (1 << weather.ordinal())) != 0; }
     public Attunement surge() { return surgeVoice >= 0 && surgeVoice < Attunement.values().length ? Attunement.values()[surgeVoice] : null; }
+    /** Seconds the surge has left by the given game time. */
+    public int surgeSecondsLeft(long now) { return surge() == null ? 0 : (int) Math.max(0, (surgeUntil - now) / 20); }
     public TribeDefinition festival() { return festivalTribe >= 0 && festivalTribe < TribeDefinition.values().length ? TribeDefinition.values()[festivalTribe] : null; }
 
     @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }

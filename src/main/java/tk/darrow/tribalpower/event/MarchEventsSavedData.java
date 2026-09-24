@@ -73,7 +73,11 @@ public class MarchEventsSavedData extends SavedData {
         return set != null && set.contains(festivalKey(tribe, day));
     }
     public boolean join(UUID player, int tribe, long day) {
-        boolean added = festivals.computeIfAbsent(player, k -> new HashSet<>()).add(festivalKey(tribe, day));
+        Set<Long> set = festivals.computeIfAbsent(player, k -> new HashSet<>());
+        boolean added = set.add(festivalKey(tribe, day));
+        // keys older than a whole cycle can never be asked about again
+        long oldest = day - Math.max(9, tk.darrow.tribalpower.config.TribalConfig.festivalCycleDays()) - 1;
+        if (set.removeIf(key -> (key >> 4) < oldest)) added = added || false;
         if (added) setDirty();
         return added;
     }

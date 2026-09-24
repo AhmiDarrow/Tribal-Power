@@ -31,6 +31,9 @@ public class QuestSavedData extends SavedData {
         final int[] step = new int[TRIBES];
         final int[] stepProgress = new int[TRIBES];
         int relics, patterns;
+        long requestDay = -1;
+        int requestsToday;
+        final String[] lastDone = new String[TRIBES];
     }
 
     private final Map<UUID, Record> records = new HashMap<>();
@@ -54,6 +57,27 @@ public class QuestSavedData extends SavedData {
     public int completed(UUID player, TribeDefinition tribe) {
         Record r = records.get(player);
         return r == null ? 0 : r.completed[tribe.ordinal()];
+    }
+
+    /** How many requests the player has finished today, for the daily cap. */
+    public int requestsToday(UUID player, long day) {
+        Record r = records.get(player);
+        return r == null || r.requestDay != day ? 0 : r.requestsToday;
+    }
+
+    /** The last request the player finished for a tribe, so today's offer is not the one just done. */
+    public String lastDone(UUID player, TribeDefinition tribe) {
+        Record r = records.get(player);
+        return r == null ? null : r.lastDone[tribe.ordinal()];
+    }
+
+    /** Counts a finished request against today and remembers it for the tribe. */
+    public void finishedRequest(UUID player, TribeDefinition tribe, String template, long day) {
+        Record r = record(player);
+        if (r.requestDay != day) { r.requestDay = day; r.requestsToday = 0; }
+        r.requestsToday++;
+        r.lastDone[tribe.ordinal()] = template;
+        setDirty();
     }
 
     public void completedOne(UUID player, TribeDefinition tribe) {
@@ -113,6 +137,10 @@ public class QuestSavedData extends SavedData {
             }
             r.relics = entry.getInt("Relics");
             r.patterns = entry.getInt("Patterns");
+            r.requestDay = entry.contains("RequestDay") ? entry.getLong("RequestDay") : -1;
+            r.requestsToday = entry.getInt("RequestsToday");
+            ListTag done = entry.getList("LastDone", Tag.TAG_STRING);
+            for (int t = 0; t < Math.min(TRIBES, done.size()); t++) r.lastDone[t] = done.getString(t).isEmpty() ? null : done.getString(t);
             ListTag requests = entry.getList("Requests", Tag.TAG_COMPOUND);
             for (int k = 0; k < requests.size(); k++) {
                 CompoundTag request = requests.getCompound(k);
@@ -134,6 +162,11 @@ public class QuestSavedData extends SavedData {
             entry.putIntArray("StepProgress", r.stepProgress);
             entry.putInt("Relics", r.relics);
             entry.putInt("Patterns", r.patterns);
+            entry.putLong("RequestDay", r.requestDay);
+            entry.putInt("RequestsToday", r.requestsToday);
+            ListTag done = new ListTag();
+            for (int t = 0; t < TRIBES; t++) done.add(net.minecraft.nbt.StringTag.valueOf(r.lastDone[t] == null ? "" : r.lastDone[t]));
+            entry.put("LastDone", done);
             ListTag requests = new ListTag();
             for (int t = 0; t < TRIBES; t++) {
                 if (r.requests[t] == null) continue;

@@ -27,10 +27,10 @@ public final class LoreRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TribalPower.MOD_ID);
 
     public static final DeferredBlock<CarvedStoneBlock> CARVED_STONE = BLOCKS.registerBlock("carved_stone", CarvedStoneBlock::new,
-            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2F, 6F).sound(SoundType.DEEPSLATE_TILES).noOcclusion());
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2F, 6F).sound(SoundType.DEEPSLATE_TILES).noOcclusion().pushReaction(net.minecraft.world.level.material.PushReaction.DESTROY));
     public static final DeferredItem<BlockItem> CARVED_STONE_ITEM = ITEMS.registerSimpleBlockItem("carved_stone", CARVED_STONE);
     public static final DeferredBlock<MuralBlock> MURAL = BLOCKS.registerBlock("mural", MuralBlock::new,
-            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2F, 6F).sound(SoundType.DEEPSLATE_TILES).noOcclusion());
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2F, 6F).sound(SoundType.DEEPSLATE_TILES).noOcclusion().pushReaction(net.minecraft.world.level.material.PushReaction.BLOCK));
     public static final DeferredItem<BlockItem> MURAL_ITEM = ITEMS.registerSimpleBlockItem("mural", MURAL);
 
     /** Each tribe's crest as a banner pattern: the pattern item unlocks the tag that holds the one pattern. */

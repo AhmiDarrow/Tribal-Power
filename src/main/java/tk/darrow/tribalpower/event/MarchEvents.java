@@ -65,9 +65,9 @@ public final class MarchEvents {
         boolean changed = false;
         // weather: run out, then roll each kind that is not running
         if (data.expireWeather(now)) changed = true;
-        if (TribalConfig.weatherEnabled() && now - data.lastWeatherRoll() >= CHECK) {
+        if (TribalConfig.weatherEnabled() && (now < data.lastWeatherRoll() || now - data.lastWeatherRoll() >= CHECK)) {
             data.setLastWeatherRoll(now);
-            double perCheck = TribalConfig.weatherChancePerHour() * CHECK / 72000.0;
+            double perCheck = TribalConfig.weatherChancePerHour() * CHECK / 1000.0;
             for (MarchWeather weather : MarchWeather.values()) {
                 if (data.weatherActive(weather, now) || level.random.nextDouble() >= perCheck) continue;
                 int minutes = TribalConfig.weatherMinutesMin() + level.random.nextInt(Math.max(1, TribalConfig.weatherMinutesMax() - TribalConfig.weatherMinutesMin() + 1));
@@ -96,7 +96,7 @@ public final class MarchEvents {
             if (festival != null) announce(level, Component.translatable("message.tribalpower.festival.begins", festival.displayNameComponent()).withStyle(ChatFormatting.GOLD));
             changed = true;
         }
-        if (changed) for (ServerPlayer player : level.players()) MarchStatePayload.send(player);
+        if (changed) for (ServerPlayer player : level.getServer().getPlayerList().getPlayers()) MarchStatePayload.send(player);
         return changed;
     }
 
@@ -121,7 +121,7 @@ public final class MarchEvents {
         double angle = level.random.nextDouble() * Math.PI * 2, distance = 12 + level.random.nextInt(12);
         BlockPos at = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 BlockPos.containing(player.getX() + Math.cos(angle) * distance, player.getY(), player.getZ() + Math.sin(angle) * distance)).above(1 + level.random.nextInt(3));
-        if (!level.getBlockState(at).isAir()) return;
+        if (!level.getBlockState(at).isAir() || Math.abs(at.getY() - player.getY()) > 8) return;
         spawnSpirit(level, at);
     }
 

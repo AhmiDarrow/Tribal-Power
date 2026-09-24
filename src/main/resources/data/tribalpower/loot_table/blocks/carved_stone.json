@@ -6,7 +6,16 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tribalpower:carved_stone"
+          "name": "tribalpower:carved_stone",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "tribalpower:carved_stone",
+              "properties": [
+                "fragment"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

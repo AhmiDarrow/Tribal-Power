@@ -15,5 +15,5 @@
       "trigger": "minecraft:impossible"
     }
   },
-  "parent": "tribalpower:tribes/all_stories"
+  "parent": "tribalpower:march/drum_remembers"
 }

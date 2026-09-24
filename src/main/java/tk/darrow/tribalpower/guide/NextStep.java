@@ -22,11 +22,17 @@ public final class NextStep {
     /** The first spine advancement the player has not earned, as its id, or {@link #DONE}. */
     public static String of(ServerPlayer player) {
         var advancements = player.getServer().getAdvancements();
-        for (String id : SPINE) {
-            AdvancementHolder holder = advancements.get(ResourceLocation.fromNamespaceAndPath("tribalpower", id));
-            if (holder == null) continue;
-            if (!player.getAdvancements().getOrStartProgress(holder).isDone()) return id;
+        boolean[] earned = new boolean[SPINE.size()];
+        int last = -1;
+        for (int i = 0; i < SPINE.size(); i++) {
+            AdvancementHolder holder = advancements.get(ResourceLocation.fromNamespaceAndPath("tribalpower", SPINE.get(i)));
+            earned[i] = holder == null || player.getAdvancements().getOrStartProgress(holder).isDone();
+            if (earned[i]) last = i;
         }
+        // the next thing is the first step not yet earned beyond the furthest one that is: a skipped optional
+        // step earlier on does not pin the guide to it
+        for (int i = last + 1; i < SPINE.size(); i++) if (!earned[i]) return SPINE.get(i);
+        for (int i = 0; i < SPINE.size(); i++) if (!earned[i]) return SPINE.get(i);
         return DONE;
     }
 

@@ -129,9 +129,10 @@ public class GuardianEntity extends Monster {
 
     @Override
     protected void registerGoals() {
-        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.1, true) {
+        if (!guardian().flying) goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.1, true) {
             @Override public boolean canUse() { return !isWarded() && chargeTicks <= 0 && super.canUse(); }
         });
+        else goalSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.MoveTowardsTargetGoal(this, 1.0, 24F));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 16F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -153,7 +154,7 @@ public class GuardianEntity extends Monster {
     public BlockPos altar() { return altarPos; }
     public int addsAlive() {
         if (!(level() instanceof ServerLevel server)) return adds.size();
-        adds.removeIf(id -> !(server.getEntity(id) instanceof LivingEntity living) || !living.isAlive());
+        adds.removeIf(id -> server.getEntity(id) instanceof LivingEntity living && !living.isAlive());
         return adds.size();
     }
 
@@ -286,6 +287,7 @@ public class GuardianEntity extends Monster {
                 Vec3 dash = target.position().subtract(position()).normalize().scale(1.4);
                 setDeltaMovement(dash.x, dash.y * 0.5, dash.z);
                 hurtMarked = true;
+                chargeTicks = 8;   // the hover yields while the dive lands
                 for (LivingEntity hit : server.getEntitiesOfClass(LivingEntity.class, target.getBoundingBox().inflate(2.5), e -> e != this)) {
                     if (hit instanceof Player player && (player.isSpectator() || player.isCreative())) continue;
                     if (hit.getTags().contains(SUMMONED_TAG)) continue;
@@ -376,6 +378,8 @@ public class GuardianEntity extends Monster {
             bolt.pos = bolt.pos.add(bolt.vel);
             if (++bolt.life > 60) return true;
             server.sendParticles(ParticleTypes.END_ROD, bolt.pos.x, bolt.pos.y, bolt.pos.z, 2, 0.05, 0.05, 0.05, 0.0);
+            BlockPos in = BlockPos.containing(bolt.pos);
+            if (!server.getBlockState(in).getCollisionShape(server, in).isEmpty()) return true;
             for (Player player : server.getEntitiesOfClass(Player.class, new AABB(bolt.pos, bolt.pos).inflate(0.9))) {
                 if (player.isSpectator() || player.isCreative()) continue;
                 player.hurt(damageSources().mobAttack(this), bolt.damage);
@@ -391,13 +395,14 @@ public class GuardianEntity extends Monster {
         awayTicks = anyone ? 0 : awayTicks + 1;
         if (awayTicks >= TribalConfig.guardianResetSeconds() * 20) {
             dismissAdds(server);
-            if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar) altar.onGuardianGone();
+            if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar) altar.onGuardianReset();
             discard();
         }
     }
 
     private void dismissAdds(ServerLevel server) {
         for (UUID id : adds) if (server.getEntity(id) instanceof Mob add) add.discard();
+        for (Mob add : server.getEntitiesOfClass(Mob.class, getBoundingBox().inflate(RESET_RANGE), m -> m.getTags().contains(SUMMONED_TAG))) add.discard();
         adds.clear();
     }
 
@@ -444,8 +449,8 @@ public class GuardianEntity extends Monster {
         SpiritEffects.ring(server, position().add(0, 1, 0), guardian().tribe.attunement(), 6, 24);
         server.sendParticles(ParticleTypes.SOUL, getX(), getY() + 1, getZ(), 60, 1.5, 1.5, 1.5, 0.05);
         if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar) altar.onGuardianGone();
-        java.util.Set<ServerPlayer> fought = new java.util.LinkedHashSet<>(server.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(RESET_RANGE)));
-        if (source.getEntity() instanceof ServerPlayer killer) fought.add(killer);
+        java.util.Set<ServerPlayer> fought = new java.util.LinkedHashSet<>(server.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(RESET_RANGE), p -> !p.isSpectator()));
+        if (source.getEntity() instanceof ServerPlayer killer && !killer.isSpectator()) fought.add(killer);
         for (ServerPlayer player : fought) {
             player.displayClientMessage(Component.translatable("message.tribalpower.guardian." + guardian().id + ".fallen").withStyle(ChatFormatting.GOLD), false);
             QuestEvents.trial(player, guardian().tribe);
@@ -495,6 +500,7 @@ public class GuardianEntity extends Monster {
         adds.clear();
         for (Tag id : tag.getList("Adds", Tag.TAG_INT_ARRAY)) adds.add(NbtUtils.loadUUID(id));
         if (hasCustomName()) bossEvent.setName(getDisplayName());
+        else if (phase() == 2) bossEvent.setName(Component.translatable(guardian().nameKey()).append(" — ").append(Component.translatable("boss.tribalpower.guardian.phase2")));
     }
 
     private static final class Bolt {

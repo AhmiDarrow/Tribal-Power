@@ -43,7 +43,17 @@ public class GuardianAltarBlockEntity extends BlockEntity {
         return server.getEntity(boss) instanceof GuardianEntity entity && entity.isAlive() ? entity : null;
     }
 
+    /** Whether the altar's guardian is still out there: alive, or beyond loaded chunks and not yet reported gone. */
+    public boolean awake(ServerLevel server) {
+        if (boss == null) return false;
+        var entity = server.getEntity(boss);
+        return entity == null || (entity instanceof GuardianEntity guardian && guardian.isAlive());
+    }
+
     public void onGuardianGone() { boss = null; setChanged(); }
+
+    /** The guardian went back to sleep unbeaten: the altar may be called again without waiting out its rest. */
+    public void onGuardianReset() { boss = null; lastWake = Long.MIN_VALUE; setChanged(); }
 
     /** Whether the altar stands on its cap with its four candles: without them it is a stone. */
     public boolean onAltar(ServerLevel server) {
@@ -74,9 +84,10 @@ public class GuardianAltarBlockEntity extends BlockEntity {
             return Component.translatable("message.tribalpower.guardian_altar.wants", Component.translatable(guardian.nameKey()),
                     TribalConfig.guardianCallCost(), guardian.callItem().getDescription());
         if (!TribalConfig.guardiansEnabled()) return Component.translatable("message.tribalpower.guardian_altar.disabled");
-        if (living(server) != null) return Component.translatable("message.tribalpower.guardian_altar.awake", Component.translatable(guardian.nameKey()));
+        if (awake(server)) return Component.translatable("message.tribalpower.guardian_altar.awake", Component.translatable(guardian.nameKey()));
         if (!onAltar(server)) return Component.translatable("message.tribalpower.guardian_altar.no_altar");
         long cooldown = TribalConfig.guardianCooldownMinutes() * 1200L;
+        if (lastWake > server.getGameTime()) lastWake = Long.MIN_VALUE;   // a clock from another world
         long since = server.getGameTime() - lastWake;
         if (lastWake != Long.MIN_VALUE && since < cooldown)
             return Component.translatable("message.tribalpower.guardian_altar.resting", (cooldown - since) / 1200L + 1);
@@ -86,11 +97,12 @@ public class GuardianAltarBlockEntity extends BlockEntity {
         if (!headroom(server, worldPosition, guardian)) return Component.translatable("message.tribalpower.guardian_altar.no_room");
         GuardianEntity entity = GuardianRegistry.ENTITIES.get(guardian).get().create(server);
         if (entity == null) return Component.translatable("message.tribalpower.guardian_altar.no_altar");
-        if (!player.getAbilities().instabuild) offered.shrink(TribalConfig.guardianCallCost());
         entity.moveTo(worldPosition.getX() + 0.5, worldPosition.getY() + 1.0, worldPosition.getZ() + 0.5, server.random.nextFloat() * 360F, 0);
         entity.bindAltar(worldPosition);
         entity.finalizeSpawn(server, server.getCurrentDifficultyAt(worldPosition), MobSpawnType.EVENT, null);
-        server.addFreshEntity(entity);
+        // a ward can refuse the spawn; then nothing is spent and the altar does not rest
+        if (!server.addFreshEntity(entity)) return Component.translatable("message.tribalpower.guardian_altar.warded");
+        if (!player.getAbilities().instabuild) offered.shrink(TribalConfig.guardianCallCost());
         boss = entity.getUUID();
         lastWake = server.getGameTime();
         server.playSound(null, worldPosition, SoundEvents.WITHER_SPAWN, SoundSource.HOSTILE, 1.0F, 0.6F);

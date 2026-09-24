@@ -70,11 +70,29 @@
             },
             {
               "request": "none"
+            },
+            {
+              "requests_left": true
             }
           ],
           "actions": [
             {
               "offer_request": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work_spent",
+          "next": "request_spent",
+          "conditions": [
+            {
+              "rank": "guest"
+            },
+            {
+              "request": "none"
+            },
+            {
+              "requests_left": false
             }
           ]
         },
@@ -107,6 +125,23 @@
           "conditions": [
             {
               "quest_step": 0
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_hand",
+          "next": "quest_2",
+          "conditions": [
+            {
+              "quest_step": 1
+            },
+            {
+              "quest_ready": true
             }
           ],
           "actions": [
@@ -301,11 +336,29 @@
             },
             {
               "request": "none"
+            },
+            {
+              "requests_left": true
             }
           ],
           "actions": [
             {
               "offer_request": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work_spent",
+          "next": "request_spent",
+          "conditions": [
+            {
+              "rank": "guest"
+            },
+            {
+              "request": "none"
+            },
+            {
+              "requests_left": false
             }
           ]
         },
@@ -338,6 +391,23 @@
           "conditions": [
             {
               "quest_step": 0
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_hand",
+          "next": "quest_2",
+          "conditions": [
+            {
+              "quest_step": 1
+            },
+            {
+              "quest_ready": true
             }
           ],
           "actions": [
@@ -493,11 +563,29 @@
             },
             {
               "request": "none"
+            },
+            {
+              "requests_left": true
             }
           ],
           "actions": [
             {
               "offer_request": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work_spent",
+          "next": "request_spent",
+          "conditions": [
+            {
+              "rank": "guest"
+            },
+            {
+              "request": "none"
+            },
+            {
+              "requests_left": false
             }
           ]
         },
@@ -530,6 +618,23 @@
           "conditions": [
             {
               "quest_step": 0
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_hand",
+          "next": "quest_2",
+          "conditions": [
+            {
+              "quest_step": 1
+            },
+            {
+              "quest_ready": true
             }
           ],
           "actions": [
@@ -701,6 +806,25 @@
     "request_active": {
       "text": [
         "dialogue.tribalpower.sprout.request.active"
+      ],
+      "choices": [
+        {
+          "text": "dialogue.tribalpower.choice.back",
+          "next": "greet"
+        },
+        {
+          "text": "dialogue.tribalpower.choice.farewell",
+          "actions": [
+            {
+              "close": true
+            }
+          ]
+        }
+      ]
+    },
+    "request_spent": {
+      "text": [
+        "dialogue.tribalpower.sprout.request.spent"
       ],
       "choices": [
         {

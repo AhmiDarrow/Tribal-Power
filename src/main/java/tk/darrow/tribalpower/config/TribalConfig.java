@@ -51,6 +51,7 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue ANOINT_REAGENT_COST;
     public static final ModConfigSpec.DoubleValue REQUEST_SCALE;
     public static final ModConfigSpec.IntValue REQUESTS_PER_MARK;
+    public static final ModConfigSpec.IntValue REQUESTS_PER_DAY;
     public static final ModConfigSpec.BooleanValue ELDER_DIALOGUE;
     public static final ModConfigSpec.BooleanValue GUARDIANS_ENABLED;
     public static final ModConfigSpec.DoubleValue GUARDIAN_HEALTH_SCALE;
@@ -397,6 +398,7 @@ public final class TribalConfig {
         b.pop();
         b.comment("Tribes that talk: requests and questlines.").push("quests");
         REQUEST_SCALE = b.comment("Scales the standing a finished tribe request pays.").defineInRange("requestStandingScale", 1.0, 0.0, 10.0);
+        REQUESTS_PER_DAY = b.comment("Requests a player may finish in one day, across every tribe.").defineInRange("requestsPerDay", 3, 1, 100);
         REQUESTS_PER_MARK = b.comment("Every this many finished requests for one tribe pays a Tribe Mark.").defineInRange("requestsPerMark", 3, 1, 100);
         ELDER_DIALOGUE = b.comment("Whether an Elder opens a conversation. When false the Elder trades at once, as before.").define("elderDialogue", true);
         b.pop();
@@ -416,7 +418,7 @@ public final class TribalConfig {
         b.pop();
         b.comment("The living March: weather, surges, festivals and wandering spirits.").push("events");
         WEATHER_ENABLED = b.comment("Whether the March has its own weather (ashfall, glimmer storms, whiteouts, fen mist).").define("weatherEnabled", true);
-        WEATHER_CHANCE_PER_HOUR = b.comment("Chance per game hour that each idle weather begins.").defineInRange("weatherChancePerHour", 0.5, 0.0, 20.0);
+        WEATHER_CHANCE_PER_HOUR = b.comment("Chance per game hour (1000 ticks) that each idle weather begins; 0.06 is about one onset per kind every game day.").defineInRange("weatherChancePerHour", 0.06, 0.0, 20.0);
         WEATHER_MINUTES_MIN = b.comment("Shortest a March weather lasts, in game minutes.").defineInRange("weatherMinutesMin", 8, 1, 600);
         WEATHER_MINUTES_MAX = b.comment("Longest a March weather lasts, in game minutes.").defineInRange("weatherMinutesMax", 20, 1, 1200);
         WEATHER_GENERATOR_BONUS = b.comment("What a weather's favoured generators make, as a multiplier.").defineInRange("weatherGeneratorBonus", 1.5, 0.0, 10.0);
@@ -486,6 +488,7 @@ public final class TribalConfig {
     public static int anointReagentCost() { return get(ANOINT_REAGENT_COST); }
     public static double requestStandingScale() { return get(REQUEST_SCALE); }
     public static int requestsPerMark() { return get(REQUESTS_PER_MARK); }
+    public static int requestsPerDay() { return get(REQUESTS_PER_DAY); }
     public static boolean elderDialogue() { return get(ELDER_DIALOGUE); }
     public static boolean guardiansEnabled() { return get(GUARDIANS_ENABLED); }
     public static double guardianHealthScale() { return get(GUARDIAN_HEALTH_SCALE); }

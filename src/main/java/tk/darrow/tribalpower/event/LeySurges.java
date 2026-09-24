@@ -26,7 +26,8 @@ public final class LeySurges {
 
     /** The surging voice, on either side, or null. */
     public static Attunement voice(Level level) {
-        if (level.isClientSide) return MarchStatePayload.latest.surge();
+        // the client only ever shows the surge in the March; the server's collectors feel it wherever ley runs
+        if (level.isClientSide) return level.dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH) ? MarchStatePayload.latest.surge() : null;
         return level instanceof ServerLevel server ? MarchEventsSavedData.get(server.getServer()).surgeVoice(server.getGameTime()) : null;
     }
 

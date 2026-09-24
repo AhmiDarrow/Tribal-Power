@@ -75,7 +75,7 @@ public final class LeyLensHud {
                     ? Component.translatable("gui.tribalpower.lens.lines_none")
                     : Component.translatable("gui.tribalpower.lens.lines", sight.lines());
             g.drawString(mc.font, veins, x + 8, y + 46, sight.lines() > 0 ? 0xFF74DBCB : 0xFF667A80, false);
-            var surge = tk.darrow.tribalpower.event.MarchStatePayload.latest.surge();
+            var surge = tk.darrow.tribalpower.event.LeySurges.voice(mc.level);
             if (surge != null) g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.surge",
                     Component.translatable("attunement.tribalpower." + surge.getSerializedName())), x + 8 + 60, y + 4, 0xFFF0D080, false);
             return;

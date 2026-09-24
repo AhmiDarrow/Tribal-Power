@@ -36,7 +36,7 @@ public class GuardianAltarBlock extends BaseEntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!(level.getBlockEntity(pos) instanceof GuardianAltarBlockEntity altar)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (!(level.getBlockEntity(pos) instanceof GuardianAltarBlockEntity altar) || stack.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!(level instanceof ServerLevel server)) return ItemInteractionResult.sidedSuccess(true);
         Component failure = altar.call(server, player, stack);
         if (failure != null) player.displayClientMessage(failure, true);

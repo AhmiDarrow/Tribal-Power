@@ -281,7 +281,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             return InteractionResult.CONSUME;
         }
         if (role() == KinRole.ELDER) {
-            if (tk.darrow.tribalpower.config.TribalConfig.elderDialogue() && getTradingPlayer() == null
+            if (tk.darrow.tribalpower.quest.DialogueSession.talks(this) && getTradingPlayer() == null
                     && tk.darrow.tribalpower.quest.DialogueSession.begin(sp, this)) {
                 grantMarkIfVoice(sp, tribe, rank);
                 return InteractionResult.CONSUME;

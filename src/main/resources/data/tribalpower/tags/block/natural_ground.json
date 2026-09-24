@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:base_stone_overworld",
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "#minecraft:terracotta",
+    "#minecraft:snow",
+    "#minecraft:ice",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "minecraft:calcite",
+    "minecraft:tuff",
+    "minecraft:dripstone_block",
+    "minecraft:basalt",
+    "minecraft:smooth_basalt",
+    "minecraft:blackstone",
+    "minecraft:magma_block",
+    "minecraft:packed_mud",
+    "minecraft:mud",
+    "tribalpower:march_stone",
+    "tribalpower:march_soil",
+    "tribalpower:march_grass",
+    "tribalpower:march_moss",
+    "tribalpower:moonstone",
+    "tribalpower:moss_agate"
+  ]
+}

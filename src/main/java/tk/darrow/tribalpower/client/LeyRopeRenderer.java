@@ -134,7 +134,7 @@ public final class LeyRopeRenderer {
         if (voice < 0 || voice >= HALO_RGB.length) voice = 0;
         float[] halo = HALO_RGB[voice];
         float[] core = CORE_RGB[voice];
-        var surge = tk.darrow.tribalpower.event.MarchStatePayload.latest.surge();
+        var surge = tk.darrow.tribalpower.event.LeySurges.voice(net.minecraft.client.Minecraft.getInstance().level);
         float surging = surge != null && surge.ordinal() == voice ? 1.8F : 1.0F;
         Vec3 a = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, from, pulls);
         for (double t = from; t < to; t += step) {

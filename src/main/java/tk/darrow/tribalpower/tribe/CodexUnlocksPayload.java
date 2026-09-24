@@ -32,7 +32,7 @@ public record CodexUnlocksPayload(int tribes, int tablets, int fragments) implem
 
     /** Mod-bus listener. The handler body only runs on the client; {@link CodexUnlocks} holds no client-only types. */
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("1").playToClient(TYPE, STREAM_CODEC, (payload, context) -> CodexUnlocks.accept(payload.tribes(), payload.tablets(), payload.fragments()));
+        event.registrar("2").playToClient(TYPE, STREAM_CODEC, (payload, context) -> CodexUnlocks.accept(payload.tribes(), payload.tablets(), payload.fragments()));
     }
 
     public static CodexUnlocksPayload of(ServerPlayer player) {

@@ -80,4 +80,16 @@ public class WanderingSpiritEntity extends SpiritWispEntity {
     }
 
     @Override public boolean removeWhenFarAway(double distance) { return true; }
+
+    @Override
+    public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("Life", life);
+    }
+
+    @Override
+    public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        life = tag.getInt("Life");
+    }
 }

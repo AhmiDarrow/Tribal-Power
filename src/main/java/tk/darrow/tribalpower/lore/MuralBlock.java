@@ -74,7 +74,9 @@ public class MuralBlock extends HorizontalDirectionalBlock {
         BlockPos origin = context.getClickedPos();
         for (int part = 1; part < 4; part++) {
             BlockPos at = partPos(origin, face, part);
-            if (!context.getLevel().getBlockState(at).canBeReplaced() || !supported(context.getLevel(), at, face)) return null;
+            BlockState there = context.getLevel().getBlockState(at);
+            if (!there.canBeReplaced() || !there.getFluidState().isEmpty() || !supported(context.getLevel(), at, face)
+                    || !context.getLevel().isUnobstructed(defaultBlockState(), at, CollisionContext.empty())) return null;
         }
         return supported(context.getLevel(), origin, face) ? defaultBlockState().setValue(FACING, face) : null;
     }
@@ -87,15 +89,36 @@ public class MuralBlock extends HorizontalDirectionalBlock {
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
-        for (int part = 1; part < 4; part++) level.setBlock(partPos(pos, state.getValue(FACING), part), state.setValue(PART, part), 3);
+        // the first two parts go in without shape updates, or the half-built mural would take itself down; the last
+        // part's placement then updates the lot, with every part present
+        for (int part = 1; part < 4; part++)
+            level.setBlock(partPos(pos, state.getValue(FACING), part), state.setValue(PART, part), part < 3 ? Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE : Block.UPDATE_ALL);
     }
 
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) { return supported(level, pos, state.getValue(FACING)); }
 
+    /** Whether every part of this block's mural still hangs where it should. */
+    private boolean whole(LevelReader level, BlockPos pos, BlockState state) {
+        BlockPos origin = origin(pos, state);
+        for (int part = 0; part < 4; part++) {
+            BlockState there = level.getBlockState(partPos(origin, state.getValue(FACING), part));
+            if (!there.is(this) || there.getValue(PART) != part || there.getValue(FACING) != state.getValue(FACING) || there.getValue(FRAGMENT) != state.getValue(FRAGMENT)) return false;
+        }
+        return true;
+    }
+
+    /** A mural loses its wall or any of its parts and the rest comes down with it; part 0 carries the drop. */
+    @Override
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbour, net.minecraft.world.level.LevelAccessor level, BlockPos pos, BlockPos neighbourPos) {
+        if (!supported(level, pos, state.getValue(FACING)) || !whole(level, pos, state)) return net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
+        return super.updateShape(state, direction, neighbour, level, pos, neighbourPos);
+    }
+
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide) {
+        // In creative the other parts go quietly; in survival they fall through updateShape, and part 0 drops the mural.
+        if (!level.isClientSide && player.isCreative()) {
             BlockPos origin = origin(pos, state);
             for (int part = 0; part < 4; part++) {
                 BlockPos at = partPos(origin, state.getValue(FACING), part);

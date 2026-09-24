@@ -49,12 +49,12 @@ public final class MarchMusic {
         }
         SoundEvent theme = themeOf(boss);
         if (theme == null) return;
-        if (playing == null || playing.theme != theme || playing.isStopped()) {
+        if (playing == null || playing.theme != theme || playing.isStopped() || !mc.getSoundManager().isActive(playing)) {
             if (playing != null) playing.fade();
             playing = new BossTheme(theme);
             mc.getSoundManager().play(playing);
         }
-        mc.getMusicManager().stopPlaying();
+        if (mc.getMusicManager().isPlayingMusic(mc.getSituationalMusic())) mc.getMusicManager().stopPlaying();
     }
 
     private static boolean isBoss(LivingEntity entity) {
@@ -72,7 +72,11 @@ public final class MarchMusic {
     private static void stingers(Minecraft mc) {
         MarchStatePayload state = MarchStatePayload.latest;
         boolean agreed = QuestStatePayload.latest.agreed();
-        if (!primed) { lastState = state; lastAgreed = agreed; primed = true; return; }
+        if (!primed) {
+            if (state == MarchStatePayload.EMPTY || QuestStatePayload.latest == QuestStatePayload.EMPTY) return;   // still waiting on the server
+            lastState = state; lastAgreed = agreed; primed = true;
+            return;
+        }
         if (state != lastState) {
             boolean weather = false;
             for (MarchWeather kind : MarchWeather.values()) if (state.weather(kind) && !lastState.weather(kind)) weather = true;

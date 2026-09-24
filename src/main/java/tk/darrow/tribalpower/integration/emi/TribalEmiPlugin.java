@@ -116,11 +116,9 @@ public class TribalEmiPlugin implements EmiPlugin {
         }
     }
 
-    private record Kettle(Remedy remedy, Remedies.Form form) implements EmiRecipe {
-        private List<ItemStack> reagents() {
-            List<ItemStack> out = new ArrayList<>();
-            for (var profile : Reagents.byNote().getOrDefault(remedy.note, List.of())) out.add(new ItemStack(Reagents.item(profile)));
-            return out;
+    private record Kettle(Remedy remedy, Remedies.Form form, List<ItemStack> reagents) implements EmiRecipe {
+        Kettle(Remedy remedy, Remedies.Form form) {
+            this(remedy, form, Reagents.byNote().getOrDefault(remedy.note, List.of()).stream().map(p -> new ItemStack(Reagents.item(p))).toList());
         }
         private ItemStack base() {
             return new ItemStack(switch (form) { case TINCTURE -> net.minecraft.world.item.Items.GLASS_BOTTLE; case SALVE -> net.minecraft.world.item.Items.HONEYCOMB; case INCENSE -> net.minecraft.world.item.Items.CHARCOAL; });
@@ -131,8 +129,8 @@ public class TribalEmiPlugin implements EmiPlugin {
             return List.of(EmiIngredient.of(stacks(reagents())), EmiIngredient.of(Ingredient.of(SpiritKettleBlockEntity.HERBS)), EmiStack.of(base()));
         }
         @Override public List<EmiStack> getOutputs() {
-            var reagents = Reagents.byNote().getOrDefault(remedy.note, List.of());
-            return reagents.isEmpty() ? List.of() : List.of(EmiStack.of(Remedies.make(form, reagents.get(0), null, SpiritKettleBlockEntity.batchSize(form))));
+            var profiles = Reagents.byNote().getOrDefault(remedy.note, List.of());
+            return profiles.isEmpty() ? List.of() : List.of(EmiStack.of(Remedies.make(form, profiles.get(0), null, SpiritKettleBlockEntity.batchSize(form))));
         }
         @Override public int getDisplayWidth() { return 150; }
         @Override public int getDisplayHeight() { return 60; }

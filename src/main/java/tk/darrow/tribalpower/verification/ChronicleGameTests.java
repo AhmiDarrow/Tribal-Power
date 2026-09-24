@@ -74,7 +74,8 @@ public final class ChronicleGameTests {
         var player = VerificationPlayers.inLevel(h);
         try {
             BlockPos wall = new BlockPos(3, 2, 6);
-            for (int dx = 0; dx < 2; dx++) for (int dy = 0; dy < 2; dy++) h.setBlock(wall.offset(dx, dy, 0), Blocks.STONE);
+            // a mural facing north grows to its right, which is west (-x) seen from the front
+            for (int dx = 0; dx < 2; dx++) for (int dy = 0; dy < 2; dy++) h.setBlock(wall.offset(-dx, dy, 0), Blocks.STONE);
             BlockPos origin = wall.offset(0, 0, -1);
             var state = LoreRegistry.MURAL.get().defaultBlockState().setValue(MuralBlock.FACING, Direction.NORTH).setValue(MuralBlock.FRAGMENT, 9);
             h.setBlock(origin, state);
@@ -86,10 +87,14 @@ public final class ChronicleGameTests {
                 h.assertTrue(MuralBlock.origin(at, there).equals(h.absolutePos(origin)), "Part " + part + " knows its origin");
             }
             BlockPos top = MuralBlock.partPos(h.absolutePos(origin), Direction.NORTH, 3);
-            LoreRegistry.MURAL.get().playerWillDestroy(h.getLevel(), top, h.getLevel().getBlockState(top), player);
-            h.getLevel().removeBlock(top, false);
+            h.getLevel().destroyBlock(top, true);   // a survival break of the top-right part
             for (int part = 0; part < 4; part++)
                 h.assertFalse(h.getLevel().getBlockState(MuralBlock.partPos(h.absolutePos(origin), Direction.NORTH, part)).is(LoreRegistry.MURAL.get()), "Part " + part + " comes down with the rest");
+            var drops = h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, h.getBounds().inflate(6), e -> e.getItem().is(LoreRegistry.MURAL_ITEM.get()));
+            int count = 0;
+            for (var drop : drops) count += drop.getItem().getCount();
+            h.assertTrue(count == 1, "One mural drops, from part 0, got " + count);
+            drops.forEach(e -> e.discard());
         } finally {
             player.remove(Entity.RemovalReason.DISCARDED);
         }

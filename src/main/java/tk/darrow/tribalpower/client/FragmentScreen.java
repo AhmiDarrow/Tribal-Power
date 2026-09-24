@@ -17,6 +17,8 @@ public final class FragmentScreen extends Screen {
         this.fragment = Math.floorMod(fragment, Chronicle.FRAGMENTS);
     }
 
+    public static void open(int fragment) { net.minecraft.client.Minecraft.getInstance().setScreen(new FragmentScreen(fragment)); }
+
     @Override public boolean isPauseScreen() { return false; }
 
     @Override

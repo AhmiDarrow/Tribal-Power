@@ -31,19 +31,26 @@ public class DialogueScreen extends Screen {
     }
 
     private int panelWidth() { return Math.min(width - 24, 300); }
-    private int panelHeight() { return Math.min(height - 24, 120 + choices.size() * 22); }
+    private int rowPitch() { return height < 220 ? 16 : 22; }
+    private int textLines() {
+        int lines = 0;
+        for (String key : open.lines()) lines += font.split(Component.translatable(key), panelWidth() - 32).size() + 1;
+        return lines;
+    }
+    private int panelHeight() { return Math.min(height - 24, 44 + textLines() * 10 + choices.size() * rowPitch() + 12); }
 
     @Override
     protected void init() {
         int w = panelWidth(), h = panelHeight();
         int x = (width - w) / 2, y = (height - h) / 2;
-        int by = y + h - 12 - choices.size() * 22;
+        int pitch = rowPitch();
+        int by = y + h - 10 - choices.size() * pitch;
         for (int i = 0; i < choices.size(); i++) {
             String key = open.choices().get(i);
             addRenderableWidget(Button.builder(choices.get(i), b -> {
                 PacketDistributor.sendToServer(new DialogueSession.Choose(open.kin(), open.node(), key));
                 onClose();
-            }).bounds(x + 16, by + i * 22, w - 32, 18).build());
+            }).bounds(x + 16, by + i * pitch, w - 32, pitch - 4).build());
         }
     }
 
@@ -61,7 +68,7 @@ public class DialogueScreen extends Screen {
         g.fill(x + 7, y + 7, x + w - 7, y + h - 7, PAPER);
         g.drawCenteredString(font, title, x + w / 2, y + 12, 0xFF000000 | tribe.colour());
         g.fill(x + 24, y + 23, x + w - 24, y + 24, GOLD);
-        int ly = y + 30, limit = y + h - 16 - choices.size() * 22;
+        int ly = y + 30, limit = y + h - 14 - choices.size() * rowPitch();
         for (String key : open.lines()) {
             for (FormattedCharSequence line : font.split(Component.translatable(key), w - 32)) {
                 if (ly > limit) break;

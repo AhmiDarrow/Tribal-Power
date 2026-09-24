@@ -2585,5 +2585,18 @@
   "dialogue.tribalpower.sigil.weaver": "I weave the cloth the seals are carried in. Spirit will not sit on bare stone.",
   "dialogue.tribalpower.spindle.drummer": "Nine beats, one measure. The Loom's own time. Nobody else can hear it.",
   "dialogue.tribalpower.spindle.hunter": "I hunt for thread. The dark is full of it, if you know where to pull.",
-  "dialogue.tribalpower.spindle.weaver": "Every camp sends me a thread. I stitch them. Most of the time they stay stitched."
+  "dialogue.tribalpower.spindle.weaver": "Every camp sends me a thread. I stitch them. Most of the time they stay stitched.",
+  "message.tribalpower.guardian_altar.warded": "Something wards this ground. The guardian will not rise here.",
+  "message.tribalpower.silent_drum.warded": "Something wards the circle. The Unsung will not rise here.",
+  "dialogue.tribalpower.choice.work_spent": "Any more work today?",
+  "message.tribalpower.request.spent": "The %s have no more work for you today.",
+  "dialogue.tribalpower.soil.request.spent": "That is enough for one day. Even the pads rest. Come back tomorrow.",
+  "dialogue.tribalpower.stone.request.spent": "Enough. The mesh has to be re-tuned after all that. Tomorrow.",
+  "dialogue.tribalpower.sprout.request.spent": "Roots grow overnight, not all at once. Tomorrow.",
+  "dialogue.tribalpower.claw.request.spent": "Rest. A tired walker is a short walker. Tomorrow.",
+  "dialogue.tribalpower.spark.request.spent": "Even a drum stops. Tomorrow, on the beat.",
+  "dialogue.tribalpower.clock.request.spent": "The pattern allows three. Tomorrow it allows three more.",
+  "dialogue.tribalpower.swarm.request.spent": "The hive rests at dusk. So do we. Tomorrow.",
+  "dialogue.tribalpower.sigil.request.spent": "Ask too much of spirit in one day and it stops answering. Tomorrow.",
+  "dialogue.tribalpower.spindle.request.spent": "A thread pulled all day snaps. Tomorrow."
 }

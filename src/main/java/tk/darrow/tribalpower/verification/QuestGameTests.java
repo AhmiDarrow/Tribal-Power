@@ -83,6 +83,9 @@ public final class QuestGameTests {
             long day = Requests.day(h.getLevel());
             h.assertTrue(Requests.openToday(tribe, day).size() == Requests.OPEN_PER_DAY, "Three requests open a day");
             h.assertTrue(!Requests.openToday(tribe, day).equals(Requests.openToday(tribe, day + 1)), "Tomorrow's requests differ");
+            java.util.Set<String> seen = new java.util.HashSet<>();
+            for (long d = day; d < day + 6; d++) for (Requests.Template t : Requests.openToday(tribe, d)) seen.add(t.id());
+            h.assertTrue(seen.size() == Requests.pool(tribe).size(), "Across a week every request in the pool comes round, got " + seen.size());
             Requests.Template moss = Requests.template(tribe, "soil.moss");
             h.assertTrue(moss != null && moss.kind() == Requests.Kind.FETCH, "The Pad-keepers ask for moss");
             int marks = 0;
@@ -101,10 +104,17 @@ public final class QuestGameTests {
                 if (round < 3) h.assertTrue(marks == 0, "No mark before the third request");
             }
             h.assertTrue(marks == 1, "The third finished request pays a Tribe Mark");
-            // Offering picks one of today's open requests and holds it until it is done.
+            // Three finished today is the day's cap: the Elder has nothing more, for any tribe.
+            h.assertTrue(data.requestsToday(player.getUUID(), day) == 3, "Three counted against today");
+            h.assertTrue(Requests.offer(player, tribe) == null, "No more work today from this tribe");
+            h.assertTrue(Requests.offer(player, TribeDefinition.STONE) == null, "Nor from another");
+            h.assertTrue(data.requestsToday(player.getUUID(), day + 1) == 0, "Tomorrow the count is fresh");
+            data.finishedRequest(player.getUUID(), tribe, "soil.moss", day + 1);   // roll the record to tomorrow with one done
+            // Offering picks one of tomorrow's open requests, never the one just done, and holds it until it is done.
+            h.assertTrue(data.requestsToday(player.getUUID(), day + 1) == 1, "One counted against tomorrow");
             Requests.Template offered = Requests.offer(player, tribe);
-            h.assertTrue(offered != null && Requests.openToday(tribe, day).stream().anyMatch(t -> t.id().equals(offered.id())), "The Elder offers one of today's requests");
-            h.assertTrue(Requests.offer(player, tribe).id().equals(offered.id()), "Asking again repeats the open request");
+            h.assertTrue(offered == null || !offered.id().equals("soil.moss"), "The request just finished is not handed straight back");
+            if (offered != null) h.assertTrue(Requests.offer(player, tribe).id().equals(offered.id()), "Asking again repeats the open request");
         } finally {
             player.remove(net.minecraft.world.entity.Entity.RemovalReason.DISCARDED);
         }

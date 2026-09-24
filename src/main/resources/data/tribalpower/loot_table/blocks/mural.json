@@ -6,12 +6,28 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tribalpower:mural"
+          "name": "tribalpower:mural",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "tribalpower:mural",
+              "properties": [
+                "fragment"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "tribalpower:mural",
+          "properties": {
+            "part": "0"
+          }
         }
       ]
     }

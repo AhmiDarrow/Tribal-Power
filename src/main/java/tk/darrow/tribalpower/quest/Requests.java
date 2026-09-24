@@ -43,6 +43,9 @@ public final class Requests {
     public static final int OPEN_PER_DAY = 3;
     /** Blocks around one of the tribe's hearths that a slaying, a build or a rite must happen within. */
     public static final int CAMP_RADIUS = 48;
+    /** Blocks the ground is made of, which a build request does not count. */
+    public static final net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> NATURAL_GROUND =
+            net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.BLOCK, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "natural_ground"));
 
     private Requests() {}
 
@@ -83,7 +86,7 @@ public final class Requests {
         List<Template> pool = pool(tribe);
         List<Template> out = new ArrayList<>();
         int start = (int) Math.floorMod(day * 2 + tribe.ordinal() * 7L, pool.size());
-        for (int i = 0; i < Math.min(OPEN_PER_DAY, pool.size()); i++) out.add(pool.get((start + i * 2) % pool.size()));
+        for (int i = 0; i < Math.min(OPEN_PER_DAY, pool.size()); i++) out.add(pool.get((start + i) % pool.size()));
         return out;
     }
 
@@ -121,8 +124,12 @@ public final class Requests {
         if (chalk.isEmpty() || BuildersChalkItem.shape(chalk) != template.shape() || BuildersChalkItem.size(chalk) < template.size()) return false;
         BlockPos mark = BuildersChalkItem.mark(chalk);
         if (mark == null || !atCamp(player.serverLevel(), mark, tribe)) return false;
-        for (BlockPos offset : template.shape().offsets(BuildersChalkItem.size(chalk)))
-            if (!player.serverLevel().getBlockState(mark.offset(offset)).isSolid()) return false;
+        if (!BuildersChalkItem.markDimension(chalk).equals(player.serverLevel().dimension().location().toString())) return false;
+        // Every cell must be solid, and built: a mark set into a hillside is not a wall raised for the tribe.
+        for (BlockPos offset : template.shape().offsets(BuildersChalkItem.size(chalk))) {
+            var state = player.serverLevel().getBlockState(mark.offset(offset));
+            if (!state.isSolid() || state.is(NATURAL_GROUND)) return false;
+        }
         return true;
     }
 
@@ -131,11 +138,19 @@ public final class Requests {
     /** The Elder offers today's first open request the player is not already on. Returns the offered template or null. */
     public static Template offer(ServerPlayer player, TribeDefinition tribe) {
         QuestSavedData data = QuestSavedData.get(player.server);
-        if (data.request(player.getUUID(), tribe) != null) return template(tribe, data.request(player.getUUID(), tribe).template());
         long day = day(player.serverLevel());
+        QuestSavedData.Request held = data.request(player.getUUID(), tribe);
+        if (held != null) {
+            Template current = template(tribe, held.template());
+            if (current != null) return current;
+            data.setRequest(player.getUUID(), tribe, null);   // a request whose template no longer exists is let go
+        }
+        if (data.requestsToday(player.getUUID(), day) >= TribalConfig.requestsPerDay()) return null;
         List<Template> open = openToday(tribe, day);
+        String lastDone = data.lastDone(player.getUUID(), tribe);
+        if (lastDone != null && open.size() > 1) open = open.stream().filter(t -> !t.id().equals(lastDone)).toList();
         if (open.isEmpty()) return null;
-        Template chosen = open.get((int) Math.floorMod(player.getUUID().getLeastSignificantBits() + day, open.size()));
+        Template chosen = open.get((int) Math.floorMod(player.getUUID().getLeastSignificantBits() + day + data.requestsToday(player.getUUID(), day), open.size()));
         data.setRequest(player.getUUID(), tribe, new QuestSavedData.Request(chosen.id(), day, 0));
         QuestEvents.sync(player);
         return chosen;
@@ -147,7 +162,10 @@ public final class Requests {
         QuestSavedData.Request request = data.request(player.getUUID(), tribe);
         if (request == null) return false;
         Template template = template(tribe, request.template());
-        if (template == null) return false;
+        if (template == null) {
+            data.setRequest(player.getUUID(), tribe, null);
+            return false;
+        }
         return switch (template.kind()) {
             case FETCH, DELIVER -> carries(player, template);
             case SLAY, RITE -> request.progress() >= template.count();
@@ -163,6 +181,7 @@ public final class Requests {
         if (template.kind() == Kind.FETCH || template.kind() == Kind.DELIVER) take(player, template);
         data.setRequest(player.getUUID(), tribe, null);
         data.completedOne(player.getUUID(), tribe);
+        data.finishedRequest(player.getUUID(), tribe, template.id(), day(player.serverLevel()));
         TribeStanding.add(player, tribe, (int) Math.round(template.standing() * TribalConfig.requestStandingScale()));
         if (data.completed(player.getUUID(), tribe) % TribalConfig.requestsPerMark() == 0)
             tk.darrow.tribalpower.item.SpiritgearHelper.give(player, tribe.stamped(tk.darrow.tribalpower.tribe.TribeRegistry.TRIBE_MARK.get()));

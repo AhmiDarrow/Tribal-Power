@@ -45,7 +45,7 @@ public final class QuestRegistry {
             if (event.getEntity() instanceof ServerPlayer player) QuestEvents.sync(player);
         });
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.AdvancementEvent.AdvancementEarnEvent event) -> {
-            if (event.getEntity() instanceof ServerPlayer player) QuestEvents.sync(player);
+            if (event.getEntity() instanceof ServerPlayer player && event.getAdvancement().id().getNamespace().equals(TribalPower.MOD_ID)) QuestEvents.sync(player);
         });
     }
 

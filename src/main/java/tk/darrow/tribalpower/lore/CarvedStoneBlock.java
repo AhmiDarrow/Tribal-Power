@@ -50,6 +50,12 @@ public class CarvedStoneBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
+    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighbour, net.minecraft.world.level.LevelAccessor level, BlockPos pos, BlockPos neighbourPos) {
+        if (direction.getOpposite() == state.getValue(FACING) && !state.canSurvive(level, pos)) return net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
+        return super.updateShape(state, direction, neighbour, level, pos, neighbourPos);
+    }
+
+    @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction facing = state.getValue(FACING);
         BlockPos behind = pos.relative(facing.getOpposite());
