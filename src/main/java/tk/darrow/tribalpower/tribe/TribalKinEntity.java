@@ -138,7 +138,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public void setStall(boolean value) { stall = value; if (anchor != null) restrictTo(anchor, wanderRadius()); }
     public String stallId() { return stallId == null || stallId.isBlank() ? DockShop.DEFAULT_STALL : stallId; }
     public void setStallId(String id) { stallId = id == null || id.isBlank() ? DockShop.DEFAULT_STALL : id; }
-    public int wanderRadius() { return stall ? STALL_RADIUS : WANDER_RADIUS; }
+    public int wanderRadius() { return stall ? STALL_RADIUS : festival ? FESTIVAL_RADIUS : WANDER_RADIUS; }
+    /** On the tribe's festival day the Kin keep to the hearth. */
+    private static final int FESTIVAL_RADIUS = 5;
+    private boolean festival;
 
     @Override
     protected void registerGoals() {
@@ -174,6 +177,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             return;
         }
         if (anchor == null) setAnchor(blockPosition());
+        if (tickCount % 200 == 0 && tk.darrow.tribalpower.event.Festivals.active(tribe(), level()) != festival) {
+            festival = !festival;
+            restrictTo(anchor, wanderRadius());
+        }
         else if (!hasRestriction()) restrictTo(anchor, wanderRadius());
         if (role() == KinRole.DRUMMER && ++drumTimer >= DRUM_INTERVAL) {
             drumTimer = random.nextInt(20);

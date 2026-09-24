@@ -44,7 +44,7 @@ public final class CodexBook {
     public record Entry(String id, String category, String name, String icon, boolean spoiler, String unlock,
                         int order, List<String> items, List<Page> pages, String next) {}
 
-    public sealed interface Page permits Text, Spotlight, Recipe, Image, Scene, Pattern, Quests {
+    public sealed interface Page permits Text, Spotlight, Recipe, Image, Scene, Pattern, Quests, Events {
         String title();
         String text();
     }
@@ -53,6 +53,9 @@ public final class CodexBook {
 
     /** The player's live standing with one tribe's work: its open request and its story. */
     public record Quests(String tribe, String title, String text) implements Page {}
+
+    /** What the March is doing now: its weather, its surge, whose festival it is. */
+    public record Events(String title, String text) implements Page {}
 
     /** A big item with its name, and text beneath. */
     public record Spotlight(String item, String title, String text) implements Page {}
@@ -190,6 +193,7 @@ public final class CodexBook {
             case "pattern" -> new Pattern(str(json, "pattern"), json.has("tier") ? json.get("tier").getAsInt() : 1, title, text);
             case "scene" -> new Scene(title, text, steps(json.getAsJsonArray("steps")));
             case "quests" -> new Quests(str(json, "tribe"), title, text);
+            case "events" -> new Events(title, text);
             default -> new Text(title, text);
         };
     }

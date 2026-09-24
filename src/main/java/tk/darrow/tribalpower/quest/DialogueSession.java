@@ -125,6 +125,8 @@ public final class DialogueSession {
             };
             case "relic" -> data.hasRelic(player.getUUID(), tribe) == Boolean.parseBoolean(value);
             case "completed_min" -> data.completed(player.getUUID(), tribe) >= Integer.parseInt(value);
+            case "festival" -> tk.darrow.tribalpower.event.Festivals.active(tribe, player.level()) == Boolean.parseBoolean(value);
+            case "festival_joined" -> tk.darrow.tribalpower.event.Festivals.joined(player, tribe, tk.darrow.tribalpower.event.Festivals.day(player.level())) == Boolean.parseBoolean(value);
             default -> true;
         };
     }
@@ -166,6 +168,7 @@ public final class DialogueSession {
                         .append(": ").append(offered.describe()).withStyle(TribeStanding.colour(tribe)));
             }
             case "turn_in_request" -> Requests.turnIn(player, tribe);
+            case "festival_feast" -> tk.darrow.tribalpower.event.Festivals.join(player, tribe, tk.darrow.tribalpower.event.Festivals.day(player.level()));
             case "advance_quest" -> {
                 if (Questline.ready(player, tribe)) Questline.handIn(player, tribe);
             }

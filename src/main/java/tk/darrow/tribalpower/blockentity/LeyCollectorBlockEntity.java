@@ -47,6 +47,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         // Factor maths live in ley/LeyMath so the Ley Lens and Codex diagnostics show the same numbers.
         var factors = tk.darrow.tribalpower.ley.LeyMath.factors(level, pos);
         int gain = beatFor(factors.gain());
+        gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(level, pos));
         gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, gain);
         if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
@@ -57,6 +58,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     /** Landscape beat plus machine rank — the same Pulse the tick inserts. */
     public int currentBeat(Level world, BlockPos pos) {
         int gain = beatFor(tk.darrow.tribalpower.ley.LeyMath.gain(world, pos));
+        gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(world, pos));
         return gain + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, gain);
     }
 

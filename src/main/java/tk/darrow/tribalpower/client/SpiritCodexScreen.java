@@ -256,6 +256,7 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Scene s -> SCENE_H + 52;
             case CodexBook.Pattern p -> SCENE_H + 52;
             case CodexBook.Quests q -> 96;
+            case CodexBook.Events e -> 64;
             default -> 0;
         };
     }
@@ -567,10 +568,33 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Quests q -> {
                 return quests(g, q, x, y);
             }
+            case CodexBook.Events e -> {
+                return events(g, x, y);
+            }
             default -> {
                 return y;
             }
         }
+    }
+
+    /** The March's weather, surge and festival, from the last state the server sent. */
+    private int events(GuiGraphics g, int x, int y) {
+        var state = tk.darrow.tribalpower.event.MarchStatePayload.latest;
+        int w = pageWidth - 8;
+        g.fill(x, y, x + w, y + 60, 0x22000000);
+        java.util.List<Component> running = new java.util.ArrayList<>();
+        for (var weather : tk.darrow.tribalpower.event.MarchWeather.values()) if (state.weather(weather)) running.add(Component.translatable(weather.key()));
+        Component sky = running.isEmpty() ? Component.translatable("gui.tribalpower.codex.events.clear") : Component.translatable("gui.tribalpower.codex.events.weather",
+                running.stream().map(Component::getString).collect(java.util.stream.Collectors.joining(", ")));
+        g.drawString(font, sky, x + 4, y + 6, INK, false);
+        var surge = state.surge();
+        g.drawString(font, surge == null ? Component.translatable("gui.tribalpower.codex.events.no_surge")
+                : Component.translatable("gui.tribalpower.codex.events.surge", Component.translatable("attunement.tribalpower." + surge.getSerializedName()), state.surgeSeconds() / 60),
+                x + 4, y + 22, surge == null ? DIM : GOLD, false);
+        var festival = state.festival();
+        g.drawString(font, festival == null ? Component.translatable("gui.tribalpower.codex.events.no_festival")
+                : Component.translatable("gui.tribalpower.codex.events.festival", festival.displayNameComponent()), x + 4, y + 38, festival == null ? DIM : GOLD, false);
+        return y + 64;
     }
 
     /** One tribe's open request and story, from the last state the server sent. */

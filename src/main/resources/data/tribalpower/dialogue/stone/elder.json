@@ -9,6 +9,14 @@
       ]
     },
     {
+      "node": "greet_festival",
+      "conditions": [
+        {
+          "festival": true
+        }
+      ]
+    },
+    {
       "node": "greet_done",
       "conditions": [
         {
@@ -21,6 +29,231 @@
     }
   ],
   "nodes": {
+    "greet_festival": {
+      "text": [
+        "dialogue.tribalpower.stone.festival"
+      ],
+      "choices": [
+        {
+          "text": "dialogue.tribalpower.choice.festival_feast",
+          "next": "festival_thanks",
+          "conditions": [
+            {
+              "festival_joined": false
+            }
+          ],
+          "actions": [
+            {
+              "festival_feast": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.trade",
+          "conditions": [
+            {
+              "rank": "guest"
+            }
+          ],
+          "actions": [
+            {
+              "trade": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work",
+          "next": "request_given",
+          "conditions": [
+            {
+              "rank": "guest"
+            },
+            {
+              "request": "none"
+            }
+          ],
+          "actions": [
+            {
+              "offer_request": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work_active",
+          "next": "request_active",
+          "conditions": [
+            {
+              "request": "active"
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.work_done",
+          "next": "request_done",
+          "conditions": [
+            {
+              "request": "ready"
+            }
+          ],
+          "actions": [
+            {
+              "turn_in_request": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_begin",
+          "next": "quest_1",
+          "conditions": [
+            {
+              "quest_step": 0
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_1",
+          "conditions": [
+            {
+              "quest_step": 1
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_hand",
+          "next": "quest_3",
+          "conditions": [
+            {
+              "quest_step": 2
+            },
+            {
+              "quest_ready": true
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_2",
+          "conditions": [
+            {
+              "quest_step": 2
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_3",
+          "conditions": [
+            {
+              "quest_step": 3
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_4",
+          "conditions": [
+            {
+              "quest_step": 4
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_hand",
+          "next": "quest_6",
+          "conditions": [
+            {
+              "quest_step": 5
+            },
+            {
+              "quest_ready": true
+            }
+          ],
+          "actions": [
+            {
+              "advance_quest": true
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_5",
+          "conditions": [
+            {
+              "quest_step": 5
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.story_about",
+          "next": "quest_6",
+          "conditions": [
+            {
+              "quest_step": 6
+            },
+            {
+              "quest_ready": false
+            }
+          ]
+        },
+        {
+          "text": "dialogue.tribalpower.choice.lore",
+          "next": "lore"
+        },
+        {
+          "text": "dialogue.tribalpower.choice.farewell",
+          "actions": [
+            {
+              "close": true
+            }
+          ]
+        }
+      ]
+    },
+    "festival_thanks": {
+      "text": [
+        "dialogue.tribalpower.stone.festival.thanks"
+      ],
+      "choices": [
+        {
+          "text": "dialogue.tribalpower.choice.back",
+          "next": "greet"
+        },
+        {
+          "text": "dialogue.tribalpower.choice.farewell",
+          "actions": [
+            {
+              "close": true
+            }
+          ]
+        }
+      ]
+    },
     "greet_stranger": {
       "text": [
         "dialogue.tribalpower.stone.stranger.1",

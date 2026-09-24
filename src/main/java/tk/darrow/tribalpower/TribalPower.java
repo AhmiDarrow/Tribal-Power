@@ -91,6 +91,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.cuisine.CuisineRegistry.register(modBus);
         tk.darrow.tribalpower.quest.QuestRegistry.register(modBus);
         tk.darrow.tribalpower.guardian.GuardianRegistry.register(modBus);
+        tk.darrow.tribalpower.event.MarchEvents.register(modBus);
         tk.darrow.tribalpower.ley.LeyRegistry.register(modBus);
         tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);

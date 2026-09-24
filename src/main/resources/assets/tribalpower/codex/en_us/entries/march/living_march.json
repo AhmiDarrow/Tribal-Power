@@ -1,0 +1,50 @@
+{
+  "name": "The living March",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Right now",
+      "text": [
+        "What the March is doing as you read this. It changes with or without you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "March weather",
+      "text": [
+        "Four of the March's countries have weather of their own, beyond rain. **Ashfall** in the Ember Wastes, a **Glimmer Storm** over the Crystal Fields, a **Whiteout** on the Snow Fields and **Fen Mist** in the Reed Fen. Each closes the world in: you see less, and spirits rise by day under it as they would at night.",
+        "Each also favours one voice and hampers another. Ashfall feeds Ember Horns and chokes Wind Harps; a Glimmer Storm feeds Wake Bells and dulls Drumhearts; a Whiteout drives Wind Harps and freezes Wave Drums; Fen Mist swells Wave Drums and damps Ember Horns. Half again as much from the favoured voice, half as much from the hampered one, by default.",
+        "Weather comes and goes on its own, a chance every hour, and lasts a quarter of an hour or so. The Codex page above tells you what is running; so does the sky."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ley surges",
+      "text": [
+        "Now and then one voice's ley threads run **bright**: a surge. Through the [Ley Lens](ley_lens) they blaze, and the lens names the voice. While it lasts, every Ley Collector whose threads carry that voice yields **double**.",
+        "The other side of it: every ley cell has a **crossing**, the point its threads meet, and standing on a bare one during a surge, with no collector near to drink it, gives you **Ley Sickness**: the ground sways and your Pulse drains. Step off, or set a collector on it and make the surge yours.",
+        "Surges run a quarter of an hour and come every hour and a half or so by default."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Festivals",
+      "text": [
+        "Every tribe keeps a **festival day**, the nine of them taking turns through a cycle of twenty-seven days. On their day the camp's fires burn, the hearth throws its colour into the air, and the Kin keep to the hearth instead of wandering.",
+        "The Elder has festival words, and if you ask to join the feast they press two of the tribe's dish into your hands with a heap of standing, once per festival. A rite performed in the camp that day earns festival thanks on top of the rite's, and eating a feast beside the hearth counts you at their table.",
+        "The Codex page above names whose day it is, and the March tells you when the day turns."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wandering spirits",
+      "text": [
+        "Rarely, out in the March, a warm light drifts near you: a **wandering spirit**. It does not flee. Reach it and it tells you a line of its country's story and leaves a small gift, the reagent its guardian answers to, or now and then a Resonant Core, and goes.",
+        "Left alone it fades in a couple of minutes. Each country has three things to say; hear them all and you know the March a little better."
+      ]
+    }
+  ]
+}

@@ -69,6 +69,7 @@ public class FeastBlock extends Block {
         if (eaten < SERVINGS - 1) level.setBlock(pos, state.setValue(EATEN, eaten + 1), 3);
         else level.removeBlock(pos, false);
         level.gameEvent(player, net.minecraft.world.level.gameevent.GameEvent.EAT, pos);
+        if (player instanceof net.minecraft.server.level.ServerPlayer sp) tk.darrow.tribalpower.event.Festivals.feastBonus(sp, pos);
         return InteractionResult.SUCCESS;
     }
 

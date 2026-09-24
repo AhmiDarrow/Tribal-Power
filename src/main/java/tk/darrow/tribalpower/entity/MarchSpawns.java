@@ -50,7 +50,8 @@ public final class MarchSpawns {
      */
     public static boolean spiritsRise(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
         boolean march = level.getLevel().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH);
-        boolean dark = Monster.isDarkEnoughToSpawn(level, pos, random);
+        boolean dark = Monster.isDarkEnoughToSpawn(level, pos, random)
+                || (march && tk.darrow.tribalpower.event.MarchWeather.darkens(level.getLevel(), pos));
         int dayOneIn = tk.darrow.tribalpower.config.TribalConfig.daySpawnOneIn();
         if (!dark && (!march || dayOneIn <= 0 || level.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0
                 || random.nextInt(dayOneIn) != 0)) return false;

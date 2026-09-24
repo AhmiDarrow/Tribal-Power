@@ -50,6 +50,19 @@ public class TribeHearthBlockEntity extends BlockEntity {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, TribeHearthBlockEntity be) {
         if (!be.registered && level instanceof ServerLevel server) { TribeHooks.hearth(server, pos, be.tribe, true); be.registered = true; }
+        if (level instanceof ServerLevel server && (level.getGameTime() + pos.asLong()) % 100 == 0 && tk.darrow.tribalpower.event.Festivals.active(be.tribe, level)) be.festival(server, pos);
+    }
+
+    /** Festival day: the camp's fires burn, and the hearth throws its tribe's colour into the air. */
+    private void festival(ServerLevel server, BlockPos pos) {
+        tk.darrow.tribalpower.effect.SpiritEffects.ring(server, pos.getCenter().add(0, 1, 0), tribe.attunement(), 3, 18);
+        server.sendParticles(net.minecraft.core.particles.ParticleTypes.FIREWORK, pos.getX() + 0.5, pos.getY() + 2.5, pos.getZ() + 0.5, 8, 0.6, 0.6, 0.6, 0.05);
+        for (BlockPos near : BlockPos.betweenClosed(pos.offset(-8, -2, -8), pos.offset(8, 3, 8))) {
+            var state = server.getBlockState(near);
+            if (state.getBlock() instanceof net.minecraft.world.level.block.CampfireBlock && !state.getValue(net.minecraft.world.level.block.CampfireBlock.LIT)
+                    && !state.getValue(net.minecraft.world.level.block.CampfireBlock.WATERLOGGED))
+                server.setBlock(near, state.setValue(net.minecraft.world.level.block.CampfireBlock.LIT, true), 3);
+        }
     }
 
     @Override

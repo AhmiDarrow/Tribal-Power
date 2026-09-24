@@ -26,6 +26,7 @@ public final class QuestEvents {
         for (TribeDefinition tribe : TribeHooks.hearthsNear(level, at, Requests.CAMP_RADIUS)) {
             Requests.progress(player, tribe, Requests.Kind.RITE, 1);
             Questline.progress(player, tribe, Questline.Kind.RITE, 1);
+            tk.darrow.tribalpower.event.Festivals.riteBonus(player, tribe);
         }
     }
 

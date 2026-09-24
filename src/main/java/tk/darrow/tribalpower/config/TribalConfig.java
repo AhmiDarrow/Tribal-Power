@@ -63,6 +63,26 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue GUARDIAN_RESET_SECONDS;
     public static final ModConfigSpec.IntValue NINTH_AGREEMENT_COST;
     public static final ModConfigSpec.IntValue NINTH_AGREEMENT_BOON_MINUTES;
+    public static final ModConfigSpec.BooleanValue WEATHER_ENABLED;
+    public static final ModConfigSpec.DoubleValue WEATHER_CHANCE_PER_HOUR;
+    public static final ModConfigSpec.IntValue WEATHER_MINUTES_MIN;
+    public static final ModConfigSpec.IntValue WEATHER_MINUTES_MAX;
+    public static final ModConfigSpec.DoubleValue WEATHER_GENERATOR_BONUS;
+    public static final ModConfigSpec.DoubleValue WEATHER_GENERATOR_PENALTY;
+    public static final ModConfigSpec.BooleanValue WEATHER_SPAWN_SHIFT;
+    public static final ModConfigSpec.BooleanValue SURGES_ENABLED;
+    public static final ModConfigSpec.IntValue SURGE_EVERY_MINUTES;
+    public static final ModConfigSpec.IntValue SURGE_MINUTES;
+    public static final ModConfigSpec.DoubleValue SURGE_YIELD;
+    public static final ModConfigSpec.IntValue SURGE_SICKNESS_SECONDS;
+    public static final ModConfigSpec.BooleanValue FESTIVALS_ENABLED;
+    public static final ModConfigSpec.IntValue FESTIVAL_CYCLE_DAYS;
+    public static final ModConfigSpec.IntValue FESTIVAL_STANDING;
+    public static final ModConfigSpec.IntValue FESTIVAL_RITE_STANDING;
+    public static final ModConfigSpec.IntValue FESTIVAL_FEAST_STANDING;
+    public static final ModConfigSpec.BooleanValue WANDERING_SPIRITS_ENABLED;
+    public static final ModConfigSpec.IntValue WANDERING_SPIRIT_ONE_IN;
+    public static final ModConfigSpec.IntValue WANDERING_SPIRIT_LIFE;
     public static final ModConfigSpec.IntValue DISH_BOON;
     public static final ModConfigSpec.DoubleValue HEARTH_SCALE;
     public static final ModConfigSpec.BooleanValue HEARTH_HEAT;
@@ -392,6 +412,28 @@ public final class TribalConfig {
         NINTH_AGREEMENT_COST = b.comment("Pulse the Ninth Agreement rite draws.").defineInRange("ninthAgreementCost", 2000, 0, 100000);
         NINTH_AGREEMENT_BOON_MINUTES = b.comment("Minutes all nine boons last after the Ninth Agreement.").defineInRange("ninthAgreementBoonMinutes", 30, 1, 1440);
         b.pop();
+        b.comment("The living March: weather, surges, festivals and wandering spirits.").push("events");
+        WEATHER_ENABLED = b.comment("Whether the March has its own weather (ashfall, glimmer storms, whiteouts, fen mist).").define("weatherEnabled", true);
+        WEATHER_CHANCE_PER_HOUR = b.comment("Chance per game hour that each idle weather begins.").defineInRange("weatherChancePerHour", 0.5, 0.0, 20.0);
+        WEATHER_MINUTES_MIN = b.comment("Shortest a March weather lasts, in game minutes.").defineInRange("weatherMinutesMin", 8, 1, 600);
+        WEATHER_MINUTES_MAX = b.comment("Longest a March weather lasts, in game minutes.").defineInRange("weatherMinutesMax", 20, 1, 1200);
+        WEATHER_GENERATOR_BONUS = b.comment("What a weather's favoured generators make, as a multiplier.").defineInRange("weatherGeneratorBonus", 1.5, 0.0, 10.0);
+        WEATHER_GENERATOR_PENALTY = b.comment("What a weather's hampered generators make, as a multiplier.").defineInRange("weatherGeneratorPenalty", 0.5, 0.0, 1.0);
+        WEATHER_SPAWN_SHIFT = b.comment("Whether spirits rise by day under thick weather as they would at night.").define("weatherSpawnShift", true);
+        SURGES_ENABLED = b.comment("Whether ley surges happen.").define("surgesEnabled", true);
+        SURGE_EVERY_MINUTES = b.comment("Game minutes between the end of one surge and the start of the next.").defineInRange("surgeEveryMinutes", 90, 1, 10000);
+        SURGE_MINUTES = b.comment("How long a surge lasts, in game minutes.").defineInRange("surgeMinutes", 15, 1, 600);
+        SURGE_YIELD = b.comment("What a collector on a surging thread yields, as a multiplier.").defineInRange("surgeYieldMultiplier", 2.0, 1.0, 10.0);
+        SURGE_SICKNESS_SECONDS = b.comment("Seconds of Ley Sickness for standing on a bare crossing in a surge.").defineInRange("surgeSicknessSeconds", 30, 1, 600);
+        FESTIVALS_ENABLED = b.comment("Whether the tribes keep festival days.").define("festivalsEnabled", true);
+        FESTIVAL_CYCLE_DAYS = b.comment("Days in the festival cycle; each tribe's festival falls once in it.").defineInRange("festivalCycleDays", 27, 9, 900);
+        FESTIVAL_STANDING = b.comment("Standing the Elder's festival gift pays.").defineInRange("festivalStanding", 40, 0, 1000);
+        FESTIVAL_RITE_STANDING = b.comment("Standing a rite in a festival camp pays on top of the usual.").defineInRange("festivalRiteStanding", 30, 0, 1000);
+        FESTIVAL_FEAST_STANDING = b.comment("Standing for eating a feast by a festival hearth.").defineInRange("festivalFeastStanding", 20, 0, 1000);
+        WANDERING_SPIRITS_ENABLED = b.comment("Whether wandering spirits appear.").define("wanderingSpiritsEnabled", true);
+        WANDERING_SPIRIT_ONE_IN = b.comment("A spirit appears near a March player one time in this many five-second checks (360 is about once a game day).").defineInRange("wanderingSpiritOneIn", 360, 1, 100000);
+        WANDERING_SPIRIT_LIFE = b.comment("Seconds a wandering spirit lingers before it fades.").defineInRange("wanderingSpiritLifeSeconds", 120, 5, 3600);
+        b.pop();
         SPEC = b.build();
     }
 
@@ -454,6 +496,26 @@ public final class TribalConfig {
     public static int guardianResetSeconds() { return get(GUARDIAN_RESET_SECONDS); }
     public static int ninthAgreementCost() { return get(NINTH_AGREEMENT_COST); }
     public static int ninthAgreementBoonMinutes() { return get(NINTH_AGREEMENT_BOON_MINUTES); }
+    public static boolean weatherEnabled() { return get(WEATHER_ENABLED); }
+    public static double weatherChancePerHour() { return get(WEATHER_CHANCE_PER_HOUR); }
+    public static int weatherMinutesMin() { return get(WEATHER_MINUTES_MIN); }
+    public static int weatherMinutesMax() { return get(WEATHER_MINUTES_MAX); }
+    public static double weatherGeneratorBonus() { return get(WEATHER_GENERATOR_BONUS); }
+    public static double weatherGeneratorPenalty() { return get(WEATHER_GENERATOR_PENALTY); }
+    public static boolean weatherSpawnShift() { return get(WEATHER_SPAWN_SHIFT); }
+    public static boolean surgesEnabled() { return get(SURGES_ENABLED); }
+    public static int surgeEveryMinutes() { return get(SURGE_EVERY_MINUTES); }
+    public static int surgeMinutes() { return get(SURGE_MINUTES); }
+    public static double surgeYieldMultiplier() { return get(SURGE_YIELD); }
+    public static int surgeSicknessSeconds() { return get(SURGE_SICKNESS_SECONDS); }
+    public static boolean festivalsEnabled() { return get(FESTIVALS_ENABLED); }
+    public static int festivalCycleDays() { return get(FESTIVAL_CYCLE_DAYS); }
+    public static int festivalStanding() { return get(FESTIVAL_STANDING); }
+    public static int festivalRiteStanding() { return get(FESTIVAL_RITE_STANDING); }
+    public static int festivalFeastStanding() { return get(FESTIVAL_FEAST_STANDING); }
+    public static boolean wanderingSpiritsEnabled() { return get(WANDERING_SPIRITS_ENABLED); }
+    public static int wanderingSpiritOneIn() { return get(WANDERING_SPIRIT_ONE_IN); }
+    public static int wanderingSpiritLifeSeconds() { return get(WANDERING_SPIRIT_LIFE); }
     public static int dishBoonMinutes() { return get(DISH_BOON); }
     public static double hearthCookScale() { return get(HEARTH_SCALE); }
     public static boolean hearthNeedsHeat() { return get(HEARTH_HEAT); }

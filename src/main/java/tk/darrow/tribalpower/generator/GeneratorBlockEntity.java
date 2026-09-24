@@ -46,7 +46,8 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
     @Override
     public int currentOutput() {
         if (level == null || stilled()) return 0;
-        int output = TribalConfig.scaleGeneration(rawOutput(level, worldPosition));
+        int output = (int) Math.round(TribalConfig.scaleGeneration(rawOutput(level, worldPosition))
+                * tk.darrow.tribalpower.event.MarchWeather.generatorScale(level, worldPosition, voice()));
         return output + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, output);
     }
 
@@ -55,7 +56,8 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) return;
         int raw = be.rawOutput(level, pos);
-        int output = TribalConfig.scaleGeneration(raw);
+        // The March's weather favours one voice and hampers another; fuel is still charged in raw terms.
+        int output = (int) Math.round(TribalConfig.scaleGeneration(raw) * tk.darrow.tribalpower.event.MarchWeather.generatorScale(level, pos, be.voice()));
         output += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, output);
         if (output <= 0) return;
         int accepted = be.pulse.insertPulse(output, false);

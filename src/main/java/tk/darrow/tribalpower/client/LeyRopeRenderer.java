@@ -134,14 +134,16 @@ public final class LeyRopeRenderer {
         if (voice < 0 || voice >= HALO_RGB.length) voice = 0;
         float[] halo = HALO_RGB[voice];
         float[] core = CORE_RGB[voice];
+        var surge = tk.darrow.tribalpower.event.MarchStatePayload.latest.surge();
+        float surging = surge != null && surge.ordinal() == voice ? 1.8F : 1.0F;
         Vec3 a = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, from, pulls);
         for (double t = from; t < to; t += step) {
             double t2 = Math.min(to, t + step);
             Vec3 b = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, t2, pulls);
             float wave = 0.62F + 0.38F * (float) Math.pow(Math.max(0, Math.sin(t * 0.22 - ticks * SHIMMER)), 1.35);
             double spin = t * TWIST - ticks * FLOW;
-            cord(buffer, matrix, a, b, spin, halo[0], halo[1], halo[2], 0.20F * wave, HALO);
-            cord(buffer, matrix, a, b, spin, core[0], core[1], core[2], 0.50F * wave, CORE);
+            cord(buffer, matrix, a, b, spin, halo[0], halo[1], halo[2], Math.min(1F, 0.20F * wave * surging), HALO);
+            cord(buffer, matrix, a, b, spin, core[0], core[1], core[2], Math.min(1F, 0.50F * wave * surging), CORE);
             int mark = (int) Math.floor(t / 18.0);
             if (mark != (int) Math.floor((t - step) / 18.0)) {
                 double node = mark * 18.0;

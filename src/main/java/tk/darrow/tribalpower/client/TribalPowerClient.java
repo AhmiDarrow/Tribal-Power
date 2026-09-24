@@ -18,6 +18,9 @@ public final class TribalPowerClient {
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent event)->event.register(net.minecraft.resources.ResourceLocation.parse("tribalpower:the_march"),new MarchSkyEffects()));
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT,SkyConfig.SPEC);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(AuroraSky::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(MarchWeatherClient::tick);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(MarchWeatherClient::fog);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(MarchWeatherClient::fogColor);
         installDevHook("tk.darrow.tribalpower.client.VisualVerification");
         installDevHook("tk.darrow.tribalpower.client.ShowcaseVerification");
         modBus.addListener(PanoramicSky::registerShaders);
@@ -75,6 +78,8 @@ public final class TribalPowerClient {
             tk.darrow.tribalpower.ley.LeySightPayload.latest = new tk.darrow.tribalpower.ley.LeySightPayload(0, 0, 0);
             tk.darrow.tribalpower.ley.LeySightPayload.seen = false;
             tk.darrow.tribalpower.quest.QuestStatePayload.latest = tk.darrow.tribalpower.quest.QuestStatePayload.EMPTY;
+            tk.darrow.tribalpower.event.MarchStatePayload.latest = tk.darrow.tribalpower.event.MarchStatePayload.EMPTY;
+            MarchWeatherClient.reset();
         });
     }
 

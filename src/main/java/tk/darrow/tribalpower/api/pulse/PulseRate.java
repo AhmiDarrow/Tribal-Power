@@ -23,6 +23,7 @@ public final class PulseRate {
         if (be instanceof LeyCollectorBlockEntity collector) {
             if (level.hasNeighborSignal(pos)) return 0;
             int gain = LeyCollectorBlockEntity.beatFor(LeyMath.gain(level, pos));
+            gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(level, pos));
             gain += MachineRank.bonusGain(collector, gain);
             return (int) Math.round(gain * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
         }
