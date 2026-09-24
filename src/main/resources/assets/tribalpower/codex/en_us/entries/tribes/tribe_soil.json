@@ -56,6 +56,14 @@
         "Kin of the Pad-keepers carry their [boon](tribe_boons): your fields are never trampled, and hunger comes slower."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Your work with them",
+      "text": [
+        "What the Pad-keepers' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

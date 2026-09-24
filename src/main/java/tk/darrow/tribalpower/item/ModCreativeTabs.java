@@ -172,6 +172,7 @@ public final class ModCreativeTabs {
                         tk.darrow.tribalpower.healing.HealingRegistry.displayItems(out);
                         tk.darrow.tribalpower.kit.KitRegistry.displayItems(out);
                         tk.darrow.tribalpower.cuisine.CuisineRegistry.displayItems(out);
+                        tk.darrow.tribalpower.quest.QuestRegistry.displayItems(out);
                         tk.darrow.tribalpower.ley.LeyRegistry.displayItems(out);
                         tk.darrow.tribalpower.logic.LogicRegistry.displayItems(out);
                         tk.darrow.tribalpower.device.DeviceRegistry.displayItems(out);

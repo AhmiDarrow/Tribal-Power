@@ -70,6 +70,7 @@ public final class TribeHooks {
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
         for (TribeDefinition tribe : hearthsNear(level, event.getEntity().blockPosition(), TribeStanding.KILL_RADIUS))
             TribeStanding.killGain(player, tribe);
+        tk.darrow.tribalpower.quest.QuestEvents.slew(player, living);
     }
 
     /** Breaking camp blocks costs standing: hearth -40, banner -5. */

@@ -56,6 +56,14 @@
         "Kin of the Rootbinders carry their [boon](tribe_boons): crops and saplings within 4 blocks grow faster around you."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Your work with them",
+      "text": [
+        "What the Rootbinders' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

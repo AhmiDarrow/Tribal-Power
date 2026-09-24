@@ -255,6 +255,7 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Image i -> Math.min(pageWidth - 8, 120) + 8;
             case CodexBook.Scene s -> SCENE_H + 52;
             case CodexBook.Pattern p -> SCENE_H + 52;
+            case CodexBook.Quests q -> 96;
             default -> 0;
         };
     }
@@ -563,10 +564,39 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Pattern p -> {
                 return scene(g, page, patternSteps.computeIfAbsent(page, k -> CodexScene.pattern(p.pattern(), p.tier())), x, y, mx, my);
             }
+            case CodexBook.Quests q -> {
+                return quests(g, q, x, y);
+            }
             default -> {
                 return y;
             }
         }
+    }
+
+    /** One tribe's open request and story, from the last state the server sent. */
+    private int quests(GuiGraphics g, CodexBook.Quests q, int x, int y) {
+        tk.darrow.tribalpower.tribe.TribeDefinition tribe = null;
+        for (var t : tk.darrow.tribalpower.tribe.TribeDefinition.values()) if (t.id().equals(q.tribe())) tribe = t;
+        if (tribe == null) return y;
+        var state = tk.darrow.tribalpower.quest.QuestStatePayload.latest.of(tribe);
+        int w = pageWidth - 8;
+        g.fill(x, y, x + w, y + 92, 0x22000000);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.request"), x + 4, y + 4, GOLD, false);
+        var template = state.request().isEmpty() ? null : tk.darrow.tribalpower.quest.Requests.template(tribe, state.request());
+        Component request = template == null ? Component.translatable("gui.tribalpower.codex.quests.no_request")
+                : template.name().copy().append(": ").append(template.describe());
+        int ly = y + 14;
+        for (var line : font.split(request, w - 8)) { g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
+        if (template != null && (template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.SLAY || template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.RITE))
+            g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.progress", state.requestProgress(), template.count()), x + 4, ly, DIM, false);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.completed", state.completed()), x + 4, y + 40, DIM, false);
+        g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.story"), x + 4, y + 54, GOLD, false);
+        var step = tk.darrow.tribalpower.quest.Questline.step(tribe, state.step());
+        Component story = step == null ? Component.translatable(state.relic() ? "gui.tribalpower.codex.quests.story_done" : "gui.tribalpower.codex.quests.story_done")
+                : Component.translatable("gui.tribalpower.codex.quests.step", state.step() + 1, tk.darrow.tribalpower.quest.Questline.STEPS).append(" ").append(step.describe(tribe));
+        ly = y + 64;
+        for (var line : font.split(story, w - 8)) { if (ly > y + 84) break; g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
+        return y + 96;
     }
 
     /** A stepped scene with its caption and step controls; returns the y below it. */

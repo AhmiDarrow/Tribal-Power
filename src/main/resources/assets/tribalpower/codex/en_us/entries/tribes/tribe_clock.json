@@ -56,6 +56,14 @@
         "Kin of the Pattern-weavers carry their [boon](tribe_boons): Echo stations within 8 blocks of you work at **double speed**."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "clock",
+      "title": "Your work with them",
+      "text": [
+        "What the Pattern-weavers' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

@@ -63,6 +63,7 @@ public final class TribeStanding {
         int after = data.set(player.getUUID(), tribe, before + delta);
         TribeRank was = TribeRank.of(before);
         TribeRank now = TribeRank.of(after);
+        tk.darrow.tribalpower.quest.QuestEvents.standingChanged(player, tribe);
         if (now.ordinal() > was.ordinal()) {
             player.sendSystemMessage(Component.translatable("message.tribalpower.standing.rank_up",
                     tribe.displayNameComponent(), Component.translatable(now.translationKey())).withStyle(colour(tribe)));

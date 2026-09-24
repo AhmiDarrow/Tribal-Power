@@ -56,6 +56,14 @@
         "Kin of the Colony-keepers carry their [boon](tribe_boons): bees never turn on you."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Your work with them",
+      "text": [
+        "What the Colony-keepers' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

@@ -56,6 +56,14 @@
         "Kin of the Edge-walkers carry their [boon](tribe_boons): no fall hurts you while you **sneak**."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Your work with them",
+      "text": [
+        "What the Edge-walkers' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

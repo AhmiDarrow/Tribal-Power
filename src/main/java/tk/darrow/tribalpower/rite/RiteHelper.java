@@ -56,6 +56,7 @@ public final class RiteHelper {
             return false;
         }
 
+        if (player instanceof net.minecraft.server.level.ServerPlayer performer) tk.darrow.tribalpower.quest.QuestEvents.rite(server, pos, performer);
         // The rite's voice settles on everyone in the circle: a camp blessing, longer when amplified.
         var voice = tk.darrow.tribalpower.blockentity.RitualBrazierBlockEntity.element(seal);
         int blessing = tk.darrow.tribalpower.config.TribalConfig.riteBlessingMinutes() * 60 * 20;

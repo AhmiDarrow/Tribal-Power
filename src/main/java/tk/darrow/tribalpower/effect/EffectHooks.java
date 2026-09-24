@@ -57,7 +57,8 @@ public final class EffectHooks {
         if (!TribalConfig.boonsFromStanding()) return;
         int need = TribeRank.KIN.threshold();
         for (TribeDefinition tribe : TribeDefinition.values())
-            if (CampStanding.effectiveStanding(player, tribe) >= need) ModEffects.grantBoon(player, tribe, 140, true);
+            if (CampStanding.effectiveStanding(player, tribe) >= need || tk.darrow.tribalpower.quest.QuestRegistry.carriesRelic(player, tribe))
+                ModEffects.grantBoon(player, tribe, 140, true);
     }
 
     /**

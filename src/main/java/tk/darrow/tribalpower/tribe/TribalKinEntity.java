@@ -274,6 +274,11 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             return InteractionResult.CONSUME;
         }
         if (role() == KinRole.ELDER) {
+            if (tk.darrow.tribalpower.config.TribalConfig.elderDialogue() && getTradingPlayer() == null
+                    && tk.darrow.tribalpower.quest.DialogueSession.begin(sp, this)) {
+                grantMarkIfVoice(sp, tribe, rank);
+                return InteractionResult.CONSUME;
+            }
             if (rank == TribeRank.VOICE) {
                 TribeStandingSavedData data = TribeStandingSavedData.get(sp.server);
                 if (!data.hasMark(sp.getUUID(), tribe)) {
@@ -300,6 +305,30 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         sp.displayClientMessage(Component.translatable("message.tribalpower.kin.role." + role().id(),
                 tribe.displayNameComponent(), Component.translatable(rank.translationKey())), true);
         return InteractionResult.CONSUME;
+    }
+
+    private void grantMarkIfVoice(ServerPlayer sp, TribeDefinition tribe, TribeRank rank) {
+        if (rank != TribeRank.VOICE) return;
+        TribeStandingSavedData data = TribeStandingSavedData.get(sp.server);
+        if (data.hasMark(sp.getUUID(), tribe)) return;
+        data.grantMark(sp.getUUID(), tribe);
+        tk.darrow.tribalpower.item.SpiritgearHelper.give(sp, tribe.stamped(TribeRegistry.TRIBE_MARK.get()));
+        sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.mark", tribe.displayNameComponent()).withStyle(TribeStanding.colour(tribe)));
+        tk.darrow.tribalpower.camp.CampHooks.award(sp.serverLevel(), sp.getUUID(), "tribes/mark");
+        CodexUnlocksPayload.sync(sp);
+    }
+
+    /** Opens the Elder's counter for a player, from a conversation. */
+    public void openTrades(ServerPlayer sp) {
+        if (getTradingPlayer() != null) return;
+        TribeRank rank = TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(sp, tribe()));
+        MerchantOffers offers = stall() ? stallOffers() : offersFor(rank);
+        if (offers.isEmpty()) {
+            sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stranger", tribe().displayNameComponent()), true);
+            return;
+        }
+        setTradingPlayer(sp);
+        openTradingScreen(sp, Component.translatable("entity.tribalpower.tribal_kin.elder", tribe().displayNameComponent()), rank.ordinal());
     }
 
     // ---- Merchant ----

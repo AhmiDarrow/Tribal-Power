@@ -83,6 +83,7 @@ public class RiteTabletItem extends Item {
         if (failure != null) return failure;
         LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, false);
         celebrate(level, brazierPos, rite);
+        if (player instanceof ServerPlayer performer) tk.darrow.tribalpower.quest.QuestEvents.rite(level, brazierPos, performer);
         if (player != null) {
             player.displayClientMessage(Component.translatable("message.tribalpower.rite." + rite.key() + ".done").withStyle(ChatFormatting.AQUA), true);
             if (player instanceof ServerPlayer serverPlayer) {

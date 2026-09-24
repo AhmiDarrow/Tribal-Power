@@ -56,6 +56,14 @@
         "Kin of the Drumhearts carry their [boon](tribe_boons): a quicker hand: you swing **10%** faster."
       ],
       "title": "Their boon"
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Your work with them",
+      "text": [
+        "What the Drumhearts' Elder has asked of you, and how far their story has come. See [Elders, requests and stories](elders_and_stories)."
+      ]
     }
   ]
 }

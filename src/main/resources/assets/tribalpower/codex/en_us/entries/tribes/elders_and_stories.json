@@ -1,0 +1,44 @@
+{
+  "name": "Elders, requests and stories",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Talking to an Elder",
+      "text": [
+        "Every tribe's camp has an **Elder**, and once you are a Guest they will talk to you. Right-click one and a conversation opens: what they say on the left, what you can say back as buttons.",
+        "Trading is one of the things you can ask for; it is the same counter as before, just behind a question. Strangers only get a few gruff words and a hint about the hearth, so bring an offering first (see [Tribes and standing](standing)).",
+        "What the Elder offers changes with what you have done: requests, their story, and once you have finished it, a warmer welcome."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Requests",
+      "text": [
+        "Ask an Elder **\"Is there work I can do?\"** and they give you one of the tribe's requests: fetch something they prize, deliver their dish cooked, turn back a few of the dark's creatures near their fires, perform a rite at a brazier in their camp, or raise a small build with Builder's Chalk in hand.",
+        "Each tribe has three requests open on any given day, and they change with the days, so if today's does not suit you, come back tomorrow. You hold **one request per tribe** at a time.",
+        "Finish it and tell the Elder **\"I've done what you asked.\"** Each pays standing (8 to 16, before any camp bonuses), and every **third** finished request for a tribe pays a **Tribe Mark** on top, so you no longer have to wait for Voice to hold one.",
+        "The Codex keeps track for you: every tribe's page ends with their open request and how far along it is."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Their story",
+      "text": [
+        "Ask **\"Tell me your story\"** and the Elder begins a longer road: **seven steps**, one tribe at a time, that lean on everything else you do with them. Become their Friend, bring the one thing they prize, hunt near their fires, perform a rite in their camp, cook their dish, and at the end go where they send you.",
+        "The last step is a **trial**: each tribe's country keeps a guardian, and the tribe wants it faced. The Loom-stitchers' trial is The Unsung itself, at the end of the March. Where the other guardians wait is told in the next chapter once you reach it.",
+        "Finish the story and the Elder hands you the tribe's **relic**: a small, unique thing that grants that tribe's [boon](tribe_boons) whenever it is in your inventory, whatever your standing, and marks you for good in their eyes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The nine relics",
+      "text": [
+        "{item:tribalpower:relic_soil} **Kept Ember** (Pad-keepers). {item:tribalpower:relic_stone} **Ringing Stone** (Grit-singers). {item:tribalpower:relic_sprout} **First Root** (Rootbinders). {item:tribalpower:relic_claw} **Bridge Nail** (Edge-walkers). {item:tribalpower:relic_spark} **Steady Drum** (Drumhearts). {item:tribalpower:relic_clock} **Silent Gear** (Pattern-weavers). {item:tribalpower:relic_swarm} **Hive Seal** (Colony-keepers). {item:tribalpower:relic_sigil} **Polite Seal** (Seal-carvers). {item:tribalpower:relic_spindle} **Ninth Thread** (Loom-stitchers).",
+        "One for each tribe, each the end of a story and the start of nine agreeing again."
+      ]
+    }
+  ]
+}

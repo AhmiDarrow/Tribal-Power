@@ -49,6 +49,9 @@ public final class TribalConfig {
     private static final java.util.Map<tk.darrow.tribalpower.item.WeaponKind, WeaponValues> WEAPONS =
             new java.util.EnumMap<>(tk.darrow.tribalpower.item.WeaponKind.class);
     public static final ModConfigSpec.IntValue ANOINT_REAGENT_COST;
+    public static final ModConfigSpec.DoubleValue REQUEST_SCALE;
+    public static final ModConfigSpec.IntValue REQUESTS_PER_MARK;
+    public static final ModConfigSpec.BooleanValue ELDER_DIALOGUE;
     public static final ModConfigSpec.IntValue DISH_BOON;
     public static final ModConfigSpec.DoubleValue HEARTH_SCALE;
     public static final ModConfigSpec.BooleanValue HEARTH_HEAT;
@@ -360,6 +363,11 @@ public final class TribalConfig {
         FEAST_BLESSING = b.comment("Minutes of the voice's blessing one serving of its feast grants.").defineInRange("feastBlessingMinutes", 8, 0, 600);
         DISH_STANDING = b.comment("Standing a tribe grants when offered its own dish at its hearth.").defineInRange("dishStanding", 6, 0, 100);
         b.pop();
+        b.comment("Tribes that talk: requests and questlines.").push("quests");
+        REQUEST_SCALE = b.comment("Scales the standing a finished tribe request pays.").defineInRange("requestStandingScale", 1.0, 0.0, 10.0);
+        REQUESTS_PER_MARK = b.comment("Every this many finished requests for one tribe pays a Tribe Mark.").defineInRange("requestsPerMark", 3, 1, 100);
+        ELDER_DIALOGUE = b.comment("Whether an Elder opens a conversation. When false the Elder trades at once, as before.").define("elderDialogue", true);
+        b.pop();
         SPEC = b.build();
     }
 
@@ -408,6 +416,9 @@ public final class TribalConfig {
     public static double weaponTrait(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).trait()); }
     public static double weaponWeight(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).weight()); }
     public static int anointReagentCost() { return get(ANOINT_REAGENT_COST); }
+    public static double requestStandingScale() { return get(REQUEST_SCALE); }
+    public static int requestsPerMark() { return get(REQUESTS_PER_MARK); }
+    public static boolean elderDialogue() { return get(ELDER_DIALOGUE); }
     public static int dishBoonMinutes() { return get(DISH_BOON); }
     public static double hearthCookScale() { return get(HEARTH_SCALE); }
     public static boolean hearthNeedsHeat() { return get(HEARTH_HEAT); }

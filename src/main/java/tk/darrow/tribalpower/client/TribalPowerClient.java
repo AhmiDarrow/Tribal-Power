@@ -72,6 +72,7 @@ public final class TribalPowerClient {
             tk.darrow.tribalpower.ley.LensPulsePayload.latest = tk.darrow.tribalpower.ley.LensPulsePayload.empty();
             tk.darrow.tribalpower.ley.LeySightPayload.latest = new tk.darrow.tribalpower.ley.LeySightPayload(0, 0, 0);
             tk.darrow.tribalpower.ley.LeySightPayload.seen = false;
+            tk.darrow.tribalpower.quest.QuestStatePayload.latest = new tk.darrow.tribalpower.quest.QuestStatePayload(java.util.List.of());
         });
     }
 
