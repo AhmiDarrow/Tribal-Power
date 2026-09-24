@@ -74,7 +74,10 @@ public final class DockShop {
         @Override
         protected void apply(Map<ResourceLocation, JsonElement> object, ResourceManager resourceManager, ProfilerFiller profiler) {
             List<Listing> next = new ArrayList<>();
-            for (var entry : object.entrySet()) {
+            // by id, so a stall's saved uses stay with their listing when a pack adds or removes one
+            var ordered = new java.util.ArrayList<>(object.entrySet());
+            ordered.sort(java.util.Map.Entry.comparingByKey());
+            for (var entry : ordered) {
                 try {
                     JsonObject json = entry.getValue().getAsJsonObject();
                     String stall = json.has("stall") ? json.get("stall").getAsString() : DEFAULT_STALL;

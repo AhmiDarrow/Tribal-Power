@@ -26,16 +26,17 @@ public final class Festivals {
         return (level.isClientSide ? level.getDayTime() : level.getServer().overworld().getDayTime()) / 24000L;
     }
 
-    /** Whose festival a day is, or null: the cycle is split into nine slots and the first day of each is the festival. */
+    /**
+     * Whose festival a day is, or null: the nine festivals are spread evenly over the cycle, the i-th falling on day
+     * floor(i * cycle / 9), so every tribe keeps its day whatever length the cycle is given.
+     */
     public static TribeDefinition tribeOn(long day) {
         if (!TribalConfig.festivalsEnabled()) return null;
         int tribes = TribeDefinition.values().length;
         int cycle = Math.max(tribes, TribalConfig.festivalCycleDays());
-        int slot = (cycle + tribes - 1) / tribes;
         long inCycle = Math.floorMod(day, cycle);
-        if (inCycle % slot != 0) return null;
-        int index = (int) (inCycle / slot);
-        return index < tribes ? TribeDefinition.values()[index] : null;
+        for (int i = 0; i < tribes; i++) if ((long) i * cycle / tribes == inCycle) return TribeDefinition.values()[i];
+        return null;
     }
 
     /** Whose festival it is today, or null. */

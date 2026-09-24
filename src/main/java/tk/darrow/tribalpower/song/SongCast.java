@@ -31,12 +31,15 @@ public final class SongCast {
             case STEP -> step(player, verse);
             case CALL -> call(level, player, verse);
         }
-        // riders follow the target; with none (a ward, a step) only the quiet note, which is the singer's own, plays
-        if (verse.shape() != SongShape.CALL)
+        // riders follow the target of a bolt or a bind; a ward or a step has no target of its own, so of their
+        // riders only the quiet note, which is the singer's own, plays
+        if (verse.shape() != SongShape.CALL) {
+            LivingEntity ridden = verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND ? target : null;
             for (Note rider : verse.riders()) {
-                if (target != null) ride(player, target, rider, verse);
+                if (ridden != null) ride(player, ridden, rider, verse);
                 else if (rider == Note.QUIET) ride(player, player, rider, verse);
             }
+        }
         SpiritEffects.ring(level, player.position().add(0, 0.2, 0), verse.voice(), 0.8, 16);
         if (target != null && verse.shape() != SongShape.WARD && verse.shape() != SongShape.STEP) {
             SpiritEffects.beam(level, player.getEyePosition(), target.getBoundingBox().getCenter(), verse.voice());
@@ -44,8 +47,14 @@ public final class SongCast {
         return true;
     }
 
-    /** What a verse arrow adds when the bolt lands. The bolt itself already dealt its damage. */
+    /**
+     * What a verse arrow adds when the bolt lands: the lead reagent's own note (an Ember arrow burns, a Venom arrow
+     * poisons), the voice's touch, a hold, then any riders. The bolt itself already dealt its damage.
+     */
     public static void onArrow(ServerPlayer player, LivingEntity target, SongVerse verse) {
+        if (verse.leadProfile() != null) ride(player, target, Note.of(verse.leadProfile()), verse);
+        if (verse.voice() == Attunement.FIRE) target.igniteForSeconds(2 + verse.power());
+        if (verse.voice() == Attunement.AIR) knock(target, player, 0.4F + verse.power() * 0.05F);
         hold(target, verse);
         for (Note rider : verse.riders()) ride(player, target, rider, verse);
         if (player.level() instanceof ServerLevel level) {

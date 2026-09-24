@@ -70,7 +70,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             case "pushing" -> Component.translatable("message.tribalpower.workshop.pushing", reasonN);
             case "caught" -> Component.translatable("message.tribalpower.workshop.caught", reasonN);
             case "struck" -> Component.translatable("message.tribalpower.workshop.struck", reasonName);
-            case "need_voice" -> Component.translatable("message.tribalpower.workshop.need_voice", reasonName);
+            case "need_voice" -> Component.translatable("message.tribalpower.workshop.need_voice", tk.darrow.tribalpower.lattice.Voices.name(reasonName));
             case "waiting", "paused", "need_tanks", "dest_full", "nothing", "listening", "idle_ward", "draw_face", "push_face"
                     -> Component.translatable("message.tribalpower.workshop." + reason);
             default -> Component.literal(reason);
@@ -104,14 +104,12 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
 
     public void beat(ServerLevel server) {
         if (server.hasNeighborSignal(worldPosition)) {
-            setReason("paused");
-            if (getBlockState().getValue(WorkshopBlock.LIT)) server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, false), 3);
+            idle(server, "paused", "");
             return;
         }
         var voice = tk.darrow.tribalpower.lattice.Voices.required(kind());
         if (voice != null && !tk.darrow.tribalpower.lattice.Voices.kept(server, worldPosition, voice)) {
-            setReason("need_voice"); reasonName = tk.darrow.tribalpower.lattice.Voices.name(voice).getString();
-            if (getBlockState().getValue(WorkshopBlock.LIT)) server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, false), 3);
+            idle(server, "need_voice", voice.getSerializedName());
             return;
         }
         switch (kind()) {
@@ -212,6 +210,14 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             return;
         }
         setReason("idle_ward");
+    }
+
+    /** Stopped for a reason: dark, and a comparator on it learns so at once. */
+    private void idle(ServerLevel server, String key, String name) {
+        setReason(key, name);
+        if (getBlockState().getValue(WorkshopBlock.LIT)) server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, false), 3);
+        setChanged();
+        server.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
     }
 
     private void setReason(String key) { reason = key; reasonN = 0; reasonName = ""; }

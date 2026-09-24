@@ -62,23 +62,31 @@ public record HearthRecipe(List<Ingredient> ingredients, Optional<Ingredient> co
     public int @Nullable [] plan(Input input) {
         List<ItemStack> seats = input.ingredients();
         int[] take = new int[seats.size()];
-        outer:
-        for (Ingredient wanted : ingredients) {
-            // a seat not yet drawn on comes first, so two emberroot in two seats are both used before a stack is
-            for (int pass = 0; pass < 2; pass++) {
-                for (int i = 0; i < seats.size(); i++) {
-                    ItemStack seat = seats.get(i);
-                    if (seat.isEmpty() || !wanted.test(seat) || seat.getCount() <= take[i]) continue;
-                    if (pass == 0 && take[i] > 0) continue;
-                    take[i]++;
-                    continue outer;
-                }
-            }
-            return null;
-        }
+        if (!assign(seats, take, 0)) return null;
         for (int i = 0; i < seats.size(); i++) if (!seats.get(i).isEmpty() && take[i] == 0) return null;
         boolean containerRight = container.map(c -> c.test(input.container())).orElse(input.container().isEmpty());
         return containerRight ? take : null;
+    }
+
+    /**
+     * Seats the wanted ingredients from {@code from} on, trying every seat that fits and backing out of a choice that
+     * leaves a later ingredient with nothing (a tag that took the one seat a named ingredient needed). A seat not yet
+     * drawn on is tried first, so two emberroot in two seats are both used before a stack is.
+     */
+    private boolean assign(List<ItemStack> seats, int[] take, int from) {
+        if (from == ingredients.size()) return true;
+        Ingredient wanted = ingredients.get(from);
+        for (int pass = 0; pass < 2; pass++) {
+            for (int i = 0; i < seats.size(); i++) {
+                ItemStack seat = seats.get(i);
+                if (seat.isEmpty() || !wanted.test(seat) || seat.getCount() <= take[i]) continue;
+                if ((pass == 0) == (take[i] > 0)) continue;
+                take[i]++;
+                if (assign(seats, take, from + 1)) return true;
+                take[i]--;
+            }
+        }
+        return false;
     }
 
     @Override public ItemStack assemble(Input input, HolderLookup.Provider registries) { return result.copy(); }

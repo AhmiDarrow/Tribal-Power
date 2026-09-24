@@ -328,6 +328,7 @@ public class LatticeMonster extends Monster implements Familiar {
             Player owner=getOwner();
             if(owner!=null && other.isOwnedBy(owner))child.bond(owner);
             server.addFreshEntity(child);
+            if(owner!=null && other.isOwnedBy(owner))tk.darrow.tribalpower.familiar.FamiliarSlots.afterBond(child,owner);
             inLove=0;other.inLove=0;
             age=6000;other.age=6000;
             server.broadcastEntityEvent(this,(byte)18);

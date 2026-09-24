@@ -209,4 +209,75 @@ public final class LiveSweepGameTests {
         }
         h.succeed();
     }
+
+    /** Every tribe keeps a festival day whatever length the cycle is given, one day each, and the cycle repeats. */
+    @GameTest(template = "empty")
+    public static void everyCycleLengthGivesEveryTribeOneFestival(GameTestHelper h) {
+        int was = tk.darrow.tribalpower.config.TribalConfig.festivalCycleDays();
+        try {
+            for (int cycle : new int[] {9, 10, 27, 28, 30, 100}) {
+                tk.darrow.tribalpower.config.TribalConfig.FESTIVAL_CYCLE_DAYS.set(cycle);
+                var seen = new java.util.HashSet<tk.darrow.tribalpower.tribe.TribeDefinition>();
+                int days = 0;
+                for (long day = 0; day < cycle; day++) {
+                    var tribe = tk.darrow.tribalpower.event.Festivals.tribeOn(day);
+                    if (tribe != null) { seen.add(tribe); days++; }
+                }
+                h.assertTrue(seen.size() == tk.darrow.tribalpower.tribe.TribeDefinition.values().length, "Every tribe has a day in a cycle of " + cycle + ", got " + seen.size());
+                h.assertTrue(days == seen.size(), "One day each in a cycle of " + cycle);
+                h.assertTrue(tk.darrow.tribalpower.event.Festivals.tribeOn(cycle) == tk.darrow.tribalpower.event.Festivals.tribeOn(0), "The cycle of " + cycle + " repeats");
+            }
+        } finally {
+            tk.darrow.tribalpower.config.TribalConfig.FESTIVAL_CYCLE_DAYS.set(was);
+        }
+        h.succeed();
+    }
+
+    /** A meal asking for "any crop, then emberroot" is still found when the emberroot sits in the seat the tag looked at first. */
+    @GameTest(template = "empty")
+    public static void theHearthPlannerBacksOutOfAGreedyChoice(GameTestHelper h) {
+        var emberroot = tk.darrow.tribalpower.cuisine.CuisineRegistry.CROP_ITEMS.get(tk.darrow.tribalpower.cuisine.MarchCrop.EMBERROOT).get();
+        var grain = tk.darrow.tribalpower.cuisine.CuisineRegistry.CROP_ITEMS.get(tk.darrow.tribalpower.cuisine.MarchCrop.STEPPE_GRAIN).get();
+        var anyCrop = net.minecraft.world.item.crafting.Ingredient.of(net.minecraft.tags.ItemTags.create(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "crops")));
+        var recipe = new tk.darrow.tribalpower.cuisine.HearthRecipe(List.of(anyCrop, net.minecraft.world.item.crafting.Ingredient.of(emberroot)),
+                java.util.Optional.empty(), new ItemStack(Items.BREAD), 12);
+        var seats = List.of(new ItemStack(emberroot), new ItemStack(grain), ItemStack.EMPTY, ItemStack.EMPTY);
+        int[] plan = recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(seats, ItemStack.EMPTY));
+        h.assertTrue(plan != null, "The planner gives the tag the grain and the emberroot its own seat");
+        h.assertTrue(plan[0] == 1 && plan[1] == 1, "One from each seat: " + java.util.Arrays.toString(plan));
+        var short_ = List.of(new ItemStack(emberroot), ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY);
+        h.assertTrue(recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(short_, ItemStack.EMPTY)) == null, "One emberroot cannot answer for both");
+        h.succeed();
+    }
+
+    /** A verse arrow lands its lead note: an Ember arrow sets its mark alight and hits no softer than a plain bolt. */
+    @GameTest(template = "empty")
+    public static void aVerseArrowPlaysItsLeadNote(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        var target = net.minecraft.world.entity.EntityType.ZOMBIE.create(h.getLevel());
+        target.moveTo(h.absoluteVec(new net.minecraft.world.phys.Vec3(2.5, 2, 2.5)));
+        h.getLevel().addFreshEntity(target);
+        var ember = new tk.darrow.tribalpower.song.SongVerse(List.of(tk.darrow.tribalpower.entity.CreatureProfile.ASHBOUND.reagent), tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT);
+        tk.darrow.tribalpower.song.SongCast.onArrow(player, target, ember);
+        h.assertTrue(target.isOnFire(), "The Ember arrow's lead note burns");
+        h.assertTrue(target.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN), "And the arrow's hold slows");
+        target.discard();
+        h.succeed();
+    }
+
+    /** A Grove Tender's faces follow their setting: out reaches the store, in the seed row, and the seed row is never pulled. */
+    @GameTest(template = "empty")
+    public static void groveTenderFacesFollowTheirSetting(GameTestHelper h) {
+        h.setBlock(2, 2, 2, CampRegistry.DEVICES.get("grove_tender").get());
+        var tender = (tk.darrow.tribalpower.camp.CampBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 2));
+        var seeds = new ItemStack(Items.WHEAT_SEEDS, 4);
+        h.assertTrue(java.util.Arrays.stream(tender.getSlotsForFace(net.minecraft.core.Direction.EAST)).allMatch(slot -> slot < 9), "A face set to put in reaches the seed row");
+        tender.sideIo().set(net.minecraft.core.Direction.EAST, tk.darrow.tribalpower.lattice.SideIo.Mode.OUTPUT);
+        h.assertTrue(java.util.Arrays.stream(tender.getSlotsForFace(net.minecraft.core.Direction.EAST)).allMatch(slot -> slot >= 9), "A face set to take out reaches the store");
+        tender.sideIo().set(net.minecraft.core.Direction.EAST, tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+        h.assertTrue(tender.getSlotsForFace(net.minecraft.core.Direction.EAST).length == 27, "A face doing both reaches everything");
+        h.assertFalse(tender.canTakeItemThroughFace(0, seeds, net.minecraft.core.Direction.EAST), "But the seed row is never pulled out");
+        h.assertTrue(tender.canTakeItemThroughFace(9, new ItemStack(Items.WHEAT), net.minecraft.core.Direction.EAST), "The store is");
+        h.succeed();
+    }
 }

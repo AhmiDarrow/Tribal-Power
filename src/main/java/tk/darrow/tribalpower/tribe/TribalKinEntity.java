@@ -267,9 +267,9 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         }
         TribeRank rank = TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(sp, tribe));
         if (stall() && role() == KinRole.ELDER) {
-            sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line1", tribe.displayNameComponent()));
-            sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line2"));
             if (!busyTrading()) {
+                sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line1", tribe.displayNameComponent()));
+                sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line2"));
                 MerchantOffers offers = stallOffers();
                 if (offers.isEmpty()) {
                     sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stall.empty"), true);

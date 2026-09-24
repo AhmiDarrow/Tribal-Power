@@ -174,8 +174,8 @@ public class SpiritFlaskItem extends Item {
         int accepted = flask.fill(offered, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
         // a creative hand fills its flask without emptying the tank
-        FluidStack taken = player.getAbilities().instabuild ? new FluidStack(offered.getFluid(), accepted)
-                : source.drain(new FluidStack(offered.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
+        FluidStack taken = player.getAbilities().instabuild ? offered.copyWithAmount(accepted)
+                : source.drain(offered.copyWithAmount(accepted), IFluidHandler.FluidAction.EXECUTE);
         if (taken.isEmpty()) return false;
         flask.fill(taken, IFluidHandler.FluidAction.EXECUTE);
         copyBack(stack, flask, player);
@@ -189,8 +189,9 @@ public class SpiritFlaskItem extends Item {
         int accepted = sink.fill(held, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
         // a creative hand pours without running dry
-        if (player.getAbilities().instabuild) { sink.fill(new FluidStack(held.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE); return true; }
-        FluidStack taken = flask.drain(new FluidStack(held.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
+        if (player.getAbilities().instabuild) { sink.fill(held.copyWithAmount(accepted), IFluidHandler.FluidAction.EXECUTE); return true; }
+        FluidStack taken = flask.drain(held.copyWithAmount(accepted), IFluidHandler.FluidAction.EXECUTE);
+        if (taken.isEmpty()) return false;
         sink.fill(taken, IFluidHandler.FluidAction.EXECUTE);
         copyBack(stack, flask, player);
         return true;

@@ -103,7 +103,7 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
     /** A lit campfire, fire, magma, lava or an Ember Bowl under the kettle. */
     public static boolean heated(Level level, BlockPos pos) {
         BlockState below = level.getBlockState(pos.below());
-        if (below.is(BlockTags.CAMPFIRES)) return below.getValue(CampfireBlock.LIT);
+        if (below.is(BlockTags.CAMPFIRES)) return !below.hasProperty(CampfireBlock.LIT) || below.getValue(CampfireBlock.LIT);
         return below.is(BlockTags.FIRE) || below.is(Blocks.MAGMA_BLOCK) || below.is(ModBlocks.EMBER_BOWL.get())
                 || level.getFluidState(pos.below()).is(FluidTags.LAVA);
     }

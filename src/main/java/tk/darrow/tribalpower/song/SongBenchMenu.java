@@ -111,7 +111,7 @@ public class SongBenchMenu extends AbstractContainerMenu {
     @Override
     public boolean clickMenuButton(Player player, int id) {
         if (bench == null || player.level().isClientSide || !(player.level() instanceof net.minecraft.server.level.ServerLevel level)) return false;
-        if (bench.voice() == null) {
+        if (bench.voice() == null && id != CYCLE) {   // a cycle from no voice lands on the first, not the second
             var voices = SongBenchLogic.voices(level, bench.getBlockPos());
             if (!voices.isEmpty()) bench.setVoice(voices.get(0));
         }

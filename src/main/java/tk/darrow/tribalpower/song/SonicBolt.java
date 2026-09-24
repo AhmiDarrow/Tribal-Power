@@ -39,7 +39,8 @@ public class SonicBolt extends AbstractArrow {
         bolt.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
         bolt.verse = verse;
         bolt.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, speed, spread);
-        double damage = verse == null ? 4.0 + 3.0 * pull : 3.0 + verse.power();
+        // a verse never hits softer than a plain bolt: it adds its power to the draw
+        double damage = 4.0 + 3.0 * pull + (verse == null ? 0 : verse.power());
         // An arrow hits for base damage times its speed; divide by the speed so a bolt lands for the damage meant.
         bolt.setBaseDamage(damage * damageScale / Math.max(0.1F, speed));
         level.addFreshEntity(bolt);
@@ -59,8 +60,11 @@ public class SonicBolt extends AbstractArrow {
 
     @Override
     protected void onHitEntity(EntityHitResult hit) {
+        float before = hit.getEntity() instanceof LivingEntity living ? living.getHealth() : 0;
         super.onHitEntity(hit);
-        if (verse != null && hit.getEntity() instanceof LivingEntity living && getOwner() instanceof ServerPlayer player) {
+        // a shield turns the bolt and its verse with it
+        if (verse != null && hit.getEntity() instanceof LivingEntity living && getOwner() instanceof ServerPlayer player
+                && (living.getHealth() < before || living.hurtTime > 0 || living.isDeadOrDying())) {
             SongCast.onArrow(player, living, verse);
         }
         discard();
@@ -80,9 +84,10 @@ public class SonicBolt extends AbstractArrow {
         return false;
     }
 
+    /** Never picked up, but an arrow with no item at all cannot be written out (a data read, an inspecting mod). */
     @Override
     protected ItemStack getDefaultPickupItem() {
-        return ItemStack.EMPTY;
+        return new ItemStack(net.minecraft.world.item.Items.ARROW);
     }
 
     @Override

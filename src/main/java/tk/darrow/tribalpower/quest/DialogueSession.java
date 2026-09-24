@@ -106,8 +106,10 @@ public final class DialogueSession {
         SHOWN.remove(player.getUUID());
         for (Dialogue.Choice choice : node.choices()) {
             if (!choice.text().equals(payload.choice()) || !holds(player, kin.tribe(), choice.conditions())) continue;
+            // an action that cannot be done (nothing to take, no request left) ends the choice there: what follows it
+            // is not owed, and the conversation closes rather than moving on
             boolean stay = true;
-            for (Dialogue.Action action : choice.actions()) stay &= act(player, kin, action);
+            for (Dialogue.Action action : choice.actions()) if (!(stay = act(player, kin, action))) break;
             if (stay && !choice.next().isEmpty()) show(player, kin, tree, choice.next());
             return;
         }

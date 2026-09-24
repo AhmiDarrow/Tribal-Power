@@ -157,7 +157,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             child.applyLattice();
             // As with wolves, the young of two companions of one owner are born into that owner's company.
             Player owner=getOwner();
-            if(owner!=null && other.isOwnedBy(owner))child.bond(owner);
+            if(owner!=null && other.isOwnedBy(owner)) { child.bond(owner); tk.darrow.tribalpower.familiar.FamiliarSlots.afterBond(child,owner); }
         }
         return child;
     }
@@ -203,7 +203,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
                 return InteractionResult.sidedSuccess(level().isClientSide);
             }
         }
-        else if(isBonded() && !isOwnedBy(player) && profile()==CreatureProfile.DAWN_STAG && !isFood(tool) && !tool.is(tk.darrow.tribalpower.familiar.FamiliarRegistry.BONDING_CHARM.get())) {
+        else if(isBonded() && !isOwnedBy(player) && !tool.is(tk.darrow.tribalpower.familiar.FamiliarRegistry.BONDING_CHARM.get())) {
+            // another player's companion: no riding, no feeding into love, no brushing; it answers its owner alone
             if(!level().isClientSide)player.displayClientMessage(Component.translatable("message.tribalpower.familiar.not_yours",getDisplayName()),true);
             return InteractionResult.sidedSuccess(level().isClientSide);
         }

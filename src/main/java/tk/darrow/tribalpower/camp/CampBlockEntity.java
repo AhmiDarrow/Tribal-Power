@@ -61,7 +61,10 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     @Override public int[] getSlotsForFace(Direction side){
         if(kind().equals("offering_table"))return java.util.stream.IntStream.range(0,27).toArray();
         if(kind().equals("summoning_cradle"))return side==Direction.DOWN?new int[]{0}:new int[]{1};
-        return side==Direction.DOWN?java.util.stream.IntStream.range(9,27).toArray():java.util.stream.IntStream.range(0,9).toArray();
+        // a face set to take out reaches the store, one set to put in reaches the seed row, one doing both reaches all
+        var io=sides.get(side);
+        if(io.insert()&&io.extract())return java.util.stream.IntStream.range(0,27).toArray();
+        return io.extract()?java.util.stream.IntStream.range(9,27).toArray():java.util.stream.IntStream.range(0,9).toArray();
     }
     @Override public boolean canPlaceItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).insert()&&canPlaceItem(slot,stack);}
     @Override public boolean canPlaceItem(int slot,ItemStack stack){
@@ -69,7 +72,12 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         if(kind().equals("grove_tender"))return slot<9&&GroveWork.isSeed(stack);
         return kind().equals("offering_table");
     }
-    @Override public boolean canTakeItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).extract()&&(!kind().equals("summoning_cradle")||slot==0&&BoundEffigyItem.remaining(stack)==0);}
+    @Override public boolean canTakeItemThroughFace(int slot,ItemStack stack,Direction side){
+        if(level.hasNeighborSignal(worldPosition)||!sides.get(side).extract())return false;
+        if(kind().equals("summoning_cradle"))return slot==0&&BoundEffigyItem.remaining(stack)==0;
+        if(kind().equals("grove_tender"))return slot>=9;   // the seed row is the tender's to spend, never a hopper's
+        return true;
+    }
     public Component status(){
         if(kind().equals("summoning_cradle"))
             return Component.translatable("message.tribalpower.hand.cradle_line",reasonComponent(),pulse,CAPACITY,BoundEffigyItem.targetName(items.get(0)),BoundEffigyItem.remaining(items.get(0)));
@@ -79,7 +87,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         return switch(reason){
             case "need_anchor"->Component.translatable("message.tribalpower.hand.need_anchor",CampHooks.SOLO_ANCHOR_CAP,CampHooks.CAMP_ANCHOR_BUDGET);
             case "summoned"->Component.translatable("message.tribalpower.hand.summoned",reasonName);
-            case "need_voice"->Component.translatable("message.tribalpower.hand.need_voice",reasonName);
+            case "need_voice"->Component.translatable("message.tribalpower.hand.need_voice",tk.darrow.tribalpower.lattice.Voices.name(reasonName));
             case "waiting","paused","wait_pulse","holding","hush","cradle_slots","lantern","thunder","rain","clear","offerings",
                     "bind_effigy","need_summon","crowded","peaceful","hush_block","need_floor","tending","unclaimed",
                     "output_full","berries","urged","plant_protected","planted","planted_cocoa","crop_protected","need_seed",
@@ -119,7 +127,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         if(voice!=null&&!tk.darrow.tribalpower.lattice.Voices.kept(server,worldPosition,voice)){
             if(kind.equals("wayanchor"))CampHooks.anchor(server,worldPosition,owner,false);
             if(kind.equals("hush_totem"))CampHooks.ward(server,worldPosition,false);
-            setReason("need_voice",tk.darrow.tribalpower.lattice.Voices.name(voice).getString());return;
+            setReason("need_voice",voice.getSerializedName());return;
         }
         if(!Set.of("spirit_lantern","rain_chime","offering_table").contains(kind)){
             int add=LatticeNetwork.extractPulseNearby(server,worldPosition,8,Math.min(80,CAPACITY-pulse),false);

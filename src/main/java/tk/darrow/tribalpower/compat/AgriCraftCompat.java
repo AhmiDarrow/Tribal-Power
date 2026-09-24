@@ -166,10 +166,14 @@ public final class AgriCraftCompat {
             return true;
         }
 
+        /** One growth stage, paid for: never a weed tick, never a roll that changes nothing. */
         static boolean urge(ServerLevel level, BlockPos pos) {
             var crop = crop(level, pos);
-            if (crop == null || !crop.hasPlant() || crop.isFullyGrown() || !crop.isFertile()) return false;
-            crop.applyGrowthTick();
+            if (crop == null || !crop.hasPlant() || crop.isFullyGrown() || !crop.isFertile() || crop.hasWeeds()) return false;
+            var stage = crop.getGrowthStage();
+            var next = stage.getNext(crop, level.random);
+            if (next.index() == stage.index()) return false;
+            crop.setGrowthStage(next);
             return true;
         }
 

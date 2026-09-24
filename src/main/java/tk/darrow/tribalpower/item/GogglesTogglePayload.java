@@ -22,6 +22,11 @@ public record GogglesTogglePayload() implements CustomPacketPayload {
     public static void register(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToServer(TYPE, STREAM_CODEC, (payload, context) -> {
             if (!(context.player() instanceof ServerPlayer player) || !player.isShiftKeyDown()) return;
+            // the client asks again every few ticks while the button is held: one answer per press
+            long now = player.level().getGameTime();
+            var data = player.getPersistentData();
+            if (now - data.getLong("tribalpower_goggles_toggle") < 10) return;
+            data.putLong("tribalpower_goggles_toggle", now);
             ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
             if (SpiritGear.goggles(hood)) SpiritGear.toggleGoggles(player, hood);
         });

@@ -50,4 +50,10 @@ public final class Voices {
     public static Component name(Attunement voice) {
         return Component.translatable("attunement.tribalpower." + voice.getSerializedName());
     }
+
+    /** The name from a saved serialized voice (what a device keeps in its status), translated on the reader's side. */
+    public static Component name(String serialized) {
+        for (Attunement voice : Attunement.values()) if (voice.getSerializedName().equals(serialized)) return name(voice);
+        return Component.literal(serialized);
+    }
 }

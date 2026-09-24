@@ -38,6 +38,8 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
     private int progress, total = 1, state;
+    /** The meal the progress belongs to: swapping the seats to another meal starts it from the beginning. */
+    private net.minecraft.resources.ResourceLocation cooking;
 
     private final ContainerData data = new ContainerData() {
         @Override public int get(int index) {
@@ -77,6 +79,7 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
             return IDLE;
         }
         HearthRecipe recipe = found.get().value();
+        if (!found.get().id().equals(cooking)) { cooking = found.get().id(); progress = 0; }
         total = Math.max(1, (int) Math.round(recipe.seconds() * TribalConfig.hearthCookScale()));
         if (TribalConfig.hearthNeedsHeat() && !SpiritKettleBlockEntity.heated(level, worldPosition)) return NO_HEAT;
         ItemStack made = recipe.assemble(input(), level.registryAccess());
@@ -111,6 +114,7 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
     public boolean cookNow(ServerLevel level) {
         var found = recipe(level);
         if (found.isEmpty()) return false;
+        cooking = found.get().id();
         progress = (int) Math.round(found.get().value().seconds() * TribalConfig.hearthCookScale()) - 1;
         ItemStack before = items.get(OUTPUT).copy();
         state = step(level);
@@ -141,7 +145,13 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
         setChanged();
     }
 
-    @Override public boolean canPlaceItem(int slot, ItemStack stack) { return slot < OUTPUT; }
+    /** The bowl seat takes only what some meal is served in, so a hopper's grain cannot jam it. */
+    @Override public boolean canPlaceItem(int slot, ItemStack stack) {
+        if (slot >= OUTPUT) return false;
+        if (slot != CONTAINER || level == null) return true;
+        return level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()).stream()
+                .anyMatch(holder -> holder.value().container().map(c -> c.test(stack)).orElse(false));
+    }
     @Override public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
     @Override public void clearContent() { items.clear(); }
     public NonNullList<ItemStack> items() { return items; }
@@ -157,6 +167,8 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
         super.saveAdditional(tag, registries);
         ContainerHelper.saveAllItems(tag, items, registries);
         tag.putInt("Progress", progress);
+        tag.putInt("Total", total);
+        if (cooking != null) tag.putString("Cooking", cooking.toString());
     }
 
     @Override
@@ -165,6 +177,8 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
         items.clear();
         ContainerHelper.loadAllItems(tag, items, registries);
         progress = tag.getInt("Progress");
+        total = Math.max(1, tag.getInt("Total"));
+        cooking = tag.contains("Cooking") ? net.minecraft.resources.ResourceLocation.tryParse(tag.getString("Cooking")) : null;
     }
 
     @Override

@@ -35,9 +35,9 @@ final class GroveWork {
     }
 
     static void tend(CampBlockEntity be, ServerLevel server) {
-        be.setReason("tending");
         if (be.owner == null) { be.setReason("unclaimed"); return; }
-        if (be.pulse < 4) return;
+        if (be.pulse < 4) { be.setReason("wait_pulse"); return; }
+        be.setReason("tending");
         var farmer = FakePlayerFactory.get(server, new GameProfile(be.owner, be.ownerName));
         if (water(be, server)) return;
         for (int scan = 0; scan < 9; scan++) {
