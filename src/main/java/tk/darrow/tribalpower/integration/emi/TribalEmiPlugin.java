@@ -55,6 +55,7 @@ public class TribalEmiPlugin implements EmiPlugin {
         registry.addWorkstation(RITES, EmiStack.of(ModItems.RITUAL_BRAZIER.get()));
         registry.addWorkstation(ALTARS, EmiStack.of(GuardianRegistry.ALTAR_ITEM.get()));
         registry.addWorkstation(ANOINTING, EmiStack.of(ModItems.SONG_BENCH.get()));
+        registry.addRecipeHandler(tk.darrow.tribalpower.bench.BenchRegistry.MENU.get(), new BenchHandler());
 
         var level = Minecraft.getInstance().level;
         if (level != null) {
@@ -73,6 +74,24 @@ public class TribalEmiPlugin implements EmiPlugin {
     }
 
     private static final int INK = 0xFF526A61;
+
+    /** The Tribal Bench is a crafting grid: slot 0 the result, 1..9 the grid, the rest the player's pack. */
+    private static final class BenchHandler implements dev.emi.emi.api.recipe.handler.StandardRecipeHandler<tk.darrow.tribalpower.bench.BenchMenu> {
+        @Override public List<net.minecraft.world.inventory.Slot> getInputSources(tk.darrow.tribalpower.bench.BenchMenu menu) {
+            List<net.minecraft.world.inventory.Slot> slots = new ArrayList<>();
+            for (int i = tk.darrow.tribalpower.bench.BenchMenu.GRID_START; i < menu.slots.size(); i++) slots.add(menu.slots.get(i));
+            return slots;
+        }
+        @Override public List<net.minecraft.world.inventory.Slot> getCraftingSlots(tk.darrow.tribalpower.bench.BenchMenu menu) {
+            List<net.minecraft.world.inventory.Slot> slots = new ArrayList<>();
+            for (int i = tk.darrow.tribalpower.bench.BenchMenu.GRID_START; i < tk.darrow.tribalpower.bench.BenchMenu.GRID_END; i++) slots.add(menu.slots.get(i));
+            return slots;
+        }
+        @Override public net.minecraft.world.inventory.Slot getOutputSlot(tk.darrow.tribalpower.bench.BenchMenu menu) { return menu.slots.get(0); }
+        @Override public boolean supportsRecipe(EmiRecipe recipe) {
+            return recipe.getCategory() == dev.emi.emi.api.recipe.VanillaEmiRecipeCategories.CRAFTING && recipe.supportsRecipeTree();
+        }
+    }
 
     private static List<EmiStack> stacks(List<ItemStack> stacks) {
         List<EmiStack> out = new ArrayList<>();

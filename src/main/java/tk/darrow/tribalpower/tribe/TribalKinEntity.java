@@ -309,6 +309,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             }
             return InteractionResult.CONSUME;
         }
+        sp.sendSystemMessage(Component.translatable("dialogue.tribalpower." + tribe.id() + "." + role().id()).withStyle(net.minecraft.ChatFormatting.ITALIC).withStyle(TribeStanding.colour(tribe)));
         sp.displayClientMessage(Component.translatable("message.tribalpower.kin.role." + role().id(),
                 tribe.displayNameComponent(), Component.translatable(rank.translationKey())), true);
         return InteractionResult.CONSUME;

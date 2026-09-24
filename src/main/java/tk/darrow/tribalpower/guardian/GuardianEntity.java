@@ -76,13 +76,25 @@ public class GuardianEntity extends Monster {
     public GuardianEntity(EntityType<? extends GuardianEntity> type, Level level) {
         super(type, level);
         Guardian guardian = guardian();
-        this.bossEvent = new ServerBossEvent(Component.translatable(guardian.nameKey()), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_10);
+        this.bossEvent = new ServerBossEvent(Component.translatable(guardian.nameKey()), barColour(guardian), BossEvent.BossBarOverlay.NOTCHED_10);
         this.xpReward = 120;
         setPersistenceRequired();
         if (guardian.flying) {
             this.moveControl = new FlyingMoveControl(this, 12, true);
             setNoGravity(true);
         }
+    }
+
+    /** The bar takes the tribe's voice: Earth green, Fire red, Water blue, Air white, Spirit purple, the Loom pink. */
+    private static BossEvent.BossBarColor barColour(Guardian guardian) {
+        return switch (guardian.tribe.attunement()) {
+            case EARTH -> BossEvent.BossBarColor.GREEN;
+            case FIRE -> BossEvent.BossBarColor.RED;
+            case WATER -> BossEvent.BossBarColor.BLUE;
+            case AIR -> BossEvent.BossBarColor.WHITE;
+            case SPIRIT -> BossEvent.BossBarColor.PURPLE;
+            case LOOM -> BossEvent.BossBarColor.PINK;
+        };
     }
 
     public static AttributeSupplier.Builder createAttributes(Guardian g) {

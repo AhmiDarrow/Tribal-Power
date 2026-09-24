@@ -17,9 +17,11 @@ The March writes its history down, hands you a path through it, and opens up to 
 ## Recipe viewers and tooltips
 
 - **JEI** shows three more families: the world rites (tablet, seal and Pulse), the guardian calls (what to lay on which altar, and what rises) and anointing (which reagents give which power). Relics, crests and carvings explain themselves.
-- **EMI** is supported with every family the JEI plugin shows.
+- **EMI** is supported with every family the JEI plugin shows, and the Tribal Bench takes a recipe with a click there too.
 - **Jade** tooltips show a machine's Pulse and a generator's rate and voice, how far a March crop has grown, a Kin's tribe and role with your standing, and whether a Guardian Altar will answer and what it wants.
 - The mod's tools and weapons carry the common `c:tools` tags, so other mods recognise them.
+
+- Every guardian's boss bar takes its tribe's voice colour, the Drummers, Hunters and Weavers of every camp have a word for you, and the Hearth Pot has a handle and a ladle.
 
 ## For pack makers
 
