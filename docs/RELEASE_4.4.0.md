@@ -21,6 +21,8 @@ The March writes its history down, hands you a path through it, and opens up to 
 - **Jade** tooltips show a machine's Pulse and a generator's rate and voice, how far a March crop has grown, a Kin's tribe and role with your standing, and whether a Guardian Altar will answer and what it wants.
 - The mod's tools and weapons carry the common `c:tools` tags, so other mods recognise them.
 
+## Small things
+
 - Every guardian's boss bar takes its tribe's voice colour, the Drummers, Hunters and Weavers of every camp have a word for you, and the Hearth Pot has a handle and a ladle.
 
 ## For pack makers
