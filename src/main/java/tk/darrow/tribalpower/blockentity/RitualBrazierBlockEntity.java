@@ -134,7 +134,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
             ItemStack held = pedestal.held();
             if (!(held.getItem() instanceof tk.darrow.tribalpower.rite.world.RiteTabletItem tablet)) continue;
             if (tablet.rite().element() != element) continue;
-            Component failure = tk.darrow.tribalpower.rite.world.RiteTabletItem.perform(level, worldPosition, null, tablet.rite());
+            Component failure = tk.darrow.tribalpower.rite.world.RiteTabletItem.perform(level, worldPosition, null, tablet.rite(), true);
             if (failure != null) return failure;
             pedestal.removeItem(tk.darrow.tribalpower.blockentity.RitePedestalBlockEntity.SLOT, 1);
             return null;

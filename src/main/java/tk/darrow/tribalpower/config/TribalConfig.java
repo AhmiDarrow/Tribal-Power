@@ -92,6 +92,8 @@ public final class TribalConfig {
     public static final ModConfigSpec.DoubleValue FEAST_SATURATION;
     public static final ModConfigSpec.IntValue FEAST_BLESSING;
     public static final ModConfigSpec.IntValue DISH_STANDING;
+    public static final ModConfigSpec.IntValue GROVE_WATER;
+    public static final ModConfigSpec.BooleanValue AUTOMATION_VOICES;
     public static final ModConfigSpec.DoubleValue EARTH_KNOCKBACK;
     public static final ModConfigSpec.DoubleValue EARTH_MINING;
     public static final ModConfigSpec.DoubleValue FIRE_BURN;
@@ -396,6 +398,10 @@ public final class TribalConfig {
         FEAST_BLESSING = b.comment("Minutes of the voice's blessing one serving of its feast grants.").defineInRange("feastBlessingMinutes", 8, 0, 600);
         DISH_STANDING = b.comment("Standing a tribe grants when offered its own dish at its hearth.").defineInRange("dishStanding", 6, 0, 100);
         b.pop();
+        b.comment("Camp and workshop hands: what the automated devices ask for.").push("camp");
+        AUTOMATION_VOICES = b.comment("Whether every automated device needs a kept Resonance Totem of its own voice within 8 blocks: Earth for the Grove Tender and Wayanchor, Spirit for the Ward Drum, Hush Totem and Summoning Cradle, Water for the Tide Pump, Air for the Wind Snare and relays, Loom for the Seal Loom and Astral relays.").define("automationNeedsVoices", true);
+        GROVE_WATER = b.comment("Pulse a Grove Tender spends on a beat that re-wets its bed's farmland, when a Water totem keeps within 8 blocks of it.").defineInRange("groveWaterCost", 4, 0, 200);
+        b.pop();
         b.comment("Tribes that talk: requests and questlines.").push("quests");
         REQUEST_SCALE = b.comment("Scales the standing a finished tribe request pays.").defineInRange("requestStandingScale", 1.0, 0.0, 10.0);
         REQUESTS_PER_DAY = b.comment("Requests a player may finish in one day, across every tribe.").defineInRange("requestsPerDay", 3, 1, 100);
@@ -529,6 +535,8 @@ public final class TribalConfig {
     public static double feastSaturation() { return get(FEAST_SATURATION); }
     public static int feastBlessingMinutes() { return get(FEAST_BLESSING); }
     public static int dishStanding() { return get(DISH_STANDING); }
+    public static int groveWaterCost() { return get(GROVE_WATER); }
+    public static boolean automationNeedsVoices() { return get(AUTOMATION_VOICES); }
     public static double earthBlessingKnockback() { return get(EARTH_KNOCKBACK); }
     public static double earthBlessingMining() { return get(EARTH_MINING); }
     public static double fireBlessingBurn() { return get(FIRE_BURN); }

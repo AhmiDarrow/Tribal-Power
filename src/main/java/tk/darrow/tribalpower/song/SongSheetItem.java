@@ -39,8 +39,12 @@ public class SongSheetItem extends Item {
         SongVerse verse = verse(sheet);
         if (verse == null || level.isClientSide || !(player instanceof net.minecraft.server.level.ServerPlayer server))
             return net.minecraft.world.InteractionResultHolder.pass(sheet);
+        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.hushed"), true);
+            return net.minecraft.world.InteractionResultHolder.fail(sheet);
+        }
         if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && SongCast.look(server, verse.reach()) == null) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            player.displayClientMessage(Component.translatable("message.tribalpower.song.no_target"), true);
             return net.minecraft.world.InteractionResultHolder.fail(sheet);
         }
         int cost = SongVerse.castCost(player, verse);
@@ -50,7 +54,7 @@ public class SongSheetItem extends Item {
         }
         if (!SongCast.play(server, verse)) {
             if (!player.getAbilities().instabuild) tk.darrow.tribalpower.item.GearCell.refund(player, sheet, cost);
-            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            player.displayClientMessage(Component.translatable("message.tribalpower.song.no_target"), true);
             return net.minecraft.world.InteractionResultHolder.fail(sheet);
         }
         level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.BOOK_PAGE_TURN, net.minecraft.sounds.SoundSource.PLAYERS, 0.9F, 1.1F);

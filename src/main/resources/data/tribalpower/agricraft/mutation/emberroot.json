@@ -1,0 +1,6 @@
+{
+  "chance": 0.25,
+  "child": "tribalpower:emberroot",
+  "parent1": "minecraft:potato",
+  "parent2": "minecraft:nether_wart"
+}

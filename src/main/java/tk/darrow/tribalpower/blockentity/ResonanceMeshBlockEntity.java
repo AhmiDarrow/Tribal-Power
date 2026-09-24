@@ -247,7 +247,8 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         // nothing with the Grit-singers. Failing open here would hand the rare band to anyone.
         if (owner() == null) return TribeRank.STRANGER;
         MinecraftServer server = level.getServer();
-        return server == null ? TribeRank.STRANGER : TribeStanding.rank(server, owner(), TribeDefinition.STONE);
+        return server == null ? TribeRank.STRANGER
+                : TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(server, owner(), TribeDefinition.STONE));
     }
 
     private boolean unlocked(OreBand band, int tier, Set<Attunement> voices, TribeRank rank, boolean kinship) {

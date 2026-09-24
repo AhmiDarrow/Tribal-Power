@@ -37,14 +37,18 @@ import java.util.List;
 public final class SpiritGearHooks {
     private SpiritGearHooks() {}
 
-    /** Sneak-click with an empty hand while the hood is worn, the same off switch as using the hood itself. */
+    /**
+     * Sneak-click with an empty hand while the hood is worn, the same off switch as using the hood itself. The
+     * event only fires on the client, and vanilla sends the server nothing for an empty hand in the air, so the
+     * client asks for the toggle with a payload.
+     */
     public static void toggleWornGoggles(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickEmpty event) {
-        if (event.getLevel().isClientSide()) return;
+        if (!event.getLevel().isClientSide()) return;
         Player player = event.getEntity();
-        if (!player.isShiftKeyDown()) return;
+        if (!player.isShiftKeyDown() || event.getHand() != net.minecraft.world.InteractionHand.MAIN_HAND) return;
         ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
         if (!SpiritGear.goggles(hood)) return;
-        SpiritGear.toggleGoggles(player, hood);
+        net.neoforged.neoforge.network.PacketDistributor.sendToServer(new GogglesTogglePayload());
     }
 
     /** Pulse and voice must be recorded here: vanilla drops run before {@code Item#mineBlock}. */

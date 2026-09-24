@@ -56,7 +56,7 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     public static void serverTick(Level level, BlockPos pos, BlockState state, SongBenchBlockEntity be) {
         for (int slot = 0; slot < BOOK; slot++) {
             ItemStack stack = be.items.get(slot);
-            if (!stack.isEmpty() && !be.canPlaceItem(slot, stack)) {
+            if (!stack.isEmpty() && !be.belongs(slot, stack)) {
                 Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, stack);
                 be.items.set(slot, ItemStack.EMPTY);
                 be.setChanged();
@@ -160,10 +160,15 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
+        // One stick at a time: a used stick cannot share a slot with fresh ones, so a stack would scatter them.
+        return belongs(slot, stack) && (slot != CHALK || items.get(CHALK).isEmpty());
+    }
+
+    /** Whether an item is the kind a slot holds; the tick uses this on seated items, which already fill their slot. */
+    private boolean belongs(int slot, ItemStack stack) {
         return switch (slot) {
             case PAPER -> stack.is(Items.PAPER);
-            // One stick at a time: a used stick cannot share a slot with fresh ones, so a stack would scatter them.
-            case CHALK -> stack.getItem() instanceof RitualChalkItem && items.get(CHALK).isEmpty();
+            case CHALK -> stack.getItem() instanceof RitualChalkItem;
             case BOOK -> stack.getItem() instanceof SongbookItem;
             case WEAPON -> tk.darrow.tribalpower.song.Anointing.canAnoint(stack);
             default -> false;

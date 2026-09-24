@@ -54,7 +54,9 @@ public class PulseCrossbowItem extends Item {
         return InteractionResultHolder.consume(crossbow);
     }
 
-    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return 72000; }
+    /** Like the game's own crossbow: the load ends on its own a beat after it is complete, and the hand comes up loaded. */
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return TribalConfig.crossbowLoadTicks() + 3; }
+    @Override public boolean useOnRelease(ItemStack stack) { return stack.is(this); }
     @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.CROSSBOW; }
 
     @Override

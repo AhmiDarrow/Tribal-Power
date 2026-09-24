@@ -50,8 +50,12 @@ public class SongbookItem extends Item {
             return InteractionResultHolder.fail(book);
         }
         if (!(player instanceof net.minecraft.server.level.ServerPlayer server)) return InteractionResultHolder.fail(book);
+        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.hushed"), true);
+            return InteractionResultHolder.fail(book);
+        }
         if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && SongCast.look(server, verse.reach()) == null) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            player.displayClientMessage(Component.translatable("message.tribalpower.song.no_target"), true);
             return InteractionResultHolder.fail(book);
         }
         int cost = SongVerse.castCost(player, verse);
@@ -61,7 +65,7 @@ public class SongbookItem extends Item {
         }
         if (!SongCast.play(server, verse)) {
             GearCell.refund(player, book, cost);
-            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            player.displayClientMessage(Component.translatable("message.tribalpower.song.no_target"), true);
             return InteractionResultHolder.fail(book);
         }
         level.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 0.7F, 1.2F);

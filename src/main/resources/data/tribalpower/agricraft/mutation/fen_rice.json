@@ -1,0 +1,6 @@
+{
+  "chance": 0.25,
+  "child": "tribalpower:fen_rice",
+  "parent1": "minecraft:wheat",
+  "parent2": "minecraft:sugar_cane"
+}

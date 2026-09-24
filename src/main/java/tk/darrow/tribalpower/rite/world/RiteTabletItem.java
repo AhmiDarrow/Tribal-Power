@@ -65,13 +65,19 @@ public class RiteTabletItem extends Item {
      */
     @Nullable
     public static Component perform(ServerLevel level, BlockPos brazierPos, @Nullable Player player, WorldRite rite) {
+        return perform(level, brazierPos, player, rite, false);
+    }
+
+    /** {@code struck}: fired by the brazier's own rising redstone edge, which is not the "paused" signal. */
+    @Nullable
+    public static Component perform(ServerLevel level, BlockPos brazierPos, @Nullable Player player, WorldRite rite, boolean struck) {
         if (!(level.getBlockEntity(brazierPos) instanceof RitualBrazierBlockEntity brazier))
             return Component.translatable("message.tribalpower.rite.no_brazier");
         Attunement seated = RitualBrazierBlockEntity.element(brazier.seal());
         if (seated != rite.element())
             return Component.translatable("message.tribalpower.rite.wrong_seal",
                     Component.translatable("attunement.tribalpower." + rite.element().getSerializedName()));
-        if (level.hasNeighborSignal(brazierPos)) return Component.translatable("message.tribalpower.rite.paused");
+        if (!struck && level.hasNeighborSignal(brazierPos)) return Component.translatable("message.tribalpower.rite.paused");
         // Placement is the ritual: a tablet rite wants its circle drawn (design 3.1 section 5).
         RiteCircle.Result circle = RiteCircle.evaluate(level, brazierPos, rite.element());
         if (!circle.complete()) return Component.translatable("message.tribalpower.rite.no_circle");
@@ -80,9 +86,9 @@ public class RiteTabletItem extends Item {
         int available = LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, true);
         if (available < cost) return Component.translatable("message.tribalpower.rite.no_pulse", available, cost);
         Component failure = rite == WorldRite.NINTH_AGREEMENT ? tk.darrow.tribalpower.finale.NinthAgreement.check(level, player) : apply(level, brazierPos, rite, duration);
-        if (failure == null && rite == WorldRite.NINTH_AGREEMENT) tk.darrow.tribalpower.finale.NinthAgreement.perform(level, brazierPos, player);
         if (failure != null) return failure;
         LatticeNetwork.extractPulseNearby(level, brazierPos, RADIUS, cost, false);
+        if (rite == WorldRite.NINTH_AGREEMENT) tk.darrow.tribalpower.finale.NinthAgreement.perform(level, brazierPos, player);
         celebrate(level, brazierPos, rite);
         if (player instanceof ServerPlayer performer) tk.darrow.tribalpower.quest.QuestEvents.rite(level, brazierPos, performer);
         if (player != null) {
@@ -116,9 +122,11 @@ public class RiteTabletItem extends Item {
                 if (!Springs.call(level, pos, duration)) return Component.translatable("message.tribalpower.rite.no_cistern");
             }
             case LEY_BINDING -> {
-                ResonanceTotemBlockEntity first = LeyLines.nearestTotem(level, pos, RADIUS, null);
+                // the four totems a tier-2 circle stands on are the circle, not the line: look past them
+                java.util.Set<BlockPos> ring = java.util.Set.of(pos.offset(2, 0, 0), pos.offset(-2, 0, 0), pos.offset(0, 0, 2), pos.offset(0, 0, -2));
+                ResonanceTotemBlockEntity first = LeyLines.nearestTotem(level, pos, RADIUS, null, ring);
                 if (first == null) return Component.translatable("message.tribalpower.rite.no_totem");
-                ResonanceTotemBlockEntity second = LeyLines.nearestTotem(level, first.getBlockPos(), LeyLines.RANGE, first.getBlockPos());
+                ResonanceTotemBlockEntity second = LeyLines.nearestTotem(level, first.getBlockPos(), LeyLines.RANGE, first.getBlockPos(), ring);
                 if (second == null) return Component.translatable("message.tribalpower.rite.no_second_totem", LeyLines.RANGE);
                 LeyLines.bind(level, first.getBlockPos(), second.getBlockPos(), duration);
                 SpiritEffects.beam(level, first.getBlockPos().getCenter(), second.getBlockPos().getCenter(), Attunement.LOOM);

@@ -1,0 +1,6 @@
+{
+  "parent": "agricraft:crop/crop_hash",
+  "textures": {
+    "crop": "tribalpower:block/glimmer_bean_stage3"
+  }
+}

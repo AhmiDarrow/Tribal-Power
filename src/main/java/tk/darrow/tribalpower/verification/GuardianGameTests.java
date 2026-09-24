@@ -46,7 +46,7 @@ public final class GuardianGameTests {
 
     private static void cap(GameTestHelper h, BlockPos rel) {
         h.setBlock(rel.below(), Blocks.POLISHED_DEEPSLATE);
-        for (int dx : new int[] {-1, 1}) for (int dz : new int[] {-1, 1}) h.setBlock(rel.offset(dx, 0, dz), Blocks.CANDLE);
+        for (int dx : new int[] {-1, 1}) for (int dz : new int[] {-1, 1}) h.setBlock(rel.offset(dx, 0, dz), Blocks.CANDLE.defaultBlockState().setValue(net.minecraft.world.level.block.CandleBlock.LIT, true));
     }
 
     private static List<GuardianEntity> guardians(GameTestHelper h) {

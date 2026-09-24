@@ -421,7 +421,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=140)
     public static void partialFluidDeliverySurvivesSaveReload(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.FLUID_RELAY.get());power(h);
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.FLUID_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());power(h);
         h.setBlock(6,2,2,ModBlocks.SPIRIT_CISTERN.get());
         var sink=at(h,new BlockPos(6,2,2),SpiritCisternBlockEntity.class);
         sink.tank.fill(new FluidStack(Fluids.WATER,15950),IFluidHandler.FluidAction.EXECUTE);
@@ -454,7 +454,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=100)
     public static void relayWithoutPulseDoesNotTouchSource(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(2,1,2,Blocks.CHEST);h.setBlock(6,2,2,Blocks.CHEST);
         var source=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
         var sink=at(h,new BlockPos(6,2,2),ChestBlockEntity.class);
@@ -703,7 +703,7 @@ public class LatticeGameTests {
     @GameTest(template="empty", timeoutTicks=40)
     public static void aBondedRelayDoesNotFallBackToATunerMark(GameTestHelper h) {
         h.setBlock(2,1,2,Blocks.STONE);
-        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(6,2,2,Blocks.CHEST);
         var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
         var chestPos=h.absolutePos(new BlockPos(6,2,2));
@@ -784,7 +784,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=100)
     public static void movedRelayRechecksRange(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(2,1,2,Blocks.CHEST);power(h);
         var source=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
         source.setItem(0,new ItemStack(Items.IRON_INGOT,16));
@@ -801,7 +801,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=100)
     public static void bufferedFluidDoesNotRequireSourceTank(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.FLUID_RELAY.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.FLUID_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(6,2,2,ModBlocks.SPIRIT_CISTERN.get());power(h);
         var relay=at(h,pos,WirelessRelayBlockEntity.class);
         var tag=new net.minecraft.nbt.CompoundTag();
@@ -873,7 +873,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=200)
     public static void itemRelayMovesStacksAndPauses(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(2,1,2,Blocks.CHEST);h.setBlock(6,2,2,Blocks.CHEST);power(h);
         var source=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);var target=at(h,new BlockPos(6,2,2),ChestBlockEntity.class);
         var relay=at(h,pos,WirelessRelayBlockEntity.class);relay.bind(h.absolutePos(new BlockPos(6,2,2)),Direction.UP,h.getLevel().dimension().location().toString());
@@ -890,7 +890,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=160)
     public static void astralFluidRelayCrossesDimensions(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ASTRAL_FLUID_RELAY.get());h.setBlock(2,1,2,ModBlocks.SPIRIT_CISTERN.get());power(h);
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ASTRAL_FLUID_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_LOOM.get());h.setBlock(2,1,2,ModBlocks.SPIRIT_CISTERN.get());power(h);
         var other=h.getLevel().getServer().getLevel(net.minecraft.world.level.Level.NETHER);
         h.assertTrue(other!=null,"Nether must load in the GameTest fixture");
         // The receiver must be loaded independently: relays deliberately never load remote chunks.
@@ -906,7 +906,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty")
     public static void lowerRelayRejectsDimensionAndGreaterCellHoldsCharge(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());
+        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.assertFalse(at(h,pos,WirelessRelayBlockEntity.class).bind(new BlockPos(0,80,0),Direction.UP,"tribalpower:the_march"),"Local relay cannot cross dimensions");
         var cell=new ItemStack(ModItems.GREATER_PULSE_CELL.get());
         h.assertTrue(PulseCellItem.insertPulse(cell,1200,false)==1200 && PulseCellItem.getPulse(cell)==1200,"Greater cell must hold 1200 Pulse");
@@ -915,7 +915,7 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void tunerMarksAMachineNotThePlate(GameTestHelper h) {
         h.setBlock(2,1,2,Blocks.STONE);
-        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(6,2,2,Blocks.CHEST);
         var player=VerificationPlayers.inLevel(h);
         var tuner=new ItemStack(ModItems.LATTICE_TUNER.get());
@@ -1125,7 +1125,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty")
     public static void relayRuneChoosesItemOrFluid(GameTestHelper h) {
-        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
         h.assertFalse(relay.fluid(),"Item plate defaults to items");
         relay.setItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.WATER_SEAL.get()));
@@ -1138,7 +1138,7 @@ public class LatticeGameTests {
     }
     @GameTest(template="empty", timeoutTicks=120)
     public static void pairedRelaysShareABondItem(GameTestHelper h) {
-        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(2,1,2,Blocks.CHEST);
         h.setBlock(6,2,2,ModBlocks.ITEM_RELAY.get());
         h.setBlock(6,1,2,Blocks.CHEST);

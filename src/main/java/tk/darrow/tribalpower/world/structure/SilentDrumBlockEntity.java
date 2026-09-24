@@ -140,7 +140,7 @@ public class SilentDrumBlockEntity extends BlockEntity {
         if (!server.getBlockState(worldPosition.below()).is(Blocks.POLISHED_DEEPSLATE)) return false;
         for (int dx : new int[] {-1, 1}) {
             for (int dz : new int[] {-1, 1}) {
-                if (!(server.getBlockState(worldPosition.offset(dx, 0, dz)).getBlock() instanceof AbstractCandleBlock))
+                if (!tk.darrow.tribalpower.guardian.GuardianAltarBlockEntity.litCandle(server.getBlockState(worldPosition.offset(dx, 0, dz))))
                     return false;
             }
         }

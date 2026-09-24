@@ -31,7 +31,12 @@ public final class SongCast {
             case STEP -> step(player, verse);
             case CALL -> call(level, player, verse);
         }
-        for (Note rider : verse.riders()) ride(player, target == null ? player : target, rider, verse);
+        // riders follow the target; with none (a ward, a step) only the quiet note, which is the singer's own, plays
+        if (verse.shape() != SongShape.CALL)
+            for (Note rider : verse.riders()) {
+                if (target != null) ride(player, target, rider, verse);
+                else if (rider == Note.QUIET) ride(player, player, rider, verse);
+            }
         SpiritEffects.ring(level, player.position().add(0, 0.2, 0), verse.voice(), 0.8, 16);
         if (target != null && verse.shape() != SongShape.WARD && verse.shape() != SongShape.STEP) {
             SpiritEffects.beam(level, player.getEyePosition(), target.getBoundingBox().getCenter(), verse.voice());
@@ -108,6 +113,7 @@ public final class SongCast {
         var box = player.getBoundingBox().inflate(radius, 1.5, radius);
         for (LivingEntity living : level.getEntitiesOfClass(LivingEntity.class, box, FamiliarRoster::hostile)) {
             strike(player, living, 2.0F + verse.power() * 0.5F, verse);
+            for (Note rider : verse.riders()) ride(player, living, rider, verse);
         }
         SpiritEffects.ring(level, player.position().add(0, 0.1, 0), verse.voice(), radius, 20);
     }

@@ -17,7 +17,13 @@ import tk.darrow.tribalpower.item.ModItems;
 @GameTestHolder("tribalpower")
 @PrefixGameTestTemplate(false)
 public class CampGameTests {
-    private static CampBlockEntity camp(GameTestHelper h,String kind,int x,int y,int z){h.setBlock(x,y,z,CampRegistry.DEVICES.get(kind).get());return (CampBlockEntity)h.getBlockEntity(new BlockPos(x,y,z));}
+    private static CampBlockEntity camp(GameTestHelper h,String kind,int x,int y,int z){
+        h.setBlock(x,y,z,CampRegistry.DEVICES.get(kind).get());
+        // every hand answers to its voice: a fresh totem of it keeps, so one beside the device is enough
+        var voice=tk.darrow.tribalpower.lattice.Voices.required(kind);
+        if(voice!=null)h.setBlock(x,y+3,z,tk.darrow.tribalpower.block.ModBlocks.totemFor(voice).get());
+        return (CampBlockEntity)h.getBlockEntity(new BlockPos(x,y,z));
+    }
     @GameTest(template="empty")
     public static void effigyThreadsPersistAndCannotBecomeInfinite(GameTestHelper h){
         var effigy=new ItemStack(CampRegistry.EFFIGY.get());BoundEffigyItem.bind(effigy,"minecraft:cow",512);

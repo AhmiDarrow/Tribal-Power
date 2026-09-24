@@ -93,6 +93,8 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     public static void tick(Level level, BlockPos pos, BlockState state, WirelessRelayBlockEntity be) {
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (level.hasNeighborSignal(pos)) { be.updateStatus("paused"); return; }
+        // a relay carries through the air, an Astral one along the Loom's threads: it wants that voice kept nearby
+        if (!tk.darrow.tribalpower.lattice.Voices.kept(level, pos, tk.darrow.tribalpower.lattice.Voices.relay(be.tier()))) { be.updateStatus("voice"); return; }
         WirelessRelayBlockEntity partner = RelayLinks.partner(be);
         if (partner != null) {
             be.tickPair(level, partner);

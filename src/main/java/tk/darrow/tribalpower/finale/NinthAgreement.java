@@ -43,7 +43,11 @@ public final class NinthAgreement {
 
     /** The standing every tribe grants an agreed player at the least. */
     public static int standingFloor(ServerPlayer player) {
-        return agreed(player) ? TribeRank.KIN.threshold() : 0;
+        return standingFloor(player.server, player.getUUID());
+    }
+
+    public static int standingFloor(net.minecraft.server.MinecraftServer server, java.util.UUID player) {
+        return AgreementSavedData.get(server).agreed(player) ? TribeRank.KIN.threshold() : 0;
     }
 
     public static void perform(ServerLevel level, BlockPos pos, Player player) {

@@ -18,6 +18,7 @@ import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A Hearth Pot meal: up to four ingredients, in any order, an optional container (a bowl, a bottle) that the meal
@@ -45,24 +46,39 @@ public record HearthRecipe(List<Ingredient> ingredients, Optional<Ingredient> co
             ItemStack.STREAM_CODEC, HearthRecipe::result,
             ByteBufCodecs.VAR_INT, HearthRecipe::seconds, HearthRecipe::new);
 
-    /** Every ingredient is matched once, in any order; nothing may be left over, and the container must be right. */
+    /**
+     * Every ingredient is matched once, in any order, and a stack in one seat can stand for that many; every seated
+     * stack must be used by something, and the container must be right.
+     */
     @Override
     public boolean matches(Input input, Level level) {
-        List<ItemStack> seated = new ArrayList<>();
-        for (ItemStack stack : input.ingredients()) if (!stack.isEmpty()) seated.add(stack);
-        if (seated.size() != ingredients.size()) return false;
-        List<Ingredient> wanted = new ArrayList<>(ingredients);
+        return plan(input) != null;
+    }
+
+    /**
+     * How many to take from each ingredient seat for one meal, or null when the seats do not make this meal. A
+     * seat holding two emberroot answers for "emberroot, emberroot"; a seat nothing asks for spoils the pot.
+     */
+    public int @Nullable [] plan(Input input) {
+        List<ItemStack> seats = input.ingredients();
+        int[] take = new int[seats.size()];
         outer:
-        for (ItemStack stack : seated) {
-            for (int i = 0; i < wanted.size(); i++) {
-                if (wanted.get(i).test(stack)) {
-                    wanted.remove(i);
+        for (Ingredient wanted : ingredients) {
+            // a seat not yet drawn on comes first, so two emberroot in two seats are both used before a stack is
+            for (int pass = 0; pass < 2; pass++) {
+                for (int i = 0; i < seats.size(); i++) {
+                    ItemStack seat = seats.get(i);
+                    if (seat.isEmpty() || !wanted.test(seat) || seat.getCount() <= take[i]) continue;
+                    if (pass == 0 && take[i] > 0) continue;
+                    take[i]++;
                     continue outer;
                 }
             }
-            return false;
+            return null;
         }
-        return container.map(c -> c.test(input.container())).orElse(input.container().isEmpty());
+        for (int i = 0; i < seats.size(); i++) if (!seats.get(i).isEmpty() && take[i] == 0) return null;
+        boolean containerRight = container.map(c -> c.test(input.container())).orElse(input.container().isEmpty());
+        return containerRight ? take : null;
     }
 
     @Override public ItemStack assemble(Input input, HolderLookup.Provider registries) { return result.copy(); }

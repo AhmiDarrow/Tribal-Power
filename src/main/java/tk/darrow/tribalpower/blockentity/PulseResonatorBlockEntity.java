@@ -60,6 +60,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         be.gain = rank > 0 && voices.size() >= 1 && be.harmonics >= 2 && !level.hasNeighborSignal(pos)
                 ? gainFor(be.harmonics, rank) : 0;
         be.gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, be.gain);
+        be.gain = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(be.gain);
         int made = be.gain > 0 ? be.insertPulse(be.gain, false) : 0;
         boolean sounding = made > 0;
         if (sounding) be.wearCatalyst(made);

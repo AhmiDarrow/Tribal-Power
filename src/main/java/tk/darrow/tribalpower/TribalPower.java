@@ -66,6 +66,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
+        modBus.addListener(tk.darrow.tribalpower.item.GogglesTogglePayload::register);
         modBus.addListener(tk.darrow.tribalpower.storage.SortPayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LeySightPayload::register);
@@ -138,6 +139,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onServerAboutToStart);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.gate.DrumRite::onLogout);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.quest.DialogueSession::loggedOut);
         tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
         tk.darrow.tribalpower.compat.ChocoboCompat.register();
         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);

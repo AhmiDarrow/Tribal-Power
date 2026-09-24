@@ -8,24 +8,27 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
  * The recipes are data (data/tribalpower/recipe/hearth/); this is only the item and what it does when eaten.
  */
 public enum Dish {
-    KEEPERS_ROOT_MASH(TribeDefinition.SOIL, 8, 0.7F),
-    GRIT_BAKED_BREAD(TribeDefinition.STONE, 7, 0.6F),
-    ROOTBINDER_RICE(TribeDefinition.SPROUT, 8, 0.7F),
-    EDGE_WALKER_JERKY(TribeDefinition.CLAW, 6, 0.8F),
-    DRUMHEART_CHILI(TribeDefinition.SPARK, 9, 0.8F),
-    PATTERN_TART(TribeDefinition.CLOCK, 7, 0.7F),
-    HONEYCAKE(TribeDefinition.SWARM, 8, 0.6F),
-    SEAL_CARVERS_BROTH(TribeDefinition.SIGIL, 7, 0.8F),
-    LOOM_THREAD_NOODLES(TribeDefinition.SPINDLE, 9, 0.7F);
+    KEEPERS_ROOT_MASH(TribeDefinition.SOIL, 8, 0.7F, true),
+    GRIT_BAKED_BREAD(TribeDefinition.STONE, 7, 0.6F, false),
+    ROOTBINDER_RICE(TribeDefinition.SPROUT, 8, 0.7F, true),
+    EDGE_WALKER_JERKY(TribeDefinition.CLAW, 6, 0.8F, false),
+    DRUMHEART_CHILI(TribeDefinition.SPARK, 9, 0.8F, true),
+    PATTERN_TART(TribeDefinition.CLOCK, 7, 0.7F, false),
+    HONEYCAKE(TribeDefinition.SWARM, 8, 0.6F, false),
+    SEAL_CARVERS_BROTH(TribeDefinition.SIGIL, 7, 0.8F, true),
+    LOOM_THREAD_NOODLES(TribeDefinition.SPINDLE, 9, 0.7F, true);
 
     public final TribeDefinition tribe;
     public final int nutrition;
     public final float saturation;
+    /** Served in a bowl (the recipe's container), so eating it hands the bowl back. */
+    public final boolean bowl;
 
-    Dish(TribeDefinition tribe, int nutrition, float saturation) {
+    Dish(TribeDefinition tribe, int nutrition, float saturation, boolean bowl) {
         this.tribe = tribe;
         this.nutrition = nutrition;
         this.saturation = saturation;
+        this.bowl = bowl;
     }
 
     public String id() {

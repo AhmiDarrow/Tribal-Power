@@ -60,8 +60,13 @@ public class GuardianAltarBlockEntity extends BlockEntity {
         if (!server.getBlockState(worldPosition.below()).is(Blocks.POLISHED_DEEPSLATE)) return false;
         for (int dx : new int[] {-1, 1})
             for (int dz : new int[] {-1, 1})
-                if (!(server.getBlockState(worldPosition.offset(dx, 0, dz)).getBlock() instanceof AbstractCandleBlock)) return false;
+                if (!litCandle(server.getBlockState(worldPosition.offset(dx, 0, dz)))) return false;
         return true;
+    }
+
+    /** A candle, and a lit one: an altar is dressed for a call, not merely furnished. */
+    public static boolean litCandle(net.minecraft.world.level.block.state.BlockState state) {
+        return state.getBlock() instanceof AbstractCandleBlock && state.hasProperty(AbstractCandleBlock.LIT) && state.getValue(AbstractCandleBlock.LIT);
     }
 
     /** Whether there is room above the altar for the guardian to rise into (a 3.0 lesson: no boss wakes into a ceiling). */

@@ -68,8 +68,8 @@ public final class WeaponGameTests {
             h.assertTrue(sum(stack, Attributes.ATTACK_DAMAGE) > plain, weapon.getId() + " hits harder Manifested");
             h.assertTrue(Anointing.canAnoint(stack), weapon.getId() + " takes an anointment");
         }
-        h.assertTrue(Anointing.canAnoint(new ItemStack(Items.IRON_SWORD)) && Anointing.canAnoint(new ItemStack(Items.DIAMOND_AXE)),
-                "Vanilla swords and axes take anointments too");
+        h.assertFalse(Anointing.canAnoint(new ItemStack(Items.IRON_SWORD)) || Anointing.canAnoint(new ItemStack(Items.DIAMOND_AXE))
+                || Anointing.canAnoint(new ItemStack(Items.TRIDENT)), "Vanilla swords, axes and tridents are not anointed");
         h.assertFalse(Anointing.canAnoint(new ItemStack(Items.STICK)), "A stick does not");
         h.succeed();
     }

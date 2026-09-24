@@ -28,8 +28,9 @@ public final class Reagents {
 
     public static @Nullable CreatureProfile of(Item item) {
         if (item == null) return null;
-        String path = BuiltInRegistries.ITEM.getKey(item).getPath();
-        return BY_ID.get(path);
+        var key = BuiltInRegistries.ITEM.getKey(item);
+        if (!key.getNamespace().equals(tk.darrow.tribalpower.TribalPower.MOD_ID)) return null;
+        return BY_ID.get(key.getPath());
     }
 
     public static boolean isReagent(ItemStack stack) {

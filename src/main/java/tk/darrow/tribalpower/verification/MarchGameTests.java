@@ -54,7 +54,7 @@ public class MarchGameTests {
     private static void altar(GameTestHelper h, BlockPos drum) {
         h.setBlock(drum.below(), Blocks.POLISHED_DEEPSLATE);
         for (int dx : new int[] {-1, 1}) {
-            for (int dz : new int[] {-1, 1}) h.setBlock(drum.offset(dx, 0, dz), Blocks.CANDLE);
+            for (int dz : new int[] {-1, 1}) h.setBlock(drum.offset(dx, 0, dz), Blocks.CANDLE.defaultBlockState().setValue(net.minecraft.world.level.block.CandleBlock.LIT, true));
         }
     }
 

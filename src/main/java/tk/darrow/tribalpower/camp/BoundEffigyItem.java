@@ -32,7 +32,7 @@ public class BoundEffigyItem extends Item {
     public static int remaining(ItemStack stack){return stack.getItem() instanceof BoundEffigyItem&&!target(stack).isEmpty()?Math.clamp(data(stack).getInt("Summons"),0,MAX_USES):0;}
     public static void bind(ItemStack stack,String id,int uses){var tag=data(stack);tag.putString("BoundSpirit",allowed().contains(id)?id:"");tag.putInt("Summons",Math.clamp(uses,0,MAX_USES));stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));}
     public static void spend(ItemStack stack){bind(stack,target(stack),remaining(stack)-1);}
-    public static Component targetName(ItemStack stack){var id=ResourceLocation.tryParse(target(stack));return id==null?Component.translatable("message.tribalpower.effigy.unbound"):BuiltInRegistries.ENTITY_TYPE.get(id).getDescription();}
+    public static Component targetName(ItemStack stack){String target=target(stack);var id=target.isEmpty()?null:ResourceLocation.tryParse(target);return id==null||!BuiltInRegistries.ENTITY_TYPE.containsKey(id)?Component.translatable("message.tribalpower.effigy.unbound"):BuiltInRegistries.ENTITY_TYPE.get(id).getDescription();}
     @Override public InteractionResult interactLivingEntity(ItemStack stack,Player player,LivingEntity target,InteractionHand hand) {
         if(!(target instanceof Mob)||!player.isShiftKeyDown())return InteractionResult.PASS;
         String id=BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();

@@ -86,6 +86,11 @@ public final class DialogueSession {
     /** The node each player was last shown, keyed by kin entity id: a choice is only honoured from that node. */
     private static final java.util.Map<java.util.UUID, String> SHOWN = new java.util.concurrent.ConcurrentHashMap<>();
 
+    /** A player who leaves mid-conversation is not owed its choices when they return. */
+    public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        SHOWN.remove(event.getEntity().getUUID());
+    }
+
     /** Whether this Kin talks at all: a camp Elder, not a stall, with dialogue on. */
     public static boolean talks(TribalKinEntity kin) {
         return kin.role() == tk.darrow.tribalpower.tribe.KinRole.ELDER && !kin.stall() && TribalConfig.elderDialogue();

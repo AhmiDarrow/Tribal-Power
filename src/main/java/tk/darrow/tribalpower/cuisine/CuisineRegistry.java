@@ -56,10 +56,12 @@ public final class CuisineRegistry {
                     .food(new FoodProperties.Builder().nutrition(crop.nutrition).saturationModifier(crop.saturation).build()))));
         }
         for (Dish dish : Dish.values())
-            DISHES.put(dish, ITEMS.register(dish.id(), () -> new Item(new Item.Properties().stacksTo(16)
-                    .food(new FoodProperties.Builder().nutrition(dish.nutrition).saturationModifier(dish.saturation)
-                            .usingConvertsTo(net.minecraft.world.item.Items.BOWL)
-                            .effect(() -> new MobEffectInstance(ModEffects.boon(dish.tribe), TribalConfig.dishBoonMinutes() * 60 * 20, 0), 1.0F).build()))));
+            DISHES.put(dish, ITEMS.register(dish.id(), () -> {
+                FoodProperties.Builder food = new FoodProperties.Builder().nutrition(dish.nutrition).saturationModifier(dish.saturation)
+                        .effect(() -> new MobEffectInstance(ModEffects.boon(dish.tribe), TribalConfig.dishBoonMinutes() * 60 * 20, 0), 1.0F);
+                if (dish.bowl) food.usingConvertsTo(net.minecraft.world.item.Items.BOWL);
+                return new Item(new Item.Properties().stacksTo(16).food(food.build()));
+            }));
         for (Attunement voice : Attunement.values()) {
             DeferredBlock<FeastBlock> block = BLOCKS.register(voice.getSerializedName() + "_feast", () -> new FeastBlock(voice,
                     BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.5F).sound(SoundType.WOOL).noOcclusion().pushReaction(PushReaction.DESTROY)));

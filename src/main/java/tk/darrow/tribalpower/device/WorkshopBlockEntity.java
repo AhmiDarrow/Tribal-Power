@@ -70,6 +70,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             case "pushing" -> Component.translatable("message.tribalpower.workshop.pushing", reasonN);
             case "caught" -> Component.translatable("message.tribalpower.workshop.caught", reasonN);
             case "struck" -> Component.translatable("message.tribalpower.workshop.struck", reasonName);
+            case "need_voice" -> Component.translatable("message.tribalpower.workshop.need_voice", reasonName);
             case "waiting", "paused", "need_tanks", "dest_full", "nothing", "listening", "idle_ward", "draw_face", "push_face"
                     -> Component.translatable("message.tribalpower.workshop." + reason);
             default -> Component.literal(reason);
@@ -102,7 +103,17 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     }
 
     public void beat(ServerLevel server) {
-        if (server.hasNeighborSignal(worldPosition)) { setReason("paused"); return; }
+        if (server.hasNeighborSignal(worldPosition)) {
+            setReason("paused");
+            if (getBlockState().getValue(WorkshopBlock.LIT)) server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, false), 3);
+            return;
+        }
+        var voice = tk.darrow.tribalpower.lattice.Voices.required(kind());
+        if (voice != null && !tk.darrow.tribalpower.lattice.Voices.kept(server, worldPosition, voice)) {
+            setReason("need_voice"); reasonName = tk.darrow.tribalpower.lattice.Voices.name(voice).getString();
+            if (getBlockState().getValue(WorkshopBlock.LIT)) server.setBlock(worldPosition, getBlockState().setValue(WorkshopBlock.LIT, false), 3);
+            return;
+        }
         switch (kind()) {
             case "tide_pump" -> pump(server);
             case "wind_snare" -> vacuum(server);

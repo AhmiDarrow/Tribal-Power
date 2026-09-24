@@ -1,4 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": { "layer0": "tribalpower:item/pulse_bow_pulling_2" }
+  "parent": "tribalpower:item/pulse_bow",
+  "textures": {
+    "layer0": "tribalpower:item/pulse_bow_pulling_2"
+  }
 }

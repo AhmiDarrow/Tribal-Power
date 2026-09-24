@@ -36,7 +36,9 @@ public final class EffectGameTests {
         for (var tribe : TribeDefinition.values()) h.assertTrue(ModEffects.boon(tribe).isBound(), tribe + " boon registers");
         for (var kind : AfflictionEffect.Kind.values()) h.assertTrue(ModEffects.affliction(kind).isBound(), kind + " registers");
         var assets = java.nio.file.Path.of("src/main/resources/assets/tribalpower/textures/mob_effect");
-        for (var holder : ModEffects.EFFECTS.getEntries()) {
+        var all = new java.util.ArrayList<>(ModEffects.EFFECTS.getEntries());
+        all.addAll(tk.darrow.tribalpower.healing.HealingRegistry.EFFECTS.getEntries());
+        for (var holder : all) {
             String id = holder.getId().getPath();
             h.assertTrue(net.minecraft.locale.Language.getInstance().has("effect.tribalpower." + id), id + " has a name");
             if (java.nio.file.Files.isDirectory(assets))

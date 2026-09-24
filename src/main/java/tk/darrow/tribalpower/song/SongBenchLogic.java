@@ -159,7 +159,8 @@ public final class SongBenchLogic {
         if (!Anointing.canAnoint(weapon)) return Attempt.fail("message.tribalpower.song_bench.no_weapon");
         if (voices(level, origin).isEmpty()) return Attempt.fail("message.tribalpower.song_bench.no_totems");
         Component reagent = Component.translatable("item.tribalpower." + profile.reagent);
-        if (Anointing.reagent(weapon).orElse(null) == profile) return Attempt.fail("message.tribalpower.song_bench.already_anointed", reagent);
+        if (Anointing.anointment(weapon).orElse(null) == Anointment.of(Note.of(profile)))
+            return Attempt.fail("message.tribalpower.song_bench.already_anointed", Component.translatable("anointment.tribalpower." + Anointment.of(Note.of(profile)).id()));
         int need = tk.darrow.tribalpower.config.TribalConfig.anointReagentCost();
         if (ReagentPouch.empowered(pouch, profile) < need) return Attempt.fail("message.tribalpower.song_bench.need_empowered_n", need, reagent);
         int price = tk.darrow.tribalpower.config.TribalConfig.anointPulseCost();

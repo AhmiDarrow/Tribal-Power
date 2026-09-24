@@ -269,7 +269,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         if (stall() && role() == KinRole.ELDER) {
             sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line1", tribe.displayNameComponent()));
             sp.sendSystemMessage(Component.translatable("message.tribalpower.kin.stall.line2"));
-            if (getTradingPlayer() == null) {
+            if (!busyTrading()) {
                 MerchantOffers offers = stallOffers();
                 if (offers.isEmpty()) {
                     sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stall.empty"), true);
@@ -281,7 +281,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             return InteractionResult.CONSUME;
         }
         if (role() == KinRole.ELDER) {
-            if (tk.darrow.tribalpower.quest.DialogueSession.talks(this) && getTradingPlayer() == null
+            if (tk.darrow.tribalpower.quest.DialogueSession.talks(this) && !busyTrading()
                     && tk.darrow.tribalpower.quest.DialogueSession.begin(sp, this)) {
                 grantMarkIfVoice(sp, tribe, rank);
                 return InteractionResult.CONSUME;
@@ -298,7 +298,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
                     CodexUnlocksPayload.sync(sp);
                 }
             }
-            if (getTradingPlayer() == null) {
+            if (!busyTrading()) {
                 MerchantOffers offers = offersFor(rank);
                 if (offers.isEmpty()) {
                     sp.displayClientMessage(Component.translatable("message.tribalpower.kin.stranger", tribe.displayNameComponent()), true);
@@ -326,9 +326,23 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         CodexUnlocksPayload.sync(sp);
     }
 
+    /**
+     * Whether a customer still has this Kin's counter open. A customer who left, died, or closed the screen without
+     * the Kin noticing (a Kin without AI never runs its trade goal) is forgotten here, so the Kin talks again.
+     */
+    private boolean busyTrading() {
+        Player p = getTradingPlayer();
+        if (p == null) return false;
+        if (!p.isAlive() || p.isSpectator() || !(p.containerMenu instanceof net.minecraft.world.inventory.MerchantMenu) || distanceToSqr(p) > 64) {
+            setTradingPlayer(null);
+            return false;
+        }
+        return true;
+    }
+
     /** Opens the Elder's counter for a player, from a conversation. */
     public void openTrades(ServerPlayer sp) {
-        if (getTradingPlayer() != null) return;
+        if (busyTrading()) return;
         TribeRank rank = TribeRank.of(tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(sp, tribe()));
         MerchantOffers offers = stall() ? stallOffers() : offersFor(rank);
         if (offers.isEmpty()) {

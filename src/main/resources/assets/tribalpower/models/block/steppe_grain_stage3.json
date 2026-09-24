@@ -2,5 +2,6 @@
   "parent": "minecraft:block/crop",
   "textures": {
     "crop": "tribalpower:block/steppe_grain_stage3"
-  }
+  },
+  "render_type": "minecraft:cutout"
 }

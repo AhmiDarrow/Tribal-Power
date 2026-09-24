@@ -163,6 +163,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
     @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
         ItemStack tool=player.getItemInHand(hand);
+        // a Ley Lens read comes before any sneak-use of the creature's own: the game asks the creature first
+        if(player.isSecondaryUseActive() && tool.getItem() instanceof tk.darrow.tribalpower.ley.LeyLensItem)return InteractionResult.PASS;
         if(isFood(tool)) {
             // Like a wolf: food tames a wild one in time and heals a hurt companion; a healthy companion falls in love.
             InteractionResult fed=tk.darrow.tribalpower.familiar.FamiliarCare.feed(this,player,hand,tool);

@@ -18,7 +18,17 @@
       "text": [
         "**Place it yourself.** The tender remembers who placed it and works with that player's permissions, so land protection still applies. A tender nobody claimed does nothing.",
         "It works on its **own level**: its bed is the square reaching **4 blocks** out on every side, at the tender's height. So set it at crop height, on a block sunk into the farmland, not on top of the crops.",
-        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face."
+        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face.",
+        "**Water.** Keep a Water Resonance Totem within eight blocks and the tender keeps the bed's farmland wet, soaking every dried furrow in one beat for a few Pulse. No more trenches through the crops."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "With AgriCraft",
+      "text": [
+        "When AgriCraft is in the pack the tender works its crops as its own. **Crop sticks** in the top row go onto the bed (tilled ground or the March's own soil), and a **seed** goes into empty sticks before anywhere else: an analysed AgriCraft seed, or a plain crop AgriCraft knows, such as a potato or any March crop.",
+        "A ripe plant is harvested the way a click harvests it: the produce goes to the store and the plant stays on its sticks, cut back to grow again. Weeds are raked and slow plants urged on, each for a little Pulse.",
+        "It still wants its Earth totem, Pulse in its cell, and a claimed owner, like all its other work. If the sticks stand empty, look at the status line: it names what the tender is waiting for."
       ]
     },
     {

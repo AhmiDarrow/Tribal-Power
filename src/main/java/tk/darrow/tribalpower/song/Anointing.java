@@ -29,7 +29,8 @@ import tk.darrow.tribalpower.familiar.FamiliarRoster;
  * it at the Song Bench. What it does is the reagent's Note ({@link Anointment}); how strongly is the config's.
  *
  * <p>Stored on {@link DataComponents#CUSTOM_DATA} as {@code Anointed}: the reagent's id. Which weapons take one is
- * the {@code tribalpower:anointable} item tag, so a pack can open it to more.
+ * the {@code tribalpower:anointable} item tag: Spiritgear weapons, and nothing of vanilla's or another mod's
+ * unless a pack opens the tag.
  */
 public final class Anointing {
     public static final String KEY = "Anointed";

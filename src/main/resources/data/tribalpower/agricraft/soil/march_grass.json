@@ -1,0 +1,14 @@
+{
+  "mods": [
+    "tribalpower"
+  ],
+  "variants": [
+    {
+      "block": "tribalpower:march_grass"
+    }
+  ],
+  "humidity": "damp",
+  "acidity": "slightly_acidic",
+  "nutrients": "medium",
+  "growth_modifier": 1.0
+}

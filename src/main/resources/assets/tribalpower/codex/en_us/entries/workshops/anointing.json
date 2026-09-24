@@ -28,7 +28,7 @@
       "type": "text",
       "title": "What can be anointed",
       "text": [
-        "Every Spiritgear weapon, from the Blade to the [newer family](spiritgear_weapons), plus vanilla **swords**, **axes**, the **trident** and the **mace**.",
+        "Every Spiritgear weapon, from the Blade to the [newer family](spiritgear_weapons). Nothing else takes the bench's work: not a vanilla sword, not another mod's.",
         "Pack makers can open it to more through the `tribalpower:anointable` item tag."
       ]
     },

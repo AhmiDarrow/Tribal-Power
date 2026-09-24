@@ -87,12 +87,15 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
             setChanged();
             return COOKING;
         }
+        int[] plan = recipe.plan(input());
         for (int i = 0; i <= CONTAINER; i++) {
             ItemStack seat = items.get(i);
             if (i == CONTAINER && recipe.container().isEmpty()) continue;
             if (seat.isEmpty()) continue;
+            int units = i == CONTAINER || plan == null ? 1 : plan[i];
+            if (units <= 0) continue;
             ItemStack remainder = seat.getCraftingRemainingItem();
-            seat.shrink(1);
+            seat.shrink(units);
             if (seat.isEmpty()) items.set(i, remainder);
             else if (!remainder.isEmpty()) net.minecraft.world.Containers.dropItemStack(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5, remainder);
         }

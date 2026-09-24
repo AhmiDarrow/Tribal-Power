@@ -131,9 +131,11 @@ public final class KitGameTests {
             ItemStack crossbow = new ItemStack(KitRegistry.PULSE_CROSSBOW.get());
             player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, crossbow);
             var item = (PulseCrossbowItem) crossbow.getItem();
-            item.releaseUsing(crossbow, h.getLevel(), player, 72000 - TribalConfig.crossbowLoadTicks() + 3);
+            int duration = item.getUseDuration(crossbow, player);
+            h.assertTrue(duration == TribalConfig.crossbowLoadTicks() + 3 && item.useOnRelease(crossbow), "The load ends on its own once complete, as the game's crossbow does");
+            item.releaseUsing(crossbow, h.getLevel(), player, duration - TribalConfig.crossbowLoadTicks() + 3);
             h.assertFalse(PulseCrossbowItem.loaded(crossbow), "Let go too soon and it does not load");
-            item.releaseUsing(crossbow, h.getLevel(), player, 72000 - TribalConfig.crossbowLoadTicks());
+            item.releaseUsing(crossbow, h.getLevel(), player, duration - TribalConfig.crossbowLoadTicks());
             h.assertTrue(PulseCrossbowItem.loaded(crossbow), "Held long enough, it loads");
             item.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
             h.assertFalse(PulseCrossbowItem.loaded(crossbow), "Using a loaded crossbow fires it");

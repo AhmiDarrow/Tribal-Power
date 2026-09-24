@@ -42,6 +42,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void groveTenderHarvestsThreeHighCane(GameTestHelper h) {
         h.setBlock(5, 2, 5, CampRegistry.DEVICES.get("grove_tender").get());
+        h.setBlock(5, 5, 5, ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var be = (CampBlockEntity) h.getBlockEntity(new BlockPos(5, 2, 5));
         be.owner = java.util.UUID.randomUUID();
         be.pulse = 24;
@@ -59,6 +60,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void groveTenderPlantsSapling(GameTestHelper h) {
         h.setBlock(5, 2, 5, CampRegistry.DEVICES.get("grove_tender").get());
+        h.setBlock(5, 5, 5, ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var be = (CampBlockEntity) h.getBlockEntity(new BlockPos(5, 2, 5));
         be.owner = java.util.UUID.randomUUID();
         be.pulse = 16;
@@ -74,6 +76,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void groveTenderStillHarvestsWheat(GameTestHelper h) {
         h.setBlock(5, 2, 5, CampRegistry.DEVICES.get("grove_tender").get());
+        h.setBlock(5, 5, 5, ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var be = (CampBlockEntity) h.getBlockEntity(new BlockPos(5, 2, 5));
         be.owner = java.util.UUID.randomUUID();
         be.pulse = 24;
@@ -96,6 +99,7 @@ public class WorkshopGameTests {
         h.setBlock(2, 2, 2, ModBlocks.SPIRIT_CISTERN.get());
         h.setBlock(4, 2, 2, ModBlocks.SPIRIT_CISTERN.get());
         h.setBlock(3, 2, 2, DeviceRegistry.TIDE_PUMP.get().defaultBlockState().setValue(WorkshopBlock.FACING, Direction.EAST));
+        h.setBlock(3, 5, 2, ModBlocks.RESONANCE_TOTEM_WATER.get());
         var from = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 2));
         var to = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 2));
         from.tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
@@ -115,6 +119,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void windSnareCatchesDroppedItems(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.WIND_SNARE.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_AIR.get());
         pulse(h, 4, 2, 5, 40);
         var be = (WorkshopBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         var abs = h.absolutePos(new BlockPos(6, 2, 4));
@@ -130,6 +135,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void wardDrumStrikesHostileNotPlayer(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.WARD_DRUM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_SPIRIT.get());
         pulse(h, 4, 2, 5, 40);
         var be = (WorkshopBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         var zombie = h.spawn(EntityType.ZOMBIE, new BlockPos(6, 2, 4));
@@ -143,6 +149,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void sealLoomImprintsAndCrafts(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
         pulse(h, 4, 2, 5, 40);
         var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         loom.setItem(0, new ItemStack(Items.OAK_PLANKS));
@@ -309,6 +316,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void sealLoomDoesNotDupeWhenOutputAlmostFull(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
         pulse(h, 4, 2, 5, 40);
         var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         loom.setItem(0, new ItemStack(Items.OAK_PLANKS, 4));
@@ -329,6 +337,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void sealLoomReturnsContainersToOffsetIngredientSlots(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
         pulse(h, 4, 2, 5, 40);
         var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         loom.setItem(8, new ItemStack(Items.HONEY_BOTTLE));
@@ -345,6 +354,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void windSnareDoesNotCatchWithoutPulse(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.WIND_SNARE.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_AIR.get());
         var be = (WorkshopBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         var abs = h.absolutePos(new BlockPos(6, 2, 4));
         var drop = new ItemEntity(h.getLevel(), abs.getX() + 0.5, abs.getY(), abs.getZ() + 0.5, new ItemStack(Items.DIRT, 16));
@@ -394,6 +404,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void groveTenderPlantsCocoaOnLog(GameTestHelper h) {
         h.setBlock(5, 2, 5, CampRegistry.DEVICES.get("grove_tender").get());
+        h.setBlock(5, 5, 5, ModBlocks.RESONANCE_TOTEM_EARTH.get());
         var be = (CampBlockEntity) h.getBlockEntity(new BlockPos(5, 2, 5));
         be.owner = java.util.UUID.randomUUID();
         be.pulse = 16;
@@ -410,6 +421,7 @@ public class WorkshopGameTests {
     @GameTest(template = "empty")
     public static void machineRankPaysForSpeed(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
         var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
         tk.darrow.tribalpower.item.MachineRank.apply(loom, 3);
         int seconds = 20;

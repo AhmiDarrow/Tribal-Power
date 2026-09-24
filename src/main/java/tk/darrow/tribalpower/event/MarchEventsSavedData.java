@@ -67,7 +67,9 @@ public class MarchEventsSavedData extends SavedData {
     // ---- festivals ----
     public long lastFestivalDay() { return lastFestivalDay; }
     public void setLastFestivalDay(long day) { lastFestivalDay = day; setDirty(); }
-    private static long festivalKey(int tribe, long day) { return (day << 4) | tribe; }
+    // five bits for the slot: the nine tribes' joins sit below 16 and their feasts at tribe + 16, so a feast key
+    // can never collide with a join key of an odd day the way a four-bit slot let it
+    private static long festivalKey(int tribe, long day) { return (day << 5) | (tribe & 31); }
     public boolean joined(UUID player, int tribe, long day) {
         Set<Long> set = festivals.get(player);
         return set != null && set.contains(festivalKey(tribe, day));
@@ -77,8 +79,8 @@ public class MarchEventsSavedData extends SavedData {
         boolean added = set.add(festivalKey(tribe, day));
         // keys older than a whole cycle can never be asked about again
         long oldest = day - Math.max(9, tk.darrow.tribalpower.config.TribalConfig.festivalCycleDays()) - 1;
-        if (set.removeIf(key -> (key >> 4) < oldest)) added = added || false;
-        if (added) setDirty();
+        boolean pruned = set.removeIf(key -> (key >> 5) < oldest);
+        if (added || pruned) setDirty();
         return added;
     }
 

@@ -102,7 +102,6 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
 
     /** A lit campfire, fire, magma, lava or an Ember Bowl under the kettle. */
     public static boolean heated(Level level, BlockPos pos) {
-        if (!TribalConfig.kettleNeedsHeat()) return true;
         BlockState below = level.getBlockState(pos.below());
         if (below.is(BlockTags.CAMPFIRES)) return below.getValue(CampfireBlock.LIT);
         return below.is(BlockTags.FIRE) || below.is(Blocks.MAGMA_BLOCK) || below.is(ModBlocks.EMBER_BOWL.get())
@@ -145,7 +144,7 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
             progress = 0;
             return IDLE;
         }
-        if (!heated(level, worldPosition)) return NO_HEAT;
+        if (TribalConfig.kettleNeedsHeat() && !heated(level, worldPosition)) return NO_HEAT;
         ItemStack output = items.get(OUTPUT);
         if (!output.isEmpty() && (!ItemStack.isSameItemSameComponents(output, made) || output.getCount() + made.getCount() > output.getMaxStackSize()))
             return BLOCKED;

@@ -1,0 +1,6 @@
+{
+  "parent": "agricraft:crop/crop_hash",
+  "textures": {
+    "crop": "tribalpower:block/steppe_grain_stage2"
+  }
+}

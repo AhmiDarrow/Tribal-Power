@@ -17,6 +17,16 @@ public final class ClientSetup {
             net.minecraft.client.renderer.item.ItemProperties.register(bow,
                     net.minecraft.resources.ResourceLocation.withDefaultNamespace("pulling"),
                     (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1F : 0F);
+            var crossbow = tk.darrow.tribalpower.kit.KitRegistry.PULSE_CROSSBOW.get();
+            net.minecraft.client.renderer.item.ItemProperties.register(crossbow,
+                    net.minecraft.resources.ResourceLocation.withDefaultNamespace("pull"),
+                    (stack, level, entity, seed) -> tk.darrow.tribalpower.song.PulseCrossbowItem.loadProgress(stack, entity));
+            net.minecraft.client.renderer.item.ItemProperties.register(crossbow,
+                    net.minecraft.resources.ResourceLocation.withDefaultNamespace("pulling"),
+                    (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1F : 0F);
+            net.minecraft.client.renderer.item.ItemProperties.register(crossbow,
+                    net.minecraft.resources.ResourceLocation.withDefaultNamespace("charged"),
+                    (stack, level, entity, seed) -> tk.darrow.tribalpower.song.PulseCrossbowItem.loaded(stack) ? 1F : 0F);
         });
     }
 

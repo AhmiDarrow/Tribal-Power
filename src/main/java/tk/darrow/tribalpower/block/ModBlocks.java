@@ -62,6 +62,18 @@ public final class ModBlocks {
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_SPIRIT = totem("resonance_totem_spirit", Attunement.SPIRIT, MapColor.COLOR_PURPLE);
     public static final DeferredBlock<ResonanceTotemBlock> RESONANCE_TOTEM_LOOM = totem("resonance_totem_loom", Attunement.LOOM, MapColor.DIAMOND);
 
+    /** The Resonance Totem of a voice. */
+    public static DeferredBlock<ResonanceTotemBlock> totemFor(Attunement voice) {
+        return switch (voice) {
+            case EARTH -> RESONANCE_TOTEM_EARTH;
+            case FIRE -> RESONANCE_TOTEM_FIRE;
+            case WATER -> RESONANCE_TOTEM_WATER;
+            case AIR -> RESONANCE_TOTEM_AIR;
+            case SPIRIT -> RESONANCE_TOTEM_SPIRIT;
+            case LOOM -> RESONANCE_TOTEM_LOOM;
+        };
+    }
+
     public static final DeferredBlock<SongBenchBlock> SONG_BENCH = BLOCKS.register(
             "song_bench",
             () -> new SongBenchBlock(BlockBehaviour.Properties.of()

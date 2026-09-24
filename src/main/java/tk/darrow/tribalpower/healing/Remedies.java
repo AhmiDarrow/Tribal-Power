@@ -72,7 +72,11 @@ public final class Remedies {
             target.addEffect(new MobEffectInstance(remedy.effect, ticks, voice == Attunement.LOOM ? 0 : levels, ambient, !ambient, true));
         for (var ailment : remedy.cures) target.removeEffect(ailment);
         if (TribalConfig.remediesCureSickness()) tk.darrow.tribalpower.effect.ModEffects.cleanse(target);
-        if (voice == Attunement.EARTH) target.setAbsorptionAmount(Math.max(target.getAbsorptionAmount(), (float) TribalConfig.voiceEarthAbsorption()));
+        if (voice == Attunement.EARTH && TribalConfig.voiceEarthAbsorption() > 0) {
+            // absorption is capped by the effect's own attribute, so the points come as levels of the effect
+            int level = Math.max(0, (int) Math.ceil(TribalConfig.voiceEarthAbsorption() / 4.0) - 1);
+            target.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, Math.max(ticks, 20 * 60), level, ambient, !ambient, true));
+        }
         if (voice == Attunement.AIR) heal += (float) TribalConfig.voiceAirHeal();
         if (voice == Attunement.SPIRIT && TribalConfig.voiceSpiritRegen() > 0)
             target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, TribalConfig.voiceSpiritRegen() * 20, 0, ambient, !ambient, true));

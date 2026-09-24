@@ -1,0 +1,6 @@
+{
+  "parent": "tribalpower:item/pulse_crossbow",
+  "textures": {
+    "layer0": "tribalpower:item/pulse_crossbow_pulling_0"
+  }
+}

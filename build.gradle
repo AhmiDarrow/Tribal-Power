@@ -153,6 +153,8 @@ dependencies {
     // EMI and Jade plugins compile against the shipped jars; neither is needed at runtime.
     compileOnly 'maven.modrinth:emi:1.1.24+1.21.1+neoforge'
     compileOnly 'maven.modrinth:jade:15.10.6+neoforge'
+    // AgriCraft's 1.21.1 line is unreleased: this jar is its 1.21 branch built from source (compat only, never required)
+    compileOnly files('libs/agricraft-1.21.1-4.0.3-alpha.jar')
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {

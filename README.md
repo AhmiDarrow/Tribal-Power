@@ -80,11 +80,11 @@ Each beat transfers up to 16 items or 250 mB, once per second. Ranked plates mov
 
 - **Wayanchor:** sustains its own ticking chunk for 16 Pulse/s, with a 2,400-Pulse buffer and a limit of 32 active anchors per dimension. Redstone, removal or exhausted power releases its ticket.
 - **Hush Totem:** prevents hostile spawning within 24 blocks for 8 Pulse/s. Existing mobs remain; commands and spawn eggs are exempt. Keep hostile summoning outside its ward.
-- **Grove Tender:** place it yourself so it is claimed. It plants and harvests a 9-by-9 crop bed, at most one action per second. Planting costs 4 Pulse; harvest and replant costs 12; urging trees costs 16. Seeds enter the top row; outputs leave below. Full storage preserves crops, and player protection events apply.
+- **Grove Tender:** place it yourself so it is claimed. It plants and harvests a 9-by-9 crop bed, at most one action per second. Planting costs 4 Pulse; harvest and replant costs 12; urging trees costs 16. With a Water Resonance Totem kept within eight blocks it also keeps every furrow of its bed wet (4 Pulse a beat, only when one has dried). Seeds enter the top row; outputs leave below. Full storage preserves crops, and player protection events apply.
 - **Summoning Cradle:** use a Binding Effigy to harmlessly imprint one of 21 supported species. Awaken it at a Spirit-sealed Ritual Brazier with Earth, Air and Spirit voices, three Spiritweave and 200 Pulse. Each binding permits **512 successful summons**, then needs the ritual again. Every summon costs 80 Pulse and one Spiritweave; failed attempts consume nothing. The effigy preserves its count through saves and pickup. A comparator reads remaining binding strength. Eight nearby mobs pause summoning.
 - **Spirit Lantern, Rain Chime and Offering Table:** carved, functional decorations providing full light, weather signals and 27-slot storage. The chime reports clear/rain/thunder as 0/8/15.
 
-Redstone pauses every camp device and its inventory access. Farm, cradle and table expose standard item capabilities for hoppers, pipes and relays. All eight items have standalone recipes; Ninjacat Skies adds a connected camp quest branch and binding milestones.
+**Every automated hand answers to a voice:** a kept Resonance Totem of it within eight blocks, or the device stands idle and says which it wants. Earth for the Grove Tender and Wayanchor, Spirit for the Ward Drum, Hush Totem and Summoning Cradle, Water for the Tide Pump, Air for the Wind Snare and relays, Loom for the Seal Loom and Astral relays (`automationNeedsVoices` waives it). Redstone pauses every camp device and its inventory access. Farm, cradle and table expose standard item capabilities for hoppers, pipes and relays. With AgriCraft in the pack, the Grove Tender sets crop sticks, plants its seeds, rakes weeds, urges and harvests AgriCraft crops as its own, leaving the plant on its sticks; the five March crops are AgriCraft plants too, seeded from the plain crop, bred from two farm crops each, and at home on March ground under the sticks. All eight items have standalone recipes; Ninjacat Skies adds a connected camp quest branch and binding milestones.
 
 ## Paths for players
 
@@ -208,6 +208,7 @@ Everything with a number is in `config/tribalpower-common.toml`, by section:
 | `balance`, `world`, `march` | Pulse economy, generation, March spawn and threat numbers, sleep rules |
 | `weapons`, `anointing`, `healing`, `kit`, `effects`, `cuisine` | Weapon stats, anointment powers, remedies, kit tiers, blessings and boons, dishes and feasts |
 | `quests` | Request rewards, requests per Tribe Mark, whether Elders talk at all (`elderDialogue`) |
+| `camp` | Whether the automated hands need their voices' totems (`automationNeedsVoices`), the Grove Tender's watering cost |
 | `guardians` | `guardiansEnabled`, health and damage scales, the call's cost, altar rest, attack and wave timings, add caps, the Ninth Agreement's cost and boon |
 | `events` | Each event family on or off (weather, surges, festivals, wandering spirits), their timing, yields and rewards |
 

@@ -31,6 +31,7 @@ public final class TribalPowerClient {
         modBus.addListener(VoiceGlow::layers);
         modBus.addListener(TribalColors::blocks);
         modBus.addListener(ClientSetup::onClientSetup);
+        modBus.addListener(WeaponAnimations::register);
         modBus.addListener(ClientSetup::registerRenderers);
         tk.darrow.tribalpower.client.wildlife.WildlifeClient.register(modBus);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {

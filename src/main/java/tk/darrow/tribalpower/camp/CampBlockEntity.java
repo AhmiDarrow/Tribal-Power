@@ -79,10 +79,11 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         return switch(reason){
             case "need_anchor"->Component.translatable("message.tribalpower.hand.need_anchor",CampHooks.SOLO_ANCHOR_CAP,CampHooks.CAMP_ANCHOR_BUDGET);
             case "summoned"->Component.translatable("message.tribalpower.hand.summoned",reasonName);
+            case "need_voice"->Component.translatable("message.tribalpower.hand.need_voice",reasonName);
             case "waiting","paused","wait_pulse","holding","hush","cradle_slots","lantern","thunder","rain","clear","offerings",
                     "bind_effigy","need_summon","crowded","peaceful","hush_block","need_floor","tending","unclaimed",
                     "output_full","berries","urged","plant_protected","planted","planted_cocoa","crop_protected","need_seed",
-                    "replanted","harvested"->Component.translatable("message.tribalpower.hand."+reason);
+                    "replanted","harvested","watered","raked"->Component.translatable("message.tribalpower.hand."+reason);
             default->Component.literal(reason);
         };
     }
@@ -113,6 +114,13 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
         if(server.hasNeighborSignal(worldPosition)){deactivate();return;}
         active=false;setReason("wait_pulse");
         String kind=kind();
+        // an automated hand answers to its own voice: a kept totem of it within reach, or it stands idle
+        var voice=tk.darrow.tribalpower.lattice.Voices.required(kind);
+        if(voice!=null&&!tk.darrow.tribalpower.lattice.Voices.kept(server,worldPosition,voice)){
+            if(kind.equals("wayanchor"))CampHooks.anchor(server,worldPosition,owner,false);
+            if(kind.equals("hush_totem"))CampHooks.ward(server,worldPosition,false);
+            setReason("need_voice",tk.darrow.tribalpower.lattice.Voices.name(voice).getString());return;
+        }
         if(!Set.of("spirit_lantern","rain_chime","offering_table").contains(kind)){
             int add=LatticeNetwork.extractPulseNearby(server,worldPosition,8,Math.min(80,CAPACITY-pulse),false);
             if(add>0){pulse+=add;setChanged();}

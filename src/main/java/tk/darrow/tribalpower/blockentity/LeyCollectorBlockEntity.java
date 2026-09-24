@@ -49,6 +49,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         int gain = beatFor(factors.gain());
         gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(level, pos));
         gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, gain);
+        gain = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(gain);
         if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
         }
@@ -59,7 +60,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     public int currentBeat(Level world, BlockPos pos) {
         int gain = beatFor(tk.darrow.tribalpower.ley.LeyMath.gain(world, pos));
         gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(world, pos));
-        return gain + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, gain);
+        return tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(gain + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, gain));
     }
 
     @Override

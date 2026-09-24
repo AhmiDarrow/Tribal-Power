@@ -215,6 +215,8 @@ public class LatticeMonster extends Monster implements Familiar {
     public boolean isFood(ItemStack stack) { return !stack.isEmpty() && stack.is(CreatureItems.REAGENTS.get(profile()).get()); }
     @Override public InteractionResult mobInteract(Player player,InteractionHand hand) {
         ItemStack tool=player.getItemInHand(hand);
+        // a Ley Lens read comes before any sneak-use of the creature's own: the game asks the creature first
+        if(player.isSecondaryUseActive() && tool.getItem() instanceof tk.darrow.tribalpower.ley.LeyLensItem)return InteractionResult.PASS;
         if(tool.is(Items.BRUSH) && isBonded() && !isBaby()) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2));

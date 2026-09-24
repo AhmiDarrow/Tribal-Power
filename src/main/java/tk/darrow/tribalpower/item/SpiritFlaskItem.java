@@ -173,7 +173,9 @@ public class SpiritFlaskItem extends Item {
         if (offered.isEmpty()) return false;
         int accepted = flask.fill(offered, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
-        FluidStack taken = source.drain(new FluidStack(offered.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
+        // a creative hand fills its flask without emptying the tank
+        FluidStack taken = player.getAbilities().instabuild ? new FluidStack(offered.getFluid(), accepted)
+                : source.drain(new FluidStack(offered.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
         if (taken.isEmpty()) return false;
         flask.fill(taken, IFluidHandler.FluidAction.EXECUTE);
         copyBack(stack, flask, player);
@@ -186,6 +188,8 @@ public class SpiritFlaskItem extends Item {
         if (held.isEmpty()) return false;
         int accepted = sink.fill(held, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
+        // a creative hand pours without running dry
+        if (player.getAbilities().instabuild) { sink.fill(new FluidStack(held.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE); return true; }
         FluidStack taken = flask.drain(new FluidStack(held.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
         sink.fill(taken, IFluidHandler.FluidAction.EXECUTE);
         copyBack(stack, flask, player);

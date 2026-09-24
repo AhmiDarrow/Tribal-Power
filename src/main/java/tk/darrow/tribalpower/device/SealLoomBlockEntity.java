@@ -61,7 +61,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
             case "imprint" -> Component.translatable("message.tribalpower.seal_loom.imprint", reasonName);
             case "need_pulse" -> Component.translatable("message.tribalpower.seal_loom.need_pulse", reasonN);
             case "wove" -> Component.translatable("message.tribalpower.seal_loom.wove", reasonName);
-            case "seat", "paused", "need_blank", "arrange", "mismatch", "output_full"
+            case "seat", "paused", "need_blank", "arrange", "mismatch", "output_full", "need_voice"
                     -> Component.translatable("message.tribalpower.seal_loom." + reason);
             default -> Component.literal(reason);
         };
@@ -76,6 +76,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
 
     public void beat(ServerLevel server) {
         if (server.hasNeighborSignal(worldPosition)) { setReason("paused"); return; }
+        if (!tk.darrow.tribalpower.lattice.Voices.kept(server, worldPosition, tk.darrow.tribalpower.api.pulse.Attunement.LOOM)) { setReason("need_voice"); return; }
         craft(server);
     }
 

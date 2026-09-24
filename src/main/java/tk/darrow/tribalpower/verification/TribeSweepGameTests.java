@@ -76,6 +76,26 @@ public class TribeSweepGameTests {
         h.succeed();
     }
 
+    /** A customer who shut the counter without the Elder's trade goal noticing (no AI, or gone) is forgotten, so the Elder talks again. */
+    @GameTest(template = "empty")
+    public static void elderForgetsACustomerWhoClosedTheCounter(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        TribalKinEntity kin = TribeRegistry.TRIBAL_KIN.get().create(h.getLevel());
+        kin.setTribe(TribeDefinition.SPARK);
+        kin.setRole(KinRole.ELDER);
+        kin.setNoAi(true);
+        kin.moveTo(h.absoluteVec(new net.minecraft.world.phys.Vec3(2.5, 2, 2.5)));
+        h.getLevel().addFreshEntity(kin);
+        player.moveTo(h.absoluteVec(new net.minecraft.world.phys.Vec3(2.5, 2, 4.5)));
+        kin.setTradingPlayer(player);   // the counter was open; the player's menu is no longer a merchant's
+        h.assertTrue(player.containerMenu == player.inventoryMenu, "The mock player has no counter open");
+        var result = kin.interact(player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(kin.getTradingPlayer() == null, "The stale customer is forgotten on the next word");
+        h.assertTrue(result.consumesAction(), "The Elder answers the player again: " + result);
+        kin.discard();
+        h.succeed();
+    }
+
     /** First-meeting flags must live under PlayerPersisted so death and dimension changes keep them. */
     @GameTest(template = "empty")
     public static void metFlagsSurviveClone(GameTestHelper h) {

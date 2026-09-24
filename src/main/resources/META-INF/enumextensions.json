@@ -1,0 +1,34 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "TRIBALPOWER_THRUST",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": { "class": "tk/darrow/tribalpower/client/WeaponPoses", "field": "THRUST" }
+    },
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "TRIBALPOWER_STAB",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": { "class": "tk/darrow/tribalpower/client/WeaponPoses", "field": "STAB" }
+    },
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "TRIBALPOWER_CHOP",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": { "class": "tk/darrow/tribalpower/client/WeaponPoses", "field": "CHOP" }
+    },
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "TRIBALPOWER_SWEEP",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": { "class": "tk/darrow/tribalpower/client/WeaponPoses", "field": "SWEEP" }
+    },
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "TRIBALPOWER_SLASH",
+      "constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": { "class": "tk/darrow/tribalpower/client/WeaponPoses", "field": "SLASH" }
+    }
+  ]
+}

@@ -48,8 +48,15 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
-        if (state.is(ModBlocks.SPIRIT_CISTERN.get()) && net.neoforged.neoforge.fluids.FluidUtil.interactWithFluidHandler(player, hand, level, pos, hit.getDirection()))
-            return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+        if (state.is(ModBlocks.SPIRIT_CISTERN.get())) {
+            // a Spirit Flask keeps its own rules at the cistern (a creative hand fills it without emptying the tank):
+            // the click goes to the flask here, since the status line below would otherwise swallow it
+            if (stack.getItem() instanceof tk.darrow.tribalpower.item.SpiritFlaskItem flask) {
+                var result = flask.useOn(new net.minecraft.world.item.context.UseOnContext(player, hand, hit));
+                if (result.consumesAction()) return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+            } else if (net.neoforged.neoforge.fluids.FluidUtil.interactWithFluidHandler(player, hand, level, pos, hit.getDirection()))
+                return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
         return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     @Override protected java.util.List<net.minecraft.world.item.ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {

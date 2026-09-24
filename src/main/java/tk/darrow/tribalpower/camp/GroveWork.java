@@ -24,6 +24,7 @@ final class GroveWork {
     private GroveWork() {}
 
     static boolean isSeed(ItemStack stack) {
+        if (tk.darrow.tribalpower.compat.AgriCraftCompat.isSeedOrSticks(stack)) return true;
         if (stack.isEmpty() || !(stack.getItem() instanceof BlockItem blockItem)) return false;
         Block block = blockItem.getBlock();
         return block instanceof CropBlock || block instanceof SaplingBlock || block instanceof StemBlock
@@ -38,6 +39,7 @@ final class GroveWork {
         if (be.owner == null) { be.setReason("unclaimed"); return; }
         if (be.pulse < 4) return;
         var farmer = FakePlayerFactory.get(server, new GameProfile(be.owner, be.ownerName));
+        if (water(be, server)) return;
         for (int scan = 0; scan < 9; scan++) {
             int n = be.cursor;
             be.cursor = (be.cursor + 1) % 81;
@@ -45,11 +47,85 @@ final class GroveWork {
             if (pos.equals(be.getBlockPos()) || !server.hasChunkAt(pos) || !server.getWorldBorder().isWithinBounds(pos)) continue;
             if (!server.mayInteract(farmer, pos)) continue;
             BlockState state = server.getBlockState(pos);
+            if (tk.darrow.tribalpower.compat.AgriCraftCompat.LOADED && agricraft(be, server, farmer, pos, state)) return;
             if (harvest(be, server, farmer, pos, state)) return;
             if (grow(be, server, pos, state)) return;
             if (state.isAir() && plant(be, server, farmer, pos)) return;
         }
         harvestLogs(be, server, farmer);
+    }
+
+    /**
+     * AgriCraft's crops, when the mod is in the pack: harvest a ripe plant (it stays, cut back), rake weeds, urge
+     * an unripe plant, set a seed into empty sticks, and set sticks from the store onto bare soil. True when the
+     * tender acted (or was stopped) here.
+     */
+    private static boolean agricraft(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer,
+                                     BlockPos pos, BlockState state) {
+        if (tk.darrow.tribalpower.compat.AgriCraftCompat.isCrop(server, pos)) {
+            List<ItemStack> ripe = tk.darrow.tribalpower.compat.AgriCraftCompat.harvestable(server, pos);
+            if (ripe != null) {
+                if (be.pulse < 12) return false;
+                if (NeoForge.EVENT_BUS.post(new BlockEvent.BreakEvent(server, pos, state, farmer)).isCanceled()) { be.setReason("crop_protected"); return false; }
+                var preview = be.copyItemsPublic();
+                if (!CampBlockEntity.storeDrops(preview, ripe)) { be.setReason("output_full"); return true; }
+                tk.darrow.tribalpower.compat.AgriCraftCompat.harvest(server, pos);
+                be.replaceItems(preview); be.spendPublic(12); be.active = true; be.setReason("harvested"); return true;
+            }
+            if (be.pulse >= 4 && tk.darrow.tribalpower.compat.AgriCraftCompat.rake(server, pos)) {
+                be.spendPublic(4); be.active = true; be.setReason("raked"); return true;
+            }
+            if (be.pulse >= 16 && tk.darrow.tribalpower.compat.AgriCraftCompat.urge(server, pos)) {
+                be.spendPublic(16); be.active = true; be.setReason("urged"); return true;
+            }
+            if (be.pulse >= 4) for (int slot = 0; slot < 9; slot++) {
+                ItemStack seed = be.getItem(slot);
+                if (tk.darrow.tribalpower.compat.AgriCraftCompat.plant(server, pos, seed)) {
+                    seed.shrink(1); if (seed.isEmpty()) be.setItem(slot, ItemStack.EMPTY);
+                    be.spendPublic(4); be.active = true; be.setReason("planted"); return true;
+                }
+            }
+            return false;
+        }
+        if (!state.isAir() || be.pulse < 4) return false;
+        // a seed goes into empty sticks before it goes into bare soil, so sticks set for it are not wasted
+        boolean sticksWaiting = tk.darrow.tribalpower.compat.AgriCraftCompat.emptySticksNear(server, be.getBlockPos(), 4);
+        for (int slot = 0; slot < 9; slot++) {
+            ItemStack held = be.getItem(slot);
+            if (held.isEmpty()) continue;
+            var snapshot = BlockSnapshot.create(server.dimension(), server, pos);
+            boolean set = tk.darrow.tribalpower.compat.AgriCraftCompat.setSticks(server, pos, held)
+                    || (!sticksWaiting && tk.darrow.tribalpower.compat.AgriCraftCompat.plant(server, pos, held));
+            if (!set) continue;
+            if (EventHooks.onBlockPlace(farmer, snapshot, Direction.UP)) { snapshot.restore(3); be.setReason("plant_protected"); return false; }
+            held.shrink(1); if (held.isEmpty()) be.setItem(slot, ItemStack.EMPTY);
+            be.spendPublic(4); be.active = true; be.setReason("planted"); return true;
+        }
+        return false;
+    }
+
+    /**
+     * A Water totem kept within the tender's reach lets it keep the bed's farmland wet: every dry furrow in the
+     * 9-by-9 under the bed is soaked in one beat, for the config's price, whenever any has dried.
+     */
+    private static boolean water(CampBlockEntity be, ServerLevel server) {
+        int cost = tk.darrow.tribalpower.config.TribalConfig.groveWaterCost();
+        if (be.pulse < cost) return false;
+        boolean water = false;
+        for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(server, be.getBlockPos(), 8))
+            if (totem.getAttunement() == tk.darrow.tribalpower.api.pulse.Attunement.WATER
+                    && totem.keeping() != tk.darrow.tribalpower.lattice.Keeping.State.QUIET) { water = true; break; }
+        if (!water) return false;
+        int wetted = 0;
+        BlockPos origin = be.getBlockPos();
+        for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-4, -1, -4), origin.offset(4, -1, 4))) {
+            if (!server.hasChunkAt(pos)) continue;
+            BlockState state = server.getBlockState(pos);
+            if (!(state.getBlock() instanceof FarmBlock) || !state.hasProperty(FarmBlock.MOISTURE) || state.getValue(FarmBlock.MOISTURE) >= 7) continue;
+            if (server.setBlock(pos, state.setValue(FarmBlock.MOISTURE, 7), 2)) wetted++;
+        }
+        if (wetted == 0) return false;
+        be.spendPublic(cost); be.active = true; be.setReason("watered"); return true;
     }
 
     private static boolean harvest(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer,
@@ -102,9 +178,15 @@ final class GroveWork {
     }
 
     private static boolean plant(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer, BlockPos pos) {
+        // with AgriCraft: a plain seed it knows (a March crop, a potato) is kept for empty sticks while any wait
+        boolean sticksWaiting = tk.darrow.tribalpower.compat.AgriCraftCompat.LOADED
+                && tk.darrow.tribalpower.compat.AgriCraftCompat.emptySticksNear(server, be.getBlockPos(), 4);
         for (int slot = 0; slot < 9; slot++) {
             ItemStack seed = be.getItem(slot);
             if (!isSeed(seed)) continue;
+            // AgriCraft's seeds and sticks are the compat's to set; planted as blocks they would be bare sticks
+            if (tk.darrow.tribalpower.compat.AgriCraftCompat.isSeedOrSticks(seed)) continue;
+            if (sticksWaiting && tk.darrow.tribalpower.compat.AgriCraftCompat.knownSeed(seed)) continue;
             Block crop = ((BlockItem) seed.getItem()).getBlock();
             BlockState planted = crop.defaultBlockState();
             if (crop instanceof CropBlock c) planted = c.getStateForAge(0);

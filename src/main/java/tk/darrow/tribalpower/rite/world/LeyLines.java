@@ -54,6 +54,11 @@ public final class LeyLines {
     /** Nearest Resonance Totem to {@code origin} within the cube of {@code radius}, or null. */
     @Nullable
     public static ResonanceTotemBlockEntity nearestTotem(ServerLevel level, BlockPos origin, int radius, @Nullable BlockPos exclude) {
+        return nearestTotem(level, origin, radius, exclude, java.util.Set.of());
+    }
+
+    /** As above, skipping every position in {@code skip} (a rite circle's own totems). */
+    public static ResonanceTotemBlockEntity nearestTotem(ServerLevel level, BlockPos origin, int radius, @Nullable BlockPos exclude, java.util.Set<BlockPos> skip) {
         ResonanceTotemBlockEntity best = null;
         double bestDist = Double.MAX_VALUE;
         ChunkPos center = new ChunkPos(origin);
@@ -65,7 +70,7 @@ public final class LeyLines {
                 for (BlockEntity be : chunk.getBlockEntities().values()) {
                     if (!(be instanceof ResonanceTotemBlockEntity totem) || be.isRemoved()) continue;
                     BlockPos pos = be.getBlockPos();
-                    if (pos.equals(exclude) || pos.equals(origin)) continue;
+                    if (pos.equals(exclude) || pos.equals(origin) || skip.contains(pos)) continue;
                     if (Math.abs(pos.getX() - origin.getX()) > radius || Math.abs(pos.getY() - origin.getY()) > radius
                             || Math.abs(pos.getZ() - origin.getZ()) > radius) continue;
                     double d = pos.distSqr(origin);
