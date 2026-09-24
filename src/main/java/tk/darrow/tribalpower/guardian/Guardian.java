@@ -11,21 +11,21 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
  * and drops a core that feeds the last rite. Numbers here are the design; the config scales them.
  */
 public enum Guardian {
-    SLAG_TITAN("slag_titan", "march_ember_wastes", TribeDefinition.SPARK, 0xff8a3c, 360, 12, 12, 0.24, 2.6F, 4.4F, 2.2F,
+    SLAG_TITAN("slag_titan", "march_ember_wastes", TribeDefinition.SPARK, 0xff8a3c, 360, 12, 12, 0.24, 2.6F, 4.4F, 2.0F,
             Ability.SLAM, CreatureProfile.CINDER_IMP, CreatureProfile.MAGMA_CREEPER, false, "slag_core"),
     BOG_MATRIARCH("bog_matriarch", "march_reed_fen", TribeDefinition.SPROUT, 0x9be08a, 320, 8, 10, 0.26, 2.4F, 3.6F, 2.0F,
             Ability.SNARE, CreatureProfile.REED_STALKER, CreatureProfile.REED_STALKER, false, "fen_heart"),
-    CAIRN_WIGHT("cairn_wight", "march_snow_fields", TribeDefinition.SWARM, 0xbfe9ff, 300, 6, 11, 0.28, 1.6F, 3.8F, 1.9F,
+    CAIRN_WIGHT("cairn_wight", "march_snow_fields", TribeDefinition.SWARM, 0xbfe9ff, 300, 6, 11, 0.28, 1.6F, 3.8F, 2.0F,
             Ability.FROST, CreatureProfile.RIME_CRAWLER, CreatureProfile.RIME_CRAWLER, false, "cairn_stone"),
     PRISM_SERPENT("prism_serpent", "march_crystal_fields", TribeDefinition.STONE, 0xd4c6f2, 300, 8, 9, 0.3, 2.2F, 2.4F, 2.0F,
             Ability.BOLT, CreatureProfile.SHARD_STALKER, CreatureProfile.SHARDBACK, false, "prism_core"),
-    VAULT_SENTINEL("vault_sentinel", "march_glimmer_ridge", TribeDefinition.SIGIL, 0xbafbe8, 380, 16, 11, 0.22, 2.0F, 4.0F, 2.1F,
+    VAULT_SENTINEL("vault_sentinel", "march_glimmer_ridge", TribeDefinition.SIGIL, 0xbafbe8, 380, 16, 11, 0.22, 2.0F, 4.0F, 2.0F,
             Ability.SWEEP, CreatureProfile.GLOOM_CRAWLER, CreatureProfile.HOLLOW_SENTINEL, false, "vault_seal"),
     TIDE_DRUMMER("tide_drummer", "march_shallows", TribeDefinition.CLOCK, 0xa0d6ec, 320, 8, 10, 0.26, 2.4F, 3.2F, 2.0F,
             Ability.TIDE, CreatureProfile.BRINE_LURKER, CreatureProfile.BRINE_LURKER, false, "tide_shell"),
     STAMPEDE_SPIRIT("stampede_spirit", "march_steppe", TribeDefinition.SOIL, 0xecdcaa, 300, 6, 12, 0.34, 2.2F, 3.0F, 2.0F,
             Ability.CHARGE, CreatureProfile.BURROW_GNASHER, CreatureProfile.LONGSHANK, false, "herd_horn"),
-    STORM_ROC("storm_roc", "march_highlands", TribeDefinition.CLAW, 0xadffff, 280, 4, 10, 0.3, 2.8F, 2.6F, 2.2F,
+    STORM_ROC("storm_roc", "march_highlands", TribeDefinition.CLAW, 0xadffff, 280, 4, 10, 0.3, 2.8F, 2.6F, 2.0F,
             Ability.SWOOP, CreatureProfile.STORM_MOTH, CreatureProfile.STORM_MOTH, true, "storm_plume");
 
     /** The signature attack; the second phase sharpens it. */
