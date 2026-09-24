@@ -1,0 +1,32 @@
+{
+  "name": "Vine Lift",
+  "icon": "tribalpower:vine_lift",
+  "order": 36,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Living vine that carries you",
+      "text": [
+        "A Vine Lift is a pad of living vine. Put one on every floor of a tower or a mine shaft, one above the other in the **same column**, and they find each other on their own. No linking, no power.",
+        "- **Jump** on a lift to rise to the next lift above.",
+        "- **Sneak** on a lift to sink to the next lift below."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Any number can be stacked; each jump or sneak goes one lift at a time, skipping the empty floors between. A lift looks up to **48 blocks** each way.",
+        "The next lift needs two blocks of room above it to stand in; a lift with a ceiling on it is passed over, so you never arrive inside a wall."
+      ],
+      "title": "Stringing them up"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

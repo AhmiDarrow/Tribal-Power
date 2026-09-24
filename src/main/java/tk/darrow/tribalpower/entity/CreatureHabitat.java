@@ -8,7 +8,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -143,12 +142,8 @@ public enum CreatureHabitat {
         if (level.getDifficulty() == Difficulty.PEACEFUL) return false;
         if (this == CAVE) return cave(level, pos);          // caves are dark by definition
         if (this == LAVA) return lava(level, pos);
-        boolean march = level.getLevel().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH);
-        if (!Monster.isDarkEnoughToSpawn(level, pos, random)) {
-            // The March is the spirits' country: they walk it by day too, a third as often, but never
-            // where torchlight or a lantern falls, so a lit camp stays safe.
-            if (!march || level.getBrightness(LightLayer.BLOCK, pos) > 0 || random.nextInt(3) != 0) return false;
-        }
+        if (this == WATER) return water(level, pos) && MarchSpawns.spiritsRise(level, pos, random);
+        if (!MarchSpawns.spiritsRise(level, pos, random)) return false;
         if (this == AIR) return air(level, pos);
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);

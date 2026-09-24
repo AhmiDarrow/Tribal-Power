@@ -86,6 +86,18 @@ public final class ModItems {
             "spiritgear_blade",
             () -> new SpiritgearBladeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
     );
+    /** The Healer's Rattle: Spiritgear that mends instead of cutting. */
+    public static final DeferredItem<Item> SPIRITGEAR_RATTLE = ITEMS.register("spiritgear_rattle",
+            () -> new SpiritgearRattleItem(new Item.Properties()));
+    /** Spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident: the Blade's family. */
+    public static final java.util.Map<WeaponKind, DeferredItem<Item>> SPIRITGEAR_WEAPONS = weapons();
+
+    private static java.util.Map<WeaponKind, DeferredItem<Item>> weapons() {
+        var out = new java.util.EnumMap<WeaponKind, DeferredItem<Item>>(WeaponKind.class);
+        for (WeaponKind kind : WeaponKind.values())
+            out.put(kind, ITEMS.register(kind.itemId(), () -> new SpiritgearWeaponItem(kind, new Item.Properties())));
+        return java.util.Collections.unmodifiableMap(out);
+    }
     public static final DeferredItem<Item> SPIRITGEAR_SHEARS = ITEMS.register(
             "spiritgear_shears",
             () -> new SpiritgearShearsItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))

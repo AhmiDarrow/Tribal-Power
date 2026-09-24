@@ -43,9 +43,12 @@ public class KeepingGameTests {
         h.assertTrue(totem.keeping() == Keeping.State.QUIET, "Start quiet");
         drum.onRedstonePulse();
         h.assertTrue(totem.keeping() == Keeping.State.QUIET, "A Heartbeat plate must not keep a totem");
-        drum.drumBeat();
-        h.assertTrue(totem.keeping() == Keeping.State.ANSWERED, "A hand strike must wake nearby totems");
-        h.succeed();
+        // Hand and redstone keep one tempo, so the hand strike waits a beat's spacing after the redstone one.
+        h.runAfterDelay(DrumheartBlockEntity.TEMPO_MIN, () -> {
+            drum.drumBeat();
+            h.assertTrue(totem.keeping() == Keeping.State.ANSWERED, "A hand strike must wake nearby totems");
+            h.succeed();
+        });
     }
 
     @GameTest(template = "empty")

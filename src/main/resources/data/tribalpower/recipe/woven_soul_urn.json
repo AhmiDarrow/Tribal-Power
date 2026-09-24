@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "key": {
+    "R": {
+      "item": "tribalpower:spirit_reed"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " S ",
+    "R R",
+    "RRR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:woven_soul_urn"
+  }
+}

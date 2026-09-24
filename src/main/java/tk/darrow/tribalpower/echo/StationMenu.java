@@ -19,7 +19,7 @@ public class StationMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public StationMenu(int id, Inventory inventory) {
-        this(id, inventory, new SimpleContainer(MACHINE_SLOTS), new SimpleContainerData(8));
+        this(id, inventory, new SimpleContainer(MACHINE_SLOTS), new SimpleContainerData(11));
     }
 
     public StationMenu(int id, Inventory inventory, Container container, ContainerData data) {
@@ -27,7 +27,7 @@ public class StationMenu extends AbstractContainerMenu {
         this.container = container;
         this.data = data;
         checkContainerSize(container, MACHINE_SLOTS);
-        checkContainerDataCount(data, 8);
+        checkContainerDataCount(data, 11);
         container.startOpen(inventory.player);
         addSlot(new Slot(container, 0, INPUT_X, INPUT_Y) {
             @Override public boolean mayPlace(ItemStack stack) { return container.canPlaceItem(0, stack); }
@@ -48,7 +48,11 @@ public class StationMenu extends AbstractContainerMenu {
     }
 
     public int ioPacked() { return data.get(3); }
-    public net.minecraft.core.BlockPos machinePos() { return new net.minecraft.core.BlockPos(data.get(4), data.get(5), data.get(6)); }
+    /** Menu data travels as shorts, so each coordinate comes in two halves; a machine far from spawn stays addressable. */
+    public net.minecraft.core.BlockPos machinePos() {
+        return new net.minecraft.core.BlockPos(whole(data.get(8), data.get(4)), whole(data.get(9), data.get(5)), whole(data.get(10), data.get(6)));
+    }
+    public static int whole(int high, int low) { return (high << 16) | (low & 0xFFFF); }
     public int work() { return data.get(0); }
     public int duration() { return Math.max(1, data.get(1)); }
     public int pulsePerSecond() { return data.get(7); }

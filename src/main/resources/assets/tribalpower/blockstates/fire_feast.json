@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "eaten=0": {
+      "model": "tribalpower:block/fire_feast_slice0"
+    },
+    "eaten=1": {
+      "model": "tribalpower:block/fire_feast_slice1"
+    },
+    "eaten=2": {
+      "model": "tribalpower:block/fire_feast_slice2"
+    },
+    "eaten=3": {
+      "model": "tribalpower:block/fire_feast_slice3"
+    },
+    "eaten=4": {
+      "model": "tribalpower:block/fire_feast_slice4"
+    },
+    "eaten=5": {
+      "model": "tribalpower:block/fire_feast_slice5"
+    }
+  }
+}

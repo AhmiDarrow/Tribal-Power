@@ -209,6 +209,8 @@ public class PatternGameTests {
             for (int slot = 0; slot < player.getInventory().items.size(); slot++)
                 player.getInventory().setItem(slot, new ItemStack(Items.DIRT, 64));
             player.getInventory().setItem(10, new ItemStack(Items.COBBLESTONE, 60));
+            // Neighbouring tests share the ground around the mock player: count only what this give drops.
+            var before = new java.util.HashSet<>(h.getLevel().getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(4)));
             ItemStack taken = font.removeItemNoUpdate(0);
             tk.darrow.tribalpower.item.SpiritgearHelper.give(player, taken);
             int held = 0;
@@ -216,7 +218,7 @@ public class PatternGameTests {
                 if (stack.is(Items.COBBLESTONE)) held += stack.getCount();
             int loose = 0;
             for (ItemEntity entity : h.getLevel().getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(4)))
-                if (entity.getItem().is(Items.COBBLESTONE)) loose += entity.getItem().getCount();
+                if (entity.getItem().is(Items.COBBLESTONE) && !before.contains(entity)) loose += entity.getItem().getCount();
             h.assertTrue(font.getItem(0).isEmpty(), "The font gives the stack up");
             h.assertTrue(held == 64, "Four cobble fit in the inventory, holds " + held);
             h.assertTrue(loose == 60, "The rest drops, loose " + loose);

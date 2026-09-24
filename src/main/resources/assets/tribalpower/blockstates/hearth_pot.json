@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "cooking=false": {
+      "model": "tribalpower:block/hearth_pot"
+    },
+    "cooking=true": {
+      "model": "tribalpower:block/hearth_pot_cooking"
+    }
+  }
+}

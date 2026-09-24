@@ -1,0 +1,36 @@
+{
+  "name": "Healer's Rattle",
+  "icon": "tribalpower:spiritgear_rattle",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:spiritgear_rattle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_rattle",
+      "title": "Shake it",
+      "text": [
+        "A dried gourd on a bone handle, and a piece of [Spiritgear](spiritgear). **Hold use** and shake: every half second it mends whoever you are looking at within 6 blocks, or you, when you are looking at no one.",
+        "Each shake heals **3/4 of a heart** and spends **2 Pulse**, from the rattle's own cell first and then from the cells you carry. It works on players, villagers and familiars alike."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ranks and voices",
+      "text": [
+        "It ranks at the Echo stations like the rest of Spiritgear, and every rank heals **50%** more. From **Bound** it also eases [Spirit Sickness](spirit_sickness) by a level every shake.",
+        "Link it to a totem for a gift on every shake:",
+        "- **Water**: heals half again as much.  - **Spirit**: lifts every harmful effect.",
+        "- **Earth**: brief Resistance.  - **Fire**: brief Fire Resistance.",
+        "- **Air**: brief Speed.  - **Loom**: brief Regeneration."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_rattle"
+    }
+  ],
+  "next": "spirit_sickness"
+}

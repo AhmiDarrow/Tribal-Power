@@ -1,0 +1,42 @@
+{
+  "name": "Voice Blessings",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 85,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "A voice settles on you",
+      "text": [
+        "Each of the six voices has a **blessing**: a way it lends itself to whoever it favours. You will see it as a status effect in that voice's colour.",
+        "There are three ways to earn one:",
+        "- **Sing a Ward.** A Ward song grants its voice's blessing, **45 seconds** for every note of power in it.",
+        "- **A seal rite at a Rite Pedestal** blesses everyone within 6 blocks with the seal's voice for **5 minutes**; an amplified rite gives 7 and a half, at level II.",
+        "- **Eat from a voice's [feast](feasts).** Each serving grants that voice's blessing for 8 minutes.",
+        "A worn **Lantern charm** keeps any blessing or boon lit **half again as long**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Earth**: you dig **25%** faster and stand firm against knockback.",
+        "- **Fire**: your blows set the target alight for 3 seconds; at **level II** fire cannot touch you.",
+        "- **Water**: you swim faster and mend **half a heart a second** while wet.",
+        "- **Air**: every fall is 3 blocks shorter, and you jump higher.",
+        "- **Spirit**: hostiles within 16 blocks glow through the walls.",
+        "- **Loom**: **a tenth** of the Pulse your gear spends comes back to it.",
+        "Level II doubles the numbers. Milk lifts a blessing, as it does any effect."
+      ],
+      "title": "The six blessings"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rites are the reliable way: seat a seal, chalk the circle, and the whole camp is blessed at once before a night in the March. Songs are the quick way on the road. Every figure lives in the `effects` section of the common config."
+      ],
+      "title": "Where to find them"
+    }
+  ],
+  "next": "tribe_boons"
+}

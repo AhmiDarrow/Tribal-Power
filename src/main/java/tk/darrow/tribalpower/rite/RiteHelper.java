@@ -56,6 +56,12 @@ public final class RiteHelper {
             return false;
         }
 
+        // The rite's voice settles on everyone in the circle: a camp blessing, longer when amplified.
+        var voice = tk.darrow.tribalpower.blockentity.RitualBrazierBlockEntity.element(seal);
+        int blessing = tk.darrow.tribalpower.config.TribalConfig.riteBlessingMinutes() * 60 * 20;
+        if (voice != null && blessing > 0)
+            for (Player nearby : server.getEntitiesOfClass(Player.class, new AABB(pos).inflate(RADIUS)))
+                tk.darrow.tribalpower.effect.ModEffects.bless(nearby, voice, amplified ? blessing * 3 / 2 : blessing, amplified ? 1 : 0, false);
         server.sendParticles(ParticleTypes.ENCHANT, pos.getX() + 0.5, pos.getY() + 1.1, pos.getZ() + 0.5,
                 amplified ? 40 : 24, 0.35, 0.4, 0.35, 0.02);
         server.playSound(null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.8F, amplified ? 1.4F : 1.2F);

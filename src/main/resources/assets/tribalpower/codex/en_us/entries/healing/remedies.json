@@ -1,0 +1,67 @@
+{
+  "name": "Remedies",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Three ways to take it",
+      "text": [
+        "- **Tincture**: drink it. The remedy lasts **3 minutes** and you get the bottle back.",
+        "- **Salve**: use it to lay it on yourself, or **use it on someone else**: a friend, a villager, your familiar. It heals **3 hearts** at once, lifts **every** harmful effect, and carries the remedy for half as long as a tincture.",
+        "- **Incense**: seat it in a [Ritual Brazier](ritual_brazier) and it burns for everyone around. See below.",
+        "**Every remedy lifts [Spirit Sickness](spirit_sickness).**"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What each family brews",
+      "text": [
+        "- **Kindling** (Ember): Strength.",
+        "- **Quickening** (Bolt): Speed.",
+        "- **Cooling** (Chill): Fire Resistance.",
+        "- **Antidote** (Venom): lifts poison, wither, hunger and nausea.",
+        "- **Featherfall** (Gust): Slow Falling.",
+        "- **Rootedness** (Root): Resistance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What each family brews, continued",
+      "text": [
+        "- **Bulwark** (Shove): Absorption.",
+        "- **Clear Sight** (Weave): Night Vision, lifts blindness.",
+        "- **Restoring** (Weaken): Haste, lifts weakness and slowness.",
+        "- **Vigour** (Hound): Health Boost.",
+        "- **Mending** (Quiet): Regeneration.",
+        "The colour of the brew is the colour of its reagent, so you can tell them apart in your pack."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The totem's voice",
+      "text": [
+        "The totem nearest the kettle while it brewed adds its own gift, shown on the tooltip:",
+        "- **Earth**: grants 2 hearts of absorption.  - **Fire**: lasts half again as long.",
+        "- **Water**: one level stronger.  - **Air**: heals 2 hearts at once.",
+        "- **Spirit**: adds 10 seconds of Regeneration.  - **Loom**: lasts twice as long, but stays at level I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Burning incense",
+      "text": [
+        "Use incense on a Ritual Brazier to seat it; it holds up to **16** sticks of one brew. It burns on its own, with **no seal and no Pulse**.",
+        "Every two seconds everyone within **8 blocks**, players and bonded familiars, gets the remedy for 12 seconds, and familiars are mended a heart. Each stick lasts **30 seconds**. A redstone signal on the brazier puts it out; sneak-use it with an empty hand, with no seal seated, to take the incense back.",
+        "It is the best way to keep a whole camp on its feet through a long night."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

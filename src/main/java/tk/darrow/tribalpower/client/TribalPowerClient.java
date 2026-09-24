@@ -37,6 +37,8 @@ public final class TribalPowerClient {
         });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) -> {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);
+                event.register(tk.darrow.tribalpower.healing.HealingRegistry.KETTLE_MENU.get(), KettleScreen::new);
+                event.register(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_MENU.get(), HearthPotScreen::new);
                 event.register(tk.darrow.tribalpower.echo.RelayMenu.TYPE.get(), RelayScreen::new);
                 event.register(tk.darrow.tribalpower.echo.CacheMenu.TYPE.get(), CacheScreen::new);
                 event.register(tk.darrow.tribalpower.charm.CharmMenu.TYPE.get(), CharmScreen::new);
@@ -66,6 +68,10 @@ public final class TribalPowerClient {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> {
             CodexUnlocks.reset();
             tk.darrow.tribalpower.ley.LeyRopePayload.latest = new tk.darrow.tribalpower.ley.LeyRopePayload(java.util.List.of());
+            // Readings from the last world must not stand in for this one's.
+            tk.darrow.tribalpower.ley.LensPulsePayload.latest = tk.darrow.tribalpower.ley.LensPulsePayload.empty();
+            tk.darrow.tribalpower.ley.LeySightPayload.latest = new tk.darrow.tribalpower.ley.LeySightPayload(0, 0, 0);
+            tk.darrow.tribalpower.ley.LeySightPayload.seen = false;
         });
     }
 

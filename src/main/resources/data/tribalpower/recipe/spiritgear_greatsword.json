@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "B": {
+      "item": "tribalpower:bone_chime"
+    }
+  },
+  "pattern": [
+    " M ",
+    "MMM",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:spiritgear_greatsword"
+  }
+}

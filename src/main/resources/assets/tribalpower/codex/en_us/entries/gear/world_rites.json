@@ -47,6 +47,18 @@
     {
       "type": "recipe",
       "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "The Healing Circle",
+      "text": [
+        "A Spirit rite, cast like the others with a Spirit Seal seated. It costs **500 Pulse** and stays open **10 minutes**.",
+        "It heals everyone in the circle, players and bonded familiars, lifts every harm, blesses them, and calls back any fallen familiar whose [Spirit Remnant](healing_circle) you laid on its pedestals. The full story is in [Shamanic Healing](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
     }
   ],
   "next": "land_rites"

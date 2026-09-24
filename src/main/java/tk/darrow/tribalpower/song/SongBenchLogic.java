@@ -20,7 +20,7 @@ import tk.darrow.tribalpower.item.RitualChalkItem;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 /**
- * Empowering, sheet-writing and fletching. The screen asks. This is what actually spends the pouch,
+ * Empowering, sheet-writing, fletching and anointing. The screen asks. This is what actually spends the pouch,
  * the chalk, the paper and the Pulse.
  */
 public final class SongBenchLogic {
@@ -146,6 +146,29 @@ public final class SongBenchLogic {
         ItemStack made = output.isEmpty() ? arrows : output.copy();
         if (!output.isEmpty()) made.grow(FLETCH_COUNT);
         return Attempt.made(made, "message.tribalpower.song_bench.fletched", FLETCH_COUNT);
+    }
+
+    /**
+     * Works an empowered reagent into the seated weapon. It replaces whatever anointment the weapon had: one at a
+     * time. Needs a totem in range, like empowering, and the reagents and Pulse the config asks for.
+     */
+    public static Attempt anoint(ServerLevel level, BlockPos origin, net.minecraft.world.level.block.entity.BlockEntity bench,
+                                 ItemStack pouch, CreatureProfile profile, ItemStack weapon) {
+        if (pouch == null || !(pouch.getItem() instanceof ReagentPouchItem)) return Attempt.fail("message.tribalpower.song_bench.no_pouch");
+        if (level.hasNeighborSignal(origin)) return Attempt.fail("message.tribalpower.redstone.locked");
+        if (!Anointing.canAnoint(weapon)) return Attempt.fail("message.tribalpower.song_bench.no_weapon");
+        if (voices(level, origin).isEmpty()) return Attempt.fail("message.tribalpower.song_bench.no_totems");
+        Component reagent = Component.translatable("item.tribalpower." + profile.reagent);
+        if (Anointing.reagent(weapon).orElse(null) == profile) return Attempt.fail("message.tribalpower.song_bench.already_anointed", reagent);
+        int need = tk.darrow.tribalpower.config.TribalConfig.anointReagentCost();
+        if (ReagentPouch.empowered(pouch, profile) < need) return Attempt.fail("message.tribalpower.song_bench.need_empowered_n", need, reagent);
+        int price = tk.darrow.tribalpower.config.TribalConfig.anointPulseCost();
+        if (price > 0 && !pay(level, origin, cost(bench, price))) return Attempt.fail("message.tribalpower.song_bench.no_pulse");
+        ReagentPouch.consumeEmpowered(pouch, profile, need);
+        Anointing.anoint(weapon, profile);
+        Anointment anointment = Anointment.of(Note.of(profile));
+        return Attempt.done("message.tribalpower.song_bench.anointed", weapon.getHoverName(),
+                Component.translatable("anointment.tribalpower." + anointment.id()));
     }
 
     private static boolean pay(ServerLevel level, BlockPos origin, int price) {

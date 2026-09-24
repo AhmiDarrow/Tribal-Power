@@ -14,7 +14,7 @@ import tk.darrow.tribalpower.song.ReagentPouch;
 import tk.darrow.tribalpower.song.Reagents;
 import tk.darrow.tribalpower.song.SongBenchMenu;
 
-/** The Song Bench: a scroll of the pouch, the verse being written, and the four seats. */
+/** The Song Bench: a scroll of the pouch, the verse being written, and the five seats. */
 public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
     private static final int INK = 0xFF101B22, PANEL = 0xFF14262C, RIM = 0xFFB58A58;
     private static final int SLOT = 0xFF081317, SLOT_RIM = 0xFF385456, TEXT = 0xFFE7DCC1, QUIET = 0xFF98ACA5, TEAL = 0xFF65D7C0;
@@ -22,6 +22,9 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
     private final List<Row> rows = new ArrayList<>();
     private int scroll;
     private int hovered = -1;
+    /** The row last clicked. The side buttons act on it, since the mouse has left the list to reach them. */
+    private int selected = -1;
+    private long lastClick;
 
     public SongBenchScreen(SongBenchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -49,11 +52,15 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.voice"), b -> click(SongBenchMenu.CYCLE)).bounds(x, y + 82, 40, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.clear"), b -> click(SongBenchMenu.CLEAR)).bounds(x + 42, y + 82, 42, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.lift"), b -> click(SongBenchMenu.LIFT)).bounds(leftPos + 74, topPos + 124, 52, 16).build());
+        addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.anoint"), b -> send(SongBenchMenu.ANOINT))
+                .tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.translatable("gui.tribalpower.song.anoint.hint")))
+                .bounds(leftPos + 130, topPos + 124, 46, 16).build());
     }
 
     private void send(int base) {
-        if (hovered < 0 || hovered >= rows.size() || rows.get(hovered).profile == null) return;
-        click(base + rows.get(hovered).profile.ordinal());
+        int row = hovered >= 0 ? hovered : selected;
+        if (row < 0 || row >= rows.size() || rows.get(row).profile == null) return;
+        click(base + rows.get(row).profile.ordinal());
     }
 
     private void click(int id) {
@@ -75,9 +82,10 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
             Row row = rows.get(start + i);
             int ry = y + 24 + i * ROW;
             boolean hot = mouseX >= x + 8 && mouseX < x + 148 && mouseY >= ry && mouseY < ry + ROW;
+            if (start + i == selected) g.fill(x + 8, ry, x + 148, ry + ROW, 0xFF2A4A40);
             if (hot && row.profile != null) {
                 hovered = start + i;
-                g.fill(x + 8, ry, x + 148, ry + ROW, 0xFF1C3338);
+                g.fill(x + 8, ry, x + 148, ry + ROW, start + i == selected ? 0xFF2F5448 : 0xFF1C3338);
             }
             if (row.header != null) {
                 g.drawString(font, Component.translatable("song.tribalpower.note." + row.header.name().toLowerCase(java.util.Locale.ROOT)), x + 10, ry + 2, TEAL, false);
@@ -129,7 +137,13 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 0 && hovered >= 0) {
-            send(hasShiftDown() ? SongBenchMenu.EMPOWER : SongBenchMenu.APPEND);
+            // A click picks a reagent for the buttons; a second click on it adds it to the song; shift empowers it.
+            long now = net.minecraft.Util.getMillis();
+            boolean again = hovered == selected && now - lastClick < 400;
+            selected = hovered;
+            lastClick = now;
+            if (hasShiftDown()) send(SongBenchMenu.EMPOWER);
+            else if (again) send(SongBenchMenu.APPEND);
             return true;
         }
         return super.mouseClicked(mouseX, mouseY, button);

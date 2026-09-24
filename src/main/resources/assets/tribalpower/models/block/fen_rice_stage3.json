@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "tribalpower:block/fen_rice_stage3"
+  }
+}

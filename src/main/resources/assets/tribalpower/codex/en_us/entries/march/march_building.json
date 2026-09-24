@@ -64,6 +64,14 @@
       "text": [
         "March planks work like any other wood: stairs, slabs, a fence and a fence gate, a door with lit window slits, a trapdoor, a pressure plate and a button. The usual recipes apply, and they burn like other wood."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Double doors",
+      "text": [
+        "Tribal Power's doors open in pairs. Set two side by side, facing the same way, and opening one swings its twin with it.",
+        "Hold **sneak** when you click to move just the one."
+      ]
     }
   ]
 }

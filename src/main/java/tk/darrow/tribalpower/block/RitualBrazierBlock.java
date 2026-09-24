@@ -35,6 +35,15 @@ public class RitualBrazierBlock extends BaseEntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
+        if (stack.getItem() instanceof tk.darrow.tribalpower.healing.RemedyItem remedy
+                && remedy.form() == tk.darrow.tribalpower.healing.Remedies.Form.INCENSE) {
+            if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
+                int taken = be.addIncense(stack);
+                if (taken <= 0) player.displayClientMessage(Component.translatable("message.tribalpower.brazier.incense_other"), true);
+                else if (!player.isCreative()) stack.shrink(taken);
+            }
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
         if (RitualBrazierBlockEntity.element(stack) == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
             if (!be.seal().isEmpty()) {
@@ -48,7 +57,9 @@ public class RitualBrazierBlock extends BaseEntityBlock {
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be) {
-            if (player.isShiftKeyDown()) {
+            if (player.isShiftKeyDown() && be.seal().isEmpty() && !be.incense().isEmpty()) {
+                tk.darrow.tribalpower.item.SpiritgearHelper.give(player, be.takeIncense());
+            } else if (player.isShiftKeyDown()) {
                 ItemStack seal = be.seal(); be.setSeal(ItemStack.EMPTY);
                 tk.darrow.tribalpower.item.SpiritgearHelper.give(player, seal);
             } else player.displayClientMessage(be.status(), true);
@@ -67,7 +78,10 @@ public class RitualBrazierBlock extends BaseEntityBlock {
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState next, boolean moved) {
         if (!state.is(next.getBlock()) && level.getBlockEntity(pos) instanceof RitualBrazierBlockEntity be)
+        {
             Containers.dropItemStack(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.seal());
+            Containers.dropItemStack(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.incense());
+        }
         super.onRemove(state, level, pos, next, moved);
     }
     @Override

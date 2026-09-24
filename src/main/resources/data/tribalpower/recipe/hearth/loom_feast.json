@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:loom_thread_noodles"
+    },
+    {
+      "item": "tribalpower:ley_thistle"
+    },
+    {
+      "item": "tribalpower:glimmer_bean"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:loom_feast"
+  },
+  "seconds": 20
+}

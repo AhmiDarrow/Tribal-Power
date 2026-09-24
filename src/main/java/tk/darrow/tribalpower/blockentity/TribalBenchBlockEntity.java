@@ -36,6 +36,8 @@ public class TribalBenchBlockEntity extends CampDisplayBlockEntity implements Me
     public static final int GRID = 9;
 
     private final NonNullList<ItemStack> grid = NonNullList.withSize(GRID, ItemStack.EMPTY);
+    /** Everyone with the bench open. Two players share one grid, so every change must reach every result slot. */
+    private final java.util.Set<BenchMenu> viewers = java.util.Collections.newSetFromMap(new java.util.WeakHashMap<>());
 
     public TribalBenchBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TRIBAL_BENCH.get(), pos, state);
@@ -48,12 +50,20 @@ public class TribalBenchBlockEntity extends CampDisplayBlockEntity implements Me
 
     public NonNullList<ItemStack> grid() { return grid; }
 
-    public void gridChanged() { setChanged(); }
+    public void opened(BenchMenu menu) { viewers.add(menu); }
+    public void closed(BenchMenu menu) { viewers.remove(menu); }
 
-    /** Both inventories go on the floor when the bench is broken. */
+    /** The grid changed: save it, and recompute what every open menu offers, so no one takes a stale result. */
+    public void gridChanged() {
+        setChanged();
+        for (BenchMenu viewer : java.util.List.copyOf(viewers)) viewer.refreshResult();
+    }
+
+    /** Both inventories go on the floor when the bench is broken: the grid and the shelf. */
     public void dropEverything(Level level, BlockPos pos) {
         Containers.dropContents(level, pos, grid);
         grid.clear();
+        Containers.dropContents(level, pos, this);
     }
 
     @Override public Component getDisplayName() {

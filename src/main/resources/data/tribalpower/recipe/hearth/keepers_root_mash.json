@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:keepers_root_mash"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

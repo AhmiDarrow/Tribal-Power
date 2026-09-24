@@ -1,0 +1,27 @@
+{
+  "name": "Shamanic Healing",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Every tribe has someone who mends. Here that is you: a kettle over the fire, a rattle in your hand, and the old rites.",
+        "- The [Spirit Kettle](spirit_kettle) brews **remedies** from a reagent, a herb and a base.",
+        "- [Remedies](remedies) come as tinctures to drink, salves to lay on, and incense to burn for everyone at once.",
+        "- The [Healer's Rattle](healers_rattle) mends whoever you look at, for a little Pulse.",
+        "- [Spirit Sickness](spirit_sickness) is what the March's worst spirits leave on you, and why all of this matters.",
+        "- The [Healing Circle](healing_circle) heals a whole camp and calls fallen familiars back.",
+        "- A [sweat lodge](sweat_lodge) sends you to bed hurt and wakes you whole."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where to start",
+      "text": [
+        "Build the kettle first. Set it on a lit campfire, stand a Resonance Totem nearby and keep the lattice fed. A stack of salves in your pack is the difference between a hard night in the March and a walk home."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

@@ -107,6 +107,11 @@
     "tribalpower:moss_agate_wall",
     "tribalpower:moss_agate_brick_wall",
     "tribalpower:moss_agate",
-    "tribalpower:march_quartz"
+    "tribalpower:march_quartz",
+    "tribalpower:spirit_kettle",
+    "tribalpower:sweat_stones",
+    "tribalpower:polished_moss_agate",
+    "tribalpower:lattice_converter",
+    "tribalpower:hearth_pot"
   ]
 }

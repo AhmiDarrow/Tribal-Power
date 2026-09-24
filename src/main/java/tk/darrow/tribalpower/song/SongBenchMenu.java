@@ -15,14 +15,15 @@ import tk.darrow.tribalpower.blockentity.SongBenchBlockEntity;
 import tk.darrow.tribalpower.echo.ModMenus;
 import tk.darrow.tribalpower.entity.CreatureProfile;
 
-/** Paper, chalk, a songbook and the written page, plus the buttons that spend the pouch. */
+/** Paper, chalk, a songbook, the written page and a weapon to anoint, plus the buttons that spend the pouch. */
 public class SongBenchMenu extends AbstractContainerMenu {
     public static final int WIDTH = 248;
     public static final int HEIGHT = 236;
     public static final int INVENTORY_X = 44;
     public static final int INVENTORY_Y = 154;
     public static final int CLEAR = 1, POP = 2, WRITE = 3, LIFT = 4, CYCLE = 5;
-    public static final int APPEND = 1000, EMPOWER = 2000, WITHDRAW = 3000, FLETCH = 4000;
+    public static final int APPEND = 1000, EMPOWER = 2000, WITHDRAW = 3000, FLETCH = 4000, ANOINT = 5000;
+    public static final int WEAPON_X = 180, WEAPON_Y = 126;
 
     private final Container container;
     private final ContainerData data;
@@ -48,6 +49,7 @@ public class SongBenchMenu extends AbstractContainerMenu {
             @Override public boolean mayPlace(ItemStack stack) { return stack.is(net.minecraft.world.item.Items.PAPER); }
         });
         addSlot(new Slot(container, SongBenchBlockEntity.CHALK, 30, 126) {
+            @Override public int getMaxStackSize() { return 1; }
             @Override public boolean mayPlace(ItemStack stack) { return stack.getItem() instanceof tk.darrow.tribalpower.item.RitualChalkItem; }
         });
         addSlot(new Slot(container, SongBenchBlockEntity.BOOK, 52, 126) {
@@ -56,6 +58,10 @@ public class SongBenchMenu extends AbstractContainerMenu {
         });
         addSlot(new Slot(container, SongBenchBlockEntity.OUTPUT, 214, 126) {
             @Override public boolean mayPlace(ItemStack stack) { return false; }
+        });
+        addSlot(new Slot(container, SongBenchBlockEntity.WEAPON, WEAPON_X, WEAPON_Y) {
+            @Override public int getMaxStackSize() { return 1; }
+            @Override public boolean mayPlace(ItemStack stack) { return Anointing.canAnoint(stack); }
         });
         for (int row = 0; row < 3; row++) for (int col = 0; col < 9; col++)
             addSlot(new Slot(inventory, col + row * 9 + 9, INVENTORY_X + col * 18, INVENTORY_Y + row * 18));
@@ -116,6 +122,7 @@ public class SongBenchMenu extends AbstractContainerMenu {
         else if (id == CYCLE) cycleVoice();
         else if (id == LIFT) lift(player);
         else if (id == WRITE) attempt = write(level, player, pouch);
+        else if (id >= ANOINT) attempt = anoint(level, pouch, id - ANOINT);
         else if (id >= FLETCH) attempt = act(level, player, pouch, id - FLETCH, true);
         else if (id >= WITHDRAW) attempt = withdraw(player, pouch, id - WITHDRAW);
         else if (id >= EMPOWER) attempt = act(level, player, pouch, id - EMPOWER, false);
@@ -144,7 +151,32 @@ public class SongBenchMenu extends AbstractContainerMenu {
         return attempt;
     }
 
+    private SongBenchLogic.Attempt anoint(net.minecraft.server.level.ServerLevel level, ItemStack pouch, int ordinal) {
+        CreatureProfile profile = profile(ordinal);
+        if (profile == null) return SongBenchLogic.Attempt.fail("message.tribalpower.song_bench.need_item");
+        var attempt = SongBenchLogic.anoint(level, bench.getBlockPos(), bench, pouch, profile, bench.getItem(SongBenchBlockEntity.WEAPON));
+        if (attempt.ok()) bench.setChanged();
+        return attempt;
+    }
+
+    /** With nothing sequenced, Write binds the sheet in the output into the seated book: Lift, undone. */
+    private SongBenchLogic.Attempt bindSheet() {
+        ItemStack sheet = bench.getItem(SongBenchBlockEntity.OUTPUT);
+        ItemStack book = bench.getItem(SongBenchBlockEntity.BOOK);
+        SongVerse verse = SongSheetItem.verse(sheet);
+        if (verse == null || !(book.getItem() instanceof SongbookItem songbook)) return null;
+        if (!SongPages.add(book, songbook.tier(), verse)) return SongBenchLogic.Attempt.fail("message.tribalpower.song_bench.book_full");
+        sheet.shrink(1);
+        if (sheet.isEmpty()) bench.setItem(SongBenchBlockEntity.OUTPUT, ItemStack.EMPTY);
+        bench.setChanged();
+        return SongBenchLogic.Attempt.done("message.tribalpower.song_bench.bound", verse.name());
+    }
+
     private SongBenchLogic.Attempt write(net.minecraft.server.level.ServerLevel level, Player player, ItemStack pouch) {
+        if (bench.sequence().isEmpty()) {
+            SongBenchLogic.Attempt bound = bindSheet();
+            if (bound != null) return bound;
+        }
         var attempt = SongBenchLogic.write(level, bench.getBlockPos(), bench, player, pouch, bench.sequence(), bench.voice(),
                 bench.getItem(SongBenchBlockEntity.PAPER), bench.getItem(SongBenchBlockEntity.CHALK),
                 bench.getItem(SongBenchBlockEntity.BOOK), bench.getItem(SongBenchBlockEntity.OUTPUT));
@@ -207,6 +239,8 @@ public class SongBenchMenu extends AbstractContainerMenu {
         ItemStack original = stack.copy();
         if (index < SongBenchBlockEntity.SIZE) {
             if (!moveItemStackTo(stack, SongBenchBlockEntity.SIZE, slots.size(), true)) return ItemStack.EMPTY;
+        } else if (Anointing.canAnoint(stack) && !slots.get(SongBenchBlockEntity.WEAPON).hasItem()) {
+            if (!moveItemStackTo(stack, SongBenchBlockEntity.WEAPON, SongBenchBlockEntity.WEAPON + 1, false)) return ItemStack.EMPTY;
         } else if (!moveItemStackTo(stack, 0, SongBenchBlockEntity.OUTPUT, false)) {
             return ItemStack.EMPTY;
         }

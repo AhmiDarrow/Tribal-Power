@@ -20,12 +20,13 @@ public final class GearCell {
 
     private GearCell() {}
 
-    /** Equipment that can carry a cell: Spiritgear, Spiritweave, the Resonance Maul and the Sixfold Staff. */
+    /** Equipment that can carry a cell: Spiritgear, Spiritweave, the Resonance Maul, the Sixfold Staff, songbooks and the Pulse bows. */
     public static boolean accepts(ItemStack stack) {
         return SpiritGear.isGear(stack) || stack.getItem() instanceof ResonanceMaulItem
                 || stack.getItem() instanceof SpiritStaffItem
                 || stack.getItem() instanceof tk.darrow.tribalpower.song.SongbookItem
-                || stack.getItem() instanceof tk.darrow.tribalpower.song.PulseBowItem;
+                || stack.getItem() instanceof tk.darrow.tribalpower.song.PulseBowItem
+                || stack.getItem() instanceof tk.darrow.tribalpower.song.PulseCrossbowItem;
     }
 
     /** The seated cell's item, or null. */
@@ -118,6 +119,12 @@ public final class GearCell {
         int rest = amount - fromOwn;
         if (rest > 0 && !SpiritgearHelper.tryConsumePulse(player, rest)) return false;
         if (fromOwn > 0) set(gear, cell(gear), own - fromOwn);
+        // Loom's blessing threads a little of every spend back.
+        int loom = tk.darrow.tribalpower.effect.ModEffects.blessingLevel(player, tk.darrow.tribalpower.api.pulse.Attunement.LOOM);
+        if (loom > 0) {
+            int back = (int) Math.floor(amount * tk.darrow.tribalpower.config.TribalConfig.loomBlessingRefund() * loom);
+            if (back > 0) refund(player, gear, back);
+        }
         return true;
     }
 

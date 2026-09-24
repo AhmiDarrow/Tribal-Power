@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
         "Their Kin trade for Spiritweave is handy: every Kinship Totem needs two."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Colony-keepers carry their [boon](tribe_boons): bees never turn on you."
+      ],
+      "title": "Their boon"
     }
   ]
 }

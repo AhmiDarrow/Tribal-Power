@@ -81,11 +81,14 @@ public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity 
                     case 0 -> sides.pack();
                     case 1 -> worldPosition.getX();
                     case 2 -> worldPosition.getY();
-                    default -> worldPosition.getZ();
+                    case 3 -> worldPosition.getZ();
+                    case 4 -> worldPosition.getX() >> 16;
+                    case 5 -> worldPosition.getY() >> 16;
+                    default -> worldPosition.getZ() >> 16;
                 };
             }
             public void set(int index, int value) {}
-            public int getCount() { return 4; }
+            public int getCount() { return 7; }
         });
     }
 

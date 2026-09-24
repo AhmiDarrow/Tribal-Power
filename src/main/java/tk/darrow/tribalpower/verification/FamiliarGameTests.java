@@ -465,7 +465,9 @@ public class FamiliarGameTests {
         var wild=spawnMonster(h,CreatureProfile.ASHBOUND,5,2,5);
         bondHostile(h,player,moth);
         h.assertTrue(!moth.isPreventingPlayerRest(player),"A bonded remnant does not keep the owner awake");
-        h.assertTrue(wild.isPreventingPlayerRest(player),"A wild remnant still does");
+        h.assertTrue(!wild.isPreventingPlayerRest(player),"A wild remnant that is not hunting you lets you sleep");
+        wild.setTarget(player);
+        h.assertTrue(wild.isPreventingPlayerRest(player),"A wild remnant hunting you does not");
         moth.setBabyFlag(true);
         h.assertTrue(moth.getBbHeight()<wild.getBbHeight(),"Remnant young are smaller");
         moth.discard();wild.discard();h.succeed();

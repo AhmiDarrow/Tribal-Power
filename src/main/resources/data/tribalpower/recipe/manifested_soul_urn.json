@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "key": {
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "pattern": [
+    " E ",
+    "M M",
+    "MMM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:manifested_soul_urn"
+  }
+}

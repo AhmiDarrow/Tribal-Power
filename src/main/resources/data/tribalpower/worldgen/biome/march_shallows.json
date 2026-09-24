@@ -91,6 +91,12 @@
         "weight": 10,
         "minCount": 2,
         "maxCount": 4
+      },
+      {
+        "type": "tribalpower:dust_flitter",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "ambient": [
@@ -105,12 +111,6 @@
         "weight": 8,
         "minCount": 1,
         "maxCount": 2
-      },
-      {
-        "type": "tribalpower:dust_flitter",
-        "weight": 6,
-        "minCount": 1,
-        "maxCount": 3
       }
     ],
     "axolotls": [],

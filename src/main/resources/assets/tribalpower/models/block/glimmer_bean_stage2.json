@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "tribalpower:block/glimmer_bean_stage2"
+  }
+}

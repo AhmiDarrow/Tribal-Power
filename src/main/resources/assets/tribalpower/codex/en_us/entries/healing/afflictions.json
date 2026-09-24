@@ -1,0 +1,26 @@
+{
+  "name": "Afflictions",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Beyond [Spirit Sickness](spirit_sickness), three more things can settle on you out there:",
+        "- **Unsung Hush**: The Unsung's Silence bolts take your voice with them. For **12 seconds** no song and no staff voice will answer. Wait it out, or wash it off.",
+        "- **Frayed**: the touch of a Loom-torn creature, an **Echo Weaver** above all, tears something out of you: **two hearts** of your health for **two minutes**. Milk does nothing for it.",
+        "- **Ley Sickness**: the ground sways and your Pulse drains from every cell you carry. It comes from standing on a bare ley crossing while the threads surge."
+      ],
+      "title": "What the March leaves on you"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Every [remedy](remedies) lifts all of them, and the [Healing Circle](healing_circle) and a night in the [sweat lodge](sweat_lodge) do too.",
+        "The old way is the **Spirit Well**: find one in the March, step into its water and **sneak**. For **40 Pulse** from a cell you carry, the well takes every affliction from you, Spirit Sickness included."
+      ],
+      "title": "Washing clean"
+    }
+  ]
+}

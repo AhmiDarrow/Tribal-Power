@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:seal_keeping_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    {
+      "item": "tribalpower:mossback_scale"
+    },
+    {
+      "item": "tribalpower:spirit_reed"
+    },
+    {
+      "item": "tribalpower:spirit_seal"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:rite_healing_circle"
+  }
+}

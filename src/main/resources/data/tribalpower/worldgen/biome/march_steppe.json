@@ -183,12 +183,6 @@
         "weight": 6,
         "minCount": 1,
         "maxCount": 2
-      },
-      {
-        "type": "tribalpower:dust_flitter",
-        "weight": 8,
-        "minCount": 2,
-        "maxCount": 4
       }
     ],
     "axolotls": [],
@@ -271,7 +265,8 @@
       "tribalpower:march_leaf_dense",
       "tribalpower:spirit_reed_sparse",
       "tribalpower:echo_bloom_drift",
-      "tribalpower:ley_thistle_scatter"
+      "tribalpower:ley_thistle_scatter",
+      "tribalpower:wild_steppe_grain"
     ],
     []
   ]

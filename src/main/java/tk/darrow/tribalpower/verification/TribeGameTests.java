@@ -117,16 +117,16 @@ public class TribeGameTests {
         kin.setRole(KinRole.ELDER);
         h.assertTrue(kin.buildOffers(TribeRank.STRANGER).isEmpty(), "Strangers get no offers");
         h.assertTrue(kin.buildOffers(TribeRank.GUEST).size() == 2, "Guests get two offers");
-        h.assertTrue(kin.buildOffers(TribeRank.FRIEND).size() == 4, "Friends get four offers");
-        h.assertTrue(kin.buildOffers(TribeRank.KIN).size() == 6 && kin.buildOffers(TribeRank.VOICE).size() == 6, "Kin and Voice get all six");
+        h.assertTrue(kin.buildOffers(TribeRank.FRIEND).size() == 5, "Friends get four offers and the tribe's dish");
+        h.assertTrue(kin.buildOffers(TribeRank.KIN).size() == 7 && kin.buildOffers(TribeRank.VOICE).size() == 7, "Kin and Voice get all seven");
         boolean thread = kin.buildOffers(TribeRank.FRIEND).stream().anyMatch(o -> o.getResult().is(ModItems.LOOM_THREAD.get()));
         // 3.1: the Loom-stitchers' Kin counter now sells their own voice's generator (design 3.1 section 12).
         boolean anchor = kin.buildOffers(TribeRank.KIN).stream()
                 .anyMatch(o -> o.getResult().is(tk.darrow.tribalpower.generator.GeneratorRegistry.LOOM_ANCHOR_ITEM.get()));
         h.assertTrue(thread && anchor, "Loom-stitchers sell Loom Thread at Friend and a Loom Anchor at Kin");
         for (TribeDefinition tribe : TribeDefinition.values()) {
-            h.assertTrue(tribe.trades().size() == 6, tribe.id() + " must have six offers");
-            h.assertTrue(tribe.tradesFor(TribeRank.GUEST).size() == 2 && tribe.tradesFor(TribeRank.FRIEND).size() == 4, tribe.id() + " offers two per rank");
+            h.assertTrue(tribe.trades().size() == 7, tribe.id() + " must have six offers and its dish");
+            h.assertTrue(tribe.tradesFor(TribeRank.GUEST).size() == 2 && tribe.tradesFor(TribeRank.FRIEND).size() == 5, tribe.id() + " offers two per rank, and its dish at Friend");
         }
         var tag = new net.minecraft.nbt.CompoundTag();
         kin.addAdditionalSaveData(tag);

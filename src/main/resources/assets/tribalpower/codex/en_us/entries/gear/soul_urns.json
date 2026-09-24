@@ -1,0 +1,50 @@
+{
+  "name": "Soul Urns",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 45,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "Carry a creature home",
+      "text": [
+        "A Soul Urn draws a creature inside. **Use it on a creature** to take it, and **use it on a block** to set it back down there, safe and whole.",
+        "It takes anything living except **players**, **bosses** and March **elites**: a cow for the new pen, a villager for the village, a familiar across a river."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Taking a creature is one use and letting it out is another:",
+        "- **Woven**: 2 uses, one capture and release.",
+        "- **Copper**: 10 uses, five trips.",
+        "- **Manifested**: 20 uses, ten trips.",
+        "- **Resonant**: never wears out.",
+        "An urn will not take a creature when it has only one use left, so you can never trap something you cannot let out. The bar under the urn shows the wear."
+      ],
+      "title": "Four tiers"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

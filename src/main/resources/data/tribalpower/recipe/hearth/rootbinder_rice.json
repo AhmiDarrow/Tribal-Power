@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:spirit_reed"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:rootbinder_rice"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

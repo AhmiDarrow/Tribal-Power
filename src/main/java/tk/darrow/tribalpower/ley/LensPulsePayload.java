@@ -53,7 +53,9 @@ public record LensPulsePayload(int stored, int capacity, int count, List<Entry> 
             LensPulsePayload::new);
     /** The client's latest reading. Plain data, so nothing here touches client classes. */
     public static volatile LensPulsePayload latest = empty();
-    private static final java.util.Map<java.util.UUID, Long> ASKED = new java.util.HashMap<>();
+    private static final java.util.Map<java.util.UUID, Long> ASKED = new java.util.concurrent.ConcurrentHashMap<>();
+
+    public static void forget(java.util.UUID player) { ASKED.remove(player); }
 
     public static LensPulsePayload empty() {
         return new LensPulsePayload(0, 0, 0, List.of(), 0, 0);

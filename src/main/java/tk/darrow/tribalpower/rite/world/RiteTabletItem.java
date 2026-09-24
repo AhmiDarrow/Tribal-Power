@@ -109,6 +109,7 @@ public class RiteTabletItem extends Item {
             }
             case GREEN_BLESSING -> GreenBlessing.bless(level, pos, duration);
             case STILL_NIGHT -> TemporaryWards.add(level, pos, 64, duration);
+            case HEALING_CIRCLE -> tk.darrow.tribalpower.healing.HealingCircles.cast(level, pos, duration);
             case SPRING_CALLING -> {
                 if (!Springs.call(level, pos, duration)) return Component.translatable("message.tribalpower.rite.no_cistern");
             }

@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Earth**.",
         "Your standing with the Grit-singers decides how deep a [Listening Pit](listening_pit) may listen: **Friend** for common ore, **Kin** for the deep and hot bands, **Voice** for the rare one. Their Kinship Totem is one of the two ways to open the deeper bands."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Grit-singers carry their [boon](tribe_boons): ore you break has a **one in five** chance to give one more."
+      ],
+      "title": "Their boon"
     }
   ]
 }

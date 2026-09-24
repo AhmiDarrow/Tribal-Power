@@ -67,7 +67,14 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     /** Pulse a beat is worth at this spacing: the one place the tempo rule lives. */
     public static int beatValue(long interval) {
         if (interval < MIN_SPACING) return 0;
-        return interval >= TEMPO_MIN && interval <= TEMPO_MAX ? ON_TEMPO : OFF_TEMPO;
+        if (interval >= TEMPO_MIN && interval <= TEMPO_MAX) return ON_TEMPO;
+        // Off tempo pays by the second, not by the beat, so a faster clock is never worth more than a steady one.
+        return (int) Math.max(1, OFF_TEMPO * Math.min(interval, 20) / 20);
+    }
+
+    /** One drum, one tempo: hand and redstone beats keep the same time, so they cannot both be paid for one beat. */
+    private long lastBeat() {
+        return Math.max(lastManualBeat, lastRedstoneBeat);
     }
 
     /**
@@ -105,7 +112,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
 
     public int drumBeat() {
         long now = level == null ? 0 : level.getGameTime();
-        long interval = now - lastManualBeat;
+        long interval = now - lastBeat();
         if (interval < MIN_SPACING) return 0;
         boolean inTime = interval >= TEMPO_MIN && interval <= TEMPO_MAX;
         lastManualBeat = now;
@@ -150,7 +157,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     public int onRedstonePulse() {
         if (redstoneCooldown > 0) return 0;
         long now = level == null ? 0 : level.getGameTime();
-        long interval = now - lastRedstoneBeat;
+        long interval = now - lastBeat();
         int value = beatValue(interval);
         lastRedstoneBeat = now;
         redstoneCooldown = MIN_SPACING;

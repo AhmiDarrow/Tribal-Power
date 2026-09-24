@@ -1,0 +1,33 @@
+{
+  "name": "Pulse Crossbow",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 71,
+  "spoiler": true,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "The bow's heavier sister",
+      "text": [
+        "The Pulse Crossbow fires the same sonic bolts as the [Pulse Bow](song_bench), and carries verse arrows the same way.",
+        "**Hold use** to load it. Loading takes a little longer than a full bow draw and spends **10 Pulse** up front, and takes a verse arrow if you carry one. **Use it again** to fire."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- The **crossbow** hits about **half again as hard**, flies faster and almost perfectly straight, and holds its shot for as long as you like, so you can walk loaded and fire the moment something shows itself.",
+        "- The **bow** is quicker: you can loose again sooner, and loose a half draw when you are in a hurry.",
+        "Carry the crossbow for the one shot that matters, the bow for a running fight."
+      ],
+      "title": "Bow or crossbow?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

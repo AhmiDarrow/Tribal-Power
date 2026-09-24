@@ -134,12 +134,10 @@ public class SpiritFlaskItem extends Item {
         if (held.getAmount() + FluidType.BUCKET_VOLUME > capacity) return false;
         if (level.isClientSide) return true;
         BlockState state = level.getBlockState(pos);
-        if (state.getBlock() instanceof BucketPickup pickup) {
-            ItemStack taken = pickup.pickupBlock(player, level, pos, state);
-            if (taken.isEmpty()) return false;
-        } else {
-            level.setBlock(pos, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
-        }
+        // Only a block that can give its fluid up is drunk from; kelp, seagrass and modded machines are left alone.
+        if (!(state.getBlock() instanceof BucketPickup pickup)) return false;
+        ItemStack taken = pickup.pickupBlock(player, level, pos, state);
+        if (taken.isEmpty()) return false;
         FluidStack gained = new FluidStack(fluid.getType(), FluidType.BUCKET_VOLUME);
         set(stack, held.isEmpty() ? gained : grown(held, FluidType.BUCKET_VOLUME));
         level.playSound(null, pos, gained.getFluid().getFluidType().getSound(net.neoforged.neoforge.common.SoundActions.BUCKET_FILL),

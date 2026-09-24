@@ -33,6 +33,22 @@ public final class BossEscort {
 
     private BossEscort() {}
 
+    /** Which boss a companion came with. */
+    public static final String ESCORT_OF = "TribalPowerEscortOf";
+
+    /**
+     * A boss that leaves without dying -- despawned, say -- takes its retinue with it. The companions are gentle
+     * creatures that never despawn on their own, so without this every visit of the boss left a few more behind.
+     */
+    public static void dismiss(Mob boss) {
+        if (!(boss.level() instanceof net.minecraft.server.level.ServerLevel level)) return;
+        java.util.UUID id = boss.getUUID();
+        for (Mob companion : level.getEntitiesOfClass(Mob.class, boss.getBoundingBox().inflate(48),
+                m -> m.getPersistentData().hasUUID(ESCORT_OF) && id.equals(m.getPersistentData().getUUID(ESCORT_OF))
+                        && !(m instanceof tk.darrow.tribalpower.familiar.Familiar familiar && familiar.isBonded())))
+            companion.discard();
+    }
+
     /** Spawns the retinue in a ring around the boss. Quietly does nothing for a mob with no escort. */
     public static void spawn(Mob boss, ServerLevelAccessor level, MobSpawnType reason) {
         if (reason != MobSpawnType.NATURAL && reason != MobSpawnType.CHUNK_GENERATION) return;
@@ -67,6 +83,7 @@ public final class BossEscort {
         Mob mob = CreatureEntities.type(profile).create(level.getLevel());
         if (mob == null) return;
         mob.moveTo(at.getX() + 0.5, at.getY(), at.getZ() + 0.5, random.nextFloat() * 360F, 0F);
+        mob.getPersistentData().putUUID(ESCORT_OF, boss.getUUID());
         mob.finalizeSpawn(level, level.getCurrentDifficultyAt(at), MobSpawnType.NATURAL, null);
         level.addFreshEntity(mob);
     }

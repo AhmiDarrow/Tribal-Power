@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:glimmer_bean"
+    },
+    {
+      "item": "tribalpower:raw_game"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:drumheart_chili"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

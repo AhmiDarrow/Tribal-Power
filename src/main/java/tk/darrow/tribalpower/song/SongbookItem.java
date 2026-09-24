@@ -54,12 +54,13 @@ public class SongbookItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
             return InteractionResultHolder.fail(book);
         }
-        if (!GearCell.spend(player, book, verse.castPulse())) {
+        int cost = SongVerse.castCost(player, verse);
+        if (!GearCell.spend(player, book, cost)) {
             SpiritgearHelper.notifyStarved(player);
             return InteractionResultHolder.fail(book);
         }
         if (!SongCast.play(server, verse)) {
-            GearCell.refund(player, book, verse.castPulse());
+            GearCell.refund(player, book, cost);
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
             return InteractionResultHolder.fail(book);
         }
@@ -75,6 +76,5 @@ public class SongbookItem extends Item {
         int count = SongPages.pages(stack).size();
         if (open == null) lines.add(Component.translatable("message.tribalpower.songbook.empty"));
         else lines.add(Component.translatable("message.tribalpower.songbook.page", SongPages.open(stack) + 1, count, open.name()));
-        GearCell.appendTooltip(stack, lines);
     }
 }

@@ -17,10 +17,12 @@ public final class CampHooks {
     public static final int SOLO_ANCHOR_CAP=32,CAMP_ANCHOR_BUDGET=12;
     private static final Map<ServerLevel,Map<Long,Map<BlockPos,Long>>> WARDS=new WeakHashMap<>();
     public static final TicketController TICKETS=new TicketController(ResourceLocation.parse("tribalpower:wayanchors"),(level,helper)->{
-        int count=0;
+        // The cap is per owner, as when anchors are claimed: one player's 32 never crowd out another's.
+        Map<UUID,Integer> perOwner=new HashMap<>();
         for(var entry:helper.getBlockTickets().entrySet()){
             BlockPos pos=entry.getKey();
-            if(!(level.getBlockEntity(pos) instanceof CampBlockEntity be)||!be.kind().equals("wayanchor")||be.pulse<16||level.hasNeighborSignal(pos)||count++>=32)helper.removeAllTickets(pos);
+            if(!(level.getBlockEntity(pos) instanceof CampBlockEntity be)||!be.kind().equals("wayanchor")||be.pulse<16||level.hasNeighborSignal(pos)
+                    ||perOwner.merge(be.owner==null?new UUID(0,0):be.owner,1,Integer::sum)>SOLO_ANCHOR_CAP)helper.removeAllTickets(pos);
             else {
                 // A valid anchor owns exactly its own ticking chunk; discard any stale broader tickets.
                 for(long chunk:entry.getValue().ticking())if(chunk!=new ChunkPos(pos).toLong())helper.removeTicket(pos,chunk,true);
@@ -36,10 +38,14 @@ public final class CampHooks {
         var anchors=ANCHORS.computeIfAbsent(level,l->new HashMap<>());
         if(active&&!anchors.containsKey(pos)){
             var camp=tk.darrow.tribalpower.camp.identity.Camps.campOf(level.getServer(),owner);
-            if(camp!=null?campAnchors(level.getServer(),camp.id)>=CAMP_ANCHOR_BUDGET:anchors.size()>=SOLO_ANCHOR_CAP)return false;
+            if(camp!=null?campAnchors(level.getServer(),camp.id)>=CAMP_ANCHOR_BUDGET:ownedBy(anchors,owner)>=SOLO_ANCHOR_CAP)return false;
         }
         if(active)anchors.put(pos.immutable(),owner);else anchors.remove(pos);
         var chunk=new ChunkPos(pos);TICKETS.forceChunk(level,pos,chunk.x,chunk.z,active,true);return active;
+    }
+    /** A solo player's own anchors in this dimension. */
+    private static long ownedBy(Map<BlockPos,UUID> anchors,UUID owner){
+        return anchors.values().stream().filter(o->java.util.Objects.equals(o,owner)).count();
     }
     /** Active anchors owned by members of {@code campId} across every dimension. */
     public static int campAnchors(net.minecraft.server.MinecraftServer server,UUID campId){

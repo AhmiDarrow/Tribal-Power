@@ -63,7 +63,8 @@ public final class Ownership {
     public static void guardBreak(net.neoforged.neoforge.event.level.BlockEvent.BreakEvent event) {
         var block = event.getState().getBlock();
         if (!(block instanceof CampBlock || block instanceof tk.darrow.tribalpower.block.StoneFontBlock
-                || block instanceof tk.darrow.tribalpower.gate.GateKeystoneBlock || block instanceof tk.darrow.tribalpower.block.ResonanceMeshBlock)) return;
+                || block instanceof tk.darrow.tribalpower.gate.GateKeystoneBlock || block instanceof tk.darrow.tribalpower.block.ResonanceMeshBlock
+                || block instanceof tk.darrow.tribalpower.block.RitePedestalBlock)) return;
         Player player = event.getPlayer();
         if (!(event.getLevel() instanceof Level level) || player.hasPermissions(2) || canBreak(level, event.getPos(), player)) return;
         event.setCanceled(true);

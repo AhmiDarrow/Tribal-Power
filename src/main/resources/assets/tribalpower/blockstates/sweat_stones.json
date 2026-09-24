@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hot=false": {
+      "model": "tribalpower:block/sweat_stones"
+    },
+    "hot=true": {
+      "model": "tribalpower:block/sweat_stones_hot"
+    }
+  }
+}

@@ -49,5 +49,7 @@ public final class LeyRopes {
     /** Drop the send clock so a long-running server does not keep every player who ever looked. */
     public static void loggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         SENT.remove(event.getEntity().getUUID());
+        LensPulsePayload.forget(event.getEntity().getUUID());
+        LeySightPayload.forget(event.getEntity().getUUID());
     }
 }

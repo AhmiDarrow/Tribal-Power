@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "tribalpower:bone_chime"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:cauldron"
+    },
+    "S": {
+      "item": "minecraft:bone"
+    }
+  },
+  "pattern": [
+    "S S",
+    "ICI",
+    "SBS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:spirit_kettle"
+  }
+}

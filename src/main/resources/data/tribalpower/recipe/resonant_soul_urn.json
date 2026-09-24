@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "key": {
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "U": {
+      "item": "tribalpower:manifested_soul_urn"
+    }
+  },
+  "pattern": [
+    " R ",
+    "MUM",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:resonant_soul_urn"
+  }
+}

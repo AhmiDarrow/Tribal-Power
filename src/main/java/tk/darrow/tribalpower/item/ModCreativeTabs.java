@@ -50,6 +50,8 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRITGEAR_AXE.get());
                         out.accept(ModItems.SPIRITGEAR_SHOVEL.get());
                         out.accept(ModItems.SPIRITGEAR_BLADE.get());
+                        ModItems.SPIRITGEAR_WEAPONS.values().forEach(weapon -> out.accept(weapon.get()));
+                        out.accept(ModItems.SPIRITGEAR_RATTLE.get());
                         out.accept(ModItems.SPIRITGEAR_SHEARS.get());
                         out.accept(ModItems.SPIRITGEAR_HOE.get());
                         out.accept(ModItems.DRUMHEART.get());
@@ -167,6 +169,9 @@ public final class ModCreativeTabs {
                         tk.darrow.tribalpower.gate.GateRegistry.displayItems(out);
                         tk.darrow.tribalpower.grit.GritItems.displayItems(out);
                         tk.darrow.tribalpower.rite.world.WorldRiteRegistry.displayItems(out);
+                        tk.darrow.tribalpower.healing.HealingRegistry.displayItems(out);
+                        tk.darrow.tribalpower.kit.KitRegistry.displayItems(out);
+                        tk.darrow.tribalpower.cuisine.CuisineRegistry.displayItems(out);
                         tk.darrow.tribalpower.ley.LeyRegistry.displayItems(out);
                         tk.darrow.tribalpower.logic.LogicRegistry.displayItems(out);
                         tk.darrow.tribalpower.device.DeviceRegistry.displayItems(out);

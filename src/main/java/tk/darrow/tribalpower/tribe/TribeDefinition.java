@@ -184,6 +184,8 @@ public enum TribeDefinition {
     /** Standing granted by one offering of {@code stack}, or 0 when it is not accepted. */
     public int offeringValue(ItemStack stack) {
         if (stack.isEmpty()) return 0;
+        // A tribe's own dish, cooked the way it cooks it, is the gift it prizes most.
+        if (stack.is(tk.darrow.tribalpower.cuisine.CuisineRegistry.dish(this))) return tk.darrow.tribalpower.config.TribalConfig.dishStanding();
         if (reagent(stack)) return TribeStanding.GAIN_REAGENT;
         if (favoured(stack)) return TribeStanding.GAIN_FAVOURED;
         if (stack.has(DataComponents.FOOD)) return TribeStanding.GAIN_FOOD;
@@ -223,6 +225,24 @@ public enum TribeDefinition {
      * unchanged. Everything displaced is craftable or decorative.
      */
     public List<Offer> trades() {
+        List<Offer> all = new java.util.ArrayList<>(baseTrades());
+        // Kin sell their own dish once they call you friend: four of the crop it is made from, for one bowl.
+        all.add(Offer.of(TribeRank.FRIEND, tk.darrow.tribalpower.cuisine.CuisineRegistry.CROP_ITEMS.get(dishCrop()).get(), 4,
+                tk.darrow.tribalpower.cuisine.CuisineRegistry.dish(this), 1));
+        return List.copyOf(all);
+    }
+
+    /** The March crop each tribe's dish is built on. */
+    public tk.darrow.tribalpower.cuisine.MarchCrop dishCrop() {
+        return switch (this) {
+            case SOIL, SPARK, CLAW -> tk.darrow.tribalpower.cuisine.MarchCrop.EMBERROOT;
+            case STONE, SWARM -> tk.darrow.tribalpower.cuisine.MarchCrop.STEPPE_GRAIN;
+            case SPROUT, SIGIL, SPINDLE -> tk.darrow.tribalpower.cuisine.MarchCrop.FEN_RICE;
+            case CLOCK -> tk.darrow.tribalpower.cuisine.MarchCrop.GLIMMER_BEAN;
+        };
+    }
+
+    private List<Offer> baseTrades() {
         return switch (this) {
             case SOIL -> List.of(
                     Offer.of(TribeRank.GUEST, Items.BREAD, 4, ModItems.ECHO_SHARD.get(), 2),

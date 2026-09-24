@@ -168,16 +168,35 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         }
         ItemStack slot = items.get(SLOT);
         if (slot.isEmpty()) {
-            items.set(SLOT, stack.split(1));
+            ItemStack seated = stack.split(1);
+            // A catalyst carries its own wear: one lifted half-spent comes back half-spent.
+            var data = seated.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+            wear = data == null ? 0 : Math.max(0, data.getUnsafe().getInt(WEAR_KEY));
+            if (data != null && data.contains(WEAR_KEY)) net.minecraft.world.item.component.CustomData.update(
+                    net.minecraft.core.component.DataComponents.CUSTOM_DATA, seated, tag -> tag.remove(WEAR_KEY));
+            items.set(SLOT, seated);
             setChanged();
             return true;
         }
         return false;
     }
 
+    private static final String WEAR_KEY = "CatalystWear";
+
+    /** Writes the seated catalyst's wear onto the item, so it leaves carrying it. */
+    public void stampWear() {
+        ItemStack seated = items.get(SLOT);
+        if (seated.isEmpty() || wear <= 0) return;
+        int spent = wear;
+        net.minecraft.world.item.component.CustomData.update(net.minecraft.core.component.DataComponents.CUSTOM_DATA, seated,
+                tag -> tag.putInt(WEAR_KEY, spent));
+    }
+
     public ItemStack takeCatalyst() {
+        stampWear();
         ItemStack taken = items.get(SLOT);
         items.set(SLOT, ItemStack.EMPTY);
+        wear = 0;
         if (!taken.isEmpty()) {
             setChanged();
         }

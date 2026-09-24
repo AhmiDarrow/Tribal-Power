@@ -34,7 +34,8 @@ public class ResonanceMaulItem extends PickaxeItem {
         if (broken > 0) {
             SpiritEffects.ring(player.serverLevel(), center.getCenter(), Attunement.EARTH, 1.3, 16);
             player.getCooldowns().addCooldown(this, 20);
-        } else SpiritgearHelper.notifyStarved(player);
+        } else if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < 8) SpiritgearHelper.notifyStarved(player);
+        else player.displayClientMessage(Component.translatable("message.tribalpower.maul.nothing"), true);
         return InteractionResult.CONSUME;
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {

@@ -48,7 +48,15 @@ public class BenchMenu extends AbstractContainerMenu {
         this.bench = bench;
         this.grid = bench != null ? bench.craftingGrid(this) : new TransientCraftingContainer(this, 3, 3);
 
-        addSlot(new ResultSlot(player, grid, result, 0, 124, 35));
+        addSlot(new ResultSlot(player, grid, result, 0, 124, 35) {
+            /** Another player may have changed the shared grid since this result was offered: check it still holds. */
+            @Override
+            public boolean mayPickup(Player taker) {
+                refreshResult();
+                return hasItem() && super.mayPickup(taker);
+            }
+        });
+        if (bench != null) bench.opened(this);
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 3; col++)
                 addSlot(new Slot(grid, col + row * 3, 30 + col * 18, 17 + row * 18));
@@ -64,6 +72,14 @@ public class BenchMenu extends AbstractContainerMenu {
     @Override
     public void slotsChanged(Container container) {
         if (player.level().isClientSide) return;
+        refreshResult();
+        if (bench != null) bench.gridChanged();
+        super.slotsChanged(container);
+    }
+
+    /** What the grid makes right now, for this player. Called for every viewer whenever the shared grid changes. */
+    public void refreshResult() {
+        if (player.level().isClientSide) return;
         CraftingInput input = CraftingInput.of(3, 3, grid.getItems());
         Optional<RecipeHolder<CraftingRecipe>> found = player.level().getRecipeManager()
                 .getRecipeFor(RecipeType.CRAFTING, input, player.level());
@@ -74,8 +90,6 @@ public class BenchMenu extends AbstractContainerMenu {
                 output = holder.value().assemble(input, player.level().registryAccess());
         }
         result.setItem(0, output);
-        if (bench != null) bench.gridChanged();
-        super.slotsChanged(container);
     }
 
     /**
@@ -86,6 +100,7 @@ public class BenchMenu extends AbstractContainerMenu {
      */
     @Override
     public void removed(Player player) {
+        if (bench != null) bench.closed(this);
         super.removed(player);
         result.clearContent();
         if (bench == null) clearContainer(player, grid);   // a loose grid still has to give items back

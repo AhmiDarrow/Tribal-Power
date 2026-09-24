@@ -13,7 +13,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-/** Gateway frame — walk the middle; lintel and lamp are spirit, not collision. */
+/**
+ * A spirit threshold. You, your camp, your familiars and every gentle creature walk through the middle as if
+ * nothing were there; a monster or hostile spirit meets it as a wall. Hang one in a camp's gap and the night
+ * stays outside.
+ */
 public class SpiritDoorBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<SpiritDoorBlock> CODEC = simpleCodec(SpiritDoorBlock::new);
     /** Posts on the east/west edges; opening 0.75 so a player (0.6) fits north-south. */
@@ -45,6 +49,30 @@ public class SpiritDoorBlock extends HorizontalDirectionalBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+    }
+
+    @Override
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, net.minecraft.world.item.Item.TooltipContext context,
+                                java.util.List<net.minecraft.network.chat.Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+        lines.add(net.minecraft.network.chat.Component.translatable("block.tribalpower.spirit_door.desc").withStyle(net.minecraft.ChatFormatting.GRAY));
+    }
+
+    /** The opening closes to anything hostile, and to nothing else. */
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        if (tk.darrow.tribalpower.config.TribalConfig.spiritDoorBlocksHostiles()
+                && context instanceof net.minecraft.world.phys.shapes.EntityCollisionContext entityContext
+                && barred(entityContext.getEntity())) return Shapes.block();
+        return getShape(state, level, pos, context);
+    }
+
+    /** Monsters and wild hostile spirits; never players, bonded familiars or anything peaceful. */
+    public static boolean barred(@org.jetbrains.annotations.Nullable net.minecraft.world.entity.Entity entity) {
+        if (!(entity instanceof net.minecraft.world.entity.LivingEntity living) || entity instanceof net.minecraft.world.entity.player.Player)
+            return false;
+        // A March creature is judged as the familiars judge it: bonded ones and camp-bred young are no threat.
+        if (living instanceof tk.darrow.tribalpower.familiar.Familiar) return tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living);
+        return living instanceof net.minecraft.world.entity.monster.Enemy;
     }
 
     @Override

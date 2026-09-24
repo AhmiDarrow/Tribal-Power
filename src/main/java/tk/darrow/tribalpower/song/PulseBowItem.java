@@ -67,9 +67,11 @@ public class PulseBowItem extends Item {
             SpiritgearHelper.notifyStarved(player);
             return;
         }
+        // Read the verse before spending the arrow: the last one in a stack is empty afterwards.
+        SongVerse verse = arrow == null ? null : VerseArrowItem.verse(arrow);
         if (arrow != null) takeVerse(player, arrow);
         if (player instanceof net.minecraft.server.level.ServerPlayer server) {
-            SonicBolt.shoot(server, bow, arrow == null ? null : VerseArrowItem.verse(arrow), pull);
+            SonicBolt.shoot(server, bow, verse, pull);
         }
         bow.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.3F + pull * 0.3F);
@@ -97,6 +99,5 @@ public class PulseBowItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         lines.add(Component.translatable("item.tribalpower.pulse_bow.desc", PLAIN_PULSE, PLAIN_PULSE + VERSE_PULSE));
-        GearCell.appendTooltip(stack, lines);
     }
 }

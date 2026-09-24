@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:ley_thistle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:loom_thread_noodles"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Anointing",
+  "icon": "tribalpower:spiritgear_greatsword",
+  "order": 72,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "title": "A reagent in the blade",
+      "text": [
+        "Anointing works a reagent's power into a weapon so every hit carries it. It is done at the [Song Bench](song_bench), and the weapon keeps it for good, until you choose to replace it.",
+        "A weapon holds **one anointment at a time**. Anointing it again with a different reagent swaps the old power for the new; anointing it with the one it already has is refused, so you never waste reagents by accident."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "How to do it",
+      "text": [
+        "1. Stand a [Resonance Totem](six_voices) within reach of the bench, with Pulse in the lattice.",
+        "2. Keep your Reagent Pouch on the hotbar, with at least **4 empowered** reagents of the kind you want.",
+        "3. Put the weapon in the bench's **weapon slot**, next to the output.",
+        "4. Click that reagent in the list to select it, then press **Anoint**. It costs the 4 reagents and **32 Pulse**.",
+        "The weapon's tooltip shows its anointment and the reagent it came from."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What can be anointed",
+      "text": [
+        "Every Spiritgear weapon, from the Blade to the [newer family](spiritgear_weapons), plus vanilla **swords**, **axes**, the **trident** and the **mace**.",
+        "Pack makers can open it to more through the `tribalpower:anointable` item tag."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The eleven anointments",
+      "text": [
+        "- **Searing** (Ember): burns the target and adds fire to every blow.",
+        "- **Stormcall** (Bolt): a quarter of blows arc lightning into two nearby hostiles.",
+        "- **Frostbite** (Chill): slows and freezes the target.",
+        "- **Venom** (Venom): poisons the target.",
+        "- **Gale** (Gust): hurls the target back and up.",
+        "- **Rooting** (Root): a fifth of blows root the target in place."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The eleven anointments, continued",
+      "text": [
+        "- **Sundering** (Shove): blows bite harder the more armour the target wears.",
+        "- **Echo** (Weave): a quarter of blows strike a second time for half.",
+        "- **Sapping** (Weaken): weakens the target.",
+        "- **Bloodthirst** (Hound): life steal, 15% of every blow comes back as health.",
+        "- **Mending** (Quiet): the weapon repairs itself as it strikes.",
+        "Anointments only fire on your own melee blows, not arrows or spells. Every number is in the `anointing` section of the common config, so a pack may tune them."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

@@ -317,8 +317,9 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         }
         // Draw from the lattice so a gate on a powered base tops itself back up between trips.
         int room = be.getPulseCapacity() - be.pulse.getPulseStored();
-        if (room > 0) be.pulse.insertPulse(
-                LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, Math.min(room, 40), false), false);
+        if (room > 0 && be.pulse.insertPulse(
+                LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, Math.min(room, 40), false), false) > 0)
+            be.changed();
         GatePortal.fill(server, be, be.kind(level));
     }
 

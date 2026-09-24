@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:roast_game"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:fire_feast"
+  },
+  "seconds": 20
+}

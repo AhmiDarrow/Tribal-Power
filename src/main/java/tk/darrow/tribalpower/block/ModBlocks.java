@@ -31,7 +31,8 @@ public final class ModBlocks {
             () -> new DrumheartBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN)
                     .strength(2.5F)
-                    .sound(SoundType.WOOD))
+                    .sound(SoundType.WOOD)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<LeyCollectorBlock> LEY_COLLECTOR = BLOCKS.register(
@@ -39,7 +40,8 @@ public final class ModBlocks {
             () -> new LeyCollectorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN)
                     .strength(3.0F)
-                    .sound(SoundType.METAL))
+                    .sound(SoundType.METAL)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<PulseResonatorBlock> PULSE_RESONATOR = BLOCKS.register(
@@ -48,7 +50,8 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_ORANGE)
                     .strength(3.0F)
                     .sound(SoundType.METAL)
-                    .lightLevel(state -> state.getValue(PulseResonatorBlock.LIT) ? 8 : 0))
+                    .lightLevel(state -> state.getValue(PulseResonatorBlock.LIT) ? 8 : 0)
+                    .noOcclusion())
     );
 
     // Lattice
@@ -73,7 +76,8 @@ public final class ModBlocks {
             () -> new LatticeConductorBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.METAL)
                     .strength(2.5F)
-                    .sound(SoundType.COPPER))
+                    .sound(SoundType.COPPER)
+                    .noOcclusion())
     );
 
     // Echo stages (ore refinement path)
@@ -90,7 +94,8 @@ public final class ModBlocks {
             () -> new AncestralCacheBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD)
                     .strength(2.5F)
-                    .sound(SoundType.WOOD))
+                    .sound(SoundType.WOOD)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<DeepCacheBlock> DEEP_CACHE = BLOCKS.register(
@@ -98,7 +103,8 @@ public final class ModBlocks {
             () -> new DeepCacheBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .strength(4.0F, 12.0F)
-                    .sound(SoundType.STONE))
+                    .sound(SoundType.STONE)
+                    .noOcclusion())
     );
 
     // Rites
@@ -118,7 +124,8 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_PURPLE)
                     .strength(5.0F, 20.0F)
                     .sound(SoundType.WOOD)
-                    .lightLevel(s -> 7))
+                    .lightLevel(s -> 7)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<SpiritDoorBlock> SPIRIT_DOOR = BLOCKS.register(
@@ -368,7 +375,8 @@ public final class ModBlocks {
         return BLOCKS.register(id, () -> new EchoStationBlock(BlockBehaviour.Properties.of()
                 .mapColor(color)
                 .strength(3.0F)
-                .sound(SoundType.STONE)));
+                .sound(SoundType.STONE)
+                .noOcclusion()));
     }
 
     private ModBlocks() {}
@@ -417,7 +425,8 @@ public final class ModBlocks {
             () -> new ResonanceMeshBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(3.5F)
-                    .sound(SoundType.COPPER))
+                    .sound(SoundType.COPPER)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<Block> ANCHOR_STONE = BLOCKS.registerSimpleBlock(
@@ -444,7 +453,8 @@ public final class ModBlocks {
             () -> new StoneFontBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .strength(2.5F)
-                    .sound(SoundType.STONE))
+                    .sound(SoundType.STONE)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<PulseCairnBlock> PULSE_CAIRN = BLOCKS.register(
@@ -453,7 +463,8 @@ public final class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(3.0F)
                     .sound(SoundType.STONE)
-                    .lightLevel(s -> 3))
+                    .lightLevel(s -> 3)
+                    .noOcclusion())
     );
 
     public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->

@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
+import tk.darrow.tribalpower.config.TribalConfig;
 
 /**
  * What makes the March dangerous beyond its spawn tables. Spirits that rise at night come stronger, and some
@@ -27,12 +28,15 @@ public final class MarchThreat {
         var random = level.getRandom();
         boolean night = level.getLevel().isNight();
         if (night) {
-            add(monster, NIGHT, 0.4, 0.25, 0);
+            add(monster, NIGHT, TribalConfig.nightHealthBonus(), TribalConfig.nightDamageBonus(), 0);
         }
-        float eliteChance = (night ? 0.10F : 0.05F) + (level.getDifficulty() == Difficulty.HARD ? 0.05F : 0)
-                + difficulty.getSpecialMultiplier() * 0.05F;
+        // By default elites are a night thing; the few spirits that walk by day are the plain ones.
+        double eliteChance = night ? TribalConfig.nightEliteChance()
+                + (level.getDifficulty() == Difficulty.HARD ? TribalConfig.hardEliteBonus() : 0)
+                + difficulty.getSpecialMultiplier() * TribalConfig.localDifficultyEliteBonus()
+                : TribalConfig.dayEliteChance();
         if (random.nextFloat() < eliteChance) {
-            add(monster, ELITE, 1.0, 0.5, 4);
+            add(monster, ELITE, TribalConfig.eliteHealthBonus(), TribalConfig.eliteDamageBonus(), TribalConfig.eliteArmor());
             monster.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 0, false, false));
             monster.setCustomName(Component.translatable("entity.tribalpower.elite", monster.getType().getDescription())
                     .withStyle(ChatFormatting.GOLD));

@@ -264,7 +264,8 @@
       "tribalpower:march_ribbon_weed",
       "tribalpower:march_leaf_sparse",
       "tribalpower:echo_bloom_drift",
-      "tribalpower:ley_thistle_scatter"
+      "tribalpower:ley_thistle_scatter",
+      "tribalpower:wild_frostberry"
     ],
     [
       "minecraft:freeze_top_layer"

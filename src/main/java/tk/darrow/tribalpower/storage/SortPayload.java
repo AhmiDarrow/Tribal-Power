@@ -19,7 +19,7 @@ public record SortPayload(boolean container) implements CustomPacketPayload {
 
     public static void register(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToServer(TYPE, STREAM_CODEC, (payload, context) -> {
-            if (!(context.player() instanceof ServerPlayer player)) return;
+            if (!(context.player() instanceof ServerPlayer player) || player.isSpectator() || !player.containerMenu.stillValid(player)) return;
             InventorySorter.sort(player, payload.container());
         });
     }

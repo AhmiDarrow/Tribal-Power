@@ -33,12 +33,12 @@ import tk.darrow.tribalpower.song.SongbookItem;
 import tk.darrow.tribalpower.song.VerseArrowItem;
 
 /**
- * Where a reagent becomes empowered, a sheet is written, and a verse arrow is fletched. Echo refining
- * lives on the dedicated stations. This bench only sings.
+ * Where a reagent becomes empowered, a sheet is written, a verse arrow is fletched, and a weapon is anointed.
+ * Echo refining lives on the dedicated stations. This bench only sings.
  */
 public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.world.WorldlyContainer, MenuProvider,
         tk.darrow.tribalpower.api.Diagnosable, tk.darrow.tribalpower.lattice.HasSideIo {
-    public static final int PAPER = 0, CHALK = 1, BOOK = 2, OUTPUT = 3, SIZE = 4;
+    public static final int PAPER = 0, CHALK = 1, BOOK = 2, OUTPUT = 3, WEAPON = 4, SIZE = 5;
     private static final int[] INPUTS = {PAPER, CHALK};
     private static final int[] OUTPUTS = {OUTPUT};
 
@@ -116,12 +116,12 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
     @Override
     public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction face) {
-        return level != null && !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack);
+        return level != null && !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
     }
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return level != null && !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && slot == OUTPUT;
+        return level != null && !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).extract()) && slot == OUTPUT;
     }
 
     @Override public int getContainerSize() { return SIZE; }
@@ -162,8 +162,10 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
     public boolean canPlaceItem(int slot, ItemStack stack) {
         return switch (slot) {
             case PAPER -> stack.is(Items.PAPER);
-            case CHALK -> stack.getItem() instanceof RitualChalkItem;
+            // One stick at a time: a used stick cannot share a slot with fresh ones, so a stack would scatter them.
+            case CHALK -> stack.getItem() instanceof RitualChalkItem && items.get(CHALK).isEmpty();
             case BOOK -> stack.getItem() instanceof SongbookItem;
+            case WEAPON -> tk.darrow.tribalpower.song.Anointing.canAnoint(stack);
             default -> false;
         };
     }

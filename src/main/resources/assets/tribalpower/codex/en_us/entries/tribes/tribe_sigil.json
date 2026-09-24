@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Spirit**.",
         "Their Friend trade for a Rite Tablet is a shortcut past the hunt for its reagents. They are also the only tribe that sells a **Wake Bell**."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Seal-carvers carry their [boon](tribe_boons): your charms ask **half** the Pulse."
+      ],
+      "title": "Their boon"
     }
   ]
 }

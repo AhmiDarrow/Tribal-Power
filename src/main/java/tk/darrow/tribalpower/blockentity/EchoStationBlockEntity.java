@@ -62,11 +62,14 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                     case 4 -> worldPosition.getX();
                     case 5 -> worldPosition.getY();
                     case 6 -> worldPosition.getZ();
+                    case 8 -> worldPosition.getX() >> 16;
+                    case 9 -> worldPosition.getY() >> 16;
+                    case 10 -> worldPosition.getZ() >> 16;
                     default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst").indexOf(state));
                 };
             }
             public void set(int index, int value) {}
-            public int getCount() { return 8; }
+            public int getCount() { return 11; }
         });
     }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) {
@@ -80,10 +83,10 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
             var formula = ProcessingRecipes.find(level, station(), items.get(0));
             if (formula == null || formula.catalysts().stream().noneMatch(c -> ItemStack.isSameItem(c, stack))) return false;
         }
-        return !level.hasNeighborSignal(worldPosition) && sides.get(face).insert() && canPlaceItem(slot, stack);
+        return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
     }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return !level.hasNeighborSignal(worldPosition) && sides.get(face).extract() && slot > 0 && slot < CATALYST_A;
+        return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).extract()) && slot > 0 && slot < CATALYST_A;
     }
     public Component status() { return Component.translatable("message.tribalpower.station." + state, work); }
 
@@ -173,7 +176,13 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         var recipe = ProcessingRecipes.find(level, be.station(), be.items.get(0));
-        if (recipe == null) { be.work = 0; be.recipeId = ""; be.state = "idle"; be.shownSeconds = 1; be.shownPulse = 0; be.setChanged(); return; }
+        if (recipe == null) {
+            // Only a real change is worth saving the chunk and waking comparators for.
+            boolean changed = be.work != 0 || !be.recipeId.isEmpty() || !"idle".equals(be.state);
+            be.work = 0; be.recipeId = ""; be.state = "idle"; be.shownSeconds = 1; be.shownPulse = 0;
+            if (changed) be.setChanged();
+            return;
+        }
         if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); }
         if (level.hasNeighborSignal(pos)) { be.state = "paused"; return; }
         ItemStack result = recipe.result();
@@ -195,7 +204,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
         LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
         be.state = "working";
-        be.work++;
+        be.work += tk.darrow.tribalpower.effect.EffectHooks.clockNear((ServerLevel) level, pos) ? 2 : 1;
         Keeping.feedWork(level, pos, recipe.attunement());
         SpiritEffects.ring((ServerLevel)level, pos.getCenter().add(0, 0.55, 0), recipe.attunement(), 0.45, 8);
         if (be.work >= seconds) {

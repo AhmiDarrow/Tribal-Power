@@ -110,7 +110,9 @@ public class LeyFieldGameTests {
             h.assertTrue(through.distanceTo(centre) < 0.05, "The thread must run through the totem, off by " + through.distanceTo(centre));
             Attunement other = voice == Attunement.EARTH ? Attunement.FIRE : Attunement.EARTH;
             level.setBlockAndUpdate(spot, totem(other).defaultBlockState());
-            h.assertTrue(LeyMagnets.pulls(LeyMagnets.near(level, spot), rope).isEmpty(),
+            // Only this totem's hold counts: neighbouring tests stand totems of their own within reach.
+            h.assertTrue(LeyMagnets.pulls(LeyMagnets.near(level, spot), rope).stream()
+                            .noneMatch(pull -> centre.distanceToSqr(pull.x(), pull.y(), pull.z()) < 0.01),
                     "A totem must not take hold of a thread of another colour");
             h.succeed();
         } finally {

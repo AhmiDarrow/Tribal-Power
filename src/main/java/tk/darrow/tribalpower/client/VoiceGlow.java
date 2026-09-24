@@ -62,6 +62,14 @@ public final class VoiceGlow {
                 ModItems.SPIRITGEAR_BLADE.get(), ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
                 ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
+        event.register((stack, layer) -> layer == 1 ? tint(stack) : 0xFFFFFFFF,
+                ModItems.SPIRITGEAR_WEAPONS.values().stream().map(weapon -> weapon.get()).toArray(net.minecraft.world.level.ItemLike[]::new));
+        event.register((stack, layer) -> layer == 1 ? tint(stack) : 0xFFFFFFFF, ModItems.SPIRITGEAR_RATTLE.get());
+        // A remedy's brew takes the colour of the reagent in it.
+        event.register((stack, layer) -> layer == 1 ? tk.darrow.tribalpower.healing.Remedies.reagent(stack)
+                        .map(profile -> 0xFF000000 | profile.glow).orElse(0xFF7EFFCB) : 0xFFFFFFFF,
+                tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_TINCTURE.get(), tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_SALVE.get(),
+                tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_INCENSE.get());
     }
 
     /** Adds the worn-trim glow to every humanoid that can wear armour, players included. */

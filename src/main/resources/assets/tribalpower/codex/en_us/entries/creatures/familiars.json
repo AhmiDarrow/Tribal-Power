@@ -83,6 +83,14 @@
       "title": "Marks"
     },
     {
+      "type": "text",
+      "title": "Healing a familiar",
+      "text": [
+        "Besides its favourite food, a hurt familiar can be healed by laying a [salve](remedies) on it (use the salve on it), by standing in burning incense, or by the [Healer's Rattle](healers_rattle).",
+        "If one falls, it leaves a **Spirit Remnant**. A [Healing Circle](healing_circle) calls it back."
+      ]
+    },
+    {
       "type": "recipe",
       "item": "tribalpower:bonding_charm",
       "text": "Any one of the nine creature reagents fills the middle slot."

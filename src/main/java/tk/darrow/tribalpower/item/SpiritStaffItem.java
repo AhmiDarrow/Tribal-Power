@@ -34,6 +34,7 @@ public class SpiritStaffItem extends Item {
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack staff = player.getItemInHand(hand);
         if (!(level instanceof ServerLevel server)) return InteractionResultHolder.success(staff);
+        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) return InteractionResultHolder.fail(staff);
         Attunement element = element(staff);
         if (player.isShiftKeyDown() && element == Attunement.LOOM && !player.getCooldowns().isOnCooldown(this)
                 && findTarget(level, player) == null

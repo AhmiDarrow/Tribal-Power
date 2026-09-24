@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:glimmer_bean"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "tribalpower:frostberry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:pattern_tart"
+  },
+  "seconds": 12
+}

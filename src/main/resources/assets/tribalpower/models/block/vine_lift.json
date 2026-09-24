@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "tribalpower:block/vine_lift_top",
+    "side": "tribalpower:block/vine_lift_side",
+    "bottom": "tribalpower:block/vine_lift_side"
+  }
+}

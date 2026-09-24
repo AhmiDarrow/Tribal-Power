@@ -124,14 +124,15 @@ public final class SpiritGearHooks {
     /** A Manifested blade heals a tenth of every blow that actually lands (after shields and invulnerability). */
     public static void dealtDamage(net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Post event) {
         if (event.getNewDamage() <= 0 || !(event.getSource().getEntity() instanceof Player striker)
-                || event.getSource().getDirectEntity() != striker) return;
+                || event.getSource().getDirectEntity() != striker || !event.getSource().is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)) return;
         ItemStack blade = striker.getMainHandItem();
         if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) striker.heal(event.getNewDamage() * SpiritGear.LIFESTEAL);
     }
 
     public static void incomingDamage(LivingIncomingDamageEvent event) {
         // A Manifested blade: bosses take a quarter more, and a tenth of every blow comes back as health.
-        if (event.getSource().getEntity() instanceof Player striker && event.getSource().getDirectEntity() == striker) {
+        if (event.getSource().getEntity() instanceof Player striker && event.getSource().getDirectEntity() == striker
+                && event.getSource().is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)) {
             ItemStack blade = striker.getMainHandItem();
             if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) {
                 if (event.getEntity().getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))

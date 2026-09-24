@@ -1,0 +1,15 @@
+{
+  "values": [
+    "#tribalpower:spiritgear_weapons",
+    "#minecraft:swords",
+    "#minecraft:axes",
+    {
+      "id": "minecraft:trident",
+      "required": false
+    },
+    {
+      "id": "minecraft:mace",
+      "required": false
+    }
+  ]
+}

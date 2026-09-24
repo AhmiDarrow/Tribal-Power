@@ -1,6 +1,7 @@
 package tk.darrow.tribalpower.integration.jei;
 
 import mezz.jei.api.*;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -20,6 +21,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import tk.darrow.tribalpower.TribalPower;
+import tk.darrow.tribalpower.bench.BenchMenu;
+import tk.darrow.tribalpower.bench.BenchRegistry;
+import tk.darrow.tribalpower.client.BenchScreen;
 import tk.darrow.tribalpower.client.SpiritCodexScreen;
 import tk.darrow.tribalpower.echo.LatticeRecipe;
 import tk.darrow.tribalpower.item.ModItems;
@@ -30,6 +34,10 @@ import java.util.Optional;
 @JeiPlugin
 public class TribalJeiPlugin implements IModPlugin {
     public static final RecipeType<LatticeRecipe> TYPE = RecipeType.create("tribalpower","lattice",LatticeRecipe.class);
+    /** One kettle brew: a remedy in one form. */
+    public record KettleBrew(tk.darrow.tribalpower.healing.Remedy remedy, tk.darrow.tribalpower.healing.Remedies.Form form) {}
+    public static final RecipeType<KettleBrew> KETTLE = RecipeType.create("tribalpower","spirit_kettle",KettleBrew.class);
+    public static final RecipeType<tk.darrow.tribalpower.cuisine.HearthRecipe> HEARTH = RecipeType.create("tribalpower","hearth",tk.darrow.tribalpower.cuisine.HearthRecipe.class);
     private static IJeiRuntime runtime;
     @Override public ResourceLocation getPluginUid() { return ResourceLocation.fromNamespaceAndPath("tribalpower","jei"); }
     @Override public void onRuntimeAvailable(IJeiRuntime value) { runtime = value; }
@@ -47,7 +55,13 @@ public class TribalJeiPlugin implements IModPlugin {
             return false;
         }
     }
+    /** The bench's grid is a vanilla-shaped crafting grid: result 0, grid 1-9, then the 36 player slots. */
+    @Override public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
+        registration.addRecipeTransferHandler(BenchMenu.class, BenchRegistry.MENU.get(), RecipeTypes.CRAFTING,
+                BenchMenu.GRID_START, BenchMenu.GRID_END - BenchMenu.GRID_START, BenchMenu.GRID_END, 36);
+    }
     @Override public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        registration.addRecipeClickArea(BenchScreen.class, 97, 35, 18, 12, RecipeTypes.CRAFTING);
         registration.addGuiScreenHandler(SpiritCodexScreen.class, new IScreenHandler<>() {
             @Override public IGuiProperties apply(SpiritCodexScreen screen) {
                 return new BookGui(SpiritCodexScreen.class, screen.bookLeft(), screen.bookTop(),
@@ -61,7 +75,11 @@ public class TribalJeiPlugin implements IModPlugin {
             }
         });
     }
-    @Override public void registerCategories(IRecipeCategoryRegistration registration) { registration.addRecipeCategories(new Category(registration.getJeiHelpers().getGuiHelper())); }
+    @Override public void registerCategories(IRecipeCategoryRegistration registration) {
+        registration.addRecipeCategories(new Category(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new KettleCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new HearthCategory(registration.getJeiHelpers().getGuiHelper()));
+    }
     @Override public void registerRecipes(IRecipeRegistration registration) {
         var level=Minecraft.getInstance().level;
         if (level!=null) registration.addRecipes(TYPE,level.getRecipeManager().getAllRecipesFor(LatticeRecipe.TYPE.get()).stream().map(holder -> holder.value()).toList());
@@ -76,6 +94,14 @@ public class TribalJeiPlugin implements IModPlugin {
                 .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
         registration.addRecipes(TYPE,tk.darrow.tribalpower.item.MachineRank.allRankFormulae().stream()
                 .map(tk.darrow.tribalpower.echo.ProcessingRecipes.Formula::recipe).toList());
+        var brews=new java.util.ArrayList<KettleBrew>();
+        for(var remedy:tk.darrow.tribalpower.healing.Remedy.values())
+            for(var form:tk.darrow.tribalpower.healing.Remedies.Form.values()) brews.add(new KettleBrew(remedy,form));
+        registration.addRecipes(KETTLE,brews);
+        if (level!=null) registration.addRecipes(HEARTH,level.getRecipeManager().getAllRecipesFor(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_TYPE.get()).stream().map(h -> h.value()).toList());
+        registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SWEAT_STONES_ITEM.get(),Component.translatable("jei.tribalpower.sweat_lodge"));
+        registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_REMNANT.get(),Component.translatable("jei.tribalpower.spirit_remnant"));
+        registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_SALVE.get(),Component.translatable("jei.tribalpower.spirit_sickness"));
         var charmHint=Component.translatable("item.tribalpower.spirit_charm.hint");
         registration.addIngredientInfo(ModItems.SKY_CHARM.get(),charmHint);
         registration.addIngredientInfo(ModItems.EMBER_CHARM.get(),charmHint);
@@ -93,7 +119,11 @@ public class TribalJeiPlugin implements IModPlugin {
         registration.addIngredientInfo(ModItems.SPIRITWEAVE_HOOD.get(),Component.translatable("item.tribalpower.spiritweave_armor.hint"));
     }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addRecipeCatalyst(new ItemStack(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_KETTLE_ITEM.get()),KETTLE);
+        registration.addRecipeCatalyst(new ItemStack(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_ITEM.get()),HEARTH);
         registration.addRecipeCatalysts(TYPE,ModItems.ECHO_SHATTER.get(),ModItems.ECHO_ATTUNE.get(),ModItems.ECHO_BIND.get(),ModItems.ECHO_MANIFEST.get(),ModItems.ECHO_UNWEAVE.get(),ModItems.EMBER_KILN.get());
+        for (var bench : tk.darrow.tribalpower.block.ModBlocks.allBenches())
+            registration.addRecipeCatalyst(new ItemStack(bench), RecipeTypes.CRAFTING);
     }
     private static class Category implements IRecipeCategory<LatticeRecipe> {
         private final IDrawable icon;
@@ -119,6 +149,52 @@ public class TribalJeiPlugin implements IModPlugin {
             g.fill(46,29,107,33,0xFF438F80);g.drawString(font,">",108,27,0xFF997445,false);
             g.drawString(font,Component.translatable("attunement.tribalpower."+recipe.attunement().getSerializedName()),3,48,0xFF526A61,false);
             g.drawString(font,Component.translatable("gui.tribalpower.recipe_cost",recipe.seconds(),recipe.seconds()*recipe.pulse()),3,63,0xFF526A61,false);
+        }
+    }
+    /** Reagents of the remedy's Note, a herb and the form's base, brewed into the remedy. */
+    private static class KettleCategory implements IRecipeCategory<KettleBrew> {
+        private final IDrawable icon;
+        KettleCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_KETTLE_ITEM.get()); }
+        @Override public RecipeType<KettleBrew> getRecipeType() { return KETTLE; }
+        @Override public Component getTitle() { return Component.translatable("gui.tribalpower.kettle_recipes"); }
+        @Override public IDrawable getIcon() { return icon; }
+        @Override public int getWidth() { return 150; }
+        @Override public int getHeight() { return 60; }
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,KettleBrew brew,IFocusGroup focus) {
+            var reagents=tk.darrow.tribalpower.song.Reagents.byNote().getOrDefault(brew.remedy().note,java.util.List.of());
+            builder.addInputSlot(4,4).addItemStacks(reagents.stream().map(p->new ItemStack(tk.darrow.tribalpower.song.Reagents.item(p))).toList());
+            builder.addInputSlot(4,22).addIngredients(net.minecraft.world.item.crafting.Ingredient.of(tk.darrow.tribalpower.healing.SpiritKettleBlockEntity.HERBS));
+            var base=switch(brew.form()){ case TINCTURE->net.minecraft.world.item.Items.GLASS_BOTTLE; case SALVE->net.minecraft.world.item.Items.HONEYCOMB; case INCENSE->net.minecraft.world.item.Items.CHARCOAL; };
+            builder.addInputSlot(4,40).addItemStack(new ItemStack(base));
+            if(!reagents.isEmpty())builder.addOutputSlot(90,22).addItemStack(tk.darrow.tribalpower.healing.Remedies.make(brew.form(),reagents.get(0),null,
+                    tk.darrow.tribalpower.healing.SpiritKettleBlockEntity.batchSize(brew.form())));
+        }
+        @Override public void draw(KettleBrew brew,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
+            var font=Minecraft.getInstance().font;
+            g.fill(28,28,84,32,0xFF438F80);g.drawString(font,">",85,26,0xFF997445,false);
+            g.drawString(font,Component.translatable("remedy.tribalpower."+brew.remedy().id()),28,6,0xFF526A61,false);
+            g.drawString(font,Component.translatable("gui.tribalpower.recipe_cost",tk.darrow.tribalpower.config.TribalConfig.kettleSeconds(),
+                    tk.darrow.tribalpower.config.TribalConfig.kettlePulse()),28,46,0xFF526A61,false);
+        }
+    }
+    /** Up to four ingredients and a bowl, simmered into a meal. */
+    private static class HearthCategory implements IRecipeCategory<tk.darrow.tribalpower.cuisine.HearthRecipe> {
+        private final IDrawable icon;
+        HearthCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_ITEM.get()); }
+        @Override public RecipeType<tk.darrow.tribalpower.cuisine.HearthRecipe> getRecipeType() { return HEARTH; }
+        @Override public Component getTitle() { return Component.translatable("block.tribalpower.hearth_pot"); }
+        @Override public IDrawable getIcon() { return icon; }
+        @Override public int getWidth() { return 150; }
+        @Override public int getHeight() { return 54; }
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.cuisine.HearthRecipe recipe,IFocusGroup focus) {
+            for (int i=0;i<recipe.ingredients().size();i++) builder.addInputSlot(4+(i%2)*18,4+(i/2)*18).addIngredients(recipe.ingredients().get(i));
+            recipe.container().ifPresent(c -> builder.addInputSlot(48,22).addIngredients(c));
+            builder.addOutputSlot(120,22).addItemStack(recipe.result());
+        }
+        @Override public void draw(tk.darrow.tribalpower.cuisine.HearthRecipe recipe,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
+            var font=Minecraft.getInstance().font;
+            g.fill(72,28,112,32,0xFF438F80);g.drawString(font,">",113,26,0xFF997445,false);
+            g.drawString(font,Component.translatable("gui.tribalpower.hearth_pot.seconds",recipe.seconds()),70,40,0xFF526A61,false);
         }
     }
     private record BookGui(Class<? extends Screen> screenClass, int guiLeft, int guiTop, int guiXSize, int guiYSize,

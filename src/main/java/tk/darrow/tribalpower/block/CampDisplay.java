@@ -60,7 +60,8 @@ public final class CampDisplay {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
         int slot = display.freeSlotFrom(slotAt(state, pos, hit.getLocation()));
-        if (slot < 0) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        // Full: let the held item do its own thing (place a block against it), but never fall through to taking one.
+        if (slot < 0) return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         if (!level.isClientSide) {
             ItemStack left = display.place(slot, stack.copy());
             if (!player.isCreative()) player.setItemInHand(hand, left);

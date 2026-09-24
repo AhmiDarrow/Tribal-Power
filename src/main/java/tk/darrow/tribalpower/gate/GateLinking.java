@@ -52,12 +52,24 @@ public final class GateLinking {
         CompoundTag data = chalk.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         if (!data.contains("GatePending")) {
             tk.darrow.tribalpower.item.RitualChalkItem.keepOne(chalk, player);
-            CustomData.update(DataComponents.CUSTOM_DATA, chalk, tag -> tag.putLong("GatePending", pos.asLong()));
+            CustomData.update(DataComponents.CUSTOM_DATA, chalk, tag -> {
+                tag.putLong("GatePending", pos.asLong());
+                tag.putString("GatePendingDim", server.dimension().location().toString());
+            });
             say(player, Component.translatable("message.tribalpower.gate.chalk_mark"), false);
             return true;
         }
         BlockPos pending = BlockPos.of(data.getLong("GatePending"));
-        CustomData.update(DataComponents.CUSTOM_DATA, chalk, tag -> tag.remove("GatePending"));
+        String pendingDim = data.getString("GatePendingDim");
+        CustomData.update(DataComponents.CUSTOM_DATA, chalk, tag -> {
+            tag.remove("GatePending");
+            tag.remove("GatePendingDim");
+        });
+        // Chalk joins keystones in one world; a mark carried through a gate is only a mark.
+        if (!pendingDim.isEmpty() && !pendingDim.equals(server.dimension().location().toString())) {
+            say(player, Component.translatable("message.tribalpower.gate.chalk_other_world"), true);
+            return false;
+        }
         if (pending.equals(pos)) {
             say(player, Component.translatable("message.tribalpower.gate.chalk_clear"), false);
             return true;
@@ -147,7 +159,7 @@ public final class GateLinking {
         if (partner == null) return;
         ServerLevel partnerLevel = level.getServer().getLevel(
                 net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
-                        ResourceLocation.parse(partner.dimension())));
+                        java.util.Objects.requireNonNullElse(ResourceLocation.tryParse(partner.dimension()), Level.OVERWORLD.location())));
         if (partnerLevel == null) return;
         extinguish(level.getServer(), partner);
         Component message = Component.translatable("message.tribalpower.gate.partner_lost", self.name())
@@ -162,8 +174,8 @@ public final class GateLinking {
         if (server == null || gate == null) return;
         ServerLevel dest = server.getLevel(
                 net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
-                        ResourceLocation.parse(gate.dimension())));
-        if (dest == null) return;
+                        java.util.Objects.requireNonNullElse(ResourceLocation.tryParse(gate.dimension()), Level.OVERWORLD.location())));
+        if (dest == null || ResourceLocation.tryParse(gate.dimension()) == null) return;
         dest.getChunk(gate.pos());
         if (dest.getBlockEntity(gate.pos()) instanceof GateKeystoneBlockEntity far) {
             far.extinguish(dest);

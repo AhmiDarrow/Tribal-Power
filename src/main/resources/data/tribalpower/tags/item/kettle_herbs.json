@@ -1,0 +1,22 @@
+{
+  "values": [
+    "tribalpower:spirit_reed",
+    "tribalpower:ley_thistle",
+    "tribalpower:echo_bloom",
+    "tribalpower:march_leaf",
+    {
+      "id": "tribalpower:moon_lily",
+      "required": false
+    },
+    {
+      "id": "tribalpower:lantern_cap",
+      "required": false
+    },
+    {
+      "id": "tribalpower:veil_lichen",
+      "required": false
+    },
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean"
+  ]
+}

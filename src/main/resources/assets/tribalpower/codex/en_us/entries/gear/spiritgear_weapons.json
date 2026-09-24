@@ -1,0 +1,99 @@
+{
+  "name": "Spiritgear Weapons",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "spoiler": true,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "The Blade's family",
+      "text": [
+        "The [Spiritgear Blade](spiritgear) has a family now: spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident. They are made the same way, from Manifested Ingots, a Bone Chime and a haft, and every one has a **bone handle**.",
+        "Underneath, each is a Blade. It ranks at the Echo stations, spends Pulse on echo strikes, takes a totem voice, and at Manifested hits bosses harder and heals you from every blow. What changes is the reach, the weight and one move of its own."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The numbers",
+      "text": [
+        "- **Spear**: 7 damage, 1.3 swings a second, reach +1.5. A sprinting thrust hits **35%** harder.",
+        "- **Halberd**: 10 damage, 0.9 swings a second, reach +1, heavy (−4%). Sweeps, and breaks a raised shield.",
+        "- **Battle Axe**: 11 damage, 0.8 swings a second, reach —, heavy (−6%). A heavy cleaving sweep; breaks shields.",
+        "- **Warhammer**: 12 damage, 0.7 swings a second, reach —, heaviest (−8%). Blows go through armour: **30%** of the target's armour comes back as extra damage. Breaks shields."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The numbers, continued",
+      "text": [
+        "- **Dagger**: 4.5 damage, 2.4 swings a second, reach −0.5, light (+5%). A strike from **behind** lands **1.75×** as hard.",
+        "- **Scythe**: 8 damage, 1.0 swings a second, reach +0.5, slightly heavy (−2%). Each blow also reaps **half** your attack into every hostile around the target.",
+        "- **Greatsword**: 10 damage, 0.85 swings a second, reach +0.5, heavy (−6%). The widest, strongest sweep.",
+        "- **Trident**: 8 damage, 1.1 swings a second, reach +1. Bites **50%** deeper into anything standing in water or rain.",
+        "Those are at rank 0. Ranks add the Blade's bonuses on top: **+2**, **+5** and **+10** attack damage. Every figure lives in the `weapons` section of the common config."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Each one trades something. Heavy weapons hit hardest but swing slowly and **slow your walking** while they are in your hand; the dagger is weak but fast and lets you move a little quicker.",
+        "Reach keeps you safe but long weapons do less per second; sweeps and the scythe's reap shine against a crowd and waste their weight on a single target.",
+        "The Blade is the all-rounder: no reach, no weight, no special move, and nothing it is bad at."
+      ],
+      "title": "No weapon wins everything"
+    },
+    {
+      "type": "text",
+      "title": "Long and short",
+      "text": [
+        "Long weapons really are long: a spear is about twice the length of a sword in your hand, the halberd and greatsword nearly as much, the axe and hammer half again. The dagger is short and quick.",
+        "Reach matters as much as damage. A spear or trident keeps a Rift Hound at arm's length; a dagger wants you close and behind.",
+        "Any of them can carry an [anointment](anointing)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

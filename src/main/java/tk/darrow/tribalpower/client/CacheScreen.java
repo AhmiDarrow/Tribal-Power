@@ -47,6 +47,13 @@ public class CacheScreen extends AbstractContainerScreen<CacheMenu> {
         SideIoWidget.render(g, font, ioX(), ioY(), io, mouseX, mouseY);
     }
 
+    /** The side-faces tab hangs off the right edge; a click on it is not a click outside. */
+    @Override
+    protected boolean hasClickedOutside(double mouseX, double mouseY, int guiLeft, int guiTop, int button) {
+        if (mouseX >= guiLeft + 175 && mouseX < guiLeft + 218 && mouseY >= guiTop + 6 && mouseY < guiTop + 82) return false;
+        return super.hasClickedOutside(mouseX, mouseY, guiLeft, guiTop, button);
+    }
+
     @Override public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (SideIoWidget.click(mouseX, mouseY, ioX(), ioY(), menu.machinePos())) return true;
         return super.mouseClicked(mouseX, mouseY, button);

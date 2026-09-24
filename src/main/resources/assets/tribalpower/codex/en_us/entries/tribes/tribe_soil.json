@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Earth**.",
         "The Pad-keepers are the easiest tribe to start with: bread and dirt are never far away."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Pad-keepers carry their [boon](tribe_boons): your fields are never trampled, and hunger comes slower."
+      ],
+      "title": "Their boon"
     }
   ]
 }

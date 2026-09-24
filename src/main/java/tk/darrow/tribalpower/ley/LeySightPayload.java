@@ -23,7 +23,9 @@ public record LeySightPayload(int gain, int lines, int voices) implements Custom
     public static volatile LeySightPayload latest = new LeySightPayload(0, 0, 0);
     /** True once a reply has arrived, so a quiet site is not mistaken for "still waiting". */
     public static volatile boolean seen;
-    private static final java.util.Map<java.util.UUID, Long> ASKED = new java.util.HashMap<>();
+    private static final java.util.Map<java.util.UUID, Long> ASKED = new java.util.concurrent.ConcurrentHashMap<>();
+
+    public static void forget(java.util.UUID player) { ASKED.remove(player); }
 
     @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
 

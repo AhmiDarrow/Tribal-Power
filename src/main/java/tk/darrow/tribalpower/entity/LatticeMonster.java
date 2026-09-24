@@ -153,11 +153,17 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override protected int getBaseExperienceReward() {
         var health=getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH);
         int base=super.getBaseExperienceReward();
-        return health!=null && health.hasModifier(MarchThreat.ELITE) ? base*3 : base;
+        return health!=null && health.hasModifier(MarchThreat.ELITE) ? base*tk.darrow.tribalpower.config.TribalConfig.eliteXpMultiplier() : base;
     }
     @Override public boolean removeWhenFarAway(double distance) { return !isPersistenceRequired() && super.removeWhenFarAway(distance); }
     @Override protected boolean shouldDespawnInPeaceful() { return !isPersistenceRequired(); }
-    @Override public boolean isPreventingPlayerRest(Player player) { return !isPersistenceRequired() && super.isPreventingPlayerRest(player); }
+    /** Caps a spawn attempt's pack, whatever the spawn table asks for. */
+    @Override public int getMaxSpawnClusterSize() { return tk.darrow.tribalpower.config.TribalConfig.maxGroupSize(); }
+    /** By default only a spirit already hunting you keeps you from sleep; one wandering past the wall does not. */
+    @Override public boolean isPreventingPlayerRest(Player player) {
+        return !isPersistenceRequired() && (!tk.darrow.tribalpower.config.TribalConfig.onlyHuntersBlockSleep() || getTarget() == player || profile().boss())
+                && super.isPreventingPlayerRest(player);
+    }
     @Override public EntityDimensions getDefaultDimensions(Pose pose) {
         EntityDimensions dimensions=super.getDefaultDimensions(pose);
         return isBaby()?dimensions.scale(0.5F):dimensions;
@@ -170,7 +176,10 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override public boolean doHurtTarget(Entity entity) {
         if(entity instanceof LivingEntity living && FamiliarOwnerTargetGoals.forbidden(this,living))return false;
         boolean hit=super.doHurtTarget(entity);
-        if(hit && entity instanceof LivingEntity target)applyVoice(target);
+        if(hit && entity instanceof LivingEntity target) {
+            applyVoice(target);
+            if(!isBonded())tk.darrow.tribalpower.healing.HealingHooks.afflict(this,target);
+        }
         return hit;
     }
     @Override public boolean isAlliedTo(Entity other) {
@@ -182,10 +191,17 @@ public class LatticeMonster extends Monster implements Familiar {
     }
 
     public boolean canCastAt(LivingEntity target) { return target.isAlive() && distanceToSqr(target)<=144 && hasLineOfSight(target); }
-    private void applyVoice(LivingEntity target) {
+    /** What this spirit's attack leaves on whoever it hits. Public so tests can prove it without a fight. */
+    public void applyVoice(LivingEntity target) {
         switch(profile().attack) {
             case "ember","bolt" -> target.igniteForSeconds(2);
-            case "root","weave","chill" -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0));
+            case "root","chill" -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0));
+            case "weave" -> {
+                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,60,0));
+                // Loom-torn: a weaver's touch frays what holds you together.
+                if(target instanceof Player && !isBonded())tk.darrow.tribalpower.effect.ModEffects.afflict(target,
+                        tk.darrow.tribalpower.effect.AfflictionEffect.Kind.FRAYED,tk.darrow.tribalpower.config.TribalConfig.frayedSeconds()*20,0);
+            }
             case "venom" -> target.addEffect(new MobEffectInstance(MobEffects.POISON,60,0));
             case "weaken" -> target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,80,0));
             case "shove","gust" -> { target.knockback(.45,getX()-target.getX(),getZ()-target.getZ());target.hurtMarked=true; }
@@ -280,7 +296,17 @@ public class LatticeMonster extends Monster implements Familiar {
                 server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded() && inLove>0)tryBreed();
             if(isBonded())FamiliarAbilities.tickMonster(this);
+            fadeAtDawn();
         }
+    }
+    /** Wild spirits under open sky thin out once the March's day comes, so night is the danger and day the work. */
+    private void fadeAtDawn() {
+        if(!(level() instanceof ServerLevel server) || !server.dimension().equals(ModDimensions.THE_MARCH)) return;
+        if(!tk.darrow.tribalpower.config.TribalConfig.dawnFade() || isPersistenceRequired() || profile().boss() || !server.isDay()
+                || getRandom().nextInt(tk.darrow.tribalpower.config.TribalConfig.dawnFadeOneIn())!=0) return;
+        if(getTarget()!=null || !server.canSeeSky(blockPosition().above())) return;
+        server.sendParticles(ParticleTypes.SOUL,getX(),getY()+getBbHeight()*.5,getZ(),12,.3,getBbHeight()*.4,.3,.02);
+        discard();
     }
     private void tryBreed() {
         if(!(level() instanceof ServerLevel server) || isBaby() || age>0)return;
@@ -342,6 +368,7 @@ public class LatticeMonster extends Monster implements Familiar {
         FamiliarAbilities.clearClick(this);
     }
     @Override public void remove(RemovalReason reason) {
+        if(!level().isClientSide && reason==RemovalReason.DISCARDED && profile().boss()) BossEscort.dismiss(this);
         if(!level().isClientSide && reason!=RemovalReason.UNLOADED_TO_CHUNK && reason!=RemovalReason.UNLOADED_WITH_PLAYER)
             FamiliarAbilities.clearClick(this);
         if(bossBar!=null) bossBar.removeAllPlayers();

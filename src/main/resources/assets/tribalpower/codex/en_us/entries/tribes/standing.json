@@ -386,6 +386,13 @@
         "A comparator next to a hearth reads the rank of the last player who used it: **0** for a Stranger up to **15** for a Voice. Handy for a door that only opens for friends of the tribe.",
         "If you belong to a [shared camp](shared_camps), your camp pools its standing. An Elder deals with you at your own standing or the camp's, whichever is higher."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reach **Kin** with a tribe and you carry its [boon](tribe_boons) for as long as you keep the standing: a small perk in that tribe's way, always on."
+      ],
+      "title": "The boon of Kin"
     }
   ]
 }

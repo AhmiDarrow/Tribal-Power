@@ -54,11 +54,15 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) return;
-        int output = TribalConfig.scaleGeneration(be.rawOutput(level, pos));
+        int raw = be.rawOutput(level, pos);
+        int output = TribalConfig.scaleGeneration(raw);
         output += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, output);
         if (output <= 0) return;
         int accepted = be.pulse.insertPulse(output, false);
-        be.afterProduce(level, pos, accepted);
+        // Fuel, water and reservoirs are charged in raw terms: the pack multiplier and a machine's rank make more
+        // Pulse from the same fuel, rather than burning it faster.
+        int spent = accepted >= output ? raw : (int) Math.ceil((double) accepted * raw / output);
+        be.afterProduce(level, pos, spent);
         // A full buffer accepts nothing. Do not dirty the chunk or wake neighbours for that.
         if (accepted <= 0) return;
         be.setChanged();

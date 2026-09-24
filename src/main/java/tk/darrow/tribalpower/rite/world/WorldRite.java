@@ -11,7 +11,9 @@ public enum WorldRite {
     STILL_NIGHT("rite_still_night", Attunement.SPIRIT, 600, 15 * 60 * 20),
     LEY_BINDING("rite_ley_binding", Attunement.LOOM, 1200, 30 * 60 * 20),
     /** Rain Calling's small sibling: cheap, repeatable, and where a base's water comes from. */
-    SPRING_CALLING("rite_spring_calling", Attunement.WATER, 300, 10 * 60 * 20);
+    SPRING_CALLING("rite_spring_calling", Attunement.WATER, 300, 10 * 60 * 20),
+    /** Heals, cleanses and blesses everyone in the circle, calls back remnants on its pedestals, and stays open a while. */
+    HEALING_CIRCLE("rite_healing_circle", Attunement.SPIRIT, 500, 10 * 60 * 20);
 
     private final String tabletId;
     private final Attunement element;

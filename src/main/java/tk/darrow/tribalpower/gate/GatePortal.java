@@ -134,10 +134,13 @@ public final class GatePortal {
             return;
         }
 
-        ServerLevel destination = level.getServer().getLevel(
-                ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
-                        ResourceLocation.parse(partner.dimension())));
+        ResourceLocation dimension = ResourceLocation.tryParse(partner.dimension());
+        ServerLevel destination = dimension == null ? null : level.getServer().getLevel(
+                ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION, dimension));
         if (destination == null) return;
+        // Only a Far Gate crosses between worlds, and only while the server allows it: a Far pair rebuilt as Way
+        // frames must not keep its crossing at Way prices.
+        if (destination != level && (kind != GateKeystoneBlockEntity.Kind.FAR || !tk.darrow.tribalpower.config.TribalConfig.farGatesEnabled())) return;
         if (kind == GateKeystoneBlockEntity.Kind.FAR && !tk.darrow.tribalpower.config.TribalConfig.farGatesEnabled()) return;
 
         if (!keystone.spendTravel(kind)) {

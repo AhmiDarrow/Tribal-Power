@@ -42,18 +42,34 @@ public final class MarchSpawns {
         return turf(below) && level.getRawBrightness(pos, 0) > 8 && level.getFluidState(pos).isEmpty();
     }
 
+    /**
+     * Whether a spirit may rise here, on light and company. Outside the March this is the vanilla darkness
+     * rule. In the March the spirits still walk by day, but rarely and never where torchlight or a lantern
+     * falls, so the day is for work and the night is the danger; crowd caps keep a clearing from filling
+     * faster than anyone can fight it. Every number is in the {@code march} section of the common config.
+     */
+    public static boolean spiritsRise(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
+        boolean march = level.getLevel().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH);
+        boolean dark = Monster.isDarkEnoughToSpawn(level, pos, random);
+        int dayOneIn = tk.darrow.tribalpower.config.TribalConfig.daySpawnOneIn();
+        if (!dark && (!march || dayOneIn <= 0 || level.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0
+                || random.nextInt(dayOneIn) != 0)) return false;
+        return !march || !crowded(level, pos, dark ? tk.darrow.tribalpower.config.TribalConfig.nightCrowdCap() : tk.darrow.tribalpower.config.TribalConfig.dayCrowdCap());
+    }
+
+    private static boolean crowded(ServerLevelAccessor level, BlockPos pos, int limit) {
+        if (limit <= 0) return false;
+        var box = new net.minecraft.world.phys.AABB(pos).inflate(tk.darrow.tribalpower.config.TribalConfig.crowdRadius());
+        return level.getEntitiesOfClass(LatticeMonster.class, box, m -> !m.isPersistenceRequired()).size() >= limit;
+    }
+
     public static boolean monster(
             EntityType<LatticeMonster> type, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random
     ) {
         if (level.getDifficulty() == Difficulty.PEACEFUL) {
             return false;
         }
-        boolean march = level.getLevel().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH);
-        if (!Monster.isDarkEnoughToSpawn(level, pos, random)) {
-            // The March is the spirits' country: they walk it by day too, a third as often, but never where
-            // torchlight or a lantern falls, so a lit camp stays safe.
-            if (!march || level.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0 || random.nextInt(3) != 0) return false;
-        }
+        if (!spiritsRise(level, pos, random)) return false;
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);
         return turf(below) || wispFooting(below) || below.isValidSpawn(level, belowPos, type);

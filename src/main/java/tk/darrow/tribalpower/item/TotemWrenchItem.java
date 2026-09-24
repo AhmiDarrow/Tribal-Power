@@ -55,6 +55,13 @@ public class TotemWrenchItem extends Item {
         }
 
         BlockState state = level.getBlockState(pos);
+        // A bed, a double chest or a door is two blocks that must face together; turning one half tears them apart.
+        if (state.hasProperty(BlockStateProperties.BED_PART) || state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)
+                || state.hasProperty(BlockStateProperties.CHEST_TYPE)
+                && state.getValue(BlockStateProperties.CHEST_TYPE) != net.minecraft.world.level.block.state.properties.ChestType.SINGLE) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.wrench.fixed"), true);
+            return InteractionResult.FAIL;
+        }
         BlockState turned = turn(state, level, pos, face);
         if (turned == null || turned == state) {
             player.displayClientMessage(Component.translatable("message.tribalpower.wrench.fixed"), true);

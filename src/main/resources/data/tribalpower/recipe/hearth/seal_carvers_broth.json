@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:echo_bloom"
+    },
+    {
+      "item": "tribalpower:march_leaf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:seal_carvers_broth"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

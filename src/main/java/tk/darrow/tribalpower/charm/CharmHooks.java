@@ -53,6 +53,8 @@ public final class CharmHooks {
             setFlight(player, false);
             return;
         }
+        if (tk.darrow.tribalpower.effect.ModEffects.hasBoon(player, tk.darrow.tribalpower.tribe.TribeDefinition.SIGIL))
+            cost = Math.max(1, (int) Math.round(cost * (1 - tk.darrow.tribalpower.config.TribalConfig.sigilBoonDiscount())));
         boolean due = player.level().getGameTime() % 40 == 0;
         boolean last = PULSE_OK.getOrDefault(player.getUUID(), true);
         boolean paid;

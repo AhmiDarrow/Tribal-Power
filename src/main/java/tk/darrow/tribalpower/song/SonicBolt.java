@@ -28,14 +28,20 @@ public class SonicBolt extends AbstractArrow {
     }
 
     public static void shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull) {
+        shoot(player, bow, verse, pull, 2.4F + pull * 0.8F, 1.0, 0.3F);
+    }
+
+    /** A bolt at a given speed, damage multiplier and spread; the crossbow's is faster, heavier and truer. */
+    public static void shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull, float speed, double damageScale, float spread) {
         ServerLevel level = player.serverLevel();
         SonicBolt bolt = new SonicBolt(ModEntities.SONIC_BOLT.get(), level);
         bolt.setOwner(player);
         bolt.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
         bolt.verse = verse;
-        bolt.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.4F + pull * 0.8F, 0.3F);
+        bolt.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, speed, spread);
         double damage = verse == null ? 4.0 + 3.0 * pull : 3.0 + verse.power();
-        bolt.setBaseDamage(damage);
+        // An arrow hits for base damage times its speed; divide by the speed so a bolt lands for the damage meant.
+        bolt.setBaseDamage(damage * damageScale / Math.max(0.1F, speed));
         level.addFreshEntity(bolt);
         Attunement voice = verse == null ? Attunement.SPIRIT : verse.voice();
         SpiritEffects.ring(level, new Vec3(bolt.getX(), bolt.getY(), bolt.getZ()), voice, 0.35, 8);
@@ -63,6 +69,15 @@ public class SonicBolt extends AbstractArrow {
     @Override
     protected void onHitBlock(BlockHitResult hit) {
         discard();
+    }
+
+    /**
+     * A bolt is a note in the air for a second and a half, nothing to keep. An arrow with no pickup item cannot be
+     * written to disk at all, so a world that saved with one in flight logged an error; now it is simply not saved.
+     */
+    @Override
+    public boolean shouldBeSaved() {
+        return false;
     }
 
     @Override

@@ -33,7 +33,8 @@ public final class GeneratorRegistry {
                 .mapColor(colour)
                 .strength(strength)
                 .sound(sound)
-                .lightLevel(state -> state.getValue(GeneratorBlock.LIT) ? 10 : 0)));
+                .lightLevel(state -> state.getValue(GeneratorBlock.LIT) ? 10 : 0)
+                .noOcclusion()));
     }
 
     public static final DeferredBlock<GeneratorBlock> EMBER_HORN = generator("ember_horn", MapColor.COLOR_ORANGE, SoundType.COPPER, 3.0F);

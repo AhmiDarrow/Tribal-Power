@@ -13,6 +13,9 @@ public final class ReagentPouchHooks {
 
     public static void onPickup(ItemEntityPickupEvent.Pre event) {
         ItemEntity entity = event.getItemEntity();
+        // The pickup event fires before vanilla's own checks: a stack just thrown, or dropped for someone else, waits.
+        if (entity.hasPickUpDelay()) return;
+        if (entity.getTarget() != null && !entity.getTarget().equals(event.getPlayer().getUUID())) return;
         int left = absorb(event.getPlayer(), entity.getItem());
         if (left == entity.getItem().getCount()) return;
         ItemStack stack = entity.getItem();

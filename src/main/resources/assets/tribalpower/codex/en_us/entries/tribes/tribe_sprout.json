@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Water**.",
         "The Rootbinders are the only tribe that sells a **Wave Drum**, the Water generator."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Rootbinders carry their [boon](tribe_boons): crops and saplings within 4 blocks grow faster around you."
+      ],
+      "title": "Their boon"
     }
   ]
 }

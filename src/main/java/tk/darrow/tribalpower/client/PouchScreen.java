@@ -17,16 +17,18 @@ import tk.darrow.tribalpower.song.SongBenchMenu;
 
 /** The pouch, opened on its own: counts, and a way to take raw reagents back. */
 public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
-    private static final int ROW = 12, VISIBLE = 7;
+    private static final int ROW = 12, VISIBLE = 6;
     private final List<SongBenchScreenRow> rows = new ArrayList<>();
     private int scroll;
     private int hovered = -1;
+    /** The row last clicked; Take works on it, since the mouse has left the list to reach the button. */
+    private int selected = -1;
 
     public PouchScreen(PouchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         imageWidth = PouchMenu.WIDTH;
         imageHeight = PouchMenu.HEIGHT;
-        inventoryLabelY = 102;
+        inventoryLabelY = 103;
         for (var entry : Reagents.byNote().entrySet()) {
             if (entry.getValue().isEmpty()) continue;
             rows.add(new SongBenchScreenRow(entry.getKey(), null));
@@ -38,9 +40,9 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
     protected void init() {
         super.init();
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.take"), b -> {
-            if (hovered < 0 || hovered >= rows.size() || rows.get(hovered).profile == null || minecraft == null || minecraft.gameMode == null) return;
-            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, SongBenchMenu.WITHDRAW + rows.get(hovered).profile.ordinal());
-        }).bounds(leftPos + 112, topPos + 78, 72, 16).build());
+            if (selected < 0 || selected >= rows.size() || rows.get(selected).profile == null || minecraft == null || minecraft.gameMode == null) return;
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, SongBenchMenu.WITHDRAW + rows.get(selected).profile.ordinal());
+        }).bounds(leftPos + imageWidth - 80, topPos + 98, 72, 14).build());
     }
 
     @Override
@@ -56,9 +58,10 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
         for (int i = 0; i < VISIBLE && start + i < rows.size(); i++) {
             var row = rows.get(start + i);
             int ry = y + 22 + i * ROW;
+            if (start + i == selected) g.fill(x + 8, ry, x + imageWidth - 8, ry + ROW, 0xFF2A4A40);
             if (row.profile != null && mouseX >= x + 8 && mouseX < x + imageWidth - 8 && mouseY >= ry && mouseY < ry + ROW) {
                 hovered = start + i;
-                g.fill(x + 8, ry, x + imageWidth - 8, ry + ROW, 0xFF1C3338);
+                g.fill(x + 8, ry, x + imageWidth - 8, ry + ROW, start + i == selected ? 0xFF2F5448 : 0xFF1C3338);
             }
             if (row.header != null) {
                 g.drawString(font, Component.translatable("song.tribalpower.note." + row.header.name().toLowerCase(java.util.Locale.ROOT)), x + 10, ry + 2, 0xFF65D7C0, false);
@@ -76,6 +79,15 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
     protected void renderLabels(GuiGraphics g, int mouseX, int mouseY) {
         g.drawString(font, title, 8, 5, 0xFFE7DCC1, false);
         g.drawString(font, playerInventoryTitle, 8, inventoryLabelY, 0xFF98ACA5, false);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0 && hovered >= 0) {
+            selected = hovered;
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
     }
 
     @Override

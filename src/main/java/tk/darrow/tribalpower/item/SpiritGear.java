@@ -42,7 +42,8 @@ public final class SpiritGear {
         Item item = stack.getItem();
         return item instanceof SpiritgearPickaxeItem || item instanceof SpiritgearAxeItem
                 || item instanceof SpiritgearShovelItem || item instanceof SpiritgearBladeItem
-                || item instanceof SpiritgearShearsItem || item instanceof SpiritgearHoeItem;
+                || item instanceof SpiritgearShearsItem || item instanceof SpiritgearHoeItem
+                || item instanceof SpiritgearRattleItem;
     }
 
     public static boolean isArmor(ItemStack stack) {
@@ -369,6 +370,9 @@ public final class SpiritGear {
                 ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
                 ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
+        pieces = new ArrayList<>(pieces);
+        for (var weapon : ModItems.SPIRITGEAR_WEAPONS.values()) pieces.add(weapon.get());
+        pieces.add(ModItems.SPIRITGEAR_RATTLE.get());
         String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
         List<ProcessingRecipes.Formula> out = new ArrayList<>();
         for (Item piece : pieces) {

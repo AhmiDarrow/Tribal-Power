@@ -1,0 +1,250 @@
+{
+  "name": "Reagents",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Every March creature leaves something behind: a fang, a scale, a tuft of wool. Those are **reagents**, and they are how Tribal Power turns hunting into magic.",
+        "Keep a **{item:tribalpower:reagent_pouch}** on your hotbar and every reagent you pick up goes straight into it. The pouch holds up to **999** of each kind, raw and empowered, so it never fills your bags.",
+        "A reagent starts **raw**. At a [Song Bench](song_bench) you can **empower** it for 16 Pulse. Raw reagents brew remedies and go into a few recipes; empowered ones write songs, fletch verse arrows and anoint weapons."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Families",
+      "text": [
+        "What a reagent does depends on its **family**, which comes from the creature it came off. There are eleven, and each means the same thing wherever you use it:",
+        "- in a **song**, what a reagent adds after the first one;",
+        "- in an **anointed weapon**, what the weapon does to whatever it hits ([Anointing](anointing));",
+        "- in a **remedy**, what the brew does for whoever takes it ([Remedies](remedies)).",
+        "The next pages list every family, which reagents belong to it, and what it does in each of the three."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Grind a raw reagent in a **bowl** with a single stick of **Ritual Chalk** (put all three in a crafting grid; a whole stack of chalk will not do) and you get **2 dye**. The bowl comes back, and the chalk only loses one mark.",
+        "Sixteen reagents make the sixteen dyes:",
+        "- **White**: Pale Down",
+        "- **Light Gray**: Grazer Wool",
+        "- **Gray**: Storm Wing",
+        "- **Black**: Ash Wing",
+        "- **Brown**: Grub Husk",
+        "- **Red**: Ember Mote",
+        "- **Orange**: Magma Scale",
+        "- **Yellow**: Cinder Bark"
+      ],
+      "title": "Reagent dyes"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Lime**: Goblin Ear",
+        "- **Green**: Knotted Root",
+        "- **Cyan**: Glimmer Dust",
+        "- **Light Blue**: Lurker Claw",
+        "- **Blue**: Prism Carapace",
+        "- **Purple**: Lantern Down",
+        "- **Magenta**: Bellcap Spore",
+        "- **Pink**: Fay Petal"
+      ],
+      "title": "Reagent dyes, continued"
+    },
+    {
+      "type": "text",
+      "title": "Ember",
+      "text": [
+        "**Reagents**: Ember Heart, Ember Mote, Magma Scale, Cinder Plate, Slag Curd, Slag Hide.",
+        "- **Song**: sets the target alight.",
+        "- **Anointing**: Searing: burns the target and adds fire to every blow.",
+        "- **Remedy**: Kindling: Strength."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bolt",
+      "text": [
+        "**Reagents**: Cinder Knot, Shade Ember.",
+        "- **Song**: sets the target alight.",
+        "- **Anointing**: Stormcall: a quarter of blows arc lightning into two nearby hostiles.",
+        "- **Remedy**: Quickening: Speed."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chill",
+      "text": [
+        "**Reagents**: Bell Fragment, Wraith Veil.",
+        "- **Song**: slows the target.",
+        "- **Anointing**: Frostbite: slows and freezes the target.",
+        "- **Remedy**: Cooling: Fire Resistance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Venom",
+      "text": [
+        "**Reagents**: Reed Fang, Gnasher Tooth, Facet Barb, Rime Mandible, Shard Barb, Brine Fang.",
+        "- **Song**: poisons the target.",
+        "- **Anointing**: Venom: poisons the target.",
+        "- **Remedy**: Antidote: lifts poison, wither, hunger and nausea."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gust",
+      "text": [
+        "**Reagents**: Storm Wing, Veil Tatter.",
+        "- **Song**: knocks the target back.",
+        "- **Anointing**: Gale: hurls the target back and up.",
+        "- **Remedy**: Featherfall: Slow Falling."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Root",
+      "text": [
+        "**Reagents**: Knotted Root, Heartwood Core.",
+        "- **Song**: slows the target.",
+        "- **Anointing**: Rooting: a fifth of blows root the target in place.",
+        "- **Remedy**: Rootedness: Resistance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Shove",
+      "text": [
+        "**Reagents**: Prism Carapace, Scree Knuckle, Ember Fang, Reed Whorl, Troll Hide, Rime Hide.",
+        "- **Song**: knocks the target back hard.",
+        "- **Anointing**: Sundering: blows bite harder the more armour the target wears.",
+        "- **Remedy**: Bulwark: Absorption."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Weave",
+      "text": [
+        "**Reagents**: Echo Silk, Gloom Silk.",
+        "- **Song**: slows the target.",
+        "- **Anointing**: Echo: a quarter of blows strike a second time for half.",
+        "- **Remedy**: Clear Sight: Night Vision, lifts blindness."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Weaken",
+      "text": [
+        "**Reagents**: Sentinel Sigil, Pale Fang, Barrow Shroud, Drowned Weed.",
+        "- **Song**: weakens the target.",
+        "- **Anointing**: Sapping: weakens the target.",
+        "- **Remedy**: Restoring: Haste, lifts weakness and slowness."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hound",
+      "text": [
+        "**Reagents**: Rift Tooth, Lurker Claw, Goblin Ear, Goblin Fang, Kobold Scale, Kobold Horn.",
+        "- **Song**: makes the target glow.",
+        "- **Anointing**: Bloodthirst: life steal, 15% of every blow comes back as health.",
+        "- **Remedy**: Vigour: Health Boost."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiet",
+      "text": [
+        "**Reagents**: Dawn Velvet, Lantern Down, Mossback Scale, Ash Tuft, Grazer Wool, Glimmer Dust, Flitter Wing, Bounder Horn, Grub Husk, Tuft Wool, Shank Sinew, Pale Down, Crag Fleece, Boulder Tusk, Drift Bladder, Prism Crest, Shard Wing, Glow Husk, Drift Pelt, Frost Hoof, Snow Veil, Ash Wing, Marsh Foot, Fen Hoof, Bog Bladder, Chime Crest, Glass Wing, Geode Husk, Silt Fin, Pale Streamer, Shoal Scale, Hearth Bark, Elder Bark, Frostpine Bark, Cinder Bark, Weeping Knot, Bellcap Spore, Stilt Root, Fay Dust, Fay Petal, Fay Spark.",
+        "- **Song**: gives you a moment of regeneration.",
+        "- **Anointing**: Mending: the weapon repairs itself as it strikes.",
+        "- **Remedy**: Mending: Regeneration."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

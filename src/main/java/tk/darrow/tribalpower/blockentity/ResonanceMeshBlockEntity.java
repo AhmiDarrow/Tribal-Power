@@ -141,8 +141,16 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
             int want = Math.min(PULSE_BUFFER - buffer.getPulseStored(), Math.max(cost * 2, cost));
             buffer.insertPulse(LatticeNetwork.extractPulseNearby(level, pos, RADIUS, want, false), false);
         }
-        if (buffer.getPulseStored() < cost) return false;
-        buffer.extractPulse(cost, false);
+        if (buffer.getPulseStored() >= cost) {
+            buffer.extractPulse(cost, false);
+            return true;
+        }
+        // A cycle dearer than the buffer can hold -- a top rank on a costly band -- takes the rest straight from the
+        // lattice, so no band and rank the pit offers can stall it for good.
+        int shortfall = cost - buffer.getPulseStored();
+        if (LatticeNetwork.extractPulseNearby(level, pos, RADIUS, shortfall, true) < shortfall) return false;
+        LatticeNetwork.extractPulseNearby(level, pos, RADIUS, shortfall, false);
+        buffer.extractPulse(buffer.getPulseStored(), false);
         return true;
     }
 

@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
         "Buying a Rift Tooth at Friend is a safer way to get their reagent than hunting Rift Hounds."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Edge-walkers carry their [boon](tribe_boons): no fall hurts you while you **sneak**."
+      ],
+      "title": "Their boon"
     }
   ]
 }

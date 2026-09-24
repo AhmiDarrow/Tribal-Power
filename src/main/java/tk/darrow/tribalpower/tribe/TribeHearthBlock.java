@@ -89,7 +89,14 @@ public class TribeHearthBlock extends BaseEntityBlock {
     public static int offer(ServerPlayer player, TribeHearthBlockEntity hearth, ItemStack stack, boolean consume) {
         int value = hearth.tribe().offeringValue(stack);
         if (value <= 0) return 0;
-        if (TribeStanding.offerRoom(player, hearth.tribe()) <= 0) { sated(player, hearth.tribe()); return 0; }
+        int room = TribeStanding.offerRoom(player, hearth.tribe());
+        if (room <= 0) { sated(player, hearth.tribe()); return 0; }
+        // Near the day's end of what the tribe will take, a gift worth more than the room left is refused, not wasted.
+        if (value > room) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.hearth.nearly_sated", hearth.tribe().displayNameComponent(), room)
+                    .withStyle(net.minecraft.ChatFormatting.YELLOW), true);
+            return 0;
+        }
         if (consume) {
             stack.shrink(1);
             if (stack.isEmpty()) player.getInventory().removeItem(stack);

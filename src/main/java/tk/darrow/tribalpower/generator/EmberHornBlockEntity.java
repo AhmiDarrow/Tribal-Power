@@ -80,7 +80,9 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
         burning = worth;
         ItemStack remainder = fuel.getCraftingRemainingItem();
         fuel.shrink(1);
-        if (fuel.isEmpty()) items.set(SLOT, remainder.isEmpty() ? ItemStack.EMPTY : remainder);
+        if (fuel.isEmpty()) items.set(SLOT, ItemStack.EMPTY);
+        // What a fuel leaves behind (a lava bucket's bucket) comes out of the horn, so it never jams the fuel slot.
+        if (!remainder.isEmpty()) net.minecraft.world.Containers.dropItemStack(level, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, remainder);
         updateLit(level, pos, true);
         tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
                 tk.darrow.tribalpower.sound.ModSounds.EMBER_HORN_ROAR, 0.55F, 0.95F);

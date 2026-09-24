@@ -26,6 +26,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.camp.CampRegistry.ENTITIES.register(modBus);
         modBus.addListener((net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent event)->event.register(tk.darrow.tribalpower.camp.CampHooks.TICKETS));
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchNights::sleepFinished);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.Ownership::guardBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.building.BuildersChalkItem::shrink);
@@ -84,6 +85,10 @@ public final class TribalPower {
         modBus.addListener(this::onCommonSetup);
         // Rites / QoL (rite/world, ley, logic, api/Diagnostics)
         tk.darrow.tribalpower.rite.world.WorldRiteRegistry.register(modBus);
+        tk.darrow.tribalpower.healing.HealingRegistry.register(modBus);
+        tk.darrow.tribalpower.kit.KitRegistry.register(modBus);
+        tk.darrow.tribalpower.effect.ModEffects.register(modBus);
+        tk.darrow.tribalpower.cuisine.CuisineRegistry.register(modBus);
         tk.darrow.tribalpower.ley.LeyRegistry.register(modBus);
         tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
@@ -105,6 +110,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::broken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::armorBroken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::attributes);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::incomingDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.Anointing::incomingDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.Anointing::dealtDamage);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.Anointing::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::knockback);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::fall);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::trample);

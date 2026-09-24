@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:earth_feast"
+  },
+  "seconds": 20
+}

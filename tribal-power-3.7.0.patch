@@ -1,0 +1,3585 @@
+diff --git a/README.md b/README.md
+index 674ce79..552a813 100644
+--- a/README.md
++++ b/README.md
+@@ -52,7 +52,9 @@ The Spirit Codex provides the in-game guide. JEI, when installed, displays latti
+ 
+ ## Storage and automation
+ 
+-Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers.
++Ancestral Caches hold 54 slots locally. Deep Caches share a personal 54-slot vault, also accessible through a Wayfarer Satchel. Visiting The March attunes access; otherwise opening costs 5 Pulse. Spirit Cisterns hold 16,000 mB and expose standard fluid handlers. The **Spirit Flask** is a tank for the road at 4,000 mB, the **Greater Spirit Flask** at 16,000: use either on a tank, machine or fluid source to fill it, sneak-use to pour a bucket back out. Both are ordinary fluid containers, so pipes and other mods fill them in place.
++
++Every inventory worth tidying carries a small **Tidy** button above its slots: your own pack, caches, and any chest, barrel, shulker box or hopper. It merges stacks and orders the rest, never touching the hotbar, armour or a machine's slots. Turn it off with `sortButtons` in the client config.
+ 
+ A Lattice Conductor does not make Pulse. Ritual Chalk two Resonance Totems (within 16), place the Conductor within 8 of them and of a generator, and it pulls up to 10 Pulse a second into totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Song Benches that need help are filled first. Every two seconds it routes Echo items through nearby Ancestral Caches while the lattice holds Pulse. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
+ 
+@@ -94,6 +96,10 @@ The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in th
+ 
+ **Spiritweave armor** unlinked: hood night sight, robe resistance, leggings speed, boots slow falling when descending. Unlinked pieces spend 2 Pulse every four seconds; sneak-use a piece on a Resonance Totem (40 Pulse) to replace that boon with the totem's voice (3 Pulse). Mixed voices are intended. Original Spiritgear tools remain available.
+ 
++**Spiritgear Shears** and a **Spiritgear Hoe** join the set and rank and bind the same way. The shears take a 3x3 face of foliage with Earth, trim for nothing with Air, leave a sheep its fleece with Water, smoke a hive calm with Fire, mend what they shear with Spirit and send cuttings to hand with Loom. The hoe reaps and sows a ripe crop in one use: Earth turns a 3x3 of soil, Water keeps its furrows and nearby fields wet, Air reaps a 3x3, Loom a 5x5 for no Pulse, and Spirit doubles part of the harvest.
++
++The **Totem Wrench** turns a block without breaking it, and sneak-used on a machine face steps that face through Both, Input, Output and Closed for 1 Pulse. The **Weaver's Wand** carries the face you click across every matching neighbour, up to 32 blocks, spending blocks from your pack and 2 Pulse each.
++
+ Seat a reusable seal in a **Ritual Brazier** with its matching totem nearby. Earth grants haste, Fire resists flame, Water regenerates, Air slows falls, Spirit grants night sight, and Loom threads 2 Pulse into carried cells every two seconds with Luck. A six-block blessing consumes 8 Pulse every two seconds while players are present. Sneak empty-handed to recover the seal.
+ 
+ ## Redstone language
+diff --git a/docs/RELEASE_3.7.0.md b/docs/RELEASE_3.7.0.md
+new file mode 100644
+index 0000000..9465a6b
+--- /dev/null
++++ b/docs/RELEASE_3.7.0.md
+@@ -0,0 +1,15 @@
++# Tribal Power 3.7.0 - The carried kit
++
++- **Spiritgear Shears.** The set gains shears, and they rank and bind like the rest of it. Earth takes the whole 3x3 face of leaves, wool or vine in one swing. Air trims for nothing at all: no Pulse, no wear. Water leaves a sheep its fleece, always at Manifested. Fire, used on a beehive, smokes the bees calm so none swarm you. Spirit mends what it shears and shows which beasts are worth shearing. Loom sends the cuttings straight to hand.
++- **Spiritgear Hoe.** Use it on a ripe crop and it reaps and sows in one motion: the harvest drops, one seed goes back into the ground, and the plant is left standing. Earth turns a 3x3 of soil at a time. Water leaves its furrows wet and keeps the fields you walk past watered. Air reaps a 3x3; Loom reaps a 5x5 and spends no Pulse doing it. Spirit sends a quarter of harvests back doubled.
++- **Spirit Flask.** A tank you can carry: 4,000 mB in one hand, 16,000 in the **Greater Spirit Flask**, and never a stack of half-empty buckets. Use it on a cistern, a Wave Drum, a relay or another mod's tank and it draws from it; if it cannot draw, it pours in what it carries. Use it on a fluid source in the world and it drinks a bucket; sneak-use and it pours one back out. Other mods see an ordinary fluid container, so pipes and filling machines fill it where it sits.
++- **Totem Wrench.** Machines end up facing the wrong way. The wrench turns a block instead of breaking and replacing it, and sneak-used on a machine face it steps that face through Both, Input, Output and Closed — the setting the machine's own side pad shows, now reachable from outside the screen. A turn costs 1 Pulse from any cell you carry, or a point of the wrench's 512.
++- **Weaver's Wand.** Click the face of a block and the wand carries that face outward across every neighbour like it, up to 32 blocks in one sweep. The blocks come from your pack at 2 Pulse each. It only fills open air, so a floor goes down in a click and nothing underneath is lost.
++- **A tidy button on every inventory.** Your own pack, Ancestral and Deep Caches, and any chest, barrel, shulker box or hopper now carry a small **Tidy** button in the corner above their slots. A press merges what can be merged and lays the rest out in order. Your hotbar and armour are never moved, and a machine's slots are left alone — the button only appears where every slot takes anything. Set `sortButtons = false` in `tribalpower-client.toml` to hide it.
++- **Lighter on the server, and on frames.** A pass over the mod's busiest code. Machines, benches and the Lattice Conductor find nearby totems, caches and benches by looking at what is actually there instead of testing every block in a cube around them, which is thousands of lookups a second off a working camp. Spirit sight for ores and buried chests skips whole slabs of stone that cannot hold what it is looking for. Reading a piece's rank and voice no longer copies its data every time, which it was doing several times a tick for every worn piece and again for every frame it was drawn. The Echo station screen looks its recipe up when the input changes rather than twice a frame, the Pulse readout and the Ley Lens read once a tick instead of once a frame, charms do one pass over what you are wearing and nothing at all when you wear none, frost boots look where you walk every few ticks rather than every one, totems remember the land instead of re-reading it each tick, blessed ground grows on a slower beat for the same growth, and effects that nobody is near are no longer sent.
++
++- **Fitting in.** The new Spiritgear takes ranks at the Echo stations, unweaves back into a Manifested Ingot, carries a seated Pulse Cell, accepts Pulse Attunement, and glows in its bound voice like the rest of the set. All five additions have Codex pages and hand-drawn art at every rank.
++
++Minecraft 1.21.1, NeoForge 21.1.249.
++
++GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v3.7.0
+diff --git a/gradle.properties b/gradle.properties
+index d2d680d..4dbe6b4 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -15,6 +15,6 @@ mod_id=tribalpower
+ mod_name=Tribal Power
+ mod_license=GNU GPL v3
+ mod_group_id=tk.darrow.tribalpower
+-mod_version=3.6.2
++mod_version=3.7.0
+ mod_authors=Ahmi & Risika Darrow
+ mod_description=Shamanic technomancy - spirit-synced machinery, totem lattices, pulse power, and the Nine Tribes who kept the Loom.
+diff --git a/src/main/java/tk/darrow/tribalpower/TribalPower.java b/src/main/java/tk/darrow/tribalpower/TribalPower.java
+index 364dcdd..c9f02f7 100644
+--- a/src/main/java/tk/darrow/tribalpower/TribalPower.java
++++ b/src/main/java/tk/darrow/tribalpower/TribalPower.java
+@@ -35,6 +35,7 @@ public final class TribalPower {
+         tk.darrow.tribalpower.world.MarchTrees.init();
+         ModBlocks.BLOCKS.register(modBus);
+         ModItems.ITEMS.register(modBus);
++        tk.darrow.tribalpower.item.SpiritFlaskItem.COMPONENTS.register(modBus);
+         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
+         ModEntities.ENTITIES.register(modBus);
+         tk.darrow.tribalpower.entity.CreatureEntities.ENTITIES.register(modBus);
+@@ -63,6 +64,7 @@ public final class TribalPower {
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
+         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
+         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
++        modBus.addListener(tk.darrow.tribalpower.storage.SortPayload::register);
+         modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
+         modBus.addListener(tk.darrow.tribalpower.gate.DrumRite::register);
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::onLogin);
+@@ -84,6 +86,7 @@ public final class TribalPower {
+         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
+         tk.darrow.tribalpower.charm.CharmSlots.register(modBus);
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::playerTick);
++        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::loggedOut);
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::incomingDamage);
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::drops);
+         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::beforePlace);
+@@ -118,6 +121,10 @@ public final class TribalPower {
+         tk.darrow.tribalpower.compat.ChocoboCompat.register();
+         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);
+         modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
++            // The flask is a tank in the hand: pipes, tanks and other mods fill it like any container.
++            event.registerItem(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.ITEM,
++                    (stack, context) -> tk.darrow.tribalpower.item.SpiritFlaskItem.handler(stack),
++                    ModItems.SPIRIT_FLASK.get(), ModItems.GREATER_SPIRIT_FLASK.get());
+             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
+                     tk.darrow.tribalpower.camp.CampRegistry.TYPE.get(),(be,side)->be.hasInventory()?new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
+                             new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be,side==null?net.minecraft.core.Direction.UP:side)):null);
+diff --git a/src/main/java/tk/darrow/tribalpower/blockentity/ResonanceTotemBlockEntity.java b/src/main/java/tk/darrow/tribalpower/blockentity/ResonanceTotemBlockEntity.java
+index adcacaa..6e3e7b3 100644
+--- a/src/main/java/tk/darrow/tribalpower/blockentity/ResonanceTotemBlockEntity.java
++++ b/src/main/java/tk/darrow/tribalpower/blockentity/ResonanceTotemBlockEntity.java
+@@ -46,10 +46,18 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
+         return attunement;
+     }
+ 
++    /** Cached ley reading: the land around a totem changes on the scale of weather, not of ticks. */
++    private boolean lush;
++    private long lushReadAt = Long.MIN_VALUE;
++
+     public static void serverTick(Level level, BlockPos pos, BlockState state, ResonanceTotemBlockEntity be) {
+         if (be.attention <= 0) return;
+-        boolean lush = LeyMath.glimpse(level, pos).strength() >= LeyMath.PAD;
+-        if (lush && (level.getGameTime() & 1L) != 0L) return;
++        long now = level.getGameTime();
++        if (now - be.lushReadAt >= 100L || be.lushReadAt == Long.MIN_VALUE) {
++            be.lush = LeyMath.glimpse(level, pos).strength() >= LeyMath.PAD;
++            be.lushReadAt = now;
++        }
++        if (be.lush && (now & 1L) != 0L) return;
+         be.attention--;
+         if (be.attention % 200 == 0) be.setChanged();
+     }
+diff --git a/src/main/java/tk/darrow/tribalpower/charm/CharmHooks.java b/src/main/java/tk/darrow/tribalpower/charm/CharmHooks.java
+index 07ba510..24d9ebd 100644
+--- a/src/main/java/tk/darrow/tribalpower/charm/CharmHooks.java
++++ b/src/main/java/tk/darrow/tribalpower/charm/CharmHooks.java
+@@ -25,16 +25,33 @@ public final class CharmHooks {
+ 
+     private CharmHooks() {}
+ 
++    /** Forget a player's last Pulse verdict when they log out, so the map cannot grow without bound. */
++    public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
++        PULSE_OK.remove(event.getEntity().getUUID());
++    }
++
+     public static void playerTick(PlayerTickEvent.Post event) {
+         Player player = event.getEntity();
+         if (player.level().isClientSide) return;
+-        Set<Attunement> voices = new HashSet<>();
++        CharmInventory worn = CharmSlots.of(player);
++        Set<Attunement> voices = null;
+         int cost = 0;
+         boolean flight = false;
+-        for (ItemStack charm : CharmSlots.equipped(player)) {
+-            voices.addAll(SpiritCharmItem.voices(charm));
+-            cost += SpiritCharmItem.pulseCost(charm);
+-            if (SpiritCharmItem.grantsFlight(charm)) flight = true;
++        // Read each charm's voices once. This runs every tick for every player, and voices() parses the
++        // charm's tag, so asking it three times per charm (voices, cost, flight) was three times the work.
++        for (int i = 0; i < CharmInventory.SIZE; i++) {
++            ItemStack charm = worn.getItem(i);
++            if (charm.isEmpty()) continue;
++            Set<Attunement> theirs = SpiritCharmItem.voices(charm);
++            if (voices == null) voices = new HashSet<>();
++            voices.addAll(theirs);
++            cost += 2 * Math.max(1, theirs.size());
++            if (theirs.contains(Attunement.AIR)) flight = true;
++        }
++        if (voices == null) {
++            // Nothing worn: no Pulse to spend, no effects to apply, and flight to take back if it was given.
++            setFlight(player, false);
++            return;
+         }
+         boolean due = player.level().getGameTime() % 40 == 0;
+         boolean last = PULSE_OK.getOrDefault(player.getUUID(), true);
+@@ -52,7 +69,7 @@ public final class CharmHooks {
+             return;
+         }
+         if (player.level().getGameTime() % 80 == 0) apply(player, voices);
+-        applyKinds(player);
++        applyKinds(player, worn);
+         if (voices.contains(Attunement.LOOM) && player.level().getGameTime() % 40 == 0
+                 && player.getRandom().nextFloat() < 0.30F && cost > 0) {
+             for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+@@ -66,9 +83,11 @@ public final class CharmHooks {
+         setFlight(player, flight);
+     }
+ 
+-    private static void applyKinds(Player player) {
++    private static void applyKinds(Player player, CharmInventory worn) {
+         long time = player.level().getGameTime();
+-        for (ItemStack charm : CharmSlots.equipped(player)) {
++        if (time % 80 != 0 && !player.isShiftKeyDown()) return;
++        for (int i = 0; i < CharmInventory.SIZE; i++) {
++            ItemStack charm = worn.getItem(i);
+             if (!(charm.getItem() instanceof SpiritCharmItem item)) continue;
+             if (item.kind == CharmKind.HEARTH && time % 80 == 0) {
+                 player.getFoodData().eat(1, 0.4F);
+diff --git a/src/main/java/tk/darrow/tribalpower/client/PulseHud.java b/src/main/java/tk/darrow/tribalpower/client/PulseHud.java
+index d45e162..add0936 100644
+--- a/src/main/java/tk/darrow/tribalpower/client/PulseHud.java
++++ b/src/main/java/tk/darrow/tribalpower/client/PulseHud.java
+@@ -7,6 +7,9 @@ import tk.darrow.tribalpower.item.*;
+ 
+ /** Contextual rather than permanent HUD chrome. Only appears while holding Pulse equipment. */
+ public final class PulseHud {
++    private static long readAt = Long.MIN_VALUE;
++    private static int pulse, capacity;
++
+     private PulseHud() {}
+     public static void render(RenderGuiEvent.Post event) {
+         Minecraft mc = Minecraft.getInstance();
+@@ -14,11 +17,16 @@ public final class PulseHud {
+         var held = mc.player.getMainHandItem();
+         if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
+                 && !(held.getItem() instanceof ResonanceMaulItem) && !held.is(ModItems.SPIRITGEAR_BLADE.get())) return;
+-        // A piece's own seated cell counts too: it is what the piece spends first.
+-        int pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
+-        int capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
+-        for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
+-        capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
++        // A piece's own seated cell counts too: it is what the piece spends first. Both sums walk the
++        // whole inventory, so they are taken once a tick rather than once a frame.
++        long now = mc.level == null ? 0 : mc.level.getGameTime();
++        if (now != readAt) {
++            readAt = now;
++            pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
++            capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
++            for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
++            capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
++        }
+         int x = mc.getWindow().getGuiScaledWidth()-128, y = mc.getWindow().getGuiScaledHeight()-69;
+         var g = event.getGuiGraphics();
+         g.fill(x, y, x+116, y+34, 0xD9101B22); g.fill(x, y, x+2, y+34, 0xFFB58A58);
+diff --git a/src/main/java/tk/darrow/tribalpower/client/SkyConfig.java b/src/main/java/tk/darrow/tribalpower/client/SkyConfig.java
+index 94194c4..dcf87e1 100644
+--- a/src/main/java/tk/darrow/tribalpower/client/SkyConfig.java
++++ b/src/main/java/tk/darrow/tribalpower/client/SkyConfig.java
+@@ -2,7 +2,7 @@ package tk.darrow.tribalpower.client;
+ import net.neoforged.neoforge.common.ModConfigSpec;
+ public final class SkyConfig {
+     public static final ModConfigSpec SPEC;
+-    public static final ModConfigSpec.BooleanValue ENABLED,OVERWORLD,MARCH;
++    public static final ModConfigSpec.BooleanValue ENABLED,OVERWORLD,MARCH,SORT_BUTTONS;
+     public static final ModConfigSpec.DoubleValue INTENSITY;
+     public static final ModConfigSpec.IntValue QUALITY;
+     static {
+@@ -10,6 +10,7 @@ public final class SkyConfig {
+         ENABLED=b.comment("Enable the lightweight aurora sky layer. Disable when using a shader pack that replaces the sky.").define("auroraEnabled",true);
+         OVERWORLD=b.define("overworldAurora",true);MARCH=b.define("marchAurora",true);
+         INTENSITY=b.comment("Brightness multiplier; 0 disables the effect.").defineInRange("auroraIntensity",.7,0,1.5);
++        SORT_BUTTONS=b.comment("Draw a tidy button above the player's pack and above plain storage (chests, barrels, shulkers, hoppers and Tribal Power caches).").define("sortButtons",true);
+         QUALITY=b.comment("0: reduced (48 segments), 1: standard (96), 2: detailed (144). No world particles are spawned.").defineInRange("auroraQuality",1,0,2);
+         SPEC=b.build();
+     }
+diff --git a/src/main/java/tk/darrow/tribalpower/client/SortButtons.java b/src/main/java/tk/darrow/tribalpower/client/SortButtons.java
+new file mode 100644
+index 0000000..81d0672
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/client/SortButtons.java
+@@ -0,0 +1,113 @@
++package tk.darrow.tribalpower.client;
++
++import net.minecraft.client.gui.GuiGraphics;
++import net.minecraft.client.gui.components.AbstractWidget;
++import net.minecraft.client.gui.components.Tooltip;
++import net.minecraft.client.gui.narration.NarrationElementOutput;
++import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
++import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
++import net.minecraft.client.Minecraft;
++import net.minecraft.network.chat.Component;
++import net.minecraft.sounds.SoundEvents;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.inventory.Slot;
++import net.neoforged.neoforge.client.event.ScreenEvent;
++import net.neoforged.neoforge.network.PacketDistributor;
++import tk.darrow.tribalpower.storage.InventorySorter;
++import tk.darrow.tribalpower.storage.SortPayload;
++
++import java.util.List;
++
++/**
++ * A tidy button on every inventory worth tidying — the player's pack, chests, barrels, shulkers, hoppers and
++ * the mod's own caches, whoever built the screen. The button sits in the empty right end of the label row
++ * above its own slots, and follows the screen if it shifts (the recipe book, say).
++ */
++public final class SortButtons {
++    private static final int SIZE = 10;
++
++    private SortButtons() {}
++
++    public static void onScreenInit(ScreenEvent.Init.Post event) {
++        if (!SkyConfig.SORT_BUTTONS.get()) return;
++        if (!(event.getScreen() instanceof AbstractContainerScreen<?> screen)
++                || screen instanceof CreativeModeInventoryScreen) return;
++        Player player = Minecraft.getInstance().player;
++        if (player == null) return;
++        for (boolean container : new boolean[]{false, true}) {
++            List<Slot> group = InventorySorter.group(screen.getMenu(), player, container);
++            if (group.isEmpty()) continue;
++            int right = group.stream().mapToInt(slot -> slot.x).max().orElse(0) + 16;
++            int top = group.stream().mapToInt(slot -> slot.y).min().orElse(0);
++            event.addListener(new SortButton(screen, right - SIZE, top - SIZE - 2, container, group));
++        }
++    }
++
++    private static final class SortButton extends AbstractWidget {
++        private final AbstractContainerScreen<?> screen;
++        private final int offsetX, offsetY;
++        private final boolean container;
++        /**
++         * Which slots this button would move. The menu's slot list never changes while the screen is
++         * open, so this is settled once: deciding it again every frame meant a slot-by-slot scan behind
++         * every drawn frame, which is not what a button's border colour is worth.
++         */
++        private final List<Slot> group;
++        private boolean live;
++        private long checkedAt = Long.MIN_VALUE;
++
++        private SortButton(AbstractContainerScreen<?> screen, int offsetX, int offsetY, boolean container,
++                           List<Slot> group) {
++            super(screen.getGuiLeft() + offsetX, screen.getGuiTop() + offsetY, SIZE, SIZE,
++                    Component.translatable("gui.tribalpower.sort"));
++            this.screen = screen;
++            this.offsetX = offsetX;
++            this.offsetY = offsetY;
++            this.container = container;
++            this.group = group;
++            setTooltip(Tooltip.create(Component.translatable(
++                    container ? "gui.tribalpower.sort.container" : "gui.tribalpower.sort.inventory")));
++        }
++
++        @Override
++        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
++            // The screen can move after init (the recipe book slides it), so follow it every frame.
++            setX(screen.getGuiLeft() + offsetX);
++            setY(screen.getGuiTop() + offsetY);
++            boolean hover = live() && isHovered();
++            graphics.fill(getX(), getY(), getX() + SIZE, getY() + SIZE, hover ? 0xFF20333A : 0xFF101B22);
++            graphics.renderOutline(getX(), getY(), SIZE, SIZE, live() ? (hover ? 0xFFE7DCC1 : 0xFFB58A58) : 0xFF3A4A50);
++            int ink = live() ? (hover ? 0xFFFFF4D8 : 0xFFE7DCC1) : 0xFF6A7A80;
++            // Three bars, longest first: the usual mark for putting things in order.
++            for (int row = 0; row < 3; row++) {
++                graphics.fill(getX() + 2, getY() + 2 + row * 2, getX() + 8 - row * 2, getY() + 3 + row * 2, ink);
++            }
++        }
++
++        /** Is there anything in there to tidy? Re-read a few times a second, not a few times a frame. */
++        private boolean live() {
++            long now = Minecraft.getInstance().level == null ? 0 : Minecraft.getInstance().level.getGameTime();
++            if (now != checkedAt) {
++                checkedAt = now;
++                live = false;
++                for (Slot slot : group) {
++                    if (slot.hasItem()) { live = true; break; }
++                }
++            }
++            return live;
++        }
++
++        @Override
++        public void onClick(double mouseX, double mouseY) {
++            if (!live()) return;
++            PacketDistributor.sendToServer(new SortPayload(container));
++            Minecraft.getInstance().getSoundManager().play(
++                    net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(SoundEvents.BUNDLE_INSERT, 1.2F));
++        }
++
++        @Override
++        protected void updateWidgetNarration(NarrationElementOutput output) {
++            defaultButtonNarrationText(output);
++        }
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/client/StationScreen.java b/src/main/java/tk/darrow/tribalpower/client/StationScreen.java
+index 78f34f0..f6e528b 100644
+--- a/src/main/java/tk/darrow/tribalpower/client/StationScreen.java
++++ b/src/main/java/tk/darrow/tribalpower/client/StationScreen.java
+@@ -30,12 +30,27 @@ public class StationScreen extends AbstractContainerScreen<StationMenu> {
+     private int ioX() { return leftPos + 168; }
+     private int ioY() { return topPos + 34; }
+ 
+-    /** The job for the item in the input slot, worked out here from the synced recipes. */
++    private ItemStack lookedUp = ItemStack.EMPTY;
++    private ProcessingRecipes.Formula cached;
++
++    /**
++     * The job for the item in the input slot, worked out from the synced recipes. The lookup walks every
++     * recipe in the pack, and both renderBg and renderLabels want it, so it is only redone when the input
++     * changes rather than twice per frame.
++     */
+     private ProcessingRecipes.Formula formula() {
+-        if (minecraft == null || minecraft.level == null || menu.input().isEmpty()) return null;
+-        var state = minecraft.level.getBlockState(menu.machinePos());
+-        String station = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
+-        return ProcessingRecipes.find(minecraft.level, station, menu.input());
++        if (minecraft == null || minecraft.level == null || menu.input().isEmpty()) {
++            lookedUp = ItemStack.EMPTY;
++            return cached = null;
++        }
++        ItemStack input = menu.input();
++        if (!ItemStack.matches(input, lookedUp)) {
++            lookedUp = input.copy();
++            var state = minecraft.level.getBlockState(menu.machinePos());
++            String station = BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
++            cached = ProcessingRecipes.find(minecraft.level, station, input);
++        }
++        return cached;
+     }
+ 
+     @Override
+diff --git a/src/main/java/tk/darrow/tribalpower/client/TribalPowerClient.java b/src/main/java/tk/darrow/tribalpower/client/TribalPowerClient.java
+index 29a7671..09a10c0 100644
+--- a/src/main/java/tk/darrow/tribalpower/client/TribalPowerClient.java
++++ b/src/main/java/tk/darrow/tribalpower/client/TribalPowerClient.java
+@@ -57,6 +57,7 @@ public final class TribalPowerClient {
+         modBus.addListener(TribeClient::blockColours);
+         modBus.addListener(TribeClient::itemColours);
+         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(ItemHints::tooltip);
++        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(SortButtons::onScreenInit);
+         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) -> CodexUnlocks.reset());
+     }
+ 
+diff --git a/src/main/java/tk/darrow/tribalpower/client/VoiceGlow.java b/src/main/java/tk/darrow/tribalpower/client/VoiceGlow.java
+index c77dcb8..5858dc5 100644
+--- a/src/main/java/tk/darrow/tribalpower/client/VoiceGlow.java
++++ b/src/main/java/tk/darrow/tribalpower/client/VoiceGlow.java
+@@ -57,7 +57,8 @@ public final class VoiceGlow {
+     public static void items(RegisterColorHandlersEvent.Item event) {
+         event.register((stack, layer) -> layer == 1 ? tint(stack) : 0xFFFFFFFF,
+                 ModItems.SPIRITGEAR_PICKAXE.get(), ModItems.SPIRITGEAR_AXE.get(), ModItems.SPIRITGEAR_SHOVEL.get(),
+-                ModItems.SPIRITGEAR_BLADE.get(), ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
++                ModItems.SPIRITGEAR_BLADE.get(), ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
++                ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
+                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
+     }
+ 
+@@ -79,6 +80,9 @@ public final class VoiceGlow {
+ 
+     /** The trims of worn Spiritweave, drawn again full-bright in the voice's colour. */
+     static final class Worn<T extends LivingEntity, M extends HumanoidModel<T>> extends RenderLayer<T, M> {
++        /** Hoisted: this ran once per entity per frame, for every humanoid on screen. */
++        private static final EquipmentSlot[] WORN_SLOTS = {EquipmentSlot.HEAD, EquipmentSlot.CHEST,
++                EquipmentSlot.LEGS, EquipmentSlot.FEET};
+         private final HumanoidModel<T> inner, outer;
+ 
+         Worn(RenderLayerParent<T, M> parent, HumanoidModel<T> inner, HumanoidModel<T> outer) {
+@@ -90,7 +94,7 @@ public final class VoiceGlow {
+         @Override
+         public void render(PoseStack pose, MultiBufferSource buffers, int light, T entity, float limbSwing, float limbSwingAmount,
+                            float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
+-            for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
++            for (EquipmentSlot slot : WORN_SLOTS) {
+                 ItemStack stack = entity.getItemBySlot(slot);
+                 if (!(stack.getItem() instanceof SpiritweaveArmor)) continue;
+                 int tint = tint(stack);
+diff --git a/src/main/java/tk/darrow/tribalpower/effect/SpiritEffects.java b/src/main/java/tk/darrow/tribalpower/effect/SpiritEffects.java
+index 0e0804e..9c2a927 100644
+--- a/src/main/java/tk/darrow/tribalpower/effect/SpiritEffects.java
++++ b/src/main/java/tk/darrow/tribalpower/effect/SpiritEffects.java
+@@ -19,7 +19,13 @@ public final class SpiritEffects {
+             case LOOM -> new Vector3f(0.38F, 0.82F, 0.79F);
+         };
+     }
++    /** Nobody within sight of it: every packet below would be built and thrown away, so don't build them. */
++    private static boolean unseen(ServerLevel level, Vec3 at) {
++        return !level.hasNearbyAlivePlayer(at.x, at.y, at.z, 48.0);
++    }
++
+     public static void ring(ServerLevel level, Vec3 center, Attunement element, double radius, int points) {
++        if (unseen(level, center)) return;
+         DustParticleOptions dust = new DustParticleOptions(color(element), 0.85F);
+         int count = Math.max(4, Math.min(24, points));
+         double phase = level.getGameTime() * 0.025;
+@@ -29,6 +35,7 @@ public final class SpiritEffects {
+         }
+     }
+     public static void beam(ServerLevel level, Vec3 from, Vec3 to, Attunement element) {
++        if (unseen(level, from) && unseen(level, to)) return;
+         DustParticleOptions dust = new DustParticleOptions(color(element), 0.9F);
+         int count = Math.min(32, Math.max(2, (int)(from.distanceTo(to) * 2)));
+         for (int i = 0; i <= count; i++) {
+diff --git a/src/main/java/tk/darrow/tribalpower/item/ModCreativeTabs.java b/src/main/java/tk/darrow/tribalpower/item/ModCreativeTabs.java
+index 4c7443a..f31bddd 100644
+--- a/src/main/java/tk/darrow/tribalpower/item/ModCreativeTabs.java
++++ b/src/main/java/tk/darrow/tribalpower/item/ModCreativeTabs.java
+@@ -49,6 +49,8 @@ public final class ModCreativeTabs {
+                         out.accept(ModItems.SPIRITGEAR_AXE.get());
+                         out.accept(ModItems.SPIRITGEAR_SHOVEL.get());
+                         out.accept(ModItems.SPIRITGEAR_BLADE.get());
++                        out.accept(ModItems.SPIRITGEAR_SHEARS.get());
++                        out.accept(ModItems.SPIRITGEAR_HOE.get());
+                         out.accept(ModItems.DRUMHEART.get());
+                         out.accept(ModItems.LEY_COLLECTOR.get());
+                         out.accept(ModItems.PULSE_RESONATOR.get());
+@@ -132,6 +134,10 @@ public final class ModCreativeTabs {
+                         out.accept(ModItems.CHORUS_CHARM.get());
+                         out.accept(ModItems.RITUAL_BRAZIER.get());
+                         out.accept(ModItems.LATTICE_TUNER.get());
++                        out.accept(ModItems.TOTEM_WRENCH.get());
++                        out.accept(ModItems.WEAVERS_WAND.get());
++                        out.accept(ModItems.SPIRIT_FLASK.get());
++                        out.accept(ModItems.GREATER_SPIRIT_FLASK.get());
+                         out.accept(ModItems.ITEM_RELAY.get());
+                         out.accept(ModItems.FLUID_RELAY.get());
+                         out.accept(ModItems.LONGREACH_ITEM_RELAY.get());
+diff --git a/src/main/java/tk/darrow/tribalpower/item/ModItems.java b/src/main/java/tk/darrow/tribalpower/item/ModItems.java
+index 82f5ee9..a2a018d 100644
+--- a/src/main/java/tk/darrow/tribalpower/item/ModItems.java
++++ b/src/main/java/tk/darrow/tribalpower/item/ModItems.java
+@@ -86,6 +86,28 @@ public final class ModItems {
+             "spiritgear_blade",
+             () -> new SpiritgearBladeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+     );
++    public static final DeferredItem<Item> SPIRITGEAR_SHEARS = ITEMS.register(
++            "spiritgear_shears",
++            () -> new SpiritgearShearsItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
++    );
++    public static final DeferredItem<Item> SPIRITGEAR_HOE = ITEMS.register(
++            "spiritgear_hoe",
++            () -> new SpiritgearHoeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
++    );
++
++    // Carried kit — a tank for the road, a wrench for machine faces, a wand for walls
++    public static final DeferredItem<SpiritFlaskItem> SPIRIT_FLASK = ITEMS.register(
++            "spirit_flask",
++            () -> new SpiritFlaskItem(new Item.Properties(), 4 * net.neoforged.neoforge.fluids.FluidType.BUCKET_VOLUME)
++    );
++    public static final DeferredItem<SpiritFlaskItem> GREATER_SPIRIT_FLASK = ITEMS.register(
++            "greater_spirit_flask",
++            () -> new SpiritFlaskItem(new Item.Properties(), 16 * net.neoforged.neoforge.fluids.FluidType.BUCKET_VOLUME)
++    );
++    public static final DeferredItem<TotemWrenchItem> TOTEM_WRENCH = ITEMS.register(
++            "totem_wrench", () -> new TotemWrenchItem(new Item.Properties()));
++    public static final DeferredItem<WeaversWandItem> WEAVERS_WAND = ITEMS.register(
++            "weavers_wand", () -> new WeaversWandItem(new Item.Properties()));
+ 
+     // Block items — pulse / lattice
+     public static final DeferredItem<BlockItem> DRUMHEART = ITEMS.registerSimpleBlockItem("drumheart", ModBlocks.DRUMHEART);
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritFlaskItem.java b/src/main/java/tk/darrow/tribalpower/item/SpiritFlaskItem.java
+new file mode 100644
+index 0000000..fa83772
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritFlaskItem.java
+@@ -0,0 +1,233 @@
++package tk.darrow.tribalpower.item;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.core.registries.Registries;
++import net.minecraft.core.component.DataComponentType;
++import net.minecraft.network.chat.Component;
++import net.minecraft.sounds.SoundSource;
++import net.minecraft.world.InteractionHand;
++import net.minecraft.world.InteractionResult;
++import net.minecraft.world.InteractionResultHolder;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.item.Item;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.TooltipFlag;
++import net.minecraft.world.item.context.UseOnContext;
++import net.minecraft.world.level.ClipContext;
++import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Block;
++import net.minecraft.world.level.block.BucketPickup;
++import net.minecraft.world.level.block.LiquidBlockContainer;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.level.material.FluidState;
++import net.minecraft.world.level.material.Fluids;
++import net.minecraft.world.phys.BlockHitResult;
++import net.minecraft.world.phys.HitResult;
++import net.neoforged.neoforge.fluids.FluidStack;
++import net.neoforged.neoforge.fluids.FluidType;
++import net.neoforged.neoforge.fluids.SimpleFluidContent;
++import net.neoforged.neoforge.fluids.capability.IFluidHandler;
++import net.neoforged.neoforge.fluids.capability.templates.FluidHandlerItemStack;
++import net.neoforged.neoforge.registries.DeferredHolder;
++import net.neoforged.neoforge.registries.DeferredRegister;
++import net.minecraft.world.level.block.LiquidBlock;
++import tk.darrow.tribalpower.TribalPower;
++
++import java.util.List;
++
++/**
++ * A tank you can carry. The flask fills and empties against any tank, machine or fluid it is used on, and
++ * carries far more than a bucket without ever splitting into stacks. Sneak-use to pour a bucket back out.
++ */
++public class SpiritFlaskItem extends Item {
++    public static final DeferredRegister<DataComponentType<?>> COMPONENTS =
++            DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, TribalPower.MOD_ID);
++
++    /** The flask's contents; NeoForge's own fluid component type so other mods' pipes read it. */
++    public static final DeferredHolder<DataComponentType<?>, DataComponentType<SimpleFluidContent>> CONTENT =
++            COMPONENTS.register("flask_content", () -> DataComponentType.<SimpleFluidContent>builder()
++                    .persistent(SimpleFluidContent.CODEC)
++                    .networkSynchronized(SimpleFluidContent.STREAM_CODEC)
++                    .build());
++
++    private final int capacity;
++
++    public SpiritFlaskItem(Properties properties, int capacity) {
++        super(properties.stacksTo(1));
++        this.capacity = capacity;
++    }
++
++    public int capacity() {
++        return capacity;
++    }
++
++    public static FluidStack contents(ItemStack stack) {
++        return stack.getOrDefault(CONTENT.get(), SimpleFluidContent.EMPTY).copy();
++    }
++
++    private static void set(ItemStack stack, FluidStack fluid) {
++        if (fluid.isEmpty()) stack.remove(CONTENT.get());
++        else stack.set(CONTENT.get(), SimpleFluidContent.copyOf(fluid));
++    }
++
++    /** The handler the capability hands out; also what other mods fill the flask through. */
++    public static net.neoforged.neoforge.fluids.capability.IFluidHandlerItem handler(ItemStack stack) {
++        int size = stack.getItem() instanceof SpiritFlaskItem flask ? flask.capacity : FluidType.BUCKET_VOLUME;
++        return new FluidHandlerItemStack(CONTENT, stack, size);
++    }
++
++    @Override
++    public InteractionResult useOn(UseOnContext context) {
++        Level level = context.getLevel();
++        Player player = context.getPlayer();
++        if (player == null) return InteractionResult.PASS;
++        ItemStack stack = context.getItemInHand();
++        BlockPos pos = context.getClickedPos();
++        // A tank, machine or pipe end: fill from it, or pour into it when it takes what we carry.
++        IFluidHandler block = level.getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
++                pos, context.getClickedFace());
++        if (block != null) {
++            if (level.isClientSide) return InteractionResult.SUCCESS;
++            if (drawFrom(stack, block, player) || pourInto(stack, block, player)) return InteractionResult.CONSUME;
++            return InteractionResult.FAIL;
++        }
++        return interactWithWorld(level, player, context.getHand(), stack, pos, context.getClickedFace())
++                ? InteractionResult.sidedSuccess(level.isClientSide) : InteractionResult.PASS;
++    }
++
++    @Override
++    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
++        ItemStack stack = player.getItemInHand(hand);
++        BlockHitResult hit = getPlayerPOVHitResult(level, player,
++                player.isShiftKeyDown() ? ClipContext.Fluid.NONE : ClipContext.Fluid.SOURCE_ONLY);
++        if (hit.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(stack);
++        BlockPos pos = hit.getBlockPos();
++        if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, hit.getDirection(), stack))
++            return InteractionResultHolder.pass(stack);
++        return interactWithWorld(level, player, hand, stack, pos, hit.getDirection())
++                ? InteractionResultHolder.sidedSuccess(stack, level.isClientSide)
++                : InteractionResultHolder.pass(stack);
++    }
++
++    /** Sneak pours a bucket out in front of you; otherwise a fluid source in the world is drunk up. */
++    private boolean interactWithWorld(Level level, Player player, InteractionHand hand, ItemStack stack,
++                                      BlockPos pos, Direction face) {
++        FluidStack held = contents(stack);
++        if (player.isShiftKeyDown()) {
++            if (held.getAmount() < FluidType.BUCKET_VOLUME) return false;
++            BlockPos target = level.getBlockState(pos).canBeReplaced() ? pos : pos.relative(face);
++            if (!level.mayInteract(player, target) || !player.mayUseItemAt(target, face, stack)) return false;
++            if (level.isClientSide) return true;
++            if (!place(level, target, held)) return false;
++            if (!player.getAbilities().instabuild) {
++                held.shrink(FluidType.BUCKET_VOLUME);
++                set(stack, held);
++            }
++            level.playSound(null, target, held.getFluid().getFluidType().getSound(net.neoforged.neoforge.common.SoundActions.BUCKET_EMPTY),
++                    SoundSource.BLOCKS, 1.0F, 1.0F);
++            return true;
++        }
++        FluidState fluid = level.getFluidState(pos);
++        if (!fluid.isSource() || (!held.isEmpty() && !FluidStack.isSameFluidSameComponents(held,
++                new FluidStack(fluid.getType(), FluidType.BUCKET_VOLUME)))) return false;
++        if (held.getAmount() + FluidType.BUCKET_VOLUME > capacity) return false;
++        if (level.isClientSide) return true;
++        BlockState state = level.getBlockState(pos);
++        if (state.getBlock() instanceof BucketPickup pickup) {
++            ItemStack taken = pickup.pickupBlock(player, level, pos, state);
++            if (taken.isEmpty()) return false;
++        } else {
++            level.setBlock(pos, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
++        }
++        FluidStack gained = new FluidStack(fluid.getType(), FluidType.BUCKET_VOLUME);
++        set(stack, held.isEmpty() ? gained : grown(held, FluidType.BUCKET_VOLUME));
++        level.playSound(null, pos, gained.getFluid().getFluidType().getSound(net.neoforged.neoforge.common.SoundActions.BUCKET_FILL),
++                SoundSource.BLOCKS, 1.0F, 1.0F);
++        return true;
++    }
++
++    private static FluidStack grown(FluidStack stack, int amount) {
++        FluidStack copy = stack.copy();
++        copy.grow(amount);
++        return copy;
++    }
++
++    private static boolean place(Level level, BlockPos pos, FluidStack held) {
++        BlockState state = level.getBlockState(pos);
++        if (!(held.getFluid() instanceof net.minecraft.world.level.material.FlowingFluid flowing)) return false;
++        if (state.getBlock() instanceof LiquidBlockContainer container
++                && container.canPlaceLiquid(null, level, pos, state, held.getFluid())) {
++            return container.placeLiquid(level, pos, state, flowing.getSource(false));
++        }
++        if (!state.canBeReplaced() && !state.isAir()) return false;
++        if (level.dimensionType().ultraWarm() && held.getFluid().isSame(Fluids.WATER)) {
++            level.levelEvent(net.minecraft.world.level.block.LevelEvent.LAVA_FIZZ, pos, 0);
++            return true;
++        }
++        if (!state.isAir() && !state.liquid()) level.destroyBlock(pos, true);
++        return level.setBlock(pos, flowing.getSource(false).createLegacyBlock(), Block.UPDATE_ALL);
++    }
++
++    private boolean drawFrom(ItemStack stack, IFluidHandler source, Player player) {
++        IFluidHandler flask = handler(stack);
++        FluidStack offered = source.drain(capacity, IFluidHandler.FluidAction.SIMULATE);
++        if (offered.isEmpty()) return false;
++        int accepted = flask.fill(offered, IFluidHandler.FluidAction.SIMULATE);
++        if (accepted <= 0) return false;
++        FluidStack taken = source.drain(new FluidStack(offered.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
++        if (taken.isEmpty()) return false;
++        flask.fill(taken, IFluidHandler.FluidAction.EXECUTE);
++        copyBack(stack, flask, player);
++        return true;
++    }
++
++    private boolean pourInto(ItemStack stack, IFluidHandler sink, Player player) {
++        IFluidHandler flask = handler(stack);
++        FluidStack held = flask.drain(capacity, IFluidHandler.FluidAction.SIMULATE);
++        if (held.isEmpty()) return false;
++        int accepted = sink.fill(held, IFluidHandler.FluidAction.SIMULATE);
++        if (accepted <= 0) return false;
++        FluidStack taken = flask.drain(new FluidStack(held.getFluid(), accepted), IFluidHandler.FluidAction.EXECUTE);
++        sink.fill(taken, IFluidHandler.FluidAction.EXECUTE);
++        copyBack(stack, flask, player);
++        return true;
++    }
++
++    /** The handler works on its own copy of the stack; carry the result back to the hand. */
++    private static void copyBack(ItemStack stack, IFluidHandler flask, Player player) {
++        if (flask instanceof FluidHandlerItemStack handler) {
++            ItemStack result = handler.getContainer();
++            set(stack, contents(result));
++            player.getInventory().setChanged();
++        }
++    }
++
++    @Override
++    public boolean isBarVisible(ItemStack stack) {
++        return !contents(stack).isEmpty();
++    }
++
++    @Override
++    public int getBarWidth(ItemStack stack) {
++        return Math.clamp(Math.round(13.0F * contents(stack).getAmount() / capacity), 0, 13);
++    }
++
++    @Override
++    public int getBarColor(ItemStack stack) {
++        FluidStack fluid = contents(stack);
++        return fluid.isEmpty() ? 0x3FFFE0
++                : net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions.of(fluid.getFluid())
++                        .getTintColor(fluid) & 0xFFFFFF;
++    }
++
++    @Override
++    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
++        FluidStack fluid = contents(stack);
++        tooltip.add(Component.translatable("item.tribalpower.spirit_flask.desc", capacity / FluidType.BUCKET_VOLUME));
++        if (fluid.isEmpty()) tooltip.add(Component.translatable("item.tribalpower.spirit_flask.empty")
++                .withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
++        else tooltip.add(Component.translatable("item.tribalpower.spirit_flask.holding",
++                fluid.getHoverName(), fluid.getAmount(), capacity).withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritGear.java b/src/main/java/tk/darrow/tribalpower/item/SpiritGear.java
+index 3d665e1..472e667 100644
+--- a/src/main/java/tk/darrow/tribalpower/item/SpiritGear.java
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritGear.java
+@@ -41,7 +41,8 @@ public final class SpiritGear {
+     public static boolean isTool(ItemStack stack) {
+         Item item = stack.getItem();
+         return item instanceof SpiritgearPickaxeItem || item instanceof SpiritgearAxeItem
+-                || item instanceof SpiritgearShovelItem || item instanceof SpiritgearBladeItem;
++                || item instanceof SpiritgearShovelItem || item instanceof SpiritgearBladeItem
++                || item instanceof SpiritgearShearsItem || item instanceof SpiritgearHoeItem;
+     }
+ 
+     public static boolean isArmor(ItemStack stack) {
+@@ -52,10 +53,19 @@ public final class SpiritGear {
+         return isTool(stack) || isArmor(stack);
+     }
+ 
++    /**
++     * Read the piece's tag without copying it. {@code copyTag()} deep-copies the whole compound, and
++     * these two are read several times per tick per worn piece and again for every frame the piece is
++     * drawn, so the copy dominated. Nothing here mutates what it reads; the writers still go through
++     * {@link CustomData#update}.
++     */
++    private static net.minecraft.nbt.CompoundTag tag(ItemStack stack) {
++        return stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
++    }
++
+     public static int rank(ItemStack stack) {
+         if (!isGear(stack)) return 0;
+-        return Math.clamp(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+-                .copyTag().getInt(RANK_KEY), 0, MAX_RANK);
++        return Math.clamp(tag(stack).getInt(RANK_KEY), 0, MAX_RANK);
+     }
+ 
+     public static void setRank(ItemStack stack, int rank) {
+@@ -72,15 +82,19 @@ public final class SpiritGear {
+         return rank(stack) >= 3;
+     }
+ 
++    private static final java.util.Map<String, Optional<Attunement>> VOICES = voiceLookup();
++
++    private static java.util.Map<String, Optional<Attunement>> voiceLookup() {
++        java.util.Map<String, Optional<Attunement>> map = new java.util.HashMap<>();
++        for (Attunement attunement : Attunement.values()) map.put(attunement.getSerializedName(), Optional.of(attunement));
++        return java.util.Map.copyOf(map);
++    }
++
+     public static Optional<Attunement> voice(ItemStack stack) {
+         if (!isGear(stack)) return Optional.empty();
+-        String name = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
+-                .copyTag().getString(VOICE_KEY);
++        String name = tag(stack).getString(VOICE_KEY);
+         if (name == null || name.isEmpty()) return Optional.empty();
+-        for (Attunement attunement : Attunement.values()) {
+-            if (attunement.getSerializedName().equals(name)) return Optional.of(attunement);
+-        }
+-        return Optional.empty();
++        return VOICES.getOrDefault(name, Optional.empty());
+     }
+ 
+     public static void setVoice(ItemStack stack, Attunement attunement) {
+@@ -311,6 +325,7 @@ public final class SpiritGear {
+         List<Item> pieces = List.of(
+                 ModItems.SPIRITGEAR_PICKAXE.get(), ModItems.SPIRITGEAR_AXE.get(),
+                 ModItems.SPIRITGEAR_SHOVEL.get(), ModItems.SPIRITGEAR_BLADE.get(),
++                ModItems.SPIRITGEAR_SHEARS.get(), ModItems.SPIRITGEAR_HOE.get(),
+                 ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
+                 ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get());
+         String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritGearHooks.java b/src/main/java/tk/darrow/tribalpower/item/SpiritGearHooks.java
+index 9debd51..56c94fc 100644
+--- a/src/main/java/tk/darrow/tribalpower/item/SpiritGearHooks.java
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritGearHooks.java
+@@ -45,7 +45,9 @@ public final class SpiritGearHooks {
+         // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
+         SpiritGear.Swing current = SpiritGear.swingFor(player);
+         if (current != null && current.aoe()) return;
+-        boolean paid = player.getAbilities().instabuild || SpiritGear.consumeForMine(player, tool);
++        boolean paid = player.getAbilities().instabuild
++                || (tool.getItem() instanceof SpiritgearShearsItem && SpiritgearShearsItem.freeTrim(tool))
++                || SpiritGear.consumeForMine(player, tool);
+         SpiritGear.beginSwing(player, tool, paid, false);
+     }
+ 
+@@ -72,7 +74,8 @@ public final class SpiritGearHooks {
+                     event.getPos().getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.CLAY_BALL)));
+         }
+ 
+-        if (voice == Attunement.LOOM && tool.getItem() instanceof SpiritgearAxeItem && swing.player() != null) {
++        if (voice == Attunement.LOOM && swing.player() != null
++                && (tool.getItem() instanceof SpiritgearAxeItem || tool.getItem() instanceof SpiritgearShearsItem)) {
+             for (ItemEntity drop : event.getDrops()) {
+                 drop.setPos(swing.player().getX(), swing.player().getY() + 0.2, swing.player().getZ());
+                 drop.setPickUpDelay(0);
+@@ -288,28 +291,53 @@ public final class SpiritGearHooks {
+     }
+ 
+     private static void glintOres(ServerLevel level, ServerPlayer owner, int range) {
+-        BlockPos center = owner.blockPosition();
+-        int marked = 0;
+-        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
+-                center.offset(range, range, range))) {
+-            if (!level.getBlockState(pos).is(Tags.Blocks.ORES)) continue;
+-            level.sendParticles(owner, ParticleTypes.END_ROD, true,
+-                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 3, 0.35, 0.35, 0.35, 0);
+-            if (++marked >= 96) break;
+-        }
++        sweep(level, owner, range, 96, 3, 0.35, state -> state.is(Tags.Blocks.ORES));
+     }
+ 
+     private static void glintBuried(ServerLevel level, ServerPlayer owner, int range) {
++        sweep(level, owner, range, 32, 4, 0.25, state -> state.is(Blocks.CHEST) || state.is(Blocks.TRAPPED_CHEST)
++                || state.is(Blocks.BARREL) || state.is(Blocks.SPAWNER) || state.is(Blocks.TRIAL_SPAWNER));
++    }
++
++    /**
++     * Mark what the filter finds around the player. The cube is walked a chunk section at a time and any
++     * section whose palette cannot hold a match is skipped whole — most of them, underground or not —
++     * instead of reading all 9,261 block states of a radius-10 cube every sweep.
++     */
++    private static void sweep(ServerLevel level, ServerPlayer owner, int range, int cap, int count, double spread,
++                              java.util.function.Predicate<BlockState> filter) {
+         BlockPos center = owner.blockPosition();
++        int minX = center.getX() - range, maxX = center.getX() + range;
++        int minZ = center.getZ() - range, maxZ = center.getZ() + range;
++        int minY = Math.max(level.getMinBuildHeight(), center.getY() - range);
++        int maxY = Math.min(level.getMaxBuildHeight() - 1, center.getY() + range);
++        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+         int marked = 0;
+-        for (BlockPos pos : BlockPos.betweenClosed(center.offset(-range, -range, -range),
+-                center.offset(range, range, range))) {
+-            var state = level.getBlockState(pos);
+-            if (!state.is(Blocks.CHEST) && !state.is(Blocks.TRAPPED_CHEST) && !state.is(Blocks.BARREL)
+-                    && !state.is(Blocks.SPAWNER) && !state.is(Blocks.TRIAL_SPAWNER)) continue;
+-            level.sendParticles(owner, ParticleTypes.END_ROD, true,
+-                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 4, 0.25, 0.25, 0.25, 0);
+-            if (++marked >= 32) break;
++        for (int cx = minX >> 4; cx <= maxX >> 4 && marked < cap; cx++) {
++            for (int cz = minZ >> 4; cz <= maxZ >> 4 && marked < cap; cz++) {
++                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
++                if (chunk == null) continue;
++                var sections = chunk.getSections();
++                for (int sy = minY >> 4; sy <= maxY >> 4 && marked < cap; sy++) {
++                    int index = chunk.getSectionIndexFromSectionY(sy);
++                    if (index < 0 || index >= sections.length) continue;
++                    var section = sections[index];
++                    if (section == null || section.hasOnlyAir() || !section.maybeHas(filter)) continue;
++                    int baseY = sy << 4;
++                    for (int y = Math.max(minY, baseY); y <= Math.min(maxY, baseY + 15) && marked < cap; y++) {
++                        for (int x = Math.max(minX, cx << 4); x <= Math.min(maxX, (cx << 4) + 15) && marked < cap; x++) {
++                            for (int z = Math.max(minZ, cz << 4); z <= Math.min(maxZ, (cz << 4) + 15) && marked < cap; z++) {
++                                if (!filter.test(section.getBlockState(x & 15, y & 15, z & 15))) continue;
++                                cursor.set(x, y, z);
++                                level.sendParticles(owner, ParticleTypes.END_ROD, true,
++                                        cursor.getX() + 0.5, cursor.getY() + 0.5, cursor.getZ() + 0.5,
++                                        count, spread, spread, spread, 0);
++                                marked++;
++                            }
++                        }
++                    }
++                }
++            }
+         }
+     }
+ 
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritgearHoeItem.java b/src/main/java/tk/darrow/tribalpower/item/SpiritgearHoeItem.java
+new file mode 100644
+index 0000000..bd4848c
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritgearHoeItem.java
+@@ -0,0 +1,183 @@
++package tk.darrow.tribalpower.item;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.network.chat.Component;
++import net.minecraft.server.level.ServerLevel;
++import net.minecraft.server.level.ServerPlayer;
++import net.minecraft.world.InteractionResult;
++import net.minecraft.world.entity.Entity;
++import net.minecraft.world.entity.EquipmentSlot;
++import net.minecraft.world.entity.LivingEntity;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.item.HoeItem;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.Tiers;
++import net.minecraft.world.item.TooltipFlag;
++import net.minecraft.world.item.context.UseOnContext;
++import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Block;
++import net.minecraft.world.level.block.CropBlock;
++import net.minecraft.world.level.block.FarmBlock;
++import net.minecraft.world.level.block.NetherWartBlock;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.phys.BlockHitResult;
++import tk.darrow.tribalpower.api.pulse.Attunement;
++
++import java.util.List;
++
++/**
++ * Spiritgear hoe — Pulse spares the blade, and using it on a ripe crop reaps and sows it again in one motion.
++ * Earth turns the whole 3x3 of soil, Water leaves its furrows wet, Air reaps a 3x3 of crops, Spirit doubles
++ * part of the yield and Loom reaps a 5x5 for nothing.
++ */
++public class SpiritgearHoeItem extends HoeItem {
++    public SpiritgearHoeItem(Properties properties) {
++        super(Tiers.DIAMOND, properties.attributes(HoeItem.createAttributes(Tiers.DIAMOND, -3.0F, 0.0F))
++                .durability(SpiritGear.TOOL_DURABILITY));
++    }
++
++    /** How far the reap-and-sow reaches, as a radius in blocks. */
++    private static int reach(ItemStack stack) {
++        return switch (SpiritGear.voice(stack).orElse(null)) {
++            case AIR -> 1;
++            case LOOM -> 2;
++            case null, default -> 0;
++        };
++    }
++
++    @Override
++    public boolean isFoil(ItemStack stack) {
++        return SpiritGear.foil(stack) || super.isFoil(stack);
++    }
++
++    @Override
++    public float getDestroySpeed(ItemStack stack, BlockState state) {
++        return SpiritGear.destroySpeed(stack, super.getDestroySpeed(stack, state));
++    }
++
++    @Override
++    public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
++        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
++                || state.getDestroySpeed(level, pos) == 0.0F) {
++            return super.mineBlock(stack, level, state, pos, entity);
++        }
++        SpiritGear.Swing parent = SpiritGear.swingFor(player);
++        boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
++        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
++        boolean ok = super.mineBlock(stack, level, state, pos, entity);
++        SpiritGear.finishDurability(player, stack, paid);
++        return ok;
++    }
++
++    @Override
++    public InteractionResult useOn(UseOnContext context) {
++        Player player = context.getPlayer();
++        Level level = context.getLevel();
++        ItemStack stack = context.getItemInHand();
++        if (player == null) return super.useOn(context);
++        if (level.isClientSide && ripe(level.getBlockState(context.getClickedPos()))) return InteractionResult.SUCCESS;
++        // Reaping comes first: a ripe crop is harvested and sown again rather than walked past.
++        if (level instanceof ServerLevel server && ripe(level.getBlockState(context.getClickedPos()))) {
++            int radius = reach(stack);
++            int reaped = 0;
++            boolean free = SpiritGear.voice(stack).orElse(null) == Attunement.LOOM;
++            for (int x = -radius; x <= radius; x++) for (int z = -radius; z <= radius; z++) {
++                BlockPos at = context.getClickedPos().offset(x, 0, z);
++                if (!ripe(level.getBlockState(at)) || !level.mayInteract(player, at)
++                        || !player.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
++                if (!player.getAbilities().instabuild && !free
++                        && !GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
++                    if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
++                    SpiritgearHelper.notifyStarved(player);
++                    break;
++                }
++                reap(server, player, stack, at);
++                reaped++;
++            }
++            if (reaped > 0) {
++                if (!player.getAbilities().instabuild && !free)
++                    stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
++                level.playSound(null, context.getClickedPos(), net.minecraft.sounds.SoundEvents.CROP_BREAK,
++                        net.minecraft.sounds.SoundSource.BLOCKS, 0.8F, 1.1F);
++                return InteractionResult.SUCCESS;
++            }
++        }
++        if (level.isClientSide) return super.useOn(context);
++
++        InteractionResult result = super.useOn(context);
++        if (!result.consumesAction() || player.getAbilities().instabuild) return result;
++        boolean paid = GearCell.spend(player, stack, SpiritGear.useCost(stack));
++        if (paid) stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
++        else {
++            if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
++            SpiritgearHelper.notifyStarved(player);
++        }
++        if (!paid) return result;
++        Attunement voice = SpiritGear.voice(stack).orElse(null);
++        if (voice == Attunement.EARTH) {
++            BlockPos centre = context.getClickedPos();
++            for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
++                if (x == 0 && z == 0) continue;
++                BlockPos at = centre.offset(x, 0, z);
++                if (!level.mayInteract(player, at) || !player.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
++                int damage = stack.getDamageValue();
++                super.useOn(new UseOnContext(player, context.getHand(), new BlockHitResult(
++                        context.getClickLocation().add(x, 0, z), context.getClickedFace(), at, false)));
++                if (!stack.isEmpty()) stack.setDamageValue(damage);
++            }
++        }
++        if (voice == Attunement.WATER) moisten(level, context.getClickedPos(), 1);
++        return result;
++    }
++
++    private static boolean ripe(BlockState state) {
++        if (state.getBlock() instanceof CropBlock crop) return crop.isMaxAge(state);
++        return state.getBlock() instanceof NetherWartBlock && state.getValue(NetherWartBlock.AGE) >= 3;
++    }
++
++    /** Take the harvest, keep one seed back in the ground, and leave the plant standing at age zero. */
++    private static void reap(ServerLevel level, Player player, ItemStack tool, BlockPos pos) {
++        BlockState state = level.getBlockState(pos);
++        ItemStack seed = state.getBlock().getCloneItemStack(level, pos, state);
++        boolean kept = seed.isEmpty();
++        boolean bounty = SpiritGear.voice(tool).orElse(null) == Attunement.SPIRIT
++                && SpiritGear.chance(level.random, tool, 0.25F);
++        for (ItemStack drop : Block.getDrops(state, level, pos, null, player, tool)) {
++            if (!kept && ItemStack.isSameItem(drop, seed)) {
++                drop.shrink(1);
++                kept = true;
++            }
++            if (drop.isEmpty()) continue;
++            if (bounty && !ItemStack.isSameItem(drop, seed)) drop.grow(drop.getCount());
++            Block.popResource(level, pos, drop);
++        }
++        level.setBlockAndUpdate(pos, state.getBlock().defaultBlockState());
++    }
++
++    /** Wet every furrow in range — the Water voice never lets its fields dry out. */
++    private static void moisten(Level level, BlockPos centre, int radius) {
++        for (BlockPos at : BlockPos.betweenClosed(centre.offset(-radius, -1, -radius), centre.offset(radius, 1, radius))) {
++            BlockState state = level.getBlockState(at);
++            if (state.getBlock() instanceof FarmBlock && state.getValue(FarmBlock.MOISTURE) < 7) {
++                level.setBlock(at.immutable(), state.setValue(FarmBlock.MOISTURE, 7), Block.UPDATE_CLIENTS);
++            }
++        }
++    }
++
++    @Override
++    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
++        super.inventoryTick(stack, level, entity, slot, selected);
++        if (level.isClientSide || !selected || !(entity instanceof Player player)) return;
++        if (SpiritGear.voice(stack).orElse(null) == Attunement.WATER && level.getGameTime() % 40 == 0) {
++            moisten(level, player.blockPosition(), SpiritGear.rank(stack) >= 3 ? 5 : 3);
++        }
++    }
++
++    @Override
++    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
++        tooltip.add(Component.translatable("item.tribalpower.spiritgear.desc"));
++        tooltip.add(Component.translatable("item.tribalpower.spiritgear_hoe.desc"));
++        SpiritGear.appendTooltip(stack, tooltip, flag);
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritgearShearsItem.java b/src/main/java/tk/darrow/tribalpower/item/SpiritgearShearsItem.java
+new file mode 100644
+index 0000000..140c9d0
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritgearShearsItem.java
+@@ -0,0 +1,143 @@
++package tk.darrow.tribalpower.item;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.network.chat.Component;
++import net.minecraft.server.level.ServerLevel;
++import net.minecraft.server.level.ServerPlayer;
++import net.minecraft.tags.BlockTags;
++import net.minecraft.world.InteractionHand;
++import net.minecraft.world.InteractionResult;
++import net.minecraft.world.effect.MobEffectInstance;
++import net.minecraft.world.effect.MobEffects;
++import net.minecraft.world.entity.Entity;
++import net.minecraft.world.entity.EquipmentSlot;
++import net.minecraft.world.entity.LivingEntity;
++import net.minecraft.world.entity.animal.Sheep;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.ShearsItem;
++import net.minecraft.world.item.TooltipFlag;
++import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Blocks;
++import net.minecraft.world.level.block.state.BlockState;
++import tk.darrow.tribalpower.api.pulse.Attunement;
++
++import java.util.List;
++
++/**
++ * Spiritgear shears — Pulse spares the blades, and a linked totem voice changes what a trim is worth.
++ * Earth takes the whole 3x3 face of foliage, Air trims for free, Water leaves a sheep its fleece,
++ * Fire smokes a hive calm, Spirit mends what it shears and Loom sends the cuttings to hand.
++ */
++public class SpiritgearShearsItem extends ShearsItem {
++    public SpiritgearShearsItem(Properties properties) {
++        // Shears carry their mining rules in the TOOL component, not in a speed override the way the
++        // tiered tools do. Without it these would cut nothing: no leaves, no wool, no cobweb drop.
++        super(properties.durability(SpiritGear.TOOL_DURABILITY)
++                .component(net.minecraft.core.component.DataComponents.TOOL, ShearsItem.createToolProperties()));
++    }
++
++    /** A free trim: the Air voice pays neither Pulse nor edge. */
++    public static boolean freeTrim(ItemStack stack) {
++        return SpiritGear.voice(stack).orElse(null) == Attunement.AIR;
++    }
++
++    static boolean foliage(BlockState state) {
++        return state.is(BlockTags.LEAVES) || state.is(BlockTags.WOOL) || state.is(Blocks.COBWEB)
++                || state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(Blocks.VINE) || state.is(Blocks.GLOW_LICHEN);
++    }
++
++    @Override
++    public boolean isFoil(ItemStack stack) {
++        return SpiritGear.foil(stack) || super.isFoil(stack);
++    }
++
++    @Override
++    public float getDestroySpeed(ItemStack stack, BlockState state) {
++        return SpiritGear.destroySpeed(stack, super.getDestroySpeed(stack, state));
++    }
++
++    @Override
++    public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
++        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
++                || state.getDestroySpeed(level, pos) == 0.0F) {
++            return super.mineBlock(stack, level, state, pos, entity);
++        }
++        SpiritGear.Swing parent = SpiritGear.swingFor(player);
++        boolean aoe = parent != null && parent.aoe();
++        boolean paid = parent != null ? parent.pulsePaid()
++                : freeTrim(stack) || SpiritGear.consumeForMine(player, stack);
++        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
++        boolean ok = super.mineBlock(stack, level, state, pos, entity);
++        if (!freeTrim(stack)) SpiritGear.finishDurability(player, stack, paid);
++        if (ok && paid && !aoe && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH && foliage(state)) {
++            Direction.Axis axis = Direction.orderedByNearest(player)[0].getAxis();
++            SpiritGearHooks.aoe(player, stack, pos, axis, SpiritgearShearsItem::foliage);
++        }
++        return ok;
++    }
++
++    @Override
++    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
++        InteractionResult result = super.interactLivingEntity(stack, player, target, hand);
++        if (!result.consumesAction() || player.level().isClientSide || player.getAbilities().instabuild) return result;
++        Attunement voice = SpiritGear.voice(stack).orElse(null);
++        if (freeTrim(stack)) {
++            // Air asks nothing of the blades.
++        } else if (GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
++            stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
++        } else {
++            if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
++            SpiritgearHelper.notifyStarved(player);
++            return result;
++        }
++        if (voice == Attunement.WATER && target instanceof Sheep sheep && sheep.isSheared()
++                && (SpiritGear.rank(stack) >= 3 || player.getRandom().nextFloat() < 0.5F)) {
++            sheep.setSheared(false);
++        }
++        if (voice == Attunement.SPIRIT) {
++            target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
++        }
++        return result;
++    }
++
++    @Override
++    public InteractionResult useOn(net.minecraft.world.item.context.UseOnContext context) {
++        Player player = context.getPlayer();
++        Level level = context.getLevel();
++        BlockPos pos = context.getClickedPos();
++        // Fire smokes a hive calm: the bees stay home instead of swarming the shearer.
++        boolean hive = level.getBlockState(pos).is(BlockTags.BEEHIVES)
++                && SpiritGear.voice(context.getItemInHand()).orElse(null) == Attunement.FIRE;
++        if (hive && player instanceof ServerPlayer server && level instanceof ServerLevel serverLevel
++                && level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.BeehiveBlockEntity beehive) {
++            beehive.emptyAllLivingFromHive(server, level.getBlockState(pos),
++                    net.minecraft.world.level.block.entity.BeehiveBlockEntity.BeeReleaseStatus.BEE_RELEASED);
++            serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.CAMPFIRE_COSY_SMOKE,
++                    pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 6, 0.2, 0.1, 0.2, 0.01);
++        }
++        return super.useOn(context);
++    }
++
++    @Override
++    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
++        super.inventoryTick(stack, level, entity, slot, selected);
++        if (level.isClientSide || !selected || !(entity instanceof ServerPlayer player)) return;
++        if (SpiritGear.voice(stack).orElse(null) != Attunement.SPIRIT || level.getGameTime() % 80 != 0) return;
++        int range = SpiritGear.rank(stack) >= 3 ? 16 : 10;
++        for (LivingEntity mob : ((ServerLevel) level).getEntitiesOfClass(LivingEntity.class,
++                player.getBoundingBox().inflate(range),
++                mob -> mob instanceof net.neoforged.neoforge.common.IShearable shearable
++                        && shearable.isShearable(player, stack, level, mob.blockPosition()))) {
++            mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0, true, false, true));
++        }
++    }
++
++    @Override
++    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
++        tooltip.add(Component.translatable("item.tribalpower.spiritgear.desc"));
++        tooltip.add(Component.translatable("item.tribalpower.spiritgear_shears.desc"));
++        SpiritGear.appendTooltip(stack, tooltip, flag);
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/item/SpiritweaveArmor.java b/src/main/java/tk/darrow/tribalpower/item/SpiritweaveArmor.java
+index 90498a2..3319797 100644
+--- a/src/main/java/tk/darrow/tribalpower/item/SpiritweaveArmor.java
++++ b/src/main/java/tk/darrow/tribalpower/item/SpiritweaveArmor.java
+@@ -73,7 +73,9 @@ public class SpiritweaveArmor extends ArmorItem {
+         }
+         if (player.getItemBySlot(getEquipmentSlot()) != stack) return;
+ 
+-        if (getType() == Type.BOOTS && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
++        // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
++        if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0
++                && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
+             freeze(player, SpiritGear.rank(stack) >= 3 ? 3 : 2);
+         }
+ 
+diff --git a/src/main/java/tk/darrow/tribalpower/item/TotemWrenchItem.java b/src/main/java/tk/darrow/tribalpower/item/TotemWrenchItem.java
+new file mode 100644
+index 0000000..6ee4dc4
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/item/TotemWrenchItem.java
+@@ -0,0 +1,103 @@
++package tk.darrow.tribalpower.item;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.network.chat.Component;
++import net.minecraft.sounds.SoundEvents;
++import net.minecraft.sounds.SoundSource;
++import net.minecraft.world.InteractionResult;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.item.Item;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.TooltipFlag;
++import net.minecraft.world.item.context.UseOnContext;
++import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Rotation;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.level.block.state.properties.BlockStateProperties;
++import net.minecraft.world.level.block.state.properties.DirectionProperty;
++import tk.darrow.tribalpower.camp.Ownership;
++import tk.darrow.tribalpower.lattice.HasSideIo;
++
++import java.util.List;
++
++/**
++ * Totem Wrench — turns a block to face somewhere else, and sneak-used on a machine face it steps that face
++ * through input, output, both and shut. It never breaks anything: a block that cannot turn simply does not.
++ */
++public class TotemWrenchItem extends Item {
++    public TotemWrenchItem(Properties properties) {
++        super(properties.stacksTo(1).durability(512));
++    }
++
++    @Override
++    public InteractionResult useOn(UseOnContext context) {
++        Level level = context.getLevel();
++        Player player = context.getPlayer();
++        BlockPos pos = context.getClickedPos();
++        Direction face = context.getClickedFace();
++        if (player == null) return InteractionResult.PASS;
++        if (level.isClientSide) return InteractionResult.SUCCESS;
++        if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, face, context.getItemInHand()))
++            return InteractionResult.FAIL;
++        var be = level.getBlockEntity(pos);
++        if (be instanceof Ownership.Owned owned && !Ownership.check(level, owned.owner(), player))
++            return InteractionResult.FAIL;
++
++        if (player.isShiftKeyDown()) {
++            if (HasSideIo.cycle(player, be, face)) {
++                damage(context.getItemInHand(), player);
++                level.playSound(null, pos, SoundEvents.COPPER_BULB_TURN_ON, SoundSource.BLOCKS, 0.6F, 1.4F);
++                return InteractionResult.CONSUME;
++            }
++            player.displayClientMessage(Component.translatable("message.tribalpower.wrench.no_faces"), true);
++            return InteractionResult.FAIL;
++        }
++
++        BlockState state = level.getBlockState(pos);
++        BlockState turned = turn(state, level, pos, face);
++        if (turned == null || turned == state) {
++            player.displayClientMessage(Component.translatable("message.tribalpower.wrench.fixed"), true);
++            return InteractionResult.FAIL;
++        }
++        level.setBlockAndUpdate(pos, turned);
++        damage(context.getItemInHand(), player);
++        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ROTATE_ITEM, SoundSource.BLOCKS, 0.8F, 1.1F);
++        return InteractionResult.CONSUME;
++    }
++
++    /** Turn around the clicked face where the block has a facing, else the block's own quarter turn. */
++    private static BlockState turn(BlockState state, Level level, BlockPos pos, Direction face) {
++        for (DirectionProperty property : List.of(BlockStateProperties.FACING, BlockStateProperties.HORIZONTAL_FACING)) {
++            if (!state.hasProperty(property)) continue;
++            Direction current = state.getValue(property);
++            for (int step = 1; step <= 6; step++) {
++                Direction next = Direction.from3DDataValue((current.get3DDataValue() + step) % 6);
++                if (!property.getPossibleValues().contains(next)) continue;
++                return state.setValue(property, next);
++            }
++            return state;
++        }
++        if (state.hasProperty(BlockStateProperties.AXIS)) {
++            var axis = state.getValue(BlockStateProperties.AXIS);
++            return state.setValue(BlockStateProperties.AXIS, switch (axis) {
++                case X -> Direction.Axis.Y;
++                case Y -> Direction.Axis.Z;
++                case Z -> Direction.Axis.X;
++            });
++        }
++        BlockState rotated = state.rotate(level, pos, Rotation.CLOCKWISE_90);
++        return rotated == state ? null : rotated;
++    }
++
++    private static void damage(ItemStack stack, Player player) {
++        if (player.getAbilities().instabuild) return;
++        if (SpiritgearHelper.tryConsumePulse(player, 1)) return;
++        stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
++    }
++
++    @Override
++    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
++        tooltip.add(Component.translatable("item.tribalpower.totem_wrench.desc"));
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/item/WeaversWandItem.java b/src/main/java/tk/darrow/tribalpower/item/WeaversWandItem.java
+new file mode 100644
+index 0000000..bef7740
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/item/WeaversWandItem.java
+@@ -0,0 +1,133 @@
++package tk.darrow.tribalpower.item;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.network.chat.Component;
++import net.minecraft.sounds.SoundSource;
++import net.minecraft.world.InteractionResult;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.item.Item;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.TooltipFlag;
++import net.minecraft.world.item.context.UseOnContext;
++import net.minecraft.world.level.Level;
++import net.minecraft.world.level.block.Block;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.phys.shapes.CollisionContext;
++
++import java.util.ArrayDeque;
++import java.util.ArrayList;
++import java.util.Deque;
++import java.util.HashSet;
++import java.util.List;
++import java.util.Set;
++
++/**
++ * Weaver's Wand — lays a whole face of matching blocks at once. Click a block and the wand carries its
++ * face outward across every neighbour like it, spending the blocks from your pack and Pulse from your cells.
++ */
++public class WeaversWandItem extends Item {
++    /** Pulse per block laid, and the most blocks one sweep will lay. */
++    public static final int PULSE_PER_BLOCK = 2;
++    public static final int MAX_BLOCKS = 32;
++
++    public WeaversWandItem(Properties properties) {
++        super(properties.stacksTo(1).durability(768));
++    }
++
++    @Override
++    public InteractionResult useOn(UseOnContext context) {
++        Level level = context.getLevel();
++        Player player = context.getPlayer();
++        if (player == null) return InteractionResult.PASS;
++        if (level.isClientSide) return InteractionResult.SUCCESS;
++        BlockPos origin = context.getClickedPos();
++        Direction face = context.getClickedFace();
++        ItemStack wand = context.getItemInHand();
++        BlockState pattern = level.getBlockState(origin);
++        if (pattern.isAir() || pattern.getBlock().asItem() == net.minecraft.world.item.Items.AIR) {
++            return InteractionResult.FAIL;
++        }
++        List<BlockPos> targets = spread(level, player, origin, face, pattern, wand);
++        if (targets.isEmpty()) {
++            player.displayClientMessage(Component.translatable("message.tribalpower.wand.nowhere"), true);
++            return InteractionResult.FAIL;
++        }
++        net.minecraft.world.item.Item block = pattern.getBlock().asItem();
++        int available = player.getAbilities().instabuild ? targets.size() : count(player, block);
++        if (available <= 0) {
++            player.displayClientMessage(Component.translatable("message.tribalpower.wand.no_blocks",
++                    pattern.getBlock().getName()), true);
++            return InteractionResult.FAIL;
++        }
++        int laid = 0;
++        for (BlockPos target : targets) {
++            if (laid >= available) break;
++            if (!player.getAbilities().instabuild
++                    && !SpiritgearHelper.tryConsumePulse(player, PULSE_PER_BLOCK)) {
++                SpiritgearHelper.notifyStarved(player);
++                break;
++            }
++            if (!level.setBlock(target, pattern, Block.UPDATE_ALL)) continue;
++            if (!player.getAbilities().instabuild) take(player, block);
++            laid++;
++        }
++        if (laid == 0) return InteractionResult.FAIL;
++        if (!player.getAbilities().instabuild) wand.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
++        level.playSound(null, origin, pattern.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 1.0F, 1.0F);
++        return InteractionResult.CONSUME;
++    }
++
++    /** Every open spot on the clicked face, reached across neighbours of the same block. */
++    private static List<BlockPos> spread(Level level, Player player, BlockPos origin, Direction face,
++                                         BlockState pattern, ItemStack wand) {
++        List<BlockPos> targets = new ArrayList<>();
++        Set<BlockPos> seen = new HashSet<>();
++        Deque<BlockPos> queue = new ArrayDeque<>();
++        queue.add(origin);
++        seen.add(origin);
++        while (!queue.isEmpty() && targets.size() < MAX_BLOCKS) {
++            BlockPos at = queue.poll();
++            if (!level.getBlockState(at).is(pattern.getBlock())) continue;
++            BlockPos target = at.relative(face);
++            if (open(level, player, target, pattern, wand)) targets.add(target);
++            for (Direction step : Direction.values()) {
++                if (step.getAxis() == face.getAxis()) continue;
++                BlockPos next = at.relative(step);
++                if (next.distManhattan(origin) > MAX_BLOCKS || !seen.add(next)) continue;
++                queue.add(next);
++            }
++        }
++        return targets;
++    }
++
++    private static boolean open(Level level, Player player, BlockPos pos, BlockState pattern, ItemStack wand) {
++        if (!level.isInWorldBounds(pos) || !level.getBlockState(pos).canBeReplaced()) return false;
++        if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, Direction.UP, wand)) return false;
++        return level.isUnobstructed(pattern, pos, CollisionContext.empty());
++    }
++
++    private static int count(Player player, net.minecraft.world.item.Item block) {
++        int total = 0;
++        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
++            ItemStack stack = player.getInventory().getItem(i);
++            if (stack.is(block)) total += stack.getCount();
++        }
++        return total;
++    }
++
++    private static void take(Player player, net.minecraft.world.item.Item block) {
++        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
++            ItemStack stack = player.getInventory().getItem(i);
++            if (!stack.is(block)) continue;
++            stack.shrink(1);
++            player.getInventory().setChanged();
++            return;
++        }
++    }
++
++    @Override
++    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
++        tooltip.add(Component.translatable("item.tribalpower.weavers_wand.desc", MAX_BLOCKS, PULSE_PER_BLOCK));
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/lattice/LatticeNetwork.java b/src/main/java/tk/darrow/tribalpower/lattice/LatticeNetwork.java
+index 74b5635..fe28124 100644
+--- a/src/main/java/tk/darrow/tribalpower/lattice/LatticeNetwork.java
++++ b/src/main/java/tk/darrow/tribalpower/lattice/LatticeNetwork.java
+@@ -62,23 +62,47 @@ public final class LatticeNetwork {
+         return findNearbyTotems(level, origin, radius).size();
+     }
+ 
+-    public static List<ResonanceTotemBlockEntity> findNearbyTotems(Level level, BlockPos origin, int radius) {
+-        List<ResonanceTotemBlockEntity> found = new ArrayList<>();
+-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+-        for (int dx = -radius; dx <= radius; dx++) {
+-            for (int dy = -radius; dy <= radius; dy++) {
+-                for (int dz = -radius; dz <= radius; dz++) {
+-                    if (dx == 0 && dy == 0 && dz == 0) {
+-                        continue;
+-                    }
+-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
+-                    BlockEntity be = level.hasChunkAt(cursor) ? level.getBlockEntity(cursor) : null;
+-                    if (be instanceof ResonanceTotemBlockEntity totem) {
+-                        found.add(totem);
+-                    }
++    /**
++     * Every block entity of {@code type} inside the box, found by walking the loaded chunks' block-entity
++     * maps instead of probing each of the box's positions. A radius-8 cube is 4,913 lookups a call and this
++     * runs on machine beats; the chunk maps hold only the handful of block entities that actually exist.
++     * Results come back in the same x, y, z order the cube walk used, so callers see no change.
++     */
++    private static <T extends BlockEntity> List<T> inBox(Level level, Class<T> type,
++                                                         int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
++        List<T> found = new ArrayList<>();
++        for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
++            for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
++                net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
++                if (chunk == null) continue;
++                for (BlockEntity be : chunk.getBlockEntities().values()) {
++                    if (be.isRemoved() || !type.isInstance(be)) continue;
++                    BlockPos at = be.getBlockPos();
++                    if (at.getX() < minX || at.getX() > maxX || at.getY() < minY || at.getY() > maxY
++                            || at.getZ() < minZ || at.getZ() > maxZ) continue;
++                    found.add(type.cast(be));
+                 }
+             }
+         }
++        if (found.size() > 1)
++            found.sort(java.util.Comparator.comparingInt((T be) -> be.getBlockPos().getX())
++                    .thenComparingInt(be -> be.getBlockPos().getY())
++                    .thenComparingInt(be -> be.getBlockPos().getZ()));
++        return found;
++    }
++
++    /** Every block entity within {@code radius}, in the same order a walk of the cube would have found them. */
++    public static List<BlockEntity> blockEntitiesAround(Level level, BlockPos origin, int radius) {
++        return inBox(level, BlockEntity.class,
++                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
++                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius);
++    }
++
++    public static List<ResonanceTotemBlockEntity> findNearbyTotems(Level level, BlockPos origin, int radius) {
++        List<ResonanceTotemBlockEntity> found = inBox(level, ResonanceTotemBlockEntity.class,
++                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
++                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius);
++        found.removeIf(totem -> totem.getBlockPos().equals(origin));
+         return found;
+     }
+ 
+@@ -184,50 +208,37 @@ public final class LatticeNetwork {
+     }
+ 
+     public static List<SongBenchBlockEntity> findSongBenchesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
+-        Set<BlockPos> seen = new HashSet<>();
+-        List<SongBenchBlockEntity> found = new ArrayList<>();
+-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+-        for (BlockPos hub : hubs) {
+-            for (int dx = -radius; dx <= radius; dx++) {
+-                for (int dy = -radius; dy <= radius; dy++) {
+-                    for (int dz = -radius; dz <= radius; dz++) {
+-                        cursor.set(hub.getX() + dx, hub.getY() + dy, hub.getZ() + dz);
+-                        BlockPos key = cursor.immutable();
+-                        if (!seen.add(key)) {
+-                            continue;
+-                        }
+-                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
+-                        if (be instanceof SongBenchBlockEntity bench) {
+-                            found.add(bench);
+-                        }
+-                    }
+-                }
+-            }
+-        }
+-        return found;
++        return nearHubs(level, SongBenchBlockEntity.class, hubs, radius);
+     }
+ 
+     public static List<AncestralCacheBlockEntity> findCachesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
+-        Set<BlockPos> seen = new HashSet<>();
+-        List<AncestralCacheBlockEntity> found = new ArrayList<>();
+-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
++        return nearHubs(level, AncestralCacheBlockEntity.class, hubs, radius);
++    }
++
++    /**
++     * One pass over the box the hubs span, then a range test per candidate. The old walk repeated a whole
++     * radius-8 cube for every hub and allocated a BlockPos per position to dedupe them; a conductor with
++     * eight hubs paid tens of thousands of block-entity lookups a second for a handful of benches.
++     */
++    private static <T extends BlockEntity> List<T> nearHubs(Level level, Class<T> type,
++                                                            Collection<BlockPos> hubs, int radius) {
++        if (hubs.isEmpty()) return List.of();
++        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE;
++        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
+         for (BlockPos hub : hubs) {
+-            for (int dx = -radius; dx <= radius; dx++) {
+-                for (int dy = -radius; dy <= radius; dy++) {
+-                    for (int dz = -radius; dz <= radius; dz++) {
+-                        cursor.set(hub.getX() + dx, hub.getY() + dy, hub.getZ() + dz);
+-                        BlockPos key = cursor.immutable();
+-                        if (!seen.add(key)) {
+-                            continue;
+-                        }
+-                        BlockEntity be = level.hasChunkAt(key) ? level.getBlockEntity(key) : null;
+-                        if (be instanceof AncestralCacheBlockEntity cache) {
+-                            found.add(cache);
+-                        }
+-                    }
+-                }
+-            }
++            minX = Math.min(minX, hub.getX() - radius); maxX = Math.max(maxX, hub.getX() + radius);
++            minY = Math.min(minY, hub.getY() - radius); maxY = Math.max(maxY, hub.getY() + radius);
++            minZ = Math.min(minZ, hub.getZ() - radius); maxZ = Math.max(maxZ, hub.getZ() + radius);
+         }
++        List<T> found = inBox(level, type, minX, minY, minZ, maxX, maxY, maxZ);
++        found.removeIf(be -> {
++            BlockPos at = be.getBlockPos();
++            for (BlockPos hub : hubs) {
++                if (Math.abs(at.getX() - hub.getX()) <= radius && Math.abs(at.getY() - hub.getY()) <= radius
++                        && Math.abs(at.getZ() - hub.getZ()) <= radius) return false;
++            }
++            return true;
++        });
+         return found;
+     }
+ 
+diff --git a/src/main/java/tk/darrow/tribalpower/ley/LeyLensHud.java b/src/main/java/tk/darrow/tribalpower/ley/LeyLensHud.java
+index 540ae99..f7935cf 100644
+--- a/src/main/java/tk/darrow/tribalpower/ley/LeyLensHud.java
++++ b/src/main/java/tk/darrow/tribalpower/ley/LeyLensHud.java
+@@ -13,6 +13,9 @@ import org.joml.Vector3f;
+  */
+ public final class LeyLensHud {
+     private static long nextScan;
++    private static long leyReadAt = Long.MIN_VALUE;
++    private static LeyMath.Factors factors;
++    private static int[] counts;
+     private static java.util.Set<tk.darrow.tribalpower.api.pulse.Attunement> voices;
+ 
+     private LeyLensHud() {}
+@@ -29,26 +32,32 @@ public final class LeyLensHud {
+         g.fill(x, y, x + width, y + height, 0xD9101B22);
+         g.fill(x, y, x + 2, y + height, 0xFF74DBCB);
+         g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.mode." + mode), x + 8, y + 4, 0xFFE7DCC1, false);
++        long time = mc.level.getGameTime();
+         if (mode == LeyLensItem.LEY) {
+-            LeyMath.Factors factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
+-            int percent = (int) Math.round(factors.strength() * 100);
+-            Vector3f c = LeyLensItem.colour(factors.strength());
++            // The reading takes a sweep of the surrounding blocks and the weather; a frame is far too often.
++            if (factors == null || time != leyReadAt) {
++                leyReadAt = time;
++                factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
++            }
++            LeyMath.Factors reading = factors;
++            int percent = (int) Math.round(reading.strength() * 100);
++            Vector3f c = LeyLensItem.colour(reading.strength());
+             int colour = 0xFF000000 | ((int) (c.x * 255) << 16) | ((int) (c.y * 255) << 8) | (int) (c.z * 255);
+             g.drawString(mc.font, Component.translatable("gui.tribalpower.ley", percent), x + 8, y + 16, 0xFFE7DCC1, false);
+             g.fill(x + 8, y + 28, x + 108, y + 31, 0xFF30494A);
+             g.fill(x + 8, y + 28, x + 8 + Math.min(100, percent), y + 31, colour);
+             StringBuilder tags = new StringBuilder();
+-            if (factors.sky()) tags.append(factors.night() ? "night sky " : "sky ");
+-            if (factors.rain()) tags.append(factors.thunder() ? "storm " : "rain ");
+-            if (factors.water() > 0) tags.append("water ");
+-            if (factors.greenery() > 0) tags.append("green ");
++            if (reading.sky()) tags.append(reading.night() ? "night sky " : "sky ");
++            if (reading.rain()) tags.append(reading.thunder() ? "storm " : "rain ");
++            if (reading.water() > 0) tags.append("water ");
++            if (reading.greenery() > 0) tags.append("green ");
+             if (tags.isEmpty()) tags.append("sheltered");
+             g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
+             return;
+         }
+         var pos = mc.player.blockPosition();
+         int r = tk.darrow.tribalpower.lattice.LatticeNetwork.DEFAULT_RADIUS;
+-        long now = mc.level.getGameTime();
++        long now = time;
+         boolean due = now >= nextScan || now < nextScan - 20;
+         if (due) nextScan = now + 20;
+         if (mode == LeyLensItem.PULSE) {
+@@ -63,13 +72,17 @@ public final class LeyLensHud {
+             String names = voices.stream().map(v -> v.getSerializedName()).reduce((a, b) -> a + " " + b).orElse("none");
+             g.drawString(mc.font, mc.font.plainSubstrByWidth(names, 100), x + 8, y + 28, 0xFF74DBCB, false);
+         } else {
+-            int stations = 0, relays = 0, caches = 0;
+-            for (var be : nearby(mc, pos, r)) {
+-                if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) stations++;
+-                else if (be instanceof tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) relays++;
+-                else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) caches++;
++            // Counting the machines walks every block entity in four chunks: once a second is plenty.
++            if (due || counts == null) {
++                int stations = 0, relays = 0, caches = 0;
++                for (var be : nearby(mc, pos, r)) {
++                    if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) stations++;
++                    else if (be instanceof tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) relays++;
++                    else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) caches++;
++                }
++                counts = new int[]{stations, relays, caches};
+             }
+-            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.machines", stations, relays, caches), x + 8, y + 16, 0xFF99C9BD, false);
++            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.machines", counts[0], counts[1], counts[2]), x + 8, y + 16, 0xFF99C9BD, false);
+             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.hint"), x + 8, y + 28, 0xFF667A80, false);
+         }
+     }
+diff --git a/src/main/java/tk/darrow/tribalpower/ley/LeyLensItem.java b/src/main/java/tk/darrow/tribalpower/ley/LeyLensItem.java
+index b608050..446fc6c 100644
+--- a/src/main/java/tk/darrow/tribalpower/ley/LeyLensItem.java
++++ b/src/main/java/tk/darrow/tribalpower/ley/LeyLensItem.java
+@@ -127,21 +127,14 @@ public class LeyLensItem extends Item {
+     private static void paintPulse(ServerLevel server, ServerPlayer player, BlockPos origin) {
+         int radius = LatticeNetwork.DEFAULT_RADIUS;
+         ring(server, player, origin, radius, PULSE_COL);
+-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+         int shown = 0;
+-        for (int dx = -radius; dx <= radius; dx++) {
+-            for (int dy = -radius; dy <= radius; dy++) {
+-                for (int dz = -radius; dz <= radius; dz++) {
+-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
+-                    if (!server.hasChunkAt(cursor)) continue;
+-                    BlockEntity be = server.getBlockEntity(cursor);
+-                    if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
+-                    float fill = pulse.getPulseCapacity() == 0 ? 0 : (float) pulse.getPulseStored() / pulse.getPulseCapacity();
+-                    DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
+-                    server.sendParticles(player, core, false, cursor.getX() + 0.5, cursor.getY() + 1.15, cursor.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
+-                    if (shown++ < 4) ring(server, player, cursor.immutable(), radius, PULSE_COL);
+-                }
+-            }
++        for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, radius)) {
++            if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
++            BlockPos at = be.getBlockPos();
++            float fill = (float) pulse.getPulseStored() / pulse.getPulseCapacity();
++            DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
++            server.sendParticles(player, core, false, at.getX() + 0.5, at.getY() + 1.15, at.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
++            if (shown++ < 4) ring(server, player, at, radius, PULSE_COL);
+         }
+     }
+ 
+@@ -162,24 +155,16 @@ public class LeyLensItem extends Item {
+ 
+     private static void paintMachines(ServerLevel server, ServerPlayer player, BlockPos origin) {
+         int r = LatticeNetwork.DEFAULT_RADIUS;
+-        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+-        for (int dx = -r; dx <= r; dx++) {
+-            for (int dy = -r; dy <= r; dy++) {
+-                for (int dz = -r; dz <= r; dz++) {
+-                    cursor.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
+-                    if (!server.hasChunkAt(cursor)) continue;
+-                    BlockEntity be = server.getBlockEntity(cursor);
+-                    if (be == null) continue;
+-                    Vector3f col = null;
+-                    if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) col = STRONG;
+-                    else if (be instanceof WirelessRelayBlockEntity) col = PULSE_COL;
+-                    else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) col = WEAK;
+-                    else if (be instanceof PulseHandler) col = new Vector3f(0.85F, 0.7F, 0.35F);
+-                    if (col == null) continue;
+-                    server.sendParticles(player, new DustParticleOptions(col, 0.95F), false,
+-                            cursor.getX() + 0.5, cursor.getY() + 1.1, cursor.getZ() + 0.5, 1, 0.1, 0.05, 0.1, 0);
+-                }
+-            }
++        for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, r)) {
++            Vector3f col = null;
++            if (be instanceof tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) col = STRONG;
++            else if (be instanceof WirelessRelayBlockEntity) col = PULSE_COL;
++            else if (be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) col = WEAK;
++            else if (be instanceof PulseHandler) col = new Vector3f(0.85F, 0.7F, 0.35F);
++            if (col == null) continue;
++            BlockPos at = be.getBlockPos();
++            server.sendParticles(player, new DustParticleOptions(col, 0.95F), false,
++                    at.getX() + 0.5, at.getY() + 1.1, at.getZ() + 0.5, 1, 0.1, 0.05, 0.1, 0);
+         }
+     }
+ 
+diff --git a/src/main/java/tk/darrow/tribalpower/rite/world/GreenBlessing.java b/src/main/java/tk/darrow/tribalpower/rite/world/GreenBlessing.java
+index 57ff430..9d43948 100644
+--- a/src/main/java/tk/darrow/tribalpower/rite/world/GreenBlessing.java
++++ b/src/main/java/tk/darrow/tribalpower/rite/world/GreenBlessing.java
+@@ -24,6 +24,8 @@ import java.util.List;
+  */
+ public final class GreenBlessing {
+     public static final int EXTRA_TICKS = 3;
++    /** How many ticks apart the growth pass runs; each pass carries that many ticks' worth of samples. */
++    public static final int SAMPLE_INTERVAL = 4;
+     public static final int CHUNK_RADIUS = 1;
+ 
+     private GreenBlessing() {}
+@@ -47,6 +49,8 @@ public final class GreenBlessing {
+     }
+ 
+     public static void tick(ServerLevel level) {
++        // Sample every fourth tick with four times the samples: the same growth for a quarter of the work.
++        if (level.getGameTime() % SAMPLE_INTERVAL != 0) return;
+         List<ChunkPos> chunks = RiteSavedData.get(level.getServer()).blessedChunks(level);
+         if (chunks.isEmpty()) return;
+         RandomSource random = level.random;
+@@ -61,7 +65,7 @@ public final class GreenBlessing {
+                 LevelChunkSection section = sections[s];
+                 if (section == null || !section.isRandomlyTicking()) continue;
+                 int minY = chunk.getSectionYFromSectionIndex(s) << 4;
+-                for (int i = 0; i < EXTRA_TICKS; i++) {
++                for (int i = 0; i < EXTRA_TICKS * SAMPLE_INTERVAL; i++) {
+                     int r = random.nextInt();
+                     int x = r & 15, y = (r >> 8) & 15, z = (r >> 16) & 15;
+                     BlockState state = section.getBlockState(x, y, z);
+diff --git a/src/main/java/tk/darrow/tribalpower/storage/InventorySorter.java b/src/main/java/tk/darrow/tribalpower/storage/InventorySorter.java
+new file mode 100644
+index 0000000..688b8e7
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/storage/InventorySorter.java
+@@ -0,0 +1,130 @@
++package tk.darrow.tribalpower.storage;
++
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.world.Container;
++import net.minecraft.world.entity.player.Inventory;
++import net.minecraft.world.entity.player.Player;
++import net.minecraft.world.inventory.AbstractContainerMenu;
++import net.minecraft.world.inventory.ShulkerBoxSlot;
++import net.minecraft.world.inventory.Slot;
++import net.minecraft.world.item.ItemStack;
++
++import java.util.ArrayList;
++import java.util.Comparator;
++import java.util.List;
++
++/**
++ * Tidying for any inventory the mod is willing to touch: the player's own pack, and plain storage such as
++ * chests, barrels, shulkers, hoppers and the mod's caches. Stacks of a kind are merged and then laid out in
++ * a stable order.
++ *
++ * <p>A machine's slots each take only their own thing, so they are left alone: a group is only sorted when
++ * every slot in it is an ordinary slot of one container and will accept everything the group holds. The
++ * same test runs on both sides, so the client only draws a button for a group the server would sort.</p>
++ */
++public final class InventorySorter {
++    /** Order: by the item's own name, then its display name, then fullest stack first. */
++    private static final Comparator<ItemStack> ORDER = Comparator
++            .comparing((ItemStack stack) -> BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath())
++            .thenComparing(stack -> BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace())
++            .thenComparing(stack -> stack.getHoverName().getString())
++            .thenComparing(stack -> -stack.getCount())
++            .thenComparing(ItemStack::getDamageValue);
++
++    private InventorySorter() {}
++
++    /** The slots a sort would move, or an empty list when that side cannot be sorted. */
++    public static List<Slot> group(AbstractContainerMenu menu, Player player, boolean containerSide) {
++        Inventory inventory = player.getInventory();
++        List<Slot> group = new ArrayList<>();
++        for (Slot slot : menu.slots) {
++            boolean own = slot.container == inventory;
++            if (own == containerSide) continue;
++            // The hotbar and the equipment slots stay where the player put them.
++            if (own && (slot.getContainerSlot() < Inventory.getSelectionSize() || slot.getContainerSlot() > 35)) continue;
++            group.add(slot);
++        }
++        if (group.size() < 2) return List.of();
++        return containerSide && !plainStorage(group) ? List.of() : group;
++    }
++
++    public static boolean sortable(AbstractContainerMenu menu, Player player, boolean containerSide) {
++        List<Slot> group = group(menu, player, containerSide);
++        if (group.isEmpty()) return false;
++        for (Slot slot : group) if (slot.hasItem()) return true;
++        return false;
++    }
++
++    /** True when every slot belongs to one container, is an ordinary slot, and takes what the group holds. */
++    private static boolean plainStorage(List<Slot> group) {
++        Container container = group.get(0).container;
++        if (container == null) return false;
++        for (Slot slot : group) {
++            if (slot.container != container) return false;
++            if (slot.getClass() != Slot.class && !(slot instanceof ShulkerBoxSlot)) return false;
++        }
++        if (group.size() != container.getContainerSize()) return false;
++        for (Slot slot : group) {
++            for (Slot other : group) {
++                ItemStack held = other.getItem();
++                if (!held.isEmpty() && !slot.mayPlace(held)) return false;
++            }
++        }
++        return true;
++    }
++
++    /** Merge and order one side of the open menu. Returns false when there was nothing to do. */
++    public static boolean sort(Player player, boolean containerSide) {
++        AbstractContainerMenu menu = player.containerMenu;
++        if (menu == null) return false;
++        List<Slot> group = group(menu, player, containerSide);
++        if (group.isEmpty()) return false;
++
++        List<ItemStack> stacks = new ArrayList<>();
++        for (Slot slot : group) {
++            ItemStack held = slot.getItem();
++            if (!held.isEmpty()) stacks.add(held.copy());
++        }
++        if (stacks.isEmpty()) return false;
++
++        List<ItemStack> merged = merge(stacks, group.get(0));
++        merged.sort(ORDER);
++        if (merged.size() > group.size()) return false;
++        // Never half-sort: if any stack would not go back where it is headed, nothing moves.
++        for (int i = 0; i < merged.size(); i++) {
++            if (!group.get(i).mayPlace(merged.get(i))) return false;
++        }
++        if (unchanged(group, merged)) return false;
++
++        for (Slot slot : group) slot.set(ItemStack.EMPTY);
++        for (int i = 0; i < merged.size(); i++) group.get(i).set(merged.get(i));
++        menu.broadcastChanges();
++        return true;
++    }
++
++    private static boolean unchanged(List<Slot> group, List<ItemStack> merged) {
++        for (int i = 0; i < group.size(); i++) {
++            ItemStack was = group.get(i).getItem();
++            ItemStack now = i < merged.size() ? merged.get(i) : ItemStack.EMPTY;
++            if (!ItemStack.matches(was, now)) return false;
++        }
++        return true;
++    }
++
++    private static List<ItemStack> merge(List<ItemStack> stacks, Slot slot) {
++        List<ItemStack> out = new ArrayList<>();
++        for (ItemStack stack : stacks) {
++            int cap = Math.min(stack.getMaxStackSize(), slot.getMaxStackSize(stack));
++            boolean pooled = false;
++            for (ItemStack kept : out) {
++                if (kept.getCount() >= cap || !ItemStack.isSameItemSameComponents(kept, stack)) continue;
++                int moved = Math.min(cap - kept.getCount(), stack.getCount());
++                kept.grow(moved);
++                stack.shrink(moved);
++                if (stack.isEmpty()) { pooled = true; break; }
++            }
++            if (!pooled && !stack.isEmpty()) out.add(stack);
++        }
++        return out;
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/storage/SortPayload.java b/src/main/java/tk/darrow/tribalpower/storage/SortPayload.java
+new file mode 100644
+index 0000000..cab2d0a
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/storage/SortPayload.java
+@@ -0,0 +1,26 @@
++package tk.darrow.tribalpower.storage;
++
++import io.netty.buffer.ByteBuf;
++import net.minecraft.network.codec.ByteBufCodecs;
++import net.minecraft.network.codec.StreamCodec;
++import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.server.level.ServerPlayer;
++import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
++
++/** Client to server: tidy one side of the menu the player has open. */
++public record SortPayload(boolean container) implements CustomPacketPayload {
++    public static final Type<SortPayload> TYPE =
++            new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "sort_inventory"));
++    public static final StreamCodec<ByteBuf, SortPayload> STREAM_CODEC = StreamCodec.composite(
++            ByteBufCodecs.BOOL, SortPayload::container, SortPayload::new);
++
++    @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
++
++    public static void register(RegisterPayloadHandlersEvent event) {
++        event.registrar("1").playToServer(TYPE, STREAM_CODEC, (payload, context) -> {
++            if (!(context.player() instanceof ServerPlayer player)) return;
++            InventorySorter.sort(player, payload.container());
++        });
++    }
++}
+diff --git a/src/main/java/tk/darrow/tribalpower/verification/ToolsGameTests.java b/src/main/java/tk/darrow/tribalpower/verification/ToolsGameTests.java
+new file mode 100644
+index 0000000..2833574
+--- /dev/null
++++ b/src/main/java/tk/darrow/tribalpower/verification/ToolsGameTests.java
+@@ -0,0 +1,162 @@
++package tk.darrow.tribalpower.verification;
++
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.gametest.framework.GameTest;
++import net.minecraft.gametest.framework.GameTestHelper;
++import net.minecraft.world.InteractionHand;
++import net.minecraft.world.SimpleContainer;
++import net.minecraft.world.inventory.ChestMenu;
++import net.minecraft.world.inventory.MenuType;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.Items;
++import net.minecraft.world.item.context.UseOnContext;
++import net.minecraft.world.level.GameType;
++import net.minecraft.world.level.block.Blocks;
++import net.minecraft.world.level.block.CropBlock;
++import net.minecraft.world.level.block.state.BlockState;
++import net.minecraft.world.phys.BlockHitResult;
++import net.minecraft.world.phys.Vec3;
++import net.neoforged.neoforge.fluids.FluidStack;
++import net.neoforged.neoforge.fluids.FluidType;
++import net.neoforged.neoforge.fluids.capability.IFluidHandler;
++import net.neoforged.neoforge.gametest.GameTestHolder;
++import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
++import net.minecraft.world.level.material.Fluids;
++import tk.darrow.tribalpower.block.ModBlocks;
++import tk.darrow.tribalpower.item.ModItems;
++import tk.darrow.tribalpower.item.PulseCellItem;
++import tk.darrow.tribalpower.item.SpiritFlaskItem;
++import tk.darrow.tribalpower.item.SpiritGear;
++import tk.darrow.tribalpower.storage.InventorySorter;
++
++/** The carried kit added in 3.7: shears, hoe, flask, wrench, wand, and the tidy button behind it. */
++@GameTestHolder("tribalpower")
++@PrefixGameTestTemplate(false)
++public class ToolsGameTests {
++
++    @GameTest(template = "empty")
++    public static void shearsAndHoeAreSpiritgear(GameTestHelper h) {
++        ItemStack shears = new ItemStack(ModItems.SPIRITGEAR_SHEARS.get());
++        ItemStack hoe = new ItemStack(ModItems.SPIRITGEAR_HOE.get());
++        h.assertTrue(SpiritGear.isTool(shears) && SpiritGear.isTool(hoe), "Both rank and bind like Spiritgear");
++        h.assertTrue(shears.getMaxDamage() >= SpiritGear.TOOL_DURABILITY && hoe.getMaxDamage() >= SpiritGear.TOOL_DURABILITY,
++                "Spiritgear lasts at least " + SpiritGear.TOOL_DURABILITY);
++        h.assertTrue(shears.getDestroySpeed(Blocks.OAK_LEAVES.defaultBlockState()) > 1.0F, "Shears cut leaves fast");
++        h.assertTrue(hoe.isCorrectToolForDrops(Blocks.HAY_BLOCK.defaultBlockState()), "The hoe takes hay");
++        h.assertTrue(SpiritGear.allRankFormulae().stream().anyMatch(f -> f.id().getPath().contains("spiritgear_shears")),
++                "Echo stations must offer a rank for the shears");
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void hoeReapsAndSowsRipeWheat(GameTestHelper h) {
++        var player = VerificationPlayers.inLevel(h);
++        player.setGameMode(GameType.SURVIVAL);
++        player.getAbilities().instabuild = false;
++        ItemStack hoe = new ItemStack(ModItems.SPIRITGEAR_HOE.get());
++        player.setItemInHand(InteractionHand.MAIN_HAND, hoe);
++        player.getInventory().setItem(1, PulseCellItem.createFilled(200));
++        BlockPos soil = new BlockPos(2, 1, 2), crop = soil.above();
++        h.setBlock(soil, Blocks.FARMLAND);
++        CropBlock wheat = (CropBlock) Blocks.WHEAT;
++        h.setBlock(crop, wheat.defaultBlockState().setValue(CropBlock.AGE, 7));
++        BlockPos absolute = h.absolutePos(crop);
++        hoe.useOn(new UseOnContext(h.getLevel(), player, InteractionHand.MAIN_HAND, hoe,
++                new BlockHitResult(Vec3.atCenterOf(absolute), Direction.UP, absolute, false)));
++        BlockState after = h.getLevel().getBlockState(absolute);
++        h.assertTrue(after.is(Blocks.WHEAT) && after.getValue(CropBlock.AGE) == 0,
++                "The crop is sown again at age 0, not broken");
++        h.assertTrue(hoe.getDamageValue() == 0, "A paid reap mends rather than wears");
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void flaskCarriesAndPoursFluid(GameTestHelper h) {
++        ItemStack flask = new ItemStack(ModItems.SPIRIT_FLASK.get());
++        IFluidHandler handler = SpiritFlaskItem.handler(flask);
++        h.assertTrue(handler.getTanks() > 0, "The flask is a fluid container");
++        int filled = handler.fill(new FluidStack(Fluids.WATER, 3 * FluidType.BUCKET_VOLUME), IFluidHandler.FluidAction.EXECUTE);
++        h.assertTrue(filled == 3 * FluidType.BUCKET_VOLUME, "Three buckets go in, got " + filled);
++        ItemStack held = ((net.neoforged.neoforge.fluids.capability.IFluidHandlerItem) handler).getContainer();
++        h.assertTrue(SpiritFlaskItem.contents(held).getAmount() == 3 * FluidType.BUCKET_VOLUME,
++                "The flask remembers what it carries");
++        int over = SpiritFlaskItem.handler(held).fill(new FluidStack(Fluids.LAVA, FluidType.BUCKET_VOLUME),
++                IFluidHandler.FluidAction.SIMULATE);
++        h.assertTrue(over == 0, "One fluid at a time");
++        h.assertTrue(((SpiritFlaskItem) ModItems.GREATER_SPIRIT_FLASK.get()).capacity()
++                > ((SpiritFlaskItem) ModItems.SPIRIT_FLASK.get()).capacity(), "The greater flask holds more");
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void wrenchTurnsAMachineFace(GameTestHelper h) {
++        var player = VerificationPlayers.inLevel(h);
++        player.setGameMode(GameType.SURVIVAL);
++        ItemStack wrench = new ItemStack(ModItems.TOTEM_WRENCH.get());
++        player.setItemInHand(InteractionHand.MAIN_HAND, wrench);
++        BlockPos pos = new BlockPos(2, 1, 2);
++        h.setBlock(pos, Blocks.FURNACE.defaultBlockState()
++                .setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
++        BlockPos absolute = h.absolutePos(pos);
++        wrench.useOn(new UseOnContext(h.getLevel(), player, InteractionHand.MAIN_HAND, wrench,
++                new BlockHitResult(Vec3.atCenterOf(absolute), Direction.UP, absolute, false)));
++        Direction now = h.getLevel().getBlockState(absolute)
++                .getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING);
++        h.assertTrue(now != Direction.NORTH, "The wrench turns a block that has a facing");
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void wandLaysAFaceOfBlocks(GameTestHelper h) {
++        var player = VerificationPlayers.inLevel(h);
++        player.setGameMode(GameType.SURVIVAL);
++        player.getAbilities().instabuild = false;
++        ItemStack wand = new ItemStack(ModItems.WEAVERS_WAND.get());
++        player.setItemInHand(InteractionHand.MAIN_HAND, wand);
++        player.getInventory().setItem(1, new ItemStack(Items.STONE, 16));
++        player.getInventory().setItem(2, PulseCellItem.createFilled(400));
++        for (int x = 1; x <= 3; x++) for (int z = 1; z <= 3; z++) h.setBlock(new BlockPos(x, 1, z), Blocks.STONE);
++        BlockPos clicked = h.absolutePos(new BlockPos(2, 1, 2));
++        wand.useOn(new UseOnContext(h.getLevel(), player, InteractionHand.MAIN_HAND, wand,
++                new BlockHitResult(Vec3.atCenterOf(clicked), Direction.UP, clicked, false)));
++        int laid = 0;
++        for (int x = 1; x <= 3; x++) for (int z = 1; z <= 3; z++)
++            if (h.getBlockState(new BlockPos(x, 2, z)).is(Blocks.STONE)) laid++;
++        h.assertTrue(laid == 9, "The wand carries the whole face upward, laid " + laid);
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void tidyMergesAndOrdersAChest(GameTestHelper h) {
++        var player = VerificationPlayers.inLevel(h);
++        SimpleContainer chest = new SimpleContainer(27);
++        chest.setItem(0, new ItemStack(Items.STONE, 12));
++        chest.setItem(5, new ItemStack(Items.APPLE, 3));
++        chest.setItem(9, new ItemStack(Items.STONE, 30));
++        player.containerMenu = new ChestMenu(MenuType.GENERIC_9x3, 1, player.getInventory(), chest, 3);
++        h.assertTrue(InventorySorter.sort(player, true), "A chest with loose stacks can be tidied");
++        h.assertTrue(chest.getItem(0).is(Items.APPLE), "Apples sort before stone");
++        h.assertTrue(chest.getItem(1).is(Items.STONE) && chest.getItem(1).getCount() == 42,
++                "Two stone stacks merge into one of 42, got " + chest.getItem(1).getCount());
++        h.assertTrue(chest.getItem(2).isEmpty() && chest.getItem(9).isEmpty(), "Everything else is left empty");
++        h.assertTrue(!InventorySorter.sort(player, true), "A tidy chest is left alone");
++        h.succeed();
++    }
++
++    @GameTest(template = "empty")
++    public static void tidyRefusesMachineSlots(GameTestHelper h) {
++        var player = VerificationPlayers.inLevel(h);
++        BlockPos pos = new BlockPos(2, 1, 2);
++        h.setBlock(pos, ModBlocks.ECHO_SHATTER.get());
++        var be = h.getLevel().getBlockEntity(h.absolutePos(pos));
++        h.assertTrue(be instanceof net.minecraft.world.MenuProvider, "The station opens a menu");
++        var menu = ((net.minecraft.world.MenuProvider) be).createMenu(1, player.getInventory(), player);
++        player.containerMenu = menu;
++        h.assertTrue(InventorySorter.group(menu, player, true).isEmpty(),
++                "A station's input, catalyst and output slots are never rearranged");
++        h.assertTrue(!InventorySorter.group(menu, player, false).isEmpty(),
++                "The player's own pack is still tidyable while a station is open");
++        h.succeed();
++    }
++}
+diff --git a/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/camp_kit.json b/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/camp_kit.json
+new file mode 100644
+index 0000000..88adec5
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/camp_kit.json
+@@ -0,0 +1,44 @@
++{
++  "name": "Wrench and wand",
++  "icon": "tribalpower:totem_wrench",
++  "order": 25,
++  "items": [
++    "tribalpower:weavers_wand"
++  ],
++  "pages": [
++    {
++      "type": "spotlight",
++      "item": "tribalpower:totem_wrench",
++      "title": "Totem Wrench",
++      "text": [
++        "Every machine in the camp faces somewhere, and sooner or later it faces the wrong way. Use the wrench on a block and it turns, without breaking and replacing it.",
++        "**Sneak-use a machine's face** and that face steps through Both, Input, Output and Closed \u2014 the same setting the machine's own side pad shows, reachable from outside the screen."
++      ]
++    },
++    {
++      "type": "text",
++      "title": "What it costs",
++      "text": [
++        "A turn takes **1 Pulse** from any cell you carry. With no Pulse on you the wrench wears a point of its **512** instead, so it still works on a bad day.",
++        "It refuses blocks that cannot turn, and it refuses another tribe's machines, same as an empty hand would."
++      ]
++    },
++    {
++      "type": "recipe",
++      "item": "tribalpower:totem_wrench"
++    },
++    {
++      "type": "spotlight",
++      "item": "tribalpower:weavers_wand",
++      "title": "Weaver's Wand",
++      "text": [
++        "Click the face of a block and the wand carries that face outward across every neighbour like it: up to **32 blocks** in one sweep.",
++        "The blocks come from your pack and cost **2 Pulse** each. It only fills open air, never replacing anything that is already there, so a floor is laid in a click and nothing underneath is lost."
++      ]
++    },
++    {
++      "type": "recipe",
++      "item": "tribalpower:weavers_wand"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/spiritgear.json b/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/spiritgear.json
+index 8c7f117..2ef20fe 100644
+--- a/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/spiritgear.json
++++ b/src/main/resources/assets/tribalpower/codex/en_us/entries/gear/spiritgear.json
+@@ -6,14 +6,16 @@
+   "items": [
+     "tribalpower:spiritgear_axe",
+     "tribalpower:spiritgear_shovel",
+-    "tribalpower:spiritgear_blade"
++    "tribalpower:spiritgear_blade",
++    "tribalpower:spiritgear_shears",
++    "tribalpower:spiritgear_hoe"
+   ],
+   "pages": [
+     {
+       "type": "spotlight",
+       "item": "tribalpower:spiritgear_pickaxe",
+       "text": [
+-        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel and blade. They start diamond-hard with **1,024 durability**.",
++        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They start diamond-hard with **1,024 durability**.",
+         "While they can draw Pulse from a carried cell they spare their edge: every paid action mends a point of wear instead of costing one."
+       ],
+       "title": "Spiritgear tools"
+@@ -48,6 +50,19 @@
+         "A Loom-linked pick spends **0 Pulse** to mine. Echo Unweave takes a damaged tool back apart into one Manifested Ingot, forgetting rank and voice."
+       ]
+     },
++    {
++      "type": "text",
++      "title": "Shears and hoe",
++      "text": [
++        "The **Spiritgear Shears** trim leaves, wool, vines and cobweb, and rank and bind like the rest of the set.",
++        "- **Earth**: a swing takes the whole 3x3 face of foliage.  - **Air**: trimming costs no Pulse and no wear at all.",
++        "- **Water**: a sheared sheep is left its fleece, always at Manifested.  - **Fire**: used on a beehive it smokes the bees calm, so no swarm.",
++        "- **Spirit**: what it shears is mended afterwards, and nearby beasts worth shearing glow.  - **Loom**: the cuttings come straight to hand.",
++        "The **Spiritgear Hoe** reaps and sows in one motion: use it on a ripe crop and the harvest drops while one seed goes back into the ground.",
++        "- **Earth**: turns a 3x3 of soil at once.  - **Water**: its furrows come out wet, and fields you walk past stay watered.",
++        "- **Air**: reaps a 3x3.  - **Loom**: reaps a 5x5 and spends no Pulse doing it.  - **Spirit**: a quarter of harvests come back doubled."
++      ]
++    },
+     {
+       "type": "recipe",
+       "item": "tribalpower:spiritgear_pickaxe"
+@@ -64,6 +79,14 @@
+       "type": "recipe",
+       "item": "tribalpower:spiritgear_blade"
+     },
++    {
++      "type": "recipe",
++      "item": "tribalpower:spiritgear_shears"
++    },
++    {
++      "type": "recipe",
++      "item": "tribalpower:spiritgear_hoe"
++    },
+     {
+       "type": "text",
+       "title": "A cell of its own",
+diff --git a/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/ancestral_cache.json b/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/ancestral_cache.json
+index 6d9eaf3..86ad2c1 100644
+--- a/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/ancestral_cache.json
++++ b/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/ancestral_cache.json
+@@ -206,6 +206,15 @@
+     {
+       "type": "recipe",
+       "item": "tribalpower:ancestral_cache"
++    },
++    {
++      "type": "text",
++      "title": "The tidy button",
++      "text": [
++        "Every inventory worth tidying carries a small **Tidy** button in the empty corner above its slots: your own pack, this cache, the [Deep Cache](deep_cache), and any chest, barrel, shulker box or hopper.",
++        "A press merges what can be merged and lays the rest out in order. Your hotbar and your armour are never moved, and a machine's slots are left alone \u2014 the button only appears where every slot takes anything.",
++        "Turn it off with **sortButtons** in the client config if it crowds another mod's screen."
++      ]
+     }
+   ]
+ }
+diff --git a/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/spirit_flask.json b/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/spirit_flask.json
+new file mode 100644
+index 0000000..fbb8b70
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/codex/en_us/entries/storage/spirit_flask.json
+@@ -0,0 +1,36 @@
++{
++  "name": "Spirit Flask",
++  "icon": "tribalpower:spirit_flask",
++  "order": 35,
++  "items": [
++    "tribalpower:greater_spirit_flask"
++  ],
++  "pages": [
++    {
++      "type": "spotlight",
++      "item": "tribalpower:spirit_flask",
++      "text": [
++        "A tank you can carry. The flask holds one fluid, **4,000 mB** (4 buckets) \u2014 the **Greater Spirit Flask** holds **16,000 mB**, as much as a [Spirit Cistern](spirit_cistern).",
++        "It never splits into a stack of buckets, and the amount it holds shows as a bar under the icon in the fluid's own colour."
++      ]
++    },
++    {
++      "type": "text",
++      "title": "Filling and pouring",
++      "text": [
++        "- **Use it on a tank or machine** (a cistern, a Wave Drum, a fluid relay, another mod's tank) and it draws from it; if it cannot draw, it pours in what it carries instead.",
++        "- **Use it on a fluid source in the world** and it drinks a bucket of it.",
++        "- **Sneak-use** and it pours a bucket back out in front of you.",
++        "Other mods see it as an ordinary fluid container, so pipes and filling machines can fill and drain it while it sits in your pack."
++      ]
++    },
++    {
++      "type": "recipe",
++      "item": "tribalpower:spirit_flask"
++    },
++    {
++      "type": "recipe",
++      "item": "tribalpower:greater_spirit_flask"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/tribalpower/lang/en_us.json b/src/main/resources/assets/tribalpower/lang/en_us.json
+index da1b09b..245691b 100644
+--- a/src/main/resources/assets/tribalpower/lang/en_us.json
++++ b/src/main/resources/assets/tribalpower/lang/en_us.json
+@@ -1216,5 +1216,31 @@
+   "message.tribalpower.gate.cell_empty": "That Pulse Cell holds no charge",
+   "message.tribalpower.gate.full": "%s is fully charged",
+   "message.tribalpower.gate.charge": "%s +%s Pulse (%s/%s)",
+-  "subtitles.tribalpower.gate_rite": "Gate Rite drumming"
++  "subtitles.tribalpower.gate_rite": "Gate Rite drumming",
++  "item.tribalpower.spiritgear_shears": "Spiritgear Shears",
++  "item.tribalpower.spiritgear_hoe": "Spiritgear Hoe",
++  "item.tribalpower.spiritgear_shears.desc": "Trims leaves, wool and vines; Pulse spares the blades",
++  "item.tribalpower.spiritgear_hoe.desc": "Use it on a ripe crop to reap and sow in one motion",
++  "item.tribalpower.spiritgear_shears.hint": "Earth takes the whole 3x3 face of foliage. Air trims for nothing at all. Water leaves a sheep its fleece. Fire smokes a hive calm. Spirit mends what it shears and shows what can be shorn. Loom sends the cuttings to hand.",
++  "item.tribalpower.spiritgear_hoe.hint": "Earth turns a 3x3 of soil. Water leaves its furrows wet and keeps nearby fields watered. Air reaps a 3x3; Loom reaps a 5x5 and spends no Pulse. Spirit doubles part of the harvest.",
++  "item.tribalpower.spirit_flask": "Spirit Flask",
++  "item.tribalpower.greater_spirit_flask": "Greater Spirit Flask",
++  "item.tribalpower.spirit_flask.desc": "A tank in the hand: %s buckets of one fluid",
++  "item.tribalpower.spirit_flask.empty": "Empty",
++  "item.tribalpower.spirit_flask.holding": "%s \u2014 %s / %s mB",
++  "item.tribalpower.spirit_flask.hint": "Use it on a tank, machine or fluid source to fill it; sneak-use to pour a bucket back out. Pipes and other mods' tanks fill it directly.",
++  "item.tribalpower.greater_spirit_flask.hint": "Use it on a tank, machine or fluid source to fill it; sneak-use to pour a bucket back out. Pipes and other mods' tanks fill it directly.",
++  "item.tribalpower.totem_wrench": "Totem Wrench",
++  "item.tribalpower.totem_wrench.desc": "Turns a block to face elsewhere",
++  "item.tribalpower.totem_wrench.hint": "Sneak-use a machine face to step it through Both, Input, Output and Closed. A Pulse from your cells spares the wrench; without one it wears a point.",
++  "item.tribalpower.weavers_wand": "Weaver's Wand",
++  "item.tribalpower.weavers_wand.desc": "Lays up to %s matching blocks across a face, %s Pulse each",
++  "item.tribalpower.weavers_wand.hint": "Click the face you want carried outward. The wand spends blocks from your pack and Pulse from your cells, and never replaces anything solid.",
++  "message.tribalpower.wrench.no_faces": "Nothing here to set",
++  "message.tribalpower.wrench.fixed": "This will not turn",
++  "message.tribalpower.wand.nowhere": "No open face to weave onto",
++  "message.tribalpower.wand.no_blocks": "No %s left to lay",
++  "gui.tribalpower.sort": "Tidy",
++  "gui.tribalpower.sort.inventory": "Tidy your pack",
++  "gui.tribalpower.sort.container": "Tidy this storage"
+ }
+diff --git a/src/main/resources/assets/tribalpower/models/item/greater_spirit_flask.json b/src/main/resources/assets/tribalpower/models/item/greater_spirit_flask.json
+new file mode 100644
+index 0000000..ae0024a
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/greater_spirit_flask.json
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "tribalpower:item/greater_spirit_flask"
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spirit_flask.json b/src/main/resources/assets/tribalpower/models/item/spirit_flask.json
+new file mode 100644
+index 0000000..3d4eed5
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spirit_flask.json
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/generated",
++  "textures": {
++    "layer0": "tribalpower:item/spirit_flask"
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe.json
+new file mode 100644
+index 0000000..efe466a
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe.json
+@@ -0,0 +1,42 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_hoe",
++    "layer1": "tribalpower:item/spiritgear_hoe_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  },
++  "overrides": [
++    {
++      "predicate": {
++        "custom_model_data": 1
++      },
++      "model": "tribalpower:item/spiritgear_hoe_attuned"
++    },
++    {
++      "predicate": {
++        "custom_model_data": 2
++      },
++      "model": "tribalpower:item/spiritgear_hoe_bound"
++    },
++    {
++      "predicate": {
++        "custom_model_data": 3
++      },
++      "model": "tribalpower:item/spiritgear_hoe_manifested"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_attuned.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_attuned.json
+new file mode 100644
+index 0000000..4ed9d42
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_attuned.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_hoe_attuned",
++    "layer1": "tribalpower:item/spiritgear_hoe_attuned_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_bound.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_bound.json
+new file mode 100644
+index 0000000..95ff1c0
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_bound.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_hoe_bound",
++    "layer1": "tribalpower:item/spiritgear_hoe_bound_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_manifested.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_manifested.json
+new file mode 100644
+index 0000000..396ed3e
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_hoe_manifested.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_hoe_manifested",
++    "layer1": "tribalpower:item/spiritgear_hoe_manifested_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_shears.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears.json
+new file mode 100644
+index 0000000..9b1b82f
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears.json
+@@ -0,0 +1,42 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_shears",
++    "layer1": "tribalpower:item/spiritgear_shears_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  },
++  "overrides": [
++    {
++      "predicate": {
++        "custom_model_data": 1
++      },
++      "model": "tribalpower:item/spiritgear_shears_attuned"
++    },
++    {
++      "predicate": {
++        "custom_model_data": 2
++      },
++      "model": "tribalpower:item/spiritgear_shears_bound"
++    },
++    {
++      "predicate": {
++        "custom_model_data": 3
++      },
++      "model": "tribalpower:item/spiritgear_shears_manifested"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_attuned.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_attuned.json
+new file mode 100644
+index 0000000..e85f957
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_attuned.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_shears_attuned",
++    "layer1": "tribalpower:item/spiritgear_shears_attuned_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_bound.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_bound.json
+new file mode 100644
+index 0000000..40ff529
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_bound.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_shears_bound",
++    "layer1": "tribalpower:item/spiritgear_shears_bound_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_manifested.json b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_manifested.json
+new file mode 100644
+index 0000000..bf20508
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/spiritgear_shears_manifested.json
+@@ -0,0 +1,22 @@
++{
++  "parent": "minecraft:item/handheld",
++  "loader": "neoforge:item_layers",
++  "textures": {
++    "layer0": "tribalpower:item/spiritgear_shears_manifested",
++    "layer1": "tribalpower:item/spiritgear_shears_manifested_glow"
++  },
++  "render_types": {
++    "minecraft:translucent": [
++      1
++    ]
++  },
++  "neoforge_data": {
++    "layers": {
++      "1": {
++        "block_light": 15,
++        "sky_light": 15,
++        "ambient_occlusion": false
++      }
++    }
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/totem_wrench.json b/src/main/resources/assets/tribalpower/models/item/totem_wrench.json
+new file mode 100644
+index 0000000..03bcc85
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/totem_wrench.json
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/handheld",
++  "textures": {
++    "layer0": "tribalpower:item/totem_wrench"
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/models/item/weavers_wand.json b/src/main/resources/assets/tribalpower/models/item/weavers_wand.json
+new file mode 100644
+index 0000000..10362fb
+--- /dev/null
++++ b/src/main/resources/assets/tribalpower/models/item/weavers_wand.json
+@@ -0,0 +1,6 @@
++{
++  "parent": "minecraft:item/handheld",
++  "textures": {
++    "layer0": "tribalpower:item/weavers_wand"
++  }
++}
+diff --git a/src/main/resources/assets/tribalpower/textures/item/greater_spirit_flask.png b/src/main/resources/assets/tribalpower/textures/item/greater_spirit_flask.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..ddb67d514e0ef78444639c40057db6f72a60a436
+GIT binary patch
+literal 960
+zcmV;x13&zUP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F8000ArNkl<Zc$~$T
+zPiP!f9LGPKgvK-r{vpIdVGU_^QzO_kUX*HDg&x!vS}clH@Fr1DLJtut^dN}fNpcWR
+zdJt)Qs7NV7Ls479B56~kk{V)moTSS(ELq%Sx0{{ac^=A}oj32z?2agYPcy%H^ZS0^
+zZ@%yM-oXEiMBEpidG3G+#$0C;fW~%>>kCV<a`wa}pS$#l7O$+%0+7G`D=$vF;*X`}
+zjzz>05G0hO67yLL$7#mO6-$8YY*JaB^+@Nlmhyb=<`#8F`$Cb3?SXy!#>6|%k6_vB
+z09g4l0Cus;a#gUN|1(z3uDAkf_Z;t9l1nt>P5z$==u7q+$pIctcE=Xbak)k_Y0;PL
+zXW_>gB_1^7D<9rstKyKeavkMvYr@e?S^&KN(&HMbe+2-1_W3Q|JG>XmUgs=`dc)<;
+zTC^u31&n6WLJ~{U$yH!l0dky`FZ0^OqgeSeS9wfCi3oil$t`=G<Qo~bzFzX4S@|+{
+zv8s$Olxw{D?2zY;-ZK~2K64y^t810eN*IIV6XRlPGUd%$V&+;QOs|3?!#lOu!bXj*
+zgv;XZmcpqC7@rsyL8ArXH(nHi9+}TtOrI}d=UN6;JTRI`i>b+!((Qr>e)}*;PXrO{
+zltvSNbozVa%QM#s%vjk-;;CIva%^nCnA$E@Nw}^O^BR%gbbbt_2DL;-`W`WopS!cF
+z5&DrD*vY|ElEK|WUKv6=;m2Qn3ZMxBxOi`)Ex9BF_~!B#UhJ2Z4V*@+3ZVi%c<U6<
+zSp`hw(5k@ehu>E2{V)oUvxoK-2qTA91wgGrTLE(R5M6;Na%j!iE>=0P|4ri<<0|l1
+zK#2o1m#HkyasoJE8kBw4yEOHI(_iMz0_ydK*6#tX{M6uu$sQ$1Cz!jr#f_CZ6T>?q
+z$0?m~WX~RP>gW^7clYo67gwrG{(L?%;gzRe=GfSP(Qt)wjZ$I<rMtGrt9YQ<bT#rr
+zPmg%_jhdd+kK31j1I%s@gCZbj<q~Ia-1W!-e#kC&lt_|?!8ChKfE00I@vn|Z<B&Uj
+zz3h5OUv%1T820nw$A7jPf`0Z7;@{p4jR%tS*k0i_8UXY^@F3GC&+*;2N3n}lrMrP{
+zxI(!Gz-CV`-CcV6!djaHi3zFU{i3#AqFcBeOeH;1N#;i>aev(h%@&5(e@275heXr8
+iUq;u}|3o?^miQZL7~L&D8wrL00000<MNUMnLSTY-XwnD(
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spirit_flask.png b/src/main/resources/assets/tribalpower/textures/item/spirit_flask.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..0dd0ee2365817644eb1f29763efd3bc5c839296a
+GIT binary patch
+literal 800
+zcmV+*1K<3KP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80008#Nkl<Zc%02v
+z&ubGw7=3FcHn9{b5)Umg4b))4OAZo*B6=tyxeFe85HF%Vc&VPmqklk8JrwDohn{kX
+zAQnQUJ%k#I1R9Fgbh~cqw#Ed5$!?Qv#zUQScQdouf%xM)WoN#8@9mrKdpp2C4oUP6
+z@pz0l*P3-50ALsmY<~PKRP(ebczW)B$GV!$0syvhGNv1Z?8*htB!mb!0VybrjeHqR
+zvqPZX5op$RsM%~AbR%E3?dQ}w%p)-Z!aZ<hJW3u;Mj<N)004Qf3II?_b$qH3eEYg9
+zRP&T5fri;?|EAzHTF&G@L7?A%h6xS;gFazF#g2eA1<r<?PRjUeQ(&C{0C@REg?=b@
+z5JCiM)mnQBSQ7vM{erLLS*qxzG4lBKWdOiRW*bVWZrj(Y24?PFg{&N4F{?pQWKXp{
+zB~frXdTv3Rb5*UOsCFMo*MxXHMs&S_2R9-%@YywunV*ORY|roZb&w;1f{Pm54W91<
+z_ReR8)1K$@Kd`6nFtNBT<Fs9CLARjIXbm@e<`Vd6m`LYJ00!)5KhTfaH4U?J#+Lsm
+z97iG&fN$`mByH3_i9ec50$!Rf;U7XuKT*Rp>HzFL5ITSS90HJ*!sMXX*$Z8*I2;Nx
+z*R9}7#V^bps=#`ojHby}p(_EN3JL#^D>!hhfYUF82{;v?bDq-6uHXQ=f_oxhRlxcM
+z>;*W$@qy9sD7h26fM?IAurU7`Q}=G!_PzSRi&O!Vk#ku1prIo9P}x^H@VG`a9vvge
+zClfvKfw$#DeAn2v%=H2N(8PQyk8mi6mCUwnFPSgl=KELe=dI;U>^+@9EEsT>fmSup
+zl6+jkTmn1tj<nb!<Qn7VV~wrlP41pnHMr8#==!x99=S*+M$X#SlKB!d*Q$UQa8Cqy
+zBxta@-77fY@lsk;ccoRe)&a=6l!$->f|t_ZaG3Ow7OsZ|uwLk#hRW||^9n9Zz)FPW
+e?IOVcP5c6t<d%|Ix8=J40000<MNUMnLSTZRi*pnJ
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..ff8a6986923e6a89e2efd79976be89bcb56fb3e9
+GIT binary patch
+literal 609
+zcmV-n0-pVeP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80006gNkl<Zc%1E)
+zKWGzC9LGORBT0kMAT>&iHY7odg?JICTL0kS&`G3(3?d>9;^5@q;NVb-gM+v@Ik<?M
+zpwOWd2i=NDII3hwV~k1F<A@rxO_lf@N>5Gh-d&PA7yV9;_jvE~;rIJ-9Q^AUusTQ|
+zJtkxq8_o5Oy|v~yKBzA&-!zNg3Vv(uuJq!gLZM?%&6jB1XbQdf%CUs0K%=>C3Xnz3
+zm#9835*+x^)jdnoeG`Ypo%wrQymH&oL$O0C0J2L9+<g3!;_|YiDwtLPAmHCPn!0e(
+z*i-W*>0{ZY1<DnT=>yxj|GgzDm9njb&+4GP4R-MMOhiNMij7JK86+)$Uu~FqFh^QR
+zNFNH$&KT?RO2b$`tA3?cePhXy3hYQ96yulAaV<9`g>Pp5?3q8{n|bnf6|H984%;4$
+zr1p!gLjgwuzAvB2W+H~fVyRAJFo6E9#|m_lR5B^fAK8ss&<yw|{M5Colwmo9y}*l=
+z2BA<8fOsTKWXmAicFG5_?+W}52PkW+0IYmmLu*0(y><Da&kFPl?@Pc9c+UcE!Fv*L
+z6W+Ce+wiUgyns6v@CptNz5{6`BXY{HCvdQ-Kw8O&#itLMoX&azmkOkkNs&{Axpe9@
+z0Lt-6*Ws1|?LEJKb>p{e&)8mce6GR4WCmmdr{hDfy><=WA>ie-I}!kh#}nd2BK%k2
+vrUC%b*r*r_4|xukW+WOHc0UvU<3@f0bSh&hJ>Zak00000NkvXXu0mjfXQ>;z
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_attuned.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_attuned.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2fbda3904c3db2efdc5d67f31790e8e5e91655c8
+GIT binary patch
+literal 689
+zcmV;i0#5yjP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80007bNkl<Zc%0>y
+zPe_wt9LGPdl~z(KvOluQ+%RhS5-MUz^X9=*hXjum9wI9|cnP`{(V>HMDWakdQiOzr
+zco69nB4lDOG={7-ZTM%5X$$6DY)^-9we5YMz1zE8>U(;59-iOl%kTR=yzsxPLhnLx
+zcL>?TXnZ5*Y(1V}MV--|sU@o(d~ock^x<2tH|I>9^^?387h#{runA2A(fEcYKqht8
+zPjK4Do*i2W7w}Hk>G8Ae;^FuUt_(adG|1lK1Yoq)O2?%~eE6su+Jfc=04lA&uey3W
+z(`V|eUpj2G)k<)BnxVcHy6?xuC(m476BfOT>=^RFvvs@Ej;p~TEiy<VfIl(Zc{PS|
+zx?Vcys`@7V?NtNm@0(-ue4hKF%aIy5pfm~Bjf>ps>5{@XWq*A)1HP&2BLU_Eeoa>1
+zjP^NCit6o^h79aV#uy%GPn&o?9%SmrPZqy@Ep7va$mwv1%jXVr%4SK!CnIr|mlvcA
+z-4Yf9_bo&jQP%)ivskcgsbKHHqtYUp-oW2*fIuh)z~bsUp(I3>=gYSNvv5-eN&$x=
+zBTyP$qNlmWG#rZ9fYRs^Q$u~}wwr+$Y{2Poh@R#euJu0w;D|M43SN+b?92xz76GuO
+zQiM~*!NFh$WQ7Z-AiPu@+>n7%7EVjj2-@13N?N#r3@D8*@$PXi6VHZ$(iG0Hf$X-=
+zcp`xL!f7dIkXGT`wN<FW81GjTgq8v&gXb71XWR9Z5y9@A+qmGa=e%OeDO@?=83vk_
+z6XIq68N6zM8BYXvZB@w&r=^U+t_G**uB%23#+dw`AdwVhg=?zTeoX8?RG0U6`k&D+
+X$)k5sQl8*}00000NkvXXu0mjfZm3Eh
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_attuned_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_attuned_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..3a9129f909822c30a67a37d87ca94b10942ba4ba
+GIT binary patch
+literal 227
+zcmeAS@N?(olHy`uVBq!ia0vp^3LwnE1|*BCs=ffJRh}-6Ar-gYP7UN^5ae+wKT;`s
+ztTlbV%I>7@Ym+$kFUq%)jk*4)bv^GS$54Tew9u#>U*D`|(9WL1p&!widaz>G0*ljf
+z;&&1ra{4iBbZuF!A|+<HR;jJWk!!WeA@e)g8Ji|pGEQ3fyZ6G4@Lj8dWP5}r?(%*x
+zMLzU-*z`{mXU4mCTeI&|kNG9IyfjXzAgzw+yL3(F1HW6#4@5g{*Wbf7lS%)eN88E|
+bp%0|3BvK!1yUpDMbTxygtDnm{r-UW|PyAUO
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_bound.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_bound.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..67df0502bcd0dbf7ff7797e39eaeda89488e1cd6
+GIT binary patch
+literal 714
+zcmV;*0yX`KP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80007!Nkl<Zc%0>y
+zUr1A77{;H*(u5&Pghu6(HZm0Fj3tsaS4PkXD(E7i#1e5=qadP4h@c|qCcH3&f<+g}
+z?g|;Dm>Fi##O6R5xJJ2Fn~e!0_D5Q87qUaPbG~!7v)$Bl^L^(WzW4X=zRx)v;D6T!
+zp$7(YJFyPNQ|X+0$<!($-dVw#d{PR*@3|f_4?gqxa_)IO0c7r^DC%F3Y=YN7JeB4J
+zu;ldw@MXpib!8=@d7Kk;TDPx_?vFl#?b3jxLfcJx0D!Z{h7QY7%uSBxHHsV=%<c5@
+zho3IYjF2M{=GH?G1_akAt&$@VCPyMnwfoJ?3}q$gvbLp_P7L;Q*IrLRw3xHUhLL1!
+zZ66BaL)S%odppJK1oL5b3^#{eFc^0-;l_Fs0N_|f6#$^iKL-G!CYT1c81_(uy&L_f
+ztxR}UO9~aYcZP!8-hI3m-xoZ*EYYA;>+4BXQ7*|q`KB^loqWo{-`{wQU+=~d^Uuo*
+zq!j6OI=bC$A?u=>tcz}{K4T}fc9&=n6~%&|KTrezQXHDTJ^+BhGYU;6jVjF!rU}`t
+z`4bKRpOzB<fUhe_EN6gN_%o9ss{?Z3vJ4ah4iq?o#%2?BHmPL8fdV?vVmV9`v(uQm
+zc2_n$Zv&0ZCUQ-<xUbx+Q+8SKybS1dI_hjv;c`bS0Khjk4*>8Qk01hNL2$_i{tjH~
+z<XHefe0ml?U%$Xg=wrdJv*<xq;381Uf&(HQ5DT1KIMYBW0w>u(sRAd-Kq&*qr**|x
+zpVwjpj!)}4pxma#*1=(fhlWZLI6iSjcbgB=mFG|33<bHFm)*Kv)W9(f06@*&HrjZu
+wcWvHp#-K<hN($%IW_<&xwRMvI>Hi7+267&r5|EStng9R*07*qoM6N<$f<|6Ij{pDw
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_bound_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_bound_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..537d6b8c67173c6f2e184836bf71f84dd82d90aa
+GIT binary patch
+literal 229
+zcmV<B02=>^P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F800022Nkl<Zc-rlj
+zK@NZ*3<O=ndwC2Wt`|wrV1bsji76Kkrk!QkqQ~L9@b!X-vZx_Y)T*R#ZSA804c0CZ
+ziLnxH!Dw9&)Y6Iz=VH_8Cx9Z(gS4=h6SauhW8lKdiAWQ34M`SSVRw(bd`C#^>y0Yc
+z2fIYn-BoZMW6{pFF1?RTeLHI03HU$Z+!xUd-V<PEyDK~b7lDhwnfwWx+U^b?K}_I1
+f7!hStxEJ^W2i=s1KKvNC00000NkvXXu0mjfc>-R^
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..184ebce7c26b863d0e19d42e13002bc177582649
+GIT binary patch
+literal 194
+zcmeAS@N?(olHy`uVBq!ia0vp^3LwnE1|*BCs=ffJPEQxdkcwMxr#bQ+P~c!ueOX=W
+zW4~wbtz{R|9CsWDEmT__cw9s8A{&EGmgB_BxknG}-MgLjLtvm#yWr9(vOT7(i^Sip
+zO<<k(Ig@kSN8cN|2XmY|j@)XQzcn-|oJmM^;oSy?v=eV%2=;hwddQn!aX9<IHRa12
+s&22)HtnV-_JvjA$f?f^l^n=E)nan0>cx1eO1#&Her>mdKI;Vst0D=!q4FCWD
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_manifested.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_manifested.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d8ac7a09209de591efad275c7dfb65e23f805b81
+GIT binary patch
+literal 770
+zcmV+d1O5DoP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80008XNkl<Zc%0Rj
+zPe{{Y9L7J26lxxn4iZ+{1WRHLQ}YjMN=X@1MB%zt2fc(rM1+Ny2fI{^Y91^Kk_-Y#
+z%!6eeERmSChK!-hmfA8?3teuG^4p;l+yBiC>bd>icfa@Z@I2plWAMMJVAmcA=Xo*S
+zHk2i$ZlL(+HS|62))tmk$fx-^w|DFgC!Y<kqk=Ku@x#iJQn}W3%Wb_ZUZDkQ0PX34
+z$2G3|2K@+zre>zh#(+(DOkmcrK!?fXw%&oM=IW09Ug6_9Gf4@tOa)5EO9B8Hg+-$6
+zzDxBPO+W{w<fH@8Q<Y7@-dg%!>Vm4mP0Er|d1f<9t*%q1#3{A9PPsEbA>}O^nG&az
+zw`km+W$uO8jP+tO)=O?~W<bO0)n#g4z8tz)xBP6-kN7>Trz)H8V^0CFnhYGfG|0f4
+zA)iV3++3=mv8@ZGYKu>JW1J2E$F}nT%(SZk{F?B34FSH{>@>D@QKzo-2?uz^R`N#g
+z(P^InpzzQ7{R`XKcWzPM4VgWf@H;5$(=%mV>{`DD01{)I^tK+wYBB(zX&&U!@DIk`
+zk9g&*Zc<k$U7?WU#Tz+tAZZ!iZglW*eAFi+I-GFx=qydwEdUs;(IiL|Ny(di-iB2t
+zuo4bnnVbi}`qj?lPnenb5c)0fC#5P&)T+dg;joGd3W|&5ZSRfc&O?ERY(S~XlD@9X
+z3_rO7!0sGEf`?=vU7--QDv=WhPXVCow*Zj2VUcMG4h})ifTzw+R>sk%xAD;EWMbSB
+z^h^bufVa*YTBmt1xDXONU<3X-|6&a;_Mi-eyK`6hd^r-GyUJ?<k?K4k1Ci|9uYpK+
+z?yA2I^Yp_K?#_K0*qN`Cp4*49nhaE5Gy=b4pO)~(?$N+X_)_c*t<yn&w})&1K&8r%
+zvla35>20)|oY<WbQMgBKN=uXEl+>{P0sW`-3-m3tz)~s_3jhEB07*qoM6N<$f)(d^
+ADgXcg
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_manifested_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_hoe_manifested_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..5fbeebb1e473845327dceb8ba2d4f981a3949b17
+GIT binary patch
+literal 242
+zcmeAS@N?(olHy`uVBq!ia0vp^3LwnE1|*BCs=ffJot`d^Ar-gYhB@*zDDW(9`~FG7
+zKE_|A?LmS;n$wM=&4s$T<~)v(D!~Ri8I25ggg6<#n`m=3s7%+IBE2CnOl6UR>OPSl
+zRq0{*qHOz?y0v=W-17S-*Xv1vtDmOKa#_zC6rn1#ai<1DPs&0b-IGi12`YcO>J}Ok
+z6Q=U%rBQ+0)rFJKuL_AutF2!l^`2MnE_dDoQ=z;~+3tCr&(}RT{`v9Gk2Ue<t82<x
+q%O~%Bu6~7e51X6O&ZhsYe;A6{zR!}Ft)>a|1cRrmpUXO@geCwsw_gkZ
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f0b08786c5081205136024d8780317a94ac6c480
+GIT binary patch
+literal 985
+zcmV;~119{5P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F8000A^Nkl<Zc%0>y
+zPiPZC6vn?z)RtC*(psyQb+JkR2}MMt2-=<$3KsFApa&1)K}1kQr1V%sJQNWr9xSK`
+zdhj4UR0J*YA~9A80n-&@y4fbNNkgNH#7&xXJgl?LWV4%XsTciD$>z=czW3(M+W`N&
+zxV74-`*1HQf2OE8NPeFsV^s#)+dMifpD$n&&*S#Qm?3Ul6!HARu%(F=8KB_H{hj(V
+zNlxL&qsJH*MJ9Hjqk}QAAjP4iW(_>s2HM*^gn}hGwQL}vp!x1C({%$K9T*oy-0!~#
+zCr9uj8D*I3Rtp#SCf$IUf`JHvfe8GABiM0b0GT&lAj!s5HBb(xV6QK1xh@!p008`h
+zBRFv53IL#GzZ;+KJRr&7N4*M`1}ecR*sAQM@Pe9Ue%o{DEQ&W(k`9MBO9N)`cNt*p
+z!?>a8tTHcEY$}Z6Vp0F@Fiqo+O5u~US!~+2)ikymyppOKuq(T8B_x3qmMc*42x$4s
+zvrok(uDNxWVd4b?5s0JDpu}X`nNzK}0*abr&Yxy(2OgUW!__5#TjyN80m<*<o?jT&
+z;o|5sTW21d(r(ZEi<ihmKij*8RwkaDzD^bw9mxMw3|FlZTnS0Y%}gUR`-Pc=t8c=Z
+z4cI$)4h1!fgCj##;jS(La2RnFE0E6@n0XHXwN5rB8T`l<Z>prOVY4M10CF?an2&yD
+zN>63_GIF=JlB>t|=r=)<Q+W73iEpzrhBdo8JIS@99st_hc#zh{wW~`ooO!uSd%)>r
+z%OxcgILMMAuD#7eE+6&i6_XMQ`k=j_ye~dseJ*c?0ASSvjZF~GoYyv$Q|Rk)<4{XI
+zcwQhoTa2>+SbjswX{{;yw%5SD(TRrbmE!@EBj`TdOKwk$Vfg6;0HEpqJ#E7tHzYX)
+zDWTwPA`7QOTYhriHb@BtaykpXu@3&o0-9a5m{U}Ichq2EE^7ZDQ8}Ed)C8?csi=WD
+zMb+UMZUZt&+44^ha|EUEp;P_(^U$ML`e&~%46iQ?fp5}FPQ^FYtq2a3RX{k<LynIQ
+z>Eo5c)vqDcbBj3CQm>b}lKhbc0I&@Qs!T$9j{zVai*l1hAWpIb9?OkJMY9HA8_pOg
+z&%P8+m5NIo08DZMDK4>%y|jX?D;oHv<`E1;^z(Lg2~a{3)UP3YkB6C!sgbo1v(eVh
+zZnCAf4**QzYc1v$%uffo^sCnZwE6wF;ilTMtKD>R{d4*a?pguvnIG7v00000NkvXX
+Hu0mjf$0^26
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_attuned.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_attuned.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..91cd5fa643b3f7c1ad238f9ae1f50fe5fee02e1f
+GIT binary patch
+literal 991
+zcmV<510ei~P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F8000A~Nkl<Zc%0>y
+zPiP!f9LGPiiCQCsO^Y7t+N>yb-Qp_iT2>E<hhB^jM2ZNCl+uHgMru#8#9J^u#nM9#
+z#m3;J9`>*Vj2hNpQA!O%SO&Y9n$33BPO$ky)-JNy>>r<pbS67HJF}Y*FZw<0y!pNN
+z`Tl<Iz27YS-zDwWLZQBX(KuEpZK2KGbY<+xKr|XQVU^-074H*Vn!aj_n^IL0XGdI3
+z?8<-vp1pF$9MfeP{hb(7s%nWH3<NADHne35t9Na@whct1VPSxESvJR2MPv5;3y$*!
+z0|BN~l`jU)(IE-$ujDMu&b`8Yk%(!)NlGe<lFBj{8{_cXgXFLO2rJf@mIfN(1~@qp
+zcb%uCvH;A*#yI}jg$Jge<<{j%v7*eIRd6-X3~qqk%3cqzmWq~l$38km?P5u+XVQ|Z
+z0VjBDc9qLF63}qy+%m71E@!A!YUZ=YF%5IV4tyw~;qe}FjBN#Prj`cURlD#)T0>NK
+zD$sNbjPf^TpVP8Z=*UyHj;ExusN-=8`tNOLZfMsPD3rD=O~=T*9k?!M=nndkIy?4m
+zK%2WMCC-kRaCJQ1)}HHf27tA1zbBu&-QG2HGjZ*`Pei5Sq5N0DcGa4}3u%q5I}7CR
+zE?PR_-Vfm;5A#y&4AoMR*T#lh!n=ch@Yr!pD^MwJTKYYJx2uy}-SdhvFV!xVMAsp&
+zD;!|!&H`(>+m_NBa{L&*@^VOA|MElgCg`%v8>2t5w76)S^Fkynewo;5T78r20CWfa
+zwmol@;~D69$ofiEG!96A+v4i4tPyu5y#4OuZ@!~Pl*v0ma5)2c&!fc3M}Y0DPMki;
+z=s+(o29JtkN1w6v0@(RN&Zjp3`20;D9|XJ{_C4J+9vrqH)YmUAO<!f?>uCVa|C#{c
+z#OaghvW%)|d^)4k`QScZJO3)GqA{P|ARIi%<cv<p*M*`NxpBYDy=ATae?*ONL-i(%
+zs?^Icpy)*t{&T*}>L1Q<XxM^!`0%>}=6L$6r1?8J5hpnj#}|p1B{vif9^4fi8Y<vF
+z9u;qm51Z}PfR~oiJo%VlbfDKPb2ClO=m2fQp+zS&?lHiv-<G7IvJeM6+nE{%&5)5b
+z&^Fv+pfUS;xS^bul>mkkh)UIZu&Xt(E3nPLW~q#l%9{J#9rRO3Ym}DK{JEU5ENmFr
+z4_Ov^{P~dR>3<!-5x(ED+=8_QMOsh(0BrZ~e;e+op5EsiJJ)|s{{XJi6r{88ULODe
+N002ovPDHLkV1ixk>#+a;
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_attuned_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_attuned_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c9c31533825455d6687e2a9d4a1059610fca1201
+GIT binary patch
+literal 316
+zcmV-C0mJ@@P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F800034Nkl<Zc-qZZ
+zOAduF2o&OZdl)Y~ZZt6j%I8siESt77%m~G8`#7lUA^<}LAUfI!XkZo)fH5OM6=3Z`
+z08mJgcdnE*l+Xytb<3tOIE--4PDyYCoQMt&$n^NKVM*o@1u_-WCVPeiXJ!9MQYH8`
+zKRXDl2#(56L{zThZUs86;3Xv#>@6h%mp!8c{69a!l`42ov)cugS8-^2wfii>T=h|?
+z0q-fcGT*&&dtL+pa>$sSyZ7IgrR9$fAi^S)OIHJ*k%+vIWpFFY42cLhTWwahTWj5F
+z(P7V{Y~@he)vosp+sAlK*|B{}Alt#Je?cV+R?Gll60d?Q<@i4M7nz@PBK)603shqO
+O0000<MNUMnLSTZPdw%Kw
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_bound.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_bound.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8f6272fd6921e43bb6a1e6f04bc718cd23e875e3
+GIT binary patch
+literal 1007
+zcmV<L0}%X)P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F8000BFNkl<Zc%0>y
+zT}WGJ7{`A{ORL=$s$-yowYiYa#ZIl0uu4gU)|*mv>}G?3bTDD<N-x|lN^utjDZOgT
+z#=M$PQdqapi&Dh3wPPP_T}iFPfX9@j8XLprB7Pi-i81lrMR-qhl5_GQ?q>VnB<DTv
+zdw&1tdEe(b2mbF;w(CL7F1N@X(-P~1eGdvUwq(HBc~pmKn`w5k$(7OJym_~RL2jNJ
+zENG%E0}?#?<ETD15?^BP<}+>ugNC`?jg1BqOW`Qm-;q3C$p)OAM}-8B#FzAOZ#2UG
+z)dkZvt&Vox+}FoWQ>h467v>Di9b1JTuddA)AY!@B^Nkk(-?>Y?`ffMNKmP<dUW;ZR
+z7cRlQp-FvCZU$N%?FP8>Lce}*>Wix^1SWKD!3>zeCD<zMV2nJKSTo#fI&*^b#e`T4
+zsR}?vxp4JFKcCgtn67Dcv=i{p=y2zSemX7<80O56he&Uv^=nH5QrYl_J$=|Jt(RD(
+zy^x9;C{?+UTS-&Hh}828n4STd{@mzes$Z!$>39ME48frrX!B1?j$Eqj3}}gUL(`Fw
+zmja(34`FlIQFc^r-9Xs)K)HEpP=^PHZj`j=^Wz}^V&C6kdG2v(Wmw3>^$*U9jg1PD
+z&$PT!GlOetnDyCdmLq={de7Dm;jW#up8JSYVlA)K%-}YM9V+s1rWw#S(}sQz@ItMP
+zSl0DIU_wb>Oo-ht?<oieSf8CHHuu<&`l4!a9}$ZpDXy;lrT@P6W?Nnb037IWiA9mr
+z=heBoMV+f#?Em<TsM+_r=^81^Gq6iBn)OB_q+Z;eH!r(n<-E4x&jEP!-X|!wmkI`I
+zc?MRKaRwjV1v1^x)6l{}&t>d~U84TbVbiGOiz+xa1;AV1eZ`)Wr>SXZvdn_%o;17M
+z;>zeSgWqP}1y$}t0C*Z&7>O_8jYd#E{FJJSOg*2yeI0K!LU3$~#;zuO=dWSwXhXX{
+zLF%_LR%WM5|02qTOJ$poS;>|(pxvK%4*%s2D^Cj_Ji``b!w23!rjM(hd;0(0&?LQ~
+zNsd?7>M56M>}o0t4mlaHJKq-X3=Qb*Rl*ZbRI2yZanN&FPqUeP=dS^j42L3}P}VWP
+zpTGaAq<Z=U)m6~-rGC()WYj>(aD#!|=(FKcG1adCJnZQcspN*?o=B$30_PcsCz1sG
+zGx~np9CkD{OyY^kN;G76ur#tAGCb&&H=0F_yA!|?zTGlZL2NppEZ+M8$n@`j8*Zs$
+d{rf+qe*o$?8?OhZkb?jK002ovPDHLkV1ni?@+$xU
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_bound_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_bound_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..44d9696976e84904e968256ed6967f255df83aa7
+GIT binary patch
+literal 322
+zcmV-I0lof-P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80003ANkl<Zc-qZZ
+zNe+ZC3?otB%VYSkxeOADvbVtGh-mHDWMSJr4q9~)fL#S3I+hdAz$_pDyGMdLz}kfX
+zppc^ITq|oRp%IeLEt}HdFv2+(k{B6qB04-E)8C&3)3PIo%=b{XqAPnfIj+j?$=V^t
+zD?ROa&fCYqS^0^G+I75If$8#^A+SP)`+VR=_QwnfIh_9QBYaYYXf%giP??Im_O5oH
+zMVPxj3N;W-K`ZkSmD~Ly0FX<DckX)svaBqBb^#F<p<TKfxJM#0A=}_qmK72iaJJg4
+zY`4~Pt3{_h&$5+E>8f@;Dr|4-HC5Mkmq4|Hb^n4|7Cf;7q)EIAu9V~Z;9q2Z0!#x4
+UsPn*B8vp<R07*qoM6N<$g1*a)EC2ui
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..075456fcf8e7b4c3b0ed298833c9e66bc167bf36
+GIT binary patch
+literal 295
+zcmV+?0oeYDP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80002)Nkl<Zc-qZZ
+zNe;vy3?pdX%VYXs&!tFFm9UsVn^PqqHrY&5df6n(5rAR>h+N?WEHDoUKxvT>2H0{4
+z00t@Pouh6IWgfU*@1<!N+;Tc_c8!Dw&XAcVV1cv1(<D6b-EBJr9zmpH<nE*r5df$y
+z6>T|v&2;#U(3j&W@Y3>H3g~I(=tCxMf31*siqm(C(CYbzAeC+D8|j4lJt9<kU&tKL
+z&hDCk+}5g{rBGS2+KN<I_<OIOt-1Fe7&Amd3Xdg1JwA@;J#%2jVK}(1`qtjwx@A9R
+tezSi;R1~6XV^#;wfgA039{i1){{cMcps1mNQ7`}i002ovPDHLkV1nWUf35%k
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_manifested.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_manifested.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..a9ae8010fcaadeb181a41d581cec7e9e51094fd0
+GIT binary patch
+literal 1070
+zcmV+}1kwA6P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F8000B^Nkl<Zc%0>y
+zPfQ$D9LGPiMbM&Dwo&m<={7Buu4IEkn=PbZlhTMLtMQ;F^<az#@z7XKgh14!vGw5E
+z^Z;B)Ob^8vqJ~8L1Ey#iBxKueCUzNMmo9}8H#AZgN*9*pdDzY{v$Ml41TXr%Oy<q+
+zz0dded++@+@PC)IRSUUlYDMZ;G`7T(+aKZgfj&!4&SqeTk5p^0)%ZO3atk@v+i8mH
+zQ53$Yc%{AS=y73XVnY>B!Gpb@X=8V%`WY^Mn;u0m#Cl3gIhwz>9cTdB_m#cS5W0TN
+z#LKz@hmTYX6?}K9UmKrMWO^1AQ+$u2;HoHY*vSL!r>=b85Sg80#}m87-;qg!iL4By
+zgXix$mi(y5mh;}|>;PyOZuauj>mKHQ9e{{2CZmB=xC$Qc^IFa+cUE%Y;@1ESH+wns
+zX(Is7RPN*Y`7cF8zN%GWT?6UhD!8rqUCViT_)2Wi@a?&i?~phf6Sso_X<Y+W@Hfu{
+z`TWv1pqTf)rQ*0+c0=ZRP5Xi*;tB2DW|_u)>EZQFGKq%@En_pm(<!5YY$f|AvVung
+zVZ_Q>1=4PTTK?4RLt{b7RrIu}<H`OBl(uf7(>JruT-Amv5REMvnvR-zHt=a*kOHRz
+zDQDZ}4TOh>r0+gBt-+PH?yUBF+7|?1_J^OCn;gyV8m?!e>qL`?$89VxL`_#M9XuKc
+zvvgyGxv6nOC*1rY%*&;``8`%*i&S}AGQta-4zQVVX)CZApEvY-0Q-(yLb~^ed{s)E
+zjfw3$A6*v?uykXD*~w8u=`+e*T`9!;Ww8+WSbLT@OHDTbz~y!eF@IT$E2{B`q8g9b
+z|Nco)xck|(b5vQL0m+tUc%M;Z3i4J>ar!H(#{KqTa#_zuKU4JJ5_9Vqusj2QCE(QP
+z9U$2aOX?cwYAxg7L8qvAet+7mVh5T5@C}6l==sD+>#KH(_w2E(LfQ(rYHG!~-cC+`
+z)r$u^9rgiGWJ>B9xm4QEj3RU5OpdT^%hAruj3V>Wz(sy6f<gZR5N6Q7z_-dWw{C_l
+z_ulkD57(>1J^(;TU87bNy=D{{-%t`-RsJx8{sp=N%ltWQ4TqF1(8F8adRZF}Tv&sR
+z_jwub^OC>o*xFCYeO0<08-hbh1ssRm;<dIGt-Y%7SSY~W$8B`Amf;%;Q|Wf3UF>|v
+z9{^dyAwwrr?=irYYhzM<)2hhN6?D7T4w@=8Yana5!9Z&Edbq04SWp6}Z<0h@_fr9|
+z92Xk`n+)8GEhGCUwEZq{I*10s#6kh?+zJ{NR*h_h3=2JWz$FT6Uj(p(Z?z1!V0J{7
+oZukEJB>VTj4YyRL{{5fQKe9+9kl>9jCjbBd07*qoM6N<$f>#g?GXMYp
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_manifested_glow.png b/src/main/resources/assets/tribalpower/textures/item/spiritgear_shears_manifested_glow.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2f783103671c96c8e9a07bf4bceae15084765540
+GIT binary patch
+literal 327
+zcmV-N0l5B&P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80003FNkl<Zc-qZZ
+zTN1<|2ouKhdYE1~{aI%m7ZAj4mrt!t2=cI$myJ&S2tZRoh_0gqBrppEK(qEkz?!EJ
+ztgo*W3VW@AS%gv~`avjWocr3JNmLIw5nUFLarx+o>{yuO`EJIfWsf??QQ0k7cZl)H
+znC`@!%ge@I`H6_q#pIL%>GaAFIHAJW8+gO}D??&#O#gQYf2o4IEo)U!=!#AHHqyp<
+zH;$7USam_o^SVm6@kapAQ_vHFezw<;u>9TuM45mPPF)GyBC#67QsA1GUJ_n#*2?T$
+zZaw9fJ{Czi4(2dvM8@^V7+xa>x}+M3Vc-1*s5=!*i*4%hVLUimdCF$6N5O@3d>;G_
+Z&u=TgD_=WOEHD57002ovPDHLkV1mh%kIeu8
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/totem_wrench.png b/src/main/resources/assets/tribalpower/textures/item/totem_wrench.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8637ffdc71a0281598ba64384a925150fdad925d
+GIT binary patch
+literal 649
+zcmV;40(Sk0P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80006|Nkl<Zc$~eK
+z&ui0Q7{@<#tIF6xP!O>P4+ZhZ${f{WcbEMEUIrdS#tvf#FM`K0uj0jv%G_!0;GvWX
+zWeAE4DPfFGyNI=v+A?*ZU6t9iX<ttXNtR?yn(PaOG)eRMzTfBR`y@h0N~9)*c3gP(
+zHWC)c7Mw^;iZ_2t`sc#fHQ{vsaM18a*=PFqv@8RlsH)>{0yAKQYv6tqNNw!kFQ@P8
+z*LSwJ965oOzzBDP1}d%L=B137monnqr7_2bv(vG#jP<KPOVE$bCMHB@U!kY8X?*(<
+z8Q4IxrRcTKKFy(Ydam#*bGNBUC7Q(wr+PvRY@m|=5P3cKP&~=KfIE-{hN44ace`L}
+zLMy!WwMe608ax32MeUN7WeS^RV#zqMWSmcrmjpm(Um-ej0u63eV1JeK6W7JX+35r4
+zYf_0=GOojotA_xa@bu^i4{qILVI^x?sRnNrD*z@q1iTY2tYl5+tzf_e55#~SytuqZ
+zyZRX+K&V|?a3BVp;MSPk<ja8evZ28<H-?$YtDfQDqX~_ZFSfb}j5C#2Nv%F-tK6hf
+zFMC>)r<*l+T9#QnUZo~U$b|}bH%94}KeAi%1_uwr$O#TGbFxYlPeV{wUyhCN*}^LT
+z9ln&SvA);ld%fbTpAJpHx^gT0{cr#9Lk+mazES+e`d*u#JO1I|Qi3pJH_A4Fuw!>M
+za1^l{WqQz2#cq^s2@0EKW_shH#qMa}N8^uau-t214JCG?4m?zQcPlQh0r=ixeH#Ec
+j6Td9fe{H~djt8axw4KNwA4d-%00000NkvXXu0mjfN!Tu5
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/tribalpower/textures/item/weavers_wand.png b/src/main/resources/assets/tribalpower/textures/item/weavers_wand.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..1407a38c8277f8e4b316ea6b296799908a41672e
+GIT binary patch
+literal 707
+zcmV;!0zCbRP)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80007tNkl<Zc%1E)
+z&r6eW9LHaiVQ5GT7Su`{+jKvwi4~C}R~cT!TNj1!V3+U@kdEf1q(jgpIs}V4gj6R<
+z!w~DRLq(}&=$vC}&By5`7|amox5L_#`_bI9J@XK~VT{4|+3WTFd_SM(dEkHk)mY4C
+zk<YraQov8vSwvS;HAibqyGp1oaMo@Sqn)*RuUB0lTzP<7XRff?eifa;u=fJ{eypQ^
+z`UHSC-cjl=T+XW(REfiG6$5?kqWOePtcp$HiAll}lZ4HENgQcBUs{nQysP<?ERg(o
+zVv=Z`eJ>83K9?b(+7WDSZs89|=z6*t_&mwrMihWf{{#cy7Xhfcb{)OhE}V@nSw!_7
+zaJt)4;K{tZ`IvIw2b>jxdyj5obkqv~jT%sk*(|!6s_`$Z1K=KfNuOsJTg!0(rbnhQ
+zZY>b%f5^%<R2|e2{5qil(5fL&UarMrIxPQw+t$iOKx%ow^vD$J-j9Uz+k`b*qDym{
+z$kM#Lwx|j?>{bEL+tGkOAjuT~2!>;c@9rB!@AOk9;zWbK3|_$k4!c$Kb~FGmJmyP*
+z0!&7K0uZm<&zgVgubiTfV0g@juBV%EUx-j3%*yj2H1RmAp<rH{D@Y)@`<?LV*I(Ee
+z|HRtjoT92K9>Z+#P#~OuFU%@FQbiZ!+<5_TMFKnF$#|VEmS4Oo7@oI4R`^ULG1uRe
+zoq2k8?Sb^N%kVfw!*><PcIIBEt5{}AvX0@-J6yJg)5IYv&8zYp$q-1t!>KW9iUg8T
+zbJTJr<qu0WYPljep|!5|5B%=^1bik!_}Ng&;PATw=`R#AT*YR~DF9$Jnnbfnx2NzF
+p0RY3X8e!8_FcH}xvQ&CFz%OlocyK&GKV<*_002ovPDHLkV1hk)Q0D*u
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/data/c/tags/item/tools/shear.json b/src/main/resources/data/c/tags/item/tools/shear.json
+new file mode 100644
+index 0000000..cd53810
+--- /dev/null
++++ b/src/main/resources/data/c/tags/item/tools/shear.json
+@@ -0,0 +1,6 @@
++{
++  "replace": false,
++  "values": [
++    "tribalpower:spiritgear_shears"
++  ]
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/greater_spirit_flask.json b/src/main/resources/data/tribalpower/recipe/greater_spirit_flask.json
+new file mode 100644
+index 0000000..55d6e36
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/greater_spirit_flask.json
+@@ -0,0 +1,24 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    " I ",
++    "IFI",
++    " C "
++  ],
++  "key": {
++    "I": {
++      "item": "tribalpower:manifested_ingot"
++    },
++    "F": {
++      "item": "tribalpower:spirit_flask"
++    },
++    "C": {
++      "item": "tribalpower:resonant_core"
++    }
++  },
++  "result": {
++    "id": "tribalpower:greater_spirit_flask",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/spirit_flask.json b/src/main/resources/data/tribalpower/recipe/spirit_flask.json
+new file mode 100644
+index 0000000..8d3841d
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/spirit_flask.json
+@@ -0,0 +1,24 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    " R ",
++    "LWL",
++    " R "
++  ],
++  "key": {
++    "R": {
++      "item": "tribalpower:copper_resonator"
++    },
++    "L": {
++      "item": "tribalpower:march_leather"
++    },
++    "W": {
++      "item": "tribalpower:spiritweave"
++    }
++  },
++  "result": {
++    "id": "tribalpower:spirit_flask",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/spiritgear_hoe.json b/src/main/resources/data/tribalpower/recipe/spiritgear_hoe.json
+new file mode 100644
+index 0000000..3b37572
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/spiritgear_hoe.json
+@@ -0,0 +1,24 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    "MM ",
++    " B ",
++    " S "
++  ],
++  "key": {
++    "M": {
++      "item": "tribalpower:manifested_ingot"
++    },
++    "B": {
++      "item": "tribalpower:bone_chime"
++    },
++    "S": {
++      "item": "minecraft:stick"
++    }
++  },
++  "result": {
++    "id": "tribalpower:spiritgear_hoe",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/spiritgear_shears.json b/src/main/resources/data/tribalpower/recipe/spiritgear_shears.json
+new file mode 100644
+index 0000000..8244b03
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/spiritgear_shears.json
+@@ -0,0 +1,24 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    " M ",
++    "BM ",
++    "S  "
++  ],
++  "key": {
++    "M": {
++      "item": "tribalpower:manifested_ingot"
++    },
++    "B": {
++      "item": "tribalpower:bone_chime"
++    },
++    "S": {
++      "item": "minecraft:stick"
++    }
++  },
++  "result": {
++    "id": "tribalpower:spiritgear_shears",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/totem_wrench.json b/src/main/resources/data/tribalpower/recipe/totem_wrench.json
+new file mode 100644
+index 0000000..cedcb55
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/totem_wrench.json
+@@ -0,0 +1,21 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    "I I",
++    " R ",
++    " I "
++  ],
++  "key": {
++    "I": {
++      "item": "minecraft:iron_ingot"
++    },
++    "R": {
++      "item": "tribalpower:copper_resonator"
++    }
++  },
++  "result": {
++    "id": "tribalpower:totem_wrench",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/recipe/weavers_wand.json b/src/main/resources/data/tribalpower/recipe/weavers_wand.json
+new file mode 100644
+index 0000000..37a1a86
+--- /dev/null
++++ b/src/main/resources/data/tribalpower/recipe/weavers_wand.json
+@@ -0,0 +1,24 @@
++{
++  "type": "minecraft:crafting_shaped",
++  "category": "equipment",
++  "pattern": [
++    " C ",
++    " W ",
++    " S "
++  ],
++  "key": {
++    "C": {
++      "item": "tribalpower:resonant_core"
++    },
++    "W": {
++      "item": "tribalpower:spiritweave"
++    },
++    "S": {
++      "item": "minecraft:stick"
++    }
++  },
++  "result": {
++    "id": "tribalpower:weavers_wand",
++    "count": 1
++  }
++}
+diff --git a/src/main/resources/data/tribalpower/tags/item/enchantable/pulse_attunement.json b/src/main/resources/data/tribalpower/tags/item/enchantable/pulse_attunement.json
+index d6dc657..af83cd6 100644
+--- a/src/main/resources/data/tribalpower/tags/item/enchantable/pulse_attunement.json
++++ b/src/main/resources/data/tribalpower/tags/item/enchantable/pulse_attunement.json
+@@ -3,6 +3,8 @@
+     "tribalpower:spiritgear_pickaxe",
+     "tribalpower:spiritgear_axe",
+     "tribalpower:spiritgear_shovel",
++    "tribalpower:spiritgear_shears",
++    "tribalpower:spiritgear_hoe",
+     "#minecraft:enchantable/mining"
+   ]
+ }
+diff --git a/src/main/resources/data/tribalpower/tags/item/spiritgear.json b/src/main/resources/data/tribalpower/tags/item/spiritgear.json
+index 67af2e7..e7200da 100644
+--- a/src/main/resources/data/tribalpower/tags/item/spiritgear.json
++++ b/src/main/resources/data/tribalpower/tags/item/spiritgear.json
+@@ -3,6 +3,8 @@
+     "tribalpower:spiritgear_pickaxe",
+     "tribalpower:spiritgear_axe",
+     "tribalpower:spiritgear_shovel",
+-    "tribalpower:spiritgear_blade"
++    "tribalpower:spiritgear_blade",
++    "tribalpower:spiritgear_shears",
++    "tribalpower:spiritgear_hoe"
+   ]
+ }
+diff --git a/src/main/resources/data/tribalpower/tags/item/spiritgear_tools.json b/src/main/resources/data/tribalpower/tags/item/spiritgear_tools.json
+index 6e02b3b..d2cf4e3 100644
+--- a/src/main/resources/data/tribalpower/tags/item/spiritgear_tools.json
++++ b/src/main/resources/data/tribalpower/tags/item/spiritgear_tools.json
+@@ -4,6 +4,8 @@
+     "tribalpower:spiritgear_pickaxe",
+     "tribalpower:spiritgear_axe",
+     "tribalpower:spiritgear_shovel",
+-    "tribalpower:spiritgear_blade"
++    "tribalpower:spiritgear_blade",
++    "tribalpower:spiritgear_shears",
++    "tribalpower:spiritgear_hoe"
+   ]
+ }
+diff --git a/tools/polish_gear_art.py b/tools/polish_gear_art.py
+index 2db6ed4..15b21dd 100644
+--- a/tools/polish_gear_art.py
++++ b/tools/polish_gear_art.py
+@@ -31,9 +31,11 @@ VOID = [(8, 14, 22), (12, 22, 32), (18, 34, 46), (26, 50, 62), (38, 70, 80)]
+ VOICES = [(132, 173, 94), (235, 132, 73), (95, 184, 217), (192, 218, 194), (166, 136, 221), (98, 209, 201)]
+ 
+ RANKS = [("", BONE, 0), ("_attuned", COPPER, 1), ("_bound", GLOW, 2), ("_manifested", GOLD, 3)]
+-TOOLS = ["spiritgear_pickaxe", "spiritgear_axe", "spiritgear_shovel", "spiritgear_blade"]
++TOOLS = ["spiritgear_pickaxe", "spiritgear_axe", "spiritgear_shovel", "spiritgear_blade",
++         "spiritgear_shears", "spiritgear_hoe"]
+ WEAVE = ["spiritweave_hood", "spiritweave_robe", "spiritweave_leggings", "spiritweave_boots"]
+-SINGLES = ["resonance_maul", "spirit_staff", "wayfarer_satchel", "spiritweave"]
++SINGLES = ["resonance_maul", "spirit_staff", "wayfarer_satchel", "spiritweave",
++           "spirit_flask", "greater_spirit_flask", "totem_wrench", "weavers_wand"]
+ OWNED = {n + s for n in TOOLS + WEAVE for s, _, _ in RANKS} | set(SINGLES)
+ 
+ 
+@@ -125,6 +127,39 @@ def haft(img, x0, y0, length, ramp=WOOD, wraps=(), wrap_ramp=BONE, cap=None):
+             put(img, x0 + dx, y0 + dy, cap[tone])
+ 
+ 
++def hole(img, shape):
++    """Clear a shape back to nothing — an open jaw or a ring's eye, not a dark blob."""
++    mask = Image.new("L", img.size, 0)
++    shape(ImageDraw.Draw(mask))
++    m = mask.load()
++    for y in range(img.height):
++        for x in range(img.width):
++            if m[x, y]:
++                img.putpixel((x, y), (0, 0, 0, 0))
++
++
++def taper(img, a, b, w0, w1, ramp, lo=1.0, hi=3.4, light=(-1, -1)):
++    """A stroke from a to b whose width runs from w0 to w1 — blades, shanks and slim shafts."""
++    pts = set()
++    steps = 96
++    for i in range(steps + 1):
++        t = i / steps
++        cx, cy = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
++        r = (w0 + (w1 - w0) * t) / 2
++        span = int(math.ceil(r))
++        for dx in range(-span, span + 1):
++            for dy in range(-span, span + 1):
++                if dx * dx + dy * dy <= r * r:
++                    pts.add((round(cx) + dx, round(cy) + dy))
++    region(img, lambda d: d.point(sorted(pts), fill=255), ramp, lo=lo, hi=hi, light=light)
++    return pts
++
++
++def ring(img, cx, cy, outer, inner, ramp):
++    region(img, ellipse(cx - outer, cy - outer, cx + outer, cy + outer), ramp, lo=1.4, hi=3.6)
++    hole(img, ellipse(cx - inner, cy - inner, cx + inner, cy + inner))
++
++
+ def glint(img, x, y, c=(255, 255, 255)):
+     put(img, x, y, c)
+     for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+@@ -356,6 +391,146 @@ def bolt():
+     return img
+ 
+ 
++def shears(rank):
++    """Vanilla's read: the closed blades as one round head with the seam between them, a thin grip
++    curling around its lower left to the rivet, and the grey tail below the corner. The grip carries the
++    rank the way vanilla's red one carries its colour."""
++    img = new()
++    _, ramp, _ = fittings(rank)
++    fit = ramp if rank else LEATHER
++    # Closed blades: a round head with a hairline of daylight between the two.
++    head = set()
++    mask = Image.new("L", img.size, 0)
++    ImageDraw.Draw(mask).ellipse((13, 3, 28, 18), fill=255)
++    m = mask.load()
++    for y in range(32):
++        for x in range(32):
++            if m[x, y]:
++                head.add((x, y))
++    region(img, ellipse(13, 3, 28, 18), METAL, lo=1.2, hi=3.4)
++    seam = taper(img, (16, 15), (26, 5), 2, 1, VOID, lo=0.4, hi=1.8)
++    dots(img, [(x, y) for x, y in head
++               if (x, y - 1) not in head and (x - 1, y) not in head and (x, y) not in seam], METAL[4])
++    dots(img, [(x, y) for x, y in head
++               if (x, y + 1) not in head and (x + 1, y) not in head and (x, y) not in seam], METAL[1])
++    dots(img, [(22, 4), (23, 4), (24, 5)], METAL[4])
++    # Grip: a thin loop curling round the lower left of the head, its mouth where the blades point.
++    region(img, lambda d: d.arc((6, 4, 25, 25), 30, 276, fill=255, width=4), fit, lo=1.4, hi=3.6)
++    region(img, lambda d: d.arc((8, 6, 23, 23), 36, 270, fill=255, width=1), fit, lo=3.4, hi=4.4, bevel=False)
++    # The grey tail below the corner, ending in its rivet.
++    taper(img, (7, 22), (5, 27), 4, 4, METAL, lo=0.8, hi=2.6)
++    dots(img, [(4, 27), (5, 27)], METAL[0])
++    put(img, 6, 23, METAL[4])
++    # Rivet where the grip closes on the blades.
++    region(img, ellipse(17, 18, 21, 22), fit, lo=1.4, hi=3.6)
++    core = GLOW if rank >= 2 else fit
++    put(img, 19, 20, core[4])
++    put(img, 19, 21, core[1])
++    rune(img, [(19, 9), (21, 7), (23, 5)], rank)
++    if rank == 3:
++        glint(img, 24, 4)
++    outline(img)
++    return img
++
++
++def hoe(rank):
++    """Flat blade set square across the top of the haft, edge down-left, socket binding over the joint."""
++    img = new()
++    wraps, ramp, cap = fittings(rank)
++    haft(img, 5, 27, 17, wraps=wraps, wrap_ramp=ramp, cap=cap)
++    region(img, poly([(6, 3), (19, 3), (21, 7), (20, 10), (8, 9)]), METAL, lo=1.2, hi=3.2)
++    # Ground edge along the underside, and the hammered ridge above it.
++    dots(img, [(x, 9) for x in range(9, 19)] + [(8, 8), (19, 9)], METAL[4])
++    dots(img, [(x, 8) for x in range(10, 19)], METAL[3])
++    dots(img, [(x, 5) for x in range(8, 18)], METAL[1])
++    dots(img, [(x, 4) for x in range(7, 18)], METAL[3])
++    sock = ramp if rank else LEATHER
++    region(img, poly([(18, 8), (20, 5), (24, 9), (21, 12)]), sock, lo=1.5, hi=3.5)
++    if rank >= 2:
++        dots(img, [(20, 8), (21, 8)], GLOW[4])
++        dots(img, [(20, 9), (21, 9)], GLOW[3])
++    rune(img, [(9, 6), (11, 6), (13, 6), (15, 6), (17, 6)], rank)
++    if rank == 3:
++        glint(img, 12, 3)
++    outline(img)
++    return img
++
++
++def flask(big=False):
++    """A gourd bound in leather with a copper collar and a window of light down its front."""
++    img = new()
++    band = GOLD if big else COPPER
++    body = ellipse(6, 10, 25, 29) if not big else ellipse(3, 8, 28, 30)
++    region(img, body, LEATHER, lo=1.0, hi=3.4)
++    # Neck and collar.
++    region(img, rect(13, 3, 18, 11), LEATHER, lo=1.4, hi=3.0)
++    region(img, rect(12, 2, 19, 4), band, lo=1.4, hi=3.8)
++    region(img, rect(12, 8, 19, 10), band, lo=1.2, hi=3.4)
++    # The window: void behind, then the fluid light inside it.
++    win = rect(13, 13, 18, 26) if not big else rect(11, 12, 20, 27)
++    region(img, win, VOID, lo=0, hi=1.0, bevel=False)
++    inner = rect(14, 15, 17, 25) if not big else rect(12, 14, 19, 26)
++    region(img, inner, GLOW, lo=1.2, hi=3.6, bevel=False)
++    dots(img, [(14, 17), (14, 19)] if not big else [(13, 16), (13, 18), (13, 20)], GLOW[4])
++    # Straps around the body and a stitched seam down each flank.
++    for y in (14, 22) if not big else (13, 21, 27):
++        region(img, rect(5 if big else 7, y, 27 if big else 24, y + 1), band, lo=1.0, hi=3.2)
++    dots(img, [(8, y) for y in range(16, 26, 2)], LEATHER[4])
++    dots(img, [(23, y) for y in range(16, 26, 2)], LEATHER[1])
++    if big:
++        dots(img, [(5, 19), (6, 17), (26, 19), (25, 17)], GOLD[4])
++        for (x, y), c in zip([(9, 11), (22, 11), (9, 29), (22, 29)], VOICES[::2]):
++            put(img, x, y, c)
++    outline(img)
++    return img
++
++
++def greater_flask():
++    return flask(big=True)
++
++
++def wrench():
++    """A ring head with its mouth open to the up-right, a plain shank and a copper-bound grip."""
++    img = new()
++    taper(img, (6, 28), (21, 13), 5, 4, METAL, lo=1.0, hi=3.0)
++    region(img, ellipse(17, 1, 30, 14), METAL, lo=1.2, hi=3.4)
++    hole(img, ellipse(20, 4, 27, 11))
++    hole(img, poly([(25, 0), (33, 3), (33, 8), (26, 9)]))
++    dots(img, [(21, 2), (22, 2), (20, 3), (19, 4)], METAL[4])
++    dots(img, [(22, 13), (23, 13), (24, 12)], METAL[1])
++    dots(img, [(19, 9), (20, 10)], METAL[1])
++    # Grip: three copper wraps across the lower shank, and the rivet above them.
++    for i in range(3):
++        region(img, poly([(6 + i * 3, 27 - i * 3), (9 + i * 3, 24 - i * 3), (11 + i * 3, 26 - i * 3), (8 + i * 3, 29 - i * 3)]),
++               COPPER, lo=1.4, hi=3.4)
++    put(img, 17, 17, COPPER[4])
++    put(img, 18, 18, COPPER[1])
++    outline(img)
++    return img
++
++
++def wand():
++    """A slim rod whose forked head holds a small stone caught in a weave of thread."""
++    img = new()
++    taper(img, (4, 29), (19, 14), 4, 3, WOOD, lo=1.0, hi=3.0)
++    # Cloth bindings down the rod.
++    for i, (x, y) in enumerate(((7, 26), (9, 24), (14, 19), (16, 17))):
++        region(img, poly([(x, y), (x + 2, y - 2), (x + 3, y - 1), (x + 1, y + 1)]), CLOTH, lo=1.6, hi=3.8)
++    # Two tines opening from the head, thread strung between them.
++    taper(img, (19, 14), (22, 4), 3, 1, WOOD, lo=1.2, hi=3.0)
++    taper(img, (19, 14), (29, 11), 3, 1, WOOD, lo=1.0, hi=2.6)
++    for a, b in (((21, 6), (27, 11)), ((22, 8), (26, 13)), ((20, 10), (24, 14))):
++        taper(img, a, b, 1, 1, CLOTH, lo=2.4, hi=4.0)
++    # The stone: small, cut, and lit from within.
++    region(img, poly([(23, 7), (27, 10), (24, 14), (20, 11)]), GLOW, lo=1.0, hi=3.8)
++    dots(img, [(23, 9), (23, 10), (24, 9)], GLOW[4])
++    put(img, 25, 12, GLOW[1])
++    for (x, y), c in zip([(21, 5), (29, 11), (5, 28)], VOICES[1::2]):
++        put(img, x, y, c)
++    outline(img)
++    return img
++
++
+ # --- Spiritweave icons ----------------------------------------------------------------------------
+ 
+ def folds(img, lines, ramp=CLOTH):
+@@ -665,8 +840,11 @@ def layer_2():
+ 
+ 
+ PAINTERS = {"spiritgear_pickaxe": pickaxe, "spiritgear_axe": axe, "spiritgear_shovel": shovel, "spiritgear_blade": blade,
++            "spiritgear_shears": shears, "spiritgear_hoe": hoe,
+             "spiritweave_hood": hood, "spiritweave_robe": robe, "spiritweave_leggings": leggings, "spiritweave_boots": boots}
+-SINGLE_PAINTERS = {"resonance_maul": maul, "spirit_staff": staff, "wayfarer_satchel": satchel, "spiritweave": bolt}
++SINGLE_PAINTERS = {"resonance_maul": maul, "spirit_staff": staff, "wayfarer_satchel": satchel, "spiritweave": bolt,
++                   "spirit_flask": flask, "greater_spirit_flask": greater_flask, "totem_wrench": wrench,
++                   "weavers_wand": wand}
+ 
+ 
+ def main() -> None:

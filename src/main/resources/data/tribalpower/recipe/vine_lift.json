@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "V": {
+      "item": "minecraft:vine"
+    },
+    "R": {
+      "item": "tribalpower:spirit_reed"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "VRV",
+    "VEV",
+    "VRV"
+  ],
+  "result": {
+    "count": 2,
+    "id": "tribalpower:vine_lift"
+  }
+}

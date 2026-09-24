@@ -26,10 +26,28 @@
     {
       "type": "text",
       "text": [
-        "Walk in with charged Pulse Cells, food and a steady hand. Bind a return compass to a dry floor at home before you leave; the March is big and every biome looks new the first time.",
-        "Remnants spawn wherever it is dark, above ground and below, so carry torches or lanterns and light the way back to your drum."
+        "Walk in with charged Pulse Cells, food, a few [salves](remedies) and a steady hand. Bind a return compass to a dry floor at home before you leave; the March is big and every biome looks new the first time.",
+        "Remnants rise wherever it is dark, above ground and below, so carry torches or lanterns and light the way back to your drum."
       ],
       "title": "Packing for it"
+    },
+    {
+      "type": "text",
+      "title": "Day and night",
+      "text": [
+        "The March's day is for working and its night is the danger.",
+        "- **By day** spirits rarely rise in the open, never in torch or lantern light, and never beside another. Wild spirits caught under the open sky fade away as the sun comes up, unless they are already chasing you.",
+        "- **At night** they rise stronger, with more health and harder hits, and some rise as gold-named **elites**. They come in twos at most, and stop rising once four are near.",
+        "- Elites and night spirits can leave you with [Spirit Sickness](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sleeping it off",
+      "text": [
+        "Beds work in the March, and sleeping the night through moves the clock on to morning. (The March keeps the overworld's time, so the overworld's night passes too.)",
+        "Only a spirit that is **already hunting you** keeps you from sleeping. One wandering past your walls does not, so a lit, walled camp is a safe place to rest."
+      ]
     },
     {
       "type": "text",

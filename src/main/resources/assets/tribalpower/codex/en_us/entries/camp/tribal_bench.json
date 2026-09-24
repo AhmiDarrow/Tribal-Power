@@ -1,0 +1,47 @@
+{
+  "name": "Tribal Bench",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 35,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "A table that remembers",
+      "text": [
+        "The Tribal Bench is a crafting table two blocks wide, with a shelf along the back, and it comes in every wood so it matches the camp it stands in.",
+        "The difference that matters: **the grid belongs to the bench**. Close it halfway through a recipe and everything stays where you left it, instead of spilling back into your pack."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "With JEI",
+      "text": [
+        "If you run JEI, the bench is a full crafting station: open a crafting recipe and press **+** (or JEI's move-recipe keys) to pull the ingredients from your inventory into the grid. Clicking the arrow in the bench shows every crafting recipe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

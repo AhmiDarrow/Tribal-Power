@@ -20,6 +20,13 @@ import java.util.List;
  * then use it on a second keystone to tie the two together, both ways.
  */
 public class GateSigilItem extends Item {
+    /** Sneak-use on a Gate Keystone must reach the keystone, which is where linking happens. */
+    @Override
+    public boolean doesSneakBypassUse(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.LevelReader level,
+                                      net.minecraft.core.BlockPos pos, net.minecraft.world.entity.player.Player player) {
+        return level.getBlockState(pos).getBlock() instanceof tk.darrow.tribalpower.gate.GateKeystoneBlock;
+    }
+
     public GateSigilItem(Properties properties) {
         super(properties);
     }

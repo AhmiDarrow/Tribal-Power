@@ -8,6 +8,7 @@ overhaul_art.py skip those names. Run with --sheet to also write a contact sheet
 from __future__ import annotations
 
 import math
+import random
 import sys
 from pathlib import Path
 
@@ -32,7 +33,10 @@ VOICES = [(132, 173, 94), (235, 132, 73), (95, 184, 217), (192, 218, 194), (166,
 
 RANKS = [("", BONE, 0), ("_attuned", COPPER, 1), ("_bound", GLOW, 2), ("_manifested", GOLD, 3)]
 TOOLS = ["spiritgear_pickaxe", "spiritgear_axe", "spiritgear_shovel", "spiritgear_blade",
-         "spiritgear_shears", "spiritgear_hoe"]
+         "spiritgear_shears", "spiritgear_hoe",
+         "spiritgear_spear", "spiritgear_halberd", "spiritgear_battle_axe", "spiritgear_warhammer",
+         "spiritgear_dagger", "spiritgear_scythe", "spiritgear_greatsword", "spiritgear_trident",
+         "spiritgear_rattle"]
 WEAVE = ["spiritweave_hood", "spiritweave_robe", "spiritweave_leggings", "spiritweave_boots"]
 SINGLES = ["resonance_maul", "spirit_staff", "wayfarer_satchel", "spiritweave",
            "spirit_flask", "greater_spirit_flask", "totem_wrench", "weavers_wand"]
@@ -257,7 +261,7 @@ def blade(rank):
     _, ramp, _ = fittings(rank)
     fit = ramp if rank else METAL
     grip = [(1, 3), (1, 3), (0, 2, 4), (0, 2, 4)][rank]
-    haft(img, 4, 27, 6, ramp=LEATHER, wraps=grip, wrap_ramp=fit if rank else LEATHER[1:] + [LEATHER[4]])
+    haft(img, 4, 27, 6, ramp=BONE, wraps=grip, wrap_ramp=fit if rank else LEATHER)
     # Centreline bows toward the edge; the spine runs true and the edge sweeps back to meet it at the point.
     ax, ay, bx, by = 10.5, 20.5, 27.9, 1.2
     length = math.hypot(bx - ax, by - ay)
@@ -317,6 +321,366 @@ def blade(rank):
         put(img, 2 + dx, 28 + dy, fit[tone])
     outline(img)
     return img
+
+
+# --- Spiritgear weapons ---------------------------------------------------------------------------
+
+def frame(hx, hy):
+    """Map (along, across) to pixels around a head centred on the haft: along runs up the haft (up-right),
+    across runs out to the leading side (up-left). Negative across is the trailing side."""
+    k = 0.7071
+    return lambda pts: [(round(hx + a * k - b * k), round(hy - a * k - b * k)) for a, b in pts]
+
+
+def collar(img, hx, hy, rank):
+    at = frame(hx, hy)
+    region(img, poly(at([(-1.5, -2.5), (1.5, -2.5), (1.5, 2.5), (-1.5, 2.5)])), RANKS[rank][1] if rank else LEATHER, lo=1.5, hi=3.5)
+
+
+def long_wraps(rank, length):
+    """The rank's haft bindings spread along a longer haft: the usual set near the hand, one more below the head.
+    Weapon hafts are bone, so a plain piece is bound in leather and a ranked one in its rank's metal."""
+    wraps, ramp, cap = fittings(rank)
+    k = length / 17
+    spread = tuple(sorted({round(w * k * 0.6) for w in wraps} | ({length - 3} if rank else set())))
+    bind = ramp if rank else LEATHER
+    return spread, bind, bind
+
+
+def stroke(img, pts, widths, ramp, lo=1.0, hi=3.6):
+    """A tapering stroke along a polyline of pixel points: one taper per segment, widths per point."""
+    for (a, wa), (b, wb) in zip(zip(pts, widths), zip(pts[1:], widths[1:])):
+        taper(img, a, b, wa, wb, ramp, lo=lo, hi=hi)
+
+
+def spear(rank):
+    """A long pole: at the head a long slim blade that runs true from the collar and curves out toward its point,
+    a teardrop cut through its root, and a broad fin behind it hooking back toward the pole with a round hole;
+    collars at both ends, bindings near both ends and a conical spike on the butt."""
+    img = new((64, 64))
+    wraps, ramp, cap = long_wraps(rank, 34)
+    haft(img, 7, 57, 34, ramp=BONE, wraps=wraps + (4, 5, 6, 27, 28, 29), wrap_ramp=ramp)
+    at = frame(41, 23)
+    fit = ramp if rank else METAL
+    length = 30
+
+    def c(a):
+        return 0.00028 * a ** 3
+
+    def width(a):
+        return 1.3 + 1.1 * math.sin(math.pi * min(a, length - 5) / (length - 2))
+
+    lead = [(a, c(a) + width(a) * (1 if a < length - 5 else (length - a) / 5)) for a in range(0, length + 1)]
+    back = [(a, c(a) - (1.2 if a < length - 8 else 1.2 * (length - a) / 8)) for a in range(length, -1, -1)]
+    region(img, poly(at(lead + back)), METAL, lo=1.0, hi=3.6)
+    dots(img, at([(a, c(a) + width(a) - 0.6) for a in range(3, length - 4)]), METAL[4])     # the edge
+    dots(img, at([(a, c(a) - 0.5) for a in range(4, length - 7)]), METAL[1])               # the spine
+    # A teardrop cut through the blade's root.
+    for a, r in ((4.5, 0.9), (6, 0.7), (7.2, 0.5)):
+        x, y = at([(a, c(a) + 0.3)])[0]
+        hole(img, ellipse(x - r, y - r, x + r, y + r))
+    # The fin: out from the collar on the trailing side, hooking back toward the pole.
+    fin = [(0.5, -1.2), (3, -4), (4.5, -8), (3.5, -11.5), (0.5, -14), (-4.5, -15),
+           (-2, -12.5), (-0.5, -9.5), (-1, -6), (-2.5, -1.2)]
+    region(img, poly(at(fin)), METAL, lo=0.8, hi=3.4)
+    dots(img, at([(3.6, -5), (4, -8), (3, -11), (0.5, -13.4), (-3, -14.5)]), METAL[4])
+    x, y = at([(1.2, -6.5)])[0]
+    hole(img, ellipse(x - 1.4, y - 1.4, x + 1.4, y + 1.4))
+    region(img, poly(at([(-3, -1.8), (0.5, -1.8), (0.5, 1.8), (-3, 1.8)])), fit, lo=1.2, hi=3.6)   # head collar
+    rune(img, at([(a, c(a) + 0.6) for a in (11, 14, 17, 20)]), rank)
+    # Butt collar and a conical spike.
+    stroke(img, [(8, 56), (5, 59), (2, 62)], [3.2, 2.4, 0.6], fit, lo=1.2, hi=3.6)
+    if rank == 3:
+        glint(img, *at([(16, c(16) + 1.6)])[0])
+    outline(img)
+    return img
+
+
+def crescent_blade(centre_b, radius, top, bottom, thick):
+    """A crescent in (along, across) terms: the outer arc of a circle about (0, centre_b) from `top` degrees down
+    to `bottom`, with an inner line that is `thick` deep at the middle and meets the outer arc at the horns."""
+    outer, inner = [], []
+    for d in range(top, bottom - 1, -4):
+        t = math.radians(d)
+        span = top if d >= 0 else -bottom
+        depth = thick * (1 - (d / span) ** 2)
+        outer.append((radius * math.sin(t), centre_b + radius * math.cos(t)))
+        inner.append(((radius - depth) * math.sin(t), centre_b + (radius - depth) * math.cos(t)))
+    return outer + inner[::-1]
+
+
+def halberd(rank):
+    """A great poleaxe: a broad crescent on the leading side, its lower horn reaching down the pole and its
+    upper horn arcing back over the top, carried on a scrolled arm; a short spike behind and a capped butt."""
+    img = new((60, 60))
+    wraps, ramp, cap = long_wraps(rank, 40)
+    haft(img, 3, 57, 40, ramp=BONE, wraps=wraps, wrap_ramp=ramp, cap=cap)
+    at = frame(41, 19)
+    fit = ramp if rank else LEATHER
+    region(img, poly(at(crescent_blade(-6, 20, 80, -60, 7.0))), METAL, lo=0.8, hi=3.4)
+    dots(img, at([(19.4 * math.sin(math.radians(d)), -6 + 19.4 * math.cos(math.radians(d))) for d in range(76, -57, -4)]), METAL[4])
+    dots(img, at([(15.5 * math.sin(math.radians(d)), -6 + 15.5 * math.cos(math.radians(d))) for d in range(40, -30, -8)]), METAL[1])
+    # The scrolled arm carrying the blade, the spike behind, a short point above.
+    region(img, poly(at([(-3, 1.2), (3, 1.2), (4.5, 5), (1, 7.5), (-4, 6.5), (-2, 4)])), fit, lo=1.0, hi=3.4)
+    region(img, poly(at([(-1, -1.4), (0.5, -4.5), (3.5, -7), (3, -3.5), (3.5, -1.4)])), METAL, lo=0.6, hi=2.8)
+    taper(img, at([(3, 0)])[0], at([(9, 0)])[0], 2.6, 0.6, METAL, lo=1.2, hi=3.6)
+    region(img, poly(at([(-5, -1.9), (4, -1.9), (4, 1.9), (-5, 1.9)])), fit, lo=1.2, hi=3.6)
+    rune(img, at([(15.5 * math.sin(math.radians(d)), -6 + 17 * math.cos(math.radians(d))) for d in (30, 10, -10, -30)]), rank)
+    for dx, dy, tone in ((0, 0, 3), (-1, 1, 2), (1, 0, 2), (0, 1, 1), (-1, 0, 3)):
+        put(img, 3 + dx, 57 + dy, fit[tone])
+    if rank == 3:
+        glint(img, *at([(4, 10)])[0])
+    outline(img)
+    return img
+
+
+DARK = [VOID[2], VOID[3], METAL[0], METAL[1], METAL[2]]
+
+
+# One swept bit, in (along, across) terms with the haft as the along axis: the outer edge runs from the upper
+# horn (reaching up toward the point) out to the widest belly and back down to the lower horn, which reaches
+# down toward the hand. The inner line returns through a fin that points back down the haft.
+SWEPT_EDGE = [(16, 11), (12, 13.5), (7, 15), (2, 15.5), (-3, 15.2), (-8, 14.4), (-13, 13)]
+SWEPT_INNER = [(-10, 9.5), (-12.5, 6), (-8, 5.5), (-3, 2.2), (3, 2.2), (6.5, 5.5), (10.5, 5), (10, 8.5)]
+SWEPT_HOLES = [(8, 9.6, 0.9), (4.5, 10.8, 1.2), (0, 11.2, 1.8)]
+
+
+def swept(pts, scale, sign):
+    return [(a * scale, b * scale * sign) for a, b in pts]
+
+
+def battle_axe(rank):
+    """A long two-hander after the swept double-bit style: twin crescents, each a dark body behind a wide
+    bright edge, three cut-outs through it and a fin pointing back at the haft; a barbed point above, a slim
+    socket, bone haft and a spiked butt."""
+    img = new((64, 64))
+    wraps, ramp, cap = long_wraps(rank, 38)
+    haft(img, 5, 59, 38, ramp=BONE, wraps=wraps, wrap_ramp=ramp, cap=cap)
+    at = frame(40, 25)
+    fit = ramp if rank else DARK
+    # The point first, so the bits sit over its root.
+    region(img, poly(at([(4, -1.4), (17, -3.6), (27, 0), (17, 3.6), (4, 1.4)])), METAL, lo=1.2, hi=3.6)
+    dots(img, at([(k, 0) for k in range(8, 26)]), METAL[4])
+    for scale, sign in ((1.25, 1), (1.1, -1)):
+        region(img, poly(at(swept(SWEPT_EDGE + SWEPT_INNER, scale, sign))), DARK, lo=0.6, hi=3.2)
+        band = SWEPT_EDGE + [(a, b - 3.2) for a, b in reversed(SWEPT_EDGE[1:-1])]
+        region(img, poly(at(swept(band, scale, sign))), METAL, lo=2.0, hi=4.0)
+        dots(img, at(swept([(a, b - 0.6) for a, b in SWEPT_EDGE[1:-1]], scale, sign)), METAL[4])
+        for a, b, r in SWEPT_HOLES:
+            x, y = at(swept([(a, b)], scale, sign))[0]
+            r *= scale
+            hole(img, ellipse(x - r, y - r, x + r, y + r))
+    # A slim socket over the haft, and two small hooks under the head.
+    region(img, poly(at([(-5, -1.8), (5, -1.8), (5, 1.8), (-5, 1.8)])), fit, lo=1.2, hi=3.6)
+    for sign in (1, -1):
+        region(img, poly(at([(-9, 1.4 * sign), (-6.5, 4.2 * sign), (-5.5, 2.6 * sign), (-7.5, 1.4 * sign)])), fit, lo=1.0, hi=3.4)
+    rune(img, at(swept([(6, 8), (2.5, 8.6), (-1, 8.6), (-4.5, 8.2)], 1.25, 1)), rank)
+    for dx, dy, tone in ((0, 0, 3), (-1, 1, 2), (1, -1, 2), (-2, 2, 1), (-1, 0, 3), (0, 1, 1)):
+        put(img, 5 + dx, 59 + dy, fit[tone])
+    if rank == 3:
+        glint(img, *at([(3, 17)])[0])
+    outline(img)
+    return img
+
+
+def warhammer(rank):
+    """A big block, gently waisted and flared at both ends, hammered and inlaid with a gold border and scrolls;
+    a spike rising from its top and a long spike straight out the back; a short collar, a bone haft banded with
+    rings, and a spiked butt."""
+    img = new((52, 52))
+    fit = RANKS[rank][1] if rank else GOLD
+    haft(img, 5, 47, 22, ramp=BONE, wraps=(2, 3, 8, 13, 18, 21), wrap_ramp=fit)
+    at = frame(34, 18)
+    stroke(img, at([(6, 0), (10.5, 0), (15, 0)]), [3.6, 2.4, 0.3], METAL, lo=1.0, hi=3.6)       # the top spike
+    stroke(img, at([(1, -7), (1, -11.5), (1, -16)]), [3.2, 2.0, 0.3], METAL, lo=0.9, hi=3.6)    # the back spike
+    region(img, poly(at([(-0.2, -7.4), (2.2, -7.4), (2.2, -9), (-0.2, -9)])), fit, lo=1.2, hi=3.6)
+    body = [(7, 11), (6.3, 6), (6, 2), (6, -3), (7, -8), (-7, -8), (-6, -3), (-6, 2), (-6.3, 6), (-7, 11)]
+    region(img, poly(at(body)), METAL, lo=0.7, hi=3.0)
+    region(img, poly(at([(7, 11), (6.6, 9.2), (-6.6, 9.2), (-7, 11)])), METAL, lo=2.2, hi=3.9)   # the striking face
+    region(img, poly(at([(7, -8), (6.6, -6.8), (-6.6, -6.8), (-7, -8)])), METAL, lo=0.3, hi=1.6)  # the back plate
+    rng = random.Random(7331 + rank)
+    for _ in range(40):                                                                     # hammered finish
+        a, b = rng.uniform(-5, 5), rng.uniform(-6, 8.5)
+        x, y = at([(a, b)])[0]
+        put(img, x, y, METAL[rng.choice((0, 1, 1, 3))])
+    border = ([(4.6, b) for b in range(-5, 9)] + [(-4.6, b) for b in range(-5, 9)]
+              + [(a, -5.6) for a in range(-4, 5)] + [(a, 8.2) for a in range(-4, 5)])
+    dots(img, at(border), fit[3])
+    for cb in (-1.5, 3.5):
+        dots(img, at([(1.5, cb), (2.3, cb + 1), (1.5, cb + 2), (0.5, cb + 1.2), (-0.5, cb + 0.4), (-1.8, cb + 0.8)]), fit[4])
+    rune(img, at([(-2.5, 0), (-2.5, 2.5), (-2.5, 5), (-2.5, 7)]), rank)
+    region(img, poly(at([(-10, -2), (-6, -2), (-6, 2), (-10, 2)])), METAL, lo=1.0, hi=3.4)     # the collar
+    dots(img, at([(-8, -1.3), (-8, 0), (-8, 1.3)]), fit[3])
+    stroke(img, [(6, 46), (4, 48), (2, 50)], [3.0, 2.0, 0.4], METAL, lo=1.2, hi=3.6)            # butt spike
+    if rank == 3:
+        glint(img, *at([(4.5, 10)])[0])
+    outline(img)
+    return img
+
+
+def trident(rank):
+    """Three points: two tall side blades rising from a crescent whose ends curl down into horns, a central
+    barbed point on a slim shank above them, gold scrollwork, and a spiral-carved bone pole."""
+    img = new((60, 60))
+    _, ramp, cap = long_wraps(rank, 34)
+    spiral = [BONE[0], BONE[1], BONE[1], BONE[2], BONE[3]]
+    haft(img, 3, 57, 34, ramp=BONE, wraps=tuple(range(2, 32, 3)), wrap_ramp=spiral, cap=cap)
+    at = frame(37, 23)
+    fit = ramp if rank else GOLD
+    # The crescent: flat on top, curling down into horns at both ends.
+    region(img, poly(at([(-1, -9.5), (3, -9.5), (3, 9.5), (-1, 9.5), (-5.5, 10.5), (-3, 7), (-2.5, 3), (-3, 0),
+                         (-2.5, -3), (-3, -7), (-5.5, -10.5)])), METAL, lo=0.8, hi=3.2)
+    for sign in (1, -1):
+        # A side blade, inner edge straight, outer edge bellied, point leaning in.
+        region(img, poly(at([(2, 4.5 * sign), (2, 9.5 * sign), (9, 9.6 * sign), (15, 8.8 * sign), (21, 6.2 * sign),
+                             (16, 5.6 * sign), (9, 5 * sign)])), METAL, lo=0.8, hi=3.4)
+        dots(img, at([(a, 8.8 * sign) for a in range(4, 15)]), METAL[4])
+        rune(img, at([(6, 7 * sign), (9, 7.2 * sign), (12, 7 * sign)]), max(rank, 2) if rank else 0)
+        dots(img, at([(1, 6 * sign), (0.5, 8 * sign)]), fit[3])
+    # The central shank and barbed point.
+    taper(img, at([(1, 0)])[0], at([(13, 0)])[0], 3.4, 1.8, METAL, lo=1.2, hi=3.4)
+    region(img, poly(at([(12, -1.1), (15, -3), (16.5, -1.3), (27.5, 0), (16.5, 1.3), (15, 3), (12, 1.1)])), METAL, lo=1.2, hi=3.6)
+    dots(img, at([(k, 0) for k in range(14, 26)]), METAL[4])
+    region(img, poly(at([(-2, -2.2), (1.5, -2.2), (1.5, 2.2), (-2, 2.2)])), fit, lo=1.2, hi=3.6)
+    for dx, dy, tone in ((0, 0, 3), (-1, 1, 2), (1, 0, 2), (0, 1, 1), (-1, 0, 3)):
+        put(img, 3 + dx, 57 + dy, fit[tone])
+    if rank == 3:
+        glint(img, *at([(20, 0)])[0])
+    outline(img)
+    return img
+
+
+def dagger(rank):
+    """A kukri: straight from the bolster for a third of its length, then angled hard forward and swelling into
+    a heavy belly, the point on the line of the spine. Edge on the inside of the bend, a notch at its root, a
+    bone grip with a flared butt."""
+    img = new()
+    _, ramp, _ = fittings(rank)
+    fit = ramp if rank else METAL
+    haft(img, 5, 27, 6, ramp=BONE, wraps=(2,), wrap_ramp=fit if rank else LEATHER)
+    at = frame(11, 21)
+
+    def bend(a):
+        return 0.0 if a < 6 else (a - 6) * 0.42
+
+    def belly(a):
+        return 1.4 if a < 5 else 1.4 + 3.2 * math.sin(math.pi * min(1.0, (a - 5) / 13) * 0.85)
+
+    length = 19
+    spine = [(a, bend(a) - (1.5 if a < 15 else 1.5 * (length - a) / 4)) for a in range(0, length + 1)]
+    edge = [(a, bend(a) + belly(a) * (1 if a < 16 else (length - a) / 3)) for a in range(length, -1, -1)]
+    region(img, poly(at(spine + edge)), METAL, lo=1.0, hi=3.6)
+    dots(img, at([(a, bend(a) + belly(a) - 0.6) for a in range(4, 16)]), METAL[4])     # the ground edge
+    dots(img, at([(a, bend(a) - 0.9) for a in range(1, 15)]), METAL[1])                 # the spine
+    x, y = at([(1.4, 1.2)])[0]
+    hole(img, ellipse(x - 0.7, y - 0.7, x + 0.7, y + 0.7))                            # the notch
+    region(img, poly(at([(-1.2, -2.6), (0.8, -2.6), (0.8, 2.8), (-1.2, 2.8)])), fit, lo=1.2, hi=3.6)   # bolster
+    for dx, dy, tone in ((0, 0, 3), (-1, 0, 2), (0, 1, 1), (-1, 1, 2), (1, 1, 1), (-2, 1, 3)):
+        put(img, 4 + dx, 28 + dy, BONE[tone])                                         # flared butt
+    rune(img, at([(8, bend(8) + 0.8), (11, bend(11) + 1.2), (14, bend(14) + 1.4)]), rank)
+    if rank == 3:
+        glint(img, *at([(12, bend(12) + 2.6)])[0])
+    outline(img)
+    return img
+
+
+HORN = [(28, 20, 22), (58, 40, 36), (92, 66, 52), (128, 96, 70), (170, 136, 98)]
+FEATHER = [(120, 96, 60), (164, 132, 84), (204, 174, 116), (232, 208, 150), (248, 236, 196)]
+
+
+def scythe(rank):
+    """A bone snath with a braided grip and a pointed butt; at the head a long heavy blade reaching up and
+    forward then hooking down to a needle point, edge bright on its inside and teeth along its spine; behind,
+    a banded horn curving up, with feathers and a bead tied at the neck."""
+    img = new((56, 56))
+    wraps, ramp, cap = long_wraps(rank, 34)
+    braid = tuple(range(3, 16))
+    haft(img, 6, 51, 34, ramp=BONE, wraps=braid + (18, 30), wrap_ramp=ramp if rank else GOLD)
+    at = frame(40, 17)
+    fit = ramp if rank else LEATHER
+    # The horn behind, banded, curving up to a point.
+    horn = at([(0.5, -1.5), (2.5, -4.5), (5, -7), (8, -8.4), (11, -8.2)])
+    for i, (p0, p1) in enumerate(zip(horn, horn[1:])):
+        w0, w1 = [3.2, 2.6, 2.0, 1.3, 0.4][i:i + 2]
+        taper(img, p0, p1, w0, w1, HORN if i % 2 == 0 else [HORN[1], HORN[2], HORN[3], HORN[4], FEATHER[2]], lo=0.8, hi=3.4)
+    for root, tip, w in (((-1, -1.8), (-9.5, -4.6), 1.9), ((-1.5, -1.2), (-10.5, -2.4), 1.6)):
+        stroke(img, at([root, tip]), [w, 0.4], FEATHER, lo=1.0, hi=3.8)
+        dots(img, at([((root[0] + tip[0]) / 2, (root[1] + tip[1]) / 2)]), FEATHER[0])
+    # The blade: spine outside with barbed teeth, the edge on the concave inside.
+    spine = [(2, 1.5), (4, 6), (3.8, 11), (2, 16), (-1.5, 20.5), (-6.5, 24.2), (-13, 26.5)]
+    edge = [(-13, 26.5), (-8.5, 22), (-5, 18), (-2.8, 14), (-1.6, 10), (-1.4, 6), (-2, 1.5)]
+    region(img, poly(at(spine + edge)), METAL, lo=0.8, hi=3.4)
+    for a, b in ((4.6, 8.5), (3.6, 13.5), (1.2, 18)):
+        region(img, poly(at([(a - 0.8, b - 1.2), (a + 1.8, b + 0.4), (a - 0.6, b + 1.2)])), METAL, lo=1.0, hi=3.0)
+    dots(img, at([(-10, 24.4), (-7.4, 21.6), (-5, 18.8), (-3.2, 15.6), (-2.1, 12.2), (-1.7, 9), (-1.6, 6)]), METAL[4])
+    dots(img, at([(-11.5, 25.4), (-8.6, 23)]), (255, 255, 255))
+    dots(img, at([(2.8, 7), (2.6, 11), (1.2, 15), (-1.4, 19)]), METAL[1])
+    region(img, poly(at([(-2.5, -1.8), (1.5, -1.8), (1.5, 1.8), (-2.5, 1.8)])), fit, lo=1.0, hi=3.4)   # binding
+    dots(img, at([(-1, -2.2), (-0.5, -2.6)]), GLOW[3])                                                  # a bead
+    stroke(img, [(7, 50), (4, 53), (2, 55)], [3.0, 2.0, 0.5], ramp if rank else BONE, lo=1.2, hi=3.6)   # butt point
+    rune(img, at([(1.5, 7), (1.2, 11), (-0.2, 15), (-3, 19)]), rank)
+    if rank == 3:
+        glint(img, *at([(0.5, 12)])[0])
+    outline(img)
+    return img
+
+
+def greatsword(rank):
+    """A 60px two-hander with a broad slab blade: one even width from guard to an angled chisel point, a ground
+    edge on the leading side, two sockets at the base that carry the rank's light, a short heavy guard and a
+    two-hand grip."""
+    img = new((60, 60))
+    _, ramp, _ = fittings(rank)
+    fit = ramp if rank else METAL
+    haft(img, 4, 56, 11, ramp=BONE, wraps=(1, 3, 5, 7, 9), wrap_ramp=fit if rank else LEATHER)
+    at = frame(17, 43)
+    # The edge runs down the trailing side and the chisel is cut from the leading side down to the point.
+    region(img, poly(at([(0, 5), (0, -5), (52, -5), (37, 5)])), METAL, lo=0.9, hi=3.2)
+    dots(img, at([(k, -4.4) for k in range(1, 50)]), METAL[4])                # the ground edge
+    dots(img, at([(k, -3.2) for k in range(2, 48)]), METAL[3])
+    dots(img, at([(k, 4.4) for k in range(1, 37)]), METAL[1])                 # the back of the slab
+    dots(img, at([(37 + k, 4.4 - k * 0.62) for k in range(15)]), METAL[4])    # the long chisel cut to the point
+    # Two sockets near the base, dark when plain, lit in the rank's metal or light as it rises.
+    sock = [VOID, COPPER, GLOW, GOLD][rank]
+    for centre in (6.5, 13.0):
+        region(img, poly(at([(centre + 2.4 * math.cos(t), 2.4 * math.sin(t)) for t in (i * math.pi / 6 for i in range(12))])), METAL, lo=0.2, hi=1.0, bevel=False)
+        region(img, poly(at([(centre + 1.4 * math.cos(t), 1.4 * math.sin(t)) for t in (i * math.pi / 4 for i in range(8))])),
+               sock, lo=1.0 if rank else 0.0, hi=4.0 if rank else 2.0)
+    at_guard = frame(16, 44)
+    region(img, poly(at_guard([(-2, -6.5), (1, -6.5), (1, 6.5), (-2, 6.5)])), fit, lo=1.2, hi=3.6)
+    for dx, dy, tone in ((0, 0, 3), (1, 0, 2), (0, 1, 1), (-1, 0, 2), (0, -1, 3), (1, 1, 1), (-1, -1, 4)):
+        put(img, 3 + dx, 57 + dy, fit[tone])
+    rune(img, at([(k, 1.5) for k in range(18, 38, 3)]), rank)
+    if rank == 3:
+        glint(img, *at([(40, -3)])[0])
+    outline(img)
+    return img
+
+
+def rattle(rank):
+    """The Healer's Rattle: a dried gourd on a bone handle, banded in the rank's paint, beads at the neck and
+    two feathers tied beneath."""
+    img = new()
+    wraps, ramp, cap = fittings(rank)
+    bind = ramp if rank else LEATHER
+    haft(img, 5, 27, 12, ramp=BONE, wraps=(2, 3) if not rank else wraps[:3], wrap_ramp=bind, cap=bind)
+    at = frame(21, 11)
+    gourd = [(7 * math.cos(t) + 1, 5.6 * math.sin(t)) for t in (i * math.pi / 10 for i in range(20))]
+    region(img, poly(at(gourd)), CLAY_GOURD, lo=0.8, hi=3.6)
+    band = ramp if rank else LEATHER
+    for a in (-1.5, 2.5):
+        dots(img, at([(a, b) for b in range(-5, 6)]), band[3])
+    dots(img, at([(4, 0), (4.5, 1.5), (4.5, -1.5), (0.5, 3.5), (0.5, -3.5)]), band[4])
+    dots(img, at([(-6.2, -1), (-6.2, 1), (-6.6, 0)]), GLOW[3] if rank >= 2 else BONE[3])   # beads at the neck
+    for tip in ((-11, 4.5), (-12, 2.5)):
+        stroke(img, at([(-6.5, 1), tip]), [1.6, 0.4], FEATHER, lo=1.0, hi=3.8)
+    if rank == 3:
+        glint(img, *at([(3, 3)])[0])
+    outline(img)
+    return img
+
+
+CLAY_GOURD = [(92, 58, 34), (132, 88, 48), (170, 122, 66), (204, 160, 96), (232, 200, 140)]
 
 
 def maul():
@@ -841,6 +1205,9 @@ def layer_2():
 
 PAINTERS = {"spiritgear_pickaxe": pickaxe, "spiritgear_axe": axe, "spiritgear_shovel": shovel, "spiritgear_blade": blade,
             "spiritgear_shears": shears, "spiritgear_hoe": hoe,
+            "spiritgear_spear": spear, "spiritgear_halberd": halberd, "spiritgear_battle_axe": battle_axe,
+            "spiritgear_warhammer": warhammer, "spiritgear_dagger": dagger, "spiritgear_scythe": scythe,
+            "spiritgear_greatsword": greatsword, "spiritgear_trident": trident, "spiritgear_rattle": rattle,
             "spiritweave_hood": hood, "spiritweave_robe": robe, "spiritweave_leggings": leggings, "spiritweave_boots": boots}
 SINGLE_PAINTERS = {"resonance_maul": maul, "spirit_staff": staff, "wayfarer_satchel": satchel, "spiritweave": bolt,
                    "spirit_flask": flask, "greater_spirit_flask": greater_flask, "totem_wrench": wrench,

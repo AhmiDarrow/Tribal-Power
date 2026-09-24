@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
         "A charged Pulse Cell pleases the Drumhearts as it pleases every hearth: **+2 for every 10 Pulse**, up to +8. Their Guest trade for Bone Chimes feeds straight back into their reagent."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Drumhearts carry their [boon](tribe_boons): a quicker hand: you swing **10%** faster."
+      ],
+      "title": "Their boon"
     }
   ]
 }

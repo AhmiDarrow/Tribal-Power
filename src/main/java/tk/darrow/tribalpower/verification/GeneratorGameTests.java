@@ -179,8 +179,8 @@ public class GeneratorGameTests {
                 "The window is inclusive at the top");
         h.assertTrue(DrumheartBlockEntity.beatValue(40) == DrumheartBlockEntity.OFF_TEMPO,
                 "A slow clock pays the off-tempo rate");
-        h.assertTrue(DrumheartBlockEntity.beatValue(8) == DrumheartBlockEntity.OFF_TEMPO,
-                "A spam clock at the minimum spacing pays the off-tempo rate");
+        h.assertTrue(DrumheartBlockEntity.beatValue(8) * 20 / 8 <= DrumheartBlockEntity.OFF_TEMPO,
+                "A spam clock at the minimum spacing earns no more a second than the off-tempo rate");
         h.assertTrue(DrumheartBlockEntity.beatValue(7) == 0,
                 "Anything closer than the minimum spacing is not a beat at all");
 

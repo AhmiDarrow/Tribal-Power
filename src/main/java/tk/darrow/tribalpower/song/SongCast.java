@@ -20,6 +20,7 @@ public final class SongCast {
     private SongCast() {}
 
     public static boolean play(ServerPlayer player, SongVerse verse) {
+        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) return false;
         ServerLevel level = player.serverLevel();
         LivingEntity target = look(player, verse.reach());
         if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && target == null) return false;
@@ -62,6 +63,9 @@ public final class SongCast {
     private static void ward(ServerPlayer player, SongVerse verse) {
         int duration = verse.duration();
         int mild = Math.min(1, verse.power() - 1);
+        // The ward's note is the voice's own blessing, for longer the more notes were sung.
+        int blessing = tk.darrow.tribalpower.config.TribalConfig.songBlessingSeconds() * 20 * Math.max(1, verse.power());
+        if (blessing > 0) tk.darrow.tribalpower.effect.ModEffects.bless(player, verse.voice(), blessing, mild, false);
         switch (verse.voice()) {
             case EARTH -> player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, duration, mild));
             case FIRE -> player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, duration, 0));

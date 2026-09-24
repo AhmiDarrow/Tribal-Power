@@ -15,6 +15,7 @@ import tk.darrow.tribalpower.entity.CreatureProfile;
  * One written song. The first reagent picks the shape, the totem picks the voice, and each later
  * reagent only dresses that shape: the same note again hits harder, a new note adds one rider.
  */
+/** See {@link #castCost}: a Spindle boon sings cheaper. */
 public record SongVerse(List<String> reagents, Attunement voice) {
     public static final int MIN_SHEET = 3;
     public static final int MAX_SHEET = 7;
@@ -93,6 +94,14 @@ public record SongVerse(List<String> reagents, Attunement voice) {
     }
 
     /** Pulse a cast spends. A longer sheet costs more. The bow has its own price. */
+    /** What a song costs this singer: the Spindle boon's Loom-stitchers sing cheaper. */
+    public static int castCost(net.minecraft.world.entity.player.Player player, SongVerse verse) {
+        int cost = verse.castPulse();
+        if (tk.darrow.tribalpower.effect.ModEffects.hasBoon(player, tk.darrow.tribalpower.tribe.TribeDefinition.SPINDLE))
+            cost = Math.max(1, (int) Math.round(cost * (1 - tk.darrow.tribalpower.config.TribalConfig.spindleBoonDiscount())));
+        return cost;
+    }
+
     public int castPulse() {
         return 8 + 4 * Math.max(1, reagents.size());
     }

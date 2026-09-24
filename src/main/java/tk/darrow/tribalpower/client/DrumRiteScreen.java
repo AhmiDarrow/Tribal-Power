@@ -28,9 +28,11 @@ public class DrumRiteScreen extends Screen {
     private final BlockPos pos;
     private final long seed;
     private final DrumRite.Pattern pattern;
+    /** At a Songkeeper Drum: a scored go at a chosen track, with no gate at the end of it. */
+    private final boolean practice;
     private final boolean[] judged;
     private final boolean[] landed;
-    private final long[] flash = new long[4];
+    private final long[] flash = {-9999, -9999, -9999, -9999};
     private long start = -1;
     private int hits, perfects, strays, misses, combo, bestCombo;
     private String feedback = "";
@@ -39,16 +41,27 @@ public class DrumRiteScreen extends Screen {
     private SimpleSoundInstance music;
 
     public DrumRiteScreen(BlockPos pos, long seed) {
-        super(Component.translatable("gui.tribalpower.rite.title"));
+        this(pos, seed, DrumRite.pattern(seed), false);
+    }
+
+    private DrumRiteScreen(BlockPos pos, long seed, DrumRite.Pattern pattern, boolean practice) {
+        super(practice ? Component.translatable("gui.tribalpower.practice.track." + pattern.track())
+                : Component.translatable("gui.tribalpower.rite.title"));
         this.pos = pos;
         this.seed = seed;
-        this.pattern = DrumRite.pattern(seed);
+        this.pattern = pattern;
+        this.practice = practice;
         this.judged = new boolean[pattern.notes().size()];
         this.landed = new boolean[pattern.notes().size()];
     }
 
     public static void open(BlockPos pos, long seed) {
         Minecraft.getInstance().setScreen(new DrumRiteScreen(pos, seed));
+    }
+
+    /** A Songkeeper Drum go at one track. */
+    public static void practice(BlockPos pos, int track) {
+        Minecraft.getInstance().setScreen(new DrumRiteScreen(pos, track, tk.darrow.tribalpower.gate.DrumPractice.pattern(track), true));
     }
 
     @Override
@@ -168,7 +181,9 @@ public class DrumRiteScreen extends Screen {
 
     private void send(boolean cancelled) {
         sentAt = now();
-        PacketDistributor.sendToServer(new DrumRite.Result(pos, seed, hits, strays, cancelled));
+        if (practice) PacketDistributor.sendToServer(new tk.darrow.tribalpower.gate.DrumPractice.Result(pos, pattern.track(), hits, perfects,
+                bestCombo, strays, cancelled));
+        else PacketDistributor.sendToServer(new DrumRite.Result(pos, seed, hits, strays, cancelled));
     }
 
     private double resonance() {
@@ -186,7 +201,8 @@ public class DrumRiteScreen extends Screen {
         super.render(g, mouseX, mouseY, partialTick);
         long t = Math.max(0, now());
         int fieldWidth = LANE_WIDTH * 4;
-        int left = width / 2 - fieldWidth / 2, top = height / 2 - FIELD_HEIGHT / 2 - 6;
+        // The header sits 40px above the field; on a short screen the field moves down so the header stays on it.
+        int left = width / 2 - fieldWidth / 2, top = Math.max(48, height / 2 - FIELD_HEIGHT / 2 - 6);
         int strikeY = top + FIELD_HEIGHT - 24;
         double resonance = resonance();
         int total = pattern.notes().size();
@@ -252,7 +268,13 @@ public class DrumRiteScreen extends Screen {
         if (t - feedbackAt < 450 && sentAt < 0)
             g.drawCenteredString(font, Component.translatable(feedback), width / 2, strikeY - 40, feedbackColour);
 
-        if (sentAt >= 0) {
+        if (sentAt >= 0 && practice) {
+            g.fill(left - 20, top + FIELD_HEIGHT / 2 - 28, left + fieldWidth + 20, top + FIELD_HEIGHT / 2 + 28, 0xEE0A1014);
+            g.drawCenteredString(font, Component.translatable("gui.tribalpower.practice.points",
+                    tk.darrow.tribalpower.gate.DrumPractice.points(hits, perfects, bestCombo, strays)), width / 2, top + FIELD_HEIGHT / 2 - 18, 0xFF5CE0C8);
+            g.drawCenteredString(font, Component.translatable("gui.tribalpower.rite.score", (int) Math.round(finalScore * 100), perfects, bestCombo),
+                    width / 2, top + FIELD_HEIGHT / 2 + 2, 0xFFE7DCC1);
+        } else if (sentAt >= 0) {
             boolean opened = finalScore >= DrumRite.PASS;
             g.fill(left, top + FIELD_HEIGHT / 2 - 28, left + fieldWidth, top + FIELD_HEIGHT / 2 + 28, 0xEE0A1014);
             g.drawCenteredString(font, Component.translatable(opened ? "gui.tribalpower.rite.opened" : "gui.tribalpower.rite.broken"),

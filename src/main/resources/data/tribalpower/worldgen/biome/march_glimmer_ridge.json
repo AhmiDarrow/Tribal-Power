@@ -207,18 +207,18 @@
     "underground_water_creature": [],
     "water_creature": [
       {
-        "type": "tribalpower:glimmerfin",
-        "weight": 3,
-        "minCount": 1,
-        "maxCount": 3
-      }
-    ],
-    "water_ambient": [
-      {
         "type": "tribalpower:drift_bell",
         "weight": 2,
         "minCount": 1,
         "maxCount": 2
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "tribalpower:glimmerfin",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "misc": []
@@ -273,7 +273,8 @@
       "tribalpower:march_crystal_sparse",
       "tribalpower:march_quartz_scatter",
       "tribalpower:march_quartz_cave",
-      "tribalpower:march_quartz_cave_roof"
+      "tribalpower:march_quartz_cave_roof",
+      "tribalpower:wild_glimmer_bean"
     ],
     []
   ]

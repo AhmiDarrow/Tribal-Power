@@ -138,7 +138,16 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         return super.hurt(source,amount);
     }
     // ---- food, breeding, brushing ----------------------------------------------------------------------------
-    @Override public boolean isFood(ItemStack s) { return !s.isEmpty() && s.is(switch(profile()) { case DAWN_STAG -> Items.WHEAT; case LANTERN_FOX -> Items.SWEET_BERRIES; default -> Items.SEAGRASS; }); }
+    /** The stag grazes wheat, the fox takes berries, the Mossback seagrass; every other creature wants its own reagent. */
+    @Override public boolean isFood(ItemStack s) {
+        if(s.isEmpty())return false;
+        return s.is(switch(profile()) {
+            case DAWN_STAG -> Items.WHEAT;
+            case LANTERN_FOX -> Items.SWEET_BERRIES;
+            case MOSSBACK -> Items.SEAGRASS;
+            default -> tk.darrow.tribalpower.item.CreatureItems.REAGENTS.get(profile()).get();
+        });
+    }
     @Override public boolean canMate(Animal other) { return other.getType()==getType() && super.canMate(other); }
     @Override public AgeableMob getBreedOffspring(ServerLevel level,AgeableMob mate) {
         var child=CreatureEntities.ANIMALS.get(profile()).get().create(level);

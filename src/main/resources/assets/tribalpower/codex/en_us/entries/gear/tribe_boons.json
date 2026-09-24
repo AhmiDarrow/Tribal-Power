@@ -1,0 +1,41 @@
+{
+  "name": "Tribe Boons",
+  "icon": "tribalpower:tribe_mark",
+  "order": 86,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "A tribe's way, lent to you",
+      "text": [
+        "Every tribe has a **boon**: a small perk in that tribe's way of doing things, shown as a status effect in the tribe's colour.",
+        "Reach **Kin** standing with a tribe and you carry its boon for as long as the standing lasts. It refreshes on its own; you never have to ask. Anyone can carry a boon for a while by eating that tribe's [dish](tribe_dishes).",
+        "A worn **Lantern charm** keeps a boon lit half again as long."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Soil (Pad-keepers)**: your fields are never trampled, and hunger comes slower.",
+        "- **Stone (Grit-singers)**: ore you break has a **one in five** chance to give one more.",
+        "- **Sprout (Rootbinders)**: crops and saplings within 4 blocks grow faster around you.",
+        "- **Claw (Edge-walkers)**: no fall hurts you while you **sneak**.",
+        "- **Spark (Drumhearts)**: a quicker hand: you swing **10%** faster."
+      ],
+      "title": "The nine boons"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Clock (Pattern-weavers)**: Echo stations within 8 blocks of you work at **double speed**.",
+        "- **Swarm (Colony-keepers)**: bees never turn on you.",
+        "- **Sigil (Seal-carvers)**: your charms ask **half** the Pulse.",
+        "- **Spindle (Loom-stitchers)**: songs cost **a quarter less** to sing.",
+        "Every number is in the `effects` section of the common config."
+      ],
+      "title": "The nine boons, continued"
+    }
+  ],
+  "next": "standing"
+}

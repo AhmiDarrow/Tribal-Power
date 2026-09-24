@@ -1,0 +1,32 @@
+{
+  "name": "Hearth Pot",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "A pot over the fire",
+      "text": [
+        "The Hearth Pot is a wide clay pot in a copper cradle. Set it **over heat**: a lit campfire, fire, magma, lava or an Ember Bowl right under it. It asks no Pulse at all, so it is a camp's first machine.",
+        "Open it, put up to **four ingredients** in the square, and a **bowl** beside them when the meal wants one. A meal takes about **12 seconds** over the fire and comes out on the right."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Every [tribe dish](tribe_dishes) and every [feast](feasts) is a Hearth Pot recipe. The order of the ingredients does not matter. JEI lists them all under the pot.",
+        "Hoppers feed it from the top and sides and take the meal from the bottom, so a pot can keep a camp fed on its own. Pack makers can add their own meals as recipes of the hearth type."
+      ],
+      "title": "What it cooks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

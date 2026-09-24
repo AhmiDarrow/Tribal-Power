@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:raw_game"
+    },
+    {
+      "item": "tribalpower:raw_game"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:edge_walker_jerky"
+  },
+  "seconds": 12
+}

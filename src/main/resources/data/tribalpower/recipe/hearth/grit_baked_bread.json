@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "tribalpower:iron_grit"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:grit_baked_bread"
+  },
+  "seconds": 12
+}

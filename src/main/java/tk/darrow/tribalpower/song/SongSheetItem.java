@@ -10,7 +10,10 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
 import org.jetbrains.annotations.Nullable;
 
-/** A page that is not in a book yet. Paper, one chalk mark, and three to seven empowered reagents. */
+/**
+ * A page that is not in a book yet. Paper, one chalk mark, and three to seven empowered reagents. Sing it once from
+ * the hand -- the sheet is spent -- or bind it into a songbook at the Song Bench to keep it.
+ */
 public class SongSheetItem extends Item {
     public SongSheetItem(Properties properties) {
         super(properties);
@@ -30,6 +33,32 @@ public class SongSheetItem extends Item {
     }
 
     @Override
+    public net.minecraft.world.InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player,
+                                                                    net.minecraft.world.InteractionHand hand) {
+        ItemStack sheet = player.getItemInHand(hand);
+        SongVerse verse = verse(sheet);
+        if (verse == null || level.isClientSide || !(player instanceof net.minecraft.server.level.ServerPlayer server))
+            return net.minecraft.world.InteractionResultHolder.pass(sheet);
+        if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && SongCast.look(server, verse.reach()) == null) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            return net.minecraft.world.InteractionResultHolder.fail(sheet);
+        }
+        int cost = SongVerse.castCost(player, verse);
+        if (!player.getAbilities().instabuild && !tk.darrow.tribalpower.item.GearCell.spend(player, sheet, cost)) {
+            tk.darrow.tribalpower.item.SpiritgearHelper.notifyStarved(player);
+            return net.minecraft.world.InteractionResultHolder.fail(sheet);
+        }
+        if (!SongCast.play(server, verse)) {
+            if (!player.getAbilities().instabuild) tk.darrow.tribalpower.item.GearCell.refund(player, sheet, cost);
+            player.displayClientMessage(Component.translatable("message.tribalpower.staff.no_target"), true);
+            return net.minecraft.world.InteractionResultHolder.fail(sheet);
+        }
+        level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.BOOK_PAGE_TURN, net.minecraft.sounds.SoundSource.PLAYERS, 0.9F, 1.1F);
+        sheet.consume(1, player);
+        return net.minecraft.world.InteractionResultHolder.consume(sheet);
+    }
+
+    @Override
     public Component getName(ItemStack stack) {
         SongVerse verse = verse(stack);
         return verse == null ? super.getName(stack) : Component.translatable("item.tribalpower.song_sheet.named", verse.name());
@@ -44,5 +73,6 @@ public class SongSheetItem extends Item {
         }
         lines.add(verse.ingredients());
         lines.add(Component.translatable("item.tribalpower.song_sheet.cost", verse.castPulse()));
+        lines.add(Component.translatable("item.tribalpower.song_sheet.use").withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
     }
 }

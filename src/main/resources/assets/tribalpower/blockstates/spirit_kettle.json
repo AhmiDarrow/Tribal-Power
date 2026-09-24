@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "brewing=false": {
+      "model": "tribalpower:block/spirit_kettle"
+    },
+    "brewing=true": {
+      "model": "tribalpower:block/spirit_kettle_brewing"
+    }
+  }
+}

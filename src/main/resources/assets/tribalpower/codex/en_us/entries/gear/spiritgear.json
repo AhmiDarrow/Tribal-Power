@@ -46,7 +46,7 @@
         "- **Attuned**: every action costs one Pulse less (mining 1, a hit 2, a use 1), mines **20%** faster, and hits harder.",
         "- **Bound**: a starved swing no longer wears the tool, and it mines **45%** faster.",
         "- **Manifested**: mines **80%** faster, half of starved swings even mend a point, and voice perks grow stronger.",
-        "The blade gains the most: **+2**, **+5** and **+10** attack damage by rank, and a little attack speed. A Manifested blade hits **bosses 25% harder** and heals you for **10%** of every blow, which is what you want in a long fight.",
+        "The blade and its [weapon family](spiritgear_weapons) gain the most: **+2**, **+5** and **+10** attack damage by rank, and a little attack speed. A Manifested blade hits **bosses 25% harder** and heals you for **10%** of every blow, which is what you want in a long fight.",
         "A Loom-linked pick spends **0 Pulse** to mine. Echo Unweave takes a damaged tool back apart into one Manifested Ingot, forgetting rank and voice."
       ]
     },
@@ -97,5 +97,5 @@
       ]
     }
   ],
-  "next": "totem_bound_gear"
+  "next": "spiritgear_weapons"
 }

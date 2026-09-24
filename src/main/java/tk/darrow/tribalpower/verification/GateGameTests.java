@@ -201,6 +201,10 @@ public class GateGameTests {
         player.setShiftKeyDown(true);
         ItemStack compass = new ItemStack(ModItems.WAYSTONE_COMPASS.get());
         var hitA = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(a)), Direction.UP, h.absolutePos(a), false);
+        // A real sneak-click only reaches the block when the item lets it through; this is what survival play hits.
+        h.assertTrue(compass.doesSneakBypassUse(h.getLevel(), h.absolutePos(a), player), "A sneak-click with the compass reaches the keystone");
+        h.assertTrue(new ItemStack(tk.darrow.tribalpower.gate.GateRegistry.GATE_SIGIL.get()).doesSneakBypassUse(h.getLevel(), h.absolutePos(a), player),
+                "A sneak-click with a sigil reaches the keystone");
         h.getLevel().getBlockState(h.absolutePos(a)).useItemOn(compass, h.getLevel(), player, InteractionHand.MAIN_HAND, hitA);
         h.assertTrue(WaystoneCompassItem.bound(compass), "Sneak-use an unbound compass on a keystone binds it");
         var hitB = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(b)), Direction.UP, h.absolutePos(b), false);

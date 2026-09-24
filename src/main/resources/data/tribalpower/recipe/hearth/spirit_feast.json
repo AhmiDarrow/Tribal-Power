@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "item": "tribalpower:echo_bloom"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:frostberry"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:spirit_feast"
+  },
+  "seconds": 20
+}

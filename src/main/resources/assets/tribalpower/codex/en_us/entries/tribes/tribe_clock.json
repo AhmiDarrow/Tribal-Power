@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
         "The Pattern-weavers are the only tribe that sells a **Wind Harp**, the Air generator."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Pattern-weavers carry their [boon](tribe_boons): Echo stations within 8 blocks of you work at **double speed**."
+      ],
+      "title": "Their boon"
     }
   ]
 }

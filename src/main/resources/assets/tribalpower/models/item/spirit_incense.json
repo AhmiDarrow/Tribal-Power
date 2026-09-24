@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:item/spirit_incense",
+    "layer1": "tribalpower:item/spirit_incense_brew"
+  }
+}

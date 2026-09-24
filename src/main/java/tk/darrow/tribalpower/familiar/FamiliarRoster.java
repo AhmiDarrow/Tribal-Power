@@ -20,11 +20,13 @@ public final class FamiliarRoster {
         return true;
     }
 
+    /**
+     * Who can be bonded: the gentle animals, and the six remnants whose tribe can grant a Voice for them. Never a boss,
+     * and never the rest of the March's hostiles -- a goblin or a troll is not a companion.
+     */
     public static boolean tameable(CreatureProfile profile) {
-        return switch(profile) {
-            case ASHBOUND,ROOTBOUND,REED_STALKER,HOLLOW_SENTINEL -> false;
-            default -> true;
-        };
+        if (profile.boss()) return false;
+        return profile.animal || voiceTribe(profile) != null;
     }
 
     public static boolean combat(CreatureProfile profile) {

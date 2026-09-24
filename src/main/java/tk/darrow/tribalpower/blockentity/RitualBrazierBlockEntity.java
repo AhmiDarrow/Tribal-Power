@@ -22,6 +22,9 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     private static final int[][] PEDESTALS = {{2, 2}, {2, -2}, {-2, 2}, {-2, -2}};
 
     private ItemStack seal = ItemStack.EMPTY;
+    /** Incense seated to burn, and how many beats the stick now burning has given. */
+    private ItemStack incense = ItemStack.EMPTY;
+    private int burned;
     private boolean active;
     private boolean lastSignal;
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
@@ -37,6 +40,51 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     }
 
     public ItemStack seal() { return seal; }
+    public ItemStack incense() { return incense; }
+
+    /** Seats incense: a stack of one brew at a time, up to sixteen sticks. Returns how many were taken. */
+    public int addIncense(ItemStack stack) {
+        if (!incense.isEmpty() && !ItemStack.isSameItemSameComponents(incense, stack)) return 0;
+        int room = 16 - incense.getCount();
+        int taken = Math.min(room, stack.getCount());
+        if (taken <= 0) return 0;
+        if (incense.isEmpty()) incense = stack.copyWithCount(taken);
+        else incense.grow(taken);
+        setChanged();
+        return taken;
+    }
+
+    public ItemStack takeIncense() {
+        ItemStack out = incense;
+        incense = ItemStack.EMPTY;
+        burned = 0;
+        setChanged();
+        return out;
+    }
+
+    /**
+     * One beat of burning incense: its remedy reaches every player and bonded familiar within the incense radius,
+     * and familiars are mended a little too. Each stick burns for a set number of beats. Redstone silences it.
+     */
+    public void burnIncense(ServerLevel level) {
+        if (incense.isEmpty() || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition)) return;
+        int radius = tk.darrow.tribalpower.config.TribalConfig.incenseRadius();
+        for (var body : level.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, new AABB(worldPosition).inflate(radius),
+                e -> e.isAlive() && !e.isSpectator() && (e instanceof Player
+                        || e instanceof tk.darrow.tribalpower.familiar.Familiar familiar && familiar.isBonded()))) {
+            tk.darrow.tribalpower.healing.Remedies.breathe(body, incense);
+            if (body instanceof tk.darrow.tribalpower.familiar.Familiar)
+                body.heal((float) tk.darrow.tribalpower.config.TribalConfig.incenseFamiliarHeal());
+        }
+        level.sendParticles(net.minecraft.core.particles.ParticleTypes.CAMPFIRE_COSY_SMOKE, worldPosition.getX() + 0.5, worldPosition.getY() + 1.1,
+                worldPosition.getZ() + 0.5, 3, 0.15, 0.1, 0.15, 0.01);
+        if (++burned >= tk.darrow.tribalpower.config.TribalConfig.incenseBeats()) {
+            burned = 0;
+            incense.shrink(1);
+            if (incense.isEmpty()) incense = ItemStack.EMPTY;
+        }
+        setChanged();
+    }
     public void setSeal(ItemStack stack) { seal = stack; active = false; setChanged(); }
     public Component status() {
         if (active && element(seal) == Attunement.LOOM) return Component.translatable("message.tribalpower.brazier.tension");
@@ -96,6 +144,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
 
     public static void tick(Level level, BlockPos pos, BlockState state, RitualBrazierBlockEntity be) {
         if ((level.getGameTime() + pos.asLong()) % 40 != 0) return;
+        be.burnIncense((ServerLevel) level);
         Attunement element = element(be.seal);
         be.active = false;
         if (element == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, pos)) return;
@@ -129,11 +178,15 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         if (!seal.isEmpty()) tag.put("Seal", seal.save(registries));
+        if (!incense.isEmpty()) tag.put("Incense", incense.save(registries));
+        tag.putInt("Burned", burned);
         tag.putBoolean("LastSignal", lastSignal);
     }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         seal = ItemStack.parseOptional(registries, tag.getCompound("Seal")); active = false;
+        incense = ItemStack.parseOptional(registries, tag.getCompound("Incense"));
+        burned = tag.getInt("Burned");
         lastSignal = tag.getBoolean("LastSignal");
     }
 

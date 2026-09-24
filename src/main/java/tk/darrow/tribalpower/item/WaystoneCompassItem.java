@@ -17,6 +17,13 @@ import net.minecraft.world.phys.*;
 import java.util.List;
 
 public class WaystoneCompassItem extends Item {
+    /** Sneak-use on a Gate Keystone must reach the keystone, which is where linking happens. */
+    @Override
+    public boolean doesSneakBypassUse(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.LevelReader level,
+                                      net.minecraft.core.BlockPos pos, net.minecraft.world.entity.player.Player player) {
+        return level.getBlockState(pos).getBlock() instanceof tk.darrow.tribalpower.gate.GateKeystoneBlock;
+    }
+
     private final int tier;
     public WaystoneCompassItem(Properties properties, int tier) { super(properties); this.tier = tier; }
     public static boolean bound(ItemStack compass) {

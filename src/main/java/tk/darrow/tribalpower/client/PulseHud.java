@@ -16,7 +16,8 @@ public final class PulseHud {
         if (mc.player == null || mc.options.hideGui || mc.screen != null || mc.player.isSpectator()) return;
         var held = mc.player.getMainHandItem();
         if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
-                && !(held.getItem() instanceof ResonanceMaulItem) && !held.is(ModItems.SPIRITGEAR_BLADE.get())) return;
+                && !(held.getItem() instanceof ResonanceMaulItem) && !(held.getItem() instanceof tk.darrow.tribalpower.item.SpiritgearBladeItem)
+                && !(held.getItem() instanceof tk.darrow.tribalpower.item.SpiritgearRattleItem)) return;
         // A piece's own seated cell counts too: it is what the piece spends first. Both sums walk the
         // whole inventory, so they are taken once a tick rather than once a frame.
         long now = mc.level == null ? 0 : mc.level.getGameTime();

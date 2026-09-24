@@ -38,12 +38,12 @@ public class TribeSweepGameTests {
         h.assertTrue(again.get(1).isOutOfStock() && !again.get(0).isOutOfStock(), "Reopening keeps the spent stock");
         // Rank up: the same offer keeps its uses, new offers are fresh.
         MerchantOffers friend = kin.offersFor(TribeRank.FRIEND);
-        h.assertTrue(friend.size() == 4 && friend.get(1).isOutOfStock() && !friend.get(2).isOutOfStock(),
+        h.assertTrue(friend.size() == 5 && friend.get(1).isOutOfStock() && !friend.get(2).isOutOfStock(),
                 "Rank changes filter the same stock instead of rebuilding it");
         // Save and reload into a fresh Elder.
         CompoundTag tag = new CompoundTag();
         kin.addAdditionalSaveData(tag);
-        h.assertTrue(tag.getIntArray("TradeUses").length == 6 && tag.getIntArray("TradeUses")[1] == offer.getMaxUses(),
+        h.assertTrue(tag.getIntArray("TradeUses").length == 7 && tag.getIntArray("TradeUses")[1] == offer.getMaxUses(),
                 "TradeUses is persisted per trade-table entry");
         TribalKinEntity reloaded = TribeRegistry.TRIBAL_KIN.get().create(h.getLevel());
         reloaded.readAdditionalSaveData(tag);

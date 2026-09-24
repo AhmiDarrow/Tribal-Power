@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ]
+}

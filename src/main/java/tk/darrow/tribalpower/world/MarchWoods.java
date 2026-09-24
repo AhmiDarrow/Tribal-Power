@@ -12,7 +12,6 @@ import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -36,6 +35,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.block.ModBlocks;
+import tk.darrow.tribalpower.block.PairedDoorBlock;
 import tk.darrow.tribalpower.item.ModItems;
 
 /**
@@ -104,7 +104,7 @@ public final class MarchWoods {
         block(id + "_slab", () -> new SlabBlock(wood.get()));
         block(id + "_fence", () -> new FenceBlock(wood.get()));
         block(id + "_fence_gate", () -> new FenceGateBlock(WoodType.OAK, wood.get().forceSolidOn()));
-        DeferredBlock<DoorBlock> door = ModBlocks.BLOCKS.register(id + "_door", () -> new DoorBlock(BlockSetType.OAK,
+        DeferredBlock<PairedDoorBlock> door = ModBlocks.BLOCKS.register(id + "_door", () -> new PairedDoorBlock(BlockSetType.OAK,
                 wood.get().noOcclusion().pushReaction(PushReaction.DESTROY)));
         ITEMS.put(id + "_door", ModItems.ITEMS.register(id + "_door", () -> new DoubleHighBlockItem(door.get(), new Item.Properties())));
         block(id + "_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, wood.get().noOcclusion().isValidSpawn((s, l, p, e) -> false)));

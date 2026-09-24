@@ -1,0 +1,31 @@
+{
+  "name": "Sweat Lodge",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Hot stones",
+      "text": [
+        "**Sweat Stones** steam and glow when they sit over heat: a lit campfire, fire, magma, lava or an Ember Bowl underneath. Take the heat away and they go cold.",
+        "Put some in a small hut with a bed and you have a sweat lodge."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A night in the lodge",
+      "text": [
+        "Sleep the whole night through in a bed with **hot Sweat Stones within 5 blocks** and **a roof over you** (anything solid a few blocks above the bed).",
+        "You wake **fully healed**, with every harmful effect gone, **10 minutes** of [Spirit Blessing](spirit_sickness) and a little Regeneration. It only works if you actually sleep until morning."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

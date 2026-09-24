@@ -7,7 +7,6 @@ import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
@@ -22,6 +21,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import tk.darrow.tribalpower.block.ModBlocks;
+import tk.darrow.tribalpower.block.PairedDoorBlock;
 import tk.darrow.tribalpower.item.ModItems;
 
 /**
@@ -91,7 +91,7 @@ public final class MarchBuilding {
 
     private static void door() {
         String id = "march_door";
-        DeferredBlock<DoorBlock> block = ModBlocks.BLOCKS.register(id, () -> new DoorBlock(BlockSetType.OAK,
+        DeferredBlock<PairedDoorBlock> block = ModBlocks.BLOCKS.register(id, () -> new PairedDoorBlock(BlockSetType.OAK,
                 BlockBehaviour.Properties.ofFullCopy(ModBlocks.MARCH_PLANKS.get()).noOcclusion().pushReaction(PushReaction.DESTROY)));
         ITEMS.put(id, ModItems.ITEMS.register(id, () -> new DoubleHighBlockItem(block.get(), new Item.Properties())));
     }

@@ -86,6 +86,39 @@ public final class SpiritCodexScreen extends Screen {
             if (Files.isRegularFile(file)) Files.readAllLines(file).stream().limit(128).forEach(bookmarks::add);
         } catch (java.io.IOException ignored) {
         }
+        spoilers = spoilerReaders().contains(reader());
+    }
+
+    // Spoilers, once shown, stay shown for that player until they hide them again. Kept per player id beside the
+    // bookmarks, so two people sharing a machine each keep their own choice.
+    private static final String SPOILERS_FILE = "config/tribalpower-codex-spoilers.txt";
+
+    private static String reader() {
+        var player = Minecraft.getInstance().player;
+        return player == null ? "" : player.getUUID().toString();
+    }
+
+    private static Set<String> spoilerReaders() {
+        Set<String> readers = new TreeSet<>();
+        try {
+            var file = Minecraft.getInstance().gameDirectory.toPath().resolve(SPOILERS_FILE);
+            if (Files.isRegularFile(file)) Files.readAllLines(file).stream().map(String::trim).filter(line -> !line.isEmpty()).limit(256).forEach(readers::add);
+        } catch (java.io.IOException ignored) {
+        }
+        return readers;
+    }
+
+    private static void rememberSpoilers(boolean on) {
+        String id = reader();
+        if (id.isEmpty()) return;
+        Set<String> readers = spoilerReaders();
+        if (on ? !readers.add(id) : !readers.remove(id)) return;
+        try {
+            var file = Minecraft.getInstance().gameDirectory.toPath().resolve(SPOILERS_FILE);
+            Files.createDirectories(file.getParent());
+            Files.write(file, readers);
+        } catch (java.io.IOException ignored) {
+        }
     }
 
     private CodexBook.Book book() {
@@ -136,19 +169,25 @@ public final class SpiritCodexScreen extends Screen {
         });
         button(Component.literal("✕"), left + bookWidth - 40, top + 9, 24, b -> onClose());
         int by = top + bookHeight - 30;
-        button(Component.translatable("gui.tribalpower.codex.home"), left + 16, by, 56, b -> go(new State(View.LANDING, "", "", 0, ""), true));
-        button(Component.translatable("gui.tribalpower.codex.back"), left + 76, by, 56, b -> back());
-        button(Component.translatable("gui.tribalpower.codex.bookmarks"), left + 136, by, 80, b -> go(new State(View.BOOKMARKS, "", "", 0, ""), true));
-        button(Component.translatable(spoilers ? "gui.tribalpower.codex.hide_spoilers" : "gui.tribalpower.codex.spoilers"), left + 220, by, 96, b -> {
+        // The row is laid out from both ends so nothing overlaps at a narrow book: the arrows and the entry button
+        // hang from the right edge, the rest from the left, and the spoilers button takes what is between.
+        int arrowsLeft = left + bookWidth - 124;
+        int entryLeft = arrowsLeft - 84;
+        button(Component.translatable("gui.tribalpower.codex.home"), left + 16, by, 52, b -> go(new State(View.LANDING, "", "", 0, ""), true));
+        button(Component.translatable("gui.tribalpower.codex.back"), left + 72, by, 52, b -> back());
+        button(Component.translatable("gui.tribalpower.codex.bookmarks"), left + 128, by, 76, b -> go(new State(View.BOOKMARKS, "", "", 0, ""), true));
+        int spoilerLeft = left + 208, spoilerWidth = Math.max(40, Math.min(96, entryLeft - 4 - spoilerLeft));
+        button(Component.translatable(spoilers ? "gui.tribalpower.codex.hide_spoilers" : "gui.tribalpower.codex.spoilers"), spoilerLeft, by, spoilerWidth, b -> {
             if (spoilers) {
                 spoilers = false;
+                rememberSpoilers(false);
                 go(new State(View.LANDING, "", "", 0, ""), false);
                 history.clear();
             } else confirmSpoilers(() -> {});
         });
         if (view == View.ENTRY) {
             button(Component.translatable(bookmarks.contains(entry) ? "gui.tribalpower.codex.unmark" : "gui.tribalpower.codex.bookmark"),
-                    left + bookWidth - 196, by, 80, b -> {
+                    entryLeft, by, 80, b -> {
                         if (!bookmarks.remove(entry)) bookmarks.add(entry);
                         saveBookmarks();
                         rebuildWidgets();
@@ -156,7 +195,7 @@ public final class SpiritCodexScreen extends Screen {
             layoutEntry();
         }
         if (view == View.ITEM && CodexJeiLinks.available())
-            button(Component.translatable("gui.tribalpower.codex.jei"), left + bookWidth - 196, by, 80, b -> openJei(stack(item), showUses));
+            button(Component.translatable("gui.tribalpower.codex.jei"), entryLeft, by, 80, b -> openJei(stack(item), showUses));
         button(Component.literal("◀"), left + bookWidth - 124, by, 30, b -> turn(-1));
         button(Component.literal("▶"), left + bookWidth - 46, by, 30, b -> turn(1));
     }
@@ -291,7 +330,10 @@ public final class SpiritCodexScreen extends Screen {
 
     private void confirmSpoilers(Runnable after) {
         minecraft.setScreen(new ConfirmScreen(yes -> {
-            if (yes) spoilers = true;
+            if (yes) {
+                spoilers = true;
+                rememberSpoilers(true);
+            }
             minecraft.setScreen(this);
             if (yes) after.run();
         }, Component.translatable("gui.tribalpower.codex.spoilers_title"), Component.translatable("gui.tribalpower.codex.spoilers_body"),
@@ -462,11 +504,12 @@ public final class SpiritCodexScreen extends Screen {
         }
         int total = Math.max(1, (leaves.size() + 1) / 2);
         Component pages = Component.translatable("gui.tribalpower.codex.page_n", spread + 1, total);
-        g.drawCenteredString(font, pages, left + bookWidth - 55, top + bookHeight - 25, DIM);
+        g.drawCenteredString(font, pages, left + bookWidth - 70, top + bookHeight - 25, DIM);
         if (spread == total - 1 && !e.next().isEmpty() && book().byId().containsKey(e.next())) {
             Entry next = book().byId().get(e.next());
-            Component label = Component.translatable("gui.tribalpower.codex.next_entry", next.name());
-            int x = (leaves.size() % 2 == 1 ? rightX : rightX), y = pageY + pageHeight - 12;
+            Component label = Component.translatable("gui.tribalpower.codex.next_entry",
+                    visible(next) ? Component.literal(next.name()) : Component.translatable("gui.tribalpower.codex.hidden_entry"));
+            int x = rightX, y = pageY + pageHeight + 2;
             g.drawString(font, label, x, y, TEAL, false);
             areas.add(new Area(x, y - 2, font.width(label), 12, () -> openEntry(next.id())));
         }

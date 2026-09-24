@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "B": {
+      "item": "tribalpower:pulse_bow"
+    },
+    "T": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "MBM",
+    "STS",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:pulse_crossbow"
+  }
+}

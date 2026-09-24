@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "N": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "PNP",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:songkeeper_drum"
+  }
+}

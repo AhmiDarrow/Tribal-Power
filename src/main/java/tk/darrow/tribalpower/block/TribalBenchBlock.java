@@ -80,6 +80,14 @@ public class TribalBenchBlock extends HorizontalDirectionalBlock implements Enti
         builder.add(FACING, PART);
     }
 
+    /** A mirrored bench swaps its halves too, or each would look for its partner on the wrong side and fall apart. */
+    @Override
+    protected BlockState mirror(BlockState state, net.minecraft.world.level.block.Mirror mirror) {
+        BlockState turned = super.mirror(state, mirror);
+        if (mirror == net.minecraft.world.level.block.Mirror.NONE) return turned;
+        return turned.setValue(PART, state.getValue(PART) == Part.LEFT ? Part.RIGHT : Part.LEFT);
+    }
+
     /** The other half of this bench. */
     public static BlockPos otherHalf(BlockState state, BlockPos pos) {
         Direction facing = state.getValue(FACING);

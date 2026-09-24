@@ -1,0 +1,43 @@
+{
+  "name": "Spirit Kettle",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "A pot over the fire",
+      "text": [
+        "The Spirit Kettle is an iron pot hanging from a bone frame. It has to sit **over heat**: a lit campfire, fire, soul fire, magma, lava or an [Ember Bowl](pulse_lights) right underneath it.",
+        "It needs no totem to work, but it listens for one: the voice of the **nearest Resonance Totem** within 8 blocks is sung into every brew and shapes it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Brewing",
+      "text": [
+        "Open it and fill the three seats on the left:",
+        "- **Reagent**: one raw [reagent](reagents), as the item (take it out of your pouch at the Song Bench). Its family decides the remedy.",
+        "- **Herb**: Spirit Reed, Ley Thistle, Echo Bloom, March Leaf, Moon Lily, Lantern Cap or Veil Lichen.",
+        "- **Base**: a **glass bottle** makes **2 tinctures**, **honeycomb** makes **2 salves**, **charcoal** makes **4 incense**.",
+        "A batch takes **10 seconds** and **24 Pulse**, drawn from the lattice when it finishes, and uses one of each input. The screen tells you if it is waiting on heat, Pulse or room in the output."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automation",
+      "text": [
+        "Hoppers and pipes can feed it from the top and sides and take the brew out of the bottom, so a kettle can keep a camp stocked on its own.",
+        "Every number here is in the `healing` section of the common config."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

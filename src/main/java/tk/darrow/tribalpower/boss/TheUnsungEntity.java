@@ -307,6 +307,9 @@ public class TheUnsungEntity extends Monster {
                 if (player.hurt(damageSources().indirectMagic(this, this), 5F)) {
                     player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 60, 0));
+                    // The Unsung's silence takes your voice with it: no song answers until it lifts.
+                    tk.darrow.tribalpower.effect.ModEffects.afflict(player, tk.darrow.tribalpower.effect.AfflictionEffect.Kind.UNSUNG_HUSH,
+                            tk.darrow.tribalpower.config.TribalConfig.hushSeconds() * 20, 0);
                 }
                 hit = true;
             }

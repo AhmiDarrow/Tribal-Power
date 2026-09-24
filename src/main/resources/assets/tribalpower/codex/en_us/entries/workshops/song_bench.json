@@ -17,7 +17,8 @@
       "text": [
         "Keep a Reagent Pouch on your hotbar. Reagents you pick up go into it.",
         "Open the bench within 8 blocks of a Resonance Totem. Empower turns one raw reagent into an empowered one for 16 Pulse.",
-        "Seat paper and Ritual Chalk. Choose 3 to 7 empowered reagents, in order. The first picks the shape. The totem picks the voice."
+        "Seat paper and Ritual Chalk. Choose 3 to 7 empowered reagents, in order: click a reagent to select it, then press **Add** (or click it twice). **Shift-click** a reagent to empower one. The first picks the shape. The totem picks the voice.",
+        "Fletch, Take and Anoint work on the reagent you selected. A written **song sheet** can be sung once straight from your hand, or bound into a songbook: seat the book, leave the sheet in the output and press **Write** with nothing in the sequence."
       ]
     },
     {
@@ -29,6 +30,14 @@
         "The first songbook holds 1 page of 3 reagents. The bound book holds 3 pages, up to 5. The chorus book holds 5 pages, up to 7.",
         "Right-click a held book to sing. Crouch and right-click to turn the page. A cell in the book pays.",
         "One empowered reagent fletches four verse arrows. The Pulse Bow fires them."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Anointing a weapon",
+      "text": [
+        "The bench has a fifth seat now, beside the output: a **weapon slot**. Put a sword, an axe, a trident, a mace or any Spiritgear weapon in it, click a reagent in the list to select it and press **Anoint**.",
+        "It spends **4 empowered reagents** of that kind and **32 Pulse**, and the weapon keeps the reagent's power until you anoint it with something else. The whole story is on the [Anointing](anointing) page."
       ]
     },
     {
@@ -207,5 +216,15 @@
       "type": "recipe",
       "item": "tribalpower:song_bench"
     }
-  ]
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "anointing"
 }

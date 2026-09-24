@@ -20,14 +20,14 @@ public class CacheMenu extends AbstractContainerMenu {
     private final Container container;
     private final ContainerData data;
 
-    public CacheMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(54), new SimpleContainerData(4)); }
+    public CacheMenu(int id, Inventory inventory) { this(id, inventory, new SimpleContainer(54), new SimpleContainerData(7)); }
 
     public CacheMenu(int id, Inventory inventory, Container container, ContainerData data) {
         super(TYPE.get(), id);
         this.container = container;
         this.data = data;
         checkContainerSize(container, 54);
-        checkContainerDataCount(data, 4);
+        checkContainerDataCount(data, 7);
         container.startOpen(inventory.player);
         for (int row = 0; row < 6; row++)
             for (int col = 0; col < 9; col++)
@@ -42,7 +42,9 @@ public class CacheMenu extends AbstractContainerMenu {
 
     public Container container() { return container; }
     public int ioPacked() { return data.get(0); }
-    public BlockPos machinePos() { return new BlockPos(data.get(1), data.get(2), data.get(3)); }
+    public BlockPos machinePos() {
+        return new BlockPos(StationMenu.whole(data.get(4), data.get(1)), StationMenu.whole(data.get(5), data.get(2)), StationMenu.whole(data.get(6), data.get(3)));
+    }
 
     @Override public boolean stillValid(Player player) { return container.stillValid(player); }
     @Override public void removed(Player player) { super.removed(player); container.stopOpen(player); }

@@ -37,7 +37,7 @@ public final class FamiliarInspectHud {
         int row = y + 16;
         for (FamiliarData.Thread thread : FamiliarData.Thread.values()) {
             int value = FamiliarData.unpackThread(packed, thread);
-            g.drawString(font, Component.translatable("gui.tribalpower.lattice." + thread.name().toLowerCase()), x + 6, row, 0xFF99C9BD, false);
+            g.drawString(font, Component.translatable("gui.tribalpower.lattice." + thread.name().toLowerCase(java.util.Locale.ROOT)), x + 6, row, 0xFF99C9BD, false);
             for (int i = 0; i < FamiliarData.MAX; i++) {
                 int px = x + 62 + i * 9;
                 g.fill(px, row + 1, px + 7, row + 7, i < value ? TIER[Mth.clamp(value, 0, 5)] : 0xFF2A3438);

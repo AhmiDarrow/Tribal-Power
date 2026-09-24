@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "item": "tribalpower:frostberry"
+    },
+    {
+      "item": "tribalpower:glimmer_bean"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:air_feast"
+  },
+  "seconds": 20
+}

@@ -1,6 +1,14 @@
 {
   "values": [
     "tribalpower:spiritgear_blade",
-    "#minecraft:enchantable/weapon"
+    "#minecraft:enchantable/weapon",
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
   ]
 }

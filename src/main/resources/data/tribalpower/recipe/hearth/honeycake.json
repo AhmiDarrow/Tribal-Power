@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:honeycake"
+  },
+  "seconds": 12
+}

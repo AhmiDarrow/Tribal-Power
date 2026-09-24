@@ -49,6 +49,13 @@
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Loom**.",
         "Their Friend trade turns March Crystal into Loom Thread, which is also their reagent. They are the only tribe that sells a **Loom Anchor**."
       ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kin of the Loom-stitchers carry their [boon](tribe_boons): songs cost **a quarter less** to sing."
+      ],
+      "title": "Their boon"
     }
   ]
 }

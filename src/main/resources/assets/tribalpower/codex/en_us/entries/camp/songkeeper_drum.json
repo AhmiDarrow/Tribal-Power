@@ -1,0 +1,32 @@
+{
+  "name": "Songkeeper Drum",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 37,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Drum for the joy of it",
+      "text": [
+        "The Songkeeper Drum is the [Gate Rite](the_march) as a game, with no portal at the end. Use it to open the track list and pick any of the pack's music: the six rite tracks and the **Drum Circle**.",
+        "Play it exactly like the rite: **A**, **S**, **D** and **F** (or the arrow keys) as the beats reach the line. It is the best way to practise before you try a real Gate Drum."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Every beat you land is **100** points, a perfect one **50** more, your longest streak adds **20** a beat, and every stray press costs **50**.",
+        "The drum remembers your **best score** on every track and keeps a board of the **five best players** on the server. A new best, or a place on the board, gets called out in chat.",
+        "The track list shows each track's tempo, how many beats it has and how long it runs, so you can work your way up from the gentle ones."
+      ],
+      "title": "Scores"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

@@ -45,17 +45,13 @@ public final class DrumRite {
      * A rite's music and beat: which track plays, its tempo, the count-in, how long it lasts and every drum hit
      * to strike, all taken from the composed track (GeneratedRiteTracks) the seed picks.
      */
-    public record Pattern(int track, int bpm, long leadMs, long playMs, List<Note> notes) {
+    public record Pattern(int track, String sound, int bpm, long leadMs, long playMs, List<Note> notes) {
         public long endMs() {
             return leadMs + playMs;
         }
 
         public long beatMs() {
             return 60000L / bpm;
-        }
-
-        public String sound() {
-            return GeneratedRiteTracks.TRACKS[track].sound();
         }
     }
 
@@ -68,7 +64,7 @@ public final class DrumRite {
         var track = GeneratedRiteTracks.TRACKS[index];
         List<Note> notes = new ArrayList<>(track.times().length);
         for (int i = 0; i < track.times().length; i++) notes.add(new Note(track.times()[i], track.lanes()[i]));
-        return new Pattern(index, track.bpm(), track.leadMs(), track.playMs(), List.copyOf(notes));
+        return new Pattern(index, track.sound(), track.bpm(), track.leadMs(), track.playMs(), List.copyOf(notes));
     }
 
     /** How a finished rite scores: landed notes less a quarter note per stray press, over all notes. */

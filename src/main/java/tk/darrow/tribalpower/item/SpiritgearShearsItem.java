@@ -69,7 +69,10 @@ public class SpiritgearShearsItem extends ShearsItem {
         boolean paid = parent != null ? parent.pulsePaid()
                 : freeTrim(stack) || SpiritGear.consumeForMine(player, stack);
         if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
+        int before = stack.getDamageValue();
         boolean ok = super.mineBlock(stack, level, state, pos, entity);
+        // Air asks nothing of the blades: undo the point vanilla shears take for every block.
+        if (freeTrim(stack) && !stack.isEmpty()) stack.setDamageValue(before);
         if (!freeTrim(stack)) SpiritGear.finishDurability(player, stack, paid);
         if (ok && paid && !aoe && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH && foliage(state)) {
             Direction.Axis axis = Direction.orderedByNearest(player)[0].getAxis();
@@ -80,11 +83,13 @@ public class SpiritgearShearsItem extends ShearsItem {
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+        int before = stack.getDamageValue();
         InteractionResult result = super.interactLivingEntity(stack, player, target, hand);
         if (!result.consumesAction() || player.level().isClientSide || player.getAbilities().instabuild) return result;
         Attunement voice = SpiritGear.voice(stack).orElse(null);
         if (freeTrim(stack)) {
-            // Air asks nothing of the blades.
+            // Air asks nothing of the blades: undo the point vanilla shears take for a shearing.
+            if (!stack.isEmpty()) stack.setDamageValue(before);
         } else if (GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
             stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
         } else {

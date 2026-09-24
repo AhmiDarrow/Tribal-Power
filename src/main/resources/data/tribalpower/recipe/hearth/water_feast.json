@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "tribalpower:cooked_glimmerfin"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:water_feast"
+  },
+  "seconds": 20
+}

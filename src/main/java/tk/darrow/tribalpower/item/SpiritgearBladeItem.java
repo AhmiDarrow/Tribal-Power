@@ -23,6 +23,16 @@ public class SpiritgearBladeItem extends SwordItem {
                 .durability(SpiritGear.TOOL_DURABILITY));
     }
 
+    /** For the rest of the weapon family, which set their own numbers at runtime. */
+    protected SpiritgearBladeItem(Properties properties, net.minecraft.world.item.component.ItemAttributeModifiers attributes) {
+        super(Tiers.DIAMOND, properties.attributes(attributes).durability(SpiritGear.TOOL_DURABILITY));
+    }
+
+    /** The line under the shared Spiritgear description. */
+    protected String descKey() {
+        return "item.tribalpower.spiritgear_blade.desc";
+    }
+
     @Override
     public boolean isFoil(ItemStack stack) {
         return SpiritGear.foil(stack) || super.isFoil(stack);
@@ -80,7 +90,7 @@ public class SpiritgearBladeItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.spiritgear.desc"));
-        tooltip.add(Component.translatable("item.tribalpower.spiritgear_blade.desc"));
+        tooltip.add(Component.translatable(descKey()));
         SpiritGear.appendTooltip(stack, tooltip, flag);
     }
 }

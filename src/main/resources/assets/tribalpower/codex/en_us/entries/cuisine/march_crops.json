@@ -1,0 +1,35 @@
+{
+  "name": "March Crops",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Five crops grow wild out there, each in its own country. Find a patch, pick it, and what you picked is the seed: plant it on tilled ground like a potato.",
+        "- **Emberroot** in the Ember Wastes: a hot red tuber.",
+        "- **Fen Rice** in the Reed Fen.",
+        "- **Frostberry** in the Snow Fields.",
+        "- **Glimmer Bean** on the Glimmer Ridge.",
+        "- **Steppe Grain** on the Steppe."
+      ],
+      "title": "What the March grows"
+    },
+    {
+      "type": "text",
+      "text": [
+        "They grow through four stages on farmland. All of them can be eaten raw, though not for much. The [Spiritgear Hoe](spiritgear) reaps and replants them in one stroke, bees pollinate them, and the [Sprout boon](tribe_boons) hurries them along.",
+        "Frostberry and Glimmer Bean also count as herbs for the [Spirit Kettle](spirit_kettle)."
+      ],
+      "title": "Farming them"
+    }
+  ],
+  "next": "hearth_pot"
+}
