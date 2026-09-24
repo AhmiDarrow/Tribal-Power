@@ -1,0 +1,17 @@
+{
+  "name": "14. Tide",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Tide",
+      "text": [
+        "\u201cThe Shallows are the Pattern-weavers' works, drowned to the waist and still turning. The tide keeps their pattern beat for beat. The Drummer who keeps it has forgotten there were ever weavers.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

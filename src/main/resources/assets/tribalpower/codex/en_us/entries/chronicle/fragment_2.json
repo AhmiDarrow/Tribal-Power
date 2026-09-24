@@ -1,0 +1,17 @@
+{
+  "name": "3. The Loom Woven",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Loom Woven",
+      "text": [
+        "\u201cThe Loom-stitchers found that nine threads pulled against each other would hold a weight none could hold alone. They stitched the ground to the sky with it. Every camp sang its thread. The Loom held for nine generations.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

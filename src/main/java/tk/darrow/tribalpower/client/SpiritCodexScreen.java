@@ -427,6 +427,7 @@ public final class SpiritCodexScreen extends Screen {
         return switch (c.progress()) {
             case "tribes" -> Component.translatable("gui.tribalpower.codex.tribes_met", CodexUnlocks.tribesUnlocked(), tk.darrow.tribalpower.tribe.TribeDefinition.values().length);
             case "tablets" -> Component.translatable("gui.tribalpower.codex.tablets_read", CodexUnlocks.tabletsUnlocked(), tk.darrow.tribalpower.world.structure.LoreTabletBlock.TABLETS);
+            case "chronicle" -> Component.translatable("gui.tribalpower.codex.fragments_found", CodexUnlocks.fragmentsUnlocked(), tk.darrow.tribalpower.lore.Chronicle.FRAGMENTS);
             default -> null;
         };
     }

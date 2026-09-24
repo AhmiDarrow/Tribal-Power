@@ -1,0 +1,17 @@
+{
+  "name": "16. The Roost",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Roost",
+      "text": [
+        "\u201cThe Highlands are the Edge-walkers' bridges, the last ground before the edge. The wind off the edge was a song once. What nests in it now sings the same song backwards and throws walkers to hear them land.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Reading the stones",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Carved stones and murals",
+      "text": [
+        "The March wrote its own history down, in stone. **Carved Stones** are set into the walls of its ruins: the old works, the sunken shrine, the barrows, the tombs, the vaults. **Murals** stand two blocks wide and two tall at the guardians' grounds, each painting the country it stands in.",
+        "Right-click one and you read it; the fragment is kept here for good, and the Chronicle puts it in its place. There are **sixteen**: eight stones for the fall of the Loom, eight murals for the countries it left. Read them all and the Chronicle is whole.",
+        "The stones and murals can be picked up and set on any wall of your own, and a mural cut in creative changes its chapter with a sneak-click. Every chapter is a spoiler until you have found it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Paintings and crests",
+      "text": [
+        "Six **paintings** of the March hang among the ordinary ones now: hold a painting to a wall and one may come up. Their titles are their own.",
+        "Each tribe hands its **crest** to its Kin: a banner pattern with the tribe's mark, for a loom and any dye. Fly it over a camp of your own and the tribe will know whose it is."
+      ]
+    }
+  ]
+}

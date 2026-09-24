@@ -1,0 +1,17 @@
+{
+  "name": "5. The Fall",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Fall",
+      "text": [
+        "\u201cWhen one thread lets go, the other eight hold for a breath, and then they tear. The ground fell away from the sky in pieces. What did not fall drifted. What drifted is the March.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

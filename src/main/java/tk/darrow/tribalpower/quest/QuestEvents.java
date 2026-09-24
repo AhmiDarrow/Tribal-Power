@@ -38,6 +38,14 @@ public final class QuestEvents {
     /** Standing rose: a RANK step may be met. Called from the standing change listener. */
     public static void standingChanged(ServerPlayer player, TribeDefinition tribe) {
         QuestSavedData data = QuestSavedData.get(player.server);
+        // Kin may fly the tribe's crest: the banner pattern comes once, with the rank.
+        if (!data.hasPattern(player.getUUID(), tribe)
+                && tk.darrow.tribalpower.camp.identity.CampStanding.effectiveStanding(player, tribe) >= tk.darrow.tribalpower.tribe.TribeRank.KIN.threshold()) {
+            data.grantPattern(player.getUUID(), tribe);
+            tk.darrow.tribalpower.item.SpiritgearHelper.give(player, new net.minecraft.world.item.ItemStack(tk.darrow.tribalpower.lore.LoreRegistry.PATTERN_ITEMS.get(tribe).get()));
+            player.sendSystemMessage(net.minecraft.network.chat.Component.translatable("message.tribalpower.pattern.given", tribe.displayNameComponent())
+                    .withStyle(tk.darrow.tribalpower.tribe.TribeStanding.colour(tribe)));
+        }
         Questline.Step step = Questline.step(tribe, data.step(player.getUUID(), tribe));
         if (step != null && step.kind() == Questline.Kind.RANK && Questline.ready(player, tribe)) Questline.advance(player, tribe);
     }

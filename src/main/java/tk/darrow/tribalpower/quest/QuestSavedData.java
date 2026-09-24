@@ -30,7 +30,7 @@ public class QuestSavedData extends SavedData {
         final int[] completed = new int[TRIBES];
         final int[] step = new int[TRIBES];
         final int[] stepProgress = new int[TRIBES];
-        int relics;
+        int relics, patterns;
     }
 
     private final Map<UUID, Record> records = new HashMap<>();
@@ -83,6 +83,16 @@ public class QuestSavedData extends SavedData {
         return r != null && (r.relics & (1 << tribe.ordinal())) != 0;
     }
 
+    public boolean hasPattern(UUID player, TribeDefinition tribe) {
+        Record r = records.get(player);
+        return r != null && (r.patterns & (1 << tribe.ordinal())) != 0;
+    }
+
+    public void grantPattern(UUID player, TribeDefinition tribe) {
+        record(player).patterns |= 1 << tribe.ordinal();
+        setDirty();
+    }
+
     public void grantRelic(UUID player, TribeDefinition tribe) {
         record(player).relics |= 1 << tribe.ordinal();
         setDirty();
@@ -102,6 +112,7 @@ public class QuestSavedData extends SavedData {
                 if (t < progress.length) r.stepProgress[t] = progress[t];
             }
             r.relics = entry.getInt("Relics");
+            r.patterns = entry.getInt("Patterns");
             ListTag requests = entry.getList("Requests", Tag.TAG_COMPOUND);
             for (int k = 0; k < requests.size(); k++) {
                 CompoundTag request = requests.getCompound(k);
@@ -122,6 +133,7 @@ public class QuestSavedData extends SavedData {
             entry.putIntArray("Step", r.step);
             entry.putIntArray("StepProgress", r.stepProgress);
             entry.putInt("Relics", r.relics);
+            entry.putInt("Patterns", r.patterns);
             ListTag requests = new ListTag();
             for (int t = 0; t < TRIBES; t++) {
                 if (r.requests[t] == null) continue;

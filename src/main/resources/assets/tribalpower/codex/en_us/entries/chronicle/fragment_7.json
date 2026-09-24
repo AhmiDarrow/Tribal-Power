@@ -1,0 +1,17 @@
+{
+  "name": "8. The Unsung",
+  "icon": "tribalpower:carved_stone",
+  "order": 17,
+  "spoiler": true,
+  "unlock": "fragment:7",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Unsung",
+      "text": [
+        "\u201cThe ninth thread would not agree even to fall. It hangs at the end of the March in a circle of stones, hollow, keeping a beat no one else can hear. The Loom-stitchers say it is waiting. They do not say for what.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

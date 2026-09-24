@@ -1,0 +1,17 @@
+{
+  "name": "15. Steppe",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Steppe",
+      "text": [
+        "\u201cThe Steppe is the pad the Pad-keepers could not carry: too big, and the herd was on it when it fell. The herd never stopped running. Quiet feet could bring the pad back; loud ones join the stampede.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tribalpower:item/spark_banner_pattern"
+  }
+}

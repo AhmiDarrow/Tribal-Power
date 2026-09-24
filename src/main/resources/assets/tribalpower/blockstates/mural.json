@@ -1,0 +1,964 @@
+{
+  "variants": {
+    "facing=north,fragment=0,part=0": {
+      "model": "tribalpower:block/mural_0_0"
+    },
+    "facing=east,fragment=0,part=0": {
+      "model": "tribalpower:block/mural_0_0",
+      "y": 90
+    },
+    "facing=south,fragment=0,part=0": {
+      "model": "tribalpower:block/mural_0_0",
+      "y": 180
+    },
+    "facing=west,fragment=0,part=0": {
+      "model": "tribalpower:block/mural_0_0",
+      "y": 270
+    },
+    "facing=north,fragment=0,part=1": {
+      "model": "tribalpower:block/mural_0_1"
+    },
+    "facing=east,fragment=0,part=1": {
+      "model": "tribalpower:block/mural_0_1",
+      "y": 90
+    },
+    "facing=south,fragment=0,part=1": {
+      "model": "tribalpower:block/mural_0_1",
+      "y": 180
+    },
+    "facing=west,fragment=0,part=1": {
+      "model": "tribalpower:block/mural_0_1",
+      "y": 270
+    },
+    "facing=north,fragment=0,part=2": {
+      "model": "tribalpower:block/mural_0_2"
+    },
+    "facing=east,fragment=0,part=2": {
+      "model": "tribalpower:block/mural_0_2",
+      "y": 90
+    },
+    "facing=south,fragment=0,part=2": {
+      "model": "tribalpower:block/mural_0_2",
+      "y": 180
+    },
+    "facing=west,fragment=0,part=2": {
+      "model": "tribalpower:block/mural_0_2",
+      "y": 270
+    },
+    "facing=north,fragment=0,part=3": {
+      "model": "tribalpower:block/mural_0_3"
+    },
+    "facing=east,fragment=0,part=3": {
+      "model": "tribalpower:block/mural_0_3",
+      "y": 90
+    },
+    "facing=south,fragment=0,part=3": {
+      "model": "tribalpower:block/mural_0_3",
+      "y": 180
+    },
+    "facing=west,fragment=0,part=3": {
+      "model": "tribalpower:block/mural_0_3",
+      "y": 270
+    },
+    "facing=north,fragment=1,part=0": {
+      "model": "tribalpower:block/mural_1_0"
+    },
+    "facing=east,fragment=1,part=0": {
+      "model": "tribalpower:block/mural_1_0",
+      "y": 90
+    },
+    "facing=south,fragment=1,part=0": {
+      "model": "tribalpower:block/mural_1_0",
+      "y": 180
+    },
+    "facing=west,fragment=1,part=0": {
+      "model": "tribalpower:block/mural_1_0",
+      "y": 270
+    },
+    "facing=north,fragment=1,part=1": {
+      "model": "tribalpower:block/mural_1_1"
+    },
+    "facing=east,fragment=1,part=1": {
+      "model": "tribalpower:block/mural_1_1",
+      "y": 90
+    },
+    "facing=south,fragment=1,part=1": {
+      "model": "tribalpower:block/mural_1_1",
+      "y": 180
+    },
+    "facing=west,fragment=1,part=1": {
+      "model": "tribalpower:block/mural_1_1",
+      "y": 270
+    },
+    "facing=north,fragment=1,part=2": {
+      "model": "tribalpower:block/mural_1_2"
+    },
+    "facing=east,fragment=1,part=2": {
+      "model": "tribalpower:block/mural_1_2",
+      "y": 90
+    },
+    "facing=south,fragment=1,part=2": {
+      "model": "tribalpower:block/mural_1_2",
+      "y": 180
+    },
+    "facing=west,fragment=1,part=2": {
+      "model": "tribalpower:block/mural_1_2",
+      "y": 270
+    },
+    "facing=north,fragment=1,part=3": {
+      "model": "tribalpower:block/mural_1_3"
+    },
+    "facing=east,fragment=1,part=3": {
+      "model": "tribalpower:block/mural_1_3",
+      "y": 90
+    },
+    "facing=south,fragment=1,part=3": {
+      "model": "tribalpower:block/mural_1_3",
+      "y": 180
+    },
+    "facing=west,fragment=1,part=3": {
+      "model": "tribalpower:block/mural_1_3",
+      "y": 270
+    },
+    "facing=north,fragment=2,part=0": {
+      "model": "tribalpower:block/mural_2_0"
+    },
+    "facing=east,fragment=2,part=0": {
+      "model": "tribalpower:block/mural_2_0",
+      "y": 90
+    },
+    "facing=south,fragment=2,part=0": {
+      "model": "tribalpower:block/mural_2_0",
+      "y": 180
+    },
+    "facing=west,fragment=2,part=0": {
+      "model": "tribalpower:block/mural_2_0",
+      "y": 270
+    },
+    "facing=north,fragment=2,part=1": {
+      "model": "tribalpower:block/mural_2_1"
+    },
+    "facing=east,fragment=2,part=1": {
+      "model": "tribalpower:block/mural_2_1",
+      "y": 90
+    },
+    "facing=south,fragment=2,part=1": {
+      "model": "tribalpower:block/mural_2_1",
+      "y": 180
+    },
+    "facing=west,fragment=2,part=1": {
+      "model": "tribalpower:block/mural_2_1",
+      "y": 270
+    },
+    "facing=north,fragment=2,part=2": {
+      "model": "tribalpower:block/mural_2_2"
+    },
+    "facing=east,fragment=2,part=2": {
+      "model": "tribalpower:block/mural_2_2",
+      "y": 90
+    },
+    "facing=south,fragment=2,part=2": {
+      "model": "tribalpower:block/mural_2_2",
+      "y": 180
+    },
+    "facing=west,fragment=2,part=2": {
+      "model": "tribalpower:block/mural_2_2",
+      "y": 270
+    },
+    "facing=north,fragment=2,part=3": {
+      "model": "tribalpower:block/mural_2_3"
+    },
+    "facing=east,fragment=2,part=3": {
+      "model": "tribalpower:block/mural_2_3",
+      "y": 90
+    },
+    "facing=south,fragment=2,part=3": {
+      "model": "tribalpower:block/mural_2_3",
+      "y": 180
+    },
+    "facing=west,fragment=2,part=3": {
+      "model": "tribalpower:block/mural_2_3",
+      "y": 270
+    },
+    "facing=north,fragment=3,part=0": {
+      "model": "tribalpower:block/mural_3_0"
+    },
+    "facing=east,fragment=3,part=0": {
+      "model": "tribalpower:block/mural_3_0",
+      "y": 90
+    },
+    "facing=south,fragment=3,part=0": {
+      "model": "tribalpower:block/mural_3_0",
+      "y": 180
+    },
+    "facing=west,fragment=3,part=0": {
+      "model": "tribalpower:block/mural_3_0",
+      "y": 270
+    },
+    "facing=north,fragment=3,part=1": {
+      "model": "tribalpower:block/mural_3_1"
+    },
+    "facing=east,fragment=3,part=1": {
+      "model": "tribalpower:block/mural_3_1",
+      "y": 90
+    },
+    "facing=south,fragment=3,part=1": {
+      "model": "tribalpower:block/mural_3_1",
+      "y": 180
+    },
+    "facing=west,fragment=3,part=1": {
+      "model": "tribalpower:block/mural_3_1",
+      "y": 270
+    },
+    "facing=north,fragment=3,part=2": {
+      "model": "tribalpower:block/mural_3_2"
+    },
+    "facing=east,fragment=3,part=2": {
+      "model": "tribalpower:block/mural_3_2",
+      "y": 90
+    },
+    "facing=south,fragment=3,part=2": {
+      "model": "tribalpower:block/mural_3_2",
+      "y": 180
+    },
+    "facing=west,fragment=3,part=2": {
+      "model": "tribalpower:block/mural_3_2",
+      "y": 270
+    },
+    "facing=north,fragment=3,part=3": {
+      "model": "tribalpower:block/mural_3_3"
+    },
+    "facing=east,fragment=3,part=3": {
+      "model": "tribalpower:block/mural_3_3",
+      "y": 90
+    },
+    "facing=south,fragment=3,part=3": {
+      "model": "tribalpower:block/mural_3_3",
+      "y": 180
+    },
+    "facing=west,fragment=3,part=3": {
+      "model": "tribalpower:block/mural_3_3",
+      "y": 270
+    },
+    "facing=north,fragment=4,part=0": {
+      "model": "tribalpower:block/mural_4_0"
+    },
+    "facing=east,fragment=4,part=0": {
+      "model": "tribalpower:block/mural_4_0",
+      "y": 90
+    },
+    "facing=south,fragment=4,part=0": {
+      "model": "tribalpower:block/mural_4_0",
+      "y": 180
+    },
+    "facing=west,fragment=4,part=0": {
+      "model": "tribalpower:block/mural_4_0",
+      "y": 270
+    },
+    "facing=north,fragment=4,part=1": {
+      "model": "tribalpower:block/mural_4_1"
+    },
+    "facing=east,fragment=4,part=1": {
+      "model": "tribalpower:block/mural_4_1",
+      "y": 90
+    },
+    "facing=south,fragment=4,part=1": {
+      "model": "tribalpower:block/mural_4_1",
+      "y": 180
+    },
+    "facing=west,fragment=4,part=1": {
+      "model": "tribalpower:block/mural_4_1",
+      "y": 270
+    },
+    "facing=north,fragment=4,part=2": {
+      "model": "tribalpower:block/mural_4_2"
+    },
+    "facing=east,fragment=4,part=2": {
+      "model": "tribalpower:block/mural_4_2",
+      "y": 90
+    },
+    "facing=south,fragment=4,part=2": {
+      "model": "tribalpower:block/mural_4_2",
+      "y": 180
+    },
+    "facing=west,fragment=4,part=2": {
+      "model": "tribalpower:block/mural_4_2",
+      "y": 270
+    },
+    "facing=north,fragment=4,part=3": {
+      "model": "tribalpower:block/mural_4_3"
+    },
+    "facing=east,fragment=4,part=3": {
+      "model": "tribalpower:block/mural_4_3",
+      "y": 90
+    },
+    "facing=south,fragment=4,part=3": {
+      "model": "tribalpower:block/mural_4_3",
+      "y": 180
+    },
+    "facing=west,fragment=4,part=3": {
+      "model": "tribalpower:block/mural_4_3",
+      "y": 270
+    },
+    "facing=north,fragment=5,part=0": {
+      "model": "tribalpower:block/mural_5_0"
+    },
+    "facing=east,fragment=5,part=0": {
+      "model": "tribalpower:block/mural_5_0",
+      "y": 90
+    },
+    "facing=south,fragment=5,part=0": {
+      "model": "tribalpower:block/mural_5_0",
+      "y": 180
+    },
+    "facing=west,fragment=5,part=0": {
+      "model": "tribalpower:block/mural_5_0",
+      "y": 270
+    },
+    "facing=north,fragment=5,part=1": {
+      "model": "tribalpower:block/mural_5_1"
+    },
+    "facing=east,fragment=5,part=1": {
+      "model": "tribalpower:block/mural_5_1",
+      "y": 90
+    },
+    "facing=south,fragment=5,part=1": {
+      "model": "tribalpower:block/mural_5_1",
+      "y": 180
+    },
+    "facing=west,fragment=5,part=1": {
+      "model": "tribalpower:block/mural_5_1",
+      "y": 270
+    },
+    "facing=north,fragment=5,part=2": {
+      "model": "tribalpower:block/mural_5_2"
+    },
+    "facing=east,fragment=5,part=2": {
+      "model": "tribalpower:block/mural_5_2",
+      "y": 90
+    },
+    "facing=south,fragment=5,part=2": {
+      "model": "tribalpower:block/mural_5_2",
+      "y": 180
+    },
+    "facing=west,fragment=5,part=2": {
+      "model": "tribalpower:block/mural_5_2",
+      "y": 270
+    },
+    "facing=north,fragment=5,part=3": {
+      "model": "tribalpower:block/mural_5_3"
+    },
+    "facing=east,fragment=5,part=3": {
+      "model": "tribalpower:block/mural_5_3",
+      "y": 90
+    },
+    "facing=south,fragment=5,part=3": {
+      "model": "tribalpower:block/mural_5_3",
+      "y": 180
+    },
+    "facing=west,fragment=5,part=3": {
+      "model": "tribalpower:block/mural_5_3",
+      "y": 270
+    },
+    "facing=north,fragment=6,part=0": {
+      "model": "tribalpower:block/mural_6_0"
+    },
+    "facing=east,fragment=6,part=0": {
+      "model": "tribalpower:block/mural_6_0",
+      "y": 90
+    },
+    "facing=south,fragment=6,part=0": {
+      "model": "tribalpower:block/mural_6_0",
+      "y": 180
+    },
+    "facing=west,fragment=6,part=0": {
+      "model": "tribalpower:block/mural_6_0",
+      "y": 270
+    },
+    "facing=north,fragment=6,part=1": {
+      "model": "tribalpower:block/mural_6_1"
+    },
+    "facing=east,fragment=6,part=1": {
+      "model": "tribalpower:block/mural_6_1",
+      "y": 90
+    },
+    "facing=south,fragment=6,part=1": {
+      "model": "tribalpower:block/mural_6_1",
+      "y": 180
+    },
+    "facing=west,fragment=6,part=1": {
+      "model": "tribalpower:block/mural_6_1",
+      "y": 270
+    },
+    "facing=north,fragment=6,part=2": {
+      "model": "tribalpower:block/mural_6_2"
+    },
+    "facing=east,fragment=6,part=2": {
+      "model": "tribalpower:block/mural_6_2",
+      "y": 90
+    },
+    "facing=south,fragment=6,part=2": {
+      "model": "tribalpower:block/mural_6_2",
+      "y": 180
+    },
+    "facing=west,fragment=6,part=2": {
+      "model": "tribalpower:block/mural_6_2",
+      "y": 270
+    },
+    "facing=north,fragment=6,part=3": {
+      "model": "tribalpower:block/mural_6_3"
+    },
+    "facing=east,fragment=6,part=3": {
+      "model": "tribalpower:block/mural_6_3",
+      "y": 90
+    },
+    "facing=south,fragment=6,part=3": {
+      "model": "tribalpower:block/mural_6_3",
+      "y": 180
+    },
+    "facing=west,fragment=6,part=3": {
+      "model": "tribalpower:block/mural_6_3",
+      "y": 270
+    },
+    "facing=north,fragment=7,part=0": {
+      "model": "tribalpower:block/mural_7_0"
+    },
+    "facing=east,fragment=7,part=0": {
+      "model": "tribalpower:block/mural_7_0",
+      "y": 90
+    },
+    "facing=south,fragment=7,part=0": {
+      "model": "tribalpower:block/mural_7_0",
+      "y": 180
+    },
+    "facing=west,fragment=7,part=0": {
+      "model": "tribalpower:block/mural_7_0",
+      "y": 270
+    },
+    "facing=north,fragment=7,part=1": {
+      "model": "tribalpower:block/mural_7_1"
+    },
+    "facing=east,fragment=7,part=1": {
+      "model": "tribalpower:block/mural_7_1",
+      "y": 90
+    },
+    "facing=south,fragment=7,part=1": {
+      "model": "tribalpower:block/mural_7_1",
+      "y": 180
+    },
+    "facing=west,fragment=7,part=1": {
+      "model": "tribalpower:block/mural_7_1",
+      "y": 270
+    },
+    "facing=north,fragment=7,part=2": {
+      "model": "tribalpower:block/mural_7_2"
+    },
+    "facing=east,fragment=7,part=2": {
+      "model": "tribalpower:block/mural_7_2",
+      "y": 90
+    },
+    "facing=south,fragment=7,part=2": {
+      "model": "tribalpower:block/mural_7_2",
+      "y": 180
+    },
+    "facing=west,fragment=7,part=2": {
+      "model": "tribalpower:block/mural_7_2",
+      "y": 270
+    },
+    "facing=north,fragment=7,part=3": {
+      "model": "tribalpower:block/mural_7_3"
+    },
+    "facing=east,fragment=7,part=3": {
+      "model": "tribalpower:block/mural_7_3",
+      "y": 90
+    },
+    "facing=south,fragment=7,part=3": {
+      "model": "tribalpower:block/mural_7_3",
+      "y": 180
+    },
+    "facing=west,fragment=7,part=3": {
+      "model": "tribalpower:block/mural_7_3",
+      "y": 270
+    },
+    "facing=north,fragment=8,part=0": {
+      "model": "tribalpower:block/mural_8_0"
+    },
+    "facing=east,fragment=8,part=0": {
+      "model": "tribalpower:block/mural_8_0",
+      "y": 90
+    },
+    "facing=south,fragment=8,part=0": {
+      "model": "tribalpower:block/mural_8_0",
+      "y": 180
+    },
+    "facing=west,fragment=8,part=0": {
+      "model": "tribalpower:block/mural_8_0",
+      "y": 270
+    },
+    "facing=north,fragment=8,part=1": {
+      "model": "tribalpower:block/mural_8_1"
+    },
+    "facing=east,fragment=8,part=1": {
+      "model": "tribalpower:block/mural_8_1",
+      "y": 90
+    },
+    "facing=south,fragment=8,part=1": {
+      "model": "tribalpower:block/mural_8_1",
+      "y": 180
+    },
+    "facing=west,fragment=8,part=1": {
+      "model": "tribalpower:block/mural_8_1",
+      "y": 270
+    },
+    "facing=north,fragment=8,part=2": {
+      "model": "tribalpower:block/mural_8_2"
+    },
+    "facing=east,fragment=8,part=2": {
+      "model": "tribalpower:block/mural_8_2",
+      "y": 90
+    },
+    "facing=south,fragment=8,part=2": {
+      "model": "tribalpower:block/mural_8_2",
+      "y": 180
+    },
+    "facing=west,fragment=8,part=2": {
+      "model": "tribalpower:block/mural_8_2",
+      "y": 270
+    },
+    "facing=north,fragment=8,part=3": {
+      "model": "tribalpower:block/mural_8_3"
+    },
+    "facing=east,fragment=8,part=3": {
+      "model": "tribalpower:block/mural_8_3",
+      "y": 90
+    },
+    "facing=south,fragment=8,part=3": {
+      "model": "tribalpower:block/mural_8_3",
+      "y": 180
+    },
+    "facing=west,fragment=8,part=3": {
+      "model": "tribalpower:block/mural_8_3",
+      "y": 270
+    },
+    "facing=north,fragment=9,part=0": {
+      "model": "tribalpower:block/mural_9_0"
+    },
+    "facing=east,fragment=9,part=0": {
+      "model": "tribalpower:block/mural_9_0",
+      "y": 90
+    },
+    "facing=south,fragment=9,part=0": {
+      "model": "tribalpower:block/mural_9_0",
+      "y": 180
+    },
+    "facing=west,fragment=9,part=0": {
+      "model": "tribalpower:block/mural_9_0",
+      "y": 270
+    },
+    "facing=north,fragment=9,part=1": {
+      "model": "tribalpower:block/mural_9_1"
+    },
+    "facing=east,fragment=9,part=1": {
+      "model": "tribalpower:block/mural_9_1",
+      "y": 90
+    },
+    "facing=south,fragment=9,part=1": {
+      "model": "tribalpower:block/mural_9_1",
+      "y": 180
+    },
+    "facing=west,fragment=9,part=1": {
+      "model": "tribalpower:block/mural_9_1",
+      "y": 270
+    },
+    "facing=north,fragment=9,part=2": {
+      "model": "tribalpower:block/mural_9_2"
+    },
+    "facing=east,fragment=9,part=2": {
+      "model": "tribalpower:block/mural_9_2",
+      "y": 90
+    },
+    "facing=south,fragment=9,part=2": {
+      "model": "tribalpower:block/mural_9_2",
+      "y": 180
+    },
+    "facing=west,fragment=9,part=2": {
+      "model": "tribalpower:block/mural_9_2",
+      "y": 270
+    },
+    "facing=north,fragment=9,part=3": {
+      "model": "tribalpower:block/mural_9_3"
+    },
+    "facing=east,fragment=9,part=3": {
+      "model": "tribalpower:block/mural_9_3",
+      "y": 90
+    },
+    "facing=south,fragment=9,part=3": {
+      "model": "tribalpower:block/mural_9_3",
+      "y": 180
+    },
+    "facing=west,fragment=9,part=3": {
+      "model": "tribalpower:block/mural_9_3",
+      "y": 270
+    },
+    "facing=north,fragment=10,part=0": {
+      "model": "tribalpower:block/mural_10_0"
+    },
+    "facing=east,fragment=10,part=0": {
+      "model": "tribalpower:block/mural_10_0",
+      "y": 90
+    },
+    "facing=south,fragment=10,part=0": {
+      "model": "tribalpower:block/mural_10_0",
+      "y": 180
+    },
+    "facing=west,fragment=10,part=0": {
+      "model": "tribalpower:block/mural_10_0",
+      "y": 270
+    },
+    "facing=north,fragment=10,part=1": {
+      "model": "tribalpower:block/mural_10_1"
+    },
+    "facing=east,fragment=10,part=1": {
+      "model": "tribalpower:block/mural_10_1",
+      "y": 90
+    },
+    "facing=south,fragment=10,part=1": {
+      "model": "tribalpower:block/mural_10_1",
+      "y": 180
+    },
+    "facing=west,fragment=10,part=1": {
+      "model": "tribalpower:block/mural_10_1",
+      "y": 270
+    },
+    "facing=north,fragment=10,part=2": {
+      "model": "tribalpower:block/mural_10_2"
+    },
+    "facing=east,fragment=10,part=2": {
+      "model": "tribalpower:block/mural_10_2",
+      "y": 90
+    },
+    "facing=south,fragment=10,part=2": {
+      "model": "tribalpower:block/mural_10_2",
+      "y": 180
+    },
+    "facing=west,fragment=10,part=2": {
+      "model": "tribalpower:block/mural_10_2",
+      "y": 270
+    },
+    "facing=north,fragment=10,part=3": {
+      "model": "tribalpower:block/mural_10_3"
+    },
+    "facing=east,fragment=10,part=3": {
+      "model": "tribalpower:block/mural_10_3",
+      "y": 90
+    },
+    "facing=south,fragment=10,part=3": {
+      "model": "tribalpower:block/mural_10_3",
+      "y": 180
+    },
+    "facing=west,fragment=10,part=3": {
+      "model": "tribalpower:block/mural_10_3",
+      "y": 270
+    },
+    "facing=north,fragment=11,part=0": {
+      "model": "tribalpower:block/mural_11_0"
+    },
+    "facing=east,fragment=11,part=0": {
+      "model": "tribalpower:block/mural_11_0",
+      "y": 90
+    },
+    "facing=south,fragment=11,part=0": {
+      "model": "tribalpower:block/mural_11_0",
+      "y": 180
+    },
+    "facing=west,fragment=11,part=0": {
+      "model": "tribalpower:block/mural_11_0",
+      "y": 270
+    },
+    "facing=north,fragment=11,part=1": {
+      "model": "tribalpower:block/mural_11_1"
+    },
+    "facing=east,fragment=11,part=1": {
+      "model": "tribalpower:block/mural_11_1",
+      "y": 90
+    },
+    "facing=south,fragment=11,part=1": {
+      "model": "tribalpower:block/mural_11_1",
+      "y": 180
+    },
+    "facing=west,fragment=11,part=1": {
+      "model": "tribalpower:block/mural_11_1",
+      "y": 270
+    },
+    "facing=north,fragment=11,part=2": {
+      "model": "tribalpower:block/mural_11_2"
+    },
+    "facing=east,fragment=11,part=2": {
+      "model": "tribalpower:block/mural_11_2",
+      "y": 90
+    },
+    "facing=south,fragment=11,part=2": {
+      "model": "tribalpower:block/mural_11_2",
+      "y": 180
+    },
+    "facing=west,fragment=11,part=2": {
+      "model": "tribalpower:block/mural_11_2",
+      "y": 270
+    },
+    "facing=north,fragment=11,part=3": {
+      "model": "tribalpower:block/mural_11_3"
+    },
+    "facing=east,fragment=11,part=3": {
+      "model": "tribalpower:block/mural_11_3",
+      "y": 90
+    },
+    "facing=south,fragment=11,part=3": {
+      "model": "tribalpower:block/mural_11_3",
+      "y": 180
+    },
+    "facing=west,fragment=11,part=3": {
+      "model": "tribalpower:block/mural_11_3",
+      "y": 270
+    },
+    "facing=north,fragment=12,part=0": {
+      "model": "tribalpower:block/mural_12_0"
+    },
+    "facing=east,fragment=12,part=0": {
+      "model": "tribalpower:block/mural_12_0",
+      "y": 90
+    },
+    "facing=south,fragment=12,part=0": {
+      "model": "tribalpower:block/mural_12_0",
+      "y": 180
+    },
+    "facing=west,fragment=12,part=0": {
+      "model": "tribalpower:block/mural_12_0",
+      "y": 270
+    },
+    "facing=north,fragment=12,part=1": {
+      "model": "tribalpower:block/mural_12_1"
+    },
+    "facing=east,fragment=12,part=1": {
+      "model": "tribalpower:block/mural_12_1",
+      "y": 90
+    },
+    "facing=south,fragment=12,part=1": {
+      "model": "tribalpower:block/mural_12_1",
+      "y": 180
+    },
+    "facing=west,fragment=12,part=1": {
+      "model": "tribalpower:block/mural_12_1",
+      "y": 270
+    },
+    "facing=north,fragment=12,part=2": {
+      "model": "tribalpower:block/mural_12_2"
+    },
+    "facing=east,fragment=12,part=2": {
+      "model": "tribalpower:block/mural_12_2",
+      "y": 90
+    },
+    "facing=south,fragment=12,part=2": {
+      "model": "tribalpower:block/mural_12_2",
+      "y": 180
+    },
+    "facing=west,fragment=12,part=2": {
+      "model": "tribalpower:block/mural_12_2",
+      "y": 270
+    },
+    "facing=north,fragment=12,part=3": {
+      "model": "tribalpower:block/mural_12_3"
+    },
+    "facing=east,fragment=12,part=3": {
+      "model": "tribalpower:block/mural_12_3",
+      "y": 90
+    },
+    "facing=south,fragment=12,part=3": {
+      "model": "tribalpower:block/mural_12_3",
+      "y": 180
+    },
+    "facing=west,fragment=12,part=3": {
+      "model": "tribalpower:block/mural_12_3",
+      "y": 270
+    },
+    "facing=north,fragment=13,part=0": {
+      "model": "tribalpower:block/mural_13_0"
+    },
+    "facing=east,fragment=13,part=0": {
+      "model": "tribalpower:block/mural_13_0",
+      "y": 90
+    },
+    "facing=south,fragment=13,part=0": {
+      "model": "tribalpower:block/mural_13_0",
+      "y": 180
+    },
+    "facing=west,fragment=13,part=0": {
+      "model": "tribalpower:block/mural_13_0",
+      "y": 270
+    },
+    "facing=north,fragment=13,part=1": {
+      "model": "tribalpower:block/mural_13_1"
+    },
+    "facing=east,fragment=13,part=1": {
+      "model": "tribalpower:block/mural_13_1",
+      "y": 90
+    },
+    "facing=south,fragment=13,part=1": {
+      "model": "tribalpower:block/mural_13_1",
+      "y": 180
+    },
+    "facing=west,fragment=13,part=1": {
+      "model": "tribalpower:block/mural_13_1",
+      "y": 270
+    },
+    "facing=north,fragment=13,part=2": {
+      "model": "tribalpower:block/mural_13_2"
+    },
+    "facing=east,fragment=13,part=2": {
+      "model": "tribalpower:block/mural_13_2",
+      "y": 90
+    },
+    "facing=south,fragment=13,part=2": {
+      "model": "tribalpower:block/mural_13_2",
+      "y": 180
+    },
+    "facing=west,fragment=13,part=2": {
+      "model": "tribalpower:block/mural_13_2",
+      "y": 270
+    },
+    "facing=north,fragment=13,part=3": {
+      "model": "tribalpower:block/mural_13_3"
+    },
+    "facing=east,fragment=13,part=3": {
+      "model": "tribalpower:block/mural_13_3",
+      "y": 90
+    },
+    "facing=south,fragment=13,part=3": {
+      "model": "tribalpower:block/mural_13_3",
+      "y": 180
+    },
+    "facing=west,fragment=13,part=3": {
+      "model": "tribalpower:block/mural_13_3",
+      "y": 270
+    },
+    "facing=north,fragment=14,part=0": {
+      "model": "tribalpower:block/mural_14_0"
+    },
+    "facing=east,fragment=14,part=0": {
+      "model": "tribalpower:block/mural_14_0",
+      "y": 90
+    },
+    "facing=south,fragment=14,part=0": {
+      "model": "tribalpower:block/mural_14_0",
+      "y": 180
+    },
+    "facing=west,fragment=14,part=0": {
+      "model": "tribalpower:block/mural_14_0",
+      "y": 270
+    },
+    "facing=north,fragment=14,part=1": {
+      "model": "tribalpower:block/mural_14_1"
+    },
+    "facing=east,fragment=14,part=1": {
+      "model": "tribalpower:block/mural_14_1",
+      "y": 90
+    },
+    "facing=south,fragment=14,part=1": {
+      "model": "tribalpower:block/mural_14_1",
+      "y": 180
+    },
+    "facing=west,fragment=14,part=1": {
+      "model": "tribalpower:block/mural_14_1",
+      "y": 270
+    },
+    "facing=north,fragment=14,part=2": {
+      "model": "tribalpower:block/mural_14_2"
+    },
+    "facing=east,fragment=14,part=2": {
+      "model": "tribalpower:block/mural_14_2",
+      "y": 90
+    },
+    "facing=south,fragment=14,part=2": {
+      "model": "tribalpower:block/mural_14_2",
+      "y": 180
+    },
+    "facing=west,fragment=14,part=2": {
+      "model": "tribalpower:block/mural_14_2",
+      "y": 270
+    },
+    "facing=north,fragment=14,part=3": {
+      "model": "tribalpower:block/mural_14_3"
+    },
+    "facing=east,fragment=14,part=3": {
+      "model": "tribalpower:block/mural_14_3",
+      "y": 90
+    },
+    "facing=south,fragment=14,part=3": {
+      "model": "tribalpower:block/mural_14_3",
+      "y": 180
+    },
+    "facing=west,fragment=14,part=3": {
+      "model": "tribalpower:block/mural_14_3",
+      "y": 270
+    },
+    "facing=north,fragment=15,part=0": {
+      "model": "tribalpower:block/mural_15_0"
+    },
+    "facing=east,fragment=15,part=0": {
+      "model": "tribalpower:block/mural_15_0",
+      "y": 90
+    },
+    "facing=south,fragment=15,part=0": {
+      "model": "tribalpower:block/mural_15_0",
+      "y": 180
+    },
+    "facing=west,fragment=15,part=0": {
+      "model": "tribalpower:block/mural_15_0",
+      "y": 270
+    },
+    "facing=north,fragment=15,part=1": {
+      "model": "tribalpower:block/mural_15_1"
+    },
+    "facing=east,fragment=15,part=1": {
+      "model": "tribalpower:block/mural_15_1",
+      "y": 90
+    },
+    "facing=south,fragment=15,part=1": {
+      "model": "tribalpower:block/mural_15_1",
+      "y": 180
+    },
+    "facing=west,fragment=15,part=1": {
+      "model": "tribalpower:block/mural_15_1",
+      "y": 270
+    },
+    "facing=north,fragment=15,part=2": {
+      "model": "tribalpower:block/mural_15_2"
+    },
+    "facing=east,fragment=15,part=2": {
+      "model": "tribalpower:block/mural_15_2",
+      "y": 90
+    },
+    "facing=south,fragment=15,part=2": {
+      "model": "tribalpower:block/mural_15_2",
+      "y": 180
+    },
+    "facing=west,fragment=15,part=2": {
+      "model": "tribalpower:block/mural_15_2",
+      "y": 270
+    },
+    "facing=north,fragment=15,part=3": {
+      "model": "tribalpower:block/mural_15_3"
+    },
+    "facing=east,fragment=15,part=3": {
+      "model": "tribalpower:block/mural_15_3",
+      "y": 90
+    },
+    "facing=south,fragment=15,part=3": {
+      "model": "tribalpower:block/mural_15_3",
+      "y": 180
+    },
+    "facing=west,fragment=15,part=3": {
+      "model": "tribalpower:block/mural_15_3",
+      "y": 270
+    }
+  }
+}

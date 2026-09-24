@@ -1,0 +1,17 @@
+{
+  "name": "1. The Old Sky",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Old Sky",
+      "text": [
+        "\u201cBefore the March there was one sky and one ground under it, and nine peoples who did not agree on anything except that the ground should stay where it was. That was the first agreement, and for a long time it was enough.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

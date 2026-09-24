@@ -1,0 +1,17 @@
+{
+  "name": "12. Crystal",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Crystal",
+      "text": [
+        "\u201cThe Crystal Fields grew where the Grit-singers' meshes fell singing. The stone remembered the pitch and grew toward it. Most of the field is in tune. The part that is not has a long body and a longer memory.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

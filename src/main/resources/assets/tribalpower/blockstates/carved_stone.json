@@ -1,0 +1,244 @@
+{
+  "variants": {
+    "facing=north,fragment=0": {
+      "model": "tribalpower:block/carved_stone_0"
+    },
+    "facing=east,fragment=0": {
+      "model": "tribalpower:block/carved_stone_0",
+      "y": 90
+    },
+    "facing=south,fragment=0": {
+      "model": "tribalpower:block/carved_stone_0",
+      "y": 180
+    },
+    "facing=west,fragment=0": {
+      "model": "tribalpower:block/carved_stone_0",
+      "y": 270
+    },
+    "facing=north,fragment=1": {
+      "model": "tribalpower:block/carved_stone_1"
+    },
+    "facing=east,fragment=1": {
+      "model": "tribalpower:block/carved_stone_1",
+      "y": 90
+    },
+    "facing=south,fragment=1": {
+      "model": "tribalpower:block/carved_stone_1",
+      "y": 180
+    },
+    "facing=west,fragment=1": {
+      "model": "tribalpower:block/carved_stone_1",
+      "y": 270
+    },
+    "facing=north,fragment=2": {
+      "model": "tribalpower:block/carved_stone_2"
+    },
+    "facing=east,fragment=2": {
+      "model": "tribalpower:block/carved_stone_2",
+      "y": 90
+    },
+    "facing=south,fragment=2": {
+      "model": "tribalpower:block/carved_stone_2",
+      "y": 180
+    },
+    "facing=west,fragment=2": {
+      "model": "tribalpower:block/carved_stone_2",
+      "y": 270
+    },
+    "facing=north,fragment=3": {
+      "model": "tribalpower:block/carved_stone_3"
+    },
+    "facing=east,fragment=3": {
+      "model": "tribalpower:block/carved_stone_3",
+      "y": 90
+    },
+    "facing=south,fragment=3": {
+      "model": "tribalpower:block/carved_stone_3",
+      "y": 180
+    },
+    "facing=west,fragment=3": {
+      "model": "tribalpower:block/carved_stone_3",
+      "y": 270
+    },
+    "facing=north,fragment=4": {
+      "model": "tribalpower:block/carved_stone_4"
+    },
+    "facing=east,fragment=4": {
+      "model": "tribalpower:block/carved_stone_4",
+      "y": 90
+    },
+    "facing=south,fragment=4": {
+      "model": "tribalpower:block/carved_stone_4",
+      "y": 180
+    },
+    "facing=west,fragment=4": {
+      "model": "tribalpower:block/carved_stone_4",
+      "y": 270
+    },
+    "facing=north,fragment=5": {
+      "model": "tribalpower:block/carved_stone_5"
+    },
+    "facing=east,fragment=5": {
+      "model": "tribalpower:block/carved_stone_5",
+      "y": 90
+    },
+    "facing=south,fragment=5": {
+      "model": "tribalpower:block/carved_stone_5",
+      "y": 180
+    },
+    "facing=west,fragment=5": {
+      "model": "tribalpower:block/carved_stone_5",
+      "y": 270
+    },
+    "facing=north,fragment=6": {
+      "model": "tribalpower:block/carved_stone_6"
+    },
+    "facing=east,fragment=6": {
+      "model": "tribalpower:block/carved_stone_6",
+      "y": 90
+    },
+    "facing=south,fragment=6": {
+      "model": "tribalpower:block/carved_stone_6",
+      "y": 180
+    },
+    "facing=west,fragment=6": {
+      "model": "tribalpower:block/carved_stone_6",
+      "y": 270
+    },
+    "facing=north,fragment=7": {
+      "model": "tribalpower:block/carved_stone_7"
+    },
+    "facing=east,fragment=7": {
+      "model": "tribalpower:block/carved_stone_7",
+      "y": 90
+    },
+    "facing=south,fragment=7": {
+      "model": "tribalpower:block/carved_stone_7",
+      "y": 180
+    },
+    "facing=west,fragment=7": {
+      "model": "tribalpower:block/carved_stone_7",
+      "y": 270
+    },
+    "facing=north,fragment=8": {
+      "model": "tribalpower:block/carved_stone_8"
+    },
+    "facing=east,fragment=8": {
+      "model": "tribalpower:block/carved_stone_8",
+      "y": 90
+    },
+    "facing=south,fragment=8": {
+      "model": "tribalpower:block/carved_stone_8",
+      "y": 180
+    },
+    "facing=west,fragment=8": {
+      "model": "tribalpower:block/carved_stone_8",
+      "y": 270
+    },
+    "facing=north,fragment=9": {
+      "model": "tribalpower:block/carved_stone_9"
+    },
+    "facing=east,fragment=9": {
+      "model": "tribalpower:block/carved_stone_9",
+      "y": 90
+    },
+    "facing=south,fragment=9": {
+      "model": "tribalpower:block/carved_stone_9",
+      "y": 180
+    },
+    "facing=west,fragment=9": {
+      "model": "tribalpower:block/carved_stone_9",
+      "y": 270
+    },
+    "facing=north,fragment=10": {
+      "model": "tribalpower:block/carved_stone_10"
+    },
+    "facing=east,fragment=10": {
+      "model": "tribalpower:block/carved_stone_10",
+      "y": 90
+    },
+    "facing=south,fragment=10": {
+      "model": "tribalpower:block/carved_stone_10",
+      "y": 180
+    },
+    "facing=west,fragment=10": {
+      "model": "tribalpower:block/carved_stone_10",
+      "y": 270
+    },
+    "facing=north,fragment=11": {
+      "model": "tribalpower:block/carved_stone_11"
+    },
+    "facing=east,fragment=11": {
+      "model": "tribalpower:block/carved_stone_11",
+      "y": 90
+    },
+    "facing=south,fragment=11": {
+      "model": "tribalpower:block/carved_stone_11",
+      "y": 180
+    },
+    "facing=west,fragment=11": {
+      "model": "tribalpower:block/carved_stone_11",
+      "y": 270
+    },
+    "facing=north,fragment=12": {
+      "model": "tribalpower:block/carved_stone_12"
+    },
+    "facing=east,fragment=12": {
+      "model": "tribalpower:block/carved_stone_12",
+      "y": 90
+    },
+    "facing=south,fragment=12": {
+      "model": "tribalpower:block/carved_stone_12",
+      "y": 180
+    },
+    "facing=west,fragment=12": {
+      "model": "tribalpower:block/carved_stone_12",
+      "y": 270
+    },
+    "facing=north,fragment=13": {
+      "model": "tribalpower:block/carved_stone_13"
+    },
+    "facing=east,fragment=13": {
+      "model": "tribalpower:block/carved_stone_13",
+      "y": 90
+    },
+    "facing=south,fragment=13": {
+      "model": "tribalpower:block/carved_stone_13",
+      "y": 180
+    },
+    "facing=west,fragment=13": {
+      "model": "tribalpower:block/carved_stone_13",
+      "y": 270
+    },
+    "facing=north,fragment=14": {
+      "model": "tribalpower:block/carved_stone_14"
+    },
+    "facing=east,fragment=14": {
+      "model": "tribalpower:block/carved_stone_14",
+      "y": 90
+    },
+    "facing=south,fragment=14": {
+      "model": "tribalpower:block/carved_stone_14",
+      "y": 180
+    },
+    "facing=west,fragment=14": {
+      "model": "tribalpower:block/carved_stone_14",
+      "y": 270
+    },
+    "facing=north,fragment=15": {
+      "model": "tribalpower:block/carved_stone_15"
+    },
+    "facing=east,fragment=15": {
+      "model": "tribalpower:block/carved_stone_15",
+      "y": 90
+    },
+    "facing=south,fragment=15": {
+      "model": "tribalpower:block/carved_stone_15",
+      "y": 180
+    },
+    "facing=west,fragment=15": {
+      "model": "tribalpower:block/carved_stone_15",
+      "y": 270
+    }
+  }
+}

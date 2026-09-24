@@ -1,0 +1,17 @@
+{
+  "name": "7. The Camps",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Camps",
+      "text": [
+        "\u201cNine camps on nine pads, each singing one thread into a Loom that was no longer there. Habit, the Edge-walkers called it. Hope, the Rootbinders said. The Grit-singers said it was the same thing said twice.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

@@ -65,6 +65,11 @@ public final class TribalPowerClient {
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) -> {
             if (event.getLevel().isClientSide && event.getHand() == net.minecraft.world.InteractionHand.MAIN_HAND && !event.getEntity().isSpectator() && !event.getEntity().isShiftKeyDown() && event.getLevel().getBlockEntity(event.getPos()) instanceof tk.darrow.tribalpower.world.structure.LoreTabletBlockEntity tablet)
                 net.minecraft.client.Minecraft.getInstance().setScreen(new LoreTabletScreen(tablet.tablet()));
+            if (event.getLevel().isClientSide && event.getHand() == net.minecraft.world.InteractionHand.MAIN_HAND && !event.getEntity().isSpectator() && !event.getEntity().isShiftKeyDown()) {
+                var carved = event.getLevel().getBlockState(event.getPos());
+                if (carved.hasProperty(tk.darrow.tribalpower.lore.CarvedStoneBlock.FRAGMENT))
+                    net.minecraft.client.Minecraft.getInstance().setScreen(new FragmentScreen(carved.getValue(tk.darrow.tribalpower.lore.CarvedStoneBlock.FRAGMENT)));
+            }
         });
         modBus.addListener(TribeClient::onClientSetup);
         modBus.addListener(TribeClient::blockColours);

@@ -1,0 +1,8 @@
+{
+  "name": "The Chronicle",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "The Loom's history, carved into the March a fragment at a time. Find them and the story assembles itself here.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

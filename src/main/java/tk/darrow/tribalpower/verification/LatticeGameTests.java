@@ -77,7 +77,7 @@ public class LatticeGameTests {
             h.assertTrue(!e.name().isBlank() && !e.pages().isEmpty(),"Empty entry: "+e.id());
             e.items().forEach(item);
             if(!e.next().isEmpty())h.assertTrue(book.byId().containsKey(e.next()),e.id()+" continues to a missing entry "+e.next());
-            if(!e.unlock().isEmpty())h.assertTrue(e.spoiler() && e.unlock().matches("(tribe:[a-z]+|tablet:\\d+)"),e.id()+" has a malformed unlock "+e.unlock());
+            if(!e.unlock().isEmpty())h.assertTrue(e.spoiler() && e.unlock().matches("(tribe:[a-z]+|tablet:\\d+|fragment:\\d+)"),e.id()+" has a malformed unlock "+e.unlock());
             for(var page:e.pages()) {
                 text.accept(e.id(),page.text());
                 switch(page) {

@@ -1,0 +1,17 @@
+{
+  "name": "11. Cairns",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cairns",
+      "text": [
+        "\u201cThe Snow Fields are the Colony-keepers' meadows under a winter that came with the fall and stayed. The hives sleep under the cairns. The cold learned their hum and made something of its own with it.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "4. The Cut",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Cut",
+      "text": [
+        "\u201cNo one remembers who stopped singing first. The Seal-carvers say a seal was carved as a demand. The Drumhearts say the beat was dropped. The Pattern-weavers say the pattern was changed without asking. All of them are right, which is the trouble.\u201d",
+        "Found on a carved stone in the March's ruins."
+      ]
+    }
+  ]
+}

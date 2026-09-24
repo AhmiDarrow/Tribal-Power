@@ -1,0 +1,17 @@
+{
+  "name": "13. The Gate",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Gate",
+      "text": [
+        "\u201cGlimmer Ridge is the Seal-carvers' vault, sealed from the inside on the day of the fall. What they shut in there was asked to stay, politely. It has been feeding on the asking ever since.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

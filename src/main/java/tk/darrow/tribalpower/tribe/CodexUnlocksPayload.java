@@ -19,11 +19,12 @@ import tk.darrow.tribalpower.world.structure.LoreTabletBlock;
  * The Spirit Codex shows the matching tribe and tablet pages without the spoiler veil once they are unlocked.
  * Sent on login, respawn/clone, when a Mark is granted and when a tablet is first read.
  */
-public record CodexUnlocksPayload(int tribes, int tablets) implements CustomPacketPayload {
+public record CodexUnlocksPayload(int tribes, int tablets, int fragments) implements CustomPacketPayload {
     public static final Type<CodexUnlocksPayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "codex_unlocks"));
     public static final StreamCodec<ByteBuf, CodexUnlocksPayload> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.VAR_INT, CodexUnlocksPayload::tribes,
             ByteBufCodecs.VAR_INT, CodexUnlocksPayload::tablets,
+            ByteBufCodecs.VAR_INT, CodexUnlocksPayload::fragments,
             CodexUnlocksPayload::new);
 
     @Override
@@ -31,11 +32,12 @@ public record CodexUnlocksPayload(int tribes, int tablets) implements CustomPack
 
     /** Mod-bus listener. The handler body only runs on the client; {@link CodexUnlocks} holds no client-only types. */
     public static void register(RegisterPayloadHandlersEvent event) {
-        event.registrar("1").playToClient(TYPE, STREAM_CODEC, (payload, context) -> CodexUnlocks.accept(payload.tribes(), payload.tablets()));
+        event.registrar("1").playToClient(TYPE, STREAM_CODEC, (payload, context) -> CodexUnlocks.accept(payload.tribes(), payload.tablets(), payload.fragments()));
     }
 
     public static CodexUnlocksPayload of(ServerPlayer player) {
-        return new CodexUnlocksPayload(TribeStandingSavedData.get(player.server).marks(player.getUUID()), LoreTabletBlock.readMask(player));
+        return new CodexUnlocksPayload(TribeStandingSavedData.get(player.server).marks(player.getUUID()), LoreTabletBlock.readMask(player),
+                tk.darrow.tribalpower.lore.Chronicle.readMask(player));
     }
 
     /** Sends the player's current unlocks; silently skipped for connections without the channel (mock/test players). */

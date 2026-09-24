@@ -1,0 +1,17 @@
+{
+  "name": "9. Ash",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ash",
+      "text": [
+        "\u201cThe Ember Wastes were the Drumhearts' forest. It burned in the fall and never stopped. Something under the slag took up the beat when the drummers fled, and it has kept a wrong time ever since.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}

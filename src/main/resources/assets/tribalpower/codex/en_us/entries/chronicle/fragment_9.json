@@ -1,0 +1,17 @@
+{
+  "name": "10. Fen",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Fen",
+      "text": [
+        "\u201cThe Reed Fen is the Rootbinders' rope-work drowned. Every reed is a knot they tied to hold the ground; the water came anyway. One of them held on past the end. She is still holding.\u201d",
+        "Found on a mural at a guardian's ground."
+      ]
+    }
+  ]
+}
