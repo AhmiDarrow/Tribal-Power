@@ -33,16 +33,16 @@ public final class GeneratedGuardianLayers {
                 root.addOrReplaceChild("tendril4",CubeListBuilder.create().texOffs(213,30).addBox(-0.5F,-9.0F,-0.5F,1.0F,9.0F,1.0F).texOffs(218,30).addBox(-1.5F,-12.0F,-0.5F,3.0F,3.0F,1.0F),PartPose.offset(6.0F,4.0F,-4.0F));
             }
             case "cairn_wight" -> {
-                root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,0).addBox(-4.0F,-16.0F,-3.0F,8.0F,16.0F,6.0F).texOffs(29,0).addBox(-5.0F,-12.0F,-4.0F,10.0F,3.0F,8.0F).texOffs(66,0).addBox(-5.0F,-6.0F,-4.0F,10.0F,3.0F,8.0F),PartPose.offset(0.0F,14.0F,0.0F));
-                root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(103,0).addBox(-3.0F,-7.0F,-3.0F,6.0F,7.0F,6.0F).texOffs(128,0).addBox(-4.0F,-11.0F,-1.0F,2.0F,5.0F,2.0F).texOffs(137,0).addBox(2.0F,-11.0F,-1.0F,2.0F,5.0F,2.0F),PartPose.offset(0.0F,-2.0F,0.0F));
-                root.addOrReplaceChild("arm0",CubeListBuilder.create().texOffs(146,0).addBox(-1.5F,0.0F,-1.5F,3.0F,15.0F,3.0F).texOffs(159,0).addBox(-2.0F,15.0F,-2.0F,4.0F,3.0F,4.0F),PartPose.offset(-5.0F,-1.0F,0.0F));
-                root.addOrReplaceChild("arm1",CubeListBuilder.create().texOffs(176,0).addBox(-1.5F,0.0F,-1.5F,3.0F,15.0F,3.0F).texOffs(189,0).addBox(-2.0F,15.0F,-2.0F,4.0F,3.0F,4.0F),PartPose.offset(5.0F,-1.0F,0.0F));
-                root.addOrReplaceChild("leg0",CubeListBuilder.create().texOffs(206,0).addBox(-1.5F,0.0F,-1.5F,3.0F,10.0F,3.0F),PartPose.offset(-2.0F,14.0F,0.0F));
-                root.addOrReplaceChild("leg1",CubeListBuilder.create().texOffs(219,0).addBox(-1.5F,0.0F,-1.5F,3.0F,10.0F,3.0F),PartPose.offset(2.0F,14.0F,0.0F));
-                root.addOrReplaceChild("tendril0",CubeListBuilder.create().texOffs(232,0).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(9.0F,4.0F,0.0F));
-                root.addOrReplaceChild("tendril1",CubeListBuilder.create().texOffs(0,23).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(0.0F,9.0F,9.0F));
-                root.addOrReplaceChild("tendril2",CubeListBuilder.create().texOffs(17,23).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(-9.0F,4.0F,0.0F));
-                root.addOrReplaceChild("tendril3",CubeListBuilder.create().texOffs(34,23).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(0.0F,9.0F,-9.0F));
+                root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,0).addBox(-5.0F,-16.0F,-4.0F,10.0F,16.0F,8.0F).texOffs(37,0).addBox(-7.0F,-13.0F,-5.0F,14.0F,4.0F,10.0F).texOffs(86,0).addBox(-6.0F,-6.0F,-5.0F,12.0F,4.0F,10.0F).texOffs(131,0).addBox(-8.0F,-18.0F,-5.0F,16.0F,4.0F,10.0F),PartPose.offset(0.0F,14.0F,0.0F));
+                root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(184,0).addBox(-4.0F,-8.0F,-4.0F,8.0F,8.0F,8.0F).texOffs(217,0).addBox(-6.0F,-13.0F,-1.0F,3.0F,7.0F,3.0F).texOffs(230,0).addBox(3.0F,-13.0F,-1.0F,3.0F,7.0F,3.0F).texOffs(0,25).addBox(-5.0F,-9.0F,-5.0F,10.0F,3.0F,10.0F),PartPose.offset(0.0F,-4.0F,0.0F));
+                root.addOrReplaceChild("arm0",CubeListBuilder.create().texOffs(41,25).addBox(-2.0F,0.0F,-2.0F,4.0F,16.0F,4.0F).texOffs(58,25).addBox(-3.0F,16.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(-9.0F,-2.0F,0.0F));
+                root.addOrReplaceChild("arm1",CubeListBuilder.create().texOffs(83,25).addBox(-2.0F,0.0F,-2.0F,4.0F,16.0F,4.0F).texOffs(100,25).addBox(-3.0F,16.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(9.0F,-2.0F,0.0F));
+                root.addOrReplaceChild("leg0",CubeListBuilder.create().texOffs(125,25).addBox(-2.0F,0.0F,-2.0F,4.0F,10.0F,4.0F),PartPose.offset(-3.0F,14.0F,0.0F));
+                root.addOrReplaceChild("leg1",CubeListBuilder.create().texOffs(142,25).addBox(-2.0F,0.0F,-2.0F,4.0F,10.0F,4.0F),PartPose.offset(3.0F,14.0F,0.0F));
+                root.addOrReplaceChild("tendril0",CubeListBuilder.create().texOffs(159,25).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(9.0F,4.0F,0.0F));
+                root.addOrReplaceChild("tendril1",CubeListBuilder.create().texOffs(176,25).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(0.0F,9.0F,9.0F));
+                root.addOrReplaceChild("tendril2",CubeListBuilder.create().texOffs(193,25).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(-9.0F,4.0F,0.0F));
+                root.addOrReplaceChild("tendril3",CubeListBuilder.create().texOffs(210,25).addBox(-2.0F,-2.0F,-2.0F,4.0F,4.0F,4.0F),PartPose.offset(0.0F,9.0F,-9.0F));
             }
             case "prism_serpent" -> {
                 root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,0).addBox(-5.0F,-4.0F,-8.0F,10.0F,7.0F,9.0F).texOffs(72,0).addBox(-5.0F,-8.0F,-3.0F,2.0F,5.0F,2.0F).texOffs(81,0).addBox(3.0F,-8.0F,-3.0F,2.0F,5.0F,2.0F),PartPose.offset(0.0F,10.0F,-24.0F));
@@ -71,14 +71,14 @@ public final class GeneratedGuardianLayers {
                 root.addOrReplaceChild("tendril3",CubeListBuilder.create().texOffs(127,25).addBox(-1.5F,-1.0F,-1.5F,3.0F,2.0F,3.0F),PartPose.offset(0.0F,-12.0F,-7.0F));
             }
             case "tide_drummer" -> {
-                root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,0).addBox(-8.0F,-12.0F,-6.0F,16.0F,12.0F,12.0F).texOffs(57,0).addBox(-9.0F,-15.0F,-7.0F,18.0F,4.0F,14.0F).texOffs(122,0).addBox(-6.0F,-8.0F,-9.0F,12.0F,8.0F,3.0F),PartPose.offset(0.0F,18.0F,0.0F));
-                root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(153,0).addBox(-4.0F,-5.0F,-6.0F,8.0F,5.0F,6.0F).texOffs(207,0).addBox(-5.0F,-7.0F,-3.0F,1.0F,4.0F,5.0F).texOffs(220,0).addBox(4.0F,-7.0F,-3.0F,1.0F,4.0F,5.0F),PartPose.offset(0.0F,8.0F,-7.0F));
-                root.addOrReplaceChild("jaw",CubeListBuilder.create().texOffs(182,0).addBox(-3.0F,0.0F,-6.0F,6.0F,2.0F,6.0F),PartPose.offset(0.0F,10.0F,-7.0F));
-                root.addOrReplaceChild("arm0",CubeListBuilder.create().texOffs(233,0).addBox(-2.0F,0.0F,-2.0F,4.0F,11.0F,4.0F).texOffs(0,25).addBox(-3.0F,10.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(-9.0F,7.0F,-4.0F));
-                root.addOrReplaceChild("arm1",CubeListBuilder.create().texOffs(25,25).addBox(-2.0F,0.0F,-2.0F,4.0F,11.0F,4.0F).texOffs(42,25).addBox(-3.0F,10.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(9.0F,7.0F,-4.0F));
-                root.addOrReplaceChild("leg0",CubeListBuilder.create().texOffs(67,25).addBox(-2.5F,0.0F,-2.5F,5.0F,6.0F,5.0F),PartPose.offset(-4.0F,18.0F,3.0F));
-                root.addOrReplaceChild("leg1",CubeListBuilder.create().texOffs(88,25).addBox(-2.5F,0.0F,-2.5F,5.0F,6.0F,5.0F),PartPose.offset(4.0F,18.0F,3.0F));
-                root.addOrReplaceChild("tail",CubeListBuilder.create().texOffs(109,25).addBox(-1.0F,-2.0F,0.0F,2.0F,4.0F,9.0F).texOffs(132,25).addBox(-0.5F,-6.0F,5.0F,1.0F,8.0F,4.0F),PartPose.offset(0.0F,14.0F,6.0F));
+                root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,0).addBox(-8.0F,-12.0F,-6.0F,16.0F,12.0F,12.0F).texOffs(57,0).addBox(-9.0F,-15.0F,-7.0F,18.0F,4.0F,14.0F).texOffs(122,0).addBox(-6.0F,-8.0F,-9.0F,12.0F,8.0F,3.0F).texOffs(153,0).addBox(-3.0F,-14.0F,-10.0F,6.0F,6.0F,5.0F),PartPose.offset(0.0F,18.0F,0.0F));
+                root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(176,0).addBox(-4.5F,-6.0F,-8.0F,9.0F,6.0F,8.0F).texOffs(240,0).addBox(-6.0F,-9.0F,-3.0F,1.5F,5.0F,6.0F).texOffs(0,25).addBox(4.5F,-9.0F,-3.0F,1.5F,5.0F,6.0F),PartPose.offset(0.0F,4.0F,-10.0F));
+                root.addOrReplaceChild("jaw",CubeListBuilder.create().texOffs(211,0).addBox(-3.5F,0.0F,-8.0F,7.0F,2.0F,7.0F),PartPose.offset(0.0F,4.0F,-10.0F));
+                root.addOrReplaceChild("arm0",CubeListBuilder.create().texOffs(17,25).addBox(-2.0F,0.0F,-2.0F,4.0F,11.0F,4.0F).texOffs(34,25).addBox(-3.0F,10.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(-9.0F,7.0F,-4.0F));
+                root.addOrReplaceChild("arm1",CubeListBuilder.create().texOffs(59,25).addBox(-2.0F,0.0F,-2.0F,4.0F,11.0F,4.0F).texOffs(76,25).addBox(-3.0F,10.0F,-3.0F,6.0F,4.0F,6.0F),PartPose.offset(9.0F,7.0F,-4.0F));
+                root.addOrReplaceChild("leg0",CubeListBuilder.create().texOffs(101,25).addBox(-2.5F,0.0F,-2.5F,5.0F,6.0F,5.0F),PartPose.offset(-4.0F,18.0F,3.0F));
+                root.addOrReplaceChild("leg1",CubeListBuilder.create().texOffs(122,25).addBox(-2.5F,0.0F,-2.5F,5.0F,6.0F,5.0F),PartPose.offset(4.0F,18.0F,3.0F));
+                root.addOrReplaceChild("tail",CubeListBuilder.create().texOffs(143,25).addBox(-1.0F,-2.0F,0.0F,2.0F,4.0F,9.0F).texOffs(166,25).addBox(-0.5F,-6.0F,5.0F,1.0F,8.0F,4.0F),PartPose.offset(0.0F,14.0F,6.0F));
             }
             case "stampede_spirit" -> {
                 root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,0).addBox(-6.0F,-8.0F,-11.0F,12.0F,12.0F,22.0F).texOffs(69,0).addBox(-7.0F,-11.0F,-12.0F,14.0F,5.0F,10.0F),PartPose.offset(0.0F,12.0F,0.0F));
