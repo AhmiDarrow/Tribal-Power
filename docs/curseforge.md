@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.3 — Hooks and chimes
+Uploaded 2026-09-25: `tribalpower-5.3.3.jar` as file **8976330** ("Tribal Power 5.3.3 - Hooks and chimes", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.3.md`. Jade reads machine Pulse from the server (was always 0), Pulse HUD for all cell-seating gear, decor attaches to any non-replaceable block, rebuilt Wind Charm (model, wall bracket, synthesized chimes), new Hanging Rack, and empty-cursor right-click takes cells and goggles back off gear. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.3
+
 ## 5.3.2 — Bound stones
 Uploaded 2026-09-25: `tribalpower-5.3.2.jar` as file **8973651** ("Tribal Power 5.3.2 - Bound stones", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.2.md`. Hotfix: 5.3.0 and 5.3.1's `agricraft/plants` copies lacked the seed drop fields and seasons AgriCraft 4.0.17 requires, so a world with 4.0.17 failed to load registries (caught by the Ninjacat Skies full-pack server gate). 5.3.1 (8973496) should be archived. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.2
 
