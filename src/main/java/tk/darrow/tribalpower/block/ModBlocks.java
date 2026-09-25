@@ -475,8 +475,8 @@ public final class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_CYAN)
                     .strength(3.0F)
                     .sound(SoundType.STONE)
-                    .lightLevel(s -> 3)
-                    .noOcclusion())
+                    // the pile's charge shows as light: a full pile lights its camp
+                    .lightLevel(s -> 2 + 3 * s.getValue(PulseCairnBlock.CHARGE)))
     );
 
     public static final DeferredBlock<RitualBrazierBlock> RITUAL_BRAZIER = BLOCKS.register("ritual_brazier", () ->

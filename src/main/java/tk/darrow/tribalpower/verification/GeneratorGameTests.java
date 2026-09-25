@@ -373,4 +373,36 @@ public class GeneratorGameTests {
         }
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void cairnsJoinIntoOnePileAndGlowTogether(GameTestHelper h) {
+        var block = (tk.darrow.tribalpower.block.PulseCairnBlock) ModBlocks.PULSE_CAIRN.get();
+        var level = h.getLevel();
+        BlockPos a = new BlockPos(1, 2, 1), b = new BlockPos(2, 2, 1), c = new BlockPos(1, 3, 1);
+        h.setBlock(a, block.defaultBlockState());
+        h.setBlock(b, block.joinedTo(level, h.absolutePos(b), block.defaultBlockState()));
+        h.setBlock(c, block.joinedTo(level, h.absolutePos(c), block.defaultBlockState()));
+        var stateA = level.getBlockState(h.absolutePos(a));
+        h.assertTrue(stateA.getValue(tk.darrow.tribalpower.block.PulseCairnBlock.JOINED.get(net.minecraft.core.Direction.EAST))
+                && stateA.getValue(tk.darrow.tribalpower.block.PulseCairnBlock.JOINED.get(net.minecraft.core.Direction.UP)),
+                "The first stone joins the one beside it and the one on top");
+        h.assertTrue(level.getBlockState(h.absolutePos(b)).getValue(tk.darrow.tribalpower.block.PulseCairnBlock.JOINED.get(net.minecraft.core.Direction.WEST)),
+                "The stone beside joins back");
+        h.assertFalse(stateA.getValue(tk.darrow.tribalpower.block.PulseCairnBlock.JOINED.get(net.minecraft.core.Direction.NORTH)), "Open sides stay unjoined");
+
+        var cairn = (tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity) h.getBlockEntity(b);
+        h.assertTrue(cairn.getPulseCapacity() == 3 * tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity.CAPACITY, "Three joined stones are one store");
+        cairn.insertPulse(cairn.getPulseCapacity(), false);
+        for (BlockPos p : new BlockPos[]{a, b, c}) {
+            var s = level.getBlockState(h.absolutePos(p));
+            h.assertTrue(s.getValue(tk.darrow.tribalpower.block.PulseCairnBlock.CHARGE) == 4, "A full pile shows full on every stone: " + p);
+            h.assertTrue(s.getLightEmission(level, h.absolutePos(p)) == 14, "A full pile lights its camp");
+        }
+        h.assertTrue(h.getBlockEntity(b) == cairn, "Changing a stone's look keeps its block entity");
+
+        h.setBlock(b, Blocks.AIR);
+        h.assertFalse(level.getBlockState(h.absolutePos(a)).getValue(tk.darrow.tribalpower.block.PulseCairnBlock.JOINED.get(net.minecraft.core.Direction.EAST)),
+                "Breaking a stone parts the pile there");
+        h.succeed();
+    }
 }

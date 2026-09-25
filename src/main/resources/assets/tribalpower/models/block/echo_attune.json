@@ -35,6 +35,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
         }
       }
     },
@@ -60,6 +63,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "east": {
           "texture": "#stone"
         }
       }
@@ -90,6 +96,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
         }
       }
     },
@@ -115,6 +124,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "west": {
           "texture": "#stone"
         }
       }
@@ -145,6 +157,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "north": {
+          "texture": "#stone"
         }
       }
     },
@@ -170,6 +185,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "east": {
           "texture": "#stone"
         }
       }
@@ -200,6 +218,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "north": {
+          "texture": "#stone"
         }
       }
     },
@@ -225,6 +246,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "west": {
           "texture": "#stone"
         }
       }
@@ -835,6 +859,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
         }
       }
     },
@@ -864,6 +891,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
         }
       }
     },
@@ -887,6 +917,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
         }
       }
     },
@@ -909,6 +942,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "up": {
           "texture": "#stone"
         }
       }
@@ -938,6 +974,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "up": {
           "texture": "#stone"
         }
       }
@@ -962,6 +1001,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
         }
       }
     },
@@ -984,6 +1026,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "up": {
           "texture": "#stone"
         }
       }
@@ -1008,6 +1053,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "up": {
+          "texture": "#stone"
         }
       }
     },
@@ -1030,6 +1078,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }
@@ -1059,6 +1110,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }
@@ -1083,6 +1137,9 @@
         },
         "up": {
           "texture": "#copper"
+        },
+        "down": {
+          "texture": "#copper"
         }
       }
     },
@@ -1105,6 +1162,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }
@@ -1135,6 +1195,9 @@
         },
         "up": {
           "texture": "#copper"
+        },
+        "down": {
+          "texture": "#copper"
         }
       }
     },
@@ -1157,6 +1220,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }
@@ -1181,6 +1247,9 @@
         },
         "up": {
           "texture": "#copper"
+        },
+        "down": {
+          "texture": "#copper"
         }
       }
     },
@@ -1203,6 +1272,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }

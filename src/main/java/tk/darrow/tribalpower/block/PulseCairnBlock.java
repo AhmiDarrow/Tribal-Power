@@ -15,27 +15,53 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import tk.darrow.tribalpower.blockentity.ModBlockEntities;
 import tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity;
 
 /** Stones that hold a beat (design 3.1 section 9.4). Touching stones are one pile and one store. */
 public class PulseCairnBlock extends BaseEntityBlock {
     public static final MapCodec<PulseCairnBlock> CODEC = simpleCodec(PulseCairnBlock::new);
-    private static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0);
+    /** Which sides touch another cairn: the copper binding runs only where the pile's outline does. */
+    public static final java.util.Map<net.minecraft.core.Direction, net.minecraft.world.level.block.state.properties.BooleanProperty> JOINED =
+            net.minecraft.world.level.block.PipeBlock.PROPERTY_BY_DIRECTION;
+    /** The whole pile's fill, 0 empty to 4 full, shared by every stone so the pile glows as one. */
+    public static final net.minecraft.world.level.block.state.properties.IntegerProperty CHARGE =
+            net.minecraft.world.level.block.state.properties.IntegerProperty.create("charge", 0, 4);
 
     public PulseCairnBlock(BlockBehaviour.Properties properties) {
-        super(properties.noOcclusion());
+        super(properties);
+        BlockState state = stateDefinition.any().setValue(CHARGE, 0);
+        for (var joined : JOINED.values()) state = state.setValue(joined, false);
+        registerDefaultState(state);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<Block, BlockState> builder) {
+        JOINED.values().forEach(builder::add);
+        builder.add(CHARGE);
+    }
+
+    /** This stone as it sits among its neighbours: joined on every side that touches another cairn. */
+    public BlockState joinedTo(BlockGetter level, BlockPos pos, BlockState state) {
+        for (var side : JOINED.entrySet())
+            state = state.setValue(side.getValue(), level.getBlockState(pos.relative(side.getKey())).is(this));
+        return state;
+    }
+
+    @Override
+    public BlockState getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext context) {
+        return joinedTo(context.getLevel(), context.getClickedPos(), defaultBlockState());
+    }
+
+    @Override
+    protected BlockState updateShape(BlockState state, net.minecraft.core.Direction side, BlockState neighbour,
+                                     net.minecraft.world.level.LevelAccessor level, BlockPos pos, BlockPos neighbourPos) {
+        return state.setValue(JOINED.get(side), neighbour.is(this));
     }
 
     @Override protected MapCodec<? extends BaseEntityBlock> codec() { return CODEC; }
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
 
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE;
-    }
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

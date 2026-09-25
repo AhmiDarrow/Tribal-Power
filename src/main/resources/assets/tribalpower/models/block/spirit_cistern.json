@@ -497,6 +497,9 @@
         },
         "up": {
           "texture": "#copper"
+        },
+        "down": {
+          "texture": "#copper"
         }
       }
     },

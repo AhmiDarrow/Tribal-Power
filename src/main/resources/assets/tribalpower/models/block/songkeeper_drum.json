@@ -64,6 +64,9 @@
         },
         "up": {
           "texture": "#top"
+        },
+        "down": {
+          "texture": "#side"
         }
       }
     }

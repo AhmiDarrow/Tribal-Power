@@ -228,6 +228,9 @@
         },
         "up": {
           "texture": "#frieze"
+        },
+        "down": {
+          "texture": "#frieze"
         }
       }
     },
@@ -253,6 +256,9 @@
           "texture": "#frieze"
         },
         "up": {
+          "texture": "#frieze"
+        },
+        "down": {
           "texture": "#frieze"
         }
       }

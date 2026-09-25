@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "trim": "tribalpower:block/hearth_copper"
+  },
+  "elements": [
+    {
+      "from": [
+        -0.03,
+        14.5,
+        14.5
+      ],
+      "to": [
+        16.03,
+        16.03,
+        16.03
+      ],
+      "faces": {
+        "up": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "south": {
+          "texture": "#trim",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        }
+      }
+    }
+  ]
+}

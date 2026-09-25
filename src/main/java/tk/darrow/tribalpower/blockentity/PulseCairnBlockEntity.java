@@ -140,15 +140,41 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
             return stored == 0 ? 0 : 1 + 14 * stored / Math.max(1, capacity());
         }
 
+        /** 0 for an empty pile, then 1 to 4 as it fills: what every stone's veins show. */
+        public int charge() {
+            int stored = stored();
+            return stored <= 0 ? 0 : Math.min(4, 1 + 3 * stored / Math.max(1, capacity()));
+        }
+
         /** Tell every stone's comparators when the pile's reading moves. */
         void changed() {
             int now = signal();
-            if (now == lastSignal) return;
-            lastSignal = now;
+            if (now != lastSignal) {
+                lastSignal = now;
+                for (PulseCairnBlockEntity member : members) {
+                    Level level = member.level;
+                    if (level != null && !member.isRemoved())
+                        level.updateNeighbourForOutputSignal(member.worldPosition, member.getBlockState().getBlock());
+                }
+            }
+            showCharge();
+        }
+
+        /**
+         * Light every stone to the pile's charge. Checked against each stone's own state rather than remembered, so a
+         * stone whose state was set from outside (a command, a structure) comes back to the pile's light by itself.
+         */
+        void showCharge() {
+            int charge = charge();
             for (PulseCairnBlockEntity member : members) {
                 Level level = member.level;
-                if (level != null && !member.isRemoved())
-                    level.updateNeighbourForOutputSignal(member.worldPosition, member.getBlockState().getBlock());
+                if (level == null || member.isRemoved()) continue;
+                BlockState state = member.getBlockState();
+                if (state.hasProperty(tk.darrow.tribalpower.block.PulseCairnBlock.CHARGE)
+                        && state.getValue(tk.darrow.tribalpower.block.PulseCairnBlock.CHARGE) != charge)
+                    // Same block, new look: the stone keeps its block entity, and neighbours are not woken for it.
+                    level.setBlock(member.worldPosition, state.setValue(tk.darrow.tribalpower.block.PulseCairnBlock.CHARGE, charge),
+                            net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
             }
         }
     }

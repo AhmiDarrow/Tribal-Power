@@ -153,6 +153,9 @@
         },
         "up": {
           "texture": "#wood"
+        },
+        "down": {
+          "texture": "#head"
         }
       }
     },

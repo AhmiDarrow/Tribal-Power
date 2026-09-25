@@ -1,7 +1,282 @@
 {
-  "variants": {
-    "": {
-      "model": "tribalpower:block/pulse_cairn"
+  "multipart": [
+    {
+      "when": {
+        "charge": "0"
+      },
+      "apply": [
+        {
+          "model": "tribalpower:block/pulse_cairn_soil_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_stone_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sprout_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_claw_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spark_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_clock_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_swarm_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sigil_0"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spindle_0"
+        }
+      ]
+    },
+    {
+      "when": {
+        "charge": "1"
+      },
+      "apply": [
+        {
+          "model": "tribalpower:block/pulse_cairn_soil_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_stone_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sprout_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_claw_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spark_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_clock_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_swarm_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sigil_1"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spindle_1"
+        }
+      ]
+    },
+    {
+      "when": {
+        "charge": "2"
+      },
+      "apply": [
+        {
+          "model": "tribalpower:block/pulse_cairn_soil_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_stone_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sprout_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_claw_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spark_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_clock_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_swarm_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sigil_2"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spindle_2"
+        }
+      ]
+    },
+    {
+      "when": {
+        "charge": "3"
+      },
+      "apply": [
+        {
+          "model": "tribalpower:block/pulse_cairn_soil_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_stone_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sprout_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_claw_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spark_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_clock_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_swarm_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sigil_3"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spindle_3"
+        }
+      ]
+    },
+    {
+      "when": {
+        "charge": "4"
+      },
+      "apply": [
+        {
+          "model": "tribalpower:block/pulse_cairn_soil_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_stone_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sprout_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_claw_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spark_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_clock_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_swarm_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_sigil_4"
+        },
+        {
+          "model": "tribalpower:block/pulse_cairn_spindle_4"
+        }
+      ]
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_up_north"
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_up_south"
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_up_east"
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_up_west"
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_down_north"
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_down_south"
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_down_east"
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_down_west"
+      }
+    },
+    {
+      "when": {
+        "north": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_north_east"
+      }
+    },
+    {
+      "when": {
+        "north": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_north_west"
+      }
+    },
+    {
+      "when": {
+        "south": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_south_east"
+      }
+    },
+    {
+      "when": {
+        "south": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/pulse_cairn_edge_south_west"
+      }
     }
-  }
+  ]
 }

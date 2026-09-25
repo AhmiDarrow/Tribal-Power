@@ -104,6 +104,9 @@
         },
         "down": {
           "texture": "#copper"
+        },
+        "south": {
+          "texture": "#copper"
         }
       }
     },

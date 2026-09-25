@@ -104,6 +104,9 @@
         },
         "down": {
           "texture": "#copper"
+        },
+        "south": {
+          "texture": "#copper"
         }
       }
     },
@@ -133,6 +136,9 @@
         },
         "down": {
           "texture": "#copper"
+        },
+        "south": {
+          "texture": "#copper"
         }
       }
     },
@@ -155,6 +161,9 @@
           "texture": "#copper"
         },
         "down": {
+          "texture": "#copper"
+        },
+        "south": {
           "texture": "#copper"
         }
       }
@@ -271,6 +280,9 @@
           "texture": "#copper"
         },
         "up": {
+          "texture": "#copper"
+        },
+        "down": {
           "texture": "#copper"
         }
       }

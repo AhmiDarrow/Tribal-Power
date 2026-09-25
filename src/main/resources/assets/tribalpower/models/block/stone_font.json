@@ -136,6 +136,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "south": {
+          "texture": "#stone"
         }
       }
     },
@@ -164,6 +167,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "north": {
           "texture": "#stone"
         }
       }
@@ -194,6 +200,9 @@
         },
         "down": {
           "texture": "#stone"
+        },
+        "east": {
+          "texture": "#stone"
         }
       }
     },
@@ -222,6 +231,9 @@
           "texture": "#stone"
         },
         "down": {
+          "texture": "#stone"
+        },
+        "west": {
           "texture": "#stone"
         }
       }
