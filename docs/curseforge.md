@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.2.0 — Deeper cells
+Uploaded 2026-09-24: `tribalpower-5.2.0.jar` as file **8969470** ("Tribal Power 5.2.0 - Deeper cells", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.2.0.md`. Pulse Cell 1,200, Greater 4,800, new Grand Pulse Cell 19,200. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.2.0
+
 ## 5.1.0 — Your keys, your gear
 Uploaded 2026-09-24: `tribalpower-5.1.0.jar` as file **8969126** ("Tribal Power 5.1.0 - Your keys, your gear", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.1.0.md`. Rebindable keys under a Tribal Power heading (rite drums, goggles, staff voice, vault, HUD, Gear screen), a per-piece off switch for worn Spiritweave, the vault switch announced. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.1.0
 
