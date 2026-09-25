@@ -2625,5 +2625,6 @@
   "message.tribalpower.weather.gathers": "%s gathers over the March. It settles in %s: find shelter.",
   "message.tribalpower.surge.gathers": "The ley stirs. Every %s thread will run bright in %s: leave the bare crossings.",
   "message.tribalpower.time.minutes": "%s minutes",
-  "message.tribalpower.time.seconds": "%s seconds"
+  "message.tribalpower.time.seconds": "%s seconds",
+  "message.tribalpower.silent_drum.no_room": "The Unsung needs open sky above the drum to rise. Clear the space overhead."
 }

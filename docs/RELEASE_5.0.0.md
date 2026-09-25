@@ -1,6 +1,6 @@
-# Tribal Power 4.4.0 - The world tells its own story
+# Tribal Power 5.0.0 - The world tells its own story
 
-The March writes its history down, hands you a path through it, and opens up to the tools a pack expects.
+A major version: everything since 4.0.1 in one. The spirit layer and the table (4.1), the tribes' stories, guardians and the Ninth Agreement (4.2), the March's own weather, surges, festivals, spirits and music (4.3), and now the Chronicle, storm warnings, fluid you can see, AgriCraft, weapon animations and a long bug sweep. The notes for the earlier steps follow this release's own.
 
 ## The Chronicle
 

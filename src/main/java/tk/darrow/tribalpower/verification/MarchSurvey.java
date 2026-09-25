@@ -79,7 +79,9 @@ public final class MarchSurvey {
             // other is a mineral peak. Holding them to a plant count would be asking them to stop
             // being what they are.
             boolean bare = SITES[site].equals("march_ember_wastes") || SITES[site].equals("march_glimmer_ridge");
-            boolean pass = plants <= MAX_PLANTS_PER_CHUNK && lights <= MAX_LIGHTS_PER_CHUNK
+            // the Glimmer Ridge is the one country meant to glow: its crystal buds are its whole point
+            double lightCap = SITES[site].equals("march_glimmer_ridge") ? MAX_LIGHTS_PER_CHUNK * 1.5 : MAX_LIGHTS_PER_CHUNK;
+            boolean pass = plants <= MAX_PLANTS_PER_CHUNK && lights <= lightCap
                     && (plants >= MIN_PLANTS_PER_CHUNK || bare);
             ok &= pass;
             TribalPower.LOGGER.info("March survey {} {}: {} plants/chunk, {} lights/chunk, {} ms/chunk, surface {}",
@@ -230,10 +232,14 @@ public final class MarchSurvey {
                 net.minecraft.world.entity.MobCategory.CREATURE, net.minecraft.world.entity.MobCategory.WATER_CREATURE,
                 net.minecraft.world.entity.MobCategory.WATER_AMBIENT};
         Map<String, int[]> tally = new TreeMap<>();
+        Map<String, int[]> reasons = new TreeMap<>();   // monster spots: sampled, position ok, dark, lit by blocks, under cover, spirits rise
         var random = march.getRandom();
         long dayTime = march.getDayTime();
+        // spirits that rose while the sites generated would crowd the sample (the day cap is one within 32 blocks)
+        for (var entity : march.getAllEntities()) if (entity instanceof tk.darrow.tribalpower.entity.LatticeMonster) entity.discard();
         for (long time : new long[]{6000, 18000}) {
             march.setDayTime(time);
+            march.updateSkyBrightness();   // the darkness rule reads the sky's dimming, which only a tick would refresh
             for (int site = 0; site < SITES.length; site++) {
                 BlockPos origin = origins.get(site);
                 for (int i = 0; i < 600; i++) {
@@ -242,27 +248,52 @@ public final class MarchSurvey {
                     BlockPos land = new BlockPos(x, surface, z);
                     boolean wet = march.getFluidState(land.below()).is(net.minecraft.tags.FluidTags.WATER);
                     BlockPos water = wet ? land.below() : null;
+                    // cave and lava dwellers live below: the first dark pocket, and the first hot ledge, down this column
+                    BlockPos cave = null, lava = null;
+                    for (int yy = surface - 6; yy > march.getMinBuildHeight() + 4 && (cave == null || lava == null); yy--) {
+                        BlockPos at = new BlockPos(x, yy, z);
+                        if (!march.getBlockState(at).isAir() || !march.getBlockState(at.below()).isSolid()) continue;
+                        if (cave == null && tk.darrow.tribalpower.entity.CreatureHabitat.cave(march, at)) cave = at;
+                        if (lava == null && tk.darrow.tribalpower.entity.CreatureHabitat.lava(march, at)) lava = at;
+                    }
                     var biome = march.getBiome(land);
                     String biomeName = biome.unwrapKey().map(k -> k.location().getPath()).orElse("?");
                     if (!biomeName.equals(SITES[site])) continue;
                     for (var category : categories) {
                         boolean aquatic = category == net.minecraft.world.entity.MobCategory.WATER_CREATURE
                                 || category == net.minecraft.world.entity.MobCategory.WATER_AMBIENT;
-                        BlockPos pos = aquatic ? water : land;
                         for (var entry : biome.value().getMobSettings().getMobs(category).unwrap()) {
-                            String key = biomeName + " " + net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entry.type);
+                            var id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entry.type);
+                            String key = biomeName + " " + id;
                             int[] counts = tally.computeIfAbsent(key, k -> new int[2]);
+                            // each creature is asked where it lives: a cave dweller in the dark below, a lava dweller by the heat
+                            var habitat = tk.darrow.tribalpower.entity.CreatureHabitat.of(id.getPath());
+                            BlockPos pos = aquatic || habitat == tk.darrow.tribalpower.entity.CreatureHabitat.WATER ? water
+                                    : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.CAVE ? cave
+                                    : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.LAVA ? lava : land;
                             if (pos == null) continue;
                             counts[1]++;
-                            if (net.minecraft.world.entity.SpawnPlacements.isSpawnPositionOk(entry.type, march, pos)
-                                    && net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(entry.type, march,
+                            boolean positionOk = net.minecraft.world.entity.SpawnPlacements.isSpawnPositionOk(entry.type, march, pos);
+                            if (positionOk && net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(entry.type, march,
                                     net.minecraft.world.entity.MobSpawnType.NATURAL, pos, random)) counts[0]++;
+                            if (category == net.minecraft.world.entity.MobCategory.MONSTER) {
+                                int[] why = reasons.computeIfAbsent(biomeName + "@" + time, k -> new int[6]);
+                                why[0]++;
+                                if (positionOk) why[1]++;
+                                if (net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn(march, pos, random)) why[2]++;
+                                if (march.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0) why[3]++;
+                                if (march.getBrightness(net.minecraft.world.level.LightLayer.SKY, pos) < 15) why[4]++;
+                                if (tk.darrow.tribalpower.entity.MarchSpawns.spiritsRise(march, pos, random)) why[5]++;
+                            }
                         }
                     }
                 }
             }
         }
         march.setDayTime(dayTime);
+        for (var entry : reasons.entrySet())
+            TribalPower.LOGGER.info("March survey spawn WHY {}: sampled {}, position ok {}, dark {}, block-lit {}, under cover {}, spirits rise {}",
+                    entry.getKey(), entry.getValue()[0], entry.getValue()[1], entry.getValue()[2], entry.getValue()[3], entry.getValue()[4], entry.getValue()[5]);
         boolean ok = true;
         for (var entry : tally.entrySet()) {
             int spawnable = entry.getValue()[0], sampled = entry.getValue()[1];
