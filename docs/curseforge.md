@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.4 — Common ground
+Uploaded 2026-09-25: `tribalpower-5.3.4.jar` as file **8976424** ("Tribal Power 5.3.4 - Common ground", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.4.md`. Conventional c: biome tags for all eight March biomes (Reed Fen now swamp, not plains), c:glass_blocks/c:glass_panes for Quartz Glass, c:ingots for the Manifested Ingot. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.4
+
 ## 5.3.3 — Hooks and chimes
 Uploaded 2026-09-25: `tribalpower-5.3.3.jar` as file **8976330** ("Tribal Power 5.3.3 - Hooks and chimes", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.3.md`. Jade reads machine Pulse from the server (was always 0), Pulse HUD for all cell-seating gear, decor attaches to any non-replaceable block, rebuilt Wind Charm (model, wall bracket, synthesized chimes), new Hanging Rack, and empty-cursor right-click takes cells and goggles back off gear. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.3
 
