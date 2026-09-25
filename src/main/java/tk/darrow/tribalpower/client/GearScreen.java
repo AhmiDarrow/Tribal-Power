@@ -22,7 +22,7 @@ import java.util.List;
  * drawn), the hood's ley goggles, the Sixfold Staff's voice, which vault the satchel opens, and the Pulse HUD.
  */
 public class GearScreen extends Screen {
-    private static final int W = 220, ROW = 24;
+    private static final int W = 260, ROW = 24;
     private static final EquipmentSlot[] ARMOR = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
     private final List<Component> labels = new ArrayList<>();
     private int top, height0;
@@ -98,6 +98,9 @@ public class GearScreen extends Screen {
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        // The background pass blurs everything drawn before it, so the panel and its labels come after it and the
+        // widgets last; Screen.render would draw the widgets right after the background, over nothing.
+        renderBackground(g, mouseX, mouseY, partialTick);
         int x = (width - W) / 2;
         g.fill(x, top, x + W, top + height0, 0xFF101B22);
         g.renderOutline(x, top, W, height0, 0xFFB58A58);
@@ -108,7 +111,7 @@ public class GearScreen extends Screen {
             g.drawString(font, label, x + 8, y + 8, 0xFFE7DCC1, false);
             y += ROW;
         }
-        super.render(g, mouseX, mouseY, partialTick);
+        for (var widget : renderables) widget.render(g, mouseX, mouseY, partialTick);
     }
 
     @Override

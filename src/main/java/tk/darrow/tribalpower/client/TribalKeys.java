@@ -23,12 +23,14 @@ public final class TribalKeys {
     public static final KeyMapping STAFF_VOICE = key("staff_voice", KeyConflictContext.IN_GAME, GLFW.GLFW_KEY_UNKNOWN);
     public static final KeyMapping VAULT = key("vault", KeyConflictContext.IN_GAME, GLFW.GLFW_KEY_UNKNOWN);
     public static final KeyMapping HUD = key("hud", KeyConflictContext.IN_GAME, GLFW.GLFW_KEY_UNKNOWN);
+    // A drum a player unbinds still answers its letter, so the rite is never left without keys.
     public static final KeyMapping[] RITE_LANES = {
             key("rite_lane_1", KeyConflictContext.GUI, GLFW.GLFW_KEY_A),
             key("rite_lane_2", KeyConflictContext.GUI, GLFW.GLFW_KEY_S),
             key("rite_lane_3", KeyConflictContext.GUI, GLFW.GLFW_KEY_D),
             key("rite_lane_4", KeyConflictContext.GUI, GLFW.GLFW_KEY_F),
     };
+    private static final int[] LANE_LETTERS = {GLFW.GLFW_KEY_A, GLFW.GLFW_KEY_S, GLFW.GLFW_KEY_D, GLFW.GLFW_KEY_F};
 
     private TribalKeys() {}
 
@@ -45,9 +47,11 @@ public final class TribalKeys {
         for (KeyMapping lane : RITE_LANES) event.register(lane);
     }
 
-    /** The rite lane a key press means, or -1. The arrow keys always work as well, for players who never rebind. */
+    /** The rite lane a key press means, or -1: the bound key, else that drum's letter; the arrows always work. */
     public static int riteLane(int key, int scan) {
-        for (int i = 0; i < RITE_LANES.length; i++) if (RITE_LANES[i].matches(key, scan)) return i;
+        for (int i = 0; i < RITE_LANES.length; i++) {
+            if (RITE_LANES[i].isUnbound() ? key == LANE_LETTERS[i] : RITE_LANES[i].matches(key, scan)) return i;
+        }
         return switch (key) {
             case GLFW.GLFW_KEY_LEFT -> 0;
             case GLFW.GLFW_KEY_DOWN -> 1;
