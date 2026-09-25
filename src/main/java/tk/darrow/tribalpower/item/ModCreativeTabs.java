@@ -129,6 +129,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRITWEAVE.get());
                         out.accept(ModItems.RESONANT_CORE.get());
                         out.accept(ModItems.GREATER_PULSE_CELL.get());
+                        out.accept(ModItems.GRAND_PULSE_CELL.get());
                         out.accept(ModItems.SPIRIT_STAFF.get());
                         out.accept(ModItems.WAYFARER_SATCHEL.get());
                         out.accept(ModItems.RESONANCE_MAUL.get());

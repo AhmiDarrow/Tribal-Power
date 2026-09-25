@@ -264,7 +264,7 @@ public class GearGameTests {
         tk.darrow.tribalpower.item.PulseCellItem.setPulse(greater, 500);
         ItemStack back = tk.darrow.tribalpower.item.GearCell.offer(pick, greater);
         h.assertTrue(back != null && back.is(ModItems.PULSE_CELL.get()), "Upgrading hands the plain cell back");
-        h.assertTrue(tk.darrow.tribalpower.item.GearCell.capacity(pick) == 1200 && tk.darrow.tribalpower.item.GearCell.pulse(pick) == 500,
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.capacity(pick) == tk.darrow.tribalpower.item.PulseCellItem.GREATER_CAPACITY && tk.darrow.tribalpower.item.GearCell.pulse(pick) == 500,
                 "The Greater cell is seated with its charge");
         ItemStack topUp = new ItemStack(ModItems.PULSE_CELL.get());
         tk.darrow.tribalpower.item.PulseCellItem.setPulse(topUp, 100);
@@ -379,6 +379,23 @@ public class GearGameTests {
         h.assertTrue(after.ordinal() == (before.ordinal() + 1) % Attunement.values().length, "The hotkey steps the voice once");
         tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.VAULT, 0, false);
         h.assertFalse(tk.darrow.tribalpower.camp.identity.Camps.personalVault(player), "The vault switch does nothing outside a camp");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void threeCellSizesAndTheUpgradeChain(GameTestHelper h) {
+        ItemStack plain = new ItemStack(ModItems.PULSE_CELL.get()), greater = new ItemStack(ModItems.GREATER_PULSE_CELL.get()), grand = new ItemStack(ModItems.GRAND_PULSE_CELL.get());
+        h.assertTrue(PulseCellItem.capacity(plain) == 1200 && PulseCellItem.capacity(greater) == 4800 && PulseCellItem.capacity(grand) == 19200,
+                "A cell holds 1,200, a Greater 4,800, a Grand 19,200");
+        PulseCellItem.setPulse(grand, 19200);
+        h.assertTrue(PulseCellItem.getPulse(grand) == 19200, "A Grand cell fills to the brim");
+        ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
+        PulseCellItem.setPulse(plain, 700);
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.offer(pick, plain) == ItemStack.EMPTY, "The plain cell seats");
+        ItemStack back = tk.darrow.tribalpower.item.GearCell.offer(pick, greater);
+        h.assertTrue(back.is(ModItems.PULSE_CELL.get()) && PulseCellItem.getPulse(back) == 700, "A Greater cell swaps in and hands the plain one back charged");
+        back = tk.darrow.tribalpower.item.GearCell.offer(pick, grand);
+        h.assertTrue(back.is(ModItems.GREATER_PULSE_CELL.get()) && tk.darrow.tribalpower.item.GearCell.capacity(pick) == 19200, "A Grand cell swaps in over a Greater");
         h.succeed();
     }
 }

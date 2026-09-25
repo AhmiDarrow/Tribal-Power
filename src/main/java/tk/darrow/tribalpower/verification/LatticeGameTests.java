@@ -445,11 +445,11 @@ public class LatticeGameTests {
     @GameTest(template="empty")
     public static void pulseCellsRejectExtremeRequestsWithoutSimulationMutation(GameTestHelper h) {
         var cell=new ItemStack(ModItems.GREATER_PULSE_CELL.get());
-        h.assertTrue(PulseCellItem.insertPulse(cell,Integer.MAX_VALUE,true)==1200 && PulseCellItem.getPulse(cell)==0,"Simulated fill must be bounded and read-only");
+        h.assertTrue(PulseCellItem.insertPulse(cell,Integer.MAX_VALUE,true)==PulseCellItem.GREATER_CAPACITY && PulseCellItem.getPulse(cell)==0,"Simulated fill must be bounded and read-only");
         PulseCellItem.insertPulse(cell,Integer.MAX_VALUE,false);
-        h.assertTrue(PulseCellItem.extractPulse(cell,Integer.MAX_VALUE,true)==1200 && PulseCellItem.getPulse(cell)==1200,"Simulated drain must be read-only");
+        h.assertTrue(PulseCellItem.extractPulse(cell,Integer.MAX_VALUE,true)==PulseCellItem.GREATER_CAPACITY && PulseCellItem.getPulse(cell)==PulseCellItem.GREATER_CAPACITY,"Simulated drain must be read-only");
         h.assertTrue(PulseCellItem.extractPulse(cell,Integer.MIN_VALUE,false)==0 && PulseCellItem.insertPulse(cell,Integer.MIN_VALUE,false)==0,"Negative requests must not create charge");
-        h.assertTrue(PulseCellItem.getPulse(cell)==1200,"Extreme requests must preserve stored charge");
+        h.assertTrue(PulseCellItem.getPulse(cell)==PulseCellItem.GREATER_CAPACITY,"Extreme requests must preserve stored charge");
         h.succeed();
     }
     @GameTest(template="empty", timeoutTicks=100)

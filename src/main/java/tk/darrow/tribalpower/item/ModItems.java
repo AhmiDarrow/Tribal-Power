@@ -219,7 +219,8 @@ public final class ModItems {
     public static final DeferredItem<Item> IRON_GRIT = ITEMS.registerSimpleItem("iron_grit");
     public static final DeferredItem<Item> GOLD_GRIT = ITEMS.registerSimpleItem("gold_grit");
     public static final DeferredItem<Item> COPPER_GRIT = ITEMS.registerSimpleItem("copper_grit");
-    public static final DeferredItem<PulseCellItem> GREATER_PULSE_CELL = ITEMS.register("greater_pulse_cell", () -> new PulseCellItem(new Item.Properties().stacksTo(1), 1200));
+    public static final DeferredItem<PulseCellItem> GREATER_PULSE_CELL = ITEMS.register("greater_pulse_cell", () -> new PulseCellItem(new Item.Properties().stacksTo(1), PulseCellItem.GREATER_CAPACITY));
+    public static final DeferredItem<PulseCellItem> GRAND_PULSE_CELL = ITEMS.register("grand_pulse_cell", () -> new PulseCellItem(new Item.Properties().stacksTo(1), PulseCellItem.GRAND_CAPACITY));
     public static final DeferredItem<SpiritStaffItem> SPIRIT_STAFF = ITEMS.register("spirit_staff", () -> new SpiritStaffItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<WayfarerSatchelItem> WAYFARER_SATCHEL = ITEMS.register("wayfarer_satchel", () -> new WayfarerSatchelItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<ResonanceMaulItem> RESONANCE_MAUL = ITEMS.register("resonance_maul", () -> new ResonanceMaulItem(new Item.Properties().durability(1024)));

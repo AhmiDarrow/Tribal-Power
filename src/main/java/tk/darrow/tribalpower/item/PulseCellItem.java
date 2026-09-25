@@ -15,7 +15,8 @@ import java.util.List;
  * generator (100). Spiritgear drains cells from inventory.
  */
 public class PulseCellItem extends Item {
-    public static final int CAPACITY = 200;
+    /** The three sizes: a plain cell, a Greater cell (four of them) and a Grand cell (sixteen). */
+    public static final int CAPACITY = 1200, GREATER_CAPACITY = 4800, GRAND_CAPACITY = 19200;
     public static final String PULSE_KEY = "Pulse";
     private final int capacity;
 

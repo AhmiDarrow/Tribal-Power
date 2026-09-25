@@ -3,7 +3,8 @@
   "icon": "tribalpower:pulse_cell",
   "order": 5,
   "items": [
-    "tribalpower:greater_pulse_cell"
+    "tribalpower:greater_pulse_cell",
+    "tribalpower:grand_pulse_cell"
   ],
   "pages": [
     {
@@ -199,7 +200,7 @@
       "type": "text",
       "title": "Carrying it",
       "text": [
-        "A Pulse Cell holds **200 Pulse**; a **Greater Pulse Cell** holds **1,200**. Carry charged cells for spells, Spiritgear, charms and travel, which all draw on cells in your inventory.",
+        "A Pulse Cell holds **1,200 Pulse**; a **Greater Pulse Cell** holds **4,800**; a **Grand Pulse Cell** holds **19,200**. Carry charged cells for spells, Spiritgear, charms and travel, which all draw on cells in your inventory.",
         "A cell in your pocket is **not** a nearby generator. Workshops and tablet rites still need Pulse within 8 blocks of them.",
         "To pay for a Way Gate, use a cell on its keystone (up to **100** per use); the trip spends that store, not the cell in your pocket. A Gate Drum needs no Pulse at all: its rite opens it.",
         "A [Pulse Gauge](pulse_gauge) pointed at a machine that holds Pulse reads how full it is."
@@ -213,6 +214,11 @@
       "type": "recipe",
       "item": "tribalpower:greater_pulse_cell",
       "text": "Needs Resonant Cores from Echo Manifest."
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grand_pulse_cell",
+      "text": "A Greater cell ringed by four Resonant Cores."
     }
   ]
 }
