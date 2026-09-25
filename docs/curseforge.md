@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.1 — Bound stones
+Uploaded 2026-09-25: `tribalpower-5.3.1.jar` as file **8973496** ("Tribal Power 5.3.1 - Bound stones", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.1.md`. Carries 5.3.0 (archived by the author): touching Pulse Cairns join into one rune-carved pile that glows with its charge; every block model's see-through gaps closed. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.1
+
 ## 5.3.0 — Piled stones
 Uploaded 2026-09-25: `tribalpower-5.3.0.jar` as file **8972954** ("Tribal Power 5.3.0 - Piled stones", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py` (the first attempt got CurseForge HTTP 500; the retry went through). Changelog is `docs/RELEASE_5.3.0.md`. Touching Pulse Cairns form one pile (up to 64 stones, 256,000 Pulse); a Pulse Cell fills in one use; the March crops ship under both AgriCraft folder spellings. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.0
 
