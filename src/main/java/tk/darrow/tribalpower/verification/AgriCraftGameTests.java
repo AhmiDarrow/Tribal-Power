@@ -124,6 +124,19 @@ public final class AgriCraftGameTests {
             h.assertTrue(count.apply(e[0]) == n && count.apply(e[1]) == n,
                     e[0] + " and " + e[1] + " each hold " + n + ", got " + count.apply(e[0]) + " and " + count.apply(e[1]));
         }
+        // AgriCraft 4.0.17 will not parse a plant (and so will not start the server) without these on every seed
+        for (var entry : resources.listResources("agricraft/plants", id -> id.getNamespace().equals("tribalpower") && id.getPath().endsWith(".json")).entrySet()) {
+            try (var reader = entry.getValue().openAsReader()) {
+                var plant = com.google.gson.JsonParser.parseReader(reader).getAsJsonObject();
+                h.assertTrue(plant.getAsJsonObject("requirement").has("seasons"), entry.getKey() + " lists its seasons");
+                for (var seed : plant.getAsJsonArray("seeds")) {
+                    for (String key : new String[]{"item", "override_planting", "seed_drop_chance", "seed_drop_bonus", "grass_drop_chance"})
+                        h.assertTrue(seed.getAsJsonObject().has(key), entry.getKey() + " seed has " + key);
+                }
+            } catch (java.io.IOException ex) {
+                h.fail("Could not read " + entry.getKey() + ": " + ex);
+            }
+        }
         h.succeed();
     }
 }
