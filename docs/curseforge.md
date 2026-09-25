@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.0.1 — Urns in their place
+Uploaded 2026-09-24: `tribalpower-5.0.1.jar` as file **8968467** ("Tribal Power 5.0.1 - Urns in their place", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.0.1.md`. The four Soul Urn recipes said category `tools`, which the recipe book does not have; they say `equipment` now. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.0.1
+
 ## 5.0.0 — The world tells its own story
 Uploaded 2026-09-24: `tribalpower-5.0.0.jar` as file **8968154** ("Tribal Power 5.0.0 - The world tells its own story", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.0.0.md` with the 4.3.0, 4.2.0 and 4.1.0 notes appended (those three were never published on their own). The spirit layer and the table, the tribes' stories, guardians and the Ninth Agreement, the living March and its music, the Chronicle, storm warnings, fluid shown in tanks and flasks, AgriCraft, weapon animations, and the bug sweeps. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.0.0
 
