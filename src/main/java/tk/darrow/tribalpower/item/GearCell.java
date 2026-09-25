@@ -79,6 +79,11 @@ public final class GearCell {
         return carried;
     }
 
+    /** Takes the seated cell out of the piece, charge and all. Pair with {@link #asStack} to hand it back. */
+    static void unseat(ItemStack gear) {
+        set(gear, null, 0);
+    }
+
     /** The seated cell as an item with its charge, or empty. The piece itself is left alone. */
     public static ItemStack asStack(ItemStack gear) {
         Item cell = cell(gear);
@@ -128,10 +133,22 @@ public final class GearCell {
         return true;
     }
 
-    /** Right-clicking a carried cell onto a piece in any inventory slot seats, swaps or tops up its cell. */
+    /**
+     * Right-clicking a carried cell onto a piece in any inventory slot seats, swaps or tops up its cell.
+     * Right-clicking a piece with an empty cursor takes a fitting back off it (see {@link GearFittings}).
+     */
     public static void stackedOn(net.neoforged.neoforge.event.ItemStackedOnOtherEvent event) {
         if (event.getClickAction() != net.minecraft.world.inventory.ClickAction.SECONDARY) return;
         ItemStack gear = event.getStackedOnItem(), carried = event.getCarriedItem();
+        if (carried.isEmpty()) {
+            if (gear.getCount() != 1 || !GearFittings.hasFitting(gear) || !event.getSlot().allowModification(event.getPlayer())) return;
+            ItemStack off = GearFittings.detach(gear);
+            event.getSlot().set(gear);
+            event.getCarriedSlotAccess().set(off);
+            event.getPlayer().playSound(net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_LEATHER.value(), 0.7F, 1.2F);
+            event.setCanceled(true);
+            return;
+        }
         if (gear.getCount() != 1 || carried.getCount() != 1 || !event.getSlot().allowModification(event.getPlayer())) return;
         ItemStack left = offer(gear, carried);
         if (left == null) return;
@@ -180,5 +197,7 @@ public final class GearCell {
         if (cell == null) lines.add(Component.translatable("item.tribalpower.gear_cell.none").withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
         else lines.add(Component.translatable("item.tribalpower.gear_cell.seated", cell.getDescription(), pulse(gear), capacity(gear))
                 .withStyle(net.minecraft.ChatFormatting.AQUA));
+        if (GearFittings.hasFitting(gear))
+            lines.add(Component.translatable("item.tribalpower.gear_fittings.remove").withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
     }
 }

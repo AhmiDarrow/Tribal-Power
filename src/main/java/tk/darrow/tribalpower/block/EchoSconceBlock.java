@@ -62,8 +62,7 @@ public class EchoSconceBlock extends PulseLightBlock {
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction host = state.getValue(FACING).getOpposite();
         BlockPos support = pos.relative(host);
-        BlockState wall = level.getBlockState(support);
-        return wall.isFaceSturdy(level, support, state.getValue(FACING));
+        return DecorSupport.holds(level, support, state.getValue(FACING));
     }
 
     @Override

@@ -18,16 +18,16 @@ public final class PulseHud {
         Minecraft mc = Minecraft.getInstance();
         if (hidden || mc.player == null || mc.options.hideGui || mc.screen != null || mc.player.isSpectator()) return;
         var held = mc.player.getMainHandItem();
-        if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
-                && !(held.getItem() instanceof ResonanceMaulItem) && !(held.getItem() instanceof tk.darrow.tribalpower.item.SpiritgearBladeItem)
-                && !(held.getItem() instanceof tk.darrow.tribalpower.item.SpiritgearRattleItem)) return;
+        // Anything that can seat a cell spends Pulse: every Spiritgear tool and piece, the maul, the staff,
+        // songbooks and the Pulse bows, not just the few that were listed here by hand.
+        if (!(held.getItem() instanceof PulseCellItem) && !GearCell.accepts(held)) return;
         // A piece's own seated cell counts too: it is what the piece spends first. Both sums walk the
         // whole inventory, so they are taken once a tick rather than once a frame.
         long now = mc.level == null ? 0 : mc.level.getGameTime();
         if (now != readAt) {
             readAt = now;
-            pulse = SpiritgearHelper.availablePulse(mc.player) + tk.darrow.tribalpower.item.GearCell.pulse(held);
-            capacity = tk.darrow.tribalpower.item.GearCell.capacity(held);
+            pulse = SpiritgearHelper.availablePulse(mc.player) + GearCell.pulse(held);
+            capacity = GearCell.capacity(held);
             for (var stack : mc.player.getInventory().items) if (stack.getItem() instanceof PulseCellItem) capacity += PulseCellItem.capacity(stack);
             capacity += PulseCellItem.capacity(mc.player.getOffhandItem());
         }

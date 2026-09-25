@@ -71,9 +71,9 @@ public class TribeBannerBlock extends HorizontalDirectionalBlock {
         if (state.getValue(WALL)) {
             Direction facing = state.getValue(FACING);
             BlockPos behind = pos.relative(facing.getOpposite());
-            return level.getBlockState(behind).isFaceSturdy(level, behind, facing);
+            return tk.darrow.tribalpower.block.DecorSupport.holds(level, behind, facing);
         }
-        return level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP);
+        return tk.darrow.tribalpower.block.DecorSupport.holds(level, pos.below(), Direction.UP);
     }
 
     @Override

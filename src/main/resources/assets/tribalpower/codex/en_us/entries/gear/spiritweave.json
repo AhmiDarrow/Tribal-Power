@@ -76,7 +76,8 @@
       "text": [
         "Every piece of Spiritgear and Spiritweave, the [Resonance Maul](resonance_maul) and the [Sixfold Staff](sixfold_staff) can carry a **Pulse Cell** of its own. Pick the cell up in your inventory and **right-click it onto the piece**: it goes inside, charge and all.",
         "The piece always spends from its own cell first. Only when that cell is empty does it reach for the cells you carry, so a well-charged set keeps going long after your pockets run dry.",
-        "Right-click a bigger cell (a **{item:tribalpower:greater_pulse_cell}** or a **{item:tribalpower:grand_pulse_cell}**) onto a piece holding a smaller one to upgrade it; the old cell comes back to your cursor. A cell of the same size or smaller tops the seated one up instead. The tooltip shows what each piece holds."
+        "Right-click a bigger cell (a **{item:tribalpower:greater_pulse_cell}** or a **{item:tribalpower:grand_pulse_cell}**) onto a piece holding a smaller one to upgrade it; the old cell comes back to your cursor. A cell of the same size or smaller tops the seated one up instead. The tooltip shows what each piece holds.",
+        "Right-click a piece with an **empty cursor** to take its cell back out, charge and all. On a hood with goggles, the next right-click takes the goggles off and gives you back the Ley Lens they were made from."
       ]
     },
     {

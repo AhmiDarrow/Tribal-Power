@@ -64,7 +64,7 @@ public class WallShelfBlock extends HorizontalDirectionalBlock implements Entity
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction host = state.getValue(FACING).getOpposite();
         BlockPos support = pos.relative(host);
-        return level.getBlockState(support).isFaceSturdy(level, support, state.getValue(FACING));
+        return DecorSupport.holds(level, support, state.getValue(FACING));
     }
 
     @Override

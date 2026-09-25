@@ -1,7 +1,34 @@
 {
   "variants": {
-    "": {
+    "facing=north,hanging=true": {
       "model": "tribalpower:block/wind_charm"
+    },
+    "facing=north,hanging=false": {
+      "model": "tribalpower:block/wind_charm_wall"
+    },
+    "facing=east,hanging=true": {
+      "model": "tribalpower:block/wind_charm",
+      "y": 90
+    },
+    "facing=east,hanging=false": {
+      "model": "tribalpower:block/wind_charm_wall",
+      "y": 90
+    },
+    "facing=south,hanging=true": {
+      "model": "tribalpower:block/wind_charm",
+      "y": 180
+    },
+    "facing=south,hanging=false": {
+      "model": "tribalpower:block/wind_charm_wall",
+      "y": 180
+    },
+    "facing=west,hanging=true": {
+      "model": "tribalpower:block/wind_charm",
+      "y": 270
+    },
+    "facing=west,hanging=false": {
+      "model": "tribalpower:block/wind_charm_wall",
+      "y": 270
     }
   }
 }

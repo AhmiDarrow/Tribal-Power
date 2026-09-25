@@ -22,7 +22,7 @@
       "text": [
         "- **Glow Reed**: light 10, **1 Pulse** a second.",
         "- **Shard Lamp**: light 12, **1 Pulse** a second.",
-        "- **Echo Sconce**: light 11, **1 Pulse** a second. It hangs on a sturdy wall and drops if the wall goes.",
+        "- **Echo Sconce**: light 11, **1 Pulse** a second. It hangs on nearly any block beside it (a wall, a fence post, a log) and drops if that goes.",
         "- **Ember Bowl**: light 14, **2 Pulse** a second.",
         "Right-click one to see whether it is lit and what it costs. A lever or redstone signal dims it at once, and a comparator reads 15 while it is lit, 0 when dark.",
         "The Spirit Lantern still lights with no Pulse at all."
@@ -286,7 +286,7 @@
           ]
         },
         {
-          "caption": "An Echo Sconce needs a sturdy wall to hang on.",
+          "caption": "An Echo Sconce needs something beside it to hang on.",
           "place": [
             {
               "pos": [

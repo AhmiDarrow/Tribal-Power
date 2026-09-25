@@ -62,6 +62,7 @@ public final class ModBlockEntities {
             BLOCK_ENTITIES.register("camp_display", () -> BlockEntityType.Builder.of(
                     CampDisplayBlockEntity::new,
                     ModBlocks.WALL_SHELF.get(),
+                    ModBlocks.HANGING_RACK.get(),
                     ModBlocks.MARCH_TABLE.get(),
                     ModBlocks.SPIRIT_URN.get()
             ).build(null));

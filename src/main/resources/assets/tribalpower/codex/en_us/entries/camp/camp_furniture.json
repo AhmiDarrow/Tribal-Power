@@ -7,6 +7,7 @@
     "tribalpower:spirit_urn",
     "tribalpower:woven_mat",
     "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
     "tribalpower:spirit_door"
   ],
   "pages": [
@@ -25,8 +26,9 @@
         "- **March Table**: faces you when placed, and holds four things on its top.",
         "- **March Stool**: faces you when placed. Use it empty-handed to sit down; sneak or use it again to get up.",
         "- **Spirit Urn**: a stone pot for a shelf or a corner. It holds one thing in its mouth.",
-        "- **Woven Mat**: a thin rug that needs a sturdy floor under it.",
-        "- **Wall Shelf**: hangs on the side of a sturdy block and drops if the wall goes. Use it holding something to set that down on the board, empty-handed to take it back. Four things fit, one to a place, and a comparator reads how full it is.",
+        "- **Woven Mat**: a thin rug for any floor, slabs and stairs included.",
+        "- **Wall Shelf**: hangs on the side of nearly any block (a fence, a wall, a log) and drops if that goes. Use it holding something to set that down on the board, empty-handed to take it back. Four things fit, one to a place, and a comparator reads how full it is.",
+        "- **Hanging Rack**: a rail with four copper hooks that sits high on whatever it is fixed to. Pots, tools and bundles hang from the hooks instead of lying on a board. It works like the shelf: use it holding something to hang it up, empty-handed to take it down, and a comparator reads how full it is. You walk under it.",
         "Anything you set down stays where you put it, falls with the piece if it breaks, and can be read by a comparator. Hoppers and pipes leave furniture alone — the caches are for storing things.",
         "For hanging decorations, see the Wind Charm; knock it and it rings."
       ]
@@ -36,7 +38,7 @@
       "title": "A corner of camp",
       "steps": [
         {
-          "caption": "Lay a Woven Mat down on a sturdy floor.",
+          "caption": "Lay a Woven Mat down on a floor.",
           "place": [
             {
               "pos": [
@@ -302,7 +304,7 @@
           ]
         },
         {
-          "caption": "A Wall Shelf needs a solid wall behind it.",
+          "caption": "A Wall Shelf needs something behind it to hang on.",
           "place": [
             {
               "pos": [

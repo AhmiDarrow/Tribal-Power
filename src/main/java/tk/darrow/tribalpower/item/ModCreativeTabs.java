@@ -122,6 +122,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRIT_URN.get());
                         out.accept(ModItems.WOVEN_MAT.get());
                         out.accept(ModItems.WALL_SHELF.get());
+                        out.accept(ModItems.HANGING_RACK.get());
                         out.accept(ModItems.WIND_CHARM.get());
                         out.accept(ModItems.IRON_GRIT.get());
                         out.accept(ModItems.GOLD_GRIT.get());

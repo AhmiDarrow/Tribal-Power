@@ -88,7 +88,7 @@ public final class SpiritGear {
     public static void setGoggles(ItemStack stack, boolean on) {
         CustomData.update(DataComponents.CUSTOM_DATA, stack, data -> {
             if (on) data.putBoolean(GOGGLES_KEY, true);
-            else data.remove(GOGGLES_KEY);
+            else { data.remove(GOGGLES_KEY); data.remove(GOGGLES_OFF); }
         });
         model(stack);
     }

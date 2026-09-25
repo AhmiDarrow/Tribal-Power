@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.IBlockComponentProvider;
@@ -20,6 +21,7 @@ import snownee.jade.api.WailaPlugin;
 import snownee.jade.api.config.IPluginConfig;
 import tk.darrow.tribalpower.api.pulse.PulseGenerator;
 import tk.darrow.tribalpower.api.pulse.PulseHandler;
+import tk.darrow.tribalpower.api.pulse.PulseRate;
 import tk.darrow.tribalpower.camp.identity.CampStanding;
 import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.cuisine.MarchCropBlock;
@@ -38,6 +40,7 @@ public class TribalJadePlugin implements IWailaPlugin {
 
     @Override
     public void register(IWailaCommonRegistration registration) {
+        registration.registerBlockDataProvider(PulseData.INSTANCE, BlockEntity.class);
         registration.registerBlockDataProvider(AltarData.INSTANCE, GuardianAltarBlockEntity.class);
         registration.registerEntityDataProvider(KinData.INSTANCE, TribalKinEntity.class);
     }
@@ -50,16 +53,45 @@ public class TribalJadePlugin implements IWailaPlugin {
         registration.registerEntityComponent(Kin.INSTANCE, TribalKinEntity.class);
     }
 
+    /**
+     * Pulse machines never sync their store to clients, so the client-side block entity always holds 0.
+     * The server reads the store and the rates with the same {@link PulseRate} the Ley Lens uses.
+     */
+    private enum PulseData implements IServerDataProvider<BlockAccessor> {
+        INSTANCE;
+        @Override public ResourceLocation getUid() { return PULSE; }
+        @Override
+        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
+            if (!(accessor.getLevel() instanceof ServerLevel level)) return;
+            BlockEntity be = accessor.getBlockEntity();
+            var pos = accessor.getPosition();
+            if (be instanceof PulseHandler handler && handler.getPulseCapacity() > 0) {
+                data.putInt("PulseStored", handler.getPulseStored());
+                data.putInt("PulseCapacity", handler.getPulseCapacity());
+            }
+            int made = PulseRate.perSecond(level, pos, be), draw = PulseRate.drawPerSecond(level, pos, be);
+            // A generator reports its rate even when stilled: "0 a second" is the answer the player is after.
+            if (made > 0 || be instanceof PulseGenerator) data.putInt("PulseRate", made);
+            if (draw > 0) data.putInt("PulseDraw", draw);
+            if (be instanceof PulseGenerator generator) data.putString("PulseVoice", generator.voice().getSerializedName());
+        }
+    }
+
     private enum Pulse implements IBlockComponentProvider {
         INSTANCE;
         @Override public ResourceLocation getUid() { return PULSE; }
         @Override
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-            if (!(accessor.getBlockEntity() instanceof PulseHandler handler) || handler.getPulseCapacity() <= 0) return;
-            tooltip.add(Component.translatable("jade.tribalpower.pulse", handler.getPulseStored(), handler.getPulseCapacity()).withStyle(ChatFormatting.AQUA));
-            if (accessor.getBlockEntity() instanceof PulseGenerator generator)
-                tooltip.add(Component.translatable("jade.tribalpower.rate", generator.currentOutput(),
-                        Component.translatable("attunement.tribalpower." + generator.voice().getSerializedName())).withStyle(ChatFormatting.GRAY));
+            CompoundTag data = accessor.getServerData();
+            if (data.contains("PulseCapacity"))
+                tooltip.add(Component.translatable("jade.tribalpower.pulse", data.getInt("PulseStored"), data.getInt("PulseCapacity")).withStyle(ChatFormatting.AQUA));
+            if (data.contains("PulseRate"))
+                tooltip.add((data.contains("PulseVoice")
+                        ? Component.translatable("jade.tribalpower.rate", data.getInt("PulseRate"),
+                                Component.translatable("attunement.tribalpower." + data.getString("PulseVoice")))
+                        : Component.translatable("jade.tribalpower.rate.plain", data.getInt("PulseRate"))).withStyle(ChatFormatting.GRAY));
+            if (data.contains("PulseDraw"))
+                tooltip.add(Component.translatable("jade.tribalpower.draw", data.getInt("PulseDraw")).withStyle(ChatFormatting.GRAY));
         }
     }
 

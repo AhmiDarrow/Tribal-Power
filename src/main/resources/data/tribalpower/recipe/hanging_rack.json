@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SPS",
+    "C C"
+  ],
+  "key": {
+    "P": {
+      "item": "tribalpower:march_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "tribalpower:hanging_rack",
+    "count": 1
+  }
+}

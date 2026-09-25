@@ -30,6 +30,9 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> MESH_SIFT = register("mesh_sift");
     public static final DeferredHolder<SoundEvent, SoundEvent> FONT_FORM = register("font_form");
     public static final DeferredHolder<SoundEvent, SoundEvent> CHALK_DRAW = register("chalk_draw");
+    /** The Wind Charm: a gust through all five rods, or one rod knocked (tools-side synth, D major pentatonic). */
+    public static final DeferredHolder<SoundEvent, SoundEvent> WIND_CHARM_GUST = register("block.wind_charm.gust");
+    public static final DeferredHolder<SoundEvent, SoundEvent> WIND_CHARM_ROD = register("block.wind_charm.rod");
     /** The Gate Rite's music, one track per rite (see tools/generate_gate_rite.py). */
     public static final java.util.List<DeferredHolder<SoundEvent, SoundEvent>> GATE_RITE =
             java.util.stream.IntStream.rangeClosed(1, 6).mapToObj(i -> register("gate_rite_" + i)).toList();

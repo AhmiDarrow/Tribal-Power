@@ -34,7 +34,7 @@ public class WovenMatBlock extends Block {
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos below = pos.below();
-        return level.getBlockState(below).isFaceSturdy(level, below, Direction.UP);
+        return DecorSupport.holds(level, below, Direction.UP);
     }
 
     @Override

@@ -148,6 +148,55 @@ public class CampGameTests {
         h.succeed();
     }
 
+    /** Decor holds on to anything with a body: a fence, a wall, a chain, a slab. Not only full faces. */
+    @GameTest(template="empty")
+    public static void campDecorHangsOnMoreThanFullBlocks(GameTestHelper h){
+        var sconce=ModBlocks.ECHO_SCONCE.get().defaultBlockState().setValue(tk.darrow.tribalpower.block.EchoSconceBlock.FACING,Direction.WEST);
+        var charm=ModBlocks.WIND_CHARM.get().defaultBlockState();
+        var hanging=tk.darrow.tribalpower.block.WindCharmBlock.HANGING;
+        var facing=tk.darrow.tribalpower.block.WindCharmBlock.FACING;
+        h.setBlock(4,2,2,Blocks.OAK_FENCE);
+        h.assertTrue(sconce.canSurvive(h.getLevel(),h.absolutePos(new BlockPos(3,2,2))),"An Echo Sconce hangs on a fence post");
+        h.setBlock(4,2,2,Blocks.COBBLESTONE_WALL);
+        h.assertTrue(sconce.canSurvive(h.getLevel(),h.absolutePos(new BlockPos(3,2,2))),"and on a cobblestone wall");
+        h.setBlock(2,4,4,Blocks.CHAIN);
+        h.assertTrue(charm.canSurvive(h.getLevel(),h.absolutePos(new BlockPos(2,3,4))),"A Wind Charm hangs from a chain");
+        h.setBlock(2,4,4,Blocks.OAK_LEAVES);
+        h.assertTrue(charm.canSurvive(h.getLevel(),h.absolutePos(new BlockPos(2,3,4))),"and from leaves");
+        h.setBlock(2,4,4,Blocks.AIR);
+        h.assertFalse(charm.canSurvive(h.getLevel(),h.absolutePos(new BlockPos(2,3,4))),"but not from air");
+        h.setBlock(6,2,6,Blocks.SHORT_GRASS);
+        h.assertFalse(charm.setValue(hanging,false).setValue(facing,Direction.WEST).canSurvive(h.getLevel(),h.absolutePos(new BlockPos(5,2,6))),"nor from grass");
+        h.setBlock(6,2,6,Blocks.OAK_FENCE);
+        h.setBlock(5,2,6,charm.setValue(hanging,false).setValue(facing,Direction.WEST));
+        h.assertTrue(h.getBlockState(new BlockPos(5,2,6)).is(ModBlocks.WIND_CHARM.get()),"A Wind Charm hangs on a bracket from a fence beside it");
+        h.setBlock(6,2,6,Blocks.AIR);
+        h.assertTrue(h.getBlockState(new BlockPos(5,2,6)).isAir(),"and pops when the fence goes");
+        h.setBlock(2,1,6,Blocks.OAK_SLAB);
+        h.assertTrue(ModBlocks.WOVEN_MAT.get().defaultBlockState().canSurvive(h.getLevel(),h.absolutePos(new BlockPos(2,2,6))),"A Woven Mat lies on a bottom slab");
+        h.succeed();
+    }
+
+    /** The Hanging Rack hangs on a fence, holds four things on its hooks, lets you walk under it and falls with its host. */
+    @GameTest(template="empty")
+    public static void hangingRackHoldsFourAndHangsOnAFence(GameTestHelper h){
+        h.setBlock(2,3,2,Blocks.OAK_FENCE);
+        BlockPos pos=new BlockPos(2,3,3);
+        h.setBlock(pos,ModBlocks.HANGING_RACK.get().defaultBlockState()
+                .setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING,Direction.SOUTH));
+        var rack=(CampDisplayBlockEntity)h.getBlockEntity(pos);
+        h.assertTrue(rack.capacity()==4,"Four hooks");
+        for(int i=0;i<4;i++) rack.place(i,new ItemStack(Items.FLOWER_POT));
+        h.assertTrue(rack.freeSlotFrom(0)<0,"All four hooks taken");
+        h.assertTrue(rack.take(2).is(Items.FLOWER_POT),"A pot comes back down");
+        var level=h.getLevel(); var abs=h.absolutePos(pos);
+        double lowest=h.getBlockState(pos).getCollisionShape(level,abs).min(net.minecraft.core.Direction.Axis.Y);
+        h.assertTrue(lowest>=10.0/16.0,"Only the rail collides, high in the block: "+lowest);
+        h.setBlock(2,3,2,Blocks.AIR);
+        h.assertTrue(h.getBlockState(pos).isAir(),"The rack falls when its fence goes");
+        h.succeed();
+    }
+
     // ---- Wall Shelf ------------------------------------------------------------------------
     // The shelf holds four things along its board. It is furniture, so a player's hands are the
     // only way on and off it: no face is open to a hopper, and a comparator reads how full it is.

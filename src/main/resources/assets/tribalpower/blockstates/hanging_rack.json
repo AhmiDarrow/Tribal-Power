@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tribalpower:block/hanging_rack"
+    },
+    "facing=east": {
+      "model": "tribalpower:block/hanging_rack",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tribalpower:block/hanging_rack",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tribalpower:block/hanging_rack",
+      "y": 270
+    }
+  }
+}

@@ -19,8 +19,8 @@ import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.blockentity.CampDisplayBlockEntity;
 
 /**
- * Setting things down on camp furniture and picking them up again. The Wall Shelf, March Table and
- * Spirit Urn all behave the same way — use with something in hand to set it down at the place you
+ * Setting things down on camp furniture and picking them up again. The Wall Shelf, Hanging Rack, March
+ * Table and Spirit Urn all behave the same way — use with something in hand to set it down at the place you
  * clicked, use empty-handed to take it back — so the behaviour lives here rather than in each block.
  */
 public final class CampDisplay {
@@ -37,7 +37,7 @@ public final class CampDisplay {
         double x = hit.x - pos.getX();
         double z = hit.z - pos.getZ();
 
-        if (state.is(ModBlocks.WALL_SHELF.get()) || state.getBlock() instanceof TribalBenchBlock) {
+        if (state.getBlock() instanceof WallShelfBlock || state.getBlock() instanceof TribalBenchBlock) {
             double along = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
                 case NORTH -> x;
                 case SOUTH -> 1.0 - x;
@@ -100,10 +100,20 @@ public final class CampDisplay {
         if (state.is(ModBlocks.SPIRIT_URN.get())) {
             return new Vec3(0.5, 14.0 / 16.0, 0.5);                       // the mouth of the pot
         }
-        if (state.is(ModBlocks.WALL_SHELF.get()) || state.getBlock() instanceof TribalBenchBlock) {
+        if (state.getBlock() instanceof WallShelfBlock || state.getBlock() instanceof TribalBenchBlock) {
             int capacity = CampDisplayBlockEntity.capacityOf(state);
             float along = (slot + 0.5F) / capacity;
             float depth = 3.0F / 16.0F;
+            if (state.getBlock() instanceof HangingRackBlock) {
+                // The hook's tip, out from the wall under the rail; the renderer hangs the item down from here.
+                float d = 5.0F / 16.0F, y = HOOK_Y;
+                return switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                    case NORTH -> new Vec3(along, y, 1.0 - d);
+                    case SOUTH -> new Vec3(1.0 - along, y, d);
+                    case WEST -> new Vec3(1.0 - d, y, 1.0 - along);
+                    default -> new Vec3(d, y, along);
+                };
+            }
             if (state.getBlock() instanceof TribalBenchBlock) {
                 // The bench board stands above its top, not against a wall, so it sits higher.
                 float d = 4.0F / 16.0F;
@@ -127,9 +137,17 @@ public final class CampDisplay {
         return new Vec3(x, 1.0, z);
     }
 
-    /** Camp furniture lays items flat; only the urn stands them up in its mouth. */
+    /** Where a Hanging Rack's hooks end, as a fraction of the block's height. */
+    public static final float HOOK_Y = 10.25F / 16.0F;
+
+    /** Camp furniture lays items flat; the urn stands one up in its mouth and the rack hangs them. */
     public static boolean laysFlat(BlockState state) {
-        return !state.is(ModBlocks.SPIRIT_URN.get());
+        return !state.is(ModBlocks.SPIRIT_URN.get()) && !hangs(state);
+    }
+
+    /** Items hang down from a Hanging Rack's hooks rather than resting on something. */
+    public static boolean hangs(BlockState state) {
+        return state.getBlock() instanceof HangingRackBlock;
     }
 
     public static Direction facingOf(BlockState state) {

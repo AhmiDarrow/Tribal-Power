@@ -7,16 +7,17 @@
       "type": "spotlight",
       "item": "tribalpower:wind_charm",
       "text": [
-        "A hanging decoration of reed and copper for porches and doorways. It spends no Pulse and has no job; it is there to look nice."
+        "Five copper rods and a crystal sail on a cord, for porches and doorways. It spends no Pulse and has no job; it is there to look and sound nice."
       ]
     },
     {
       "type": "text",
       "title": "Hanging it",
       "text": [
-        "Place it against the underside of a sturdy ceiling. It hangs in the space below.",
-        "You can walk straight through it: it has no collision.",
-        "Break the block above it and it pops off.",
+        "Place it under almost anything: a ceiling, a beam, a fence rail, a chain or a leaf canopy. Place it against the side of a block and it hangs from a bracket on that wall instead.",
+        "You can walk straight through it: it has no collision, but brushing through knocks a rod.",
+        "It rings on its own, now and then on a still day, more in the rain and a lot in a storm. Under a roof it is quieter. Knock it to set all five rods going.",
+        "Break what it hangs from and it pops off.",
         "Redstone does nothing to it. It is not a Pulse light, and not a Wind Harp."
       ]
     },

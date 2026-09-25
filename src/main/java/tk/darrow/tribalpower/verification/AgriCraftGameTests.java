@@ -61,9 +61,11 @@ public final class AgriCraftGameTests {
                 + ", sticks " + AgriCraftCompat.isCrop(level, crop) + ", at " + h.getLevel().getBlockState(crop));
         h.assertTrue(tender.getItem(0).isEmpty(), "The seed was used");
         h.assertTrue(AgriCraftCompat.ripen(level, crop), "The plant can be ripened for the test");
-        int before = tender.getItem(9).getCount();
+        // AgriCraft's wheat yields at 95%: one harvest in twenty comes up empty and still cuts the plant back, so
+        // ripen it again and give the tender a few more harvests rather than fail on that roll.
         boolean reaped = false;
-        for (int i = 0; i < 12 && !reaped; i++) {
+        for (int i = 0; i < 60 && !reaped; i++) {
+            if (AgriCraftCompat.harvestable(level, crop) == null) AgriCraftCompat.ripen(level, crop);
             tender.work(level);
             for (int slot = 9; slot < 27; slot++) if (tender.getItem(slot).is(Items.WHEAT)) reaped = true;
         }

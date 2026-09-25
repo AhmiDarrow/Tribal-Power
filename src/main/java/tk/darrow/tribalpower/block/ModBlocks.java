@@ -517,6 +517,9 @@ public final class ModBlocks {
     public static final DeferredBlock<WallShelfBlock> WALL_SHELF = BLOCKS.register("wall_shelf", () ->
             new WallShelfBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN).strength(1.2F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
+    public static final DeferredBlock<HangingRackBlock> HANGING_RACK = BLOCKS.register("hanging_rack", () ->
+            new HangingRackBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BROWN).strength(1.2F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
     public static final DeferredBlock<WindCharmBlock> WIND_CHARM = BLOCKS.register("wind_charm", () ->
             new WindCharmBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN).instabreak().sound(SoundType.AMETHYST).noOcclusion()

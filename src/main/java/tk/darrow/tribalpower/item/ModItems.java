@@ -260,5 +260,6 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> SPIRIT_URN = ITEMS.registerSimpleBlockItem("spirit_urn", ModBlocks.SPIRIT_URN);
     public static final DeferredItem<BlockItem> WOVEN_MAT = ITEMS.registerSimpleBlockItem("woven_mat", ModBlocks.WOVEN_MAT);
     public static final DeferredItem<BlockItem> WALL_SHELF = ITEMS.registerSimpleBlockItem("wall_shelf", ModBlocks.WALL_SHELF);
+    public static final DeferredItem<BlockItem> HANGING_RACK = ITEMS.registerSimpleBlockItem("hanging_rack", ModBlocks.HANGING_RACK);
     public static final DeferredItem<BlockItem> WIND_CHARM = ITEMS.registerSimpleBlockItem("wind_charm", ModBlocks.WIND_CHARM);
 }

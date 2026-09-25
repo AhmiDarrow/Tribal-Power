@@ -344,5 +344,25 @@
       "tribalpower:guardian/storm_roc"
     ],
     "subtitle": "subtitles.tribalpower.guardian.roar"
+  },
+  "block.wind_charm.gust": {
+    "sounds": [
+      "tribalpower:block/wind_charm/gust1",
+      "tribalpower:block/wind_charm/gust2",
+      "tribalpower:block/wind_charm/gust3",
+      "tribalpower:block/wind_charm/gust4",
+      "tribalpower:block/wind_charm/gust5"
+    ],
+    "subtitle": "subtitles.tribalpower.wind_charm.gust"
+  },
+  "block.wind_charm.rod": {
+    "sounds": [
+      "tribalpower:block/wind_charm/rod1",
+      "tribalpower:block/wind_charm/rod2",
+      "tribalpower:block/wind_charm/rod3",
+      "tribalpower:block/wind_charm/rod4",
+      "tribalpower:block/wind_charm/rod5"
+    ],
+    "subtitle": "subtitles.tribalpower.wind_charm.rod"
   }
 }

@@ -273,6 +273,37 @@ public class GearGameTests {
         h.succeed();
     }
 
+    /**
+     * Fittings come back off: an empty-cursor right-click on a piece in the inventory takes its seated cell (charge
+     * and all), then a hood's goggles as a Ley Lens, one per click. Driven through the real menu click.
+     */
+    @GameTest(template = "empty")
+    public static void fittingsComeBackOffWithAnEmptyCursor(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack hood = new ItemStack(ModItems.SPIRITWEAVE_HOOD.get());
+        SpiritGear.setGoggles(hood, true);
+        ItemStack cell = new ItemStack(ModItems.GREATER_PULSE_CELL.get());
+        tk.darrow.tribalpower.item.PulseCellItem.setPulse(cell, 321);
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.offer(hood, cell) == ItemStack.EMPTY, "The hood takes the cell");
+        player.getInventory().setItem(0, hood);
+        var menu = player.inventoryMenu;
+        int slot = 36; // hotbar 0 in the player's own inventory menu
+        menu.clicked(slot, 1, net.minecraft.world.inventory.ClickType.PICKUP, player);
+        ItemStack first = menu.getCarried();
+        h.assertTrue(first.is(ModItems.GREATER_PULSE_CELL.get()) && tk.darrow.tribalpower.item.PulseCellItem.getPulse(first) == 321,
+                "The first click takes the cell out with its charge, got " + first);
+        h.assertTrue(menu.getSlot(slot).getItem().is(ModItems.SPIRITWEAVE_HOOD.get()), "and leaves the hood where it was");
+        h.assertTrue(tk.darrow.tribalpower.item.GearCell.cell(menu.getSlot(slot).getItem()) == null, "with no cell in it");
+        menu.setCarried(ItemStack.EMPTY);
+        menu.clicked(slot, 1, net.minecraft.world.inventory.ClickType.PICKUP, player);
+        h.assertTrue(menu.getCarried().is(tk.darrow.tribalpower.ley.LeyRegistry.LEY_LENS.get()), "The next click gives the goggles back as a Ley Lens");
+        h.assertFalse(SpiritGear.goggles(menu.getSlot(slot).getItem()), "and the hood has no goggles now");
+        menu.setCarried(ItemStack.EMPTY);
+        menu.clicked(slot, 1, net.minecraft.world.inventory.ClickType.PICKUP, player);
+        h.assertTrue(menu.getCarried().is(ModItems.SPIRITWEAVE_HOOD.get()), "With nothing fitted, a right-click picks the hood up as usual");
+        h.succeed();
+    }
+
     /** Ranks are worth having: a Manifested blade and a Manifested robe carry much more than plain ones. */
     @GameTest(template = "empty")
     public static void ranksRaiseTheNumbers(GameTestHelper h) {
