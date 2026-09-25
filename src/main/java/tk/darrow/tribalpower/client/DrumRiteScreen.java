@@ -113,13 +113,7 @@ public class DrumRiteScreen extends Screen {
             onClose();
             return true;
         }
-        int lane = switch (key) {
-            case GLFW.GLFW_KEY_A, GLFW.GLFW_KEY_LEFT -> 0;
-            case GLFW.GLFW_KEY_S, GLFW.GLFW_KEY_DOWN -> 1;
-            case GLFW.GLFW_KEY_D, GLFW.GLFW_KEY_UP -> 2;
-            case GLFW.GLFW_KEY_F, GLFW.GLFW_KEY_RIGHT -> 3;
-            default -> -1;
-        };
+        int lane = TribalKeys.riteLane(key, scan);
         if (lane >= 0 && sentAt < 0 && now() > pattern.leadMs() - GOOD_MS) strike(lane);
         return true;
     }

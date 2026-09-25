@@ -31,6 +31,13 @@ public class SpiritStaffItem extends Item {
     public static final int STITCH_COST = 10;
     public static final double TETHER_PULL = 8.0;
     public static final int STITCH_RANGE = 6;
+    /** Steps the staff to its next voice and returns it. Sneak-use and the Staff Voice hotkey both come here. */
+    public static Attunement cycle(ItemStack staff) {
+        int next = (element(staff).ordinal() + 1) % Attunement.values().length;
+        CustomData.update(DataComponents.CUSTOM_DATA, staff, tag -> tag.putInt("Attunement", next));
+        return Attunement.values()[next];
+    }
+
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack staff = player.getItemInHand(hand);
         if (!(level instanceof ServerLevel server)) return InteractionResultHolder.success(staff);
@@ -42,10 +49,9 @@ public class SpiritStaffItem extends Item {
             return stitch(server, player, staff);
         }
         if (player.isShiftKeyDown()) {
-            int next = (element.ordinal() + 1) % Attunement.values().length;
-            CustomData.update(DataComponents.CUSTOM_DATA, staff, tag -> tag.putInt("Attunement", next));
+            Attunement next = cycle(staff);
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.selected",
-                    Component.translatable("spell.tribalpower." + Attunement.values()[next].getSerializedName())), true);
+                    Component.translatable("spell.tribalpower." + next.getSerializedName())), true);
             return InteractionResultHolder.consume(staff);
         }
         if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(staff);

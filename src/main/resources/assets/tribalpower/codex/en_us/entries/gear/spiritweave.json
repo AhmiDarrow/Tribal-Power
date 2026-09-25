@@ -78,6 +78,14 @@
         "The piece always spends from its own cell first. Only when that cell is empty does it reach for the cells you carry, so a well-charged set keeps going long after your pockets run dry.",
         "Right-click a **{item:tribalpower:greater_pulse_cell}** onto a piece holding a plain cell to upgrade it; the old cell comes back to your cursor. A cell of the same size or smaller tops the seated one up instead. The tooltip shows what each piece holds."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Switching a piece off",
+      "text": [
+        "Every worn piece has an off switch. Open the Gear screen (the apostrophe key by default, under Tribal Power in Controls) and set the piece to Off: it still protects like armor, but gives no effect and draws no Pulse until you switch it back. The tooltip says so in red while it is off.",
+        "The hood's goggles have their own switch there, and their own key. The same screen shows which vault your satchel opens and lets you hide the Pulse HUD."
+      ]
     }
   ]
 }

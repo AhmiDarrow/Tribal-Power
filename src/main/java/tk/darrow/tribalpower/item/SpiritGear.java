@@ -113,6 +113,20 @@ public final class SpiritGear {
         return open;
     }
 
+    private static final String OFF_KEY = "GearOff";
+
+    /** A worn Spiritweave piece the player switched off: it protects like armor but gives no effect and draws no Pulse. */
+    public static boolean abilitiesOff(ItemStack stack) {
+        return tag(stack).getBoolean(OFF_KEY);
+    }
+
+    public static void setAbilitiesOff(ItemStack stack, boolean off) {
+        CustomData.update(DataComponents.CUSTOM_DATA, stack, data -> {
+            if (off) data.putBoolean(OFF_KEY, true);
+            else data.remove(OFF_KEY);
+        });
+    }
+
     /** Rank uses 1–3. Goggles add 4, so a manifested hood with goggles is 7 and both models survive. */
     private static void model(ItemStack stack) {
         int cmd = rank(stack) + (goggles(stack) ? 4 : 0);

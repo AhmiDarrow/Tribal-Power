@@ -336,4 +336,49 @@ public class GearGameTests {
                 "The offhand cell is paid back, holds " + PulseCellItem.getPulse(player.getOffhandItem()));
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void switchedOffSpiritweaveGivesNothingAndSpendsNothing(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        player.getAbilities().instabuild = false;
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack boots = new ItemStack(ModItems.SPIRITWEAVE_BOOTS.get());
+        ItemStack cell = PulseCellItem.createFilled(200);
+        player.setItemSlot(EquipmentSlot.FEET, boots);
+        player.getInventory().setItem(1, cell);
+        player.fallDistance = 3;
+        boots.getItem().inventoryTick(boots, h.getLevel(), player, 36, false);
+        h.assertTrue(player.hasEffect(MobEffects.SLOW_FALLING), "Worn boots soften a fall");
+        int after = PulseCellItem.getPulse(cell);
+        h.assertTrue(after < 200, "The fall cost Pulse");
+        player.removeEffect(MobEffects.SLOW_FALLING);
+
+        tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.ARMOR, EquipmentSlot.FEET.ordinal(), false);
+        h.assertTrue(SpiritGear.abilitiesOff(boots), "The Gear screen switched the boots off");
+        player.fallDistance = 3;
+        boots.getItem().inventoryTick(boots, h.getLevel(), player, 36, false);
+        h.assertFalse(player.hasEffect(MobEffects.SLOW_FALLING), "Switched-off boots give no effect");
+        h.assertTrue(PulseCellItem.getPulse(cell) == after, "Switched-off boots draw no Pulse");
+        h.assertTrue(player.getItemBySlot(EquipmentSlot.FEET) == boots, "The piece stays worn");
+
+        tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.ARMOR, EquipmentSlot.FEET.ordinal(), true);
+        h.assertFalse(SpiritGear.abilitiesOff(boots), "And on again");
+        tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.ARMOR, EquipmentSlot.HEAD.ordinal(), false);
+        h.assertTrue(player.getItemBySlot(EquipmentSlot.HEAD).isEmpty(), "An empty slot is left alone");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void staffVoiceHotkeyCyclesLikeSneakUse(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        ItemStack staff = new ItemStack(ModItems.SPIRIT_STAFF.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, staff);
+        Attunement before = tk.darrow.tribalpower.item.SpiritStaffItem.element(staff);
+        tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.STAFF_VOICE, 0, false);
+        Attunement after = tk.darrow.tribalpower.item.SpiritStaffItem.element(staff);
+        h.assertTrue(after.ordinal() == (before.ordinal() + 1) % Attunement.values().length, "The hotkey steps the voice once");
+        tk.darrow.tribalpower.item.GearSettingsPayload.apply(player, tk.darrow.tribalpower.item.GearSettingsPayload.VAULT, 0, false);
+        h.assertFalse(tk.darrow.tribalpower.camp.identity.Camps.personalVault(player), "The vault switch does nothing outside a camp");
+        h.succeed();
+    }
 }

@@ -73,20 +73,23 @@ public class SpiritweaveArmor extends ArmorItem {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level.isClientSide || !(entity instanceof Player player)) return;
 
+        boolean off = SpiritGear.abilitiesOff(stack);
         var step = player.getAttribute(Attributes.STEP_HEIGHT);
         if (getType() == Type.LEGGINGS && step != null) {
             ItemStack worn = player.getItemBySlot(getEquipmentSlot());
-            boolean spiritLegs = worn == stack && SpiritGear.voice(stack).orElse(null) == Attunement.SPIRIT;
+            boolean spiritLegs = worn == stack && !off && SpiritGear.voice(stack).orElse(null) == Attunement.SPIRIT;
             if (spiritLegs) {
                 step.addOrUpdateTransientModifier(new AttributeModifier(STEP, 1.0, AttributeModifier.Operation.ADD_VALUE));
-            } else if (worn != stack && (SpiritGear.voice(worn).orElse(null) != Attunement.SPIRIT
-                    || !(worn.getItem() instanceof SpiritweaveArmor))) {
+            } else if (worn == stack || SpiritGear.voice(worn).orElse(null) != Attunement.SPIRIT
+                    || !(worn.getItem() instanceof SpiritweaveArmor) || SpiritGear.abilitiesOff(worn)) {
                 step.removeModifier(STEP);
             }
         }
         if (player.getItemBySlot(getEquipmentSlot()) != stack) return;
         if (getType() == Type.HELMET && SpiritGear.goggles(stack) && player instanceof net.minecraft.server.level.ServerPlayer wearer)
             tk.darrow.tribalpower.ley.LeyRopes.sync(wearer);
+        // Switched off in the Gear screen: the goggles keep their own switch, everything else waits.
+        if (off) return;
 
         // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
         if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0
@@ -192,6 +195,8 @@ public class SpiritweaveArmor extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<net.minecraft.network.chat.Component> lines, TooltipFlag flag) {
         lines.add(net.minecraft.network.chat.Component.translatable("item.tribalpower.spiritweave_armor.desc"));
+        if (SpiritGear.abilitiesOff(stack))
+            lines.add(net.minecraft.network.chat.Component.translatable("item.tribalpower.spiritweave_armor.off").withStyle(net.minecraft.ChatFormatting.RED));
         SpiritGear.appendTooltip(stack, lines, flag);
     }
 }

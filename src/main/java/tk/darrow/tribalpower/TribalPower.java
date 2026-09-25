@@ -67,6 +67,7 @@ public final class TribalPower {
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
         modBus.addListener(tk.darrow.tribalpower.lattice.SideIoPayload::register);
         modBus.addListener(tk.darrow.tribalpower.item.GogglesTogglePayload::register);
+        modBus.addListener(tk.darrow.tribalpower.item.GearSettingsPayload::register);
         modBus.addListener(tk.darrow.tribalpower.storage.SortPayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LensPulsePayload::register);
         modBus.addListener(tk.darrow.tribalpower.ley.LeySightPayload::register);

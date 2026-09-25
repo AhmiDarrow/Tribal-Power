@@ -54,6 +54,8 @@ public final class TribalPowerClient {
                 event.register(tk.darrow.tribalpower.echo.ModMenus.SONG_BENCH.get(), SongBenchScreen::new);
                 event.register(tk.darrow.tribalpower.echo.ModMenus.REAGENT_POUCH.get(), PouchScreen::new);
         });
+        modBus.addListener(TribalKeys::register);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(TribalKeys::tick);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FamiliarInspectHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);

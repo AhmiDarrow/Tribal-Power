@@ -11,9 +11,12 @@ public final class PulseHud {
     private static int pulse, capacity;
 
     private PulseHud() {}
+    /** Switched off with the Pulse HUD hotkey or in the Gear screen; back on next launch. */
+    public static boolean hidden;
+
     public static void render(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.options.hideGui || mc.screen != null || mc.player.isSpectator()) return;
+        if (hidden || mc.player == null || mc.options.hideGui || mc.screen != null || mc.player.isSpectator()) return;
         var held = mc.player.getMainHandItem();
         if (!(held.getItem() instanceof SpiritStaffItem) && !(held.getItem() instanceof PulseCellItem)
                 && !(held.getItem() instanceof ResonanceMaulItem) && !(held.getItem() instanceof tk.darrow.tribalpower.item.SpiritgearBladeItem)

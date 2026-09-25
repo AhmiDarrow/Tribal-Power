@@ -151,6 +151,13 @@
     {
       "type": "recipe",
       "item": "tribalpower:gate_drum"
+    },
+    {
+      "type": "text",
+      "title": "Your own keys",
+      "text": [
+        "The four drums answer A, S, D and F by default, and the arrow keys always work. Both sets can be changed under Tribal Power in Options, Controls."
+      ]
     }
   ]
 }
