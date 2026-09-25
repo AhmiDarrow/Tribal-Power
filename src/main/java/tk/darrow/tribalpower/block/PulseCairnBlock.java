@@ -20,7 +20,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import tk.darrow.tribalpower.blockentity.ModBlockEntities;
 import tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity;
 
-/** Stacked stones that hold a beat (design 3.1 section 9.4). */
+/** Stones that hold a beat (design 3.1 section 9.4). Touching stones are one pile and one store. */
 public class PulseCairnBlock extends BaseEntityBlock {
     public static final MapCodec<PulseCairnBlock> CODEC = simpleCodec(PulseCairnBlock::new);
     private static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0);
@@ -49,13 +49,33 @@ public class PulseCairnBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state,
+            Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (stack.getItem() instanceof tk.darrow.tribalpower.item.PulseCellItem
+                && level.getBlockEntity(pos) instanceof PulseCairnBlockEntity cairn) {
+            if (!level.isClientSide) {
+                // The cell drinks from the whole pile, as far as it has room and the pile holds.
+                int filled = tk.darrow.tribalpower.item.PulseCellItem.fillFrom(stack, cairn);
+                player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
+                        "message.tribalpower.pulse_cell.charge", filled,
+                        tk.darrow.tribalpower.item.PulseCellItem.getPulse(stack),
+                        tk.darrow.tribalpower.item.PulseCellItem.capacity(stack),
+                        state.getBlock().getName(), cairn.getPulseStored()), true);
+            }
+            return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof PulseCairnBlockEntity cairn) {
-            player.displayClientMessage(cairn.counted()
-                    ? net.minecraft.network.chat.Component.translatable("message.tribalpower.cairn.status",
-                            cairn.getPulseStored(), cairn.getPulseCapacity(), cairn.columnIndex() + 1)
-                    : net.minecraft.network.chat.Component.translatable("message.tribalpower.cairn.too_tall",
-                            PulseCairnBlockEntity.MAX_COLUMN), true);
+            PulseCairnBlockEntity.Pile pile = cairn.pile();
+            player.displayClientMessage(pile.overflow()
+                    ? net.minecraft.network.chat.Component.translatable("message.tribalpower.cairn.overflow",
+                            pile.stored(), pile.capacity(), PulseCairnBlockEntity.MAX_GROUP)
+                    : net.minecraft.network.chat.Component.translatable("message.tribalpower.cairn.status",
+                            pile.stored(), pile.capacity(), pile.size()), true);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -65,15 +85,25 @@ public class PulseCairnBlock extends BaseEntityBlock {
     }
 
     @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, net.minecraft.world.entity.LivingEntity placer,
+                            net.minecraft.world.item.ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        // A new stone joins every pile it touches; they flood again on their next reading.
+        if (!level.isClientSide) PulseCairnBlockEntity.invalidateAround(level, pos);
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        super.onRemove(state, level, pos, newState, movedByPiston);
+        // The stone's own share leaves with it; the piles it touched just shrink.
+        if (!level.isClientSide && !state.is(newState.getBlock())) PulseCairnBlockEntity.invalidateAround(level, pos);
+    }
+
+    @Override
     protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
-        // A stone removed from under the pile changes what every stone above it is worth.
-        if (level.isClientSide || neighbourPos.getX() != pos.getX() || neighbourPos.getZ() != pos.getZ()) return;
-        // Only the stones that could change worth need telling, and a column is capped anyway.
-        BlockPos cursor = pos;
-        for (int i = 0; i <= PulseCairnBlockEntity.MAX_COLUMN; i++, cursor = cursor.above()) {
-            if (!(level.getBlockEntity(cursor) instanceof PulseCairnBlockEntity cairn)) break;
-            cairn.onColumnChanged();
-        }
+        // Only a stone coming or going beside this one changes the pile; anything else keeps the cache.
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof PulseCairnBlockEntity cairn)
+            cairn.onNeighbourChanged(neighbourPos);
     }
 
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }

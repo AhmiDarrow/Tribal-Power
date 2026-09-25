@@ -88,12 +88,7 @@ public class PulseResonatorBlock extends BaseEntityBlock {
 
         if (stack.getItem() instanceof PulseCellItem) {
             if (!level.isClientSide) {
-                int want = Math.min(100, PulseCellItem.capacity(stack) - PulseCellItem.getPulse(stack));
-                int taken = resonator.extractPulse(want, false);
-                int filled = PulseCellItem.insertPulse(stack, taken, false);
-                if (filled < taken) {
-                    resonator.insertPulse(taken - filled, false);
-                }
+                int filled = PulseCellItem.fillFrom(stack, resonator);
                 player.displayClientMessage(Component.translatable(
                         "message.tribalpower.pulse_cell.charge_resonator",
                         filled,

@@ -1,0 +1,51 @@
+{
+  "mods": [
+    "tribalpower"
+  ],
+  "seeds": [
+    {
+      "item": "tribalpower:fen_rice",
+      "override_planting": true
+    }
+  ],
+  "stages": [
+    4,
+    8,
+    12,
+    16
+  ],
+  "harvest_stage": 1,
+  "growth_chance": 0.75,
+  "growth_bonus": 0.025,
+  "cloneable": true,
+  "spread_chance": 0.1,
+  "products": [
+    {
+      "item": "tribalpower:fen_rice",
+      "min": 1,
+      "max": 3,
+      "chance": 1.0,
+      "required": true
+    }
+  ],
+  "requirement": {
+    "soil_humidity": {
+      "type": "equal",
+      "value": "watery",
+      "tolerance_factor": 0.4
+    },
+    "soil_acidity": {
+      "type": "equal",
+      "value": "slightly_acidic",
+      "tolerance_factor": 0.3
+    },
+    "soil_nutrients": {
+      "type": "equal_or_higher",
+      "value": "medium",
+      "tolerance_factor": 0.2
+    },
+    "min_light": 10,
+    "max_light": 16,
+    "light_tolerance_factor": 0.5
+  }
+}

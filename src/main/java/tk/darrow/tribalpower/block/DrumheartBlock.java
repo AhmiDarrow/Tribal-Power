@@ -77,12 +77,7 @@ public class DrumheartBlock extends BaseEntityBlock {
         if (stack.getItem() instanceof PulseCellItem
                 && level.getBlockEntity(pos) instanceof DrumheartBlockEntity drum) {
             if (!level.isClientSide) {
-                int want = Math.min(25, PulseCellItem.capacity(stack) - PulseCellItem.getPulse(stack));
-                int taken = drum.extractPulse(want, false);
-                int filled = PulseCellItem.insertPulse(stack, taken, false);
-                if (filled < taken) {
-                    drum.insertPulse(taken - filled, false);
-                }
+                int filled = PulseCellItem.fillFrom(stack, drum);
                 player.displayClientMessage(Component.translatable(
                         "message.tribalpower.pulse_cell.charge",
                         filled,

@@ -11,8 +11,8 @@ import net.minecraft.world.item.component.CustomData;
 import java.util.List;
 
 /**
- * Portable Spirit Pulse buffer. Fill from a Drumheart (25), a Resonator (100), or a voice-craft
- * generator (100). Spiritgear drains cells from inventory.
+ * Portable Spirit Pulse buffer. One use on a Drumheart, a Resonator, a voice-craft generator or a
+ * Pulse Cairn fills it as far as the source allows ({@link #fillFrom}). Spiritgear drains cells from inventory.
  */
 public class PulseCellItem extends Item {
     /** The three sizes: a plain cell, a Greater cell (four of them) and a Grand cell (sixteen). */
@@ -67,6 +67,22 @@ public class PulseCellItem extends Item {
             setPulse(stack, stored - taken);
         }
         return taken;
+    }
+
+    /**
+     * Fill the cell from {@code source} in one go: as much as the cell has room for and the source holds.
+     * The draw is simulated first and whatever the cell refuses goes back, so nothing is lost.
+     * @return amount moved into the cell
+     */
+    public static int fillFrom(ItemStack stack, tk.darrow.tribalpower.api.pulse.PulseHandler source) {
+        int room = capacity(stack) - getPulse(stack);
+        if (room <= 0) return 0;
+        int available = source.extractPulse(room, true);
+        if (available <= 0) return 0;
+        int taken = source.extractPulse(Math.min(room, available), false);
+        int filled = insertPulse(stack, taken, false);
+        if (filled < taken) source.insertPulse(taken - filled, false);
+        return filled;
     }
 
     public static ItemStack createFilled(int amount) {

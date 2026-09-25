@@ -208,27 +208,130 @@ public class GeneratorGameTests {
 
     // ---- storage -----------------------------------------------------------------------------------
 
-    @GameTest(template = "empty")
-    public static void cairnsStackToFiveAndThenStopBeingCairns(GameTestHelper h) {
-        for (int i = 0; i < 7; i++) h.setBlock(new BlockPos(4, 1 + i, 4), ModBlocks.PULSE_CAIRN.get());
-        for (int i = 0; i < PulseCairnBlockEntity.MAX_COLUMN; i++) {
-            var cairn = (PulseCairnBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(4, 1 + i, 4)));
-            h.assertTrue(cairn.counted(), "Stone " + (i + 1) + " of the pile must count");
-            h.assertTrue(cairn.getPulseCapacity() == PulseCairnBlockEntity.CAPACITY,
-                    "Each counted cairn holds " + PulseCairnBlockEntity.CAPACITY);
-        }
-        for (int i = PulseCairnBlockEntity.MAX_COLUMN; i < 7; i++) {
-            var cairn = (PulseCairnBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(4, 1 + i, 4)));
-            h.assertFalse(cairn.counted(), "Past the fifth stone a cairn is only a stone");
-            h.assertTrue(cairn.getPulseCapacity() == 0 && cairn.insertPulse(100, false) == 0,
-                    "An uncounted cairn holds nothing at all");
-        }
+    private static PulseCairnBlockEntity cairn(GameTestHelper h, BlockPos pos) {
+        return (PulseCairnBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(pos));
+    }
 
-        var bottom = (PulseCairnBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(4, 1, 4)));
-        h.assertTrue(bottom.signal() == 0, "An empty cairn reads 0");
-        bottom.insertPulse(PulseCairnBlockEntity.CAPACITY, false);
-        h.assertTrue(bottom.signal() == 15, "A full cairn reads 15, got " + bottom.signal());
+    @GameTest(template = "empty")
+    public static void touchingCairnsAreOneStoreFromEitherStone(GameTestHelper h) {
+        BlockPos a = new BlockPos(4, 1, 4), b = new BlockPos(5, 1, 4);
+        h.setBlock(a, ModBlocks.PULSE_CAIRN.get());
+        h.setBlock(b, ModBlocks.PULSE_CAIRN.get());
+        var first = cairn(h, a);
+        var second = cairn(h, b);
+        h.assertTrue(first.getPulseCapacity() == 2 * PulseCairnBlockEntity.CAPACITY
+                        && second.getPulseCapacity() == 2 * PulseCairnBlockEntity.CAPACITY,
+                "Two touching cairns hold 8,000 from either stone, got " + first.getPulseCapacity() + " and " + second.getPulseCapacity());
+        h.assertTrue(first.signal() == 0 && second.signal() == 0, "An empty pile reads 0");
+        h.assertTrue(first.insertPulse(6000, true) == 6000 && first.getPulseStored() == 0,
+                "A simulated insert must not fill the pile");
+        h.assertTrue(first.insertPulse(6000, false) == 6000, "One stone must accept 6,000 for the pile");
+        h.assertTrue(second.getPulseStored() == 6000, "The other stone must read the pile's 6,000, read " + second.getPulseStored());
+        h.assertTrue(first.ownPulse() + second.ownPulse() == 6000 && first.ownPulse() <= PulseCairnBlockEntity.CAPACITY
+                        && second.ownPulse() <= PulseCairnBlockEntity.CAPACITY,
+                "The stones' own shares must add up to the pile, " + first.ownPulse() + " + " + second.ownPulse());
+        h.assertTrue(second.extractPulse(5000, true) == 5000 && first.getPulseStored() == 6000,
+                "A simulated draw must not move anything");
+        h.assertTrue(second.extractPulse(5000, false) == 5000 && first.getPulseStored() == 1000,
+                "A draw from either stone is paid by the pile, holds " + first.getPulseStored());
+        first.insertPulse(100000, false);
+        h.assertTrue(first.signal() == 15 && second.signal() == 15, "A full pile reads 15 from every stone");
+
+        // The old column rule is gone: a sixth stone on a stack just joins the pile.
+        for (int i = 0; i < 6; i++) h.setBlock(new BlockPos(2, 1 + i, 2), ModBlocks.PULSE_CAIRN.get());
+        h.assertTrue(cairn(h, new BlockPos(2, 6, 2)).getPulseCapacity() == 6 * PulseCairnBlockEntity.CAPACITY,
+                "Six stacked stones are one pile of 24,000, got " + cairn(h, new BlockPos(2, 6, 2)).getPulseCapacity());
         h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aLatticeDrawCountsAPileOnce(GameTestHelper h) {
+        for (int x = 4; x <= 6; x++) h.setBlock(new BlockPos(x, 1, 4), ModBlocks.PULSE_CAIRN.get());
+        var middle = cairn(h, new BlockPos(5, 1, 4));
+        middle.insertPulse(3000, false);
+        var level = h.getLevel();
+        BlockPos origin = h.absolutePos(new BlockPos(2, 1, 2));
+        int seen = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 100000, true);
+        h.assertTrue(seen == 3000, "A simulated draw beside a pile of three must see its 3,000 once, saw " + seen);
+        int room = tk.darrow.tribalpower.lattice.LatticeNetwork.insertPulseNearby(level, origin, 8, 100000, true);
+        h.assertTrue(room == 9000, "A simulated push must see the pile's 9,000 of room once, saw " + room);
+        int drawn = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 100000, false);
+        h.assertTrue(drawn == 3000 && middle.getPulseStored() == 0,
+                "The real draw takes exactly the pile's 3,000, drew " + drawn + ", left " + middle.getPulseStored());
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void breakingAStoneLeavesTheRestItsOwnShare(GameTestHelper h) {
+        BlockPos a = new BlockPos(4, 1, 4), b = new BlockPos(4, 2, 4);
+        h.setBlock(a, ModBlocks.PULSE_CAIRN.get());
+        h.setBlock(b, ModBlocks.PULSE_CAIRN.get());
+        var stays = cairn(h, a);
+        var leaves = cairn(h, b);
+        stays.insertPulse(6000, false);
+        int kept = stays.ownPulse();
+        int gone = leaves.ownPulse();
+        h.assertTrue(kept + gone == 6000, "The shares must add up before the split");
+        h.setBlock(b, Blocks.AIR);
+        h.assertTrue(stays.getPulseCapacity() == PulseCairnBlockEntity.CAPACITY,
+                "A lone stone holds 4,000 again, got " + stays.getPulseCapacity());
+        h.assertTrue(stays.getPulseStored() == kept,
+                "The stone that stays keeps only its own " + kept + ", holds " + stays.getPulseStored());
+        h.assertTrue(stays.getPulseStored() + gone == 6000, "Nothing may be created or lost by the split");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aPileStopsAtSixtyFourStones(GameTestHelper h) {
+        java.util.List<BlockPos> stones = new java.util.ArrayList<>();
+        for (int x = 2; x < 6; x++) for (int y = 1; y < 5; y++) for (int z = 2; z < 6; z++) stones.add(new BlockPos(x, y, z));
+        stones.add(new BlockPos(6, 1, 2));
+        for (BlockPos pos : stones) h.setBlock(pos, ModBlocks.PULSE_CAIRN.get());
+        int alone = 0, joined = 0;
+        for (BlockPos pos : stones) {
+            var stone = cairn(h, pos);
+            if (stone.getPulseCapacity() == PulseCairnBlockEntity.CAPACITY && stone.pile().overflow()) alone++;
+            else if (stone.getPulseCapacity() == PulseCairnBlockEntity.MAX_GROUP * PulseCairnBlockEntity.CAPACITY) joined++;
+        }
+        h.assertTrue(joined == 64 && alone == 1, "Sixty-four stones join and the 65th stands alone, joined "
+                + joined + ", alone " + alone);
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void oneUseFillsACellAsFarAsTheSourceAllows(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        var hand = net.minecraft.world.InteractionHand.MAIN_HAND;
+        BlockPos a = new BlockPos(4, 1, 4), b = new BlockPos(5, 1, 4);
+        h.setBlock(a, ModBlocks.PULSE_CAIRN.get());
+        h.setBlock(b, ModBlocks.PULSE_CAIRN.get());
+        var pile = cairn(h, a);
+        pile.insertPulse(8000, false);
+        ItemStack cell = new ItemStack(tk.darrow.tribalpower.item.ModItems.GREATER_PULSE_CELL.get());
+        player.setItemInHand(hand, cell);
+        h.getLevel().getBlockState(h.absolutePos(b)).useItemOn(cell, h.getLevel(), player, hand, hitOn(h, b));
+        int full = tk.darrow.tribalpower.item.PulseCellItem.GREATER_CAPACITY;
+        int got = tk.darrow.tribalpower.item.PulseCellItem.getPulse(cell);
+        h.assertTrue(got == full, "One use on a pile fills a Greater cell to " + full + ", got " + got);
+        h.assertTrue(pile.getPulseStored() == 8000 - full, "The pile loses exactly what the cell gained");
+
+        BlockPos drumAt = new BlockPos(2, 1, 2);
+        DrumheartBlockEntity drum = place(h, drumAt, ModBlocks.DRUMHEART.get(), DrumheartBlockEntity.class);
+        drum.insertPulse(drum.getPulseCapacity(), false);
+        int held = drum.getPulseStored();
+        ItemStack small = new ItemStack(tk.darrow.tribalpower.item.ModItems.PULSE_CELL.get());
+        player.setItemInHand(hand, small);
+        h.getLevel().getBlockState(h.absolutePos(drumAt)).useItemOn(small, h.getLevel(), player, hand, hitOn(h, drumAt));
+        int moved = tk.darrow.tribalpower.item.PulseCellItem.getPulse(small);
+        h.assertTrue(held > 25 && moved == Math.min(held, tk.darrow.tribalpower.item.PulseCellItem.CAPACITY)
+                        && drum.getPulseStored() == held - moved,
+                "One use on a drum moves all it holds that the cell has room for, cell " + moved + ", drum " + drum.getPulseStored());
+        h.succeed();
+    }
+
+    private static net.minecraft.world.phys.BlockHitResult hitOn(GameTestHelper h, BlockPos pos) {
+        return new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(h.absolutePos(pos)),
+                net.minecraft.core.Direction.UP, h.absolutePos(pos), false);
     }
 
     @GameTest(template = "empty")

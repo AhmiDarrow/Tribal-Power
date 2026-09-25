@@ -8,21 +8,23 @@
       "type": "spotlight",
       "item": "tribalpower:pulse_cairn",
       "text": [
-        "A cairn of stones that holds a beat. It stores up to **4,000 Pulse** and drinks the surplus of nearby generators, up to **200 a second**. Bursty generators fill it; hungry machines draw on it steadily."
+        "A cairn of stones that holds a beat. Each stone stores **4,000 Pulse** and drinks the surplus of nearby generators, up to **200 a second**. Bursty generators fill it; hungry machines draw on it steadily."
       ]
     },
     {
       "type": "text",
-      "title": "Stacking",
+      "title": "Piling",
       "text": [
-        "Stack cairns in a column: each of the first **five** holds its own 4,000 Pulse. The sixth stone on a pile is just a stone.",
-        "A cairn only pulls from **generators** within 8 blocks, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
-        "A comparator against a cairn reads how full it is. A redstone signal stops it filling."
+        "Cairns that touch face to face, on any side, above or below, join into **one pile** and one store: two stones hold **8,000 Pulse**, three hold **12,000**, and so on. A pile joins up to **64 stones**, which is **256,000 Pulse**; a stone past that stands alone.",
+        "Use any stone and you see the whole pile. Put Pulse in anywhere and it spreads across the stones; draw from any stone and the whole pile pays. Each stone adds 200 a second to how fast the pile drinks.",
+        "A cairn only pulls from **generators** within 8 blocks of its stones, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
+        "Break a stone and it takes only its own share with it; the rest of the pile keeps what it holds.",
+        "A comparator against any stone reads how full the whole pile is. A redstone signal on any stone stops the pile filling."
       ]
     },
     {
       "type": "scene",
-      "title": "A column of stones",
+      "title": "A pile of stones",
       "steps": [
         {
           "caption": "Set a cairn beside a generator that comes in bursts, such as a Wake Bell.",
@@ -125,7 +127,7 @@
           ]
         },
         {
-          "caption": "Stack more on top. Each one holds its own 4,000 Pulse.",
+          "caption": "Set more on top or beside it. Touching stones are one pile: three hold 12,000 Pulse.",
           "place": [
             {
               "pos": [
@@ -158,21 +160,21 @@
           ]
         },
         {
-          "caption": "Five is the limit: 20,000 Pulse in one column. A sixth stone would hold nothing.",
+          "caption": "Any shape joins, side by side or stacked, up to 64 stones: 256,000 Pulse in one pile.",
           "place": [
             {
               "pos": [
                 0,
-                3,
-                0
+                0,
+                1
               ],
               "block": "tribalpower:pulse_cairn"
             },
             {
               "pos": [
                 0,
-                4,
-                0
+                1,
+                1
               ],
               "block": "tribalpower:pulse_cairn"
             }
@@ -180,18 +182,18 @@
           "highlight": [
             [
               0,
-              3,
-              0
+              0,
+              1
             ],
             [
               0,
-              4,
-              0
+              1,
+              1
             ]
           ]
         },
         {
-          "caption": "A comparator against a stone reads how full it is.",
+          "caption": "A comparator against any stone reads how full the whole pile is.",
           "place": [
             {
               "pos": [
@@ -217,7 +219,7 @@
       "title": "Where it shines",
       "text": [
         "Sit a cairn beside a Wake Bell and a Listening Pit, and the bell's bursts become the steady draw the pit wants.",
-        "Both ends need to be loaded. Sneak-use this book on a cairn to see where it sits in its column."
+        "Both ends need to be loaded. Sneak-use this book on a cairn to see how many stones its pile has joined and what this stone carries."
       ]
     },
     {

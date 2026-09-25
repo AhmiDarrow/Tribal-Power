@@ -33,7 +33,8 @@ final class CodexFacts {
                     "spent").never("never wears out"),
             Fact.of("lattice_conductor", "A Conductor links chalked totems and drains any nearby generator, voice-crafts included", "Ritual Chalk", "250 Pulse", "generators within 8 blocks"),
             Fact.of("lattice_conductor", "Conductors within 8 of each other extend the zone a machine draws from", "within 8 of each other", "Pulse Cairns"),
-            Fact.of("spirit_pulse", "Totems hold 250 Pulse; a cell carries Pulse for tools, spells and travel", "250 Pulse", "25 Pulse"),
+            Fact.of("spirit_pulse", "Totems hold 250 Pulse; one use fills a cell as far as the source holds", "250 Pulse", "fills the cell as far as")
+                    .never("up to 25 Pulse", "100 per use, and"),
             Fact.of("keeping", "Keeping: 40 minutes Answered, Dim stretches station time about 30%", "40 minutes", "30%"),
             Fact.of("ley_collector", "A Ley Collector holds 2,000 Pulse, beats every two seconds and ranks at 15%", "2,000 Pulse", "two seconds", "15%").never("base trickle", "hum harder"),
             Fact.of("ley_lens", "Ley Lens: a roof makes a collector weaker, not dead", "16").never("starves a collector"),
@@ -44,7 +45,8 @@ final class CodexFacts {
             Fact.of("wave_drum", "A ranked Wave Drum adds 15% Pulse a second per rank", "15%"),
             Fact.of("wake_bell", "A ranked Wake Bell adds 15% Pulse a second per rank", "15%"),
             Fact.of("loom_anchor", "A Loom Anchor counts quiet totems and ranks at 15%", "15%").never("hum harder"),
-            Fact.of("pulse_cairn", "A Pulse Cairn swallows 200 Pulse a second", "200 a second"),
+            Fact.of("pulse_cairn", "A Pulse Cairn stone swallows 200 Pulse a second; touching stones are one store up to 64", "200 a second", "one pile", "64 stones", "256,000 Pulse")
+                    .never("first five", "sixth stone"),
             Fact.of("echo_shatter", "Grit shatter is 4 seconds at 20 Pulse a second before pack settings", "20 Pulse a second"),
             Fact.of("ember_kiln", "Kiln smelting spends 32 Pulse a second; cobble becomes stone", "32 Pulse a second").never("Grit or cobble goes in"),
             Fact.of("song_bench", "Empowering spends 16 Pulse. A sheet is 3 to 7 empowered reagents", "16 Pulse", "3 to 7"),

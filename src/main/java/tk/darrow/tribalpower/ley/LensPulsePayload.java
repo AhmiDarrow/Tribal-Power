@@ -81,13 +81,16 @@ public record LensPulsePayload(int stored, int capacity, int count, List<Entry> 
         long stored = 0, capacity = 0, incoming = 0, outgoing = 0;
         int count = 0;
         List<Entry> machines = new ArrayList<>();
+        java.util.Set<Long> piles = new java.util.HashSet<>();
         for (BlockEntity be : LatticeNetwork.blockEntitiesAround(level, origin, r)) {
             int made = PulseRate.perSecond(level, be.getBlockPos(), be);
             int draw = PulseRate.drawPerSecond(level, be.getBlockPos(), be);
             incoming += made;
             outgoing += draw;
             int held = 0, room = 0;
-            if (be instanceof PulseHandler pulse && pulse.getPulseCapacity() > 0) {
+            // A Pulse Cairn pile answers for itself from every stone; count it once.
+            if (be instanceof PulseHandler pulse && pulse.getPulseCapacity() > 0
+                    && !tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity.repeatsPile(be, piles)) {
                 held = pulse.getPulseStored();
                 room = pulse.getPulseCapacity();
                 stored += held;

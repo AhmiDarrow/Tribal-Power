@@ -129,7 +129,7 @@
           ]
         },
         {
-          "caption": "Right-click it with a Pulse Cell: each use moves up to 25 Pulse from the drum into the cell.",
+          "caption": "Right-click it with a Pulse Cell: one use fills the cell as far as the drum holds.",
           "highlight": [
             [
               -1,
@@ -147,7 +147,7 @@
           }
         },
         {
-          "caption": "A Pulse Resonator gives up to 100 per use, and so does a voice-craft such as a Wind Harp.",
+          "caption": "A Pulse Resonator, a voice-craft such as a Wind Harp, or a Pulse Cairn fills a cell the same way, all it can take in one use.",
           "place": [
             {
               "pos": [

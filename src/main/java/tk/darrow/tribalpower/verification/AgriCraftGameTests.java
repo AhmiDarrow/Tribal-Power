@@ -107,4 +107,23 @@ public final class AgriCraftGameTests {
         h.assertTrue(AgriCraftCompat.hasPlant(level, crop), "The plant stays on its sticks");
         h.succeed();
     }
+
+    /**
+     * AgriCraft renamed its datapack registries: the 4.0.3 build this mod compiles against reads agricraft/plant, soil and
+     * mutation; the 4.0.17 release packs ship reads agricraft/plants, soils and mutations. 5.0.0 shipped only the singular
+     * set, so a pack on 4.0.17 never saw the March crops. Both sets ship now. This runs without AgriCraft.
+     */
+    @GameTest(template = "empty")
+    public static void theMarchCropsSitWhereEveryAgriCraftReadsThem(GameTestHelper h) {
+        var resources = h.getLevel().getServer().getResourceManager();
+        java.util.function.Function<String, Long> count = dir -> resources.listResources(dir, id -> id.getPath().endsWith(".json"))
+                .keySet().stream().filter(id -> id.getNamespace().equals("tribalpower") && id.getPath().startsWith(dir + "/")).count();
+        String[][] expect = {{"agricraft/plant", "agricraft/plants", "5"}, {"agricraft/soil", "agricraft/soils", "3"}, {"agricraft/mutation", "agricraft/mutations", "5"}};
+        for (String[] e : expect) {
+            long n = Long.parseLong(e[2]);
+            h.assertTrue(count.apply(e[0]) == n && count.apply(e[1]) == n,
+                    e[0] + " and " + e[1] + " each hold " + n + ", got " + count.apply(e[0]) + " and " + count.apply(e[1]));
+        }
+        h.succeed();
+    }
 }

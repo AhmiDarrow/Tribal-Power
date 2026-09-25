@@ -256,7 +256,7 @@ public final class LatticeNetwork {
      * Ember Horn, Loom Anchor, Wake Bell). Totem buffers and other stores are skipped.
      */
     public static int extractPulseFromGenerators(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
-        return drainHandlers(level, origin, radius, amount, true, simulate);
+        return drainHandlers(level, origin, radius, amount, true, simulate, new HashSet<>());
     }
 
     /**
@@ -271,9 +271,10 @@ public final class LatticeNetwork {
         if (amount <= 0) {
             return 0;
         }
-        int remaining = amount - drainHandlers(level, origin, radius, amount, true, simulate);
+        HashSet<Long> piles = new HashSet<>();
+        int remaining = amount - drainHandlers(level, origin, radius, amount, true, simulate, piles);
         if (remaining > 0) {
-            remaining -= drain(level, origin, radius, remaining, be -> be instanceof PulseCairnBlockEntity, simulate);
+            remaining -= drain(level, origin, radius, remaining, be -> be instanceof PulseCairnBlockEntity, simulate, piles);
         }
         return amount - remaining;
     }
@@ -491,12 +492,15 @@ public final class LatticeNetwork {
             return 0;
         }
         int remaining = amount;
-        remaining -= drainHandlers(level, origin, radius, remaining, true, simulate);
+        // Every stone of a Pulse Cairn pile answers for the whole pile, so each pile is drawn once per call,
+        // across all three passes: a simulated draw must not see a pile of three as three piles.
+        HashSet<Long> piles = new HashSet<>();
+        remaining -= drainHandlers(level, origin, radius, remaining, true, simulate, piles);
         if (remaining > 0) {
-            remaining -= drainHandlers(level, origin, radius, remaining, false, simulate);
+            remaining -= drainHandlers(level, origin, radius, remaining, false, simulate, piles);
         }
         if (remaining > 0) {
-            remaining -= extractThroughConductors(level, origin, radius, remaining, simulate);
+            remaining -= extractThroughConductors(level, origin, radius, remaining, simulate, piles);
         }
         return amount - remaining;
     }
@@ -541,7 +545,8 @@ public final class LatticeNetwork {
      * Positions already inside the caller's own cube were drained by the local pass and must not be
      * counted twice. Station buffers stay where they are: the line moves camp Pulse, not a machine's claim.
      */
-    private static int extractThroughConductors(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
+    private static int extractThroughConductors(Level level, BlockPos origin, int radius, int amount, boolean simulate,
+                                                Set<Long> piles) {
         List<LatticeConductorBlockEntity> zone = conductorZone(level, origin, radius);
         if (zone.isEmpty() || amount <= 0) return 0;
         HashSet<BlockPos> seen = new HashSet<>();
@@ -558,9 +563,9 @@ public final class LatticeNetwork {
                 else if (be instanceof ResonanceTotemBlockEntity) totems.add(be);
             }
         }
-        int taken = drainOrdered(generators, amount, simulate);
-        if (taken < amount) taken += drainOrdered(cairns, amount - taken, simulate);
-        if (taken < amount) taken += drainOrdered(totems, amount - taken, simulate);
+        int taken = drainOrdered(generators, amount, simulate, piles);
+        if (taken < amount) taken += drainOrdered(cairns, amount - taken, simulate, piles);
+        if (taken < amount) taken += drainOrdered(totems, amount - taken, simulate, piles);
         return taken;
     }
 
@@ -570,7 +575,7 @@ public final class LatticeNetwork {
                 && Math.abs(at.getZ() - origin.getZ()) <= radius;
     }
 
-    private static int drainOrdered(List<BlockEntity> found, int amount, boolean simulate) {
+    private static int drainOrdered(List<BlockEntity> found, int amount, boolean simulate, Set<Long> piles) {
         if (amount <= 0 || found.isEmpty()) return 0;
         if (found.size() > 1)
             found.sort(java.util.Comparator.comparingInt((BlockEntity be) -> be.getBlockPos().getX())
@@ -579,6 +584,7 @@ public final class LatticeNetwork {
         int taken = 0;
         for (BlockEntity be : found) {
             if (taken >= amount) break;
+            if (PulseCairnBlockEntity.repeatsPile(be, piles)) continue;
             taken += ((PulseHandler) be).extractPulse(amount - taken, simulate);
         }
         return taken;
@@ -593,12 +599,12 @@ public final class LatticeNetwork {
     }
 
     private static int drainHandlers(Level level, BlockPos origin, int radius, int amount,
-                                     boolean generatorsFirst, boolean simulate) {
-        return drain(level, origin, radius, amount, be -> isGenerator(be) == generatorsFirst, simulate);
+                                     boolean generatorsFirst, boolean simulate, Set<Long> piles) {
+        return drain(level, origin, radius, amount, be -> isGenerator(be) == generatorsFirst, simulate, piles);
     }
 
     private static int drain(Level level, BlockPos origin, int radius, int amount,
-                             Predicate<BlockEntity> accept, boolean simulate) {
+                             Predicate<BlockEntity> accept, boolean simulate, Set<Long> piles) {
         // Every machine calls this each working tick, often twice (simulate, then draw). Probing all 17^3 positions
         // of the cube cost thousands of block-entity lookups per call; the loaded chunks' block-entity maps hold only
         // the few that exist. Candidates are then drained in the same x, y, z order the cube walk used.
@@ -625,6 +631,7 @@ public final class LatticeNetwork {
         int taken = 0;
         for (BlockEntity be : found) {
             if (taken >= amount) break;
+            if (PulseCairnBlockEntity.repeatsPile(be, piles)) continue;
             taken += ((PulseHandler) be).extractPulse(amount - taken, simulate);
         }
         return taken;
@@ -642,18 +649,20 @@ public final class LatticeNetwork {
     public static int insertPulseNearby(Level level, BlockPos origin, int radius, int amount, boolean simulate) {
         if (amount <= 0) return 0;
         int remaining = amount;
-        remaining -= fill(level, origin, radius, remaining, be -> !isGenerator(be), simulate);
-        if (remaining > 0) remaining -= fill(level, origin, radius, remaining, LatticeNetwork::isGenerator, simulate);
+        HashSet<Long> piles = new HashSet<>();
+        remaining -= fill(level, origin, radius, remaining, be -> !isGenerator(be), simulate, piles);
+        if (remaining > 0) remaining -= fill(level, origin, radius, remaining, LatticeNetwork::isGenerator, simulate, piles);
         return amount - remaining;
     }
 
     private static int fill(Level level, BlockPos origin, int radius, int amount,
-                            Predicate<BlockEntity> accept, boolean simulate) {
+                            Predicate<BlockEntity> accept, boolean simulate, Set<Long> piles) {
         int given = 0;
         for (BlockEntity be : blockEntitiesAround(level, origin, radius)) {
             if (given >= amount) break;
             if (be.isRemoved() || !(be instanceof PulseHandler handler)) continue;
             if (be.getBlockPos().equals(origin) || !accept.test(be)) continue;
+            if (PulseCairnBlockEntity.repeatsPile(be, piles)) continue;
             given += handler.insertPulse(amount - given, simulate);
         }
         return given;
