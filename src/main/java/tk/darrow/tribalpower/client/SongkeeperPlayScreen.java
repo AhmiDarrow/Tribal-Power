@@ -151,7 +151,7 @@ public class SongkeeperPlayScreen extends Screen {
     public static void rite(BlockPos pos, long seed) {
         tk.darrow.tribalpower.gate.DrumRite.Pattern pattern = tk.darrow.tribalpower.gate.DrumRite.pattern(seed);
         Songbook.Song song = null;
-        for (Songbook.Song candidate : Songbook.songs()) if (candidate.sound().equals(pattern.sound())) song = candidate;
+        for (Songbook.Song candidate : Songbook.songs()) if (candidate.sound().equals("tribalpower:" + pattern.sound())) song = candidate;
         if (song == null) return;
         long[] times = new long[pattern.notes().size()];
         byte[] lanes = new byte[times.length];
@@ -213,7 +213,7 @@ public class SongkeeperPlayScreen extends Screen {
         Minecraft mc = Minecraft.getInstance();
         mc.getMusicManager().stopPlaying();
         // every song is a sounds.json event; the imported ones are not registry entries, so make the event from its name
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath("tribalpower", song.sound());
+        ResourceLocation id = ResourceLocation.parse(song.sound());
         SoundEvent event = BuiltInRegistries.SOUND_EVENT.getOptional(id).orElseGet(() -> SoundEvent.createVariableRangeEvent(id));
         {
             music = new SongSound(event);

@@ -28,17 +28,30 @@ public final class SongkeeperGameTests {
     public static void everySongHasItsMusicAndCharts(GameTestHelper h) {
         var songs = Songbook.songs();
         h.assertTrue(songs.size() == 46, "Tribal Power's 26, the Ninjacat guardians' 12 and the Chocobo races' 8, got " + songs.size());
-        h.assertTrue(Songbook.albums().size() == 5, "Five albums, got " + Songbook.albums().keySet());
+        var mods = net.neoforged.fml.ModList.get();
+        int albums = 3 + (mods.isLoaded("guardians") ? 1 : 0) + (mods.isLoaded("chocobosreborn") ? 1 : 0);
+        h.assertTrue(Songbook.albums().size() == albums, "Tribal Power's three albums, plus one per music mod here, got " + Songbook.albums().keySet());
         var sounds = JsonParser.parseReader(new InputStreamReader(
                 SongkeeperGameTests.class.getResourceAsStream("/assets/tribalpower/sounds.json"), StandardCharsets.UTF_8)).getAsJsonObject();
+        int own = 0;
         for (var song : songs) {
-            h.assertTrue(sounds.has(song.sound()), song.id() + " plays sounds.json event " + song.sound());
-            var entry = sounds.getAsJsonObject(song.sound()).getAsJsonArray("sounds").get(0);
+            h.assertTrue(song.sound().startsWith(song.requires() + ":"), song.id() + " plays a sound of the mod it requires, " + song.sound());
+            h.assertTrue(java.util.Set.of("tribalpower", "guardians", "chocobosreborn").contains(song.requires()), song.id() + " requires a known mod");
+            h.assertTrue(song.available() == net.neoforged.fml.ModList.get().isLoaded(song.requires()), song.id() + " is on the drum exactly when its mod is");
+            h.assertTrue(song.lengthMs() > 20_000, song.id() + " is a whole song, " + song.lengthMs() + " ms");
+            if (!song.requires().equals("tribalpower")) continue;
+            own++;
+            String event = song.sound().substring("tribalpower:".length());
+            h.assertTrue(sounds.has(event), song.id() + " plays sounds.json event " + event);
+            var entry = sounds.getAsJsonObject(event).getAsJsonArray("sounds").get(0);
             String file = entry.isJsonObject() ? entry.getAsJsonObject().get("name").getAsString() : entry.getAsString();
             h.assertTrue(entry.isJsonObject() && entry.getAsJsonObject().get("stream").getAsBoolean(), song.id() + " streams");
             String path = "/assets/tribalpower/sounds/" + file.substring(file.indexOf(':') + 1) + ".ogg";
             h.assertTrue(SongkeeperGameTests.class.getResource(path) != null, song.id() + " ships its recording " + path);
-            h.assertTrue(song.lengthMs() > 20_000, song.id() + " is a whole song, " + song.lengthMs() + " ms");
+        }
+        h.assertTrue(own == 26, "Tribal Power carries its own 26 recordings and no others, got " + own);
+        h.assertTrue(SongkeeperGameTests.class.getResource("/assets/tribalpower/sounds/songkeeper") == null, "No other mod's music rides in the jar");
+        for (var song : songs) {
             var charts = Songbook.charts(song);
             h.assertTrue(charts.beats().length > 8, song.id() + " has its beats for the highway");
             int previous = 0;
@@ -69,7 +82,7 @@ public final class SongkeeperGameTests {
         for (int track = 0; track < tk.darrow.tribalpower.gate.DrumRite.trackCount(); track++) {
             var pattern = tk.darrow.tribalpower.gate.DrumRite.pattern(track);
             Songbook.Song song = null;
-            for (var candidate : Songbook.songs()) if (candidate.sound().equals(pattern.sound())) song = candidate;
+            for (var candidate : Songbook.songs()) if (candidate.sound().equals("tribalpower:" + pattern.sound())) song = candidate;
             h.assertTrue(song != null, "Rite track " + pattern.sound() + " is in the Songbook");
             var hard = Songbook.chart(song, Difficulty.HARD);
             h.assertTrue(hard.size() == pattern.notes().size(), song.id() + ": Hard has the rite's " + pattern.notes().size() + " notes, got " + hard.size());

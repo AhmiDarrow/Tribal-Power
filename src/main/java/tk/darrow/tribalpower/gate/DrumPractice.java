@@ -157,7 +157,7 @@ public final class DrumPractice {
 
     public static void play(ServerPlayer player, BlockPos pos, int songIndex, Difficulty difficulty) {
         Song song = Songbook.song(songIndex);
-        if (song == null || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        if (song == null || !song.available() || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
         begin(player, pos, song, difficulty, 0, "");
     }
 
@@ -251,7 +251,7 @@ public final class DrumPractice {
     /** A player at one drum of a pair challenges the named player at the other. */
     public static void challenge(ServerPlayer player, BlockPos pos, String rivalName, int songIndex, Difficulty difficulty) {
         Song song = Songbook.song(songIndex);
-        if (song == null || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        if (song == null || !song.available() || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
         ServerPlayer rival = null;
         for (ServerPlayer candidate : rivals(player, pos))
             if (candidate.getGameProfile().getName().equals(rivalName)) rival = candidate;

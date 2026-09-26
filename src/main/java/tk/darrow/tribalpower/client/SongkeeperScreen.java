@@ -45,6 +45,7 @@ public class SongkeeperScreen extends Screen {
             rows.add(album);
             rows.addAll(songs);
         });
+        for (Object row : rows) if (row instanceof Songbook.Song first) { selected = first.index(); break; }
     }
 
     public static void open(DrumPractice.Browse browse) {
@@ -131,6 +132,14 @@ public class SongkeeperScreen extends Screen {
         askBoard();
     }
 
+    /** Up and down step through the songs the list shows, skipping any whose mod is not here. */
+    private void step(int by) {
+        List<Songbook.Song> shown = Songbook.available();
+        int at = 0;
+        for (int i = 0; i < shown.size(); i++) if (shown.get(i).index() == selected) at = i;
+        select(shown.get(Mth.clamp(at + by, 0, shown.size() - 1)).index());
+    }
+
     private void select(int index) {
         selected = Mth.clamp(index, 0, Songbook.songs().size() - 1);
         askBoard();
@@ -197,8 +206,8 @@ public class SongkeeperScreen extends Screen {
     @Override
     public boolean keyPressed(int key, int scan, int modifiers) {
         switch (key) {
-            case GLFW.GLFW_KEY_UP -> { select(selected - 1); return true; }
-            case GLFW.GLFW_KEY_DOWN -> { select(selected + 1); return true; }
+            case GLFW.GLFW_KEY_UP -> { step(-1); return true; }
+            case GLFW.GLFW_KEY_DOWN -> { step(1); return true; }
             case GLFW.GLFW_KEY_LEFT -> { setDifficulty(Difficulty.of(Math.max(0, difficulty.ordinal() - 1))); return true; }
             case GLFW.GLFW_KEY_RIGHT -> { setDifficulty(Difficulty.of(Math.min(3, difficulty.ordinal() + 1))); return true; }
             case GLFW.GLFW_KEY_ENTER -> { play(); return true; }

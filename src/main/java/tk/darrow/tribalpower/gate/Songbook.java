@@ -37,8 +37,16 @@ public final class Songbook {
         }
     }
 
-    /** One song: what it is called, which record it is on, the sound that plays it, and how long it runs. */
-    public record Song(int index, String id, String title, String album, String sound, long lengthMs, int bpm) {}
+    /**
+     * One song: what it is called, which record it is on, the sound that plays it (a full id: Tribal Power's own, Core's
+     * guardian themes, or Chocobos Reborn's races), the mod that sound belongs to, and how long it runs.
+     */
+    public record Song(int index, String id, String title, String album, String sound, String requires, long lengthMs, int bpm) {
+        /** Whether this song's recording is in the game: Tribal Power ships only its own, the others come with their mods. */
+        public boolean available() {
+            return requires.equals("tribalpower") || net.neoforged.fml.ModList.get().isLoaded(requires);
+        }
+    }
 
     /** One difficulty's notes, time-ordered: when each lands (ms from the first sound of the song) and on which drum. */
     public record Chart(long[] times, byte[] lanes) {
@@ -81,10 +89,15 @@ public final class Songbook {
         return index >= 0 && index < all.size() ? all.get(index) : null;
     }
 
-    /** The albums in the order the drum lists them, each with its songs. */
+    /** Every song whose recording is in the game, in list order. Indices stay those of {@link #songs}. */
+    public static List<Song> available() {
+        return songs().stream().filter(Song::available).toList();
+    }
+
+    /** The albums in the order the drum lists them, each with the songs that can play here. */
     public static Map<String, List<Song>> albums() {
         Map<String, List<Song>> out = new LinkedHashMap<>();
-        for (Song song : songs()) out.computeIfAbsent(song.album(), a -> new ArrayList<>()).add(song);
+        for (Song song : available()) out.computeIfAbsent(song.album(), a -> new ArrayList<>()).add(song);
         return out;
     }
 
@@ -117,7 +130,8 @@ public final class Songbook {
         for (int i = 0; i < list.size(); i++) {
             JsonObject row = list.get(i).getAsJsonObject();
             out.add(new Song(i, row.get("id").getAsString(), row.get("title").getAsString(), row.get("album").getAsString(),
-                    row.get("sound").getAsString(), row.get("lengthMs").getAsLong(), row.get("bpm").getAsInt()));
+                    row.get("sound").getAsString(), row.has("requires") ? row.get("requires").getAsString() : "tribalpower",
+                    row.get("lengthMs").getAsLong(), row.get("bpm").getAsInt()));
         }
         return List.copyOf(out);
     }
