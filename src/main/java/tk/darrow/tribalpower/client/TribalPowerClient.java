@@ -51,6 +51,7 @@ public final class TribalPowerClient {
                 event.register(tk.darrow.tribalpower.charm.CharmMenu.TYPE.get(), CharmScreen::new);
                 event.register(tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_MENU.get(), SealLoomScreen::new);
                 event.register(tk.darrow.tribalpower.bench.BenchRegistry.MENU.get(), BenchScreen::new);
+                event.register(tk.darrow.tribalpower.anvil.SpiritAnvil.MENU.get(), net.minecraft.client.gui.screens.inventory.AnvilScreen::new);
                 event.register(tk.darrow.tribalpower.echo.ModMenus.SONG_BENCH.get(), SongBenchScreen::new);
                 event.register(tk.darrow.tribalpower.echo.ModMenus.REAGENT_POUCH.get(), PouchScreen::new);
         });

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tribalpower:spirit_anvil",
     "tribalpower:ley_collector",
     "tribalpower:pulse_resonator",
     "tribalpower:lattice_conductor",

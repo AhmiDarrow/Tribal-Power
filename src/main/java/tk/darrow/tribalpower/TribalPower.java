@@ -99,6 +99,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.logic.LogicRegistry.register(modBus);
         tk.darrow.tribalpower.device.DeviceRegistry.register(modBus);
         tk.darrow.tribalpower.bench.BenchRegistry.register(modBus);
+        tk.darrow.tribalpower.anvil.SpiritAnvil.register(modBus);
         tk.darrow.tribalpower.charm.CharmSlots.register(modBus);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::playerTick);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.charm.CharmHooks::loggedOut);

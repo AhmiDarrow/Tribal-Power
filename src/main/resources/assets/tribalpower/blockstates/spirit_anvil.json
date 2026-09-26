@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tribalpower:block/spirit_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "tribalpower:block/spirit_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "tribalpower:block/spirit_anvil"
+    },
+    "facing=west": {
+      "model": "tribalpower:block/spirit_anvil",
+      "y": 90
+    }
+  }
+}

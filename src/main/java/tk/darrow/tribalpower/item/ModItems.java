@@ -262,4 +262,5 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> WALL_SHELF = ITEMS.registerSimpleBlockItem("wall_shelf", ModBlocks.WALL_SHELF);
     public static final DeferredItem<BlockItem> HANGING_RACK = ITEMS.registerSimpleBlockItem("hanging_rack", ModBlocks.HANGING_RACK);
     public static final DeferredItem<BlockItem> WIND_CHARM = ITEMS.registerSimpleBlockItem("wind_charm", ModBlocks.WIND_CHARM);
+    public static final DeferredItem<BlockItem> SPIRIT_ANVIL = ITEMS.registerSimpleBlockItem("spirit_anvil", ModBlocks.SPIRIT_ANVIL);
 }

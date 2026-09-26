@@ -1,0 +1,26 @@
+{
+  "name": "Spirit Anvil",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "An anvil for Spiritgear. Put a worn Spiritgear tool or weapon on the left and **Manifested Ingots** on the right: each ingot mends a quarter of its durability, for a level each, the way an iron anvil mends a tool with its own metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Still an anvil",
+      "text": [
+        "Everything an anvil does, it does: rename, add enchanted books, combine two of the same tool, mend other gear with its own material.",
+        "Unlike an iron anvil it never chips or breaks, from use or from a fall. It still falls if nothing holds it up."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

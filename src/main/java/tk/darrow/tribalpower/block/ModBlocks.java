@@ -525,6 +525,12 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_CYAN).instabreak().sound(SoundType.AMETHYST).noOcclusion()
                     .noCollission().pushReaction(PushReaction.DESTROY)));
 
+    /** Mends Spiritgear with Manifested Ingots; otherwise a vanilla anvil that never chips. */
+    public static final DeferredBlock<tk.darrow.tribalpower.anvil.SpiritAnvilBlock> SPIRIT_ANVIL = BLOCKS.register("spirit_anvil", () ->
+            new tk.darrow.tribalpower.anvil.SpiritAnvilBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL).strength(5.0F, 1200.0F).sound(SoundType.ANVIL)
+                    .pushReaction(PushReaction.BLOCK)));
+
     public static boolean isMarchTillable(BlockState state) {
         return state.is(MARCH_SOIL.get()) || state.is(MARCH_GRASS.get()) || state.is(MARCH_MOSS.get());
     }

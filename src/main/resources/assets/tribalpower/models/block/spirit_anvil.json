@@ -1,0 +1,608 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tribalpower:block/spirit_anvil_manifested",
+    "iron": "minecraft:block/anvil",
+    "iron_top": "minecraft:block/anvil_top",
+    "ingot": "tribalpower:block/spirit_anvil_ingot",
+    "core": "tribalpower:block/spirit_anvil_core",
+    "manifested": "tribalpower:block/spirit_anvil_manifested"
+  },
+  "display": {
+    "fixed": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "elements": [
+    {
+      "__comment": "ingot 1",
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        6,
+        4,
+        14
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot",
+          "cullface": "down"
+        },
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        },
+        "west": {
+          "uv": [
+            0,
+            12,
+            12,
+            16
+          ],
+          "texture": "#ingot"
+        }
+      }
+    },
+    {
+      "__comment": "ingot 2",
+      "from": [
+        6,
+        0,
+        2
+      ],
+      "to": [
+        10,
+        4,
+        14
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot",
+          "cullface": "down"
+        },
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        }
+      }
+    },
+    {
+      "__comment": "ingot 3",
+      "from": [
+        10,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        4,
+        14
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            12
+          ],
+          "texture": "#ingot",
+          "cullface": "down"
+        },
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ingot"
+        },
+        "east": {
+          "uv": [
+            0,
+            12,
+            12,
+            16
+          ],
+          "texture": "#ingot"
+        }
+      }
+    },
+    {
+      "__comment": "core plate",
+      "from": [
+        4,
+        4,
+        3
+      ],
+      "to": [
+        12,
+        5,
+        13
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            8,
+            10
+          ],
+          "texture": "#core"
+        },
+        "north": {
+          "uv": [
+            8,
+            0,
+            16,
+            1
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            16,
+            1
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            0,
+            10,
+            10,
+            11
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            0,
+            10,
+            10,
+            11
+          ],
+          "texture": "#core"
+        }
+      }
+    },
+    {
+      "__comment": "core neck",
+      "from": [
+        6,
+        5,
+        4
+      ],
+      "to": [
+        10,
+        10,
+        12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            1,
+            12,
+            6
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            8,
+            1,
+            12,
+            6
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            8,
+            6,
+            16,
+            11
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            8,
+            6,
+            16,
+            11
+          ],
+          "texture": "#core"
+        }
+      }
+    },
+    {
+      "__comment": "core gem west",
+      "from": [
+        5,
+        6,
+        6
+      ],
+      "to": [
+        6,
+        9,
+        10
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            10,
+            11,
+            14,
+            14
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            14,
+            11,
+            15,
+            15
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            14,
+            11,
+            15,
+            15
+          ],
+          "texture": "#core"
+        },
+        "north": {
+          "uv": [
+            14,
+            11,
+            15,
+            14
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            14,
+            11,
+            15,
+            14
+          ],
+          "texture": "#core"
+        }
+      }
+    },
+    {
+      "__comment": "core gem east",
+      "from": [
+        10,
+        6,
+        6
+      ],
+      "to": [
+        11,
+        9,
+        10
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            10,
+            11,
+            14,
+            14
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            14,
+            11,
+            15,
+            15
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            14,
+            11,
+            15,
+            15
+          ],
+          "texture": "#core"
+        },
+        "north": {
+          "uv": [
+            14,
+            11,
+            15,
+            14
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            14,
+            11,
+            15,
+            14
+          ],
+          "texture": "#core"
+        }
+      }
+    },
+    {
+      "__comment": "iron horn north",
+      "from": [
+        3,
+        10,
+        0
+      ],
+      "to": [
+        13,
+        16,
+        5
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            3,
+            0,
+            13,
+            5
+          ],
+          "texture": "#iron_top"
+        },
+        "down": {
+          "uv": [
+            3,
+            0,
+            13,
+            5
+          ],
+          "texture": "#iron"
+        },
+        "north": {
+          "uv": [
+            3,
+            0,
+            13,
+            6
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            5,
+            6
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            5,
+            6
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "__comment": "iron horn south",
+      "from": [
+        3,
+        10,
+        11
+      ],
+      "to": [
+        13,
+        16,
+        16
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            3,
+            11,
+            13,
+            16
+          ],
+          "texture": "#iron_top"
+        },
+        "down": {
+          "uv": [
+            3,
+            11,
+            13,
+            16
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            3,
+            0,
+            13,
+            6
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            11,
+            0,
+            16,
+            6
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            11,
+            0,
+            16,
+            6
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "__comment": "manifested band",
+      "from": [
+        3,
+        10,
+        5
+      ],
+      "to": [
+        13,
+        16,
+        11
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            10,
+            6
+          ],
+          "texture": "#manifested"
+        },
+        "down": {
+          "uv": [
+            0,
+            6,
+            10,
+            12
+          ],
+          "texture": "#manifested"
+        },
+        "west": {
+          "uv": [
+            10,
+            0,
+            16,
+            6
+          ],
+          "texture": "#manifested"
+        },
+        "east": {
+          "uv": [
+            10,
+            0,
+            16,
+            6
+          ],
+          "texture": "#manifested"
+        }
+      }
+    }
+  ]
+}

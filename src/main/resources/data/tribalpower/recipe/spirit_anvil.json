@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BMB",
+    " R ",
+    "MMM"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spirit_anvil",
+    "count": 1
+  }
+}

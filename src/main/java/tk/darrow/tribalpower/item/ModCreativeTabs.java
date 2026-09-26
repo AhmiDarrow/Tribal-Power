@@ -163,6 +163,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.PULSE_ADAPTER.get());
                         out.accept(ModItems.LATTICE_CONVERTER.get());
                         ModItems.TRIBAL_BENCHES.values().forEach(item -> out.accept(item.get()));
+                        out.accept(ModItems.SPIRIT_ANVIL.get());
                         out.accept(ModItems.SPIRIT_CISTERN.get());
                         out.accept(ModItems.WAYSTONE_COMPASS.get());
                         out.accept(ModItems.HORIZON_COMPASS.get());
