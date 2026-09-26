@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.7 — Every drum sounds
+Uploaded 2026-09-26: `tribalpower-5.3.7.jar` as file **8978709** ("Tribal Power 5.3.7 - Every drum sounds", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.7.md`. A S D F always drum; guardian songs need Core 0.5.16 (file 8978706), whose oggs are plain Vorbis. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.7
+
 ## 5.3.6 — Lighter drum
 Uploaded 2026-09-26: `tribalpower-5.3.6.jar` as file **8978069** ("Tribal Power 5.3.6 - Lighter drum", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.6.md`. Drops the Ninjacat and Chocobo recordings from the jar (79 MB -> 40 MB); those songs play from Core 0.5.15 (file 8978059) and Chocobos Reborn when loaded. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.6
 
