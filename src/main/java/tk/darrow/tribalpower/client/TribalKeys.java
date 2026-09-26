@@ -50,8 +50,10 @@ public final class TribalKeys {
     /** The rite lane a key press means, or -1: the bound key, else that drum's letter; the arrows always work. */
     public static int riteLane(int key, int scan) {
         for (int i = 0; i < RITE_LANES.length; i++) {
-            if (RITE_LANES[i].isUnbound() ? key == LANE_LETTERS[i] : RITE_LANES[i].matches(key, scan)) return i;
+            if (!RITE_LANES[i].isUnbound() && RITE_LANES[i].matches(key, scan)) return i;
         }
+        // A S D F always drum too, whatever the lanes were rebound to (a stray rebind once left a lane unplayable)
+        for (int i = 0; i < LANE_LETTERS.length; i++) if (key == LANE_LETTERS[i]) return i;
         return switch (key) {
             case GLFW.GLFW_KEY_LEFT -> 0;
             case GLFW.GLFW_KEY_DOWN -> 1;

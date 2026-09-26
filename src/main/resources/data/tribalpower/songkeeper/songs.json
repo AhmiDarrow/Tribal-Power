@@ -239,6 +239,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.beddown",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 164784,
   "bpm": 152
  },
@@ -248,6 +249,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.cogwright",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 109600,
   "bpm": 112
  },
@@ -257,6 +259,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.drumheart",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 193960,
   "bpm": 144
  },
@@ -266,6 +269,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.edgewalker",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 179400,
   "bpm": 129
  },
@@ -275,6 +279,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.grindmaw",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 184000,
   "bpm": 157
  },
@@ -284,6 +289,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.hivemind",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 118600,
   "bpm": 117
  },
@@ -293,6 +299,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.lint_golem",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 128832,
   "bpm": 126
  },
@@ -302,6 +309,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.overweaver",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 149600,
   "bpm": 144
  },
@@ -311,6 +319,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.sealbreaker",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 179600,
   "bpm": 108
  },
@@ -320,6 +329,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.tangle",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 134800,
   "bpm": 133
  },
@@ -329,6 +339,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.thornmother",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 148600,
   "bpm": 123
  },
@@ -338,6 +349,7 @@
   "album": "Ninjacat Skies · Guardians",
   "sound": "guardians:music.unwoven",
   "requires": "guardians",
+  "since": "0.5.16",
   "lengthMs": 179520,
   "bpm": 144
  },

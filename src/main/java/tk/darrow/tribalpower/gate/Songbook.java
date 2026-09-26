@@ -41,10 +41,18 @@ public final class Songbook {
      * One song: what it is called, which record it is on, the sound that plays it (a full id: Tribal Power's own, Core's
      * guardian themes, or Chocobos Reborn's races), the mod that sound belongs to, and how long it runs.
      */
-    public record Song(int index, String id, String title, String album, String sound, String requires, long lengthMs, int bpm) {
-        /** Whether this song's recording is in the game: Tribal Power ships only its own, the others come with their mods. */
+    public record Song(int index, String id, String title, String album, String sound, String requires, String since, long lengthMs,
+            int bpm) {
+        /**
+         * Whether this song's recording is in the game: Tribal Power ships only its own, the others come with their mods,
+         * from the version {@code since} on (an older one may list the sound but not carry a playable recording).
+         */
         public boolean available() {
-            return requires.equals("tribalpower") || net.neoforged.fml.ModList.get().isLoaded(requires);
+            if (requires.equals("tribalpower")) return true;
+            return net.neoforged.fml.ModList.get().getModContainerById(requires)
+                    .map(mod -> since.isEmpty() || mod.getModInfo().getVersion().compareTo(
+                            new org.apache.maven.artifact.versioning.DefaultArtifactVersion(since)) >= 0)
+                    .orElse(false);
         }
     }
 
@@ -131,7 +139,7 @@ public final class Songbook {
             JsonObject row = list.get(i).getAsJsonObject();
             out.add(new Song(i, row.get("id").getAsString(), row.get("title").getAsString(), row.get("album").getAsString(),
                     row.get("sound").getAsString(), row.has("requires") ? row.get("requires").getAsString() : "tribalpower",
-                    row.get("lengthMs").getAsLong(), row.get("bpm").getAsInt()));
+                    row.has("since") ? row.get("since").getAsString() : "", row.get("lengthMs").getAsLong(), row.get("bpm").getAsInt()));
         }
         return List.copyOf(out);
     }
