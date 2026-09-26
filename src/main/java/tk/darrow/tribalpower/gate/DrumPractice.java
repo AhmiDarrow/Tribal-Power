@@ -1,6 +1,5 @@
 package tk.darrow.tribalpower.gate;
 
-import io.netty.buffer.ByteBuf;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -8,167 +7,383 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import tk.darrow.tribalpower.gate.Songbook.Difficulty;
+import tk.darrow.tribalpower.gate.Songbook.Song;
 
 /**
- * The Songkeeper Drum: the Gate Rite as a game and nothing more. It plays any of the pack's music -- the six rite
- * tracks and the Drum Circle -- keeps each player's best score for each, and a board of the five best on the server.
- * The client drums and judges timing exactly as for the rite; the server holds each go to its real length.
+ * The Songkeeper Drum: a rhythm game on every song in the {@link Songbook}, at four difficulties, with a best score
+ * per player and a board of the five best per song and difficulty. The client drums and judges its own timing (lag
+ * never costs a note); the server holds each go to the song's real length and caps the score at what the chart
+ * allows.
+ *
+ * <p>Two drums standing side by side make a duelling pair: a player at one challenges whoever stands at the other,
+ * both play the same song at once, each sees the other's score climb, and the higher score takes the duel.
  */
 public final class DrumPractice {
-    private static final long SLACK_MS = 2000, EXPIRE_MS = 60_000;
+    private static final long SLACK_MS = 2500, EXPIRE_MS = 90_000, INVITE_MS = 30_000;
     public static final int BOARD = 5;
+    /** How near a drum a player must stand to play it, and to be its duellist. */
+    public static final double REACH = 6;
     private static final Map<UUID, Session> SESSIONS = new ConcurrentHashMap<>();
+    private static final Map<Integer, Duel> DUELS = new ConcurrentHashMap<>();
+    private static final AtomicInteger NEXT_DUEL = new AtomicInteger(1);
+
+    /** The seven tracks the drum knew before the Songbook, in their old order, so their scores carry over (as Hard). */
+    private static final String[] LEGACY = {"waking_beat", "ember_walk", "reed_dance", "stone_circle", "storm_call", "looms_pull", "drum_circle"};
 
     private DrumPractice() {}
 
-    private record Session(BlockPos pos, int track, long startMs) {}
+    private record Session(BlockPos pos, int song, Difficulty difficulty, long startMs, int duel) {}
 
-    // ---- the tracks ---------------------------------------------------------------------------------------------
+    private static final class Duel {
+        final int id;
+        final UUID challenger, rival;
+        final BlockPos challengerPos, rivalPos;
+        final int song;
+        final Difficulty difficulty;
+        final long invitedMs;
+        boolean started;
+        final Map<UUID, Long> scores = new HashMap<>();
+        final Map<UUID, Boolean> forfeits = new HashMap<>();
 
-    /** Every track the drum knows: the rite tracks, then the Drum Circle. */
-    public static int trackCount() {
-        return GeneratedRiteTracks.TRACKS.length + 1;
-    }
-
-    public static DrumRite.Pattern pattern(int track) {
-        if (track < GeneratedRiteTracks.TRACKS.length) return DrumRite.pattern(track);
-        return drumCircle(track);
-    }
-
-    /**
-     * The Drum Circle disc, charted from how it was composed (tools/generate_3_1_disc.py): 90 beats a minute, four
-     * wake beats that serve as the count-in, then a circle of drums for 28 bars -- the deep drum on one, a slap on two
-     * and four, the low drum on three, the rattle closing every fourth bar -- and the four-beat resync to finish.
-     */
-    private static DrumRite.Pattern drumCircle(int track) {
-        double beat = 60000.0 / 90;
-        List<DrumRite.Note> notes = new ArrayList<>();
-        for (int bar = 4; bar < 32; bar++) {
-            int[] lanes = {0, 2, 1, bar % 4 == 3 ? 3 : 2};
-            for (int b = 0; b < 4; b++) notes.add(new DrumRite.Note(Math.round((bar * 4 + b) * beat), lanes[b]));
+        Duel(int id, UUID challenger, UUID rival, BlockPos challengerPos, BlockPos rivalPos, int song, Difficulty difficulty) {
+            this.id = id;
+            this.challenger = challenger;
+            this.rival = rival;
+            this.challengerPos = challengerPos;
+            this.rivalPos = rivalPos;
+            this.song = song;
+            this.difficulty = difficulty;
+            this.invitedMs = Util.getMillis();
         }
-        for (int b = 0; b < 4; b++) notes.add(new DrumRite.Note(Math.round((32 * 4 + b) * beat), b));
-        long lead = Math.round(16 * beat);
-        long play = Math.round((32 * 4 + 4) * beat) - lead;
-        return new DrumRite.Pattern(track, "music_disc.drum_circle", 90, lead, play, List.copyOf(notes));
+
+        UUID other(UUID player) {
+            return player.equals(challenger) ? rival : challenger;
+        }
     }
 
-    /** A go's points: every note landed, perfect ones more, a streak adds to it, a stray costs. */
-    public static int points(int hits, int perfects, int bestCombo, int strays) {
-        return Math.max(0, hits * 100 + perfects * 50 + bestCombo * 20 - strays * 50);
+    /** Only to a client that has agreed to the drum's packets (a mock player in a test, or a client without the mod, has not). */
+    private static void send(ServerPlayer player, CustomPacketPayload payload) {
+        if (player.connection != null && player.connection.hasChannel(payload)) PacketDistributor.sendToPlayer(player, payload);
     }
 
-    // ---- server -------------------------------------------------------------------------------------------------
+    private static String key(Song song, Difficulty difficulty) {
+        return song.id() + "|" + difficulty.key();
+    }
 
-    /** Opens the drum's track list for a player, with their bests and the board. */
+    public static boolean isDrum(Level level, BlockPos pos) {
+        return level.getBlockState(pos).is(tk.darrow.tribalpower.kit.KitRegistry.SONGKEEPER_DRUM.get());
+    }
+
+    /** The drums standing beside this one (within two blocks across and one up or down): its duelling partners. */
+    public static List<BlockPos> partners(Level level, BlockPos pos) {
+        List<BlockPos> out = new ArrayList<>();
+        for (BlockPos at : BlockPos.betweenClosed(pos.offset(-2, -1, -2), pos.offset(2, 1, 2))) {
+            if (!at.equals(pos) && isDrum(level, at)) out.add(at.immutable());
+        }
+        return out;
+    }
+
+    /** Who stands at a partner drum (nearer it than this one), free to be challenged. */
+    public static List<ServerPlayer> rivals(ServerPlayer player, BlockPos pos) {
+        List<ServerPlayer> out = new ArrayList<>();
+        for (BlockPos other : partners(player.level(), pos)) {
+            for (ServerPlayer candidate : player.serverLevel().players()) {
+                if (candidate == player || out.contains(candidate) || SESSIONS.containsKey(candidate.getUUID())) continue;
+                double there = candidate.distanceToSqr(other.getCenter()), here = candidate.distanceToSqr(pos.getCenter());
+                if (there <= REACH * REACH && there < here) out.add(candidate);
+            }
+        }
+        return out;
+    }
+
+    private static BlockPos drumOf(ServerPlayer player, BlockPos near) {
+        for (BlockPos other : partners(player.level(), near))
+            if (player.distanceToSqr(other.getCenter()) <= REACH * REACH) return other;
+        return null;
+    }
+
+    private static boolean at(ServerPlayer player, BlockPos pos) {
+        return player.distanceToSqr(pos.getCenter()) <= REACH * REACH && isDrum(player.level(), pos);
+    }
+
+    // ---- server: browsing and playing ---------------------------------------------------------------------------
+
+    /** Opens the drum's song list for a player: their bests, their duel record, and who is at a partner drum. */
     public static void browse(ServerPlayer player, BlockPos pos) {
         Scores scores = Scores.get(player);
-        List<TrackScore> rows = new ArrayList<>();
-        for (int track = 0; track < trackCount(); track++) {
-            var board = scores.board(track);
-            List<String> names = new ArrayList<>();
-            List<Integer> points = new ArrayList<>();
-            for (Best best : board) {
-                names.add(best.name);
-                points.add(best.points);
+        List<Song> songs = Songbook.songs();
+        int[] bests = new int[songs.size() * 4];
+        byte[] stars = new byte[songs.size() * 4];
+        for (Song song : songs) {
+            for (Difficulty difficulty : Difficulty.values()) {
+                Best mine = scores.best(key(song, difficulty), player.getUUID());
+                int slot = song.index() * 4 + difficulty.ordinal();
+                bests[slot] = mine == null ? 0 : mine.points;
+                stars[slot] = (byte) (mine == null ? -1 : mine.stars + (mine.fullCombo ? 10 : 0));
             }
-            Best mine = scores.best(track, player.getUUID());
-            rows.add(new TrackScore(track, mine == null ? 0 : mine.points, mine == null ? 0 : mine.accuracy, names, points));
         }
-        PacketDistributor.sendToPlayer(player, new Browse(pos, rows));
+        int[] record = scores.record(player.getUUID());
+        List<String> rivals = rivals(player, pos).stream().map(p -> p.getGameProfile().getName()).toList();
+        send(player, new Browse(pos, bests, stars, record[0], record[1], rivals, !partners(player.level(), pos).isEmpty()));
     }
 
-    public static void play(ServerPlayer player, BlockPos pos, int track) {
-        if (track < 0 || track >= trackCount() || player.distanceToSqr(pos.getCenter()) > 8 * 8
-                || !player.level().getBlockState(pos).is(tk.darrow.tribalpower.kit.KitRegistry.SONGKEEPER_DRUM.get())) return;
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), track, Util.getMillis()));
-        PacketDistributor.sendToPlayer(player, new Start(pos, track));
+    public static void board(ServerPlayer player, int songIndex, Difficulty difficulty) {
+        Song song = Songbook.song(songIndex);
+        if (song == null) return;
+        List<Best> board = Scores.get(player).board(key(song, difficulty));
+        send(player, new Board(songIndex, difficulty.ordinal(),
+                board.stream().map(Best::name).toList(), board.stream().map(b -> b.points).toList()));
+    }
+
+    public static void play(ServerPlayer player, BlockPos pos, int songIndex, Difficulty difficulty) {
+        Song song = Songbook.song(songIndex);
+        if (song == null || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        begin(player, pos, song, difficulty, 0, "");
+    }
+
+    private static void begin(ServerPlayer player, BlockPos pos, Song song, Difficulty difficulty, int duel, String opponent) {
+        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), song.index(), difficulty, Util.getMillis(), duel));
+        send(player, new Start(pos, song.index(), difficulty.ordinal(), duel, opponent));
     }
 
     public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
-        SESSIONS.remove(event.getEntity().getUUID());
+        UUID id = event.getEntity().getUUID();
+        Session session = SESSIONS.remove(id);
+        if (session != null && session.duel != 0 && event.getEntity().getServer() != null) {
+            Duel duel = DUELS.get(session.duel);
+            if (duel != null) {
+                duel.forfeits.put(id, true);
+                duel.scores.putIfAbsent(id, 0L);
+                settle(event.getEntity().getServer(), duel);
+            }
+        }
     }
 
     /** For tests: a go that began {@code ticksAgo} ticks ago. */
-    public static void beginAt(ServerPlayer player, BlockPos pos, int track, long ticksAgo) {
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), track, Util.getMillis() - ticksAgo * 50));
+    public static void beginAt(ServerPlayer player, BlockPos pos, int songIndex, Difficulty difficulty, long ticksAgo) {
+        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), songIndex, difficulty, Util.getMillis() - ticksAgo * 50, 0));
+    }
+
+    /** For tests: pretend the player's go (duel or not) began {@code ticks} ticks earlier than it did. */
+    public static void rewind(ServerPlayer player, long ticks) {
+        SESSIONS.computeIfPresent(player.getUUID(), (id, s) -> new Session(s.pos, s.song, s.difficulty, s.startMs - ticks * 50, s.duel));
     }
 
     /** Settles a go. Returns the points recorded, or -1 when it was refused. */
-    public static int finish(ServerPlayer player, Result result) {
-        Session session = SESSIONS.remove(player.getUUID());
-        if (session == null || !session.pos.equals(result.pos) || session.track != result.track || result.cancelled) return -1;
-        DrumRite.Pattern pattern = pattern(session.track);
-        long elapsed = Util.getMillis() - session.startMs;
-        long needed = pattern.endMs() - SLACK_MS;
-        if (elapsed < needed || elapsed > needed + EXPIRE_MS || player.distanceToSqr(session.pos.getCenter()) > 8 * 8) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.practice.refused"), false);
+    public static long finish(ServerPlayer player, Result result) {
+        Session session = SESSIONS.get(player.getUUID());
+        if (session == null || !session.pos.equals(result.pos) || session.song != result.song
+                || session.difficulty.ordinal() != result.difficulty) return -1;
+        SESSIONS.remove(player.getUUID());
+        Song song = Songbook.song(session.song);
+        Duel duel = session.duel == 0 ? null : DUELS.get(session.duel);
+        if (result.cancelled) {
+            if (duel != null) {
+                duel.forfeits.put(player.getUUID(), true);
+                duel.scores.put(player.getUUID(), 0L);
+                settle(player.getServer(), duel);
+            }
             return -1;
         }
-        int total = pattern.notes().size();
-        int hits = Math.min(result.hits, total);
-        int perfects = Math.min(result.perfects, hits);
-        int combo = Math.min(result.bestCombo, hits);
-        int points = points(hits, perfects, combo, Math.max(0, result.strays));
-        int accuracy = (int) Math.round(DrumRite.accuracy(hits, Math.max(0, result.strays), total) * 100);
+        long elapsed = Util.getMillis() - session.startMs;
+        long needed = song.lengthMs() - SLACK_MS;
+        boolean early = elapsed < needed && !result.failed;
+        if (early || elapsed > song.lengthMs() + EXPIRE_MS || player.distanceToSqr(session.pos.getCenter()) > REACH * REACH) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.practice.refused"), false);
+            if (duel != null) {
+                duel.forfeits.put(player.getUUID(), true);
+                duel.scores.put(player.getUUID(), 0L);
+                settle(player.getServer(), duel);
+            }
+            return -1;
+        }
+        Songbook.Chart chart = Songbook.chart(song, session.difficulty);
+        int total = chart.size();
+        int hits = Math.max(0, Math.min(result.hits, total));
+        long points = Math.max(0, Math.min(result.score, Songbook.maxScore(song, session.difficulty)));
+        int accuracy = total == 0 ? 0 : (int) Math.round(100.0 * hits / total);
+        boolean fullCombo = !result.failed && hits == total && result.bestStreak >= total;
+        int stars = result.failed ? 0 : Songbook.stars(song, session.difficulty, points);
+        if (duel != null) {
+            duel.scores.put(player.getUUID(), points);
+            settle(player.getServer(), duel);
+        }
+        if (result.failed) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.practice.failed", song.title(), points), false);
+            return points;
+        }
+        String key = key(song, session.difficulty);
         Scores scores = Scores.get(player);
-        Best before = scores.best(session.track, player.getUUID());
+        Best before = scores.best(key, player.getUUID());
         boolean personal = before == null || points > before.points;
-        if (personal) scores.record(session.track, player.getUUID(), new Best(player.getGameProfile().getName(), points, accuracy));
-        int place = scores.place(session.track, player.getUUID());
+        if (personal) scores.record(key, player.getUUID(), new Best(player.getGameProfile().getName(), (int) Math.min(Integer.MAX_VALUE, points), accuracy, stars, fullCombo));
+        int place = scores.place(key, player.getUUID());
+        Component difficulty = Component.translatable("gui.tribalpower.songkeeper.difficulty." + session.difficulty.key());
         player.displayClientMessage(Component.translatable(personal ? "message.tribalpower.practice.best" : "message.tribalpower.practice.done",
-                Component.translatable("gui.tribalpower.practice.track." + session.track), points, accuracy), false);
+                song.title(), difficulty, points, accuracy), false);
         if (personal && place >= 0 && place < BOARD)
             player.displayClientMessage(Component.translatable("message.tribalpower.practice.board", place + 1), false);
         return points;
     }
 
+    // ---- server: duels ------------------------------------------------------------------------------------------
+
+    /** A player at one drum of a pair challenges the named player at the other. */
+    public static void challenge(ServerPlayer player, BlockPos pos, String rivalName, int songIndex, Difficulty difficulty) {
+        Song song = Songbook.song(songIndex);
+        if (song == null || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        ServerPlayer rival = null;
+        for (ServerPlayer candidate : rivals(player, pos))
+            if (candidate.getGameProfile().getName().equals(rivalName)) rival = candidate;
+        if (rival == null) {
+            player.displayClientMessage(Component.translatable("message.tribalpower.duel.nobody"), true);
+            return;
+        }
+        BlockPos rivalPos = drumOf(rival, pos);
+        if (rivalPos == null) return;
+        DUELS.values().removeIf(d -> !d.started && Util.getMillis() - d.invitedMs > INVITE_MS);
+        int id = NEXT_DUEL.getAndIncrement();
+        DUELS.put(id, new Duel(id, player.getUUID(), rival.getUUID(), pos.immutable(), rivalPos, songIndex, difficulty));
+        send(rival, new Invite(id, player.getGameProfile().getName(), songIndex, difficulty.ordinal()));
+        player.displayClientMessage(Component.translatable("message.tribalpower.duel.sent", rival.getGameProfile().getName(), song.title()), true);
+    }
+
+    /** The challenged player answers. On yes both drums start the song together. */
+    public static void answer(ServerPlayer player, int id, boolean accept) {
+        Duel duel = DUELS.get(id);
+        if (duel == null || duel.started || !duel.rival.equals(player.getUUID())) return;
+        ServerPlayer challenger = player.getServer().getPlayerList().getPlayer(duel.challenger);
+        boolean stale = Util.getMillis() - duel.invitedMs > INVITE_MS || challenger == null
+                || !at(challenger, duel.challengerPos) || !at(player, duel.rivalPos)
+                || SESSIONS.containsKey(duel.challenger) || SESSIONS.containsKey(duel.rival);
+        if (!accept || stale) {
+            DUELS.remove(id);
+            if (challenger != null) challenger.displayClientMessage(Component.translatable(stale ? "message.tribalpower.duel.expired"
+                    : "message.tribalpower.duel.declined", player.getGameProfile().getName()), true);
+            if (stale) player.displayClientMessage(Component.translatable("message.tribalpower.duel.expired", challenger == null ? "?" : challenger.getGameProfile().getName()), true);
+            return;
+        }
+        duel.started = true;
+        Song song = Songbook.song(duel.song);
+        begin(challenger, duel.challengerPos, song, duel.difficulty, id, player.getGameProfile().getName());
+        begin(player, duel.rivalPos, song, duel.difficulty, id, challenger.getGameProfile().getName());
+        announce(player.serverLevel(), duel.challengerPos, Component.translatable("message.tribalpower.duel.begins",
+                challenger.getGameProfile().getName(), player.getGameProfile().getName(), song.title()).withStyle(ChatFormatting.GOLD));
+    }
+
+    /** A duellist's running score, passed on to the other drum. */
+    public static void progress(ServerPlayer player, Progress progress) {
+        Session session = SESSIONS.get(player.getUUID());
+        if (session == null || session.duel == 0 || session.duel != progress.duel) return;
+        Duel duel = DUELS.get(session.duel);
+        if (duel == null) return;
+        ServerPlayer other = player.getServer().getPlayerList().getPlayer(duel.other(player.getUUID()));
+        if (other != null) send(other, new Rival(progress.duel, progress.score, progress.streak,
+                progress.multiplier, progress.meter, progress.hits, progress.failed));
+    }
+
+    /** When both duellists are in (or one has walked away), the higher score wins. */
+    private static void settle(net.minecraft.server.MinecraftServer server, Duel duel) {
+        if (duel.scores.size() < 2) return;
+        DUELS.remove(duel.id);
+        long a = duel.scores.get(duel.challenger), b = duel.scores.get(duel.rival);
+        boolean aOut = duel.forfeits.getOrDefault(duel.challenger, false), bOut = duel.forfeits.getOrDefault(duel.rival, false);
+        UUID winner = aOut && !bOut ? duel.rival : bOut && !aOut ? duel.challenger : a > b ? duel.challenger : b > a ? duel.rival : null;
+        ServerPlayer challenger = server.getPlayerList().getPlayer(duel.challenger), rival = server.getPlayerList().getPlayer(duel.rival);
+        String aName = challenger == null ? "?" : challenger.getGameProfile().getName(), bName = rival == null ? "?" : rival.getGameProfile().getName();
+        if (challenger != null) send(challenger, new Outcome(duel.id, winner == null ? 0 : winner.equals(duel.challenger) ? 1 : -1, a, b, bName));
+        if (rival != null) send(rival, new Outcome(duel.id, winner == null ? 0 : winner.equals(duel.rival) ? 1 : -1, b, a, aName));
+        ServerPlayer anyone = challenger != null ? challenger : rival;
+        if (anyone != null) {
+            Scores scores = Scores.get(anyone);
+            if (winner != null) {
+                scores.duel(winner, true);
+                scores.duel(winner.equals(duel.challenger) ? duel.rival : duel.challenger, false);
+            }
+            String winnerName = winner == null ? null : winner.equals(duel.challenger) ? aName : bName;
+            announce(anyone.serverLevel(), duel.challengerPos, winner == null
+                    ? Component.translatable("message.tribalpower.duel.draw", aName, bName, a)
+                    : Component.translatable("message.tribalpower.duel.won", winnerName, Math.max(a, b), Math.min(a, b),
+                            winner.equals(duel.challenger) ? bName : aName).withStyle(ChatFormatting.GOLD));
+        }
+    }
+
+    private static void announce(ServerLevel level, BlockPos pos, Component message) {
+        for (ServerPlayer near : level.players())
+            if (near.distanceToSqr(pos.getCenter()) < 24 * 24) near.displayClientMessage(message, false);
+    }
+
+    /** For tests: the duel ids waiting on an answer or in play. */
+    public static java.util.Set<Integer> duels() {
+        return java.util.Set.copyOf(DUELS.keySet());
+    }
+
     // ---- scores -------------------------------------------------------------------------------------------------
 
-    public record Best(String name, int points, int accuracy) {}
+    public record Best(String name, int points, int accuracy, int stars, boolean fullCombo) {}
 
     public static final class Scores extends SavedData {
-        private final Map<Integer, Map<UUID, Best>> tracks = new HashMap<>();
+        private final Map<String, Map<UUID, Best>> songs = new HashMap<>();
+        private final Map<UUID, int[]> duels = new HashMap<>();
 
         public static Scores get(ServerPlayer player) {
             return player.getServer().overworld().getDataStorage()
                     .computeIfAbsent(new SavedData.Factory<>(Scores::new, Scores::load), "tribalpower_drum_scores");
         }
 
-        public Best best(int track, UUID player) {
-            return tracks.getOrDefault(track, Map.of()).get(player);
+        public Best best(String key, UUID player) {
+            return songs.getOrDefault(key, Map.of()).get(player);
         }
 
-        void record(int track, UUID player, Best best) {
-            tracks.computeIfAbsent(track, t -> new HashMap<>()).put(player, best);
+        public Best best(Song song, Difficulty difficulty, UUID player) {
+            return best(key(song, difficulty), player);
+        }
+
+        void record(String key, UUID player, Best best) {
+            songs.computeIfAbsent(key, t -> new HashMap<>()).put(player, best);
             setDirty();
         }
 
-        public List<Best> board(int track) {
-            return tracks.getOrDefault(track, Map.of()).values().stream()
+        /** Wins and losses in duels. */
+        public int[] record(UUID player) {
+            return duels.getOrDefault(player, new int[2]).clone();
+        }
+
+        void duel(UUID player, boolean won) {
+            duels.computeIfAbsent(player, p -> new int[2])[won ? 0 : 1]++;
+            setDirty();
+        }
+
+        public List<Best> board(String key) {
+            return songs.getOrDefault(key, Map.of()).values().stream()
                     .sorted(Comparator.comparingInt(Best::points).reversed()).limit(BOARD).toList();
         }
 
-        /** Where a player stands on a track's board, from 0, or -1. */
-        public int place(int track, UUID player) {
-            Best mine = best(track, player);
+        /** Where a player stands on a board, from 0, or -1. */
+        public int place(String key, UUID player) {
+            Best mine = best(key, player);
             if (mine == null) return -1;
-            return (int) tracks.getOrDefault(track, Map.of()).values().stream().filter(b -> b.points > mine.points).count();
+            return (int) songs.getOrDefault(key, Map.of()).values().stream().filter(b -> b.points > mine.points).count();
         }
 
         public static Scores load(CompoundTag tag, HolderLookup.Provider registries) {
@@ -176,8 +391,16 @@ public final class DrumPractice {
             ListTag list = tag.getList("Scores", Tag.TAG_COMPOUND);
             for (int i = 0; i < list.size(); i++) {
                 CompoundTag entry = list.getCompound(i);
-                scores.tracks.computeIfAbsent(entry.getInt("Track"), t -> new HashMap<>())
-                        .put(entry.getUUID("Player"), new Best(entry.getString("Name"), entry.getInt("Points"), entry.getInt("Accuracy")));
+                String key = entry.contains("Song") ? entry.getString("Song")
+                        : entry.getInt("Track") >= 0 && entry.getInt("Track") < LEGACY.length ? LEGACY[entry.getInt("Track")] + "|hard" : null;
+                if (key == null) continue;
+                scores.songs.computeIfAbsent(key, t -> new HashMap<>()).put(entry.getUUID("Player"), new Best(entry.getString("Name"),
+                        entry.getInt("Points"), entry.getInt("Accuracy"), entry.getInt("Stars"), entry.getBoolean("FullCombo")));
+            }
+            ListTag duels = tag.getList("Duels", Tag.TAG_COMPOUND);
+            for (int i = 0; i < duels.size(); i++) {
+                CompoundTag entry = duels.getCompound(i);
+                scores.duels.put(entry.getUUID("Player"), new int[]{entry.getInt("Won"), entry.getInt("Lost")});
             }
             return scores;
         }
@@ -185,89 +408,182 @@ public final class DrumPractice {
         @Override
         public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
             ListTag list = new ListTag();
-            tracks.forEach((track, bests) -> bests.forEach((player, best) -> {
+            songs.forEach((key, bests) -> bests.forEach((player, best) -> {
                 CompoundTag entry = new CompoundTag();
-                entry.putInt("Track", track);
+                entry.putString("Song", key);
                 entry.putUUID("Player", player);
                 entry.putString("Name", best.name);
                 entry.putInt("Points", best.points);
                 entry.putInt("Accuracy", best.accuracy);
+                entry.putInt("Stars", best.stars);
+                entry.putBoolean("FullCombo", best.fullCombo);
                 list.add(entry);
             }));
             tag.put("Scores", list);
+            ListTag duelList = new ListTag();
+            duels.forEach((player, record) -> {
+                CompoundTag entry = new CompoundTag();
+                entry.putUUID("Player", player);
+                entry.putInt("Won", record[0]);
+                entry.putInt("Lost", record[1]);
+                duelList.add(entry);
+            });
+            tag.put("Duels", duelList);
             return tag;
         }
     }
 
     // ---- network ------------------------------------------------------------------------------------------------
 
-    public record TrackScore(int track, int best, int accuracy, List<String> names, List<Integer> points) {
-        static final StreamCodec<ByteBuf, TrackScore> CODEC = StreamCodec.composite(
-                ByteBufCodecs.VAR_INT, TrackScore::track, ByteBufCodecs.VAR_INT, TrackScore::best, ByteBufCodecs.VAR_INT, TrackScore::accuracy,
-                ByteBufCodecs.STRING_UTF8.apply(ByteBufCodecs.list()), TrackScore::names,
-                ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list()), TrackScore::points, TrackScore::new);
+    private static <T extends CustomPacketPayload> CustomPacketPayload.Type<T> payloadType(String path) {
+        return new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", path));
     }
 
-    /** Server → client: the track list with scores. */
-    public record Browse(BlockPos pos, List<TrackScore> tracks) implements CustomPacketPayload {
-        public static final Type<Browse> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "drum_practice_browse"));
-        public static final StreamCodec<ByteBuf, Browse> STREAM_CODEC = StreamCodec.composite(
-                BlockPos.STREAM_CODEC, Browse::pos, TrackScore.CODEC.apply(ByteBufCodecs.list()), Browse::tracks, Browse::new);
+    /** Server → client: the song list with this player's bests (4 per song), duel record and who is at a partner drum. */
+    public record Browse(BlockPos pos, int[] bests, byte[] stars, int won, int lost, List<String> rivals, boolean paired) implements CustomPacketPayload {
+        public static final Type<Browse> TYPE = payloadType("drum_practice_browse");
+        public static final StreamCodec<FriendlyByteBuf, Browse> STREAM_CODEC = CustomPacketPayload.codec((v, b) -> {
+            b.writeBlockPos(v.pos); b.writeVarIntArray(v.bests); b.writeByteArray(v.stars); b.writeVarInt(v.won); b.writeVarInt(v.lost);
+            b.writeCollection(v.rivals, FriendlyByteBuf::writeUtf); b.writeBoolean(v.paired);
+        }, b -> new Browse(b.readBlockPos(), b.readVarIntArray(), b.readByteArray(), b.readVarInt(), b.readVarInt(),
+                b.readList(FriendlyByteBuf::readUtf), b.readBoolean()));
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** Client → server: play this track. */
-    public record Play(BlockPos pos, int track) implements CustomPacketPayload {
-        public static final Type<Play> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "drum_practice_play"));
-        public static final StreamCodec<ByteBuf, Play> STREAM_CODEC = StreamCodec.composite(
-                BlockPos.STREAM_CODEC, Play::pos, ByteBufCodecs.VAR_INT, Play::track, Play::new);
+    /** Client → server: the board for one song and difficulty, please. */
+    public record BoardRequest(int song, int difficulty) implements CustomPacketPayload {
+        public static final Type<BoardRequest> TYPE = payloadType("drum_practice_board_request");
+        public static final StreamCodec<FriendlyByteBuf, BoardRequest> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeVarInt(v.song); b.writeVarInt(v.difficulty); }, b -> new BoardRequest(b.readVarInt(), b.readVarInt()));
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
-    /** Server → client: begin drumming this track. */
-    public record Start(BlockPos pos, int track) implements CustomPacketPayload {
-        public static final Type<Start> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "drum_practice_start"));
-        public static final StreamCodec<ByteBuf, Start> STREAM_CODEC = StreamCodec.composite(
-                BlockPos.STREAM_CODEC, Start::pos, ByteBufCodecs.VAR_INT, Start::track, Start::new);
+    public record Board(int song, int difficulty, List<String> names, List<Integer> points) implements CustomPacketPayload {
+        public static final Type<Board> TYPE = payloadType("drum_practice_board");
+        public static final StreamCodec<FriendlyByteBuf, Board> STREAM_CODEC = CustomPacketPayload.codec((v, b) -> {
+            b.writeVarInt(v.song); b.writeVarInt(v.difficulty); b.writeCollection(v.names, FriendlyByteBuf::writeUtf);
+            b.writeCollection(v.points, FriendlyByteBuf::writeVarInt);
+        }, b -> new Board(b.readVarInt(), b.readVarInt(), b.readList(FriendlyByteBuf::readUtf), b.readList(FriendlyByteBuf::readVarInt)));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Client → server: play this song at this difficulty. */
+    public record Play(BlockPos pos, int song, int difficulty) implements CustomPacketPayload {
+        public static final Type<Play> TYPE = payloadType("drum_practice_play");
+        public static final StreamCodec<FriendlyByteBuf, Play> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeBlockPos(v.pos); b.writeVarInt(v.song); b.writeVarInt(v.difficulty); },
+                b -> new Play(b.readBlockPos(), b.readVarInt(), b.readVarInt()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Server → client: begin. {@code duel} is 0 for a go on your own, else the duel and who you face. */
+    public record Start(BlockPos pos, int song, int difficulty, int duel, String opponent) implements CustomPacketPayload {
+        public static final Type<Start> TYPE = payloadType("drum_practice_start");
+        public static final StreamCodec<FriendlyByteBuf, Start> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeBlockPos(v.pos); b.writeVarInt(v.song); b.writeVarInt(v.difficulty); b.writeVarInt(v.duel); b.writeUtf(v.opponent); },
+                b -> new Start(b.readBlockPos(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readUtf()));
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
     /** Client → server: how the go went. */
-    public record Result(BlockPos pos, int track, int hits, int perfects, int bestCombo, int strays, boolean cancelled)
-            implements CustomPacketPayload {
-        public static final Type<Result> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "drum_practice_result"));
-        public static final StreamCodec<ByteBuf, Result> STREAM_CODEC = new StreamCodec<>() {
-            @Override
-            public Result decode(ByteBuf buf) {
-                return new Result(BlockPos.STREAM_CODEC.decode(buf), ByteBufCodecs.VAR_INT.decode(buf), ByteBufCodecs.VAR_INT.decode(buf),
-                        ByteBufCodecs.VAR_INT.decode(buf), ByteBufCodecs.VAR_INT.decode(buf), ByteBufCodecs.VAR_INT.decode(buf), ByteBufCodecs.BOOL.decode(buf));
-            }
+    public record Result(BlockPos pos, int song, int difficulty, long score, int hits, int perfects, int bestStreak,
+                         int misses, int strays, boolean failed, boolean cancelled) implements CustomPacketPayload {
+        public static final Type<Result> TYPE = payloadType("drum_practice_result");
+        public static final StreamCodec<FriendlyByteBuf, Result> STREAM_CODEC = CustomPacketPayload.codec((v, b) -> {
+            b.writeBlockPos(v.pos); b.writeVarInt(v.song); b.writeVarInt(v.difficulty); b.writeVarLong(v.score); b.writeVarInt(v.hits);
+            b.writeVarInt(v.perfects); b.writeVarInt(v.bestStreak); b.writeVarInt(v.misses); b.writeVarInt(v.strays);
+            b.writeBoolean(v.failed); b.writeBoolean(v.cancelled);
+        }, b -> new Result(b.readBlockPos(), b.readVarInt(), b.readVarInt(), b.readVarLong(), b.readVarInt(), b.readVarInt(),
+                b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readBoolean(), b.readBoolean()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
 
-            @Override
-            public void encode(ByteBuf buf, Result result) {
-                BlockPos.STREAM_CODEC.encode(buf, result.pos);
-                ByteBufCodecs.VAR_INT.encode(buf, result.track);
-                ByteBufCodecs.VAR_INT.encode(buf, result.hits);
-                ByteBufCodecs.VAR_INT.encode(buf, result.perfects);
-                ByteBufCodecs.VAR_INT.encode(buf, result.bestCombo);
-                ByteBufCodecs.VAR_INT.encode(buf, result.strays);
-                ByteBufCodecs.BOOL.encode(buf, result.cancelled);
-            }
-        };
+    /** Client → server: challenge the named player at the partner drum. */
+    public record Challenge(BlockPos pos, String rival, int song, int difficulty) implements CustomPacketPayload {
+        public static final Type<Challenge> TYPE = payloadType("drum_duel_challenge");
+        public static final StreamCodec<FriendlyByteBuf, Challenge> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeBlockPos(v.pos); b.writeUtf(v.rival); b.writeVarInt(v.song); b.writeVarInt(v.difficulty); },
+                b -> new Challenge(b.readBlockPos(), b.readUtf(), b.readVarInt(), b.readVarInt()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Server → client: someone at the partner drum challenges you. */
+    public record Invite(int duel, String from, int song, int difficulty) implements CustomPacketPayload {
+        public static final Type<Invite> TYPE = payloadType("drum_duel_invite");
+        public static final StreamCodec<FriendlyByteBuf, Invite> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeVarInt(v.duel); b.writeUtf(v.from); b.writeVarInt(v.song); b.writeVarInt(v.difficulty); },
+                b -> new Invite(b.readVarInt(), b.readUtf(), b.readVarInt(), b.readVarInt()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    public record Answer(int duel, boolean accept) implements CustomPacketPayload {
+        public static final Type<Answer> TYPE = payloadType("drum_duel_answer");
+        public static final StreamCodec<FriendlyByteBuf, Answer> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeVarInt(v.duel); b.writeBoolean(v.accept); }, b -> new Answer(b.readVarInt(), b.readBoolean()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Client → server, a few times a second in a duel: where you stand. Meter is 0..100. */
+    public record Progress(int duel, long score, int streak, int multiplier, int meter, int hits, boolean failed) implements CustomPacketPayload {
+        public static final Type<Progress> TYPE = payloadType("drum_duel_progress");
+        public static final StreamCodec<FriendlyByteBuf, Progress> STREAM_CODEC = CustomPacketPayload.codec((v, b) -> {
+            b.writeVarInt(v.duel); b.writeVarLong(v.score); b.writeVarInt(v.streak); b.writeVarInt(v.multiplier); b.writeVarInt(v.meter);
+            b.writeVarInt(v.hits); b.writeBoolean(v.failed);
+        }, b -> new Progress(b.readVarInt(), b.readVarLong(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readBoolean()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Server → client: the other duellist's running score. */
+    public record Rival(int duel, long score, int streak, int multiplier, int meter, int hits, boolean failed) implements CustomPacketPayload {
+        public static final Type<Rival> TYPE = payloadType("drum_duel_rival");
+        public static final StreamCodec<FriendlyByteBuf, Rival> STREAM_CODEC = CustomPacketPayload.codec((v, b) -> {
+            b.writeVarInt(v.duel); b.writeVarLong(v.score); b.writeVarInt(v.streak); b.writeVarInt(v.multiplier); b.writeVarInt(v.meter);
+            b.writeVarInt(v.hits); b.writeBoolean(v.failed);
+        }, b -> new Rival(b.readVarInt(), b.readVarLong(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readVarInt(), b.readBoolean()));
+        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
+    }
+
+    /** Server → client: the duel's verdict. {@code result} 1 won, 0 draw, -1 lost. */
+    public record Outcome(int duel, int result, long yours, long theirs, String opponent) implements CustomPacketPayload {
+        public static final Type<Outcome> TYPE = payloadType("drum_duel_outcome");
+        public static final StreamCodec<FriendlyByteBuf, Outcome> STREAM_CODEC = CustomPacketPayload.codec(
+                (v, b) -> { b.writeVarInt(v.duel); b.writeVarInt(v.result); b.writeVarLong(v.yours); b.writeVarLong(v.theirs); b.writeUtf(v.opponent); },
+                b -> new Outcome(b.readVarInt(), b.readVarInt(), b.readVarLong(), b.readVarLong(), b.readUtf()));
         @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
     }
 
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar("1");
+        var registrar = event.registrar("2");
         registrar.playToClient(Browse.TYPE, Browse.STREAM_CODEC, (payload, context) ->
-                tk.darrow.tribalpower.client.SongkeeperScreen.open(payload.pos(), payload.tracks()));
+                tk.darrow.tribalpower.client.SongkeeperScreen.open(payload));
+        registrar.playToClient(Board.TYPE, Board.STREAM_CODEC, (payload, context) ->
+                tk.darrow.tribalpower.client.SongkeeperScreen.board(payload));
         registrar.playToClient(Start.TYPE, Start.STREAM_CODEC, (payload, context) ->
-                tk.darrow.tribalpower.client.DrumRiteScreen.practice(payload.pos(), payload.track()));
+                tk.darrow.tribalpower.client.SongkeeperPlayScreen.start(payload));
+        registrar.playToClient(Invite.TYPE, Invite.STREAM_CODEC, (payload, context) ->
+                tk.darrow.tribalpower.client.SongkeeperPlayScreen.invite(payload));
+        registrar.playToClient(Rival.TYPE, Rival.STREAM_CODEC, (payload, context) ->
+                tk.darrow.tribalpower.client.SongkeeperPlayScreen.rival(payload));
+        registrar.playToClient(Outcome.TYPE, Outcome.STREAM_CODEC, (payload, context) ->
+                tk.darrow.tribalpower.client.SongkeeperPlayScreen.outcome(payload));
         registrar.playToServer(Play.TYPE, Play.STREAM_CODEC, (payload, context) -> {
-            if (context.player() instanceof ServerPlayer player) play(player, payload.pos(), payload.track());
+            if (context.player() instanceof ServerPlayer player) play(player, payload.pos(), payload.song(), Difficulty.of(payload.difficulty()));
+        });
+        registrar.playToServer(BoardRequest.TYPE, BoardRequest.STREAM_CODEC, (payload, context) -> {
+            if (context.player() instanceof ServerPlayer player) board(player, payload.song(), Difficulty.of(payload.difficulty()));
         });
         registrar.playToServer(Result.TYPE, Result.STREAM_CODEC, (payload, context) -> {
             if (context.player() instanceof ServerPlayer player) finish(player, payload);
+        });
+        registrar.playToServer(Challenge.TYPE, Challenge.STREAM_CODEC, (payload, context) -> {
+            if (context.player() instanceof ServerPlayer player)
+                challenge(player, payload.pos(), payload.rival(), payload.song(), Difficulty.of(payload.difficulty()));
+        });
+        registrar.playToServer(Answer.TYPE, Answer.STREAM_CODEC, (payload, context) -> {
+            if (context.player() instanceof ServerPlayer player) answer(player, payload.duel(), payload.accept());
+        });
+        registrar.playToServer(Progress.TYPE, Progress.STREAM_CODEC, (payload, context) -> {
+            if (context.player() instanceof ServerPlayer player) progress(player, payload);
         });
     }
 }

@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:spirit_seal" }
+  "pattern": [
+    "GSG",
+    "ICI",
+    "GWG"
   ],
-  "result": { "id": "tribalpower:lantern_charm", "count": 1 }
+  "key": {
+    "C": {
+      "item": "minecraft:golden_carrot"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "S": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:lantern_charm",
+    "count": 1
+  }
 }

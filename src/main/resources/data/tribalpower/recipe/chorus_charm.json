@@ -1,11 +1,33 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:resonant_core" },
-    { "item": "tribalpower:spirit_shard" },
-    { "item": "tribalpower:blank_seal" }
+  "pattern": [
+    "SRS",
+    "IBI",
+    "CWC"
   ],
-  "result": { "id": "tribalpower:chorus_charm", "count": 1 }
+  "key": {
+    "B": {
+      "item": "tribalpower:blank_seal"
+    },
+    "C": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "R": {
+      "item": "tribalpower:resonant_core"
+    },
+    "S": {
+      "item": "tribalpower:spirit_shard"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:chorus_charm",
+    "count": 1
+  }
 }

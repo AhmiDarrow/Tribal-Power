@@ -20,7 +20,6 @@ import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.block.SpiritDoorBlock;
 import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.entity.MarchThreat;
-import tk.darrow.tribalpower.gate.DrumPractice;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.item.RitualChalkItem;
 import tk.darrow.tribalpower.item.WeaponKind;
@@ -145,33 +144,7 @@ public final class KitGameTests {
         }
     }
 
-    @GameTest(template = "empty")
-    public static void songkeeperKeepsBestScores(GameTestHelper h) {
-        var player = VerificationPlayers.inLevel(h);
-        try {
-            h.assertTrue(DrumPractice.trackCount() == 7, "Six rite tracks and the Drum Circle");
-            var circle = DrumPractice.pattern(6);
-            h.assertTrue(circle.sound().equals("music_disc.drum_circle") && circle.notes().size() == 116 && circle.leadMs() > 0,
-                    "The Drum Circle is charted from its drums");
-            BlockPos drum = h.absolutePos(new BlockPos(2, 2, 2));
-            player.teleportTo(drum.getX() + 0.5, drum.getY(), drum.getZ() + 0.5);
-            var pattern = DrumPractice.pattern(0);
-            DrumPractice.beginAt(player, drum, 0, pattern.endMs() / 50 + 5);
-            int total = pattern.notes().size();
-            int points = DrumPractice.finish(player, new DrumPractice.Result(drum, 0, total, total / 2, total, 0, false));
-            h.assertTrue(points == DrumPractice.points(total, total / 2, total, 0), "The go is scored, got " + points);
-            var scores = DrumPractice.Scores.get(player);
-            h.assertTrue(scores.best(0, player.getUUID()).points() == points, "It is the player's best");
-            DrumPractice.beginAt(player, drum, 0, pattern.endMs() / 50 + 5);
-            DrumPractice.finish(player, new DrumPractice.Result(drum, 0, 1, 0, 1, 0, false));
-            h.assertTrue(scores.best(0, player.getUUID()).points() == points, "A worse go does not replace the best");
-            DrumPractice.beginAt(player, drum, 1, 0);
-            h.assertTrue(DrumPractice.finish(player, new DrumPractice.Result(drum, 1, 99, 99, 99, 0, false)) < 0, "A go cut short is refused");
-            h.succeed();
-        } finally {
-            h.getLevel().getServer().getPlayerList().remove(player);
-        }
-    }
+    // The Songkeeper Drum's tests live in SongkeeperGameTests.
 
     @GameTest(template = "empty")
     public static void heavyWeaponsSlowAndDaggersQuicken(GameTestHelper h) {

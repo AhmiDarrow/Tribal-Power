@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:earth_seal" }
+  "pattern": [
+    "DSD",
+    "IOI",
+    "DWD"
   ],
-  "result": { "id": "tribalpower:root_charm", "count": 1 }
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "O": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "S": {
+      "item": "tribalpower:earth_seal"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:root_charm",
+    "count": 1
+  }
 }

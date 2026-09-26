@@ -386,6 +386,51 @@ public final class ShowcaseVerification {
                         out.add((i++) + ":" + widget.getClass().getSimpleName() + ":" + widget.getMessage().getString().replace('|', '/'));
                 return "ok " + out;
             }
+            case "slotxy" -> {
+                // slotxy <index>: the gui position of a slot's centre in the open container screen
+                if (!(mc.screen instanceof AbstractContainerScreen<?> screen)) return "error no menu open";
+                var slot = screen.getMenu().getSlot(Integer.parseInt(parts[1]));
+                return "ok " + (screen.getGuiLeft() + slot.x + 8) + " " + (screen.getGuiTop() + slot.y + 8);
+            }
+            case "mouse" -> {
+                // mouse <gui x> <gui y>: move the real cursor there, so hover states draw
+                double scale = mc.getWindow().getGuiScale();
+                org.lwjgl.glfw.GLFW.glfwSetCursorPos(mc.getWindow().getWindow(), Double.parseDouble(parts[1]) * scale, Double.parseDouble(parts[2]) * scale);
+                return "ok mouse";
+            }
+            case "mouseclick" -> {
+                // mouseclick <gui x> <gui y> [button]: a click the way the mouse handler delivers it, events and all
+                if (mc.screen == null) return "error no screen open";
+                double x = Double.parseDouble(parts[1]), y = Double.parseDouble(parts[2]);
+                int button = parts.length > 3 ? Integer.parseInt(parts[3]) : 0;
+                if (!net.neoforged.neoforge.client.ClientHooks.onScreenMouseClickedPre(mc.screen, x, y, button)) {
+                    boolean handled = mc.screen.mouseClicked(x, y, button);
+                    net.neoforged.neoforge.client.ClientHooks.onScreenMouseClickedPost(mc.screen, x, y, button, handled);
+                }
+                if (mc.screen != null) mc.screen.mouseReleased(x, y, button);
+                return "ok clicked";
+            }
+            case "type" -> {
+                if (mc.screen == null) return "error no screen open";
+                for (char c : line.substring(parts[0].length()).strip().toCharArray()) mc.screen.charTyped(c, 0);
+                return "ok typed";
+            }
+            case "rite" -> {
+                // rite <seed>: open a Gate Rite on the drum game (visuals only: no server session, so no gate opens)
+                SongkeeperPlayScreen.rite(mc.player.blockPosition(), Long.parseLong(parts[1]));
+                return "ok rite";
+            }
+            case "songauto" -> {
+                SongkeeperPlayScreen.autoplay = parts.length > 1 && parts[1].equals("on");
+                return "ok autoplay " + SongkeeperPlayScreen.autoplay;
+            }
+            case "screenkey" -> {
+                // screenkey <glfw key code> [times]: press and release a raw key on the open screen (the Songkeeper drums)
+                if (mc.screen == null) return "error no screen open";
+                int code = Integer.parseInt(parts[1]), times = parts.length > 2 ? Integer.parseInt(parts[2]) : 1;
+                for (int k = 0; k < times; k++) { mc.screen.keyPressed(code, 0, 0); mc.screen.keyReleased(code, 0, 0); }
+                return "ok key " + code;
+            }
             case "press" -> {
                 // press <index | text>: click the widget with that index from `buttons`, or whose text contains the words
                 if (mc.screen == null) return "error no screen open";

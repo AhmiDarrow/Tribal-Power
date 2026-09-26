@@ -57,6 +57,8 @@ public final class TribalPowerClient {
         modBus.addListener(TribalKeys::register);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(TribalKeys::tick);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(PulseHud::render);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(SongClock::streaming);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(SongClock::plain);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(FamiliarInspectHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyLensHud::render);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(LeyRopeRenderer::render);

@@ -49,14 +49,14 @@ public class DeepCacheBlock extends Block {
             }
             DeepCacheContainer container = DeepCacheManager.openContainer(serverPlayer);
             serverPlayer.openMenu(new SimpleMenuProvider(
-                    (id, inv, p) -> new ChestMenu(net.minecraft.world.inventory.MenuType.GENERIC_9x6, id, inv, container, 6) {
+                    (id, inv, p) -> DeepCacheContainer.guard(new ChestMenu(net.minecraft.world.inventory.MenuType.GENERIC_9x6, id, inv, container, 6) {
                         @Override
                         public boolean stillValid(Player viewer) {
                             return super.stillValid(viewer) && !level.hasNeighborSignal(pos)
                                     && level.getBlockState(pos).is(DeepCacheBlock.this)
                                     && viewer.distanceToSqr(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) <= 64;
                         }
-                    },
+                    }, container),
                     Component.translatable("block.tribalpower.deep_cache")
             ));
         }

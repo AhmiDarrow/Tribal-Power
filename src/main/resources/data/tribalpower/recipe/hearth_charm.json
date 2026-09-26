@@ -1,10 +1,33 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:ember_heart" }
+  "pattern": [
+    "HGH",
+    "IEI",
+    "CWC"
   ],
-  "result": { "id": "tribalpower:hearth_charm", "count": 1 }
+  "key": {
+    "C": {
+      "item": "minecraft:cake"
+    },
+    "E": {
+      "item": "tribalpower:ember_heart"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:hearth_charm",
+    "count": 1
+  }
 }

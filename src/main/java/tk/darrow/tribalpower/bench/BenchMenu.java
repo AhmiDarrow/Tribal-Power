@@ -3,7 +3,9 @@ package tk.darrow.tribalpower.bench;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.world.inventory.RecipeBookMenu;
+import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.inventory.ResultContainer;
 import net.minecraft.world.inventory.ResultSlot;
@@ -27,8 +29,10 @@ import java.util.Optional;
  * matters: the nine places belong to the block, not to the screen. Closing the bench leaves the
  * work where it is instead of throwing it on the floor, which is why {@link #removed} does not
  * clear the grid the way {@code CraftingMenu} does.
+ *
+ * <p>It is a recipe-book menu like the crafting table's, so the green book opens beside it and fills the grid.
  */
-public class BenchMenu extends AbstractContainerMenu {
+public class BenchMenu extends RecipeBookMenu<CraftingInput, CraftingRecipe> {
     public static final int GRID_START = 1;
     public static final int GRID_END = 10;
 
@@ -36,6 +40,8 @@ public class BenchMenu extends AbstractContainerMenu {
     private final ResultContainer result = new ResultContainer();
     private final Player player;
     @Nullable private final TribalBenchBlockEntity bench;
+    /** While the recipe book fills the grid, one result and one sync at the end rather than one per slot. */
+    private boolean placing;
 
     /** Client side: a loose grid of the same shape, filled by the server's slot updates. */
     public BenchMenu(int id, Inventory inventory) {
@@ -71,7 +77,7 @@ public class BenchMenu extends AbstractContainerMenu {
 
     @Override
     public void slotsChanged(Container container) {
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide || placing) return;
         refreshResult();
         if (bench != null) bench.gridChanged();
         super.slotsChanged(container);
@@ -142,6 +148,65 @@ public class BenchMenu extends AbstractContainerMenu {
     @Override
     public boolean canTakeItemForPickAll(ItemStack stack, Slot slot) {
         return slot.container != result && super.canTakeItemForPickAll(stack, slot);
+    }
+
+    // ---- the recipe book -----------------------------------------------------------------------------------------
+
+    @Override
+    public void beginPlacingRecipe() {
+        placing = true;
+    }
+
+    @Override
+    public void finishPlacingRecipe(RecipeHolder<CraftingRecipe> recipe) {
+        placing = false;
+        slotsChanged(grid);
+    }
+
+    @Override
+    public void fillCraftSlotsStackedContents(StackedContents contents) {
+        grid.fillStackedContents(contents);
+    }
+
+    @Override
+    public void clearCraftingContent() {
+        grid.clearContent();
+        result.clearContent();
+    }
+
+    @Override
+    public boolean recipeMatches(RecipeHolder<CraftingRecipe> recipe) {
+        return recipe.value().matches(CraftingInput.of(3, 3, grid.getItems()), player.level());
+    }
+
+    @Override
+    public int getResultSlotIndex() {
+        return 0;
+    }
+
+    @Override
+    public int getGridWidth() {
+        return 3;
+    }
+
+    @Override
+    public int getGridHeight() {
+        return 3;
+    }
+
+    @Override
+    public int getSize() {
+        return 10;
+    }
+
+    @Override
+    public RecipeBookType getRecipeBookType() {
+        return RecipeBookType.CRAFTING;
+    }
+
+    @Override
+    public boolean shouldMoveToInventory(int slot) {
+        return slot != getResultSlotIndex();
     }
 
     /** For the recipe book and for tests: what the grid currently makes. */

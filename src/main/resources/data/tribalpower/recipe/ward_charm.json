@@ -1,10 +1,33 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:earth_seal" },
-    { "item": "tribalpower:spirit_seal" }
+  "pattern": [
+    "EBP",
+    "ITI",
+    "TWT"
   ],
-  "result": { "id": "tribalpower:ward_charm", "count": 1 }
+  "key": {
+    "B": {
+      "item": "minecraft:shield"
+    },
+    "E": {
+      "item": "tribalpower:earth_seal"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "P": {
+      "item": "tribalpower:spirit_seal"
+    },
+    "T": {
+      "item": "minecraft:turtle_scute"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ward_charm",
+    "count": 1
+  }
 }

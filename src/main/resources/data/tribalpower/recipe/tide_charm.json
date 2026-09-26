@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:water_seal" }
+  "pattern": [
+    "NSN",
+    "IPI",
+    "WPW"
   ],
-  "result": { "id": "tribalpower:tide_charm", "count": 1 }
+  "key": {
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "N": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "P": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "S": {
+      "item": "tribalpower:water_seal"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:tide_charm",
+    "count": 1
+  }
 }

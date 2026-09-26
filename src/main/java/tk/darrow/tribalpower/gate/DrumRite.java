@@ -157,7 +157,7 @@ public final class DrumRite {
     public static void register(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar("1");
         registrar.playToClient(Start.TYPE, Start.STREAM_CODEC, (payload, context) ->
-                tk.darrow.tribalpower.client.DrumRiteScreen.open(payload.pos(), payload.seed()));
+                tk.darrow.tribalpower.client.SongkeeperPlayScreen.rite(payload.pos(), payload.seed()));
         registrar.playToServer(Result.TYPE, Result.STREAM_CODEC, (payload, context) -> {
             if (context.player() instanceof ServerPlayer player) finish(player, payload);
         });

@@ -20,7 +20,7 @@ public class WayfarerSatchelItem extends Item {
                 return InteractionResultHolder.fail(player.getItemInHand(hand));
             }
             var container = DeepCacheManager.openContainer(serverPlayer);
-            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) -> ChestMenu.sixRows(id, inv, container),
+            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) -> tk.darrow.tribalpower.storage.DeepCacheContainer.guard(ChestMenu.sixRows(id, inv, container), container),
                     Component.translatable("block.tribalpower.deep_cache")));
         }
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);

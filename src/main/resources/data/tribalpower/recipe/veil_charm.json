@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:echo_silk" }
+  "pattern": [
+    "FXF",
+    "IEI",
+    "FWF"
   ],
-  "result": { "id": "tribalpower:veil_charm", "count": 1 }
+  "key": {
+    "E": {
+      "item": "tribalpower:echo_silk"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    },
+    "X": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "result": {
+    "id": "tribalpower:veil_charm",
+    "count": 1
+  }
 }

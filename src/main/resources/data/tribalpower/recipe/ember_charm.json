@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:fire_seal" }
+  "pattern": [
+    "BFB",
+    "IMI",
+    "BWB"
   ],
-  "result": { "id": "tribalpower:ember_charm", "count": 1 }
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "F": {
+      "item": "tribalpower:fire_seal"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "M": {
+      "item": "minecraft:magma_cream"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ember_charm",
+    "count": 1
+  }
 }

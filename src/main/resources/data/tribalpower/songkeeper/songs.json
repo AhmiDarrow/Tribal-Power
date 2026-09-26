@@ -1,0 +1,370 @@
+[
+ {
+  "id": "waking_beat",
+  "title": "Waking Beat",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_1",
+  "lengthMs": 26800,
+  "bpm": 91
+ },
+ {
+  "id": "ember_walk",
+  "title": "Ember Walk",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_2",
+  "lengthMs": 27800,
+  "bpm": 96
+ },
+ {
+  "id": "reed_dance",
+  "title": "Reed Dance",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_3",
+  "lengthMs": 28185,
+  "bpm": 103
+ },
+ {
+  "id": "stone_circle",
+  "title": "Stone Circle",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_4",
+  "lengthMs": 28982,
+  "bpm": 110
+ },
+ {
+  "id": "storm_call",
+  "title": "Storm Call",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_5",
+  "lengthMs": 29697,
+  "bpm": 115
+ },
+ {
+  "id": "looms_pull",
+  "title": "The Loom's Pull",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "gate_rite_6",
+  "lengthMs": 29897,
+  "bpm": 123
+ },
+ {
+  "id": "drum_circle",
+  "title": "The Drum Circle",
+  "album": "Tribal Power · Gate Rites",
+  "sound": "music_disc.drum_circle",
+  "lengthMs": 96000,
+  "bpm": 91
+ },
+ {
+  "id": "march_steppe",
+  "title": "The Steppe",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_steppe",
+  "lengthMs": 103553,
+  "bpm": 76
+ },
+ {
+  "id": "march_highlands",
+  "title": "The Highlands",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_highlands",
+  "lengthMs": 118864,
+  "bpm": 133
+ },
+ {
+  "id": "march_glimmer_ridge",
+  "title": "Glimmer Ridge",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_glimmer_ridge",
+  "lengthMs": 134914,
+  "bpm": 115
+ },
+ {
+  "id": "march_snow_fields",
+  "title": "The Snow Fields",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_snow_fields",
+  "lengthMs": 130500,
+  "bpm": 120
+ },
+ {
+  "id": "march_ember_wastes",
+  "title": "The Ember Wastes",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_ember_wastes",
+  "lengthMs": 91802,
+  "bpm": 86
+ },
+ {
+  "id": "march_reed_fen",
+  "title": "The Reed Fen",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_reed_fen",
+  "lengthMs": 115441,
+  "bpm": 68
+ },
+ {
+  "id": "march_crystal_fields",
+  "title": "The Crystal Fields",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_crystal_fields",
+  "lengthMs": 122500,
+  "bpm": 129
+ },
+ {
+  "id": "march_shallows",
+  "title": "The Shallows",
+  "album": "Tribal Power · The March",
+  "sound": "music.march_shallows",
+  "lengthMs": 135833,
+  "bpm": 144
+ },
+ {
+  "id": "boss_the_unsung",
+  "title": "The Unsung",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.the_unsung",
+  "lengthMs": 51929,
+  "bpm": 112
+ },
+ {
+  "id": "boss_colossus_warden",
+  "title": "Colossus Warden",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.colossus_warden",
+  "lengthMs": 69071,
+  "bpm": 167
+ },
+ {
+  "id": "boss_slag_titan",
+  "title": "Slag Titan",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.slag_titan",
+  "lengthMs": 46952,
+  "bpm": 123
+ },
+ {
+  "id": "boss_bog_matriarch",
+  "title": "Bog Matriarch",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.bog_matriarch",
+  "lengthMs": 60500,
+  "bpm": 96
+ },
+ {
+  "id": "boss_cairn_wight",
+  "title": "Cairn Wight",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.cairn_wight",
+  "lengthMs": 55885,
+  "bpm": 103
+ },
+ {
+  "id": "boss_prism_serpent",
+  "title": "Prism Serpent",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.prism_serpent",
+  "lengthMs": 45500,
+  "bpm": 129
+ },
+ {
+  "id": "boss_vault_sentinel",
+  "title": "Vault Sentinel",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.vault_sentinel",
+  "lengthMs": 63109,
+  "bpm": 92
+ },
+ {
+  "id": "boss_tide_drummer",
+  "title": "Tide Drummer",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.tide_drummer",
+  "lengthMs": 61517,
+  "bpm": 117
+ },
+ {
+  "id": "boss_stampede_spirit",
+  "title": "Stampede Spirit",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.stampede_spirit",
+  "lengthMs": 43485,
+  "bpm": 133
+ },
+ {
+  "id": "boss_storm_roc",
+  "title": "Storm Roc",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.storm_roc",
+  "lengthMs": 46214,
+  "bpm": 126
+ },
+ {
+  "id": "boss_finale",
+  "title": "Finale · The Ninth Agreement",
+  "album": "Tribal Power · Guardians of the March",
+  "sound": "boss.finale",
+  "lengthMs": 141000,
+  "bpm": 161
+ },
+ {
+  "id": "ninjacat_beddown",
+  "title": "Beddown · The Pit Remembers",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.beddown",
+  "lengthMs": 164784,
+  "bpm": 152
+ },
+ {
+  "id": "ninjacat_cogwright",
+  "title": "Cogwright · Escapement",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.cogwright",
+  "lengthMs": 109600,
+  "bpm": 112
+ },
+ {
+  "id": "ninjacat_drumheart",
+  "title": "Drumheart · Ember Pit",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.drumheart",
+  "lengthMs": 193960,
+  "bpm": 144
+ },
+ {
+  "id": "ninjacat_edgewalker",
+  "title": "Edgewalker · Sky-Shard Pounce",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.edgewalker",
+  "lengthMs": 179400,
+  "bpm": 129
+ },
+ {
+  "id": "ninjacat_grindmaw",
+  "title": "Grindmaw · Millstone Maw",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.grindmaw",
+  "lengthMs": 184000,
+  "bpm": 157
+ },
+ {
+  "id": "ninjacat_hivemind",
+  "title": "Hivemind · Royal Chamber",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.hivemind",
+  "lengthMs": 118600,
+  "bpm": 117
+ },
+ {
+  "id": "ninjacat_lint_golem",
+  "title": "Lint Golem · Lint and Mischief",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.lint_golem",
+  "lengthMs": 128832,
+  "bpm": 126
+ },
+ {
+  "id": "ninjacat_overweaver",
+  "title": "Overweaver · Nine Threads, One Weaver",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.overweaver",
+  "lengthMs": 149600,
+  "bpm": 144
+ },
+ {
+  "id": "ninjacat_sealbreaker",
+  "title": "Sealbreaker · Wards of the Ninth Seal",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.sealbreaker",
+  "lengthMs": 179600,
+  "bpm": 108
+ },
+ {
+  "id": "ninjacat_tangle",
+  "title": "Tangle · Knotwork",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.tangle",
+  "lengthMs": 134800,
+  "bpm": 133
+ },
+ {
+  "id": "ninjacat_thornmother",
+  "title": "Thornmother · Briar Lullaby",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.thornmother",
+  "lengthMs": 148600,
+  "bpm": 123
+ },
+ {
+  "id": "ninjacat_unwoven",
+  "title": "Unwoven · The Warp Undone",
+  "album": "Ninjacat Skies · Guardians",
+  "sound": "songkeeper.ninjacat.unwoven",
+  "lengthMs": 179520,
+  "bpm": 144
+ },
+ {
+  "id": "chocobo_chocobo_dash",
+  "title": "Chocobo Dash",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.chocobo_dash",
+  "lengthMs": 124032,
+  "bpm": 144
+ },
+ {
+  "id": "chocobo_chocobo_race_gallop",
+  "title": "Chocobo Race Gallop",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.chocobo_race_gallop",
+  "lengthMs": 172400,
+  "bpm": 148
+ },
+ {
+  "id": "chocobo_gallop_of_adventure",
+  "title": "Gallop of Adventure",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.gallop_of_adventure",
+  "lengthMs": 159920,
+  "bpm": 157
+ },
+ {
+  "id": "chocobo_gallop_of_heroes",
+  "title": "Gallop of Heroes",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.gallop_of_heroes",
+  "lengthMs": 99960,
+  "bpm": 144
+ },
+ {
+  "id": "chocobo_rune_dash",
+  "title": "Rune Dash",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.rune_dash",
+  "lengthMs": 44280,
+  "bpm": 152
+ },
+ {
+  "id": "chocobo_speed_of_the_dragon",
+  "title": "Speed of the Dragon",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.speed_of_the_dragon",
+  "lengthMs": 74760,
+  "bpm": 144
+ },
+ {
+  "id": "chocobo_village_night_song",
+  "title": "Village Night Song",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.village_night_song",
+  "lengthMs": 172800,
+  "bpm": 94
+ },
+ {
+  "id": "chocobo_woodland_pastoral",
+  "title": "Woodland Pastoral",
+  "album": "Chocobos Reborn",
+  "sound": "songkeeper.chocobo.woodland_pastoral",
+  "lengthMs": 177600,
+  "bpm": 108
+ }
+]

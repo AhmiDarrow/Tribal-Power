@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:loom_seal" }
+  "pattern": [
+    "ESE",
+    "IRI",
+    "EWE"
   ],
-  "result": { "id": "tribalpower:spindle_charm", "count": 1 }
+  "key": {
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "R": {
+      "item": "minecraft:rabbit_foot"
+    },
+    "S": {
+      "item": "tribalpower:loom_seal"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:spindle_charm",
+    "count": 1
+  }
 }

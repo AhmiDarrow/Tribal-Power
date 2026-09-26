@@ -1,10 +1,30 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "ingredients": [
-    { "item": "tribalpower:spiritweave" },
-    { "item": "tribalpower:manifested_ingot" },
-    { "item": "tribalpower:air_seal" }
+  "pattern": [
+    "PAP",
+    "INI",
+    "WPW"
   ],
-  "result": { "id": "tribalpower:sky_charm", "count": 1 }
+  "key": {
+    "A": {
+      "item": "tribalpower:air_seal"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "P": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:sky_charm",
+    "count": 1
+  }
 }

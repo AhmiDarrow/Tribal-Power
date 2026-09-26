@@ -48,6 +48,32 @@ public class BenchGameTests {
         h.succeed();
     }
 
+    /** The green recipe book works at the bench: picking a recipe moves the ingredients from the pack onto the grid. */
+    @GameTest(template="empty")
+    public static void theRecipeBookFillsTheGrid(GameTestHelper h) {
+        BlockPos pos = place(h, new BlockPos(2, 2, 2));
+        var bench = (TribalBenchBlockEntity) h.getBlockEntity(pos);
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getInventory().add(new ItemStack(Items.OAK_PLANKS, 8));
+            var menu = new tk.darrow.tribalpower.bench.BenchMenu(1, player.getInventory(), bench);
+            player.containerMenu = menu;
+            h.assertTrue(menu instanceof net.minecraft.world.inventory.RecipeBookMenu<?, ?>, "The bench is a recipe-book menu");
+            var recipe = h.getLevel().getRecipeManager().byKey(net.minecraft.resources.ResourceLocation.withDefaultNamespace("crafting_table")).orElseThrow();
+            player.getRecipeBook().add(recipe);   // the book only places recipes the player has unlocked
+            menu.handlePlacement(false, recipe, player);
+            int planks = 0;
+            for (int i = 0; i < 9; i++) if (bench.grid().get(i).is(Items.OAK_PLANKS)) planks += bench.grid().get(i).getCount();
+            h.assertTrue(planks == 4, "The book set four planks on the grid, got " + planks);
+            h.assertTrue(menu.currentResult().is(Items.CRAFTING_TABLE), "and the bench offers the crafting table");
+            h.assertTrue(player.getInventory().countItem(Items.OAK_PLANKS) == 4, "The four came out of the pack");
+            menu.removed(player);
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+    }
+
     /** Placing makes both halves, and they agree which one holds the inventory. */
     @GameTest(template="empty")
     public static void theBenchIsTwoHalvesThatShareOneInventory(GameTestHelper h) {

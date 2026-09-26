@@ -11,18 +11,27 @@
       "item": "tribalpower:songkeeper_drum",
       "title": "Drum for the joy of it",
       "text": [
-        "The Songkeeper Drum is the [Gate Rite](the_march) as a game, with no portal at the end. Use it to open the track list and pick any of the pack's music: the six rite tracks and the **Drum Circle**.",
-        "Play it exactly like the rite: **A**, **S**, **D** and **F** (or the arrow keys) as the beats reach the line. It is the best way to practise before you try a real Gate Drum."
+        "The Songkeeper Drum is a rhythm game on **46 songs**: the Gate Rites and the Drum Circle, the music of every March land, the themes of its guardians, the **Ninjacat Skies** guardians and the **Chocobos Reborn** races. Every song plays whole, and every note is charted from a real beat in the recording.",
+        "Pick a song and a difficulty (**Easy**, **Normal**, **Hard** or **Expert**; Easy uses three drums), then strike **A**, **S**, **D** and **F** (or the arrow keys) as each drum head reaches the line."
       ]
     },
     {
       "type": "text",
+      "title": "Playing",
       "text": [
-        "Every beat you land is **100** points, a perfect one **50** more, your longest streak adds **20** a beat, and every stray press costs **50**.",
-        "The drum remembers your **best score** on every track and keeps a board of the **five best players** on the server. A new best, or a place on the board, gets called out in chat.",
-        "The track list shows each track's tempo, how many beats it has and how long it runs, so you can work your way up from the gentle ones."
-      ],
-      "title": "Scores"
+        "A hit is **Perfect**, **Great** or **Good** by how close it lands. A streak builds your multiplier: **x2** at 10 in a row, **x3** at 20, **x4** at 30. A miss breaks the streak and the song dips.",
+        "Glowing notes are a **Spirit Surge** phrase. Clear a whole phrase to charge the Surge meter; once it is half full, press **Space** to double every point while it lasts.",
+        "Watch the **Resonance** meter. Misses drain it, hits fill it; if it empties the song breaks and no score is kept. Easy never breaks.",
+        "If the notes and the music drift apart on your machine, set the **audio offset** in the song list. **Speed** changes how fast notes travel, and **hit sounds** add a tap on every hit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scores and duels",
+      "text": [
+        "The drum keeps your **best score and stars** for every song at every difficulty, and a board of the **five best** on the server. A full combo gets gold stars.",
+        "Set **two Songkeeper Drums side by side** and they become a duelling pair. From one drum, challenge the player standing at the other: you both play the same song at once, each watching the other's score in a tug-of-war bar, and the higher score wins. Your duel record shows at the top of the song list."
+      ]
     },
     {
       "type": "recipe",
