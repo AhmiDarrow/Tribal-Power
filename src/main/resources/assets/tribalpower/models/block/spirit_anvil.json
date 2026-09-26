@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "tribalpower:block/spirit_anvil_manifested",
+    "particle": "tribalpower:block/manifested_block",
     "iron": "minecraft:block/anvil",
     "iron_top": "minecraft:block/anvil_top",
     "ingot": "tribalpower:block/spirit_anvil_ingot",
     "core": "tribalpower:block/spirit_anvil_core",
-    "manifested": "tribalpower:block/spirit_anvil_manifested"
+    "manifested": "tribalpower:block/manifested_block"
   },
   "display": {
     "fixed": {
@@ -554,7 +554,7 @@
       }
     },
     {
-      "__comment": "manifested band",
+      "__comment": "manifested block band",
       "from": [
         3,
         10,
@@ -568,36 +568,36 @@
       "faces": {
         "up": {
           "uv": [
-            0,
-            0,
-            10,
-            6
+            3,
+            5,
+            13,
+            11
           ],
           "texture": "#manifested"
         },
         "down": {
           "uv": [
-            0,
-            6,
-            10,
-            12
+            3,
+            5,
+            13,
+            11
           ],
           "texture": "#manifested"
         },
         "west": {
           "uv": [
-            10,
+            5,
             0,
-            16,
+            11,
             6
           ],
           "texture": "#manifested"
         },
         "east": {
           "uv": [
-            10,
+            5,
             0,
-            16,
+            11,
             6
           ],
           "texture": "#manifested"

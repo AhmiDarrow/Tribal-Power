@@ -116,6 +116,7 @@
     "tribalpower:hearth_pot",
     "tribalpower:guardian_altar",
     "tribalpower:carved_stone",
-    "tribalpower:mural"
+    "tribalpower:mural",
+    "tribalpower:manifested_block"
   ]
 }

@@ -525,6 +525,10 @@ public final class ModBlocks {
                     .mapColor(MapColor.COLOR_CYAN).instabreak().sound(SoundType.AMETHYST).noOcclusion()
                     .noCollission().pushReaction(PushReaction.DESTROY)));
 
+    /** Nine Manifested Ingots in a block, for storage and for the Spirit Anvil's face. */
+    public static final DeferredBlock<Block> MANIFESTED_BLOCK = BLOCKS.registerSimpleBlock("manifested_block",
+            BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(5.0F, 6.0F).sound(SoundType.METAL));
+
     /** Mends Spiritgear with Manifested Ingots; otherwise a vanilla anvil that never chips. */
     public static final DeferredBlock<tk.darrow.tribalpower.anvil.SpiritAnvilBlock> SPIRIT_ANVIL = BLOCKS.register("spirit_anvil", () ->
             new tk.darrow.tribalpower.anvil.SpiritAnvilBlock(BlockBehaviour.Properties.of()

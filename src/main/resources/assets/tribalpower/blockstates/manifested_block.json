@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tribalpower:block/manifested_block"
+    }
+  }
+}

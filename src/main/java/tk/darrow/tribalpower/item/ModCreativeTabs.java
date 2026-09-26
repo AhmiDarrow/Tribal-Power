@@ -37,6 +37,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.ATTUNED_ECHO.get());
                         out.accept(ModItems.BOUND_ECHO.get());
                         out.accept(ModItems.MANIFESTED_INGOT.get());
+                        out.accept(ModItems.MANIFESTED_BLOCK.get());
                         out.accept(ModItems.BLANK_SEAL.get());
                         out.accept(ModItems.EARTH_SEAL.get());
                         out.accept(ModItems.FIRE_SEAL.get());

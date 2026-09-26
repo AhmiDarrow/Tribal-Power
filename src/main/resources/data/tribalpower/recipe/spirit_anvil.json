@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "BMB",
+    "BXB",
     " R ",
     "MMM"
   ],
@@ -15,6 +15,9 @@
     },
     "R": {
       "item": "tribalpower:resonant_core"
+    },
+    "X": {
+      "item": "tribalpower:manifested_block"
     }
   },
   "result": {

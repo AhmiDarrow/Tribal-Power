@@ -74,6 +74,32 @@ public class GearGameTests {
         h.succeed();
     }
 
+    /**
+     * The real click path: a sneaking player holding gear never reaches the block's own use (vanilla hands the
+     * click to the item), so linking has to happen in the RightClickBlock hook. A bound axe takes the voice.
+     */
+    @GameTest(template = "empty")
+    public static void sneakClickThroughTheGameLinksBoundGear(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        player.getAbilities().instabuild = false;
+        ItemStack axe = SpiritGear.withRank(new ItemStack(ModItems.SPIRITGEAR_AXE.get()), 2);
+        ItemStack cell = PulseCellItem.createFilled(200);
+        player.setItemInHand(InteractionHand.MAIN_HAND, axe);
+        player.getInventory().setItem(1, cell);
+        player.setShiftKeyDown(true);
+        BlockPos pos = new BlockPos(2, 1, 2);
+        h.setBlock(pos, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        var hit = new BlockHitResult(Vec3.atCenterOf(h.absolutePos(pos)), Direction.UP, h.absolutePos(pos), false);
+        var result = player.gameMode.useItemOn(player, h.getLevel(), player.getMainHandItem(), InteractionHand.MAIN_HAND, hit);
+        ItemStack held = player.getMainHandItem();
+        h.assertTrue(SpiritGear.voice(held).orElse(null) == Attunement.WATER,
+                "A sneak-click through the game links a bound axe to the Water totem (" + result + ")");
+        h.assertTrue(SpiritGear.rank(held) == 2, "Linking keeps the axe's rank");
+        h.assertTrue(PulseCellItem.getPulse(cell) == 160, "The link spends 40 Pulse once");
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void attunePreservesVoiceAndBindRefusesRankZero(GameTestHelper h) {
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());

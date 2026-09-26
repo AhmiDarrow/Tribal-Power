@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tribalpower:manifested_block"
+    }
+  ],
+  "result": {
+    "id": "tribalpower:manifested_ingot",
+    "count": 9
+  }
+}

@@ -84,21 +84,42 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
             }
             return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        boolean gear = tk.darrow.tribalpower.item.SpiritGear.isGear(stack);
-        boolean charm = stack.getItem() instanceof tk.darrow.tribalpower.charm.SpiritCharmItem;
-        if (!player.isShiftKeyDown() || (!gear && !charm)) {
+        if (!player.isShiftKeyDown() || !linkable(stack)) {
             return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
-        if (!level.isClientSide) {
-            boolean linked = gear
-                    ? tk.darrow.tribalpower.item.SpiritGear.tryLink(player, stack, attunement)
-                    : tk.darrow.tribalpower.charm.SpiritCharmItem.addVoice(player, stack, attunement);
-            if (linked) {
-                tk.darrow.tribalpower.effect.SpiritEffects.ring(
-                        (net.minecraft.server.level.ServerLevel) level, pos.getCenter().add(0, 0.6, 0), attunement, 0.9, 16);
-            }
-        }
+        link(level, pos, player, stack);
         return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    /** Spiritgear and Spirit Charms take a totem's voice with a sneak-click. */
+    public static boolean linkable(net.minecraft.world.item.ItemStack stack) {
+        return tk.darrow.tribalpower.item.SpiritGear.isGear(stack) || stack.getItem() instanceof tk.darrow.tribalpower.charm.SpiritCharmItem;
+    }
+
+    /** Gives {@code stack} this totem's voice (the server decides; the client only answers the click). */
+    private void link(Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack stack) {
+        if (level.isClientSide) return;
+        boolean linked = tk.darrow.tribalpower.item.SpiritGear.isGear(stack)
+                ? tk.darrow.tribalpower.item.SpiritGear.tryLink(player, stack, attunement)
+                : tk.darrow.tribalpower.charm.SpiritCharmItem.addVoice(player, stack, attunement);
+        if (linked) {
+            tk.darrow.tribalpower.effect.SpiritEffects.ring(
+                    (net.minecraft.server.level.ServerLevel) level, pos.getCenter().add(0, 0.6, 0), attunement, 0.9, 16);
+        }
+    }
+
+    /**
+     * A sneak-click never reaches {@link #useItemOn} while the player holds anything: vanilla hands a sneaking,
+     * item-holding click to the item alone. So the link is made here, before vanilla decides, and the click ends.
+     */
+    public static void sneakLink(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+        Player player = event.getEntity();
+        if (!player.isShiftKeyDown() || !linkable(event.getItemStack())) return;
+        Level level = event.getLevel();
+        if (!(level.getBlockState(event.getPos()).getBlock() instanceof ResonanceTotemBlock totem)) return;
+        totem.link(level, event.getPos(), player, event.getItemStack());
+        event.setCanceled(true);
+        event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
     }
 
     @Override
