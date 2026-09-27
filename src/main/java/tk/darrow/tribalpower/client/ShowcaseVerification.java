@@ -248,6 +248,9 @@ public final class ShowcaseVerification {
     private static String execute(Minecraft mc, String line) {
         String[] parts = line.split("\\s+");
         switch (parts[0]) {
+            case "fps" -> {
+                return "ok " + mc.getFps();
+            }
             case "shot" -> {
                 String label = parts.length > 1 ? parts[1].replaceAll("[^A-Za-z0-9_-]", "_") : "shot";
                 grab(mc, "showcase-" + (++captures) + "-" + label + ".png");
