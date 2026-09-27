@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.10 — Three Moons over the March
+Uploaded 2026-09-26: `tribalpower-5.3.10.jar` as file **8986890** ("Tribal Power 5.3.10 - Three Moons over the March", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.10.md`. HD March sun, three moons (Pale, Loom, Ember), panorama sphere on a static VBO. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.10
+
 ## 5.3.9 — The Spirit Anvil
 Uploaded 2026-09-26: `tribalpower-5.3.9.jar` as file **8983936** ("Tribal Power 5.3.9 - The Spirit Anvil", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.9.md`. Spirit Anvil (top row iron block / Block of Manifested Metal / iron block), the new Block of Manifested Metal, and sneak-click totem binding fixed. Supersedes 5.3.8 (8982854), archived by the user. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.9
 
