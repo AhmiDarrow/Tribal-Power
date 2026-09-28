@@ -32,17 +32,17 @@
     "soil_humidity": {
       "type": "equal",
       "value": "damp",
-      "tolerance_factor": 0.4
+      "tolerance_factor": 2.0
     },
     "soil_acidity": {
       "type": "equal",
       "value": "slightly_acidic",
-      "tolerance_factor": 0.3
+      "tolerance_factor": 1.0
     },
     "soil_nutrients": {
       "type": "equal_or_higher",
-      "value": "low",
-      "tolerance_factor": 0.2
+      "value": "medium",
+      "tolerance_factor": 1.0
     },
     "min_light": 10,
     "max_light": 16,
