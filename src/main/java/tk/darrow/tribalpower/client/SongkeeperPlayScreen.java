@@ -45,7 +45,7 @@ public class SongkeeperPlayScreen extends Screen {
     private static final int[] LANE = {0xFF3FD8C0, 0xFFFFC34D, 0xFFB57CFF, 0xFFFF7A45};
     private static final int[] LANE_DARK = {0xFF16695E, 0xFF8A5F10, 0xFF4E2A8A, 0xFF8A2E10};
     private static final String[] KEYS = {"A", "S", "D", "F"};
-    private static final int INK = 0xFF0B1216, TEXT = 0xFFF2E8CF, QUIET = 0xFF8FA7A0, GOLD = 0xFFFFD36B, TEAL = 0xFF5CE0C8, RED = 0xFFFF6A5A;
+    private static final int TEXT = 0xFFF2E8CF, QUIET = 0xFF8FA7A0, GOLD = 0xFFFFD36B, TEAL = 0xFF5CE0C8, RED = 0xFFFF6A5A;
 
     private final BlockPos pos;
     private final Songbook.Song song;
@@ -80,7 +80,6 @@ public class SongkeeperPlayScreen extends Screen {
     private final List<Popup> popups = new ArrayList<>();
     private long calloutAt = -9999;
     private String callout = "";
-    private long lastFrame = -1;
     private final RandomSource random = RandomSource.create();
 
     /** Set only by the development screenshot driver: strike every note dead on, to exercise the whole game. */
@@ -239,6 +238,9 @@ public class SongkeeperPlayScreen extends Screen {
     @Override
     public void removed() {
         if (music != null) music.end();
+        // Replaced by anything else (death, a server-opened menu): end the run, or the server keeps the session
+        // open, refuses every later song at the drum and leaves a duel partner waiting until logout.
+        if (!sent && minecraft != null && minecraft.getConnection() != null) send(true);
         if (current == this) current = null;
         super.removed();
     }
@@ -574,7 +576,6 @@ public class SongkeeperPlayScreen extends Screen {
         long raw = now();
         long t = Math.max(-1, raw);
         long frame = System.nanoTime() / 1_000_000;
-        lastFrame = frame;
         if (autoplay && !done && !failed && t >= 0) {
             for (int i = first; i < chart.size() && chart.times()[i] <= t; i++)
                 if (state[i] == 0) { padDown[chart.lanes()[i]] = false; strike(chart.lanes()[i], chart.times()[i]); }

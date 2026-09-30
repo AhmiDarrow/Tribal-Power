@@ -25,13 +25,9 @@ public class PouchMenu extends AbstractContainerMenu {
             addSlot(new Slot(inventory, col, 18 + col * 18, 172));
     }
 
-    public PouchMenu(int id, Inventory inventory) {
-        this(id, inventory, inventory.selected);
-    }
-
     public ItemStack pouch() {
         if (pouchSlot == 40) return inventory.player.getOffhandItem();
-        return inventory.getItem(pouchSlot);
+        return pouchSlot >= 0 && pouchSlot < inventory.getContainerSize() ? inventory.getItem(pouchSlot) : ItemStack.EMPTY;
     }
 
     @Override

@@ -1,0 +1,50 @@
+{
+  "name": "Trolls",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:troll_hide",
+      "title": "Trolls",
+      "text": [
+        "Big, slow to fall and quick to anger. Three kinds of troll keep the March's high stone and its heat, and all three hunt you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where they live",
+      "text": [
+        "- **Crag Troll**: the Highlands. It rises on the open ground at night, one to three at a time.",
+        "- **Rime Troll**: the Snow Fields, the same way.",
+        "- **Slag Troll**: the Ember Wastes, by lava and on the hot stone around it, day or night, one or two at a time. It is **immune to fire**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fighting one",
+      "text": [
+        "A troll has **69 health** and **6 armour** and hits for **9**. A Crag or Rime Troll's blow shoves you back; a Slag Troll's sets you alight for 2 seconds.",
+        "Keep your distance, and never fight one with lava at your back."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they give",
+      "text": [
+        "Each drops **1 to 2** of its hide, more with Looting. **Troll Hide** and **Rime Hide** are Shove reagents, **Slag Hide** an Ember reagent: see [reagents](reagents).",
+        "Trolls never bond."
+      ]
+    }
+  ]
+}

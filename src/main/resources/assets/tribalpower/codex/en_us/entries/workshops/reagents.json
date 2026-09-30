@@ -212,7 +212,7 @@
         "**Reagents**: Echo Silk, Gloom Silk.",
         "- **Song**: slows the target.",
         "- **Anointing**: Echo: a quarter of blows strike a second time for half.",
-        "- **Remedy**: Clear Sight: Night Vision, lifts blindness."
+        "- **Remedy**: Clear Sight: Night Vision, lifts blindness and darkness."
       ]
     },
     {
@@ -222,7 +222,7 @@
         "**Reagents**: Sentinel Sigil, Pale Fang, Barrow Shroud, Drowned Weed.",
         "- **Song**: weakens the target.",
         "- **Anointing**: Sapping: weakens the target.",
-        "- **Remedy**: Restoring: Haste, lifts weakness and slowness."
+        "- **Remedy**: Restoring: Haste, lifts weakness, slowness and mining fatigue."
       ]
     },
     {

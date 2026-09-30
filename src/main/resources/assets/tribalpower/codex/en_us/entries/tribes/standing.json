@@ -341,6 +341,7 @@
       "text": [
         "Right-click the hearth with an offering in your hand. It takes one item at a time:",
         "- The tribe's **reagent**: **+8** standing.",
+        "- The tribe's own [dish](tribe_dishes): **+6**.",
         "- A **favoured** item: **+3**.",
         "- Any other **food**: **+1**.",
         "- A charged **Pulse Cell**: the hearth drinks up to **40 Pulse** from it and gives **+2 for every 10**, so at most **+8**. The cell needs at least 10 Pulse in it.",
@@ -362,7 +363,7 @@
       "text": [
         "- **Stranger** (below 50): the Elder has nothing for you yet.",
         "- **Guest** (50): the Elder opens the first two trades.",
-        "- **Friend** (150): two more trades.",
+        "- **Friend** (150): two more trades, and a bowl of the tribe's own dish.",
         "- **Kin** (400): the last two trades.",
         "- **Voice** (800): the Elder presses a **Tribe Mark** into your hand, once for each tribe. The Mark is the key to a [Kinship Totem](kinship_totem), and it opens that tribe's own page in this book.",
         "Your standing with the Grit-singers also decides how deep a [Listening Pit](listening_pit) may listen."

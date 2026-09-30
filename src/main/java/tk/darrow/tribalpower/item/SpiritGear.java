@@ -207,10 +207,6 @@ public final class SpiritGear {
         return swing != null && swing.player() == player ? swing : null;
     }
 
-    public static Optional<Swing> swing() {
-        return Optional.ofNullable(SWING.get());
-    }
-
     /**
      * Spend Pulse for a mine swing. Creative and zero-cost Loom picks count as paid so perks still fire.
      */
@@ -426,10 +422,6 @@ public final class SpiritGear {
             lines.add(Component.translatable(gogglesOpen(stack)
                     ? "item.tribalpower.spiritweave.goggles" : "item.tribalpower.spiritweave.goggles_off")
                     .withStyle(net.minecraft.ChatFormatting.AQUA));
-    }
-
-    public static boolean chance(ItemStack stack, float base) {
-        return RandomSource.create().nextFloat() < (rank(stack) >= 3 ? base * 2 : base);
     }
 
     public static boolean chance(RandomSource random, ItemStack stack, float base) {

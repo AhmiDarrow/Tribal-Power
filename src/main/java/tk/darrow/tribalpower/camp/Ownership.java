@@ -8,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import tk.darrow.tribalpower.camp.identity.Camps;
 
 import java.util.UUID;
@@ -33,8 +32,11 @@ public final class Ownership {
     public static boolean canAccess(Level level, UUID owner, Player player) {
         if (owner == null || player == null) return true;
         if (player.getUUID().equals(owner)) return true;
+        // The server decides. Devices never sync their owner, and reading the integrated server's camp data from
+        // the render thread (canHarvestBlock asks every mining tick) would race the server thread.
+        if (level.isClientSide) return true;
         MinecraftServer server = level.getServer();
-        return Camps.sameCamp(server == null ? ServerLifecycleHooks.getCurrentServer() : server, owner, player.getUUID());
+        return Camps.sameCamp(server, owner, player.getUUID());
     }
 
     /** Access check plus the refusal message, so callers do not each invent their own wording. */

@@ -27,7 +27,7 @@
         "Place a plate against a face of a machine or chest. It works the block it is stuck to.",
         "Right-click a plate to open it. Put the **same item** in the **Bond** slot of both plates and they pair; a renamed or otherwise marked item makes a private pair. Hoppers can never steal the Bond or Rune.",
         "Crouch and right-click a plate to switch it between **extract** and **insert**. Set the sending plate to extract and the receiving one to insert.",
-        "Keep Pulse within 8 blocks of the **sending** plate."
+        "Keep Pulse within 8 blocks of the **sending** plate, and a Resonance Totem of its voice there too: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. Without it the plate waits."
       ]
     },
     {

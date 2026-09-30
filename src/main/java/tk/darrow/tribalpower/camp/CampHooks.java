@@ -69,7 +69,7 @@ public final class CampHooks {
             var entries=chunks.get(ChunkPos.asLong(x,z));if(entries==null)continue;
             entries.entrySet().removeIf(e->e.getValue()<level.getGameTime());
             if(entries.isEmpty()){chunks.remove(ChunkPos.asLong(x,z));continue;}
-            for(var pos:entries.keySet())if(pos.distSqr(target)<=24*24&&level.hasChunkAt(pos)&&!level.hasNeighborSignal(pos))return true;
+            for(var pos:entries.keySet())if(pos.distSqr(target)<=24*24&&level.isAreaLoaded(pos,1)&&!level.hasNeighborSignal(pos))return true;
         }
         return false;
     }

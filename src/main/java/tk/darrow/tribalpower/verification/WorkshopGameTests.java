@@ -207,6 +207,22 @@ public class WorkshopGameTests {
         h.succeed();
     }
 
+    /** 2026-09-29 sweep: a Verse Plate's step indexes a four-entry table; a bad saved step threw on the next tick. */
+    @GameTest(template = "empty")
+    public static void versePlateSurvivesAnOutOfRangeSavedStep(GameTestHelper h) {
+        var pos = new BlockPos(4, 2, 4);
+        h.setBlock(pos, LogicRegistry.VERSE_PLATE.get().defaultBlockState().setValue(LogicPlateBlock.FACING, Direction.NORTH));
+        var be = (tk.darrow.tribalpower.logic.LogicPlateBlockEntity) h.getBlockEntity(pos);
+        var registries = h.getLevel().registryAccess();
+        var tag = be.saveCustomOnly(registries);
+        tag.putInt("Step", 7);
+        be.loadCustomOnly(tag, registries);
+        tk.darrow.tribalpower.logic.LogicPlateBlockEntity.tick(h.getLevel(), h.absolutePos(pos), h.getBlockState(pos), be);
+        int power = h.getBlockState(pos).getValue(LogicPlateBlock.POWER);
+        h.assertTrue(power == 4 || power == 8 || power == 12 || power == 15, "The plate sings one of its four verses, got " + power);
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void songVineCrawlsEveryFaceAndDecays(GameTestHelper h) {
         h.setBlock(2, 1, 2, Blocks.STONE);
@@ -232,6 +248,92 @@ public class WorkshopGameTests {
         h.assertTrue(tk.darrow.tribalpower.logic.SongVineBlock.count(h.getBlockState(new BlockPos(3, 2, 2))) == 2,
                 "One cell must hold tendrils on more than one face");
         h.succeed();
+    }
+
+    private static int vinePower(GameTestHelper h, int x, int y, int z, Direction face) {
+        return ((tk.darrow.tribalpower.logic.SongVineBlockEntity) h.getBlockEntity(new BlockPos(x, y, z))).power(face);
+    }
+
+    /** Real ticks only (placement, neighbour updates, scheduled ticks): a floor line carries a redstone block's 15 down by one a step, lights a lamp, and falls silent when the block goes. */
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void songVineLineCarriesAndReleasesRedstone(GameTestHelper h) {
+        var vine = LogicRegistry.SONG_VINE.get().defaultBlockState().setValue(tk.darrow.tribalpower.logic.SongVineBlock.property(Direction.DOWN), true);
+        for (int x = 1; x <= 6; x++) h.setBlock(x, 1, 2, Blocks.STONE);
+        for (int x = 2; x <= 6; x++) h.setBlock(x, 2, 2, vine);
+        h.setBlock(1, 2, 2, Blocks.REDSTONE_LAMP);
+        h.startSequence()
+                .thenIdle(5)
+                .thenExecute(() -> {
+                    for (int x = 2; x <= 6; x++) h.assertTrue(vinePower(h, x, 2, 2, Direction.DOWN) == 0, "An unpowered vine is silent");
+                    h.setBlock(7, 2, 2, Blocks.REDSTONE_BLOCK);
+                })
+                .thenIdle(20)
+                .thenExecute(() -> {
+                    for (int x = 2; x <= 6; x++) {
+                        int want = 15 - (6 - x), got = vinePower(h, x, 2, 2, Direction.DOWN);
+                        h.assertTrue(got == want, "Vine at x=" + x + " carries " + want + ", got " + got);
+                    }
+                    h.assertBlockProperty(new BlockPos(1, 2, 2), net.minecraft.world.level.block.RedstoneLampBlock.LIT, true);
+                    h.setBlock(7, 2, 2, Blocks.AIR);
+                })
+                .thenIdle(40)
+                .thenExecute(() -> {
+                    for (int x = 2; x <= 6; x++) h.assertTrue(vinePower(h, x, 2, 2, Direction.DOWN) == 0, "With the source gone the vine at x=" + x + " falls silent, got " + vinePower(h, x, 2, 2, Direction.DOWN));
+                    h.assertBlockProperty(new BlockPos(1, 2, 2), net.minecraft.world.level.block.RedstoneLampBlock.LIT, false);
+                })
+                .thenSucceed();
+    }
+
+    /** A vine climbs a wall from a lever beside its foot, one step weaker per block, and lets go when the lever is thrown back. */
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void songVineClimbsWallFromLever(GameTestHelper h) {
+        var vine = LogicRegistry.SONG_VINE.get().defaultBlockState().setValue(tk.darrow.tribalpower.logic.SongVineBlock.property(Direction.NORTH), true);
+        for (int y = 2; y <= 5; y++) h.setBlock(2, y, 1, Blocks.STONE);
+        h.setBlock(3, 1, 2, Blocks.STONE);
+        for (int y = 2; y <= 5; y++) h.setBlock(2, y, 2, vine);
+        h.setBlock(3, 2, 2, Blocks.LEVER.defaultBlockState().setValue(net.minecraft.world.level.block.LeverBlock.FACE, net.minecraft.world.level.block.state.properties.AttachFace.FLOOR));
+        var lever = new BlockPos(3, 2, 2);
+        Runnable pull = () -> ((net.minecraft.world.level.block.LeverBlock) Blocks.LEVER).pull(h.getBlockState(lever), h.getLevel(), h.absolutePos(lever), null);
+        h.startSequence()
+                .thenIdle(5)
+                .thenExecute(pull)
+                .thenIdle(20)
+                .thenExecute(() -> {
+                    for (int y = 2; y <= 5; y++) {
+                        int want = 15 - (y - 2), got = vinePower(h, 2, y, 2, Direction.NORTH);
+                        h.assertTrue(got == want, "Wall vine at y=" + y + " carries " + want + ", got " + got);
+                    }
+                })
+                .thenExecute(pull)
+                .thenIdle(40)
+                .thenExecute(() -> {
+                    for (int y = 2; y <= 5; y++) h.assertTrue(vinePower(h, 2, y, 2, Direction.NORTH) == 0, "Lever off: wall vine at y=" + y + " falls silent, got " + vinePower(h, 2, y, 2, Direction.NORTH));
+                })
+                .thenSucceed();
+    }
+
+    /** Two vines on different faces, lit from a redstone block, must let go when it goes: neither may hold the other up. */
+    @GameTest(template = "empty", timeoutTicks = 200)
+    public static void songVinesOnDifferentFacesDoNotLatch(GameTestHelper h) {
+        h.setBlock(3, 1, 2, Blocks.STONE);
+        h.setBlock(2, 2, 1, Blocks.STONE);
+        h.setBlock(3, 2, 2, LogicRegistry.SONG_VINE.get().defaultBlockState().setValue(tk.darrow.tribalpower.logic.SongVineBlock.property(Direction.DOWN), true));
+        h.setBlock(2, 2, 2, LogicRegistry.SONG_VINE.get().defaultBlockState().setValue(tk.darrow.tribalpower.logic.SongVineBlock.property(Direction.NORTH), true));
+        h.startSequence()
+                .thenIdle(5)
+                .thenExecute(() -> h.setBlock(4, 2, 2, Blocks.REDSTONE_BLOCK))
+                .thenIdle(20)
+                .thenExecute(() -> {
+                    h.assertTrue(vinePower(h, 3, 2, 2, Direction.DOWN) == 15, "The floor vine beside the block carries 15, got " + vinePower(h, 3, 2, 2, Direction.DOWN));
+                    h.assertTrue(vinePower(h, 2, 2, 2, Direction.NORTH) == 14, "The wall vine one step on carries 14, got " + vinePower(h, 2, 2, 2, Direction.NORTH));
+                    h.setBlock(4, 2, 2, Blocks.AIR);
+                })
+                .thenIdle(40)
+                .thenExecute(() -> {
+                    h.assertTrue(vinePower(h, 3, 2, 2, Direction.DOWN) == 0 && vinePower(h, 2, 2, 2, Direction.NORTH) == 0,
+                            "With the source gone both vines fall silent, got " + vinePower(h, 3, 2, 2, Direction.DOWN) + " and " + vinePower(h, 2, 2, 2, Direction.NORTH));
+                })
+                .thenSucceed();
     }
 
     @GameTest(template = "empty")

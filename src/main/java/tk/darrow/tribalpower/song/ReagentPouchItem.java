@@ -23,7 +23,7 @@ public class ReagentPouchItem extends Item {
         if (!level.isClientSide) {
             int slot = hand == InteractionHand.OFF_HAND ? 40 : player.getInventory().selected;
             player.openMenu(new SimpleMenuProvider((id, inventory, opener) -> new PouchMenu(id, inventory, slot),
-                    Component.translatable("item.tribalpower.reagent_pouch")));
+                    Component.translatable("item.tribalpower.reagent_pouch")), buf -> buf.writeVarInt(slot));
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }

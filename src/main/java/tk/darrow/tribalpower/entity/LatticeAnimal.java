@@ -157,7 +157,12 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             child.applyLattice();
             // As with wolves, the young of two companions of one owner are born into that owner's company.
             Player owner=getOwner();
-            if(owner!=null && other.isOwnedBy(owner)) { child.bond(owner); tk.darrow.tribalpower.familiar.FamiliarSlots.afterBond(child,owner); }
+            if(owner!=null && other.isOwnedBy(owner)) {
+                // Stand the child where it will be born first, so the company check counts the owner's followers here.
+                child.moveTo(getX(),getY(),getZ(),0,0);
+                child.bond(owner);
+                tk.darrow.tribalpower.familiar.FamiliarSlots.afterBond(child,owner);
+            }
         }
         return child;
     }

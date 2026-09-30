@@ -287,6 +287,31 @@ public class LatticeGameTests {
             if(!drum.paysInZone()) earned+=drum.onRedstonePulse();
         }
         h.assertTrue(earned==0,"A crowded drum must pay nothing, paid "+earned);
+        // The diagnosis says why, and only on the drums that are crowded out.
+        for(BlockPos p:crowded) {
+            var drum=at(h,p,DrumheartBlockEntity.class);
+            boolean says=drum.diagnose(h.getLevel(),h.absolutePos(p)).toString().contains("diag.tribalpower.drumheart.crowded");
+            h.assertTrue(says==!drum.paysInZone(),"Only a crowded-out drum is diagnosed as crowded, at "+p);
+        }
+        h.assertTrue(at(h,crowded[0],DrumheartBlockEntity.class).drumsInZone()==crowded.length,"The diagnosis counts every drum in the zone");
+        h.succeed();
+    }
+
+    /** The Codex: a Glimmer Storm dulls Drumhearts. It hampers Earth, so a beat under it pays the hampered share. */
+    @GameTest(template="empty")
+    public static void glimmerStormDullsTheDrum(GameTestHelper h) {
+        int beat=DrumheartBlockEntity.ON_TEMPO;
+        int dulled=DrumheartBlockEntity.weathered(beat, tk.darrow.tribalpower.event.MarchWeather.GLIMMER_STORM);
+        h.assertTrue(dulled==(int)Math.round(beat*tk.darrow.tribalpower.config.TribalConfig.weatherGeneratorPenalty()),"A Glimmer Storm pays a drum the hampered share, got "+dulled);
+        h.assertTrue(dulled<beat,"A Glimmer Storm must dull the drum at the default penalty");
+        h.assertTrue(DrumheartBlockEntity.weathered(beat,null)==beat,"Under a plain sky a beat is whole");
+        for(var weather:tk.darrow.tribalpower.event.MarchWeather.values()) if(weather!=tk.darrow.tribalpower.event.MarchWeather.GLIMMER_STORM)
+            h.assertTrue(DrumheartBlockEntity.weathered(beat,weather)==beat,weather+" leaves the drum alone");
+        // Outside the March a real drum's beat is untouched.
+        h.setBlock(new BlockPos(1,2,1), tk.darrow.tribalpower.block.ModBlocks.DRUMHEART.get());
+        var drum=at(h,new BlockPos(1,2,1),DrumheartBlockEntity.class);
+        int paid=drum.onRedstonePulse();
+        h.assertTrue(paid==tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(DrumheartBlockEntity.beatValue(h.getLevel().getGameTime()+100)),"An Overworld drum pays its whole beat, paid "+paid);
         h.succeed();
     }
 
@@ -909,7 +934,8 @@ public class LatticeGameTests {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.assertFalse(at(h,pos,WirelessRelayBlockEntity.class).bind(new BlockPos(0,80,0),Direction.UP,"tribalpower:the_march"),"Local relay cannot cross dimensions");
         var cell=new ItemStack(ModItems.GREATER_PULSE_CELL.get());
-        h.assertTrue(PulseCellItem.insertPulse(cell,1200,false)==1200 && PulseCellItem.getPulse(cell)==1200,"Greater cell must hold 1200 Pulse");
+        int charge=PulseCellItem.CAPACITY;
+        h.assertTrue(PulseCellItem.insertPulse(cell,charge,false)==charge && PulseCellItem.getPulse(cell)==charge,"Greater cell must hold a plain cell's worth of Pulse");
         h.succeed();
     }
     @GameTest(template="empty")

@@ -641,7 +641,7 @@ public final class SpiritCodexScreen extends Screen {
         g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.completed", state.completed()), x + 4, y + 44, DIM, false);
         g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.story"), x + 4, y + 54, GOLD, false);
         var step = tk.darrow.tribalpower.quest.Questline.step(tribe, state.step());
-        Component story = step == null ? Component.translatable(state.relic() ? "gui.tribalpower.codex.quests.story_done" : "gui.tribalpower.codex.quests.story_done")
+        Component story = step == null ? Component.translatable(state.relic() ? "gui.tribalpower.codex.quests.story_done" : "gui.tribalpower.codex.quests.story_done_no_relic")
                 : Component.translatable("gui.tribalpower.codex.quests.step", state.step() + 1, tk.darrow.tribalpower.quest.Questline.STEPS).append(" ").append(step.describe(tribe));
         ly = y + 64;
         for (var line : font.split(story, w - 8)) { if (ly > y + 84) break; g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }

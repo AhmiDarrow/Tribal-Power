@@ -101,6 +101,35 @@ public final class ChronicleGameTests {
         h.succeed();
     }
 
+    /** 2026-09-29 sweep: turning a mural's fragment in creative tore the mural down part by part. */
+    @GameTest(template = "empty")
+    public static void aCreativeSneakUseTurnsTheWholeMuralToTheNextFragment(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            BlockPos wall = new BlockPos(3, 2, 6);
+            for (int dx = 0; dx < 2; dx++) for (int dy = 0; dy < 2; dy++) h.setBlock(wall.offset(-dx, dy, 0), Blocks.STONE);
+            BlockPos origin = wall.offset(0, 0, -1);
+            var state = LoreRegistry.MURAL.get().defaultBlockState().setValue(MuralBlock.FACING, Direction.NORTH).setValue(MuralBlock.FRAGMENT, 4);
+            h.setBlock(origin, state);
+            LoreRegistry.MURAL.get().setPlacedBy(h.getLevel(), h.absolutePos(origin), state, player, net.minecraft.world.item.ItemStack.EMPTY);
+            player.setGameMode(net.minecraft.world.level.GameType.CREATIVE);
+            player.setShiftKeyDown(true);
+            BlockPos at = h.absolutePos(origin);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(at), Direction.NORTH, at, false);
+            player.gameMode.useItemOn(player, h.getLevel(), net.minecraft.world.item.ItemStack.EMPTY, net.minecraft.world.InteractionHand.MAIN_HAND, hit);
+            for (int part = 0; part < 4; part++) {
+                var there = h.getLevel().getBlockState(MuralBlock.partPos(at, Direction.NORTH, part));
+                h.assertTrue(there.is(LoreRegistry.MURAL.get()) && there.getValue(MuralBlock.FRAGMENT) == 5,
+                        "Part " + part + " still hangs and shows the next fragment: " + there);
+            }
+            var drops = h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, h.getBounds().inflate(6));
+            h.assertTrue(drops.isEmpty(), "Nothing falls off the wall, got " + drops.size());
+        } finally {
+            player.remove(Entity.RemovalReason.DISCARDED);
+        }
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void paintingsAndCrestsAreRegisteredAndKinGetTheirCrest(GameTestHelper h) {
         var paintings = h.getLevel().registryAccess().registryOrThrow(Registries.PAINTING_VARIANT);

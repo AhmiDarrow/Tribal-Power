@@ -15,7 +15,7 @@
       "type": "text",
       "title": "What it listens to",
       "text": [
-        "Every two seconds the collector adds one **beat** of Pulse. A beat starts at **1**, and the land within **8 blocks** (the same range as the lattice) adds more:",
+        "Every two seconds the collector adds **3 Pulse for every point** of its **beat**. A beat starts at **1**, and the land within **8 blocks** (the same range as the lattice) adds more:",
         "- Open sky: **+1** by day, **+3** at night.",
         "- Rain **+2**, and a thunderstorm **+1** more.",
         "- Water: up to **+4**.",

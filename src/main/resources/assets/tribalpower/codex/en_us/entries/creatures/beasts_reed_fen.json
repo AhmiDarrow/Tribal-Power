@@ -1,0 +1,60 @@
+{
+  "name": "Beasts of the Reed Fen",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:marsh_foot",
+      "title": "The fen's own",
+      "text": [
+        "Among the reeds and mud channels live a hopper, a wading strider and a floater, and at night something coiled wakes in the grass.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marsh Hopper",
+      "text": [
+        "A small, quick hopper in groups of two to four. **12 health**, no armour.",
+        "It drops **1 to 3 Marsh Feet**, more with Looting."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fen Strider",
+      "text": [
+        "A tall, long-legged wader in herds of two to four. **22 health** and **1 armour**.",
+        "It drops **1 to 3 Fen Hooves**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bog Floater",
+      "text": [
+        "A green floater that drifts over the fen in ones to threes. **12 health**, no armour. A few drift along with the [Colossus Warden](colossus_warden).",
+        "It drops **1 to 3 Bog Bladders**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reed Coil",
+      "text": [
+        "A coiled, scaled hunter that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
+        "It drops **1 to 2 Reed Whorls**, a Shove reagent."
+      ]
+    }
+  ]
+}

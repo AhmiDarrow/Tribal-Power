@@ -14,10 +14,10 @@
       "type": "text",
       "title": "Drawing the lattice",
       "text": [
-        "Totems are joined with **Ritual Chalk**. Right-click one totem, then another within **16 blocks**. \"Lattice link sealed\" means it worked. Clicking the same totem twice cancels the pending mark. A stick of chalk is good for ten links or marks.",
+        "Totems are joined with **Ritual Chalk**. Right-click one totem, then another **less than 16 blocks** away. \"Lattice link sealed\" means it worked. Clicking the same totem twice cancels the pending mark. A stick of chalk is good for ten links or marks.",
         "Linked totems form a network. Each totem's buffer holds **250 Pulse**, and any machine within 8 blocks of a totem can spend what is in it.",
         "Conductors extend the zone without that chalk. Set them within 8 of each other, the first within 8 of a generator. A machine within 8 of any conductor on the line draws the generators, Pulse Cairns and totem buffers the line reaches. A redstone signal on a conductor cuts that block out of the line. The four from one craft are enough to cross a camp.",
-        "A chalk line carries voices too: a station counts the voice of a totem that is chalk-linked to one near it, as long as that partner stands within 16 blocks of the station."
+        "A chalk line carries voices too: a station counts the voice of a totem that is chalk-linked to one near it, as long as that partner stands less than 16 blocks from the station."
       ]
     },
     {
@@ -196,7 +196,7 @@
           }
         },
         {
-          "caption": "Then right-click the second, up to 16 blocks away: the lattice link is sealed.",
+          "caption": "Then right-click the second, less than 16 blocks away: the lattice link is sealed.",
           "highlight": [
             [
               -2,

@@ -33,7 +33,13 @@ public class CampGameTests {
         BoundEffigyItem.spend(restored);BoundEffigyItem.spend(restored);
         h.assertTrue(BoundEffigyItem.remaining(restored)==0,"Spent bindings must never wrap or refill");
         BoundEffigyItem.bind(restored,"minecraft:wither",Integer.MAX_VALUE);
-        h.assertTrue(BoundEffigyItem.remaining(restored)==0,"Bosses cannot be bound, including corrupted item data");h.succeed();
+        h.assertTrue(BoundEffigyItem.remaining(restored)==0,"Bosses cannot be bound, including corrupted item data");
+        for(var profile:tk.darrow.tribalpower.entity.CreatureProfile.values())if(profile.boss()){
+            h.assertFalse(BoundEffigyItem.allowed().contains("tribalpower:"+profile.id),"Tribal bosses like "+profile.id+" must not be imprintable");
+            BoundEffigyItem.bind(restored,"tribalpower:"+profile.id,512);
+            h.assertTrue(BoundEffigyItem.remaining(restored)==0,"A Cradle must never summon the boss "+profile.id);
+        }
+        h.succeed();
     }
     @GameTest(template="empty")
     public static void bindingRitualRequiresAllVoicesAndSpendsOnce(GameTestHelper h){

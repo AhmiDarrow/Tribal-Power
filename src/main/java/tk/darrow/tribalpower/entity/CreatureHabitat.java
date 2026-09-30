@@ -7,7 +7,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -149,14 +148,5 @@ public enum CreatureHabitat {
         BlockState below = level.getBlockState(belowPos);
         return MarchSpawns.turf(below) || MarchSpawns.wispFooting(below)
                 || below.isValidSpawn(level, belowPos, type);
-    }
-
-    /** A creature that lives in lava has no business burning in it. */
-    public boolean needsFireImmunity() {
-        return this == LAVA;
-    }
-
-    public static MobSpawnType naturalOnly() {
-        return MobSpawnType.NATURAL;
     }
 }

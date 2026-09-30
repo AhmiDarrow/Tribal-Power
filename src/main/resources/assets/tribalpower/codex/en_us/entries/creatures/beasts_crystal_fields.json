@@ -1,0 +1,60 @@
+{
+  "name": "Beasts of the Crystal Fields",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:chime_crest",
+      "title": "The crystal's own",
+      "text": [
+        "The terraced mesas keep a crested grazer and a glassy flier in the open, a grub in the caves beneath, and a stalker that walks the crystal at night.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chime Grazer",
+      "text": [
+        "A violet, crested grazer in herds of two to four. **24 health** and **3 armour**.",
+        "It drops **1 to 3 Chime Crests**, more with Looting."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Glass Flitter",
+      "text": [
+        "A pale, glassy flier in ones to threes. **10 health**, no armour.",
+        "It drops **1 to 3 Glass Wings**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Geode Grub",
+      "text": [
+        "A heavy grub of the dark caves under the mesas, one to three at a time. **26 health** and **5 armour**, very slow, and gentle.",
+        "It drops **1 to 3 Geode Husks**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Shard Stalker",
+      "text": [
+        "A stilt-legged hunter that rises among the crystal at night, one to three at a time. It has **21 health** and **1 armour**, is quick, and its sting does **5** and poisons you for 3 seconds.",
+        "It drops **1 to 2 Shard Barbs**, a Venom reagent."
+      ]
+    }
+  ]
+}

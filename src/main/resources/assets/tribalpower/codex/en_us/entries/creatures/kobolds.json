@@ -1,0 +1,40 @@
+{
+  "name": "Kobolds",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:kobold_scale",
+      "title": "Kobolds",
+      "text": [
+        "Kobolds live wherever there is something worth digging, and they do not share it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Two kinds",
+      "text": [
+        "- **Ridge Kobold**: the dark caves under the Glimmer Ridge.",
+        "- **Geode Kobold**: the dark caves under the Crystal Fields.",
+        "Both rise in the dark day or night, one to three at a time. A kobold has **21 health** and **2 armour**, is quick, and hits for **4**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they give",
+      "text": [
+        "A Ridge Kobold drops **1 to 2 Kobold Scales**, a Geode Kobold **1 to 2 Kobold Horns**, more with Looting. Both are Hound reagents: see [reagents](reagents).",
+        "Kobolds never bond."
+      ]
+    }
+  ]
+}

@@ -187,7 +187,7 @@ public class LogicPlateBlockEntity extends BlockEntity {
         period = Math.max(20, tag.getInt("Period"));
         wait = Math.max(4, tag.getInt("Wait"));
         threshold = Math.max(1, tag.getInt("Threshold"));
-        step = tag.getInt("Step");
+        step = Math.floorMod(tag.getInt("Step"), 4);   // indexes a four-entry table on the next tick
         lastLeft = tag.getBoolean("LastLeft");
         lastBack = tag.getBoolean("LastBack");
         reason = tag.getString("Reason");

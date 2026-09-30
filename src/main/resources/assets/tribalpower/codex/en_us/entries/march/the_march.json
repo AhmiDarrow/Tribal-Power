@@ -17,8 +17,8 @@
       "type": "text",
       "text": [
         "The way in is a [Gate Drum](gate_drum). It needs no Pulse: beat out the **Gate Rite** on it, four drums on **A**, **S**, **D** and **F**, and the rhythm opens the way.",
-        "Use it with an empty hand to step through; each trip spends **20** stored Pulse. A redstone signal locks the drum, and if the landing is blocked you get the 20 back.",
-        "Striking a Gate Drum in the March always brings you home: to the spot you left from, or to your spawn if that is gone. Your return point survives death, so a bad trip never strands you.",
+        "Right-click it with an empty hand to begin the rite; land **60%** of the beats and it carries you through. A redstone signal locks the drum.",
+        "Beating the rite on a Gate Drum in the March always brings you home: to the spot you left from, or to your spawn if that is gone. Your return point survives death, so a bad trip never strands you.",
         "Later, a pair of [Way Gates](way_gate) is the bulk route."
       ],
       "title": "Getting there and back"
@@ -62,11 +62,20 @@
       "type": "text",
       "text": [
         "- **Snow Fields**: snow and packed ice over March grass. Lantern Foxes, rabbits, walkers, a few Mossbacks and polar bears. Hollow Sentinels, Storm Moths and Mourning Bells.",
-        "- **Ember Wastes**: dry basalt country with no rain. Only March Walkers graze there. Cinder Imps, Rift Hounds and Ashbound roam.",
+        "- **Ember Wastes**: dry basalt country with no rain. Few grazers brave it: March Walkers, Lantern Foxes and Ash Hoppers. Cinder Imps, Rift Hounds and Ashbound roam.",
         "- **Reed Fen**: mud channels thick with Spirit Reed. Mossbacks, Dawn Stags, frogs, foxes and walkers; fish, squid and glow squid in the water. Reed Stalkers, Rootbound and Echo Weavers lurk in the wet.",
-        "Spirit Wisps drift through all six."
+        "Spirit Wisps drift through every land of the March."
       ],
       "title": "Snow Fields, Ember Wastes, Reed Fen"
+    },
+    {
+      "type": "text",
+      "title": "Shallows, Glimmer Ridge",
+      "text": [
+        "- **Shallows**: the low country, drowned under shallow water. Meres and pools over beds of silt and clay, stilt-rooted Strider trees, lilies, moon lilies and ribbon weed, and here and there a crystal-capped stone pillar. Silt Gliders, Pale Drifters and Shoal Darters swim there and Stiltwoods walk the banks; at night Brine Lurkers and Drowned Shades rise in the water, and Reed Stalkers, Rootbound, Echo Weavers and Mourning Bells come in from the fen. The Tide Stone of the [guardians](guardians) stands here.",
+        "- **Glimmer Ridge**: the highest ground, a mountain of moonstone. See [the Glimmer Ridge](glimmer_ridge).",
+        "Every land has beasts and folk of its own besides these: see [Beasts of the Steppe](beasts_steppe) and the pages after it."
+      ]
     },
     {
       "type": "text",

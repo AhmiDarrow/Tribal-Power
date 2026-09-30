@@ -6,7 +6,7 @@
   "items": [
     "tribalpower:echo_weaver_spawn_egg"
   ],
-  "next": "familiars",
+  "next": "beasts_steppe",
   "pages": [
     {
       "type": "image",
@@ -18,8 +18,8 @@
     {
       "type": "text",
       "text": [
-        "Echo Weavers creep across the March Steppe, the Crystal Fields and the Reed Fen. The Unsung also calls them in its Chorus.",
-        "It has **26 health** and **3 armour** and bites for **4**, slowing you for 3 seconds. It never places webs or damages your camp."
+        "Echo Weavers creep across the March Steppe, the Crystal Fields, the Reed Fen and the Shallows. The Unsung also calls them in its Chorus.",
+        "It has **26 health** and **3 armour** and bites for **4**, slowing you for 3 seconds, and it can leave you [Frayed](afflictions). It never places webs or damages your camp."
       ],
       "title": "Where and how"
     },

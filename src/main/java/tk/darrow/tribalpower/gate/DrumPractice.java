@@ -220,7 +220,15 @@ public final class DrumPractice {
         Songbook.Chart chart = Songbook.chart(song, session.difficulty);
         int total = chart.size();
         int hits = Math.max(0, Math.min(result.hits, total));
-        long points = Math.max(0, Math.min(result.score, Songbook.maxScore(song, session.difficulty)));
+        if (result.failed && elapsed < needed) {
+            // A run that failed early skips the length check, so it may claim no more notes than had come due.
+            int due = 0;
+            for (long at : chart.times()) if (at <= elapsed + SLACK_MS) due++;
+            hits = Math.min(hits, due);
+        }
+        // Each hit is worth at most a perfect at the top multiplier, doubled by Spirit Surge.
+        long perHit = (long) Songbook.PERFECT * Songbook.multiplier(Integer.MAX_VALUE) * 2;
+        long points = Math.max(0, Math.min(Math.min(result.score, hits * perHit), Songbook.maxScore(song, session.difficulty)));
         int accuracy = total == 0 ? 0 : (int) Math.round(100.0 * hits / total);
         boolean fullCombo = !result.failed && hits == total && result.bestStreak >= total;
         int stars = result.failed ? 0 : Songbook.stars(song, session.difficulty, points);

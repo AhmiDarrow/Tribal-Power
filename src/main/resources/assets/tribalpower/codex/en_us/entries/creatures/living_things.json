@@ -8,7 +8,7 @@
     {
       "type": "text",
       "text": [
-        "Two kinds of creature carry the old song. **Gentle animals** (the Dawn Stag, Lantern Fox and Mossback) give you reagents when you brush them. **Remnants** are broken guardians and wild spirits; they fight, and drop their reagent when they fall.",
+        "Two kinds of creature carry the old song. **Gentle animals** (the Dawn Stag, Lantern Fox, Mossback, and the grazers, fliers, [walking trees](walking_trees) and [fays](fays) of every land) give you reagents when you brush them. **Remnants** are broken guardians and wild spirits; they fight, and drop their reagent when they fall.",
         "Reagents go into your Echo workshops, and into the Bonding Charm that makes any of them a companion.",
         "The March also has quiet life that gives nothing but meat or company: March Walkers and Spirit Wisps."
       ]
@@ -17,7 +17,7 @@
       "type": "text",
       "text": [
         "Hold a **Brush** and use it on an adult. Young animals yield nothing. Each animal rests for **one minute** between harvests.",
-        "Breed them with **wheat** (Dawn Stag), **sweet berries** (Lantern Fox) and **seagrass** (Mossback).",
+        "Breed them with **wheat** (Dawn Stag), **sweet berries** (Lantern Fox) and **seagrass** (Mossback). Every other gentle creature is bred with its own reagent.",
         "Bond an adult with a [Bonding Charm](familiars) to get **double** the reagent and keep a companion."
       ],
       "title": "Gentle harvesting"
@@ -62,7 +62,7 @@
       "type": "text",
       "text": [
         "Sneak-use this Codex on anything that has gone silent to read what it is doing.",
-        "Each creature has its own page in this chapter: where it lives, how it fights, what it gives and whether it will bond."
+        "Each creature has a page in this chapter, alone or with its kin: where it lives, how it fights, what it gives and whether it will bond. The beasts of each land start with the [Steppe](beasts_steppe)."
       ],
       "title": "Field notes"
     }

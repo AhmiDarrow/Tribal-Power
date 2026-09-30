@@ -79,7 +79,7 @@ public class SpiritweaveArmor extends ArmorItem {
             ItemStack worn = player.getItemBySlot(getEquipmentSlot());
             boolean spiritLegs = worn == stack && !off && SpiritGear.voice(stack).orElse(null) == Attunement.SPIRIT;
             if (spiritLegs) {
-                step.addOrUpdateTransientModifier(new AttributeModifier(STEP, 1.0, AttributeModifier.Operation.ADD_VALUE));
+                if (!step.hasModifier(STEP)) step.addTransientModifier(new AttributeModifier(STEP, 1.0, AttributeModifier.Operation.ADD_VALUE));
             } else if (worn == stack || SpiritGear.voice(worn).orElse(null) != Attunement.SPIRIT
                     || !(worn.getItem() instanceof SpiritweaveArmor) || SpiritGear.abilitiesOff(worn)) {
                 step.removeModifier(STEP);

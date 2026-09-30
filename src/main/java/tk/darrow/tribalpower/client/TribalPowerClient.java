@@ -27,6 +27,7 @@ public final class TribalPowerClient {
         modBus.addListener(PanoramicSky::registerShaders);
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent event) -> event.registerReloadListener(new tk.darrow.tribalpower.client.codex.CodexBook.Loader()));
         modBus.addListener(TribalColors::items);
+        modBus.addListener(TribalColors::reloadListeners);
         modBus.addListener(VoiceGlow::items);
         modBus.addListener(VoiceGlow::layers);
         modBus.addListener(TribalColors::blocks);

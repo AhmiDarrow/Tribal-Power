@@ -47,6 +47,11 @@ public final class TribalColors {
 
     private static final java.util.Map<net.minecraft.world.level.material.Fluid, Integer> FLUID_AVERAGE = new java.util.HashMap<>();
 
+    /** A resource pack can repaint a fluid's still texture, so the averaged colours are read again after a reload. */
+    public static void reloadListeners(net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent event) {
+        event.registerReloadListener((net.minecraft.server.packs.resources.ResourceManagerReloadListener) manager -> FLUID_AVERAGE.clear());
+    }
+
     /** A fluid's colour for a tint: its own tint when it has one (water), else the average of its still texture (lava). */
     public static int fluidColour(net.neoforged.neoforge.fluids.FluidStack fluid) {
         var extensions = net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions.of(fluid.getFluid());
@@ -69,13 +74,29 @@ public final class TribalColors {
         });
     }
 
+    /**
+     * A keystone's destination tint synced. Its plane is up to five blocks above it and one to either side (the
+     * same reach as {@link GatePortal#keystoneFor}), often in the section above, which the keystone's own block
+     * update never remeshes, so the plane kept the old colour.
+     */
+    public static void portalTintChanged(net.minecraft.core.BlockPos keystone) {
+        var renderer = net.minecraft.client.Minecraft.getInstance().levelRenderer;
+        renderer.setBlocksDirty(keystone.getX() - 1, keystone.getY() + 1, keystone.getZ() - 1,
+                keystone.getX() + 1, keystone.getY() + 5, keystone.getZ() + 1);
+    }
+
     public static void blocks(RegisterColorHandlersEvent.Block event) {
         event.register((state, level, pos, layer) -> {
-            // Block colours are handed a tint getter that is only sometimes a Level; without one there is
-            // no block entity to ask, so the plane falls back to the colour of nowhere in particular.
-            if (!(level instanceof net.minecraft.world.level.Level world) || pos == null) return GateTint.UNKNOWN;
-            GateKeystoneBlockEntity keystone = GatePortal.keystoneFor(world, pos);
-            return keystone == null ? GateTint.UNKNOWN : keystone.destinationTint();
+            if (level == null || pos == null) return GateTint.UNKNOWN;
+            if (level instanceof net.minecraft.world.level.Level world) {
+                GateKeystoneBlockEntity keystone = GatePortal.keystoneFor(world, pos);
+                return keystone == null ? GateTint.UNKNOWN : keystone.destinationTint();
+            }
+            // Chunk meshing hands over its render region, not a Level. The region still holds the block
+            // entities, so walk the same keystone search on it; asking only a Level left placed planes untinted.
+            for (int dy = 1; dy <= 5; dy++) for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++)
+                if (level.getBlockEntity(pos.offset(dx, -dy, dz)) instanceof GateKeystoneBlockEntity keystone) return keystone.destinationTint();
+            return GateTint.UNKNOWN;
         }, GateRegistry.GATE_PORTAL.get());
         event.register((state, level, pos, layer) -> level == null || pos == null ? MARCH_GRASS
                         : net.minecraft.client.renderer.BiomeColors.getAverageGrassColor(level, pos),

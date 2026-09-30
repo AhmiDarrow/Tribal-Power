@@ -62,6 +62,19 @@ public final class LivingMarchGameTests {
         h.succeed();
     }
 
+    /** A quiet scheduler step (nothing rolled, nothing ran out) leaves the saved file clean rather than rewriting it every five seconds. */
+    @GameTest(template = "empty")
+    public static void aQuietWeatherRollDoesNotDirtyTheSave(GameTestHelper h) {
+        var data = new MarchEventsSavedData();
+        data.setDirty(false);
+        data.setLastWeatherRoll(h.getLevel().getGameTime());
+        h.assertFalse(data.isDirty(), "The roll timestamp alone must not mark the March's saved data dirty");
+        h.assertTrue(data.lastWeatherRoll() == h.getLevel().getGameTime(), "It is still remembered in memory");
+        data.setWeather(MarchWeather.ASHFALL, h.getLevel().getGameTime() + 400);
+        h.assertTrue(data.isDirty(), "A real weather change still saves");
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void weatherFavoursOneVoiceAndHampersAnother(GameTestHelper h) {
         for (MarchWeather weather : MarchWeather.values()) {

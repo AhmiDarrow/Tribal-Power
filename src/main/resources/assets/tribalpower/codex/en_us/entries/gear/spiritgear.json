@@ -15,7 +15,7 @@
       "type": "spotlight",
       "item": "tribalpower:spiritgear_pickaxe",
       "text": [
-        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They start diamond-hard with **1,024 durability**.",
+        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They start diamond-hard: **1,561 durability**, like diamond, and **1,024** for the shears.",
         "While they can draw Pulse from a carried cell they spare their edge: every paid action mends a point of wear instead of costing one."
       ],
       "title": "Spiritgear tools"

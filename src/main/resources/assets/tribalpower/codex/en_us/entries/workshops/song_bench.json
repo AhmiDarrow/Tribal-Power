@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Anointing a weapon",
       "text": [
-        "The bench has a fifth seat now, beside the output: a **weapon slot**. Put a sword, an axe, a trident, a mace or any Spiritgear weapon in it, click a reagent in the list to select it and press **Anoint**.",
+        "The bench has a fifth seat now, beside the output: a **weapon slot**. Put a Spiritgear weapon in it (no vanilla or other mod's weapon takes an anointment), click a reagent in the list to select it and press **Anoint**.",
         "It spends **4 empowered reagents** of that kind and **32 Pulse**, and the weapon keeps the reagent's power until you anoint it with something else. The whole story is on the [Anointing](anointing) page."
       ]
     },

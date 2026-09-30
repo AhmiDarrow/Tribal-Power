@@ -22,11 +22,15 @@ import java.util.*;
 public class BoundEffigyItem extends Item {
     public static final int MAX_USES=512;
     public BoundEffigyItem(Properties properties){super(properties);}
-    public static Set<String> allowed() {
+    /** Asked for every rendered effigy's bar each frame, so the list is built once. */
+    private static final Set<String> ALLOWED;
+    static {
         Set<String> ids=new HashSet<>(List.of("minecraft:zombie","minecraft:skeleton","minecraft:spider","minecraft:creeper","minecraft:cow","minecraft:sheep","minecraft:pig","minecraft:chicken"));
-        for(var profile:tk.darrow.tribalpower.entity.CreatureProfile.values())ids.add("tribalpower:"+profile.id);
-        return ids;
+        // The Codex promises bosses can't be imprinted or called from a Cradle.
+        for(var profile:tk.darrow.tribalpower.entity.CreatureProfile.values())if(!profile.boss())ids.add("tribalpower:"+profile.id);
+        ALLOWED=Set.copyOf(ids);
     }
+    public static Set<String> allowed() { return ALLOWED; }
     private static CompoundTag data(ItemStack stack){return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();}
     public static String target(ItemStack stack){String id=data(stack).getString("BoundSpirit");return allowed().contains(id)?id:"";}
     public static int remaining(ItemStack stack){return stack.getItem() instanceof BoundEffigyItem&&!target(stack).isEmpty()?Math.clamp(data(stack).getInt("Summons"),0,MAX_USES):0;}

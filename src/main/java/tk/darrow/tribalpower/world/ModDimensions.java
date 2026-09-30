@@ -14,7 +14,6 @@ import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.storage.DeepCacheManager;
@@ -216,10 +215,5 @@ public final class ModDimensions {
         if (event.getTo().equals(THE_MARCH)) {
             DeepCacheManager.markVisited(event.getEntity());
         }
-    }
-
-    @SubscribeEvent
-    public static void onPlayerTick(PlayerTickEvent.Post event) {
-        // Hook reserved for March ambient effects / spirit link maintenance.
     }
 }

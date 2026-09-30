@@ -429,7 +429,7 @@
       "type": "text",
       "title": "The Spirit Door",
       "text": [
-        "A **Spirit Door** is a spirit threshold for your camp: two posts, a lintel and a lamp. **You, your camp, your familiars and every gentle creature** walk straight through the middle as if nothing were there.",
+        "A **Spirit Door** is a spirit threshold for your camp: two posts, a lintel and a lamp. **Players, bonded familiars and every gentle creature** walk straight through the middle as if nothing were there.",
         "A **monster or hostile spirit** meets it as a solid wall. Hang one in the gap in your palisade and the night stays outside while you come and go.",
         "Set it facing the way you want the path to run. It gives off a soft light, so it marks the way in after dark."
       ]
@@ -453,6 +453,10 @@
     {
       "type": "recipe",
       "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
     },
     {
       "type": "recipe",

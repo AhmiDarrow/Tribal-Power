@@ -345,6 +345,7 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
             lines.add(Component.translatable("diag.tribalpower.gate.partner", partner.name(),
                     partner.dimension(), partner.pos().getX(), partner.pos().getY(), partner.pos().getZ()));
         lines.add(Component.translatable(lit ? "diag.tribalpower.gate.lit" : "diag.tribalpower.gate.dark"));
+        if (stilled()) lines.add(Component.translatable("message.tribalpower.gate.stilled").withStyle(ChatFormatting.YELLOW));
         if (kind == Kind.FAR && !loomPresent(server))
             lines.add(Component.translatable("message.tribalpower.gate.no_loom").withStyle(ChatFormatting.YELLOW));
         return lines;
@@ -369,7 +370,11 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
         pulse.load(tag);
         lit = tag.getBoolean("Lit");
         lastSignal = tag.getBoolean("LastSignal");
+        int before = destinationTint;
         destinationTint = tag.contains("Tint") ? tag.getInt("Tint") : GateTint.UNKNOWN;
+        // The plane above takes this tint, and its blocks can sit in another render section than the keystone.
+        if (level != null && level.isClientSide && before != destinationTint)
+            tk.darrow.tribalpower.client.TribalColors.portalTintChanged(worldPosition);
         gateId = tag.hasUUID("GateId") ? tag.getUUID("GateId") : null;
         owner = Ownership.load(tag);
         wayPattern.invalidate();

@@ -1,7 +1,6 @@
 package tk.darrow.tribalpower.quest;
 
 import java.util.List;
-import java.util.Locale;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -67,10 +66,6 @@ public final class Questline {
 
     public static boolean done(ServerPlayer player, TribeDefinition tribe) {
         return QuestSavedData.get(player.server).step(player.getUUID(), tribe) >= STEPS;
-    }
-
-    public static String stepKey(TribeDefinition tribe, int index) {
-        return "dialogue.tribalpower." + tribe.id() + ".quest." + index;
     }
 
     /** Moves the story on one step, telling the player and handing the relic over at the end. */
@@ -149,9 +144,5 @@ public final class Questline {
         }
         advance(player, tribe);
         return true;
-    }
-
-    public static String kindId(Kind kind) {
-        return kind.name().toLowerCase(Locale.ROOT);
     }
 }

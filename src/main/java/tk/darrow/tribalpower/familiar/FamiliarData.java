@@ -130,7 +130,6 @@ public final class FamiliarData {
 
     public float followStart() { return expressed(Mark.QUIET_THREAD) ? 8 : 10; }
     public float followStop() { return expressed(Mark.QUIET_THREAD) ? 2 : 3; }
-    public int saddlebagSlots() { return expressed(Mark.DEEP_POCKET) ? BASE_SADDLEBAG + EXTRA_SADDLEBAG : BASE_SADDLEBAG; }
 
     public static Thread lean(CreatureProfile profile) {
         return switch (profile) {

@@ -23,7 +23,8 @@ public final class ModMenus {
     public static final DeferredHolder<MenuType<?>, MenuType<SongBenchMenu>> SONG_BENCH =
             MENUS.register("song_bench", () -> new MenuType<>(SongBenchMenu::new, FeatureFlags.DEFAULT_FLAGS));
     public static final DeferredHolder<MenuType<?>, MenuType<PouchMenu>> REAGENT_POUCH =
-            MENUS.register("reagent_pouch", () -> new MenuType<>(PouchMenu::new, FeatureFlags.DEFAULT_FLAGS));
+            MENUS.register("reagent_pouch", () -> net.neoforged.neoforge.common.extensions.IMenuTypeExtension.create(
+                    (id, inventory, buf) -> new PouchMenu(id, inventory, buf.readVarInt())));
 
     private ModMenus() {}
 }

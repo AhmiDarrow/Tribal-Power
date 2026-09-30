@@ -1,7 +1,6 @@
 package tk.darrow.tribalpower.storage;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -86,9 +85,5 @@ public final class DeepCacheManager {
             remaining -= PulseCellItem.extractPulse(stack, remaining, false);
         }
         return remaining <= 0;
-    }
-
-    public static boolean isMarchDimension(ServerLevel level) {
-        return level.dimension().equals(ModDimensions.THE_MARCH);
     }
 }

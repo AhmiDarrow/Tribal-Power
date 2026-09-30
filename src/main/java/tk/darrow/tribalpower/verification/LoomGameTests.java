@@ -60,6 +60,19 @@ public class LoomGameTests {
         h.succeed();
     }
 
+    /** Wool binds into one Spiritweave; unweaving that cloth must not hand back more wool than went in. */
+    @GameTest(template = "empty")
+    public static void spiritweaveRoundTripDoesNotDuplicateWool(GameTestHelper h) {
+        var bind = ProcessingRecipes.find(h.getLevel(), "echo_bind", new ItemStack(net.minecraft.world.item.Items.WHITE_WOOL));
+        var unweave = ProcessingRecipes.find(h.getLevel(), "echo_unweave", new ItemStack(ModItems.SPIRITWEAVE.get()));
+        h.assertTrue(bind != null && bind.result().is(ModItems.SPIRITWEAVE.get()), "Echo Bind must turn wool into Spiritweave");
+        h.assertTrue(unweave != null && unweave.result().is(net.minecraft.world.item.Items.WHITE_WOOL), "Echo Unweave must turn Spiritweave into wool");
+        h.assertTrue(bind.result().getCount() * unweave.result().getCount() <= 1,
+                "Wool -> Spiritweave -> wool must not multiply wool: " + bind.result().getCount() + " cloth per wool, "
+                        + unweave.result().getCount() + " wool per cloth");
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void staffCyclesThroughAllSixVoices(GameTestHelper h) {
         var staff = new ItemStack(ModItems.SPIRIT_STAFF.get());

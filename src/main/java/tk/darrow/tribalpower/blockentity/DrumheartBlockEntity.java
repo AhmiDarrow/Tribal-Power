@@ -100,14 +100,26 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         return zonePays;
     }
 
-    /** How many drums stand in this one's zone, itself included. Used by the diagnosis. */
+    /** How many drums stand in this one's zone, itself included, for the crowded-out diagnosis. */
     public int drumsInZone() {
         if (level == null) return 1;
         int found = 0;
-        for (var other : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(
-                level, worldPosition, ZONE_RADIUS))
+        for (var other : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(level, worldPosition, ZONE_RADIUS))
             if (other instanceof DrumheartBlockEntity) found++;
         return Math.max(1, found);
+    }
+
+    /**
+     * A beat under the March's weather. A Glimmer Storm hampers Earth, so it dulls a drum the way it dulls any
+     * hampered generator: by {@link tk.darrow.tribalpower.config.TribalConfig#weatherGeneratorPenalty()}, half by
+     * default, the one knob the Codex's "half as much from the hampered one" names. Other weathers leave Earth be.
+     */
+    public static int weathered(int beat, @org.jetbrains.annotations.Nullable tk.darrow.tribalpower.event.MarchWeather weather) {
+        return weather == null || beat <= 0 ? beat : (int) Math.round(beat * weather.generatorScale(tk.darrow.tribalpower.api.pulse.Attunement.EARTH));
+    }
+
+    private int weathered(int beat) {
+        return level == null ? beat : weathered(beat, tk.darrow.tribalpower.event.MarchWeather.at(level, worldPosition));
     }
 
     public int drumBeat() {
@@ -117,7 +129,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         boolean inTime = interval >= TEMPO_MIN && interval <= TEMPO_MAX;
         lastManualBeat = now;
         int beat = paysInZone()
-                ? tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval)) : 0;
+                ? weathered(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval))) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
         lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
@@ -165,7 +177,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
             lastRedstoneGain = 0;
             return 0;
         }
-        int beat = paysInZone() ? tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value) : 0;
+        int beat = paysInZone() ? weathered(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value)) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
         lastRedstoneGain = beat;
         int gained = insertPulse(beat, false);
@@ -250,6 +262,8 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.drumheart.beat",
                 since < 200 ? Long.toString(since) : "-", ON_TEMPO, OFF_TEMPO, redstoneCooldown));
         lines.addAll(breakdown());
+        if (!paysInZone()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.drumheart.crowded",
+                drumsInZone(), ZONE_RADIUS, MAX_PER_ZONE).withStyle(net.minecraft.ChatFormatting.YELLOW));
         if (!canReceivePulse()) lines.add(net.minecraft.network.chat.Component.translatable("diag.tribalpower.output_full").withStyle(net.minecraft.ChatFormatting.YELLOW));
         return lines;
     }

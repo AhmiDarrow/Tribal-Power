@@ -17,7 +17,7 @@
       "title": "How it catches",
       "text": [
         "On every beat, once a second, it scoops up to **8 stacks** lying within **8 blocks**. The catch area is a cube, so it reaches as far up and down as it does sideways.",
-        "Each stack costs **2 Pulse** from a generator within 8. No Pulse, no catch; it waits and spends nothing.",
+        "Each stack costs **2 Pulse** from a generator within 8. No Pulse, no catch; it waits and spends nothing. It also wants an **Air** Resonance Totem within 8 blocks, or it stands idle.",
         "Ranking it shortens the beat. Pulse per stack stays 2."
       ]
     },

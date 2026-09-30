@@ -112,6 +112,40 @@ public final class GuardianGameTests {
         });
     }
 
+    /** 2026-09-29 sweep: slain adds stopped counting only while still loaded, so waves dried up after three. */
+    @GameTest(template = "empty")
+    public static void guardianAddsHuntItsFoeStopCountingWhenGoneAndABondedOneStays(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        GuardianEntity entity = null;
+        try {
+            ServerLevel level = h.getLevel();
+            entity = h.spawn(GuardianRegistry.ENTITIES.get(Guardian.BOG_MATRIARCH).get(), new BlockPos(6, 2, 6));
+            entity.setTarget(player);
+            entity.summonAdds(level);
+            var adds = level.getEntitiesOfClass(net.minecraft.world.entity.Mob.class, h.getBounds().inflate(12),
+                    m -> m.getTags().contains(GuardianEntity.SUMMONED_TAG));
+            int called = entity.addsAlive();
+            h.assertTrue(called == TribalConfig.guardianAddsPerWave() && adds.size() == called,
+                    "One wave calls its creatures, counted " + called + ", found " + adds.size());
+            for (var add : adds) h.assertTrue(add.getTarget() == player, "A called creature goes for the guardian's foe");
+            adds.get(0).discard();
+            h.assertTrue(entity.addsAlive() == called - 1, "A creature that is gone stops counting toward the cap");
+            if (adds.size() > 1 && adds.get(1) instanceof tk.darrow.tribalpower.entity.LatticeMonster kept) {
+                kept.bond(player);
+                h.assertFalse(kept.getTags().contains(GuardianEntity.SUMMONED_TAG), "A bonded creature sheds the summoned mark");
+                h.assertTrue(entity.addsAlive() == called - 2, "A bonded creature no longer counts as the guardian's");
+                entity.kill();
+                h.assertFalse(kept.isRemoved(), "The guardian's fall does not take a player's companion with it");
+                kept.discard();
+            }
+        } finally {
+            if (entity != null && !entity.isRemoved()) entity.discard();
+            h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, h.getBounds().inflate(12)).forEach(Entity::discard);
+            player.remove(Entity.RemovalReason.DISCARDED);
+        }
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void everyGuardianDropsItsCoreAndEveryAbilityFires(GameTestHelper h) {
         var player = VerificationPlayers.inLevel(h);

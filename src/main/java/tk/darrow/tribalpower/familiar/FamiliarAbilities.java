@@ -186,12 +186,12 @@ public final class FamiliarAbilities {
         if(foe!=null && foe.isAlive() && !hound.isOwnedBy(foe))hound.setLastOwnerAttacker(foe.getUUID());
         if(!hound.lattice().expressed(FamiliarData.Mark.TRACK) || hound.lastOwnerAttacker()==null)return;
         if(level.getGameTime()%20!=0)return;
-        var id=hound.lastOwnerAttacker();
-        LivingEntity living=null;
-        for(LivingEntity candidate:level.getEntitiesOfClass(LivingEntity.class,hound.getBoundingBox().inflate(TRACK_RANGE),e->e.isAlive() && e.getUUID().equals(id))) {
-            living=candidate;break;
+        // Look the quarry up by id rather than searching a wide box for it, and let a dead or vanished one go.
+        if(!(level.getEntity(hound.lastOwnerAttacker()) instanceof LivingEntity living) || !living.isAlive()) {
+            hound.setLastOwnerAttacker(null);
+            return;
         }
-        if(living==null)return;
+        if(!hound.getBoundingBox().inflate(TRACK_RANGE).intersects(living.getBoundingBox()))return;
         level.sendParticles(player,ParticleTypes.END_ROD,true,living.getX(),living.getY()+living.getBbHeight()*.6,living.getZ(),6,.25,.4,.25,.01);
     }
 }

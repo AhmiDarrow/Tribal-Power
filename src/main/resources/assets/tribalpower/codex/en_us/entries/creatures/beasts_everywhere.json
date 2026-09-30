@@ -1,0 +1,64 @@
+{
+  "name": "Beasts of every land",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grazer_wool",
+      "title": "Wanderers",
+      "text": [
+        "Eight gentle creatures are not tied to one land. You will meet them across the March, in the open, in the caves and at the edge of lava.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own.",
+        "Several of their reagents grind into dye: see [reagents](reagents)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On the open ground",
+      "text": [
+        "- **Ash Hopper**: a small, quick hopper of the Steppe, the Crystal Fields and the Ember Wastes, in groups of two to four. **12 health**. Drops **1 to 2 Ash Tufts**.",
+        "- **Ridge Grazer**: a woolly grazer of the Highlands, the Glimmer Ridge and the Snow Fields. **26 health**, **2 armour**. Drops **1 to 2 Grazer Wool** (light grey dye).",
+        "- **Crag Bounder**: a horned grazer of the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields. **20 health**, **2 armour**. Drops **1 to 2 Bounder Horns**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In the air",
+      "text": [
+        "- **Dust Flitter**: the commonest flier in the March, in every land including the Shallows. **8 health**. Drops **1 to 2 Flitter Wings**.",
+        "- **Glimmer Moth**: a small moth of the Crystal Fields, the Glimmer Ridge and the Reed Fen. **10 health**. Drops **1 to 2 Glimmer Dust** (cyan dye)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Underground and by lava",
+      "text": [
+        "- **Stone Grub**: a small, armoured grub of the dark caves under every land but the Shallows, two to five at a time. **10 health**, **4 armour**. Drops **1 to 2 Grub Husks** (brown dye).",
+        "- **Ember Drifter**: a floating ember that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
+        "- **Magma Creeper**: a slow, armoured crawler of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
+        "Both lava dwellers turn up wherever the March has lava, in every land but the Shallows."
+      ]
+    }
+  ]
+}

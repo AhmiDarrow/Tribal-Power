@@ -33,6 +33,11 @@ public final class RelayLinks {
         BY_KEY.computeIfAbsent(key, k -> new CopyOnWriteArrayList<>()).add(new Handle(be.getLevel().dimension(), be.getBlockPos().immutable()));
     }
 
+    /** Forget every pairing when the server stops, so one world's relays do not linger into the next. */
+    public static void clear() {
+        BY_KEY.clear();
+    }
+
     public static void drop(WirelessRelayBlockEntity be) {
         if (be.getLevel() == null || be.getLevel().isClientSide) return;
         Handle self = new Handle(be.getLevel().dimension(), be.getBlockPos());

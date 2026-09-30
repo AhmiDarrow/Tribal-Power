@@ -24,17 +24,6 @@ public final class MarchSkyMath {
         return dim(r, g, b, rain);
     }
 
-    public static float[] nadir(float dayness, float rain) {
-        float r = lerp(dayness, 0.02F, 0.08F);
-        float g = lerp(dayness, 0.03F, 0.16F);
-        float b = lerp(dayness, 0.08F, 0.22F);
-        return dim(r, g, b, rain);
-    }
-
-    public static float latticeAlpha(float dayness) {
-        return 0.10F + dayness * 0.16F;
-    }
-
     public static float sunAlpha(float dayness, float rain) {
         return dayness * (1F - Math.clamp(rain, 0F, 1F) * 0.7F);
     }

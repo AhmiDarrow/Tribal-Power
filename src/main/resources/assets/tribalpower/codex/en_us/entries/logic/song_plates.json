@@ -23,7 +23,8 @@
       "item": "tribalpower:chorus_plate",
       "text": [
         "Thirteen small plates, each doing one clear job with redstone: gates, memory, clocks and counters.",
-        "Snap one onto a block face the way you snap a relay. The face it points out of is its **output**."
+        "Snap one onto a block face the way you snap a relay. The face it points out of is its **output**.",
+        "Every plate is built around [Song Thread](song_thread), which needs **Loom Thread** from the March, so plates come after your first trip there."
       ],
       "title": "Song plates"
     },

@@ -76,7 +76,14 @@ public class TribeHearthBlock extends BaseEntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        if (tribe.offeringValue(stack) <= 0) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (tribe.offeringValue(stack) <= 0) {
+            if (stack.isEmpty()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            // Something held out that the tribe does not take: say so, rather than answering with the standing line.
+            if (player instanceof ServerPlayer sp)
+                sp.displayClientMessage(Component.translatable("message.tribalpower.hearth.refused", tribe.displayNameComponent())
+                        .withStyle(net.minecraft.ChatFormatting.GRAY), true);
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
         if (player instanceof ServerPlayer sp) offer(sp, hearth, stack, !sp.isCreative());
         return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }

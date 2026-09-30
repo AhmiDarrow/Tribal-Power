@@ -79,7 +79,10 @@ public final class SongBenchLogic {
         if (sequence.size() < SongVerse.MIN_SHEET || sequence.size() > SongVerse.MAX_SHEET) {
             return Attempt.fail("message.tribalpower.song_bench.need_item");
         }
-        if (voice == null || !voices(level, origin).contains(voice)) return Attempt.fail("message.tribalpower.song_bench.no_totems");
+        List<Attunement> near = voices(level, origin);
+        if (voice == null || near.isEmpty()) return Attempt.fail("message.tribalpower.song_bench.no_totems");
+        if (!near.contains(voice)) return Attempt.fail("message.tribalpower.song_bench.need_attunement",
+                Component.translatable("attunement.tribalpower." + voice.getSerializedName()));
         if (paper.isEmpty() || !paper.is(Items.PAPER)) return Attempt.fail("message.tribalpower.song_bench.need_paper");
         if (chalk.isEmpty() || !(chalk.getItem() instanceof RitualChalkItem) || RitualChalkItem.remaining(chalk) <= 0) {
             return Attempt.fail("message.tribalpower.song_bench.need_chalk");
@@ -132,7 +135,10 @@ public final class SongBenchLogic {
                                  ItemStack pouch, CreatureProfile profile, @Nullable Attunement voice, ItemStack output) {
         if (pouch == null || !(pouch.getItem() instanceof ReagentPouchItem)) return Attempt.fail("message.tribalpower.song_bench.no_pouch");
         if (level.hasNeighborSignal(origin)) return Attempt.fail("message.tribalpower.redstone.locked");
-        if (voice == null || !voices(level, origin).contains(voice)) return Attempt.fail("message.tribalpower.song_bench.no_totems");
+        List<Attunement> near = voices(level, origin);
+        if (voice == null || near.isEmpty()) return Attempt.fail("message.tribalpower.song_bench.no_totems");
+        if (!near.contains(voice)) return Attempt.fail("message.tribalpower.song_bench.need_attunement",
+                Component.translatable("attunement.tribalpower." + voice.getSerializedName()));
         if (ReagentPouch.empowered(pouch, profile) < 1) {
             return Attempt.fail("message.tribalpower.song_bench.need_empowered", Component.translatable("item.tribalpower." + profile.reagent));
         }

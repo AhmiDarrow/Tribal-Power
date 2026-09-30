@@ -16,6 +16,9 @@ public class SongkeeperDuelInviteScreen extends Screen {
     private final Screen behind;
     private final long opened = System.currentTimeMillis();
     private boolean answered;
+    /** How long an accepted invite waits for the server's Start before giving the screen back. */
+    private static final long START_WAIT_MS = 5_000;
+    private long answeredAt;
 
     public SongkeeperDuelInviteScreen(DrumPractice.Invite invite, Screen behind) {
         super(Component.translatable("gui.tribalpower.songkeeper.duel.invite_title"));
@@ -24,8 +27,14 @@ public class SongkeeperDuelInviteScreen extends Screen {
     }
 
     private void answer(boolean yes) {
-        if (answered) return;
+        // Accepted, but the duel fell through server-side (timed out, the challenger left): no Start will come,
+        // so a second "no" (Esc, N) must still let the player out.
+        if (answered) {
+            if (!yes) minecraft.setScreen(behind);
+            return;
+        }
         answered = true;
+        answeredAt = System.currentTimeMillis();
         PacketDistributor.sendToServer(new DrumPractice.Answer(invite.duel(), yes));
         if (!yes) minecraft.setScreen(behind);
     }
@@ -49,6 +58,7 @@ public class SongkeeperDuelInviteScreen extends Screen {
     @Override
     public void tick() {
         if (!answered && System.currentTimeMillis() - opened > WAIT_MS) answer(false);
+        else if (answered && System.currentTimeMillis() - answeredAt > START_WAIT_MS) minecraft.setScreen(behind);
     }
 
     @Override

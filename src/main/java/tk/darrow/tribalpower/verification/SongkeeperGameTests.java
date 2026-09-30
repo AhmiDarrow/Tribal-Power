@@ -125,6 +125,29 @@ public final class SongkeeperGameTests {
         }
     }
 
+    /** 2026-09-29 sweep: a run marked failed skipped the length check, so it could claim a full score at once. */
+    @GameTest(template = "empty")
+    public static void aRunFailedAtOnceCannotClaimTheWholeSong(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            BlockPos drum = h.absolutePos(new BlockPos(2, 2, 2));
+            h.setBlock(new BlockPos(2, 2, 2), KitRegistry.SONGKEEPER_DRUM.get());
+            player.teleportTo(drum.getX() + 0.5, drum.getY(), drum.getZ() + 1.5);
+            var song = Songbook.song("waking_beat");
+            int total = Songbook.chart(song, Difficulty.HARD).size();
+            long max = Songbook.maxScore(song, Difficulty.HARD);
+            DrumPractice.beginAt(player, drum, song.index(), Difficulty.HARD, 0);
+            long claimed = DrumPractice.finish(player, new DrumPractice.Result(drum, song.index(), Difficulty.HARD.ordinal(), max, total, total, total, 0, 0, true, false));
+            h.assertTrue(claimed >= 0 && claimed < max / 4, "A run failed at the first beat keeps only what could have come due, got " + claimed + " of " + max);
+            DrumPractice.beginAt(player, drum, song.index(), Difficulty.HARD, song.lengthMs() / 50 + 5);
+            long hollow = DrumPractice.finish(player, new DrumPractice.Result(drum, song.index(), Difficulty.HARD.ordinal(), max, 0, 0, 0, total, 0, false, false));
+            h.assertTrue(hollow == 0, "A score with no notes hit is worth nothing, got " + hollow);
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+    }
+
     /** Scores from before the Songbook were for the seven old tracks, whose charts are now those tracks' Hard. */
     @GameTest(template = "empty")
     public static void oldScoresCarryOverAsHard(GameTestHelper h) {

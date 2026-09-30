@@ -1,0 +1,36 @@
+{
+  "name": "Fays",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:fay_dust",
+      "title": "Fays",
+      "text": [
+        "Where the light is strange, fays dance in the air. They are small and gentle, and flee from monsters.",
+        "Brush one for its reagent once a minute, and tempt and breed it with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though it has no gift of its own."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Three kinds",
+      "text": [
+        "- **Glimmer Fay**: gold, over the Glimmer Ridge. Drops **Fay Dust**.",
+        "- **Prism Fay**: rose, over the Crystal Fields. Drops **Fay Petals** (pink dye).",
+        "- **Marsh Fay**: green, over the Reed Fen. A few fly with the [Colossus Warden](colossus_warden). Drops **Fay Sparks**.",
+        "A fay has **8 health** and no armour, flies in ones to threes, and drops **1 to 3** of its reagent, more with Looting."
+      ]
+    }
+  ]
+}

@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.TagsUpdatedEvent;
 import tk.darrow.tribalpower.TribalPower;
 import tk.darrow.tribalpower.api.pulse.Attunement;
@@ -119,14 +118,17 @@ public final class GritRegistry {
      * refilled: each rebuild publishes fresh unmodifiable maps.
      *
      * @param inputs every shattering input, mapped to the material it belongs to
+     * @param settled the scan ran over bound tags; an empty result then stays empty until the next tag
+     *                reload instead of rescanning every item tag on every lookup (a deny list that names
+     *                every material used to do exactly that)
      */
-    private record Tables(Map<String, Material> materials, Map<Item, Material> inputs, Map<Item, Material> byGrit) {}
+    private record Tables(Map<String, Material> materials, Map<Item, Material> inputs, Map<Item, Material> byGrit, boolean settled) {}
 
-    private static volatile Tables TABLES = new Tables(Map.of(), Map.of(), Map.of());
+    private static volatile Tables TABLES = new Tables(Map.of(), Map.of(), Map.of(), false);
 
     private static Tables tables() {
         Tables tables = TABLES;
-        if (tables.materials().isEmpty()) { rebuild(); tables = TABLES; }
+        if (!tables.settled()) { rebuild(); tables = TABLES; }
         return tables;
     }
 
@@ -149,6 +151,7 @@ public final class GritRegistry {
         Map<String, List<Item>> ingots = new HashMap<>();
         Map<String, List<Item>> gems = new HashMap<>();
         Map<String, List<Item>> dusts = new HashMap<>();
+        boolean[] bound = {false};
 
         BuiltInRegistries.ITEM.getTags().forEach(pair -> {
             TagKey<Item> key = pair.getFirst();
@@ -158,6 +161,7 @@ public final class GritRegistry {
             List<Item> items = new ArrayList<>();
             pair.getSecond().forEach(holder -> items.add(holder.value()));
             if (items.isEmpty()) return;
+            bound[0] = true;
             if (path.startsWith(TAG_RAW)) raws.put(path.substring(TAG_RAW.length()), items);
             else if (path.startsWith(TAG_ORES)) ores.put(path.substring(TAG_ORES.length()), items);
             else if (path.startsWith(TAG_INGOTS)) ingots.put(path.substring(TAG_INGOTS.length()), items);
@@ -197,7 +201,9 @@ public final class GritRegistry {
             if (material.metal()) byGrit.putIfAbsent(stackFor(name).getItem(), material);
         }
         // unmodifiableMap, not Map.copyOf, keeps the sorted order materials() hands out.
-        TABLES = new Tables(java.util.Collections.unmodifiableMap(materials), Map.copyOf(inputs), Map.copyOf(byGrit));
+        // Before tags are bound there is nothing to scan yet, so that empty result is not kept.
+        TABLES = new Tables(java.util.Collections.unmodifiableMap(materials), Map.copyOf(inputs), Map.copyOf(byGrit),
+                bound[0] || !materials.isEmpty());
         TribalPower.LOGGER.debug("Grit scan: {} materials ({} metal)", materials.size(),
                 materials.values().stream().filter(Material::metal).count());
     }
@@ -356,10 +362,5 @@ public final class GritRegistry {
         String source = BuiltInRegistries.ITEM.getKey(input.getItem()).toString()
                 .replace(':', '.').toLowerCase(Locale.ROOT);
         return ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "grit/" + material.name() + "/" + source);
-    }
-
-    /** True when {@code level} has a written recipe for this input, which always outranks the scan. */
-    public static boolean hasWrittenRecipe(Level level, String station, ItemStack stack) {
-        return ProcessingRecipes.findWritten(level, station, stack) != null;
     }
 }

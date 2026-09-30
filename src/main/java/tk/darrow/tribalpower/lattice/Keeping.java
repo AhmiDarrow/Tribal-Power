@@ -5,7 +5,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
-import tk.darrow.tribalpower.ley.LeyMath;
 
 /**
  * A totem you use stays answered. A totem you ignore goes dim, then quiet.
@@ -19,10 +18,6 @@ public final class Keeping {
     public enum State { ANSWERED, DIM, QUIET }
 
     private Keeping() {}
-
-    public static State of(ResonanceTotemBlockEntity totem) {
-        return totem == null ? State.QUIET : totem.keeping();
-    }
 
     /** Best state among totems of this voice (nearby or chalk-linked). Kinship Totems are always answered. */
     public static State voice(Level level, BlockPos origin, Attunement voice) {
@@ -60,14 +55,6 @@ public final class Keeping {
     /** Player strike, Bone Chime, Kin drummer. Wakes Quiet. */
     public static void livingBeat(Level level, BlockPos origin) {
         if (level.isClientSide) return;
-        for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(level, origin, LatticeNetwork.DEFAULT_RADIUS))
-            totem.feed();
-    }
-
-    /** A strong Ley Collector remembers the camp for every totem in range. */
-    public static void feedPad(Level level, BlockPos origin) {
-        if (level.isClientSide) return;
-        if (!LeyMath.factors(level, origin).pad()) return;
         for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(level, origin, LatticeNetwork.DEFAULT_RADIUS))
             totem.feed();
     }

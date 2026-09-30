@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * What walks with a boss.
  *
- * <p>The Weeping Colossus is never found alone: it comes up out of the fen with a stand of smaller
+ * <p>The Colossus Warden is never found alone: it comes up out of the fen with a stand of smaller
  * wardens around it and the things that live in its water. Spawning the escort with the boss is what
  * makes it read as a grove that stood up rather than one large mob that wandered in, and it is the
  * difference between a fight and a lone health bar.

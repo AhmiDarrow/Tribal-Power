@@ -16,8 +16,8 @@
       "title": "What it hits",
       "text": [
         "On each beat, once a second, it finds one hostile within **8 blocks** (a cube around the drum) and hits it for **4 magic damage** with a shove away from the drum.",
-        "Each strike costs **8 Pulse** from a generator within 8. Ranking shortens the beat; Pulse per strike stays 8.",
-        "Players are never the target, and neither are familiars bonded to you or young ones."
+        "Each strike costs **8 Pulse** from a generator within 8. Ranking shortens the beat; Pulse per strike stays 8. It answers to **Spirit**: keep a Spirit Resonance Totem within 8 blocks, or it stands idle.",
+        "Players are never the target, and neither are bonded familiars, yours or anyone's, nor young ones."
       ]
     },
     {

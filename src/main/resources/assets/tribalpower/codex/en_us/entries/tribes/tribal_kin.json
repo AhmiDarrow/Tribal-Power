@@ -22,7 +22,7 @@
       "image": "tribal_kin_elder",
       "title": "The Elder",
       "text": [
-        "The Elder trades once you are a **Guest**. Each tribe has six offers, two for each rank from Guest to Kin, and every trade earns **+2** standing."
+        "The Elder trades once you are a **Guest**. Each tribe has seven offers: two for each rank from Guest to Kin, plus the tribe's own dish at Friend. Every trade earns **+2** standing."
       ]
     },
     {
@@ -39,7 +39,7 @@
       "image": "tribal_kin_drummer",
       "title": "The Drummer",
       "text": [
-        "Every **6 seconds** the Drummer strikes a beat that feeds **2 Pulse** into each Drumheart, Ley Collector and Pulse Resonator within **8 blocks**. Wind Harps, Wave Drums and Ember Horns take none of it. The beat also keeps nearby totems awake."
+        "Every **5 to 6 seconds** the Drummer strikes a beat that feeds **2 Pulse** into each Drumheart, Ley Collector and Pulse Resonator within **8 blocks**. Wind Harps, Wave Drums and Ember Horns take none of it. The beat also keeps nearby totems awake."
       ]
     },
     {

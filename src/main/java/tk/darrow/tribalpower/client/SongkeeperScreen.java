@@ -21,7 +21,7 @@ import tk.darrow.tribalpower.gate.Songbook.Difficulty;
  * best five, the settings that keep the notes on the music, and (at a pair of drums) the duel.
  */
 public class SongkeeperScreen extends Screen {
-    private static final int INK = 0xF00B1216, PANEL = 0xFF101B22, RIM = 0xFFB58A58, TEXT = 0xFFF2E8CF, QUIET = 0xFF8FA7A0,
+    private static final int INK = 0xF00B1216, RIM = 0xFFB58A58, TEXT = 0xFFF2E8CF, QUIET = 0xFF8FA7A0,
             TEAL = 0xFF5CE0C8, GOLD = 0xFFFFD36B, ROW_HOT = 0xFF1C3338, ROW_SEL = 0xFF24464C;
     private static final int[] DIFF_COLOUR = {0xFF6FD08C, 0xFF5CC8E0, 0xFFFFB84D, 0xFFFF6A5A};
     private static final int ROW = 20, HEADER = 16;
@@ -35,7 +35,6 @@ public class SongkeeperScreen extends Screen {
     private double scroll;
     private int panelX, panelY, panelW, panelH, listW;
     private final List<Button> rivalButtons = new ArrayList<>();
-    private Button playButton;
 
     public SongkeeperScreen(DrumPractice.Browse browse) {
         super(Component.translatable("block.tribalpower.songkeeper_drum"));
@@ -77,13 +76,15 @@ public class SongkeeperScreen extends Screen {
 
     @Override
     protected void init() {
+        // Back from an invite (setScreen(behind) re-inits this screen): take the board replies again.
+        current = this;
         panelW = Math.min(620, width - 16);
         panelH = Math.min(350, height - 16);
         panelX = width / 2 - panelW / 2;
         panelY = height / 2 - panelH / 2;
         listW = (int) (panelW * 0.5);
         int rx = panelX + listW + 12, rw = panelW - listW - 22;
-        playButton = addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.songkeeper.play"), b -> play())
+        addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.songkeeper.play"), b -> play())
                 .bounds(rx, panelY + panelH - 28, rw / 2 - 2, 20).build());
         rivalButtons.clear();
         if (!browse.rivals().isEmpty()) {

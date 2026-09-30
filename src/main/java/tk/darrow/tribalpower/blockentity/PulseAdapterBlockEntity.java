@@ -34,6 +34,8 @@ import java.util.List;
  */
 public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable, tk.darrow.tribalpower.api.pulse.PulseSpend {
     private int energy;
+    /** The six neighbours' FE handlers, cached: the adapter offers power every tick it holds any. */
+    private net.neoforged.neoforge.capabilities.BlockCapabilityCache<IEnergyStorage, Direction>[] sinks;
     public static final int CAPACITY = 48000;
     public static final int RATE = 60;
     public static final int FE_PER_PULSE = 100;
@@ -79,13 +81,23 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
             if (want > 0) { int pulse = LatticeNetwork.extractPulseNearby(level, pos, 8, want, false); be.energy += pulse * FE_PER_PULSE; if (pulse > 0) be.changed(); }
         }
         int budget = Math.min(1000, be.energy);
+        if (budget <= 0 || !(level instanceof ServerLevel server)) return;
+        if (be.sinks == null) be.sinks = sinks(server, pos);
         for (Direction face : Direction.values()) {
             if (budget <= 0 || !level.hasChunkAt(pos.relative(face))) continue;
-            var sink = level.getCapability(Capabilities.EnergyStorage.BLOCK, pos.relative(face), face.getOpposite());
+            var sink = be.sinks[face.ordinal()].getCapability();
             if (sink == null || !sink.canReceive()) continue;
             int moved = Math.max(0, Math.min(budget, sink.receiveEnergy(budget, false)));
             budget -= moved; be.energy -= moved; if (moved > 0) be.changed();
         }
+    }
+    @SuppressWarnings("unchecked")
+    private static net.neoforged.neoforge.capabilities.BlockCapabilityCache<IEnergyStorage, Direction>[] sinks(ServerLevel server, BlockPos pos) {
+        var caches = new net.neoforged.neoforge.capabilities.BlockCapabilityCache[6];
+        for (Direction face : Direction.values())
+            caches[face.ordinal()] = net.neoforged.neoforge.capabilities.BlockCapabilityCache.create(
+                    Capabilities.EnergyStorage.BLOCK, server, pos.relative(face), face.getOpposite());
+        return caches;
     }
     @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.saveAdditional(tag, registries); tag.putInt("FE", energy); }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.loadAdditional(tag, registries); energy = Math.max(0, Math.min(CAPACITY, tag.getInt("FE"))); }

@@ -143,6 +143,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onLogin);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.gate.DrumRite::onLogout);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.quest.DialogueSession::loggedOut);
+        // Static caches keyed by one world's positions must not outlive it (single-player reopens another world).
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.server.ServerStoppedEvent event) -> {
+            tk.darrow.tribalpower.lattice.RelayLinks.clear();
+            tk.darrow.tribalpower.world.WillowGroveStructure.clearPlans();
+        });
         tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
         tk.darrow.tribalpower.compat.ChocoboCompat.register();
         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);

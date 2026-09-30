@@ -21,7 +21,7 @@
       "text": [
         "Open it and fill the three seats on the left:",
         "- **Reagent**: one raw [reagent](reagents), as the item (take it out of your pouch at the Song Bench). Its family decides the remedy.",
-        "- **Herb**: Spirit Reed, Ley Thistle, Echo Bloom, March Leaf, Moon Lily, Lantern Cap or Veil Lichen.",
+        "- **Herb**: Spirit Reed, Ley Thistle, Echo Bloom, March Leaf, Moon Lily, Lantern Cap, Veil Lichen, Frostberry or Glimmer Bean.",
         "- **Base**: a **glass bottle** makes **2 tinctures**, **honeycomb** makes **2 salves**, **charcoal** makes **4 incense**.",
         "A batch takes **10 seconds** and **24 Pulse**, drawn from the lattice when it finishes, and uses one of each input. The screen tells you if it is waiting on heat, Pulse or room in the output."
       ]

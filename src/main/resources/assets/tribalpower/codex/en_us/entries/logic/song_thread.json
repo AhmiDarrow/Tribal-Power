@@ -9,7 +9,8 @@
       "type": "spotlight",
       "item": "tribalpower:song_thread",
       "text": [
-        "Redstone is a shout; Song Thread is a hummed line through the air. It carries a signal from **0 to 15** in all **six directions**, up and down included, and needs nothing to rest on."
+        "Redstone is a shout; Song Thread is a hummed line through the air. It carries a signal from **0 to 15** in all **six directions**, up and down included, and needs nothing to rest on.",
+        "**It needs Loom Thread**, which only the March gives: Ancestor Hall chests, the Loom-stitchers' trades, and The Unsung. Song Vine, the song plates and the Verse Call are all made with Song Thread, so they wait for it too. Until then, build with redstone dust, repeaters and comparators."
       ]
     },
     {

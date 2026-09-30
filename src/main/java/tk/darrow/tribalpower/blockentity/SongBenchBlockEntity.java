@@ -28,9 +28,7 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.item.RitualChalkItem;
 import tk.darrow.tribalpower.song.Reagents;
 import tk.darrow.tribalpower.song.SongBenchMenu;
-import tk.darrow.tribalpower.song.SongSheetItem;
 import tk.darrow.tribalpower.song.SongbookItem;
-import tk.darrow.tribalpower.song.VerseArrowItem;
 
 /**
  * Where a reagent becomes empowered, a sheet is written, a verse arrow is fletched, and a weapon is anointed.
@@ -173,10 +171,6 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
             case WEAPON -> tk.darrow.tribalpower.song.Anointing.canAnoint(stack);
             default -> false;
         };
-    }
-
-    public boolean canPlaceOutput(ItemStack stack) {
-        return stack.getItem() instanceof SongSheetItem || stack.getItem() instanceof VerseArrowItem;
     }
 
     @Override

@@ -1,0 +1,46 @@
+{
+  "name": "Colossus Warden",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:heartwood_core",
+      "title": "Colossus Warden",
+      "text": [
+        "The willow grown enormous, and walking. The Colossus Warden is the March's one roaming boss, seven blocks tall, and it is never found alone.",
+        "It is not the Weeping Colossus, the great willow tree that stands in groves across the fen: see [March trees](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Finding one",
+      "text": [
+        "It rises rarely, only in the **Reed Fen**, on the open ground at night. It comes with its grove around it: **2 to 4 Weeping Wardens**, **1 to 3 Marsh Fays** and up to **2 Bog Floaters**. They are gentle and stay gentle.",
+        "A boss bar shows its health to everyone near it. It does not fade at dawn as other spirits do, and while it is close you cannot sleep. If it leaves without dying, its grove goes with it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fighting it",
+      "text": [
+        "It has **260 health** and **14 armour**, and it is slow. Each blow does **12** and roots you: you are slowed for 3 seconds, so do not let it catch you twice.",
+        "Like any spirit that rises at night it comes stronger, and it can rise as a gold-named elite. Bring friends, a bow and room to back away. It will not bond."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it leaves",
+      "text": [
+        "It always drops its **Heartwood Core**, a Root reagent you can get nowhere else, with **16 to 32 Willow Logs**, **4 to 8 Willow Saplings**, **6 to 12 Willow Strands**, **4 to 8 Knotted Roots** and **8 to 16 Bottles o' Enchanting**. Looting adds more.",
+        "There is no giant willow sapling: plant four Willow Saplings in a square to grow a Weeping Colossus of your own."
+      ]
+    }
+  ]
+}

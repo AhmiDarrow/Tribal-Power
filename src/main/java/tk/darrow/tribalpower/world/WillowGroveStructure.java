@@ -76,6 +76,13 @@ public class WillowGroveStructure extends Structure {
         }
     };
 
+    /** Drop the cached plans when the server stops: each is several MB and belongs to that world's seed. */
+    public static void clearPlans() {
+        synchronized (PLANS) {
+            PLANS.clear();
+        }
+    }
+
     static MarchTreeFeature.Plan plan(BlockPos origin, long seed, float scale) {
         String key = origin.asLong() + ":" + seed + ":" + scale;
         synchronized (PLANS) {

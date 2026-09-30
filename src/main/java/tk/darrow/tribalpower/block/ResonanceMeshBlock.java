@@ -72,12 +72,15 @@ public class ResonanceMeshBlock extends BaseEntityBlock {
             // A bucket is the hand-fed version of a Spirit Cistern; both fill the same tank.
             if (FluidUtil.interactWithFluidHandler(player, hand, level, pos, hit.getDirection()))
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
-            if (!level.isClientSide && mesh.canPlaceItem(ResonanceMeshBlockEntity.SAMPLE, stack)
-                    && mesh.getItem(ResonanceMeshBlockEntity.SAMPLE).isEmpty()) {
-                mesh.setItem(ResonanceMeshBlockEntity.SAMPLE, stack.copyWithCount(1));
-                if (!player.isCreative()) stack.shrink(1);
-                player.displayClientMessage(mesh.status(), true);
-                return ItemInteractionResult.SUCCESS;
+            if (mesh.canPlaceItem(ResonanceMeshBlockEntity.SAMPLE, stack)) {
+                // The client cannot see the sample slot; it predicts the take and the server decides.
+                if (level.isClientSide) return ItemInteractionResult.SUCCESS;
+                if (mesh.getItem(ResonanceMeshBlockEntity.SAMPLE).isEmpty()) {
+                    mesh.setItem(ResonanceMeshBlockEntity.SAMPLE, stack.copyWithCount(1));
+                    if (!player.isCreative()) stack.shrink(1);
+                    player.displayClientMessage(mesh.status(), true);
+                    return ItemInteractionResult.CONSUME;
+                }
             }
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

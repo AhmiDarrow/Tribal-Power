@@ -26,7 +26,7 @@
       "type": "text",
       "title": "Linking totems",
       "text": [
-        "Right-click one Resonance Totem with chalk, then a second within **16 blocks**, to seal a Lattice link between them (see [Lattice Conductor](lattice_conductor)). A link that takes spends one use.",
+        "Right-click one Resonance Totem with chalk, then a second **less than 16 blocks** away, to seal a Lattice link between them (see [Lattice Conductor](lattice_conductor)). A link that takes spends one use.",
         "Clicking the same totem twice cancels the link you started. Two totems already linked stay linked and cost nothing more."
       ]
     },

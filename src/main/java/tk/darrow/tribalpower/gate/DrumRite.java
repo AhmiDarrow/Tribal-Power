@@ -49,10 +49,6 @@ public final class DrumRite {
         public long endMs() {
             return leadMs + playMs;
         }
-
-        public long beatMs() {
-            return 60000L / bpm;
-        }
     }
 
     public static int trackCount() {

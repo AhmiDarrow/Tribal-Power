@@ -101,9 +101,13 @@ public enum CreatureProfile {
     private static final java.util.Set<String> BOSS_IDS=java.util.Set.of("colossus_warden");
     /** Bosses get a boss bar, an escort and a loot table worth the fight. */
     public boolean boss() { return BOSS_IDS.contains(id); }
+    /** Every Tribal creature asks for its profile each tick; look each type up once, not by registry name and a scan. */
+    private static final java.util.Map<EntityType<?>,CreatureProfile> BY_TYPE=new java.util.concurrent.ConcurrentHashMap<>();
     public static CreatureProfile of(EntityType<?> type) {
+        CreatureProfile known=BY_TYPE.get(type);
+        if(known!=null) return known;
         String id=BuiltInRegistries.ENTITY_TYPE.getKey(type).getPath();
-        for(var profile:values()) if(profile.id.equals(id)) return profile;
+        for(var profile:values()) if(profile.id.equals(id)) { BY_TYPE.put(type,profile); return profile; }
         throw new IllegalArgumentException("Unknown Tribal creature: "+id);
     }
     public boolean ranged() { return attack.equals("gust") || attack.equals("bolt") || attack.equals("chill"); }

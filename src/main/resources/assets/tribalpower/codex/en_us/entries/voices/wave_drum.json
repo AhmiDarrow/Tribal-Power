@@ -16,7 +16,7 @@
       "type": "text",
       "title": "Two ways to feed it",
       "text": [
-        "**Beside water.** Water touching any face of the drum gives **3 Pulse a second**. Drums within **8 blocks** share that, so two neighbours make half each.",
+        "**Beside water.** Water touching any face of the drum gives **3 Pulse a second**. Drums within **8 blocks** share that, so two neighbours make a little under half each.",
         "**Its own water.** Fill its internal tank with a bucket, a Spirit Cistern or a fluid relay, and it makes **10 a second**, drinking **100 mB a second**. Nothing crowds this tier; the water is already the price. It only drinks when it actually delivers Pulse.",
         "Rain doubles either tier. Ranking adds **15% Pulse a second** per rank. The tank holds **4,000 mB**, and water only."
       ]

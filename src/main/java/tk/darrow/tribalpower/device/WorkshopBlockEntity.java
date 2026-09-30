@@ -36,8 +36,10 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     private FluidStack pending = FluidStack.EMPTY;
     private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.mesh();
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
-    @Override public int[] inputSlots(Direction face) { return java.util.stream.IntStream.range(0, 27).toArray(); }
-    @Override public int[] outputSlots(Direction face) { return java.util.stream.IntStream.range(0, 27).toArray(); }
+    /** Hoppers ask for these every tick; build the slot list once. */
+    private static final int[] ALL_SLOTS = java.util.stream.IntStream.range(0, 27).toArray();
+    @Override public int[] inputSlots(Direction face) { return ALL_SLOTS; }
+    @Override public int[] outputSlots(Direction face) { return ALL_SLOTS; }
 
     public WorkshopBlockEntity(BlockPos pos, BlockState state) {
         super(DeviceRegistry.WORKSHOP.get(), pos, state);

@@ -122,7 +122,13 @@ public final class GatePortal {
             return;
         }
         GateKeystoneBlockEntity keystone = keystoneFor(level, pos);
-        if (keystone == null || !keystone.lit() || keystone.stilled()) return;
+        if (keystone == null || !keystone.lit()) return;
+        if (keystone.stilled()) {
+            // Held redstone stills the plane; tell a player why it will not carry them (once a second, not every tick).
+            if (entity instanceof ServerPlayer player && player.tickCount % 20 == 0)
+                player.displayClientMessage(Component.translatable("message.tribalpower.gate.stilled"), true);
+            return;
+        }
         GateKeystoneBlockEntity.Kind kind = keystone.kind(level);
         if (kind == null) return;
 

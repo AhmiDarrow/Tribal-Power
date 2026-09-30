@@ -36,7 +36,8 @@ public class SpiritCharmItem extends Item {
     public static Set<Attunement> voices(ItemStack stack) {
         Set<Attunement> out = new LinkedHashSet<>();
         if (!(stack.getItem() instanceof SpiritCharmItem charm)) return out;
-        String raw = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString(VOICES_KEY);
+        @SuppressWarnings("deprecation")   // read-only
+        String raw = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getString(VOICES_KEY);
         if (raw == null || raw.isEmpty()) {
             if (charm.kind.nativeVoice != null) out.add(charm.kind.nativeVoice);
             return out;

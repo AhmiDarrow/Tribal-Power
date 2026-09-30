@@ -82,6 +82,11 @@ public class TribeGameTests {
         int reagent = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
         h.assertTrue(reagent - after == TribeStanding.GAIN_REAGENT, "Attuned Echo is the Grit-singers' reagent tier: +8");
         h.assertTrue(TribeDefinition.STONE.offeringValue(new ItemStack(Items.STONE)) == 0, "Plain stone is not an offering");
+        ItemStack plain = new ItemStack(Items.STONE, 2);
+        player.setItemInHand(InteractionHand.MAIN_HAND, plain);
+        var refused = h.getBlockState(rel).useItemOn(plain, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);
+        h.assertTrue(refused.consumesAction() && plain.getCount() == 2 && TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE) == reagent,
+                "An unwanted gift is refused aloud, kept, and changes nothing");
         h.assertTrue(TribeDefinition.SOIL.offeringValue(new ItemStack(Items.COOKED_BEEF)) == TribeStanding.GAIN_FOOD, "Any food gives +1");
         h.assertTrue(hearth.signal() == 0, "A Stranger reads 0 on the comparator");
         ItemStack drop = h.getBlockState(rel).getBlock().getCloneItemStack(h.getBlockState(rel), hit, h.getLevel(), pos, player);

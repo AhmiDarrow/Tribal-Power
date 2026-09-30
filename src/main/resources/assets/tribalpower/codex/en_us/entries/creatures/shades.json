@@ -1,0 +1,60 @@
+{
+  "name": "Shades",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:barrow_shroud",
+      "title": "Shades",
+      "text": [
+        "The dead of the March walk where they died. Every shade has **25 health** and no armour, and hits for **5**, but each fights its own way.",
+        "Each drops **1 to 2** of its reagent, more with Looting. None of them will bond."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Barrow Shade",
+      "text": [
+        "The dark caves under the Highlands, day or night, one to three at a time. Its blow weakens you for 4 seconds.",
+        "It drops **Barrow Shrouds**, a Weaken reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pale Wraith",
+      "text": [
+        "It flies over the Snow Fields at night, one or two at a time. From up to 12 blocks away it casts a chill that slows you for 3 seconds. Cover breaks the cast.",
+        "It drops **Wraith Veils**, a Chill reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinder Shade",
+      "text": [
+        "It flies over the Ember Wastes at night, one or two at a time, and is **immune to fire**. From up to 12 blocks away it casts a bolt that sets you alight for 2 seconds. Cover breaks the cast.",
+        "It drops **Shade Embers**, a Bolt reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drowned Shade",
+      "text": [
+        "It rises in the water of the Shallows at night, one or two at a time. Its blow weakens you for 4 seconds.",
+        "It drops **Drowned Weed**, a Weaken reagent."
+      ]
+    }
+  ]
+}

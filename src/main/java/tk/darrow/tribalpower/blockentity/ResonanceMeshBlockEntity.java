@@ -386,6 +386,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
      * Only a change of band, which asks the ground for something else entirely, restarts the count.
      */
     private void stall(String why) {
+        if (why.equals(state)) return;   // a stalled mesh must not mark its chunk dirty every beat
         state = why;
         setChanged();
     }

@@ -24,7 +24,7 @@
       "type": "text",
       "title": "Using the circle",
       "text": [
-        "If the circle is incomplete, a tablet rite names the missing pieces and the tablet is not spent. Crouch and right-click the brazier with the Codex to see ghosts.",
+        "If the circle is incomplete, a tablet rite says the circle is not drawn and the tablet is not spent. Crouch and right-click the brazier with the Codex to see ghosts.",
         "Tablets can wait on the pedestals. A struck redstone signal on the brazier fires the seated rite with a pedestal's tablet that matches the seal, and a comparator reads whether a pedestal is occupied. That is how you put a [rite on a clock](redstone_language)."
       ]
     },

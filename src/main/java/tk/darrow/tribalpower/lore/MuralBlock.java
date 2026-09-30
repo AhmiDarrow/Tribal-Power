@@ -137,7 +137,9 @@ public class MuralBlock extends HorizontalDirectionalBlock {
             for (int part = 0; part < 4; part++) {
                 BlockPos at = partPos(origin, state.getValue(FACING), part);
                 BlockState there = level.getBlockState(at);
-                if (there.is(this)) level.setBlock(at, there.setValue(FRAGMENT, next), 3);
+                // As at placement: no shape updates until the last part, or the parts still showing the old
+                // fragment see a broken mural and tear it down, drops and all.
+                if (there.is(this)) level.setBlock(at, there.setValue(FRAGMENT, next), part < 3 ? Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE : Block.UPDATE_ALL);
             }
             return InteractionResult.CONSUME;
         }

@@ -1,6 +1,5 @@
 package tk.darrow.tribalpower.client;
 
-import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -135,6 +134,4 @@ public final class MarchMusic {
     private static final class SoundInstanceRandom {
         static final net.minecraft.util.RandomSource INSTANCE = net.minecraft.util.RandomSource.create();
     }
-
-    public static List<String> themes() { return List.copyOf(ModSounds.BOSS_THEMES.keySet()); }
 }

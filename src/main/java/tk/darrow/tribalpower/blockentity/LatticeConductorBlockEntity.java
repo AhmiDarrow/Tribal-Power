@@ -66,15 +66,10 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             return;
         }
 
-        List<BlockPos> hubs = LatticeNetwork.networkHubs(network);
-        List<SongBenchBlockEntity> benches = LatticeNetwork.findSongBenchesNearHubs(level, hubs, RADIUS);
+        // No Song Bench asks for assist any more (wantsPulseAssist is always false) and Echo items no longer
+        // route through the lattice, so the beat skips both neighbourhood scans. The manual strike keeps them.
+        List<SongBenchBlockEntity> benches = List.of();
         be.assistActive = false;
-        for (SongBenchBlockEntity bench : benches) {
-            if (bench.wantsPulseAssist()) {
-                be.assistActive = true;
-                break;
-            }
-        }
 
         int push = MachineRank.scalePulse(be, PUSH_PER_CYCLE);
         int available = LatticeNetwork.extractPulseForConductor(level, pos, RADIUS, push, true);
@@ -88,12 +83,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
             refundPulse(level, pos, taken - be.lastPulsePushed);
         }
 
-        if (be.tickCounter % ITEM_INTERVAL == 0 && hasRoutingPower(network, be.lastPulsePushed)) {
-            List<AncestralCacheBlockEntity> caches = LatticeNetwork.findCachesNearHubs(level, hubs, RADIUS);
-            be.lastItemRouted = LatticeNetwork.routeEchoItems(level, benches, caches);
-        } else {
-            be.lastItemRouted = false;
-        }
+        be.lastItemRouted = false;
         // The beat still runs. The chunk is marked only when a number a reload would care about moved.
         if (be.networkSize != sizeWas || be.lastPulsePushed != pushedWas || be.lastSourceAvailable != availableWas
                 || be.assistActive != assistWas || be.lastItemRouted != routedWas) {

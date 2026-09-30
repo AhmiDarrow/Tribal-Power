@@ -157,7 +157,7 @@
           ]
         },
         {
-          "caption": "Add a Fire totem, a second voice. The Resonator starts to hum: 6 Pulse a second.",
+          "caption": "Add a Fire totem, a second voice. The Resonator starts to hum: 8 Pulse a second.",
           "place": [
             {
               "pos": [
@@ -177,7 +177,7 @@
           ]
         },
         {
-          "caption": "A third voice, Water, adds 2 more Pulse a second. Every new voice does.",
+          "caption": "A third voice, Water, lifts it to 15 Pulse a second. Every new voice is worth more than the last.",
           "place": [
             {
               "pos": [
@@ -202,12 +202,12 @@
       "type": "text",
       "title": "Stronger crystals",
       "text": [
-        "Each second the Resonator makes **2 Pulse for every distinct voice**, plus **2 for every rank** of its crystal. Crystals are never used up, so upgrading is a one-time job:",
+        "Each second the Resonator makes **voices × (voices + 2)** Pulse, times its crystal: **×1** for an Echo Shard, **×1.5** Attuned, **×2** Bound, **×3** for a Resonant Core. Every crystal is spent by the Pulse it makes, and a better one lasts longer:",
         "- **Echo Shard** (rank 1): stone in Echo Shatter, with Earth.",
         "- **Attuned Echo** (rank 2): shards in Echo Attune, with Fire.",
         "- **Bound Echo** (rank 3): attuned echoes in Echo Bind, with Water.",
         "- **Resonant Core** (rank 4): Manifested Ingots in Echo Manifest, with Spirit.",
-        "All six voices around a Resonant Core make **20 Pulse a second**, but six voices need the [Voice Ring](voice_ring) layout. A loose heap counts at most five voices, Kinship Totems included."
+        "All six voices around a Resonant Core make **144 Pulse a second**, but six voices need the [Voice Ring](voice_ring) layout. A loose heap counts at most five voices, Kinship Totems included."
       ]
     },
     {
@@ -215,7 +215,7 @@
       "title": "When it stays dark",
       "text": [
         "Only **Answered** totems count; a quiet one has to be woken first (see [Keeping](keeping)). A steady redstone signal pauses the Resonator.",
-        "Ranking the Resonator itself adds **15% Pulse a second** per rank. Pack settings that scale generation do not change its base rate."
+        "Ranking the Resonator itself adds **15% Pulse a second** per rank. The rates on these pages are before pack settings that scale generation."
       ]
     },
     {

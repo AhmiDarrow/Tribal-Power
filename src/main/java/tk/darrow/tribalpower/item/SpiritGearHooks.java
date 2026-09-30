@@ -217,9 +217,61 @@ public final class SpiritGearHooks {
         if (player.getHealth() > 20) player.getPersistentData().putFloat(KEPT_HEALTH, player.getHealth());
     }
 
+    /**
+     * Whether the player is walking the way they face. The server has no forward input for a player on foot, so
+     * this reads the movement their client last reported: moving, and mostly along the look.
+     */
+    public static boolean walkingForward(Player player) {
+        net.minecraft.world.phys.Vec3 move = player.getKnownMovement();
+        double sq = move.x * move.x + move.z * move.z;
+        if (sq < 1.0E-4) return false;
+        net.minecraft.world.phys.Vec3 look = net.minecraft.world.phys.Vec3.directionFromRotation(0, player.getYRot());
+        return move.x * look.x + move.z * look.z > 0.5 * Math.sqrt(sq);
+    }
+
+    /** Earth leggings on soul sand: full movement efficiency, which the owning client reads for its own movement. */
+    static final net.minecraft.resources.ResourceLocation SOUL_STRIDE = net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "soul_stride");
+
+    /**
+     * Earth and Loom leggings push through cobwebs and berry bushes. Those blocks snare through
+     * makeStuckInBlock at the end of each move, and the next move scales by it and zeroes the speed. The player's
+     * own client simulates that move, so this runs on both sides right after the move (end of the player tick) and
+     * swaps the snare for a zero multiplier, which the next move ignores. Only when such a block is really touched:
+     * makeStuckInBlock also resets fall distance, which the block itself already did.
+     */
+    public static void shedSnares(Player player, Attunement legVoice) {
+        if (legVoice != Attunement.EARTH && legVoice != Attunement.LOOM) return;
+        var box = player.getBoundingBox().deflate(1.0E-5);
+        for (BlockPos pos : BlockPos.betweenClosed(BlockPos.containing(box.minX, box.minY, box.minZ), BlockPos.containing(box.maxX, box.maxY, box.maxZ))) {
+            BlockState state = player.level().getBlockState(pos);
+            if (state.is(Blocks.COBWEB) || state.is(Blocks.SWEET_BERRY_BUSH)) {
+                player.makeStuckInBlock(state, net.minecraft.world.phys.Vec3.ZERO);
+                return;
+            }
+        }
+    }
+
+    /**
+     * Soul sand slows through the block speed factor, which the client applies from the movement efficiency
+     * attribute; a synced attribute modifier is what the owning client actually honours.
+     */
+    public static void soulStride(Player player, Attunement legVoice) {
+        var efficiency = player.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_EFFICIENCY);
+        if (efficiency == null) return;
+        boolean onSoulSand = legVoice == Attunement.EARTH && player.level().getBlockState(player.blockPosition()).is(Blocks.SOUL_SAND);
+        if (onSoulSand && !efficiency.hasModifier(SOUL_STRIDE))
+            efficiency.addTransientModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(SOUL_STRIDE, 1.0,
+                    net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE));
+        else if (!onSoulSand && efficiency.hasModifier(SOUL_STRIDE)) efficiency.removeModifier(SOUL_STRIDE);
+    }
+
     public static void playerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide) {
+            // Only the local player's movement is simulated here; other players arrive as positions.
+            if (player.isLocalPlayer()) shedSnares(player, SpiritGear.voice(player.getItemBySlot(EquipmentSlot.LEGS)).orElse(null));
+            return;
+        }
         if (player.tickCount > 5 && player.getPersistentData().contains(KEPT_HEALTH)) {
             player.setHealth(Math.min(player.getMaxHealth(), player.getPersistentData().getFloat(KEPT_HEALTH)));
             player.getPersistentData().remove(KEPT_HEALTH);
@@ -235,15 +287,11 @@ public final class SpiritGearHooks {
                 && !(legs.getItem() instanceof SpiritweaveArmor && legVoice == Attunement.SPIRIT))
             step.removeModifier(SpiritweaveArmor.STEP);
 
-        if (legVoice == Attunement.EARTH || legVoice == Attunement.LOOM) {
-            BlockState feet = player.level().getBlockState(player.blockPosition());
-            if (feet.is(Blocks.COBWEB) || feet.is(Blocks.SWEET_BERRY_BUSH)
-                    || (legVoice == Attunement.EARTH && (feet.is(Blocks.SOUL_SAND) || feet.is(Blocks.SOUL_SOIL)))) {
-                player.setDeltaMovement(player.getDeltaMovement().multiply(1.7, 1.0, 1.7));
-            }
-        }
+        // The server replays the client's moves too, so it sheds the snare as well (no "moved wrongly" drift).
+        shedSnares(player, legVoice);
+        soulStride(player, legVoice);
 
-        if (bootVoice == Attunement.LOOM && player.isShiftKeyDown() && player.zza > 0.1F
+        if (bootVoice == Attunement.LOOM && player.isShiftKeyDown() && walkingForward(player)
                 && !player.getCooldowns().isOnCooldown(boots.getItem())
                 && player.level() instanceof ServerLevel server) {
             int reach = SpiritGear.rank(boots) >= 3 ? 6 : 4;

@@ -58,7 +58,8 @@ public class DialogueScreen extends Screen {
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partial) {
-        super.render(g, mouseX, mouseY, partial);
+        // Background, then the parchment, then the answer buttons: drawn after super.render the panel hid them.
+        renderBackground(g, mouseX, mouseY, partial);
         int w = panelWidth(), h = panelHeight();
         int x = (width - w) / 2, y = (height - h) / 2;
         g.fill(x - 3, y - 3, x + w + 3, y + h + 3, INK);
@@ -77,6 +78,7 @@ public class DialogueScreen extends Screen {
             }
             ly += 4;
         }
+        for (var widget : renderables) widget.render(g, mouseX, mouseY, partial);
     }
 
     @Override

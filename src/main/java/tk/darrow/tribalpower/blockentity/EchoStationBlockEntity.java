@@ -102,8 +102,6 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         return true;
     }
 
-    public boolean isArrayed() { return arrayed; }
-
     /** The Ancestral Cache beneath an arrayed station, or null. */
     private AncestralCacheBlockEntity cacheBelow(Level level) {
         BlockPos below = worldPosition.below();

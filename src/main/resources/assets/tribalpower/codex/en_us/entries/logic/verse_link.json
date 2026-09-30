@@ -11,7 +11,8 @@
       "type": "spotlight",
       "item": "tribalpower:verse_call",
       "text": [
-        "Sixteen verses, and no wire. A **Verse Call** listens to redstone; a **Verse Answer** within 32 blocks, tuned to the same verse, sings it back out."
+        "Sixteen verses, and no wire. A **Verse Call** listens to redstone; a **Verse Answer** within 32 blocks, tuned to the same verse, sings it back out.",
+        "The Call is made with [Song Thread](song_thread) and the Answer with Song Vine, so both need **Loom Thread** from the March."
       ]
     },
     {

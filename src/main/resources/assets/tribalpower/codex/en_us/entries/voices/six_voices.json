@@ -202,7 +202,7 @@
       "text": [
         "Stations count voices, not totems: two Earth totems are still one voice. Having many different voices matters to the Pulse Resonator and the Loom Anchor, which make more Pulse for every **distinct** voice around them.",
         "Kinship Totems lend their tribe's element to nearby stations. On a Pulse Resonator they also add extra tribe voices, but never a seventh element.",
-        "A totem chalk-linked to one near the station lends its voice too, if it stands within 16 blocks of the station.",
+        "A totem chalk-linked to one near the station lends its voice too, if it stands less than 16 blocks from the station.",
         "Each totem also holds **250 Pulse** for the lattice, and it has to be kept awake: see [Keeping](keeping)."
       ]
     },

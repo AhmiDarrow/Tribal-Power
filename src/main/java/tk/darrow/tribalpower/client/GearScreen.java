@@ -25,6 +25,8 @@ public class GearScreen extends Screen {
     private static final int W = 260, ROW = 24;
     private static final EquipmentSlot[] ARMOR = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
     private final List<Component> labels = new ArrayList<>();
+    /** The staff voice the screen was built with, to rebuild when the server's change arrives. */
+    private Object shownVoice;
     private int top, height0;
 
     public GearScreen() {
@@ -55,15 +57,14 @@ public class GearScreen extends Screen {
                     .displayOnlyValue().create(0, 0, 60, 20, Component.empty(), (button, on) ->
                             PacketDistributor.sendToServer(new GearSettingsPayload(GearSettingsPayload.GOGGLES, 0, on)))));
         }
-        ItemStack staff = player.getMainHandItem().getItem() instanceof SpiritStaffItem ? player.getMainHandItem()
-                : player.getOffhandItem().getItem() instanceof SpiritStaffItem ? player.getOffhandItem() : ItemStack.EMPTY;
+        ItemStack staff = heldStaff(player);
+        shownVoice = staff.isEmpty() ? null : SpiritStaffItem.element(staff);
         if (!staff.isEmpty()) {
             Component voice = Component.translatable("spell.tribalpower." + SpiritStaffItem.element(staff).getSerializedName());
             rows.add(() -> addRow(x, Component.translatable("gui.tribalpower.gear.staff", voice),
                     Button.builder(Component.translatable("gui.tribalpower.gear.next"), b -> {
+                        // the staff's stack comes back from the server later; tick() rebuilds when it does
                         PacketDistributor.sendToServer(new GearSettingsPayload(GearSettingsPayload.STAFF_VOICE, 0, false));
-                        // the staff's stack reaches the client a tick later; rebuild then so the label follows it
-                        Minecraft.getInstance().tell(this::rebuild);
                     }).size(60, 20).build()));
         }
         rows.add(() -> addRow(x, Component.translatable("gui.tribalpower.gear.vault"),
@@ -89,6 +90,19 @@ public class GearScreen extends Screen {
             addRenderableWidget(control);
         }
         rowY += ROW;
+    }
+
+    private static ItemStack heldStaff(net.minecraft.world.entity.player.Player player) {
+        return player.getMainHandItem().getItem() instanceof SpiritStaffItem ? player.getMainHandItem()
+                : player.getOffhandItem().getItem() instanceof SpiritStaffItem ? player.getOffhandItem() : ItemStack.EMPTY;
+    }
+
+    @Override
+    public void tick() {
+        var player = Minecraft.getInstance().player;
+        if (player == null) return;
+        ItemStack staff = heldStaff(player);
+        if (!java.util.Objects.equals(shownVoice, staff.isEmpty() ? null : SpiritStaffItem.element(staff))) rebuild();
     }
 
     private void rebuild() {

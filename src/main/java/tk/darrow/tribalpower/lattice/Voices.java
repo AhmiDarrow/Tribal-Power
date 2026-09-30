@@ -42,11 +42,6 @@ public final class Voices {
         return false;
     }
 
-    /** Whether a device of that kind may work here: its voice kept nearby, or no voice asked for. */
-    public static boolean answers(Level level, BlockPos pos, String kind) {
-        return kept(level, pos, required(kind));
-    }
-
     public static Component name(Attunement voice) {
         return Component.translatable("attunement.tribalpower." + voice.getSerializedName());
     }

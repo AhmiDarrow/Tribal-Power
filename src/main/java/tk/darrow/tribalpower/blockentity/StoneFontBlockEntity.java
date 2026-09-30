@@ -237,6 +237,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
     }
 
     private void reset(String why) {
+        if (work == 0 && why.equals(state)) return;   // nothing moved: leave the chunk clean
         work = 0;
         state = why;
         setChanged();

@@ -1,0 +1,60 @@
+{
+  "name": "Beasts of the Ember Wastes",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:cinder_plate",
+      "title": "The ash's own",
+      "text": [
+        "Two of the Wastes' animals live at the edge of lava, one flies through the ash, and one hunts the basalt at night.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinderhide",
+      "text": [
+        "An armoured beast that lives beside lava and on the hot stone around it, one or two at a time. **30 health** and **7 armour**, slow, and **immune to fire**.",
+        "It drops **1 to 3 Cinder Plates**, an Ember reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ashmoth",
+      "text": [
+        "A grey moth of the ash, in ones to threes. **10 health**, no armour.",
+        "It drops **1 to 3 Ash Wings**, which grind into black dye."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Slaglump",
+      "text": [
+        "A slow, heavy lump that wallows by lava, one or two at a time. **26 health** and **5 armour**, and **immune to fire**.",
+        "It drops **1 to 3 Slag Curd**, an Ember reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Emberjaw",
+      "text": [
+        "An upright, ember-coloured brute that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
+        "It drops **1 to 2 Ember Fangs**, a Shove reagent."
+      ]
+    }
+  ]
+}

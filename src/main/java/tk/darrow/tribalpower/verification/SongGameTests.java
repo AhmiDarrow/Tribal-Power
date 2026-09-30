@@ -104,6 +104,11 @@ public class SongGameTests {
 
             ReagentPouch.addRaw(pouch, CreatureProfile.ASHBOUND, 1);
             SongBenchLogic.empower((net.minecraft.server.level.ServerLevel) h.getLevel(), origin, bench, pouch, CreatureProfile.ASHBOUND);
+            // Only a Fire totem answers: asking for Water names the missing voice rather than claiming no totems at all.
+            var wrongVoice = SongBenchLogic.fletch((net.minecraft.server.level.ServerLevel) h.getLevel(), origin, bench, pouch,
+                    CreatureProfile.ASHBOUND, Attunement.WATER, ItemStack.EMPTY);
+            h.assertTrue(!wrongVoice.ok() && wrongVoice.message().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents t
+                    && t.getKey().equals("message.tribalpower.song_bench.need_attunement"), "A missing voice is named: " + wrongVoice.message().getString());
             var fletched = SongBenchLogic.fletch((net.minecraft.server.level.ServerLevel) h.getLevel(), origin, bench, pouch,
                     CreatureProfile.ASHBOUND, Attunement.FIRE, ItemStack.EMPTY);
             h.assertTrue(fletched.ok() && fletched.made().getCount() == 4, "One reagent fletches four arrows");

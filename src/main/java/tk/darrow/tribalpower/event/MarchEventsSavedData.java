@@ -42,7 +42,12 @@ public class MarchEventsSavedData extends SavedData {
     /** A weather that sets in at {@code from} and runs until {@code until}. */
     public void setWeather(MarchWeather weather, long from, long until) { weatherFrom[weather.ordinal()] = from; weatherUntil[weather.ordinal()] = until; setDirty(); }
     public long lastWeatherRoll() { return lastWeatherRoll; }
-    public void setLastWeatherRoll(long at) { lastWeatherRoll = at; setDirty(); }
+    /**
+     * Bookkeeping for the scheduler's once-per-check roll, set every five seconds. It rides along with the next
+     * real change instead of dirtying the file itself: a stale value after a restart only means the first check
+     * rolls, which it would have anyway, since checks are a whole {@code CHECK} apart.
+     */
+    public void setLastWeatherRoll(long at) { lastWeatherRoll = at; }
 
     /** Drops weathers that have run out; true when any did. */
     public boolean expireWeather(long now) {

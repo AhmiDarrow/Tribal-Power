@@ -35,7 +35,7 @@ public final class VerseCalls {
         long rangeSq = (long) VerseLinkBlockEntity.RANGE * VerseLinkBlockEntity.RANGE;
         List<BlockPos> stale = null;
         for (BlockPos pos : calls) {
-            if (pos.distSqr(listener) > rangeSq) continue;
+            if (pos.distSqr(listener) > rangeSq || !level.isLoaded(pos)) continue;
             if (!(level.getBlockEntity(pos) instanceof VerseLinkBlockEntity call)
                     || call.isRemoved() || !call.call()) {
                 if (stale == null) stale = new ArrayList<>();

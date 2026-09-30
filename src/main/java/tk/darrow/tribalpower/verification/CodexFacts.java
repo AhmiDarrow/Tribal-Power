@@ -81,10 +81,27 @@ final class CodexFacts {
             Fact.of("pulse_lights", "Pulse lights draw 1 Pulse a second", "1 Pulse a second"),
             Fact.of("wind_charm", "A Wind Charm spends no Pulse", "no Pulse"),
             Fact.of("standing", "Hearth offerings cap at 60 standing a day and at most 40 Pulse", "60", "40 Pulse").never("camp blocks"),
-            Fact.of("tribal_kin", "Elders restock once a Minecraft day; a Drummer beats every 6 seconds", "6 seconds").never("generators within 8 blocks"),
+            // TribalKinEntity waits DRUM_INTERVAL (120 ticks) less up to 19 random ticks between beats.
+            Fact.of("tribal_kin", "Elders restock once a Minecraft day; a Drummer beats every 5 to 6 seconds", "5 to 6 seconds").never("generators within 8 blocks"),
             Fact.of("kinship_totem", "Kinship lends an element, not a seventh voice", "seventh"),
             Fact.of("familiar_gifts", "A Cinder Imp refunds 4 Pulse; an Echo Weaver gathers within 4 blocks", "4 Pulse", "4 blocks").never("a little Pulse"),
-            Fact.of("welcome", "The landing mentions JEI as optional", "JEI"));
+            Fact.of("welcome", "The landing mentions JEI as optional", "JEI"),
+            // LatticeNetwork.canLink is closerThan(LINK_RANGE): 16 blocks apart is already too far.
+            Fact.of("lattice_conductor", "Chalk links need the totems less than 16 blocks apart", "less than 16 blocks").never("within 16 blocks", "up to 16 blocks"),
+            Fact.of("moving_power", "Chalk links need the totems less than 16 blocks apart", "less than 16 blocks").never("up to 16 blocks"),
+            Fact.of("ritual_mark", "Chalk links need the totems less than 16 blocks apart", "less than 16 blocks").never("within 16 blocks"),
+            // A lush totem ticks its keeping every other tick; a roofed one runs at the ordinary rate, not faster.
+            Fact.of("keeping", "Lush totems keep twice as long; a roofed one keeps the normal pace", "twice as long", "normal pace").never("forgets you faster"),
+            Fact.of("keeping_totems", "Lush totems keep twice as long; a roofed one keeps the normal pace", "twice as long", "normal pace").never("forgets you faster"),
+            Fact.of("wave_drum", "Two Wave Drums in reach of one water source each make a little under half", "a little under half each"),
+            Fact.of("echo_unweave", "Unweaving Spiritweave returns the one wool Echo Bind took", "Spiritweave: 1 wool").never("Spiritweave: 2 wool"),
+            // Song Thread is crafted around Loom Thread, and every song plate and the Verse Call around Song Thread.
+            Fact.of("song_thread", "Song Thread needs Loom Thread, which only the March gives", "Loom Thread", "only the March gives"),
+            Fact.of("song_plates", "Song plates wait on Song Thread and so on Loom Thread", "Loom Thread"),
+            // CharmHooks grants flight for the Air voice on any worn charm, not for the Sky charm alone.
+            Fact.of("spirit_charms", "Any worn charm carrying Air lends flight", "any worn charm that carries Air").never("Sky's flight"),
+            Fact.of("colossus_warden", "The boss is the Colossus Warden, not the Weeping Colossus tree; 260 health, 14 armour, Heartwood Core",
+                    "Colossus Warden", "260 health", "14 armour", "Heartwood Core", "Reed Fen"));
 
     private CodexFacts() {}
 
@@ -97,6 +114,12 @@ final class CodexFacts {
                 h.assertTrue(text.contains(phrase), fact.entry() + " must say \"" + phrase + "\": " + fact.why());
             for (String phrase : fact.never())
                 h.assertFalse(text.contains(phrase), fact.entry() + " must not say \"" + phrase + "\": " + fact.why());
+        }
+        // The bestiary: every creature the mod registers is described somewhere, found by its spawn egg.
+        for (var profile : tk.darrow.tribalpower.entity.CreatureProfile.values()) {
+            String egg = "tribalpower:" + profile.id + "_spawn_egg";
+            h.assertTrue(book.entries().stream().anyMatch(e -> e.items().contains(egg)),
+                    "No Codex entry lists " + egg + ": describe " + profile.id + " and list its egg there");
         }
     }
 

@@ -1,0 +1,40 @@
+{
+  "name": "Goblins",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:goblin_ear",
+      "title": "Goblins",
+      "text": [
+        "Small, quick and spiteful, goblins come one to three at a time and go straight for you."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Two kinds",
+      "text": [
+        "- **Fen Goblin**: the Reed Fen. It rises on the open ground at night.",
+        "- **Tunnel Goblin**: the dark tunnels under the Steppe, where it rises day or night.",
+        "A goblin has **18 health** and **1 armour**, is quick, and hits for **4**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they give",
+      "text": [
+        "A Fen Goblin drops **1 to 2 Goblin Ears** (lime dye), a Tunnel Goblin **1 to 2 Goblin Fangs**, more with Looting. Both are Hound reagents: anointed, they make a weapon drink back part of every blow. See [reagents](reagents).",
+        "Goblins never bond."
+      ]
+    }
+  ]
+}

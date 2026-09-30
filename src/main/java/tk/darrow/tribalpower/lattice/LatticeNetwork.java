@@ -1,8 +1,6 @@
 package tk.darrow.tribalpower.lattice;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.Container;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import tk.darrow.tribalpower.api.pulse.Attunement;
@@ -15,7 +13,6 @@ import tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.blockentity.SongBenchBlockEntity;
-import tk.darrow.tribalpower.echo.EchoStage;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -45,10 +42,6 @@ public final class LatticeNetwork {
         return !from.equals(to) && from.closerThan(to, LINK_RANGE);
     }
 
-    public static boolean canRoute(Level level, BlockPos from, BlockPos to) {
-        return canLink(from, to);
-    }
-
     /**
      * Bidirectional chalk link. Returns false if already linked or out of range.
      */
@@ -64,10 +57,6 @@ public final class LatticeNetwork {
         from.addLink(b);
         to.addLink(a);
         return true;
-    }
-
-    public static int countNearbyTotems(Level level, BlockPos origin, int radius) {
-        return findNearbyTotems(level, origin, radius).size();
     }
 
     /**
@@ -372,45 +361,6 @@ public final class LatticeNetwork {
      */
     public static boolean routeEchoItems(Level level, List<SongBenchBlockEntity> benches,
                                          List<AncestralCacheBlockEntity> caches) {
-        return false;
-    }
-
-    private static int findProcessableSlot(Container container) {
-        for (int i = 0; i < container.getContainerSize(); i++) {
-            ItemStack stack = container.getItem(i);
-            if (EchoStage.isProcessable(stack)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    private static boolean insertIntoAny(List<? extends Container> containers, ItemStack stack) {
-        for (Container container : containers) {
-            if (container instanceof BlockEntity be && be.getLevel().hasNeighborSignal(be.getBlockPos())) continue;
-            if (tryInsert(container, stack)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean tryInsert(Container container, ItemStack stack) {
-        if (stack.isEmpty()) {
-            return false;
-        }
-        for (int i = 0; i < container.getContainerSize(); i++) {
-            ItemStack slot = container.getItem(i);
-            if (slot.isEmpty()) {
-                container.setItem(i, stack.copy());
-                return true;
-            }
-            if (ItemStack.isSameItemSameComponents(slot, stack) && slot.getCount() < slot.getMaxStackSize()) {
-                slot.grow(1);
-                container.setItem(i, slot);
-                return true;
-            }
-        }
         return false;
     }
 

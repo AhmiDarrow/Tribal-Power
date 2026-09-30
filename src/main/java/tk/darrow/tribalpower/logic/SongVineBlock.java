@@ -14,8 +14,6 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -67,11 +65,12 @@ public class SongVineBlock extends BaseEntityBlock {
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACES);
     }
+    /**
+     * No ticker: a vine only changes when something around it does, and every such change (placement, a neighbour
+     * update, a chunk load) already schedules the one-tick recompute below, which re-schedules its neighbours when
+     * it changes. Recomputing every vine every tick on top of that was pure cost.
+     */
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SongVineBlockEntity(pos, state); }
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? null : createTickerHelper(type, LogicRegistry.SONG_VINE_TYPE.get(), SongVineBlockEntity::tick);
-    }
 
     public static BooleanProperty property(Direction face) { return FACES[face.ordinal()]; }
     public static boolean has(BlockState state, Direction face) { return state.getValue(property(face)); }
@@ -191,6 +190,8 @@ public class SongVineBlock extends BaseEntityBlock {
             return vine.power(along.getOpposite()) - 1;
         }
         if (other.getBlock() instanceof SongThreadBlock) return other.getValue(SongThreadBlock.POWER) - 1;
+        // A vine on another face still decays by one a step; read undecayed, two vines held each other lit forever.
+        if (other.getBlock() instanceof SongVineBlock) return level.getSignal(neighbor, along) - 1;
         return level.getSignal(neighbor, along);
     }
 }

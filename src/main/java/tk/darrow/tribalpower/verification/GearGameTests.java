@@ -439,20 +439,75 @@ public class GearGameTests {
         h.succeed();
     }
 
+    /** 2026-09-29 sweep: the Loom boots read zza, which the server never gets for a player on foot. */
+    @GameTest(template = "empty")
+    public static void loomBootsReadWalkingForwardFromReportedMovement(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.setYRot(0);   // facing south, +z
+            player.setKnownMovement(new net.minecraft.world.phys.Vec3(0, 0, 0.065));
+            h.assertTrue(tk.darrow.tribalpower.item.SpiritGearHooks.walkingForward(player), "Sneaking ahead counts as walking forward");
+            player.setKnownMovement(new net.minecraft.world.phys.Vec3(0, 0, -0.065));
+            h.assertFalse(tk.darrow.tribalpower.item.SpiritGearHooks.walkingForward(player), "Backing away does not");
+            player.setKnownMovement(new net.minecraft.world.phys.Vec3(0.065, 0, 0));
+            h.assertFalse(tk.darrow.tribalpower.item.SpiritGearHooks.walkingForward(player), "Nor does a sidestep");
+            player.setKnownMovement(net.minecraft.world.phys.Vec3.ZERO);
+            h.assertFalse(tk.darrow.tribalpower.item.SpiritGearHooks.walkingForward(player), "Nor standing still");
+        } finally {
+            player.remove(net.minecraft.world.entity.Entity.RemovalReason.DISCARDED);
+        }
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void threeCellSizesAndTheUpgradeChain(GameTestHelper h) {
         ItemStack plain = new ItemStack(ModItems.PULSE_CELL.get()), greater = new ItemStack(ModItems.GREATER_PULSE_CELL.get()), grand = new ItemStack(ModItems.GRAND_PULSE_CELL.get());
-        h.assertTrue(PulseCellItem.capacity(plain) == 1200 && PulseCellItem.capacity(greater) == 4800 && PulseCellItem.capacity(grand) == 19200,
-                "A cell holds 1,200, a Greater 4,800, a Grand 19,200");
-        PulseCellItem.setPulse(grand, 19200);
-        h.assertTrue(PulseCellItem.getPulse(grand) == 19200, "A Grand cell fills to the brim");
+        h.assertTrue(PulseCellItem.capacity(plain) == PulseCellItem.CAPACITY
+                        && PulseCellItem.capacity(greater) == PulseCellItem.GREATER_CAPACITY
+                        && PulseCellItem.capacity(grand) == PulseCellItem.GRAND_CAPACITY,
+                "A cell, a Greater and a Grand each hold their own capacity");
+        PulseCellItem.setPulse(grand, PulseCellItem.GRAND_CAPACITY);
+        h.assertTrue(PulseCellItem.getPulse(grand) == PulseCellItem.GRAND_CAPACITY, "A Grand cell fills to the brim");
         ItemStack pick = new ItemStack(ModItems.SPIRITGEAR_PICKAXE.get());
         PulseCellItem.setPulse(plain, 700);
         h.assertTrue(tk.darrow.tribalpower.item.GearCell.offer(pick, plain) == ItemStack.EMPTY, "The plain cell seats");
         ItemStack back = tk.darrow.tribalpower.item.GearCell.offer(pick, greater);
         h.assertTrue(back.is(ModItems.PULSE_CELL.get()) && PulseCellItem.getPulse(back) == 700, "A Greater cell swaps in and hands the plain one back charged");
         back = tk.darrow.tribalpower.item.GearCell.offer(pick, grand);
-        h.assertTrue(back.is(ModItems.GREATER_PULSE_CELL.get()) && tk.darrow.tribalpower.item.GearCell.capacity(pick) == 19200, "A Grand cell swaps in over a Greater");
+        h.assertTrue(back.is(ModItems.GREATER_PULSE_CELL.get()) && tk.darrow.tribalpower.item.GearCell.capacity(pick) == PulseCellItem.GRAND_CAPACITY, "A Grand cell swaps in over a Greater");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void earthLeggingsShedCobwebAndSoulSand(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        var web = h.absolutePos(new BlockPos(4, 2, 4));
+        h.getLevel().setBlockAndUpdate(web, Blocks.COBWEB.defaultBlockState());
+        player.moveTo(web.getX() + 0.5, web.getY(), web.getZ() + 0.5, 0, 0);
+        // Bare legs: the web snares the next move to a quarter.
+        Blocks.COBWEB.defaultBlockState().entityInside(h.getLevel(), web, player);
+        tk.darrow.tribalpower.item.SpiritGearHooks.shedSnares(player, null);
+        double x = player.getX();
+        player.move(net.minecraft.world.entity.MoverType.SELF, new Vec3(0.2, 0, 0));
+        h.assertTrue(player.getX() - x < 0.1, "Without the leggings a cobweb still snares, moved " + (player.getX() - x));
+        // Earth leggings: the snare is shed after the move, so the next one runs at full length.
+        Blocks.COBWEB.defaultBlockState().entityInside(h.getLevel(), web, player);
+        tk.darrow.tribalpower.item.SpiritGearHooks.shedSnares(player, Attunement.EARTH);
+        x = player.getX();
+        player.move(net.minecraft.world.entity.MoverType.SELF, new Vec3(0.2, 0, 0));
+        h.assertTrue(Math.abs(player.getX() - x - 0.2) < 1.0E-4, "Earth leggings push through a cobweb, moved " + (player.getX() - x));
+
+        var sand = h.absolutePos(new BlockPos(2, 1, 2));
+        h.getLevel().setBlockAndUpdate(sand, Blocks.SOUL_SAND.defaultBlockState());
+        player.moveTo(sand.getX() + 0.5, sand.getY() + 0.875, sand.getZ() + 0.5, 0, 0);
+        var efficiency = player.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_EFFICIENCY);
+        tk.darrow.tribalpower.item.SpiritGearHooks.soulStride(player, Attunement.LOOM);
+        h.assertTrue(efficiency.getValue() == 0, "Loom leggings do not stride soul sand");
+        tk.darrow.tribalpower.item.SpiritGearHooks.soulStride(player, Attunement.EARTH);
+        h.assertTrue(efficiency.getValue() == 1, "Earth leggings on soul sand give the synced full movement efficiency");
+        player.moveTo(sand.getX() + 0.5, sand.getY() + 3, sand.getZ() + 0.5, 0, 0);
+        tk.darrow.tribalpower.item.SpiritGearHooks.soulStride(player, Attunement.EARTH);
+        h.assertTrue(efficiency.getValue() == 0, "Off the soul sand the stride is taken back");
         h.succeed();
     }
 }

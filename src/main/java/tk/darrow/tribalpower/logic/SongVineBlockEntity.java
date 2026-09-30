@@ -37,14 +37,6 @@ public class SongVineBlockEntity extends BlockEntity {
         if (level != null && !level.isClientSide) level.scheduleTick(worldPosition, getBlockState().getBlock(), 1);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, SongVineBlockEntity vine) {
-        if (level.isClientSide) return;
-        if (vine.recompute(level, pos, state)) {
-            level.updateNeighborsAt(pos, state.getBlock());
-            for (Direction face : Direction.values()) level.updateNeighborsAt(pos.relative(face), state.getBlock());
-        }
-    }
-
     boolean recompute(Level level, BlockPos pos, BlockState state) {
         boolean changed = false;
         for (Direction face : Direction.values()) {

@@ -154,8 +154,14 @@ public class GuardianEntity extends Monster {
     public BlockPos altar() { return altarPos; }
     public int addsAlive() {
         if (!(level() instanceof ServerLevel server)) return adds.size();
-        adds.removeIf(id -> server.getEntity(id) instanceof LivingEntity living && !living.isAlive());
+        // A slain add leaves the level soon after it dies and then looks up as null; it must stop counting then too,
+        // or the wave cap fills with ghosts and the guardian never calls again. One a player bonded is theirs now.
+        adds.removeIf(id -> !(server.getEntity(id) instanceof LivingEntity living) || !living.isAlive() || bonded(living));
         return adds.size();
+    }
+
+    private static boolean bonded(Entity add) {
+        return add instanceof tk.darrow.tribalpower.familiar.Familiar familiar && familiar.isBonded();
     }
 
     private void markAttack(ServerLevel server) { entityData.set(ATTACK, (int) server.getGameTime()); }
@@ -365,6 +371,7 @@ public class GuardianEntity extends Monster {
             add.addTag(SUMMONED_TAG);
             add.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), MobSpawnType.MOB_SUMMONED, null);
             add.setPersistenceRequired();
+            if (getTarget() != null) add.setTarget(getTarget());
             server.addFreshEntity(add);
             adds.add(add.getUUID());
             alive++;
@@ -391,7 +398,12 @@ public class GuardianEntity extends Monster {
     }
 
     private void tickReset(ServerLevel server) {
-        boolean anyone = !server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE), p -> !p.isSpectator()).isEmpty();
+        // Runs every tick: walk the level's few players rather than an entity search over a 97-block box.
+        AABB range = getBoundingBox().inflate(RESET_RANGE);
+        boolean anyone = false;
+        for (ServerPlayer player : server.players()) {
+            if (!player.isSpectator() && player.getBoundingBox().intersects(range)) { anyone = true; break; }
+        }
         awayTicks = anyone ? 0 : awayTicks + 1;
         if (awayTicks >= TribalConfig.guardianResetSeconds() * 20) {
             dismissAdds(server);
@@ -401,8 +413,8 @@ public class GuardianEntity extends Monster {
     }
 
     private void dismissAdds(ServerLevel server) {
-        for (UUID id : adds) if (server.getEntity(id) instanceof Mob add) add.discard();
-        for (Mob add : server.getEntitiesOfClass(Mob.class, getBoundingBox().inflate(RESET_RANGE), m -> m.getTags().contains(SUMMONED_TAG))) add.discard();
+        for (UUID id : adds) if (server.getEntity(id) instanceof Mob add && !bonded(add)) add.discard();
+        for (Mob add : server.getEntitiesOfClass(Mob.class, getBoundingBox().inflate(RESET_RANGE), m -> m.getTags().contains(SUMMONED_TAG) && !bonded(m))) add.discard();
         adds.clear();
     }
 
@@ -439,7 +451,14 @@ public class GuardianEntity extends Monster {
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bossEvent.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bossEvent.removePlayer(player); }
     @Override public void setCustomName(Component name) { super.setCustomName(name); bossEvent.setName(getDisplayName()); }
-    @Override public void remove(RemovalReason reason) { super.remove(reason); bossEvent.removeAllPlayers(); }
+    @Override public void remove(RemovalReason reason) {
+        // Discarded without dying or resetting (a clear-lag sweep, a command): tell the altar, which otherwise waits
+        // forever on a guardian that is neither loaded nor reported gone.
+        if (reason == RemovalReason.DISCARDED && !dead && altarPos != null && level() instanceof ServerLevel server && server.isLoaded(altarPos)
+                && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar && altar.living(server) == this) altar.onGuardianGone();
+        super.remove(reason);
+        bossEvent.removeAllPlayers();
+    }
 
     @Override
     public void die(DamageSource source) {
@@ -460,19 +479,6 @@ public class GuardianEntity extends Monster {
 
     @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
     @Override public int getAmbientSoundInterval() { return 160; }
-    /** The vanilla voice each guardian had before it found its own; kept for the hurt sound's timbre. */
-    protected SoundEvent fallbackVoice() {
-        return switch (guardian().ability) {
-            case SLAM -> SoundEvents.BLAZE_AMBIENT;
-            case SNARE -> SoundEvents.RAVAGER_AMBIENT;
-            case FROST -> SoundEvents.STRAY_AMBIENT;
-            case BOLT -> SoundEvents.AMETHYST_BLOCK_RESONATE;
-            case SWEEP -> SoundEvents.WARDEN_HEARTBEAT;
-            case TIDE -> SoundEvents.DROWNED_AMBIENT;
-            case CHARGE -> SoundEvents.HOGLIN_AMBIENT;
-            case SWOOP -> SoundEvents.PHANTOM_AMBIENT;
-        };
-    }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return guardian().ability == Guardian.Ability.SWEEP ? SoundEvents.ANVIL_PLACE : SoundEvents.RAVAGER_HURT; }
     @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
     @Override protected float getSoundVolume() { return 1.5F; }

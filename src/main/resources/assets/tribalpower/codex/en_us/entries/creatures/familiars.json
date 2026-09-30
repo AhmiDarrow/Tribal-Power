@@ -1,7 +1,7 @@
 {
   "name": "Bonding a familiar",
   "icon": "tribalpower:bonding_charm",
-  "order": 170,
+  "order": 400,
   "spoiler": true,
   "next": "familiar_gifts",
   "pages": [

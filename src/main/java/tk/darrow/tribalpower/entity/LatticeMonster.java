@@ -121,7 +121,7 @@ public class LatticeMonster extends Monster implements Familiar {
         targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this,Player.class,true) {
             // Bred stock stays peaceful (persistent), but a name tag also sets persistence and must not tame a wild hostile.
             @Override public boolean canUse() {
-                return !isBonded() && !isBaby() && (!isPersistenceRequired() || hasCustomName()) && super.canUse();
+                return !isBonded() && !isBaby() && (!isPersistenceRequired() || hasCustomName() || getTags().contains(tk.darrow.tribalpower.guardian.GuardianEntity.SUMMONED_TAG)) && super.canUse();
             }
         });
     }
@@ -130,7 +130,8 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override public boolean isBonded() { return ownerUUID().isPresent(); }
     @Override public boolean isOwnedBy(Entity entity) { return entity!=null && ownerUUID().map(id->id.equals(entity.getUUID())).orElse(false); }
     @Override public Player getOwner() { return ownerUUID().map(id->level().getPlayerByUUID(id)).orElse(null); }
-    @Override public void bond(Player owner) { entityData.set(DATA_OWNER,Optional.of(owner.getUUID()));setSitting(false);setPersistenceRequired();setTarget(null); }
+    /** A boss's summoned creature a player bonds is theirs now: it sheds the summoned mark, so it is not swept up with the adds. */
+    @Override public void bond(Player owner) { entityData.set(DATA_OWNER,Optional.of(owner.getUUID()));setSitting(false);setPersistenceRequired();setTarget(null);removeTag(tk.darrow.tribalpower.guardian.GuardianEntity.SUMMONED_TAG); }
     @Override public boolean isSitting() { return entityData.get(DATA_SITTING); }
     @Override public void setSitting(boolean sitting) {
         entityData.set(DATA_SITTING,sitting);
