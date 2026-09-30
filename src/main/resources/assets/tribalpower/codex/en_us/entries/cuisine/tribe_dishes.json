@@ -18,21 +18,21 @@
       "type": "text",
       "text": [
         "Every tribe cooks one dish the way only it does, and eating it carries that tribe's [boon](tribe_boons) for **5 minutes**. Cook them at the [Hearth Pot](hearth_pot).",
-        "- **Keeper's Root Mash** (Soil): emberroot ×2, steppe grain, a bowl.",
-        "- **Grit-baked Bread** (Stone): steppe grain ×2, iron grit.",
-        "- **Rootbinder Rice** (Sprout): fen rice ×2, spirit reed, a bowl.",
-        "- **Edge-walker Jerky** (Claw): raw game ×2, emberroot.",
-        "- **Drumheart Chili** (Spark): emberroot ×2, glimmer bean, raw game, a bowl."
+        "- **Keeper's Root Mash** (Soil): Emberroot ×2, Steppe Grain, a bowl.",
+        "- **Grit-baked Bread** (Stone): Steppe Grain ×2, Iron Grit.",
+        "- **Rootbinder Rice** (Sprout): Fen Rice ×2, Spirit Reed, a bowl.",
+        "- **Edge-walker Jerky** (Claw): Raw Game ×2, Emberroot.",
+        "- **Drumheart Chili** (Spark): Emberroot ×2, Glimmer Bean, Raw Game, a bowl."
       ],
       "title": "Nine tribes, nine dishes"
     },
     {
       "type": "text",
       "text": [
-        "- **Pattern Tart** (Clock): glimmer bean, steppe grain, frostberry.",
-        "- **Honeycake** (Swarm): honeycomb, steppe grain ×2, an egg.",
-        "- **Seal-carver's Broth** (Sigil): fen rice, echo bloom, march leaf, a bowl.",
-        "- **Loom Thread Noodles** (Spindle): fen rice ×2, ley thistle, a bowl.",
+        "- **Pattern Tart** (Clock): Glimmer Bean, Steppe Grain, Frostberry.",
+        "- **Honeycake** (Swarm): honeycomb, Steppe Grain ×2, an egg.",
+        "- **Seal-carver's Broth** (Sigil): Fen Rice, Echo Bloom, March Leaf, a bowl.",
+        "- **Loom Thread Noodles** (Spindle): Fen Rice ×2, Ley Thistle, a bowl.",
         "Once a tribe calls you **Friend**, its Kin will sell you the dish for four of the crop it is built on. Offer a tribe its own dish at its hearth and it counts for **6 standing**, more than any other gift but a reagent."
       ],
       "title": "Nine tribes, nine dishes, continued"

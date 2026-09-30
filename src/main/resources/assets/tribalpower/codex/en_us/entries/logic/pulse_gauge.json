@@ -37,7 +37,7 @@
       "title": "Pause or protect",
       "text": [
         "A held signal pauses machines. Wired straight to a machine, a Threshold pauses it while the store is **full enough**.",
-        "Usually you want the opposite: pause a hungry station while the drum runs **low**, so a reserve stays for you. Put an **Inverse plate** on the line. Now 'too empty' is the live signal: below the setting, Inverse sings and the station pauses; once the drum recovers, Inverse goes quiet and work resumes.",
+        "Usually you want the opposite: pause a hungry station while the drum runs **low**, so a reserve stays for you. Put an **Inverse Plate** on the line. Now 'too empty' is the live signal: below the setting, Inverse sings and the station pauses; once the drum recovers, Inverse goes quiet and work resumes.",
         "Test with one hungry station before you wire the whole camp."
       ]
     },
@@ -219,7 +219,7 @@
           ]
         },
         {
-          "caption": "Mount an Inverse plate on the back of the Threshold, facing the station. It reads the block it sits on.",
+          "caption": "Mount an Inverse Plate on the back of the Threshold, facing the station. It reads the block it sits on.",
           "place": [
             {
               "pos": [

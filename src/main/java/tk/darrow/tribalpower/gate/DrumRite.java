@@ -70,19 +70,20 @@ public final class DrumRite {
 
     // ------------------------------------------------------------------ server
 
-    private record Session(BlockPos pos, long seed, long startMs) {}
+    /** The drum's world too: the same coordinates in another dimension are not the drum the rite began at. */
+    private record Session(net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension, BlockPos pos, long seed, long startMs) {}
 
     /** Starts a rite at a full drum. */
     public static void begin(ServerPlayer player, BlockPos pos) {
         long seed = player.getRandom().nextLong();
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, Util.getMillis()));
+        SESSIONS.put(player.getUUID(), new Session(player.level().dimension(), pos.immutable(), seed, Util.getMillis()));
         player.serverLevel().playSound(null, pos, tk.darrow.tribalpower.sound.ModSounds.GATE_HUM.get(), SoundSource.BLOCKS, 0.8F, 0.8F);
         PacketDistributor.sendToPlayer(player, new Start(pos, seed));
     }
 
     /** For tests: a session that began {@code ticksAgo} ticks ago. */
     public static long beginAt(ServerPlayer player, BlockPos pos, long seed, long ticksAgo) {
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), seed, Util.getMillis() - ticksAgo * 50));
+        SESSIONS.put(player.getUUID(), new Session(player.level().dimension(), pos.immutable(), seed, Util.getMillis() - ticksAgo * 50));
         return seed;
     }
 
@@ -103,7 +104,7 @@ public final class DrumRite {
         long elapsed = Util.getMillis() - session.startMs;
         long needed = pattern.endMs() - SLACK_MS;
         if (elapsed < needed || elapsed > needed + EXPIRE_MS
-                || player.distanceToSqr(session.pos.getCenter()) > 8 * 8 || !(level.getBlockEntity(session.pos) instanceof GateDrumBlockEntity)) {
+                || level.dimension() != session.dimension || player.distanceToSqr(session.pos.getCenter()) > 8 * 8 || !(level.getBlockEntity(session.pos) instanceof GateDrumBlockEntity)) {
             player.displayClientMessage(Component.translatable("message.tribalpower.gate.rite_refused"), false);
             return false;
         }

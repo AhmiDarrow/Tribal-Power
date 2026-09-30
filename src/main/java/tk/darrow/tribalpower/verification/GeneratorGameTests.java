@@ -93,7 +93,7 @@ public class GeneratorGameTests {
 
     @GameTest(template = "empty")
     public static void windHarpsStealEachOthersWind(GameTestHelper h) {
-        BlockPos first = new BlockPos(3, 2, 3);
+        BlockPos first = new BlockPos(3, 2, 2);
         WindHarpBlockEntity harp = place(h, first, GeneratorRegistry.WIND_HARP.get(), WindHarpBlockEntity.class);
         h.assertTrue(harp.voice() == Attunement.AIR, "The Wind Harp speaks Air");
         h.assertTrue(WindMath.crowd(h.getLevel(), h.absolutePos(first)) == 1, "One harp is a crowd of one");

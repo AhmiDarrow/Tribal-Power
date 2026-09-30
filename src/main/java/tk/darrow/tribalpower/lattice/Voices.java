@@ -34,11 +34,17 @@ public final class Voices {
         return tier >= 3 ? Attunement.LOOM : Attunement.AIR;
     }
 
-    /** Whether a totem of that voice keeps (is not quiet) within the lattice reach of a device. */
+    /**
+     * Whether a totem of that voice keeps (is not quiet) within the lattice reach of a device: a Resonance Totem
+     * that is not quiet, or a Kinship Totem lending that voice (those never go quiet), the same totems
+     * {@link Keeping#voice} counts, held to the 8-block reach.
+     */
     public static boolean kept(Level level, BlockPos pos, @Nullable Attunement voice) {
         if (voice == null || !TribalConfig.automationNeedsVoices()) return true;
         for (var totem : LatticeNetwork.findNearbyTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
             if (totem.getAttunement() == voice && totem.keeping() != Keeping.State.QUIET) return true;
+        for (var kinship : LatticeNetwork.findNearbyKinshipTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
+            if (kinship.attunement() == voice) return true;
         return false;
     }
 

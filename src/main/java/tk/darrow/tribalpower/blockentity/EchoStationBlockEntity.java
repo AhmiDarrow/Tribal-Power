@@ -184,26 +184,27 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); }
         if (level.hasNeighborSignal(pos)) { be.state = "paused"; return; }
         ItemStack result = recipe.result();
+        // Voice, keeping (twice) and feeding all ask about the same totems: found once for the beat.
+        var totems = LatticeNetwork.TotemsNear.of(level, pos, LatticeNetwork.DEFAULT_RADIUS);
         be.arrayed = be.arrayed(level, recipe.attunement());
         if (be.arrayed) be.drainToCache(level);
-        be.shownSeconds = be.workSeconds(recipe);
-        be.shownPulse = be.pulsePerSecond(recipe);
+        be.shownSeconds = be.workSeconds(recipe, totems);
+        be.shownPulse = be.pulsePerSecond(recipe, be.arrayed);
         // Taking a piece apart hands back the Pulse Cell seated in it.
         ItemStack freedCell = tk.darrow.tribalpower.item.GearCell.accepts(result) ? ItemStack.EMPTY
                 : tk.darrow.tribalpower.item.GearCell.asStack(be.items.get(0));
         if (!be.fits(result, freedCell)) { be.state = "full"; return; }
         if (!be.hasCatalysts(recipe)) { be.state = "catalyst"; return; }
-        if (!LatticeNetwork.hasAttunement(level, pos, 8, recipe.attunement())) { be.state = "attunement"; return; }
-        var keeping = Keeping.voice(level, pos, recipe.attunement());
+        if (!totems.has(recipe.attunement())) { be.state = "attunement"; return; }
+        var keeping = Keeping.voice(totems, recipe.attunement());
         if (keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
         int seconds = be.shownSeconds;
         if (be.work < 0) be.work = 0;
         int cost = be.shownPulse;
-        if (LatticeNetwork.extractPulseNearby(level, pos, 8, cost, true) < cost) { be.state = "pulse"; return; }
-        LatticeNetwork.extractPulseNearby(level, pos, 8, cost, false);
+        if (!LatticeNetwork.tryExtractPulseNearby(level, pos, 8, cost)) { be.state = "pulse"; return; }
         be.state = "working";
         be.work += tk.darrow.tribalpower.effect.EffectHooks.clockNear((ServerLevel) level, pos) ? 2 : 1;
-        Keeping.feedWork(level, pos, recipe.attunement());
+        Keeping.feedWork(totems, recipe.attunement());
         SpiritEffects.ring((ServerLevel)level, pos.getCenter().add(0, 0.55, 0), recipe.attunement(), 0.45, 8);
         if (be.work >= seconds) {
             ItemStack input = be.items.get(0);
@@ -285,9 +286,14 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
 
     /** Rank, dim stretch and the live totem — the same seconds the tick waits. */
     private int workSeconds(ProcessingRecipes.Formula recipe) {
+        return workSeconds(recipe, level == null ? null
+                : LatticeNetwork.TotemsNear.of(level, worldPosition, LatticeNetwork.DEFAULT_RADIUS));
+    }
+
+    private int workSeconds(ProcessingRecipes.Formula recipe, LatticeNetwork.TotemsNear totems) {
         int seconds = tk.darrow.tribalpower.item.MachineRank.scaleTime(this, recipe.seconds());
-        if (level == null) return seconds;
-        return Keeping.stretch(Keeping.voice(level, worldPosition, recipe.attunement()), seconds);
+        if (totems == null) return seconds;
+        return Keeping.stretch(Keeping.voice(totems, recipe.attunement()), seconds);
     }
 
     @Override
@@ -299,7 +305,11 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
 
     /** Array discount, rank and pack consumption — the same Pulse the tick draws. */
     public int pulsePerSecond(ProcessingRecipes.Formula recipe) {
-        boolean discounted = level != null && arrayed(level, recipe.attunement());
+        return pulsePerSecond(recipe, level != null && arrayed(level, recipe.attunement()));
+    }
+
+    /** As {@link #pulsePerSecond(ProcessingRecipes.Formula)}, with the array check the beat already made. */
+    private int pulsePerSecond(ProcessingRecipes.Formula recipe, boolean discounted) {
         int cost = discounted ? Math.max(1, (int) Math.round(recipe.pulse() * ARRAY_DISCOUNT)) : recipe.pulse();
         cost = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, cost);
         return tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(cost);

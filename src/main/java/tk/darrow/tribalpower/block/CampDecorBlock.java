@@ -21,15 +21,16 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.blockentity.CampDisplayBlockEntity;
 import tk.darrow.tribalpower.entity.SeatEntity;
 
 /**
  * Camp furniture: stool, table, urn. Optional facing for the table's grain. The table and the urn
  * hold what you set on them ({@link CampDisplay}); the stool is for sitting on and holds nothing.
+ * Only the holding kinds are {@link EntityBlock}s: the game gives a block entity to every block that is one,
+ * and a stool that answered with none would be asked again, and warned about, on every chunk load.
  */
-public class CampDecorBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class CampDecorBlock extends HorizontalDirectionalBlock {
     public enum Kind {
         STOOL(Shapes.or(Block.box(4, 0, 4, 6, 8, 6), Block.box(10, 0, 4, 12, 8, 6),
                 Block.box(4, 0, 10, 6, 8, 12), Block.box(10, 0, 10, 12, 8, 12),
@@ -50,11 +51,27 @@ public class CampDecorBlock extends HorizontalDirectionalBlock implements Entity
     private final Kind kind;
     private final MapCodec<CampDecorBlock> codec;
 
-    public CampDecorBlock(Kind kind, Properties properties) {
+    protected CampDecorBlock(Kind kind, Properties properties) {
         super(properties);
         this.kind = kind;
-        this.codec = simpleCodec(p -> new CampDecorBlock(kind, p));
+        this.codec = simpleCodec(p -> of(kind, p));
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
+    public static CampDecorBlock of(Kind kind, Properties properties) {
+        return kind == Kind.STOOL ? new CampDecorBlock(kind, properties) : new Holding(kind, properties);
+    }
+
+    /** The table and the urn, which keep what is set on them. */
+    private static final class Holding extends CampDecorBlock implements EntityBlock {
+        private Holding(Kind kind, Properties properties) {
+            super(kind, properties);
+        }
+
+        @Override
+        public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+            return new CampDisplayBlockEntity(pos, state);
+        }
     }
 
     public Kind kind() {
@@ -87,12 +104,6 @@ public class CampDecorBlock extends HorizontalDirectionalBlock implements Entity
     /** A stool is for sitting on; only the table and the urn have somewhere to put something. */
     private boolean holds() {
         return kind != Kind.STOOL;
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return holds() ? new CampDisplayBlockEntity(pos, state) : null;
     }
 
     @Override

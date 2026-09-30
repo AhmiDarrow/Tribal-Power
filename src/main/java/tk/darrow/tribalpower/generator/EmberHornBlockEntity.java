@@ -112,7 +112,7 @@ public class EmberHornBlockEntity extends GeneratorBlockEntity implements Worldl
     @Override public boolean isEmpty() { return items.get(SLOT).isEmpty(); }
     @Override public ItemStack getItem(int slot) { return items.get(slot); }
     @Override public ItemStack removeItem(int slot, int count) { setChanged(); return ContainerHelper.removeItem(items, slot, count); }
-    @Override public ItemStack removeItemNoUpdate(int slot) { return ContainerHelper.takeItem(items, slot); }
+    @Override public ItemStack removeItemNoUpdate(int slot) { ItemStack removed = ContainerHelper.takeItem(items, slot); if (!removed.isEmpty()) setChanged(); return removed; }
     @Override public void setItem(int slot, ItemStack stack) { items.set(slot, stack); setChanged(); }
     @Override public void clearContent() { items.clear(); setChanged(); }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return pulseOf(stack) > 0; }

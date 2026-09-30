@@ -84,7 +84,7 @@
       "type": "text",
       "title": "Switching a piece off",
       "text": [
-        "Every worn piece has an off switch. Open the Gear screen (the apostrophe key by default, under Tribal Power in Controls) and set the piece to Off: it still protects like armor, but gives no effect and draws no Pulse until you switch it back. The tooltip says so in red while it is off.",
+        "Every worn piece has an off switch. Open the Gear screen (the apostrophe key by default, under Tribal Power in Controls) and set the piece to Off: it still protects like armour, but gives no effect and draws no Pulse until you switch it back. The tooltip says so in red while it is off.",
         "The hood's goggles have their own switch there, and their own key. The same screen shows which vault your satchel opens and lets you hide the Pulse HUD."
       ]
     }

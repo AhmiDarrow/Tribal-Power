@@ -74,7 +74,8 @@ public final class GateLinking {
             say(player, Component.translatable("message.tribalpower.gate.chalk_clear"), false);
             return true;
         }
-        if (!pending.closerThan(pos, GateKeystoneBlockEntity.LINK_RANGE)) {
+        // "up to 64 blocks apart": a pair exactly LINK_RANGE apart along one axis must still link
+        if (pending.distSqr(pos) > (double) GateKeystoneBlockEntity.LINK_RANGE * GateKeystoneBlockEntity.LINK_RANGE) {
             say(player, Component.translatable("message.tribalpower.gate.too_far", GateKeystoneBlockEntity.LINK_RANGE), true);
             return false;
         }
@@ -124,6 +125,9 @@ public final class GateLinking {
         }
         ServerLevel otherLevel = (ServerLevel) other.getLevel();
         if (otherLevel == null) return false;
+        // Linking re-threads both ends, so the far keystone must be one this player may use too: a compass
+        // bound on top of a stranger's keystone would otherwise cut the stranger's own pair.
+        if (!tk.darrow.tribalpower.camp.Ownership.check(otherLevel, other.owner(), player)) return false;
         boolean acrossDimensions = crossDimension && otherLevel != level;
         if (acrossDimensions) {
             if (!tk.darrow.tribalpower.config.TribalConfig.farGatesEnabled()) {

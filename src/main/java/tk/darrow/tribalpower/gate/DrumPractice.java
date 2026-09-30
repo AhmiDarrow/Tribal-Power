@@ -52,7 +52,8 @@ public final class DrumPractice {
 
     private DrumPractice() {}
 
-    private record Session(BlockPos pos, int song, Difficulty difficulty, long startMs, int duel) {}
+    /** The drum's world too: the same coordinates in another dimension are not the drum the go began at. */
+    private record Session(net.minecraft.resources.ResourceKey<Level> dimension, BlockPos pos, int song, Difficulty difficulty, long startMs, int duel) {}
 
     private static final class Duel {
         final int id;
@@ -108,7 +109,7 @@ public final class DrumPractice {
         List<ServerPlayer> out = new ArrayList<>();
         for (BlockPos other : partners(player.level(), pos)) {
             for (ServerPlayer candidate : player.serverLevel().players()) {
-                if (candidate == player || out.contains(candidate) || SESSIONS.containsKey(candidate.getUUID())) continue;
+                if (candidate == player || out.contains(candidate) || busy(candidate.getUUID())) continue;
                 double there = candidate.distanceToSqr(other.getCenter()), here = candidate.distanceToSqr(pos.getCenter());
                 if (there <= REACH * REACH && there < here) out.add(candidate);
             }
@@ -120,6 +121,19 @@ public final class DrumPractice {
         for (BlockPos other : partners(player.level(), near))
             if (player.distanceToSqr(other.getCenter()) <= REACH * REACH) return other;
         return null;
+    }
+
+    /**
+     * Whether a player is mid-go. A go whose result never came (a client that lost the screen without closing it) is
+     * past its expiry and could never settle anyway, so it is let go rather than locking the player out until relog.
+     */
+    private static boolean busy(UUID player) {
+        Session session = SESSIONS.get(player);
+        if (session == null) return false;
+        Song song = Songbook.song(session.song);
+        if (song != null && Util.getMillis() - session.startMs <= song.lengthMs() + EXPIRE_MS) return true;
+        SESSIONS.remove(player, session);
+        return false;
     }
 
     private static boolean at(ServerPlayer player, BlockPos pos) {
@@ -157,12 +171,12 @@ public final class DrumPractice {
 
     public static void play(ServerPlayer player, BlockPos pos, int songIndex, Difficulty difficulty) {
         Song song = Songbook.song(songIndex);
-        if (song == null || !song.available() || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        if (song == null || !song.available() || !at(player, pos) || busy(player.getUUID())) return;
         begin(player, pos, song, difficulty, 0, "");
     }
 
     private static void begin(ServerPlayer player, BlockPos pos, Song song, Difficulty difficulty, int duel, String opponent) {
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), song.index(), difficulty, Util.getMillis(), duel));
+        SESSIONS.put(player.getUUID(), new Session(player.level().dimension(), pos.immutable(), song.index(), difficulty, Util.getMillis(), duel));
         send(player, new Start(pos, song.index(), difficulty.ordinal(), duel, opponent));
     }
 
@@ -181,12 +195,12 @@ public final class DrumPractice {
 
     /** For tests: a go that began {@code ticksAgo} ticks ago. */
     public static void beginAt(ServerPlayer player, BlockPos pos, int songIndex, Difficulty difficulty, long ticksAgo) {
-        SESSIONS.put(player.getUUID(), new Session(pos.immutable(), songIndex, difficulty, Util.getMillis() - ticksAgo * 50, 0));
+        SESSIONS.put(player.getUUID(), new Session(player.level().dimension(), pos.immutable(), songIndex, difficulty, Util.getMillis() - ticksAgo * 50, 0));
     }
 
     /** For tests: pretend the player's go (duel or not) began {@code ticks} ticks earlier than it did. */
     public static void rewind(ServerPlayer player, long ticks) {
-        SESSIONS.computeIfPresent(player.getUUID(), (id, s) -> new Session(s.pos, s.song, s.difficulty, s.startMs - ticks * 50, s.duel));
+        SESSIONS.computeIfPresent(player.getUUID(), (id, s) -> new Session(s.dimension, s.pos, s.song, s.difficulty, s.startMs - ticks * 50, s.duel));
     }
 
     /** Settles a go. Returns the points recorded, or -1 when it was refused. */
@@ -208,7 +222,8 @@ public final class DrumPractice {
         long elapsed = Util.getMillis() - session.startMs;
         long needed = song.lengthMs() - SLACK_MS;
         boolean early = elapsed < needed && !result.failed;
-        if (early || elapsed > song.lengthMs() + EXPIRE_MS || player.distanceToSqr(session.pos.getCenter()) > REACH * REACH) {
+        if (early || elapsed > song.lengthMs() + EXPIRE_MS || player.level().dimension() != session.dimension
+                || player.distanceToSqr(session.pos.getCenter()) > REACH * REACH) {
             player.displayClientMessage(Component.translatable("message.tribalpower.practice.refused"), false);
             if (duel != null) {
                 duel.forfeits.put(player.getUUID(), true);
@@ -259,7 +274,7 @@ public final class DrumPractice {
     /** A player at one drum of a pair challenges the named player at the other. */
     public static void challenge(ServerPlayer player, BlockPos pos, String rivalName, int songIndex, Difficulty difficulty) {
         Song song = Songbook.song(songIndex);
-        if (song == null || !song.available() || !at(player, pos) || SESSIONS.containsKey(player.getUUID())) return;
+        if (song == null || !song.available() || !at(player, pos) || busy(player.getUUID())) return;
         ServerPlayer rival = null;
         for (ServerPlayer candidate : rivals(player, pos))
             if (candidate.getGameProfile().getName().equals(rivalName)) rival = candidate;
@@ -283,7 +298,7 @@ public final class DrumPractice {
         ServerPlayer challenger = player.getServer().getPlayerList().getPlayer(duel.challenger);
         boolean stale = Util.getMillis() - duel.invitedMs > INVITE_MS || challenger == null
                 || !at(challenger, duel.challengerPos) || !at(player, duel.rivalPos)
-                || SESSIONS.containsKey(duel.challenger) || SESSIONS.containsKey(duel.rival);
+                || busy(duel.challenger) || busy(duel.rival);
         if (!accept || stale) {
             DUELS.remove(id);
             if (challenger != null) challenger.displayClientMessage(Component.translatable(stale ? "message.tribalpower.duel.expired"

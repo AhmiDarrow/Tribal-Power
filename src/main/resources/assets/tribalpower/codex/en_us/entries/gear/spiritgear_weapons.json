@@ -41,7 +41,7 @@
         "- **Scythe**: 8 damage, 1.0 swings a second, reach +0.5, slightly heavy (−2%). Each blow also reaps **half** your attack into every hostile around the target.",
         "- **Greatsword**: 10 damage, 0.85 swings a second, reach +0.5, heavy (−6%). The widest, strongest sweep.",
         "- **Trident**: 8 damage, 1.1 swings a second, reach +1. Bites **50%** deeper into anything standing in water or rain.",
-        "Those are at rank 0. Ranks add the Blade's bonuses on top: **+2**, **+5** and **+10** attack damage. Every figure lives in the `weapons` section of the common config."
+        "Those are at rank 0. Ranks add the Blade's bonuses on top: **+2**, **+5** and **+10** attack damage. Every figure lives in the **weapons** section of the common config."
       ]
     },
     {

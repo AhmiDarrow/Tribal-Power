@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Two phases",
       "text": [
-        "At half health every guardian is **roused**: its signature attack comes faster and harder, and it calls its biome's creatures to its side. Those creatures drop nothing and vanish when it falls. Leave the ground for half a minute and the guardian goes back to sleep; the altar still needs its rest.",
+        "At half health every guardian is **roused**: its signature attack comes faster and harder, and it calls its biome's creatures to its side. Those creatures drop nothing and vanish when it falls. Leave the ground for half a minute and the guardian goes back to sleep unbeaten; the altar does not need its rest after that, and can be called again at once.",
         "When it falls, everyone within reach who is on that tribe's story finishes the **trial**, and its **core** drops with a heap of its biome's reagents."
       ]
     },
@@ -108,7 +108,7 @@
       "type": "text",
       "title": "What the cores are for",
       "text": [
-        "Each core with a Loom Thread makes six {item:tribalpower:resonant_core}, the fastest way to them in the game. All eight cores together with an {item:tribalpower:unsung_heart} make the tablet of [The Ninth Agreement](ninth_agreement)."
+        "Each core with a Loom Thread makes six Resonant Cores, the fastest way to them in the game. All eight cores together with an {item:tribalpower:unsung_heart} make the tablet of [The Ninth Agreement](ninth_agreement)."
       ]
     }
   ]

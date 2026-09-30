@@ -74,7 +74,8 @@ public class SongkeeperDuelInviteScreen extends Screen {
                     "gui.tribalpower.songkeeper.difficulty." + Songbook.Difficulty.of(invite.difficulty()).key()))
                     .append(String.format("  ·  %d:%02d", s / 60, s % 60)), width / 2, y + 42, 0xFF8FA7A0);
         }
-        long left = Math.max(0, (WAIT_MS - (System.currentTimeMillis() - opened)) / 1000);
+        // rounded up, so the count reads 1 through its last second and the invite lapses as it reaches 0
+        long left = Math.max(0, (WAIT_MS - (System.currentTimeMillis() - opened) + 999) / 1000);
         g.drawCenteredString(font, Component.translatable("gui.tribalpower.songkeeper.duel.invite_keys", left), width / 2, y + h + 34, 0xFF667A74);
     }
 

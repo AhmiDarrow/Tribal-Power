@@ -119,6 +119,10 @@ public final class MarchMusic {
 
         void fade() { if (fading < 0) fading = 20; }
 
+        /** It fades in from silence; without this the engine drops a sound that starts at volume 0. */
+        @Override
+        public boolean canStartSilent() { return true; }
+
         @Override
         public void tick() {
             if (fading >= 0) {

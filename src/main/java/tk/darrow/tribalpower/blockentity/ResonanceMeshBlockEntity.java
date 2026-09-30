@@ -148,8 +148,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         // A cycle dearer than the buffer can hold -- a top rank on a costly band -- takes the rest straight from the
         // lattice, so no band and rank the pit offers can stall it for good.
         int shortfall = cost - buffer.getPulseStored();
-        if (LatticeNetwork.extractPulseNearby(level, pos, RADIUS, shortfall, true) < shortfall) return false;
-        LatticeNetwork.extractPulseNearby(level, pos, RADIUS, shortfall, false);
+        if (!LatticeNetwork.tryExtractPulseNearby(level, pos, RADIUS, shortfall)) return false;
         buffer.extractPulse(buffer.getPulseStored(), false);
         return true;
     }
@@ -299,7 +298,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     public static void tick(Level level, BlockPos pos, BlockState blockState, ResonanceMeshBlockEntity be) {
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
-        if (be.stilled()) { be.state = "paused"; return; }
+        if (be.stilled()) { be.stall("paused"); return; }
 
         be.drain(level, pos);
 
@@ -330,10 +329,10 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         }
         ItemStack result = be.result(level, pos, band);
         if (result.isEmpty()) { be.calling = ""; be.stall("nothing"); return; }
-        if (!be.placeOutput(result, true)) { be.state = "full"; return; }
+        if (!be.placeOutput(result, true)) { be.stall("full"); return; }
 
         int cost = be.pulsePerSecond(band, voices);
-        if (!be.spend(level, pos, cost)) { be.state = "pulse"; return; }
+        if (!be.spend(level, pos, cost)) { be.stall("pulse"); return; }
 
         be.state = "working";
         be.work++;

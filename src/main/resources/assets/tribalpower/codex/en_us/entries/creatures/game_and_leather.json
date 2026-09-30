@@ -32,7 +32,7 @@
       "text": [
         "Raw Game restores **3** hunger and not much saturation. Roast Game restores **8** with high saturation.",
         "Cook it in a furnace, a smoker (twice as fast) or on a campfire (slowest, but no fuel).",
-        "Both count as meat: wolves will eat it, and other mods treat it as raw or cooked meat."
+        "Both count as meat: wolves will eat them, and other mods treat them as raw or cooked meat."
       ],
       "title": "Cooking and eating"
     },

@@ -38,6 +38,12 @@ public class QuestSavedData extends SavedData {
 
     private final Map<UUID, Record> records = new HashMap<>();
 
+    /** A build handed in for a tribe: where its chalk mark stood and what it marked, so one structure counts once. */
+    public record Build(String dimension, net.minecraft.core.BlockPos mark, tk.darrow.tribalpower.building.BuildPattern shape, int size) {}
+
+    /** Every build handed in, by tribe. Not per player: a wall raised for a tribe is that tribe's, whoever brings it. */
+    private final Map<TribeDefinition, java.util.List<Build>> builds = new java.util.EnumMap<>(TribeDefinition.class);
+
     public static QuestSavedData get(MinecraftServer server) {
         return server.overworld().getDataStorage().computeIfAbsent(new SavedData.Factory<>(QuestSavedData::new, QuestSavedData::load), FILE_ID);
     }
@@ -82,6 +88,15 @@ public class QuestSavedData extends SavedData {
 
     public void completedOne(UUID player, TribeDefinition tribe) {
         record(player).completed[tribe.ordinal()]++;
+        setDirty();
+    }
+
+    public java.util.List<Build> builds(TribeDefinition tribe) {
+        return builds.getOrDefault(tribe, java.util.List.of());
+    }
+
+    public void handedIn(TribeDefinition tribe, Build build) {
+        builds.computeIfAbsent(tribe, k -> new java.util.ArrayList<>()).add(build);
         setDirty();
     }
 
@@ -148,6 +163,14 @@ public class QuestSavedData extends SavedData {
                 if (tribe >= 0 && tribe < TRIBES) r.requests[tribe] = new Request(request.getString("Template"), request.getLong("Day"), request.getInt("Progress"));
             }
         }
+        ListTag built = tag.getList("Builds", Tag.TAG_COMPOUND);
+        for (int i = 0; i < built.size(); i++) {
+            CompoundTag entry = built.getCompound(i);
+            int tribe = entry.getInt("Tribe");
+            if (tribe < 0 || tribe >= TRIBES) continue;
+            data.builds.computeIfAbsent(TribeDefinition.values()[tribe], k -> new java.util.ArrayList<>()).add(new Build(entry.getString("Dim"),
+                    net.minecraft.core.BlockPos.of(entry.getLong("Mark")), tk.darrow.tribalpower.building.BuildPattern.byIndex(entry.getInt("Shape")), entry.getInt("Size")));
+        }
         return data;
     }
 
@@ -181,6 +204,19 @@ public class QuestSavedData extends SavedData {
             players.add(entry);
         });
         tag.put("Players", players);
+        ListTag built = new ListTag();
+        builds.forEach((tribe, list) -> {
+            for (Build build : list) {
+                CompoundTag entry = new CompoundTag();
+                entry.putInt("Tribe", tribe.ordinal());
+                entry.putString("Dim", build.dimension());
+                entry.putLong("Mark", build.mark().asLong());
+                entry.putInt("Shape", build.shape().index());
+                entry.putInt("Size", build.size());
+                built.add(entry);
+            }
+        });
+        tag.put("Builds", built);
         return tag;
     }
 }

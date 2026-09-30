@@ -28,7 +28,7 @@ import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.lattice.RelayLinks;
 
 /** Face-mounted plate. Pulls from the host machine into a paired relay or a tuner-bound face. */
-public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, WorldlyContainer, MenuProvider, tk.darrow.tribalpower.api.pulse.PulseSpend {
+public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, WorldlyContainer, MenuProvider, tk.darrow.tribalpower.api.pulse.PulseSpend, tk.darrow.tribalpower.camp.Ownership.Owned {
     public static final int LINK = 0, RUNE = 1;
     private static final int[] NO_HOPPER = new int[0];
     private final NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
@@ -39,6 +39,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     private String status = "unlinked";
     private boolean extract = true;
     private net.neoforged.neoforge.fluids.FluidStack pending = net.neoforged.neoforge.fluids.FluidStack.EMPTY;
+    private java.util.UUID owner;
 
     public WirelessRelayBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.WIRELESS_RELAY.get(), pos, state); }
 
@@ -48,6 +49,9 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
 
     /** The machine this plate is snapped onto. Default FACING=UP keeps the host below. */
     public BlockPos host() { return worldPosition.relative(facing().getOpposite()); }
+
+    @Override public java.util.UUID owner() { return owner; }
+    @Override public void setOwner(java.util.UUID owner) { this.owner = owner; setChanged(); }
 
     public ItemStack link() { return items.get(LINK); }
     public boolean extracting() { return extract; }
@@ -232,6 +236,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         tag.putInt("Cursor", cursor);
         tag.putBoolean("Extract", extract);
         if (!pending.isEmpty()) tag.put("Pending", pending.save(registries));
+        tk.darrow.tribalpower.camp.Ownership.save(tag, owner);
     }
 
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
@@ -243,6 +248,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         face = Direction.from3DDataValue(tag.getInt("Face")); cursor = tag.getInt("Cursor");
         extract = !tag.contains("Extract") || tag.getBoolean("Extract");
         pending = net.neoforged.neoforge.fluids.FluidStack.parseOptional(registries, tag.getCompound("Pending"));
+        owner = tk.darrow.tribalpower.camp.Ownership.load(tag);
     }
 
     @Override public Component getDisplayName() {
@@ -267,7 +273,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     }
     @Override public ItemStack removeItemNoUpdate(int slot) {
         ItemStack taken = ContainerHelper.takeItem(items, slot);
-        if (slot == LINK) RelayLinks.index(this);
+        if (!taken.isEmpty()) { if (slot == LINK) RelayLinks.index(this); setChanged(); }
         return taken;
     }
     @Override public void setItem(int slot, ItemStack stack) {

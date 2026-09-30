@@ -104,7 +104,12 @@ public final class LeyField {
 
     /** Block at the heart of a cell's meeting. Y rides the dimension's sea level, not a fixed layer. */
     public static BlockPos nexusPos(ServerLevel level, int cellX, int cellZ) {
-        long h = mix(salt(level), cellX, cellZ);
+        return nexusPos(level, salt(level), cellX, cellZ);
+    }
+
+    /** As above with the salt already folded: a sweep of many cells should not rebuild the dimension id for each. */
+    private static BlockPos nexusPos(ServerLevel level, long salt, int cellX, int cellZ) {
+        long h = mix(salt, cellX, cellZ);
         int x = cellX * CELL + CELL / 2 + (int) ((h >>> 16) & 31) - 16;
         int z = cellZ * CELL + CELL / 2 + (int) ((h >>> 25) & 31) - 16;
         int y = level.getSeaLevel() + (int) ((h >>> 40) & 63) - 16;
@@ -140,17 +145,18 @@ public final class LeyField {
         Vec3 point = Vec3.atCenterOf(pos);
         List<LeyMagnets.Magnet> magnets = LeyMagnets.near(level, pos);
         List<Hit> hits = new ArrayList<>(4);
+        Attunement[] voices = Attunement.values();
         for (int cx = minX; cx <= maxX; cx++) {
             for (int cz = minZ; cz <= maxZ; cz++) {
                 int rank = nexusRank(salt, cx, cz);
                 if (rank == 0) continue;
                 long h = mix(salt, cx, cz);
-                BlockPos heart = nexusPos(level, cx, cz);
+                BlockPos heart = nexusPos(level, salt, cx, cz);
                 Vec3 origin = Vec3.atCenterOf(heart);
                 int spin = (int) ((h >>> 48) & 7);
                 double turn = ((h >>> 12) & 1023) / 1024.0 * 0.5;
                 for (int i = 0; i < rank; i++) {
-                    Attunement voice = Attunement.values()[(i + spin) % Attunement.values().length];
+                    Attunement voice = voices[(i + spin) % voices.length];
                     double angle = (i * Math.PI * 2 / rank) + turn;
                     long vh = mix(h, i, voice.ordinal());
                     Vein vein = new Vein(origin, angle,

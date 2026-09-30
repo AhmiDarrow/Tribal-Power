@@ -41,6 +41,26 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         super(ModBlockEntities.LATTICE_CONDUCTOR.get(), pos, state);
     }
 
+    // Draws keep the conductor lines they resolved; a conductor arriving or leaving (placed, broken, its chunk
+    // loaded or unloaded) must drop them.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        LatticeNetwork.conductorLinesChanged(level);
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        LatticeNetwork.conductorLinesChanged(level);
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        LatticeNetwork.conductorLinesChanged(level);
+    }
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, LatticeConductorBlockEntity be) {
         if (level.hasNeighborSignal(pos)) return;
         be.tickCounter++;

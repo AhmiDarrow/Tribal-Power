@@ -22,8 +22,11 @@ public interface HasSideIo {
                 && !tk.darrow.tribalpower.camp.Ownership.check(player.level(), owned.owner(), player)) return false;
         var mode = io.sideIo().cycle(face);
         be.setChanged();
-        if (be.getLevel() instanceof net.minecraft.server.level.ServerLevel server)
+        if (be.getLevel() instanceof net.minecraft.server.level.ServerLevel server) {
             server.sendBlockUpdated(be.getBlockPos(), be.getBlockState(), be.getBlockState(), 3);
+            // Fluid faces capture their mode, and a NONE face has no handler at all: cached pipes must ask again.
+            server.invalidateCapabilities(be.getBlockPos());
+        }
         player.displayClientMessage(net.minecraft.network.chat.Component.translatable("gui.tribalpower.io.face",
                 face.getSerializedName(), mode.label()), true);
         return true;

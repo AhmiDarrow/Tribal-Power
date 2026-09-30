@@ -502,13 +502,13 @@ public final class ModBlocks {
                     .lightLevel(s -> s.getValue(PulseLightBlock.LIT) ? PulseLightBlock.Kind.EMBER_BOWL.light : 0)));
 
     public static final DeferredBlock<CampDecorBlock> MARCH_STOOL = BLOCKS.register("march_stool", () ->
-            new CampDecorBlock(CampDecorBlock.Kind.STOOL, BlockBehaviour.Properties.of()
+            CampDecorBlock.of(CampDecorBlock.Kind.STOOL, BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN).strength(1.5F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
     public static final DeferredBlock<CampDecorBlock> MARCH_TABLE = BLOCKS.register("march_table", () ->
-            new CampDecorBlock(CampDecorBlock.Kind.TABLE, BlockBehaviour.Properties.of()
+            CampDecorBlock.of(CampDecorBlock.Kind.TABLE, BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD).noOcclusion().ignitedByLava()));
     public static final DeferredBlock<CampDecorBlock> SPIRIT_URN = BLOCKS.register("spirit_urn", () ->
-            new CampDecorBlock(CampDecorBlock.Kind.URN, BlockBehaviour.Properties.of()
+            CampDecorBlock.of(CampDecorBlock.Kind.URN, BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_CYAN).strength(1.8F).sound(SoundType.STONE).noOcclusion()));
     public static final DeferredBlock<WovenMatBlock> WOVEN_MAT = BLOCKS.register("woven_mat", () ->
             new WovenMatBlock(BlockBehaviour.Properties.of()

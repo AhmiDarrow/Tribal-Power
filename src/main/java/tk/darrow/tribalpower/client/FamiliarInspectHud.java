@@ -1,8 +1,13 @@
 package tk.darrow.tribalpower.client;
 
+import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FormattedText;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import tk.darrow.tribalpower.familiar.Familiar;
@@ -28,12 +33,25 @@ public final class FamiliarInspectHud {
         var g = event.getGuiGraphics();
         var font = mc.font;
         int x = mc.getWindow().getGuiScaledWidth() / 2 + 14, y = mc.getWindow().getGuiScaledHeight() / 2 - 44;
-        int width = 132, height = 86;
-        g.fill(x, y, x + width, y + height, 0xD9101B22);
-        g.fill(x, y, x + 2, y + height, own ? 0xFF65D7C0 : 0xFFB58A58);
-        g.drawString(font, familiar.asMob().getDisplayName(), x + 6, y + 4, 0xFFE7DCC1, false);
+        int width = 132, room = width - 10;
         int bloodline = 0;
         for (FamiliarData.Thread thread : FamiliarData.Thread.values()) bloodline += FamiliarData.unpackThread(packed, thread);
+        var marks = Component.empty();
+        for (int slot = 0; slot < 2; slot++) {
+            var mark = FamiliarData.unpackMark(packed, slot);
+            if (mark == FamiliarData.Mark.NONE) continue;
+            if (!marks.getSiblings().isEmpty()) marks.append(Component.literal(" · ").withStyle(ChatFormatting.DARK_GRAY));
+            marks.append(Component.translatable("mark.tribalpower." + mark.id).withStyle(ChatFormatting.GOLD));
+        }
+        if (marks.getSiblings().isEmpty()) marks = Component.translatable("gui.tribalpower.lattice.marks_none").withStyle(ChatFormatting.DARK_GRAY);
+        // Two long Marks, or the summary, wrap onto another row and the panel grows to hold them.
+        List<FormattedCharSequence> markLines = font.split(marks, room);
+        List<FormattedCharSequence> summaryLines = font.split(Component.translatable("gui.tribalpower.lattice.summary",
+                FamiliarData.unpackGeneration(packed), bloodline), room);
+        int height = 86 + 10 * (Math.max(1, markLines.size()) - 1 + Math.max(1, summaryLines.size()) - 1);
+        g.fill(x, y, x + width, y + height, 0xD9101B22);
+        g.fill(x, y, x + 2, y + height, own ? 0xFF65D7C0 : 0xFFB58A58);
+        g.drawString(font, fit(font, familiar.asMob().getDisplayName(), room), x + 6, y + 4, 0xFFE7DCC1, false);
         int row = y + 16;
         for (FamiliarData.Thread thread : FamiliarData.Thread.values()) {
             int value = FamiliarData.unpackThread(packed, thread);
@@ -44,16 +62,21 @@ public final class FamiliarInspectHud {
             }
             row += 10;
         }
-        var marks = Component.empty();
-        for (int slot = 0; slot < 2; slot++) {
-            var mark = FamiliarData.unpackMark(packed, slot);
-            if (mark == FamiliarData.Mark.NONE) continue;
-            if (!marks.getSiblings().isEmpty()) marks.append(Component.literal(" · ").withStyle(ChatFormatting.DARK_GRAY));
-            marks.append(Component.translatable("mark.tribalpower." + mark.id).withStyle(ChatFormatting.GOLD));
+        for (FormattedCharSequence line : markLines) {
+            g.drawString(font, line, x + 6, row + 1, 0xFFE7DCC1, false);
+            row += 10;
         }
-        if (marks.getSiblings().isEmpty()) marks = Component.translatable("gui.tribalpower.lattice.marks_none").withStyle(ChatFormatting.DARK_GRAY);
-        g.drawString(font, marks, x + 6, row + 1, 0xFFE7DCC1, false);
-        g.drawString(font, Component.translatable("gui.tribalpower.lattice.summary", FamiliarData.unpackGeneration(packed), bloodline),
-                x + 6, row + 12, FamiliarData.unpackSparked(packed) ? 0xFFFFE08A : 0xFF8FA8A0, false);
+        int summary = FamiliarData.unpackSparked(packed) ? 0xFFFFE08A : 0xFF8FA8A0;
+        for (FormattedCharSequence line : summaryLines) {
+            g.drawString(font, line, x + 6, row + 2, summary, false);
+            row += 10;
+        }
+    }
+
+    /** The text whole if it fits the room, else cut short with an ellipsis; its styling survives the cut. */
+    private static FormattedCharSequence fit(Font font, Component text, int room) {
+        if (font.width(text) <= room) return text.getVisualOrderText();
+        FormattedText cut = font.substrByWidth(text, room - font.width("…"));
+        return Language.getInstance().getVisualOrder(FormattedText.composite(cut, Component.literal("…")));
     }
 }

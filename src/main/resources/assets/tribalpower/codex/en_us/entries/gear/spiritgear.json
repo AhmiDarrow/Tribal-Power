@@ -43,7 +43,7 @@
       "type": "text",
       "title": "What ranks give",
       "text": [
-        "- **Attuned**: every action costs one Pulse less (mining 1, a hit 2, a use 1), mines **20%** faster, and hits harder.",
+        "- **Attuned**: every action costs one Pulse less, never below one (mining 1, a hit 2, a use 1), mines **20%** faster, and hits harder.",
         "- **Bound**: a starved swing no longer wears the tool, and it mines **45%** faster.",
         "- **Manifested**: mines **80%** faster, half of starved swings even mend a point, and voice perks grow stronger.",
         "The blade and its [weapon family](spiritgear_weapons) gain the most: **+2**, **+5** and **+10** attack damage by rank, and a little attack speed. A Manifested blade hits **bosses 25% harder** and heals you for **10%** of every blow, which is what you want in a long fight.",
@@ -55,12 +55,18 @@
       "title": "Shears and hoe",
       "text": [
         "The **Spiritgear Shears** trim leaves, wool, vines and cobweb, and rank and bind like the rest of the set.",
-        "- **Earth**: a swing takes the whole 3x3 face of foliage.  - **Air**: trimming costs no Pulse and no wear at all.",
-        "- **Water**: a sheared sheep is left its fleece, always at Manifested.  - **Fire**: used on a beehive it smokes the bees calm, so no swarm.",
-        "- **Spirit**: what it shears is mended afterwards, and nearby beasts worth shearing glow.  - **Loom**: the cuttings come straight to hand.",
+        "- **Earth**: a swing takes the whole 3x3 face of foliage.",
+        "- **Air**: trimming costs no Pulse and no wear at all.",
+        "- **Water**: a sheared sheep is left its fleece, always at Manifested.",
+        "- **Fire**: used on a beehive it smokes the bees calm, so no swarm.",
+        "- **Spirit**: what it shears is mended afterwards, and nearby beasts worth shearing glow.",
+        "- **Loom**: the cuttings come straight to hand.",
         "The **Spiritgear Hoe** reaps and sows in one motion: use it on a ripe crop and the harvest drops while one seed goes back into the ground.",
-        "- **Earth**: turns a 3x3 of soil at once.  - **Water**: its furrows come out wet, and fields you walk past stay watered.",
-        "- **Air**: reaps a 3x3.  - **Loom**: reaps a 5x5 and spends no Pulse doing it.  - **Spirit**: a quarter of harvests come back doubled."
+        "- **Earth**: turns a 3x3 of soil at once.",
+        "- **Water**: its furrows come out wet, and fields you walk past stay watered.",
+        "- **Air**: reaps a 3x3.",
+        "- **Loom**: reaps a 5x5 and spends no Pulse doing it.",
+        "- **Spirit**: a quarter of harvests come back doubled."
       ]
     },
     {

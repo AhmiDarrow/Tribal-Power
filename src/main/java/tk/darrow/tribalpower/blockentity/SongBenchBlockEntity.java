@@ -135,7 +135,9 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
 
     @Override
     public ItemStack removeItemNoUpdate(int slot) {
-        return ContainerHelper.takeItem(items, slot);
+        ItemStack removed = ContainerHelper.takeItem(items, slot);
+        if (!removed.isEmpty()) setChanged();
+        return removed;
     }
 
     @Override

@@ -24,10 +24,13 @@ import org.jetbrains.annotations.Nullable;
  */
 public class SpiritRemnantItem extends Item {
     public static final String FAMILIAR = "Familiar", TYPE = "Type";
-    /** What must not survive into the revived body. */
+    /**
+     * What must not survive into the revived body. Effects are kept here and lifted on revival instead: an effect's
+     * attribute modifiers are saved with the body, and shedding the effect alone would leave them on for good.
+     */
     private static final List<String> SHED = List.of("UUID", "Health", "DeathTime", "HurtTime", "HurtByTimestamp", "Fire",
-            "active_effects", "Pouch", "Saddlebag", "ArmorItems", "HandItems", "body_armor_item", "leash", "Passengers",
-            "Motion", "FallDistance", "LastOwnerAttacker", "Sitting", "Brain");
+            "Pouch", "Saddlebag", "ArmorItems", "HandItems", "body_armor_item", "leash", "Passengers",
+            "Motion", "FallDistance", "LastOwnerAttacker", "LastLight", "Sitting", "Brain");
 
     public SpiritRemnantItem(Properties properties) {
         super(properties);
@@ -58,6 +61,7 @@ public class SpiritRemnantItem extends Item {
             return e;
         });
         if (!(entity instanceof LivingEntity living)) return null;
+        living.removeAllEffects();
         living.setHealth(living.getMaxHealth());
         if (!level.addFreshEntity(living)) return null;
         return living;

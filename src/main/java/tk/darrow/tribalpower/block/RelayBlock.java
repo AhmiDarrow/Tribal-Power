@@ -69,12 +69,15 @@ public class RelayBlock extends BaseEntityBlock {
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new WirelessRelayBlockEntity(pos, state); }
     @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
+        if (level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) relay.setOwner(tk.darrow.tribalpower.camp.Ownership.of(placer));
     }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, ModBlockEntities.WIRELESS_RELAY.get(), WirelessRelayBlockEntity::tick);
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) {
+            // the link item and the pump direction re-thread the relay, so only its owner's camp may touch them
+            if (!tk.darrow.tribalpower.camp.Ownership.check(level, relay.owner(), player)) return InteractionResult.CONSUME;
             if (player.isShiftKeyDown()) relay.toggleExtract(player);
             else player.openMenu(relay);
         }

@@ -47,8 +47,27 @@ public class GuardianAltarBlockEntity extends BlockEntity {
     public boolean awake(ServerLevel server) {
         if (boss == null) return false;
         var entity = server.getEntity(boss);
+        if (entity == null && surroundingsLoaded(server)) {
+            // Everything within its reset range is loaded and it is not there: it was removed while this altar slept
+            // (a clear-lag sweep with the altar's chunk unloaded). Let it go; the rest still counts from its waking.
+            onGuardianGone();
+            return false;
+        }
         return entity == null || (entity instanceof GuardianEntity guardian && guardian.isAlive());
     }
+
+    /** Whether every chunk within a guardian's reset range of the altar has its entities loaded. */
+    private boolean surroundingsLoaded(ServerLevel server) {
+        int reach = (GuardianEntity.RESET_RANGE >> 4) + 1;
+        net.minecraft.world.level.ChunkPos here = new net.minecraft.world.level.ChunkPos(worldPosition);
+        for (int dx = -reach; dx <= reach; dx++)
+            for (int dz = -reach; dz <= reach; dz++)
+                if (!server.areEntitiesLoaded(net.minecraft.world.level.ChunkPos.asLong(here.x + dx, here.z + dz))) return false;
+        return true;
+    }
+
+    /** Whether this is the guardian the altar last called, so an old one turning up later cannot clear a newer call. */
+    public boolean calls(UUID id) { return id.equals(boss); }
 
     public void onGuardianGone() { boss = null; setChanged(); }
 

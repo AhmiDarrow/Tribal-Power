@@ -174,25 +174,24 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
     public static void tick(Level level, BlockPos pos, BlockState blockState, StoneFontBlockEntity be) {
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
-        if (be.stilled()) { be.state = "paused"; return; }
+        if (be.stilled()) { be.stall("paused"); return; }
 
         Ask ask = be.best(level, pos);
         if (ask == null) { be.reset("pattern"); return; }
         if (ask != be.asking) { be.asking = ask; be.work = 0; }
 
         ItemStack result = ask.result(pos);
-        if (!be.placeOutput(result, true)) { be.state = "full"; return; }
+        if (!be.placeOutput(result, true)) { be.stall("full"); return; }
 
         // Cobble is the starter ask: shape and Pulse only. Earth Keeping starts at stone.
         var keeping = ask == Ask.COBBLE ? Keeping.State.ANSWERED : Keeping.voice(level, pos, Attunement.EARTH);
-        if (ask != Ask.COBBLE && keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
+        if (ask != Ask.COBBLE && keeping == Keeping.State.QUIET && be.work == 0) { be.stall("quiet"); return; }
 
         int cost = be.pulseCost(ask);
-        if (LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, true) < cost) {
-            be.state = "pulse";
+        if (!LatticeNetwork.tryExtractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost)) {
+            be.stall("pulse");
             return;
         }
-        LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, false);
         be.state = "working";
         be.work++;
         if (ask != Ask.COBBLE) Keeping.feedWork(level, pos, Attunement.EARTH);
@@ -200,7 +199,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
         if (be.work >= be.workSeconds(ask)) {
             if (ask == Ask.OBSIDIAN && be.grounded) {
                 if (be.water.getFluidAmount() < GROUND_COST || be.lava.getFluidAmount() < GROUND_COST) {
-                    be.state = "fluid";
+                    be.stall("fluid");
                     return;
                 }
                 be.water.drain(GROUND_COST, IFluidHandler.FluidAction.EXECUTE);
@@ -234,6 +233,13 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
         int seconds = MachineRank.scaleTime(this, ask.seconds());
         var keeping = ask == Ask.COBBLE || level == null ? Keeping.State.ANSWERED : Keeping.voice(level, worldPosition, Attunement.EARTH);
         return Keeping.stretch(keeping, seconds);
+    }
+
+    /** Stopped short of a beat, keeping the progress. The comparator reads progress only while working, so it has to hear this. */
+    private void stall(String why) {
+        if (why.equals(state)) return;
+        state = why;
+        setChanged();
     }
 
     private void reset(String why) {

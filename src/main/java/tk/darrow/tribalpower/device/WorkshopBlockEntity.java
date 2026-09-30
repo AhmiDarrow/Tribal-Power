@@ -166,7 +166,8 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         for (ItemEntity entity : server.getEntitiesOfClass(ItemEntity.class, box, e -> !e.isRemoved() && !e.getItem().isEmpty())) {
             ItemStack stack = entity.getItem();
             if (insertLeftover(stack, true).getCount() == stack.getCount()) continue;
-            if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false) < cost) break;
+            // Probe first: a real draw that comes up short would burn what it did find.
+            if (!LatticeNetwork.tryExtractPulseNearby(server, worldPosition, 8, cost)) break;
             ItemStack leftover = insertLeftover(stack, false);
             if (leftover.isEmpty()) entity.discard();
             else entity.setItem(leftover);
@@ -202,7 +203,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         var box = new AABB(worldPosition).inflate(8);
         for (var living : server.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, box,
                 e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive())) {
-            if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false) < cost) break;
+            if (!LatticeNetwork.tryExtractPulseNearby(server, worldPosition, 8, cost)) break;
             living.hurt(server.damageSources().magic(), 4);
             var push = living.position().subtract(worldPosition.getCenter()).normalize().scale(0.35);
             living.setDeltaMovement(living.getDeltaMovement().add(push.x, 0.15, push.z));

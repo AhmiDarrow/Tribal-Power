@@ -18,6 +18,7 @@ public class LatticeTunerItem extends Item {
         if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, context.getClickedFace(), stack)) return InteractionResult.FAIL;
         var data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         if (level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) {
+            if (!tk.darrow.tribalpower.camp.Ownership.check(level, relay.owner(), player)) return InteractionResult.FAIL;
             if (!player.isShiftKeyDown() && data.contains("Endpoint")) {
                 boolean ok = relay.bind(BlockPos.of(data.getLong("Endpoint")), Direction.from3DDataValue(data.getInt("Face")), data.getString("Dimension"));
                 player.displayClientMessage(Component.translatable(ok ? "message.tribalpower.tuner.linked" : "message.tribalpower.tuner.range"), true);

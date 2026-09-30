@@ -109,7 +109,7 @@ public final class DialogueSession {
             // an action that cannot be done (nothing to take, no request left) ends the choice there: what follows it
             // is not owed, and the conversation closes rather than moving on
             boolean stay = true;
-            for (Dialogue.Action action : choice.actions()) if (!(stay = act(player, kin, action))) break;
+            for (Dialogue.Action action : choice.actions()) if (!(stay = act(player, kin, node.id(), action))) break;
             if (stay && !choice.next().isEmpty()) show(player, kin, tree, choice.next());
             return;
         }
@@ -173,7 +173,21 @@ public final class DialogueSession {
     // ---- actions ---------------------------------------------------------------------------------------------------
 
     /** Does one thing. Returns whether the conversation goes on to the choice's next node. */
-    private static boolean act(ServerPlayer player, TribalKinEntity kin, Dialogue.Action action) {
+    private static boolean act(ServerPlayer player, TribalKinEntity kin, String node, Dialogue.Action action) {
+        try {
+            return perform(player, kin, action);
+        } catch (RuntimeException e) {
+            // A datapack typo in a value must not throw inside the packet handler; the conversation closes instead.
+            if (BAD_ACTIONS.add(kin.tribe().id() + "/" + node + "/" + action.kind() + "/" + action.value()))
+                tk.darrow.tribalpower.TribalPower.LOGGER.warn("Bad dialogue action '{}' at {}/{}: {}", action.kind(), kin.tribe().id(), node, e.toString());
+            return false;
+        }
+    }
+
+    /** Actions already warned about, so a broken one is logged once rather than every time it is chosen. */
+    private static final java.util.Set<String> BAD_ACTIONS = java.util.concurrent.ConcurrentHashMap.newKeySet();
+
+    private static boolean perform(ServerPlayer player, TribalKinEntity kin, Dialogue.Action action) {
         TribeDefinition tribe = kin.tribe();
         JsonElement value = action.value();
         switch (action.kind()) {

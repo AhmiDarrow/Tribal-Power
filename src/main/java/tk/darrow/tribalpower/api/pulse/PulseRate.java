@@ -5,8 +5,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import tk.darrow.tribalpower.blockentity.LeyCollectorBlockEntity;
 import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
-import tk.darrow.tribalpower.item.MachineRank;
-import tk.darrow.tribalpower.ley.LeyMath;
 
 /**
  * What a block is making a second. The Codex diagnosis and the Ley Lens both report this number, so it is
@@ -22,10 +20,8 @@ public final class PulseRate {
     public static int perSecond(ServerLevel level, BlockPos pos, BlockEntity be) {
         if (be instanceof LeyCollectorBlockEntity collector) {
             if (level.hasNeighborSignal(pos)) return 0;
-            int gain = LeyCollectorBlockEntity.beatFor(LeyMath.gain(level, pos));
-            gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(level, pos));
-            gain += MachineRank.bonusGain(collector, gain);
-            return (int) Math.round(gain * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
+            // The collector's own beat, pack generation scale included, so the lens reads what the tick inserts.
+            return (int) Math.round(collector.currentBeat(level, pos) * 20.0 / LeyCollectorBlockEntity.GAIN_INTERVAL);
         }
         if (be instanceof PulseResonatorBlockEntity resonator) {
             return level.hasNeighborSignal(pos) ? 0 : resonator.getGain();

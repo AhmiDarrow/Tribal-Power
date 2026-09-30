@@ -57,9 +57,13 @@ public final class WeaponAnimations {
         }
     }
 
-    /** A tunable number: the file's value while tuning, else the default written here. */
-    private static float v(String key, float fallback) {
+    /**
+     * A tunable number: the file's value while tuning, else the default written here. The key is only joined
+     * while tuning; outside it this runs a score of times a frame and would build a string each time for nothing.
+     */
+    private static float v(String kind, String part, float fallback) {
         if (!TUNING) return fallback;
+        String key = kind + part;
         long now = System.currentTimeMillis();
         if (now - tunedAt > 500) {
             tunedAt = now;
@@ -101,29 +105,29 @@ public final class WeaponAnimations {
             case SLASH -> { }
         }
         float amount = kind == WeaponKind.Swing.CHOP || kind == WeaponKind.Swing.SLASH ? w : s;
-        pose.translate(i * (v(k + ".first.idle.tx", idleTx) + v(k + ".first.swing.tx", swTx) * amount),
-                v(k + ".first.idle.ty", idleTy) + v(k + ".first.swing.ty", swTy) * amount,
-                v(k + ".first.idle.tz", idleTz) + v(k + ".first.swing.tz", swTz) * amount);
-        pose.mulPose(Axis.YP.rotationDegrees(i * (v(k + ".first.idle.ry", idleRy) + v(k + ".first.swing.ry", swRy) * amount)));
-        pose.mulPose(Axis.XP.rotationDegrees(v(k + ".first.idle.rx", idleRx) + v(k + ".first.swing.rx", swRx) * amount));
-        pose.mulPose(Axis.ZP.rotationDegrees(i * (v(k + ".first.idle.rz", idleRz) + v(k + ".first.swing.rz", swRz) * amount)));
+        pose.translate(i * (v(k, ".first.idle.tx", idleTx) + v(k, ".first.swing.tx", swTx) * amount),
+                v(k, ".first.idle.ty", idleTy) + v(k, ".first.swing.ty", swTy) * amount,
+                v(k, ".first.idle.tz", idleTz) + v(k, ".first.swing.tz", swTz) * amount);
+        pose.mulPose(Axis.YP.rotationDegrees(i * (v(k, ".first.idle.ry", idleRy) + v(k, ".first.swing.ry", swRy) * amount)));
+        pose.mulPose(Axis.XP.rotationDegrees(v(k, ".first.idle.rx", idleRx) + v(k, ".first.swing.rx", swRx) * amount));
+        pose.mulPose(Axis.ZP.rotationDegrees(i * (v(k, ".first.idle.rz", idleRz) + v(k, ".first.swing.rz", swRz) * amount)));
         switch (kind) {
             case CHOP -> {
                 // up over the head on the wind-up, then down and forward on the fall
                 float raise = Mth.clamp(w - s * 0.6F, 0, 1);
-                pose.translate(0, v(k + ".first.raise", 0.45F) * raise - v(k + ".first.drop", 0.55F) * s, -v(k + ".first.lunge", 0.35F) * s);
-                pose.mulPose(Axis.XP.rotationDegrees(-v(k + ".first.back", 85F) * raise + v(k + ".first.down", 60F) * s));
+                pose.translate(0, v(k, ".first.raise", 0.45F) * raise - v(k, ".first.drop", 0.55F) * s, -v(k, ".first.lunge", 0.35F) * s);
+                pose.mulPose(Axis.XP.rotationDegrees(-v(k, ".first.back", 85F) * raise + v(k, ".first.down", 60F) * s));
             }
             case SWEEP -> {
                 float across = Mth.sin(swing * Mth.PI * 0.5F);
-                pose.translate(i * (-0.15F - v(k + ".first.reach", 1.1F) * across) * s, 0, 0);
-                pose.mulPose(Axis.YP.rotationDegrees(i * (30.0F + v(k + ".first.arc", 95F) * across) * s));
+                pose.translate(i * (-0.15F - v(k, ".first.reach", 1.1F) * across) * s, 0, 0);
+                pose.mulPose(Axis.YP.rotationDegrees(i * (30.0F + v(k, ".first.arc", 95F) * across) * s));
             }
             case SLASH -> {
                 pose.translate(i * -0.55F * w, 0.25F * w - 0.3F * s, -0.3F * s);
                 pose.mulPose(Axis.YP.rotationDegrees(i * (45.0F + w * -30.0F)));
                 pose.mulPose(Axis.ZP.rotationDegrees(i * w * -35.0F));
-                pose.mulPose(Axis.XP.rotationDegrees(w * -v(k + ".first.arc", 95F)));
+                pose.mulPose(Axis.XP.rotationDegrees(w * -v(k, ".first.arc", 95F)));
                 pose.mulPose(Axis.YP.rotationDegrees(i * -45.0F));
             }
             default -> { }
@@ -160,23 +164,23 @@ public final class WeaponAnimations {
         switch (kind) {
             case THRUST, STAB -> {
                 // the arm straightens forward and comes back; no chop, no roll
-                float forward = v(k + ".third.forward", kind == WeaponKind.Swing.STAB ? -1.35F : -1.5F);
+                float forward = v(k, ".third.forward", kind == WeaponKind.Swing.STAB ? -1.35F : -1.5F);
                 part.xRot = Mth.lerp(s, rest, forward) + swipe;
-                part.yRot = i * v(k + ".third.yaw", -0.2F) * s;
+                part.yRot = i * v(k, ".third.yaw", -0.2F) * s;
                 part.zRot = -roll;
             }
             case CHOP -> {
                 // over the head and down: vanilla's swipe, much bigger, with the roll kept
-                part.xRot = rest - swipe * v(k + ".third.reach", 1.6F);
+                part.xRot = rest - swipe * v(k, ".third.reach", 1.6F);
             }
             case SWEEP -> {
                 // level and across: the arm held out forward, yaw carrying it from one side to the other
-                part.xRot = Mth.lerp(s, rest, v(k + ".third.level", -1.25F)) + swipe;
-                part.yRot = i * (v(k + ".third.from", 0.9F) - v(k + ".third.arc", 1.8F) * f);
+                part.xRot = Mth.lerp(s, rest, v(k, ".third.level", -1.25F)) + swipe;
+                part.yRot = i * (v(k, ".third.from", 0.9F) - v(k, ".third.arc", 1.8F) * f);
                 part.zRot = -roll + i * -0.2F * s;
             }
             case SLASH -> {
-                part.xRot = rest - swipe * v(k + ".third.reach", 0.5F);
+                part.xRot = rest - swipe * v(k, ".third.reach", 0.5F);
                 part.zRot = i * -0.15F * s;
             }
         }

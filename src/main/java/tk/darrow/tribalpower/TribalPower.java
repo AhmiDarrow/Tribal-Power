@@ -116,6 +116,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::keepHealth);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::broken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::armorBroken);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::loggedOut);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::attributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::incomingDamage);
@@ -128,6 +129,9 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::playerTick);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::toggleWornGoggles);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyRopes::loggedOut);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyRopes::loggedIn);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyRopes::respawned);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyRopes::changedDimension);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::stackedOn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.block.ResonanceTotemBlock::sneakLink);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentPouchHooks::onPickup);
@@ -147,6 +151,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.server.ServerStoppedEvent event) -> {
             tk.darrow.tribalpower.lattice.RelayLinks.clear();
             tk.darrow.tribalpower.world.WillowGroveStructure.clearPlans();
+            tk.darrow.tribalpower.lattice.LatticeNetwork.clearConductorLines(null);
+        });
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.level.LevelEvent.Unload event) -> {
+            if (event.getLevel() instanceof net.minecraft.world.level.Level unloaded)
+                tk.darrow.tribalpower.lattice.LatticeNetwork.clearConductorLines(unloaded);
         });
         tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
         tk.darrow.tribalpower.compat.ChocoboCompat.register();

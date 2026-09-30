@@ -150,8 +150,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
         if (element == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, pos)) return;
         var players = level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(6), p -> p.isAlive() && !p.isSpectator());
         if (players.isEmpty() || !LatticeNetwork.hasAttunement(level, pos, 8, element)
-                || LatticeNetwork.extractPulseNearby(level, pos, 8, 8, true) < 8) return;
-        LatticeNetwork.extractPulseNearby(level, pos, 8, 8, false);
+                || !LatticeNetwork.tryExtractPulseNearby(level, pos, 8, 8)) return;
         be.active = true;
         var effect = switch(element) {
             case EARTH -> MobEffects.DIG_SPEED;

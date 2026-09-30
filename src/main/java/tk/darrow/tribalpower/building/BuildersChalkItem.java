@@ -47,8 +47,9 @@ public class BuildersChalkItem extends Item {
 
     // ---- stack state -------------------------------------------------------------------------------
 
+    /** Read in place, never written through: the hologram asks for these a dozen times a frame, and copyTag() deep-copies. */
     private static CompoundTag data(ItemStack stack) {
-        return stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        return stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
     }
 
     public static BuildPattern shape(ItemStack stack) {

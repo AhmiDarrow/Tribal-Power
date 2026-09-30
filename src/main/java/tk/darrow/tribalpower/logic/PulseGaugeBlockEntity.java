@@ -34,7 +34,8 @@ public class PulseGaugeBlockEntity extends BlockEntity implements Diagnosable {
     /** Proportional level: 0 when empty, otherwise 1..15 (same curve as the comparator outputs elsewhere in the mod). */
     public static int level(@Nullable PulseHandler handler) {
         if (handler == null || handler.getPulseStored() <= 0) return 0;
-        return 1 + 14 * handler.getPulseStored() / Math.max(1, handler.getPulseCapacity());
+        // In long: the gauge faces any handler, and 14 * a large store overflows an int into a negative level.
+        return (int) Math.min(15, 1 + 14L * handler.getPulseStored() / Math.max(1, handler.getPulseCapacity()));
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, PulseGaugeBlockEntity be) {

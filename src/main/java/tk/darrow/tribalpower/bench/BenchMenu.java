@@ -142,6 +142,9 @@ public class BenchMenu extends RecipeBookMenu<CraftingInput, CraftingRecipe> {
         if (stack.isEmpty()) slot.set(ItemStack.EMPTY); else slot.setChanged();
         if (stack.getCount() == copy.getCount()) return ItemStack.EMPTY;
         slot.onTake(player, stack);
+        // Taking the result spends the grid and recomputes the result slot, so whatever did not fit is dropped
+        // rather than overwritten, as the crafting table does.
+        if (index == 0) player.drop(stack, false);
         return copy;
     }
 

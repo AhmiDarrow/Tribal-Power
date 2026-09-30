@@ -68,7 +68,10 @@ public final class WindMath {
                 if (chunk == null) continue;
                 for (BlockEntity be : chunk.getBlockEntities().values()) {
                     if (!(be instanceof WindHarpBlockEntity) || be.isRemoved()) continue;
-                    if (be.getBlockPos().closerThan(origin, CROWD_RANGE)) count++;
+                    // "within" the range the way the lattice reach is: the cube, its edge included
+                    BlockPos at = be.getBlockPos();
+                    if (Math.abs(at.getX() - origin.getX()) <= CROWD_RANGE && Math.abs(at.getY() - origin.getY()) <= CROWD_RANGE
+                            && Math.abs(at.getZ() - origin.getZ()) <= CROWD_RANGE) count++;
                 }
             }
         }

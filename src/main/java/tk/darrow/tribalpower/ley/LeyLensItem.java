@@ -71,7 +71,8 @@ public class LeyLensItem extends Item {
 
     public static int mode(ItemStack stack) {
         if (stack.isEmpty()) return LEY;
-        return Math.floorMod(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getInt("LensMode"), MODES);
+        // read in place (no deep copy): the HUD and the rope sync ask this every frame and tick
+        return Math.floorMod(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt("LensMode"), MODES);
     }
 
     public static void cycle(ItemStack stack) {

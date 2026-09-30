@@ -55,9 +55,8 @@ public class BoundEffigyItem extends Item {
         int cloth=0;for(int i=0;i<player.getInventory().getContainerSize();i++)if(player.getInventory().getItem(i).is(ModItems.SPIRITWEAVE.get()))cloth+=player.getInventory().getItem(i).getCount();
         boolean ready=!target(effigy).isEmpty()&&remaining(effigy)==0&&brazier.seal().is(ModItems.SPIRIT_SEAL.get())&&!level.hasNeighborSignal(pos)
                 &&LatticeNetwork.hasAttunement(level,pos,8,Attunement.EARTH)&&LatticeNetwork.hasAttunement(level,pos,8,Attunement.AIR)&&LatticeNetwork.hasAttunement(level,pos,8,Attunement.SPIRIT)
-                &&cloth>=3&&LatticeNetwork.extractPulseNearby(level,pos,8,200,true)>=200;
+                &&cloth>=3&&LatticeNetwork.tryExtractPulseNearby(level,pos,8,200);
         if(!ready){player.displayClientMessage(Component.translatable("message.tribalpower.effigy.need_bind"),true);return InteractionResult.FAIL;}
-        LatticeNetwork.extractPulseNearby(level,pos,8,200,false);
         int owed=3;for(int i=0;i<player.getInventory().getContainerSize()&&owed>0;i++){var item=player.getInventory().getItem(i);if(item.isEmpty()||!item.is(ModItems.SPIRITWEAVE.get()))continue;int n=Math.min(owed,item.getCount());item.shrink(n);if(item.isEmpty())player.getInventory().removeItem(item);owed-=n;}
         bind(effigy,target(effigy),MAX_USES);player.getInventory().setChanged();
         CampHooks.award((ServerLevel)level,player.getUUID(),"bind_effigy");

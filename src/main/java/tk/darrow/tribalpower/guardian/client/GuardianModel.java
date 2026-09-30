@@ -12,8 +12,22 @@ import tk.darrow.tribalpower.guardian.GuardianEntity;
  */
 public class GuardianModel extends HierarchicalModel<GuardianEntity> {
     private final ModelPart root;
+    // Parts found by name once, not by building "leg"+i and friends for every guardian every frame; null when absent.
+    private final ModelPart head, tail, jaw;
+    private final ModelPart[] legs = new ModelPart[8], arms = new ModelPart[2], wings = new ModelPart[2],
+            segs = new ModelPart[12], tendrils = new ModelPart[12];
 
-    public GuardianModel(ModelPart root) { this.root = root; }
+    public GuardianModel(ModelPart root) {
+        this.root = root;
+        head = part("head");
+        tail = part("tail");
+        jaw = part("jaw");
+        for (int i = 0; i < 8; i++) legs[i] = part("leg" + i);
+        for (int i = 0; i < 2; i++) { arms[i] = part("arm" + i); wings[i] = part("wing" + i); }
+        for (int i = 0; i < 12; i++) { segs[i] = part("seg" + i); tendrils[i] = part("tendril" + i); }
+    }
+
+    private ModelPart part(String name) { return root.hasChild(name) ? root.getChild(name) : null; }
 
     @Override public ModelPart root() { return root; }
 
@@ -22,18 +36,16 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
         root.getAllParts().forEach(ModelPart::resetPose);
         Guardian guardian = entity.guardian();
         float attack = attackPose(entity, age);
-        if (root.hasChild("head")) {
-            ModelPart head = root.getChild("head");
+        if (head != null) {
             head.yRot = yaw * Mth.DEG_TO_RAD;
             head.xRot = pitch * Mth.DEG_TO_RAD + (guardian.ability == Guardian.Ability.CHARGE ? attack * 0.6F : 0);
         }
-        for (int i = 0; i < 8; i++) if (root.hasChild("leg" + i)) {
-            ModelPart leg = root.getChild("leg" + i);
-            leg.xRot = Mth.cos(swing * 0.6662F + (i % 2 == 0 ? Mth.PI : 0) + (i / 2) * 0.4F) * amount * 0.8F;
+        for (int i = 0; i < 8; i++) if (legs[i] != null) {
+            legs[i].xRot = Mth.cos(swing * 0.6662F + (i % 2 == 0 ? Mth.PI : 0) + (i / 2) * 0.4F) * amount * 0.8F;
         }
         for (int i = 0; i < 2; i++) {
-            if (root.hasChild("arm" + i)) {
-                ModelPart arm = root.getChild("arm" + i);
+            ModelPart arm = arms[i];
+            if (arm != null) {
                 arm.xRot = Mth.cos(swing * 0.6662F + i * Mth.PI) * amount * 0.5F;
                 switch (guardian.ability) {
                     case SLAM -> arm.xRot -= attack * 2.4F;
@@ -42,27 +54,26 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
                     default -> {}
                 }
             }
-            if (root.hasChild("wing" + i)) {
-                ModelPart wing = root.getChild("wing" + i);
+            ModelPart wing = wings[i];
+            if (wing != null) {
                 float flap = Mth.sin(age * 0.5F) * 0.7F * (i == 0 ? 1 : -1);
                 wing.zRot = guardian.flying ? flap - attack * 0.9F * (i == 0 ? 1 : -1) : Mth.sin(age * 0.2F) * 0.15F * (i == 0 ? 1 : -1);
             }
         }
         for (int i = 0; i < 12; i++) {
-            if (root.hasChild("seg" + i)) {
-                ModelPart seg = root.getChild("seg" + i);
-                seg.yRot = Mth.sin(age * 0.14F - i * 0.5F) * 0.25F + Mth.sin(swing * 0.6F - i * 0.5F) * amount * 0.35F;
+            if (segs[i] != null) {
+                segs[i].yRot = Mth.sin(age * 0.14F - i * 0.5F) * 0.25F + Mth.sin(swing * 0.6F - i * 0.5F) * amount * 0.35F;
             }
-            if (root.hasChild("tendril" + i)) {
-                ModelPart t = root.getChild("tendril" + i);
+            ModelPart t = tendrils[i];
+            if (t != null) {
                 t.xRot = Mth.cos(age * 0.1F + i * 0.7F) * 0.25F - attack * 0.8F;
                 t.zRot = Mth.sin(age * 0.08F + i * 0.9F) * 0.25F;
             }
         }
-        if (root.hasChild("tail")) root.getChild("tail").yRot = Mth.sin(age * 0.1F) * 0.2F;
-        if (root.hasChild("jaw")) root.getChild("jaw").xRot = attack * 0.5F + Mth.sin(age * 0.07F) * 0.05F;
+        if (tail != null) tail.yRot = Mth.sin(age * 0.1F) * 0.2F;
+        if (jaw != null) jaw.xRot = attack * 0.5F + Mth.sin(age * 0.07F) * 0.05F;
         if (guardian.flying) root.y = Mth.sin(age * 0.1F) * 1.6F;
-        if (guardian.ability == Guardian.Ability.FROST && root.hasChild("head")) root.getChild("head").xRot += attack * 0.4F;
+        if (guardian.ability == Guardian.Ability.FROST && head != null) head.xRot += attack * 0.4F;
         if (entity.isWarded()) root.y -= 1.5F;
         root.xScale = root.yScale = root.zScale = guardian.scale;
         root.y -= (guardian.scale - 1) * 24F;
@@ -73,7 +84,8 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
         long now = entity.level().getGameTime();
         int at = entity.attackTime();
         if (at == 0) return 0;
-        float since = (now - at) + (age % 1F);
+        // int arithmetic on both sides, as the stamp was cut to an int, so a game time past 2^31 still lines up
+        float since = ((int) now - at) + (age % 1F);
         return since < 0 || since > 12 ? 0 : 1 - since / 12F;
     }
 }

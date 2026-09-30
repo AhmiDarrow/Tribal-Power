@@ -55,15 +55,20 @@ public class TotemWrenchItem extends Item {
         }
 
         BlockState state = level.getBlockState(pos);
-        // A bed, a double chest or a door is two blocks that must face together; turning one half tears them apart.
+        // A bed, a double chest, a door or a tall plant is two blocks that must face together, and an extended piston
+        // is a base and its head (or one mid-push); turning one half tears them apart.
         if (state.hasProperty(BlockStateProperties.BED_PART) || state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)
                 || state.hasProperty(BlockStateProperties.CHEST_TYPE)
-                && state.getValue(BlockStateProperties.CHEST_TYPE) != net.minecraft.world.level.block.state.properties.ChestType.SINGLE) {
+                && state.getValue(BlockStateProperties.CHEST_TYPE) != net.minecraft.world.level.block.state.properties.ChestType.SINGLE
+                || state.hasProperty(BlockStateProperties.EXTENDED) && state.getValue(BlockStateProperties.EXTENDED)
+                || state.getBlock() instanceof net.minecraft.world.level.block.piston.PistonHeadBlock
+                || state.getBlock() instanceof net.minecraft.world.level.block.piston.MovingPistonBlock) {
             player.displayClientMessage(Component.translatable("message.tribalpower.wrench.fixed"), true);
             return InteractionResult.FAIL;
         }
         BlockState turned = turn(state, level, pos, face);
-        if (turned == null || turned == state) {
+        // a torch, lever or ladder turned off its wall would only fall off it
+        if (turned == null || turned == state || !turned.canSurvive(level, pos)) {
             player.displayClientMessage(Component.translatable("message.tribalpower.wrench.fixed"), true);
             return InteractionResult.FAIL;
         }
@@ -81,7 +86,9 @@ public class TotemWrenchItem extends Item {
             for (int step = 1; step <= 6; step++) {
                 Direction next = Direction.from3DDataValue((current.get3DDataValue() + step) % 6);
                 if (!property.getPossibleValues().contains(next)) continue;
-                return state.setValue(property, next);
+                // skip a way it could not hang, so a wall torch steps round to the next wall that holds it
+                BlockState candidate = state.setValue(property, next);
+                if (candidate.canSurvive(level, pos)) return candidate;
             }
             return state;
         }

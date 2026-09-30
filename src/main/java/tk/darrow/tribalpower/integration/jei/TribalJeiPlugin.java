@@ -26,6 +26,7 @@ import tk.darrow.tribalpower.bench.BenchRegistry;
 import tk.darrow.tribalpower.client.BenchScreen;
 import tk.darrow.tribalpower.client.SpiritCodexScreen;
 import tk.darrow.tribalpower.echo.LatticeRecipe;
+import tk.darrow.tribalpower.integration.ViewerText;
 import tk.darrow.tribalpower.item.ModItems;
 
 import java.util.Optional;
@@ -143,12 +144,17 @@ public class TribalJeiPlugin implements IModPlugin {
     }
     private static class Category implements IRecipeCategory<LatticeRecipe> {
         private final IDrawable icon;
-        Category(IGuiHelper gui) { icon=gui.createDrawableItemLike(ModItems.ECHO_SHATTER.get()); }
+        private final int height;
+        Category(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(ModItems.ECHO_SHATTER.get());
+            // Tall enough for the widest cost a recipe file can hold: 300 seconds at 1000 Pulse a second.
+            height=66+ViewerText.LINE*ViewerText.lines(ViewerText.recipeCost(300,300*1000),157);
+        }
         @Override public RecipeType<LatticeRecipe> getRecipeType() { return TYPE; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.lattice_recipes"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 160; }
-        @Override public int getHeight() { return 76; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,LatticeRecipe recipe,IFocusGroup focus) {
             builder.addInputSlot(20,23).addIngredients(recipe.ingredient());
             builder.addOutputSlot(121,23).addItemStack(recipe.output());
@@ -164,18 +170,23 @@ public class TribalJeiPlugin implements IModPlugin {
             g.drawString(font,Component.translatable("block.tribalpower."+recipe.station()),3,2,0xFF526A61,false);
             g.fill(46,29,107,33,0xFF438F80);g.drawString(font,">",108,27,0xFF997445,false);
             g.drawString(font,Component.translatable("attunement.tribalpower."+recipe.attunement().getSerializedName()),3,48,0xFF526A61,false);
-            g.drawString(font,Component.translatable("gui.tribalpower.recipe_cost",recipe.seconds(),recipe.seconds()*recipe.pulse()),3,63,0xFF526A61,false);
+            ViewerText.draw(g,ViewerText.recipeCost(recipe.seconds(),recipe.seconds()*recipe.pulse()),3,63,157,0xFF526A61);
         }
     }
     /** Reagents of the remedy's Note, a herb and the form's base, brewed into the remedy. */
     private static class KettleCategory implements IRecipeCategory<KettleBrew> {
         private final IDrawable icon;
-        KettleCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_KETTLE_ITEM.get()); }
+        private final int height;
+        KettleCategory(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_KETTLE_ITEM.get());
+            height=50+ViewerText.LINE*ViewerText.lines(cost(),122);
+        }
+        private static Component cost() { return ViewerText.recipeCost(tk.darrow.tribalpower.config.TribalConfig.kettleSeconds(),tk.darrow.tribalpower.config.TribalConfig.kettlePulse()); }
         @Override public RecipeType<KettleBrew> getRecipeType() { return KETTLE; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.kettle_recipes"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 150; }
-        @Override public int getHeight() { return 60; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,KettleBrew brew,IFocusGroup focus) {
             var reagents=tk.darrow.tribalpower.song.Reagents.byNote().getOrDefault(brew.remedy().note,java.util.List.of());
             builder.addInputSlot(4,4).addItemStacks(reagents.stream().map(p->new ItemStack(tk.darrow.tribalpower.song.Reagents.item(p))).toList());
@@ -189,19 +200,23 @@ public class TribalJeiPlugin implements IModPlugin {
             var font=Minecraft.getInstance().font;
             g.fill(28,28,84,32,0xFF438F80);g.drawString(font,">",85,26,0xFF997445,false);
             g.drawString(font,Component.translatable("remedy.tribalpower."+brew.remedy().id()),28,6,0xFF526A61,false);
-            g.drawString(font,Component.translatable("gui.tribalpower.recipe_cost",tk.darrow.tribalpower.config.TribalConfig.kettleSeconds(),
-                    tk.darrow.tribalpower.config.TribalConfig.kettlePulse()),28,46,0xFF526A61,false);
+            ViewerText.draw(g,cost(),28,46,122,0xFF526A61);
         }
     }
     /** Up to four ingredients and a bowl, simmered into a meal. */
     private static class HearthCategory implements IRecipeCategory<tk.darrow.tribalpower.cuisine.HearthRecipe> {
         private final IDrawable icon;
-        HearthCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_ITEM.get()); }
+        private final int height;
+        HearthCategory(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_ITEM.get());
+            // Room for a three-figure simmer, longer than any meal takes.
+            height=44+ViewerText.LINE*ViewerText.lines(ViewerText.hearthSeconds(999),80);
+        }
         @Override public RecipeType<tk.darrow.tribalpower.cuisine.HearthRecipe> getRecipeType() { return HEARTH; }
         @Override public Component getTitle() { return Component.translatable("block.tribalpower.hearth_pot"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 150; }
-        @Override public int getHeight() { return 54; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.cuisine.HearthRecipe recipe,IFocusGroup focus) {
             for (int i=0;i<recipe.ingredients().size();i++) builder.addInputSlot(4+(i%2)*18,4+(i/2)*18).addIngredients(recipe.ingredients().get(i));
             recipe.container().ifPresent(c -> builder.addInputSlot(48,22).addIngredients(c));
@@ -210,66 +225,89 @@ public class TribalJeiPlugin implements IModPlugin {
         @Override public void draw(tk.darrow.tribalpower.cuisine.HearthRecipe recipe,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
             var font=Minecraft.getInstance().font;
             g.fill(72,28,112,32,0xFF438F80);g.drawString(font,">",113,26,0xFF997445,false);
-            g.drawString(font,Component.translatable("gui.tribalpower.hearth_pot.seconds",recipe.seconds()),70,40,0xFF526A61,false);
+            ViewerText.draw(g,ViewerText.hearthSeconds(recipe.seconds()),70,40,80,0xFF526A61);
         }
     }
     /** A world rite: its tablet and the seal its circle wants, and the Pulse it draws. */
     private static class RiteCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Rite> {
         private final IDrawable icon;
-        RiteCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(ModItems.LOOM_SEAL.get()); }
+        private final int height;
+        RiteCategory(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(ModItems.LOOM_SEAL.get());
+            int tallest=0;
+            for (var rite : tk.darrow.tribalpower.rite.world.WorldRite.values())
+                tallest=Math.max(tallest,Math.max(10+ViewerText.LINE*ViewerText.lines(ViewerText.riteName(rite),112),34)+ViewerText.LINE*ViewerText.lines(ViewerText.riteCircle(rite),152));
+            height=tallest+4;
+        }
         @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Rite> getRecipeType() { return RITE; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.rite_recipes"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 160; }
-        @Override public int getHeight() { return 44; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Rite rite,IFocusGroup focus) {
             builder.addInputSlot(4,14).addItemStack(rite.tablet());
             builder.addInputSlot(24,14).addItemStack(rite.seal());
         }
         @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Rite rite,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
-            var font=Minecraft.getInstance().font;
-            g.drawString(font,Component.translatable("item.tribalpower."+rite.rite().tabletId()),48,6,0xFF526A61,false);
-            g.drawString(font,Component.translatable("gui.tribalpower.rite.circle",Component.translatable("attunement.tribalpower."+rite.rite().element().getSerializedName()),rite.cost()),48,22,0xFF526A61,false);
+            int y=ViewerText.draw(g,ViewerText.riteName(rite.rite()),48,6,112,0xFF526A61);
+            // The circle's cost runs wider than the room beside the slots, so it sits under them, full width.
+            ViewerText.draw(g,ViewerText.riteCircle(rite.rite()),4,Math.max(y+4,34),152,0xFF526A61);
         }
     }
     /** A guardian's call: the reagents laid on its altar, and what rises. */
     private static class CallCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Call> {
         private final IDrawable icon;
-        CallCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(tk.darrow.tribalpower.guardian.GuardianRegistry.ALTAR_ITEM.get()); }
+        private final int height;
+        CallCategory(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(tk.darrow.tribalpower.guardian.GuardianRegistry.ALTAR_ITEM.get());
+            int lines=0;
+            for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
+                lines=Math.max(lines,ViewerText.lines(ViewerText.guardianName(guardian),152)+ViewerText.lines(ViewerText.guardianBiome(guardian),152));
+            height=28+ViewerText.LINE*lines;
+        }
         @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Call> getRecipeType() { return CALL; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.altar_recipes"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 160; }
-        @Override public int getHeight() { return 44; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Call call,IFocusGroup focus) {
-            builder.addInputSlot(4,14).addItemStack(call.reagents());
-            builder.addInputSlot(24,14).addItemStack(call.altar());
-            builder.addOutputSlot(82,14).addItemStack(call.rises());
+            builder.addInputSlot(4,4).addItemStack(call.reagents());
+            builder.addInputSlot(24,4).addItemStack(call.altar());
+            builder.addOutputSlot(82,4).addItemStack(call.rises());
         }
         @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Call call,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
             var font=Minecraft.getInstance().font;
-            g.fill(48,20,76,24,0xFF438F80);g.drawString(font,">",77,18,0xFF997445,false);
-            g.drawString(font,Component.translatable(call.guardian().nameKey()),104,6,0xFF526A61,false);
-            g.drawString(font,Component.translatable("biome.tribalpower."+call.guardian().biome),104,22,0xFF526A61,false);
+            g.fill(48,10,76,14,0xFF438F80);g.drawString(font,">",77,8,0xFF997445,false);
+            // Guardian and biome names run wider than the room beside the egg, so they sit under the row, full width.
+            int y=ViewerText.draw(g,ViewerText.guardianName(call.guardian()),4,26,152,0xFF526A61);
+            ViewerText.draw(g,ViewerText.guardianBiome(call.guardian()),4,y,152,0xFF526A61);
         }
     }
     /** An anointment: reagents of one Note worked into a weapon at the Song Bench. */
     private static class AnointCategory implements IRecipeCategory<tk.darrow.tribalpower.integration.CompatDisplays.Anoint> {
         private final IDrawable icon;
-        AnointCategory(IGuiHelper gui) { icon=gui.createDrawableItemLike(ModItems.SPIRITGEAR_BLADE.get()); }
+        private final int height;
+        AnointCategory(IGuiHelper gui) {
+            icon=gui.createDrawableItemLike(ModItems.SPIRITGEAR_BLADE.get());
+            int tallest=0;
+            for (var anointment : tk.darrow.tribalpower.song.Anointment.values())
+                tallest=Math.max(tallest,Math.max(10+ViewerText.LINE*ViewerText.lines(ViewerText.anointName(anointment),112),34)+ViewerText.LINE*ViewerText.lines(cost(),152));
+            height=tallest+4;
+        }
+        private static Component cost() { return ViewerText.anointCost(tk.darrow.tribalpower.config.TribalConfig.anointReagentCost(),tk.darrow.tribalpower.config.TribalConfig.anointPulseCost()); }
         @Override public RecipeType<tk.darrow.tribalpower.integration.CompatDisplays.Anoint> getRecipeType() { return ANOINT; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.anoint_recipes"); }
         @Override public IDrawable getIcon() { return icon; }
         @Override public int getWidth() { return 160; }
-        @Override public int getHeight() { return 44; }
+        @Override public int getHeight() { return height; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,tk.darrow.tribalpower.integration.CompatDisplays.Anoint anoint,IFocusGroup focus) {
             builder.addInputSlot(4,14).addItemStacks(anoint.reagents());
             builder.addInputSlot(24,14).addItemStacks(anoint.weapons());
         }
         @Override public void draw(tk.darrow.tribalpower.integration.CompatDisplays.Anoint anoint,IRecipeSlotsView slots,GuiGraphics g,double mouseX,double mouseY) {
-            var font=Minecraft.getInstance().font;
-            g.drawString(font,Component.translatable(tk.darrow.tribalpower.integration.CompatDisplays.anointmentKey(anoint.anointment())),48,6,0xFF526A61,false);
-            g.drawString(font,Component.translatable("gui.tribalpower.anoint.cost",tk.darrow.tribalpower.config.TribalConfig.anointReagentCost(),tk.darrow.tribalpower.config.TribalConfig.anointPulseCost()),48,22,0xFF526A61,false);
+            int y=ViewerText.draw(g,ViewerText.anointName(anoint.anointment()),48,6,112,0xFF526A61);
+            // The cost runs wider than the room beside the slots, so it sits under them, full width.
+            ViewerText.draw(g,cost(),4,Math.max(y+4,34),152,0xFF526A61);
         }
     }
     private record BookGui(Class<? extends Screen> screenClass, int guiLeft, int guiTop, int guiXSize, int guiYSize,

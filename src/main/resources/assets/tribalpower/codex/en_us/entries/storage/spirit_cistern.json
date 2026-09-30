@@ -16,7 +16,7 @@
       "title": "Filling and reading it",
       "text": [
         "Right-click it with a bucket to fill or empty it. Right-click with an empty hand to read the fluid and amount.",
-        "Standard fluid pipes, a Tide Pump or a fluid relay can fill and drain it. A second fluid will not go in until the tank is empty.",
+        "Standard fluid pipes, a Tide Pump or a Fluid Relay can fill and drain it. A second fluid will not go in until the tank is empty.",
         "A comparator facing away from it reads **0** when empty, then **1 to 15** as it fills.",
         "Crouch and right-click a face with an empty hand to set that face: Both, Input, Output or Closed. Touching Tribal Power machines move up to **250 mB** a second across a giving face into a taking one."
       ]

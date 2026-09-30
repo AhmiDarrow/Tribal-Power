@@ -31,7 +31,8 @@ public final class GearCell {
 
     /** The seated cell's item, or null. */
     public static Item cell(ItemStack gear) {
-        String id = gear.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString(CELL);
+        // read in place (no deep copy): the HUD asks this every frame
+        String id = gear.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getString(CELL);
         if (id.isEmpty()) return null;
         var key = ResourceLocation.tryParse(id);
         return key != null && BuiltInRegistries.ITEM.containsKey(key) && BuiltInRegistries.ITEM.get(key) instanceof PulseCellItem cell ? cell : null;
@@ -43,7 +44,7 @@ public final class GearCell {
     }
 
     public static int pulse(ItemStack gear) {
-        return Math.clamp(gear.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getInt(PULSE), 0, capacity(gear));
+        return Math.clamp(gear.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt(PULSE), 0, capacity(gear));
     }
 
     private static void set(ItemStack gear, Item cell, int pulse) {
@@ -185,6 +186,11 @@ public final class GearCell {
         if (damaged == null || !damaged.gear().isEmpty() || event.getStat().getValue() != damaged.item()) return;
         DAMAGED.remove(player.getUUID());
         SpiritgearHelper.give(player, damaged.cell());
+    }
+
+    /** A player who leaves takes nothing still to break with them: drop their remembered piece. */
+    public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        DAMAGED.remove(event.getEntity().getUUID());
     }
 
     public static void tooltip(net.neoforged.neoforge.event.entity.player.ItemTooltipEvent event) {

@@ -17,6 +17,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.NetherWartBlock;
@@ -140,11 +141,12 @@ public class SpiritgearHoeItem extends HoeItem {
     private static void reap(ServerLevel level, Player player, ItemStack tool, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         ItemStack seed = state.getBlock().getCloneItemStack(level, pos, state);
-        boolean kept = seed.isEmpty();
+        // the plant goes back only when one of its own seeds came out of the harvest to sow
+        boolean kept = false;
         boolean bounty = SpiritGear.voice(tool).orElse(null) == Attunement.SPIRIT
                 && SpiritGear.chance(level.random, tool, 0.25F);
         for (ItemStack drop : Block.getDrops(state, level, pos, null, player, tool)) {
-            if (!kept && ItemStack.isSameItem(drop, seed)) {
+            if (!kept && !seed.isEmpty() && ItemStack.isSameItem(drop, seed)) {
                 drop.shrink(1);
                 kept = true;
             }
@@ -152,7 +154,7 @@ public class SpiritgearHoeItem extends HoeItem {
             if (bounty && !ItemStack.isSameItem(drop, seed)) drop.grow(drop.getCount());
             Block.popResource(level, pos, drop);
         }
-        level.setBlockAndUpdate(pos, state.getBlock().defaultBlockState());
+        level.setBlockAndUpdate(pos, kept ? state.getBlock().defaultBlockState() : Blocks.AIR.defaultBlockState());
     }
 
     /** Wet every furrow in range — the Water voice never lets its fields dry out. */

@@ -44,6 +44,7 @@ import tk.darrow.tribalpower.integration.jei.CodexJeiLinks;
 public final class SpiritCodexScreen extends Screen {
     private static final int INK = 0xFF101C27, TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, DIM = 0xFF9CB8B9;
     private static final int SCENE_H = 118;
+    private static final ResourceLocation ATLAS = ResourceLocation.parse("tribalpower:textures/gui/codex/quest_atlas.png");
 
     private enum View { LANDING, CATEGORY, ENTRY, SEARCH, BOOKMARKS, ITEM }
 
@@ -133,8 +134,19 @@ public final class SpiritCodexScreen extends Screen {
         if (linkedBook != book()) {
             linkedBook = book();
             linker = CodexText.Linker.of(linkedBook);
+            laidOut.clear();
         }
         return linker.from(view == View.ENTRY ? entry : "");
+    }
+
+    private record TextKey(String text, int width, String self) {}
+
+    /** Text drawn every frame keeps its layout: laying it out runs the mention pattern over it each time. */
+    private final Map<TextKey, List<CodexText.Line>> laidOut = new HashMap<>();
+
+    private List<CodexText.Line> lines(String text, int width) {
+        CodexText.Linker by = linker();
+        return laidOut.computeIfAbsent(new TextKey(text, width, by.self()), k -> CodexText.layout(font, text, width, by));
     }
 
     private double time() {
@@ -145,6 +157,7 @@ public final class SpiritCodexScreen extends Screen {
 
     @Override
     protected void init() {
+        laidOut.clear();
         bookWidth = Math.min(width - 12, 760);
         bookHeight = Math.min(height - 12, 440);
         left = (width - bookWidth) / 2;
@@ -371,7 +384,7 @@ public final class SpiritCodexScreen extends Screen {
     @Override
     public void render(GuiGraphics g, int mx, int my, float partial) {
         renderBackground(g, mx, my, partial);
-        g.blit(ResourceLocation.parse("tribalpower:textures/gui/codex/quest_atlas.png"), left, top, bookWidth, bookHeight, 0F, 0F, 1536, 1024, 1536, 1024);
+        g.blit(ATLAS, left, top, bookWidth, bookHeight, 0F, 0F, 1536, 1024, 1536, 1024);
         g.fill(leftX - 6, pageY - 6, leftX + pageWidth + 6, pageY + pageHeight + 6, 0xDD101C27);
         g.fill(rightX - 6, pageY - 6, rightX + pageWidth + 6, pageY + pageHeight + 6, 0xDD101C27);
         g.drawString(font, Component.literal(book().title()), left + 18, top + 14, GOLD, false);
@@ -398,7 +411,7 @@ public final class SpiritCodexScreen extends Screen {
     }
 
     private int paragraph(GuiGraphics g, String text, int x, int y) {
-        List<CodexText.Line> lines = CodexText.layout(font, text, pageWidth - 8, linker());
+        List<CodexText.Line> lines = lines(text, pageWidth - 8);
         links.addAll(CodexText.draw(g, font, lines, x, y));
         return y + CodexText.height(lines);
     }
@@ -614,7 +627,8 @@ public final class SpiritCodexScreen extends Screen {
         var surge = state.surge();
         g.drawString(font, surge == null ? Component.translatable("gui.tribalpower.codex.events.no_surge")
                 : Component.translatable("gui.tribalpower.codex.events.surge", Component.translatable("attunement.tribalpower." + surge.getSerializedName()),
-                        state.surgeSecondsLeft(minecraft.level == null ? 0 : minecraft.level.getGameTime()) / 60),
+                        // rounded up: the last minute of a surge reads "about 1 minute", not "about 0"
+                        (state.surgeSecondsLeft(minecraft.level == null ? 0 : minecraft.level.getGameTime()) + 59) / 60),
                 x + 4, y + 22, surge == null ? DIM : GOLD, false);
         var festival = state.festival();
         g.drawString(font, festival == null ? Component.translatable("gui.tribalpower.codex.events.no_festival")
@@ -662,10 +676,11 @@ public final class SpiritCodexScreen extends Screen {
         Area drag = new Area(x, y, w, SCENE_H, () -> {});
         areas.add(new Area(x, y, w, SCENE_H, () -> { dragging = drag; dragPage = page; }));
         int cy = y + SCENE_H + 4;
-        List<CodexText.Line> caption = CodexText.layout(font, steps.get(step).caption(), w, linker());
+        List<CodexText.Line> caption = lines(steps.get(step).caption(), w);
         int ch = 0;
         for (CodexText.Line line : caption) {
-            if (ch >= 34) break;
+            // a line must end above the step controls, which sit 34 below the caption's top
+            if (ch + 9 > 34) break;
             links.addAll(CodexText.draw(g, font, List.of(line), x, cy + ch));
             ch += 11;
         }
@@ -741,12 +756,21 @@ public final class SpiritCodexScreen extends Screen {
             kind = Component.translatable("gui.tribalpower.codex.lattice_kind",
                     Component.translatable("block.tribalpower." + lattice.station()),
                     Component.translatable("attunement.tribalpower." + lattice.attunement().getSerializedName()));
-            g.drawString(font, Component.translatable("gui.tribalpower.codex.lattice_base", lattice.seconds(), lattice.pulse(), lattice.seconds() * lattice.pulse()), x, y + 70, DIM, false);
+            // wider than a narrow page: wrap onto a second line rather than run off it, both under the grid and
+            // above the recipe counter (80 below here) that sits in the same corner of the box
+            List<FormattedCharSequence> base = font.split(Component.translatable("gui.tribalpower.codex.lattice_base", lattice.seconds(), lattice.pulse(),
+                    lattice.seconds() * lattice.pulse()), w);
+            for (int i = 0; i < Math.min(2, base.size()); i++) g.drawString(font, base.get(i), x, y + 60 + i * 10, DIM, false);
         } else if (recipe instanceof ShapedRecipe) kind = Component.translatable("gui.tribalpower.codex.shaped");
         else if (recipe instanceof ShapelessRecipe) kind = Component.translatable("gui.tribalpower.codex.shapeless");
         else kind = Component.literal(String.valueOf(BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType())));
-        for (FormattedCharSequence line : font.split(kind, w - (resultX - x) - 24))
-            g.drawString(font, line, resultX + 24, y + 18, TEAL, false);
+        // one line under the next, stopping above the lattice base line
+        int ky = y + 18;
+        for (FormattedCharSequence line : font.split(kind, Math.max(24, w - (resultX - x) - 24))) {
+            if (ky > y + 48) break;
+            g.drawString(font, line, resultX + 24, ky, TEAL, false);
+            ky += 10;
+        }
     }
 
     private void itemView(GuiGraphics g) {

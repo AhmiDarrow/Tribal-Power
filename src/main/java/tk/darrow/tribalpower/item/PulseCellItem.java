@@ -33,7 +33,8 @@ public class PulseCellItem extends Item {
 
     public static int getPulse(ItemStack stack) {
         CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        return Mth.clamp(data.copyTag().getInt(PULSE_KEY), 0, capacity(stack));
+        // Read in place: this runs for every carried cell on every upkeep and every HUD frame, and copyTag() deep-copies.
+        return Mth.clamp(data.getUnsafe().getInt(PULSE_KEY), 0, capacity(stack));
     }
 
     public static void setPulse(ItemStack stack, int amount) {

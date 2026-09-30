@@ -25,7 +25,7 @@ public class RecipeSealItem extends Item {
 
     public static ResourceLocation recipeId(ItemStack stack) {
         if (stack.isEmpty() || !(stack.getItem() instanceof RecipeSealItem)) return null;
-        String id = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString(KEY);
+        String id = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getString(KEY);   // read in place, no deep copy
         return id.isEmpty() ? null : ResourceLocation.tryParse(id);
     }
 

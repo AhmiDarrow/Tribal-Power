@@ -69,7 +69,8 @@ public class DialogueScreen extends Screen {
         g.fill(x + 7, y + 7, x + w - 7, y + h - 7, PAPER);
         g.drawCenteredString(font, title, x + w / 2, y + 12, 0xFF000000 | tribe.colour());
         g.fill(x + 24, y + 23, x + w - 24, y + 24, GOLD);
-        int ly = y + 30, limit = y + h - 14 - choices.size() * rowPitch();
+        // the last line drawn must end above the first answer button (y + h - 10 - its rows), not run under it
+        int ly = y + 30, limit = y + h - 19 - choices.size() * rowPitch();
         for (String key : open.lines()) {
             for (FormattedCharSequence line : font.split(Component.translatable(key), w - 32)) {
                 if (ly > limit) break;

@@ -112,9 +112,9 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
     public static @Nullable Attunement voice(Level level, BlockPos pos) {
         Attunement best = null;
         double bestDistance = Double.MAX_VALUE;
-        for (BlockEntity be : LatticeNetwork.blockEntitiesAround(level, pos, LatticeNetwork.DEFAULT_RADIUS)) {
-            if (!(be instanceof ResonanceTotemBlockEntity totem)) continue;
-            double distance = be.getBlockPos().distSqr(pos);
+        // Only totems are gathered and sorted, not every block entity in reach; same cube, same order, same pick.
+        for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS)) {
+            double distance = totem.getBlockPos().distSqr(pos);
             if (distance < bestDistance) {
                 bestDistance = distance;
                 best = totem.getAttunement();
@@ -154,8 +154,7 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
             if (progress < TribalConfig.kettleSeconds()) return BREWING;
         }
         int price = TribalConfig.kettlePulse();
-        if (price > 0 && LatticeNetwork.extractPulseNearby(level, worldPosition, LatticeNetwork.DEFAULT_RADIUS, price, true) < price) return NO_PULSE;
-        if (price > 0) LatticeNetwork.extractPulseNearby(level, worldPosition, LatticeNetwork.DEFAULT_RADIUS, price, false);
+        if (price > 0 && !LatticeNetwork.tryExtractPulseNearby(level, worldPosition, LatticeNetwork.DEFAULT_RADIUS, price)) return NO_PULSE;
         finish(made);
         level.playSound(null, worldPosition, net.minecraft.sounds.SoundEvents.BREWING_STAND_BREW, net.minecraft.sounds.SoundSource.BLOCKS, 0.8F, 0.8F);
         return BREWING;

@@ -136,6 +136,7 @@ public class SongkeeperScreen extends Screen {
     /** Up and down step through the songs the list shows, skipping any whose mod is not here. */
     private void step(int by) {
         List<Songbook.Song> shown = Songbook.available();
+        if (shown.isEmpty()) return;
         int at = 0;
         for (int i = 0; i < shown.size(); i++) if (shown.get(i).index() == selected) at = i;
         select(shown.get(Mth.clamp(at + by, 0, shown.size() - 1)).index());
@@ -187,7 +188,11 @@ public class SongkeeperScreen extends Screen {
                 int h = row instanceof String ? HEADER : ROW;
                 if (row instanceof Songbook.Song s && mouseY >= y && mouseY < y + h) {
                     long now = System.currentTimeMillis();
-                    if (lastClicked == s.index() && now - lastClick < 350) play();
+                    if (lastClicked == s.index() && now - lastClick < 350) {
+                        // the screen is closing: asking for this song's board now would only waste a packet
+                        play();
+                        return true;
+                    }
                     lastClick = now;
                     lastClicked = s.index();
                     select(s.index());
@@ -229,12 +234,15 @@ public class SongkeeperScreen extends Screen {
         return String.format("%d:%02d", s / 60, s % 60);
     }
 
+    // The server sized these by its own song list; a server a version behind has fewer songs, so read past the end as unplayed.
     private int best(int song, Difficulty d) {
-        return browse.bests()[song * 4 + d.ordinal()];
+        int slot = song * 4 + d.ordinal();
+        return slot >= 0 && slot < browse.bests().length ? browse.bests()[slot] : 0;
     }
 
     private int starsOf(int song, Difficulty d) {
-        return browse.stars()[song * 4 + d.ordinal()];
+        int slot = song * 4 + d.ordinal();
+        return slot >= 0 && slot < browse.stars().length ? browse.stars()[slot] : -1;
     }
 
     private void stars(GuiGraphics g, int x, int y, int packed) {

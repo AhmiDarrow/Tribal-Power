@@ -36,6 +36,12 @@ public final class LatticeNetwork {
      */
     public static final int MAX_CONDUCTOR_CHAIN = 64;
 
+    /** The x, y, z order a walk of the cube met block entities in. Built once: every draw sorts by it, often twice. */
+    private static final java.util.Comparator<BlockEntity> CUBE_ORDER = java.util.Comparator
+            .comparingInt((BlockEntity be) -> be.getBlockPos().getX())
+            .thenComparingInt(be -> be.getBlockPos().getY())
+            .thenComparingInt(be -> be.getBlockPos().getZ());
+
     private LatticeNetwork() {}
 
     public static boolean canLink(BlockPos from, BlockPos to) {
@@ -82,9 +88,7 @@ public final class LatticeNetwork {
             }
         }
         if (found.size() > 1)
-            found.sort(java.util.Comparator.comparingInt((T be) -> be.getBlockPos().getX())
-                    .thenComparingInt(be -> be.getBlockPos().getY())
-                    .thenComparingInt(be -> be.getBlockPos().getZ()));
+            found.sort(CUBE_ORDER);
         return found;
     }
 
@@ -105,9 +109,64 @@ public final class LatticeNetwork {
 
     /** Resonance Totems of {@code voice} that {@link #collectAttunements} would count: nearby, plus chalk-linked within {@link #LINK_RANGE}. */
     public static List<ResonanceTotemBlockEntity> findVoiceTotems(Level level, BlockPos origin, int radius, Attunement voice) {
+        return voiceTotems(level, origin, findNearbyTotems(level, origin, radius), voice);
+    }
+
+    /**
+     * The Resonance and Kinship Totems around one spot, found in a single walk for a machine beat that asks about
+     * them several times (voice present, keeping, feeding). Answers match the one-off lookups they stand in for;
+     * a totem's own state (keeping, stored Pulse) is still read live each time.
+     */
+    public record TotemsNear(Level level, BlockPos origin, List<ResonanceTotemBlockEntity> totems,
+                             List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> kinship) {
+        public static TotemsNear of(Level level, BlockPos origin, int radius) {
+            List<ResonanceTotemBlockEntity> totems = new ArrayList<>();
+            List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> kinship = new ArrayList<>();
+            int minY = origin.getY() - radius, maxY = origin.getY() + radius;
+            int minX = origin.getX() - radius, maxX = origin.getX() + radius;
+            int minZ = origin.getZ() - radius, maxZ = origin.getZ() + radius;
+            for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
+                for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                    net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                    if (chunk == null) continue;
+                    for (BlockEntity be : chunk.getBlockEntities().values()) {
+                        if (be.isRemoved() || !(be instanceof ResonanceTotemBlockEntity
+                                || be instanceof tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity)) continue;
+                        BlockPos p = be.getBlockPos();
+                        if (p.getX() < minX || p.getX() > maxX || p.getY() < minY || p.getY() > maxY || p.getZ() < minZ || p.getZ() > maxZ) continue;
+                        if (be instanceof ResonanceTotemBlockEntity totem) {
+                            if (!p.equals(origin)) totems.add(totem);
+                        } else {
+                            kinship.add((tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity) be);
+                        }
+                    }
+                }
+            }
+            if (totems.size() > 1) totems.sort(CUBE_ORDER);
+            return new TotemsNear(level, origin, totems, kinship);
+        }
+
+        /** As {@link #collectAttunements}. */
+        public Set<Attunement> attunements() {
+            return attunementsOf(level, origin, totems, kinship);
+        }
+
+        /** As {@link #hasAttunement}. */
+        public boolean has(Attunement needed) {
+            return attunements().contains(needed);
+        }
+
+        /** As {@link #findVoiceTotems}. */
+        public List<ResonanceTotemBlockEntity> voice(Attunement voice) {
+            return voiceTotems(level, origin, totems, voice);
+        }
+    }
+
+    private static List<ResonanceTotemBlockEntity> voiceTotems(Level level, BlockPos origin,
+                                                               List<ResonanceTotemBlockEntity> nearby, Attunement voice) {
         List<ResonanceTotemBlockEntity> found = new ArrayList<>();
         HashSet<BlockPos> seen = new HashSet<>();
-        for (ResonanceTotemBlockEntity totem : findNearbyTotems(level, origin, radius)) {
+        for (ResonanceTotemBlockEntity totem : nearby) {
             if (totem.getAttunement() == voice && seen.add(totem.getBlockPos())) found.add(totem);
             for (BlockPos linked : totem.getLinks()) {
                 if (!linked.closerThan(origin, LINK_RANGE)) continue;
@@ -368,8 +427,13 @@ public final class LatticeNetwork {
      * Attunements present via proximity or chalk links from nearby totems.
      */
     public static Set<Attunement> collectAttunements(Level level, BlockPos origin, int radius) {
+        return attunementsOf(level, origin, findNearbyTotems(level, origin, radius), findNearbyKinshipTotems(level, origin, radius));
+    }
+
+    private static Set<Attunement> attunementsOf(Level level, BlockPos origin, List<ResonanceTotemBlockEntity> nearby,
+                                                 List<tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity> kinshipNearby) {
         EnumSet<Attunement> set = EnumSet.noneOf(Attunement.class);
-        for (ResonanceTotemBlockEntity totem : findNearbyTotems(level, origin, radius)) {
+        for (ResonanceTotemBlockEntity totem : nearby) {
             set.add(totem.getAttunement());
             for (BlockPos linked : totem.getLinks()) {
                 if (!linked.closerThan(origin, LINK_RANGE)) {
@@ -383,7 +447,7 @@ public final class LatticeNetwork {
             }
         }
         // Kinship Totems lend their tribe's voice to stations as well (design 3.0 §2).
-        for (tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship : findNearbyKinshipTotems(level, origin, radius))
+        for (tk.darrow.tribalpower.tribe.KinshipTotemBlockEntity kinship : kinshipNearby)
             set.add(kinship.attunement());
         return set;
     }
@@ -441,18 +505,103 @@ public final class LatticeNetwork {
         if (amount <= 0) {
             return 0;
         }
-        int remaining = amount;
-        // Every stone of a Pulse Cairn pile answers for the whole pile, so each pile is drawn once per call,
-        // across all three passes: a simulated draw must not see a pile of three as three piles.
-        HashSet<Long> piles = new HashSet<>();
-        remaining -= drainHandlers(level, origin, radius, remaining, true, simulate, piles);
-        if (remaining > 0) {
-            remaining -= drainHandlers(level, origin, radius, remaining, false, simulate, piles);
+        return new PulseSources(level, origin, radius).draw(amount, simulate);
+    }
+
+    /**
+     * All or nothing: takes {@code amount} only when the whole of it is there, and reports whether it did.
+     * The same sources, order and amounts as a simulated {@link #extractPulseNearby} followed by a real one,
+     * but the cube and any conductor line are gathered once instead of twice.
+     */
+    public static boolean tryExtractPulseNearby(Level level, BlockPos origin, int radius, int amount) {
+        if (amount <= 0) {
+            return true;
         }
-        if (remaining > 0) {
-            remaining -= extractThroughConductors(level, origin, radius, remaining, simulate, piles);
+        PulseSources sources = new PulseSources(level, origin, radius);
+        if (sources.draw(amount, true) < amount) {
+            return false;
         }
-        return amount - remaining;
+        sources.draw(amount, false);
+        return true;
+    }
+
+    /**
+     * What one draw from {@code origin} may take, in the order it takes it: generators in the cube, then the
+     * cube's other stores, then what a conductor line reaches (generators, cairns, totem buffers). The cube is
+     * walked once for both local passes; the line is walked only once a draw actually runs short.
+     */
+    private static final class PulseSources {
+        private final Level level;
+        private final BlockPos origin;
+        private final int radius;
+        private final List<BlockEntity> generators = new ArrayList<>();
+        private final List<BlockEntity> stores = new ArrayList<>();
+        private List<BlockEntity> lineGenerators, lineCairns, lineTotems;
+
+        PulseSources(Level level, BlockPos origin, int radius) {
+            this.level = level;
+            this.origin = origin;
+            this.radius = radius;
+            // Probing all 17^3 positions of the cube cost thousands of block-entity lookups per call; the loaded
+            // chunks' block-entity maps hold only the few that exist. Kept in the x, y, z order the cube walk used.
+            int minY = origin.getY() - radius, maxY = origin.getY() + radius;
+            int minX = origin.getX() - radius, maxX = origin.getX() + radius;
+            int minZ = origin.getZ() - radius, maxZ = origin.getZ() + radius;
+            for (int cx = minX >> 4; cx <= maxX >> 4; cx++) {
+                for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                    net.minecraft.world.level.chunk.LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                    if (chunk == null) continue;
+                    for (BlockEntity be : chunk.getBlockEntities().values()) {
+                        if (!(be instanceof PulseHandler) || be.isRemoved()) continue;
+                        BlockPos p = be.getBlockPos();
+                        if (p.getX() < minX || p.getX() > maxX || p.getY() < minY || p.getY() > maxY || p.getZ() < minZ || p.getZ() > maxZ) continue;
+                        (isGenerator(be) ? generators : stores).add(be);
+                    }
+                }
+            }
+            if (generators.size() > 1) generators.sort(CUBE_ORDER);
+            if (stores.size() > 1) stores.sort(CUBE_ORDER);
+        }
+
+        int draw(int amount, boolean simulate) {
+            // Every stone of a Pulse Cairn pile answers for the whole pile, so each pile is drawn once per call,
+            // across all three passes: a simulated draw must not see a pile of three as three piles.
+            HashSet<Long> piles = new HashSet<>();
+            int taken = drainOrdered(generators, amount, simulate, piles);
+            if (taken < amount) taken += drainOrdered(stores, amount - taken, simulate, piles);
+            if (taken < amount) {
+                if (lineGenerators == null) gatherLine();
+                taken += drainOrdered(lineGenerators, amount - taken, simulate, piles);
+                if (taken < amount) taken += drainOrdered(lineCairns, amount - taken, simulate, piles);
+                if (taken < amount) taken += drainOrdered(lineTotems, amount - taken, simulate, piles);
+            }
+            return taken;
+        }
+
+        /**
+         * Sources a conductor line may lend to a machine. Generators first, then cairns, then totem buffers.
+         * Positions already inside the caller's own cube were drained by the local pass and must not be
+         * counted twice. Station buffers stay where they are: the line moves camp Pulse, not a machine's claim.
+         */
+        private void gatherLine() {
+            lineGenerators = new ArrayList<>();
+            lineCairns = new ArrayList<>();
+            lineTotems = new ArrayList<>();
+            HashSet<BlockPos> seen = new HashSet<>();
+            for (LatticeConductorBlockEntity conductor : conductorZone(level, origin, radius)) {
+                for (BlockEntity be : blockEntitiesAround(level, conductor.getBlockPos(), radius)) {
+                    BlockPos at = be.getBlockPos();
+                    if (inCube(origin, radius, at) || be.isRemoved() || !(be instanceof PulseHandler)) continue;
+                    if (!seen.add(at.immutable())) continue;
+                    if (isGenerator(be)) lineGenerators.add(be);
+                    else if (be instanceof PulseCairnBlockEntity) lineCairns.add(be);
+                    else if (be instanceof ResonanceTotemBlockEntity) lineTotems.add(be);
+                }
+            }
+            if (lineGenerators.size() > 1) lineGenerators.sort(CUBE_ORDER);
+            if (lineCairns.size() > 1) lineCairns.sort(CUBE_ORDER);
+            if (lineTotems.size() > 1) lineTotems.sort(CUBE_ORDER);
+        }
     }
 
     /** Conductors on the line a draw from {@code origin} would walk, including one standing at the origin. */
@@ -460,18 +609,86 @@ public final class LatticeNetwork {
         return conductorZone(level, origin, radius).size();
     }
 
+    /** A level's cache is dropped whole once it holds this many lines, rather than grown without bound. */
+    private static final int CONDUCTOR_LINE_CACHE_LIMIT = 4096;
+    /**
+     * Resolved conductor lines per server level, keyed by draw origin and radius. Server thread only; emptied when
+     * its level unloads or the server stops.
+     */
+    private static final java.util.Map<Level, java.util.Map<LineKey, ConductorLine>> CONDUCTOR_LINES = new java.util.HashMap<>();
+
+    private record LineKey(long origin, int radius) {}
+
+    /**
+     * A resolved line and everything the walk that found it read: each conductor it met with that conductor's
+     * redstone state, and each chunk it scanned as the level held it then. A conductor placed or removed drops
+     * every line in its level; a chunk that loads, unloads or falls out of reach, a conductor that is gone, or a
+     * signal that moved fails {@link #holds} and the line is walked again. Chunks are held weakly so a line kept
+     * for a machine that stopped drawing never pins an unloaded chunk; one collected since could only matter
+     * through its conductors, and those were removed with it.
+     */
+    private record ConductorLine(List<LatticeConductorBlockEntity> zone,
+                                 java.util.IdentityHashMap<LatticeConductorBlockEntity, Boolean> signals,
+                                 long[] chunkKeys, java.lang.ref.WeakReference<?>[] chunks) {
+        boolean holds(Level level) {
+            for (int i = 0; i < chunkKeys.length; i++) {
+                if (level.getChunkSource().getChunkNow(net.minecraft.world.level.ChunkPos.getX(chunkKeys[i]),
+                        net.minecraft.world.level.ChunkPos.getZ(chunkKeys[i])) != (chunks[i] == null ? null : chunks[i].get())) return false;
+            }
+            for (var met : signals.entrySet()) {
+                LatticeConductorBlockEntity conductor = met.getKey();
+                if (conductor.isRemoved() || level.hasNeighborSignal(conductor.getBlockPos()) != met.getValue()) return false;
+            }
+            return true;
+        }
+    }
+
+    /**
+     * A conductor joined or left {@code level}: every line resolved there may have changed. A chunk still being
+     * built off the server thread is not reachable by a draw yet; its arrival shows as a changed chunk instead.
+     */
+    public static void conductorLinesChanged(Level level) {
+        if (level instanceof net.minecraft.server.level.ServerLevel server && server.getServer().isSameThread())
+            CONDUCTOR_LINES.remove(level);
+    }
+
+    /** Drops every cached line, for a level unload ({@code level} non-null) or a server stop (null). */
+    public static void clearConductorLines(@org.jetbrains.annotations.Nullable Level level) {
+        if (level == null) CONDUCTOR_LINES.clear();
+        else if (!level.isClientSide) CONDUCTOR_LINES.remove(level);
+    }
+
     /**
      * Breadth-first across conductors. A redstone signal cuts that block out of the line, the same way
      * it pauses the conductor's own totem fill. The walk starts at every conductor already inside the
      * caller's cube, so a machine never has to be the block that begins the chain.
+     *
+     * <p>A line of 64 conductors scans every block entity near each of them, and every machine drawing through
+     * it did that each beat; the resolved line is kept per level until something it read changes.
      */
     private static List<LatticeConductorBlockEntity> conductorZone(Level level, BlockPos origin, int radius) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel server) || !server.getServer().isSameThread())
+            return walkConductorLine(level, origin, radius).zone();
+        var lines = CONDUCTOR_LINES.computeIfAbsent(level, l -> new java.util.HashMap<>());
+        LineKey key = new LineKey(origin.asLong(), radius);
+        ConductorLine line = lines.get(key);
+        if (line == null || !line.holds(level)) {
+            if (line == null && lines.size() >= CONDUCTOR_LINE_CACHE_LIMIT) lines.clear();
+            line = walkConductorLine(level, origin, radius);
+            lines.put(key, line);
+        }
+        return line.zone();
+    }
+
+    private static ConductorLine walkConductorLine(Level level, BlockPos origin, int radius) {
+        // A conductor's signal cannot change within one walk, so each is read once; the answers are what the
+        // cached line later checks against.
+        var signals = new java.util.IdentityHashMap<LatticeConductorBlockEntity, Boolean>();
+        var scanned = new it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet();
         ArrayDeque<LatticeConductorBlockEntity> queue = new ArrayDeque<>();
         HashSet<BlockPos> seen = new HashSet<>();
-        for (LatticeConductorBlockEntity seed : inBox(level, LatticeConductorBlockEntity.class,
-                origin.getX() - radius, origin.getY() - radius, origin.getZ() - radius,
-                origin.getX() + radius, origin.getY() + radius, origin.getZ() + radius)) {
-            if (level.hasNeighborSignal(seed.getBlockPos())) continue;
+        for (LatticeConductorBlockEntity seed : conductorsAround(level, origin, radius, scanned)) {
+            if (signals.computeIfAbsent(seed, c -> level.hasNeighborSignal(c.getBlockPos()))) continue;
             if (seen.add(seed.getBlockPos().immutable())) queue.add(seed);
         }
         List<LatticeConductorBlockEntity> zone = new ArrayList<>();
@@ -479,44 +696,32 @@ public final class LatticeNetwork {
             LatticeConductorBlockEntity current = queue.removeFirst();
             zone.add(current);
             if (zone.size() >= MAX_CONDUCTOR_CHAIN) break;
-            BlockPos at = current.getBlockPos();
-            for (LatticeConductorBlockEntity next : inBox(level, LatticeConductorBlockEntity.class,
-                    at.getX() - radius, at.getY() - radius, at.getZ() - radius,
-                    at.getX() + radius, at.getY() + radius, at.getZ() + radius)) {
-                if (level.hasNeighborSignal(next.getBlockPos())) continue;
+            for (LatticeConductorBlockEntity next : conductorsAround(level, current.getBlockPos(), radius, scanned)) {
+                if (signals.computeIfAbsent(next, c -> level.hasNeighborSignal(c.getBlockPos()))) continue;
                 if (seen.add(next.getBlockPos().immutable())) queue.add(next);
             }
         }
-        return zone;
+        long[] chunkKeys = scanned.toLongArray();
+        var chunks = new java.lang.ref.WeakReference<?>[chunkKeys.length];
+        for (int i = 0; i < chunkKeys.length; i++) {
+            var chunk = level.getChunkSource().getChunkNow(net.minecraft.world.level.ChunkPos.getX(chunkKeys[i]),
+                    net.minecraft.world.level.ChunkPos.getZ(chunkKeys[i]));
+            chunks[i] = chunk == null ? null : new java.lang.ref.WeakReference<>(chunk);
+        }
+        return new ConductorLine(List.copyOf(zone), signals, chunkKeys, chunks);
     }
 
-    /**
-     * Sources a conductor line may lend to a machine. Generators first, then cairns, then totem buffers.
-     * Positions already inside the caller's own cube were drained by the local pass and must not be
-     * counted twice. Station buffers stay where they are: the line moves camp Pulse, not a machine's claim.
-     */
-    private static int extractThroughConductors(Level level, BlockPos origin, int radius, int amount, boolean simulate,
-                                                Set<Long> piles) {
-        List<LatticeConductorBlockEntity> zone = conductorZone(level, origin, radius);
-        if (zone.isEmpty() || amount <= 0) return 0;
-        HashSet<BlockPos> seen = new HashSet<>();
-        List<BlockEntity> generators = new ArrayList<>();
-        List<BlockEntity> cairns = new ArrayList<>();
-        List<BlockEntity> totems = new ArrayList<>();
-        for (LatticeConductorBlockEntity conductor : zone) {
-            for (BlockEntity be : blockEntitiesAround(level, conductor.getBlockPos(), radius)) {
-                BlockPos at = be.getBlockPos();
-                if (inCube(origin, radius, at) || be.isRemoved() || !(be instanceof PulseHandler)) continue;
-                if (!seen.add(at.immutable())) continue;
-                if (isGenerator(be)) generators.add(be);
-                else if (be instanceof PulseCairnBlockEntity) cairns.add(be);
-                else if (be instanceof ResonanceTotemBlockEntity) totems.add(be);
+    /** Conductors in the cube around {@code at}, noting each chunk the cube touches in {@code scanned}. */
+    private static List<LatticeConductorBlockEntity> conductorsAround(Level level, BlockPos at, int radius,
+                                                                      it.unimi.dsi.fastutil.longs.LongSet scanned) {
+        for (int cx = (at.getX() - radius) >> 4; cx <= (at.getX() + radius) >> 4; cx++) {
+            for (int cz = (at.getZ() - radius) >> 4; cz <= (at.getZ() + radius) >> 4; cz++) {
+                scanned.add(net.minecraft.world.level.ChunkPos.asLong(cx, cz));
             }
         }
-        int taken = drainOrdered(generators, amount, simulate, piles);
-        if (taken < amount) taken += drainOrdered(cairns, amount - taken, simulate, piles);
-        if (taken < amount) taken += drainOrdered(totems, amount - taken, simulate, piles);
-        return taken;
+        return inBox(level, LatticeConductorBlockEntity.class,
+                at.getX() - radius, at.getY() - radius, at.getZ() - radius,
+                at.getX() + radius, at.getY() + radius, at.getZ() + radius);
     }
 
     private static boolean inCube(BlockPos origin, int radius, BlockPos at) {
@@ -525,12 +730,9 @@ public final class LatticeNetwork {
                 && Math.abs(at.getZ() - origin.getZ()) <= radius;
     }
 
+    /** Drains {@code found}, already in cube order, until {@code amount} is met. */
     private static int drainOrdered(List<BlockEntity> found, int amount, boolean simulate, Set<Long> piles) {
         if (amount <= 0 || found.isEmpty()) return 0;
-        if (found.size() > 1)
-            found.sort(java.util.Comparator.comparingInt((BlockEntity be) -> be.getBlockPos().getX())
-                    .thenComparingInt(be -> be.getBlockPos().getY())
-                    .thenComparingInt(be -> be.getBlockPos().getZ()));
         int taken = 0;
         for (BlockEntity be : found) {
             if (taken >= amount) break;
@@ -575,9 +777,7 @@ public final class LatticeNetwork {
             }
         }
         if (found.size() > 1)
-            found.sort(java.util.Comparator.comparingInt((BlockEntity be) -> be.getBlockPos().getX())
-                    .thenComparingInt(be -> be.getBlockPos().getY())
-                    .thenComparingInt(be -> be.getBlockPos().getZ()));
+            found.sort(CUBE_ORDER);
         int taken = 0;
         for (BlockEntity be : found) {
             if (taken >= amount) break;

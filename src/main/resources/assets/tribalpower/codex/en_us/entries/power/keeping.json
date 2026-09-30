@@ -22,7 +22,7 @@
         "Right-click the totem with an empty hand, or use a **Bone Chime** on it. It answers at once.",
         "Drumming a Drumheart by hand wakes every totem within 8 blocks. So do Kin drummers from the tribes, and a Ley Collector whose beat is 8 or more.",
         "Work keeps totems awake: every second a matching station works, it feeds the totems of its voice. That keeps an answered or dim totem going, but it will not wake one that has already gone quiet.",
-        "A Heartbeat plate can keep a Drumheart producing power, but redstone beats do not keep totems awake."
+        "A Heartbeat Plate can keep a Drumheart producing power, but redstone beats do not keep totems awake."
       ]
     },
     {

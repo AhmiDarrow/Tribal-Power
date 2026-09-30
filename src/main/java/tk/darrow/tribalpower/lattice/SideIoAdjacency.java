@@ -38,6 +38,8 @@ public final class SideIoAdjacency {
         if (be instanceof WirelessRelayBlockEntity) return;
         BlockPos pos = be.getBlockPos();
         if (level.hasNeighborSignal(pos)) return;
+        // a hand that answers to a voice stands idle without it, and an idle hand passes nothing on either
+        if (!Voices.kept(level, pos, Voices.required(BuiltInRegistries.BLOCK.getKey(be.getBlockState().getBlock()).getPath()))) return;
         for (Direction face : Direction.values()) {
             BlockPos destPos = pos.relative(face);
             if (!level.hasChunkAt(destPos)) continue;

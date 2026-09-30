@@ -22,8 +22,7 @@ public class PulseLightBlockEntity extends BlockEntity implements tk.darrow.trib
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         int cost = state.getBlock() instanceof PulseLightBlock light ? light.kind().cost : 1;
         boolean want = !level.hasNeighborSignal(pos)
-                && LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, true) >= cost;
-        if (want) LatticeNetwork.extractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost, false);
+                && LatticeNetwork.tryExtractPulseNearby(level, pos, LatticeNetwork.DEFAULT_RADIUS, cost);
         if (state.getValue(PulseLightBlock.LIT) != want) {
             level.setBlock(pos, state.setValue(PulseLightBlock.LIT, want), 3);
         }

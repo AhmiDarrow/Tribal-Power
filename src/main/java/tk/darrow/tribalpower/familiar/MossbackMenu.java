@@ -39,7 +39,9 @@ public class MossbackMenu extends AbstractContainerMenu {
     }
     @Override public boolean stillValid(Player player) {
         if(animal==null)return true;
-        return animal.isAlive() && animal.isBonded() && animal.isOwnedBy(player) && player.distanceToSqr(animal)<=64;
+        // A Mossback carried through a portal leaves this copy removed (isAlive is false); and the same coordinates in
+        // another world are not "near", so the bag shuts before anything moves.
+        return animal.isAlive() && animal.level()==player.level() && animal.isBonded() && animal.isOwnedBy(player) && player.distanceToSqr(animal)<=64;
     }
     @Override public void removed(Player player) { super.removed(player);container.stopOpen(player); }
     @Override public ItemStack quickMoveStack(Player player,int index) {

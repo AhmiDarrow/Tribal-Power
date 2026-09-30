@@ -1,5 +1,7 @@
 package tk.darrow.tribalpower.client.wildlife;
 
+import java.util.HashSet;
+import java.util.Set;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.ParticleStatus;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -24,7 +26,13 @@ import tk.darrow.tribalpower.world.ModDimensions;
  * on the Decreased particle setting, none on Minimal). They make the air feel alive for close to nothing.
  */
 public final class MarchInsects {
-    private static int live;
+    /**
+     * The insects alive now. The particle limit can evict one without ever calling remove(), so each insect stamps
+     * the tick it last moved on, and one that is removed or has stopped moving drops out: the count cannot drift.
+     */
+    private static final Set<Insect> LIVE = new HashSet<>();
+    /** Ticks the particles have run, counted only while the game is not paused, as they only move then. */
+    private static long clock;
     private static int tick;
     /** Changing level clears particles without removing them one by one, so the count restarts with the level. */
     private static ClientLevel counted;
@@ -49,13 +57,16 @@ public final class MarchInsects {
         ClientLevel level = mc.level;
         if (level != counted) {
             counted = level;
-            live = 0;
+            LIVE.clear();
         }
-        if (level == null || mc.player == null || mc.isPaused() || !level.dimension().equals(ModDimensions.THE_MARCH)) return;
+        if (level == null || mc.isPaused()) return;
+        clock++;
+        LIVE.removeIf(insect -> !insect.isAlive() || clock - insect.moved > 3);
+        if (mc.player == null || !level.dimension().equals(ModDimensions.THE_MARCH)) return;
         ParticleStatus setting = mc.options.particles().get();
         if (setting == ParticleStatus.MINIMAL) return;
         int cap = setting == ParticleStatus.ALL ? 70 : 30;
-        if (live >= cap || tick++ % 2 != 0) return;
+        if (LIVE.size() >= cap || tick++ % 2 != 0) return;
         var random = level.random;
         long time = level.getDayTime() % 24000;
         boolean night = time > 13000 && time < 23000;
@@ -94,6 +105,8 @@ public final class MarchInsects {
         private final Kind kind;
         private final float phase;
         private final double homeY;
+        /** The clock when this insect last ticked; an evicted insect stops ticking, and so goes stale. */
+        private long moved;
 
         Insect(ClientLevel level, double x, double y, double z, SpriteSet sprites, Kind kind) {
             super(level, x, y, z);
@@ -110,19 +123,15 @@ public final class MarchInsects {
                 case GLASSWING -> { lifetime = 160 + random.nextInt(100); quadSize = 0.11F; }
                 case CINDER_GNAT -> { lifetime = 60 + random.nextInt(40); quadSize = 0.05F; yd = 0.015; }
             }
-            live++;
+            moved = clock;
+            LIVE.add(this);
             pickSprite(sprites);
             setSprite(sprites.get(0, 1));
         }
 
         @Override
-        public void remove() {
-            if (!removed) live = Math.max(0, live - 1);
-            super.remove();
-        }
-
-        @Override
         public void tick() {
+            moved = clock;
             super.tick();
             if (removed) return;
             float fade = Math.min(1, Math.min(age, lifetime - age) / 15F);

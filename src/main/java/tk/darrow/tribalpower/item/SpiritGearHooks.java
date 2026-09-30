@@ -106,7 +106,7 @@ public final class SpiritGearHooks {
                     .map(holder -> holder.value().assemble(input, level.registryAccess()))
                     .orElse(ItemStack.EMPTY);
             if (cooked.isEmpty()) continue;
-            cooked.setCount(stack.getCount());
+            cooked.setCount(Math.min(cooked.getMaxStackSize(), cooked.getCount() * stack.getCount()));
             entity.setItem(cooked);
         }
     }
@@ -118,6 +118,9 @@ public final class SpiritGearHooks {
         List<ItemStack> silkDrops = Block.getDrops(event.getState(), level, event.getPos(),
                 event.getBlockEntity(), event.getBreaker(), silk);
         event.getDrops().clear();
+        // The experience was worked out for the unenchanted tool; a silked ore must not pay it out as well.
+        event.setDroppedExperience(net.minecraft.world.item.enchantment.EnchantmentHelper.processBlockExperience(level, silk,
+                event.getState().getExpDrop(level, event.getPos(), event.getBlockEntity(), event.getBreaker(), silk)));
         for (ItemStack drop : silkDrops) {
             MachineRank.copyToItem(event.getBlockEntity(), drop);
             event.getDrops().add(new ItemEntity(level, event.getPos().getX() + 0.5, event.getPos().getY() + 0.5,

@@ -16,11 +16,21 @@ import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /** Grove Tender: crops, saplings, cane, cactus, wart, cocoa, berries. */
 final class GroveWork {
+    /**
+     * Most logs one tree test walks: a safety stop, so a vast log build costs a bounded scan. Enough to climb from
+     * the flared base of a Hearthoak or a young willow, or a 2x2 giant's bare trunk, to its first leaves: a walk
+     * that stops short marks what it met as built, and the Tender would leave that stump standing.
+     */
+    private static final int TREE_WALK = 256;
+
     private GroveWork() {}
 
     static boolean isSeed(ItemStack stack) {
@@ -219,12 +229,49 @@ final class GroveWork {
     private static void harvestLogs(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer) {
         if (be.pulse < 12) return;
         BlockPos origin = be.getBlockPos();
+        // logs this beat already found to belong to no tree, so a log build is walked once, not once per log
+        Set<BlockPos> built = new HashSet<>();
         for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-4, 0, -4), origin.offset(4, 10, 4))) {
-            if (!server.mayInteract(farmer, pos)) continue;
+            // The cheap block test before the claim check: nearly all of the 891 positions are neither.
             BlockState state = server.getBlockState(pos);
-            if (!state.is(BlockTags.LOGS) && !state.is(BlockTags.LEAVES)) continue;
+            boolean log = state.is(BlockTags.LOGS);
+            if (log ? built.contains(pos) : !wildLeaves(state)) continue;
+            if (!server.mayInteract(farmer, pos)) continue;
+            if (log && !inTree(server, pos.immutable(), built)) continue;
             if (breakLoose(be, server, farmer, pos.immutable(), 12)) return;
         }
+    }
+
+    /** Leaves a tree grew. Leaves a player placed are persistent and never cut. */
+    private static boolean wildLeaves(BlockState state) {
+        return state.is(BlockTags.LEAVES) && state.hasProperty(LeavesBlock.PERSISTENT) && !state.getValue(LeavesBlock.PERSISTENT);
+    }
+
+    /**
+     * Whether a log belongs to a grown tree: the logs joined to it (a walk of at most {@link #TREE_WALK}) touch
+     * leaves the tree grew. A walk that finds none marks every log it met as built, so a log house is spared.
+     */
+    private static boolean inTree(ServerLevel server, BlockPos start, Set<BlockPos> built) {
+        Set<BlockPos> seen = new HashSet<>();
+        ArrayDeque<BlockPos> queue = new ArrayDeque<>();
+        seen.add(start);
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            BlockPos log = queue.poll();
+            for (Direction dir : Direction.values()) {
+                BlockPos side = log.relative(dir);
+                if (server.hasChunkAt(side) && wildLeaves(server.getBlockState(side))) return true;
+            }
+            for (BlockPos next : BlockPos.betweenClosed(log.offset(-1, -1, -1), log.offset(1, 1, 1))) {
+                if (seen.size() >= TREE_WALK) break;
+                if (seen.contains(next) || !server.hasChunkAt(next) || !server.getBlockState(next).is(BlockTags.LOGS)) continue;
+                BlockPos joined = next.immutable();
+                seen.add(joined);
+                queue.add(joined);
+            }
+        }
+        built.addAll(seen);
+        return false;
     }
 
     private static boolean breakAndReplant(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer,

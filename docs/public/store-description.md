@@ -8,7 +8,7 @@ https://github.com/AhmiDarrow/Tribal-Power
 
 ## Power from rhythm and the world
 
-Strike the Drumheart in rhythm, drink the ley lines with the Ley Collector, and seat a reusable Echo catalyst (Echo Shard through Resonant Core) in the Pulse Resonator with at least two distinct totem voices nearby. Coal and wood are not fuel. Every voice has a generator of its own: Drumheart, Ember Horn, Wind Harp, Wave Drum, Wake Bell and Loom Anchor. Store Spirit Pulse in cells or convert it to standard FE through the one-way Pulse Adapter, at rates measured against the big power mods so a Tribal Power camp can drive a pack.
+Strike the Drumheart in rhythm, drink the ley lines with the Ley Collector, and seat a reusable Echo catalyst (Echo Shard through Resonant Core) in the Pulse Resonator with at least two distinct totem voices nearby. Coal and wood are not fuel. Every voice has a generator of its own: Drumheart, Ember Horn, Wind Harp, Wave Drum, Wake Bell and Loom Anchor. Store Spirit Pulse in cells or convert it to standard FE through the one-way Harmonic Energizer, at rates measured against the big power mods so a Tribal Power camp can drive a pack.
 
 The ley lines are real: a web of coloured threads folded from the world seed, one voice each, crossing every dimension. Hold a Ley Lens to see them flow, read a collector's beat, or point it at a machine to see what it draws.
 
@@ -24,11 +24,11 @@ The Song Bench turns creature reagents into songs. Empower a reagent, write a sh
 
 Nine Spiritgear weapons, each with a move of its own: blade, spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident. Each trades reach, speed and weight against the others, ranks at the Echo stations, takes a totem voice, and swings the way its shape asks.
 
-Fifty-four creatures live in the March beside the older beasts: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Weeping Colossus, a walking boss with an escort. Each has a reagent, loot and a habitat. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
+Fifty-four creatures live in the March beside the older beasts: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot and a habitat. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
 
 ## The spirit layer, the table and the kettle
 
-Six voice blessings, one per Attunement, come from ward songs, seal rites and remedies; nine tribe boons come from the tribes' own dishes; afflictions come from the March. Five crops grow wild in their own countries and on your farmland. The Hearth Pot cooks nine tribe dishes and six feasts to lay on a table for a camp. The Spirit Kettle brews tinctures, salves and incense from reagents and March herbs, and Sweat Stones cleanse. The kit also holds the Spirit Door that only friends pass, and the Bound Effigy for calling a bonded creature to you.
+Six voice blessings, one per Attunement, come from ward songs, seal rites and remedies; nine tribe boons come from the tribes' own dishes; afflictions come from the March. Five crops grow wild in their own countries and on your farmland. The Hearth Pot cooks nine tribe dishes and six feasts to lay on a table for a camp. The Spirit Kettle brews tinctures, salves and incense from reagents and March herbs, and Sweat Stones cleanse. The kit also holds the Spirit Door that only friends pass, and the Binding Effigy for calling an imprinted creature to you.
 
 ## The illustrated Spirit Codex
 
@@ -42,7 +42,7 @@ Summoning Cradles call creatures through ritual-bound effigies: imprint one of t
 
 ## Equipment and elemental rites
 
-Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Pulse-powered Spiritweave armor, excavate with the Resonance Maul, and sustain blessings through Ritual Braziers and reusable elemental seals. Rank Spiritgear and Spiritweave up to Manifested; seat a Pulse Cell inside any piece so it spends its own charge first. Totem-bound gear glows in its voice's colour.
+Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Pulse-powered Spiritweave armour, excavate with the Resonance Maul, and sustain blessings through Ritual Braziers and reusable elemental seals. Rank Spiritgear and Spiritweave up to Manifested; seat a Pulse Cell inside any piece so it spends its own charge first. Totem-bound gear glows in its voice's colour.
 
 Placement is the ritual: draw chalk patterns for the Stone Font, the Listening Pit, tablet Rite Circles, and built Way and Far Gates, and let Builder's Chalk ghost the shape for you.
 
@@ -72,4 +72,4 @@ Every balance number lives in the config: Pulse rates, costs, ranks, spawn rules
 
 Optional, all of it. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/chocobos-reborn), chocobos roam the March. With AgriCraft, the Grove Tender works crop sticks and the March crops are AgriCraft plants of their own, bred from the farm crops everyone starts with. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), the workshops, rituals, transport, bestiary and camp systems are woven into the pack story. Tribal Power never needs any of them.
 
-Version 5.0.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 5.3.13. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).

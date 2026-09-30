@@ -23,6 +23,8 @@ public class LogicPlateBlockEntity extends BlockEntity {
     private String reason = "listening";
     private int reasonA;
     private int reasonB;
+    /** Verse's four steps, as signal strengths. A constant: every Verse plate reads it every tick. */
+    private static final int[] VERSE_LEVELS = {4, 8, 12, 15};
 
     public LogicPlateBlockEntity(BlockPos pos, BlockState state) {
         super(LogicRegistry.PLATE_TYPE.get(), pos, state);
@@ -122,7 +124,7 @@ public class LogicPlateBlockEntity extends BlockEntity {
             }
             case VERSE -> {
                 if (backOn && !be.lastBack) be.step = (be.step + 1) % 4;
-                out = new int[]{4, 8, 12, 15}[be.step];
+                out = VERSE_LEVELS[be.step];
                 be.setReason("verse", be.step + 1, 0);
             }
         }
@@ -146,7 +148,9 @@ public class LogicPlateBlockEntity extends BlockEntity {
         if (other.getBlock() instanceof LogicPlateBlock && other.getValue(LogicPlateBlock.FACING) == side.getOpposite()) {
             return 0;
         }
-        return Math.max(level.getSignal(neighbor, side), other.getDirectSignal(level, neighbor, side.getOpposite()));
+        // Both reads ask the neighbour about the face turned toward this plate; the opposite face would hear a
+        // repeater or comparator that points away from the plate.
+        return Math.max(level.getSignal(neighbor, side), other.getDirectSignal(level, neighbor, side));
     }
 
     private static Direction leftOf(Direction facing) {

@@ -29,7 +29,7 @@
       "title": "What can be anointed",
       "text": [
         "Every Spiritgear weapon, from the Blade to the [newer family](spiritgear_weapons). Nothing else takes the bench's work: not a vanilla sword, not another mod's.",
-        "Pack makers can open it to more through the `tribalpower:anointable` item tag."
+        "Pack makers can open it to more through the **tribalpower:anointable** item tag."
       ]
     },
     {
@@ -53,7 +53,7 @@
         "- **Sapping** (Weaken): weakens the target.",
         "- **Bloodthirst** (Hound): life steal, 15% of every blow comes back as health.",
         "- **Mending** (Quiet): the weapon repairs itself as it strikes.",
-        "Anointments only fire on your own melee blows, not arrows or spells. Every number is in the `anointing` section of the common config, so a pack may tune them."
+        "Anointments only fire on your own melee blows, not arrows or spells. Every number is in the **anointing** section of the common config, so a pack may tune them."
       ]
     }
   ],

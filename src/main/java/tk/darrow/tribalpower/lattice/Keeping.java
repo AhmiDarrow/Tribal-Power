@@ -21,18 +21,21 @@ public final class Keeping {
 
     /** Best state among totems of this voice (nearby or chalk-linked). Kinship Totems are always answered. */
     public static State voice(Level level, BlockPos origin, Attunement voice) {
+        return voice(LatticeNetwork.TotemsNear.of(level, origin, LatticeNetwork.DEFAULT_RADIUS), voice);
+    }
+
+    /** As {@link #voice(Level, BlockPos, Attunement)}, from totems a machine beat already found. */
+    public static State voice(LatticeNetwork.TotemsNear near, Attunement voice) {
         State best = State.QUIET;
-        boolean any = false;
-        for (ResonanceTotemBlockEntity totem : LatticeNetwork.findVoiceTotems(level, origin, LatticeNetwork.DEFAULT_RADIUS, voice)) {
-            any = true;
+        for (ResonanceTotemBlockEntity totem : near.voice(voice)) {
             State state = totem.keeping();
             if (state == State.ANSWERED) return State.ANSWERED;
             if (state == State.DIM) best = State.DIM;
         }
-        if (any) return best;
-        for (var kinship : LatticeNetwork.findNearbyKinshipTotems(level, origin, LatticeNetwork.DEFAULT_RADIUS))
+        // A Kinship Totem never goes quiet, so it answers even beside a dim or quiet Resonance Totem of its voice.
+        for (var kinship : near.kinship())
             if (kinship.attunement() == voice) return State.ANSWERED;
-        return State.QUIET;
+        return best;
     }
 
     public static boolean quiet(Level level, BlockPos origin, Attunement voice) {
@@ -48,6 +51,14 @@ public final class Keeping {
     public static void feedWork(Level level, BlockPos origin, Attunement voice) {
         if (level.isClientSide) return;
         for (ResonanceTotemBlockEntity totem : LatticeNetwork.findVoiceTotems(level, origin, LatticeNetwork.DEFAULT_RADIUS, voice)) {
+            if (totem.keeping() != State.QUIET) totem.feed();
+        }
+    }
+
+    /** As {@link #feedWork(Level, BlockPos, Attunement)}, from totems a machine beat already found. */
+    public static void feedWork(LatticeNetwork.TotemsNear near, Attunement voice) {
+        if (near.level().isClientSide) return;
+        for (ResonanceTotemBlockEntity totem : near.voice(voice)) {
             if (totem.keeping() != State.QUIET) totem.feed();
         }
     }

@@ -44,7 +44,8 @@ public class SilentDrumBlockEntity extends BlockEntity {
     public SilentDrumBlockEntity(BlockPos pos, BlockState state) { super(MarchRegistry.SILENT_DRUM_BE.get(), pos, state); }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, SilentDrumBlockEntity drum) {
-        if (drum.glow > 0) drum.glow--;
+        // the comparator reads the glow after a completed rhythm, so tell it when the glow goes out
+        if (drum.glow > 0 && --drum.glow == 0 && drum.recorded == 0) level.updateNeighbourForOutputSignal(pos, state.getBlock());
         // a half-finished rhythm decays once the window has passed
         if (drum.recorded > 0 && level.getGameTime() - drum.beats[drum.recorded - 1] > MAX_GAP + 4) {
             drum.recorded = 0;

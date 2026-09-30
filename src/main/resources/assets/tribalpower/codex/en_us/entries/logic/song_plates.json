@@ -69,7 +69,7 @@
         "- **Memory**: a live left sets it to 15; a live right clears it. The output stays until told otherwise. If both are live, clear wins.",
         "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
         "- **Verse**: starts at **4** with no pulse. Each rising edge on the back steps it to **8**, then **12**, then **15**, then back to 4. A comparator reads the same number.",
-        "The Verse plate is not the wireless pair; for that see [Verse Call and Answer](verse_link)."
+        "The Verse Plate is not the wireless pair; for that see [Verse Call and Answer](verse_link)."
       ]
     },
     {
@@ -188,7 +188,7 @@
           ]
         },
         {
-          "caption": "Mount a Gathering plate on the block, pointing at the station. That face is its output.",
+          "caption": "Mount a Gathering Plate on the block, pointing at the station. That face is its output.",
           "place": [
             {
               "pos": [
@@ -266,7 +266,7 @@
           ]
         },
         {
-          "caption": "Swap in a Chorus plate and it waits for both levers before it sings.",
+          "caption": "Swap in a Chorus Plate and it waits for both levers before it sings.",
           "place": [
             {
               "pos": [

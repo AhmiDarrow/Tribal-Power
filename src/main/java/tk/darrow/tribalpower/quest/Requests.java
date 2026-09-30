@@ -119,18 +119,42 @@ public final class Requests {
 
     /** Whether a BUILD is standing: the player's chalk marks the shape, near the camp, and every block of it is solid. */
     public static boolean built(ServerPlayer player, TribeDefinition tribe, Template template) {
+        return standing(player, tribe, template) != null;
+    }
+
+    /** The build the player's chalk marks, when it stands and is new to the tribe; else null. */
+    private static QuestSavedData.Build standing(ServerPlayer player, TribeDefinition tribe, Template template) {
         ItemStack chalk = player.getMainHandItem().is(ModItems.BUILDERS_CHALK.get()) ? player.getMainHandItem()
                 : player.getOffhandItem().is(ModItems.BUILDERS_CHALK.get()) ? player.getOffhandItem() : ItemStack.EMPTY;
-        if (chalk.isEmpty() || BuildersChalkItem.shape(chalk) != template.shape() || BuildersChalkItem.size(chalk) < template.size()) return false;
+        if (chalk.isEmpty() || BuildersChalkItem.shape(chalk) != template.shape() || BuildersChalkItem.size(chalk) < template.size()) return null;
         BlockPos mark = BuildersChalkItem.mark(chalk);
-        if (mark == null || !atCamp(player.serverLevel(), mark, tribe)) return false;
-        if (!BuildersChalkItem.markDimension(chalk).equals(player.serverLevel().dimension().location().toString())) return false;
+        if (mark == null || !atCamp(player.serverLevel(), mark, tribe)) return null;
+        if (!BuildersChalkItem.markDimension(chalk).equals(player.serverLevel().dimension().location().toString())) return null;
         // Every cell must be solid, and built: a mark set into a hillside is not a wall raised for the tribe.
         for (BlockPos offset : template.shape().offsets(BuildersChalkItem.size(chalk))) {
             var state = player.serverLevel().getBlockState(mark.offset(offset));
-            if (!state.isSolid() || state.is(NATURAL_GROUND)) return false;
+            if (!state.isSolid() || state.is(NATURAL_GROUND)) return null;
         }
-        return true;
+        QuestSavedData.Build build = new QuestSavedData.Build(BuildersChalkItem.markDimension(chalk), mark.immutable(), template.shape(), BuildersChalkItem.size(chalk));
+        return handedIn(QuestSavedData.get(player.server), tribe, build) ? null : build;
+    }
+
+    /** Whether any block of this build was part of one already handed in to the tribe: a structure counts once. */
+    private static boolean handedIn(QuestSavedData data, TribeDefinition tribe, QuestSavedData.Build build) {
+        java.util.Set<BlockPos> cells = null;
+        for (QuestSavedData.Build old : data.builds(tribe)) {
+            if (!old.dimension().equals(build.dimension())) continue;
+            // no shape reaches further from its mark than its size, or a wall's height, on any axis
+            int reach = old.size() + build.size() + BuildPattern.WALL_HEIGHT;
+            BlockPos gap = old.mark().subtract(build.mark());
+            if (Math.abs(gap.getX()) > reach || Math.abs(gap.getY()) > reach || Math.abs(gap.getZ()) > reach) continue;
+            if (cells == null) {
+                cells = new java.util.HashSet<>();
+                for (BlockPos offset : build.shape().offsets(build.size())) cells.add(build.mark().offset(offset));
+            }
+            for (BlockPos offset : old.shape().offsets(old.size())) if (cells.contains(old.mark().offset(offset))) return true;
+        }
+        return false;
     }
 
     // ---- the flow -------------------------------------------------------------------------------------------------
@@ -179,6 +203,7 @@ public final class Requests {
         QuestSavedData data = QuestSavedData.get(player.server);
         Template template = template(tribe, data.request(player.getUUID(), tribe).template());
         if (template.kind() == Kind.FETCH || template.kind() == Kind.DELIVER) take(player, template);
+        if (template.kind() == Kind.BUILD) data.handedIn(tribe, standing(player, tribe, template));
         data.setRequest(player.getUUID(), tribe, null);
         data.completedOne(player.getUUID(), tribe);
         data.finishedRequest(player.getUUID(), tribe, template.id(), day(player.serverLevel()));

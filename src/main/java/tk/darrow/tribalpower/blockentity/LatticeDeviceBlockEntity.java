@@ -105,7 +105,13 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
         return removed;
     }
 
-    @Override public ItemStack removeItemNoUpdate(int slot) { return ContainerHelper.takeItem(items, slot); }
+    /** Blocks hand stacks out through this, so it still marks the chunk: an unsaved take would come back on reload. */
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        ItemStack removed = ContainerHelper.takeItem(items, slot);
+        if (!removed.isEmpty()) setChanged();
+        return removed;
+    }
 
     @Override
     public void setItem(int slot, ItemStack stack) {

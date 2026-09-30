@@ -176,7 +176,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             if(fed!=null)return fed;
             if(!isBonded() && !isBaby())return InteractionResult.PASS;
         }
-        if(tool.is(Items.BRUSH) && !isBaby()) {
+        // Brushing another player's companion falls through to the "not yours" answer below.
+        if(tool.is(Items.BRUSH) && !isBaby() && (!isBonded() || isOwnedBy(player))) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1));
                 forageCooldown=1200;

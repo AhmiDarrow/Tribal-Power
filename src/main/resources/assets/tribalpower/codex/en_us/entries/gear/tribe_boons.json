@@ -11,7 +11,7 @@
       "text": [
         "Every tribe has a **boon**: a small perk in that tribe's way of doing things, shown as a status effect in the tribe's colour.",
         "Reach **Kin** standing with a tribe and you carry its boon for as long as the standing lasts. It refreshes on its own; you never have to ask. Anyone can carry a boon for a while by eating that tribe's [dish](tribe_dishes).",
-        "A worn **Lantern charm** keeps a boon lit half again as long."
+        "A worn **Lantern Charm** keeps a boon lit half again as long."
       ]
     },
     {
@@ -32,7 +32,7 @@
         "- **Swarm (Colony-keepers)**: bees never turn on you.",
         "- **Sigil (Seal-carvers)**: your charms ask **half** the Pulse.",
         "- **Spindle (Loom-stitchers)**: songs cost **a quarter less** to sing.",
-        "Every number is in the `effects` section of the common config."
+        "Every number is in the **effects** section of the common config."
       ],
       "title": "The nine boons, continued"
     }

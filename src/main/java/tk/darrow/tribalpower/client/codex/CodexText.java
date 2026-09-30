@@ -23,6 +23,8 @@ import net.minecraft.network.chat.Style;
 public final class CodexText {
     public static final int INK = 0xFFE4E5DA, HIGHLIGHT = 0xFFE4C18A, LINK = 0xFF74DBCB, BULLET = 0xFF8FB8B2;
     private static final Pattern TOKEN = Pattern.compile("\\*\\*(.+?)\\*\\*|\\[(.+?)\\]\\(([a-z0-9_]+)\\)|\\{item:([a-z0-9_.:/-]+)\\}");
+    /** Blank lines part paragraphs, and so does a line that opens a bullet. */
+    private static final Pattern PARAGRAPHS = Pattern.compile("\n\\s*\n|\n(?=- )");
     private static final int LINE = 11;
 
     public record Span(String text, int color, String link) {}
@@ -163,7 +165,7 @@ public final class CodexText {
 
     private static List<List<Span>> parse(String text, Linker linker) {
         List<List<Span>> paragraphs = new ArrayList<>();
-        for (String paragraph : text.split("\n\\s*\n|\n(?=- )")) {
+        for (String paragraph : PARAGRAPHS.split(text)) {
             paragraph = paragraph.replace('\n', ' ').strip();
             if (paragraph.isEmpty()) continue;
             List<Span> spans = new ArrayList<>();

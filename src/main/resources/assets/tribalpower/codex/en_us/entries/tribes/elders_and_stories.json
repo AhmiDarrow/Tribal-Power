@@ -36,7 +36,7 @@
       "type": "text",
       "title": "The nine relics",
       "text": [
-        "{item:tribalpower:relic_soil} **Kept Ember** (Pad-keepers). {item:tribalpower:relic_stone} **Ringing Stone** (Grit-singers). {item:tribalpower:relic_sprout} **First Root** (Rootbinders). {item:tribalpower:relic_claw} **Bridge Nail** (Edge-walkers). {item:tribalpower:relic_spark} **Steady Drum** (Drumhearts). {item:tribalpower:relic_clock} **Silent Gear** (Pattern-weavers). {item:tribalpower:relic_swarm} **Hive Seal** (Colony-keepers). {item:tribalpower:relic_sigil} **Polite Seal** (Seal-carvers). {item:tribalpower:relic_spindle} **Ninth Thread** (Loom-stitchers).",
+        "{item:tribalpower:relic_soil} (Pad-keepers). {item:tribalpower:relic_stone} (Grit-singers). {item:tribalpower:relic_sprout} (Rootbinders). {item:tribalpower:relic_claw} (Edge-walkers). {item:tribalpower:relic_spark} (Drumhearts). {item:tribalpower:relic_clock} (Pattern-weavers). {item:tribalpower:relic_swarm} (Colony-keepers). {item:tribalpower:relic_sigil} (Seal-carvers). {item:tribalpower:relic_spindle} (Loom-stitchers).",
         "One for each tribe, each the end of a story and the start of nine agreeing again."
       ]
     }

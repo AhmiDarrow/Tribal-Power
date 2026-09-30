@@ -63,7 +63,8 @@ public final class CampHooks {
     }
     public static boolean warded(ServerLevel level,BlockPos target){
         if(tk.darrow.tribalpower.rite.world.TemporaryWards.warded(level,target))return true; // Still Night rite (rite/world)
-        var chunks=WARDS.get(level);if(chunks==null)return false;
+        // asked on every hostile spawn check: a level whose hush totems are all gone has an empty map, not a null one
+        var chunks=WARDS.get(level);if(chunks==null||chunks.isEmpty())return false;
         var center=new ChunkPos(target);
         for(int x=center.x-2;x<=center.x+2;x++)for(int z=center.z-2;z<=center.z+2;z++){
             var entries=chunks.get(ChunkPos.asLong(x,z));if(entries==null)continue;

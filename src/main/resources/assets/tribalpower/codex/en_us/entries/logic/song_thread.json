@@ -17,7 +17,7 @@
       "type": "text",
       "title": "Running a line",
       "text": [
-        "Power drops by **one per block**, like dust. Keep a line short if you need a full 15 at the far end, or refresh it with an Echo plate.",
+        "Power drops by **one per block**, like dust. Keep a line short if you need a full 15 at the far end, or refresh it with an Echo Plate.",
         "Vanilla dust, levers, song plates, Song Vines and comparators all speak to it.",
         "It carries weakly: it will not power the stone it touches, so it never latches. A wall of thread is a wall of song. For a tendril that hugs stone around corners, see [Song Vine](song_vine)."
       ]
@@ -167,7 +167,7 @@
           ]
         },
         {
-          "caption": "Mount a Heartbeat plate on the side of a block, facing the drum. The face it points out of is its output.",
+          "caption": "Mount a Heartbeat Plate on the side of a block, facing the drum. The face it points out of is its output.",
           "place": [
             {
               "pos": [
@@ -254,7 +254,7 @@
       "title": "Keeping time",
       "text": [
         "A Drumheart counts beats **17 to 23 ticks** apart as on time, worth **24 Pulse**. Faster pulses earn less, and beats under 8 ticks apart are ignored, so a steady one-second Heartbeat lands every beat.",
-        "If the drum does not fill, check the plate's facing, its support block and the thread, and remove any constant power nearby. Get the clock and drum working before you add thresholds or memory plates.",
+        "If the drum does not fill, check the plate's facing, its support block and the thread, and remove any constant power nearby. Get the clock and drum working before you add thresholds or Memory Plates.",
         "Add a [Pulse Gauge](pulse_gauge) if you want the stored amount as a signal."
       ]
     },

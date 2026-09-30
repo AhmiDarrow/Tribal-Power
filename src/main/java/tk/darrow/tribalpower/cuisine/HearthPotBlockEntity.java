@@ -97,9 +97,12 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
             if (seat.isEmpty()) continue;
             int units = i == CONTAINER || plan == null ? 1 : plan[i];
             if (units <= 0) continue;
+            // every unit taken leaves its own remainder: two honey bottles give back two glass bottles
+            int used = Math.min(units, seat.getCount());
             ItemStack remainder = seat.getCraftingRemainingItem();
-            seat.shrink(units);
-            if (seat.isEmpty()) items.set(i, remainder);
+            if (!remainder.isEmpty()) remainder = remainder.copyWithCount(remainder.getCount() * used);
+            seat.shrink(used);
+            if (seat.isEmpty() && remainder.getCount() <= remainder.getMaxStackSize()) items.set(i, remainder);
             else if (!remainder.isEmpty()) net.minecraft.world.Containers.dropItemStack(level, worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5, remainder);
         }
         if (output.isEmpty()) items.set(OUTPUT, made);

@@ -23,7 +23,7 @@ import java.util.List;
 public class SpiritStaffItem extends Item {
     public SpiritStaffItem(Properties properties) { super(properties); }
     public static Attunement element(ItemStack stack) {
-        int mode = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getInt("Attunement");
+        int mode = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt("Attunement");   // read in place: the HUD asks every frame
         return Attunement.values()[Math.floorMod(mode, Attunement.values().length)];
     }
     public static int cost(Attunement element) { return switch(element) { case EARTH -> 12; case FIRE -> 18; case WATER -> 24; case AIR -> 16; case SPIRIT -> 20; case LOOM -> TETHER_COST; }; }

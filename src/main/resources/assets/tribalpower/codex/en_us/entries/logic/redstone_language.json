@@ -39,10 +39,10 @@
       "text": [
         "A Rite Pedestal holds and shows one item, and a comparator reads whether it is occupied. That is all a rite needs to run itself:",
         "- A relay restocks a pedestal of the [Rite Circle](rite_circle) with a tablet.",
-        "- A Heartbeat plate, or a lever, strikes the brazier.",
+        "- A Heartbeat Plate, or a lever, strikes the brazier.",
         "- The rite fires and spends the tablet that matches the seated seal.",
         "- The comparator reports the pedestal empty, and the relay fills it again.",
-        "Add a Memory plate if you want to arm and disarm the loop. The camp uses only the actions you could do by hand: no hidden extra inventory."
+        "Add a Memory Plate if you want to arm and disarm the loop. The camp uses only the actions you could do by hand: no hidden extra inventory."
       ]
     },
     {
@@ -392,7 +392,7 @@
           }
         },
         {
-          "caption": "Mount a Heartbeat plate on a block beside the brazier, facing it. Each beat strikes the brazier once.",
+          "caption": "Mount a Heartbeat Plate on a block beside the brazier, facing it. Each beat strikes the brazier once.",
           "place": [
             {
               "pos": [

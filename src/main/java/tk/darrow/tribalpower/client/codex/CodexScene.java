@@ -97,7 +97,9 @@ public final class CodexScene {
         float scale = Math.min(w / Math.max(1.2F, diagonal * 1.05F), h / Math.max(1.2F, diagonal * 0.5F + sy * 0.95F)) * 0.92F;
 
         CodexBook.Step current = steps.get(Math.min(step, steps.size() - 1));
-        List<BlockPos> added = current.place().stream().map(CodexBook.Placed::pos).toList();
+        // asked once per block, twice over, every frame: a set, not a list scan
+        java.util.Set<BlockPos> added = new java.util.HashSet<>();
+        for (CodexBook.Placed placed : current.place()) added.add(placed.pos());
         Map<BlockPos, BlockState> shown = layout.get(Math.clamp(step, 0, steps.size() - 1));
         Minecraft mc = Minecraft.getInstance();
         var buffers = mc.renderBuffers().bufferSource();

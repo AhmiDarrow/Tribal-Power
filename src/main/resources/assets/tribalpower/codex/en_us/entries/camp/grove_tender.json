@@ -677,7 +677,7 @@
         "- **Plant** an empty spot: **4 Pulse**.",
         "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall.",
         "- **Urge** a sapling, stem, crop, cocoa pod, berry bush or bamboo shoot to grow, like bone meal: **16 Pulse**.",
-        "When the bed has nothing to do, it fells logs and clears leaves above it, in a column **9 wide and 11 tall** from its own level up, for **12 Pulse** a block."
+        "When the bed has nothing to do, it fells the trees above it, logs and leaves, in a column **9 wide and 11 tall** from its own level up, for **12 Pulse** a block. Only grown trees: logs and leaves you placed yourself, like a log wall or the jungle logs for cocoa, are left alone."
       ]
     },
     {

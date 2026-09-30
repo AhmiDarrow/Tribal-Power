@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 5.0.0.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 5.3.13.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,7 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 5.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 5.3.13 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
 - [Previous 4.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v4.0.0)
 - [Previous 3.8.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.8.0)
 - [Previous 3.7.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.1)
@@ -102,7 +102,7 @@ The **Sixfold Staff** switches voices with sneak-use: Earth slows hostiles, Fire
 
 The **Resonance Maul** excavates a deliberate 3-by-3 plane when sneak-used in the main hand, costing 8 Pulse per broken block. Normal player breaking checks and protection events still apply.
 
-**Spiritweave armor** unlinked: hood night sight, robe resistance, leggings speed, boots slow falling when descending. Unlinked pieces spend 2 Pulse every four seconds; sneak-use a piece on a Resonance Totem (40 Pulse) to replace that boon with the totem's voice (3 Pulse). Mixed voices are intended. Original Spiritgear tools remain available.
+**Spiritweave armour** unlinked: hood night sight, robe resistance, leggings speed, boots slow falling when descending. Unlinked pieces spend 2 Pulse every four seconds; sneak-use a piece on a Resonance Totem (40 Pulse) to replace that boon with the totem's voice (3 Pulse). Mixed voices are intended. Original Spiritgear tools remain available.
 
 **Spiritgear Shears** and a **Spiritgear Hoe** join the set and rank and bind the same way. The shears take a 3x3 face of foliage with Earth, trim for nothing with Air, leave a sheep its fleece with Water, smoke a hive calm with Fire, mend what they shear with Spirit and send cuttings to hand with Loom. The hoe reaps and sows a ripe crop in one use: Earth turns a 3x3 of soil, Water keeps its furrows and nearby fields wet, Air reaps a 3x3, Loom a 5x5 for no Pulse, and Spirit doubles part of the harvest.
 

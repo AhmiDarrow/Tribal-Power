@@ -90,7 +90,7 @@
       "type": "text",
       "text": [
         "Every March creature leaves something behind: a fang, a scale, a tuft of wool. Those are **reagents**, and they are how Tribal Power turns hunting into magic.",
-        "Keep a **{item:tribalpower:reagent_pouch}** on your hotbar and every reagent you pick up goes straight into it. The pouch holds up to **999** of each kind, raw and empowered, so it never fills your bags.",
+        "Keep a {item:tribalpower:reagent_pouch} on your hotbar and every reagent you pick up goes straight into it. The pouch holds up to **999** of each kind, raw and empowered, so it never fills your bags.",
         "A reagent starts **raw**. At a [Song Bench](song_bench) you can **empower** it for 16 Pulse. Raw reagents brew remedies and go into a few recipes; empowered ones write songs, fletch verse arrows and anoint weapons."
       ]
     },

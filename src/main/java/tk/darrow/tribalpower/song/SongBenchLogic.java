@@ -179,8 +179,6 @@ public final class SongBenchLogic {
     }
 
     private static boolean pay(ServerLevel level, BlockPos origin, int price) {
-        if (LatticeNetwork.extractPulseNearby(level, origin, LatticeNetwork.DEFAULT_RADIUS, price, true) < price) return false;
-        LatticeNetwork.extractPulseNearby(level, origin, LatticeNetwork.DEFAULT_RADIUS, price, false);
-        return true;
+        return LatticeNetwork.tryExtractPulseNearby(level, origin, LatticeNetwork.DEFAULT_RADIUS, price);
     }
 }

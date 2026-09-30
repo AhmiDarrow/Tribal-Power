@@ -26,6 +26,7 @@ import tk.darrow.tribalpower.healing.Remedies;
 import tk.darrow.tribalpower.healing.Remedy;
 import tk.darrow.tribalpower.healing.SpiritKettleBlockEntity;
 import tk.darrow.tribalpower.integration.CompatDisplays;
+import tk.darrow.tribalpower.integration.ViewerText;
 import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.song.Reagents;
 
@@ -75,6 +76,13 @@ public class TribalEmiPlugin implements EmiPlugin {
 
     private static final int INK = 0xFF526A61;
 
+    /** Adds the text wrapped to {@code width} from (x, y) down; returns the y under its last line. */
+    private static int wrapped(WidgetHolder widgets, Component text, int x, int y, int width) {
+        List<net.minecraft.util.FormattedCharSequence> lines = ViewerText.wrap(text, width);
+        for (int i = 0; i < lines.size(); i++) widgets.addText(lines.get(i), x, y + i * ViewerText.LINE, INK, false);
+        return y + Math.max(1, lines.size()) * ViewerText.LINE;
+    }
+
     /** The Tribal Bench is a crafting grid: slot 0 the result, 1..9 the grid, the rest the player's pack. */
     private static final class BenchHandler implements dev.emi.emi.api.recipe.handler.StandardRecipeHandler<tk.darrow.tribalpower.bench.BenchMenu> {
         @Override public List<net.minecraft.world.inventory.Slot> getInputSources(tk.darrow.tribalpower.bench.BenchMenu menu) {
@@ -105,14 +113,15 @@ public class TribalEmiPlugin implements EmiPlugin {
         @Override public ResourceLocation getId() { return id; }
         @Override public List<EmiIngredient> getInputs() { return List.of(EmiIngredient.of(recipe.ingredient())); }
         @Override public List<EmiStack> getOutputs() { return List.of(EmiStack.of(recipe.output())); }
+        private Component cost() { return ViewerText.recipeCost(recipe.seconds(), recipe.seconds() * recipe.pulse()); }
         @Override public int getDisplayWidth() { return 160; }
-        @Override public int getDisplayHeight() { return 64; }
+        @Override public int getDisplayHeight() { return 54 + ViewerText.LINE * ViewerText.lines(cost(), 156); }
         @Override public void addWidgets(WidgetHolder widgets) {
             widgets.addText(Component.translatable("block.tribalpower." + recipe.station()), 2, 2, INK, false);
             widgets.addSlot(EmiIngredient.of(recipe.ingredient()), 20, 20);
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 60, 22);
             widgets.addSlot(EmiStack.of(recipe.output()), 120, 20).recipeContext(this);
-            widgets.addText(Component.translatable("gui.tribalpower.recipe_cost", recipe.seconds(), recipe.seconds() * recipe.pulse()), 2, 48, INK, false);
+            wrapped(widgets, cost(), 2, 48, 156);
         }
     }
 
@@ -132,15 +141,16 @@ public class TribalEmiPlugin implements EmiPlugin {
             var profiles = Reagents.byNote().getOrDefault(remedy.note, List.of());
             return profiles.isEmpty() ? List.of() : List.of(EmiStack.of(Remedies.make(form, profiles.get(0), null, SpiritKettleBlockEntity.batchSize(form))));
         }
+        private static Component cost() { return ViewerText.recipeCost(TribalConfig.kettleSeconds(), TribalConfig.kettlePulse()); }
         @Override public int getDisplayWidth() { return 150; }
-        @Override public int getDisplayHeight() { return 60; }
+        @Override public int getDisplayHeight() { return 50 + ViewerText.LINE * ViewerText.lines(cost(), 120); }
         @Override public void addWidgets(WidgetHolder widgets) {
             var inputs = getInputs();
             for (int i = 0; i < inputs.size(); i++) widgets.addSlot(inputs.get(i), 4, 2 + i * 19);
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 50, 22);
             widgets.addText(Component.translatable("remedy.tribalpower." + remedy.id()), 30, 4, INK, false);
             for (EmiStack out : getOutputs()) widgets.addSlot(out, 100, 20).recipeContext(this);
-            widgets.addText(Component.translatable("gui.tribalpower.recipe_cost", TribalConfig.kettleSeconds(), TribalConfig.kettlePulse()), 30, 46, INK, false);
+            wrapped(widgets, cost(), 30, 46, 120);
         }
     }
 
@@ -155,13 +165,13 @@ public class TribalEmiPlugin implements EmiPlugin {
         }
         @Override public List<EmiStack> getOutputs() { return List.of(EmiStack.of(recipe.result())); }
         @Override public int getDisplayWidth() { return 150; }
-        @Override public int getDisplayHeight() { return 54; }
+        @Override public int getDisplayHeight() { return 44 + ViewerText.LINE * ViewerText.lines(ViewerText.hearthSeconds(recipe.seconds()), 80); }
         @Override public void addWidgets(WidgetHolder widgets) {
             for (int i = 0; i < recipe.ingredients().size(); i++) widgets.addSlot(EmiIngredient.of(recipe.ingredients().get(i)), 2 + (i % 2) * 18, 2 + (i / 2) * 18);
             recipe.container().ifPresent(c -> widgets.addSlot(EmiIngredient.of(c), 46, 20));
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 72, 20);
             widgets.addSlot(EmiStack.of(recipe.result()), 118, 20).recipeContext(this);
-            widgets.addText(Component.translatable("gui.tribalpower.hearth_pot.seconds", recipe.seconds()), 70, 40, INK, false);
+            wrapped(widgets, ViewerText.hearthSeconds(recipe.seconds()), 70, 40, 80);
         }
     }
 
@@ -172,12 +182,15 @@ public class TribalEmiPlugin implements EmiPlugin {
         @Override public List<EmiStack> getOutputs() { return List.of(); }
         @Override public boolean supportsRecipeTree() { return false; }
         @Override public int getDisplayWidth() { return 160; }
-        @Override public int getDisplayHeight() { return 44; }
+        @Override public int getDisplayHeight() {
+            return Math.max(8 + ViewerText.LINE * ViewerText.lines(ViewerText.riteName(rite.rite()), 114), 34) + ViewerText.LINE * ViewerText.lines(ViewerText.riteCircle(rite.rite()), 156) + 4;
+        }
         @Override public void addWidgets(WidgetHolder widgets) {
             widgets.addSlot(EmiStack.of(rite.tablet()), 2, 12);
             widgets.addSlot(EmiStack.of(rite.seal()), 22, 12);
-            widgets.addText(Component.translatable("item.tribalpower." + rite.rite().tabletId()), 46, 4, INK, false);
-            widgets.addText(Component.translatable("gui.tribalpower.rite.circle", Component.translatable("attunement.tribalpower." + rite.rite().element().getSerializedName()), rite.cost()), 46, 18, INK, false);
+            int y = wrapped(widgets, ViewerText.riteName(rite.rite()), 46, 4, 114);
+            // The circle's cost runs wider than the room beside the slots, so it sits under them, full width.
+            wrapped(widgets, ViewerText.riteCircle(rite.rite()), 2, Math.max(y + 4, 34), 156);
         }
     }
 
@@ -189,14 +202,17 @@ public class TribalEmiPlugin implements EmiPlugin {
         @Override public List<EmiStack> getOutputs() { return List.of(EmiStack.of(call.rises())); }
         @Override public boolean supportsRecipeTree() { return false; }
         @Override public int getDisplayWidth() { return 160; }
-        @Override public int getDisplayHeight() { return 44; }
+        @Override public int getDisplayHeight() {
+            return 26 + ViewerText.LINE * (ViewerText.lines(ViewerText.guardianName(call.guardian()), 156) + ViewerText.lines(ViewerText.guardianBiome(call.guardian()), 156));
+        }
         @Override public void addWidgets(WidgetHolder widgets) {
-            widgets.addSlot(EmiStack.of(call.reagents()), 2, 12);
-            widgets.addSlot(EmiStack.of(call.altar()), 22, 12);
-            widgets.addTexture(EmiTexture.EMPTY_ARROW, 48, 14);
-            widgets.addSlot(EmiStack.of(call.rises()), 80, 12);
-            widgets.addText(Component.translatable(call.guardian().nameKey()), 102, 4, INK, false);
-            widgets.addText(Component.translatable("biome.tribalpower." + call.guardian().biome), 102, 18, INK, false);
+            widgets.addSlot(EmiStack.of(call.reagents()), 2, 2);
+            widgets.addSlot(EmiStack.of(call.altar()), 22, 2);
+            widgets.addTexture(EmiTexture.EMPTY_ARROW, 48, 4);
+            widgets.addSlot(EmiStack.of(call.rises()), 80, 2);
+            // Guardian and biome names run wider than the room beside the egg, so they sit under the row, full width.
+            int y = wrapped(widgets, ViewerText.guardianName(call.guardian()), 2, 24, 156);
+            wrapped(widgets, ViewerText.guardianBiome(call.guardian()), 2, y, 156);
         }
     }
 
@@ -206,13 +222,17 @@ public class TribalEmiPlugin implements EmiPlugin {
         @Override public List<EmiIngredient> getInputs() { return List.of(EmiIngredient.of(stacks(anoint.reagents())), EmiIngredient.of(stacks(anoint.weapons()))); }
         @Override public List<EmiStack> getOutputs() { return List.of(); }
         @Override public boolean supportsRecipeTree() { return false; }
+        private static Component cost() { return ViewerText.anointCost(TribalConfig.anointReagentCost(), TribalConfig.anointPulseCost()); }
         @Override public int getDisplayWidth() { return 160; }
-        @Override public int getDisplayHeight() { return 44; }
+        @Override public int getDisplayHeight() {
+            return Math.max(8 + ViewerText.LINE * ViewerText.lines(ViewerText.anointName(anoint.anointment()), 114), 34) + ViewerText.LINE * ViewerText.lines(cost(), 156) + 4;
+        }
         @Override public void addWidgets(WidgetHolder widgets) {
             widgets.addSlot(EmiIngredient.of(stacks(anoint.reagents())), 2, 12);
             widgets.addSlot(EmiIngredient.of(stacks(anoint.weapons())), 22, 12);
-            widgets.addText(Component.translatable(CompatDisplays.anointmentKey(anoint.anointment())), 46, 4, INK, false);
-            widgets.addText(Component.translatable("gui.tribalpower.anoint.cost", TribalConfig.anointReagentCost(), TribalConfig.anointPulseCost()), 46, 18, INK, false);
+            int y = wrapped(widgets, ViewerText.anointName(anoint.anointment()), 46, 4, 114);
+            // The cost runs wider than the room beside the slots, so it sits under them, full width.
+            wrapped(widgets, cost(), 2, Math.max(y + 4, 34), 156);
         }
     }
 }

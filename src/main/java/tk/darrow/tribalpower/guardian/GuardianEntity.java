@@ -407,7 +407,7 @@ public class GuardianEntity extends Monster {
         awayTicks = anyone ? 0 : awayTicks + 1;
         if (awayTicks >= TribalConfig.guardianResetSeconds() * 20) {
             dismissAdds(server);
-            if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar) altar.onGuardianReset();
+            if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar && altar.calls(getUUID())) altar.onGuardianReset();
             discard();
         }
     }
@@ -467,7 +467,7 @@ public class GuardianEntity extends Monster {
         dismissAdds(server);
         SpiritEffects.ring(server, position().add(0, 1, 0), guardian().tribe.attunement(), 6, 24);
         server.sendParticles(ParticleTypes.SOUL, getX(), getY() + 1, getZ(), 60, 1.5, 1.5, 1.5, 0.05);
-        if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar) altar.onGuardianGone();
+        if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar && altar.calls(getUUID())) altar.onGuardianGone();
         java.util.Set<ServerPlayer> fought = new java.util.LinkedHashSet<>(server.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(RESET_RANGE), p -> !p.isSpectator()));
         if (source.getEntity() instanceof ServerPlayer killer && !killer.isSpectator()) fought.add(killer);
         for (ServerPlayer player : fought) {

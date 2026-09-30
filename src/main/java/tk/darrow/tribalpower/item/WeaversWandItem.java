@@ -66,7 +66,14 @@ public class WeaversWandItem extends Item {
         for (BlockPos target : targets) {
             if (laid >= available) break;
             BlockState before = level.getBlockState(target);
+            // A block that cannot stand there would only pop off, and a place a claim refuses is put back.
+            if (!pattern.canSurvive(level, target)) continue;
+            var snapshot = net.neoforged.neoforge.common.util.BlockSnapshot.create(level.dimension(), level, target);
             if (!level.setBlock(target, pattern, Block.UPDATE_ALL)) continue;
+            if (net.neoforged.neoforge.event.EventHooks.onBlockPlace(player, snapshot, face)) {
+                snapshot.restore(Block.UPDATE_ALL);
+                continue;
+            }
             // Pulse is paid for blocks that actually land; a sweep that runs dry puts the last one back.
             if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, PULSE_PER_BLOCK)) {
                 level.setBlock(target, before, Block.UPDATE_ALL);

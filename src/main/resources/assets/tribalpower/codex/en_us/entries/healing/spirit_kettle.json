@@ -31,7 +31,7 @@
       "title": "Automation",
       "text": [
         "Hoppers and pipes can feed it from the top and sides and take the brew out of the bottom, so a kettle can keep a camp stocked on its own.",
-        "Every number here is in the `healing` section of the common config."
+        "Every number here is in the **healing** section of the common config."
       ]
     },
     {

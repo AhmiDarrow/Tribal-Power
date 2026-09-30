@@ -27,15 +27,38 @@ public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.t
             setChanged();
             if (level != null) {
                 level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);   // the windows show the level
+                // The windows show the level. A pipe changes the tank every tick, so a packet goes out only when the
+                // fluid or the drawn height moves; the exact amount follows within a second for anything reading it.
+                if (level.isClientSide || shownChanged()) sync();
+                else syncPending = true;
             }
         }
     };
+    /** Steps the window's fill height is sent at: one is a sixteenth of a texture pixel of the four-pixel window. */
+    private static final int SHOWN_STEPS = 64;
+    /** Ticks an unsent exact amount may wait for its packet. */
+    private static final int SYNC_INTERVAL = 20;
+    private FluidStack shownFluid = FluidStack.EMPTY;
+    private int shownStep = -1;
+    private boolean syncPending;
+    private int shownStep() {
+        return tank.getCapacity() <= 0 ? 0 : (int) ((long) tank.getFluidAmount() * SHOWN_STEPS / tank.getCapacity());
+    }
+    private boolean shownChanged() {
+        return shownStep() != shownStep || !FluidStack.isSameFluidSameComponents(tank.getFluid(), shownFluid);
+    }
+    private void sync() {
+        shownFluid = tank.getFluid().copy();
+        shownStep = shownStep();
+        syncPending = false;
+        level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+    }
     private boolean paused() { return level != null && level.hasNeighborSignal(worldPosition); }
     public SpiritCisternBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.SPIRIT_CISTERN.get(), pos, state); }
     public Component status() { return Component.translatable("message.tribalpower.cistern.status", tank.getFluidAmount(), tank.getCapacity()); }
     public static void tick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, SpiritCisternBlockEntity be) {
         tk.darrow.tribalpower.lattice.SideIoAdjacency.beat(level, be);
+        if (be.syncPending && (level.getGameTime() + pos.asLong()) % SYNC_INTERVAL == 0) be.sync();
     }
     @Override public CompoundTag getUpdateTag(HolderLookup.Provider registries) { CompoundTag tag = super.getUpdateTag(registries); tag.put("Tank", tank.writeToNBT(registries, new CompoundTag())); return tag; }
     @Override public net.minecraft.network.protocol.Packet<net.minecraft.network.protocol.game.ClientGamePacketListener> getUpdatePacket() { return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this); }

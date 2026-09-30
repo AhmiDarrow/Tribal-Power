@@ -262,7 +262,9 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
 
     @Override
     public ItemStack removeItemNoUpdate(int slot) {
-        return ContainerHelper.takeItem(items, slot);
+        ItemStack removed = ContainerHelper.takeItem(items, slot);
+        if (!removed.isEmpty()) setChanged();
+        return removed;
     }
 
     @Override
