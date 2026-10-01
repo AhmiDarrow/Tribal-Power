@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "tribalpower:march_stone_bricks"
+  },
+  "result": {
+    "id": "tribalpower:cracked_march_stone_bricks"
+  }
+}

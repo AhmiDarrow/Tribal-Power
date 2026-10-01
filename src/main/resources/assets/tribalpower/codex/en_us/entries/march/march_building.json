@@ -45,7 +45,32 @@
     "tribalpower:polished_moss_agate_slab",
     "tribalpower:moss_agate_brick_stairs",
     "tribalpower:moss_agate_brick_slab",
-    "tribalpower:moss_agate_brick_wall"
+    "tribalpower:moss_agate_brick_wall",
+    "tribalpower:march_stone_pressure_plate",
+    "tribalpower:march_cobble_pressure_plate",
+    "tribalpower:march_stone_brick_pressure_plate",
+    "tribalpower:polished_march_stone_pressure_plate",
+    "tribalpower:moonstone_pressure_plate",
+    "tribalpower:polished_moonstone_pressure_plate",
+    "tribalpower:moonstone_brick_pressure_plate",
+    "tribalpower:moss_agate_pressure_plate",
+    "tribalpower:polished_moss_agate_pressure_plate",
+    "tribalpower:moss_agate_brick_pressure_plate",
+    "tribalpower:march_stone_button",
+    "tribalpower:march_cobble_button",
+    "tribalpower:march_stone_brick_button",
+    "tribalpower:polished_march_stone_button",
+    "tribalpower:moonstone_button",
+    "tribalpower:polished_moonstone_button",
+    "tribalpower:moonstone_brick_button",
+    "tribalpower:moss_agate_button",
+    "tribalpower:polished_moss_agate_button",
+    "tribalpower:moss_agate_brick_button",
+    "tribalpower:chiseled_moonstone_bricks",
+    "tribalpower:chiseled_moss_agate_bricks",
+    "tribalpower:cracked_march_stone_bricks",
+    "tribalpower:cracked_moonstone_bricks",
+    "tribalpower:cracked_moss_agate_bricks"
   ],
   "pages": [
     {
@@ -54,7 +79,9 @@
       "title": "Building with the March",
       "text": [
         "March stone, cobble and planks make a full building set. Four March Stone in a square give **March Stone Bricks**; four bricks give **Polished March Stone**; two brick slabs stacked give **Chiseled March Stone Bricks**, carved with a drum and a teal eye.",
-        "Every stone has **stairs** and **slabs**, and all but polished stone have **walls**. The Stonecutter turns plain March Stone into any of them with no waste."
+        "Every stone has **stairs** and **slabs**, and all but polished stone have **walls**. The Stonecutter turns plain March Stone into any of them with no waste.",
+        "Two of a stone in a row give its **pressure plate**, and players and mobs can stand on it. One stone gives its **button**, which stays on for a second.",
+        "Smelting **March Stone Bricks**, **Moonstone Bricks** or **Moss Agate Bricks** cracks them. Two **Moonstone Brick Slabs** stacked give **Chiseled Moonstone Bricks**, and two **Moss Agate Brick Slabs** stacked give **Chiseled Moss Agate Bricks**. The Stonecutter cuts those too."
       ]
     },
     {

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "tribalpower:march_cobble"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:march_cobble_button"
+  }
+}

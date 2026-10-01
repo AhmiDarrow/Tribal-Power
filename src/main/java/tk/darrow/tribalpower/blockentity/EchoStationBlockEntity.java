@@ -73,8 +73,19 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         });
     }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) {
-        if (slot == CATALYST_A || slot == CATALYST_B) return tk.darrow.tribalpower.item.SpiritGear.isCatalyst(stack);
+        if (slot == CATALYST_A || slot == CATALYST_B) return catalystSlotAccepts(stack);
         return slot == 0 && ProcessingRecipes.find(level, station(), stack) != null;
+    }
+
+    /**
+     * Gear crystals, or whatever the seated job consumes. Echo Attune also takes glowstone dust before the
+     * glass is in, because that dust is how quartz glass becomes lit glass.
+     */
+    private boolean catalystSlotAccepts(ItemStack stack) {
+        if (tk.darrow.tribalpower.item.SpiritGear.isCatalyst(stack)) return true;
+        if ("echo_attune".equals(station()) && stack.is(net.minecraft.world.item.Items.GLOWSTONE_DUST)) return true;
+        var formula = ProcessingRecipes.find(level, station(), items.get(0));
+        return formula != null && formula.catalysts().stream().anyMatch(c -> ItemStack.isSameItem(c, stack));
     }
     @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) {

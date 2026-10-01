@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:moss_agate"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:moss_agate_pressure_plate"
+  }
+}

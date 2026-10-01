@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tribalpower:block/polished_moss_agate_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tribalpower:block/polished_moss_agate_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tribalpower:block/cracked_march_stone_bricks"
+  }
+}

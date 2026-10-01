@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_stone_button",
+    "tribalpower:march_cobble_button",
+    "tribalpower:march_stone_brick_button",
+    "tribalpower:polished_march_stone_button",
+    "tribalpower:moonstone_button",
+    "tribalpower:polished_moonstone_button",
+    "tribalpower:moonstone_brick_button",
+    "tribalpower:moss_agate_button",
+    "tribalpower:polished_moss_agate_button",
+    "tribalpower:moss_agate_brick_button"
+  ]
+}

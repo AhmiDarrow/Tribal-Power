@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:moonstone"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:moonstone_pressure_plate"
+  }
+}

@@ -26,7 +26,9 @@ import tk.darrow.tribalpower.item.ModItems;
 
 /**
  * The March building set: stairs, slabs and walls for its stones, cut and chiseled stone bricks, and a full
- * wood set for March planks. Models, recipes, loot and tags come from tools/generate_march_building.py.
+ * wood set for March planks. Each stone also has a pressure plate and a button, and moonstone and moss agate
+ * have chiseled bricks; each brick has a cracked form. Models, recipes, loot and tags come from
+ * tools/generate_march_building.py.
  */
 public final class MarchBuilding {
     /** Every building block's item, in creative-tab order. */
@@ -34,6 +36,11 @@ public final class MarchBuilding {
 
     public static final DeferredBlock<Block> STONE_BRICKS = cube("march_stone_bricks", ModBlocks.MARCH_STONE);
     public static final DeferredBlock<Block> CHISELED_STONE_BRICKS = cube("chiseled_march_stone_bricks", ModBlocks.MARCH_STONE);
+    public static final DeferredBlock<Block> CHISELED_MOONSTONE_BRICKS = cube("chiseled_moonstone_bricks", ModBlocks.MOONSTONE);
+    public static final DeferredBlock<Block> CHISELED_MOSS_AGATE_BRICKS = cube("chiseled_moss_agate_bricks", ModBlocks.MOSS_AGATE);
+    public static final DeferredBlock<Block> CRACKED_STONE_BRICKS = cube("cracked_march_stone_bricks", ModBlocks.MARCH_STONE);
+    public static final DeferredBlock<Block> CRACKED_MOONSTONE_BRICKS = cube("cracked_moonstone_bricks", ModBlocks.MOONSTONE);
+    public static final DeferredBlock<Block> CRACKED_MOSS_AGATE_BRICKS = cube("cracked_moss_agate_bricks", ModBlocks.MOSS_AGATE);
     public static final DeferredBlock<Block> POLISHED_STONE = cube("polished_march_stone", ModBlocks.MARCH_STONE);
     public static final DeferredBlock<Block> POLISHED_MOONSTONE = cube("polished_moonstone", ModBlocks.MOONSTONE);
     public static final DeferredBlock<Block> MOONSTONE_BRICKS = cube("moonstone_bricks", ModBlocks.MOONSTONE);
@@ -72,6 +79,12 @@ public final class MarchBuilding {
     private static void stoneSet(String prefix, DeferredBlock<? extends Block> base, boolean wall) {
         stairsAndSlab(prefix, base);
         if (wall) block(prefix + "_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(base.get()).forceSolidOn()));
+        block(prefix + "_pressure_plate", () -> new PressurePlateBlock(BlockSetType.STONE,
+                BlockBehaviour.Properties.ofFullCopy(base.get()).forceSolidOn().noCollission().strength(0.5F)
+                        .pushReaction(PushReaction.DESTROY)));
+        block(prefix + "_button", () -> new ButtonBlock(BlockSetType.STONE, 20,
+                BlockBehaviour.Properties.ofFullCopy(base.get()).noCollission().strength(0.5F)
+                        .pushReaction(PushReaction.DESTROY)));
     }
 
     private static void stairsAndSlab(String prefix, DeferredBlock<? extends Block> base) {

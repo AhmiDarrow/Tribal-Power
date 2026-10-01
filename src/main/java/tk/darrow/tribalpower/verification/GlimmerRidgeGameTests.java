@@ -16,6 +16,7 @@ import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.block.ModBlocks;
 import tk.darrow.tribalpower.block.QuartzGlass;
+import tk.darrow.tribalpower.blockentity.EchoStationBlockEntity;
 import tk.darrow.tribalpower.echo.ProcessingRecipes;
 
 /** The Glimmer Ridge: its stones, its crystal, and the glass the crystal becomes. */
@@ -54,6 +55,27 @@ public class GlimmerRidgeGameTests {
                 "Already-lit glass must not light again");
         h.assertTrue(QuartzGlass.litFormula("echo_attune", new ItemStack(Items.STONE)) == null,
                 "Anything that is not quartz glass must fall through to the other formulae");
+        h.succeed();
+    }
+
+    /** The catalyst slot has to take the glowstone the lighting formula asks for. */
+    @GameTest(template="empty")
+    public static void attuneTakesGlowstoneDustForLitGlass(GameTestHelper h) {
+        BlockPos pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, ModBlocks.ECHO_ATTUNE.get());
+        var station = (EchoStationBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(pos));
+        ItemStack dust = new ItemStack(Items.GLOWSTONE_DUST);
+        h.assertTrue(station.canPlaceItem(EchoStationBlockEntity.CATALYST_A, dust),
+                "Echo Attune must take glowstone dust in a catalyst slot");
+        h.assertFalse(station.canPlaceItem(EchoStationBlockEntity.CATALYST_A, new ItemStack(Items.STONE)),
+                "A catalyst slot still refuses ordinary items");
+        station.setItem(0, new ItemStack(QuartzGlass.ITEMS.get("quartz_glass").get()));
+        h.assertTrue(station.canPlaceItem(EchoStationBlockEntity.CATALYST_B, dust),
+                "With quartz glass seated, glowstone still seats");
+        h.setBlock(new BlockPos(3, 2, 2), ModBlocks.ECHO_BIND.get());
+        var bind = (EchoStationBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(3, 2, 2)));
+        h.assertFalse(bind.canPlaceItem(EchoStationBlockEntity.CATALYST_A, dust),
+                "Only Echo Attune takes glowstone dust");
         h.succeed();
     }
 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "tribalpower:polished_moonstone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:polished_moonstone_button"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_stone_pressure_plate",
+    "tribalpower:march_cobble_pressure_plate",
+    "tribalpower:march_stone_brick_pressure_plate",
+    "tribalpower:polished_march_stone_pressure_plate",
+    "tribalpower:moonstone_pressure_plate",
+    "tribalpower:polished_moonstone_pressure_plate",
+    "tribalpower:moonstone_brick_pressure_plate",
+    "tribalpower:moss_agate_pressure_plate",
+    "tribalpower:polished_moss_agate_pressure_plate",
+    "tribalpower:moss_agate_brick_pressure_plate"
+  ]
+}

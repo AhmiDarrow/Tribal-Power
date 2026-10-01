@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:march_cobble"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:march_cobble_pressure_plate"
+  }
+}
