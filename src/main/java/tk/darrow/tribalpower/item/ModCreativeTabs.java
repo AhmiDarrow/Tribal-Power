@@ -22,6 +22,8 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.SPIRIT_CODEX.get());
                         CreatureItems.REAGENTS.values().forEach(item -> out.accept(item.get()));
                         CreatureItems.EGGS.values().forEach(item -> out.accept(item.get()));
+                        out.accept(ModItems.MARCH_WALKER_SPAWN_EGG.get());
+                        out.accept(ModItems.SPIRIT_WISP_SPAWN_EGG.get());
                         out.accept(ModItems.SPIRIT_SHARD.get());
                         out.accept(ModItems.RAW_GAME.get());
                         out.accept(ModItems.ROAST_GAME.get());

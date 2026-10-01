@@ -8,8 +8,8 @@
       "type": "text",
       "text": [
         "Tribal Power's workshops are called **Echo stations**. Each one needs three things close together: something to work on, Pulse to spend, and the right **Resonance Totem** nearby to give it its voice.",
-        "The first station you want is [Echo Shatter](echo_shatter). It breaks stone into an **Echo Shard**, the little crystal that will let you make power without drumming.",
-        "Shatter needs an **Earth** totem. The totem is not a power source. Think of it as the station's teacher: without it, the station waits and spends nothing."
+        "The first station you want is [Echo Shatter](echo_shatter): seven stone around a Bone Chime and a Copper Resonator. It breaks stone into an **Echo Shard**, the little crystal that will let you make power without drumming.",
+        "Shatter needs the **Earth** voice. Craft a {item:tribalpower:resonance_totem_earth} from logs, dirt, a Bone Chime and a Copper Resonator, and stand it near the station. The totem is not a power source. Think of it as the station's teacher: without it, the station waits and spends nothing."
       ]
     },
     {
@@ -184,6 +184,7 @@
       "title": "If it will not start",
       "text": [
         "Crouch and right-click the station with this book. It will say whether it lacks Pulse, its totem, or room in its output.",
+        "Shatter spends Pulse faster than a hand drum makes it, so drum a reserve first and let the drum carry the work.",
         "A lever or any steady redstone signal pauses a station. Nothing is lost while it waits."
       ]
     }

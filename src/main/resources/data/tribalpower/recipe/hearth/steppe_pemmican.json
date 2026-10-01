@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "tag": "c:foods/cooked_meat"
+    },
+    {
+      "item": "tribalpower:frostberry"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "id": "tribalpower:steppe_pemmican"
+  },
+  "seconds": 8
+}

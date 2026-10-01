@@ -7,8 +7,8 @@
     {
       "type": "text",
       "text": [
-        "Drumming gets you started, but a camp needs power while you are away. The [Pulse Resonator](pulse_resonator) makes Pulse on its own once you seat a crystal in it and give it company.",
-        "Take the Echo Shard from your Shatter and right-click the Resonator with it. The shard stays inside as its catalyst and is slowly spent by the Pulse it makes, so keep a spare.",
+        "Drumming gets you started, but a camp needs power while you are away. The [Pulse Resonator](pulse_resonator) makes Pulse on its own once you seat a crystal in it and give it company. Craft it from iron, amethyst, two Copper Resonators and a Spirit Shard.",
+        "Take the Echo Shard from your Shatter and right-click the Resonator with it. The shard stays inside as its catalyst and is slowly spent by the Pulse it makes: one shard is good for about 20,000 Pulse, roughly forty minutes at the first rate. Keep a spare.",
         "Then place totems of **two different voices** nearby, for example Earth and Fire. Two Earth totems still count as one voice."
       ]
     },

@@ -20,8 +20,8 @@
         "- Attuned Echo: **2** Echo Shards.",
         "- Resonant Core: **3** Manifested Ingots.",
         "- Spiritweave: **1** wool.",
-        "- Damaged Spiritgear: **1** Manifested Ingot.",
-        "Fresh, undamaged tools are refused: Spiritgear has to take damage first.",
+        "- A damaged Spiritgear tool or weapon: **1** Manifested Ingot.",
+        "Fresh, undamaged tools are refused: Spiritgear has to take damage first. Spiritweave armour is never taken apart.",
         "It needs a Loom Resonance Totem within 8 blocks. Missing Loom pauses it, and it spends nothing."
       ]
     },

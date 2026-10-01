@@ -101,6 +101,9 @@ public final class CodexText {
             List<Placed> current = new ArrayList<>();
             if (bullet) current.add(new Placed(0, new Span("•", BULLET, null)));
             int x = indent;
+            // Where the word being placed began on this line. A word can be several spans with no space between
+            // ("**Drumheart**." or a link and its comma), and wraps as one, so punctuation never starts a line.
+            int lineStart = current.size(), run = lineStart;
             boolean first = true;
             for (Span span : paragraph) {
                 String text2 = span.text();
@@ -109,14 +112,20 @@ public final class CodexText {
                 for (String word : words(text2)) {
                     int w = font.width(word);
                     if (x + w > width && x > indent && !word.isBlank()) {
-                        lines.add(new Line(current, false));
+                        List<Placed> carry = run > lineStart ? new ArrayList<>(current.subList(run, current.size())) : List.of();
+                        lines.add(new Line(new ArrayList<>(current.subList(0, current.size() - carry.size())), false));
                         current = new ArrayList<>();
                         x = indent;
-                        if (word.isBlank()) continue;
+                        lineStart = run = 0;
+                        for (Placed piece : carry) {
+                            current.add(new Placed(x, piece.span()));
+                            x += font.width(piece.span().text());
+                        }
                     }
                     if (x == indent && word.isBlank()) continue;
                     current.add(new Placed(x, new Span(word, span.color(), span.link())));
                     x += w;
+                    if (word.isBlank()) run = current.size();
                 }
             }
             lines.add(new Line(current, true));

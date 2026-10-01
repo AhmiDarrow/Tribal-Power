@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:frostberry"
+    },
+    {
+      "item": "tribalpower:frostberry"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:frostberry_preserve"
+  },
+  "seconds": 10,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  }
+}

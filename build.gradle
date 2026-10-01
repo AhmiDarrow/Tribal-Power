@@ -75,6 +75,23 @@ neoForge {
             programArgument '--nogui'
             jvmArgument '-Dtribalpower.marchSurvey=true'
         }
+        // Stands a stand-in player in March biomes on the survey's world and counts the water life the natural spawner brings.
+        marchCensus {
+            server()
+            gameDirectory = project.file('build/march-survey')
+            programArgument '--nogui'
+            jvmArgument '-Dtribalpower.spawnCensus=true'
+            jvmArgument '-Xmx4G'
+        }
+        // Stands a stand-in player in a few March biomes on a fresh world and counts what the spawner keeps around it,
+        // night and day, and times the hot lookups. Read the "March population" lines in build/march-population/logs.
+        marchPopulation {
+            server()
+            gameDirectory = project.file('build/march-population')
+            programArgument '--nogui'
+            jvmArgument '-Dtribalpower.populationCensus=true'
+            jvmArgument '-Xmx4G'
+        }
         // Disposable: load the frozen 3.0 save under build/migration-3.0 (copied to build/migration-3.1-load).
         migration31 {
             server()
@@ -190,6 +207,18 @@ tasks.matching { it.name == 'runMarchSurvey' }.configureEach {
         def dir = file('build/march-survey')
         dir.mkdirs()
         new File(dir, 'server.properties').text = ['max-tick-time=-1', 'online-mode=false', 'sync-chunk-writes=false'].join(System.lineSeparator())
+    }
+}
+
+// The census needs the live server's distances and difficulty, and no watchdog while it sprints.
+tasks.matching { it.name == 'runMarchPopulation' }.configureEach {
+    doFirst {
+        def dir = file('build/march-population')
+        dir.mkdirs()
+        new File(dir, 'eula.txt').text = 'eula=true'
+        new File(dir, 'server.properties').text = ['max-tick-time=-1', 'online-mode=false', 'sync-chunk-writes=false',
+                'view-distance=10', 'simulation-distance=8', 'difficulty=normal', 'spawn-monsters=true',
+                'spawn-animals=true', 'level-seed=5311'].join(System.lineSeparator())
     }
 }
 

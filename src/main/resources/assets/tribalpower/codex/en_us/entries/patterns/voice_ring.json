@@ -24,9 +24,9 @@
       "type": "text",
       "title": "Filling the ring",
       "text": [
-        "Every slot needs a totem, but only **distinct** voices count, the sixth included. Two Earth totems are still one voice, so spare slots can hold duplicates.",
+        "Every slot needs a Resonance Totem. A Kinship Totem cannot fill a slot, though it still adds its tribe from anywhere within 8 blocks. Only **distinct** voices count, the sixth included: two Earth totems are still one voice, so spare slots can hold duplicates.",
         "Only **Answered** totems count; a quiet one has to be woken first (see [Keeping](keeping)).",
-        "Seat the catalyst as usual. Crouch and right-click the Resonator with the Codex to see ghosts of missing slots and the voice count."
+        "Seat the catalyst as usual. Crouch and right-click the Resonator with this book to see ghosts of missing slots and the voice count."
       ]
     }
   ]

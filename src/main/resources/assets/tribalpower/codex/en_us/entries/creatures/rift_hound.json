@@ -4,7 +4,8 @@
   "order": 150,
   "spoiler": true,
   "items": [
-    "tribalpower:rift_hound_spawn_egg"
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
   ],
   "next": "echo_weaver",
   "pages": [

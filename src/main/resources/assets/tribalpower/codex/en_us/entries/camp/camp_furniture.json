@@ -27,9 +27,15 @@
         "- **March Stool**: faces you when placed. Use it empty-handed to sit down; sneak or use it again to get up.",
         "- **Spirit Urn**: a stone pot for a shelf or a corner. It holds one thing in its mouth.",
         "- **Woven Mat**: a thin rug for any floor, slabs and stairs included.",
+        "Use the table or the urn while holding something to set it down, and empty-handed to take it back. Anything you set down stays where you put it, falls with the piece if it breaks, and can be read by a comparator. Hoppers and pipes leave furniture alone — the caches are for storing things."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Shelves and racks",
+      "text": [
         "- **Wall Shelf**: hangs on the side of nearly any block (a fence, a wall, a log) and drops if that goes. Use it holding something to set that down on the board, empty-handed to take it back. Four things fit, one to a place, and a comparator reads how full it is.",
         "- **Hanging Rack**: a rail with four copper hooks that sits high on whatever it is fixed to. Pots, tools and bundles hang from the hooks instead of lying on a board. It works like the shelf: use it holding something to hang it up, empty-handed to take it down, and a comparator reads how full it is. You walk under it.",
-        "Anything you set down stays where you put it, falls with the piece if it breaks, and can be read by a comparator. Hoppers and pipes leave furniture alone — the caches are for storing things.",
         "For hanging decorations, see the Wind Charm; knock it and it rings."
       ]
     },

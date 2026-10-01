@@ -45,9 +45,13 @@ public final class Wildlife {
 
     public static final DeferredHolder<EntityType<?>, EntityType<GlimmerfinEntity>> GLIMMERFIN = ENTITIES.register("glimmerfin",
             () -> EntityType.Builder.of(GlimmerfinEntity::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4).build("tribalpower:glimmerfin"));
-    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> DRIFT_BELL = swimmer("drift_bell", 0.8F, 0.9F);
-    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> VEIL_RAY = swimmer("veil_ray", 1.4F, 0.4F);
-    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> SILT_EEL = swimmer("silt_eel", 0.6F, 0.4F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> DRIFT_BELL = swimmer("drift_bell", MobCategory.WATER_CREATURE, 0.8F, 0.9F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> VEIL_RAY = swimmer("veil_ray", MobCategory.WATER_CREATURE, 1.4F, 0.4F);
+    /**
+     * A fish, so it lives with the fish: water creatures share a cap of five per player spread over 128 blocks,
+     * which left about one eel in sight of a fen, while fish keep twenty within 64 blocks.
+     */
+    public static final DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> SILT_EEL = swimmer("silt_eel", MobCategory.WATER_AMBIENT, 0.6F, 0.4F);
     public static final DeferredHolder<EntityType<?>, EntityType<LoomSwiftEntity>> LOOM_SWIFT = ENTITIES.register("loom_swift",
             () -> EntityType.Builder.of(LoomSwiftEntity::new, MobCategory.AMBIENT).sized(0.4F, 0.3F).clientTrackingRange(8).build("tribalpower:loom_swift"));
 
@@ -91,10 +95,11 @@ public final class Wildlife {
      * player. They despawn like any ambient creature once nobody is near.
      */
     private static void flocks(net.neoforged.neoforge.event.tick.PlayerTickEvent.Post event) {
-        if (!(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) || player.isSpectator()) return;
+        // Every player ticks this in every dimension, so the dimension is the first thing asked.
+        if (event.getEntity().level().dimension() != tk.darrow.tribalpower.world.ModDimensions.THE_MARCH
+                || !(event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) || player.isSpectator()) return;
         var level = player.serverLevel();
-        if ((level.getGameTime() + player.getId()) % 240 != 0 || !level.dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH)
-                || !level.isDay() || level.isRaining()) return;
+        if ((level.getGameTime() + player.getId()) % 240 != 0 || !level.isDay() || level.isRaining()) return;
         if (level.getEntitiesOfClass(LoomSwiftEntity.class, player.getBoundingBox().inflate(64)).size() >= 12) return;
         var random = level.getRandom();
         double angle = random.nextDouble() * net.minecraft.util.Mth.TWO_PI, distance = 32 + random.nextInt(24);
@@ -120,8 +125,8 @@ public final class Wildlife {
         return items;
     }
 
-    private static DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> swimmer(String id, float width, float height) {
-        return ENTITIES.register(id, () -> EntityType.Builder.of(MarchSwimmerEntity::new, MobCategory.WATER_CREATURE)
+    private static DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> swimmer(String id, MobCategory category, float width, float height) {
+        return ENTITIES.register(id, () -> EntityType.Builder.of(MarchSwimmerEntity::new, category)
                 .sized(width, height).clientTrackingRange(6).build("tribalpower:" + id));
     }
 
@@ -158,11 +163,26 @@ public final class Wildlife {
     /**
      * Any water with water or air above it, however shallow: March meres and pools sit well above sea level and
      * are often only a block or two deep, so vanilla's sea-level rule would refuse nearly all of them.
+     *
+     * <p>A natural spawn must also be in open water. The spawner tries heights from the bottom of the world up,
+     * so most of its tries land in the aquifers under the land; left to that, three in four swimmers on land spawned
+     * where no player would ever see them, and they filled the caps the meres share.
      */
     private static <T extends net.minecraft.world.entity.Entity> boolean inWater(EntityType<T> type, ServerLevelAccessor level,
                                                                                  MobSpawnType reason, BlockPos pos, RandomSource random) {
         return level.getFluidState(pos).is(FluidTags.WATER)
-                && (level.getFluidState(pos.above()).is(FluidTags.WATER) || level.getBlockState(pos.above()).isAir());
+                && (level.getFluidState(pos.above()).is(FluidTags.WATER) || level.getBlockState(pos.above()).isAir())
+                && (reason != MobSpawnType.NATURAL || openWater(level, pos));
+    }
+
+    /** Water with only water between it and the surface of its column: a mere, pool or sea, not an aquifer. */
+    public static boolean openWater(net.minecraft.world.level.LevelReader level, BlockPos pos) {
+        int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pos.getX(), pos.getZ());
+        if (top <= pos.getY()) return false;       // an unloaded column reads as the bottom of the world
+        var at = pos.mutable();
+        for (; at.getY() < top; at.move(net.minecraft.core.Direction.UP))
+            if (!level.getFluidState(at).is(FluidTags.WATER)) return false;
+        return true;
     }
 
     private static <T extends net.minecraft.world.entity.Entity> boolean inOpenSky(EntityType<T> type, ServerLevelAccessor level,

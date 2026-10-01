@@ -24,7 +24,7 @@
       "type": "text",
       "title": "Using the circle",
       "text": [
-        "If the circle is incomplete, a tablet rite says the circle is not drawn and the tablet is not spent. Crouch and right-click the brazier with the Codex to see ghosts.",
+        "If the circle is incomplete, a tablet rite says the circle is not drawn and the tablet is not spent. Crouch and right-click the brazier with this book to see ghosts of what is missing.",
         "Tablets can wait on the pedestals. A struck redstone signal on the brazier fires the seated rite with a pedestal's tablet that matches the seal, and a comparator reads whether a pedestal is occupied. That is how you put a [rite on a clock](redstone_language)."
       ]
     },
@@ -41,6 +41,28 @@
       "text": [
         "The four cardinal totems only count when they match the rite being cast, so a Water circle helps Rain Calling and Spring Calling but not Dawn Calling.",
         "It is optional. A plain circle casts every rite at full price."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A seal rite by hand",
+      "text": [
+        "A pedestal also takes a quick rite with no circle at all. Use an elemental **seal** on a Rite Pedestal: the seal is spent, and its voice works on you and everything within **6 blocks** for half a minute to two minutes.",
+        "If a cell you carry holds **8 Pulse**, the rite takes it and is **amplified**: stronger and longer.",
+        "Everyone within 6 blocks also gets the seal's [voice blessing](voice_blessings) for **5 minutes**, or 7 and a half at level II when amplified. Done in a tribe's camp, it counts as the rite their requests ask for.",
+        "A redstone signal on the pedestal refuses it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What each seal does",
+      "text": [
+        "- **Earth**: resistance, absorption and haste; nearby hostiles are rooted, and the grass under the pedestal firms into path.",
+        "- **Fire**: fire resistance; hostiles catch fire, snow and ice melt, and cold campfires light.",
+        "- **Water**: water breathing and a swimmer's grace; fires go out and farmland is soaked. Amplified, it also hurries plants.",
+        "- **Air**: slow falling, speed and a higher jump; hostiles are blown back, and rain clears.",
+        "- **Spirit**: regeneration and night sight, lifts poison, wither, blindness, slowness, weakness and hunger, and heals every player near; hostiles glow and weaken.",
+        "- **Loom**: luck and speed; hostiles are drawn in and slowed, and every player near gets **12 Pulse** (24 amplified) threaded into their cells."
       ]
     },
     {

@@ -12,7 +12,10 @@ public enum KinRole {
         return WEAVER;
     }
 
+    /** {@code values()} copies the array on every call; Kin read their role several times a tick. */
+    private static final KinRole[] ALL = values();
+
     public static KinRole byOrdinal(int ordinal) {
-        return values()[Math.floorMod(ordinal, values().length)];
+        return ALL[Math.floorMod(ordinal, ALL.length)];
     }
 }

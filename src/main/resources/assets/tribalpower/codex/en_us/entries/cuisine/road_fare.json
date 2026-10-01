@@ -1,0 +1,65 @@
+{
+  "name": "Road Fare",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Food for the walk",
+      "text": [
+        "Not every meal carries a tribe's [boon](tribe_dishes). Camp fare is what a walker packs: cheap, quick at the [Hearth Pot](hearth_pot), and each made for one job. Most mix the March's crops with what any farm grows.",
+        "- **Drover's Flatbread**: Steppe Grain ×2, wheat. Two to a pot, 5 hunger each, stacks to 64. The cheapest way to stay fed.",
+        "- **Glimmer Crisps**: Glimmer Bean ×2, dried kelp. Three to a pot, 3 hunger, and **eaten in a moment**, so you can snatch a bite between blows.",
+        "- **Hunter's Skewer**: any raw meat, Emberroot, beetroot. Two to a pot, 6 hunger and **Speed for 20 seconds**, to run your game down."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Food for the walk, continued",
+      "text": [
+        "- **Steppe Pemmican**: any cooked meat, Frostberry, sweet berries. Three to a pot, only 4 hunger but the best saturation for its size: it keeps you full longest on a long march.",
+        "- **Frostberry Preserve**: Frostberry ×2, sugar, in a glass bottle. 4 hunger and **Fire Resistance for 30 seconds**, for crossing the Ember Wastes. The bottle comes back.",
+        "- **Thistle Tea**: Ley Thistle, March Leaf, honeycomb, in a glass bottle. Little food, but you can drink it when full, and it **cures poison, hunger and nausea**: the camp's answer to a bad meal.",
+        "- **Highland Crumble**: an apple, Steppe Grain, sweet berries, sugar. 6 hunger and **Jump Boost for 45 seconds** for the ridges."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

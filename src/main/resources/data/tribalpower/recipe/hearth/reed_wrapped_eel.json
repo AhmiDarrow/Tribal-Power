@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:raw_silt_eel"
+    },
+    {
+      "item": "tribalpower:spirit_reed"
+    },
+    {
+      "item": "tribalpower:march_leaf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:reed_wrapped_eel"
+  },
+  "seconds": 12
+}

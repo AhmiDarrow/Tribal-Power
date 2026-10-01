@@ -42,6 +42,27 @@ public class BestiaryGameTests {
         h.assertTrue(animals==45 && monsters==34,"Roster must contain 45 animals and 34 hostiles");h.succeed();
     }
     /**
+     * Every spawn egg must be told apart at a glance. The 4.0 roster shelled its eggs in each palette's
+     * shadow tone, so fifty-odd eggs came out near-black with white spots, and creatures sharing a
+     * palette, the Crag Troll and the Burrow Gnasher among them, wore the very same egg.
+     */
+    @GameTest(template="empty")
+    public static void noTwoSpawnEggsLookAlike(GameTestHelper h) {
+        var eggs=net.minecraft.core.registries.BuiltInRegistries.ITEM.stream()
+                .filter(i->i instanceof SpawnEggItem && net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(i).getNamespace().equals("tribalpower"))
+                .map(i->(SpawnEggItem)i).toList();
+        h.assertTrue(eggs.size()>=CreatureProfile.values().length,"Every creature's spawn egg must be registered");
+        for(int i=0;i<eggs.size();i++)for(int j=i+1;j<eggs.size();j++) {
+            var a=eggs.get(i);var b=eggs.get(j);
+            double apart=distance(a.getColor(0),b.getColor(0))+distance(a.getColor(1),b.getColor(1));
+            h.assertTrue(apart>=24,a+" and "+b+" share a spawn egg");
+        }
+        h.succeed();
+    }
+    private static double distance(int a,int b) {
+        return Math.sqrt(Math.pow((a>>16&255)-(b>>16&255),2)+Math.pow((a>>8&255)-(b>>8&255),2)+Math.pow((a&255)-(b&255),2));
+    }
+    /**
      * Every creature must have a loot table that actually loaded, and it must drop that creature.
      *
      * <p>Twelve of them shipped naming "minecraft:looting_enchant", which is not a loot function in

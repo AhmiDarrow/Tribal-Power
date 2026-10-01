@@ -105,6 +105,17 @@ public final class LeyMath {
 
     /** Full pad survey: radius 8, used by the Collector and sneak-Lens print. */
     public static Factors factors(Level level, BlockPos pos) {
+        LeyField.Reading ley = level instanceof net.minecraft.server.level.ServerLevel server
+                ? LeyField.sample(server, pos) : null;
+        return factors(level, pos, ley);
+    }
+
+    /**
+     * As {@link #factors(Level, BlockPos)} with the ley reading at {@code pos} already taken, so a
+     * caller that needs the reading too (the collector's surge check) samples the threads once.
+     * A null reading counts no lines, as on the client.
+     */
+    public static Factors factors(Level level, BlockPos pos, @org.jetbrains.annotations.Nullable LeyField.Reading ley) {
         boolean sky = level.canSeeSky(pos.above());
         boolean night = level.isNight();
         boolean rain = level.isRainingAt(pos.above());
@@ -160,8 +171,7 @@ public final class LeyMath {
         if (thunder) raw += THUNDER;
         raw += waterPts + greenPts + voicePts + hearthPts + lifePts + marchPts + moonPts;
         int lines = 0, linePoints = 0;
-        if (level instanceof net.minecraft.server.level.ServerLevel server) {
-            LeyField.Reading ley = LeyField.sample(server, pos);
+        if (ley != null) {
             lines = ley.lines();
             linePoints = ley.points();
         }

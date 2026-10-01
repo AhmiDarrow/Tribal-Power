@@ -18,7 +18,7 @@
       "title": "Running a line",
       "text": [
         "Power drops by **one per block**, like dust. Keep a line short if you need a full 15 at the far end, or refresh it with an Echo Plate.",
-        "Vanilla dust, levers, song plates, Song Vines and comparators all speak to it.",
+        "Vanilla dust, levers, song plates, Song Vines and comparators all speak to it. Between two song plates you can skip the thread entirely and sync them with a Totem Wrench (see [Song plates](song_plates)).",
         "It carries weakly: it will not power the stone it touches, so it never latches. A wall of thread is a wall of song. For a tendril that hugs stone around corners, see [Song Vine](song_vine)."
       ]
     },

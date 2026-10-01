@@ -4,7 +4,8 @@
   "order": 90,
   "spoiler": true,
   "items": [
-    "tribalpower:reed_stalker_spawn_egg"
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
   ],
   "next": "shardback",
   "pages": [

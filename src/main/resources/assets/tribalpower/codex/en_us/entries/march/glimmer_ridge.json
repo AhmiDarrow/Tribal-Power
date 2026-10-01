@@ -39,7 +39,7 @@
       "type": "text",
       "title": "Binding light into glass",
       "text": [
-        "Seat a pane of Quartz Glass in an **Echo Attune** and put **glowstone dust** in the catalyst slot. In six seconds, at 24 Pulse a second, the light is bound into the crystal and you have a **lit** pane that shines on its own — no lamp, no redstone, and it keeps whatever colour it had.",
+        "Put Quartz Glass, a block or a pane, into an **Echo Attune** with a Fire totem nearby, and **glowstone dust** in the catalyst slot. In six seconds, at **48 Pulse a second**, the light is bound into the crystal and you have **lit** glass that shines at full brightness on its own — no lamp, no redstone, and it keeps whatever colour it had.",
         "The catalyst is spent; the colour is not. Lit glass cannot be lit twice."
       ]
     },

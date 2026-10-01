@@ -27,9 +27,10 @@ import tk.darrow.tribalpower.TribalPower;
  */
 public final class CodexBook {
     public record Book(String title, String landing, List<Category> categories, List<Entry> entries,
-                       Map<String, Entry> byId, Map<String, String> itemEntries) {
+                       Map<String, Entry> byId, Map<String, String> itemEntries, Map<String, List<Entry>> byCategory) {
+        /** A chapter's entries in reading order; asked every frame, so grouped once when the book loads. */
         public List<Entry> in(String category) {
-            return entries.stream().filter(e -> e.category().equals(category)).toList();
+            return byCategory.getOrDefault(category, List.of());
         }
 
         public Category category(String id) {
@@ -80,7 +81,7 @@ public final class CodexBook {
 
     public record Use(BlockPos pos, String item) {}
 
-    private static final Book EMPTY = new Book("Spirit Codex", "", List.of(), List.of(), Map.of(), Map.of());
+    private static final Book EMPTY = new Book("Spirit Codex", "", List.of(), List.of(), Map.of(), Map.of(), Map.of());
     private static volatile Book book = EMPTY;
 
     private CodexBook() {}
@@ -128,6 +129,7 @@ public final class CodexBook {
         JsonObject meta = files.getOrDefault("book.json", new JsonObject());
         List<Category> categories = new ArrayList<>();
         List<Entry> entries = new ArrayList<>();
+        java.util.Set<String> pictureIcons = new java.util.HashSet<>();
         files.forEach((path, json) -> {
             String[] parts = path.split("/");
             if (parts[0].equals("categories") && parts.length == 2) {
@@ -136,7 +138,9 @@ public final class CodexBook {
             } else if (parts[0].equals("entries") && parts.length == 3) {
                 // One malformed entry (no pages, bad scene) must not take the whole book down with it.
                 try {
-                    entries.add(entry(parts[1], stem(parts[2]), json));
+                    Entry e = entry(parts[1], stem(parts[2]), json);
+                    entries.add(e);
+                    if (!teaches(json, e.icon())) pictureIcons.add(e.id());
                 } catch (RuntimeException error) {
                     TribalPower.LOGGER.warn("Spirit Codex entry {} skipped: {}", path, error.toString());
                 }
@@ -148,15 +152,22 @@ public final class CodexBook {
         entries.sort(Comparator.comparingInt((Entry e) -> categoryOrder.getOrDefault(e.category(), 999))
                 .thenComparingInt(Entry::order).thenComparing(Entry::name));
         Map<String, Entry> byId = new LinkedHashMap<>();
-        for (Entry e : entries) byId.put(e.id(), e);
+        Map<String, List<Entry>> byCategory = new HashMap<>();
+        for (Entry e : entries) {
+            byId.put(e.id(), e);
+            byCategory.computeIfAbsent(e.category(), k -> new ArrayList<>()).add(e);
+        }
+        byCategory.replaceAll((k, list) -> List.copyOf(list));
         // Clicking an item opens the entry that is most about it: the one it is the icon of, then one that
-        // spotlights it, then one that merely lists it. The beginner path only claims what nothing else covers.
+        // spotlights it, then one that merely lists it. An icon the entry does not otherwise list or show is only
+        // a picture (a chapter overview, a lore page, a creature drawn by what it lives among): it claims its
+        // item only when nothing else teaches it. The beginner path only claims what nothing else covers.
         Map<String, String> itemEntries = new HashMap<>();
         Map<String, Integer> claim = new HashMap<>();
         for (Entry e : entries) {
             boolean beginner = categories.stream().findFirst().map(c -> c.id().equals(e.category())).orElse(false);
             for (String item : e.items()) {
-                int strength = item.equals(e.icon()) ? 3 : 1;
+                int strength = !item.equals(e.icon()) ? 1 : pictureIcons.contains(e.id()) ? 0 : 3;
                 for (Page page : e.pages())
                     if (page instanceof Spotlight s && s.item().equals(item)) strength = Math.max(strength, 2);
                 if (beginner) strength -= 10;
@@ -167,7 +178,7 @@ public final class CodexBook {
             }
         }
         return new Book(meta.has("title") ? str(meta, "title") : "Spirit Codex", text(meta, "landing"),
-                List.copyOf(categories), List.copyOf(entries), byId, itemEntries);
+                List.copyOf(categories), List.copyOf(entries), byId, itemEntries, byCategory);
     }
 
     private static Entry entry(String category, String id, JsonObject json) {
@@ -184,6 +195,18 @@ public final class CodexBook {
         }
         return new Entry(id, category, str(json, "name"), icon, bool(json, "spoiler"), str(json, "unlock"),
                 json.has("order") ? json.get("order").getAsInt() : 100, List.copyOf(items), List.copyOf(pages), str(json, "next"));
+    }
+
+    /** Whether an entry lists, spotlights or shows the recipe of {@code item} itself, not only draws it as its icon. */
+    private static boolean teaches(JsonObject json, String item) {
+        if (item.isEmpty()) return false;
+        if (json.has("items")) for (JsonElement listed : json.getAsJsonArray("items")) if (listed.getAsString().equals(item)) return true;
+        for (JsonElement element : json.getAsJsonArray("pages")) {
+            JsonObject page = element.getAsJsonObject();
+            String type = page.has("type") ? page.get("type").getAsString() : "text";
+            if ((type.equals("spotlight") || type.equals("recipe")) && str(page, "item").equals(item)) return true;
+        }
+        return false;
     }
 
     private static Page page(JsonObject json) {

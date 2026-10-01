@@ -4,7 +4,8 @@
   "order": 120,
   "spoiler": true,
   "items": [
-    "tribalpower:storm_moth_spawn_egg"
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
   ],
   "next": "cinder_imp",
   "pages": [

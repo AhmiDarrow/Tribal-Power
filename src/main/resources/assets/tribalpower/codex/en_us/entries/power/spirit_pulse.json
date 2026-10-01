@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Supply and demand",
       "text": [
-        "A machine can run for a while from a reserve even when it spends faster than you generate. If it keeps starting and stopping, compare the Pulse it needs with what your generators make, then add generation or build a bigger reserve.",
+        "A machine can run for a while from a reserve even when it spends faster than you generate. If it keeps starting and stopping, compare the Pulse it needs with what your generators make, then add generation or build a bigger reserve. Every Pulse figure in this book is for the default settings; a pack can change them, and a machine's readout always shows its real cost.",
         "Totems are not generators. A matching totem gives a station its voice, called **attunement**; it does not make power. Crouch and right-click a machine with this book and it reports power and attunement separately."
       ]
     },
@@ -202,7 +202,7 @@
       "text": [
         "A Pulse Cell holds **1,200 Pulse**; a **Greater Pulse Cell** holds **4,800**; a **Grand Pulse Cell** holds **19,200**. Carry charged cells for spells, Spiritgear, charms and travel, which all draw on cells in your inventory.",
         "A cell in your pocket is **not** a nearby generator. Workshops and tablet rites still need Pulse within 8 blocks of them.",
-        "To pay for a Way Gate, use a cell on its keystone (up to **100** per use); the trip spends that store, not the cell in your pocket. A Gate Drum needs no Pulse at all: its rite opens it.",
+        "To charge a Way Gate or Far Gate, use a cell on its keystone: each use moves up to **100 Pulse** into it, and trips spend that store, not the cell in your pocket. A Gate Drum needs no Pulse at all: its rite opens it.",
         "A [Pulse Gauge](pulse_gauge) pointed at a machine that holds Pulse reads how full it is."
       ]
     },
@@ -213,7 +213,7 @@
     {
       "type": "recipe",
       "item": "tribalpower:greater_pulse_cell",
-      "text": "Needs Resonant Cores from Echo Manifest."
+      "text": "A Pulse Cell between two Resonant Cores and two Manifested Ingots, all from Echo Manifest."
     },
     {
       "type": "recipe",

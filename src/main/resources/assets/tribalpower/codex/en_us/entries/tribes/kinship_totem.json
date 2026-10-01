@@ -229,16 +229,16 @@
       "title": "On a Pulse Resonator",
       "text": [
         "Every distinct tribe with a Kinship Totem within **8 blocks** counts as one more voice. Kinship Totems never go quiet, so they always count; Resonance Totems only count while Answered.",
-        "The Resonator still needs at least one **Resonance Totem** of its own. Kinship Totems alone will not start it.",
+        "The Resonator still needs at least one answered **Resonance Totem** of its own. Kinship Totems alone will not start it.",
         "A loose heap still stops at **five voices** in total. Build a [Voice Ring](voice_ring) and the cap lifts: six elements plus all nine tribes add up to **fifteen**."
       ]
     },
     {
       "type": "text",
-      "title": "On stations and the Loom Anchor",
+      "title": "On stations and camp machines",
       "text": [
-        "Within 8 blocks of a workshop or the Loom Anchor, a Kinship Totem only **lends its tribe's element**, as if a Resonance Totem of that voice stood there. It is not a seventh voice.",
-        "Because it never goes quiet, it is a good way to keep a station's voice awake in a spot you rarely visit."
+        "Within 8 blocks of a workshop, the Loom Anchor or a [camp hand](camp_hands) that waits for a voice, a Kinship Totem only **lends its tribe's element**, as if an answered Resonance Totem of that voice stood there. It is not a seventh voice.",
+        "Because it never goes quiet, it counts even beside a quiet Resonance Totem of the same voice. That makes it a good way to keep a station or a camp machine working in a spot you rarely visit."
       ]
     },
     {

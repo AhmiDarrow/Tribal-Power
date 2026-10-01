@@ -49,6 +49,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.echo.ModMenus.MENUS.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.TYPES.register(modBus);
         tk.darrow.tribalpower.echo.LatticeRecipe.SERIALIZERS.register(modBus);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.echo.ProcessingRecipes::onTagsUpdated);
         tk.darrow.tribalpower.item.SpiritweaveArmor.MATERIALS.register(modBus);
         tk.darrow.tribalpower.familiar.FamiliarRegistry.ITEMS.register(modBus);
         tk.darrow.tribalpower.familiar.FamiliarRegistry.BLOCKS.register(modBus);
@@ -161,6 +162,8 @@ public final class TribalPower {
         tk.darrow.tribalpower.compat.ModVersionCondition.register(modBus);
         tk.darrow.tribalpower.compat.ChocoboCompat.register();
         if (Boolean.getBoolean("tribalpower.marchSurvey")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.MarchSurvey::onServerStarted);
+        if (Boolean.getBoolean("tribalpower.spawnCensus")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.SpawnCensus::onServerStarted);
+        if (Boolean.getBoolean("tribalpower.populationCensus")) NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.verification.PopulationCensus::onServerStarted);
         modBus.addListener((net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent event) -> {
             // The flask is a tank in the hand: pipes, tanks and other mods fill it like any container.
             event.registerItem(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.ITEM,

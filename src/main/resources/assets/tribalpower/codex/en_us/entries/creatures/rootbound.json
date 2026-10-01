@@ -4,7 +4,8 @@
   "order": 80,
   "spoiler": true,
   "items": [
-    "tribalpower:rootbound_spawn_egg"
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
   ],
   "next": "reed_stalker",
   "pages": [

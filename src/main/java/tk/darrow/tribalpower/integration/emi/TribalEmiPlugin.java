@@ -113,7 +113,7 @@ public class TribalEmiPlugin implements EmiPlugin {
         @Override public ResourceLocation getId() { return id; }
         @Override public List<EmiIngredient> getInputs() { return List.of(EmiIngredient.of(recipe.ingredient())); }
         @Override public List<EmiStack> getOutputs() { return List.of(EmiStack.of(recipe.output())); }
-        private Component cost() { return ViewerText.recipeCost(recipe.seconds(), recipe.seconds() * recipe.pulse()); }
+        private Component cost() { return ViewerText.stationCost(recipe.seconds(), recipe.pulse()); }
         @Override public int getDisplayWidth() { return 160; }
         @Override public int getDisplayHeight() { return 54 + ViewerText.LINE * ViewerText.lines(cost(), 156); }
         @Override public void addWidgets(WidgetHolder widgets) {

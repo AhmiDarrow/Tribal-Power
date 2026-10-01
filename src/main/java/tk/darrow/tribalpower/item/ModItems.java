@@ -29,6 +29,11 @@ public final class ModItems {
     public static final DeferredItem<Item> ROAST_GAME = ITEMS.registerSimpleItem("roast_game",
             new Item.Properties().food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(8).saturationModifier(0.8F).build()));
     public static final DeferredItem<Item> MARCH_LEATHER = ITEMS.registerSimpleItem("march_leather");
+    // The March's two oldest creatures, the walkers that drop game and the wisps that drop nothing, get eggs like the rest.
+    public static final DeferredItem<net.neoforged.neoforge.common.DeferredSpawnEggItem> MARCH_WALKER_SPAWN_EGG = ITEMS.register("march_walker_spawn_egg",
+            () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(tk.darrow.tribalpower.entity.ModEntities.MARCH_WALKER, 0x304040, 0x40A090, new Item.Properties()));
+    public static final DeferredItem<net.neoforged.neoforge.common.DeferredSpawnEggItem> SPIRIT_WISP_SPAWN_EGG = ITEMS.register("spirit_wisp_spawn_egg",
+            () -> new net.neoforged.neoforge.common.DeferredSpawnEggItem(tk.darrow.tribalpower.entity.ModEntities.SPIRIT_WISP, 0x308080, 0xB0E0D0, new Item.Properties()));
     public static final DeferredItem<Item> BONE_CHIME = ITEMS.registerSimpleItem("bone_chime");
     public static final DeferredItem<Item> COPPER_RESONATOR = ITEMS.registerSimpleItem("copper_resonator");
     public static final DeferredItem<PulseCellItem> PULSE_CELL = ITEMS.register(

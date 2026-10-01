@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_fish"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    },
+    {
+      "item": "minecraft:kelp"
+    },
+    {
+      "item": "minecraft:potato"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:fen_callers_chowder"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

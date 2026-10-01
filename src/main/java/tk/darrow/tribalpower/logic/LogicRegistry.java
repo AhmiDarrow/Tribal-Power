@@ -1,5 +1,7 @@
 package tk.darrow.tribalpower.logic;
 
+import net.minecraft.core.GlobalPos;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,6 +21,14 @@ public final class LogicRegistry {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(TribalPower.MOD_ID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TribalPower.MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, TribalPower.MOD_ID);
+    public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, TribalPower.MOD_ID);
+
+    /** The song plate a Totem Wrench is holding, ready to sync into other plates. */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<GlobalPos>> HELD_PLATE =
+            COMPONENTS.register("held_plate", () -> DataComponentType.<GlobalPos>builder()
+                    .persistent(GlobalPos.CODEC)
+                    .networkSynchronized(GlobalPos.STREAM_CODEC)
+                    .build());
 
     public static final DeferredBlock<PulseGaugeBlock> PULSE_GAUGE = BLOCKS.register("pulse_gauge",
             () -> new PulseGaugeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F).sound(SoundType.STONE)));
@@ -96,6 +106,7 @@ public final class LogicRegistry {
         BLOCKS.register(modBus);
         ITEMS.register(modBus);
         BLOCK_ENTITIES.register(modBus);
+        COMPONENTS.register(modBus);
     }
 
     public static void displayItems(CreativeModeTab.Output out) {

@@ -20,7 +20,7 @@
       "type": "text",
       "title": "Attune",
       "text": [
-        "Place Echo Attune with a Fire totem within 8 blocks and feed it Echo Shards. Each becomes an Attuned Echo in **3 seconds** at **20 Pulse a second** before pack settings.",
+        "Place Echo Attune with a Fire totem within 8 blocks and feed it Echo Shards. Each becomes an Attuned Echo in **3 seconds** at **40 Pulse a second**.",
         "Attune also turns an Amethyst Shard into a Spirit Shard.",
         "Trophies from March creatures, such as an Ember Heart, a Reed Fang or a Rift Tooth, attune into **two** Attuned Echoes each, but those need the **Spirit** voice, not Fire."
       ]
@@ -29,7 +29,7 @@
       "type": "text",
       "title": "Bind",
       "text": [
-        "Place Echo Bind with a Water totem within 8 blocks and feed it Attuned Echoes. Each becomes a Bound Echo in **4 seconds** at **24 Pulse a second** before pack settings.",
+        "Place Echo Bind with a Water totem within 8 blocks and feed it Attuned Echoes. Each becomes a Bound Echo in **4 seconds** at **48 Pulse a second**.",
         "Bind also turns wool into **Spiritweave**, and dirt into **four clay balls**. Soft creature drops such as Dawn Velvet, Lantern Down or Storm Wing bind into two Spiritweave each."
       ]
     },

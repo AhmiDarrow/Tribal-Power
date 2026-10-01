@@ -14,7 +14,7 @@
       "type": "text",
       "title": "Keeping it quiet",
       "text": [
-        "Place it in the middle of camp with generators within 8, and a **Spirit** Resonance Totem within 8 as well: without its voice it stands idle (see [Camp hands](camp_hands)). It keeps a reserve of **2,400 Pulse** to bridge a quiet spell, and refills it by up to **80 Pulse** a second. Right-click it with a Pulse Cell to top it up by hand.",
+        "Place it in the middle of camp with generators within 8, and a **Spirit** totem within 8 as well: without its voice it stands idle (see Camp hands). It keeps a reserve of **2,400 Pulse** to bridge a quiet spell, and refills it by up to **80 Pulse** a second. Right-click it with a Pulse Cell to top it up by hand.",
         "It stops natural spawns and spawner spawns, including a Summoning Cradle's hostiles.",
         "It does not remove mobs already there, it does not stop animals, and it never overrules commands or spawn eggs.",
         "Redstone silences it at once. A comparator reads 15 while it is hushing."

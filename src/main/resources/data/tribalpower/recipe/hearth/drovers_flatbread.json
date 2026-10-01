@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "tribalpower:drovers_flatbread"
+  },
+  "seconds": 8
+}

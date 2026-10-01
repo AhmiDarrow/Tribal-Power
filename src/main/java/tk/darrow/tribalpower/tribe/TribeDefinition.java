@@ -98,9 +98,11 @@ public enum TribeDefinition {
         return new Vector3f(((colour >> 16) & 255) / 255F, ((colour >> 8) & 255) / 255F, (colour & 255) / 255F);
     }
 
+    /** {@code values()} copies the array on every call, and Kin read their tribe every tick. */
+    private static final TribeDefinition[] ALL = values();
+
     public static TribeDefinition byOrdinal(int ordinal) {
-        TribeDefinition[] all = values();
-        return all[Math.floorMod(ordinal, all.length)];
+        return ALL[Math.floorMod(ordinal, ALL.length)];
     }
 
     public static TribeDefinition byId(String id) {

@@ -21,6 +21,13 @@ public final class ViewerText {
     public static final int LINE = 10;
 
     public static Component recipeCost(int seconds, int pulse) { return Component.translatable("gui.tribalpower.recipe_cost", seconds, pulse); }
+    /**
+     * An Echo station recipe's cost as the station really spends it: the pack's consumption setting applied to the
+     * Pulse a second, rounded as the station rounds it, then times the seconds. Unranked and without an array discount.
+     */
+    public static Component stationCost(int seconds, int pulsePerSecond) {
+        return recipeCost(seconds, seconds * tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(pulsePerSecond));
+    }
     public static Component hearthSeconds(int seconds) { return Component.translatable("gui.tribalpower.hearth_pot.seconds", seconds); }
     public static Component riteName(WorldRite rite) { return Component.translatable("item.tribalpower." + rite.tabletId()); }
     public static Component riteCircle(WorldRite rite) {

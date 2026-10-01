@@ -2,10 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "S": { "item": "minecraft:string" },
-    "C": { "item": "tribalpower:copper_resonator" },
-    "B": { "item": "tribalpower:bone_chime" }
+    "M": { "item": "tribalpower:manifested_ingot" },
+    "B": { "item": "tribalpower:bone_chime" },
+    "S": { "item": "minecraft:string" }
   },
-  "pattern": [" SC", "B S", " SC"],
+  "pattern": [
+    " MS",
+    "B S",
+    " MS"
+  ],
   "result": { "count": 1, "id": "tribalpower:pulse_bow" }
 }

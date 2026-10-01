@@ -4,7 +4,8 @@
   "order": 30,
   "spoiler": true,
   "items": [
-    "tribalpower:lantern_fox_spawn_egg"
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
   ],
   "next": "mossback",
   "pages": [

@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:echo_bloom"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:bloomsong_custard"
+  },
+  "seconds": 14,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

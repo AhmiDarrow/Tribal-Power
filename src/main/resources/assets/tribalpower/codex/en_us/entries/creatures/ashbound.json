@@ -4,7 +4,8 @@
   "order": 70,
   "spoiler": true,
   "items": [
-    "tribalpower:ashbound_spawn_egg"
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
   ],
   "next": "rootbound",
   "pages": [

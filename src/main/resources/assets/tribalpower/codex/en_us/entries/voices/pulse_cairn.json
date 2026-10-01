@@ -16,7 +16,13 @@
       "title": "Piling",
       "text": [
         "Cairns that touch face to face, on any side, above or below, join into **one pile** and one store: two stones hold **8,000 Pulse**, three hold **12,000**, and so on. A pile joins up to **64 stones**, which is **256,000 Pulse**; a stone past that stands alone.",
-        "Use any stone and you see the whole pile. Put Pulse in anywhere and it spreads across the stones; draw from any stone and the whole pile pays. Each stone adds 200 a second to how fast the pile drinks.",
+        "Use any stone and you see the whole pile. Put Pulse in anywhere and it spreads across the stones; draw from any stone and the whole pile pays. Each stone adds 200 a second to how fast the pile drinks."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Filling and reading",
+      "text": [
         "A cairn only pulls from **generators** within 8 blocks of its stones, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
         "Break a stone and it takes only its own share with it; the rest of the pile keeps what it holds.",
         "A comparator against any stone reads how full the whole pile is. A redstone signal on any stone stops the pile filling."
@@ -219,7 +225,7 @@
       "title": "Where it shines",
       "text": [
         "Sit a cairn beside a Wake Bell and a Listening Pit, and the bell's bursts become the steady draw the pit wants.",
-        "Both ends need to be loaded. Sneak-use this book on a cairn to see how many stones its pile has joined and what this stone carries."
+        "Both ends need to be loaded. Crouch and right-click a cairn with this book to see how many stones its pile has joined and what this stone carries."
       ]
     },
     {

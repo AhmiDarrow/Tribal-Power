@@ -17,10 +17,10 @@
       "type": "text",
       "title": "The four bands",
       "text": [
-        "- **Common**: coal, copper and iron. **10 seconds** at **28 Pulse a second**, on **two stone**.",
-        "- **Deep**: gold, redstone and lapis. **15 seconds** at **32**, on **two March Stone**. Quartz is not in this band.",
-        "- **Hot**: the Nether's quartz and gold ore. **20 seconds** at **36**, on two March Stone, with **Fire**.",
-        "- **Rare**: diamond, emerald, and any metal or gem the grit scan found in your pack. **40 seconds** at **24**, on **four March Stone and a Spirit Shard**, with **Spirit**. About one rare cycle in four gives double."
+        "- **Common**: coal, copper and iron. **10 seconds** at **56 Pulse a second**, on **two stone**.",
+        "- **Deep**: gold, redstone and lapis. **15 seconds** at **64**, on **two March Stone**. Quartz is not in this band.",
+        "- **Hot**: the Nether's quartz and gold ore. **20 seconds** at **72**, on two March Stone, with **Fire**.",
+        "- **Rare**: diamond, emerald, and any metal or gem the grit scan found in your pack. **40 seconds** at **48**, on **four March Stone and a Spirit Shard**, with **Spirit**. About one rare cycle in four gives double."
       ]
     },
     {
@@ -48,7 +48,7 @@
         "Earth is required. Each other voice trades one thing for another; none is a plain multiplier.",
         "- **Water** washes: one extra output every **third** cycle, for **250 mB** from the mesh's tank. Fill it with a bucket; it holds 4,000 mB.",
         "- **Air** quickens the cycle to about **0.65** of its time and charges about **1.55 times** the Pulse a second. Pulse per item does not move.",
-        "- **Fire** opens the hot band at 36 Pulse a second.",
+        "- **Fire** opens the hot band at 72 Pulse a second.",
         "- **Spirit** listens a band deeper and opens the rare one.",
         "- **The Loom** halves the substrate, rounded up."
       ]
@@ -57,8 +57,7 @@
       "type": "text",
       "title": "What it costs",
       "text": [
-        "The Pulse figures above are before pack settings. The default **2.0** consumption multiplier doubles them, so one iron cycle is **280 Pulse** on two stone before settings and **560** at the shipped default.",
-        "A pack pit-speed setting shortens the cycle without raising Pulse a second, so it also cheapens each cycle.",
+        "One iron cycle is **560 Pulse** on two stone.",
         "Mining still costs less Pulse per ingot. The pit's gift is that it never runs out."
       ]
     }

@@ -4,7 +4,8 @@
   "order": 130,
   "spoiler": true,
   "items": [
-    "tribalpower:cinder_imp_spawn_egg"
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
   ],
   "next": "mourning_bell",
   "pages": [

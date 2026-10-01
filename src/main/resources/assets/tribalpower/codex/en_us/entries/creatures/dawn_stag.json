@@ -4,7 +4,8 @@
   "order": 20,
   "spoiler": true,
   "items": [
-    "tribalpower:dawn_stag_spawn_egg"
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
   ],
   "next": "lantern_fox",
   "pages": [

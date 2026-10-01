@@ -4,7 +4,8 @@
   "order": 110,
   "spoiler": true,
   "items": [
-    "tribalpower:hollow_sentinel_spawn_egg"
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
   ],
   "next": "storm_moth",
   "pages": [

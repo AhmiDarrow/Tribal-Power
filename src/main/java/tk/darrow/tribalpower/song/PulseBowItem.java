@@ -17,25 +17,24 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.item.GearCell;
 import tk.darrow.tribalpower.item.SpiritgearHelper;
 
 /**
  * A bow that sings. A full draw spends Pulse and throws a sonic bolt. A verse arrow in the inventory
- * rides that bolt and is spent. With no arrow, the bolt is only the note.
+ * rides that bolt and is spent. With no arrow, the bolt is only the note. Spiritgear: it wears like the
+ * tools and mends with Manifested Ingots at the Spirit Anvil.
  */
 public class PulseBowItem extends Item {
-    public static final int PLAIN_PULSE = 6;
-    public static final int VERSE_PULSE = 6;
-
     public PulseBowItem(Properties properties) {
-        super(properties.stacksTo(1).durability(384));
+        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.TOOL_DURABILITY));
     }
 
     public static int cost(float pull, boolean verse) {
         if (pull < 0.1F) return 0;
-        int scaled = Math.max(1, Math.round(PLAIN_PULSE * pull));
-        return verse ? scaled + VERSE_PULSE : scaled;
+        int scaled = Math.max(1, Math.round(TribalConfig.bowPulse() * pull));
+        return verse ? scaled + TribalConfig.versePulse() : scaled;
     }
 
     @Override
@@ -98,6 +97,12 @@ public class PulseBowItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        lines.add(Component.translatable("item.tribalpower.pulse_bow.desc", PLAIN_PULSE, PLAIN_PULSE + VERSE_PULSE));
+        lines.add(Component.translatable("item.tribalpower.pulse_bow.desc", TribalConfig.bowPulse(),
+                TribalConfig.bowPulse() + TribalConfig.versePulse(), damage(TribalConfig.bowDamage())));
+    }
+
+    /** A damage number for a tooltip: what the bolt lands for up close, since an arrow's hit rounds up to a whole point. */
+    public static String damage(double amount) {
+        return String.valueOf((long) Math.ceil(amount - 1.0E-6));
     }
 }

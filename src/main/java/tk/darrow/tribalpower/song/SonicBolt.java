@@ -14,6 +14,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.entity.ModEntities;
 
@@ -27,31 +28,43 @@ public class SonicBolt extends AbstractArrow {
         this.setNoGravity(true);
     }
 
-    public static void shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull) {
-        shoot(player, bow, verse, pull, 2.4F + pull * 0.8F, 1.0, 0.3F);
+    public static SonicBolt shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull) {
+        float speed = (float) (TribalConfig.bowVelocity() * (0.75 + 0.25 * pull));
+        return shoot(player, bow, verse, pull, speed, 1.0, (float) TribalConfig.bowSpread());
+    }
+
+    /**
+     * What a bolt hits for, before it slows in flight. A draw hits for its share of the full-draw damage, as a vanilla
+     * bow does, so tapping the bow loosely is no faster way to kill than drawing it. A verse adds its power on top, up
+     * to a cap, and never hits softer than a plain bolt.
+     */
+    public static double damage(float pull, @Nullable SongVerse verse) {
+        double bonus = verse == null ? 0 : Math.min(TribalConfig.verseDamageCap(), TribalConfig.verseDamagePerPower() * verse.power());
+        return (TribalConfig.bowDamage() + bonus) * Math.clamp(pull, 0F, 1F);
     }
 
     /** A bolt at a given speed, damage multiplier and spread; the crossbow's is faster, heavier and truer. */
-    public static void shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull, float speed, double damageScale, float spread) {
+    public static SonicBolt shoot(ServerPlayer player, ItemStack bow, @Nullable SongVerse verse, float pull, float speed, double damageScale, float spread) {
         ServerLevel level = player.serverLevel();
         SonicBolt bolt = new SonicBolt(ModEntities.SONIC_BOLT.get(), level);
         bolt.setOwner(player);
         bolt.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
         bolt.verse = verse;
         bolt.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, speed, spread);
-        // a verse never hits softer than a plain bolt: it adds its power to the draw
-        double damage = 4.0 + 3.0 * pull + (verse == null ? 0 : verse.power());
-        // An arrow hits for base damage times its speed; divide by the speed so a bolt lands for the damage meant.
-        bolt.setBaseDamage(damage * damageScale / Math.max(0.1F, speed));
+        // An arrow hits for base damage times its speed, rounded up; divide by the speed it actually left at (the spread
+        // nudges it) and shave a hair, so a bolt lands for the damage meant and not a stray point more.
+        double launched = Math.max(0.1, bolt.getDeltaMovement().length());
+        bolt.setBaseDamage(Math.max(0, damage(pull, verse) * damageScale - 1.0E-3) / launched);
         level.addFreshEntity(bolt);
         Attunement voice = verse == null ? Attunement.SPIRIT : verse.voice();
         SpiritEffects.ring(level, new Vec3(bolt.getX(), bolt.getY(), bolt.getZ()), voice, 0.35, 8);
+        return bolt;
     }
 
     @Override
     public void tick() {
         super.tick();
-        if (tickCount > 30) discard();
+        if (tickCount > TribalConfig.boltLifetimeTicks()) discard();
         if (level() instanceof ServerLevel server && tickCount % 2 == 0) {
             Attunement voice = verse == null ? Attunement.SPIRIT : verse.voice();
             SpiritEffects.ring(server, position(), voice, 0.15, 4);
@@ -76,7 +89,7 @@ public class SonicBolt extends AbstractArrow {
     }
 
     /**
-     * A bolt is a note in the air for a second and a half, nothing to keep. An arrow with no pickup item cannot be
+     * A bolt is a note in the air for a moment, nothing to keep. An arrow with no pickup item cannot be
      * written to disk at all, so a world that saved with one in flight logged an error; now it is simply not saved.
      */
     @Override

@@ -132,8 +132,8 @@ public class SongGameTests {
         h.assertFalse(SongPages.add(first, SongbookTier.FIRST, three), "One page is the whole first book");
         h.assertTrue(SongPages.add(chorus, SongbookTier.CHORUS, seven), "The chorus book holds a seven-note sheet");
         h.assertTrue(three.castPulse() == 8 + 4 * 3, "Cast Pulse climbs with the sheet");
-        h.assertTrue(PulseBowItem.cost(1.0F, false) == PulseBowItem.PLAIN_PULSE, "A plain draw spends the plain price");
-        h.assertTrue(PulseBowItem.cost(1.0F, true) == PulseBowItem.PLAIN_PULSE + PulseBowItem.VERSE_PULSE, "A verse arrow adds its price");
+        h.assertTrue(PulseBowItem.cost(1.0F, false) == tk.darrow.tribalpower.config.TribalConfig.bowPulse(), "A plain draw spends the plain price");
+        h.assertTrue(PulseBowItem.cost(1.0F, true) == tk.darrow.tribalpower.config.TribalConfig.bowPulse() + tk.darrow.tribalpower.config.TribalConfig.versePulse(), "A verse arrow adds its price");
         h.assertTrue(PulseBowItem.cost(0.05F, true) == 0, "A twitch does not spend Pulse");
         h.succeed();
     }

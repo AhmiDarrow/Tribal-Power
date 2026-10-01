@@ -426,7 +426,7 @@
       "type": "text",
       "title": "Harps share the wind",
       "text": [
-        "Harps within **12 blocks** of each other divide the wind between them, and the share rounds down: three crowded harps under a clear sky make nothing at all. A wall of harps is a wall of decorations. One harp is the point.",
+        "Harps within **12 blocks** every way, edge included, divide the wind between them, rounding down: two crowded harps under a clear sky make 1 a second each, and three make nothing at all. A wall of harps is a wall of decorations. One harp is the point.",
         "A redstone signal pauses it. Crouch and right-click it with this book to see the sky, height, weather and crowd, and what each adds.",
         "Harps are the [Pattern-weavers'](tribe_clock) craft: the recipe needs a Storm Wing and an Air Seal, and the Pattern-weavers trade a harp to their Kin."
       ]

@@ -27,12 +27,13 @@ import tk.darrow.tribalpower.item.SpiritgearHelper;
  * The Pulse Bow's heavier sister. Loading takes longer than a full draw and spends its Pulse up front -- and takes
  * a verse arrow then, if you carry one -- but a loaded crossbow holds its shot for as long as you like, and the bolt
  * flies faster, straighter and hits harder than any bow bolt. The bow is quicker and can loose a half draw.
+ * Spiritgear: it wears like the tools and mends with Manifested Ingots at the Spirit Anvil.
  */
 public class PulseCrossbowItem extends Item {
     public static final String LOADED = "Loaded", VERSE = "LoadedVerse";
 
     public PulseCrossbowItem(Properties properties) {
-        super(properties.stacksTo(1).durability(465));
+        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.TOOL_DURABILITY));
     }
 
     private static CompoundTag tag(ItemStack stack) {
@@ -64,7 +65,7 @@ public class PulseCrossbowItem extends Item {
         if (!(entity instanceof Player player) || level.isClientSide) return;
         if (getUseDuration(crossbow, entity) - timeLeft < TribalConfig.crossbowLoadTicks()) return;
         ItemStack arrow = PulseBowItem.findVerse(player);
-        int price = TribalConfig.crossbowPulse() + (arrow != null ? PulseBowItem.VERSE_PULSE : 0);
+        int price = TribalConfig.crossbowPulse() + (arrow != null ? TribalConfig.versePulse() : 0);
         if (!player.getAbilities().instabuild && price > 0 && !GearCell.spend(player, crossbow, price)) {
             SpiritgearHelper.notifyStarved(player);
             return;
@@ -87,7 +88,8 @@ public class PulseCrossbowItem extends Item {
             arrow.set(DataComponents.CUSTOM_DATA, CustomData.of(tag(crossbow).getCompound(VERSE)));
             verse = VerseArrowItem.verse(arrow);
         }
-        SonicBolt.shoot(player, crossbow, verse, 1.0F, (float) TribalConfig.crossbowVelocity(), TribalConfig.crossbowDamageMultiplier(), 0.05F);
+        SonicBolt.shoot(player, crossbow, verse, 1.0F, (float) TribalConfig.crossbowVelocity(), TribalConfig.crossbowDamageMultiplier(),
+                (float) TribalConfig.crossbowSpread());
         CustomData.update(DataComponents.CUSTOM_DATA, crossbow, tag -> {
             tag.remove(LOADED);
             tag.remove(VERSE);
@@ -105,7 +107,8 @@ public class PulseCrossbowItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        lines.add(Component.translatable("item.tribalpower.pulse_crossbow.desc", TribalConfig.crossbowPulse()));
+        lines.add(Component.translatable("item.tribalpower.pulse_crossbow.desc", TribalConfig.crossbowPulse(), TribalConfig.versePulse(),
+                PulseBowItem.damage(TribalConfig.bowDamage() * TribalConfig.crossbowDamageMultiplier())));
         if (loaded(stack)) lines.add(Component.translatable(tag(stack).contains(VERSE)
                 ? "item.tribalpower.pulse_crossbow.loaded_verse" : "item.tribalpower.pulse_crossbow.loaded")
                 .withStyle(net.minecraft.ChatFormatting.AQUA));

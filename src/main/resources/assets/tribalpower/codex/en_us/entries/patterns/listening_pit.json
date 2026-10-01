@@ -25,7 +25,7 @@
       "title": "Before it listens",
       "text": [
         "The pit needs all of these, and the Codex names whichever is missing:",
-        "- The **Earth** voice within 8 blocks, Answered.",
+        "- The **Earth** voice within 8 blocks, kept awake: a dim totem slows the cycle, a quiet one stops it.",
         "- An **Ancestral Cache** touching the mesh. With chalk on all four sides and stone beneath, that means **on top**. The mesh empties everything into it, so you need no hopper.",
         "- Pulse from the Lattice. The mesh keeps its own **200 Pulse** buffer so a bursty generator does not stutter the cycle.",
         "- **Friend** standing with the Grit-singers, even for common ore. A stranger's pit stalls."
@@ -36,8 +36,15 @@
       "title": "Feeding it",
       "text": [
         "Keep the **Ancestral Cache** on top stocked with stone: the pit takes its **substrate** from there, and puts the ore it hears back into the same cache. The chalk and stone wall the mesh in on every other side, so the cache is where your hands, hoppers and relays feed it.",
-        "Right-click the mesh with a **sample**, such as raw iron, to steer what it calls up. The sample is a filter and is never consumed; crouch with an empty hand to take it back. See [What the ground offers](what_the_ground_offers).",
-        "Keep the drum or generator outside the 5x5: the whole floor belongs to the pit. Rank the mesh like any other workshop."
+        "Right-click the mesh with a **sample**, such as raw iron, to steer what it calls up. The sample is a filter and is never consumed; crouch with an empty hand to take it back. See [What the ground offers](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Around the pit",
+      "text": [
+        "Keep the drum or generator outside the 5x5: the whole floor belongs to the pit. Rank the mesh like any other workshop.",
+        "A comparator against the mesh reads how far the cycle has come, and drops to 0 whenever the pit stalls."
       ]
     },
     {
@@ -45,7 +52,7 @@
       "pattern": "listening_pit",
       "tier": 2,
       "title": "Deep Listening",
-      "text": "Seven by seven: two rings of Anchor Stones on the corners, and a totem of any voice at each cardinal edge."
+      "text": "Seven by seven: two rings of Anchor Stones on the corners, and a Resonance Totem of any voice at each cardinal edge."
     },
     {
       "type": "text",

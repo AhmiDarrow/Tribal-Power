@@ -70,6 +70,12 @@ public class LatticeGameTests {
             item.accept(c.icon());
             h.assertTrue(!book.in(c.id()).isEmpty(),"Empty chapter: "+c.id());
             text.accept("chapter "+c.id(),c.description());
+            // ties fall back to the name, so a chapter's order would shift whenever a page is renamed
+            var orders=new java.util.HashMap<Integer,String>();
+            for(var e:book.in(c.id())) {
+                String other=orders.put(e.order(),e.id());
+                h.assertTrue(other==null,c.id()+": "+other+" and "+e.id()+" share order "+e.order());
+            }
         }
         text.accept("landing",book.landing());
         for(var e:book.entries()) {
@@ -78,13 +84,37 @@ public class LatticeGameTests {
             e.items().forEach(item);
             if(!e.next().isEmpty())h.assertTrue(book.byId().containsKey(e.next()),e.id()+" continues to a missing entry "+e.next());
             if(!e.unlock().isEmpty())h.assertTrue(e.spoiler() && e.unlock().matches("(tribe:[a-z]+|tablet:\\d+|fragment:\\d+)"),e.id()+" has a malformed unlock "+e.unlock());
+            // an unlock the world can never send would keep the page veiled for good
+            if(e.unlock().startsWith("tribe:"))h.assertTrue(java.util.Arrays.stream(tk.darrow.tribalpower.tribe.TribeDefinition.values()).anyMatch(t->e.unlock().equals("tribe:"+t.id())),e.id()+" unlocks with an unknown tribe "+e.unlock());
+            if(e.unlock().matches("tablet:\\d+"))h.assertTrue(Integer.parseInt(e.unlock().substring(7))<tk.darrow.tribalpower.world.structure.LoreTabletBlock.TABLETS,e.id()+" unlocks with a tablet that does not exist "+e.unlock());
+            if(e.unlock().matches("fragment:\\d+"))h.assertTrue(Integer.parseInt(e.unlock().substring(9))<tk.darrow.tribalpower.lore.Chronicle.FRAGMENTS,e.id()+" unlocks with a fragment that does not exist "+e.unlock());
+            if(!e.next().isEmpty()) {
+                // a "next" chain must end: following it from any entry never comes back round
+                var seen=new java.util.HashSet<String>();
+                for(var at=e;at!=null && !at.next().isEmpty();at=book.byId().get(at.next()))h.assertTrue(seen.add(at.id()),e.id()+" starts a \"next\" loop through "+at.id());
+            }
             for(var page:e.pages()) {
                 text.accept(e.id(),page.text());
                 switch(page) {
                     case tk.darrow.tribalpower.client.codex.CodexBook.Spotlight s -> item.accept(s.item());
-                    case tk.darrow.tribalpower.client.codex.CodexBook.Recipe r -> item.accept(r.item());
-                    case tk.darrow.tribalpower.client.codex.CodexBook.Image i -> h.assertTrue(
-                            LatticeGameTests.class.getClassLoader().getResource("assets/tribalpower/textures/gui/codex/"+i.image()+".png")!=null,e.id()+" shows a missing picture "+i.image());
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Recipe r -> {
+                        item.accept(r.item());
+                        // the page draws live recipes by result; with none it only says "no recipe"
+                        var wanted=net.minecraft.core.registries.BuiltInRegistries.ITEM.get(tk.darrow.tribalpower.client.codex.CodexBook.itemId(r.item()));
+                        h.assertTrue(h.getLevel().getRecipeManager().getRecipes().stream().anyMatch(holder->holder.value().getResultItem(h.getLevel().registryAccess()).is(wanted)),
+                                e.id()+" shows the recipe of "+r.item()+", which has none");
+                    }
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Image i -> {
+                        var picture=LatticeGameTests.class.getClassLoader().getResource("assets/tribalpower/textures/gui/codex/"+i.image()+".png");
+                        h.assertTrue(picture!=null,e.id()+" shows a missing picture "+i.image());
+                        // drawn as a square: a PNG's width and height sit at bytes 16 and 20
+                        try(var in=picture.openStream()) {
+                            var head=java.nio.ByteBuffer.wrap(in.readNBytes(24));
+                            h.assertTrue(head.getInt(16)==head.getInt(20),e.id()+" shows "+i.image()+" at "+head.getInt(16)+"x"+head.getInt(20)+", but pictures are drawn square");
+                        } catch(java.io.IOException unreadable) {
+                            h.fail(e.id()+" shows an unreadable picture "+i.image());
+                        }
+                    }
                     case tk.darrow.tribalpower.client.codex.CodexBook.Pattern pattern -> h.assertTrue(
                             java.util.Set.of("stone_font","listening_pit","rite_circle","voice_ring","shatter_array","way_gate","far_gate").contains(pattern.pattern()),e.id()+" draws an unknown pattern "+pattern.pattern());
                     case tk.darrow.tribalpower.client.codex.CodexBook.Scene scene -> {

@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Edge-walkers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_fire} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
+        "Kin of the Edge-walkers carry their [boon](tribe_boons): no fall hurts you while you **sneak**.",
         "Buying a Rift Tooth at Friend is a safer way to get their reagent than hunting Rift Hounds."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Edge-walkers carry their [boon](tribe_boons): no fall hurts you while you **sneak**."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

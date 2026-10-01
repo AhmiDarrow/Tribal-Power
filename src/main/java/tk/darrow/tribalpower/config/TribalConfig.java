@@ -101,6 +101,8 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue DISH_STANDING;
     public static final ModConfigSpec.IntValue GROVE_WATER;
     public static final ModConfigSpec.BooleanValue AUTOMATION_VOICES;
+    public static final ModConfigSpec.IntValue PLATE_LINK_RANGE;
+    public static final ModConfigSpec.IntValue PLATE_LINK_MAX;
     public static final ModConfigSpec.DoubleValue EARTH_KNOCKBACK;
     public static final ModConfigSpec.DoubleValue EARTH_MINING;
     public static final ModConfigSpec.DoubleValue FIRE_BURN;
@@ -133,6 +135,15 @@ public final class TribalConfig {
     public static final ModConfigSpec.DoubleValue CROSSBOW_DAMAGE;
     public static final ModConfigSpec.DoubleValue CROSSBOW_SPEED;
     public static final ModConfigSpec.IntValue CROSSBOW_PULSE;
+    public static final ModConfigSpec.DoubleValue CROSSBOW_SPREAD;
+    public static final ModConfigSpec.DoubleValue BOW_DAMAGE;
+    public static final ModConfigSpec.DoubleValue BOW_SPEED;
+    public static final ModConfigSpec.DoubleValue BOW_SPREAD;
+    public static final ModConfigSpec.IntValue BOW_PULSE;
+    public static final ModConfigSpec.IntValue VERSE_PULSE;
+    public static final ModConfigSpec.DoubleValue VERSE_DAMAGE;
+    public static final ModConfigSpec.DoubleValue VERSE_DAMAGE_CAP;
+    public static final ModConfigSpec.IntValue BOLT_LIFETIME;
     public static final ModConfigSpec.IntValue URN_WOVEN;
     public static final ModConfigSpec.IntValue URN_COPPER;
     public static final ModConfigSpec.IntValue URN_MANIFESTED;
@@ -181,6 +192,8 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue ANOINT_PULSE_COST;
     private static final java.util.Map<tk.darrow.tribalpower.song.Anointment, java.util.Map<String, ModConfigSpec.DoubleValue>> ANOINTING =
             new java.util.EnumMap<>(tk.darrow.tribalpower.song.Anointment.class);
+    private static final java.util.Map<tk.darrow.tribalpower.cuisine.Fare, ModConfigSpec.IntValue> FARE_SECONDS =
+            new java.util.EnumMap<>(tk.darrow.tribalpower.cuisine.Fare.class);
 
     static {
         ModConfigSpec.Builder b = new ModConfigSpec.Builder();
@@ -384,13 +397,22 @@ public final class TribalConfig {
         LODGE_ROOF = b.comment("Whether the bed must be under a roof for the lodge to work.").define("lodgeNeedsRoof", true);
         LODGE_BLESSING = b.comment("Minutes of Spirit Blessing and Regeneration a night in the lodge grants.").defineInRange("lodgeBlessingMinutes", 10, 0, 600);
         b.pop();
-        b.comment("Camp kit: the Spirit Door, Vine Lifts, the Pulse Crossbow, Soul Urns and reagent dyes.").push("kit");
+        b.comment("Camp kit: the Spirit Door, Vine Lifts, the Pulse Bow and Crossbow, Soul Urns and reagent dyes.").push("kit");
         SPIRIT_DOOR_BLOCKS = b.comment("Whether a Spirit Door stops hostile monsters and spirits while letting everyone else through.").define("spiritDoorBlocksHostiles", true);
         LIFT_RANGE = b.comment("Blocks up or down a Vine Lift looks for the next lift in its column.").defineInRange("liftRange", 48, 2, 384);
+        BOW_DAMAGE = b.comment("Damage of a fully drawn Pulse Bow bolt, before a verse arrow's bonus. A partial draw hits for its share of this, as a vanilla bow does (a vanilla full draw is 6, up to 10 on a critical).").defineInRange("bowDamage", 7.0, 0.5, 100.0);
+        BOW_SPEED = b.comment("Speed a fully drawn Pulse Bow bolt leaves at; a weak draw leaves at three quarters of it. Bolts fly straight, without falling.").defineInRange("bowVelocity", 3.2, 0.5, 10.0);
+        BOW_SPREAD = b.comment("Inaccuracy of a Pulse Bow bolt (a vanilla arrow is 1.0).").defineInRange("bowSpread", 0.3, 0.0, 10.0);
+        BOW_PULSE = b.comment("Pulse a full Pulse Bow draw spends; a partial draw spends its share, at least 1.").defineInRange("bowPulse", 6, 0, 1000);
+        VERSE_PULSE = b.comment("Pulse a verse arrow adds to a Pulse Bow draw or a Pulse Crossbow load.").defineInRange("versePulse", 6, 0, 1000);
+        VERSE_DAMAGE = b.comment("Damage a verse arrow adds to its bolt for each time its lead reagent is repeated (its power), scaled by the draw.").defineInRange("verseDamagePerPower", 1.0, 0.0, 100.0);
+        VERSE_DAMAGE_CAP = b.comment("Most damage a verse arrow can add to a full-draw bolt, however strong its verse.").defineInRange("verseDamageCap", 3.0, 0.0, 100.0);
+        BOLT_LIFETIME = b.comment("Ticks a sonic bolt flies before it fades: its range, since it does not fall (20 ticks is about 58 blocks from a full bow draw).").defineInRange("boltLifetimeTicks", 20, 2, 200);
         CROSSBOW_LOAD = b.comment("Ticks the Pulse Crossbow takes to load (a Pulse Bow reaches full draw in 20).").defineInRange("crossbowLoadTicks", 25, 1, 200);
-        CROSSBOW_DAMAGE = b.comment("Damage of a crossbow bolt against a fully drawn Pulse Bow bolt.").defineInRange("crossbowDamageMultiplier", 1.5, 0.1, 10.0);
+        CROSSBOW_DAMAGE = b.comment("Damage of a crossbow bolt against a fully drawn Pulse Bow bolt, verse bonus included (a vanilla crossbow arrow is 7 to 11).").defineInRange("crossbowDamageScale", 1.3, 0.1, 10.0);
         CROSSBOW_SPEED = b.comment("Speed a crossbow bolt leaves at (a full bow draw is 3.2).").defineInRange("crossbowVelocity", 3.6, 0.5, 10.0);
-        CROSSBOW_PULSE = b.comment("Pulse loading the crossbow spends; a verse arrow adds the bow's verse cost.").defineInRange("crossbowPulse", 10, 0, 1000);
+        CROSSBOW_SPREAD = b.comment("Inaccuracy of a crossbow bolt (a vanilla arrow is 1.0).").defineInRange("crossbowSpread", 0.05, 0.0, 10.0);
+        CROSSBOW_PULSE = b.comment("Pulse loading the crossbow spends; a verse arrow adds versePulse.").defineInRange("crossbowPulse", 10, 0, 1000);
         URN_WOVEN = b.comment("Uses a Woven Soul Urn has. Capturing and releasing are one use each.").defineInRange("wovenUrnUses", 2, 2, 10000);
         URN_COPPER = b.comment("Uses a Copper Soul Urn has.").defineInRange("copperUrnUses", 10, 2, 10000);
         URN_MANIFESTED = b.comment("Uses a Manifested Soul Urn has. A Resonant Soul Urn never wears out.").defineInRange("manifestedUrnUses", 20, 2, 10000);
@@ -432,10 +454,19 @@ public final class TribalConfig {
         FEAST_SATURATION = b.comment("Saturation modifier of one serving of a feast.").defineInRange("feastSaturation", 0.8, 0.0, 2.0);
         FEAST_BLESSING = b.comment("Minutes of the voice's blessing one serving of its feast grants.").defineInRange("feastBlessingMinutes", 8, 0, 600);
         DISH_STANDING = b.comment("Standing a tribe grants when offered its own dish at its hearth.").defineInRange("dishStanding", 6, 0, 100);
+        b.comment("Camp fare: the Hearth Pot meals that carry no tribe boon. Seconds each one's side effect (always level I) lasts; 0 turns it off.").push("fare");
+        for (var fare : tk.darrow.tribalpower.cuisine.Fare.values())
+            if (fare.effect != null)
+                FARE_SECONDS.put(fare, b.defineInRange(fare.id() + "Seconds", fare.defaultSeconds, 0, 3600));
+        b.pop();
         b.pop();
         b.comment("Camp and workshop hands: what the automated devices ask for.").push("camp");
         AUTOMATION_VOICES = b.comment("Whether every automated device needs a kept Resonance Totem of its own voice within 8 blocks: Earth for the Grove Tender and Wayanchor, Spirit for the Ward Drum, Hush Totem and Summoning Cradle, Water for the Tide Pump, Air for the Wind Snare and relays, Loom for the Seal Loom and Astral relays.").define("automationNeedsVoices", true);
         GROVE_WATER = b.comment("Pulse a Grove Tender spends on a beat that re-wets its bed's farmland, when a Water totem keeps within 8 blocks of it.").defineInRange("groveWaterCost", 4, 0, 200);
+        b.pop();
+        b.comment("Song plates synced with the Totem Wrench: one plate hears another with no wire between them.").push("logic");
+        PLATE_LINK_RANGE = b.comment("Blocks a synced song plate can hear another across, in the same world. A link beyond this reads 0.").defineInRange("plateLinkRange", 32, 1, 256);
+        PLATE_LINK_MAX = b.comment("Plates one song plate can be synced to hear.").defineInRange("plateLinkMax", 8, 1, 64);
         b.pop();
         b.comment("Tribes that talk: requests and questlines.").push("quests");
         REQUEST_SCALE = b.comment("Scales the standing a finished tribe request pays.").defineInRange("requestStandingScale", 1.0, 0.0, 10.0);
@@ -572,6 +603,11 @@ public final class TribalConfig {
     public static int wanderingSpiritLifeSeconds() { return get(WANDERING_SPIRIT_LIFE); }
     public static int eventWarningSeconds() { return get(EVENT_WARNING_SECONDS); }
     public static int dishBoonMinutes() { return get(DISH_BOON); }
+    /** Seconds a camp fare's side effect lasts; 0 for a fare that has none. */
+    public static int fareEffectSeconds(tk.darrow.tribalpower.cuisine.Fare fare) {
+        var value = FARE_SECONDS.get(fare);
+        return value == null ? 0 : get(value);
+    }
     public static double hearthCookScale() { return get(HEARTH_SCALE); }
     public static boolean hearthNeedsHeat() { return get(HEARTH_HEAT); }
     public static int feastNutrition() { return get(FEAST_NUTRITION); }
@@ -612,6 +648,15 @@ public final class TribalConfig {
     public static double crossbowDamageMultiplier() { return get(CROSSBOW_DAMAGE); }
     public static double crossbowVelocity() { return get(CROSSBOW_SPEED); }
     public static int crossbowPulse() { return get(CROSSBOW_PULSE); }
+    public static double crossbowSpread() { return get(CROSSBOW_SPREAD); }
+    public static double bowDamage() { return get(BOW_DAMAGE); }
+    public static double bowVelocity() { return get(BOW_SPEED); }
+    public static double bowSpread() { return get(BOW_SPREAD); }
+    public static int bowPulse() { return get(BOW_PULSE); }
+    public static int versePulse() { return get(VERSE_PULSE); }
+    public static double verseDamagePerPower() { return get(VERSE_DAMAGE); }
+    public static double verseDamageCap() { return get(VERSE_DAMAGE_CAP); }
+    public static int boltLifetimeTicks() { return get(BOLT_LIFETIME); }
     public static int wovenUrnUses() { return get(URN_WOVEN); }
     public static int copperUrnUses() { return get(URN_COPPER); }
     public static int manifestedUrnUses() { return get(URN_MANIFESTED); }
@@ -658,6 +703,8 @@ public final class TribalConfig {
     public static boolean lodgeNeedsRoof() { return get(LODGE_ROOF); }
     public static int lodgeBlessingMinutes() { return get(LODGE_BLESSING); }
     public static int anointPulseCost() { return get(ANOINT_PULSE_COST); }
+    public static int plateLinkRange() { return get(PLATE_LINK_RANGE); }
+    public static int plateLinkMax() { return get(PLATE_LINK_MAX); }
     /** One anointment's number, by the key it declares in {@link tk.darrow.tribalpower.song.Anointment}. */
     public static double anointing(tk.darrow.tribalpower.song.Anointment anointment, String key) {
         var value = ANOINTING.get(anointment).get(key);

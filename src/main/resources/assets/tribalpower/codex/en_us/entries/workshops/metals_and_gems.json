@@ -19,7 +19,7 @@
       "type": "text",
       "title": "Metals",
       "text": [
-        "Put a raw metal item, or a silk-touched metal ore, into Echo Shatter: **4 seconds** at **20 Pulse a second** before pack settings, for two grit.",
+        "Put a raw metal item, or a silk-touched metal ore, into Echo Shatter: **4 seconds** at **40 Pulse a second**, for two grit.",
         "Smelt the grit into an ingot in a furnace, a blast furnace or the Ember Kiln.",
         "Iron, gold and copper have grit of their own. Modded metals ride one **Mineral Grit** item that names its own material, and they light up with no datapack. Netherite is never crushed; it has to be earned in the Nether."
       ]

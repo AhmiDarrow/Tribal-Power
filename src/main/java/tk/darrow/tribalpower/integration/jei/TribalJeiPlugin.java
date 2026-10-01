@@ -75,7 +75,7 @@ public class TribalJeiPlugin implements IModPlugin {
                     mezz.jei.api.gui.builder.IClickableIngredientFactory factory, SpiritCodexScreen screen, double x, double y) {
                 var hover = screen.itemHover(x, y);
                 if (hover == null || hover.item().isEmpty()) return Optional.empty();
-                return factory.createBuilder(hover.item()).buildWithArea(hover.x(), hover.y(), 16, 16);
+                return factory.createBuilder(hover.item()).buildWithArea(hover.x(), hover.y(), hover.size(), hover.size());
             }
         });
     }
@@ -147,8 +147,8 @@ public class TribalJeiPlugin implements IModPlugin {
         private final int height;
         Category(IGuiHelper gui) {
             icon=gui.createDrawableItemLike(ModItems.ECHO_SHATTER.get());
-            // Tall enough for the widest cost a recipe file can hold: 300 seconds at 1000 Pulse a second.
-            height=66+ViewerText.LINE*ViewerText.lines(ViewerText.recipeCost(300,300*1000),157);
+            // Tall enough for the widest cost a recipe file can hold: 300 seconds at 1000 Pulse a second, as the pack scales it.
+            height=66+ViewerText.LINE*ViewerText.lines(ViewerText.stationCost(300,1000),157);
         }
         @Override public RecipeType<LatticeRecipe> getRecipeType() { return TYPE; }
         @Override public Component getTitle() { return Component.translatable("gui.tribalpower.lattice_recipes"); }
@@ -170,7 +170,7 @@ public class TribalJeiPlugin implements IModPlugin {
             g.drawString(font,Component.translatable("block.tribalpower."+recipe.station()),3,2,0xFF526A61,false);
             g.fill(46,29,107,33,0xFF438F80);g.drawString(font,">",108,27,0xFF997445,false);
             g.drawString(font,Component.translatable("attunement.tribalpower."+recipe.attunement().getSerializedName()),3,48,0xFF526A61,false);
-            ViewerText.draw(g,ViewerText.recipeCost(recipe.seconds(),recipe.seconds()*recipe.pulse()),3,63,157,0xFF526A61);
+            ViewerText.draw(g,ViewerText.stationCost(recipe.seconds(),recipe.pulse()),3,63,157,0xFF526A61);
         }
     }
     /** Reagents of the remedy's Note, a herb and the form's base, brewed into the remedy. */

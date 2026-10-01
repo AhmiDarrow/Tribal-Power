@@ -4,7 +4,8 @@
   "order": 100,
   "spoiler": true,
   "items": [
-    "tribalpower:shardback_spawn_egg"
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
   ],
   "next": "hollow_sentinel",
   "pages": [

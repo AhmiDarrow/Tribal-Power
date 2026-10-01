@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -42,19 +43,29 @@ import tk.darrow.tribalpower.integration.jei.CodexJeiLinks;
  * turned two at a time. Every item on a page links to the entry about it. Content lives in {@code assets/tribalpower/codex/} ({@link CodexBook}).
  */
 public final class SpiritCodexScreen extends Screen {
-    private static final int INK = 0xFF101C27, TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, DIM = 0xFF9CB8B9;
+    private static final int TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, DIM = 0xFF9CB8B9;
     private static final int SCENE_H = 118;
     private static final ResourceLocation ATLAS = ResourceLocation.parse("tribalpower:textures/gui/codex/quest_atlas.png");
 
     private enum View { LANDING, CATEGORY, ENTRY, SEARCH, BOOKMARKS, ITEM }
 
-    private record State(View view, String category, String entry, int spread, String item) {}
+    /** Where the reader is; going back restores the search words and the list page too. */
+    private record State(View view, String category, String entry, int spread, String item, String query, int listPage) {
+        State(View view, String category, String entry, int spread, String item) {
+            this(view, category, entry, spread, item, "", 0);
+        }
+    }
 
     private record Area(int x, int y, int w, int h, Runnable action) {
         boolean inside(double mx, double my) { return mx >= x && mx < x + w && my >= y && my < y + h; }
     }
 
-    private record Hit(int x, int y, ItemStack item) {}
+    /** An item drawn on the page, {@code size} pixels square: 16, or 32 for a spotlight. */
+    private record Hit(int x, int y, int size, ItemStack item) {
+        boolean contains(double mx, double my) {
+            return mx >= x && mx < x + size && my >= y && my < y + size;
+        }
+    }
 
     /** A page as laid out on screen: a book page plus the slice of its text that fits. */
     private record Leaf(Page page, List<CodexText.Line> lines, boolean first, boolean continuation) {}
@@ -64,11 +75,13 @@ public final class SpiritCodexScreen extends Screen {
     private final List<Hit> hits = new ArrayList<>();
     private final List<Area> areas = new ArrayList<>();
     private final List<CodexText.Link> links = new ArrayList<>();
-    private final Map<Page, Integer> sceneStep = new HashMap<>();
-    private final Map<Page, Float> sceneYaw = new HashMap<>();
-    private final Map<Page, Double> sceneSince = new HashMap<>();
-    private final Map<Page, List<CodexBook.Step>> patternSteps = new HashMap<>();
-    private final Map<Page, Integer> recipeIndex = new HashMap<>();
+    // Keyed by the page itself, not its contents: a page record's hash walks every step of its scene, several
+    // times a frame, and two pages that read alike are still two pages.
+    private final Map<Page, Integer> sceneStep = new IdentityHashMap<>();
+    private final Map<Page, Float> sceneYaw = new IdentityHashMap<>();
+    private final Map<Page, Double> sceneSince = new IdentityHashMap<>();
+    private final Map<Page, List<CodexBook.Step>> patternSteps = new IdentityHashMap<>();
+    private final Map<Page, Integer> recipeIndex = new IdentityHashMap<>();
     private final long epoch = System.nanoTime();
     private View view = View.LANDING;
     private String category = "", entry = "", item = "", query = "";
@@ -77,7 +90,7 @@ public final class SpiritCodexScreen extends Screen {
     private List<Leaf> leaves = List.of();
     private Area dragging;
     private Page dragPage;
-    private int left, top, bookWidth, bookHeight, pageWidth, pageHeight, leftX, rightX, pageY;
+    private int left, top, bookWidth, bookHeight, pageWidth, pageHeight, leftX, rightX, pageY, sceneH, nextRows, counterX;
     private EditBox search;
 
     public SpiritCodexScreen() {
@@ -135,6 +148,8 @@ public final class SpiritCodexScreen extends Screen {
             linkedBook = book();
             linker = CodexText.Linker.of(linkedBook);
             laidOut.clear();
+            haystacks.clear();
+            searched = null;
         }
         return linker.from(view == View.ENTRY ? entry : "");
     }
@@ -167,6 +182,10 @@ public final class SpiritCodexScreen extends Screen {
         leftX = left + 16;
         rightX = left + bookWidth / 2 + 6;
         pageY = top + 38;
+        // At the default GUI scale of a 1080p screen a page is about 180 tall: a full-size scene, its caption
+        // and controls under an entry header would run into the button row, so the scene gives up height.
+        sceneH = Math.clamp(pageHeight - 100, 48, SCENE_H);
+        nextRows = nextStepRows();
         search = addRenderableWidget(new EditBox(font, left + bookWidth - 196, top + 10, 150, 16, Component.translatable("gui.tribalpower.codex.search")));
         search.setMaxLength(64);
         search.setHint(Component.translatable("gui.tribalpower.codex.search_hint"));
@@ -176,41 +195,92 @@ public final class SpiritCodexScreen extends Screen {
             listPage = 0;
             // The first letter opens search and rebuilds this box, which would drop the caret.
             boolean typing = search.isFocused();
-            if (!value.isBlank() && view != View.SEARCH) go(new State(View.SEARCH, "", "", 0, ""), false);
-            else if (value.isBlank() && view == View.SEARCH) go(new State(View.LANDING, "", "", 0, ""), false);
+            // Searching is a step like any other: Back (or emptying the box) returns to the page it started from.
+            if (!value.isBlank() && view != View.SEARCH) go(new State(View.SEARCH, "", "", 0, "", value, 0), true);
+            else if (value.isBlank() && view == View.SEARCH) back();
             if (typing) setFocused(search);
         });
         button(Component.literal("✕"), left + bookWidth - 40, top + 9, 24, b -> onClose());
-        int by = top + bookHeight - 30;
-        // The row is laid out from both ends so nothing overlaps at a narrow book: the arrows and the entry button
-        // hang from the right edge, the rest from the left, and the spoilers button takes what is between.
-        int arrowsLeft = left + bookWidth - 124;
-        int entryLeft = arrowsLeft - 84;
-        button(Component.translatable("gui.tribalpower.codex.home"), left + 16, by, 52, b -> go(new State(View.LANDING, "", "", 0, ""), true));
-        button(Component.translatable("gui.tribalpower.codex.back"), left + 72, by, 52, b -> back());
-        button(Component.translatable("gui.tribalpower.codex.bookmarks"), left + 128, by, 76, b -> go(new State(View.BOOKMARKS, "", "", 0, ""), true));
-        int spoilerLeft = left + 208, spoilerWidth = Math.max(40, Math.min(96, entryLeft - 4 - spoilerLeft));
-        button(Component.translatable(spoilers ? "gui.tribalpower.codex.hide_spoilers" : "gui.tribalpower.codex.spoilers"), spoilerLeft, by, spoilerWidth, b -> {
+        List<RowButton> row = new ArrayList<>();
+        row.add(new RowButton("home", "home", b -> go(new State(View.LANDING, "", "", 0, ""), true)));
+        row.add(new RowButton("back", "back", b -> back()));
+        row.add(new RowButton("bookmarks", "bookmarks_short", b -> go(new State(View.BOOKMARKS, "", "", 0, ""), true)));
+        row.add(new RowButton(spoilers ? "hide_spoilers" : "spoilers", spoilers ? "hide_spoilers_short" : "spoilers_short", b -> {
             if (spoilers) {
                 spoilers = false;
                 rememberSpoilers(false);
                 go(new State(View.LANDING, "", "", 0, ""), false);
                 history.clear();
             } else confirmSpoilers(() -> {});
-        });
+        }));
         if (view == View.ENTRY) {
-            button(Component.translatable(bookmarks.contains(entry) ? "gui.tribalpower.codex.unmark" : "gui.tribalpower.codex.bookmark"),
-                    entryLeft, by, 80, b -> {
-                        if (!bookmarks.remove(entry)) bookmarks.add(entry);
-                        saveBookmarks();
-                        rebuildWidgets();
-                    });
+            boolean marked = bookmarks.contains(entry);
+            row.add(new RowButton(marked ? "unmark" : "bookmark", marked ? "unmark" : "bookmark_short", b -> {
+                if (!bookmarks.remove(entry)) bookmarks.add(entry);
+                saveBookmarks();
+                rebuildWidgets();
+            }));
             layoutEntry();
         }
-        if (view == View.ITEM && CodexJeiLinks.available())
-            button(Component.translatable("gui.tribalpower.codex.jei"), entryLeft, by, 80, b -> openJei(stack(item), showUses));
-        button(Component.literal("◀"), left + bookWidth - 124, by, 30, b -> turn(-1));
-        button(Component.literal("▶"), left + bookWidth - 46, by, 30, b -> turn(1));
+        if (view == View.ITEM && CodexJeiLinks.available()) row.add(new RowButton("jei", "jei", b -> openJei(stack(item), showUses)));
+        bottomRow(row);
+    }
+
+    /** A bottom-row button: its label's lang key, a shorter one for a narrow book, and what it does. */
+    private record RowButton(String label, String brief, java.util.function.Consumer<Button> action) {}
+
+    private static final int ROW_GAP = 4;
+
+    /**
+     * The bottom row, laid out from its labels' measured widths: the page arrows hang from the right edge with the
+     * page counter between them, and the buttons run from the left edge, each as wide as its label. While the row
+     * does not fit it gives up room step by step: narrower arrows, then the widest label's short form, one label at
+     * a time, then tighter padding; failing all of that the buttons share the room evenly and cut their labels.
+     * A shortened label keeps its full words in a tooltip. Nothing overlaps at any width.
+     */
+    private void bottomRow(List<RowButton> row) {
+        int by = top + bookHeight - 30, start = left + 16, end = left + bookWidth - 16;
+        int counter = font.width(Component.translatable("gui.tribalpower.codex.page_n", 88, 88)) + 8;
+        List<Component> labels = new ArrayList<>(), full = new ArrayList<>();
+        for (RowButton r : row) full.add(Component.translatable("gui.tribalpower.codex." + r.label()));
+        labels.addAll(full);
+        int arrow = 30, pad = 14;
+        while (rowWidth(labels, pad) > end - 2 * arrow - counter - ROW_GAP - start) {
+            if (arrow > 20) { arrow = 20; continue; }
+            int widest = -1, saving = 0;
+            for (int i = 0; i < row.size(); i++) {
+                int cut = labelWidth(labels.get(i), pad) - labelWidth(Component.translatable("gui.tribalpower.codex." + row.get(i).brief()), pad);
+                if (cut > saving) { saving = cut; widest = i; }
+            }
+            if (widest >= 0) { labels.set(widest, Component.translatable("gui.tribalpower.codex." + row.get(widest).brief())); continue; }
+            if (pad > 8) { pad = 8; continue; }
+            break;
+        }
+        int room = end - 2 * arrow - counter - ROW_GAP - start;
+        boolean squeezed = rowWidth(labels, pad) > room;
+        int shared = Math.max(16, (room - ROW_GAP * (row.size() - 1)) / Math.max(1, row.size()));
+        int x = start;
+        for (int i = 0; i < row.size(); i++) {
+            Component label = labels.get(i);
+            int w = squeezed ? shared : labelWidth(label, pad);
+            Button b = button(label, x, by, w, row.get(i).action());
+            if (!label.getString().equals(full.get(i).getString()) || font.width(label) > w - 4)
+                b.setTooltip(net.minecraft.client.gui.components.Tooltip.create(full.get(i)));
+            x += w + ROW_GAP;
+        }
+        counterX = end - arrow - counter / 2;
+        button(Component.literal("◀"), end - 2 * arrow - counter, by, arrow, b -> turn(-1));
+        button(Component.literal("▶"), end - arrow, by, arrow, b -> turn(1));
+    }
+
+    private int labelWidth(Component label, int pad) {
+        return Math.max(pad * 2 + 2, font.width(label) + pad);
+    }
+
+    private int rowWidth(List<Component> labels, int pad) {
+        int total = ROW_GAP * Math.max(0, labels.size() - 1);
+        for (Component label : labels) total += labelWidth(label, pad);
+        return total;
     }
 
     private Button button(Component text, int x, int y, int w, java.util.function.Consumer<Button> action) {
@@ -220,7 +290,11 @@ public final class SpiritCodexScreen extends Screen {
                 boolean hot = isHoveredOrFocused();
                 g.fillGradient(getX(), getY(), getX() + getWidth(), getY() + getHeight(), hot ? 0xFF345A5D : 0xFF223A45, 0xFF142530);
                 g.renderOutline(getX(), getY(), getWidth(), getHeight(), hot ? GOLD : 0xFF42636A);
-                g.drawCenteredString(font, getMessage(), getX() + getWidth() / 2, getY() + 5, active ? (hot ? GOLD : PAPER) : 0xFF667A80);
+                // a label wider than its button (only in a book squeezed past its short labels) is cut, not spilled
+                Component label = getMessage();
+                if (font.width(label) > getWidth() - 4)
+                    label = Component.literal(font.plainSubstrByWidth(label.getString(), getWidth() - 4 - font.width("…")) + "…");
+                g.drawCenteredString(font, label, getX() + getWidth() / 2, getY() + 5, active ? (hot ? GOLD : PAPER) : 0xFF667A80);
             }
         });
     }
@@ -235,8 +309,9 @@ public final class SpiritCodexScreen extends Screen {
         List<Leaf> out = new ArrayList<>();
         boolean first = true;
         for (Page page : e.pages()) {
-            int fixed = fixedHeight(page) + (first ? 20 : 0) + (page.title().isEmpty() ? 0 : 14);
-            List<CodexText.Line> lines = CodexText.layout(font, page.text(), pageWidth - 8, linker());
+            int fixed = fixedHeight(page) + (first ? 20 : 0) + titleHeight(title(e, page, first));
+            List<CodexText.Line> lines = new ArrayList<>(CodexText.layout(font, page.text(), pageWidth - 8, linker()));
+            if (page == e.pages().getLast()) lines.addAll(nextLink(e));
             List<CodexText.Line> taken = new ArrayList<>();
             int used = fixed;
             int i = 0;
@@ -261,34 +336,82 @@ public final class SpiritCodexScreen extends Screen {
         spread = Math.min(spread, Math.max(0, (leaves.size() - 1) / 2));
     }
 
+    /**
+     * The link on to the entry that follows, closing the last page. It flows with the text rather than sitting
+     * under the page, where a narrow book has no room beside the buttons.
+     */
+    private List<CodexText.Line> nextLink(Entry e) {
+        Entry next = book().byId().get(e.next());
+        if (next == null) return List.of();
+        String label = Component.translatable("gui.tribalpower.codex.next_entry",
+                visible(next) ? Component.literal(next.name()) : Component.translatable("gui.tribalpower.codex.hidden_entry")).getString();
+        List<CodexText.Line> out = new ArrayList<>();
+        for (CodexText.Line line : CodexText.layout(font, label, pageWidth - 8))
+            out.add(new CodexText.Line(line.spans().stream().map(placed -> new CodexText.Placed(placed.x(),
+                    new CodexText.Span(placed.span().text(), CodexText.LINK, next.id()))).toList(), line.paragraphEnd()));
+        return out;
+    }
+
     private int fixedHeight(Page page) {
         return switch (page) {
             case CodexBook.Spotlight s -> 58;
             case CodexBook.Recipe r -> 104;
-            case CodexBook.Image i -> Math.min(pageWidth - 8, 120) + 8;
-            case CodexBook.Scene s -> SCENE_H + 52;
-            case CodexBook.Pattern p -> SCENE_H + 52;
+            case CodexBook.Image i -> imageSize() + 8;
+            case CodexBook.Scene s -> sceneHeight(s.steps());
+            case CodexBook.Pattern p -> sceneHeight(patternSteps.computeIfAbsent(page, k -> CodexScene.pattern(p.pattern(), p.tier())));
             case CodexBook.Quests q -> 96;
             case CodexBook.Events e -> 64;
-            case CodexBook.NextStep n -> 56;
+            case CodexBook.NextStep n -> 26 + nextRows * 10;
             default -> 0;
         };
+    }
+
+    /**
+     * A page's title as drawn. An opening page titled with the entry's own name would only repeat the header above
+     * it, and a guidance page titled like its panel would only repeat the panel's own heading.
+     */
+    private String title(Entry e, Page page, boolean first) {
+        String title = page.title().strip();
+        if (first && title.equalsIgnoreCase(e.name().strip())) return "";
+        if (page instanceof CodexBook.NextStep && title.equalsIgnoreCase(Component.translatable("gui.tribalpower.codex.next_step").getString())) return "";
+        return page.title();
+    }
+
+    /** A page title wraps rather than running into the facing page. */
+    private int titleHeight(String title) {
+        return title.isEmpty() ? 0 : 4 + 10 * font.split(Component.literal(title), pageWidth - 8).size();
+    }
+
+    private int imageSize() {
+        return Math.min(Math.min(pageWidth - 8, 120), pageHeight - 42);
+    }
+
+    /** Caption lines a scene keeps room for: its longest step's, so no caption is cut and the controls never move. */
+    private int captionRows(List<CodexBook.Step> steps) {
+        int rows = 3;
+        for (CodexBook.Step step : steps) rows = Math.max(rows, lines(step.caption(), pageWidth - 8).size());
+        return rows;
+    }
+
+    private int sceneHeight(List<CodexBook.Step> steps) {
+        return sceneH + 19 + captionRows(steps) * 11;
     }
 
     // ------------------------------------------------------------------ navigation
 
     private void go(State state, boolean remember) {
-        if (remember) history.push(new State(view, category, entry, spread, item));
+        if (remember) history.push(new State(view, category, entry, spread, item, query, listPage));
         if (history.size() > 128) history.removeLast();
         view = state.view();
         category = state.category();
         entry = state.entry();
         spread = state.spread();
         item = state.item();
-        listPage = 0;
+        listPage = state.listPage();
         recipePage = 0;
         showUses = false;
         if (view != View.SEARCH) query = "";
+        else if (!state.query().isEmpty()) query = state.query();
         rebuildWidgets();
     }
 
@@ -328,7 +451,9 @@ public final class SpiritCodexScreen extends Screen {
             openEntry(teaching);
             return;
         }
-        if (!spoilers) {
+        // Recipes of an item the reader's open page already teaches give nothing away.
+        Entry taught = teaching == null ? null : book().byId().get(teaching);
+        if (!spoilers && (taught == null || !visible(taught))) {
             confirmSpoilers(() -> openItem(stack));
             return;
         }
@@ -373,10 +498,15 @@ public final class SpiritCodexScreen extends Screen {
         }
     }
 
+    /** Every icon on every frame asks for its stack, so each id is resolved once and the stack reused. */
+    private final Map<String, ItemStack> stacks = new HashMap<>();
+
     private ItemStack stack(String id) {
         if (id == null || id.isEmpty()) return ItemStack.EMPTY;
-        var key = CodexBook.itemId(id);
-        return BuiltInRegistries.ITEM.containsKey(key) ? new ItemStack(BuiltInRegistries.ITEM.get(key)) : ItemStack.EMPTY;
+        return stacks.computeIfAbsent(id, k -> {
+            var key = CodexBook.itemId(k);
+            return BuiltInRegistries.ITEM.containsKey(key) ? new ItemStack(BuiltInRegistries.ITEM.get(key)) : ItemStack.EMPTY;
+        });
     }
 
     // ------------------------------------------------------------------ rendering
@@ -387,9 +517,13 @@ public final class SpiritCodexScreen extends Screen {
         g.blit(ATLAS, left, top, bookWidth, bookHeight, 0F, 0F, 1536, 1024, 1536, 1024);
         g.fill(leftX - 6, pageY - 6, leftX + pageWidth + 6, pageY + pageHeight + 6, 0xDD101C27);
         g.fill(rightX - 6, pageY - 6, rightX + pageWidth + 6, pageY + pageHeight + 6, 0xDD101C27);
-        g.drawString(font, Component.literal(book().title()), left + 18, top + 14, GOLD, false);
+        Component bookTitle = Component.literal(book().title());
+        g.drawString(font, bookTitle, left + 18, top + 14, GOLD, false);
+        // A narrow book has no room between its title and the search box for the veil's state; the spoilers button
+        // still says which way it stands.
         Component mode = Component.translatable(spoilers ? "gui.tribalpower.codex.veil_open" : "gui.tribalpower.codex.spoiler_safe");
-        g.drawString(font, mode, left + bookWidth - 206 - font.width(mode), top + 14, TEAL, false);
+        int modeX = left + bookWidth - 206 - font.width(mode);
+        if (modeX >= left + 18 + font.width(bookTitle) + 8) g.drawString(font, mode, modeX, top + 14, TEAL, false);
         hits.clear();
         areas.clear();
         links.clear();
@@ -402,11 +536,16 @@ public final class SpiritCodexScreen extends Screen {
         }
         for (var widget : renderables) widget.render(g, mx, my, partial);
         for (Hit h : hits)
-            if (mx >= h.x && mx < h.x + 16 && my >= h.y && my < h.y + 16) g.renderTooltip(font, h.item, mx, my);
+            if (h.contains(mx, my)) g.renderTooltip(font, h.item, mx, my);
+    }
+
+    /** Text cut to {@code width} with an ellipsis, so a long name on a narrow page stops at its edge. */
+    private String fit(String text, int width) {
+        return font.width(text) <= width ? text : font.plainSubstrByWidth(text, width - font.width("…")) + "…";
     }
 
     private void heading(GuiGraphics g, Component text, int x, int y) {
-        g.drawString(font, text, x, y, GOLD, false);
+        g.drawString(font, fit(text.getString(), pageWidth - 8), x, y, GOLD, false);
         g.fill(x, y + 11, x + pageWidth - 8, y + 12, 0x6674DBCB);
     }
 
@@ -420,21 +559,46 @@ public final class SpiritCodexScreen extends Screen {
         if (stack.isEmpty()) return;
         g.renderItem(stack, x, y);
         g.renderItemDecorations(font, stack, x, y);
-        hits.add(new Hit(x, y, stack));
+        hits.add(new Hit(x, y, 16, stack));
     }
 
     private void landing(GuiGraphics g) {
         heading(g, Component.literal(book().title()), leftX, pageY);
-        paragraph(g, book().landing(), leftX, pageY + 20);
         heading(g, Component.translatable("gui.tribalpower.codex.categories"), rightX, pageY);
-        int y = pageY + 20;
+        // On a small screen neither the welcome nor the chapter list fits one page: both turn together.
+        List<List<CodexText.Line>> intro = pages(lines(book().landing(), pageWidth - 8), pageHeight - 20);
         List<CodexBook.Category> shown = book().categories().stream().filter(this::visible).toList();
         int per = Math.max(1, (pageHeight - 20) / 22);
-        listPage = Math.min(listPage, Math.max(0, (shown.size() - 1) / per));
-        for (CodexBook.Category c : shown.subList(Math.min(shown.size(), listPage * per), Math.min(shown.size(), (listPage + 1) * per))) {
+        int chapters = Math.max(1, (shown.size() + per - 1) / per), total = Math.max(intro.size(), chapters);
+        listPage = Math.min(listPage, total - 1);
+        links.addAll(CodexText.draw(g, font, intro.get(Math.min(listPage, intro.size() - 1)), leftX, pageY + 20));
+        int y = pageY + 20, at = Math.min(listPage, chapters - 1) * per;
+        for (CodexBook.Category c : shown.subList(Math.min(shown.size(), at), Math.min(shown.size(), at + per))) {
             row(g, stack(c.icon()), Component.literal(c.name()), progress(c), rightX, y, () -> go(new State(View.CATEGORY, c.id(), "", 0, ""), true));
             y += 22;
         }
+        if (total > 1) {
+            Component pages = Component.translatable("gui.tribalpower.codex.page_n", listPage + 1, total);
+            g.drawString(font, pages, rightX + pageWidth - 8 - font.width(pages), pageY + pageHeight - 6, DIM, false);
+        }
+    }
+
+    /** Lines cut into page-sized runs; always at least one run, if empty. */
+    private static List<List<CodexText.Line>> pages(List<CodexText.Line> lines, int room) {
+        List<List<CodexText.Line>> out = new ArrayList<>();
+        List<CodexText.Line> page = new ArrayList<>();
+        int used = 0;
+        for (CodexText.Line line : lines) {
+            if (!page.isEmpty() && used + CodexText.lineHeight(line) > room) {
+                out.add(page);
+                page = new ArrayList<>();
+                used = 0;
+            }
+            page.add(line);
+            used += CodexText.lineHeight(line);
+        }
+        out.add(page);
+        return out;
     }
 
     private Component progress(CodexBook.Category c) {
@@ -449,7 +613,7 @@ public final class SpiritCodexScreen extends Screen {
     /** One clickable list row: icon, name, and an optional quiet note beneath. */
     private void row(GuiGraphics g, ItemStack icon, Component name, Component note, int x, int y, Runnable action) {
         g.renderItem(icon, x, y + 1);
-        g.drawString(font, font.plainSubstrByWidth(name.getString(), pageWidth - 30), x + 22, y + (note == null ? 5 : 1), PAPER, false);
+        g.drawString(font, fit(name.getString(), pageWidth - 30), x + 22, y + (note == null ? 5 : 1), PAPER, false);
         if (note != null) g.drawString(font, note, x + 22, y + 11, DIM, false);
         areas.add(new Area(x, y, pageWidth - 8, 20, action));
     }
@@ -458,7 +622,7 @@ public final class SpiritCodexScreen extends Screen {
         CodexBook.Category c = book().category(category);
         if (c == null) return;
         item(g, stack(c.icon()), leftX, pageY - 2);
-        g.drawString(font, c.name(), leftX + 22, pageY + 3, GOLD, false);
+        g.drawString(font, fit(c.name(), pageWidth - 30), leftX + 22, pageY + 3, GOLD, false);
         g.fill(leftX, pageY + 16, leftX + pageWidth - 8, pageY + 17, 0x6674DBCB);
         int y = paragraph(g, c.description(), leftX, pageY + 24);
         Component hint = progress(c);
@@ -468,28 +632,49 @@ public final class SpiritCodexScreen extends Screen {
 
     private void listView(GuiGraphics g) {
         List<Entry> found;
-        Component title;
+        Component title, listTitle;
         if (view == View.BOOKMARKS) {
             found = book().entries().stream().filter(e -> bookmarks.contains(e.id())).toList();
             title = Component.translatable("gui.tribalpower.codex.bookmarks");
+            listTitle = Component.translatable("gui.tribalpower.codex.bookmarked");
         } else {
-            String needle = query.toLowerCase(Locale.ROOT);
-            found = book().entries().stream().filter(this::visible).filter(e -> haystack(e).contains(needle)).toList();
+            found = searchHits().stream().filter(this::visible).toList();
             title = Component.translatable("gui.tribalpower.codex.search_results", query);
+            listTitle = Component.translatable(found.isEmpty() ? "gui.tribalpower.codex.search_none" : "gui.tribalpower.codex.search_found");
         }
         heading(g, title, leftX, pageY);
         paragraph(g, Component.translatable(found.isEmpty() ? "gui.tribalpower.codex.no_pages" : "gui.tribalpower.codex.found", found.size()).getString(), leftX, pageY + 20);
-        entryList(g, found, Component.translatable("gui.tribalpower.codex.entries"));
+        entryList(g, found, listTitle);
     }
 
     private final Map<String, String> haystacks = new HashMap<>();
+    private String searched;
+    private List<Entry> searchHits = List.of();
+
+    private static final java.util.regex.Pattern MARKS = java.util.regex.Pattern.compile("\\p{M}+");
+
+    /** Lower case without accents, so "creme" finds "Crème" and the other way round. */
+    private static String fold(String text) {
+        return MARKS.matcher(java.text.Normalizer.normalize(text, java.text.Normalizer.Form.NFD)).replaceAll("").toLowerCase(Locale.ROOT);
+    }
+
+    /** Entries holding every word of the query, in any order; matched once per query, not every frame. */
+    private List<Entry> searchHits() {
+        String needle = fold(query).strip();
+        if (!needle.equals(searched)) {
+            searched = needle;
+            List<String> words = List.of(needle.split("\\s+"));
+            searchHits = book().entries().stream().filter(e -> words.stream().allMatch(haystack(e)::contains)).toList();
+        }
+        return searchHits;
+    }
 
     private String haystack(Entry e) {
         return haystacks.computeIfAbsent(e.id(), id -> {
             StringBuilder s = new StringBuilder(e.name()).append(' ');
             for (Page p : e.pages()) s.append(p.title()).append(' ').append(CodexText.plain(p.text())).append(' ');
             for (String i : e.items()) s.append(stack(i).getHoverName().getString()).append(' ');
-            return s.toString().toLowerCase(Locale.ROOT);
+            return fold(s.toString());
         });
     }
 
@@ -521,29 +706,25 @@ public final class SpiritCodexScreen extends Screen {
         }
         int total = Math.max(1, (leaves.size() + 1) / 2);
         Component pages = Component.translatable("gui.tribalpower.codex.page_n", spread + 1, total);
-        g.drawCenteredString(font, pages, left + bookWidth - 70, top + bookHeight - 25, DIM);
-        if (spread == total - 1 && !e.next().isEmpty() && book().byId().containsKey(e.next())) {
-            Entry next = book().byId().get(e.next());
-            Component label = Component.translatable("gui.tribalpower.codex.next_entry",
-                    visible(next) ? Component.literal(next.name()) : Component.translatable("gui.tribalpower.codex.hidden_entry"));
-            int x = rightX, y = pageY + pageHeight + 2;
-            g.drawString(font, label, x, y, TEAL, false);
-            areas.add(new Area(x, y - 2, font.width(label), 12, () -> openEntry(next.id())));
-        }
+        g.drawCenteredString(font, pages, counterX, top + bookHeight - 25, DIM);
     }
 
     private void leaf(GuiGraphics g, Entry e, Leaf leaf, int x, int mx, int my) {
         int y = pageY;
         if (leaf.first()) {
             item(g, stack(e.icon()), x, y - 3);
-            g.drawString(font, e.name(), x + 20, y + 1, GOLD, false);
+            g.drawString(font, fit(e.name(), pageWidth - 28), x + 20, y + 1, GOLD, false);
             g.fill(x, y + 15, x + pageWidth - 8, y + 16, 0x6674DBCB);
             y += 20;
         }
         Page page = leaf.page();
-        if (!page.title().isEmpty() && !leaf.continuation()) {
-            g.drawString(font, page.title(), x, y, TEAL, false);
-            y += 14;
+        String title = title(e, page, leaf.first());
+        if (!title.isEmpty() && !leaf.continuation()) {
+            for (FormattedCharSequence line : font.split(Component.literal(title), pageWidth - 8)) {
+                g.drawString(font, line, x, y, TEAL, false);
+                y += 10;
+            }
+            y += 4;
         }
         if (!leaf.continuation()) y = body(g, page, x, y, mx, my);
         links.addAll(CodexText.draw(g, font, leaf.lines(), x, y));
@@ -560,7 +741,7 @@ public final class SpiritCodexScreen extends Screen {
                 g.pose().scale(2, 2, 1);
                 g.renderItem(stack, 0, 0);
                 g.pose().popPose();
-                hits.add(new Hit(cx - 16, y + 4, stack));
+                hits.add(new Hit(cx - 16, y + 4, 32, stack));
                 Component name = stack.getHoverName();
                 g.drawString(font, name, cx - font.width(name) / 2, y + 43, GOLD, false);
                 return y + 58;
@@ -570,7 +751,7 @@ public final class SpiritCodexScreen extends Screen {
                 return y + 104;
             }
             case CodexBook.Image i -> {
-                int size = Math.min(pageWidth - 8, 120);
+                int size = imageSize();
                 g.blit(ResourceLocation.parse("tribalpower:textures/gui/codex/" + i.image() + ".png"), x + (pageWidth - 8 - size) / 2, y, 0, 0, size, size, size, size);
                 return y + size + 8;
             }
@@ -599,19 +780,30 @@ public final class SpiritCodexScreen extends Screen {
     private int nextStep(GuiGraphics g, int x, int y) {
         String step = tk.darrow.tribalpower.quest.QuestStatePayload.latest.nextStep();
         if (step.isEmpty()) step = tk.darrow.tribalpower.guide.NextStep.SPINE.get(0);
-        int w = pageWidth - 8;
-        g.fill(x, y, x + w, y + 52, 0x22000000);
+        int w = pageWidth - 8, rows = nextRows;
+        g.fill(x, y, x + w, y + 22 + rows * 10, 0x22000000);
         g.drawString(font, Component.translatable("gui.tribalpower.codex.next_step"), x + 4, y + 4, GOLD, false);
         int index = tk.darrow.tribalpower.guide.NextStep.index(step);
-        g.drawString(font, Component.translatable("gui.tribalpower.codex.next_step.progress", Math.min(index + 1, tk.darrow.tribalpower.guide.NextStep.SPINE.size()),
-                tk.darrow.tribalpower.guide.NextStep.SPINE.size()), x + 4, y + 14, DIM, false);
+        int at = Math.min(index + 1, tk.darrow.tribalpower.guide.NextStep.SPINE.size()), of = tk.darrow.tribalpower.guide.NextStep.SPINE.size();
+        // a narrow page drops "on the path" rather than run past the panel
+        Component progress = Component.translatable("gui.tribalpower.codex.next_step.progress", at, of);
+        if (font.width(progress) > w - 8) progress = Component.translatable("gui.tribalpower.codex.step_n", at, of);
+        g.drawString(font, progress, x + 4, y + 14, DIM, false);
         int ly = y + 26;
         for (var line : font.split(Component.translatable(tk.darrow.tribalpower.guide.NextStep.key(step)), w - 8)) {
-            if (ly > y + 46) break;
-            g.drawString(font, line, x + 4, ly, INK, false);
+            if (ly > y + 16 + rows * 10) break;
+            g.drawString(font, line, x + 4, ly, PAPER, false);
             ly += 10;
         }
-        return y + 56;
+        return y + 26 + rows * 10;
+    }
+
+    /** Lines the guidance panel keeps room for: its wordiest step's, so the step it shows is never cut short. */
+    private int nextStepRows() {
+        int rows = 3;
+        for (String step : tk.darrow.tribalpower.guide.NextStep.SPINE)
+            rows = Math.max(rows, font.split(Component.translatable(tk.darrow.tribalpower.guide.NextStep.key(step)), pageWidth - 16).size());
+        return Math.max(rows, font.split(Component.translatable(tk.darrow.tribalpower.guide.NextStep.key(tk.darrow.tribalpower.guide.NextStep.DONE)), pageWidth - 16).size());
     }
 
     /** The March's weather, surge and festival, from the last state the server sent. */
@@ -623,7 +815,7 @@ public final class SpiritCodexScreen extends Screen {
         for (var weather : tk.darrow.tribalpower.event.MarchWeather.values()) if (state.weather(weather)) running.add(Component.translatable(weather.key()));
         Component sky = running.isEmpty() ? Component.translatable("gui.tribalpower.codex.events.clear") : Component.translatable("gui.tribalpower.codex.events.weather",
                 running.stream().map(Component::getString).collect(java.util.stream.Collectors.joining(", ")));
-        g.drawString(font, font.split(sky, w - 8).get(0), x + 4, y + 6, INK, false);
+        g.drawString(font, font.split(sky, w - 8).get(0), x + 4, y + 6, PAPER, false);
         var surge = state.surge();
         g.drawString(font, surge == null ? Component.translatable("gui.tribalpower.codex.events.no_surge")
                 : Component.translatable("gui.tribalpower.codex.events.surge", Component.translatable("attunement.tribalpower." + surge.getSerializedName()),
@@ -649,7 +841,7 @@ public final class SpiritCodexScreen extends Screen {
         Component request = template == null ? Component.translatable("gui.tribalpower.codex.quests.no_request")
                 : template.name().copy().append(": ").append(template.describe());
         int ly = y + 14;
-        for (var line : font.split(request, w - 8)) { if (ly > y + 24) break; g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
+        for (var line : font.split(request, w - 8)) { if (ly > y + 24) break; g.drawString(font, line, x + 4, ly, PAPER, false); ly += 10; }
         if (template != null && (template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.SLAY || template.kind() == tk.darrow.tribalpower.quest.Requests.Kind.RITE))
             g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.progress", state.requestProgress(), template.count()), x + 4, ly, DIM, false);
         g.drawString(font, Component.translatable("gui.tribalpower.codex.quests.completed", state.completed()), x + 4, y + 44, DIM, false);
@@ -658,33 +850,34 @@ public final class SpiritCodexScreen extends Screen {
         Component story = step == null ? Component.translatable(state.relic() ? "gui.tribalpower.codex.quests.story_done" : "gui.tribalpower.codex.quests.story_done_no_relic")
                 : Component.translatable("gui.tribalpower.codex.quests.step", state.step() + 1, tk.darrow.tribalpower.quest.Questline.STEPS).append(" ").append(step.describe(tribe));
         ly = y + 64;
-        for (var line : font.split(story, w - 8)) { if (ly > y + 84) break; g.drawString(font, line, x + 4, ly, INK, false); ly += 10; }
+        for (var line : font.split(story, w - 8)) { if (ly > y + 84) break; g.drawString(font, line, x + 4, ly, PAPER, false); ly += 10; }
         return y + 96;
     }
 
     /** A stepped scene with its caption and step controls; returns the y below it. */
     private int scene(GuiGraphics g, Page page, List<CodexBook.Step> steps, int x, int y, int mx, int my) {
         int w = pageWidth - 8;
-        g.fill(x, y, x + w, y + SCENE_H, 0x55000000);
-        g.renderOutline(x, y, w, SCENE_H, 0xFF2E4A52);
-        if (steps.isEmpty()) return y + SCENE_H + 52;
+        g.fill(x, y, x + w, y + sceneH, 0x55000000);
+        g.renderOutline(x, y, w, sceneH, 0xFF2E4A52);
+        if (steps.isEmpty()) return y + sceneHeight(steps);
         int step = Math.clamp(sceneStep.getOrDefault(page, 0), 0, steps.size() - 1);
         double now = time();
         double since = now - sceneSince.getOrDefault(page, 0.0);
         float yaw = sceneYaw.getOrDefault(page, 225F) + (dragPage == page ? 0 : (float) (10 * Math.sin(now * 0.35)));
-        CodexScene.draw(g, steps, step, x + 1, y + 1, w - 2, SCENE_H - 2, yaw, since, now);
-        Area drag = new Area(x, y, w, SCENE_H, () -> {});
-        areas.add(new Area(x, y, w, SCENE_H, () -> { dragging = drag; dragPage = page; }));
-        int cy = y + SCENE_H + 4;
+        CodexScene.draw(g, steps, step, x + 1, y + 1, w - 2, sceneH - 2, yaw, since, now);
+        Area drag = new Area(x, y, w, sceneH, () -> {});
+        areas.add(new Area(x, y, w, sceneH, () -> { dragging = drag; dragPage = page; }));
+        int cy = y + sceneH + 4;
+        int rows = captionRows(steps);
         List<CodexText.Line> caption = lines(steps.get(step).caption(), w);
         int ch = 0;
         for (CodexText.Line line : caption) {
-            // a line must end above the step controls, which sit 34 below the caption's top
-            if (ch + 9 > 34) break;
+            // a line must end above the step controls, which sit one row per caption line below the caption's top
+            if (ch + 9 > rows * 11 + 1) break;
             links.addAll(CodexText.draw(g, font, List.of(line), x, cy + ch));
             ch += 11;
         }
-        int controls = y + SCENE_H + 38;
+        int controls = y + sceneH + 5 + rows * 11;
         Component counter = Component.translatable("gui.tribalpower.codex.step_n", step + 1, steps.size());
         int prevX = x, nextX = x + w - 14;
         g.drawString(font, "◀", prevX + 3, controls, step > 0 ? GOLD : 0xFF4A5A60, false);
@@ -692,7 +885,7 @@ public final class SpiritCodexScreen extends Screen {
         g.drawString(font, counter, x + w / 2 - font.width(counter) / 2, controls, DIM, false);
         areas.add(new Area(prevX, controls - 3, 14, 13, () -> stepScene(page, steps, -1)));
         areas.add(new Area(nextX, controls - 3, 14, 13, () -> stepScene(page, steps, 1)));
-        return y + SCENE_H + 52;
+        return y + sceneHeight(steps);
     }
 
     private void stepScene(Page page, List<CodexBook.Step> steps, int direction) {
@@ -758,8 +951,10 @@ public final class SpiritCodexScreen extends Screen {
                     Component.translatable("attunement.tribalpower." + lattice.attunement().getSerializedName()));
             // wider than a narrow page: wrap onto a second line rather than run off it, both under the grid and
             // above the recipe counter (80 below here) that sits in the same corner of the box
-            List<FormattedCharSequence> base = font.split(Component.translatable("gui.tribalpower.codex.lattice_base", lattice.seconds(), lattice.pulse(),
-                    lattice.seconds() * lattice.pulse()), w);
+            // the Pulse a station really spends (the pack's consumption setting applied), as its readout shows it
+            int pulse = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(lattice.pulse());
+            List<FormattedCharSequence> base = font.split(Component.translatable("gui.tribalpower.codex.lattice_base", lattice.seconds(), pulse,
+                    lattice.seconds() * pulse), w);
             for (int i = 0; i < Math.min(2, base.size()); i++) g.drawString(font, base.get(i), x, y + 60 + i * 10, DIM, false);
         } else if (recipe instanceof ShapedRecipe) kind = Component.translatable("gui.tribalpower.codex.shaped");
         else if (recipe instanceof ShapelessRecipe) kind = Component.translatable("gui.tribalpower.codex.shapeless");
@@ -776,7 +971,7 @@ public final class SpiritCodexScreen extends Screen {
     private void itemView(GuiGraphics g) {
         ItemStack focus = stack(item);
         item(g, focus, leftX, pageY - 2);
-        g.drawString(font, focus.getHoverName(), leftX + 22, pageY + 3, GOLD, false);
+        g.drawString(font, fit(focus.getHoverName().getString(), pageWidth - 30), leftX + 22, pageY + 3, GOLD, false);
         g.fill(leftX, pageY + 16, leftX + pageWidth - 8, pageY + 17, 0x6674DBCB);
         int y = paragraph(g, Component.translatable(CodexJeiLinks.available() ? "gui.tribalpower.codex.recipe_intro_jei" : "gui.tribalpower.codex.recipe_intro").getString(), leftX, pageY + 24);
         Component toggle = Component.translatable(showUses ? "gui.tribalpower.codex.show_recipes" : "gui.tribalpower.codex.show_uses");
@@ -798,7 +993,7 @@ public final class SpiritCodexScreen extends Screen {
     @Override
     public boolean mouseClicked(double x, double y, int button) {
         for (Hit h : hits)
-            if (x >= h.x && x < h.x + 16 && y >= h.y && y < h.y + 16) {
+            if (h.contains(x, y)) {
                 if (button == 1 && CodexJeiLinks.available()) openJei(h.item, false);
                 else if (button == 0) openItem(h.item);
                 return true;
@@ -862,10 +1057,10 @@ public final class SpiritCodexScreen extends Screen {
     public int bookWidth() { return bookWidth; }
     public int bookHeight() { return bookHeight; }
 
-    public record ItemHover(ItemStack item, int x, int y) {}
+    public record ItemHover(ItemStack item, int x, int y, int size) {}
 
     public ItemHover itemHover(double x, double y) {
-        for (Hit h : hits) if (x >= h.x && x < h.x + 16 && y >= h.y && y < h.y + 16) return new ItemHover(h.item, h.x, h.y);
+        for (Hit h : hits) if (h.contains(x, y)) return new ItemHover(h.item, h.x, h.y, h.size);
         return null;
     }
 

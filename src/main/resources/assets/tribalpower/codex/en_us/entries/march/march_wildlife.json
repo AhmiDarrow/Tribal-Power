@@ -3,6 +3,11 @@
   "icon": "tribalpower:raw_glimmerfin",
   "order": 35,
   "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
     "tribalpower:raw_glimmerfin",
     "tribalpower:cooked_glimmerfin",
     "tribalpower:raw_silt_eel",
@@ -20,7 +25,8 @@
         "- **Glimmerfin**: small fish with lit fins that swim in schools. Catch one in a water bucket, or cook it.",
         "- **Drift Bell**: a slow, glowing jelly. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while.",
         "- **Veil Ray**: wide and shy; it glides away from anyone who comes near. Drops March Leather.",
-        "- **Silt Eel**: lives in the Reed Fen and bites anyone wading in its water. Smoke it for a good meal."
+        "- **Silt Eel**: a dark eel of the Reed Fen's pools and channels, the Shallows, and the water where the Ember Wastes run down to the sea. It swims with the Glimmerfin and bites anyone wading in its water. Cook it into a Smoked Silt Eel for a good meal.",
+        "All of them keep to open water under the sky, never the water sealed in the rock below."
       ]
     },
     {
@@ -29,6 +35,15 @@
       "text": [
         "**Loom Swifts** wheel over the open land in loose flocks, and drop a feather or two.",
         "Closer to the ground the air is busy with insects: **fireflies** over the fen and steppe at night, **reed darters** skimming the water by day, **glasswings** fluttering over the blooms of the Crystal Fields, and **cinder gnats** drifting up from the Ember Wastes. They are only light and motion; they cannot be caught, and they cost your world nothing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Herds come back",
+      "text": [
+        "Hunt or tame a stretch of the March bare and it will not stay bare. About **once a minute**, at a quiet spot **32 to 96 blocks** from you and never within **24 blocks** of anyone, a few animals of that land may wander back in: the same grazers its land began with, including any that other mods add there. Cave and lava dwellers return to their own ground.",
+        "They stop coming once about **six** animals live within 32 blocks of the spot. Tame and penned animals count too, so land refills to roughly how it began and no further, and wild herds never crowd your farms or a busy camp.",
+        "Fish, jellies and swifts come and go with the water and sky on their own. Server settings can change the pace, or turn the return off."
       ]
     }
   ]

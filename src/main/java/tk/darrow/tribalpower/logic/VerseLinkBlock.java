@@ -81,6 +81,12 @@ public class VerseLinkBlock extends BaseEntityBlock {
         return SHAPES[state.getValue(FACING).ordinal()];
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new VerseLinkBlockEntity(pos, state); }
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable net.minecraft.world.entity.LivingEntity placer,
+                            net.minecraft.world.item.ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (level.getBlockEntity(pos) instanceof VerseLinkBlockEntity link) link.setOwner(tk.darrow.tribalpower.camp.Ownership.of(placer));
+    }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, LogicRegistry.VERSE_LINK_TYPE.get(), VerseLinkBlockEntity::tick);
     }
@@ -106,8 +112,11 @@ public class VerseLinkBlock extends BaseEntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof VerseLinkBlockEntity link) {
-            if (player.isShiftKeyDown()) player.displayClientMessage(Component.translatable("message.tribalpower.verse.cycle", link.cycle()), true);
-            else player.displayClientMessage(Component.translatable(
+            if (player.isShiftKeyDown()) {
+                // retuning a verse cuts or hijacks someone's wireless song, so only its owner's camp may do it
+                if (!tk.darrow.tribalpower.camp.Ownership.check(level, link.owner(), player)) return InteractionResult.CONSUME;
+                player.displayClientMessage(Component.translatable("message.tribalpower.verse.cycle", link.cycle()), true);
+            } else player.displayClientMessage(Component.translatable(
                     call ? "message.tribalpower.verse.call" : "message.tribalpower.verse.answer",
                     link.verse() + 1, state.getValue(POWER)), true);
         }

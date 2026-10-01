@@ -10,7 +10,7 @@
       "item": "tribalpower:spirit_staff",
       "text": [
         "A staff that speaks all six voices. Choose one, point, and cast.",
-        "It spends Pulse from a Pulse Cell you carry, never its own durability."
+        "It spends Pulse from a Pulse Cell, never durability, and can carry a cell of its own like [Spiritgear](spiritgear)."
       ]
     },
     {
@@ -40,7 +40,7 @@
       "text": [
         "Earth, Fire and Loom need a hostile target. They reach **18 blocks** and stop at solid blocks; with no target they do not fire and cost nothing.",
         "After a cast the staff rests: **8 seconds** after Water, **2 seconds** after the others, **1.5 seconds** after a stitch.",
-        "It drinks from any Pulse Cell you carry, offhand first. If the cells are dry, the cast does not fire."
+        "It drinks from its own seated cell first, then from the cells you carry, offhand first. If they are all dry, the cast does not fire."
       ]
     },
     {

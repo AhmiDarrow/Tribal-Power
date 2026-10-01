@@ -16,10 +16,9 @@
       "type": "text",
       "title": "Setting it up",
       "text": [
-        "**Place it yourself.** The tender remembers who placed it and works with that player's permissions, so land protection still applies. A tender nobody claimed does nothing. It answers to **Earth**: keep an Earth Resonance Totem within 8 blocks, or it stands idle.",
+        "**Place it yourself.** The tender remembers who placed it and works with that player's permissions, so land protection still applies. A tender nobody claimed does nothing. It answers to **Earth**: keep an Earth totem within 8 blocks (see Camp hands), or it stands idle.",
         "It works on its **own level**: its bed is the square reaching **4 blocks** out on every side, at the tender's height. So set it at crop height, on a block sunk into the farmland, not on top of the crops.",
-        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face.",
-        "**Water.** Keep a Water Resonance Totem within eight blocks and the tender keeps the bed's farmland wet, soaking every dried furrow in one beat for a few Pulse. No more trenches through the crops."
+        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face."
       ]
     },
     {
@@ -27,8 +26,8 @@
       "title": "With AgriCraft",
       "text": [
         "When AgriCraft is in the pack the tender works its crops as its own. **Crop sticks** in the top row go onto the bed (tilled ground or the March's own soil), and a **seed** goes into empty sticks before anywhere else: an analysed AgriCraft seed, or a plain crop AgriCraft knows, such as a potato or any March crop.",
-        "A ripe plant is harvested the way a click harvests it: the produce goes to the store and the plant stays on its sticks, cut back to grow again. Weeds are raked and slow plants urged on, each for a little Pulse.",
-        "It still wants its Earth totem, Pulse in its cell, and a claimed owner, like all its other work. If the sticks stand empty, look at the status line: it names what the tender is waiting for."
+        "A ripe plant is harvested the way a click harvests it: the produce goes to the store and the plant stays on its sticks, cut back to grow again. Weeds are raked for **4 Pulse** and slow plants urged on for **16**.",
+        "It still wants its Earth totem, Pulse in its reserve, and a claimed owner, like all its other work. If the sticks stand empty, look at the status line: it names what the tender is waiting for."
       ]
     },
     {
@@ -268,7 +267,7 @@
           ]
         },
         {
-          "caption": "Put Pulse within 8 blocks and give it seeds; it plants one spot a second for 4 Pulse.",
+          "caption": "Add Pulse and an Earth totem within 8 blocks, then give it seeds: it plants one spot a second for 4 Pulse.",
           "place": [
             {
               "pos": [
@@ -452,12 +451,17 @@
                 0,
                 2
               ],
-              "block": "minecraft:wheat[age=0]"
+              "block": "tribalpower:resonance_totem_earth"
             }
           ],
           "highlight": [
             [
               -2,
+              0,
+              2
+            ],
+            [
+              2,
               0,
               2
             ]
@@ -641,14 +645,6 @@
                 1
               ],
               "block": "minecraft:wheat[age=7]"
-            },
-            {
-              "pos": [
-                2,
-                0,
-                2
-              ],
-              "block": "minecraft:wheat[age=7]"
             }
           ]
         },
@@ -675,17 +671,26 @@
       "text": [
         "Once a second it looks along its bed and does **one** job:",
         "- **Plant** an empty spot: **4 Pulse**.",
-        "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall.",
+        "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted, keeping one seed back; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall.",
         "- **Urge** a sapling, stem, crop, cocoa pod, berry bush or bamboo shoot to grow, like bone meal: **16 Pulse**.",
-        "When the bed has nothing to do, it fells the trees above it, logs and leaves, in a column **9 wide and 11 tall** from its own level up, for **12 Pulse** a block. Only grown trees: logs and leaves you placed yourself, like a log wall or the jungle logs for cocoa, are left alone."
+        "- **Water** the bed: **4 Pulse** (see below)."
       ]
     },
     {
       "type": "text",
-      "title": "Soil, trees and power",
+      "title": "Trees",
+      "text": [
+        "When the bed has nothing else to do, it fells trees: logs and leaves in a column **9 wide and 11 tall** from its own level up, for **12 Pulse** a block. For a tree farm, feed it saplings: it plants them on dirt, urges them up, then takes the tree.",
+        "It cuts only **grown trees**. A log counts when the logs joined to it reach leaves the tree grew itself, so a tall trunk or a wide two-by-two comes down to the ground instead of leaving a stump.",
+        "What you built is left alone: log walls and houses, leaves you placed, and the jungle logs you set for cocoa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Soil, water and power",
       "text": [
         "Each plant needs its usual ground: farmland near water for crops, dirt for saplings, sand for cactus, sand or dirt beside water for cane, soul sand for nether wart, and jungle logs in the bed for cocoa.",
-        "For a tree farm, feed it saplings. It plants them on dirt, urges them up, then takes the logs and leaves.",
+        "**Water.** Keep a Water Resonance Totem within 8 blocks, Answered or Dim, and the tender keeps the bed's farmland wet: every dried furrow is soaked in one beat for **4 Pulse**. No more trenches through the crops.",
         "The tender keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from generators within 8. Right-click it with a Pulse Cell to top it up by hand."
       ]
     },

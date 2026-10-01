@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Pattern-weavers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_air} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
+        "Kin of the Pattern-weavers carry their [boon](tribe_boons): Echo stations within 8 blocks of you work at **double speed**.",
         "The Pattern-weavers are the only tribe that sells a **Wind Harp**, the Air generator."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Pattern-weavers carry their [boon](tribe_boons): Echo stations within 8 blocks of you work at **double speed**."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

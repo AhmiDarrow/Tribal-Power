@@ -4,7 +4,8 @@
   "order": 160,
   "spoiler": true,
   "items": [
-    "tribalpower:echo_weaver_spawn_egg"
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
   ],
   "next": "beasts_steppe",
   "pages": [

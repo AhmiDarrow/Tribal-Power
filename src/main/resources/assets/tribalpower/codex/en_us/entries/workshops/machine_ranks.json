@@ -9,11 +9,17 @@
       "title": "",
       "text": [
         "Workshops and generators can be ranked, the same way Spiritgear is: seat the machine in Echo Attune, then Echo Bind, then Echo Manifest. Each rank makes it faster, and it pays for the speed in Pulse.",
-        "Each step takes Pulse and time, but no catalysts:",
-        "- Attune (Fire): **16 seconds** at **48 Pulse a second**, for rank 1.",
-        "- Bind (Water): **20 seconds** at **64**, for rank 2.",
-        "- Manifest (Spirit): **24 seconds** at **80**, for rank 3.",
         "You cannot skip a step: Bind refuses a rank 0 machine, and Manifest wants rank 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What ranking costs",
+      "text": [
+        "Each step takes Pulse and time, but no catalysts:",
+        "- Attune (Fire): **16 seconds** at **96 Pulse a second**, for rank 1.",
+        "- Bind (Water): **20 seconds** at **128**, for rank 2.",
+        "- Manifest (Spirit): **24 seconds** at **160**, for rank 3."
       ]
     },
     {

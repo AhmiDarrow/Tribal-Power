@@ -139,14 +139,35 @@ public class TribalBenchBlock extends HorizontalDirectionalBlock implements Enti
         return super.playerWillDestroy(level, pos, state, player);
     }
 
+    /**
+     * The whole bench outline per facing, built once.
+     *
+     * <p>Every collision query from anything walking past asks for this, so it is looked up rather
+     * than rebuilt; both halves share it.
+     */
+    private static final java.util.Map<Direction, VoxelShape> SHAPES = buildShapes();
+
+    private static java.util.Map<Direction, VoxelShape> buildShapes() {
+        java.util.EnumMap<Direction, VoxelShape> shapes = new java.util.EnumMap<>(Direction.class);
+        VoxelShape table = Shapes.or(TOP, LEG_NW, LEG_NE, LEG_SW, LEG_SE);
+        for (Direction facing : Direction.Plane.HORIZONTAL)
+            shapes.put(facing, Shapes.or(table, shelfShape(facing)).optimize());
+        return shapes;
+    }
+
+    /** The bench outline for a facing; anything not horizontal reads as north. */
+    public static VoxelShape shapeFor(Direction facing) {
+        VoxelShape shape = SHAPES.get(facing);
+        return shape != null ? shape : SHAPES.get(Direction.NORTH);
+    }
+
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        VoxelShape shape = Shapes.or(TOP, LEG_NW, LEG_NE, LEG_SW, LEG_SE);
-        return Shapes.or(shape, shelfShape(state.getValue(FACING)));
+        return shapeFor(state.getValue(FACING));
     }
 
     /** The shelf board and its posts, standing clear above the back edge of the top. */
-    private static VoxelShape shelfShape(Direction facing) {
+    static VoxelShape shelfShape(Direction facing) {
         return switch (facing) {
             case SOUTH -> Shapes.or(Block.box(0, 10, 2, 16, 16, 4), Block.box(0, 14, 1, 16, 16, 5));
             case WEST -> Shapes.or(Block.box(12, 10, 0, 14, 16, 16), Block.box(11, 14, 0, 15, 16, 16));

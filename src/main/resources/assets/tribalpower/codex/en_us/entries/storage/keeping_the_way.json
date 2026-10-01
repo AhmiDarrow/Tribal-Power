@@ -18,7 +18,7 @@
       "title": "When a gate breaks",
       "text": [
         "Break a keystone and its partner is released at once and goes dark. Anyone standing within 16 blocks of the partner is told which gate was lost.",
-        "**/tribalpower gate list** shows every gate and what it answers. **/tribalpower gate unlink <name>** cuts a thread by hand.",
+        "**/tribalpower gate list** shows every gate you placed and what it answers. **/tribalpower gate unlink <name>** cuts one of your threads by hand.",
         "To relink, use a compass, chalk or sigil again as in [Way Gate](way_gate)."
       ]
     },

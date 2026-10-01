@@ -2,10 +2,14 @@ package tk.darrow.tribalpower.item;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,12 +22,16 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import tk.darrow.tribalpower.camp.Ownership;
 import tk.darrow.tribalpower.lattice.HasSideIo;
+import tk.darrow.tribalpower.logic.LogicPlateBlockEntity;
+import tk.darrow.tribalpower.logic.PlateLinks;
 
 import java.util.List;
 
 /**
  * Totem Wrench — turns a block to face somewhere else, and sneak-used on a machine face it steps that face
  * through input, output, both and shut. It never breaks anything: a block that cannot turn simply does not.
+ * On song plates it syncs instead: crouch-use one to hold its song, then use another to make it hear the held
+ * one with no wire between (see {@link PlateLinks}).
  */
 public class TotemWrenchItem extends Item {
     public TotemWrenchItem(Properties properties) {
@@ -41,6 +49,11 @@ public class TotemWrenchItem extends Item {
         if (!level.mayInteract(player, pos) || !player.mayUseItemAt(pos, face, context.getItemInHand()))
             return InteractionResult.FAIL;
         var be = level.getBlockEntity(pos);
+        // A plate is never turned, and reading its syncs stays open to all, so PlateLinks asks about ownership
+        // only for the uses that change a plate.
+        if (be instanceof LogicPlateBlockEntity plate && level instanceof ServerLevel server)
+            return PlateLinks.useWrench(server, player, context.getItemInHand(), plate, context.getClickLocation(),
+                    () -> damage(context.getItemInHand(), player));
         if (be instanceof Ownership.Owned owned && !Ownership.check(level, owned.owner(), player))
             return InteractionResult.FAIL;
 
@@ -110,8 +123,24 @@ public class TotemWrenchItem extends Item {
         stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
     }
 
+    /** Crouch-use in the air lets go of a held plate's song. */
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!player.isShiftKeyDown() || PlateLinks.held(stack) == null) return InteractionResultHolder.pass(stack);
+        if (!level.isClientSide) {
+            stack.remove(tk.darrow.tribalpower.logic.LogicRegistry.HELD_PLATE.get());
+            player.displayClientMessage(Component.translatable("message.tribalpower.plate_link.released"), true);
+        }
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.totem_wrench.desc"));
+        GlobalPos held = PlateLinks.held(stack);
+        if (held != null)
+            tooltip.add(Component.translatable("item.tribalpower.totem_wrench.holding",
+                    held.pos().getX(), held.pos().getY(), held.pos().getZ()).withStyle(net.minecraft.ChatFormatting.AQUA));
     }
 }

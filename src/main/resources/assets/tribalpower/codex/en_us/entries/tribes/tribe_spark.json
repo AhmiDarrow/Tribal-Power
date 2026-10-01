@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Drumhearts' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_fire} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Fire**.",
-        "A charged Pulse Cell pleases the Drumhearts as it pleases every hearth: **+2 for every 10 Pulse**, up to +8. Their Guest trade for Bone Chimes feeds straight back into their reagent."
+        "Kin of the Drumhearts carry their [boon](tribe_boons): a quicker hand: you swing **10%** faster.",
+        "Their Guest trade turns copper into Bone Chimes, which is their reagent: a cheap way to climb toward Friend."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Drumhearts carry their [boon](tribe_boons): a quicker hand: you swing **10%** faster."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

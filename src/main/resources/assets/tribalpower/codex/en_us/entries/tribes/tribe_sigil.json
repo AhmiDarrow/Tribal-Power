@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Seal-carvers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_spirit} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Spirit**.",
+        "Kin of the Seal-carvers carry their [boon](tribe_boons): your charms ask **half** the Pulse.",
         "Their Friend trade for a Rite Tablet is a shortcut past the hunt for its reagents. They are also the only tribe that sells a **Wake Bell**."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Seal-carvers carry their [boon](tribe_boons): your charms ask **half** the Pulse."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

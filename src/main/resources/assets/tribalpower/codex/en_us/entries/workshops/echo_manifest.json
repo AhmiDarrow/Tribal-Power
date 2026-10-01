@@ -12,7 +12,7 @@
       "type": "spotlight",
       "item": "tribalpower:echo_manifest",
       "text": [
-        "The Spirit station, at the top of the lattice. Echo Manifest turns Bound Echoes into **Manifested Ingots**, and ingots into **Resonant Cores**, the heart of the mod's best gear and machines."
+        "The Spirit station, at the top of the lattice. Echo Manifest turns Bound Echoes into **Manifested Ingots**, and ingots into **Resonant Cores**, the heart of the finest gear and machines in this book."
       ]
     },
     {
@@ -20,9 +20,8 @@
       "title": "Using it",
       "text": [
         "Place Echo Manifest with a Spirit totem within 8 blocks.",
-        "- Bound Echo to Manifested Ingot: **5 seconds** at **32 Pulse a second**.",
-        "- Manifested Ingot to Resonant Core: **8 seconds** at **40 Pulse a second**.",
-        "Both are before pack settings.",
+        "- Bound Echo to Manifested Ingot: **5 seconds** at **64 Pulse a second**.",
+        "- Manifested Ingot to Resonant Core: **8 seconds** at **80 Pulse a second**.",
         "Cores unlock Greater Pulse Cells, Spiritgear, long-distance automation and gate keystones. Seated in a Pulse Resonator, a core is its strongest crystal."
       ]
     },

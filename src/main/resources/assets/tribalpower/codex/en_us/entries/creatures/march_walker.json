@@ -1,6 +1,9 @@
 {
   "name": "March Walker",
-  "icon": "tribalpower:raw_game",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
   "order": 50,
   "spoiler": true,
   "next": "spirit_wisp",
@@ -8,7 +11,7 @@
     {
       "type": "text",
       "text": [
-        "The March Walker is the quiet grazer of the March, a stocky, pig-shaped creature you will see in herds on the Steppe. It lives in every March biome but the Shallows, even the Ember Wastes.",
+        "A March Walker is the quiet grazer of the March, a stocky, pig-shaped creature you will see in herds on the Steppe. It lives in every March biome but the Shallows, even the Ember Wastes.",
         "It has **18 health** and **1 armour**. It is shy: it keeps about ten blocks from monsters and panics when hurt."
       ]
     },

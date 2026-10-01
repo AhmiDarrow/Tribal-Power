@@ -17,25 +17,36 @@
       "type": "text",
       "title": "Requests",
       "text": [
-        "Ask an Elder **\"Is there work I can do?\"** and they give you one of the tribe's requests: fetch something they prize, deliver their dish cooked, turn back a few of the dark's creatures near their fires, perform a rite at a brazier in their camp, or raise a small build with Builder's Chalk in hand.",
-        "Each tribe has three requests open on any given day, and they change with the days, so if today's does not suit you, come back tomorrow. You hold **one request per tribe** at a time.",
-        "Finish it and tell the Elder **\"I've done what you asked.\"** Each pays standing (8 to 16, before any camp bonuses), and every **third** finished request for a tribe pays a **Tribe Mark** on top, so you no longer have to wait for Voice to hold one.",
+        "Ask an Elder **\"Is there work I can do?\"** and they give you one of the tribe's requests. Each tribe has three open on any given day, and they change with the days, so if today's does not suit you, come back tomorrow.",
+        "You hold **one request per tribe** at a time, and you can finish **three a day** in all, across every tribe. After that the Elders have no more work for you until tomorrow.",
+        "Finish it and tell the Elder **\"I've done what you asked.\"** Each pays **8 to 16** standing, and every **third** finished request for a tribe pays a **Tribe Mark** on top, so you no longer have to wait for Voice to hold one.",
         "The Codex keeps track for you: every tribe's page ends with their open request and how far along it is."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What they ask",
+      "text": [
+        "- **Fetch**: bring what they prize, such as their March crop. Carry it when you tell the Elder.",
+        "- **Deliver**: bring two bowls of their own [dish](tribe_dishes).",
+        "- **Hunt**: turn back six of the dark's creatures within **48 blocks** of their hearth.",
+        "- **Rite**: perform any rite at a brazier or pedestal within 48 blocks of their hearth.",
+        "- **Build**: raise **Walls** of size 3 or more within 48 blocks of their hearth, marked with Builder's Chalk, and hold that chalk when you tell the Elder. Build them of worked blocks such as planks, bricks or cobblestone: raw stone, dirt, sand and snow do not count. A build counts **once**: walls already handed in to that tribe will not pay again."
       ]
     },
     {
       "type": "text",
       "title": "Their story",
       "text": [
-        "Ask **\"Tell me your story\"** and the Elder begins a longer road: **seven steps**, one tribe at a time, that lean on everything else you do with them. Become their Friend, bring the one thing they prize, hunt near their fires, perform a rite in their camp, cook their dish, and at the end go where they send you.",
-        "The last step is a **trial**: each tribe's country keeps a guardian, and the tribe wants it faced. The Loom-stitchers' trial is The Unsung itself; the other eight wait at their grounds, told in [The guardians](guardians). Fall in the fight and nothing is lost: call it again when the altar has rested.",
-        "Finish the story and the Elder hands you the tribe's **relic**: a small, unique thing that grants that tribe's [boon](tribe_boons) whenever it is in your inventory, whatever your standing, and marks you for good in their eyes."
+        "Ask **\"Tell me your story\"** and the Elder begins a longer road: **seven steps**, one tribe at a time, that lean on everything else you do with them. Become their Friend, bring the one thing they prize, hunt near their fires, perform a rite in their camp, bring their dish, and at the end go where they send you.",
+        "The last step is a **trial**: each tribe's country keeps a guardian, and the tribe wants it faced. The Loom-stitchers' trial is The Unsung itself; the other eight wait at their grounds, told in [The guardians](guardians). Fall in the fight and the story simply waits. A guardian left alone for half a minute goes back to sleep unbeaten, and its altar can be called again straight away."
       ]
     },
     {
       "type": "text",
       "title": "The nine relics",
       "text": [
+        "Finish the story and the Elder hands you the tribe's **relic**: a small, unique thing that grants that tribe's [boon](tribe_boons) whenever it is in your inventory, whatever your standing, and marks you for good in their eyes.",
         "{item:tribalpower:relic_soil} (Pad-keepers). {item:tribalpower:relic_stone} (Grit-singers). {item:tribalpower:relic_sprout} (Rootbinders). {item:tribalpower:relic_claw} (Edge-walkers). {item:tribalpower:relic_spark} (Drumhearts). {item:tribalpower:relic_clock} (Pattern-weavers). {item:tribalpower:relic_swarm} (Colony-keepers). {item:tribalpower:relic_sigil} (Seal-carvers). {item:tribalpower:relic_spindle} (Loom-stitchers).",
         "One for each tribe, each the end of a story and the start of nine agreeing again."
       ]

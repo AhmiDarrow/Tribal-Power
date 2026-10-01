@@ -13,14 +13,16 @@
       "title": "The bow's heavier sister",
       "text": [
         "The Pulse Crossbow fires the same sonic bolts as the [Pulse Bow](song_bench), and carries verse arrows the same way.",
-        "**Hold use** to load it. Loading takes a little longer than a full bow draw and spends **10 Pulse** up front, and takes a verse arrow if you carry one. **Use it again** to fire."
+        "**Hold use** to load it. Loading takes a little longer than a full bow draw and spends **10 Pulse** up front; if you carry a verse arrow it loads that too, for 6 Pulse more. **Use it again** to fire.",
+        "It is forged like the other Spiritgear: two **Manifested Ingots** and a **Bone Chime** for the prod, string, a tripwire hook and a stick. Each shot wears it a point, out of 1,024, and the [Spirit Anvil](spirit_anvil) mends it with Manifested Ingots, a quarter each."
       ]
     },
     {
       "type": "text",
       "text": [
-        "- The **crossbow** hits about **half again as hard**, flies faster and almost perfectly straight, and holds its shot for as long as you like, so you can walk loaded and fire the moment something shows itself.",
-        "- The **bow** is quicker: you can loose again sooner, and loose a half draw when you are in a hurry.",
+        "- The **crossbow** hits about **a third harder**: **10** up close against the bow's **7**, a little less at the end of a long flight. It flies faster and almost perfectly straight, and holds its shot for as long as you like, so you can walk loaded and fire the moment something shows itself.",
+        "- The **bow** is quicker: you can loose again sooner, and loose a part draw when you are in a hurry, though a part draw hits for only its share.",
+        "A verse arrow adds up to **3** more to a full bow draw, a little more from the crossbow, and carries its song. Bolts do not fall, but they fade after about 60 blocks.",
         "Carry the crossbow for the one shot that matters, the bow for a running fight."
       ],
       "title": "Bow or crossbow?"

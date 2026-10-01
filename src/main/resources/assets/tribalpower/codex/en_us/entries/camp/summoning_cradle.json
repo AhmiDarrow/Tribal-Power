@@ -359,7 +359,7 @@
       "text": [
         "The bound effigy goes in the cradle's **first** slot and Spiritweave in the **second**.",
         "Every **ten seconds** it tries once to call the creature onto a clear, dry floor within **3 blocks**, on its own level. A summon costs **80 Pulse**, **one Spiritweave** and **one thread**. A failed or blocked try spends nothing.",
-        "The cradle keeps a **2,400 Pulse** reserve and refills it by up to 80 a second from generators within 8. It answers to **Spirit**: without a Spirit Resonance Totem within 8 blocks it stands idle."
+        "The cradle keeps a **2,400 Pulse** reserve and refills it by up to 80 a second from generators within 8. It answers to **Spirit**: without a Spirit totem within 8 blocks (see Camp hands) it stands idle."
       ]
     },
     {

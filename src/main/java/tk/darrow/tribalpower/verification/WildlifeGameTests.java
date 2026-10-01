@@ -39,6 +39,46 @@ public class WildlifeGameTests {
         });
     }
 
+    /**
+     * Natural spawns land in open water, not in aquifers. The spawner tries heights from the bottom of the
+     * world up, and when any water would do, most March swimmers spawned in water sealed under the land
+     * where nobody could see them, filling the caps the meres share. A two-deep fen pool open to the sky
+     * passes at every depth; the same water under a stone lid does not, though an egg may still go there.
+     */
+    @GameTest(template = "empty")
+    public static void marchSwimmersSpawnInOpenWaterOnly(GameTestHelper h) {
+        for (int x = 0; x < 7; x++) for (int z = 0; z < 4; z++) {
+            h.setBlock(x, 0, z, Blocks.STONE);
+            for (int y = 1; y < 3; y++) h.setBlock(x, y, z, x == 0 || z == 0 || x == 3 || x == 6 || z == 3 ? Blocks.STONE : Blocks.WATER);
+        }
+        for (int x = 4; x < 6; x++) for (int z = 1; z < 3; z++) h.setBlock(x, 3, z, Blocks.STONE);   // the aquifer's roof
+        var level = h.getLevel();
+        // the test's barrier ceiling would roof the pool too: open it to the sky over the pool
+        for (int x = 1; x < 3; x++) for (int z = 1; z < 3; z++) {
+            BlockPos column = h.absolutePos(new BlockPos(x, 3, z));
+            for (int y = column.getY(); y < level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, column.getX(), column.getZ()); y++)
+                level.setBlockAndUpdate(column.atY(y), Blocks.AIR.defaultBlockState());
+        }
+        var random = level.getRandom();
+        var types = java.util.List.of(Wildlife.GLIMMERFIN.get(), Wildlife.DRIFT_BELL.get(), Wildlife.VEIL_RAY.get(), Wildlife.SILT_EEL.get());
+        for (var type : types) {
+            for (int y = 1; y < 3; y++) {
+                BlockPos pool = h.absolutePos(new BlockPos(1, y, 1)), buried = h.absolutePos(new BlockPos(4, y, 1));
+                h.assertTrue(net.minecraft.world.entity.SpawnPlacements.isSpawnPositionOk(type, level, pool)
+                                && net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(type, level, net.minecraft.world.entity.MobSpawnType.NATURAL, pool, random),
+                        type.getDescriptionId() + " must spawn in an open fen pool at depth " + (3 - y));
+                h.assertFalse(net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(type, level, net.minecraft.world.entity.MobSpawnType.NATURAL, buried, random),
+                        type.getDescriptionId() + " must not spawn naturally in water sealed under stone");
+            }
+            h.assertTrue(net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(type, level, net.minecraft.world.entity.MobSpawnType.SPAWNER,
+                    h.absolutePos(new BlockPos(4, 1, 1)), random), type.getDescriptionId() + " may still come from a spawner underground");
+        }
+        // The eel is a fish: it shares the fish's cap near the player, not the five water creatures spread over 128 blocks.
+        h.assertTrue(Wildlife.SILT_EEL.get().getCategory() == net.minecraft.world.entity.MobCategory.WATER_AMBIENT,
+                "Silt Eels must count with the fish");
+        h.succeed();
+    }
+
     /** Each March wood's sapling grows its own tree, built from its own logs, with its own leaves. */
     @GameTest(template = "empty", timeoutTicks = 200)
     public static void everyMarchSaplingGrowsItsOwnWood(GameTestHelper h) {

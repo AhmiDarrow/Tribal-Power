@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:ley_thistle"
+    },
+    {
+      "item": "tribalpower:march_leaf"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:thistle_tea"
+  },
+  "seconds": 10,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  }
+}

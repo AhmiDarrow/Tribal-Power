@@ -94,14 +94,35 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     public void addLink(BlockPos other) {
         if (!links.contains(other) && !other.equals(worldPosition)) {
             links.add(other.immutable());
+            tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
             setChanged();
         }
     }
 
     public void removeLink(BlockPos other) {
         if (links.remove(other)) {
+            tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
             setChanged();
         }
+    }
+
+    // Conductors keep the chalk network they walked; a totem arriving or leaving must drop it.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
     }
 
     @Override
@@ -156,6 +177,7 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
                 ? totem.getAttunement() : Attunement.byName(tag.getString("Attunement"));
         resonance.load(tag);
         links.clear();
+        tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
         ListTag list = tag.getList("Links", Tag.TAG_COMPOUND);
         for (int i = 0; i < list.size(); i++) {
             CompoundTag entry = list.getCompound(i);

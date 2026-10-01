@@ -4,7 +4,8 @@
   "order": 40,
   "spoiler": true,
   "items": [
-    "tribalpower:mossback_spawn_egg"
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
   ],
   "next": "game_and_leather",
   "pages": [

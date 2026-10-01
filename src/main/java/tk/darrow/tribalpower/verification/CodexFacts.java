@@ -2,7 +2,10 @@ package tk.darrow.tribalpower.verification;
 
 import java.util.List;
 import net.minecraft.gametest.framework.GameTestHelper;
+import tk.darrow.tribalpower.blockentity.StoneFontBlockEntity;
 import tk.darrow.tribalpower.client.codex.CodexBook;
+import tk.darrow.tribalpower.config.TribalConfig;
+import tk.darrow.tribalpower.pit.OreBand;
 
 /**
  * Numbers and rules the Codex states that must match the game. Each fact names the entry that teaches it and
@@ -47,10 +50,22 @@ final class CodexFacts {
             Fact.of("loom_anchor", "A Loom Anchor counts quiet totems and ranks at 15%", "15%").never("hum harder"),
             Fact.of("pulse_cairn", "A Pulse Cairn stone swallows 200 Pulse a second; touching stones are one store up to 64", "200 a second", "one pile", "64 stones", "256,000 Pulse")
                     .never("first five", "sixth stone"),
-            Fact.of("echo_shatter", "Grit shatter is 4 seconds at 20 Pulse a second before pack settings", "20 Pulse a second"),
-            Fact.of("ember_kiln", "Kiln smelting spends 32 Pulse a second; cobble becomes stone", "32 Pulse a second").never("Grit or cobble goes in"),
+            // Station Pulse is quoted as the game spends it at the shipped settings: see spend().
+            Fact.of("echo_shatter", "A shard is 2 seconds at 16 Pulse a second, grit 4 seconds at 20, both before the consumption multiplier",
+                    "2 seconds at " + spend(16) + " Pulse a second", "4 seconds at " + spend(tk.darrow.tribalpower.grit.GritRegistry.SHATTER_PULSE) + " Pulse a second"),
+            Fact.of("echo_attune", "Attune is 20 Pulse a second and Bind 24, before the consumption multiplier",
+                    "3 seconds at " + spend(20) + " Pulse a second", "4 seconds at " + spend(24) + " Pulse a second"),
+            Fact.of("echo_manifest", "Manifest is 32 and 40 Pulse a second before the consumption multiplier",
+                    "5 seconds at " + spend(32) + " Pulse a second", "8 seconds at " + spend(40) + " Pulse a second"),
+            Fact.of("crafting_components", "March Ore shatters at the grit rate", "at " + spend(tk.darrow.tribalpower.grit.GritRegistry.SHATTER_PULSE) + " Pulse a second"),
+            Fact.of("metals_and_gems", "Grit shatter is 4 seconds at the grit rate", "4 seconds at " + spend(tk.darrow.tribalpower.grit.GritRegistry.SHATTER_PULSE) + " Pulse a second"),
+            Fact.of("glimmer_ridge", "Lighting Quartz Glass is an Echo Attune job at its spent rate", "at " + spend(tk.darrow.tribalpower.block.QuartzGlass.PULSE) + " Pulse a second"),
+            Fact.of("spirit_pulse", "The book says once that its numbers are for the default settings", "for the default settings"),
+            Fact.of("ember_kiln", "Kiln smelting is 32 Pulse a second before the consumption multiplier; cobble becomes stone",
+                    "10 seconds at " + spend(tk.darrow.tribalpower.grit.GritRegistry.KILN_PULSE) + " Pulse a second").never("Grit or cobble goes in"),
             Fact.of("song_bench", "Empowering spends 16 Pulse. A sheet is 3 to 7 empowered reagents", "16 Pulse", "3 to 7"),
-            Fact.of("machine_ranks", "Machine Attune is 16 seconds at 48 Pulse a second; generators rank at 15%", "48 Pulse a second", "15%").never("Ranked generators hum harder"),
+            Fact.of("machine_ranks", "Machine ranks are 48, 64 and 80 Pulse a second before the consumption multiplier; generators rank at 15%",
+                    "16 seconds at " + spend(48) + " Pulse a second", "20 seconds at " + spend(64), "24 seconds at " + spend(80), "15%").never("Ranked generators hum harder"),
             Fact.of("offering_table", "The Offering Table is 27-slot storage, not a hearth", "27").never("Standing still applies"),
             Fact.of("rain_chime", "A Rain Chime is a weather comparator", "8"),
             Fact.of("hush_totem", "Camp devices share a 2,400 Pulse reserve and refill up to 80 Pulse a second", "2,400", "80 Pulse a second"),
@@ -61,18 +76,28 @@ final class CodexFacts {
             Fact.of("waystone_compass", "A compass checks the landing before it spends Pulse", "spends nothing").never("refunds Pulse"),
             Fact.of("way_gate", "Way Gates apply a one-second cooldown", "one-second"),
             Fact.of("far_gate", "Far Gate lighting is 1,200 Pulse", "1,200 Pulse"),
-            Fact.of("wireless_cargo", "Relay Pulse is quoted before pack settings", "consumption multiplier"),
-            Fact.of("stone_font", "The Stone Font makes stone at 24 Pulse a second and obsidian at 6; cobble is output only", "24 Pulse a second").never("Cobble in, stone out"),
+            Fact.of("wireless_cargo", "Relays cost 4, 8 or 16 Pulse a beat before the consumption multiplier; plates belong to their owner",
+                    "costs " + spend(4) + " Pulse", spend(8) + " Pulse a beat", spend(16) + " Pulse a beat", "only you and your camp")
+                    .never("open to everyone", "before relays had owners"),
+            Fact.of("stone_font", "Stone and obsidian are scaled by the consumption multiplier, cobble is not; cobble is output only",
+                    "at " + StoneFontBlockEntity.Ask.COBBLE.pulsePerSecond() + " Pulse a second",
+                    "3 seconds at " + spend(StoneFontBlockEntity.Ask.STONE.pulsePerSecond()) + " Pulse a second",
+                    "12 seconds at " + spend(StoneFontBlockEntity.Ask.OBSIDIAN.pulsePerSecond(false)) + " Pulse a second",
+                    "only " + spend(StoneFontBlockEntity.Ask.OBSIDIAN.pulsePerSecond(true)) + " Pulse a second").never("Cobble in, stone out"),
             Fact.of("voice_ring", "The Voice Ring still requires Answered totems", "Answered"),
             Fact.of("listening_pit", "The Resonance Mesh holds a 200 Pulse buffer", "200 Pulse"),
-            Fact.of("what_the_ground_offers", "Pit Pulse is 28 a second before pack settings; an iron cycle is 280, 560 at the default", "28 Pulse", "280 Pulse", "560").never("lapis and quartz"),
+            Fact.of("what_the_ground_offers", "A common cycle is 10 seconds at 28 Pulse a second before the consumption multiplier",
+                    "10 seconds at " + spend(OreBand.COMMON.pulsePerSecond()) + " Pulse a second",
+                    "iron cycle is " + 10 * Integer.parseInt(spend(OreBand.COMMON.pulsePerSecond())) + " Pulse",
+                    "hot band at " + spend(OreBand.HOT.pulsePerSecond()) + " Pulse a second").never("lapis and quartz"),
             Fact.of("redstone_language", "A held signal pauses every generator other than the Drumheart", "every generator except the Drumheart"),
             Fact.of("pulse_gauge", "A Threshold sings at or above its Pulse mark; an Inverse plate flips it", "Inverse", "at or above"),
             Fact.of("verse_link", "A Verse Answer copies the Call's strength", "copies"),
             Fact.of("spring_calling", "Spring Calling needs its Rite Pedestals and does not need you standing there", "four pedestals", "do not have to stand").never("while you stand still"),
             Fact.of("sixfold_staff", "Staff ranges and rests", "12 blocks", "8 blocks", "4 seconds", "18 blocks", "1.5 seconds").never("nearby enemies"),
             Fact.of("resonance_maul", "The Resonance Maul rests one second after a break", "one second"),
-            Fact.of("spiritgear", "Gear ranks: Attune 45 seconds at 48 Pulse a second; Manifest needs Loom Thread from The Unsung", "45 seconds", "48 Pulse a second", "180 seconds", "Loom Thread", "25% harder").never("8 seconds"),
+            Fact.of("spiritgear", "Gear ranks are 48, 64 and 96 Pulse a second before the consumption multiplier; Manifest needs Loom Thread from The Unsung",
+                    "45 seconds at " + spend(48) + " Pulse a second", "90 seconds at " + spend(64), "180 seconds at " + spend(96), "Loom Thread", "25% harder").never("8 seconds"),
             Fact.of("spiritweave", "A full Manifested set: 20% less damage taken", "20%", "8 extra hearts"),
             Fact.of("spiritweave", "Bound Spiritweave spends 3 Pulse upkeep, unlinked 2", "3 Pulse", "2 Pulse"),
             Fact.of("totem_bound_gear", "An Earth hood turns aside one projectile in five", "one projectile in five"),
@@ -93,17 +118,38 @@ final class CodexFacts {
             // A lush totem ticks its keeping every other tick; a roofed one runs at the ordinary rate, not faster.
             Fact.of("keeping", "Lush totems keep twice as long; a roofed one keeps the normal pace", "twice as long", "normal pace").never("forgets you faster"),
             Fact.of("keeping_totems", "Lush totems keep twice as long; a roofed one keeps the normal pace", "twice as long", "normal pace").never("forgets you faster"),
-            Fact.of("wave_drum", "Two Wave Drums in reach of one water source each make a little under half", "a little under half each"),
+            Fact.of("wave_drum", "Two Wave Drums beside water within 8 blocks share its 3 a second, rounding down: 1 a second each", "1 a second each").never("a little under half"),
             Fact.of("echo_unweave", "Unweaving Spiritweave returns the one wool Echo Bind took", "Spiritweave: 1 wool").never("Spiritweave: 2 wool"),
             // Song Thread is crafted around Loom Thread, and every song plate and the Verse Call around Song Thread.
             Fact.of("song_thread", "Song Thread needs Loom Thread, which only the March gives", "Loom Thread", "only the March gives"),
             Fact.of("song_plates", "Song plates wait on Song Thread and so on Loom Thread", "Loom Thread"),
+            // PlateLinks: a wrench sync is one way, capped and ranged by TribalConfig's logic section.
+            Fact.of("song_plates", "Plates sync with the Totem Wrench, one way, up to the shipped cap and reach",
+                    "Totem Wrench", "runs one way", "up to " + TribalConfig.PLATE_LINK_MAX.getDefault() + " others",
+                    "within " + TribalConfig.PLATE_LINK_RANGE.getDefault() + " blocks"),
+            // LogicPlateBlock / PlateLinks / VerseLinkBlock: Ownership.check gates every change, reading stays open.
+            Fact.of("song_plates", "Song plates belong to their placer and camp; changing another's is refused",
+                    "belongs to whoever set it down and their camp", "is refused"),
+            Fact.of("verse_link", "Verse plates belong to their placer and camp; retuning another's is refused",
+                    "belongs to whoever set it down and their camp", "is refused"),
             // CharmHooks grants flight for the Air voice on any worn charm, not for the Sky charm alone.
             Fact.of("spirit_charms", "Any worn charm carrying Air lends flight", "any worn charm that carries Air").never("Sky's flight"),
             Fact.of("colossus_warden", "The boss is the Colossus Warden, not the Weeping Colossus tree; 260 health, 14 armour, Heartwood Core",
                     "Colossus Warden", "260 health", "14 armour", "Heartwood Core", "Reed Fen"));
 
+    /** Wording that quotes Pulse before the pack's settings. The book quotes what the shipped settings really spend. */
+    private static final List<String> UNSCALED = List.of("before pack settings", "shipped default", "consumption multiplier");
+
     private CodexFacts() {}
+
+    /**
+     * What a station really spends a second for a base cost, at the shipped consumption multiplier and rounded as
+     * {@link TribalConfig#scaleConsumption} rounds. The pins use the default, not the live config, because the book
+     * is written for the shipped settings.
+     */
+    static String spend(int base) {
+        return String.valueOf(Math.max(1, (int) Math.round(base * TribalConfig.CONSUMPTION_MULTIPLIER.getDefault())));
+    }
 
     static void check(GameTestHelper h, CodexBook.Book book) {
         for (Fact fact : FACTS) {
@@ -115,12 +161,18 @@ final class CodexFacts {
             for (String phrase : fact.never())
                 h.assertFalse(text.contains(phrase), fact.entry() + " must not say \"" + phrase + "\": " + fact.why());
         }
-        // The bestiary: every creature the mod registers is described somewhere, found by its spawn egg.
-        for (var profile : tk.darrow.tribalpower.entity.CreatureProfile.values()) {
-            String egg = "tribalpower:" + profile.id + "_spawn_egg";
-            h.assertTrue(book.entries().stream().anyMatch(e -> e.items().contains(egg)),
-                    "No Codex entry lists " + egg + ": describe " + profile.id + " and list its egg there");
+        for (CodexBook.Entry entry : book.entries()) {
+            String text = words(entry);
+            for (String phrase : UNSCALED)
+                h.assertFalse(text.contains(phrase), entry.id() + " must not say \"" + phrase + "\": the book quotes real Pulse at the shipped settings");
         }
+        // The bestiary: every creature the mod registers is described in one entry, found by its spawn egg.
+        List<String> eggs = new java.util.ArrayList<>();
+        for (var profile : tk.darrow.tribalpower.entity.CreatureProfile.values()) eggs.add("tribalpower:" + profile.id + "_spawn_egg");
+        for (var egg : tk.darrow.tribalpower.wildlife.Wildlife.EGGS) eggs.add(egg.getId().toString());
+        for (String egg : eggs)
+            h.assertTrue(book.entries().stream().filter(e -> e.items().contains(egg)).count() == 1,
+                    "Exactly one Codex entry must list " + egg + ": the one that describes its creature");
     }
 
     /** Every word the reader sees in an entry, markup removed, as one string. */

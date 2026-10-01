@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:glimmer_bean"
+    },
+    {
+      "item": "tribalpower:glimmer_bean"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "id": "tribalpower:glimmer_crisps"
+  },
+  "seconds": 8
+}

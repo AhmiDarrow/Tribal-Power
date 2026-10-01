@@ -19,7 +19,7 @@
       "type": "text",
       "title": "Reading the camp",
       "text": [
-        "Put a comparator against a Tribal block, facing away from it, to read what it holds without opening it: stored Pulse, how full its inventory or tank is, its FE buffer, or relay activity.",
+        "Put a comparator against a Tribal block, facing away from it, to read what it holds without opening it: stored Pulse, how full its inventory or tank is, its FE buffer, or relay activity. A Stone Font or Resonance Mesh reads its progress instead, and drops to 0 when it stalls.",
         "For Pulse as a clean 0 to 15, use a [Pulse Gauge](pulse_gauge). When a number is not enough, crouch and right-click the block with this book for a sentence (see [Codex diagnostics](codex_diagnostics)).",
         "Clocks, levers and comparators are all you need to choreograph a whole camp."
       ]
@@ -29,7 +29,7 @@
       "title": "Tribal wiring",
       "text": [
         "[Song Thread](song_thread) carries 0 to 15 weakly, like dust, in all six directions. It will not power the stone it touches, so it never latches.",
-        "[Song plates](song_plates) output from their facing. Unary plates read their back; binary plates read left and right.",
+        "[Song plates](song_plates) output from their facing. Unary plates read their back; binary plates read left and right. A plate hears only power pointed into it, or a plate synced to it with a Totem Wrench, up to 32 blocks away with no wire.",
         "[Verse Call and Answer](verse_link) carry a signal up to 32 blocks with no wire at all."
       ]
     },

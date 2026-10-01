@@ -59,6 +59,14 @@ public class LatticeConductorBlock extends BaseEntityBlock {
         tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
     }
 
+    /** The conductor reads its redstone lock again only when something next to it changes. */
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbor,
+                                   BlockPos neighborPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, neighbor, neighborPos, movedByPiston);
+        if (level.getBlockEntity(pos) instanceof LatticeConductorBlockEntity conductor) conductor.neighbourChanged();
+    }
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!(level.getBlockEntity(pos) instanceof LatticeConductorBlockEntity conductor)) {

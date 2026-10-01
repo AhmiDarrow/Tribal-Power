@@ -40,8 +40,8 @@
       "type": "text",
       "title": "Stone",
       "text": [
-        "Braced, and with the **Earth** voice in reach, the font makes **stone every 3 seconds** at **16 Pulse a second**. That stone is exactly what Echo Shatter turns into Echo Shards.",
-        "Earth has to be Answered (see [Keeping](keeping)); a quiet Earth totem stops the stone. Cobble never needs Earth."
+        "Braced, and with the **Earth** voice in reach, the font makes **stone every 3 seconds** at **32 Pulse a second**. That stone is exactly what Echo Shatter turns into Echo Shards.",
+        "The Earth totem has to be kept awake (see [Keeping](keeping)): while it is dim each stone takes about 30% longer, and once it is quiet the stone stops. Cobble never needs Earth."
       ]
     },
     {
@@ -49,19 +49,25 @@
       "title": "Obsidian",
       "text": [
         "Obsidian needs the brace and Earth, plus one of two things:",
-        "- **Fire and Water** voices both in reach: obsidian every **12 seconds** at **24 Pulse a second**.",
-        "- Or pipe in **250 mB of water and 250 mB of lava** for each block: the same obsidian at only **6 Pulse a second**. The font holds up to 4,000 mB of each.",
+        "- **Fire and Water** voices both in reach: obsidian every **12 seconds** at **48 Pulse a second**.",
+        "- Or pipe in **250 mB of water and 250 mB of lava** for each block: the same obsidian at only **12 Pulse a second**. The font holds up to 4,000 mB of each.",
         "Piping into an unbraced font does nothing. If Fire and Water are both present, the font uses the voices and leaves its tanks alone."
       ]
     },
     {
       "type": "text",
-      "title": "Depth, ranks and settings",
+      "title": "Depth and ranks",
       "text": [
         "Below **y 0** the font gives the deepslate of each tier instead: cobbled deepslate, then deepslate. Obsidian stays obsidian.",
-        "Rank the font like any other workshop: faster asks, more Pulse a second.",
-        "The pack's default **2.0** consumption multiplier doubles the Pulse for stone and obsidian, never for cobble. A pack pit-speed setting shortens every ask without raising Pulse a second, so it also makes each block cheaper.",
-        "If the font sits idle, crouch and right-click it with the Codex. It names missing marks, anchors and voices."
+        "Rank the font like any other workshop: faster asks, more Pulse a second."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reading the font",
+      "text": [
+        "A comparator against the font reads how far it is through the block it is making, and drops to 0 while it waits for anything.",
+        "If the font sits idle, crouch and right-click it with this book. It names missing marks, anchors and voices."
       ]
     },
     {

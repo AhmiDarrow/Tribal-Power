@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Colony-keepers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_air} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Air**.",
+        "Kin of the Colony-keepers carry their [boon](tribe_boons): bees never turn on you.",
         "Their Kin trade for Spiritweave is handy: every Kinship Totem needs two."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Colony-keepers carry their [boon](tribe_boons): bees never turn on you."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

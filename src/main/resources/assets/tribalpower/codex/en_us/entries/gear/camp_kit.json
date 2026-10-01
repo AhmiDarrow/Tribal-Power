@@ -11,16 +11,19 @@
       "item": "tribalpower:totem_wrench",
       "title": "Totem Wrench",
       "text": [
-        "Every machine in the camp faces somewhere, and sooner or later it faces the wrong way. Use the wrench on a block and it turns, without breaking and replacing it.",
-        "**Sneak-use a machine's face** and that face steps through Both, Input, Output and Closed \u2014 the same setting the machine's own side pad shows, reachable from outside the screen."
+        "Every machine in the camp faces somewhere, and sooner or later it faces the wrong way. Use the wrench on a block and it turns in place, without breaking and replacing it. Logs and pillars roll to their next axis.",
+        "**Sneak-use a machine's face** and that face steps through Both, Input, Output and Closed \u2014 the same setting the machine's own side pad shows, reachable from outside the screen.",
+        "On [song plates](song_plates) it syncs instead of turning: crouch-use one plate to hold its song, then use another to make it hear the first with no wire between."
       ]
     },
     {
       "type": "text",
-      "title": "What it costs",
+      "title": "What it costs and refuses",
       "text": [
         "A turn takes **1 Pulse** from any cell you carry. With no Pulse on you the wrench wears a point of its **512** instead, so it still works on a bad day.",
-        "It refuses blocks that cannot turn, and it refuses machines placed by someone outside your camp, same as an empty hand would."
+        "A wall torch, ladder or lever steps round to the next wall that will hold it, and stays put if there is none.",
+        "It will not turn a block that is really two: a bed, a door, a double chest, a tall plant, or an **extended piston** and its head. Retract the piston first.",
+        "It respects protected land, and it refuses machines placed by someone outside your camp, same as an empty hand would: it still reads another camp's song plates, but will not sync them or hold their songs."
       ]
     },
     {
@@ -32,8 +35,17 @@
       "item": "tribalpower:weavers_wand",
       "title": "Weaver's Wand",
       "text": [
-        "Click the face of a block and the wand carries that face outward across every neighbour like it: up to **32 blocks** in one sweep.",
-        "The blocks come from your pack and cost **2 Pulse** each. It only fills open air, never replacing anything that is already there, so a floor is laid in a click and nothing underneath is lost."
+        "Click the face of a block and the wand carries that face outward across every neighbour like it: up to **32 blocks** in one sweep, laid against the side you clicked.",
+        "The blocks come from your pack and hotbar and cost **2 Pulse** each; each sweep wears the wand a point of its **768**. It only fills empty space, never replacing anything that is already there, so a floor is laid in a click and nothing underneath is lost."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Where it will not lay",
+      "text": [
+        "The wand skips any spot where the block could not stand (a torch with nothing to hang on, a plant on stone) and any spot in protected land, and lays the rest.",
+        "It will not copy a block that holds more than one item or keeps an inventory: a double slab, a door or bed, a stack of candles or pickles, layered snow, a chest or a machine.",
+        "If you run out of blocks or Pulse partway, the sweep simply stops there."
       ]
     },
     {

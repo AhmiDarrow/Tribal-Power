@@ -15,8 +15,9 @@
       "type": "spotlight",
       "item": "tribalpower:spiritgear_pickaxe",
       "text": [
-        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They start diamond-hard: **1,561 durability**, like diamond, and **1,024** for the shears.",
-        "While they can draw Pulse from a carried cell they spare their edge: every paid action mends a point of wear instead of costing one."
+        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They cut like diamond and each lasts **1,024** uses.",
+        "While they can draw Pulse from a carried cell they spare their edge: every paid action mends a point of wear instead of costing one.",
+        "The [Pulse Bow](song_bench) and [Pulse Crossbow](pulse_crossbow) are forged from Manifested Ingots too and last as long, but every shot wears them a point. All of it mends at the [Spirit Anvil](spirit_anvil)."
       ],
       "title": "Spiritgear tools"
     },
@@ -32,11 +33,19 @@
       "type": "text",
       "title": "Ranking up",
       "text": [
-        "Ranks are where Spiritgear becomes something special, and they are meant to take real effort. Seat the piece in the station with its totem nearby, put the **catalysts** in the station's catalyst slots, and keep the Pulse flowing:",
-        "- **Echo Attune**, Fire: rank 0 to 1. **45 seconds** at **48 Pulse a second**, and **4 Attuned Echo**.",
-        "- **Echo Bind**, Water: rank 1 to 2. **90 seconds** at **64**, and **4 Bound Echo**. Bind refuses rank 0.",
-        "- **Echo Manifest**, Spirit: rank 2 to 3. **180 seconds** at **96**, and **2 Resonant Cores** and **4 Loom Thread**. Loom Thread only comes from [The Unsung](the_unsung), so the top rank waits until you have beaten it.",
-        "Those figures are before pack settings. The station waits, spending nothing, until its catalysts are in; they are used up when the rank lands. The tooltip always shows what the next rank needs."
+        "Ranks are where Spiritgear becomes something special, and they are meant to take real effort. Seat the piece in the station with its totem nearby, put the **catalysts** in the catalyst slots, and keep the Pulse flowing:",
+        "- **Echo Attune**, Fire: rank 0 to 1. **45 seconds** at **96 Pulse a second**, and **4 Attuned Echo**.",
+        "- **Echo Bind**, Water: rank 1 to 2. **90 seconds** at **128**, and **4 Bound Echo**.",
+        "- **Echo Manifest**, Spirit: rank 2 to 3. **180 seconds** at **192**, and **2 Resonant Cores** and **4 Loom Thread**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Before you rank",
+      "text": [
+        "Each station takes only the next rank: Bind refuses rank 0, and Manifest refuses anything below Bound. Loom Thread only comes from [The Unsung](the_unsung), so the top rank waits until you have beaten it.",
+        "Those are heavy draws for any camp. Bring a Resonator with a good catalyst, or several generators, within 8 blocks.",
+        "The station waits, spending nothing, until its catalysts are in; they are used up when the rank lands. The tooltip always shows what the next rank needs."
       ]
     },
     {
@@ -52,21 +61,27 @@
     },
     {
       "type": "text",
-      "title": "Shears and hoe",
+      "title": "The shears",
       "text": [
-        "The **Spiritgear Shears** trim leaves, wool, vines and cobweb, and rank and bind like the rest of the set.",
+        "The **Spiritgear Shears** trim leaves, wool, vines and cobweb, and rank and take a voice like the rest of the set.",
         "- **Earth**: a swing takes the whole 3x3 face of foliage.",
         "- **Air**: trimming costs no Pulse and no wear at all.",
-        "- **Water**: a sheared sheep is left its fleece, always at Manifested.",
+        "- **Water**: a sheared sheep keeps its fleece half the time, and always at Manifested.",
         "- **Fire**: used on a beehive it smokes the bees calm, so no swarm.",
         "- **Spirit**: what it shears is mended afterwards, and nearby beasts worth shearing glow.",
-        "- **Loom**: the cuttings come straight to hand.",
-        "The **Spiritgear Hoe** reaps and sows in one motion: use it on a ripe crop and the harvest drops while one seed goes back into the ground.",
+        "- **Loom**: the cuttings come straight to hand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The hoe",
+      "text": [
+        "The **Spiritgear Hoe** reaps and sows in one motion: use it on a ripe crop and the harvest drops, less one seed that goes straight back into the ground. A crop that gives no seed of its own is reaped and left bare.",
         "- **Earth**: turns a 3x3 of soil at once.",
-        "- **Water**: its furrows come out wet, and fields you walk past stay watered.",
+        "- **Water**: its furrows come out wet, and farmland around you stays watered while you hold it.",
         "- **Air**: reaps a 3x3.",
         "- **Loom**: reaps a 5x5 and spends no Pulse doing it.",
-        "- **Spirit**: a quarter of harvests come back doubled."
+        "- **Spirit**: a quarter of harvests drop double (seeds aside)."
       ]
     },
     {
@@ -97,10 +112,16 @@
       "type": "text",
       "title": "A cell of its own",
       "text": [
-        "Every piece of Spiritgear and Spiritweave, the [Resonance Maul](resonance_maul) and the [Sixfold Staff](sixfold_staff) can carry a **Pulse Cell** of its own. Pick the cell up in your inventory and **right-click it onto the piece**: it goes inside, charge and all.",
-        "The piece always spends from its own cell first. Only when that cell is empty does it reach for the cells you carry, so a well-charged set keeps going long after your pockets run dry.",
-        "Right-click a bigger cell (a **{item:tribalpower:greater_pulse_cell}** or a **{item:tribalpower:grand_pulse_cell}**) onto a piece holding a smaller one to upgrade it; the old cell comes back to your cursor. A cell of the same size or smaller tops the seated one up instead. The tooltip shows what each piece holds.",
-        "Right-click a piece with an **empty cursor** to take its cell back out, charge and all."
+        "Every piece of Spiritgear and Spiritweave, the [Resonance Maul](resonance_maul), the [Sixfold Staff](sixfold_staff), songbooks and the Pulse bows can carry a **Pulse Cell** of its own. Pick the cell up in your inventory and **right-click it onto the piece**: it goes inside, charge and all.",
+        "The piece always spends from its own cell first. Only when that cell is empty does it reach for the cells you carry, so a well-charged set keeps going long after your pockets run dry."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Swapping cells",
+      "text": [
+        "Right-click a bigger cell (a **{item:tribalpower:greater_pulse_cell}** or a **{item:tribalpower:grand_pulse_cell}**) onto a piece holding a smaller one to upgrade it; the old cell comes back to your cursor. A cell of the same size or smaller tops the seated one up instead.",
+        "Right-click a piece with an **empty cursor** to take its cell back out, charge and all. The tooltip shows what each piece holds."
       ]
     }
   ],

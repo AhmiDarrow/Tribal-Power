@@ -40,7 +40,13 @@
         "- **Ember** (Fire): fire resistance, and attackers catch flame for 3 seconds.",
         "- **Tide** (Water): water breathing and a swimmer's grace.",
         "- **Root** (Earth): resistance.",
-        "- **Lantern** (Spirit): night sight.",
+        "- **Lantern** (Spirit): night sight, and every blessing or boon on you lasts **half again as long**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The ten charms, continued",
+      "text": [
         "- **Spindle** (Loom): luck, and about three times in ten it refunds up to **2 Pulse** into a carried cell every two seconds.",
         "- **Ward** (Earth): turns aside about one projectile in four, or one in two if Spirit is also on your charms.",
         "- **Hearth** (Fire): keeps you fed.",

@@ -15,10 +15,21 @@
       "type": "text",
       "title": "March weather",
       "text": [
-        "Four of the March's countries have weather of their own, beyond rain. **Ashfall** in the Ember Wastes, a **Glimmer Storm** over the Crystal Fields, a **Whiteout** on the Snow Fields and **Fen Mist** in the Reed Fen. Each closes the world in: you see less, and spirits rise by day under it as they would at night.",
-        "Each also favours one voice and hampers another. Ashfall feeds Ember Horns and chokes Wind Harps; a Glimmer Storm feeds Wake Bells and dulls Drumhearts; a Whiteout drives Wind Harps and freezes Wave Drums; Fen Mist swells Wave Drums and damps Ember Horns. Half again as much from the favoured voice, half as much from the hampered one, by default.",
-        "Weather comes and goes on its own, a chance every hour, and lasts a quarter of an hour or so. The Codex page above tells you what is running; so does the sky.",
-        "**Weather gives warning.** Two minutes before a weather settles, the March says so, in chat and over the hotbar: time to reach a roof, a camp or a gate. A surge is called the same way, so a bare crossing can be left before the threads run bright."
+        "Four of the March's countries have weather of their own, beyond rain: **Ashfall** in the Ember Wastes, a **Glimmer Storm** over the Crystal Fields, a **Whiteout** on the Snow Fields and **Fen Mist** in the Reed Fen.",
+        "Each closes the world in: you see less, and spirits rise by day under it as they would at night.",
+        "Each kind sets in about once a game day and lasts **8 to 20 minutes**. The Codex page above tells you what is running; so does the sky."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Weather and generators",
+      "text": [
+        "Each weather favours one voice's generators and hampers another's, by default half again as much from the favoured voice and half as much from the hampered one:",
+        "- **Ashfall** feeds Ember Horns and chokes Wind Harps.",
+        "- A **Glimmer Storm** feeds Wake Bells and dulls Drumhearts.",
+        "- A **Whiteout** drives Wind Harps and freezes Wave Drums.",
+        "- **Fen Mist** swells Wave Drums and damps Ember Horns.",
+        "**Weather gives warning.** Two minutes before a weather settles, the March says so, in chat and over the hotbar: time to reach a roof, a camp or a gate. A surge is called the same way."
       ]
     },
     {
@@ -27,7 +38,7 @@
       "text": [
         "Now and then one voice's ley threads run **bright**: a surge. Through the [Ley Lens](ley_lens) they blaze, and the lens names the voice. While it lasts, every Ley Collector whose threads carry that voice yields **double**.",
         "The other side of it: every ley cell has a **crossing**, the point its threads meet, and standing on a bare one during a surge, with no collector near to drink it, gives you **Ley Sickness**: the ground sways and your Pulse drains. Step off, or set a collector on it and make the surge yours.",
-        "Surges run a quarter of an hour and come every hour and a half or so by default."
+        "By default a surge runs for **15 minutes**, and the next one comes about an hour and a half after it ends."
       ]
     },
     {

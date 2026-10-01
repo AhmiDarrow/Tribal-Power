@@ -43,19 +43,13 @@
     },
     {
       "type": "text",
-      "title": "Their Mark and totem",
+      "title": "Mark, totem and boon",
       "text": [
         "At **Voice** the Elder gives you the Pad-keepers' Tribe Mark. Craft it with a {item:tribalpower:resonance_totem_earth} and two Spiritweave into their [Kinship Totem](kinship_totem).",
         "Beside a Pulse Resonator it is one more voice; beside a station it lends **Earth**.",
+        "Kin of the Pad-keepers carry their [boon](tribe_boons): your fields are never trampled, and hunger comes slower.",
         "The Pad-keepers are the easiest tribe to start with: bread and dirt are never far away."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Kin of the Pad-keepers carry their [boon](tribe_boons): your fields are never trampled, and hunger comes slower."
-      ],
-      "title": "Their boon"
     },
     {
       "type": "quests",

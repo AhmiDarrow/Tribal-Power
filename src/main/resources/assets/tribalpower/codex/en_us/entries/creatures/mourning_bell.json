@@ -4,7 +4,8 @@
   "order": 140,
   "spoiler": true,
   "items": [
-    "tribalpower:mourning_bell_spawn_egg"
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
   ],
   "next": "rift_hound",
   "pages": [

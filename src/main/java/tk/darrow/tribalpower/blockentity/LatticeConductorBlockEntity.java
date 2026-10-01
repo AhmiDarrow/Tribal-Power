@@ -61,8 +61,56 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         LatticeNetwork.conductorLinesChanged(level);
     }
 
+    /*
+     * The redstone lock is read when a neighbour changes, not every tick. A signal can still arrive
+     * without an update (a neighbouring chunk loading, say), so a reading is also never trusted for
+     * longer than one beat.
+     */
+    private boolean powered;
+    private long poweredReadAt = Long.MIN_VALUE;
+
+    /** A neighbour changed: read the signal again on the next tick. */
+    public void neighbourChanged() {
+        poweredReadAt = Long.MIN_VALUE;
+    }
+
+    private boolean redstoneLocked(Level level, BlockPos pos) {
+        long now = level.getGameTime();
+        if (poweredReadAt == Long.MIN_VALUE || now - poweredReadAt >= TICK_INTERVAL || now < poweredReadAt) {
+            powered = level.hasNeighborSignal(pos);
+            poweredReadAt = now;
+        }
+        return powered;
+    }
+
+    /*
+     * The chalk network a beat walks only changes when a totem arrives, leaves or is relinked, which
+     * LatticeNetwork counts. While a ley binding is live anywhere in the level the network also
+     * follows those lines, which come and go with time, so it is walked every beat then.
+     */
+    private List<ResonanceTotemBlockEntity> chalkNetwork;
+    private boolean chalkConductable;
+    private int chalkGeneration;
+
+    private List<ResonanceTotemBlockEntity> chalkNetwork(Level level, BlockPos pos) {
+        int generation = LatticeNetwork.chalkGeneration();
+        boolean bindings = level instanceof net.minecraft.server.level.ServerLevel server
+                && !tk.darrow.tribalpower.rite.world.RiteSavedData.get(server.getServer()).leyLines(server).isEmpty();
+        if (chalkNetwork == null || bindings || generation != chalkGeneration) {
+            chalkNetwork = List.copyOf(LatticeNetwork.collectChalkNetworkNear(level, pos, RADIUS));
+            chalkConductable = LatticeNetwork.isConductable(chalkNetwork);
+            chalkGeneration = generation;
+            if (bindings) {
+                List<ResonanceTotemBlockEntity> walked = chalkNetwork;
+                chalkNetwork = null;
+                return walked;
+            }
+        }
+        return chalkNetwork;
+    }
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, LatticeConductorBlockEntity be) {
-        if (level.hasNeighborSignal(pos)) return;
+        if (be.redstoneLocked(level, pos)) return;
         be.tickCounter++;
         if (be.tickCounter % TICK_INTERVAL != 0) {
             return;
@@ -73,9 +121,9 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
         boolean assistWas = be.assistActive;
         boolean routedWas = be.lastItemRouted;
 
-        List<ResonanceTotemBlockEntity> network = LatticeNetwork.collectChalkNetworkNear(level, pos, RADIUS);
+        List<ResonanceTotemBlockEntity> network = be.chalkNetwork(level, pos);
         be.networkSize = network.size();
-        if (!LatticeNetwork.isConductable(network)) {
+        if (!be.chalkConductable) {
             be.assistActive = false;
             be.lastPulsePushed = 0;
             be.lastSourceAvailable = 0;

@@ -15,13 +15,21 @@
       "title": "Five sights",
       "text": [
         "Hold it in either hand and use it to cycle through five sights:",
-        "- **Ley**: draws the ley lines around you. They are a web across the whole dimension. Each line is one thread, the colour of a Resonance Totem: earth green, fire, water, air, spirit violet, or loom gold. The thread keeps flowing. They are the planet's Pulse, not blocks. A bright node of that same colour pulses along it. A totem pulls its own colour through itself, so you can steer a thread by where you stand the totem. Meetings stand every few dozen blocks, and the veins run far enough to cross their neighbours. Six threads share one heart only in the rarest places. Craft a Ley Lens into a Spiritweave Hood and the hood's goggles show the same threads while you wear it.",
-        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** ring they can reach. The panel totals Pulse coming in each second against Pulse the machines there are spending.",
+        "- **Ley**: draws the ley lines around you, each thread in its voice's colour.",
+        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** reach they cover. The panel totals Pulse coming in each second against Pulse the machines there are spending.",
         "- **Voices**: tints nearby totems gold when answered, dull when dim, grey when quiet.",
         "- **Machines**: marks the Tribal Power machines around you.",
-        "- **Off**: the glass goes dark. No ropes, no panel, no marks.",
-        "While a sight is on, a line on your screen shows the ley strength where you stand. Off hides that line.",
-        "A Spiritweave Hood with ley goggles shows the ropes while you wear it. Sneak-use the hood, or sneak-click with an empty hand while it is on your head, to turn the goggles off and on again."
+        "- **Off**: the glass goes dark. No lines, no panel, no marks.",
+        "While a sight is on, a line on your screen shows the ley strength where you stand. Off hides that line."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ley threads",
+      "text": [
+        "The ley lines are a web across the whole dimension: the planet's Pulse, not blocks. Each line is one thread in a Resonance Totem's colour (earth green, fire orange, water blue, air pale sky, spirit violet or loom gold), with a bright node pulsing along it.",
+        "A totem pulls the thread of its own colour through itself, so you can steer a thread by where you stand the totem. Crossings lie every few dozen blocks, and six threads share one point only in the rarest places.",
+        "Craft a Ley Lens into a Spiritweave Hood and the hood's goggles show the same threads while you wear it. Sneak-use the hood, or sneak-click with an empty hand while it is on your head, to turn the goggles off and on."
       ]
     },
     {
@@ -35,8 +43,8 @@
       "title": "Up close",
       "text": [
         "Sneak-use the lens on a Ley Collector to print that collector's exact factor breakdown in chat: the same numbers it collects with.",
-        "Sneak-use it on a lattice animal or remnant to print its threads and Marks. The charm does not change those rolls.",
-        "The ley sight counts the same beat the collector does, from 1 to **16**. The land's share stops at 6. Each ley line the collector touches adds 2, and six lines is as many as ever meet. A beat of **8 or more** keeps nearby totems awake; the Pulse stored in a collector does not. A roof takes away sky, rain and storm, but the lines stay, and water, plants, voices, a hearth and animals still add. The collector gets weaker, not dead."
+        "Sneak-use it on a March creature, wild or bonded, to print its threads and Marks; see Bonding a familiar.",
+        "The strength line is the same beat a collector would count there, from 1 to **16**, shown as a share of the full 16. The land's share stops at 6, and each ley line adds 2. A beat of **8 or more** keeps nearby totems awake. A roof takes away sky, rain and storm, but the lines stay, so a roofed collector gets weaker, not dead."
       ]
     },
     {

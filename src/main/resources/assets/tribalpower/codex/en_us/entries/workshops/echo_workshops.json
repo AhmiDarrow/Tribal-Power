@@ -221,7 +221,6 @@
       "text": [
         "Crouch and right-click the station with this book. It says whether it is waiting for Pulse, needs its totem, has a quiet totem, is full, or is paused by redstone.",
         "A quiet totem stops **new** work; a craft already under way still finishes.",
-        "Pack settings scale Pulse costs. Recipe numbers are **before** the pack's consumption multiplier, which is **2.0** by default: a recipe listed at 16 Pulse a second draws 32. Diagnostics show the real cost for your setup.",
         "A comparator reads how full a station is. Datapacks can add their own tribalpower:lattice recipes, using shared ingredient tags."
       ]
     }

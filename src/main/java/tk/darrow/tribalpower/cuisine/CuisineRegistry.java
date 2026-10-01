@@ -28,7 +28,7 @@ import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.ModEffects;
 
-/** Tribal cuisine: the March's crops, the Hearth Pot, the nine tribe dishes and the six voice feasts. */
+/** Tribal cuisine: the March's crops, the Hearth Pot, the nine tribe dishes, the camp fare and the six voice feasts. */
 public final class CuisineRegistry {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(TribalPower.MOD_ID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TribalPower.MOD_ID);
@@ -40,6 +40,7 @@ public final class CuisineRegistry {
     public static final Map<MarchCrop, DeferredBlock<MarchCropBlock>> CROPS = new EnumMap<>(MarchCrop.class);
     public static final Map<MarchCrop, DeferredItem<Item>> CROP_ITEMS = new EnumMap<>(MarchCrop.class);
     public static final Map<Dish, DeferredItem<Item>> DISHES = new EnumMap<>(Dish.class);
+    public static final Map<Fare, DeferredItem<FareItem>> FARE = new EnumMap<>(Fare.class);
     public static final Map<Attunement, DeferredBlock<FeastBlock>> FEASTS = new EnumMap<>(Attunement.class);
     public static final Map<Attunement, DeferredItem<BlockItem>> FEAST_ITEMS = new EnumMap<>(Attunement.class);
 
@@ -61,6 +62,16 @@ public final class CuisineRegistry {
                         .effect(() -> new MobEffectInstance(ModEffects.boon(dish.tribe), TribalConfig.dishBoonMinutes() * 60 * 20, 0), 1.0F);
                 if (dish.bowl) food.usingConvertsTo(net.minecraft.world.item.Items.BOWL);
                 return new Item(new Item.Properties().stacksTo(16).food(food.build()));
+            }));
+        for (Fare fare : Fare.values())
+            FARE.put(fare, ITEMS.register(fare.id(), () -> {
+                FoodProperties.Builder food = new FoodProperties.Builder().nutrition(fare.nutrition).saturationModifier(fare.saturation);
+                if (fare.effect != null)
+                    food.effect(() -> new MobEffectInstance(fare.effect, TribalConfig.fareEffectSeconds(fare) * 20, 0), 1.0F);
+                if (fare.has(Fare.Trait.FAST)) food.fast();
+                if (fare.has(Fare.Trait.ALWAYS)) food.alwaysEdible();
+                if (fare.serving.container != null) food.usingConvertsTo(fare.serving.container);
+                return new FareItem(fare, new Item.Properties().stacksTo(fare.stack).food(food.build()));
             }));
         for (Attunement voice : Attunement.values()) {
             DeferredBlock<FeastBlock> block = BLOCKS.register(voice.getSerializedName() + "_feast", () -> new FeastBlock(voice,
@@ -96,6 +107,7 @@ public final class CuisineRegistry {
         out.accept(HEARTH_POT_ITEM.get());
         CROP_ITEMS.values().forEach(item -> out.accept(item.get()));
         DISHES.values().forEach(item -> out.accept(item.get()));
+        FARE.values().forEach(item -> out.accept(item.get()));
         FEAST_ITEMS.values().forEach(item -> out.accept(item.get()));
     }
 }

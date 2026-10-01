@@ -102,7 +102,26 @@ public final class FamiliarData {
         return expressedMarks().contains(mark);
     }
 
+    /*
+     * Which Marks show depends on the two carried Marks alone, and goal checks ask several times a
+     * tick, so the answer is kept with the pair it was worked out for and redone only when either
+     * carried Mark is different.
+     */
+    private Mark expressedForA, expressedForB;
+    private List<Mark> expressed;
+
     public List<Mark> expressedMarks() {
+        List<Mark> known = expressed;
+        if (known != null && expressedForA == markA && expressedForB == markB) return known;
+        Mark first = markA, second = markB;
+        known = workOutExpressed();
+        expressedForA = first;
+        expressedForB = second;
+        expressed = known;
+        return known;
+    }
+
+    private List<Mark> workOutExpressed() {
         List<Mark> out = new ArrayList<>(2);
         consider(markA, out);
         consider(markB, out);

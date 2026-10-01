@@ -17,9 +17,9 @@
       "type": "text",
       "title": "Getting it running",
       "text": [
-        "Right-click the Resonator with an **Echo Shard** (from [Echo Shatter](echo_shatter)). The crystal sits inside as a catalyst and is slowly spent by the Pulse it makes, so a hard-working Resonator needs it replaced. Crouch with an empty hand to lift out what is left of it.",
+        "Right-click the Resonator with an **Echo Shard** (from [Echo Shatter](echo_shatter)). The crystal sits inside as a catalyst and is slowly spent by the Pulse it makes, so a hard-working Resonator needs it replaced. Crouch with an empty hand to lift out what is left of it; it keeps its wear.",
         "Then give it at least **two different voices** within 8 blocks, such as an Earth and a Fire totem. It counts voices, not blocks: two Earth totems are still one voice.",
-        "A shard and two voices make **8 Pulse a second**. Voices multiply rather than add: each one you bring is worth more than the last, so the whole ring is worth far more than the sum of its totems. The catalyst multiplies on top of that, so every tier is a real step up: at six voices an Echo Shard makes 48 a second, an Attuned Echo 72, a Bound Echo 96, and a Resonant Core 144. Better catalysts last longer too."
+        "A shard and two voices make **8 Pulse a second**. Voices multiply rather than add: each one you bring is worth more than the last, so the whole ring is worth far more than the sum of its totems."
       ]
     },
     {
@@ -202,20 +202,21 @@
       "type": "text",
       "title": "Stronger crystals",
       "text": [
-        "Each second the Resonator makes **voices × (voices + 2)** Pulse, times its crystal: **×1** for an Echo Shard, **×1.5** Attuned, **×2** Bound, **×3** for a Resonant Core. Every crystal is spent by the Pulse it makes, and a better one lasts longer:",
-        "- **Echo Shard** (rank 1): stone in Echo Shatter, with Earth.",
-        "- **Attuned Echo** (rank 2): shards in Echo Attune, with Fire.",
-        "- **Bound Echo** (rank 3): attuned echoes in Echo Bind, with Water.",
-        "- **Resonant Core** (rank 4): Manifested Ingots in Echo Manifest, with Spirit.",
-        "All six voices around a Resonant Core make **144 Pulse a second**, but six voices need the [Voice Ring](voice_ring) layout. A loose heap counts at most five voices, Kinship Totems included."
+        "Each second the Resonator makes **voices × (voices + 2)** Pulse, times its crystal: **×1** for an Echo Shard, **×1.5** Attuned, **×2** Bound, **×3** for a Resonant Core. So six voices make 48, 72, 96 or 144 a second.",
+        "- **Echo Shard**: stone in Echo Shatter, with Earth.",
+        "- **Attuned Echo**: shards in Echo Attune, with Fire.",
+        "- **Bound Echo**: attuned echoes in Echo Bind, with Water.",
+        "- **Resonant Core**: Manifested Ingots in Echo Manifest, with Spirit.",
+        "Six voices need the [Voice Ring](voice_ring) layout: a loose heap counts at most five voices, Kinship Totems included."
       ]
     },
     {
       "type": "text",
       "title": "When it stays dark",
       "text": [
-        "Only **Answered** totems count; a quiet one has to be woken first (see [Keeping](keeping)). A steady redstone signal pauses the Resonator.",
-        "Ranking the Resonator itself adds **15% Pulse a second** per rank. The rates on these pages are before pack settings that scale generation."
+        "Only **Answered** totems count; a quiet one has to be woken first (see [Keeping](keeping)). Kinship Totems add their tribes as extra voices, but the Resonator still needs one Answered Resonance Totem of its own. A steady redstone signal pauses it.",
+        "A crystal crumbles once it has made its share: about **20,000 Pulse** for an Echo Shard, **60,000** for an Attuned Echo, **150,000** for a Bound Echo and **400,000** for a Resonant Core. A full Resonator makes nothing, and its crystal rests until something spends.",
+        "Each [rank](machine_ranks) of the Resonator itself adds **15% Pulse a second**."
       ]
     },
     {

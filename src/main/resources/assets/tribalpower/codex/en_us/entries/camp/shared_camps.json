@@ -2,7 +2,6 @@
   "name": "Shared camps",
   "icon": "tribalpower:camp_charter",
   "order": 150,
-  "next": "kinship_totem",
   "pages": [
     {
       "type": "spotlight",
@@ -32,7 +31,7 @@
       "type": "text",
       "title": "What members share",
       "text": [
-        "- **Devices.** Members count as owners of each other's cradles, tenders, anchors, keystones and locked menus.",
+        "- **Devices.** Members count as owners of each other's machines: Grove Tenders, Summoning Cradles, Wayanchors, Offering Tables, Gate Keystones, relays, Stone Fonts and Resonance Meshes. Anyone outside the camp is turned away.",
         "- **The vault.** Any Deep Cache or Wayfarer Satchel opens the camp's shared **54-slot** vault. Crouch as you open one to switch between that and your personal vault; it remembers your choice.",
         "- **Standing.** A quarter of every member's tribe standing lands on the camp, and a Tribal Kin Elder trades at the camp's rank when it beats your own.",
         "- **Anchors.** The camp shares **12** Wayanchors, counted across every world."
@@ -42,9 +41,9 @@
       "type": "text",
       "title": "Running the camp",
       "text": [
-        "**/tribalpower camp info** lists members and anchors. The leader can **rename** the camp and **kick** members. Anyone can **leave**.",
+        "**/tribalpower camp info** lists members and anchors. The leader can run **/tribalpower camp rename <name>** and **/tribalpower camp kick <player>**. Anyone can **/tribalpower camp leave**; if the leader leaves, the oldest member leads.",
         "When the last member leaves, the camp dissolves and its vault spills out at their feet.",
-        "Kinship Totems can lend your camp every tribe's voice once the tribes know you."
+        "Once the tribes know you, their [Kinship Totems](kinship_totem) can lend your camp any of their voices."
       ]
     },
     {

@@ -28,8 +28,9 @@
       "type": "text",
       "title": "The Wayfarer Satchel",
       "text": [
-        "The satchel opens the same vault from anywhere, with the same attunement rule. It is a key, not a bag: nothing is stored in the item itself, so it cannot be duplicated or lost with its contents.",
-        "If you belong to a [shared camp](shared_camps), a Deep Cache or satchel opens the camp's shared vault. Crouch as you open it to switch to your personal vault and back; it remembers your choice. The camp vault is a separate inventory."
+        "The satchel opens the same vault from anywhere, with the same attunement rule. It is a key, not a bag: nothing is stored in the item itself, so it cannot be duplicated or lost with its contents. The vault will not take a satchel, so you can never lock the key inside.",
+        "If you belong to a [shared camp](shared_camps), a Deep Cache or satchel opens the camp's shared vault. Crouch as you open it to switch to your personal vault and back; it remembers your choice. The camp vault is a separate inventory.",
+        "Every vault view has a **Tidy** button above its slots that merges and sorts what is inside; see [Ancestral Cache](ancestral_cache)."
       ]
     },
     {

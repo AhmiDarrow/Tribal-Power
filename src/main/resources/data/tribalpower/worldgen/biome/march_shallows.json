@@ -136,12 +136,6 @@
         "maxCount": 2
       },
       {
-        "type": "tribalpower:silt_eel",
-        "weight": 8,
-        "minCount": 1,
-        "maxCount": 2
-      },
-      {
         "type": "tribalpower:veil_ray",
         "weight": 3,
         "minCount": 1,
@@ -154,6 +148,12 @@
         "weight": 25,
         "minCount": 3,
         "maxCount": 7
+      },
+      {
+        "type": "tribalpower:silt_eel",
+        "weight": 15,
+        "minCount": 1,
+        "maxCount": 3
       }
     ],
     "misc": []

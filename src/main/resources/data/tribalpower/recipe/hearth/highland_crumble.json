@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:highland_crumble"
+  },
+  "seconds": 12
+}

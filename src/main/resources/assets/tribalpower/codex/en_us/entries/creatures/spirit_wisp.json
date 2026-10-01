@@ -1,6 +1,9 @@
 {
   "name": "Spirit Wisp",
-  "icon": "tribalpower:echo_bloom",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
   "order": 60,
   "spoiler": true,
   "next": "ashbound",

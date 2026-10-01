@@ -24,6 +24,7 @@
       "text": [
         "Thirteen small plates, each doing one clear job with redstone: gates, memory, clocks and counters.",
         "Snap one onto a block face the way you snap a relay. The face it points out of is its **output**.",
+        "Right-click a plate to hear what it is doing. Crouch-use Heartbeat, Drift or Tally to change its count. A **Totem Wrench** syncs plates so they hear each other with no wire at all: see Syncing plates.",
         "Every plate is built around [Song Thread](song_thread), which needs **Loom Thread** from the March, so plates come after your first trip there."
       ],
       "title": "Song plates"
@@ -36,7 +37,28 @@
         "- **Unary** plates (Inverse, Echo, Drift, Strike, Chance, Tally, Verse) read the **back**. Power the block they sit on: a lever on it, dust into it, or mount the plate straight onto a Pulse Threshold.",
         "- **Binary** plates (Chorus, Gathering, Discord, Hush) read **left and right**, as seen from behind the plate. On a floor or ceiling, left is west and right is east.",
         "- **Memory** reads left to set and right to clear. **Heartbeat** needs no input.",
-        "Right-click a plate to hear what it is doing. Crouch-use Heartbeat, Drift or Tally to change its count."
+        "A plate hears only power pointed into it: a repeater facing away is not heard, and neither is another plate pointed straight into it. To join two plates, sync them with the wrench."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Syncing plates",
+      "text": [
+        "Plates need no wire between them. Crouch-use a plate with a **Totem Wrench** to hold its song, then use the wrench on another plate: that plate now hears the first, as if a wire ran into it.",
+        "- **Where you click picks the ear.** Click the left or right half of a Chorus, Gathering, Discord, Hush or Memory Plate to feed that side. Unary plates hear it on their back; on a Tally the left half is the reset. A Heartbeat hears nothing.",
+        "- **A sync runs one way.** Each plate hears up to **8** others within **32 blocks**, in the same world. The wrench keeps the song, so one source can feed a whole row.",
+        "- **Use the wrench on the pair again to unsync it.** Crouch-use the wrench in the air to let go of the song.",
+        "A new sync costs **1 Pulse** from a carried cell, or a point of the wrench.",
+        "A plate belongs to whoever set it down and their camp: anyone may read it, but syncing someone else's plate, holding its song or changing its count is refused."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reading a sync",
+      "text": [
+        "Use the wrench on a plate while holding no song, or crouch and right-click it with this book, to list every plate it hears: where it is, which ear, how far, and what it is singing. Sparks trace each sync for you.",
+        "A synced plate hears its source as it stood a tick ago, so a ring of plates is safe: two Echo Plates that hear each other hold whatever they agree on, and two Inverse Plates that hear each other make a clock that flips every tick.",
+        "Break a source and its listeners forget it. A source in an unloaded chunk is heard as **0** until it loads again; a plate never loads a chunk to listen."
       ]
     },
     {
@@ -48,7 +70,7 @@
         "- **Gathering** (OR) sings when either side is live.",
         "- **Discord** (XOR) sings when the sides disagree.",
         "- **Hush** (NAND) sings unless both sides are live.",
-        "The answer is **15 or 0** from the facing. Put Song Thread on that face to carry it on."
+        "The answer is **15 or 0** from the facing. Put Song Thread on that face to carry it on, or sync another plate to hear it."
       ]
     },
     {
@@ -69,7 +91,7 @@
         "- **Memory**: a live left sets it to 15; a live right clears it. The output stays until told otherwise. If both are live, clear wins.",
         "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
         "- **Verse**: starts at **4** with no pulse. Each rising edge on the back steps it to **8**, then **12**, then **15**, then back to 4. A comparator reads the same number.",
-        "The Verse Plate is not the wireless pair; for that see [Verse Call and Answer](verse_link)."
+        "The Verse Plate is not the Verse Call: to carry redstone to a lamp or a machine with no wire, see [Verse Call and Answer](verse_link)."
       ]
     },
     {

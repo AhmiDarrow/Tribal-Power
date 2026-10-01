@@ -80,6 +80,12 @@ public class LogicPlateBlock extends BaseEntityBlock {
         return SHAPES[state.getValue(FACING).ordinal()];
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new LogicPlateBlockEntity(pos, state); }
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable net.minecraft.world.entity.LivingEntity placer,
+                            net.minecraft.world.item.ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (level.getBlockEntity(pos) instanceof LogicPlateBlockEntity plate) plate.setOwner(tk.darrow.tribalpower.camp.Ownership.of(placer));
+    }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null : createTickerHelper(type, LogicRegistry.PLATE_TYPE.get(), LogicPlateBlockEntity::tick);
     }
@@ -104,11 +110,23 @@ public class LogicPlateBlock extends BaseEntityBlock {
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return state.getValue(POWER);
     }
+    /** The Totem Wrench syncs plates, so its click goes to the wrench rather than reading the plate. */
+    @Override
+    protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state,
+            Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (stack.getItem() instanceof tk.darrow.tribalpower.item.TotemWrenchItem)
+            return net.minecraft.world.ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+        return super.useItemOn(stack, state, level, pos, player, hand, hit);
+    }
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof LogicPlateBlockEntity plate) {
-            if (player.isShiftKeyDown()) player.displayClientMessage(plate.cycle(), true);
-            else player.displayClientMessage(plate.status(), true);
+            if (player.isShiftKeyDown()) {
+                // a count or a clock is part of someone's circuit, so only its owner's camp may change it
+                if (plate.hasSetting() && !tk.darrow.tribalpower.camp.Ownership.check(level, plate.owner(), player))
+                    return InteractionResult.CONSUME;
+                player.displayClientMessage(plate.cycle(), true);
+            } else player.displayClientMessage(plate.statusWithLinks(), true);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

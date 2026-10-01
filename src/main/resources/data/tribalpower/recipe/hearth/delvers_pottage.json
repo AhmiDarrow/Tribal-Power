@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:red_mushroom"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "tribalpower:fen_rice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:delvers_pottage"
+  },
+  "seconds": 12,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

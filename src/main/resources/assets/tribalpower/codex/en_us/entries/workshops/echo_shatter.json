@@ -15,7 +15,7 @@
       "title": "Making shards",
       "text": [
         "Put **stone** or **deepslate** in; March Stone works too. Cobblestone does not make shards, so smelt it to stone first.",
-        "A shard takes **2 seconds** at **16 Pulse a second** before pack settings. A reserve lets a slower generator finish a batch.",
+        "A shard takes **2 seconds** at **32 Pulse a second**. A reserve lets a slower generator finish a batch.",
         "It needs an Earth totem within 8 blocks and a charged generator. The shard is the small catalyst for your first Pulse Resonator, slowly spent by the Pulse it makes."
       ]
     },
@@ -26,7 +26,7 @@
         "- Cobblestone, cobbled deepslate and March Cobble become gravel; gravel becomes sand.",
         "- Sand becomes dust when the supported sieving mod is installed, or clay otherwise.",
         "- Diorite becomes quartz. March Ore becomes two Spirit Shards.",
-        "- Raw metals and metal ores become **two grit** each, in 4 seconds at 20 Pulse a second before pack settings. See [Metals and gems](metals_and_gems).",
+        "- Raw metals and metal ores become **two grit** each, in 4 seconds at 40 Pulse a second. See [Metals and gems](metals_and_gems).",
         "- Silk-touched gem ores shatter straight to the gem, at twice the ore's own drop.",
         "Recipes in this book, or JEI, show the exact inputs and outputs in your pack."
       ]

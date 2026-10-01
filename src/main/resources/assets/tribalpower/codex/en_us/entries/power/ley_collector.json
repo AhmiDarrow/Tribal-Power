@@ -15,16 +15,24 @@
       "type": "text",
       "title": "What it listens to",
       "text": [
-        "Every two seconds the collector adds **3 Pulse for every point** of its **beat**. A beat starts at **1**, and the land within **8 blocks** (the same range as the lattice) adds more:",
+        "Every two seconds the collector adds **3 Pulse for every point** of its **beat**. A beat starts at **1**, and the land within **8 blocks** adds more:",
         "- Open sky: **+1** by day, **+3** at night.",
         "- Rain **+2**, and a thunderstorm **+1** more.",
         "- Water: up to **+4**.",
         "- Plants: up to **+4**. Every four grass, leaf, flower, crop or moss blocks count as one.",
-        "- Totem voices: up to **+3**, one per distinct voice.",
+        "- Resonance Totems: up to **+3**, one per distinct voice.",
         "- A Tribe Hearth **+1**. Animals: up to **+2**, one per pair.",
         "- In the March **+2**; under a full moon **+1**.",
-        "Those gifts are the land's share, and that share is capped at **6**. The rest of the beat is the ley line the collector is touching: **+2** for each line. The lines themselves are a web across the world; only the rarest places bring **six** together, and a collector never counts more than that. The beat is still capped at **16**. The number a Ley Lens shows is that beat, not Pulse a second. Hold the lens to see the lines themselves.",
-        "A Resonance Totem pulls the thread of its own colour through itself, and leaves the other colours alone. Set the six totems around a collector so each thread crosses it on the way through its totem. That is a convergence: six colours, and still no more than six lines on the beat."
+        "Those gifts are the land's share, and the land's share is capped at **6**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ley lines",
+      "text": [
+        "The rest of the beat is the ley lines the collector stands on: **+2** for each line. The lines are a web across the world; only the rarest places bring **six** together, and a collector never counts more than that. The whole beat is capped at **16**, which pays **48 Pulse** every two seconds.",
+        "A Resonance Totem pulls the thread of its own colour through itself and leaves the other colours alone. Set the six totems around a collector so each thread crosses it on the way through its totem. That is a convergence: six colours, and still no more than six lines on the beat.",
+        "During a ley surge, a collector whose threads carry the surging voice yields double; see The living March."
       ]
     },
     {
@@ -442,18 +450,11 @@
     },
     {
       "type": "text",
-      "title": "Keeping the camp awake",
-      "text": [
-        "When the beat is **8 or more** (half of 16), each collection also wakes every totem within 8 blocks and keeps it answered. Only the beat matters here; how full the collector is does not. See [Keeping](keeping)."
-      ]
-    },
-    {
-      "type": "text",
       "title": "Tuning it",
       "text": [
-        "Sneak-use a Ley Lens on the collector to print the exact breakdown, factor by factor. Ley sight draws the ropes that pass near you, so you can stand in one before you build.",
-        "A redstone signal pauses it.",
-        "Ranking it in Echo Attune, then Bind, then Manifest adds **15% Pulse a beat** per rank, not the workshop 118%.",
+        "Sneak-use a Ley Lens on the collector to print the exact breakdown, factor by factor. The number it prints is the beat, not Pulse a second. Ley sight draws the lines that pass near you, so you can stand on one before you build.",
+        "When the beat is **8 or more** (half of 16), each collection also wakes every totem within 8 blocks and keeps it answered. Only the beat matters here; how full the collector is does not. See Keeping.",
+        "A redstone signal pauses it. Each [rank](machine_ranks) adds **15%** to every collection.",
         "If it seems weak, crouch and right-click it with this book."
       ]
     },

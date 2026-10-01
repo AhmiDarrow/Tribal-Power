@@ -169,18 +169,17 @@
     ],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [
-      {
-        "type": "tribalpower:silt_eel",
-        "weight": 3,
-        "minCount": 1,
-        "maxCount": 2
-      }
-    ],
+    "water_creature": [],
     "water_ambient": [
       {
         "type": "tribalpower:glimmerfin",
         "weight": 2,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:silt_eel",
+        "weight": 3,
         "minCount": 1,
         "maxCount": 2
       }

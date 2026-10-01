@@ -11,7 +11,7 @@
         "Two kinds of creature carry the old song. **Gentle animals** (the Dawn Stag, Lantern Fox, Mossback, and the grazers, fliers, [walking trees](walking_trees) and [fays](fays) of every land) give you reagents when you brush them. **Remnants** are broken guardians and wild spirits; they fight, and drop their reagent when they fall.",
         "Reagents go into your Echo workshops, and into the Bonding Charm that makes any of them a companion.",
         "The March also has quiet life that gives nothing but meat or company: March Walkers and Spirit Wisps.",
-        "Land you have hunted or emptied fills again slowly: now and then a few animals of that land wander back in, wherever few are left."
+        "Hunted or emptied land fills again, slowly: about once a minute a few of its animals may wander in out of sight, until roughly six creatures share the area. Pens count too, so a busy camp is never overrun."
       ]
     },
     {
@@ -19,14 +19,14 @@
       "text": [
         "Hold a **Brush** and use it on an adult. Young animals yield nothing. Each animal rests for **one minute** between harvests.",
         "Breed them with **wheat** (Dawn Stag), **sweet berries** (Lantern Fox) and **seagrass** (Mossback). Every other gentle creature is bred with its own reagent.",
-        "Bond an adult with a [Bonding Charm](familiars) to get **double** the reagent and keep a companion."
+        "Bond an adult with a [Bonding Charm](familiars) to get **double** the reagent and keep a companion. Only you can brush your own familiar."
       ],
       "title": "Gentle harvesting"
     },
     {
       "type": "text",
       "text": [
-        "Ashbound, Rootbound and Reed Stalkers haunt Overworld forests and swamps, and the March too. Like all remnants they need darkness to spawn, so light your paths.",
+        "Ashbound, Rootbound and Reed Stalkers haunt Overworld forests and swamps, and the March too. Like all remnants they rise in the dark, and never where a torch or lantern burns, so light your paths.",
         "Keep water close to Ashbound; their blows set you alight. Rootbound roots you in place for a moment: wait it out. Reed Stalkers poison, so bring milk or keep your distance.",
         "A Hush Totem, or the Still Night rite, keeps a camp from growing a new pack overnight."
       ],
@@ -35,7 +35,7 @@
     {
       "type": "text",
       "text": [
-        "Storm Moths, Cinder Imps and Mourning Bells cast from up to **12 blocks** away. They gather a bright cluster of motes first: that is your warning.",
+        "Storm Moths, Cinder Imps, Mourning Bells, Veil Drifters and the flying shades cast from up to **12 blocks** away. They gather a bright cluster of motes first: that is your warning.",
         "They need a clear line to you. Step behind solid cover and the spell is interrupted. Their spells never burn or replace terrain.",
         "A charged staff is useful for keeping your distance. The Unsung's shockwave is a different fight; sneak against it, as its own page explains."
       ],

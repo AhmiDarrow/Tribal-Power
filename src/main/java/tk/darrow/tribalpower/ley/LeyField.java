@@ -54,7 +54,7 @@ public final class LeyField {
 
     /** Veins within sight of {@code pos}, nearest first, enough of them to read as a web. */
     public static List<Rope> ropes(ServerLevel level, BlockPos pos) {
-        List<Hit> hits = gather(level, pos, SIGHT);
+        List<Hit> hits = gather(level, pos, SIGHT, LeyMagnets.near(level, pos));
         if (hits.isEmpty()) return List.of();
         hits.sort(Comparator.comparingDouble(Hit::dist));
         if (hits.size() > VIEW) hits = hits.subList(0, VIEW);
@@ -83,10 +83,18 @@ public final class LeyField {
 
     /** World seed folded with the dimension, so the Nether is not a copy of the overworld. */
     public static long salt(ServerLevel level) {
+        return level.getSeed() ^ FOLDS.computeIfAbsent(level.dimension(), LeyField::fold);
+    }
+
+    /** The dimension half of the salt never changes, so it is folded once per dimension. */
+    private static final java.util.Map<net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level>, Long> FOLDS =
+            new java.util.concurrent.ConcurrentHashMap<>();
+
+    private static long fold(net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension) {
         long fold = 0x9E3779B97F4A7C15L;
-        String id = level.dimension().location().toString();
+        String id = dimension.location().toString();
         for (int i = 0; i < id.length(); i++) fold = fold * 31 + id.charAt(i);
-        return level.getSeed() ^ fold;
+        return fold;
     }
 
     /**
@@ -118,7 +126,15 @@ public final class LeyField {
 
     /** Veins whose tubes contain {@code pos}, nearest first, never more than six. */
     public static Reading sample(ServerLevel level, BlockPos pos) {
-        List<Hit> hits = gather(level, pos, TUBE);
+        return sample(level, pos, LeyMagnets.near(level, pos));
+    }
+
+    /**
+     * As {@link #sample(ServerLevel, BlockPos)} with the totems near {@code pos} already found. The
+     * reading depends on nothing else, so a caller holding the same totems gets the same reading.
+     */
+    public static Reading sample(ServerLevel level, BlockPos pos, List<LeyMagnets.Magnet> magnets) {
+        List<Hit> hits = gather(level, pos, TUBE, magnets);
         if (hits.isEmpty()) return Reading.QUIET;
         hits.sort(Comparator.comparingDouble(Hit::dist));
         if (hits.size() > MAX_LINES) hits = hits.subList(0, MAX_LINES);
@@ -136,14 +152,13 @@ public final class LeyField {
         return new Reading(lines, (int) Math.round(points), voices);
     }
 
-    private static List<Hit> gather(ServerLevel level, BlockPos pos, double reach) {
+    private static List<Hit> gather(ServerLevel level, BlockPos pos, double reach, List<LeyMagnets.Magnet> magnets) {
         long salt = salt(level);
         int minX = Math.floorDiv(pos.getX() - REACH, CELL);
         int maxX = Math.floorDiv(pos.getX() + REACH, CELL);
         int minZ = Math.floorDiv(pos.getZ() - REACH, CELL);
         int maxZ = Math.floorDiv(pos.getZ() + REACH, CELL);
         Vec3 point = Vec3.atCenterOf(pos);
-        List<LeyMagnets.Magnet> magnets = LeyMagnets.near(level, pos);
         List<Hit> hits = new ArrayList<>(4);
         Attunement[] voices = Attunement.values();
         for (int cx = minX; cx <= maxX; cx++) {

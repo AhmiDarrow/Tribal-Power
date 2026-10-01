@@ -1,0 +1,25 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:long_hunt_stew"
+  },
+  "seconds": 14,
+  "container": {
+    "item": "minecraft:bowl"
+  }
+}

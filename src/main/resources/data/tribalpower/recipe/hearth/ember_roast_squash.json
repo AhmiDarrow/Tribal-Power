@@ -1,0 +1,19 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "minecraft:pumpkin"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:steppe_grain"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "tribalpower:ember_roast_squash"
+  },
+  "seconds": 14
+}

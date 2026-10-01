@@ -10,14 +10,18 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 /** Sixteen verses. A Call sings what it hears; an Answer within 32 repeats that song. */
-public class VerseLinkBlockEntity extends BlockEntity {
+public class VerseLinkBlockEntity extends BlockEntity implements tk.darrow.tribalpower.camp.Ownership.Owned {
     public static final int RANGE = 32;
     private int verse;
     private int heard;
+    private java.util.UUID owner;
 
     public VerseLinkBlockEntity(BlockPos pos, BlockState state) {
         super(LogicRegistry.VERSE_LINK_TYPE.get(), pos, state);
     }
+
+    @Override public java.util.UUID owner() { return owner; }
+    @Override public void setOwner(java.util.UUID owner) { this.owner = owner; setChanged(); }
 
     public int verse() { return verse; }
     public int heard() { return heard; }
@@ -81,6 +85,7 @@ public class VerseLinkBlockEntity extends BlockEntity {
         super.saveAdditional(tag, registries);
         tag.putInt("Verse", verse);
         tag.putInt("Heard", heard);
+        tk.darrow.tribalpower.camp.Ownership.save(tag, owner);
     }
 
     @Override
@@ -88,5 +93,6 @@ public class VerseLinkBlockEntity extends BlockEntity {
         super.loadAdditional(tag, registries);
         verse = Math.clamp(tag.getInt("Verse"), 0, 15);
         heard = Math.clamp(tag.getInt("Heard"), 0, 15);
+        owner = tk.darrow.tribalpower.camp.Ownership.load(tag);
     }
 }

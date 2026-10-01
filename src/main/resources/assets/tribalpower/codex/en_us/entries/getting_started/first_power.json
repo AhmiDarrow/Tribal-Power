@@ -9,8 +9,9 @@
       "type": "text",
       "text": [
         "Every camp starts with a drum. The [Drumheart](drumheart) turns a steady beat into stored Pulse, which the machines around it can spend.",
-        "Craft one, set it down where you plan to work, and play it: right-click with an **empty hand**, about **once a second**. A beat on time is worth far more than frantic clicking.",
-        "Keep going until the drum holds a few hundred Pulse. That reserve is what your first workshop will run on."
+        "Its recipe is on the last page here: planks, leather, two **Bone Chimes** and a **Spirit Shard**. Chimes and shards are quick crafts from bone, string, amethyst and redstone; see [Spirit Shards and Resonators](crafting_components). Make a few, as nearly everything early uses them.",
+        "Set the drum where you plan to work and play it: right-click with an **empty hand**, about **once a second**. A beat on time is worth far more than frantic clicking.",
+        "Drum until it holds a few hundred Pulse (crouch and right-click it with this book to check). Your first workshop runs on that reserve."
       ]
     },
     {
@@ -134,7 +135,7 @@
     {
       "type": "recipe",
       "item": "tribalpower:drumheart",
-      "text": "The drum holds 1,000 Pulse. Machines within **8 blocks** can draw from it."
+      "text": "The drum holds 1,000 Pulse. Machines within **8 blocks** can draw from it. One or two drums are plenty: a third within the same 8 blocks still sounds, but earns nothing."
     }
   ]
 }

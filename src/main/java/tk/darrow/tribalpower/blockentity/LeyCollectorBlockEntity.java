@@ -45,15 +45,36 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         }
         be.tickCounter = 0;
         // Factor maths live in ley/LeyMath so the Ley Lens and Codex diagnostics show the same numbers.
-        var factors = tk.darrow.tribalpower.ley.LeyMath.factors(level, pos);
+        // The threads are read once a beat and shared by the land survey and the surge check.
+        var ley = be.reading(level, pos);
+        var factors = tk.darrow.tribalpower.ley.LeyMath.factors(level, pos, ley);
         int gain = beatFor(factors.gain());
-        gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(level, pos));
+        gain = (int) Math.round(gain * (ley == null ? 1.0 : tk.darrow.tribalpower.event.LeySurges.multiplier(level, ley)));
         gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, gain);
         gain = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(gain);
         if (be.insertPulse(gain, false) > 0) {
             be.setChanged();
         }
         if (factors.pad()) tk.darrow.tribalpower.lattice.Keeping.livingBeat(level, pos);
+    }
+
+    /*
+     * The ley reading here depends only on the dimension, this position and the totems standing
+     * near it. Finding the totems is cheap; following the threads is not, so the last reading is
+     * kept with the totems it was taken under and reused while they are exactly the same.
+     */
+    private java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Magnet> lastMagnets;
+    private tk.darrow.tribalpower.ley.LeyField.Reading lastReading;
+
+    @org.jetbrains.annotations.Nullable
+    private tk.darrow.tribalpower.ley.LeyField.Reading reading(Level level, BlockPos pos) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel server)) return null;
+        var magnets = tk.darrow.tribalpower.ley.LeyMagnets.near(server, pos);
+        if (lastReading == null || !magnets.equals(lastMagnets)) {
+            lastReading = tk.darrow.tribalpower.ley.LeyField.sample(server, pos, magnets);
+            lastMagnets = magnets;
+        }
+        return lastReading;
     }
 
     /** Landscape beat plus machine rank — the same Pulse the tick inserts. */

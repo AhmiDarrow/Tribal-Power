@@ -7,36 +7,40 @@
       "type": "spotlight",
       "item": "tribalpower:song_bench",
       "text": [
-        "The bench empowers reagents and writes songs. Echo refining stays on the dedicated stations, which cost much less Pulse.",
+        "The Song Bench is where reagents become magic. It **empowers** raw reagents, writes them into **songs**, fletches **verse arrows** and **anoints** Spiritgear weapons.",
         "Empowering spends 16 Pulse. A sheet takes 3 to 7 empowered reagents, paper, and one mark of Ritual Chalk."
       ]
     },
     {
       "type": "text",
-      "title": "Singing",
+      "title": "Empowering",
       "text": [
-        "Keep a Reagent Pouch on your hotbar. Reagents you pick up go into it.",
-        "Open the bench within 8 blocks of a Resonance Totem. Empower turns one raw reagent into an empowered one for 16 Pulse.",
-        "Seat paper and Ritual Chalk. Choose 3 to 7 empowered reagents, in order: click a reagent to select it, then press **Add** (or click it twice). **Shift-click** a reagent to empower one. The first picks the shape. The totem picks the voice.",
-        "Fletch, Take and Anoint work on the reagent you selected. A written **Song Sheet** can be sung once straight from your hand, or bound into a songbook: seat the book, leave the sheet in the output and press **Write** with nothing in the sequence."
+        "Place the bench within 8 blocks of a Resonance Totem and a charged generator, and keep a Reagent Pouch on your hotbar: the bench reads its reagents from the pouch.",
+        "Click a reagent in the list to select it. **Empower**, or a shift-click, turns one raw reagent into an empowered one for 16 Pulse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Writing a song",
+      "text": [
+        "Seat paper and Ritual Chalk, then pick 3 to 7 empowered reagents in order: select one and press **Add**, or click it twice. The first reagent picks the song's shape; **Voice** picks which nearby totem it sings in.",
+        "Press **Write** for a **Song Sheet**. Sing it once straight from your hand, or bind it into a songbook: seat the book, leave the sheet in the output and press **Write** with nothing in the sequence."
       ]
     },
     {
       "type": "text",
       "title": "What it costs",
       "text": [
-        "Writing spends those reagents, the paper and one chalk mark, plus 12 Pulse for each reagent on the sheet.",
-        "A rank makes the Pulse cheaper.",
-        "The first songbook holds 1 page of 3 reagents. The bound book holds 3 pages, up to 5. The chorus book holds 5 pages, up to 7.",
-        "Right-click a held book to sing. Crouch and right-click to turn the page. A cell in the book pays.",
-        "One empowered reagent fletches four verse arrows. The Pulse Bow fires them."
+        "Writing spends those reagents, the paper and one chalk mark, plus **12 Pulse** for each reagent on the sheet. A ranked bench asks less Pulse for everything it does.",
+        "The first songbook holds 1 page of up to 3 reagents. The bound book holds 3 pages of up to 5, and the chorus book 5 pages of up to 7.",
+        "Right-click a held book to sing. Crouch and right-click to turn the page. A Pulse Cell seated in the book pays first, then the cells you carry."
       ]
     },
     {
       "type": "text",
       "title": "Anointing a weapon",
       "text": [
-        "The bench has a fifth seat now, beside the output: a **weapon slot**. Put a Spiritgear weapon in it (no vanilla or other mod's weapon takes an anointment), click a reagent in the list to select it and press **Anoint**.",
+        "Beside the output is a **weapon slot**. Put a Spiritgear weapon in it (no vanilla or other mod's weapon takes an anointment), select a reagent in the list and press **Anoint**.",
         "It spends **4 empowered reagents** of that kind and **32 Pulse**, and the weapon keeps the reagent's power until you anoint it with something else. The whole story is on the [Anointing](anointing) page."
       ]
     },
@@ -206,11 +210,26 @@
     },
     {
       "type": "text",
-      "title": "On the lattice",
+      "title": "Verse arrows",
       "text": [
-        "A redstone signal pauses the bench. The Lattice Conductor fills totem buffers. It does not move items through this bench.",
-        "Hold the Pulse Bow and draw. A plain bolt spends 6 Pulse. A verse arrow on a full draw spends 12."
+        "Select an empowered reagent and press **Fletch**: one reagent and 8 Pulse make **four** verse arrows, sung in the voice you chose.",
+        "Hold the Pulse Bow and draw. A plain bolt spends up to 6 Pulse, at full draw; a verse arrow adds 6 more and carries its reagent's song. The Pulse Crossbow fires the same arrows.",
+        "A redstone signal pauses the bench."
       ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "The Pulse Bow",
+      "text": [
+        "Forged like the other Spiritgear: two **Manifested Ingots** and a **Bone Chime**, strung with three string. It needs no arrows; each draw throws a sonic bolt that flies straight and fades after about 60 blocks.",
+        "A full draw hits for **7**, a part draw for its share, so a quick tap is only a tap. A verse arrow adds a point for each copy of its lead reagent on the sheet, up to **3**.",
+        "Each shot wears it a point, out of 1,024. Mend it at the [Spirit Anvil](spirit_anvil) with Manifested Ingots, a quarter each."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
     },
     {
       "type": "recipe",
