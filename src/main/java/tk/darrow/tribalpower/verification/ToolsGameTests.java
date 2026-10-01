@@ -180,4 +180,53 @@ public class ToolsGameTests {
                 "The player's own pack is still tidyable while a station is open");
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void tidySortsTheDeepCacheVault(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        var vault = tk.darrow.tribalpower.storage.DeepCacheManager.openContainer(h.getLevel().getServer(), player.getUUID(), true);
+        vault.clearContent();
+        vault.setItem(0, new ItemStack(Items.STONE, 12));
+        vault.setItem(7, new ItemStack(Items.APPLE, 3));
+        vault.setItem(40, new ItemStack(Items.STONE, 30));
+        // The same menu the Deep Cache block and the Wayfarer Satchel open.
+        var menu = tk.darrow.tribalpower.storage.DeepCacheContainer.guard(ChestMenu.sixRows(1, player.getInventory(), vault), vault);
+        player.containerMenu = menu;
+        h.assertTrue(menu.stillValid(player), "The owner's vault menu is valid");
+        h.assertTrue(!InventorySorter.group(menu, player, true).isEmpty(), "The vault side has a tidy button");
+        h.assertTrue(InventorySorter.sort(player, true), "A vault with loose stacks can be tidied");
+        h.assertTrue(vault.getItem(0).is(Items.APPLE), "Apples sort before stone");
+        h.assertTrue(vault.getItem(1).is(Items.STONE) && vault.getItem(1).getCount() == 42,
+                "Two stone stacks merge into one of 42, got " + vault.getItem(1).getCount());
+        h.assertTrue(vault.getItem(7).isEmpty() && vault.getItem(40).isEmpty(), "Everything else is left empty");
+        h.assertTrue(!menu.slots.get(0).mayPlace(new ItemStack(ModItems.WAYFARER_SATCHEL.get())),
+                "The vault still refuses its own key");
+        vault.clearContent();
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void tidySortsAnAncestralCache(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        BlockPos pos = new BlockPos(1, 1, 1);
+        h.setBlock(pos, ModBlocks.ANCESTRAL_CACHE.get());
+        player.moveTo(Vec3.atCenterOf(h.absolutePos(pos.east())));
+        var be = h.getLevel().getBlockEntity(h.absolutePos(pos));
+        h.assertTrue(be instanceof tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity, "The cache has its block entity");
+        var cache = (tk.darrow.tribalpower.blockentity.AncestralCacheBlockEntity) be;
+        cache.setItem(3, new ItemStack(Items.STONE, 12));
+        cache.setItem(20, new ItemStack(Items.APPLE, 3));
+        cache.setItem(53, new ItemStack(Items.STONE, 30));
+        var menu = cache.createMenu(1, player.getInventory(), player);
+        h.assertTrue(menu != null, "The cache opens a menu");
+        player.containerMenu = menu;
+        h.assertTrue(menu.stillValid(player), "The cache menu is valid beside the cache");
+        h.assertTrue(!InventorySorter.group(menu, player, true).isEmpty(), "The cache side has a tidy button");
+        h.assertTrue(InventorySorter.sort(player, true), "A cache with loose stacks can be tidied");
+        h.assertTrue(cache.getItem(0).is(Items.APPLE), "Apples sort before stone");
+        h.assertTrue(cache.getItem(1).is(Items.STONE) && cache.getItem(1).getCount() == 42,
+                "Two stone stacks merge into one of 42, got " + cache.getItem(1).getCount());
+        h.assertTrue(cache.getItem(3).isEmpty() && cache.getItem(53).isEmpty(), "Everything else is left empty");
+        h.succeed();
+    }
 }

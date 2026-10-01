@@ -33,6 +33,13 @@ public final class InventorySorter {
 
     private InventorySorter() {}
 
+    /**
+     * Marks a slot class as ordinary storage that only refuses a few things (a vault turning away its own key,
+     * say). Such slots are sorted like plain ones; every stack is still checked against each slot's
+     * {@link Slot#mayPlace} before anything moves.
+     */
+    public interface StorageSlot {}
+
     /** The slots a sort would move, or an empty list when that side cannot be sorted. */
     public static List<Slot> group(AbstractContainerMenu menu, Player player, boolean containerSide) {
         Inventory inventory = player.getInventory();
@@ -55,13 +62,13 @@ public final class InventorySorter {
         return false;
     }
 
-    /** True when every slot belongs to one container, is an ordinary slot, and takes what the group holds. */
+    /** True when every slot belongs to one container, is an ordinary (or storage) slot, and takes what the group holds. */
     private static boolean plainStorage(List<Slot> group) {
         Container container = group.get(0).container;
         if (container == null) return false;
         for (Slot slot : group) {
             if (slot.container != container) return false;
-            if (slot.getClass() != Slot.class && !(slot instanceof ShulkerBoxSlot)) return false;
+            if (slot.getClass() != Slot.class && !(slot instanceof ShulkerBoxSlot) && !(slot instanceof StorageSlot)) return false;
         }
         if (group.size() != container.getContainerSize()) return false;
         for (Slot slot : group) {

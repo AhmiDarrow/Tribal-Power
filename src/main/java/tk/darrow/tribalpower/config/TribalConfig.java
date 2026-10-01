@@ -43,6 +43,12 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue ELITE_XP_MULTIPLIER;
     public static final ModConfigSpec.BooleanValue ONLY_HUNTERS_BLOCK_SLEEP;
     public static final ModConfigSpec.BooleanValue SLEEP_SKIPS_NIGHT;
+    public static final ModConfigSpec.BooleanValue MARCH_REPOPULATE;
+    public static final ModConfigSpec.IntValue MARCH_REPOPULATE_SECONDS;
+    public static final ModConfigSpec.IntValue MARCH_REPOPULATE_MIN_DISTANCE;
+    public static final ModConfigSpec.IntValue MARCH_REPOPULATE_MAX_DISTANCE;
+    public static final ModConfigSpec.IntValue MARCH_REPOPULATE_RADIUS;
+    public static final ModConfigSpec.IntValue MARCH_REPOPULATE_CAP;
 
     /** Per weapon kind: attack damage, attacks per second, extra reach, and its trait number. */
     public record WeaponValues(ModConfigSpec.DoubleValue damage, ModConfigSpec.DoubleValue speed,
@@ -275,6 +281,34 @@ public final class TribalConfig {
                         "keeps the overworld's time, so this skips the overworld's night as well.")
                 .define("sleepSkipsNight", true);
         b.pop();
+        b.comment("Wildlife returning to the March. Animals mostly appear when land is first generated, so land that has",
+                "been hunted or emptied would otherwise stay empty. Now and then, near each player in the March, a small group",
+                "from the biome's own creature list may wander back in where few animals live. Monsters are not affected.").push("wildlife");
+        MARCH_REPOPULATE = b
+                .comment("Whether animals slowly return to emptied land in the March. The doMobSpawning game rule and the",
+                        "server's spawn-animals setting are honoured as well.")
+                .define("marchRepopulate", true);
+        MARCH_REPOPULATE_SECONDS = b
+                .comment("Seconds between attempts. Each player in the March gets one attempt per interval, and many attempts",
+                        "find nothing that fits the spot, so emptied land fills over tens of minutes rather than at once.")
+                .defineInRange("marchRepopulateSeconds", 60, 5, 3600);
+        MARCH_REPOPULATE_MIN_DISTANCE = b
+                .comment("Closest an attempt lands to its player, in blocks horizontally. Nothing ever appears within 24 blocks",
+                        "of a player, as with natural spawning.")
+                .defineInRange("marchRepopulateMinDistance", 32, 24, 128);
+        MARCH_REPOPULATE_MAX_DISTANCE = b
+                .comment("Farthest an attempt lands from its player. Only chunks already loaded and ticking are used; none is",
+                        "ever loaded or generated for this. 128 is where wandering animals would count as far away.")
+                .defineInRange("marchRepopulateMaxDistance", 96, 24, 128);
+        MARCH_REPOPULATE_RADIUS = b
+                .comment("Blocks around an attempt in which animals are counted against marchRepopulateCap.")
+                .defineInRange("marchRepopulateRadius", 32, 8, 128);
+        MARCH_REPOPULATE_CAP = b
+                .comment("No group arrives while this many animals (any creature, tamed or wild, from any mod) already live within",
+                        "marchRepopulateRadius, and a group never takes the count past it. 6 is a little above how many a",
+                        "stretch of new March land starts with, so land refills to about its first state and no further.")
+                .defineInRange("marchRepopulateCap", 6, 1, 64);
+        b.pop();
         b.comment("Spiritgear weapons. Damage and speed are the rank 0 values the tooltip shows (attack damage, attacks",
                 "per second); ranks add the Blade's bonuses on top. Reach is added to the wielder's reach in blocks.").push("weapons");
         for (var kind : tk.darrow.tribalpower.item.WeaponKind.values()) {
@@ -487,6 +521,12 @@ public final class TribalConfig {
     public static int eliteXpMultiplier() { return get(ELITE_XP_MULTIPLIER); }
     public static boolean onlyHuntersBlockSleep() { return get(ONLY_HUNTERS_BLOCK_SLEEP); }
     public static boolean sleepSkipsNight() { return get(SLEEP_SKIPS_NIGHT); }
+    public static boolean marchRepopulate() { return get(MARCH_REPOPULATE); }
+    public static int marchRepopulateSeconds() { return get(MARCH_REPOPULATE_SECONDS); }
+    public static int marchRepopulateMinDistance() { return get(MARCH_REPOPULATE_MIN_DISTANCE); }
+    public static int marchRepopulateMaxDistance() { return get(MARCH_REPOPULATE_MAX_DISTANCE); }
+    public static int marchRepopulateRadius() { return get(MARCH_REPOPULATE_RADIUS); }
+    public static int marchRepopulateCap() { return get(MARCH_REPOPULATE_CAP); }
 
     public static double weaponDamage(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).damage()); }
     public static double weaponSpeed(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).speed()); }

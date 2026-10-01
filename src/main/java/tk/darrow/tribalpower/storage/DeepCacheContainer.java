@@ -98,16 +98,26 @@ public class DeepCacheContainer implements Container {
         for (int i = 0; i < menu.slots.size(); i++) {
             net.minecraft.world.inventory.Slot old = menu.slots.get(i);
             if (old.container != vault) continue;
-            net.minecraft.world.inventory.Slot guarded = new net.minecraft.world.inventory.Slot(vault, old.getContainerSlot(), old.x, old.y) {
-                @Override
-                public boolean mayPlace(ItemStack stack) {
-                    return vault.canPlaceItem(getContainerSlot(), stack);
-                }
-            };
+            net.minecraft.world.inventory.Slot guarded = new VaultSlot(vault, old.getContainerSlot(), old.x, old.y);
             guarded.index = old.index;
             menu.slots.set(i, guarded);
         }
         return menu;
+    }
+
+    /**
+     * A vault slot: an ordinary storage slot that only turns away what the vault refuses. It is still plain
+     * storage, so the tidy button sorts it (and checks every stack against {@link #mayPlace} first).
+     */
+    public static final class VaultSlot extends net.minecraft.world.inventory.Slot implements InventorySorter.StorageSlot {
+        public VaultSlot(net.minecraft.world.Container vault, int slot, int x, int y) {
+            super(vault, slot, x, y);
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return container.canPlaceItem(getContainerSlot(), stack);
+        }
     }
 
     @Override

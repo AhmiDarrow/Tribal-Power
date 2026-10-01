@@ -27,6 +27,7 @@ public final class TribalPower {
         modBus.addListener((net.neoforged.neoforge.common.world.chunk.RegisterTicketControllersEvent event)->event.register(tk.darrow.tribalpower.camp.CampHooks.TICKETS));
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::spawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchNights::sleepFinished);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.entity.MarchRepopulation::levelTick);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.CampHooks::finalizeSpawn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.camp.Ownership::guardBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.building.BuildersChalkItem::shrink);
