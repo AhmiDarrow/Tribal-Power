@@ -45,6 +45,9 @@ Uploaded 2026-09-19: `tribalpower-3.5.0.jar` as file **8918180** ("Tribal Power 
 
 Project description refreshed for 3.5.0: new March section (terrain, caves, March-slate ores, amethyst, game), optional Chocobos Reborn section, version line. Edit `docs/public/store-description.md`, run `python tools/render_store_html.py` (local authoring tool; `tools/` is git-ignored), and paste `docs/public/store-description.html` into the Author Console description (CurseForge has no API for the description).
 
+## 5.3.14 — Wildlife Returns
+Uploaded 2026-09-30: `tribalpower-5.3.14.jar` as file **9023760** ("Tribal Power 5.3.14 - Wildlife Returns", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.14.md`. March creature repopulation ([wildlife] config: 60 s per player, 32-96 blocks, cap 6 in a 32 radius); tidy button sorts the Deep Cache, Wayfarer Satchel and camp vault. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.14
+
 ## 5.3.13 — Mended and Measured
 Uploaded 2026-09-30: `tribalpower-5.3.13.jar` as file **9022118** ("Tribal Power 5.3.13 - Mended and Measured", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.13.md`. Sweep release: dupes and XP exploit closed, ownership on keystones/relays/bonded animals, comparators hear stalls, Kinship Totems pass the voice gate, Grove Tender fells only grown trees, recipe viewer panels wrap, boss themes play, stool block entity warning gone, Codex proofread; one-pass Pulse draws, cached conductor lines. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.13
 
