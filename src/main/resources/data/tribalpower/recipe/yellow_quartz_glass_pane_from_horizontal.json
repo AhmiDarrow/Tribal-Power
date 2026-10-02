@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "tribalpower:yellow_horizontal_quartz_glass_pane"
+    }
+  ],
+  "result": {
+    "id": "tribalpower:yellow_quartz_glass_pane",
+    "count": 1
+  }
+}

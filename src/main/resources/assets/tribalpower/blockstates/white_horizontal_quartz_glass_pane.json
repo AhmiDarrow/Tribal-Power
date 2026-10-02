@@ -1,0 +1,98 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "half": "bottom"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_bottom"
+      }
+    },
+    {
+      "when": {
+        "half": "bottom",
+        "north": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_bottom"
+      }
+    },
+    {
+      "when": {
+        "half": "bottom",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_bottom",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "half": "bottom",
+        "south": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_bottom",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "half": "bottom",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_bottom",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "half": "top"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_top"
+      }
+    },
+    {
+      "when": {
+        "half": "top",
+        "north": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_top"
+      }
+    },
+    {
+      "when": {
+        "half": "top",
+        "east": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_top",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "half": "top",
+        "south": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_top",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "half": "top",
+        "west": "false"
+      },
+      "apply": {
+        "model": "tribalpower:block/white_horizontal_quartz_glass_pane_rim_top",
+        "y": 270
+      }
+    }
+  ]
+}

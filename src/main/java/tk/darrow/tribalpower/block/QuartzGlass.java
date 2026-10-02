@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 
 /**
  * Quartz Glass: what the Glimmer Ridge's crystal becomes in a kiln. Clear and all sixteen dyes, as
- * blocks and as panes, and every one of them again as a <b>lit</b> pane that carries its own light.
+ * blocks, as standing panes, and as flat floor and ceiling sheets, and every one of them again lit.
  *
  * <p>Lighting it is a station job, not a crafting one: seat glass in an <b>Echo Attune</b> with
  * <b>glowstone dust</b> in the catalyst slot and the light is bound into the crystal. That formula is
@@ -42,7 +42,7 @@ import java.util.function.Supplier;
  * <p>Models, loot, recipes and tags come from tools/generate_quartz_glass.py.
  */
 public final class QuartzGlass {
-    /** Every glass block and pane, in creative-tab order. */
+    /** Every glass block, standing pane, and flat sheet, in creative-tab order. */
     public static final Map<String, DeferredItem<? extends Item>> ITEMS = new LinkedHashMap<>();
     /** Unlit id to its lit twin, for the Echo Attune formula. */
     public static final Map<String, String> LIT_OF = new LinkedHashMap<>();
@@ -54,17 +54,37 @@ public final class QuartzGlass {
     public static final int SECONDS = 6, PULSE = 24;
 
     static {
-        pair("quartz_glass");
-        pair("quartz_glass_pane");
-        for (DyeColor dye : DyeColor.values()) {
-            pair(dye.getSerializedName() + "_quartz_glass");
-            pair(dye.getSerializedName() + "_quartz_glass_pane");
-        }
+        family("quartz_glass");
+        for (DyeColor dye : DyeColor.values()) family(dye.getSerializedName() + "_quartz_glass");
     }
 
     private QuartzGlass() {}
 
     public static void init() {}
+
+    /**
+     * One colour: the block pair, then each standing pane with its flat sheet of the same light
+     * immediately after it. A trailing {@code _pane} on {@link #pair} is still a standing pane.
+     */
+    private static void family(String blockId) {
+        pair(blockId);
+        DyeColor dye = dyeOf(blockId);
+        String pane = blockId + "_pane";
+        String sheet = sheetId(blockId);
+        register(pane, true, dye, 0);
+        registerSheet(sheet, dye, 0);
+        register("lit_" + pane, true, dye, LIGHT);
+        registerSheet("lit_" + sheet, dye, LIGHT);
+        LIT_OF.put(pane, "lit_" + pane);
+        LIT_OF.put(sheet, "lit_" + sheet);
+    }
+
+    /** {@code quartz_glass} to {@code horizontal_quartz_glass_pane}; a dye keeps its prefix. */
+    private static String sheetId(String blockId) {
+        if (blockId.equals("quartz_glass")) return "horizontal_quartz_glass_pane";
+        String dye = blockId.substring(0, blockId.length() - "quartz_glass".length());
+        return dye + "horizontal_quartz_glass_pane";
+    }
 
     /** Registers an unlit block and its lit twin, and remembers the link between them. */
     private static void pair(String id) {
@@ -88,6 +108,13 @@ public final class QuartzGlass {
         else factory = dye == null ? () -> new TransparentBlock(glass(light))
                                    : () -> new StainedGlassBlock(dye, glass(light));
         DeferredBlock<Block> block = ModBlocks.BLOCKS.register(id, factory);
+        ITEMS.put(id, ModItems.ITEMS.registerSimpleBlockItem(id, block));
+        ALL.add(id);
+    }
+
+    /** Flat sheets never go through the standing-pane factory. */
+    private static void registerSheet(String id, DyeColor dye, int light) {
+        DeferredBlock<Block> block = ModBlocks.BLOCKS.register(id, () -> new HorizontalGlassPaneBlock(dye, glass(light)));
         ITEMS.put(id, ModItems.ITEMS.registerSimpleBlockItem(id, block));
         ALL.add(id);
     }

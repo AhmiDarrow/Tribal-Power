@@ -27,8 +27,8 @@ public class GlimmerRidgeGameTests {
     /** Every pane of glass must have a lit twin to turn into, and the map must not loop back. */
     @GameTest(template="empty")
     public static void everyGlassHasALitTwinAndTheChainEnds(GameTestHelper h) {
-        h.assertTrue(QuartzGlass.LIT_OF.size() == 34,
-                "Clear and sixteen dyes, as blocks and panes, is 34 unlit ids; found " + QuartzGlass.LIT_OF.size());
+        h.assertTrue(QuartzGlass.LIT_OF.size() == 51,
+                "Clear and sixteen dyes, as blocks, panes, and horizontal panes, is 51 unlit ids; found " + QuartzGlass.LIT_OF.size());
         for (var entry : QuartzGlass.LIT_OF.entrySet()) {
             Item lit = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("tribalpower", entry.getValue()));
             h.assertTrue(lit != null && lit != Items.AIR, entry.getKey() + " has no registered lit twin");

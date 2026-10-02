@@ -32,7 +32,8 @@
       "title": "Quartz Glass",
       "text": [
         "Melt March Quartz in a furnace and it becomes **Quartz Glass**: clear crystal panes cut with a facet pattern, not the plain stuff. Dye it with any of the sixteen colours, eight blocks to a dye, and cut six blocks into sixteen glass panes.",
-        "Unlike ordinary glass it does not shatter when you take it down. You get the pane back."
+        "Unlike ordinary glass it does not shatter when you take it down. You get the pane back.",
+        "Any pane, lit or not, crafts on its own into a **horizontal pane**: a flat sheet that lies on the floor or hangs under a ceiling, placed like a slab. Sheets side by side join into one surface. It crafts back into a standing pane."
       ]
     },
     {
