@@ -48,6 +48,9 @@ Project description refreshed for 3.5.0: new March section (terrain, caves, Marc
 ## 5.3.16 — Stone and Lit Glass
 Uploaded 2026-10-01: `tribalpower-5.3.16.jar` as file **9029023** ("Tribal Power 5.3.16 - Stone and Lit Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.16.md`. Stone pressure plates and buttons, chiseled moonstone and moss agate bricks, cracked bricks, and lit quartz glass at Echo Attune. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.16
 
+## 5.3.18 — Cooler March
+Uploaded 2026-10-03: `tribalpower-5.3.18.jar` as file **9048526** ("Tribal Power 5.3.18 - Cooler March", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.18.md`. March biome rebalance: Ember Wastes hot and dry only; Reed Fen, Highlands and Steppe reach into warm climates. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.18
+
 ## 5.3.17 — Flat Glass
 Uploaded 2026-10-01: `tribalpower-5.3.17.jar` as file **9034294** ("Tribal Power 5.3.17 - Flat Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.17.md`. Horizontal quartz glass panes (floor and ceiling sheets) in clear, sixteen dyes and lit, and clearer lit glass. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.17
 
