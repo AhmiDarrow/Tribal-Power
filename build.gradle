@@ -206,7 +206,10 @@ tasks.matching { it.name == 'runMarchSurvey' }.configureEach {
     doFirst {
         def dir = file('build/march-survey')
         dir.mkdirs()
-        new File(dir, 'server.properties').text = ['max-tick-time=-1', 'online-mode=false', 'sync-chunk-writes=false'].join(System.lineSeparator())
+        // -PsurveySeed=<n> pins the seed, so two biome lists can be compared on the same ground. Only a new world
+        // takes it: delete build/march-survey/world first.
+        new File(dir, 'server.properties').text = ['max-tick-time=-1', 'online-mode=false', 'sync-chunk-writes=false',
+                'level-seed=' + (project.findProperty('surveySeed') ?: '')].join(System.lineSeparator())
     }
 }
 
