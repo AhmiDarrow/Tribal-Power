@@ -361,6 +361,20 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
             return logs.size();
         }
 
+        /** The lowest planned log nearest the origin, where a feller strikes. For GameTests. */
+        public BlockPos foot() {
+            return logs.keySet().stream().min(java.util.Comparator.<BlockPos>comparingInt(pos -> pos.getY())
+                    .thenComparingInt(pos -> pos.distManhattan(origin))).orElse(origin);
+        }
+
+        /** What the plan puts at {@code pos}, ignoring the ground: wood, natural leaves, or air. For GameTests. */
+        public BlockState planned(BlockPos pos) {
+            Direction.Axis axis = logs.get(pos);
+            if (axis != null) return set.log.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis);
+            Integer reach = distance.get(pos);
+            return reach == null ? Blocks.AIR.defaultBlockState() : leaves.get(pos).setValue(LeavesBlock.DISTANCE, reach);
+        }
+
         void base(Vec3 v) {
             bases.add(BlockPos.containing(v));
         }

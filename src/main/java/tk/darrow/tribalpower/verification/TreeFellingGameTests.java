@@ -4,15 +4,25 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import tk.darrow.tribalpower.api.pulse.Attunement;
@@ -22,7 +32,9 @@ import tk.darrow.tribalpower.item.SpiritGear;
 import tk.darrow.tribalpower.item.TreeFelling;
 import tk.darrow.tribalpower.world.MarchTreeFeature;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 /** The Earth-voiced Spiritgear axe fells whole trees, and only trees. */
 @GameTestHolder("tribalpower")
@@ -35,6 +47,11 @@ public class TreeFellingGameTests {
     private static FakePlayer feller(GameTestHelper h, String name) {
         FakePlayer player = FakePlayerFactory.get(h.getLevel(),
                 new GameProfile(UUID.nameUUIDFromBytes(("tribalpower_feller_" + name).getBytes()), "tp_" + name));
+        equip(h, player);
+        return player;
+    }
+
+    private static void equip(GameTestHelper h, ServerPlayer player) {
         player.getInventory().clearContent();
         player.setShiftKeyDown(false);
         BlockPos stand = h.absolutePos(BASE.offset(2, 0, 0));
@@ -43,7 +60,6 @@ public class TreeFellingGameTests {
         SpiritGear.setVoice(axe, Attunement.EARTH);
         player.setItemInHand(InteractionHand.MAIN_HAND, axe);
         player.setItemInHand(InteractionHand.OFF_HAND, PulseCellItem.createFilled(200));
-        return player;
     }
 
     /** A five-log oak; with leaves, a crown of natural leaves around its top two logs and over it. */
@@ -66,9 +82,52 @@ public class TreeFellingGameTests {
 
     private static int logDrops(GameTestHelper h) {
         int count = 0;
-        for (ItemEntity item : h.getLevel().getEntitiesOfClass(ItemEntity.class, new AABB(h.absolutePos(BASE)).inflate(6, 10, 6)))
+        for (ItemEntity item : h.getLevel().getEntitiesOfClass(ItemEntity.class, new AABB(h.absolutePos(BASE)).inflate(8, 10, 8)))
             if (item.getItem().is(Items.OAK_LOG)) count += item.getItem().getCount();
         return count;
+    }
+
+    /** Cancels the break of every log {@code guarded} names, as a protection mod would, while {@code strike} runs. */
+    private static void guarded(ServerPlayer player, java.util.function.Predicate<BlockPos> guarded, Runnable strike) {
+        Consumer<BlockEvent.BreakEvent> guard = event -> {
+            if (event.getPlayer() == player && guarded.test(event.getPos())) event.setCanceled(true);
+        };
+        NeoForge.EVENT_BUS.addListener(guard);
+        try {
+            strike.run();
+        } finally {
+            NeoForge.EVENT_BUS.unregister(guard);
+        }
+    }
+
+    /** A planned March tree as a world of its own, so the felling flood can be run over trees too big for a test. */
+    private static BlockGetter planned(MarchTreeFeature.Plan plan) {
+        return new BlockGetter() {
+            @Override
+            public BlockEntity getBlockEntity(BlockPos pos) {
+                return null;
+            }
+
+            @Override
+            public BlockState getBlockState(BlockPos pos) {
+                return plan.planned(pos);
+            }
+
+            @Override
+            public FluidState getFluidState(BlockPos pos) {
+                return Fluids.EMPTY.defaultFluidState();
+            }
+
+            @Override
+            public int getHeight() {
+                return 4096;
+            }
+
+            @Override
+            public int getMinBuildHeight() {
+                return -2048;
+            }
+        };
     }
 
     @GameTest(template = "empty")
@@ -147,6 +206,87 @@ public class TreeFellingGameTests {
         h.succeed();
     }
 
+    /** A 4x4x4 block of trunk under a natural crown: 64 logs, more than one tick's batch. */
+    @GameTest(template = "empty")
+    public static void aBigTreeKeepsFallingOverTheNextTicks(GameTestHelper h) {
+        BlockPos corner = new BlockPos(5, 2, 5);
+        var leaf = Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1);
+        for (int x = -1; x <= 4; x++) for (int z = -1; z <= 4; z++) h.setBlock(corner.offset(x, 4, z), leaf);
+        for (int x = 0; x < 4; x++) for (int z = 0; z < 4; z++) {
+            h.setBlock(corner.offset(x, -1, z), Blocks.DIRT);
+            for (int y = 0; y < 4; y++) h.setBlock(corner.offset(x, y, z), Blocks.OAK_LOG);
+        }
+        // A real (mock) player in survival: fake players fell a whole tree at once, players a batch a tick.
+        ServerPlayer player = VerificationPlayers.inLevel(h);
+        try {
+            player.setGameMode(GameType.SURVIVAL);
+            player.getAbilities().instabuild = false;
+            equip(h, player);
+            ItemStack axe = player.getMainHandItem();
+            h.assertTrue(player.gameMode.destroyBlock(h.absolutePos(corner)), "The struck log breaks");
+            int standing = 0;
+            for (int x = 0; x < 4; x++) for (int y = 0; y < 4; y++) for (int z = 0; z < 4; z++)
+                if (h.getBlockState(corner.offset(x, y, z)).is(Blocks.OAK_LOG)) standing++;
+            h.assertTrue(standing == 63 - TreeFelling.PER_TICK, "The swing fells one batch, top down, " + standing + " logs stand");
+            h.assertTrue(h.getBlockState(corner.offset(3, 3, 3)).isAir(), "The top comes down first");
+            TreeFelling.tick(player);
+            for (int x = 0; x < 4; x++) for (int y = 0; y < 4; y++) for (int z = 0; z < 4; z++)
+                h.assertTrue(!h.getBlockState(corner.offset(x, y, z)).is(Blocks.OAK_LOG), "The next tick fells the rest, " + corner.offset(x, y, z) + " stands");
+            h.assertTrue(logDrops(h) == 64, "Every log drops, got " + logDrops(h));
+            h.assertTrue(axe.getDamageValue() == 63, "A point per felled log, damage " + axe.getDamageValue());
+            // 2 Pulse for the swing, and 2 for each run of 16 felled logs as it starts: four runs for 63 logs.
+            h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 190, "Swing plus four runs, cell at " + PulseCellItem.getPulse(player.getOffhandItem()));
+            TreeFelling.tick(player);
+            h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 190, "A finished felling charges nothing more");
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aProtectedLogStandsAndTheRestStillFall(GameTestHelper h) {
+        oak(h, true, false);
+        FakePlayer player = feller(h, "guarded");
+        ItemStack axe = player.getMainHandItem();
+        BlockPos keep = h.absolutePos(BASE.above(2));
+        guarded(player, keep::equals, () -> player.gameMode.destroyBlock(h.absolutePos(BASE)));
+        h.assertTrue(h.getBlockState(BASE.above(2)).is(Blocks.OAK_LOG), "The log protection refused stands");
+        h.assertTrue(logsStanding(h) == 1, "Every other log still falls, " + logsStanding(h) + " stand");
+        h.assertTrue(logDrops(h) == HEIGHT - 1, "Only felled logs drop, got " + logDrops(h));
+        h.assertTrue(axe.getDamageValue() == HEIGHT - 2, "Only felled logs wear the edge, damage " + axe.getDamageValue());
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 196, "One run paid, cell at " + PulseCellItem.getPulse(player.getOffhandItem()));
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aFullyProtectedTreeCostsNoFellingPulse(GameTestHelper h) {
+        oak(h, true, false);
+        FakePlayer player = feller(h, "warded");
+        BlockPos struck = h.absolutePos(BASE);
+        guarded(player, pos -> !pos.equals(struck), () -> player.gameMode.destroyBlock(struck));
+        h.assertTrue(logsStanding(h) == HEIGHT - 1, "Protection keeps every felled log, " + logsStanding(h) + " stand");
+        h.assertTrue(player.getMainHandItem().getDamageValue() == 0, "No log felled, no wear");
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 198,
+                "The run that felled nothing is handed back, cell at " + PulseCellItem.getPulse(player.getOffhandItem()));
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void aCabinGrownIntoATreeIsNotFelled(GameTestHelper h) {
+        oak(h, true, false);
+        // A cabin corner of the same oak logs against the trunk, with planks laid on its wall.
+        for (int z = 1; z <= 3; z++) h.setBlock(BASE.offset(0, 0, z), Blocks.OAK_LOG);
+        h.setBlock(BASE.offset(0, 1, 3), Blocks.OAK_LOG);
+        h.setBlock(BASE.offset(0, 1, 2), Blocks.OAK_PLANKS);
+        FakePlayer player = feller(h, "cabin");
+        player.gameMode.destroyBlock(h.absolutePos(BASE.above(2)));
+        h.assertTrue(logsStanding(h) == HEIGHT - 1, "Wood touching a build is not felled, " + logsStanding(h) + " tree logs stand");
+        for (int z = 1; z <= 3; z++) h.assertTrue(h.getBlockState(BASE.offset(0, 0, z)).is(Blocks.OAK_LOG), "The cabin stands");
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 198, "No felling charge");
+        h.succeed();
+    }
+
     /** The caps must fit the March's own trees, the Weeping Colossus most of all, or they would never fell. */
     @GameTest(template = "empty", timeoutTicks = 200)
     public static void fellingCapsFitTheMarchTrees(GameTestHelper h) {
@@ -161,6 +301,38 @@ public class TreeFellingGameTests {
             }
             int young = MarchTreeFeature.grow(MarchTreeFeature.Shape.YOUNG_WILLOW, BlockPos.ZERO, seed, 1.0).logCount();
             h.assertTrue(young <= TreeFelling.WILLOW_CAP, "A young willow fits the willow cap");
+        }
+        h.succeed();
+    }
+
+    /**
+     * Every leafy March tree, struck at its foot, has the leaves to count as one; and a colossus, far bigger than one
+     * edge, gives a fresh axe (and one with Unbreaking III) its crown, the scan stopping long before the whole tree.
+     */
+    @GameTest(template = "empty", timeoutTicks = 400)
+    public static void everyMarchTreeFellsFromItsFoot(GameTestHelper h) {
+        int fresh = SpiritGear.TOOL_DURABILITY - 1;
+        for (long seed = 1; seed <= 2; seed++) {
+            for (MarchTreeFeature.Shape shape : MarchTreeFeature.Shape.values()) {
+                // A cinder snag may grow no tufts at all, and is then deadwood rather than a tree.
+                if (shape == MarchTreeFeature.Shape.CINDER_SNAG) continue;
+                boolean colossus = shape == MarchTreeFeature.Shape.WEEPING_COLOSSUS;
+                MarchTreeFeature.Plan plan = MarchTreeFeature.grow(shape, BlockPos.ZERO, seed, colossus ? 1.1 : 1.0);
+                BlockPos foot = plan.foot();
+                Block wood = plan.planned(foot).getBlock();
+                int cap = colossus || shape == MarchTreeFeature.Shape.YOUNG_WILLOW ? TreeFelling.WILLOW_CAP : TreeFelling.CAP;
+                if (!colossus) {
+                    List<BlockPos> whole = TreeFelling.tree(planned(plan), pos -> true, foot, wood, cap, Integer.MAX_VALUE);
+                    h.assertTrue(!whole.isEmpty(), shape + " (seed " + seed + ") struck at its foot is a tree to the axe");
+                    continue;
+                }
+                for (int room : new int[]{fresh, fresh * 4}) {
+                    List<BlockPos> first = TreeFelling.tree(planned(plan), pos -> true, foot, wood, cap, room);
+                    h.assertTrue(first.size() == room, "An edge good for " + room + " logs fells that many of a colossus (seed " + seed + "), got " + first.size());
+                    h.assertTrue(first.getLast().getY() > foot.getY() + 40,
+                            "The colossus comes down from its crown, not its foot: lowest felled at " + first.getLast().getY() + ", top " + plan.top);
+                }
+            }
         }
         h.succeed();
     }
