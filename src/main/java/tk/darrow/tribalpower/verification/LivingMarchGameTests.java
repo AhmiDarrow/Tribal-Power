@@ -167,7 +167,11 @@ public final class LivingMarchGameTests {
         h.assertTrue(after > items, "The spirit leaves a gift");
         h.runAtTickTime(5, () -> {
             h.assertFalse(spirit.isAlive(), "And goes");
-            h.assertTrue(level.getEntitiesOfClass(ItemEntity.class, h.getBounds().inflate(8)).isEmpty(), "Nothing spills on the ground");
+            // Only new items right where the spirit stood: the runner reuses test positions, so an earlier test's
+            // drops can still lie here, and tests running beside this one drop things within a few blocks.
+            var around = new net.minecraft.world.phys.AABB(h.absolutePos(new BlockPos(3, 3, 3))).inflate(2.5);
+            var spilled = level.getEntitiesOfClass(ItemEntity.class, around, e -> e.getAge() < 40);
+            h.assertTrue(spilled.isEmpty(), "Nothing spills on the ground: " + spilled.stream().map(e -> e.getItem().toString()).toList());
             player.remove(Entity.RemovalReason.DISCARDED);
             h.succeed();
         });
