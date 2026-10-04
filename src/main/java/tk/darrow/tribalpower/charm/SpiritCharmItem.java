@@ -82,7 +82,24 @@ public class SpiritCharmItem extends Item {
     }
 
     public static boolean grantsFlight(ItemStack stack) {
-        return voices(stack).contains(Attunement.AIR);
+        return effectVoices(stack).contains(Attunement.AIR);
+    }
+
+    /** The voices behind a worn charm's shared effects: flight, slow fall and the rest. */
+    public static Set<Attunement> effectVoices(ItemStack stack) {
+        Set<Attunement> voices = voices(stack);
+        return stack.getItem() instanceof SpiritCharmItem charm ? effectVoices(charm.kind, voices) : voices;
+    }
+
+    /**
+     * A Gathering Charm's native Air is its pull, not wings, so only the voices bound on top of it count.
+     * Air itself can never be bound to one (it already sings it), so its Air never lifts the wearer.
+     */
+    public static Set<Attunement> effectVoices(CharmKind kind, Set<Attunement> voices) {
+        if (kind != CharmKind.GATHERING || !voices.contains(Attunement.AIR)) return voices;
+        Set<Attunement> out = new LinkedHashSet<>(voices);
+        out.remove(Attunement.AIR);
+        return out;
     }
 
     @Override

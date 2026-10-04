@@ -62,7 +62,7 @@
       "text": [
         "A silent Chorus still costs 2. Crouch-use it on a Ritual Brazier with **three different totems** within 8 blocks and **200 Pulse**, and it binds every voice nearby.",
         "Crouch-use a charm on a Resonance Totem to add that voice for **40 Pulse**. More voices cost more to wear and do more.",
-        "Ward and Hearth carry Earth and Fire, so they also give resistance and fire resistance. Air gives slow falling as well, unless Fire is worn too. Flight comes with the Air voice, not the Sky Charm alone: any worn charm that carries Air, Sky's own or one you added, lets you fly while Pulse lasts."
+        "Ward and Hearth carry Earth and Fire, so they also give resistance and fire resistance. Air gives slow falling as well, unless Fire is worn too. Flight comes with the Air voice, not the Sky Charm alone: any worn charm that carries Air, Sky's own or one you added, lets you fly while Pulse lasts. The Gathering Charm is the one exception: its own Air goes into the pull."
       ]
     },
     {
@@ -70,8 +70,8 @@
       "title": "The Gathering Charm",
       "text": [
         "While worn and paid for, it draws dropped items and experience to you from **5 blocks**, **2 more per extra voice**, up to **11**.",
-        "**Sneak** to pause it so you can drop things. A stack someone just threw is left alone until it can be picked up, and items another mod marks as not to be moved stay put.",
-        "It carries Air, so like Sky it also lends flight while Pulse lasts."
+        "**Sneak** to pause it so you can drop things. A stack someone just threw is left alone until it can be picked up, a stack kept for another player is theirs, and items another mod marks as not to be moved stay put.",
+        "Its Air goes into the pull, so unlike Sky it gives no flight and no slow falling. Voices you add to it work as on any charm."
       ]
     },
     {

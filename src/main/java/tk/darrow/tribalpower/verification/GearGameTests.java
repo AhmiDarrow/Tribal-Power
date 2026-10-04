@@ -379,6 +379,11 @@ public class GearGameTests {
 
     /** A survival-paying wearer of a Gathering Charm on a stone floor, with a full cell to pay its upkeep. */
     private static net.minecraft.server.level.ServerPlayer gatherer(GameTestHelper h) {
+        return gatherer(h, PulseCellItem.createFilled(200));
+    }
+
+    /** The same wearer, paying from the given cell. */
+    private static net.minecraft.server.level.ServerPlayer gatherer(GameTestHelper h, ItemStack cell) {
         for (int x = 3; x <= 13; x++)
             for (int z = 3; z <= 13; z++) h.setBlock(x, 1, z, Blocks.STONE);
         var player = VerificationPlayers.inLevel(h);
@@ -386,7 +391,7 @@ public class GearGameTests {
         player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
         var at = h.absolutePos(new BlockPos(8, 2, 8));
         player.moveTo(at.getX() + 0.5, at.getY(), at.getZ() + 0.5, 0, 0);
-        player.getInventory().setItem(1, PulseCellItem.createFilled(200));
+        player.getInventory().setItem(1, cell);
         h.assertTrue(tk.darrow.tribalpower.charm.CharmSlots.of(player).equip(new ItemStack(ModItems.GATHERING_CHARM.get())),
                 "The Gathering Charm equips");
         // Mock players are never ticked, so drive the charm hook ourselves.
@@ -424,9 +429,13 @@ public class GearGameTests {
         player.setShiftKeyDown(true);
         var loose = restingDrop(h, 12, 8);
         var pinned = restingDrop(h, 8, 12);
-        pinned.getPersistentData().putBoolean("PreventRemoteMovement", true);
+        // The flag's presence is the request, so even a false value keeps it put.
+        pinned.getPersistentData().putBoolean("PreventRemoteMovement", false);
+        var reserved = restingDrop(h, 4, 8);
+        reserved.setTarget(java.util.UUID.randomUUID());
         Vec3 looseStart = loose.position();
         Vec3 pinnedStart = pinned.position();
+        Vec3 reservedStart = reserved.position();
         h.runAfterDelay(30, () -> {
             h.assertTrue(loose.position().distanceTo(looseStart) < 0.3,
                     "Sneaking pauses the charm, yet the stack moved to " + loose.position());
@@ -437,6 +446,54 @@ public class GearGameTests {
             h.assertTrue(!player.isShiftKeyDown() && inReach(player, loose), "The loose stack comes in once the player stands");
             h.assertTrue(pinned.position().distanceTo(pinnedStart) < 0.3,
                     "A PreventRemoteMovement stack is never pulled, yet it moved to " + pinned.position());
+            h.assertTrue(reserved.position().distanceTo(reservedStart) < 0.3,
+                    "A stack kept for another player is never pulled, yet it moved to " + reserved.position());
+        });
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 140)
+    public static void gatheringCharmWaitsOutAPickupDelay(GameTestHelper h) {
+        var player = gatherer(h);
+        var thrown = restingDrop(h, 12, 8);
+        thrown.setPickUpDelay(40);
+        Vec3 start = thrown.position();
+        h.runAfterDelay(30, () -> h.assertTrue(thrown.position().distanceTo(start) < 0.3,
+                "A stack under a pickup delay stays where it lands, yet it moved to " + thrown.position()));
+        // Once the delay runs out the charm takes it like any other.
+        h.succeedWhen(() -> h.assertTrue(!thrown.hasPickUpDelay() && inReach(player, thrown),
+                "The stack comes in once its pickup delay is over, it sits at " + thrown.position()));
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 140)
+    public static void gatheringCharmStopsWhenUnpaid(GameTestHelper h) {
+        gatherer(h, new ItemStack(ModItems.PULSE_CELL.get()));
+        // Upkeep falls due every 40 ticks and the charm runs on credit until then, so let a payment tick pass first.
+        long now = h.getLevel().getGameTime();
+        int pastDue = (int) (40 - now % 40) + 2;
+        var drop = new net.minecraft.world.entity.item.ItemEntity[1];
+        Vec3[] start = new Vec3[1];
+        h.runAfterDelay(pastDue, () -> {
+            drop[0] = restingDrop(h, 12, 8);
+            start[0] = drop[0].position();
+        });
+        h.runAfterDelay(pastDue + 30, () -> {
+            h.assertTrue(drop[0].position().distanceTo(start[0]) < 0.3,
+                    "An unpaid charm pulls nothing, yet the stack moved to " + drop[0].position());
+            h.succeed();
+        });
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 140)
+    public static void gatheringCharmIsNoWings(GameTestHelper h) {
+        var player = gatherer(h);
+        h.assertTrue(!tk.darrow.tribalpower.charm.SpiritCharmItem.grantsFlight(new ItemStack(ModItems.GATHERING_CHARM.get())),
+                "The Gathering Charm's Air is its pull, not flight");
+        // Past two payment ticks and one effect tick: the charm is paid for and has applied its voices.
+        h.runAfterDelay(85, () -> {
+            h.assertTrue(PulseCellItem.getPulse(player.getInventory().getItem(1)) < 200, "The worn charm was paid for");
+            h.assertTrue(!player.getAbilities().mayfly, "A Gathering Charm alone grants no flight");
+            h.assertTrue(!player.hasEffect(MobEffects.SLOW_FALLING), "A Gathering Charm alone grants no slow fall");
+            h.succeed();
         });
     }
 

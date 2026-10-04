@@ -47,10 +47,13 @@ public final class CharmHooks {
             ItemStack charm = worn.getItem(i);
             if (charm.isEmpty()) continue;
             Set<Attunement> theirs = SpiritCharmItem.voices(charm);
+            // Cost and pull radius count every voice; the shared effects skip a Gathering Charm's own Air.
+            Set<Attunement> effects = charm.getItem() instanceof SpiritCharmItem item
+                    ? SpiritCharmItem.effectVoices(item.kind, theirs) : theirs;
             if (voices == null) voices = new HashSet<>();
-            voices.addAll(theirs);
+            voices.addAll(effects);
             cost += 2 * Math.max(1, theirs.size());
-            if (theirs.contains(Attunement.AIR)) flight = true;
+            if (effects.contains(Attunement.AIR)) flight = true;
             if (charm.getItem() instanceof SpiritCharmItem item && item.kind == CharmKind.GATHERING)
                 gathering = Math.max(gathering, Math.max(1, theirs.size()));
         }
@@ -125,7 +128,8 @@ public final class CharmHooks {
         if ((player.level().getGameTime() + player.getId()) % 2 != 0) return;
         double radius = gatherRadius(voices);
         Vec3 target = player.position().add(0, 0.5, 0);
-        for (Entity entity : player.level().getEntities(player, player.getBoundingBox().inflate(radius), CharmHooks::gatherable)) {
+        java.util.UUID wearer = player.getUUID();
+        for (Entity entity : player.level().getEntities(player, player.getBoundingBox().inflate(radius), e -> gatherable(e, wearer))) {
             Vec3 to = target.subtract(entity.position());
             double distance = to.length();
             // Close enough is left to vanilla pickup; pushing on would only shove it through the player.
@@ -136,11 +140,19 @@ public final class CharmHooks {
         }
     }
 
-    private static boolean gatherable(Entity entity) {
-        if (!entity.isAlive() || entity.getPersistentData().getBoolean(PREVENT_REMOTE_MOVEMENT)) return false;
-        // A pickup delay means it was just thrown (or is never to be picked up): leave it where it lands.
-        if (entity instanceof ItemEntity item) return !item.hasPickUpDelay();
-        return entity instanceof ExperienceOrb;
+    private static boolean gatherable(Entity entity, java.util.UUID wearer) {
+        // Type first: getPersistentData() creates NeoForge's tag on whatever it is asked of, so ask only our two kinds.
+        if (!entity.isAlive()) return false;
+        if (entity instanceof ItemEntity item) {
+            // A pickup delay means it was just thrown (or is never to be picked up): leave it where it lands.
+            if (item.hasPickUpDelay()) return false;
+            // A stack kept for someone else (a /give overflow, say) is theirs to collect, not ours to take.
+            if (item.getTarget() != null && !item.getTarget().equals(wearer)) return false;
+        } else if (!(entity instanceof ExperienceOrb)) {
+            return false;
+        }
+        // The flag's presence is the request, whatever value it carries.
+        return !entity.getPersistentData().contains(PREVENT_REMOTE_MOVEMENT);
     }
 
     private static void apply(Player player, Set<Attunement> voices) {
