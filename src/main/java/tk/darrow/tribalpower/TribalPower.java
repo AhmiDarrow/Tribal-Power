@@ -136,6 +136,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.ley.LeyRopes::changedDimension);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::stackedOn);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.block.ResonanceTotemBlock::sneakLink);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.block.RelayBlock::placeOnMachines);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentPouchHooks::onPickup);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);

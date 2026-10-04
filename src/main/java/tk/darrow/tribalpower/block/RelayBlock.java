@@ -70,6 +70,17 @@ public class RelayBlock extends BaseEntityBlock {
         return SHAPES[state.getValue(FACING).ordinal()];
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new WirelessRelayBlockEntity(pos, state); }
+
+    /**
+     * A plate always goes on a machine, and most machines (Stone Font, caches, stations) take a plain right-click for
+     * themselves, so a plate could only be put on with a crouch. Holding a plate, the click places it instead; a plate's
+     * own screen still opens.
+     */
+    public static void placeOnMachines(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+        if (!(event.getItemStack().getItem() instanceof net.minecraft.world.item.BlockItem item) || !(item.getBlock() instanceof RelayBlock)) return;
+        if (event.getLevel().getBlockState(event.getPos()).getBlock() instanceof RelayBlock) return;
+        event.setUseBlock(net.neoforged.neoforge.common.util.TriState.FALSE);
+    }
     @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
         if (level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) relay.setOwner(tk.darrow.tribalpower.camp.Ownership.of(placer));

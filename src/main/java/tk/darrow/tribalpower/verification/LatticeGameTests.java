@@ -1411,6 +1411,59 @@ public class LatticeGameTests {
         h.succeed();
     }
 
+    /** A plain right-click with a plate puts it on a Stone Font's top or bottom (the font used to take the click). */
+    @GameTest(template="empty")
+    public static void platesGoOnTheStoneFontWithAPlainClick(GameTestHelper h) {
+        var player=VerificationPlayers.inLevel(h);
+        for (var plate : java.util.List.of(ModBlocks.ITEM_RELAY.get(),ModBlocks.FLUID_RELAY.get())) {
+            for (Direction face : new Direction[]{Direction.UP,Direction.DOWN}) {
+                BlockPos font=new BlockPos(3,3,3);
+                h.setBlock(font.above(),Blocks.AIR);h.setBlock(font.below(),Blocks.AIR);
+                h.setBlock(font,ModBlocks.STONE_FONT.get());
+                player.setShiftKeyDown(false);
+                player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(plate));
+                BlockPos abs=h.absolutePos(font);
+                var hit=new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(abs).add(0,face.getStepY()*0.45,0),face,abs,false);
+                var event=new net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock(player,net.minecraft.world.InteractionHand.MAIN_HAND,abs,hit);
+                tk.darrow.tribalpower.block.RelayBlock.placeOnMachines(event);
+                h.assertTrue(event.getUseBlock()==net.neoforged.neoforge.common.util.TriState.FALSE,"Holding a plate, the font gives up the click");
+                // The game then lets the item place itself, which a crouched click does too.
+                player.setShiftKeyDown(true);
+                player.gameMode.useItemOn(player,h.getLevel(),player.getMainHandItem(),net.minecraft.world.InteractionHand.MAIN_HAND,hit);
+                var placed=h.getLevel().getBlockState(abs.relative(face));
+                h.assertTrue(placed.is(plate) && placed.getValue(tk.darrow.tribalpower.block.RelayBlock.FACING)==face,
+                        plate+" goes on the font's "+face+" face, got "+placed);
+            }
+        }
+        h.succeed();
+    }
+
+    /** A fluid plate on a cistern, tuned to a Stone Font's top, fills the font; ranked, its channels share the fluid. */
+    @GameTest(template="empty", timeoutTicks=220)
+    public static void fluidPlatesFeedTheFontAndUseChannels(GameTestHelper h) {
+        h.setBlock(2,1,2,ModBlocks.SPIRIT_CISTERN.get());h.setBlock(2,2,2,ModBlocks.FLUID_RELAY.get());
+        h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
+        h.setBlock(6,1,2,ModBlocks.STONE_FONT.get());h.setBlock(6,1,5,ModBlocks.SPIRIT_CISTERN.get());
+        power(h);
+        var source=at(h,new BlockPos(2,1,2),tk.darrow.tribalpower.blockentity.SpiritCisternBlockEntity.class);
+        source.tank.fill(new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER,4000),net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+        var font=at(h,new BlockPos(6,1,2),tk.darrow.tribalpower.blockentity.StoneFontBlockEntity.class);
+        var spare=at(h,new BlockPos(6,1,5),tk.darrow.tribalpower.blockentity.SpiritCisternBlockEntity.class);
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        tk.darrow.tribalpower.item.MachineRank.apply(relay,1);
+        String dim=h.getLevel().dimension().location().toString();
+        h.assertTrue(relay.channelCount()==2,"A ranked fluid plate has channels too");
+        relay.bindChannel(0,h.absolutePos(new BlockPos(6,1,2)),Direction.UP,dim);
+        relay.bindChannel(1,h.absolutePos(new BlockPos(6,1,5)),Direction.UP,dim);
+        relay.toggleRoundRobin();
+        h.runAfterDelay(170,()->{
+            int inFont=font.water.getFluidAmount(), inSpare=spare.tank.getFluidAmount();
+            h.assertTrue(inFont>0,"The font's top takes water from the plate, font="+inFont);
+            h.assertTrue(inSpare>0,"And the second channel gets its turn, spare="+inSpare);
+            h.succeed();
+        });
+    }
+
     /** The plate lies against its host, so its hitbox must sit on the host's side of the block space. */
     @GameTest(template="empty")
     public static void relayHitboxSitsAgainstItsHost(GameTestHelper h) {
