@@ -63,7 +63,7 @@ public enum CreatureProfile {
     CHIME_GRAZER("chime_grazer",true,false,24,0.22,0,3,1.0F,1.7F,"none","chime_crest",0x66568a,0xd4c6f2),
     GLASS_FLITTER("glass_flitter",true,true,10,0.28,0,0,0.7F,0.7F,"none","glass_wing",0xa4c4de,0xe0f4ff),
     GEODE_GRUB("geode_grub",true,false,26,0.14,0,5,1.1F,0.9F,"none","geode_husk",0x544673,0xd4c6f2),
-    SHARD_STALKER("shard_stalker",false,false,21,0.3,5,1,1.0F,1.4F,"venom","shard_barb",0x322946,0xd4c6f2),
+    SHARD_STALKER("shard_stalker",false,false,21,0.3,5,1,1.0F,1.1F,"venom","shard_barb",0x322946,0xd4c6f2),
     SILT_GLIDER("silt_glider",true,false,14,0.26,0,1,0.8F,0.7F,"none","silt_fin",0x386e88,0xa0d6ec),
     PALE_DRIFTER("pale_drifter",true,false,12,0.22,0,0,0.8F,1.8F,"none","pale_streamer",0xe8923e,0xffde9c),
     SHOAL_DARTER("shoal_darter",true,false,14,0.26,0,1,0.8F,0.7F,"none","shoal_scale",0x1d3c38,0xaae0ce),
