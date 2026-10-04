@@ -151,6 +151,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.HEARTH_CHARM.get());
                         out.accept(ModItems.VEIL_CHARM.get());
                         out.accept(ModItems.CHORUS_CHARM.get());
+                        out.accept(ModItems.GATHERING_CHARM.get());
                         out.accept(ModItems.RITUAL_BRAZIER.get());
                         out.accept(ModItems.LATTICE_TUNER.get());
                         out.accept(ModItems.TOTEM_WRENCH.get());

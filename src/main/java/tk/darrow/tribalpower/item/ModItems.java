@@ -243,6 +243,7 @@ public final class ModItems {
     public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> HEARTH_CHARM = ITEMS.register("hearth_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.HEARTH, new Item.Properties()));
     public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> VEIL_CHARM = ITEMS.register("veil_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.VEIL, new Item.Properties()));
     public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> CHORUS_CHARM = ITEMS.register("chorus_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.CHORUS, new Item.Properties()));
+    public static final DeferredItem<tk.darrow.tribalpower.charm.SpiritCharmItem> GATHERING_CHARM = ITEMS.register("gathering_charm", () -> new tk.darrow.tribalpower.charm.SpiritCharmItem(tk.darrow.tribalpower.charm.CharmKind.GATHERING, new Item.Properties()));
     public static final DeferredItem<BlockItem> RITUAL_BRAZIER = ITEMS.registerSimpleBlockItem("ritual_brazier", ModBlocks.RITUAL_BRAZIER);
 
     // The Listening Pit and the Stone Font (design 3.1 sections 6 and 7). The Ritual Mark has no item:

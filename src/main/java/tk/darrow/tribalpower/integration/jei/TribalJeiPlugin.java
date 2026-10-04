@@ -127,6 +127,7 @@ public class TribalJeiPlugin implements IModPlugin {
         registration.addIngredientInfo(ModItems.HEARTH_CHARM.get(),charmHint);
         registration.addIngredientInfo(ModItems.VEIL_CHARM.get(),charmHint);
         registration.addIngredientInfo(ModItems.CHORUS_CHARM.get(),charmHint);
+        registration.addIngredientInfo(ModItems.GATHERING_CHARM.get(),charmHint);
         registration.addIngredientInfo(ModItems.SPIRIT_STAFF.get(),Component.translatable("item.tribalpower.spirit_staff.jei"));
         registration.addIngredientInfo(ModItems.LATTICE_TUNER.get(),Component.translatable("item.tribalpower.lattice_tuner.desc"));
         registration.addIngredientInfo(ModItems.SPIRITGEAR_PICKAXE.get(),Component.translatable("item.tribalpower.spiritgear.hint"));
