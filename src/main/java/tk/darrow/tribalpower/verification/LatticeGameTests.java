@@ -1464,6 +1464,36 @@ public class LatticeGameTests {
         });
     }
 
+    /** A Fire Seal plate burns what its filter names and nothing else; with an empty filter it burns nothing. */
+    @GameTest(template="empty", timeoutTicks=200)
+    public static void voidPlatesBurnOnlyWhatTheFilterNames(GameTestHelper h) {
+        h.setBlock(2,1,2,Blocks.CHEST);h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(5,1,2,Blocks.CHEST);h.setBlock(5,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,1,5,ModBlocks.SPIRIT_CISTERN.get());h.setBlock(2,2,5,ModBlocks.FLUID_RELAY.get());
+        h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
+        power(h);
+        var sorted=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
+        var untouched=at(h,new BlockPos(5,1,2),ChestBlockEntity.class);
+        var cistern=at(h,new BlockPos(2,1,5),tk.darrow.tribalpower.blockentity.SpiritCisternBlockEntity.class);
+        sorted.setItem(0,new ItemStack(Items.COBBLESTONE,32));sorted.setItem(1,new ItemStack(Items.DIAMOND,3));
+        untouched.setItem(0,new ItemStack(Items.COBBLESTONE,32));
+        cistern.tank.fill(new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER,2000),net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+        var burner=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var idle=at(h,new BlockPos(5,2,2),WirelessRelayBlockEntity.class);
+        var drain=at(h,new BlockPos(2,2,5),WirelessRelayBlockEntity.class);
+        for (var plate : java.util.List.of(burner,idle,drain)) plate.setItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.FIRE_SEAL.get()));
+        h.assertTrue(burner.voiding() && burner.canPlaceItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.FIRE_SEAL.get())),"A Fire Seal sits in the rune slot and makes a void plate");
+        burner.toggleAllow(null);burner.setFilter(0,new ItemStack(Items.COBBLESTONE));
+        drain.toggleAllow(null);drain.setFilter(0,new ItemStack(Items.WATER_BUCKET));
+        h.runAfterDelay(110,()->{
+            h.assertTrue(sorted.countItem(Items.COBBLESTONE)==0 && sorted.countItem(Items.DIAMOND)==3,"The whitelisted cobblestone burns and the diamonds stay");
+            h.assertTrue(untouched.countItem(Items.COBBLESTONE)==32,"A void plate with an empty filter burns nothing");
+            h.assertTrue(cistern.tank.getFluidAmount()<2000,"A fluid void plate burns the water its filter names, left="+cistern.tank.getFluidAmount());
+            h.assertTrue(h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,h.getBounds().inflate(1),e->e.getAge()<200).isEmpty(),"Burned goods are gone, not dropped");
+            h.succeed();
+        });
+    }
+
     /** The plate lies against its host, so its hitbox must sit on the host's side of the block space. */
     @GameTest(template="empty")
     public static void relayHitboxSitsAgainstItsHost(GameTestHelper h) {

@@ -216,6 +216,12 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         return id.startsWith("astral_") ? 3 : id.startsWith("longreach_") ? 2 : 1;
     }
 
+    /**
+     * A Fire Seal in the rune slot burns what the plate pulls instead of sending it on. It only ever burns what the
+     * first channel's filter names: an empty filter burns nothing, so seating the seal can never wipe a chest.
+     */
+    public boolean voiding() { return items.get(RUNE).is(ModItems.FIRE_SEAL.get()); }
+
     public boolean fluid() {
         ItemStack rune = items.get(RUNE);
         if (rune.is(ModItems.WATER_SEAL.get())) return true;
@@ -282,7 +288,51 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
             be.updateStatus("unlinked");
             return;
         }
-        be.tickChannels(level);
+        if (be.voiding()) be.tickVoid(level);
+        else be.tickChannels(level);
+    }
+
+    private void tickVoid(Level level) {
+        Channel filter = channels[0];
+        if (filter.filters.stream().allMatch(ItemStack::isEmpty)) { updateStatus("void_empty"); return; }
+        if (!level.hasChunkAt(host())) { updateStatus("unloaded"); return; }
+        int cost = pulseCost();
+        if (LatticeNetwork.extractPulseNearby(level, worldPosition, 8, cost, true) < cost) { updateStatus("pulse"); return; }
+        boolean burned = fluid() ? voidFluid(level, filter) : voidItem(level, filter);
+        updateStatus(burned ? "working" : "waiting");
+        if (!burned) return;
+        LatticeNetwork.extractPulseNearby(level, worldPosition, 8, cost, false);
+        setChanged();
+        if (Math.floorMod(level.getGameTime() + worldPosition.asLong(), 60) == 0)
+            ((ServerLevel) level).sendParticles(net.minecraft.core.particles.ParticleTypes.FLAME, worldPosition.getX() + 0.5,
+                    worldPosition.getY() + 0.3, worldPosition.getZ() + 0.5, 6, 0.2, 0.1, 0.2, 0.01);
+    }
+
+    private boolean voidItem(Level level, Channel filter) {
+        var source = level.getCapability(Capabilities.ItemHandler.BLOCK, host(), facing());
+        if (source == null || source.getSlots() == 0) return false;
+        int burst = MachineRank.itemBurst(this, 16);
+        for (int n = 0; n < source.getSlots(); n++) {
+            int slot = Math.floorMod(cursor + n, source.getSlots());
+            ItemStack candidate = source.extractItem(slot, burst, true);
+            if (candidate.isEmpty() || !filter.passes(candidate)) continue;
+            ItemStack burned = source.extractItem(slot, candidate.getCount(), false);
+            cursor = (slot + 1) % source.getSlots();
+            return !burned.isEmpty();
+        }
+        return false;
+    }
+
+    private boolean voidFluid(Level level, Channel filter) {
+        var source = level.getCapability(Capabilities.FluidHandler.BLOCK, host(), facing());
+        if (source == null) return false;
+        int burst = MachineRank.scalePulse(this, 250);
+        for (int tank = 0; tank < source.getTanks(); tank++) {
+            var inTank = source.getFluidInTank(tank);
+            if (inTank.isEmpty() || !filter.passes(inTank)) continue;
+            if (!source.drain(inTank.copyWithAmount(burst), IFluidHandler.FluidAction.EXECUTE).isEmpty()) return true;
+        }
+        return false;
     }
 
     private void tickChannels(Level level) {
@@ -512,7 +562,9 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     }
     /** No new bonds; the rune slot takes the two seals that choose items or fluid. */
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return slot == RUNE && isRune(stack); }
-    public static boolean isRune(ItemStack stack) { return stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.EARTH_SEAL.get()); }
+    public static boolean isRune(ItemStack stack) {
+        return stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.EARTH_SEAL.get()) || stack.is(ModItems.FIRE_SEAL.get());
+    }
     @Override public int[] getSlotsForFace(Direction side) { return NO_HOPPER; }
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
@@ -521,6 +573,11 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     @Override public java.util.List<net.minecraft.network.chat.Component> diagnose(ServerLevel server, BlockPos pos) {
         java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
         lines.add(Component.translatable("diag.tribalpower.relay.state", status(), tier(), fluid() ? "fluid" : "item"));
+        if (voiding()) {
+            lines.add(Component.translatable("diag.tribalpower.relay.void").withStyle(net.minecraft.ChatFormatting.GOLD));
+            lines.add(Component.translatable("diag.tribalpower.relay.cost", pulseCost()));
+            return lines;
+        }
         WirelessRelayBlockEntity partner = RelayLinks.partner(this);
         if (partner != null) {
             BlockPos p = partner.getBlockPos();

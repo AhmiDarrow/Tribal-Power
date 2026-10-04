@@ -104,7 +104,9 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         g.drawString(font, font.plainSubstrByWidth(title.getString(), menu.channels() > 1 ? 92 : 150), 8, 6, 0xFFE7DCC1, false);
         g.drawString(font, playerInventoryTitle, 8, 72, 0xFF98ACA5, false);
         g.drawString(font, Component.translatable("gui.tribalpower.relay.rune"), 12, 22, 0xFF98ACA5, false);
-        Component filter = menu.channels() > 1
+        boolean burns = menu.getSlot(RelayMenu.RUNE_SLOT).getItem().is(tk.darrow.tribalpower.item.ModItems.FIRE_SEAL.get());
+        Component filter = burns ? Component.translatable("gui.tribalpower.relay.void_filter")
+                : menu.channels() > 1
                 ? Component.translatable("gui.tribalpower.relay.filter_channel", menu.selected() + 1)
                 : Component.translatable("gui.tribalpower.relay.filter");
         g.drawString(font, filter, 42, 22, 0xFF98ACA5, false);

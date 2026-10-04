@@ -355,6 +355,7 @@
       "text": [
         "Each second a relay moves up to **16 items** or **250 mB**.",
         "Item and Fluid relays carry what their name says. A **Water Seal** in the **Rune** slot makes any plate carry fluid; an **Earth Seal** makes it carry items.",
+        "A **Fire Seal** in the **Rune** slot makes a **void plate**: it burns what it pulls from its machine instead of sending it anywhere, items on an Item Relay, fluid on a Fluid Relay. It only burns what its filter names (the first channel's), so an empty filter burns nothing: whitelist the cobblestone to burn, or blacklist what to keep.",
         "For fluid, park a Spirit Cistern at each end. Relays move fluid; they do not store it."
       ]
     },
