@@ -66,6 +66,7 @@ public class LatticeMonster extends Monster implements Familiar {
     private static final EntityDataAccessor<Boolean> DATA_SITTING=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> DATA_BABY=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_STATS=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Byte> DATA_VOICE=SynchedEntityData.defineId(LatticeMonster.class,EntityDataSerializers.BYTE);
     private final FamiliarData lattice=new FamiliarData();
     private final SimpleContainer pouch=new SimpleContainer(POUCH_SLOTS);
     private int age,inLove,forageCooldown,sitTicks;
@@ -78,8 +79,9 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
     @Override public FamiliarData lattice() { return lattice; }
-    public void applyLattice() { lattice.apply(this,profile());entityData.set(DATA_STATS,lattice.pack()); }
+    public void applyLattice() { lattice.apply(this,profile());entityData.set(DATA_STATS,lattice.pack());entityData.set(DATA_VOICE,FamiliarData.voiceId(lattice.voice())); }
     @Override public int syncedStats() { return entityData.get(DATA_STATS); }
+    @Override public tk.darrow.tribalpower.api.pulse.Attunement syncedVoice() { return FamiliarData.voiceFromId(entityData.get(DATA_VOICE)); }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
         lattice.rollWild(profile(),random,march);
@@ -97,6 +99,7 @@ public class LatticeMonster extends Monster implements Familiar {
         builder.define(DATA_SITTING,false);
         builder.define(DATA_BABY,false);
         builder.define(DATA_STATS,0);
+        builder.define(DATA_VOICE,(byte)-1);
     }
     @Override protected PathNavigation createNavigation(Level level) {
         return profile().flying?new FlyingPathNavigation(this,level):super.createNavigation(level);
@@ -302,6 +305,7 @@ public class LatticeMonster extends Monster implements Familiar {
                 server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded() && inLove>0)tryBreed();
             if(isBonded())FamiliarAbilities.tickMonster(this);
+            if(isBonded())tk.darrow.tribalpower.familiar.FamiliarBoost.tick(this);
             fadeAtDawn();
         }
     }

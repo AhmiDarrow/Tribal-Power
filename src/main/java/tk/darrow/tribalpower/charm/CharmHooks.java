@@ -45,7 +45,8 @@ public final class CharmHooks {
             Set<Attunement> theirs = SpiritCharmItem.voices(charm);
             if (voices == null) voices = new HashSet<>();
             voices.addAll(theirs);
-            cost += 2 * Math.max(1, theirs.size());
+            // an attuned familiar near you carries part of its voice's upkeep (FamiliarBoost)
+            cost += tk.darrow.tribalpower.familiar.FamiliarBoost.charmCost(player, theirs, 2 * Math.max(1, theirs.size()));
             if (theirs.contains(Attunement.AIR)) flight = true;
         }
         if (voices == null) {
@@ -115,6 +116,7 @@ public final class CharmHooks {
             player.addEffect(new MobEffectInstance(MobEffects.LUCK, 120, 0, true, false, true));
         if (voices.contains(Attunement.AIR) && !voices.contains(Attunement.FIRE))
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
+        tk.darrow.tribalpower.familiar.FamiliarBoost.charmBoons(player, voices);
     }
 
     // Persisted so a restart mid-flight still revokes; flight granted by anything else is left alone.
@@ -154,7 +156,7 @@ public final class CharmHooks {
             event.setCanceled(true);
         }
         if (voices.contains(Attunement.FIRE) && event.getSource().getEntity() instanceof LivingEntity attacker) {
-            attacker.igniteForSeconds(3);
+            attacker.igniteForSeconds(tk.darrow.tribalpower.familiar.FamiliarBoost.emberSeconds(player, 3));
         }
     }
 

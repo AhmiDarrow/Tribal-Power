@@ -212,6 +212,9 @@ public class LeyLensItem extends Item {
             else if (target instanceof tk.darrow.tribalpower.entity.LatticeMonster monster)
                 monster.ensureLattice(monster.getRandom(), player.level().dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH));
             for (Component line : familiar.lattice().lensLines(familiar.asMob().getDisplayName())) player.sendSystemMessage(line);
+            // its voice, or whether and how it can be bonded at all
+            Component status = tk.darrow.tribalpower.familiar.FamiliarBoost.status(familiar, familiar.lattice().voice());
+            if (status != null) player.sendSystemMessage(Component.literal("  · ").withStyle(ChatFormatting.DARK_AQUA).append(status));
         }
         return InteractionResult.sidedSuccess(player.level().isClientSide);
     }

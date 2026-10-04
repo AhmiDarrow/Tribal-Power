@@ -83,7 +83,7 @@ public final class SpiritGearHooks {
             silk(event, level, tool);
         } else if (voice == Attunement.WATER && tool.getItem() instanceof SpiritgearShovelItem
                 && state.is(BlockTags.DIRT)
-                && SpiritGear.chance(level.random, tool, 0.10F)) {
+                && SpiritGear.chance(swing.player(), level.random, tool, 0.10F)) {
             event.getDrops().add(new ItemEntity(level, event.getPos().getX() + 0.5, event.getPos().getY() + 0.5,
                     event.getPos().getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.CLAY_BALL)));
         }

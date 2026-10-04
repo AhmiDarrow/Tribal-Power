@@ -42,6 +42,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     private static final EntityDataAccessor<Byte> DATA_STRIDE=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> DATA_LEAP=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_STATS=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Byte> DATA_VOICE=SynchedEntityData.defineId(LatticeAnimal.class,EntityDataSerializers.BYTE);
     public static final int SADDLEBAG_SLOTS=FamiliarData.BASE_SADDLEBAG+FamiliarData.EXTRA_SADDLEBAG;
     private int forageCooldown,sitTicks;
     private final SimpleContainer saddlebag=new SimpleContainer(SADDLEBAG_SLOTS);
@@ -71,8 +72,10 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         entityData.set(DATA_STRIDE,(byte)lattice.phenotype(FamiliarData.Thread.STRIDE));
         entityData.set(DATA_LEAP,lattice.expressed(FamiliarData.Mark.LEAP));
         entityData.set(DATA_STATS,lattice.pack());
+        entityData.set(DATA_VOICE,FamiliarData.voiceId(lattice.voice()));
     }
     @Override public int syncedStats() { return entityData.get(DATA_STATS); }
+    @Override public tk.darrow.tribalpower.api.pulse.Attunement syncedVoice() { return FamiliarData.voiceFromId(entityData.get(DATA_VOICE)); }
     public void ensureLattice(RandomSource random,boolean march) {
         if(lattice.rolled())return;
         lattice.rollWild(profile(),random,march);
@@ -85,6 +88,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         builder.define(DATA_STRIDE,(byte)1);
         builder.define(DATA_LEAP,false);
         builder.define(DATA_STATS,0);
+        builder.define(DATA_VOICE,(byte)-1);
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0,new FloatGoal(this));
@@ -236,6 +240,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             if(lattice.sparked() && level() instanceof ServerLevel server && server.getGameTime()%40==0)
                 server.sendParticles(ParticleTypes.END_ROD,getX(),getY()+getBbHeight()*.6,getZ(),2,.2,.2,.2,.01);
             if(isBonded())FamiliarAbilities.tick(this);
+            if(isBonded())tk.darrow.tribalpower.familiar.FamiliarBoost.tick(this);
         }
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData data) {

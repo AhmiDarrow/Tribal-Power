@@ -77,6 +77,18 @@ public final class FamiliarData {
     private Mark markA = Mark.NONE, markB = Mark.NONE;
     private int generation, fray;
     private boolean sparked, rolled;
+    /** The voice taken at a Resonance Totem (see {@link FamiliarBoost}); null until attuned. Never bred on. */
+    private tk.darrow.tribalpower.api.pulse.Attunement voice;
+
+    public tk.darrow.tribalpower.api.pulse.Attunement voice() { return voice; }
+    public void setVoice(tk.darrow.tribalpower.api.pulse.Attunement voice) { this.voice = voice; }
+
+    /** A voice as one synced byte: -1 for none. */
+    public static byte voiceId(tk.darrow.tribalpower.api.pulse.Attunement voice) { return (byte) (voice == null ? -1 : voice.ordinal()); }
+    public static tk.darrow.tribalpower.api.pulse.Attunement voiceFromId(int id) {
+        var voices = tk.darrow.tribalpower.api.pulse.Attunement.values();
+        return id < 0 || id >= voices.length ? null : voices[id];
+    }
 
     public boolean rolled() { return rolled; }
     public boolean sparked() { return sparked; }
@@ -238,6 +250,7 @@ public final class FamiliarData {
         fray = other.fray;
         sparked = other.sparked;
         rolled = other.rolled;
+        voice = other.voice;
     }
 
     public void fill(int value) {
@@ -435,6 +448,7 @@ public final class FamiliarData {
         tag.putInt("Generation", generation);
         tag.putInt("Fray", fray);
         tag.putBoolean("Sparked", sparked);
+        if (voice != null) tag.putString("Voice", voice.getSerializedName());
         return tag;
     }
 
@@ -454,6 +468,7 @@ public final class FamiliarData {
         generation = Math.max(0, tag.getInt("Generation"));
         fray = Math.max(0, tag.getInt("Fray"));
         sparked = tag.getBoolean("Sparked");
+        voice = tag.contains("Voice", Tag.TAG_STRING) ? tk.darrow.tribalpower.api.pulse.Attunement.byName(tag.getString("Voice")) : null;
         rolled = true;
     }
 

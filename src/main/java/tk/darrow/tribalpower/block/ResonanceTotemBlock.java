@@ -220,6 +220,7 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
                         "message.tribalpower.totem.links",
                         totem.getLinks().size()
                 ), true);
+                tk.darrow.tribalpower.familiar.FamiliarBoost.report((net.minecraft.server.level.ServerLevel) level, player, pos, attunement);
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

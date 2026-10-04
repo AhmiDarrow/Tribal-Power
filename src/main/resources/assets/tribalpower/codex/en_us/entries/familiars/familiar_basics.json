@@ -1,0 +1,51 @@
+{
+  "name": "What a familiar is",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "text",
+      "title": "A companion for your magic",
+      "text": [
+        "A **familiar** is a creature bonded to you. It follows you, waits where you tell it and never despawns, and each kind has a gift of its own ([what familiars do](familiar_gifts)).",
+        "Give it a voice at a **Resonance Totem** and it becomes part of your magic: Spirit Charms, Spiritgear, songs and rites of that voice cost less and do more while it is within **16 blocks** of you.",
+        "Magic works without a familiar. A familiar makes it stronger."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Who can be bonded",
+      "text": [
+        "- **Gentle beasts**: the Dawn Stag and Lantern Fox of forests, the Mossback of swamps, and the grazers, hoppers and moths of every March biome. Anyone can bond them.",
+        "- **Six remnants**, once their tribe calls you **Voice**: Shardback, Rift Hound, Cinder Imp, Storm Moth, Mourning Bell and Echo Weaver ([which tribe for which](familiars)).",
+        "Bosses, goblins, trolls and the March's other hostiles never answer, and the young cannot be bonded.",
+        "**Sneak and look** at a creature to see whether it can be bonded and what it needs. A Ley Lens sneak-used on it says the same."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bonding",
+      "text": [
+        "Feed a grown one its favourite food, the way you would win over a wolf: about one try in three for gentle beasts, one in five for remnants.",
+        "Or use a **Bonding Charm** on it: three tries in five, two in five for remnants.",
+        "Make the charm early from **four String**, a **Spirit Shard** and one creature reagent. Brush a gentle beast to get its reagent. Later, two Spiritweave can stand in for the string.",
+        "The whole story, threads and breeding included: [Bonding a familiar](familiars)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Any one of the nine creature reagents fills the middle slot."
+    },
+    {
+      "type": "text",
+      "title": "Keeping company",
+      "text": [
+        "**One fighter** (a Shardback or Rift Hound) and **two helpers** follow at once. Sneak-use a familiar to make it wait, and again to call it back.",
+        "A waiting familiar still lends its voice whenever you come within 16 blocks, so one left sitting by your workshop helps you there.",
+        "Feed a hurt one its food. A fallen one leaves a **Spirit Remnant** that a [Healing Circle](healing_circle) calls back, voice and all."
+      ]
+    }
+  ]
+}

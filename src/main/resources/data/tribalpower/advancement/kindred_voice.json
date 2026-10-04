@@ -3,9 +3,9 @@
     "icon": {
       "id": "tribalpower:bonding_charm"
     },
-    "title": "A friend in the dark",
-    "description": "Bond a familiar with a Bonding Charm or its favourite food.",
-    "frame": "task",
+    "title": "Kindred voice",
+    "description": "Attune a familiar at a Resonance Totem: sneak-use a Bonding Charm on the totem with your familiar close.",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
@@ -15,5 +15,5 @@
       "trigger": "minecraft:impossible"
     }
   },
-  "parent": "tribalpower:journey/march"
+  "parent": "tribalpower:first_bond"
 }

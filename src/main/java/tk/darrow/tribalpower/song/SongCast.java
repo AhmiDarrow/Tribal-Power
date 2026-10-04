@@ -63,6 +63,8 @@ public final class SongCast {
     }
 
     private static void strike(ServerPlayer player, LivingEntity target, float damage, SongVerse verse) {
+        // a familiar of the verse's voice near the singer sings along
+        damage = tk.darrow.tribalpower.familiar.FamiliarBoost.songDamage(player, verse.voice(), damage);
         target.hurt(player.damageSources().indirectMagic(player, player), damage);
         if (verse.voice() == Attunement.FIRE) target.igniteForSeconds(2 + verse.power());
         if (verse.voice() == Attunement.AIR) knock(target, player, 0.4F + verse.power() * 0.05F);
@@ -118,7 +120,8 @@ public final class SongCast {
     }
 
     private static void call(ServerLevel level, ServerPlayer player, SongVerse verse) {
-        double radius = 3.0 + Math.max(0, verse.reagents().size() - SongVerse.MIN_SHEET) * 0.45;
+        double radius = tk.darrow.tribalpower.familiar.FamiliarBoost.songReach(player, verse.voice(),
+                3.0 + Math.max(0, verse.reagents().size() - SongVerse.MIN_SHEET) * 0.45);
         var box = player.getBoundingBox().inflate(radius, 1.5, radius);
         for (LivingEntity living : level.getEntitiesOfClass(LivingEntity.class, box, FamiliarRoster::hostile)) {
             strike(player, living, 2.0F + verse.power() * 0.5F, verse);
