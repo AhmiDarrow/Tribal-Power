@@ -20,7 +20,7 @@
       "item": "tribalpower:shoal_scale",
       "title": "The water's own",
       "text": [
-        "Everything that belongs to the Shallows lives in its water: three gentle swimmers, and a serpent that hunts there at night. See [the March](the_march) for the land itself.",
+        "Everything that belongs to the Shallows lives in its water: three gentle swimmers, and a moray that hunts there at night. See [the March](the_march) for the land itself.",
         "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Silt Glider",
       "text": [
-        "A finned, scaled swimmer in groups of two to four. **14 health** and **1 armour**.",
+        "A ray that glides over the silt, in groups of two to four. **14 health** and **1 armour**.",
         "It drops **1 to 3 Silt Fins**, more with Looting."
       ]
     },
@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Pale Drifter",
       "text": [
-        "A pale, trailing drifter of the water, in groups of two to four. **12 health**, no armour.",
+        "An amber sea nettle with a striped bell, trailing long ribbon arms, in groups of two to four. **12 health**, no armour.",
         "It drops **1 to 3 Pale Streamers**."
       ]
     },
@@ -44,7 +44,7 @@
       "type": "text",
       "title": "Shoal Darter",
       "text": [
-        "A little finned swimmer in groups of two to four. **14 health** and **1 armour**.",
+        "A little striped perch, in groups of two to four. **14 health** and **1 armour**.",
         "It drops **1 to 3 Shoal Scales**."
       ]
     },
@@ -52,7 +52,7 @@
       "type": "text",
       "title": "Brine Lurker",
       "text": [
-        "A water serpent that rises in the Shallows at night, one or two at a time. It has **21 health** and **1 armour**, and its bite does **4** and poisons you for 3 seconds.",
+        "A moray eel that rises in the Shallows at night, one or two at a time. It has **21 health** and **1 armour**, and its bite does **4** and poisons you for 3 seconds.",
         "It drops **1 to 2 Brine Fangs**, a Venom reagent. Brine Fangs call the Tide Drummer at the Tide Stone: see [guardians](guardians)."
       ]
     },

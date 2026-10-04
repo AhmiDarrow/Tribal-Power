@@ -8,15 +8,23 @@ import net.minecraft.world.entity.Mob;
 import tk.darrow.tribalpower.entity.CreatureProfile;
 public class LatticeCreatureRenderer<T extends Mob> extends MobRenderer<T,LatticeCreatureModel<T>> {
     private final ResourceLocation texture;
+    private final float size;
     public static ModelLayerLocation layer(CreatureProfile p) {return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("tribalpower",p.id),"main");}
     public LatticeCreatureRenderer(EntityRendererProvider.Context context,CreatureProfile profile) {
         super(context,new LatticeCreatureModel<>(context.bakeLayer(layer(profile))),profile.width*.45F);
         texture=ResourceLocation.fromNamespaceAndPath("tribalpower","textures/entity/"+profile.id+".png");
+        size=GeneratedMarchLayers.scale(profile.id);
         var glow=RenderType.eyes(ResourceLocation.fromNamespaceAndPath("tribalpower","textures/entity/"+profile.id+"_glow.png"));
         addLayer(new EyesLayer<T,LatticeCreatureModel<T>>(this) { @Override public RenderType renderType() { return glow; } });
         if(profile.animal)addLayer(new BondedCollarLayer<>(this,profile));
     }
     @Override public ResourceLocation getTextureLocation(T entity) { return texture; }
-    /** The models are built at adult size; a young one is drawn at the half size its hitbox already has. */
-    @Override protected void scale(T entity,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick) { float s=entity.getAgeScale();pose.scale(s,s,s); }
+    /**
+     * The models are built at adult size, so a young one is drawn at the size its hitbox already has; and a few rigs
+     * are built small to fit their texture sheet and drawn larger (the Colossus Warden twice over).
+     */
+    @Override protected void scale(T entity,com.mojang.blaze3d.vertex.PoseStack pose,float partial) {
+        float s=entity.getAgeScale()*size;
+        if(s!=1F)pose.scale(s,s,s);
+    }
 }

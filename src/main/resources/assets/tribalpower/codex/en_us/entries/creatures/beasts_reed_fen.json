@@ -20,7 +20,7 @@
       "item": "tribalpower:marsh_foot",
       "title": "The fen's own",
       "text": [
-        "Among the reeds and mud channels live a hopper, a wading strider and a floater, and at night something coiled wakes in the grass.",
+        "Among the reeds and mud channels live a frog, a heron and a puffer that floats in the air, and at night a cobra wakes in the grass.",
         "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Marsh Hopper",
       "text": [
-        "A small, quick hopper in groups of two to four. **12 health**, no armour.",
+        "A small fen frog, quick to jump, in groups of two to four. **12 health**, no armour.",
         "It drops **1 to 3 Marsh Feet**, more with Looting."
       ]
     },
@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Fen Strider",
       "text": [
-        "A tall, long-legged wader in herds of two to four. **22 health** and **1 armour**.",
+        "A tall heron, wading on stilt legs, in herds of two to four. **22 health** and **1 armour**.",
         "It drops **1 to 3 Fen Hooves**."
       ]
     },
@@ -44,7 +44,7 @@
       "type": "text",
       "title": "Bog Floater",
       "text": [
-        "A green floater that drifts over the fen in ones to threes. **12 health**, no armour. A few drift along with the [Colossus Warden](colossus_warden).",
+        "A green balloon puffer, blown up round and prickly, that drifts over the fen in ones to threes. **12 health**, no armour. A few drift along with the [Colossus Warden](colossus_warden).",
         "It drops **1 to 3 Bog Bladders**."
       ]
     },
@@ -52,7 +52,7 @@
       "type": "text",
       "title": "Reed Coil",
       "text": [
-        "A coiled, scaled hunter that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
+        "A marsh cobra, coiled with its hood spread, that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
         "It drops **1 to 2 Reed Whorls**, a Shove reagent."
       ]
     },
