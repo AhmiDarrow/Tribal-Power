@@ -20,7 +20,7 @@
       "item": "tribalpower:prism_crest",
       "title": "The Ridge's own",
       "text": [
-        "The moonstone heights of the [Glimmer Ridge](glimmer_ridge) keep a crested grazer and a moth in the open, and a grub and a stalker in the caves below.",
+        "The moonstone heights of the [Glimmer Ridge](glimmer_ridge) keep a plated grazer and a moth in the open, and a glowworm and a crystal spider in the caves below.",
         "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Prism Grazer",
       "text": [
-        "A scaled, crested grazer, in herds of two to four. **24 health** and **3 armour**.",
+        "A low lizard grazer with a row of prism plates down its back, in herds of two to four. **24 health** and **3 armour**.",
         "It drops **1 to 3 Prism Crests**, more with Looting."
       ]
     },
@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Shardmoth",
       "text": [
-        "A violet moth that flutters over the ridge in ones to threes. **10 health**, no armour.",
+        "A violet moth with cut-crystal wings that flutters over the ridge in ones to threes. **10 health**, no armour.",
         "It drops **1 to 3 Shard Wings**."
       ]
     },
@@ -44,7 +44,7 @@
       "type": "text",
       "title": "Glowgrub",
       "text": [
-        "A long, segmented grub of the dark caves under the ridge, one to three at a time. **18 health** and **1 armour**. It is gentle, and flees from monsters like any grazer.",
+        "A glowworm, long and segmented with lights down its back, of the dark caves under the ridge, one to three at a time. **18 health** and **1 armour**. It is gentle, and flees from monsters like any grazer.",
         "It drops **1 to 3 Glow Husks**."
       ]
     },
@@ -52,7 +52,7 @@
       "type": "text",
       "title": "Facet Stalker",
       "text": [
-        "A stilt-legged hunter of the same caves. It rises in the dark there day or night, one to three at a time. It has **21 health** and **1 armour**, is quick, and its sting does **5** and poisons you for 3 seconds.",
+        "A crystal spider of the same caves. It rises in the dark there day or night, one to three at a time. It has **21 health** and **1 armour**, is quick, and its bite does **5** and poisons you for 3 seconds.",
         "It drops **1 to 2 Facet Barbs**, a Venom reagent."
       ]
     }

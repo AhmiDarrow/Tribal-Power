@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Tuftback",
       "text": [
-        "A low, woolly lump that grazes in herds of two to four. It has **26 health** and **5 armour**, moves very slowly and backs away from monsters.",
+        "A shaggy steppe bison that grazes in herds of two to four. It has **26 health** and **5 armour**, moves very slowly and backs away from monsters.",
         "It drops **1 to 3 Tuft Wool**, more with Looting."
       ]
     },
@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Longshank",
       "text": [
-        "A tall, long-legged strider, quick on its feet, in herds of two to four. **22 health** and **1 armour**.",
+        "A tall stag, quick on its feet, in herds of two to four. **22 health** and **1 armour**.",
         "It drops **1 to 3 Shank Sinew**. Shank Sinew calls the Stampede Spirit at the Trampled Ring: see [guardians](guardians)."
       ]
     },
@@ -44,7 +44,7 @@
       "type": "text",
       "title": "Palewing",
       "text": [
-        "A small pale flier that flutters over the grass in ones to threes. **10 health**, no armour.",
+        "A pale kite that soars over the grass in ones to threes. **10 health**, no armour.",
         "It drops **1 to 3 Pale Down**, which grinds into white dye (see [reagents](reagents))."
       ]
     },

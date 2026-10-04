@@ -28,7 +28,7 @@
       "type": "text",
       "title": "Cinderhide",
       "text": [
-        "An armoured beast that lives beside lava and on the hot stone around it, one or two at a time. **30 health** and **7 armour**, slow, and **immune to fire**.",
+        "A volcanic tortoise, fire showing between the scutes of its shell, that lives beside lava and on the hot stone around it, one or two at a time. **30 health** and **7 armour**, slow, and **immune to fire**.",
         "It drops **1 to 3 Cinder Plates**, an Ember reagent."
       ]
     },
@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Ashmoth",
       "text": [
-        "A grey moth of the ash, in ones to threes. **10 health**, no armour.",
+        "A grey hawk moth of the ash, in ones to threes. **10 health**, no armour.",
         "It drops **1 to 3 Ash Wings**, which grind into black dye."
       ]
     },
@@ -44,7 +44,7 @@
       "type": "text",
       "title": "Slaglump",
       "text": [
-        "A slow, heavy lump that wallows by lava, one or two at a time. **26 health** and **5 armour**, and **immune to fire**.",
+        "A fat lava salamander, black with orange blotches, that wallows by lava, one or two at a time. **26 health** and **5 armour**, and **immune to fire**.",
         "It drops **1 to 3 Slag Curd**, an Ember reagent."
       ]
     },
@@ -52,7 +52,7 @@
       "type": "text",
       "title": "Emberjaw",
       "text": [
-        "An upright, ember-coloured brute that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
+        "A striped fire raptor, upright and mostly jaw, that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
         "It drops **1 to 2 Ember Fangs**, a Shove reagent."
       ]
     }
