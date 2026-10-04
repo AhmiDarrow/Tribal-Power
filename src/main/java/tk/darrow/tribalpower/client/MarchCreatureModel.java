@@ -7,42 +7,58 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-/** Low-poly spirit silhouettes, with vanilla lighting and a small animated part budget. */
+/**
+ * The March Walker, the Spirit Wisp and the Wandering Spirit. Their bodies are generated rigs (tools/creature_gen:
+ * wild_roster.py, wild_bodies.py, in GeneratedMarchLayers): a saddled tapir of a grazer, a will-o'-wisp with a face,
+ * and a paper-lantern ghost. Each animates its own groups by name.
+ */
 public class MarchCreatureModel<T extends Entity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation WALKER = new ModelLayerLocation(ResourceLocation.parse("tribalpower:march_walker"), "main");
     public static final ModelLayerLocation WISP = new ModelLayerLocation(ResourceLocation.parse("tribalpower:spirit_wisp"), "main");
+    public static final ModelLayerLocation WANDERER = new ModelLayerLocation(ResourceLocation.parse("tribalpower:wandering_spirit"), "main");
     private final ModelPart root;
-    private final boolean wisp;
-    public MarchCreatureModel(ModelPart root, boolean wisp) { this.root=root; this.wisp=wisp; }
+    private final String kind;
+
+    public MarchCreatureModel(ModelPart root, String kind) { this.root=root; this.kind=kind; }
     @Override public ModelPart root() { return root; }
-    public static LayerDefinition walker() {
-        MeshDefinition mesh=new MeshDefinition();var root=mesh.getRoot();
-        root.addOrReplaceChild("body",CubeListBuilder.create().texOffs(0,20).addBox(-5,-5,-8,10,10,16),PartPose.offset(0,13,1));
-        var head=root.addOrReplaceChild("head",CubeListBuilder.create().texOffs(0,0).addBox(-4,-4,-6,8,8,7)
-                .texOffs(32,0).addBox(-3,-1,-9,6,4,3),PartPose.offset(0,10,-7));
-        for(int side : new int[]{-1,1}) {
-            head.addOrReplaceChild("antler"+side,CubeListBuilder.create().texOffs(48,0).addBox(-1,-9,-1,2,9,2)
-                    .texOffs(48,12).addBox(side<0?-4:0,-7,-1,4,2,2),PartPose.offset(side*3,-3,-1));
-        }
-        for(int i=0;i<4;i++)root.addOrReplaceChild("leg"+i,CubeListBuilder.create().texOffs(0,48).addBox(-1.5F,0,-1.5F,3,8,3),PartPose.offset(i%2==0?-3.5F:3.5F,16,i<2?-4:6));
-        root.addOrReplaceChild("crest",CubeListBuilder.create().texOffs(48,20).addBox(-1,-5,-5,2,5,10),PartPose.offset(0,8,2));
-        return LayerDefinition.create(mesh,64,64);
+
+    /** The generated rig for march_walker, spirit_wisp or wandering_spirit, on its 256 texel sheet. */
+    public static LayerDefinition create(String id) {
+        MeshDefinition mesh=GeneratedMarchLayers.mesh(id);
+        if(mesh==null)throw new IllegalArgumentException("No generated rig for "+id);
+        return LayerDefinition.create(mesh,256,256);
     }
-    public static LayerDefinition wisp() {
-        MeshDefinition mesh=new MeshDefinition();var root=mesh.getRoot();
-        var core=root.addOrReplaceChild("core",CubeListBuilder.create().texOffs(0,0).addBox(-3,-3,-3,6,6,6),PartPose.offsetAndRotation(0,17,0,0,0,0.7854F));
-        core.addOrReplaceChild("crown",CubeListBuilder.create().texOffs(24,0).addBox(-1,-7,-1,2,4,2),PartPose.ZERO);
-        for(int i=0;i<3;i++)root.addOrReplaceChild("mote"+i,CubeListBuilder.create().texOffs(32,0).addBox(-1,-1,-1,2,2,2),PartPose.offset(0,17,0));
-        return LayerDefinition.create(mesh,64,64);
-    }
+
     @Override public void setupAnim(T entity,float limbSwing,float limbAmount,float age,float yaw,float pitch) {
         root.getAllParts().forEach(ModelPart::resetPose);
-        if(wisp) {
-            var core=root.getChild("core");core.y+=Mth.sin(age*0.08F)*1.2F;core.yRot=age*0.035F;
-            for(int i=0;i<3;i++) {var mote=root.getChild("mote"+i);float angle=age*0.06F+i*Mth.TWO_PI/3;mote.x=Mth.cos(angle)*6;mote.z=Mth.sin(angle)*6;mote.y=17+Mth.sin(angle*1.4F)*2;}
-        } else {
-            var head=root.getChild("head");head.yRot=yaw*Mth.DEG_TO_RAD;head.xRot=pitch*Mth.DEG_TO_RAD;
-            for(int i=0;i<4;i++)root.getChild("leg"+i).xRot=Mth.cos(limbSwing*0.6662F+(i==0||i==3?Mth.PI:0))*1.1F*limbAmount;
+        float phase=entity.getId()*1.3F;
+        switch(kind) {
+            case "march_walker" -> {
+                var head=root.getChild("head");head.yRot=yaw*Mth.DEG_TO_RAD;head.xRot=pitch*Mth.DEG_TO_RAD;
+                for(int i=0;i<4;i++)root.getChild("leg"+i).xRot=Mth.cos(limbSwing*0.6662F+(i==0||i==3?Mth.PI:0))*1.1F*limbAmount;
+                root.getChild("tail").yRot=Mth.sin(age*0.1F+phase)*0.25F;
+            }
+            case "spirit_wisp" -> {
+                // It bobs and sways, flicks its little flames, trails its wisp and keeps three motes circling.
+                float bob=Mth.sin(age*0.08F)*1.2F;
+                var body=root.getChild("body");body.y+=bob;body.yRot=Mth.sin(age*0.03F+phase)*0.35F;
+                for(int i=0;i<2;i++) {var f=root.getChild("flap"+i);f.y+=bob;f.zRot=Mth.sin(age*0.2F+i*Mth.PI)*0.3F;}
+                var trail=root.getChild("tendril0");trail.y+=bob;trail.yRot=Mth.sin(age*0.07F+phase)*0.3F;trail.xRot=Mth.sin(age*0.11F)*0.15F;
+                for(int i=0;i<3;i++) {
+                    var mote=root.getChild("mote"+i);float angle=age*0.06F+i*Mth.TWO_PI/3;
+                    mote.x=Mth.cos(angle)*6;mote.z=Mth.sin(angle)*6;mote.y=15.5F+Mth.sin(angle*1.4F)*2;
+                }
+            }
+            case "wandering_spirit" -> {
+                // The lantern drifts, swinging a little from its loop; its ribbons and tassel trail.
+                float bob=Mth.sin(age*0.06F+phase)*1.0F;
+                var body=root.getChild("body");body.y+=bob;body.zRot=Mth.sin(age*0.05F+phase)*0.06F;body.xRot=Mth.cos(age*0.04F+phase)*0.05F;
+                for(int i=0;i<3;i++) {
+                    var t=root.getChild("tendril"+i);t.y+=bob;
+                    t.xRot=0.15F+Mth.sin(age*0.09F+phase+i)*0.2F;t.zRot=Mth.cos(age*0.07F+phase+i*1.3F)*0.15F;
+                }
+            }
+            default -> {}
         }
     }
 }

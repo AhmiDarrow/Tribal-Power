@@ -2,6 +2,7 @@ package tk.darrow.tribalpower.guardian.client;
 
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.util.Mth;
 import tk.darrow.tribalpower.guardian.Guardian;
 import tk.darrow.tribalpower.guardian.GuardianEntity;
@@ -9,6 +10,10 @@ import tk.darrow.tribalpower.guardian.GuardianEntity;
 /**
  * Animates a guardian by part name, the way the March roster is animated, plus the attack pose its ability
  * calls for: a slam drops the arms, a charge lowers the head, a swoop banks the wings, a sweep swings.
+ * The bodies are generated rigs (tools/creature_gen: boss_roster.py, boss_bodies.py, in GeneratedMarchLayers),
+ * whose parts are all flat root children; so the jaw is carried by the head's turn before it opens, and a
+ * serpent's segments and tail are each put back on the end of the one before them every frame, so the body
+ * stays joined at every pose.
  */
 public class GuardianModel extends HierarchicalModel<GuardianEntity> {
     private final ModelPart root;
@@ -60,9 +65,12 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
                 wing.zRot = guardian.flying ? flap - attack * 0.9F * (i == 0 ? 1 : -1) : Mth.sin(age * 0.2F) * 0.15F * (i == 0 ? 1 : -1);
             }
         }
+        ModelPart prev = null;
         for (int i = 0; i < 12; i++) {
             if (segs[i] != null) {
+                if (prev != null) ride(segs[i], prev);
                 segs[i].yRot = Mth.sin(age * 0.14F - i * 0.5F) * 0.25F + Mth.sin(swing * 0.6F - i * 0.5F) * amount * 0.35F;
+                prev = segs[i];
             }
             ModelPart t = tendrils[i];
             if (t != null) {
@@ -70,13 +78,40 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
                 t.zRot = Mth.sin(age * 0.08F + i * 0.9F) * 0.25F;
             }
         }
-        if (tail != null) tail.yRot = Mth.sin(age * 0.1F) * 0.2F;
-        if (jaw != null) jaw.xRot = attack * 0.5F + Mth.sin(age * 0.07F) * 0.05F;
-        if (guardian.flying) root.y = Mth.sin(age * 0.1F) * 1.6F;
+        if (tail != null) {
+            if (prev != null) ride(tail, prev); // a serpent's tail hangs on the end of its last segment
+            tail.yRot = Mth.sin(age * 0.1F) * 0.2F + (prev != null ? prev.yRot : 0);
+        }
         if (guardian.ability == Guardian.Ability.FROST && head != null) head.xRot += attack * 0.4F;
+        if (jaw != null) {
+            float open = attack * 0.5F + Mth.sin(age * 0.07F) * 0.05F;
+            if (head != null) {
+                ride(jaw, head);
+                jaw.yRot = head.yRot;
+                jaw.xRot = head.xRot + open;
+            } else {
+                jaw.xRot = open;
+            }
+        }
+        if (guardian.flying) root.y = Mth.sin(age * 0.1F) * 1.6F;
         if (entity.isWarded()) root.y -= 1.5F;
         root.xScale = root.yScale = root.zScale = guardian.scale;
         root.y -= (guardian.scale - 1) * 24F;
+    }
+
+    /**
+     * Puts a part's pivot where its parent's current turn (pitch, then yaw, as ModelPart applies them) carries
+     * it about the parent's own pivot, from where the two sit in the rig, so the joint between them holds.
+     */
+    private static void ride(ModelPart child, ModelPart parent) {
+        PartPose a = parent.getInitialPose(), b = child.getInitialPose();
+        float dx = b.x - a.x, dy = b.y - a.y, dz = b.z - a.z;
+        float cx = Mth.cos(parent.xRot), sx = Mth.sin(parent.xRot);
+        float y1 = cx * dy - sx * dz, z1 = sx * dy + cx * dz;
+        float cy = Mth.cos(parent.yRot), sy = Mth.sin(parent.yRot);
+        child.x = parent.x + cy * dx + sy * z1;
+        child.y = parent.y + y1;
+        child.z = parent.z - sy * dx + cy * z1;
     }
 
     /** 1 at the moment of an attack, easing back to 0 over half a second. */

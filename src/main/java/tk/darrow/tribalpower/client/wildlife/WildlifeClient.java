@@ -5,7 +5,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import tk.darrow.tribalpower.wildlife.Wildlife;
 
-/** Client wiring for the March's wildlife: models, renderers and the insect particles. */
+/** Client wiring for the March's wildlife: models (generated rigs, see WildlifeModel), renderers and the insect particles. */
 public final class WildlifeClient {
     private static final String[] KINDS = {"glimmerfin", "drift_bell", "veil_ray", "silt_eel", "loom_swift"};
 
@@ -13,7 +13,7 @@ public final class WildlifeClient {
 
     public static void register(IEventBus modBus) {
         modBus.addListener((EntityRenderersEvent.RegisterLayerDefinitions event) -> {
-            for (String kind : KINDS) event.registerLayerDefinition(WildlifeModel.layer(kind), () -> GeneratedWildlifeLayers.create(kind));
+            for (String kind : KINDS) event.registerLayerDefinition(WildlifeModel.layer(kind), () -> WildlifeModel.create(kind));
         });
         modBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             event.registerEntityRenderer(Wildlife.GLIMMERFIN.get(), ctx -> new WildlifeRenderer<>(ctx, "glimmerfin", 0.2F, false, true));

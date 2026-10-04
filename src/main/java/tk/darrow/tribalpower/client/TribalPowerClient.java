@@ -36,12 +36,13 @@ public final class TribalPowerClient {
         modBus.addListener(ClientSetup::registerRenderers);
         tk.darrow.tribalpower.client.wildlife.WildlifeClient.register(modBus);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {
-            for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->GeneratedCreatureLayers.create(p.id));
-            event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
-            event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
+            for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->LatticeCreatureRenderer.createLayer(p.id));
+            event.registerLayerDefinition(MarchCreatureModel.WALKER, () -> MarchCreatureModel.create("march_walker"));
+            event.registerLayerDefinition(MarchCreatureModel.WISP, () -> MarchCreatureModel.create("spirit_wisp"));
+            event.registerLayerDefinition(MarchCreatureModel.WANDERER, () -> MarchCreatureModel.create("wandering_spirit"));
             event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
             for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
-                event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> GeneratedGuardianLayers.create(guardian.id));
+                event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> net.minecraft.client.model.geom.builders.LayerDefinition.create(java.util.Objects.requireNonNull(GeneratedMarchLayers.mesh(guardian.id), guardian.id), 256, 256));
         });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) -> {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);
