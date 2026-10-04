@@ -15,24 +15,23 @@
       "type": "spotlight",
       "item": "tribalpower:item_relay",
       "text": [
-        "Move items or fluid between two machines without a line of pipes. Snap a relay plate onto a face of each, pair them, and every second the cargo jumps across.",
+        "Move items or fluid between two machines without a line of pipes. Snap a relay plate onto a face of the sending machine, aim it at the receiving face with a Lattice Tuner, and every second the cargo jumps across.",
         "Relays are for distance. For machines that touch, set their faces instead."
       ],
       "title": "Wireless cargo"
     },
     {
       "type": "text",
-      "title": "Snapping and pairing",
+      "title": "Snapping and aiming",
       "text": [
-        "Place a plate against a face of a machine or chest. It works the block it is stuck to.",
-        "Right-click a plate to open it. Put the **same item** in the **Bond** slot of both plates and they pair; a renamed or otherwise marked item makes a private pair. Hoppers can never steal the Bond or Rune.",
-        "Crouch and right-click a plate to switch it between **extract** and **insert**. Set the sending plate to extract and the receiving one to insert.",
-        "Keep Pulse within 8 blocks of the **sending** plate, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits."
+        "Place a plate against a face of a machine or chest. It pulls from the block it is stuck to.",
+        "Aim it with the **Lattice Tuner**: right-click the face that should receive the goods, then right-click the plate. The plate sends everything it pulls to that face.",
+        "Keep Pulse within 8 blocks of the plate, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits."
       ]
     },
     {
       "type": "scene",
-      "title": "A relay pair",
+      "title": "Aiming a relay",
       "steps": [
         {
           "caption": "Two chests some distance apart.",
@@ -268,19 +267,11 @@
           ]
         },
         {
-          "caption": "Snap an Item Relay onto the top of each.",
+          "caption": "Snap an Item Relay onto the top of the sending chest.",
           "place": [
             {
               "pos": [
                 -2,
-                1,
-                0
-              ],
-              "block": "tribalpower:item_relay[facing=up]"
-            },
-            {
-              "pos": [
-                2,
                 1,
                 0
               ],
@@ -292,46 +283,44 @@
               -2,
               1,
               0
-            ],
-            [
-              2,
-              1,
-              0
             ]
           ]
         },
         {
-          "caption": "Put the same item in the Bond slot of both plates to pair them.",
+          "caption": "Right-click the top of the far chest with a Lattice Tuner to mark it.",
           "highlight": [
             [
-              -2,
-              1,
-              0
-            ],
-            [
               2,
-              1,
+              0,
               0
             ]
           ],
           "use": {
             "pos": [
               2,
-              1,
+              0,
               0
             ],
-            "item": "minecraft:amethyst_shard"
+            "item": "tribalpower:lattice_tuner"
           }
         },
         {
-          "caption": "Crouch-click the receiving plate so it inserts; the other extracts.",
+          "caption": "Then right-click the plate with the tuner. It now sends to the marked face.",
           "highlight": [
             [
-              2,
+              -2,
               1,
               0
             ]
-          ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
         },
         {
           "caption": "Pulse near the sending plate, and up to 16 items a second cross over.",
@@ -371,6 +360,16 @@
     },
     {
       "type": "text",
+      "title": "The filter",
+      "text": [
+        "Open a plate to fill its **Filter**: eight slots that hold a picture of an item, never the item itself. Click a slot with something in hand to mark it, with an empty hand to clear it, or shift-click goods in your inventory.",
+        "The button beside it switches the list. A **Blacklist** holds the marked goods back and lets everything else cross; an empty blacklist, the way a plate starts, sends everything. A **Whitelist** sends only the marked goods.",
+        "For fluid, mark a bucket or any filled container: a water bucket lists water.",
+        "Crouch and right-click a plate to switch its list without opening it."
+      ]
+    },
+    {
+      "type": "text",
       "title": "Three distances",
       "text": [
         "- **Item** and **Fluid Relays** reach **32 blocks**, and each beat that moves something costs **8 Pulse**.",
@@ -384,17 +383,17 @@
       "type": "text",
       "title": "The Lattice Tuner",
       "text": [
-        "The other way to aim a plate. Right-click the face of the block you want goods delivered to; the tuner remembers that face. Then right-click the plate with the tuner to bind it. Mark the destination, never the plate.",
-        "A tuner-bound plate needs an empty Bond slot, and the same distance limits apply.",
-        "A tuner binding survives picking the plate up. Breaking a plate drops its Bond and Rune beside it.",
-        "A plate is yours: only you and your [camp](shared_camps) can open it, flip it between extract and insert, or bind it with a tuner."
+        "Right-click the face of the block you want goods delivered to; the tuner remembers that face. Then right-click the plate with the tuner to aim it. Mark the destination, never the plate.",
+        "The distance limits above apply.",
+        "Aiming survives picking the plate up, and so does its filter. Breaking a plate drops its Rune beside it.",
+        "A plate is yours: only you and your [camp](shared_camps) can open it, change its filter, or aim it with a tuner."
       ]
     },
     {
       "type": "text",
       "title": "Controls and when it waits",
       "text": [
-        "A steady redstone signal pauses a plate. Power the receiving plate, or the tuner's target block, to stop a transfer from the far end.",
+        "A steady redstone signal pauses a plate. Power the tuner's target block to stop a transfer from the far end.",
         "A comparator on a plate reads **0** unlinked, **1** linked but waiting, **15** while moving cargo.",
         "Both ends must already be loaded. An unloaded or full destination makes the relay wait; nothing is ever voided. Relays never load chunks themselves, so put a Wayanchor at the far end if it must work while you are away.",
         "Crouch and right-click a plate with this book to see its link, cost and why it is waiting."

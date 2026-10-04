@@ -66,7 +66,7 @@ Every inventory worth tidying carries a small **Tidy** button above its slots: y
 
 A Lattice Conductor does not make Pulse. Place conductors within 8 of each other and a machine within 8 of any of them draws generators, Pulse Cairns and totem buffers that line can reach. A redstone signal cuts that conductor out of the line. Ritual Chalk still joins two Resonance Totems (within 16): a Conductor within 8 of them and of a generator pulls up to 10 Pulse a second into those totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
-Wireless relays are thin plates that snap onto a machine face. Seat the same item in two Bond slots to pair them, or mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Sneak-click a plate to switch extract or insert.
+Wireless relays are thin plates that snap onto a machine face. Mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Each plate has an eight-slot filter (ghost entries, a bucket lists its fluid) that works as a blacklist or a whitelist; sneak-click a plate to switch it.
 
 Each Echo station and Ancestral Cache has a six-face IO pad. Sneak-use an empty hand on a face to cycle Input, Output, Both or Closed. Hoppers and pipes honour those faces.
 

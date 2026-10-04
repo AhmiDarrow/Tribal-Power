@@ -34,13 +34,16 @@ import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
 public class RelayBlock extends BaseEntityBlock {
     public static final MapCodec<RelayBlock> CODEC = simpleCodec(RelayBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    // FACING is the host face the plate was put on, so the plate lies against the opposite side of its own
+    // block space, the way the blockstate rotates the model (as a wall button does). The four wall boxes used
+    // to sit on the far side, a hitbox floating a block-width away from the thin plate drawn on the machine.
     private static final VoxelShape[] SHAPES = {
-            Block.box(3, 13, 3, 13, 16, 13), // down
-            Block.box(3, 0, 3, 13, 3, 13),   // up
-            Block.box(3, 3, 0, 13, 13, 3),   // north (−Z)
-            Block.box(3, 3, 13, 13, 13, 16), // south (+Z)
-            Block.box(0, 3, 3, 3, 13, 13),   // west (−X)
-            Block.box(13, 3, 3, 16, 13, 13)  // east (+X)
+            Block.box(3, 13, 3, 13, 16, 13), // down: hangs under the host above
+            Block.box(3, 0, 3, 13, 3, 13),   // up: lies on the host below
+            Block.box(3, 3, 13, 13, 13, 16), // north: host is to the south (+Z)
+            Block.box(3, 3, 0, 13, 13, 3),   // south: host is to the north (-Z)
+            Block.box(13, 3, 3, 16, 13, 13), // west: host is to the east (+X)
+            Block.box(0, 3, 3, 3, 13, 13)    // east: host is to the west (-X)
     };
 
     public RelayBlock(Properties properties) { super(properties); registerDefaultState(stateDefinition.any().setValue(FACING, Direction.UP)); }
@@ -76,9 +79,9 @@ public class RelayBlock extends BaseEntityBlock {
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof WirelessRelayBlockEntity relay) {
-            // the link item and the pump direction re-thread the relay, so only its owner's camp may touch them
+            // the rune and the filter decide what the relay carries, so only its owner's camp may touch them
             if (!tk.darrow.tribalpower.camp.Ownership.check(level, relay.owner(), player)) return InteractionResult.CONSUME;
-            if (player.isShiftKeyDown()) relay.toggleExtract(player);
+            if (player.isShiftKeyDown()) relay.toggleAllow(player);
             else player.openMenu(relay);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

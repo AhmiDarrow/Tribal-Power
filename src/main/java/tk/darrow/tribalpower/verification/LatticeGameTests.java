@@ -1192,8 +1192,9 @@ public class LatticeGameTests {
         h.assertTrue(at(h,new BlockPos(4,2,2),WirelessRelayBlockEntity.class).fluid(),"Fluid plate defaults to fluid");
         h.succeed();
     }
-    @GameTest(template="empty", timeoutTicks=120)
-    public static void pairedRelaysShareABondItem(GameTestHelper h) {
+    /** A save from before the Bond slot was retired: the pair turns into a tuner link, keeps moving, and hands both bonds back. */
+    @GameTest(template="empty", timeoutTicks=160)
+    public static void bondedPairBecomesATunerLink(GameTestHelper h) {
         h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(2,1,2,Blocks.CHEST);
         h.setBlock(6,2,2,ModBlocks.ITEM_RELAY.get());
@@ -1208,10 +1209,106 @@ public class LatticeGameTests {
         recv.setItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND));
         send.extract(true);
         recv.extract(false);
-        h.runAfterDelay(65,()->{
-            h.assertTrue(source.isEmpty() && dest.countItem(Items.GOLD_INGOT)==16,"Paired plates must move the host chest into its partner");
+        h.runAfterDelay(110,()->{
+            h.assertTrue(source.isEmpty() && dest.countItem(Items.GOLD_INGOT)==16,"The old pair still moves the host chest into its partner's");
+            h.assertTrue(send.link().isEmpty() && recv.link().isEmpty(),"Both bonds leave their plates");
+            int diamonds=0;
+            for(var item:h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,h.getBounds().inflate(4)))
+                if(item.getItem().is(Items.DIAMOND)) diamonds+=item.getItem().getCount();
+            h.assertTrue(diamonds==2,"Both bonds come back to the player, diamonds="+diamonds);
             h.succeed();
         });
+    }
+
+    private static WirelessRelayBlockEntity filteredRelay(GameTestHelper h, ChestBlockEntity[] chests) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
+        h.setBlock(2,1,2,Blocks.CHEST);h.setBlock(6,2,2,Blocks.CHEST);
+        power(h);
+        chests[0]=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
+        chests[1]=at(h,new BlockPos(6,2,2),ChestBlockEntity.class);
+        chests[0].setItem(0,new ItemStack(Items.GOLD_INGOT,16));
+        chests[0].setItem(1,new ItemStack(Items.IRON_INGOT,16));
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        relay.bind(h.absolutePos(new BlockPos(6,2,2)),Direction.UP,h.getLevel().dimension().location().toString());
+        return relay;
+    }
+
+    @GameTest(template="empty", timeoutTicks=160)
+    public static void relayBlacklistHoldsBackListedGoods(GameTestHelper h) {
+        var chests=new ChestBlockEntity[2];
+        var relay=filteredRelay(h,chests);
+        relay.setFilter(0,new ItemStack(Items.GOLD_INGOT,5));
+        h.assertTrue(relay.filter(0).getCount()==1,"A filter entry is a single ghost copy");
+        h.runAfterDelay(110,()->{
+            h.assertTrue(chests[1].countItem(Items.IRON_INGOT)==16 && chests[1].countItem(Items.GOLD_INGOT)==0,"A blacklisted good stays home while the rest cross");
+            h.assertTrue(chests[0].countItem(Items.GOLD_INGOT)==16,"Nothing held back is lost");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template="empty", timeoutTicks=160)
+    public static void relayWhitelistSendsOnlyListedGoods(GameTestHelper h) {
+        var chests=new ChestBlockEntity[2];
+        var relay=filteredRelay(h,chests);
+        relay.toggleAllow(null);
+        h.assertTrue(relay.allowing(),"The plate switches to a whitelist");
+        relay.setFilter(3,new ItemStack(Items.GOLD_INGOT));
+        h.runAfterDelay(110,()->{
+            h.assertTrue(chests[1].countItem(Items.GOLD_INGOT)==16 && chests[1].countItem(Items.IRON_INGOT)==0,"Only the whitelisted good crosses");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template="empty")
+    public static void relayFilterReadsFluidFromAContainer(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.FLUID_RELAY.get());
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var water=new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.WATER,250);
+        var lava=new net.neoforged.neoforge.fluids.FluidStack(net.minecraft.world.level.material.Fluids.LAVA,250);
+        h.assertTrue(relay.passes(water) && relay.passes(lava),"An empty blacklist passes every fluid");
+        relay.setFilter(0,new ItemStack(Items.WATER_BUCKET));
+        h.assertTrue(!relay.passes(water) && relay.passes(lava),"A water bucket in a blacklist holds water back");
+        relay.toggleAllow(null);
+        h.assertTrue(relay.passes(water) && !relay.passes(lava),"And in a whitelist sends only water");
+        h.succeed();
+    }
+
+    @GameTest(template="empty")
+    public static void relayFilterSlotsAreGhosts(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var player=VerificationPlayers.inLevel(h);
+        relay.setItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND));
+        var menu=(tk.darrow.tribalpower.echo.RelayMenu)relay.createMenu(1,player.getInventory(),player);
+        h.assertTrue(relay.link().isEmpty() && player.getInventory().countItem(Items.DIAMOND)==1,"Opening an old bonded plate hands its bond back");
+        menu.setCarried(new ItemStack(Items.COBBLESTONE,12));
+        menu.clicked(tk.darrow.tribalpower.echo.RelayMenu.FILTER_START,0,net.minecraft.world.inventory.ClickType.PICKUP,player);
+        h.assertTrue(relay.filter(0).is(Items.COBBLESTONE) && relay.filter(0).getCount()==1,"Clicking with goods marks the filter");
+        h.assertTrue(menu.getCarried().getCount()==12,"And takes nothing from the hand");
+        menu.setCarried(ItemStack.EMPTY);
+        menu.clicked(tk.darrow.tribalpower.echo.RelayMenu.FILTER_START,0,net.minecraft.world.inventory.ClickType.PICKUP,player);
+        h.assertTrue(relay.filter(0).isEmpty() && menu.getCarried().isEmpty(),"An empty hand clears the mark and picks nothing up");
+        menu.clickMenuButton(player,tk.darrow.tribalpower.echo.RelayMenu.TOGGLE_ALLOW);
+        h.assertTrue(relay.allowing(),"The button flips the list");
+        h.assertFalse(relay.canPlaceItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND)),"No new bonds");
+        h.assertTrue(relay.canPlaceItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.WATER_SEAL.get())),"The rune slot takes a seal");
+        h.assertFalse(relay.canPlaceItem(WirelessRelayBlockEntity.RUNE,new ItemStack(Items.DIAMOND)),"And only a seal");
+        h.succeed();
+    }
+
+    /** The plate lies against its host, so its hitbox must sit on the host's side of the block space. */
+    @GameTest(template="empty")
+    public static void relayHitboxSitsAgainstItsHost(GameTestHelper h) {
+        for (Direction facing : Direction.values()) {
+            var state=ModBlocks.ITEM_RELAY.get().defaultBlockState().setValue(tk.darrow.tribalpower.block.RelayBlock.FACING,facing);
+            var box=state.getShape(h.getLevel(),h.absolutePos(new BlockPos(2,2,2))).bounds();
+            Direction toward=facing.getOpposite();
+            double near=toward.getAxisDirection()==Direction.AxisDirection.POSITIVE ? box.max(toward.getAxis()) : 1.0-box.min(toward.getAxis());
+            double thick=box.max(toward.getAxis())-box.min(toward.getAxis());
+            h.assertTrue(near>0.999,"A plate on a "+facing+" face touches its host, box="+box);
+            h.assertTrue(thick<0.2,"And is a thin plate, box="+box);
+        }
+        h.succeed();
     }
     @GameTest(template="empty")
     public static void relayDropsBondAndKeepsTheTunerMark(GameTestHelper h) {

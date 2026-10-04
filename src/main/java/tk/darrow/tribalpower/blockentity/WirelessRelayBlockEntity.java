@@ -27,11 +27,21 @@ import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 import tk.darrow.tribalpower.lattice.RelayLinks;
 
-/** Face-mounted plate. Pulls from the host machine into a paired relay or a tuner-bound face. */
+/**
+ * Face-mounted plate. Pulls from the host machine into the face a Lattice Tuner bound it to, through a rune
+ * (items or fluid) and an eight-slot whitelist or blacklist. The old Bond slot is gone: a bonded pair found on
+ * load is turned into the same tuner binding and its bond items are handed back.
+ */
 public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable, WorldlyContainer, MenuProvider, tk.darrow.tribalpower.api.pulse.PulseSpend, tk.darrow.tribalpower.camp.Ownership.Owned {
+    /** LINK is the retired Bond slot, kept only so old saves load and hand their bond back. */
     public static final int LINK = 0, RUNE = 1;
+    public static final int FILTERS = 8;
     private static final int[] NO_HOPPER = new int[0];
     private final NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
+    /** Ghost copies: never real items, never dropped, never seen by a hopper. */
+    private final NonNullList<ItemStack> filters = NonNullList.withSize(FILTERS, ItemStack.EMPTY);
+    /** true: only listed goods pass. false (the default): listed goods are held back, so an empty list passes all. */
+    private boolean allow;
     private BlockPos target;
     private String dimension = "";
     private Direction face = Direction.UP;
@@ -56,11 +66,76 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     public ItemStack link() { return items.get(LINK); }
     public boolean extracting() { return extract; }
     public void extract(boolean value) { extract = value; setChanged(); }
-    public void toggleExtract(Player player) {
-        extract = !extract;
+    public boolean allowing() { return allow; }
+    public void toggleAllow(Player player) {
+        allow = !allow;
         setChanged();
-        if (player != null) player.displayClientMessage(Component.translatable(extract
-                ? "message.tribalpower.relay.extract" : "message.tribalpower.relay.insert"), true);
+        if (player != null) player.displayClientMessage(Component.translatable(allow
+                ? "message.tribalpower.relay.allow" : "message.tribalpower.relay.block"), true);
+    }
+
+    public ItemStack filter(int slot) { return filters.get(slot); }
+    public void setFilter(int slot, ItemStack stack) {
+        filters.set(slot, stack.isEmpty() ? ItemStack.EMPTY : stack.copyWithCount(1));
+        setChanged();
+    }
+
+    /** Whether an item may cross: same item as a filter entry, components ignored. */
+    public boolean passes(ItemStack stack) {
+        boolean listed = false;
+        for (ItemStack entry : filters) {
+            if (!entry.isEmpty() && ItemStack.isSameItem(entry, stack)) { listed = true; break; }
+        }
+        return allow == listed;
+    }
+
+    /** Whether a fluid may cross: a filter entry lists the fluid it holds, so a bucket of water lists water. */
+    public boolean passes(net.neoforged.neoforge.fluids.FluidStack fluid) {
+        boolean listed = false;
+        for (ItemStack entry : filters) {
+            if (entry.isEmpty()) continue;
+            var held = net.neoforged.neoforge.fluids.FluidUtil.getFluidContained(entry);
+            if (held.isPresent() && net.neoforged.neoforge.fluids.FluidStack.isSameFluid(held.get(), fluid)) { listed = true; break; }
+        }
+        return allow == listed;
+    }
+
+    /** The filter row as a container for the menu. Writes go straight to the ghost list. */
+    public net.minecraft.world.Container filterContainer() {
+        return new net.minecraft.world.Container() {
+            public int getContainerSize() { return FILTERS; }
+            public boolean isEmpty() { return filters.stream().allMatch(ItemStack::isEmpty); }
+            public ItemStack getItem(int slot) { return filters.get(slot); }
+            public ItemStack removeItem(int slot, int count) { ItemStack was = filters.get(slot); setFilter(slot, ItemStack.EMPTY); return was; }
+            public ItemStack removeItemNoUpdate(int slot) { return removeItem(slot, 1); }
+            public void setItem(int slot, ItemStack stack) { setFilter(slot, stack); }
+            public void setChanged() { WirelessRelayBlockEntity.this.setChanged(); }
+            public boolean stillValid(Player player) { return WirelessRelayBlockEntity.this.stillValid(player); }
+            public void clearContent() { for (int i = 0; i < FILTERS; i++) filters.set(i, ItemStack.EMPTY); WirelessRelayBlockEntity.this.setChanged(); }
+        };
+    }
+
+    /**
+     * An old bonded pair becomes a tuner binding on the plate that used to push (the extracting one, or the
+     * lower one when both did), aimed at the face its partner sat on. Then both bonds come back out.
+     */
+    private void retireBond(WirelessRelayBlockEntity partner) {
+        WirelessRelayBlockEntity from = null, to = null;
+        if (extract && !(partner.extract && worldPosition.asLong() > partner.worldPosition.asLong())) { from = this; to = partner; }
+        else if (partner.extract) { from = partner; to = this; }
+        if (from != null && to.getLevel() != null)
+            from.bind(to.host(), to.facing(), to.getLevel().dimension().location().toString());
+        popBond();
+        partner.popBond();
+    }
+
+    private void popBond() {
+        ItemStack bond = items.get(LINK);
+        if (bond.isEmpty() || level == null) return;
+        items.set(LINK, ItemStack.EMPTY);
+        RelayLinks.drop(this);
+        net.minecraft.world.level.block.Block.popResource(level, worldPosition, bond);
+        setChanged();
     }
 
     public int tier() {
@@ -101,31 +176,17 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (!tk.darrow.tribalpower.lattice.Voices.kept(level, pos, tk.darrow.tribalpower.lattice.Voices.relay(be.tier()))) { be.updateStatus("voice"); return; }
         WirelessRelayBlockEntity partner = RelayLinks.partner(be);
         if (partner != null) {
-            be.tickPair(level, partner);
+            be.retireBond(partner);
             return;
         }
         if (!tk.darrow.tribalpower.lattice.RelayLinks.key(be.link()).isEmpty()) {
+            // An old bond still waits for its partner rather than sending into a leftover tuner mark. Opening the
+            // plate hands the bond back, so one whose partner is gone does not stay stuck in a slot nobody can see.
             be.updateStatus("unlinked");
             return;
         }
         if (be.target == null) { be.updateStatus("unlinked"); return; }
         be.tickBound(level, pos);
-    }
-
-    private void tickPair(Level level, WirelessRelayBlockEntity partner) {
-        if (!extract) { updateStatus("waiting"); return; }
-        if (partner.extracting() && worldPosition.asLong() > partner.getBlockPos().asLong()) { updateStatus("waiting"); return; }
-        if (!inRange(partner.getBlockPos(), partner.getLevel() == null ? dimension : partner.getLevel().dimension().location().toString())) {
-            updateStatus("unlinked");
-            return;
-        }
-        Level destLevel = partner.getLevel();
-        if (destLevel == null || !destLevel.hasChunkAt(partner.getBlockPos()) || !level.hasChunkAt(host())) { updateStatus("unloaded"); return; }
-        if (destLevel.hasNeighborSignal(partner.getBlockPos())) { updateStatus("paused"); return; }
-        BlockPos destHost = partner.host();
-        if (!destLevel.hasChunkAt(destHost)) { updateStatus("unloaded"); return; }
-        if (destHost.equals(host()) && destLevel == level) { updateStatus("waiting"); return; }
-        transfer(level, host(), facing(), destLevel, destHost, partner.facing());
     }
 
     private void tickBound(Level level, BlockPos pos) {
@@ -138,14 +199,6 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         if (destination == null || !destination.hasChunkAt(target) || !level.hasChunkAt(host())) { updateStatus("unloaded"); return; }
         if (destination.hasNeighborSignal(target)) { updateStatus("paused"); return; }
         transfer(level, host(), facing(), destination, target, face);
-    }
-
-    private boolean inRange(BlockPos dest, String destDim) {
-        boolean same = level != null && destDim.equals(level.dimension().location().toString());
-        if (!same) return tier() >= 3;
-        if (dest.equals(worldPosition) || dest.equals(host())) return false;
-        int range = tier() == 1 ? 32 : 128;
-        return tier() >= 3 || dest.distSqr(worldPosition) <= (long) range * range;
     }
 
     @Override
@@ -185,7 +238,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         for (int n = 0; n < source.getSlots(); n++) {
             int slot = Math.floorMod(cursor + n, source.getSlots());
             ItemStack candidate = source.extractItem(slot, tk.darrow.tribalpower.item.MachineRank.itemBurst(this, 16), true);
-            if (candidate.isEmpty()) continue;
+            if (candidate.isEmpty() || !passes(candidate)) continue;
             int accepted = candidate.getCount() - ItemHandlerHelper.insertItemStacked(sink, candidate, true).getCount();
             if (accepted <= 0) continue;
             ItemStack actual = source.extractItem(slot, accepted, false);
@@ -216,6 +269,16 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         int burst = tk.darrow.tribalpower.item.MachineRank.scalePulse(this, 250);
         var candidate = source.drain(burst, IFluidHandler.FluidAction.SIMULATE);
         if (candidate.isEmpty()) return false;
+        if (!passes(candidate)) {
+            // A tank offers one fluid first; when that one is held back, try each listed tank's own fluid instead.
+            candidate = net.neoforged.neoforge.fluids.FluidStack.EMPTY;
+            for (int tank = 0; tank < source.getTanks() && candidate.isEmpty(); tank++) {
+                var inTank = source.getFluidInTank(tank);
+                if (inTank.isEmpty() || !passes(inTank)) continue;
+                candidate = source.drain(inTank.copyWithAmount(burst), IFluidHandler.FluidAction.SIMULATE);
+            }
+            if (candidate.isEmpty()) return false;
+        }
         int accepted = sink.fill(candidate, IFluidHandler.FluidAction.SIMULATE);
         if (accepted <= 0) return false;
         var actual = source.drain(candidate.copyWithAmount(Math.min(burst, accepted)), IFluidHandler.FluidAction.EXECUTE);
@@ -235,6 +298,10 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         tag.putString("Dimension", dimension);
         tag.putInt("Cursor", cursor);
         tag.putBoolean("Extract", extract);
+        tag.putBoolean("Allow", allow);
+        CompoundTag filterTag = new CompoundTag();
+        ContainerHelper.saveAllItems(filterTag, filters, true, registries);
+        tag.put("Filter", filterTag);
         if (!pending.isEmpty()) tag.put("Pending", pending.save(registries));
         tk.darrow.tribalpower.camp.Ownership.save(tag, owner);
     }
@@ -247,6 +314,9 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         dimension = tag.getString("Dimension");
         face = Direction.from3DDataValue(tag.getInt("Face")); cursor = tag.getInt("Cursor");
         extract = !tag.contains("Extract") || tag.getBoolean("Extract");
+        allow = tag.getBoolean("Allow");
+        for (int i = 0; i < FILTERS; i++) filters.set(i, ItemStack.EMPTY);
+        ContainerHelper.loadAllItems(tag.getCompound("Filter"), filters, registries);
         pending = net.neoforged.neoforge.fluids.FluidStack.parseOptional(registries, tag.getCompound("Pending"));
         owner = tk.darrow.tribalpower.camp.Ownership.load(tag);
     }
@@ -256,9 +326,16 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     }
 
     @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new RelayMenu(id, inv, this, new ContainerData() {
-            public int get(int index) { return index == 0 ? (extract ? 1 : 0) : 0; }
-            public void set(int index, int value) { if (index == 0) extract = value != 0; }
+        ItemStack bond = items.get(LINK);
+        if (!bond.isEmpty() && level != null && !level.isClientSide) {
+            items.set(LINK, ItemStack.EMPTY);
+            RelayLinks.drop(this);
+            inv.placeItemBackInInventory(bond);
+            setChanged();
+        }
+        return new RelayMenu(id, inv, this, filterContainer(), new ContainerData() {
+            public int get(int index) { return index == 1 ? (allow ? 1 : 0) : (extract ? 1 : 0); }
+            public void set(int index, int value) { if (index == 1) allow = value != 0; }
             public int getCount() { return 2; }
         });
     }
@@ -286,7 +363,9 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     @Override public boolean stillValid(Player player) {
         return level != null && level.getBlockEntity(worldPosition) == this && player.distanceToSqr(worldPosition.getCenter()) <= 64.0;
     }
-    @Override public boolean canPlaceItem(int slot, ItemStack stack) { return !stack.isEmpty(); }
+    /** No new bonds; the rune slot takes the two seals that choose items or fluid. */
+    @Override public boolean canPlaceItem(int slot, ItemStack stack) { return slot == RUNE && isRune(stack); }
+    public static boolean isRune(ItemStack stack) { return stack.is(ModItems.WATER_SEAL.get()) || stack.is(ModItems.EARTH_SEAL.get()); }
     @Override public int[] getSlotsForFace(Direction side) { return NO_HOPPER; }
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) { return false; }
