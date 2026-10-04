@@ -15,21 +15,22 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
 
 /**
- * Rune + an eight-slot whitelist or blacklist. Filter slots hold ghost copies: clicking one with an item marks it,
+ * Rune, channel tabs, and the selected channel's eight-slot whitelist or blacklist. Filter slots hold ghost copies: clicking one with an item marks it,
  * clicking with an empty hand clears it, and nothing is ever taken from the player. Hoppers never see any of it.
  */
 public class RelayMenu extends AbstractContainerMenu {
     public static final DeferredHolder<MenuType<?>, MenuType<RelayMenu>> TYPE =
             tk.darrow.tribalpower.echo.ModMenus.RELAY;
     public static final int RUNE_SLOT = 0, FILTER_START = 1, FILTER_END = FILTER_START + WirelessRelayBlockEntity.FILTERS;
-    /** Menu button id that flips the filter between whitelist and blacklist. */
-    public static final int TOGGLE_ALLOW = 0;
+    /** Menu button ids: flip the selected channel's list, pick channel n (SELECT + n), switch routing, unlink. */
+    public static final int TOGGLE_ALLOW = 0, SELECT = 1, TOGGLE_ROUTE = SELECT + WirelessRelayBlockEntity.MAX_CHANNELS, UNLINK = TOGGLE_ROUTE + 1;
+    public static final int DATA_SELECTED = 0, DATA_ALLOW = 1, DATA_CHANNELS = 2, DATA_ROUND_ROBIN = 3, DATA_LINKED = 4, DATA_COUNT = 5;
     private final Container container;
     private final Container filters;
     private final ContainerData data;
 
     public RelayMenu(int id, Inventory inventory) {
-        this(id, inventory, new SimpleContainer(2), new SimpleContainer(WirelessRelayBlockEntity.FILTERS), new SimpleContainerData(2));
+        this(id, inventory, new SimpleContainer(2), new SimpleContainer(WirelessRelayBlockEntity.FILTERS), new SimpleContainerData(DATA_COUNT));
     }
 
     public RelayMenu(int id, Inventory inventory, Container container, Container filters, ContainerData data) {
@@ -39,7 +40,7 @@ public class RelayMenu extends AbstractContainerMenu {
         this.data = data;
         checkContainerSize(container, 2);
         checkContainerSize(filters, WirelessRelayBlockEntity.FILTERS);
-        checkContainerDataCount(data, 2);
+        checkContainerDataCount(data, DATA_COUNT);
         addSlot(new Slot(container, WirelessRelayBlockEntity.RUNE, 14, 40) {
             @Override public boolean mayPlace(ItemStack stack) { return WirelessRelayBlockEntity.isRune(stack); }
             @Override public int getMaxStackSize() { return 1; }
@@ -55,8 +56,12 @@ public class RelayMenu extends AbstractContainerMenu {
         addDataSlots(data);
     }
 
-    /** True for a whitelist (only listed goods pass), false for a blacklist. */
-    public boolean allowing() { return data.get(1) != 0; }
+    /** True for a whitelist (only listed goods pass), false for a blacklist; of the selected channel. */
+    public boolean allowing() { return data.get(DATA_ALLOW) != 0; }
+    public int selected() { return data.get(DATA_SELECTED); }
+    public int channels() { return Math.max(1, data.get(DATA_CHANNELS)); }
+    public boolean roundRobin() { return data.get(DATA_ROUND_ROBIN) != 0; }
+    public boolean linked(int channel) { return (data.get(DATA_LINKED) & (1 << channel)) != 0; }
 
     public static boolean isFilter(int slot) { return slot >= FILTER_START && slot < FILTER_END; }
 
@@ -74,8 +79,12 @@ public class RelayMenu extends AbstractContainerMenu {
 
     @Override
     public boolean clickMenuButton(Player player, int id) {
-        if (id != TOGGLE_ALLOW) return false;
-        if (container instanceof WirelessRelayBlockEntity relay) relay.toggleAllow(null);
+        if (!(container instanceof WirelessRelayBlockEntity relay)) return id >= TOGGLE_ALLOW && id <= UNLINK;
+        if (id == TOGGLE_ALLOW) relay.toggleAllow(null);
+        else if (id >= SELECT && id < SELECT + WirelessRelayBlockEntity.MAX_CHANNELS) relay.select(id - SELECT);
+        else if (id == TOGGLE_ROUTE) relay.toggleRoundRobin();
+        else if (id == UNLINK) relay.unlink(relay.selected());
+        else return false;
         return true;
     }
 

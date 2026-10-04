@@ -380,7 +380,8 @@ public final class ModBlocks {
                 .strength(2.0F)
                 .sound(SoundType.WOOD)
                 .lightLevel(s -> 4)
-                .noOcclusion()));
+                .noOcclusion()
+                .pushReaction(PushReaction.BLOCK)));   // a piston must not split the two halves
     }
 
     private static DeferredBlock<Block> echo(String id, MapColor color) {

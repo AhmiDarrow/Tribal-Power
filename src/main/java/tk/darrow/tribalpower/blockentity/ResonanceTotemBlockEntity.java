@@ -51,6 +51,8 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     private long lushReadAt = Long.MIN_VALUE;
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, ResonanceTotemBlockEntity be) {
+        // A totem from before it stood as two blocks grows its clickable top once the space above is clear.
+        if ((level.getGameTime() + pos.asLong()) % 100 == 0) ResonanceTotemBlock.growTop(level, pos, state);
         if (be.attention <= 0) return;
         long now = level.getGameTime();
         if (now - be.lushReadAt >= 100L || be.lushReadAt == Long.MIN_VALUE) {

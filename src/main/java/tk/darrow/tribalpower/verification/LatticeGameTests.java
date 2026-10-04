@@ -977,15 +977,15 @@ public class LatticeGameTests {
         var tuner=new ItemStack(ModItems.LATTICE_TUNER.get());
         var relayPos=h.absolutePos(new BlockPos(2,2,2));
         var chestPos=h.absolutePos(new BlockPos(6,2,2));
-        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+        tuner.getItem().onItemUseFirst(tuner,new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
                 new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(relayPos),Direction.NORTH,relayPos,false)));
         h.assertTrue(!tuner.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().contains("Endpoint"),
                 "A tuner does not mark the plate itself");
-        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+        tuner.getItem().onItemUseFirst(tuner,new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
                 new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(chestPos),Direction.UP,chestPos,false)));
         h.assertTrue(tuner.getOrDefault(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.EMPTY).copyTag().contains("Endpoint"),
                 "A tuner marks a machine face");
-        tuner.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+        tuner.getItem().onItemUseFirst(tuner,new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
                 new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(relayPos),Direction.NORTH,relayPos,false)));
         var saved=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class).saveWithFullMetadata(h.getLevel().registryAccess());
         h.assertTrue(saved.contains("Target") && saved.getLong("Target")==chestPos.asLong(),"The plate binds the marked chest, not itself");
@@ -1293,6 +1293,121 @@ public class LatticeGameTests {
         h.assertFalse(relay.canPlaceItem(WirelessRelayBlockEntity.LINK,new ItemStack(Items.DIAMOND)),"No new bonds");
         h.assertTrue(relay.canPlaceItem(WirelessRelayBlockEntity.RUNE,new ItemStack(ModItems.WATER_SEAL.get())),"The rune slot takes a seal");
         h.assertFalse(relay.canPlaceItem(WirelessRelayBlockEntity.RUNE,new ItemStack(Items.DIAMOND)),"And only a seal");
+        h.succeed();
+    }
+
+    /**
+     * Cache to cache the way a player does it: right-click the far cache with the tuner, then the plate. Both blocks
+     * open a screen on a right-click, which used to swallow the tuner's click, so no cache or plate could be tuned.
+     */
+    @GameTest(template="empty", timeoutTicks=200)
+    public static void tunerLinksCacheToCacheThroughRealClicks(GameTestHelper h) {
+        h.setBlock(2,1,2,ModBlocks.ANCESTRAL_CACHE.get());h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(6,1,2,ModBlocks.ANCESTRAL_CACHE.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
+        power(h);
+        var from=at(h,new BlockPos(2,1,2),AncestralCacheBlockEntity.class);
+        var to=at(h,new BlockPos(6,1,2),AncestralCacheBlockEntity.class);
+        from.setItem(0,new ItemStack(Items.GOLD_INGOT,16));
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var player=VerificationPlayers.inLevel(h);
+        relay.setOwner(player.getUUID());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,new ItemStack(ModItems.LATTICE_TUNER.get()));
+        var far=h.absolutePos(new BlockPos(6,1,2));
+        player.gameMode.useItemOn(player,h.getLevel(),player.getMainHandItem(),net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(far),Direction.UP,far,false));
+        h.assertTrue(player.containerMenu==player.inventoryMenu,"Marking a cache with the tuner does not open the cache");
+        var plate=h.absolutePos(new BlockPos(2,2,2));
+        player.gameMode.useItemOn(player,h.getLevel(),player.getMainHandItem(),net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(plate),Direction.UP,plate,false));
+        h.assertTrue(far.equals(relay.target()),"A plain right-click on the plate binds it to the marked cache, target="+relay.target());
+        h.assertTrue(player.containerMenu==player.inventoryMenu,"And does not open the plate");
+        h.runAfterDelay(110,()->{
+            h.assertTrue(from.isEmpty() && to.countItem(Items.GOLD_INGOT)==16,"The gold crosses from cache to cache");
+            h.succeed();
+        });
+    }
+
+    private static WirelessRelayBlockEntity channelRelay(GameTestHelper h, int rank, ChestBlockEntity[] chests) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());h.setBlock(0,2,0,ModBlocks.RESONANCE_TOTEM_AIR.get());
+        h.setBlock(2,1,2,Blocks.CHEST);h.setBlock(6,2,2,Blocks.CHEST);h.setBlock(6,2,5,Blocks.CHEST);
+        power(h);
+        chests[0]=at(h,new BlockPos(2,1,2),ChestBlockEntity.class);
+        chests[1]=at(h,new BlockPos(6,2,2),ChestBlockEntity.class);
+        chests[2]=at(h,new BlockPos(6,2,5),ChestBlockEntity.class);
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        tk.darrow.tribalpower.item.MachineRank.apply(relay,rank);
+        String dim=h.getLevel().dimension().location().toString();
+        relay.bindChannel(0,h.absolutePos(new BlockPos(6,2,2)),Direction.UP,dim);
+        relay.bindChannel(1,h.absolutePos(new BlockPos(6,2,5)),Direction.UP,dim);
+        return relay;
+    }
+
+    @GameTest(template="empty")
+    public static void relayChannelsOpenWithRank(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        var relay=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        String dim=h.getLevel().dimension().location().toString();
+        h.assertTrue(relay.channelCount()==1,"A plain plate has one channel");
+        h.assertFalse(relay.bindChannel(1,h.absolutePos(new BlockPos(6,2,2)),Direction.UP,dim),"Its second channel is locked");
+        for (int rank=1; rank<=3; rank++) {
+            tk.darrow.tribalpower.item.MachineRank.apply(relay,rank);
+            h.assertTrue(relay.channelCount()==rank+1,"Rank "+rank+" opens "+(rank+1)+" channels, got "+relay.channelCount());
+        }
+        h.assertTrue(relay.bindChannel(3,h.absolutePos(new BlockPos(6,2,2)),Direction.UP,dim),"A Manifested plate aims its fourth channel");
+        h.succeed();
+    }
+
+    @GameTest(template="empty", timeoutTicks=200)
+    public static void relayPrioritySortsAndOverflows(GameTestHelper h) {
+        var chests=new ChestBlockEntity[3];
+        var relay=channelRelay(h,1,chests);
+        chests[0].setItem(0,new ItemStack(Items.GOLD_INGOT,16));
+        chests[0].setItem(1,new ItemStack(Items.IRON_INGOT,16));
+        relay.select(0);relay.toggleAllow(null);relay.setFilter(0,new ItemStack(Items.GOLD_INGOT));
+        h.runAfterDelay(130,()->{
+            h.assertTrue(chests[1].countItem(Items.GOLD_INGOT)==16 && chests[1].countItem(Items.IRON_INGOT)==0,"Channel 1 whitelists gold and gets all of it");
+            h.assertTrue(chests[2].countItem(Items.IRON_INGOT)==16 && chests[2].countItem(Items.GOLD_INGOT)==0,"Channel 2 takes what channel 1 refuses");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template="empty", timeoutTicks=200)
+    public static void relayRoundRobinTakesTurns(GameTestHelper h) {
+        var chests=new ChestBlockEntity[3];
+        var relay=channelRelay(h,1,chests);
+        chests[0].setItem(0,new ItemStack(Items.COBBLESTONE,64));
+        relay.toggleRoundRobin();
+        h.runAfterDelay(130,()->{
+            int a=chests[1].countItem(Items.COBBLESTONE), b=chests[2].countItem(Items.COBBLESTONE);
+            h.assertTrue(a>0 && b>0 && Math.abs(a-b)<=20,"Both channels get their turn, a="+a+" b="+b);
+            h.assertTrue(a+b+chests[0].countItem(Items.COBBLESTONE)==64,"Nothing lost or made");
+            h.succeed();
+        });
+    }
+
+    @GameTest(template="empty")
+    public static void relayChannelsSaveAndSwitchInTheScreen(GameTestHelper h) {
+        var chests=new ChestBlockEntity[3];
+        var relay=channelRelay(h,2,chests);
+        var player=VerificationPlayers.inLevel(h);
+        var menu=(tk.darrow.tribalpower.echo.RelayMenu)relay.createMenu(1,player.getInventory(),player);
+        menu.clickMenuButton(player,tk.darrow.tribalpower.echo.RelayMenu.SELECT+1);
+        h.assertTrue(relay.selected()==1,"A tab selects its channel");
+        menu.setCarried(new ItemStack(Items.IRON_INGOT));
+        menu.clicked(tk.darrow.tribalpower.echo.RelayMenu.FILTER_START,0,net.minecraft.world.inventory.ClickType.PICKUP,player);
+        menu.setCarried(ItemStack.EMPTY);
+        h.assertTrue(relay.filter(0).is(Items.IRON_INGOT),"The filter row is the selected channel's");
+        relay.select(0);
+        h.assertTrue(relay.filter(0).isEmpty(),"Channel 1 keeps its own empty filter");
+        menu.clickMenuButton(player,tk.darrow.tribalpower.echo.RelayMenu.TOGGLE_ROUTE);
+        relay.select(2);
+        menu.clickMenuButton(player,tk.darrow.tribalpower.echo.RelayMenu.UNLINK);
+        var copy=new WirelessRelayBlockEntity(relay.getBlockPos(),relay.getBlockState());
+        copy.loadWithComponents(relay.saveWithFullMetadata(h.getLevel().registryAccess()),h.getLevel().registryAccess());
+        h.assertTrue(copy.channelCount()==3 && copy.roundRobin(),"Rank and routing survive a save");
+        h.assertTrue(h.absolutePos(new BlockPos(6,2,5)).equals(copy.target(1)) && copy.target(2)==null,"Each channel keeps its own destination");
+        copy.select(1);
+        h.assertTrue(copy.filter(0).is(Items.IRON_INGOT),"And its own filter");
         h.succeed();
     }
 

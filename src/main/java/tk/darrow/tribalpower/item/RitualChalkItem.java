@@ -48,7 +48,7 @@ public class RitualChalkItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
-        BlockPos pos = context.getClickedPos();
+        BlockPos pos = tk.darrow.tribalpower.block.ResonanceTotemBlock.base(level, context.getClickedPos());
         BlockEntity be = level.getBlockEntity(pos);
         if (!(be instanceof ResonanceTotemBlockEntity)) {
             return drawMark(context);

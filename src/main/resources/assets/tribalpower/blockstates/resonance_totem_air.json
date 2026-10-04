@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "half=lower": {
       "model": "tribalpower:block/resonance_totem_air"
+    },
+    "half=upper": {
+      "model": "tribalpower:block/resonance_totem_upper"
     }
   }
 }

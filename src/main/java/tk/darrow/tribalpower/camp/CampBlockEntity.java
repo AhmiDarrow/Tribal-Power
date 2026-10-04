@@ -59,6 +59,8 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     @Override public UUID owner(){return owner;}
     @Override public void setOwner(UUID owner){this.owner=owner;setChanged();}
     @Override public int[] getSlotsForFace(Direction side){
+        // a face switched off offers nothing, so a pipe does not even connect to it
+        if(sides.get(side)==tk.darrow.tribalpower.lattice.SideIo.Mode.NONE)return new int[0];
         if(kind().equals("offering_table"))return java.util.stream.IntStream.range(0,27).toArray();
         if(kind().equals("summoning_cradle"))return side==Direction.DOWN?new int[]{0}:new int[]{1};
         // a face set to take out reaches the store, one set to put in reaches the seed row, one doing both reaches all
