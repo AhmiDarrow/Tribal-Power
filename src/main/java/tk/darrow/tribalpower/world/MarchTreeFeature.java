@@ -356,6 +356,11 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
             top = Math.max(top, pos.getY());
         }
 
+        /** How many logs the tree is planned with; a GameTest holds the Earth axe's felling caps to it. */
+        public int logCount() {
+            return logs.size();
+        }
+
         void base(Vec3 v) {
             bases.add(BlockPos.containing(v));
         }

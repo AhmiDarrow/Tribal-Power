@@ -56,8 +56,8 @@ public class SpiritgearAxeItem extends AxeItem {
         SpiritGear.finishDurability(player, stack, paid);
         if (ok && paid && !aoe && state.is(BlockTags.LOGS)) {
             Attunement voice = SpiritGear.voice(stack).orElse(null);
-            if (voice == Attunement.EARTH && SpiritGear.chance(player.getRandom(), stack, 0.25F)) {
-                extraLog(player, stack, pos);
+            if (voice == Attunement.EARTH) {
+                TreeFelling.fell(player, stack, pos, state);
             } else if (voice == Attunement.AIR) {
                 extraLog(player, stack, pos);
                 extraLog(player, stack, pos.relative(player.getDirection()));
@@ -109,5 +109,7 @@ public class SpiritgearAxeItem extends AxeItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.spiritgear.desc"));
         SpiritGear.appendTooltip(stack, tooltip, flag);
+        if (SpiritGear.voice(stack).orElse(null) == Attunement.EARTH)
+            tooltip.add(Component.translatable("item.tribalpower.spiritgear_axe.earth").withStyle(net.minecraft.ChatFormatting.DARK_GREEN));
     }
 }

@@ -280,6 +280,7 @@ public final class SpiritGearHooks {
             player.getPersistentData().remove(KEPT_HEALTH);
         }
         SpiritGear.endSwing();
+        if (player instanceof ServerPlayer feller) TreeFelling.tick(feller);
         ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         Attunement legVoice = SpiritGear.voice(legs).orElse(null);
