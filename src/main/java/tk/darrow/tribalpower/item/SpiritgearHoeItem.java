@@ -144,7 +144,7 @@ public class SpiritgearHoeItem extends HoeItem {
         // the plant goes back only when one of its own seeds came out of the harvest to sow
         boolean kept = false;
         boolean bounty = SpiritGear.voice(tool).orElse(null) == Attunement.SPIRIT
-                && SpiritGear.chance(level.random, tool, 0.25F);
+                && SpiritGear.chance(player, level.random, tool, 0.25F);
         for (ItemStack drop : Block.getDrops(state, level, pos, null, player, tool)) {
             if (!kept && !seed.isEmpty() && ItemStack.isSameItem(drop, seed)) {
                 drop.shrink(1);

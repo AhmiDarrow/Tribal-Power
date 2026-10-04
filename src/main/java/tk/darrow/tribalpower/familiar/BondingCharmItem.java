@@ -1,8 +1,11 @@
 package tk.darrow.tribalpower.familiar;
 
+import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -14,8 +17,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import tk.darrow.tribalpower.block.ResonanceTotemBlock;
 import tk.darrow.tribalpower.camp.CampHooks;
 import tk.darrow.tribalpower.camp.identity.CampStanding;
+import tk.darrow.tribalpower.entity.CreatureProfile;
 import tk.darrow.tribalpower.entity.LatticeAnimal;
 import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.tribe.TribeRank;
@@ -23,6 +30,7 @@ import tk.darrow.tribalpower.tribe.TribeRank;
 /**
  * Use on an adult, unbonded tameable familiar. Gentle animals: 60% keep the charm on failure.
  * Remnants: Voice standing with their tribe, 40%, charm spent on failure. The lattice does not reroll.
+ * Sneak-used on a Resonance Totem it attunes a bonded familiar standing by to the totem's voice, and is not spent.
  */
 public class BondingCharmItem extends Item {
     public static final float CHANCE=0.6F,HOSTILE_CHANCE=0.4F;
@@ -77,7 +85,22 @@ public class BondingCharmItem extends Item {
         }
         return success;
     }
+    /** Sneak-use on a Resonance Totem: the keeper's familiar standing by takes the totem's voice (see {@link FamiliarBoost}). */
+    @Override public InteractionResult useOn(UseOnContext context) {
+        Level level=context.getLevel();
+        Player player=context.getPlayer();
+        if(player==null || !(level.getBlockState(context.getClickedPos()).getBlock() instanceof ResonanceTotemBlock totem))return InteractionResult.PASS;
+        if(level instanceof ServerLevel server)FamiliarBoost.attune(server,player,ResonanceTotemBlock.base(level,context.getClickedPos()),totem.getAttunement());
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> lines,TooltipFlag flag) {
         lines.add(Component.translatable("item.tribalpower.bonding_charm.desc"));
+        // who answers: every gentle beast, and the six remnants whose tribe can call you Voice
+        lines.add(Component.translatable("item.tribalpower.bonding_charm.gentle").withStyle(ChatFormatting.GRAY));
+        List<Component> remnants=new ArrayList<>();
+        for(CreatureProfile profile:CreatureProfile.values())
+            if(!profile.boss() && FamiliarRoster.voiceTribe(profile)!=null)remnants.add(Component.translatable("entity.tribalpower."+profile.id));
+        lines.add(Component.translatable("item.tribalpower.bonding_charm.remnants",ComponentUtils.formatList(remnants,Component.literal(", "))).withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("item.tribalpower.bonding_charm.attune",FamiliarBoost.ATTUNE_RANGE).withStyle(ChatFormatting.DARK_AQUA));
     }
 }

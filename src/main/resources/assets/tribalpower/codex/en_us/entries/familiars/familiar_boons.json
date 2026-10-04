@@ -1,0 +1,45 @@
+{
+  "name": "What a voice gives",
+  "icon": "tribalpower:ember_charm",
+  "order": 30,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Within 16 blocks",
+      "text": [
+        "Everything on these pages needs your attuned familiar within **16 blocks** of you. Every familiar following you counts, but of those told to wait only the **nearest one** does, so a crowd left sitting at home lends you one voice, not all of theirs.",
+        "Without one, your magic works just as it always has."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spirit Charms",
+      "text": [
+        "A worn charm that carries the familiar's voice costs **40% less Pulse** to keep up, rounded: a one-voice charm's 2 Pulse becomes 1. See [Spirit Charms](spirit_charms).",
+        "Each voice you share also adds a boon, which lingers a few seconds after you part:",
+        "- **Earth**: Resistance II instead of I.",
+        "- **Fire**: Haste, and attackers burn twice as long.",
+        "- **Water**: Conduit Power.",
+        "- **Air**: Speed.",
+        "- **Spirit**: hostile things within 16 blocks glow through walls. The glow is plain to everyone nearby, not just you.",
+        "- **Loom**: Luck II."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spiritgear",
+      "text": [
+        "A piece linked to the familiar's voice spends **40% less Pulse**, rounded: a blow's 3 becomes 2, a mining swing's 2 becomes 1 and linked armour's 3 becomes 2. A 1-Pulse spend, like tilling or shearing, cannot go lower, so instead it is **free 40% of the time**.",
+        "Its voice perks (extra logs and saplings, double harvests, clay from dirt) come **half again as often**. See [Spiritgear](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Songs and rites",
+      "text": [
+        "Verses of the familiar's voice strike **30% harder**, and a call reaches **1.5 blocks** further ([the Song Bench](song_bench)).",
+        "A seal rite of its voice leaves a blessing that lasts **half again as long**."
+      ]
+    }
+  ]
+}

@@ -120,6 +120,8 @@ public final class GearCell {
      */
     public static boolean spend(Player player, ItemStack gear, int amount) {
         if (amount <= 0 || player.getAbilities().instabuild) return true;
+        // a familiar near you that carries the piece's voice carries part of the cost
+        amount = tk.darrow.tribalpower.familiar.FamiliarBoost.gearCost(player, gear, amount);
         int own = pulse(gear);
         int fromOwn = Math.min(own, amount);
         int rest = amount - fromOwn;

@@ -1,0 +1,33 @@
+{
+  "name": "Attuning at a totem",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 20,
+  "next": "familiar_boons",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Giving it a voice",
+      "text": [
+        "Bring your grown familiar within **6 blocks** of a Resonance Totem and **sneak-use a Bonding Charm on the totem**. Your nearest familiar that does not carry that voice yet takes it. The charm is not spent.",
+        "The totem rings, a thread of its colour runs to the familiar, and from then on it shimmers in that colour. Its voice shows when you look at it, and on your Ley Lens."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "One voice each",
+      "text": [
+        "A familiar carries one voice at a time. Take it to another totem to change it whenever you like.",
+        "Several familiars can carry several voices. Every one following you counts, and the nearest one waiting ([what a voice gives](familiar_boons)).",
+        "The voice is the familiar's own: its young are born without one."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Totem and familiar",
+      "text": [
+        "An attuned familiar keeps every totem of its voice within **8 blocks** answered, and wakes one that has gone quiet ([keeping](keeping)). Leave one waiting beside a totem you seldom visit.",
+        "Use a totem with an empty hand to hear which familiars keep it. If none do and your own familiar is close, the totem tells you how to attune it."
+      ]
+    }
+  ]
+}

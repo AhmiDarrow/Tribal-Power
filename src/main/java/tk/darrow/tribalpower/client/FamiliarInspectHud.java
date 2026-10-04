@@ -48,7 +48,10 @@ public final class FamiliarInspectHud {
         List<FormattedCharSequence> markLines = font.split(marks, room);
         List<FormattedCharSequence> summaryLines = font.split(Component.translatable("gui.tribalpower.lattice.summary",
                 FamiliarData.unpackGeneration(packed), bloodline), room);
-        int height = 86 + 10 * (Math.max(1, markLines.size()) - 1 + Math.max(1, summaryLines.size()) - 1);
+        // its voice once attuned, or whether and how a wild one can be bonded
+        var status = tk.darrow.tribalpower.familiar.FamiliarBoost.status(familiar, familiar.syncedVoice());
+        List<FormattedCharSequence> statusLines = status == null ? List.of() : font.split(status, room);
+        int height = 86 + 10 * (Math.max(1, markLines.size()) - 1 + Math.max(1, summaryLines.size()) - 1 + statusLines.size());
         g.fill(x, y, x + width, y + height, 0xD9101B22);
         g.fill(x, y, x + 2, y + height, own ? 0xFF65D7C0 : 0xFFB58A58);
         g.drawString(font, fit(font, familiar.asMob().getDisplayName(), room), x + 6, y + 4, 0xFFE7DCC1, false);
@@ -63,6 +66,10 @@ public final class FamiliarInspectHud {
             row += 10;
         }
         for (FormattedCharSequence line : markLines) {
+            g.drawString(font, line, x + 6, row + 1, 0xFFE7DCC1, false);
+            row += 10;
+        }
+        for (FormattedCharSequence line : statusLines) {
             g.drawString(font, line, x + 6, row + 1, 0xFFE7DCC1, false);
             row += 10;
         }

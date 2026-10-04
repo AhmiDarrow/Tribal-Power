@@ -112,6 +112,12 @@ final class CodexFacts {
             Fact.of("tribal_kin", "Elders restock once a Minecraft day; a Drummer beats every 5 to 6 seconds", "5 to 6 seconds").never("generators within 8 blocks"),
             Fact.of("kinship_totem", "Kinship lends an element, not a seventh voice", "seventh"),
             Fact.of("familiar_gifts", "A Cinder Imp refunds 4 Pulse; an Echo Weaver gathers within 4 blocks", "4 Pulse", "4 blocks").never("a little Pulse"),
+            // FamiliarBoost: the numbers the familiar chapter teaches.
+            Fact.of("familiar_attuning", "Attuning reaches 6 blocks; an attuned familiar keeps totems within 8",
+                    tk.darrow.tribalpower.familiar.FamiliarBoost.ATTUNE_RANGE + " blocks", tk.darrow.tribalpower.familiar.FamiliarBoost.KEEP_RANGE + " blocks"),
+            Fact.of("familiar_boons", "An attuned familiar within 16 blocks takes 40% off its voice's charm and Spiritgear Pulse; a 1-Pulse spend cannot round lower, so it is free 40% of the time; only the nearest sitting familiar counts",
+                    tk.darrow.tribalpower.familiar.FamiliarBoost.RANGE + " blocks", Math.round(tk.darrow.tribalpower.familiar.FamiliarBoost.DISCOUNT * 100) + "% less Pulse",
+                    "free " + Math.round(tk.darrow.tribalpower.familiar.FamiliarBoost.DISCOUNT * 100) + "% of the time", "nearest one").never("a swing's 2 becomes 1"),
             Fact.of("welcome", "The landing mentions JEI as optional", "JEI"),
             // LatticeNetwork.canLink is closerThan(LINK_RANGE): 16 blocks apart is already too far.
             Fact.of("lattice_conductor", "Chalk links need the totems less than 16 blocks apart", "less than 16 blocks").never("within 16 blocks", "up to 16 blocks"),

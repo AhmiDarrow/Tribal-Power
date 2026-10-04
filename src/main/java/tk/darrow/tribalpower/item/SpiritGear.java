@@ -427,4 +427,9 @@ public final class SpiritGear {
     public static boolean chance(RandomSource random, ItemStack stack, float base) {
         return random.nextFloat() < (rank(stack) >= 3 ? Math.min(1.0F, base * 2) : base);
     }
+
+    /** As {@link #chance(RandomSource, ItemStack, float)}, better when a familiar of the piece's voice is near its wielder. */
+    public static boolean chance(Player player, RandomSource random, ItemStack stack, float base) {
+        return chance(random, stack, tk.darrow.tribalpower.familiar.FamiliarBoost.gearChance(player, stack, base));
+    }
 }

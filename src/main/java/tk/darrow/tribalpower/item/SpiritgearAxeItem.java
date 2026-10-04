@@ -61,7 +61,7 @@ public class SpiritgearAxeItem extends AxeItem {
             } else if (voice == Attunement.AIR) {
                 extraLog(player, stack, pos);
                 extraLog(player, stack, pos.relative(player.getDirection()));
-            } else if (voice == Attunement.WATER && SpiritGear.chance(player.getRandom(), stack, 0.15F)) {
+            } else if (voice == Attunement.WATER && SpiritGear.chance(player, player.getRandom(), stack, 0.15F)) {
                 net.minecraft.world.level.block.Block.popResource(level, pos, new ItemStack(Blocks.OAK_SAPLING));
             } else if (voice == Attunement.SPIRIT && level instanceof ServerLevel server) {
                 for (LivingEntity mob : server.getEntitiesOfClass(LivingEntity.class,
