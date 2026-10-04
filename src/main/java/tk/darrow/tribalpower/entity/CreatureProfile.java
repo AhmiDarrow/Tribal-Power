@@ -85,7 +85,7 @@ public enum CreatureProfile {
     GEODE_KOBOLD("geode_kobold",false,false,21,0.29,4,2,0.7F,1.1F,"hound","kobold_horn",0x7d6ca3,0xd4c6f2),
     GLIMMER_FAY("glimmer_fay",true,true,8,0.3,0,0,0.7F,1.3F,"none","fay_dust",0xe0ba50,0xffeca0),
     PRISM_FAY("prism_fay",true,true,8,0.3,0,0,0.7F,1.3F,"none","fay_petal",0xce7ca6,0xfcbedc),
-    MARSH_FAY("marsh_fay",true,true,8,0.3,0,0,0.7F,1.3F,"none","fay_spark",0x76b660,0xbaec96),
+    MARSH_FAY("marsh_fay",true,true,8,0.3,0,0,0.7F,1.4F,"none","fay_spark",0x76b660,0xbaec96),
     BARROW_SHADE("barrow_shade",false,false,25,0.25,5,0,0.8F,1.6F,"weaken","barrow_shroud",0xa0988a,0xbeffd6),
     PALE_WRAITH("pale_wraith",false,true,25,0.25,5,0,0.8F,1.9F,"chill","wraith_veil",0x384c62,0xd8f0ff),
     CINDER_SHADE("cinder_shade",false,true,25,0.25,5,0,0.8F,1.6F,"bolt","shade_ember",0x301a14,0xfcc478),
