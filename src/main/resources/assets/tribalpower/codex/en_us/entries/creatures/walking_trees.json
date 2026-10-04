@@ -27,7 +27,7 @@
       "title": "Wardens of the groves",
       "text": [
         "Not every March tree stands still. In each land where a [March tree](march_trees) grows, a few of its kind have stood up and walk, wearing the same wood and leaf as the tree they came from.",
-        "They are gentle. Brush one for its reagent once a minute, and tempt and breed it with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though it has no gift of its own."
+        "They are gentle. Brush one for its reagent once a minute, and tempt and breed it with **bone meal**. It can be bonded like any gentle animal (see [familiars](familiars)), though it has no gift of its own."
       ]
     },
     {
@@ -49,6 +49,20 @@
       "text": [
         "Every walking tree has **48 health** and **8 armour**. They are slow, keep away from monsters, and walk in groups of two to four. Each drops **1 to 3** of its reagent, more with Looting.",
         "The Glimmer Ridge grows no tree, so it has no warden. The one tree that walks and is not gentle is the [Colossus Warden](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Hearth Warden**: 1 to 3 Hearthoak Logs, up to 1 Hearthoak Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Grove Elder**: 1 to 3 March Logs, up to 1 March Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Frostpine Sentinel**: 1 to 3 Frostpine Logs, up to 1 Frostpine Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Snagwalker**: 1 to 3 Cinderwood Logs, up to 1 Cinderwood Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Weeping Warden**: 1 to 3 Willow Logs, up to 1 Willow Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Bellcap Elder**: 1 to 3 Bellcap Logs, up to 1 Bellcap Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
+        "- **Stiltwood**: 1 to 3 Strider Logs, up to 1 Strider Sapling and 1 to 3 Sticks. Breed with **bone meal**."
       ]
     }
   ]

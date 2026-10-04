@@ -39,6 +39,14 @@
         "A bonded hound is a fighter, and the rare **Track** mark shows you the last foe that hurt you. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Rift Hound**: up to 2 Bones and up to 1 March Leather."
+      ]
     }
   ]
 }

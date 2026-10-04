@@ -17,4 +17,7 @@ public class LatticeCreatureRenderer<T extends Mob> extends MobRenderer<T,Lattic
         if(profile.animal)addLayer(new BondedCollarLayer<>(this,profile));
     }
     @Override public ResourceLocation getTextureLocation(T entity) { return texture; }
+    /** The models are built at adult size; a young one is drawn at the half size its hitbox already has. */
+    @Override protected void scale(T entity,com.mojang.blaze3d.vertex.PoseStack pose,float partialTick) { float s=entity.getAgeScale();pose.scale(s,s,s); }
+    @Override protected float getShadowRadius(T entity) { return super.getShadowRadius(entity)*entity.getAgeScale(); }
 }

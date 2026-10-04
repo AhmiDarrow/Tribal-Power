@@ -21,7 +21,7 @@
       "title": "The Highlands' own",
       "text": [
         "Among the stone, moss and groves of the Highlands live two heavy grazers, a drifting floater, and a hunter that comes out at night.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
     {
@@ -54,6 +54,17 @@
       "text": [
         "A tall, stony thing that rises on the open ground at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, and every blow shoves you back.",
         "It drops **1 to 2 Scree Knuckles**, a Shove reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Cragcoat**: 1 to 3 Raw Game and up to 2 March Leather. Breed with **wheat**.",
+        "- **Bouldersnout**: 1 to 3 Raw Game and up to 2 March Leather. Breed with **potatoes or carrots**.",
+        "- **Updrifter**: up to 2 String. Breed with **Ley Thistle**.",
+        "- **Scree Lurcher**: 1 to 2 Flint and up to 2 Iron Nuggets."
       ]
     }
   ]

@@ -28,7 +28,7 @@
       "type": "text",
       "text": [
         "Brush an adult for a **Mossback Scale**, once a minute. Scales bind into 2 Spiritweave under Water, and the Rootbinders favour them as an offering.",
-        "If you hunt one it drops **2 to 4 Raw Game**, more with Looting, cooked if it died burning."
+        "If you hunt one it drops **2 to 4 Raw Game** and up to 2 March Leather, more with Looting, cooked if it died burning."
       ],
       "title": "What it gives"
     },
@@ -39,6 +39,14 @@
         "See the [familiar gifts](familiar_gifts) page for how to open the bag and send it to wait."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Mossback**: 2 to 4 Raw Game and up to 2 March Leather. Breed with **seagrass or Ribbon Weed**."
+      ]
     }
   ]
 }

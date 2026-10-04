@@ -38,6 +38,14 @@
         "No charm will bond a Rootbound."
       ],
       "title": "It will not bond"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Rootbound**: 1 to 3 Sticks and up to 2 Bone Meal."
+      ]
     }
   ]
 }

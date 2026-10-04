@@ -29,7 +29,7 @@
       "title": "Wanderers",
       "text": [
         "Eight gentle creatures are not tied to one land. You will meet them across the March, in the open, in the caves and at the edge of lava.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own.",
         "Several of their reagents grind into dye: see [reagents](reagents)."
       ]
     },
@@ -58,6 +58,21 @@
         "- **Ember Drifter**: a floating ember that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
         "- **Magma Creeper**: a slow, armoured crawler of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
         "Both lava dwellers turn up wherever the March has lava, in every land but the Shallows."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Ash Hopper**: up to 1 Raw Game and up to 1 Rabbit Hide. Breed with **carrots or Steppe Grain**.",
+        "- **Ridge Grazer**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**.",
+        "- **Crag Bounder**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**.",
+        "- **Glimmer Moth**: up to 1 String and up to 1 Glowstone Dust. Breed with **Echo Blooms or any small flower**.",
+        "- **Dust Flitter**: up to 2 Feathers. Breed with **wheat seeds or Steppe Grain**.",
+        "- **Stone Grub**: up to 1 Slimeball. Breed with **Lantern Caps or any mushroom**.",
+        "- **Ember Drifter**: up to 2 Charcoal. Breed with **coal or charcoal**.",
+        "- **Magma Creeper**: up to 1 Magma Cream. Breed with **coal or charcoal**."
       ]
     }
   ]

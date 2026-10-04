@@ -28,7 +28,7 @@
       "type": "text",
       "text": [
         "Brush an adult for **Lantern Down**, once a minute. Down binds into 2 Spiritweave under Water, and the Colony-keepers favour it as an offering.",
-        "A fox drops nothing if it dies, so brushing is the only way to get its down."
+        "A hunted fox drops Raw Game and sometimes March Leather, but never its down, so brushing is the only way to get that."
       ],
       "title": "What it gives"
     },
@@ -39,6 +39,14 @@
         "The details are on the [familiar gifts](familiar_gifts) page."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Lantern Fox**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **sweet berries**."
+      ]
     }
   ]
 }

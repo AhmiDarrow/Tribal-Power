@@ -38,6 +38,14 @@
         "No charm will bond an Ashbound. Light your paths and it stays away."
       ],
       "title": "It will not bond"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Ashbound**: up to 2 Coal and up to 1 Bone."
+      ]
     }
   ]
 }

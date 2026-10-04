@@ -45,6 +45,16 @@
         "Each drops **1 to 2** of its hide, more with Looting. **Troll Hide** and **Rime Hide** are Shove reagents, **Slag Hide** an Ember reagent: see [reagents](reagents).",
         "Trolls never bond."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
+        "- **Crag Troll**: 1 to 3 March Leather, 1 to 2 Bones and up to 2 Flint.",
+        "- **Rime Troll**: 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Snowballs.",
+        "- **Slag Troll**: 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Iron Nuggets."
+      ]
     }
   ]
 }

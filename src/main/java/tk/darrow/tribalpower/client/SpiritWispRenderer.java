@@ -20,4 +20,16 @@ public class SpiritWispRenderer extends MobRenderer<SpiritWispEntity, MarchCreat
     public ResourceLocation getTextureLocation(SpiritWispEntity entity) {
         return TEXTURE;
     }
+
+    /** Young ones are bred now; draw them at the half size their hitbox already has. */
+    @Override
+    protected void scale(SpiritWispEntity entity, com.mojang.blaze3d.vertex.PoseStack pose, float partialTick) {
+        float s = entity.getAgeScale();
+        pose.scale(s, s, s);
+    }
+
+    @Override
+    protected float getShadowRadius(SpiritWispEntity entity) {
+        return super.getShadowRadius(entity) * entity.getAgeScale();
+    }
 }

@@ -39,6 +39,14 @@
         "A bonded Shardback is a fighter: it strikes whoever hurts you and whoever you strike. The rare **Brace** mark makes it hard to knock back. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Shardback**: up to 2 Amethyst Shards."
+      ]
     }
   ]
 }

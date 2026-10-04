@@ -39,6 +39,14 @@
         "A bonded moth that sits leaves a small invisible click of redstone once a second, a free clock for your contraptions. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Storm Moth**: up to 2 String and up to 1 Phantom Membrane."
+      ]
     }
   ]
 }

@@ -138,15 +138,10 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         return super.hurt(source,amount);
     }
     // ---- food, breeding, brushing ----------------------------------------------------------------------------
-    /** The stag grazes wheat, the fox takes berries, the Mossback seagrass; every other creature wants its own reagent. */
+    /** The stag grazes wheat, the fox takes berries, the Mossback seagrass; the rest eat their land's crop (see BreedingFood). */
     @Override public boolean isFood(ItemStack s) {
-        if(s.isEmpty())return false;
-        return s.is(switch(profile()) {
-            case DAWN_STAG -> Items.WHEAT;
-            case LANTERN_FOX -> Items.SWEET_BERRIES;
-            case MOSSBACK -> Items.SEAGRASS;
-            default -> tk.darrow.tribalpower.item.CreatureItems.REAGENTS.get(profile()).get();
-        });
+        var food=BreedingFood.of(profile());
+        return food!=null && food.test(s);
     }
     @Override public boolean canMate(Animal other) { return other.getType()==getType() && super.canMate(other); }
     @Override public AgeableMob getBreedOffspring(ServerLevel level,AgeableMob mate) {
@@ -171,6 +166,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         // a Ley Lens read comes before any sneak-use of the creature's own: the game asks the creature first
         if(player.isSecondaryUseActive() && tool.getItem() instanceof tk.darrow.tribalpower.ley.LeyLensItem)return InteractionResult.PASS;
         if(isFood(tool)) {
+            // Fed while sneaking, a wild adult falls in love instead of warming to you: herds are kept, not only bonded.
+            if(!isBonded() && !isBaby() && player.isSecondaryUseActive())return super.mobInteract(player,hand);
             // Like a wolf: food tames a wild one in time and heals a hurt companion; a healthy companion falls in love.
             InteractionResult fed=tk.darrow.tribalpower.familiar.FamiliarCare.feed(this,player,hand,tool);
             if(fed!=null)return fed;

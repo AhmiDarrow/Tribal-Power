@@ -19,7 +19,8 @@
       "type": "text",
       "text": [
         "A wisp watches you from a distance but keeps about four blocks away, and it flees if something startles it.",
-        "It has only **6 health**, never attacks and drops nothing. Think of it as the March's fireflies: a sign you are somewhere the thread still hums."
+        "It has only **6 health**, never attacks and drops only a little Glowstone Dust. Think of it as the March's fireflies: a sign you are somewhere the thread still hums.",
+        "A **Spirit Shard** in your hand draws wisps close in spite of their shyness. Feed two a shard each and they make a third."
       ],
       "title": "Their habits"
     }

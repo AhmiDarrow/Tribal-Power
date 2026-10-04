@@ -39,6 +39,14 @@
         "A bonded weaver picks up drops around it and tosses them to you. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Echo Weaver**: 1 to 3 String and up to 1 Spider Eye."
+      ]
     }
   ]
 }

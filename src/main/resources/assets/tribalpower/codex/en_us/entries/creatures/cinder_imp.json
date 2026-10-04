@@ -39,6 +39,14 @@
         "A bonded imp gives back a little Pulse each time you play a Drumheart by hand. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Cinder Imp**: a one-in-three chance of Blaze Powder."
+      ]
     }
   ]
 }

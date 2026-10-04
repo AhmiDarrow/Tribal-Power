@@ -21,7 +21,7 @@
       "title": "The fen's own",
       "text": [
         "Among the reeds and mud channels live a hopper, a wading strider and a floater, and at night something coiled wakes in the grass.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
     {
@@ -54,6 +54,17 @@
       "text": [
         "A coiled, scaled hunter that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
         "It drops **1 to 2 Reed Whorls**, a Shove reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Marsh Hopper**: up to 1 Raw Game, up to 1 Rabbit Hide and up to 1 Slimeball. Breed with **Fen Rice**.",
+        "- **Fen Strider**: 1 to 3 Raw Game, up to 2 March Leather and up to 1 Bone. Breed with **Fen Rice**.",
+        "- **Bog Floater**: up to 1 Slimeball and up to 1 String. Breed with **Fen Rice**.",
+        "- **Reed Coil**: up to 1 March Leather and up to 1 Bone."
       ]
     }
   ]

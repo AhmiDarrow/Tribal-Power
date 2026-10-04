@@ -38,6 +38,14 @@
         "No charm will bond a Hollow Sentinel. It serves the halls, not you."
       ],
       "title": "It will not bond"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Hollow Sentinel**: 1 to 3 Iron Nuggets."
+      ]
     }
   ]
 }
