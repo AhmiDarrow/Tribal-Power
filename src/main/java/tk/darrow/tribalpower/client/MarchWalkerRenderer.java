@@ -20,4 +20,11 @@ public class MarchWalkerRenderer extends MobRenderer<MarchWalkerEntity, MarchCre
     public ResourceLocation getTextureLocation(MarchWalkerEntity entity) {
         return TEXTURE;
     }
+
+    /** Young ones are bred now; draw them at the half size their hitbox already has. */
+    @Override
+    protected void scale(MarchWalkerEntity entity, com.mojang.blaze3d.vertex.PoseStack pose, float partialTick) {
+        float s = entity.getAgeScale();
+        pose.scale(s, s, s);
+    }
 }

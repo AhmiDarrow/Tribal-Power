@@ -19,7 +19,7 @@
       "title": "Fays",
       "text": [
         "Where the light is strange, fays dance in the air. They are small and gentle, and flee from monsters.",
-        "Brush one for its reagent once a minute, and tempt and breed it with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though it has no gift of its own."
+        "Brush one for its reagent once a minute, and tempt and breed it with **sugar** or a **honey bottle**. It can be bonded like any gentle animal (see [familiars](familiars)), though it has no gift of its own."
       ]
     },
     {
@@ -30,6 +30,16 @@
         "- **Prism Fay**: rose, over the Crystal Fields. Drops **Fay Petals** (pink dye).",
         "- **Marsh Fay**: green, over the Reed Fen. A few fly with the [Colossus Warden](colossus_warden). Drops **Fay Sparks**.",
         "A fay has **8 health** and no armour, flies in ones to threes, and drops **1 to 3** of its reagent, more with Looting."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Glimmer Fay**: up to 2 Glowstone Dust. Breed with **sugar or a honey bottle**.",
+        "- **Prism Fay**: up to 2 Pink Petals and up to 1 Amethyst Shard. Breed with **sugar or a honey bottle**.",
+        "- **Marsh Fay**: up to 1 Glow Berries and up to 1 Glowstone Dust. Breed with **sugar or a honey bottle**."
       ]
     }
   ]

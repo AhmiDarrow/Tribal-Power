@@ -39,6 +39,14 @@
         "A bonded bell clears poison, weakness and other hexes from you while it follows. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Mourning Bell**: 1 to 3 Gold Nuggets."
+      ]
     }
   ]
 }

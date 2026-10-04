@@ -1,9 +1,12 @@
 package tk.darrow.tribalpower.wildlife;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -11,6 +14,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -20,8 +24,12 @@ import net.minecraft.world.phys.Vec3;
  * Small, quick birds that wheel over the March in loose flocks. No pathfinding: each bird picks a point in
  * the open sky ahead and steers for it, now and then leaning toward where its neighbours are headed. That is
  * cheap enough to keep a sky busy without costing a server anything worth measuring.
+ *
+ * <p>Hold out seeds and nearby swifts wheel in close around you, where they can be fed and bred (see WildBreeding).
  */
-public class LoomSwiftEntity extends AmbientCreature {
+public class LoomSwiftEntity extends AmbientCreature implements WildBreeding.Breeder {
+    private static final double TEMPT_RANGE = 16;
+    private final WildBreeding.State breeding = new WildBreeding.State();
     private Vec3 target;
     private int retarget;
 
@@ -59,8 +67,45 @@ public class LoomSwiftEntity extends AmbientCreature {
     }
 
     @Override
+    public WildBreeding.State breeding() {
+        return breeding;
+    }
+
+    @Override
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        InteractionResult fed = WildBreeding.feed(this, breeding, player, hand);
+        return fed != null ? fed : super.mobInteract(player, hand);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        breeding.save(tag);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        breeding.load(tag);
+    }
+
+    @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+        // A mate in love comes first, then a player holding seeds; either replaces the open-sky point.
+        Mob mate = WildBreeding.tick(this, breeding);
+        if (mate != null) {
+            target = mate.position();
+            retarget = 10;
+        } else if (tickCount % 10 == 0) {
+            Player feeder = level().getNearestPlayer(getX(), getY(), getZ(), TEMPT_RANGE,
+                    p -> !p.isSpectator() && (tk.darrow.tribalpower.entity.BreedingFood.isFood(getType(), ((Player) p).getMainHandItem())
+                            || tk.darrow.tribalpower.entity.BreedingFood.isFood(getType(), ((Player) p).getOffhandItem())));
+            if (feeder != null) {
+                target = feeder.getEyePosition().add(random.nextGaussian() * 1.5, 0.6 + random.nextDouble(), random.nextGaussian() * 1.5);
+                retarget = 20;
+            }
+        }
         if (target == null || --retarget <= 0 || target.distanceToSqr(position()) < 4 || horizontalCollision || verticalCollision) pick();
         Vec3 heading = target.subtract(position()).normalize().scale(0.32);
         Vec3 motion = getDeltaMovement().add(heading.subtract(getDeltaMovement()).scale(0.08));

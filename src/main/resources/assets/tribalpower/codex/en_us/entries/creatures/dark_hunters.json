@@ -55,6 +55,17 @@
         "A tattered flier that rises at night over the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one or two at a time. **18 health** and **1 armour**.",
         "From up to 12 blocks away it casts a gust for **3** that throws you back. Cover breaks the cast. It drops **Veil Tatters**, a Gust reagent."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
+        "- **Deep Lurker**: up to 2 Bones and up to 1 March Leather.",
+        "- **Pale Stalker**: 1 to 2 Bones.",
+        "- **Gloom Crawler**: 1 to 2 String and up to 1 Spider Eye.",
+        "- **Veil Drifter**: up to 1 Phantom Membrane and up to 1 String."
+      ]
     }
   ]
 }

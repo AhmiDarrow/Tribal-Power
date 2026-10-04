@@ -39,6 +39,14 @@
         "It carries only the one it is bonded to. A stag with a strong Stride thread runs faster, and the rare **Leap** mark jumps higher. More on the [familiar gifts](familiar_gifts) page."
       ],
       "title": "As a familiar"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Dawn Stag**: 1 to 3 Raw Game and up to 2 March Leather. Breed with **wheat**."
+      ]
     }
   ]
 }

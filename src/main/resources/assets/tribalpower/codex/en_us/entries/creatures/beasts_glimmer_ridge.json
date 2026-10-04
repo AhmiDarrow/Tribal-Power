@@ -21,7 +21,7 @@
       "title": "The Ridge's own",
       "text": [
         "The moonstone heights of the [Glimmer Ridge](glimmer_ridge) keep a crested grazer and a moth in the open, and a grub and a stalker in the caves below.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
     {
@@ -54,6 +54,17 @@
       "text": [
         "A stilt-legged hunter of the same caves. It rises in the dark there day or night, one to three at a time. It has **21 health** and **1 armour**, is quick, and its sting does **5** and poisons you for 3 seconds.",
         "It drops **1 to 2 Facet Barbs**, a Venom reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Prism Grazer**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **Glimmer Beans**.",
+        "- **Shardmoth**: up to 1 String and up to 1 Amethyst Shard. Breed with **Glimmer Beans**.",
+        "- **Glowgrub**: up to 2 Glowstone Dust. Breed with **Lantern Caps or any mushroom**.",
+        "- **Facet Stalker**: up to 1 Amethyst Shard and up to 1 String."
       ]
     }
   ]

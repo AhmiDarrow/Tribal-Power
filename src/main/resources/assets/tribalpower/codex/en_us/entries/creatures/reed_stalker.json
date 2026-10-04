@@ -38,6 +38,14 @@
         "No charm will bond a Reed Stalker."
       ],
       "title": "It will not bond"
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, it drops this when hunted, more with Looting.",
+        "- **Reed Stalker**: up to 1 March Leather and up to 1 Bone."
+      ]
     }
   ]
 }

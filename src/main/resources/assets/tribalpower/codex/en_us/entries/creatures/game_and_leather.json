@@ -13,16 +13,16 @@
       "type": "spotlight",
       "item": "tribalpower:roast_game",
       "text": [
-        "March animals feed you as well as the Overworld's do. Their meat is **Raw Game**, and a Dawn Stag's hide gives **March Leather**.",
+        "March animals feed you as well as the Overworld's do. Their meat is **Raw Game**, and their hides give **March Leather**.",
         "Roast Game is as filling as a steak, which makes long trips through the March much easier."
       ]
     },
     {
       "type": "text",
       "text": [
-        "- **Dawn Stag**: 1 to 3 Raw Game and 0 to 2 March Leather.",
-        "- **Mossback**: 2 to 4 Raw Game.",
-        "- **March Walker**: 1 to 3 Raw Game.",
+        "**Raw Game** comes from Ash Hopper, Bouldersnout, Chime Grazer, Cinderhide, Crag Bounder, Cragcoat, Dawn Stag, Driftpelt, Fen Strider, Frost Strider, Lantern Fox, Longshank, Loom Swift, March Walker, Marsh Hopper, Mossback, Palewing, Prism Grazer, Ridge Grazer and Tuftback.",
+        "**March Leather** comes from Bouldersnout, Chime Grazer, Cinderhide, Crag Bounder, Crag Troll, Cragcoat, Dawn Stag, Deep Lurker, Driftpelt, Fen Strider, Frost Strider, Lantern Fox, Longshank, March Walker, Mossback, Prism Grazer, Reed Coil, Reed Stalker, Ridge Grazer, Rift Hound, Rime Troll, Slag Troll, Tuftback and Veil Ray.",
+        "Each creature's own page gives the counts.",
         "Looting adds up to one more of each. An animal that dies burning drops its meat already roasted."
       ],
       "title": "Where it comes from"

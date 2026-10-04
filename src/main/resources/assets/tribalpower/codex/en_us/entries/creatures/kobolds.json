@@ -35,6 +35,15 @@
         "A Ridge Kobold drops **1 to 2 Kobold Scales**, a Geode Kobold **1 to 2 Kobold Horns**, more with Looting. Both are Hound reagents: see [reagents](reagents).",
         "Kobolds never bond."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
+        "- **Ridge Kobold**: up to 2 Raw Copper and up to 1 Coal.",
+        "- **Geode Kobold**: up to 2 Amethyst Shards and up to 2 Lapis Lazuli."
+      ]
     }
   ]
 }

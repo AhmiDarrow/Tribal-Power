@@ -21,7 +21,7 @@
       "title": "The ash's own",
       "text": [
         "Two of the Wastes' animals live at the edge of lava, one flies through the ash, and one hunts the basalt at night.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with that same reagent. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
       ]
     },
     {
@@ -54,6 +54,17 @@
       "text": [
         "An upright, ember-coloured brute that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
         "It drops **1 to 2 Ember Fangs**, a Shove reagent."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
+        "- **Cinderhide**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **Emberroot**.",
+        "- **Ashmoth**: up to 1 String and up to 1 Gunpowder. Breed with **Emberroot**.",
+        "- **Slaglump**: up to 1 Magma Cream and up to 2 Iron Nuggets. Breed with **Emberroot**.",
+        "- **Emberjaw**: up to 2 Bones and up to 2 Charcoal."
       ]
     }
   ]

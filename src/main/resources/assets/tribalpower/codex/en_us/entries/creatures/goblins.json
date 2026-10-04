@@ -35,6 +35,15 @@
         "A Fen Goblin drops **1 to 2 Goblin Ears** (lime dye), a Tunnel Goblin **1 to 2 Goblin Fangs**, more with Looting. Both are Hound reagents: anointed, they make a weapon drink back part of every blow. See [reagents](reagents).",
         "Goblins never bond."
       ]
+    },
+    {
+      "type": "text",
+      "title": "Hunting and herding",
+      "text": [
+        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
+        "- **Fen Goblin**: up to 2 Gold Nuggets, up to 1 Bone and up to 1 String.",
+        "- **Tunnel Goblin**: up to 2 Coal, up to 2 Iron Nuggets and up to 1 Bone."
+      ]
     }
   ]
 }
