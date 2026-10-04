@@ -42,7 +42,7 @@ public final class TribalPowerClient {
             event.registerLayerDefinition(MarchCreatureModel.WANDERER, () -> MarchCreatureModel.create("wandering_spirit"));
             event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
             for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
-                event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> GeneratedGuardianLayers.create(guardian.id));
+                event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> net.minecraft.client.model.geom.builders.LayerDefinition.create(java.util.Objects.requireNonNull(GeneratedMarchLayers.mesh(guardian.id), guardian.id), 256, 256));
         });
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) -> {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);

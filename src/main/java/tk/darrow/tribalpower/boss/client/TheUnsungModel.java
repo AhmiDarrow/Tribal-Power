@@ -7,16 +7,17 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import tk.darrow.tribalpower.boss.TheUnsungEntity;
-import tk.darrow.tribalpower.client.GeneratedCreatureLayers;
+import tk.darrow.tribalpower.client.GeneratedMarchLayers;
 
 /**
- * Hollow standing drum: a slit lacquer shell between two wide bands, a taut hide top, a mask head floating
- * half a block above the hide under a thin rune halo, and two long rune arms hanging from shoulder pivots at
- * the top band that end in three-fingered hands. Geometry comes from the Blender roster
- * (art/creatures/roster_tribes.json, exported by tools/blender_bestiary.py into {@link GeneratedCreatureLayers};
- * the 256x256 atlas and glow map are painted by tools/art/creatures.py). Authored at half scale and rendered
- * at 2x by the renderer. Parts are flat root children: {@code body} (eight shell panels + hide), {@code band0}
- * (top), {@code band1} (bottom), {@code head}, {@code halo}, {@code arm0} (left, -x) and {@code arm1}.
+ * The hollow drum-spirit: an hourglass drum of oxblood lacquer slit round its waist onto a violet hollow, laced
+ * rim to rim, a cracked porcelain mask with a torn veil floating over its hide under a turning halo of rune
+ * tablets, and two free-hanging rune arms ending in three long fingers. The rig is generated with the March
+ * creatures (tools/creature_gen: boss_roster.py, boss_bodies.py, boss_skin.py, into {@link GeneratedMarchLayers};
+ * the skin and glow map are painted from the same plan at two pixels a texel). Authored at half scale and
+ * rendered at 2x by the renderer. Parts are flat root children: {@code body} (shell, hide and cords),
+ * {@code band0} (the upper rim), {@code band1} (the foot ring), {@code head} (mask and veil), {@code halo},
+ * {@code arm0} (left, -x) and {@code arm1}.
  */
 public class TheUnsungModel extends HierarchicalModel<TheUnsungEntity> {
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("tribalpower", "the_unsung"), "main");
@@ -34,7 +35,7 @@ public class TheUnsungModel extends HierarchicalModel<TheUnsungEntity> {
     }
 
     public static LayerDefinition create() {
-        return GeneratedCreatureLayers.create("the_unsung");
+        return LayerDefinition.create(GeneratedMarchLayers.mesh("the_unsung"), 256, 256);
     }
 
     @Override public ModelPart root() { return root; }
