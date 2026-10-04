@@ -91,20 +91,20 @@
           "biome": "tribalpower:march_glimmer_ridge",
           "parameters": {
             "temperature": [
-              -0.2,
-              0.02
+              -0.28,
+              0.08
             ],
             "humidity": [
               -0.8,
               0.8
             ],
             "continentalness": [
-              0.08,
+              0.06,
               1.2
             ],
             "erosion": [
               -0.8,
-              -0.06
+              -0.02
             ],
             "weirdness": [
               -1.0,
@@ -118,7 +118,7 @@
           "biome": "tribalpower:march_highlands",
           "parameters": {
             "temperature": [
-              0.02,
+              0.08,
               0.75
             ],
             "humidity": [
@@ -126,12 +126,12 @@
               0.8
             ],
             "continentalness": [
-              0.08,
+              0.06,
               1.2
             ],
             "erosion": [
               -0.8,
-              -0.06
+              -0.02
             ],
             "weirdness": [
               -1.0,
