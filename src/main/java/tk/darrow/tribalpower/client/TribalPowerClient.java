@@ -37,8 +37,9 @@ public final class TribalPowerClient {
         tk.darrow.tribalpower.client.wildlife.WildlifeClient.register(modBus);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {
             for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->LatticeCreatureRenderer.createLayer(p.id));
-            event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
-            event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
+            event.registerLayerDefinition(MarchCreatureModel.WALKER, () -> MarchCreatureModel.create("march_walker"));
+            event.registerLayerDefinition(MarchCreatureModel.WISP, () -> MarchCreatureModel.create("spirit_wisp"));
+            event.registerLayerDefinition(MarchCreatureModel.WANDERER, () -> MarchCreatureModel.create("wandering_spirit"));
             event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
             for (var guardian : tk.darrow.tribalpower.guardian.Guardian.values())
                 event.registerLayerDefinition(tk.darrow.tribalpower.guardian.client.GuardianRenderer.layer(guardian), () -> GeneratedGuardianLayers.create(guardian.id));

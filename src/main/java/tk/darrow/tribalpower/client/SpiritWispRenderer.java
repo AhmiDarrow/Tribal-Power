@@ -1,7 +1,5 @@
 package tk.darrow.tribalpower.client;
 
-import net.minecraft.client.model.SilverfishModel;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -11,9 +9,15 @@ import tk.darrow.tribalpower.entity.SpiritWispEntity;
 public class SpiritWispRenderer extends MobRenderer<SpiritWispEntity, MarchCreatureModel<SpiritWispEntity>> {
     private static final ResourceLocation TEXTURE =
             ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "textures/entity/spirit_wisp.png");
+    /** Its flames and motes, drawn unlit. */
+    private static final net.minecraft.client.renderer.RenderType GLOW = net.minecraft.client.renderer.RenderType.eyes(
+            ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "textures/entity/spirit_wisp_glow.png"));
 
     public SpiritWispRenderer(EntityRendererProvider.Context context) {
-        super(context, new MarchCreatureModel<>(context.bakeLayer(MarchCreatureModel.WISP), true), 0.12F);
+        super(context, new MarchCreatureModel<>(context.bakeLayer(MarchCreatureModel.WISP), "spirit_wisp"), 0.12F);
+        addLayer(new net.minecraft.client.renderer.entity.layers.EyesLayer<>(this) {
+            @Override public net.minecraft.client.renderer.RenderType renderType() { return GLOW; }
+        });
     }
 
     @Override
