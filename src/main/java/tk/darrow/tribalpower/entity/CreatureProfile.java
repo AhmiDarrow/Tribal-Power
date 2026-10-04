@@ -80,7 +80,7 @@ public enum CreatureProfile {
     RIME_TROLL("rime_troll",false,false,69,0.22,9,6,1.6F,2.6F,"shove","rime_hide",0x5e7b96,0xe0f4ff),
     SLAG_TROLL("slag_troll",false,false,69,0.22,9,6,1.6F,2.6F,"ember","slag_hide",0x7c3a20,0xffc062),
     FEN_GOBLIN("fen_goblin",false,false,18,0.3,4,1,0.8F,1.25F,"hound","goblin_ear",0x546a34,0xbace78),
-    TUNNEL_GOBLIN("tunnel_goblin",false,false,18,0.3,4,1,0.8F,1.25F,"hound","goblin_fang",0x717f60,0xc6d0a8),
+    TUNNEL_GOBLIN("tunnel_goblin",false,false,18,0.3,4,1,0.8F,1.25F,"hound","goblin_fang",0x66704e,0xb4be92),
     RIDGE_KOBOLD("ridge_kobold",false,false,21,0.29,4,2,0.7F,1.1F,"hound","kobold_scale",0x84442a,0xeea460),
     GEODE_KOBOLD("geode_kobold",false,false,21,0.29,4,2,0.7F,1.1F,"hound","kobold_horn",0x7d6ca3,0xd4c6f2),
     GLIMMER_FAY("glimmer_fay",true,true,8,0.3,0,0,0.7F,1.3F,"none","fay_dust",0xe0ba50,0xffeca0),
