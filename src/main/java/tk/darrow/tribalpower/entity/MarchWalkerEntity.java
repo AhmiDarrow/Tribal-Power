@@ -24,6 +24,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import tk.darrow.tribalpower.item.ModItems;
 
 /**
@@ -56,7 +57,22 @@ public class MarchWalkerEntity extends Animal {
 
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mate) {
-        return ModEntities.MARCH_WALKER.get().create(level);
+        var young = ModEntities.MARCH_WALKER.get().create(level);
+        // Bred stock is kept stock: it must not despawn like the wild walkers it came from.
+        if (young != null) young.setPersistenceRequired();
+        return young;
+    }
+
+    /** Animals never despawn; a wild walker still does, as it always did. Bred and named ones are persistent. */
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return true;
+    }
+
+    /** No liking for grass or light: Animal's would keep walkers from spawning and wandering in the dark March. */
+    @Override
+    public float getWalkTargetValue(BlockPos pos, LevelReader level) {
+        return 0.0F;
     }
 
     public static AttributeSupplier.Builder createAttributes() {

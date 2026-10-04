@@ -25,6 +25,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.block.ModBlocks;
 
@@ -59,7 +60,22 @@ public class SpiritWispEntity extends Animal {
 
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mate) {
-        return ModEntities.SPIRIT_WISP.get().create(level);
+        var young = ModEntities.SPIRIT_WISP.get().create(level);
+        // Bred stock is kept stock: it must not despawn like the wild wisps it came from.
+        if (young != null) young.setPersistenceRequired();
+        return young;
+    }
+
+    /** Animals never despawn; a wild wisp still does, as it always did. Bred and named ones are persistent. */
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return true;
+    }
+
+    /** No liking for grass or light: Animal's would keep wisps from spawning and wandering in the dark March. */
+    @Override
+    public float getWalkTargetValue(BlockPos pos, LevelReader level) {
+        return 0.0F;
     }
 
     @Override

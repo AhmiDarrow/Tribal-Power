@@ -27,9 +27,4 @@ public class MarchWalkerRenderer extends MobRenderer<MarchWalkerEntity, MarchCre
         float s = entity.getAgeScale();
         pose.scale(s, s, s);
     }
-
-    @Override
-    protected float getShadowRadius(MarchWalkerEntity entity) {
-        return super.getShadowRadius(entity) * entity.getAgeScale();
-    }
 }

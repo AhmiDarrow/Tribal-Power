@@ -27,9 +27,4 @@ public class SpiritWispRenderer extends MobRenderer<SpiritWispEntity, MarchCreat
         float s = entity.getAgeScale();
         pose.scale(s, s, s);
     }
-
-    @Override
-    protected float getShadowRadius(SpiritWispEntity entity) {
-        return super.getShadowRadius(entity) * entity.getAgeScale();
-    }
 }

@@ -145,13 +145,18 @@ public class HerdGameTests {
                 animal.spawnChildFromBreeding(level, (Animal) b);
                 var young = level.getEntitiesOfClass(Animal.class, h.getBounds().inflate(4), e -> e.getType() == type && e.isBaby());
                 h.assertTrue(young.size() == 1, id + " must have one young, found " + young.size());
+                h.assertTrue(young.get(0).isPersistenceRequired(), id + "'s bred young must not despawn");
+                // (h.spawn marks the parents persistent, so only the override itself can be asked here.)
+                h.assertTrue(a.removeWhenFarAway(200), id + ": a wild one still despawns as it always did");
             } else {
                 var state = ((WildBreeding.Breeder) a).breeding();
                 h.assertTrue(state.inLove() && ((WildBreeding.Breeder) b).breeding().inLove(), id + " must fall in love on its food");
                 WildBreeding.tick(a, state);
                 var all = level.getEntitiesOfClass(Mob.class, h.getBounds().inflate(4), e -> e.getType() == type);
                 h.assertTrue(all.size() == before + 1, id + " pair must make one more, " + before + " -> " + all.size());
-                h.assertTrue(all.stream().anyMatch(Mob::isPersistenceRequired), id + "'s bred young must not despawn");
+                // Only the new one: h.spawn already made the parents persistent.
+                var young = all.stream().filter(e -> e != a && e != b).toList();
+                h.assertTrue(young.size() == 1 && young.get(0).isPersistenceRequired(), id + "'s bred young must not despawn");
                 h.assertTrue(!state.inLove() && state.cooldown() > 0, id + " rests after breeding");
             }
             clear(h);
