@@ -36,7 +36,7 @@
       "type": "text",
       "title": "Ashmoth",
       "text": [
-        "A grey hawk moth of the ash, in ones to threes. **10 health**, no armour.",
+        "A grey hawk moth of the ash, swept-winged, its thick body ringed orange-pink, in ones to threes. **10 health**, no armour.",
         "It drops **1 to 3 Ash Wings**, which grind into black dye."
       ]
     },
@@ -52,7 +52,7 @@
       "type": "text",
       "title": "Emberjaw",
       "text": [
-        "A striped fire raptor, upright and mostly jaw, that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
+        "A striped fire raptor, running low with its tail out behind and mostly jaw, that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
         "It drops **1 to 2 Ember Fangs**, a Shove reagent."
       ]
     }
