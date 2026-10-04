@@ -446,6 +446,7 @@
   "message.tribalpower.familiar.attune_hint": "Sneak-use a Bonding Charm on this totem to give %s the %s voice.",
   "gui.tribalpower.familiar.voice": "Voice: %s",
   "gui.tribalpower.familiar.no_voice": "No voice yet: attune it at a totem",
+  "gui.tribalpower.familiar.no_voice_young": "No voice yet: too young to attune",
   "gui.tribalpower.familiar.bondable": "Bondable: Bonding Charm or its food",
   "gui.tribalpower.familiar.bondable_voice": "Bondable with Voice of the %s",
   "gui.tribalpower.familiar.wild": "Will not be bonded",

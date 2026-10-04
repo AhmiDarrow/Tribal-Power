@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -61,6 +62,8 @@ public class FamiliarVoiceGameTests {
     public static void attuningAtATotemGivesTheVoiceAndSaveKeepsIt(GameTestHelper h) {
         floor(h);
         var player=VerificationPlayers.inLevel(h);
+        // a survival keeper, so the charm check below is real: creative hands the used stack's count back
+        player.setGameMode(GameType.SURVIVAL);
         h.setBlock(1,2,1,ModBlocks.RESONANCE_TOTEM_FIRE.get());
         h.setBlock(6,2,1,ModBlocks.RESONANCE_TOTEM_WATER.get());
         var fox=waitingFox(h,player,4,4);
@@ -174,8 +177,31 @@ public class FamiliarVoiceGameTests {
         int kin=hit.getAsInt();
         h.assertTrue(kin==FamiliarBoost.discounted(base) && kin<base,"An Earth familiar near cheapens an Earth blade's blow, cost "+kin);
         h.assertTrue(FamiliarBoost.gearChance(player,blade,0.2F)>0.2F,"It also raises the blade's voice perk odds");
+        int free=0;
+        for(int i=0;i<200;i++)if(FamiliarBoost.gearCost(player,blade,1)==0)free++;
+        h.assertTrue(free>40 && free<120,"A 1-Pulse spend cannot round lower, so it is free about "+Math.round(FamiliarBoost.DISCOUNT*100)+"% of the time, free "+free+" of 200");
         fox.discard();
         h.assertTrue(hit.getAsInt()==base,"Without the familiar the blow costs "+base+" again");
+        h.succeed();
+    }
+
+    @GameTest(template="empty")
+    public static void onlyTheNearestSittingFamiliarLendsItsVoice(GameTestHelper h) {
+        floor(h);
+        var player=VerificationPlayers.inLevel(h);
+        var at=h.absolutePos(new BlockPos(1,2,1));
+        player.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5);
+        var near=waitingFox(h,player,3,3);
+        var far=waitingFox(h,player,7,7);
+        near.lattice().setVoice(Attunement.FIRE);near.applyLattice();
+        far.lattice().setVoice(Attunement.WATER);far.applyLattice();
+        FamiliarBoost.forget(player);
+        h.assertTrue(FamiliarBoost.voices(player).equals(java.util.Set.of(Attunement.FIRE)),"Of two sitting familiars only the nearest counts, has "+FamiliarBoost.voices(player));
+        far.setSitting(false);
+        FamiliarBoost.forget(player);
+        h.assertTrue(FamiliarBoost.voices(player).equals(java.util.Set.of(Attunement.FIRE,Attunement.WATER)),"A following familiar counts beside the sitting one, has "+FamiliarBoost.voices(player));
+        near.discard();
+        far.discard();
         h.succeed();
     }
 }

@@ -37,10 +37,11 @@ import tk.darrow.tribalpower.world.ModDimensions;
 
 /**
  * Familiars and totems lean on each other. A bonded familiar takes a voice at a Resonance Totem: bring it within
- * {@link #ATTUNE_RANGE} blocks and sneak-use a Bonding Charm on the totem. While it stays within {@link #RANGE} blocks
- * of its keeper, that voice's magic is cheaper and stronger: Spirit Charms, Spiritgear, songs and rites. Near a totem
- * of its own voice it keeps the totem answered. Without an attuned familiar every helper here hands back what it was
- * given, so no magic is weaker than it was before familiars took voices.
+ * {@link #ATTUNE_RANGE} blocks and sneak-use a Bonding Charm on the totem. While it follows its keeper within
+ * {@link #RANGE} blocks (or is the nearest one left sitting there), that voice's magic is cheaper and stronger: Spirit
+ * Charms, Spiritgear, songs and rites. Near a totem of its own voice it keeps the totem answered. Without an attuned
+ * familiar every helper here hands back what it was given, so no magic is weaker than it was before familiars took
+ * voices.
  */
 public final class FamiliarBoost {
     /** Keeper to familiar, for the boost. */
@@ -71,15 +72,24 @@ public final class FamiliarBoost {
 
     // ---- what the keeper has near ----------------------------------------------------------------------------
 
-    /** Voices of the keeper's attuned familiars within {@link #RANGE}. Always empty on the client. */
+    /**
+     * Voices of the keeper's attuned familiars within {@link #RANGE}: every one following, and only the nearest one
+     * told to sit, so a crowd left waiting at a base lends one voice rather than all of theirs. Always empty on the
+     * client.
+     */
     public static Set<Attunement> voices(Player player) {
         if (!(player.level() instanceof ServerLevel level)) return Set.of();
         long now = level.getGameTime();
         Seen seen = SEEN.get(player);
         if (seen != null && seen.where() == level.dimension() && now >= seen.at() && now - seen.at() < REFRESH) return seen.voices();
         Set<Attunement> found = EnumSet.noneOf(Attunement.class);
-        for (Familiar familiar : owned(level, player, player.position(), RANGE))
-            if (familiar.lattice().voice() != null) found.add(familiar.lattice().voice());
+        Familiar sitter = null;
+        for (Familiar familiar : owned(level, player, player.position(), RANGE)) {
+            if (familiar.lattice().voice() == null) continue;
+            if (!familiar.isSitting()) found.add(familiar.lattice().voice());
+            else if (sitter == null || familiar.asMob().distanceToSqr(player) < sitter.asMob().distanceToSqr(player)) sitter = familiar;
+        }
+        if (sitter != null) found.add(sitter.lattice().voice());
         Set<Attunement> voices = found.isEmpty() ? Set.of() : Collections.unmodifiableSet(found);
         SEEN.put(player, new Seen(now, level.dimension(), voices));
         return voices;
@@ -116,10 +126,14 @@ public final class FamiliarBoost {
         return cost;
     }
 
-    /** What a Spiritgear piece spends: cheaper when its linked voice is one a familiar near you carries. */
+    /**
+     * What a Spiritgear piece spends: cheaper when its linked voice is one a familiar near you carries. A 1-Pulse
+     * spend cannot round any lower, so it is free {@link #DISCOUNT} of the time instead.
+     */
     public static int gearCost(Player player, ItemStack gear, int amount) {
-        if (amount <= 0) return amount;
-        return boosts(player, SpiritGear.voice(gear).orElse(null)) ? discounted(amount) : amount;
+        if (amount <= 0 || !boosts(player, SpiritGear.voice(gear).orElse(null))) return amount;
+        if (amount == 1) return player.getRandom().nextFloat() < DISCOUNT ? 0 : 1;
+        return discounted(amount);
     }
 
     /** A Spiritgear voice perk's odds: higher when its linked voice is one a familiar near you carries. */
@@ -215,7 +229,7 @@ public final class FamiliarBoost {
             keepers.add(mob.getDisplayName());
         if (!keepers.isEmpty()) {
             player.displayClientMessage(Component.translatable("message.tribalpower.familiar.keeps_totem",
-                    ComponentUtils.formatList(keepers, Component.literal(", ")), voiceName(voice)), false);
+                    ComponentUtils.formatList(keepers, Component.literal(", ")), voiceName(voice)), true);
             return;
         }
         // only a familiar close enough to attune right now earns a hint, so plain clicks do not fill the chat
@@ -252,12 +266,15 @@ public final class FamiliarBoost {
 
     /**
      * One line on what this creature is to you: its voice, or that it has none yet, or whether and how it can be
-     * bonded. {@code voice} is the one to show (the synced copy on the client). Null for the young.
+     * bonded. {@code voice} is the one to show (the synced copy on the client). Null for the unbonded young.
      */
     public static Component status(Familiar familiar, Attunement voice) {
-        if (familiar.isBonded()) return voice != null
-                ? Component.translatable("gui.tribalpower.familiar.voice", voiceName(voice)).withColor(rgb(voice))
-                : Component.translatable("gui.tribalpower.familiar.no_voice").withStyle(ChatFormatting.GRAY);
+        if (familiar.isBonded()) {
+            if (voice != null) return Component.translatable("gui.tribalpower.familiar.voice", voiceName(voice)).withColor(rgb(voice));
+            // attune() passes over the young, so do not send a young one to a totem
+            return Component.translatable(familiar.asMob().isBaby() ? "gui.tribalpower.familiar.no_voice_young" : "gui.tribalpower.familiar.no_voice")
+                    .withStyle(ChatFormatting.GRAY);
+        }
         if (familiar.asMob().isBaby()) return null;
         if (!FamiliarRoster.tameable(familiar.profile()))
             return Component.translatable("gui.tribalpower.familiar.wild").withStyle(ChatFormatting.DARK_GRAY);
