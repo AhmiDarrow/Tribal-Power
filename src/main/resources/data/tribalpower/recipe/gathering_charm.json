@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "HAH",
+    "ILI",
+    "HWH"
+  ],
+  "key": {
+    "A": {
+      "item": "tribalpower:air_seal"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    },
+    "I": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "L": {
+      "item": "minecraft:lodestone"
+    },
+    "W": {
+      "item": "tribalpower:spiritweave"
+    }
+  },
+  "result": {
+    "id": "tribalpower:gathering_charm",
+    "count": 1
+  }
+}

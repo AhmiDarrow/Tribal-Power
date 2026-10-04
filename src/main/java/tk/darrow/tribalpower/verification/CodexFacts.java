@@ -134,6 +134,11 @@ final class CodexFacts {
                     "belongs to whoever set it down and their camp", "is refused"),
             // CharmHooks grants flight for the Air voice on any worn charm, not for the Sky charm alone.
             Fact.of("spirit_charms", "Any worn charm carrying Air lends flight", "any worn charm that carries Air").never("Sky's flight"),
+            // CharmHooks.gatherRadius: the Gathering Charm's reach by voices bound.
+            Fact.of("spirit_charms", "Gathering reach is 5 blocks, 2 more per extra voice, capped at 11",
+                    "from " + (int) tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(1) + " blocks",
+                    (int) (tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(2) - tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(1)) + " more per extra voice",
+                    "up to " + (int) tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(99)),
             Fact.of("colossus_warden", "The boss is the Colossus Warden, not the Weeping Colossus tree; 260 health, 14 armour, Heartwood Core",
                     "Colossus Warden", "260 health", "14 armour", "Heartwood Core", "Reed Fen"));
 

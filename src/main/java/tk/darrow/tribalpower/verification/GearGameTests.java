@@ -377,6 +377,69 @@ public class GearGameTests {
         h.succeed();
     }
 
+    /** A survival-paying wearer of a Gathering Charm on a stone floor, with a full cell to pay its upkeep. */
+    private static net.minecraft.server.level.ServerPlayer gatherer(GameTestHelper h) {
+        for (int x = 3; x <= 13; x++)
+            for (int z = 3; z <= 13; z++) h.setBlock(x, 1, z, Blocks.STONE);
+        var player = VerificationPlayers.inLevel(h);
+        player.getAbilities().instabuild = false;
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        var at = h.absolutePos(new BlockPos(8, 2, 8));
+        player.moveTo(at.getX() + 0.5, at.getY(), at.getZ() + 0.5, 0, 0);
+        player.getInventory().setItem(1, PulseCellItem.createFilled(200));
+        h.assertTrue(tk.darrow.tribalpower.charm.CharmSlots.of(player).equip(new ItemStack(ModItems.GATHERING_CHARM.get())),
+                "The Gathering Charm equips");
+        // Mock players are never ticked, so drive the charm hook ourselves.
+        h.onEachTick(() -> tk.darrow.tribalpower.charm.CharmHooks.playerTick(
+                new net.neoforged.neoforge.event.tick.PlayerTickEvent.Post(player)));
+        return player;
+    }
+
+    /** A still stack resting on the floor at a spot relative to the test, free to be picked up. */
+    private static net.minecraft.world.entity.item.ItemEntity restingDrop(GameTestHelper h, int x, int z) {
+        var at = h.absolutePos(new BlockPos(x, 2, z));
+        var drop = new net.minecraft.world.entity.item.ItemEntity(h.getLevel(), at.getX() + 0.5, at.getY(), at.getZ() + 0.5,
+                new ItemStack(net.minecraft.world.item.Items.COBBLESTONE, 8), 0, 0, 0);
+        h.getLevel().addFreshEntity(drop);
+        return drop;
+    }
+
+    /** Vanilla's pickup box: the player's bounds grown by one block sideways and half a block up and down. */
+    private static boolean inReach(net.minecraft.world.entity.player.Player player, net.minecraft.world.entity.Entity drop) {
+        return player.getBoundingBox().inflate(1.0, 0.5, 1.0).intersects(drop.getBoundingBox());
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 100)
+    public static void gatheringCharmDrawsADropIntoReach(GameTestHelper h) {
+        var player = gatherer(h);
+        var drop = restingDrop(h, 12, 8);
+        h.assertTrue(!inReach(player, drop), "The stack starts out of reach");
+        h.succeedWhen(() -> h.assertTrue(inReach(player, drop),
+                "The worn charm draws a stack 4 blocks off into pickup reach, it sits at " + drop.position()));
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 120)
+    public static void gatheringCharmLeavesSneakingAndPinnedDropsAlone(GameTestHelper h) {
+        var player = gatherer(h);
+        player.setShiftKeyDown(true);
+        var loose = restingDrop(h, 12, 8);
+        var pinned = restingDrop(h, 8, 12);
+        pinned.getPersistentData().putBoolean("PreventRemoteMovement", true);
+        Vec3 looseStart = loose.position();
+        Vec3 pinnedStart = pinned.position();
+        h.runAfterDelay(30, () -> {
+            h.assertTrue(loose.position().distanceTo(looseStart) < 0.3,
+                    "Sneaking pauses the charm, yet the stack moved to " + loose.position());
+            player.setShiftKeyDown(false);
+        });
+        // Once the player stands, the loose stack comes in (the charm works) while the pinned one stays put.
+        h.succeedWhen(() -> {
+            h.assertTrue(!player.isShiftKeyDown() && inReach(player, loose), "The loose stack comes in once the player stands");
+            h.assertTrue(pinned.position().distanceTo(pinnedStart) < 0.3,
+                    "A PreventRemoteMovement stack is never pulled, yet it moved to " + pinned.position());
+        });
+    }
+
     @GameTest(template = "empty")
     public static void refundPaysTheOffhandCellBack(GameTestHelper h) {
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);

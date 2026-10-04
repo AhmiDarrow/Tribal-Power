@@ -12,7 +12,8 @@
     "tribalpower:ward_charm",
     "tribalpower:hearth_charm",
     "tribalpower:veil_charm",
-    "tribalpower:chorus_charm"
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
   ],
   "pages": [
     {
@@ -34,7 +35,7 @@
     },
     {
       "type": "text",
-      "title": "The ten charms",
+      "title": "The eleven charms",
       "text": [
         "- **Sky** (Air): creative flight while Pulse lasts, as with any charm that carries Air.",
         "- **Ember** (Fire): fire resistance, and attackers catch flame for 3 seconds.",
@@ -45,12 +46,13 @@
     },
     {
       "type": "text",
-      "title": "The ten charms, continued",
+      "title": "The eleven charms, continued",
       "text": [
         "- **Spindle** (Loom): luck, and about three times in ten it refunds up to **2 Pulse** into a carried cell every two seconds.",
         "- **Ward** (Earth): turns aside about one projectile in four, or one in two if Spirit is also on your charms.",
         "- **Hearth** (Fire): keeps you fed.",
         "- **Veil** (Spirit): hides you while you sneak.",
+        "- **Gathering** (Air): draws drops and experience to you.",
         "- **Chorus**: starts silent, and learns from a brazier."
       ]
     },
@@ -61,6 +63,15 @@
         "A silent Chorus still costs 2. Crouch-use it on a Ritual Brazier with **three different totems** within 8 blocks and **200 Pulse**, and it binds every voice nearby.",
         "Crouch-use a charm on a Resonance Totem to add that voice for **40 Pulse**. More voices cost more to wear and do more.",
         "Ward and Hearth carry Earth and Fire, so they also give resistance and fire resistance. Air gives slow falling as well, unless Fire is worn too. Flight comes with the Air voice, not the Sky Charm alone: any worn charm that carries Air, Sky's own or one you added, lets you fly while Pulse lasts."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Gathering Charm",
+      "text": [
+        "While worn and paid for, it draws dropped items and experience to you from **5 blocks**, **2 more per extra voice**, up to **11**.",
+        "**Sneak** to pause it so you can drop things. A stack someone just threw is left alone until it can be picked up, and items another mod marks as not to be moved stay put.",
+        "It carries Air, so like Sky it also lends flight while Pulse lasts."
       ]
     },
     {
@@ -102,6 +113,10 @@
     {
       "type": "recipe",
       "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
     }
   ]
 }
