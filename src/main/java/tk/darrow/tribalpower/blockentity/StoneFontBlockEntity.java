@@ -133,7 +133,20 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
     @Override protected boolean isOutputSlot(int slot) { return true; }
     @Override public boolean canPlaceItem(int slot, ItemStack stack) { return false; }
     @Override protected tk.darrow.tribalpower.lattice.SideIo defaultSides() {
-        return tk.darrow.tribalpower.lattice.SideIo.station();
+        return fontSides();
+    }
+
+    /**
+     * Top and bottom are both ways, the four sides input. A plate goes on the font's top or bottom, so either one has to
+     * let an item plate draw the stone out and let a fluid plate (or pipe) pour water and lava in. The station layout
+     * this used to share had an input-only top (an item plate there found no slots) and an output-only bottom (a fluid
+     * plate tuned there was turned away). The tanks stay fill-only on every face (SidedFluidHandler.wrapInput).
+     */
+    public static tk.darrow.tribalpower.lattice.SideIo fontSides() {
+        var io = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
+        io.set(net.minecraft.core.Direction.UP, tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+        io.set(net.minecraft.core.Direction.DOWN, tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
+        return io;
     }
 
     public int work() { return work; }
@@ -285,6 +298,8 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
+        // A font saved with the old untouched station faces takes the new ones; a face someone set by hand stays.
+        if (sides.pack() == tk.darrow.tribalpower.lattice.SideIo.station().pack()) sides.unpack(fontSides().pack());
         work = Math.max(0, tag.getInt("Work"));
         if (tag.contains("State")) state = tag.getString("State");
         grounded = tag.getBoolean("Grounded");
