@@ -38,7 +38,7 @@
       "type": "text",
       "title": "On the axe and shovel",
       "text": [
-        "The **axe**, on logs: **Earth** sometimes fells a second log, **Air** always takes two more, **Water** now and then drops a sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
+        "The **axe**, on logs: **Earth** fells the **whole tree**, top down, wherever you strike it; crouch to cut just one log. Only wood with living leaves on it counts as a tree, and wood touching planks, glass, doors, fences or other building blocks is a build, so bare log builds and a cabin grown into a tree stand. Each felled log costs a point of the edge (Unbreaking spares some), and the felling stops before the axe would break, so one felling is only as big as the edge left on the axe: a **Weeping Colossus**, tens of thousands of logs, takes several axes (or mendings). Pulse is paid as the logs come down: every 16 logs cost one swing's Pulse, and a swing's worth that fells nothing (protected wood, say) comes back. **Air** always takes two more, **Water** now and then drops a sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
         "The **shovel**: **Earth** digs a **3 by 3** of dirt, sand or gravel, **Air** lays paths three wide, **Water** sometimes turns up clay from dirt, **Fire** bakes sand to glass, **Loom** lifts sand and gravel whole, and **Spirit** makes chests, barrels and spawners within 8 blocks glint."
       ]
     },

@@ -101,6 +101,8 @@ final class CodexFacts {
             Fact.of("spiritweave", "A full Manifested set: 20% less damage taken", "20%", "8 extra hearts"),
             Fact.of("spiritweave", "Bound Spiritweave spends 3 Pulse upkeep, unlinked 2", "3 Pulse", "2 Pulse"),
             Fact.of("totem_bound_gear", "An Earth hood turns aside one projectile in five", "one projectile in five"),
+            Fact.of("totem_bound_gear", "An Earth axe fells the whole tree and charges a swing's Pulse per batch of logs",
+                    "fells the whole tree", "every " + tk.darrow.tribalpower.item.TreeFelling.LOGS_PER_CHARGE + " logs").never("sometimes fells a second log"),
             Fact.of("spirit_charms", "Charm voices cost 40 Pulse each; Ward turns aside one projectile in four", "40 Pulse", "one projectile in four"),
             Fact.of("ritual_brazier", "Camp blessings include the Loom's luck", "luck"),
             Fact.of("pulse_lights", "Pulse lights draw 1 Pulse a second", "1 Pulse a second"),

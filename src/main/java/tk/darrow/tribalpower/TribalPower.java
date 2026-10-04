@@ -119,6 +119,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::broken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::armorBroken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::loggedOut);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.TreeFelling::loggedOut);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::attributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::incomingDamage);
@@ -155,6 +156,7 @@ public final class TribalPower {
             tk.darrow.tribalpower.lattice.RelayLinks.clear();
             tk.darrow.tribalpower.world.WillowGroveStructure.clearPlans();
             tk.darrow.tribalpower.lattice.LatticeNetwork.clearConductorLines(null);
+            tk.darrow.tribalpower.item.TreeFelling.clear();
         });
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.level.LevelEvent.Unload event) -> {
             if (event.getLevel() instanceof net.minecraft.world.level.Level unloaded)

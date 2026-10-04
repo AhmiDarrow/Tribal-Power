@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:planks",
+    "#minecraft:slabs",
+    "#minecraft:stairs",
+    "#minecraft:fences",
+    "#minecraft:fence_gates",
+    "#minecraft:walls",
+    "#minecraft:doors",
+    "#minecraft:trapdoors",
+    "#minecraft:beds",
+    "#minecraft:wool",
+    "#minecraft:wool_carpets",
+    "#minecraft:all_signs",
+    "#minecraft:banners",
+    "#minecraft:stone_bricks",
+    "minecraft:bricks",
+    "minecraft:crafting_table",
+    "minecraft:glass",
+    "minecraft:glass_pane",
+    { "id": "#c:glass_blocks", "required": false },
+    { "id": "#c:glass_panes", "required": false },
+    { "id": "#c:chests", "required": false },
+    { "id": "#c:barrels", "required": false }
+  ]
+}
