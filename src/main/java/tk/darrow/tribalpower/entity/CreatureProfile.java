@@ -67,7 +67,7 @@ public enum CreatureProfile {
     SILT_GLIDER("silt_glider",true,false,14,0.26,0,1,0.8F,0.7F,"none","silt_fin",0x386e88,0xa0d6ec),
     PALE_DRIFTER("pale_drifter",true,false,12,0.22,0,0,0.8F,1.8F,"none","pale_streamer",0xe8923e,0xffde9c),
     SHOAL_DARTER("shoal_darter",true,false,14,0.26,0,1,0.8F,0.7F,"none","shoal_scale",0x1d3c38,0xaae0ce),
-    BRINE_LURKER("brine_lurker",false,false,21,0.24,4,1,1.3F,1.0F,"venom","brine_fang",0x566436,0xd6d898),
+    BRINE_LURKER("brine_lurker",false,false,21,0.24,4,1,1.3F,0.8F,"venom","brine_fang",0x566436,0xd6d898),
     HEARTH_WARDEN("hearth_warden",true,false,48,0.16,0,8,1.6F,2.9F,"none","hearth_bark",0x403020,0x7eb054),
     GROVE_ELDER("grove_elder",true,false,48,0.16,0,8,1.3F,2.6F,"none","elder_bark",0x5c4e3c,0x9cc46c),
     FROSTPINE_SENTINEL("frostpine_sentinel",true,false,48,0.16,0,8,1.1F,3.1F,"none","frostpine_bark",0x4a2c24,0xc4e6fa),
