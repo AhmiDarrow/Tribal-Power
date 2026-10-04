@@ -10,6 +10,14 @@ public class LatticeCreatureRenderer<T extends Mob> extends MobRenderer<T,Lattic
     private final ResourceLocation texture;
     private final float size;
     public static ModelLayerLocation layer(CreatureProfile p) {return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("tribalpower",p.id),"main");}
+    /**
+     * A creature's body: its generated rig (tools/creature_gen, which now builds every CreatureProfile beast, the
+     * older ones included) before the hand-built Blender export, which keeps only what the generator does not make.
+     */
+    public static net.minecraft.client.model.geom.builders.LayerDefinition createLayer(String id) {
+        var mesh=GeneratedMarchLayers.mesh(id);
+        return mesh!=null?net.minecraft.client.model.geom.builders.LayerDefinition.create(mesh,256,256):GeneratedCreatureLayers.create(id);
+    }
     public LatticeCreatureRenderer(EntityRendererProvider.Context context,CreatureProfile profile) {
         super(context,new LatticeCreatureModel<>(context.bakeLayer(layer(profile))),profile.width*.45F);
         texture=ResourceLocation.fromNamespaceAndPath("tribalpower","textures/entity/"+profile.id+".png");

@@ -36,7 +36,7 @@ public final class TribalPowerClient {
         modBus.addListener(ClientSetup::registerRenderers);
         tk.darrow.tribalpower.client.wildlife.WildlifeClient.register(modBus);
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions event) -> {
-            for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->GeneratedCreatureLayers.create(p.id));
+            for(var p:tk.darrow.tribalpower.entity.CreatureProfile.values())event.registerLayerDefinition(LatticeCreatureRenderer.layer(p),()->LatticeCreatureRenderer.createLayer(p.id));
             event.registerLayerDefinition(MarchCreatureModel.WALKER, MarchCreatureModel::walker);
             event.registerLayerDefinition(MarchCreatureModel.WISP, MarchCreatureModel::wisp);
             event.registerLayerDefinition(TribalKinModel.LAYER, TribalKinModel::create);
