@@ -14,7 +14,7 @@ public class StationMenu extends AbstractContainerMenu {
     public static final int INPUT_X = 15, INPUT_Y = 36, CATALYST_Y = 70, OUTPUT_X = 76, OUTPUT_Y = 34;
     public static final int INVENTORY_X = 24, INVENTORY_Y = 130;
     private static final int MACHINE_SLOTS = EchoStationBlockEntity.SIZE;
-    private static final String[] STATES = {"idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst"};
+    private static final String[] STATES = {"idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst", "silent", "lattice"};
     private final Container container;
     private final ContainerData data;
 

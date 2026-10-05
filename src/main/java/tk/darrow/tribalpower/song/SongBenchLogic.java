@@ -48,7 +48,7 @@ public final class SongBenchLogic {
     public static List<Attunement> voices(Level level, BlockPos origin) {
         Set<Attunement> found = new LinkedHashSet<>();
         for (var be : LatticeNetwork.blockEntitiesAround(level, origin, LatticeNetwork.DEFAULT_RADIUS)) {
-            if (be instanceof ResonanceTotemBlockEntity totem) found.add(totem.getAttunement());
+            if (be instanceof ResonanceTotemBlockEntity totem && totem.voiced()) found.add(totem.getAttunement());
         }
         return new ArrayList<>(found);
     }

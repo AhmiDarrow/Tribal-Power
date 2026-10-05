@@ -7,8 +7,9 @@
     {
       "type": "text",
       "text": [
-        "Tribal Power's workshops are called **Echo stations**. Each one needs three things close together: something to work on, Pulse to spend, and the right **Resonance Totem** nearby to give it its voice.",
+        "Tribal Power's workshops are called **Echo stations**. Each one needs three things close together: something to work on, Pulse reaching it through the lattice, and the right **Resonance Totem** nearby to give it its voice.",
         "The first station you want is [Echo Shatter](echo_shatter): seven stone around a Bone Chime and a Copper Resonator. Four copper ingots around a Bone Chime make **two** Copper Resonators. It breaks stone into an **Echo Shard**, the little crystal that will let you make power without drumming.",
+        "Pulse only travels along a [Lattice Conductor](lattice_conductor): a station with no conductor within 8 blocks starves even right beside a full drum. Four Copper Resonators around a redstone dust make **four** conductors; set one between the drum and the station.",
         "Shatter needs the **Earth** voice. Craft a {item:tribalpower:resonance_totem_earth} from logs, dirt, a Bone Chime and a Copper Resonator, and stand it near the station. The totem is not a power source. Think of it as the station's teacher: without it, the station waits and spends nothing.",
         "A totem stands **two blocks tall**, so leave a free block above the spot. Click either half; breaking either half takes the whole totem. A totem from an older world grows its top back once the block above it is clear."
       ]
@@ -118,6 +119,26 @@
           ]
         },
         {
+          "caption": "Set a Lattice Conductor within 8 blocks of both. Pulse travels only along conductors: without one the station starves, however close the drum.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
           "caption": "Add an Earth Resonance Totem within 8 blocks. Right beside it is simplest.",
           "place": [
             {
@@ -184,7 +205,7 @@
       "type": "text",
       "title": "If it will not start",
       "text": [
-        "Crouch and right-click the station with this book. It will say whether it lacks Pulse, its totem, or room in its output.",
+        "Crouch and right-click the station with this book. It will say whether it lacks Pulse, a conductor, its totem, or room in its output.",
         "Shatter spends Pulse faster than a hand drum makes it, so drum a reserve first and let the drum carry the work.",
         "A lever or any steady redstone signal pauses a station. Nothing is lost while it waits."
       ]

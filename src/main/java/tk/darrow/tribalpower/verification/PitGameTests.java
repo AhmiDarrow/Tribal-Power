@@ -70,6 +70,7 @@ public class PitGameTests {
     private static DrumheartBlockEntity feed(GameTestHelper h, int pulse) {
         BlockPos outside = new BlockPos(9, 2, 3);
         h.setBlock(outside, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         DrumheartBlockEntity drum = (DrumheartBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(outside));
         drum.insertPulse(pulse, false);
         return drum;

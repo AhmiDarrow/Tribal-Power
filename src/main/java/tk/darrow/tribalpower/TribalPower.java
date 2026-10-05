@@ -154,6 +154,8 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.register(ModDimensions.class);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onServerAboutToStart);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.world.MarchRetrogen::onLogin);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.lattice.LatticeNotice::onLogin);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.lattice.LatticeNotice::onPlace);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.gate.DrumRite::onLogout);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.quest.DialogueSession::loggedOut);
         // Static caches keyed by one world's positions must not outlive it (single-player reopens another world).

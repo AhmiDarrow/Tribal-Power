@@ -46,11 +46,31 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
         super(ModBlockEntities.PULSE_RESONATOR.get(), pos, state);
     }
 
+    // The lattice lists the generators on each network; one arriving or leaving (placed, broken, its chunk loaded
+    // or unloaded) must tell it.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, PulseResonatorBlockEntity be) {
         if ((level.getGameTime() + pos.asLong()) % GAIN_INTERVAL != 0) return;
         var voices = java.util.EnumSet.noneOf(tk.darrow.tribalpower.api.pulse.Attunement.class);
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
-            if (totem.keeping() == tk.darrow.tribalpower.lattice.Keeping.State.ANSWERED)
+            if (totem.keeping() == tk.darrow.tribalpower.lattice.Keeping.State.ANSWERED && totem.voiced())
                 voices.add(totem.getAttunement());
         int raw = voices.size()
                 + tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices

@@ -65,6 +65,7 @@ public class SongGameTests {
         h.setBlock(pos, ModBlocks.SONG_BENCH.get());
         h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
         h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var bench = at(h, pos, SongBenchBlockEntity.class);
         var drum = at(h, new BlockPos(2, 2, 4), DrumheartBlockEntity.class);
         drum.insertPulse(400, false);
@@ -145,6 +146,7 @@ public class SongGameTests {
         h.setBlock(pos, ModBlocks.SONG_BENCH.get());
         h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
         h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var bench = at(h, pos, SongBenchBlockEntity.class);
         at(h, new BlockPos(2, 2, 4), DrumheartBlockEntity.class).insertPulse(200, false);
         var player = VerificationPlayers.inLevel(h);
@@ -214,6 +216,7 @@ public class SongGameTests {
         h.setBlock(pos, ModBlocks.SONG_BENCH.get());
         h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
         h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var bench = at(h, pos, SongBenchBlockEntity.class);
         var drum = at(h, new BlockPos(2, 2, 4), DrumheartBlockEntity.class);
         drum.insertPulse(400, false);

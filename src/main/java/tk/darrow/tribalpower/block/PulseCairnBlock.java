@@ -114,6 +114,8 @@ public class PulseCairnBlock extends BaseEntityBlock {
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, net.minecraft.world.entity.LivingEntity placer,
                             net.minecraft.world.item.ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
+        // A ranked stone keeps its rank: more room and a faster in and out (see PulseCairnBlockEntity).
+        tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
         // A new stone joins every pile it touches; they flood again on their next reading.
         if (!level.isClientSide) PulseCairnBlockEntity.invalidateAround(level, pos);
     }

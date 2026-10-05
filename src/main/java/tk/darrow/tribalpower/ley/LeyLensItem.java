@@ -110,18 +110,29 @@ public class LeyLensItem extends Item {
         }
     }
 
-    /** Pulse-handling blocks, and the 8-block draw/listen zone around you and each core. */
+    /**
+     * The lattice you stand on: the reach of the conductors of your nearest one's network (the tapped conductor's
+     * with corner posts), and a core over every Pulse block nearby, tinted by how full it is. Off the lattice only the
+     * cores show, and the HUD says to place a conductor.
+     */
     private static void paintPulse(ServerLevel server, ServerPlayer player, BlockPos origin) {
         int radius = LatticeNetwork.DEFAULT_RADIUS;
-        zone(server, player, origin, radius, PULSE_COL, true);
-        int shown = 0;
+        tk.darrow.tribalpower.lattice.Weave.Tap tap = tk.darrow.tribalpower.lattice.Weave.tapsAt(server, origin).first();
+        if (tap != null) {
+            zone(server, player, tap.nearest().getBlockPos(), radius, STRONG, true);
+            int shown = 0;
+            for (var conductor : tap.net().conductors()) {
+                if (conductor == tap.nearest() || !conductor.getBlockPos().closerThan(origin, 48)) continue;
+                if (shown++ >= 8) break;
+                zone(server, player, conductor.getBlockPos(), radius, PULSE_COL, false);
+            }
+        }
         for (BlockEntity be : LatticeNetwork.blockEntitiesAround(server, origin, radius)) {
             if (!(be instanceof PulseHandler pulse) || pulse.getPulseCapacity() <= 0) continue;
             BlockPos at = be.getBlockPos();
             float fill = (float) pulse.getPulseStored() / pulse.getPulseCapacity();
             DustParticleOptions core = new DustParticleOptions(new Vector3f(PULSE_COL).lerp(STRONG, fill), 1.1F);
             server.sendParticles(player, core, false, at.getX() + 0.5, at.getY() + 1.15, at.getZ() + 0.5, 2, 0.12, 0.08, 0.12, 0);
-            if (shown++ < 4) zone(server, player, at, radius, PULSE_COL, false);
         }
     }
 
@@ -129,7 +140,8 @@ public class LeyLensItem extends Item {
         for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(server, origin, LatticeNetwork.DEFAULT_RADIUS)) {
             int idx = Math.max(0, Math.min(VOICE_COL.length - 1, totem.getAttunement().ordinal()));
             BlockPos pos = totem.getBlockPos();
-            Vector3f col = switch (totem.keeping()) {
+            // An empty totem is silent whatever its keeping: shown like a quiet one.
+            Vector3f col = !totem.voiced() ? new Vector3f(0.45F, 0.48F, 0.5F) : switch (totem.keeping()) {
                 case ANSWERED -> VOICE_COL[idx];
                 case DIM -> new Vector3f(VOICE_COL[idx]).mul(0.45F);
                 case QUIET -> new Vector3f(0.45F, 0.48F, 0.5F);

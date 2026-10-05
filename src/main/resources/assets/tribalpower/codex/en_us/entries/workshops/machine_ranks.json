@@ -285,14 +285,14 @@
         "Stations count whole seconds, so a short job may not get any quicker at the next rank but still pays the higher Pulse rate. Ranks pay off best on long work like cores, ranking and the Kiln.",
         "Generators work differently: each rank adds **15% Pulse a second**, not the workshop 118%. Camp hands beat faster at the same Pulse per move.",
         "The **Song Bench** is different again: each rank cuts its Pulse, to **85%**, **70%** and **55%**.",
-        "Relay plates move more and pay more Pulse for it, and each rank opens one more channel: one at rank 0, up to four at rank 3. Conductors, the Converter and the Energizer move more Pulse a second. A ranked Cache or Cistern only hands items and fluid to touching machines faster."
+        "Relay plates move more and pay more Pulse for it, and each rank opens one more channel: one at rank 0, up to four at rank 3. A Lattice Conductor carries **64**, **256**, **1,024** or **4,096** Pulse a second by rank, and a Pulse Cairn stone holds **4,000**, **16,000**, **64,000** or **256,000** and moves Pulse at the conductor's rate. The Converter and the Energizer move more Pulse a second. A ranked Cache or Cistern only hands items and fluid to touching machines faster."
       ]
     },
     {
       "type": "text",
       "title": "Which machines",
       "text": [
-        "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Harmonic Energizer, Lattice Converter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
+        "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Pulse Cairn, Harmonic Energizer, Lattice Converter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
         "The tooltip shows the rank by name: Woven (0), Attuned (1), Bound (2), Manifested (3). If a station will not take the machine, it is the wrong station for its current rank; crouch and right-click the station with this book."
       ]
     }

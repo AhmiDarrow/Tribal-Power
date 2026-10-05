@@ -108,7 +108,7 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
     private int countVoices(Level level, BlockPos pos) {
         EnumSet<Attunement> heard = EnumSet.noneOf(Attunement.class);
         for (var totem : LatticeNetwork.findNearbyTotems(level, pos, VOICE_RADIUS))
-            if (totem.keeping() == Keeping.State.ANSWERED) heard.add(totem.getAttunement());
+            if (totem.keeping() == Keeping.State.ANSWERED && totem.voiced()) heard.add(totem.getAttunement());
         return heard.size();
     }
 

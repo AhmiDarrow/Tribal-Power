@@ -16,7 +16,7 @@
       "text": [
         "Hold it in either hand and use it to cycle through five sights:",
         "- **Ley**: draws the ley lines around you, each thread in its voice's colour.",
-        "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** reach they cover. The panel totals Pulse coming in each second against Pulse the machines there are spending.",
+        "- **Pulse zone**: shows the lattice network you stand on: the **8-block** reach of its conductors, the one you tap outlined brightest, and a mark over every block that holds Pulse. The panel names the network's conductors and rate, your conductor's rank and what it carried last second, and totals the network's Pulse coming in against what its machines spend. Off the lattice it says so.",
         "- **Voices**: marks nearby totems in their own voice's colour when answered, a darker shade when dim, and grey when quiet.",
         "- **Machines**: marks the Tribal Power machines around you.",
         "- **Off**: the glass goes dark. No lines, no panel, no marks. Ley goggles you are wearing still show their threads.",

@@ -29,7 +29,7 @@
         "The plate pulls through the face it sits on and delivers into the face you marked, and both follow that block's face settings: the plate's face must give (**Output** or **Both**) and the marked face must take (**Input** or **Both**). A station's sides start as **Input** and only its bottom as **Output**, so set the face first.",
         "A [Stone Font](stone_font) is set for plates already: its top and bottom faces are **Both**, so item and fluid plates work there either way.",
         "Aim it with the **Lattice Tuner**: right-click the face that should receive the goods, then right-click the plate. The plate sends everything it pulls to that face.",
-        "Keep Pulse within 8 blocks of the plate, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits. A server can drop this rule with **automationNeedsVoices** in the common config."
+        "Keep the plate on the lattice, within 8 blocks of a Lattice Conductor, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits. A server can drop this rule with **automationNeedsVoices** in the common config."
       ]
     },
     {

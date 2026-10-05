@@ -248,16 +248,20 @@ public class GeneratorGameTests {
     public static void aLatticeDrawCountsAPileOnce(GameTestHelper h) {
         for (int x = 4; x <= 6; x++) h.setBlock(new BlockPos(x, 1, 4), ModBlocks.PULSE_CAIRN.get());
         var middle = cairn(h, new BlockPos(5, 1, 4));
-        middle.insertPulse(3000, false);
+        middle.insertPulse(100, false);
         var level = h.getLevel();
+        // The pile reaches the draw through the lattice; three Woven stones move 3 x 64 a second in and out.
+        Weaving.weave(h);
+        int rate = middle.pile().rate();
+        h.assertTrue(rate == 3 * 64, "Three Woven stones move 192 a second, read " + rate);
         BlockPos origin = h.absolutePos(new BlockPos(2, 1, 2));
         int seen = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 100000, true);
-        h.assertTrue(seen == 3000, "A simulated draw beside a pile of three must see its 3,000 once, saw " + seen);
+        h.assertTrue(seen == 100, "A simulated draw beside a pile of three must see its 100 once, saw " + seen);
         int room = tk.darrow.tribalpower.lattice.LatticeNetwork.insertPulseNearby(level, origin, 8, 100000, true);
-        h.assertTrue(room == 9000, "A simulated push must see the pile's 9,000 of room once, saw " + room);
+        h.assertTrue(room == rate, "A simulated push must see the pile's one in-rate once, saw " + room);
         int drawn = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 100000, false);
-        h.assertTrue(drawn == 3000 && middle.getPulseStored() == 0,
-                "The real draw takes exactly the pile's 3,000, drew " + drawn + ", left " + middle.getPulseStored());
+        h.assertTrue(drawn == 100 && middle.getPulseStored() == 0,
+                "The real draw takes exactly the pile's 100, drew " + drawn + ", left " + middle.getPulseStored());
         h.succeed();
     }
 

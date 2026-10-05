@@ -11,7 +11,8 @@
         "- **Answered**: awake, for about **40 minutes** of loaded time after it was last used.",
         "- **Dim**: fading, for another **40 minutes**. Matching stations take about **30% longer**.",
         "- **Quiet**: asleep. New work may pause, even with Pulse to spare.",
-        "The clock only runs while the totem's chunk is loaded. A full generator does not wake a quiet totem by itself."
+        "The clock only runs while the totem's chunk is loaded. A full generator does not wake a quiet totem by itself.",
+        "Keeping is one of two things a totem needs. The other is Pulse in its **buffer**: a totem whose buffer is empty is **silent** and lends no voice, however awake it is. On a lattice network with Pulse in it the buffer fills and sits full; off the lattice, or on a dry one, it drains in about two minutes (see [Lattice Conductor](lattice_conductor)). The two never touch: Pulse does not wake a quiet totem, and waking does not fill an empty one."
       ]
     },
     {
@@ -178,7 +179,7 @@
       "text": [
         "Totems in lush places stay awake **twice as long**. A totem counts the blocks right around it: open sky (more at night), rain, water and plants, grass underfoot included. When those add up to a strong spot, its clock runs at half speed. Most roofed or bare-stone totems keep the normal pace.",
         "A [Kinship Totem](kinship_totem) never goes quiet. Within 8 blocks it keeps its voice answered for stations and camp hands, even beside a Resonance Totem of that voice that has gone quiet.",
-        "The [Ley Lens](ley_lens) voice sight marks totems in their own voice's colour when answered, a darker shade when dim, and grey when quiet. And when a station stops while its power looks fine, crouch and right-click it with this book: it says whether its totem is dim or quiet."
+        "The [Ley Lens](ley_lens) voice sight marks totems in their own voice's colour when answered, a darker shade when dim, and grey when quiet or silent. And when a station stops while its power looks fine, crouch and right-click it with this book: it says whether its totem is dim or quiet."
       ]
     },
     {

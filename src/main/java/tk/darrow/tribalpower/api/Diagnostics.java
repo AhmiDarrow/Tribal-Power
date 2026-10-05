@@ -95,14 +95,29 @@ public final class Diagnostics {
         if (level.hasNeighborSignal(pos)) {
             lines.add(bullet(Component.translatable("diag.tribalpower.paused").withStyle(ChatFormatting.RED)));
         }
-        List<Component> generators = generators(level, pos);
-        if (generators.isEmpty()) lines.add(bullet(Component.translatable("diag.tribalpower.no_generators").withStyle(ChatFormatting.YELLOW)));
-        else {
-            lines.add(bullet(Component.translatable("diag.tribalpower.generators", generators.size())));
-            for (Component line : generators) lines.add(Component.literal("    ").append(line));
+        // Pulse reaches a block only through the lattice: say which network it is on, through which conductor, and
+        // what that network holds.
+        tk.darrow.tribalpower.lattice.Weave.Reading lattice = tk.darrow.tribalpower.lattice.Weave.read(level, pos);
+        if (!lattice.onLattice()) {
+            lines.add(bullet(Component.translatable("diag.tribalpower.lattice.none").withStyle(ChatFormatting.YELLOW)));
+        } else {
+            BlockPos tap = lattice.tap();
+            lines.add(bullet(Component.translatable("diag.tribalpower.lattice.network", lattice.conductors(), lattice.rate(),
+                    lattice.generators(), lattice.cairns())));
+            lines.add(bullet(Component.translatable("diag.tribalpower.lattice.tap", tap.getX(), tap.getY(), tap.getZ(),
+                    Component.translatable("item.tribalpower.spiritgear.rank." + lattice.tapRank()), lattice.tapRate(),
+                    lattice.tapCarried())));
+            List<Component> generators = generators(level, pos);
+            if (generators.isEmpty()) lines.add(bullet(Component.translatable("diag.tribalpower.no_generators").withStyle(ChatFormatting.YELLOW)));
+            else {
+                lines.add(bullet(Component.translatable("diag.tribalpower.generators", generators.size())));
+                for (Component line : generators.subList(0, Math.min(6, generators.size())))
+                    lines.add(Component.literal("    ").append(line));
+            }
+            lines.add(bullet(Component.translatable("diag.tribalpower.lattice.stored", lattice.stored(), lattice.capacity())));
+            int available = LatticeNetwork.extractPulseNearby(level, pos, RADIUS, Integer.MAX_VALUE / 2, true);
+            lines.add(bullet(Component.translatable("diag.tribalpower.available", available)));
         }
-        int available = LatticeNetwork.extractPulseNearby(level, pos, RADIUS, Integer.MAX_VALUE / 2, true);
-        lines.add(bullet(Component.translatable("diag.tribalpower.available", available)));
         Set<Attunement> voices = LatticeNetwork.collectAttunements(level, pos, RADIUS);
         if (voices.isEmpty()) lines.add(bullet(Component.translatable("diag.tribalpower.no_attunements").withStyle(ChatFormatting.YELLOW)));
         else {
@@ -121,10 +136,14 @@ public final class Diagnostics {
         return lines;
     }
 
-    /** Nearby generators with their output this second. */
+    /** The generators on the lattice network {@code origin} is on, with their output this second. */
     public static List<Component> generators(ServerLevel level, BlockPos origin) {
         List<Component> lines = new ArrayList<>();
-        for (BlockEntity be : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(level, origin, RADIUS)) {
+        tk.darrow.tribalpower.lattice.Weave.Net net = tk.darrow.tribalpower.lattice.Weave.netAt(level, origin);
+        if (net == null) return lines;
+        for (tk.darrow.tribalpower.lattice.Weave.Source source : net.generators()) {
+            BlockEntity be = source.be();
+            if (be.isRemoved()) continue;
             BlockPos cursor = be.getBlockPos();
             String perSecond;
             if (be instanceof DrumheartBlockEntity) perSecond = "beat";

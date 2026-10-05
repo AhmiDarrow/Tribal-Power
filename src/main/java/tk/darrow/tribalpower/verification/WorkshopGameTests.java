@@ -34,6 +34,7 @@ import tk.darrow.tribalpower.logic.SongThreadBlock;
 public class WorkshopGameTests {
     private static DrumheartBlockEntity pulse(GameTestHelper h, int x, int y, int z, int amount) {
         h.setBlock(x, y, z, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var drum = (DrumheartBlockEntity) h.getBlockEntity(new BlockPos(x, y, z));
         drum.insertPulse(amount, false);
         return drum;

@@ -7,14 +7,14 @@
       "type": "spotlight",
       "item": "tribalpower:pulse_adapter",
       "text": [
-        "Tribal Power makes Pulse; many other mods run on Forge Energy (FE). The Harmonic Energizer is a one-way bridge: it turns Pulse from your generators into FE and hands it to the machines touching it. Its opposite number, the [Lattice Converter](lattice_converter), brings FE back the other way."
+        "Tribal Power makes Pulse; many other mods run on Forge Energy (FE). The Harmonic Energizer is a one-way bridge: it turns Pulse from your lattice into FE and hands it to the machines touching it. Its opposite number, the [Lattice Converter](lattice_converter), brings FE back the other way."
       ]
     },
     {
       "type": "text",
       "title": "Setting it up",
       "text": [
-        "Place the Energizer within **8 blocks** of a generator (or of a Lattice Conductor line), and right against the FE machine it should feed. It pushes energy into any energy receiver on any of its faces.",
+        "Place the Energizer within **8 blocks** of a [Lattice Conductor](lattice_conductor) on a network with Pulse, and right against the FE machine it should feed. It pushes energy into any energy receiver on any of its faces.",
         "It converts **1 Pulse into 100 FE**, up to **60 Pulse** each second (6,000 FE, or 300 FE a tick). Ranked Energizers convert more Pulse, and so make more FE, in the same second.",
         "It buffers **48,000 FE** and exports to standard energy receivers. It cannot receive FE, so nothing can feed energy back into it."
       ]

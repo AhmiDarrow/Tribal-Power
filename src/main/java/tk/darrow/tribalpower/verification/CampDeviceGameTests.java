@@ -52,6 +52,7 @@ public class CampDeviceGameTests {
 
     private static void power(GameTestHelper h, int x, int y, int z) {
         h.setBlock(x, y, z, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         ((DrumheartBlockEntity) h.getBlockEntity(new BlockPos(x, y, z))).insertPulse(4000, false);
     }
 

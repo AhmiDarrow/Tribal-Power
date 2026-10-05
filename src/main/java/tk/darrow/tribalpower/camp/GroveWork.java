@@ -133,7 +133,7 @@ final class GroveWork {
         boolean water = false;
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(server, be.getBlockPos(), 8))
             if (totem.getAttunement() == tk.darrow.tribalpower.api.pulse.Attunement.WATER
-                    && totem.keeping() != tk.darrow.tribalpower.lattice.Keeping.State.QUIET) { water = true; break; }
+                    && totem.keeping() != tk.darrow.tribalpower.lattice.Keeping.State.QUIET && totem.voiced()) { water = true; break; }
         if (!water) return false;
         int wetted = 0;
         BlockPos origin = be.getBlockPos();

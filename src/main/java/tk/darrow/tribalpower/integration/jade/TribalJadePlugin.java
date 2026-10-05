@@ -74,6 +74,26 @@ public class TribalJadePlugin implements IWailaPlugin {
             if (made > 0 || be instanceof PulseGenerator) data.putInt("PulseRate", made);
             if (draw > 0) data.putInt("PulseDraw", draw);
             if (be instanceof PulseGenerator generator) data.putString("PulseVoice", generator.voice().getSerializedName());
+            // Pulse only moves along the lattice: say whether this block is on it, through which conductor and how fast.
+            if (be instanceof tk.darrow.tribalpower.blockentity.LatticeConductorBlockEntity conductor) {
+                data.putInt("ConductorRank", tk.darrow.tribalpower.item.MachineRank.rank(conductor));
+                data.putInt("ConductorRate", conductor.rate());
+                data.putInt("ConductorCarried", conductor.carriedLastSecond(level.getGameTime()));
+            }
+            if (be instanceof tk.darrow.tribalpower.blockentity.PulseCairnBlockEntity cairn) {
+                data.putInt("CairnRank", tk.darrow.tribalpower.item.MachineRank.rank(cairn));
+                data.putInt("CairnStone", cairn.ownCapacity());
+                data.putInt("CairnRate", cairn.pile().rate());
+            }
+            if (be instanceof PulseHandler || be instanceof tk.darrow.tribalpower.blockentity.LatticeConductorBlockEntity || draw > 0) {
+                var lattice = tk.darrow.tribalpower.lattice.Weave.read(level, pos);
+                data.putBoolean("LatticeOn", lattice.onLattice());
+                if (lattice.onLattice()) {
+                    data.putInt("LatticeConductors", lattice.conductors());
+                    data.putLong("LatticeRate", lattice.rate());
+                    data.putInt("LatticeTapRate", lattice.tapRate());
+                }
+            }
         }
     }
 
@@ -92,6 +112,21 @@ public class TribalJadePlugin implements IWailaPlugin {
                         : Component.translatable("jade.tribalpower.rate.plain", data.getInt("PulseRate"))).withStyle(ChatFormatting.GRAY));
             if (data.contains("PulseDraw"))
                 tooltip.add(Component.translatable("jade.tribalpower.draw", data.getInt("PulseDraw")).withStyle(ChatFormatting.GRAY));
+            if (data.contains("ConductorRate"))
+                tooltip.add(Component.translatable("jade.tribalpower.conductor",
+                        Component.translatable("item.tribalpower.spiritgear.rank." + data.getInt("ConductorRank")),
+                        data.getInt("ConductorRate"), data.getInt("ConductorCarried")).withStyle(ChatFormatting.GRAY));
+            if (data.contains("CairnRate"))
+                tooltip.add(Component.translatable("jade.tribalpower.cairn",
+                        Component.translatable("item.tribalpower.spiritgear.rank." + data.getInt("CairnRank")),
+                        data.getInt("CairnStone"), data.getInt("CairnRate")).withStyle(ChatFormatting.GRAY));
+            if (data.contains("LatticeOn")) {
+                if (data.getBoolean("LatticeOn"))
+                    tooltip.add(Component.translatable("jade.tribalpower.lattice", data.getInt("LatticeConductors"),
+                            data.getLong("LatticeRate"), data.getInt("LatticeTapRate")).withStyle(ChatFormatting.DARK_AQUA));
+                else
+                    tooltip.add(Component.translatable("jade.tribalpower.lattice.none").withStyle(ChatFormatting.YELLOW));
+            }
         }
     }
 

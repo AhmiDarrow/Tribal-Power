@@ -26,7 +26,7 @@
       "title": "Frames and keystone",
       "text": [
         "One craft of six March Stone, two copper and an Echo Shard makes **four Gate Frames**. A ring takes **11** frames, and the keystone itself takes four more, with a Resonant Core, a Spirit Shard and a Pulse Cell.",
-        "The keystone holds the gate's Pulse, up to **600**. Right-click it with a Pulse Cell to pour in up to **100** a time. A lit gate also tops itself up by up to 40 a second from Pulse within 8 blocks or along a conductor line.",
+        "The keystone holds the gate's Pulse, up to **600**. Right-click it with a Pulse Cell to pour in up to **100** a time. A lit gate also tops itself up by up to 40 a second from the lattice, through a conductor within 8 blocks.",
         "Only the player who placed a keystone, and their camp, can charge, link, light or break it. Linking re-threads both ends, so you cannot link onto someone else's gate either."
       ]
     },

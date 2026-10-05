@@ -9,7 +9,7 @@ import tk.darrow.tribalpower.config.TribalConfig;
 
 /**
  * The voice an automated device answers to. Every hand that works on its own asks for a Resonance Totem of its
- * own voice, kept (not quiet) within the lattice reach: the Grove Tender the Earth, the Ward Drum the Spirit,
+ * own voice, kept (not quiet) and not silent (its buffer holds Pulse) within the lattice reach: the Grove Tender the Earth, the Ward Drum the Spirit,
  * the Tide Pump the Water, the Wind Snare the Air, the Seal Loom the Loom, relays the Air (Astral ones the Loom).
  * Without it the device stands idle and says which totem it wants. {@code automationNeedsVoices} in the config
  * lets a pack waive it.
@@ -42,7 +42,7 @@ public final class Voices {
     public static boolean kept(Level level, BlockPos pos, @Nullable Attunement voice) {
         if (voice == null || !TribalConfig.automationNeedsVoices()) return true;
         for (var totem : LatticeNetwork.findNearbyTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
-            if (totem.getAttunement() == voice && totem.keeping() != Keeping.State.QUIET) return true;
+            if (totem.getAttunement() == voice && totem.keeping() != Keeping.State.QUIET && totem.voiced()) return true;
         for (var kinship : LatticeNetwork.findNearbyKinshipTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
             if (kinship.attunement() == voice) return true;
         return false;

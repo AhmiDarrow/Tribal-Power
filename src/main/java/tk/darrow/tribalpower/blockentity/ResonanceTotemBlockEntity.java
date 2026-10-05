@@ -20,9 +20,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * A Resonance Totem: the voice a station of its attunement answers to.
+ *
+ * <p>Two separate conditions decide whether it speaks (see lattice/Weave and lattice/Keeping):
+ * <ul>
+ *   <li><b>Its buffer</b> ({@link #BUFFER} Pulse). While the totem stands on an active lattice network (a Lattice
+ *   Conductor within reach whose network's generators or cairns hold Pulse) it tops the buffer up from the network
+ *   and then sits full: once full it costs nothing. Off the lattice, or while its network is dry, the buffer drains
+ *   {@link #DRAIN_PER_SECOND} a second, and a totem with an empty buffer is <i>silent</i>: it lends no voice at all,
+ *   whatever its keeping clock says. A newly carved totem starts full, so it speaks for about two minutes before
+ *   it needs a lattice.</li>
+ *   <li><b>Its keeping clock</b> ({@link Keeping}): answered, dim, then quiet when nobody works or wakes it. That
+ *   clock runs on its own and is untouched by the buffer.</li>
+ * </ul>
+ * Totems are not Pulse sources: no machine draws on a totem's buffer, it only keeps the voice alive.
+ */
 public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandler, tk.darrow.tribalpower.api.Diagnosable {
+    /** Pulse a totem holds to keep its voice: the same 250 it always held. */
+    public static final int BUFFER = 250;
+    /** What an off-lattice (or dry-lattice) totem's buffer loses a second: a full one goes silent in about two minutes. */
+    public static final int DRAIN_PER_SECOND = 2;
     private Attunement attunement = Attunement.SPIRIT;
-    private final PulseStorage resonance = new PulseStorage(250);
+    private final PulseStorage resonance = new PulseStorage(BUFFER);
     private final List<BlockPos> links = new ArrayList<>();
     private int attention = Keeping.TOTAL_TICKS;
 
@@ -31,6 +51,8 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         if (state.getBlock() instanceof ResonanceTotemBlock totem) {
             this.attunement = totem.getAttunement();
         }
+        // A newly carved totem holds a first breath; a saved one loads what it held.
+        resonance.setStored(BUFFER);
     }
 
     public ResonanceTotemBlockEntity(BlockPos pos, BlockState state, Attunement attunement) {
@@ -53,6 +75,7 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     public static void serverTick(Level level, BlockPos pos, BlockState state, ResonanceTotemBlockEntity be) {
         // A totem from before it stood as two blocks grows its clickable top once the space above is clear.
         if ((level.getGameTime() + pos.asLong()) % 100 == 0) ResonanceTotemBlock.growTop(level, pos, state);
+        if ((level.getGameTime() + pos.asLong()) % 20 == 0) be.breathe(level, pos);
         if (be.attention <= 0) return;
         long now = level.getGameTime();
         if (now - be.lushReadAt >= 100L || be.lushReadAt == Long.MIN_VALUE) {
@@ -62,6 +85,28 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         if (be.lush && (now & 1L) != 0L) return;
         be.attention--;
         if (be.attention % 200 == 0) be.setChanged();
+    }
+
+    /**
+     * Once a second: on an active lattice network, top the buffer up (and sit full once it is); off one, or on a
+     * dry one, let it drain toward silence.
+     */
+    private void breathe(Level level, BlockPos pos) {
+        int stored = resonance.getPulseStored();
+        if (tk.darrow.tribalpower.lattice.Weave.active(level, pos)) {
+            int room = BUFFER - stored;
+            if (room > 0) {
+                int drawn = tk.darrow.tribalpower.lattice.Weave.draw(level, pos, room, false);
+                if (drawn > 0) insertPulse(drawn, false);
+            }
+        } else if (stored > 0) {
+            extractPulse(DRAIN_PER_SECOND, false);
+        }
+    }
+
+    /** True while the buffer holds Pulse: an empty totem is silent and lends no voice. */
+    public boolean voiced() {
+        return resonance.getPulseStored() > 0;
     }
 
     public Keeping.State keeping() {
@@ -109,22 +154,26 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     }
 
     // Conductors keep the chalk network they walked; a totem arriving or leaving must drop it.
+    // The lattice lists the totems on each network too, for its readings.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
         tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
     @Override
     public void setRemoved() {
         super.setRemoved();
         tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
     @Override
     public void onChunkUnloaded() {
         super.onChunkUnloaded();
         tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
     @Override
@@ -177,7 +226,7 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         super.loadAdditional(tag, registries);
         attunement = getBlockState().getBlock() instanceof ResonanceTotemBlock totem
                 ? totem.getAttunement() : Attunement.byName(tag.getString("Attunement"));
-        resonance.load(tag);
+        if (tag.contains("Pulse")) resonance.load(tag);
         links.clear();
         tk.darrow.tribalpower.lattice.LatticeNetwork.chalkChanged();
         ListTag list = tag.getList("Links", Tag.TAG_COMPOUND);
@@ -195,6 +244,15 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
         lines.add(Component.translatable("diag.tribalpower.totem.keeping." + state.name().toLowerCase(java.util.Locale.ROOT)));
         if (state != Keeping.State.ANSWERED)
             lines.add(Component.translatable("diag.tribalpower.totem.wake").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        boolean active = tk.darrow.tribalpower.lattice.Weave.active(server, pos);
+        if (!voiced()) {
+            lines.add(Component.translatable("diag.tribalpower.totem.silent").withStyle(net.minecraft.ChatFormatting.RED));
+        } else {
+            lines.add(Component.translatable(active ? "diag.tribalpower.totem.fed" : "diag.tribalpower.totem.draining",
+                    getPulseStored(), BUFFER, DRAIN_PER_SECOND).withStyle(active ? net.minecraft.ChatFormatting.GRAY : net.minecraft.ChatFormatting.YELLOW));
+        }
+        if (!active) lines.add(Component.translatable(tk.darrow.tribalpower.lattice.Weave.onLattice(server, pos)
+                ? "diag.tribalpower.totem.dry_lattice" : "diag.tribalpower.totem.no_lattice").withStyle(net.minecraft.ChatFormatting.YELLOW));
         return lines;
     }
 }

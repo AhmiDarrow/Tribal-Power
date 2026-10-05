@@ -13,7 +13,6 @@ import tk.darrow.tribalpower.api.Diagnosable;
 import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.api.pulse.PulseStorage;
 import tk.darrow.tribalpower.block.ModBlocks;
-import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -25,31 +24,51 @@ import java.util.Set;
 /**
  * A cairn of stones that holds a beat (design 3.1 section 9.4).
  *
- * <p>Cairns that touch face to face are one pile, and a pile is one store: each stone keeps its own
- * {@link #CAPACITY} (so a stone's NBT is still just its own share), but insert, extract, the stored and
- * capacity readings and the comparator all speak for the whole pile, from any stone of it. A pile stops
- * growing at {@link #MAX_GROUP} stones; a stone past that stands alone.
+ * <p>Cairns that touch face to face are one pile, and a pile is one store: each stone keeps its own share up to
+ * its rank's capacity ({@link #capacityFor}: 4,000 / 16,000 / 64,000 / 256,000 for Woven / Attuned / Bound /
+ * Manifested), so a stone's NBT is still just its own share, but insert, extract, the stored and capacity
+ * readings and the comparator all speak for the whole pile, from any stone of it. A pile stops growing at
+ * {@link #MAX_GROUP} stones; a stone past that stands alone.
  *
  * <p>Because every stone answers for the pile, anything that walks many positions and adds them up must
  * count a pile once: see {@link #repeatsPile}. The lattice does.
  *
- * <p>It is both sink and source. It draws surplus out of nearby generators and holds it, which is what
- * turns a mob farm's bursty Wake Bell into the steady draw a Listening Pit wants.
+ * <p>It is the lattice's storage (see {@link tk.darrow.tribalpower.lattice.Weave}): a pile within reach of a
+ * Lattice Conductor drinks the surplus of the network's generators and lends it back to the network's machines.
+ * It moves Pulse in and out at its stones' summed rate, {@link tk.darrow.tribalpower.lattice.Weave#rate} by each
+ * stone's rank (64 / 256 / 1,024 / 4,096 a second, the same as a conductor), which is what turns a mob farm's
+ * bursty Wake Bell into the steady draw a Listening Pit wants. Unranked stones from before ranks count as Woven.
  */
 public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, Diagnosable {
+    /** A Woven (unranked) stone's share. */
     public static final int CAPACITY = 4000;
+    private static final int[] CAPACITY_BY_RANK = {4000, 16000, 64000, 256000};
     /** Most stones one pile joins: 256,000 Pulse. Keeps the flood fill cheap. */
     public static final int MAX_GROUP = 64;
-    /** How fast one stone can swallow a burst. A pile drinks this per stone. */
-    public static final int FILL_RATE = 200;
     /** Safety stop for the flood fill that finds a pile's leader; far above any pile that can form. */
     private static final int FLOOD_LIMIT = 4096;
 
-    private final PulseStorage pulse = new PulseStorage(CAPACITY);
+    /** Sized for a Manifested stone; {@link #ownCapacity} holds a lower rank to its own share. */
+    private final PulseStorage pulse = new PulseStorage(CAPACITY_BY_RANK[3]);
     private Pile pile;
 
     public PulseCairnBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PULSE_CAIRN.get(), pos, state);
+    }
+
+    /** One stone's capacity at a machine rank: 4,000 / 16,000 / 64,000 / 256,000. */
+    public static int capacityFor(int rank) {
+        return CAPACITY_BY_RANK[Math.clamp(rank, 0, CAPACITY_BY_RANK.length - 1)];
+    }
+
+    /** This stone's capacity at its rank. */
+    public int ownCapacity() {
+        return capacityFor(tk.darrow.tribalpower.item.MachineRank.rank(this));
+    }
+
+    /** Pulse a second this stone moves in, and again out: its rank's lattice rate. */
+    public int ownRate() {
+        return tk.darrow.tribalpower.lattice.Weave.rate(tk.darrow.tribalpower.item.MachineRank.rank(this));
     }
 
     /**
@@ -62,6 +81,10 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
         private final boolean overflow;
         private boolean valid = true;
         private int lastSignal = -1;
+        /** The second the in and out budgets count, and what each has moved in it. */
+        private long window = Long.MIN_VALUE;
+        private int inUsed, outUsed;
+        private final Object inKey = new Object(), outKey = new Object();
 
         private Pile(List<PulseCairnBlockEntity> members, boolean overflow) {
             this.members = members;
@@ -69,6 +92,8 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
         }
 
         public PulseCairnBlockEntity leader() { return members.get(0); }
+        public List<PulseCairnBlockEntity> members() { return members; }
+        public boolean valid() { return valid; }
         public int size() { return members.size(); }
         public boolean overflow() { return overflow; }
         public long key() { return leader().worldPosition.asLong(); }
@@ -84,9 +109,39 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
             return (int) Math.min(total, Integer.MAX_VALUE);
         }
 
-        public int capacity() { return members.size() * CAPACITY; }
+        public int capacity() {
+            long total = 0;
+            for (PulseCairnBlockEntity member : members) total += member.ownCapacity();
+            return (int) Math.min(total, Integer.MAX_VALUE);
+        }
 
-        int insert(int amount, boolean simulate) {
+        /** Pulse a second the pile moves in, and again out: its stones' rates summed. */
+        public int rate() {
+            long total = 0;
+            for (PulseCairnBlockEntity member : members) total += member.ownRate();
+            return (int) Math.min(total, Integer.MAX_VALUE);
+        }
+
+        private void roll(long now) {
+            long second = Math.floorDiv(now, 20);
+            if (second != window) {
+                window = second;
+                inUsed = 0;
+                outUsed = 0;
+            }
+        }
+
+        /** What the pile may still take in this second. */
+        public int inLeft(long now) { roll(now); return Math.max(0, rate() - inUsed); }
+        /** What the pile may still hand out this second. */
+        public int outLeft(long now) { roll(now); return Math.max(0, rate() - outUsed); }
+        public void spendIn(int n, long now) { roll(now); inUsed += Math.max(0, n); }
+        public void spendOut(int n, long now) { roll(now); outUsed += Math.max(0, n); }
+        /** Ledger keys for a simulated draw's pending budget. */
+        public Object inKey() { return inKey; }
+        public Object outKey() { return outKey; }
+
+        public int insert(int amount, boolean simulate) {
             if (amount <= 0) return 0;
             int accepted = Math.min(amount, capacity() - stored());
             if (accepted <= 0) return 0;
@@ -95,12 +150,14 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
             int remaining = accepted;
             while (remaining > 0) {
                 int open = 0;
-                for (PulseCairnBlockEntity member : members) if (member.pulse.getPulseStored() < CAPACITY) open++;
+                for (PulseCairnBlockEntity member : members) if (member.pulse.getPulseStored() < member.ownCapacity()) open++;
                 if (open == 0) break;
                 int share = Math.max(1, remaining / open);
                 for (PulseCairnBlockEntity member : members) {
                     if (remaining <= 0) break;
-                    int n = member.pulse.insertPulse(Math.min(share, remaining), false);
+                    int roomHere = member.ownCapacity() - member.pulse.getPulseStored();
+                    if (roomHere <= 0) continue;
+                    int n = member.pulse.insertPulse(Math.min(Math.min(share, remaining), roomHere), false);
                     if (n > 0) {
                         remaining -= n;
                         member.markDirty();
@@ -111,7 +168,7 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
             return accepted - remaining;
         }
 
-        int extract(int amount, boolean simulate) {
+        public int extract(int amount, boolean simulate) {
             if (amount <= 0) return 0;
             int taken = Math.min(amount, stored());
             if (taken <= 0) return 0;
@@ -267,7 +324,10 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
         boolean isCairn = level.getBlockState(neighbour).is(ModBlocks.PULSE_CAIRN.get());
         Pile current = pile;
         if (current == null || !current.valid) return;
-        if (isCairn != current.contains(neighbour)) invalidatePile();
+        if (isCairn != current.contains(neighbour)) {
+            invalidatePile();
+            tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+        }
     }
 
     /** Forget the piles of every cairn touching {@code pos}. */
@@ -276,6 +336,7 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
             BlockPos next = pos.relative(side);
             if (level.isLoaded(next) && level.getBlockEntity(next) instanceof PulseCairnBlockEntity cairn) cairn.invalidatePile();
         }
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, pos);
     }
 
     @Override
@@ -285,10 +346,24 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
         if (level != null) invalidateAround(level, worldPosition);
     }
 
+    // The lattice keeps the cairns it found on each network; a stone arriving or leaving must tell it.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
     @Override
     public void setRemoved() {
         super.setRemoved();
         invalidatePile();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
     private void markDirty() {
@@ -312,18 +387,10 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
         pile.changed();
         for (PulseCairnBlockEntity member : pile.members)
             if (level.hasNeighborSignal(member.worldPosition)) return;
-        int room = Math.min(FILL_RATE * pile.size(), pile.capacity() - pile.stored());
-        // Only ever pull from generators: a cairn hoarding another cairn's stock would be a shell game.
-        // Each stone reaches the generators within 8 of itself, so a long pile drinks along its length.
-        for (PulseCairnBlockEntity member : pile.members) {
-            if (room <= 0) break;
-            int taken = LatticeNetwork.extractPulseFromGenerators(level, member.worldPosition,
-                    LatticeNetwork.DEFAULT_RADIUS, room, false);
-            if (taken > 0) {
-                int kept = pile.insert(taken, false);
-                room -= kept;
-            }
-        }
+        // Only ever pull generator surplus, and only through the lattice: a cairn hoarding another cairn's stock
+        // would be a shell game, and one emptying a generator its machines draw on would starve them. Every stone
+        // in reach of a conductor taps it, so a long pile drinks along its length.
+        tk.darrow.tribalpower.lattice.Weave.fillPile(level, pile);
     }
 
     @Override
@@ -335,7 +402,13 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
                     .withStyle(net.minecraft.ChatFormatting.YELLOW));
         }
         lines.add(Component.translatable("diag.tribalpower.cairn.pile", pile.size(), MAX_GROUP));
-        lines.add(Component.translatable("diag.tribalpower.cairn.share", ownPulse(), CAPACITY));
+        lines.add(Component.translatable("diag.tribalpower.cairn.share", ownPulse(), ownCapacity()));
+        lines.add(Component.translatable("diag.tribalpower.cairn.rank",
+                Component.translatable("item.tribalpower.spiritgear.rank." + tk.darrow.tribalpower.item.MachineRank.rank(this)),
+                ownCapacity(), ownRate()));
+        lines.add(Component.translatable("diag.tribalpower.cairn.rate", pile.capacity(), pile.rate()));
+        if (!tk.darrow.tribalpower.lattice.Weave.onLattice(server, pos))
+            lines.add(Component.translatable("diag.tribalpower.cairn.off_lattice").withStyle(net.minecraft.ChatFormatting.YELLOW));
         return lines;
     }
 

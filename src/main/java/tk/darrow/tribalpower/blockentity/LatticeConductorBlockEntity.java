@@ -1,317 +1,152 @@
 package tk.darrow.tribalpower.blockentity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import tk.darrow.tribalpower.api.pulse.PulseGenerator;
-import tk.darrow.tribalpower.api.pulse.PulseHandler;
 import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
-
-import java.util.List;
+import tk.darrow.tribalpower.lattice.Weave;
 
 /**
- * Extends the Pulse zone, and fills chalk-linked Resonance Totem buffers.
+ * A thread of the Pulse lattice: the only way Pulse travels from a generator to a machine.
  *
- * <p>The zone needs no chalk. Conductors within {@link LatticeNetwork#DEFAULT_RADIUS} of each other
- * form a line, and a machine within that radius of any of them draws generators, cairns and totem
- * buffers the line can reach. Chalk is only the second job: two linked totems, and this block pulls
- * generator Pulse into those buffers.
+ * <p>Everything that makes, holds or spends Pulse within {@link #RADIUS} of a conductor is on the lattice, and
+ * conductors within that reach of each other link into one network (see {@link Weave} for the full rules). Machines
+ * draw only from their network's generators and Pulse Cairns, never straight from a generator beside them.
+ *
+ * <p>Each conductor carries at most its rank's rate a second ({@link #rate}: Woven 64, Attuned 256, Bound 1,024,
+ * Manifested 4,096), counting Pulse it lifts from a source and Pulse it hands to a consumer; Pulse that enters and
+ * leaves through the same conductor counts once. Ranked like any machine (Echo Attune, Bind, Manifest); an unranked
+ * conductor from an older world is Woven. A redstone signal lifts it out of the weave.
+ *
+ * <p>The conductor does no work of its own each tick: the budget below is counted lazily from the game time, and
+ * totems fill themselves from their network. Chalk links between totems still share voices, but no longer carry
+ * Pulse.
  */
 public class LatticeConductorBlockEntity extends BlockEntity implements tk.darrow.tribalpower.api.Diagnosable {
     public static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
-    public static final int TICK_INTERVAL = 20;
-    public static final int ITEM_INTERVAL = 40;
-    public static final int PUSH_PER_CYCLE = 10;
-    public static final int CLICK_PUSH = 25;
 
-    private int tickCounter;
-    private int networkSize;
-    private int lastPulsePushed;
-    /** What the last draw found in range. Tells a dry camp apart from a lattice that is simply full. */
-    private int lastSourceAvailable;
-    private boolean assistActive;
-    private boolean lastItemRouted;
+    /** The second the budget counts ({@code gameTime / 20}), what has passed through in it, and in the one before. */
+    private long window = Long.MIN_VALUE;
+    private int carried;
+    private int carriedBefore;
+    /** The redstone lock as last read, or null before the first neighbour change. */
+    private Boolean lockedWhenRead;
 
     public LatticeConductorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.LATTICE_CONDUCTOR.get(), pos, state);
     }
 
-    // Draws keep the conductor lines they resolved; a conductor arriving or leaving (placed, broken, its chunk
-    // loaded or unloaded) must drop them.
+    // The lattice keeps the networks it wove; a conductor arriving or leaving (placed, broken, its chunk loaded or
+    // unloaded) must have them woven again.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
-        LatticeNetwork.conductorLinesChanged(level);
+        Weave.conductorChanged(level, worldPosition);
     }
 
     @Override
     public void setRemoved() {
         super.setRemoved();
-        LatticeNetwork.conductorLinesChanged(level);
+        Weave.conductorChanged(level, worldPosition);
     }
 
     @Override
     public void onChunkUnloaded() {
         super.onChunkUnloaded();
-        LatticeNetwork.conductorLinesChanged(level);
+        Weave.conductorChanged(level, worldPosition);
     }
 
-    /*
-     * The redstone lock is read when a neighbour changes, not every tick. A signal can still arrive
-     * without an update (a neighbouring chunk loading, say), so a reading is also never trusted for
-     * longer than one beat.
-     */
-    private boolean powered;
-    private long poweredReadAt = Long.MIN_VALUE;
-
-    /** A neighbour changed: read the signal again on the next tick. */
+    /** A neighbour changed: a redstone lock that came or went re-weaves the networks. */
     public void neighbourChanged() {
-        poweredReadAt = Long.MIN_VALUE;
-    }
-
-    private boolean redstoneLocked(Level level, BlockPos pos) {
-        long now = level.getGameTime();
-        if (poweredReadAt == Long.MIN_VALUE || now - poweredReadAt >= TICK_INTERVAL || now < poweredReadAt) {
-            powered = level.hasNeighborSignal(pos);
-            poweredReadAt = now;
-        }
-        return powered;
-    }
-
-    /*
-     * The chalk network a beat walks only changes when a totem arrives, leaves or is relinked, which
-     * LatticeNetwork counts. While a ley binding is live anywhere in the level the network also
-     * follows those lines, which come and go with time, so it is walked every beat then.
-     */
-    private List<ResonanceTotemBlockEntity> chalkNetwork;
-    private boolean chalkConductable;
-    private int chalkGeneration;
-
-    private List<ResonanceTotemBlockEntity> chalkNetwork(Level level, BlockPos pos) {
-        int generation = LatticeNetwork.chalkGeneration();
-        boolean bindings = level instanceof net.minecraft.server.level.ServerLevel server
-                && !tk.darrow.tribalpower.rite.world.RiteSavedData.get(server.getServer()).leyLines(server).isEmpty();
-        if (chalkNetwork == null || bindings || generation != chalkGeneration) {
-            chalkNetwork = List.copyOf(LatticeNetwork.collectChalkNetworkNear(level, pos, RADIUS));
-            chalkConductable = LatticeNetwork.isConductable(chalkNetwork);
-            chalkGeneration = generation;
-            if (bindings) {
-                List<ResonanceTotemBlockEntity> walked = chalkNetwork;
-                chalkNetwork = null;
-                return walked;
-            }
-        }
-        return chalkNetwork;
-    }
-
-    public static void serverTick(Level level, BlockPos pos, BlockState state, LatticeConductorBlockEntity be) {
-        if (be.redstoneLocked(level, pos)) return;
-        be.tickCounter++;
-        if (be.tickCounter % TICK_INTERVAL != 0) {
-            return;
-        }
-        int sizeWas = be.networkSize;
-        int pushedWas = be.lastPulsePushed;
-        int availableWas = be.lastSourceAvailable;
-        boolean assistWas = be.assistActive;
-        boolean routedWas = be.lastItemRouted;
-
-        List<ResonanceTotemBlockEntity> network = be.chalkNetwork(level, pos);
-        be.networkSize = network.size();
-        if (!be.chalkConductable) {
-            be.assistActive = false;
-            be.lastPulsePushed = 0;
-            be.lastSourceAvailable = 0;
-            be.lastItemRouted = false;
-            if (be.networkSize != sizeWas || pushedWas != 0 || availableWas != 0 || assistWas || routedWas) {
-                be.setChanged();
-            }
-            return;
-        }
-
-        // No Song Bench asks for assist any more (wantsPulseAssist is always false) and Echo items no longer
-        // route through the lattice, so the beat skips both neighbourhood scans. The manual strike keeps them.
-        List<SongBenchBlockEntity> benches = List.of();
-        be.assistActive = false;
-
-        int push = MachineRank.scalePulse(be, PUSH_PER_CYCLE);
-        int available = LatticeNetwork.extractPulseForConductor(level, pos, RADIUS, push, true);
-        be.lastSourceAvailable = available;
-        int want = Math.min(Math.min(push, available), LatticeNetwork.roomInTotems(network));
-        int taken = LatticeNetwork.extractPulseForConductor(level, pos, RADIUS, want, false);
-        be.lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
-        if (be.lastPulsePushed < taken) {
-            // Refund unused extract into the first nearby generator by re-inserting via network leftover —
-            // leftover stays unspent; prefer reinserting into Ley/Drumheart near conductor.
-            refundPulse(level, pos, taken - be.lastPulsePushed);
-        }
-
-        be.lastItemRouted = false;
-        // The beat still runs. The chunk is marked only when a number a reload would care about moved.
-        if (be.networkSize != sizeWas || be.lastPulsePushed != pushedWas || be.lastSourceAvailable != availableWas
-                || be.assistActive != assistWas || be.lastItemRouted != routedWas) {
-            be.setChanged();
+        if (level == null || level.isClientSide) return;
+        boolean locked = level.hasNeighborSignal(worldPosition);
+        if (lockedWhenRead == null || locked != lockedWhenRead) {
+            lockedWhenRead = locked;
+            Weave.conductorChanged(level, worldPosition);
         }
     }
 
-    private static void refundPulse(Level level, BlockPos origin, int amount) {
-        if (amount <= 0) {
-            return;
-        }
-        int remaining = amount;
-        for (var be : LatticeNetwork.blockEntitiesAround(level, origin, RADIUS)) {
-            if (remaining <= 0) break;
-            if (be instanceof PulseHandler handler && (be instanceof PulseGenerator
-                    || be instanceof PulseCairnBlockEntity || be instanceof LeyCollectorBlockEntity
-                    || be instanceof PulseResonatorBlockEntity)) {
-                remaining -= handler.insertPulse(remaining, false);
-            }
+    /** The rank's rate, read from the rank NBT once and kept until the block changes or the second turns. */
+    private int rate = -1;
+
+    /** Pulse a second this conductor carries at its rank. */
+    public int rate() {
+        if (rate < 0) rate = Weave.rate(MachineRank.rank(this));
+        return rate;
+    }
+
+    @Override
+    public void setChanged() {
+        super.setChanged();
+        rate = -1; // ranking marks the block changed
+    }
+
+    private void roll(long now) {
+        long second = Math.floorDiv(now, 20);
+        if (second != window) {
+            rate = -1;
+            carriedBefore = second == window + 1 ? carried : 0;
+            window = second;
+            carried = 0;
         }
     }
 
-    private static boolean hasRoutingPower(List<ResonanceTotemBlockEntity> network, int pushed) {
-        return pushed > 0 || network.stream().anyMatch(totem -> totem.getPulseStored() > 0);
+    /** What this conductor may still carry in the current second. */
+    public int budgetLeft(long now) {
+        roll(now);
+        return Math.max(0, rate() - carried);
     }
 
-    /**
-     * Manual strike: report network and burst-transfer Pulse into linked totem buffers.
-     */
+    /** Counts {@code amount} through this conductor in the current second. */
+    public void carry(int amount, long now) {
+        roll(now);
+        carried += Math.max(0, amount);
+    }
+
+    /** What passed through in the last whole second: what a reading shows. */
+    public int carriedLastSecond(long now) {
+        roll(now);
+        return carriedBefore;
+    }
+
+    /** What has passed through so far this second. */
+    public int carriedThisSecond(long now) {
+        roll(now);
+        return carried;
+    }
+
+    /** Manual strike: say which network this conductor weaves and what it carries. */
     public Component conductOnce() {
-        if (level != null && level.hasNeighborSignal(worldPosition)) return Component.translatable("message.tribalpower.redstone.locked");
-        if (level == null) {
-            return Component.translatable("message.tribalpower.conductor.no_network");
-        }
-        List<ResonanceTotemBlockEntity> network = LatticeNetwork.collectChalkNetworkNear(level, worldPosition, RADIUS);
-        networkSize = network.size();
-        if (!LatticeNetwork.isConductable(network)) {
-            assistActive = false;
-            lastPulsePushed = 0;
-            lastSourceAvailable = 0;
-            setChanged();
-            return Component.translatable("message.tribalpower.conductor.zone",
-                    LatticeNetwork.countConductorZone(level, worldPosition, RADIUS));
-        }
-
-        List<BlockPos> hubs = LatticeNetwork.networkHubs(network);
-        List<SongBenchBlockEntity> benches = LatticeNetwork.findSongBenchesNearHubs(level, hubs, RADIUS);
-        assistActive = false;
-        for (SongBenchBlockEntity bench : benches) {
-            if (bench.wantsPulseAssist()) {
-                assistActive = true;
-                break;
-            }
-        }
-
-        int burst = MachineRank.scalePulse(this, CLICK_PUSH);
-        int available = LatticeNetwork.extractPulseForConductor(level, worldPosition, RADIUS, burst, true);
-        lastSourceAvailable = available;
-        int want = Math.min(Math.min(burst, available), LatticeNetwork.roomInTotems(network));
-        int taken = LatticeNetwork.extractPulseForConductor(level, worldPosition, RADIUS, want, false);
-        lastPulsePushed = LatticeNetwork.pushPulsePreferringAssist(level, network, benches, taken);
-        if (lastPulsePushed < taken) {
-            refundPulse(level, worldPosition, taken - lastPulsePushed);
-        }
-
-        if (hasRoutingPower(network, lastPulsePushed)) {
-            List<AncestralCacheBlockEntity> caches = LatticeNetwork.findCachesNearHubs(level, hubs, RADIUS);
-            lastItemRouted = LatticeNetwork.routeEchoItems(level, benches, caches);
-        } else {
-            lastItemRouted = false;
-        }
-        setChanged();
-
-        if (assistActive && lastItemRouted) {
-            return Component.translatable(
-                    "message.tribalpower.conductor.assist_moved",
-                    networkSize,
-                    lastPulsePushed
-            );
-        }
-        if (assistActive) {
-            return Component.translatable(
-                    "message.tribalpower.conductor.assist",
-                    networkSize,
-                    lastPulsePushed
-            );
-        }
-        return Component.translatable(
-                "message.tribalpower.conductor.pulse",
-                networkSize,
-                lastPulsePushed
-        );
-    }
-
-    public int getNetworkSize() {
-        return networkSize;
-    }
-
-    public int getLastPulsePushed() {
-        return lastPulsePushed;
-    }
-
-    /** Pulse the last draw could see in range, whether or not the lattice had room for it. */
-    public int getLastSourceAvailable() {
-        return lastSourceAvailable;
-    }
-
-    /** Nothing moved only because every linked totem is already holding its 250. */
-    public boolean isLatticeFull() {
-        return lastPulsePushed == 0 && lastSourceAvailable > 0;
-    }
-
-    public boolean isAssistActive() {
-        return assistActive;
+        if (level == null) return Component.translatable("message.tribalpower.conductor.no_network");
+        if (level.hasNeighborSignal(worldPosition)) return Component.translatable("message.tribalpower.redstone.locked");
+        Weave.Reading reading = Weave.read(level, worldPosition);
+        return Component.translatable("message.tribalpower.conductor.weave", reading.conductors(), reading.generators(),
+                reading.cairns(), rate(), reading.rate(), reading.stored());
     }
 
     @Override
     public java.util.List<Component> diagnose(net.minecraft.server.level.ServerLevel server, BlockPos pos) {
         java.util.List<Component> lines = new java.util.ArrayList<>();
         if (server.hasNeighborSignal(pos)) {
-            lines.add(Component.translatable("message.tribalpower.redstone.locked").withStyle(net.minecraft.ChatFormatting.YELLOW));
+            lines.add(Component.translatable("diag.tribalpower.conductor.locked").withStyle(net.minecraft.ChatFormatting.YELLOW));
+            return lines;
         }
-        int zone = LatticeNetwork.countConductorZone(server, pos, RADIUS);
-        if (zone > 0) {
-            lines.add(Component.translatable("diag.tribalpower.conductor.zone", zone));
-        }
-        if (networkSize < 2) {
-            lines.add(Component.translatable("diag.tribalpower.conductor.no_network").withStyle(net.minecraft.ChatFormatting.YELLOW));
-        } else {
-            lines.add(Component.translatable("diag.tribalpower.conductor.network", networkSize, lastPulsePushed));
-            if (assistActive) lines.add(Component.translatable("diag.tribalpower.conductor.assist"));
-            if (lastItemRouted) lines.add(Component.translatable("diag.tribalpower.conductor.items"));
-            if (lastPulsePushed == 0) {
-                lines.add(Component.translatable(isLatticeFull()
-                        ? "diag.tribalpower.conductor.buffers_full"
-                        : "diag.tribalpower.conductor.no_pulse").withStyle(net.minecraft.ChatFormatting.YELLOW));
-            }
-        }
+        long now = server.getGameTime();
+        lines.add(Component.translatable("diag.tribalpower.conductor.rate",
+                Component.translatable("item.tribalpower.spiritgear.rank." + MachineRank.rank(this)), rate(),
+                carriedLastSecond(now)));
+        Weave.Reading reading = Weave.read(server, pos);
+        lines.add(Component.translatable("diag.tribalpower.conductor.weave", reading.conductors(), reading.rate()));
+        lines.add(Component.translatable("diag.tribalpower.conductor.members", reading.generators(), reading.cairns(),
+                reading.totems()));
+        if (reading.generators() == 0 && reading.cairns() == 0)
+            lines.add(Component.translatable("diag.tribalpower.conductor.no_sources").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        else if (!reading.active())
+            lines.add(Component.translatable("diag.tribalpower.conductor.dry").withStyle(net.minecraft.ChatFormatting.YELLOW));
+        if (carriedLastSecond(now) >= rate())
+            lines.add(Component.translatable("diag.tribalpower.conductor.saturated").withStyle(net.minecraft.ChatFormatting.YELLOW));
         return lines;
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("TickCounter", tickCounter);
-        tag.putInt("NetworkSize", networkSize);
-        tag.putInt("LastPulsePushed", lastPulsePushed);
-        tag.putInt("LastSourceAvailable", lastSourceAvailable);
-        tag.putBoolean("AssistActive", assistActive);
-        tag.putBoolean("LastItemRouted", lastItemRouted);
-    }
-
-    @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        tickCounter = tag.getInt("TickCounter");
-        networkSize = tag.getInt("NetworkSize");
-        lastPulsePushed = tag.getInt("LastPulsePushed");
-        lastSourceAvailable = tag.getInt("LastSourceAvailable");
-        assistActive = tag.getBoolean("AssistActive");
-        lastItemRouted = tag.getBoolean("LastItemRouted");
     }
 }

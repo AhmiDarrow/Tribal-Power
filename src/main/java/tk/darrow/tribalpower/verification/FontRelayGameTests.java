@@ -78,6 +78,7 @@ public class FontRelayGameTests {
         h.setBlock(new BlockPos(5, 2, 5), ModBlocks.FLUID_RELAY.get().defaultBlockState().setValue(RelayBlock.FACING, Direction.UP));
         h.setBlock(new BlockPos(0, 2, 0), ModBlocks.RESONANCE_TOTEM_AIR.get());
         h.setBlock(new BlockPos(3, 2, 4), ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         at(h, new BlockPos(3, 2, 4), DrumheartBlockEntity.class).insertPulse(1000, false);
         var font = at(h, fontPos, StoneFontBlockEntity.class);
         font.setItem(0, new ItemStack(Items.COBBLESTONE, 16));

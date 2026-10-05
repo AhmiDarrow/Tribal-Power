@@ -12,7 +12,7 @@ import net.minecraft.server.level.ServerPlayer;
 public final class NextStep {
     /** The spine, in order. Each is an advancement id under {@code tribalpower:} and the lang key of its guidance. */
     public static final List<String> SPINE = List.of(
-            "journey/root", "first_camp", "journey/hum", "journey/shatter", "journey/attune", "journey/bind", "journey/manifest",
+            "journey/root", "first_camp", "journey/hum", "journey/weave", "journey/shatter", "journey/attune", "journey/bind", "journey/manifest",
             "journey/core", "journey/staff", "journey/ritual", "first_rite", "journey/march", "march/ancestor_hall",
             "tribes/offering", "tribes/friend", "tribes/first_story", "march/drum_remembers", "tribes/all_stories", "march/ninth_agreement");
     public static final String DONE = "done";
