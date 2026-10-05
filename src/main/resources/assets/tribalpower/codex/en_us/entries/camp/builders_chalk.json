@@ -74,6 +74,14 @@
       ]
     },
     {
+      "type": "text",
+      "title": "Laser level",
+      "text": [
+        "Last in the list is the **laser level**: one straight, level line of ghosts running out from the mark the way you face, for a wall, a road, a tunnel or a long canal. **Sneak and right-click** or **sneak and left-click** steps its length through **64**, **128** and **256** blocks.",
+        "While it follows you it swings round with your gaze. Use it on a block to set it down, and it keeps the facing you had then. Like every shape it draws about **48 blocks** around you, so walk the line and the rest of it lights up ahead."
+      ]
+    },
+    {
       "type": "recipe",
       "item": "tribalpower:builders_chalk"
     }

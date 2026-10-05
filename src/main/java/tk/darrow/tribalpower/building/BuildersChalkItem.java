@@ -39,7 +39,7 @@ public class BuildersChalkItem extends Item {
     /** How far from a set mark the hologram still stands. */
     public static final int ANCHOR_RANGE = 192;
     private static final String SHAPE = "ChalkShape", SIZE = "ChalkSize", TIER = "ChalkTier",
-            ROT = "ChalkRot", MARK = "ChalkMark", DIM = "ChalkDim";
+            ROT = "ChalkRot", MARK = "ChalkMark", DIM = "ChalkDim", LASER = "ChalkLaser";
 
     public BuildersChalkItem(Properties properties) {
         super(properties);
@@ -70,9 +70,16 @@ public class BuildersChalkItem extends Item {
         return rite.tier(stored) == null ? 1 : stored;
     }
 
-    /** Half-extent for a building shape, tier number for a rite. What the hologram is drawn from. */
+    /** How far the laser level runs: 64, 128 or 256 blocks. */
+    public static int laser(ItemStack stack) {
+        return BuildPattern.laserLength(data(stack).getInt(LASER));
+    }
+
+    /** Half-extent for a building shape, tier number for a rite, length for the laser level. What the hologram is drawn from. */
     public static int scale(ItemStack stack) {
-        return shape(stack).rite() == null ? size(stack) : tier(stack);
+        BuildPattern shape = shape(stack);
+        if (shape == BuildPattern.LASER_LEVEL) return laser(stack);
+        return shape.rite() == null ? size(stack) : tier(stack);
     }
 
     /**
@@ -80,7 +87,7 @@ public class BuildersChalkItem extends Item {
      * you, it turns to the way you are looking, and a building shape never turns.
      */
     public static Rotation rotation(ItemStack stack, Player player) {
-        if (shape(stack).rite() == null) return Rotation.NONE;
+        if (!shape(stack).turns()) return Rotation.NONE;
         if (mark(stack) != null) {
             int stored = data(stack).getInt(ROT);
             Rotation[] all = Rotation.values();
@@ -205,7 +212,11 @@ public class BuildersChalkItem extends Item {
     }
 
     private static void resize(Player player, ItemStack stack, boolean up) {
-        if (shape(stack).rite() != null) stepTier(stack, up);
+        if (shape(stack) == BuildPattern.LASER_LEVEL) {
+            int next = BuildPattern.stepLaser(laser(stack), up);
+            CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.putInt(LASER, next));
+        }
+        else if (shape(stack).rite() != null) stepTier(stack, up);
         else stepSize(stack, up);
         player.displayClientMessage(setting(stack), true);
         player.level().playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME,
@@ -216,6 +227,8 @@ public class BuildersChalkItem extends Item {
 
     public static Component setting(ItemStack stack) {
         BuildPattern shape = shape(stack);
+        if (shape == BuildPattern.LASER_LEVEL)
+            return Component.translatable("message.tribalpower.chalk.laser", Component.translatable(shape.key()), laser(stack));
         if (shape.rite() != null)
             return Component.translatable("message.tribalpower.chalk.rite",
                     Component.translatable(shape.key()), tier(stack));
@@ -233,8 +246,9 @@ public class BuildersChalkItem extends Item {
                         marked.getX(), marked.getY(), marked.getZ())).withStyle(ChatFormatting.DARK_AQUA));
         if (marked != null)
             tooltip.add(Component.translatable("gui.tribalpower.chalk.stays").withStyle(ChatFormatting.DARK_AQUA));
-        tooltip.add(Component.translatable(shape(stack).rite() == null
-                ? "gui.tribalpower.chalk.hint" : "gui.tribalpower.chalk.rite_hint").withStyle(ChatFormatting.DARK_GRAY));
+        BuildPattern shape = shape(stack);
+        tooltip.add(Component.translatable(shape == BuildPattern.LASER_LEVEL ? "gui.tribalpower.chalk.laser_hint"
+                : shape.rite() == null ? "gui.tribalpower.chalk.hint" : "gui.tribalpower.chalk.rite_hint").withStyle(ChatFormatting.DARK_GRAY));
         tooltip.add(Component.translatable("gui.tribalpower.chalk.never_spent").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

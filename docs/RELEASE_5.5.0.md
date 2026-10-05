@@ -13,6 +13,7 @@ A six-totem heart that sings thousands of Pulse a second and raises its own ley 
 - **Tide Pump.** It draws water from the block below, keeps its own tank, and works with fluid relay plates.
 - **Camp devices.** Relay plates work on every device that holds goods. The Grove Tender cuts pumpkins and melons and tends any tagged crop, the Hush Totem turns phantoms away, the Ward Drum leaves bosses alone, and the Summoning Cradle binds any vanilla animal or monster.
 - **Fixes.** The Listening Pit's cache no longer feeds ore back into the mesh, and the Seal Loom no longer stalls or spills its leftovers.
+- **Laser level.** The Builder's Chalk gains a laser level: one straight, level line out from the mark the way you face, **64**, **128** or **256** blocks long, for walls, roads and tunnels.
 - **Four creative tabs.** Tribal Power, Gear & Magic, Hearth & Bestiary and The March, so JEI and EMI list the mod in order.
 - **The Codex** gains Bestiary, Rites, Songs and Travel chapters, a merged Familiars chapter, and pages for everything above.
 

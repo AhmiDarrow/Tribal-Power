@@ -27,6 +27,7 @@ public class BuildingGameTests {
     public static void everyPatternStaysInsideItsOwnSize(GameTestHelper h) {
         for (BuildPattern pattern : BuildPattern.values()) {
             if (pattern.rite() != null) continue; // a rite is a fixed footprint; its own test checks it
+            if (pattern == BuildPattern.LASER_LEVEL) continue; // a fixed-length line; its own test checks it
             for (int size : BuildPattern.SIZES) {
                 if (size > 24) continue;   // the whole ladder, up to where the solids get big; 128 has its own test
                 List<BlockPos> marks = pattern.offsets(size);
@@ -40,6 +41,22 @@ public class BuildingGameTests {
                 }
             }
         }
+        h.succeed();
+    }
+
+    /** The laser level is one straight level line, 64, 128 or 256 out from the mark, turned the way you face. */
+    @GameTest(template="empty")
+    public static void theLaserLevelRunsStraightOut(GameTestHelper h) {
+        for (int length : BuildPattern.LASER_LENGTHS) {
+            List<BlockPos> marks = BuildPattern.LASER_LEVEL.offsets(length);
+            h.assertTrue(marks.size() == length + 1, "A laser of " + length + " is " + (length + 1) + " marks, drew " + marks.size());
+            for (BlockPos p : marks) h.assertTrue(p.getX() == 0 && p.getY() == 0 && p.getZ() >= 0 && p.getZ() <= length, "The laser strays to " + p);
+            BlockPos end = BuildPattern.turn(new BlockPos(0, 0, length), BuildersChalkItem.facing(net.minecraft.core.Direction.EAST));
+            h.assertTrue(end.getX() == length && end.getZ() == 0, "Facing east the laser runs east, ends at " + end);
+        }
+        h.assertTrue(BuildPattern.stepLaser(64, true) == 128 && BuildPattern.stepLaser(256, true) == 64 && BuildPattern.stepLaser(64, false) == 256,
+                "The laser steps 64, 128, 256 and wraps");
+        h.assertTrue(BuildPattern.LASER_LEVEL.turns() && !BuildPattern.SQUARE.turns(), "The laser turns to the facing; a square does not");
         h.succeed();
     }
 

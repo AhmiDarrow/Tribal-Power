@@ -52,7 +52,10 @@ public enum BuildPattern {
     SHATTER_ARRAY,
     WAY_GATE,
     FAR_GATE,
-    LEY_HEART;
+    LEY_HEART,
+    /** A laser level: one straight, level line out from the mark the way you face, {@link #LASER_LENGTHS} long.
+     *  Last in the list so a chalk that remembers an older shape's index keeps it. */
+    LASER_LEVEL;
 
     public static final int MIN_SIZE = 2;
     public static final int MAX_SIZE = 128;
@@ -65,6 +68,27 @@ public enum BuildPattern {
      * is a hundred blocks long.
      */
     public static final int[] SIZES = {2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128};
+
+    /** The lengths the laser level steps through, in blocks out from the mark. */
+    public static final int[] LASER_LENGTHS = {64, 128, 256};
+
+    /** A laser length from the ladder, or the shortest for anything else. */
+    public static int laserLength(int length) {
+        for (int l : LASER_LENGTHS) if (l == length) return l;
+        return LASER_LENGTHS[0];
+    }
+
+    /** The next laser length, wrapping; {@code up} false steps back. */
+    public static int stepLaser(int current, boolean up) {
+        int at = 0;
+        for (int i = 0; i < LASER_LENGTHS.length; i++) if (LASER_LENGTHS[i] == laserLength(current)) at = i;
+        return LASER_LENGTHS[Math.floorMod(at + (up ? 1 : -1), LASER_LENGTHS.length)];
+    }
+
+    /** Shapes that turn to face the way you look: the rites and the laser level. */
+    public boolean turns() {
+        return rite() != null || this == LASER_LEVEL;
+    }
 
     public static BuildPattern byIndex(int index) {
         BuildPattern[] all = values();
@@ -125,6 +149,10 @@ public enum BuildPattern {
     public List<BlockPos> offsets(int size) {
         Set<BlockPos> out = new LinkedHashSet<>();
         if (rite() != null) riteMarks(out, size);
+        else if (this == LASER_LEVEL) {
+            // pattern +Z, so it swings round to the facing like a rite does
+            for (int z = 0; z <= laserLength(size); z++) out.add(new BlockPos(0, 0, z));
+        }
         else geometry(out, clampSize(size));
         List<BlockPos> list = new ArrayList<>(out);
         list.sort(Comparator.comparingInt((BlockPos p) -> p.getY())
