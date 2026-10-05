@@ -76,6 +76,19 @@ public class LatticeMonster extends Monster implements Familiar {
     public LatticeMonster(EntityType<? extends Monster> type,Level level) {
         super(type,level);xpReward=profile().health>=35?8:5;
         if(profile().flying) { moveControl=new FlyingMoveControl(this,12,true);setNoGravity(true); }
+        // A water hunter walked and floated: it bobbed at the surface and could not dive after anything. It swims
+        // now, and being a hunter it also walks out after prey on the bank (see CreatureSwimming).
+        if(swims()) { moveControl=new CreatureSwimming.SwimMoveControl(this,true);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,0); }
+    }
+    /** Lives in water (its habitat): swims there, walks on land, and breathes in both (tagged minecraft:can_breathe_under_water). */
+    public boolean swims() { return CreatureSwimming.swims(profile()); }
+    @Override public void travel(net.minecraft.world.phys.Vec3 input) {
+        if(swims() && CreatureSwimming.travel(this,input,true))return;
+        super.travel(input);
+    }
+    /** Mob refuses any spawn touching liquid; a swimmer needs it. Its habitat rule has already chosen the water. */
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader level) {
+        return swims()?level.isUnobstructed(this):super.checkSpawnObstruction(level);
     }
     @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
     @Override public FamiliarData lattice() { return lattice; }
@@ -102,16 +115,23 @@ public class LatticeMonster extends Monster implements Familiar {
         builder.define(DATA_VOICE,(byte)-1);
     }
     @Override protected PathNavigation createNavigation(Level level) {
+        if(swims())return CreatureSwimming.navigation(this,level,profile());
         return profile().flying?new FlyingPathNavigation(this,level):super.createNavigation(level);
     }
     @Override protected void registerGoals() {
-        goalSelector.addGoal(0,new FloatGoal(this));
+        // A swimmer must not float: that goal is what held the water hunters bobbing at the surface.
+        if(!swims())goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
         goalSelector.addGoal(2,profile().ranged()?new SpiritCastGoal():new MeleeAttackGoal(this,1,false) {
             @Override public boolean canUse() { return !isBaby() && (!isBonded() || FamiliarRoster.combat(profile())) && super.canUse(); }
         });
         goalSelector.addGoal(3,new FamiliarFollowGoal(this,1.1));
-        goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8) {
+        // An idle water hunter roams the water, and one left on land heads back to water within reach.
+        if(swims()) {
+            goalSelector.addGoal(4,new CreatureSwimming.ReturnToWater(this,()->!isBonded()));
+            goalSelector.addGoal(5,new CreatureSwimming.Roam(this,()->!isBonded()));
+        }
+        else goalSelector.addGoal(5,profile().flying?new WaterAvoidingRandomFlyingGoal(this,.8) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         }:new WaterAvoidingRandomStrollGoal(this,.8) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }

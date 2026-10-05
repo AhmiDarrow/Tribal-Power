@@ -58,7 +58,7 @@
       "entity": "tribalpower:drowned_shade",
       "title": "Drowned Shade",
       "text": [
-        "A weed-hung wraith carrying a lantern. It rises in the water of the Shallows at night, one or two at a time. Its blow weakens you for 4 seconds.",
+        "A weed-hung wraith carrying a lantern. It rises in the water of the Shallows at night, one or two at a time, and swims or walks after you: the shore is no refuge from it. Its blow weakens you for 4 seconds.",
         "It drops **Drowned Weed**, a Weaken reagent.",
         "Hunted, it also drops up to 1 Phantom Membrane and up to 2 Prismarine Shards."
       ]

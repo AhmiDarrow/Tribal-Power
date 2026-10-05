@@ -148,7 +148,11 @@ final class CodexFacts {
                     (int) (tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(2) - tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(1)) + " more per extra voice",
                     "up to " + (int) tk.darrow.tribalpower.charm.CharmHooks.gatherRadius(99)),
             Fact.of("colossus_warden", "The boss is the Colossus Warden, not the Weeping Colossus tree; 260 health, 14 armour, Heartwood Core",
-                    "Colossus Warden", "260 health", "14 armour", "Heartwood Core", "Reed Fen"));
+                    "Colossus Warden", "260 health", "14 armour", "Heartwood Core", "Reed Fen"),
+            // The water creatures swim (CreatureSwimming): the gentle ones are fish, the hunters amphibious.
+            Fact.of("beasts_shallows", "Gentle swimmers keep to the water and dry out beached; a bonded one follows only by water; the Brine Lurker leaves the water after prey",
+                    "never leave the water", "dries out", "only as far as its water goes", "out onto the bank"),
+            Fact.of("shades", "The Drowned Shade swims and walks after its prey", "the shore is no refuge"));
 
     /** Wording that quotes Pulse before the pack's settings. The book quotes what the shipped settings really spend. */
     private static final List<String> UNSCALED = List.of("before pack settings", "shipped default", "consumption multiplier");
