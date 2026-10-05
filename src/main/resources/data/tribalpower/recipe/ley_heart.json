@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ACA",
+    "RML",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "tribalpower:anchor_stone"
+    },
+    "C": {
+      "item": "tribalpower:resonant_core"
+    },
+    "R": {
+      "item": "tribalpower:pulse_resonator"
+    },
+    "M": {
+      "item": "tribalpower:manifested_ingot"
+    },
+    "L": {
+      "item": "tribalpower:ley_collector"
+    }
+  },
+  "result": {
+    "id": "tribalpower:ley_heart",
+    "count": 1
+  }
+}

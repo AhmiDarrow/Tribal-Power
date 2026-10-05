@@ -12,17 +12,17 @@ import java.util.List;
 
 /**
  * The veins near one player, sent so the client can draw them. The thread's motion is not in the
- * packet: the client scrolls it from the game clock. The last byte is the totem voice.
+ * packet: the client scrolls it from the game clock. Then the totem voice, and how far the thread runs.
  */
 public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
     public static final int MAX = LeyField.VIEW;
     public static final Type<LeyRopePayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath("tribalpower", "ley_ropes"));
-    /** Ten floats and the voice. StreamCodec.composite stops at six, so the rope is written by hand. */
+    /** Ten floats, the voice and the reach. StreamCodec.composite stops at six, so the rope is written by hand. */
     public static final StreamCodec<ByteBuf, Rope> ROPE = new StreamCodec<>() {
         @Override public Rope decode(ByteBuf buf) {
             return new Rope(buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
                     buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(), buf.readFloat(),
-                    buf.readUnsignedByte());
+                    buf.readUnsignedByte(), buf.readFloat());
         }
 
         @Override public void encode(ByteBuf buf, Rope rope) {
@@ -37,6 +37,7 @@ public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
             buf.writeFloat(rope.yFreq());
             buf.writeFloat(rope.travel());
             buf.writeByte(rope.voice());
+            buf.writeFloat(rope.reach());
         }
     };
     public static final StreamCodec<ByteBuf, LeyRopePayload> STREAM_CODEC = StreamCodec.composite(
@@ -56,11 +57,11 @@ public record LeyRopePayload(List<Rope> ropes) implements CustomPacketPayload {
             if (ropes.size() >= MAX) break;
             ropes.add(new Rope((float) rope.x(), (float) rope.y(), (float) rope.z(), (float) rope.angle(),
                     (float) rope.amp(), (float) rope.freq(), (float) rope.phase(), (float) rope.yAmp(),
-                    (float) rope.yFreq(), (float) rope.travel(), rope.voice()));
+                    (float) rope.yFreq(), (float) rope.travel(), rope.voice(), (float) rope.reach()));
         }
         return new LeyRopePayload(List.copyOf(ropes));
     }
 
     public record Rope(float x, float y, float z, float angle, float amp, float freq, float phase,
-                       float yAmp, float yFreq, float travel, int voice) {}
+                       float yAmp, float yFreq, float travel, int voice, float reach) {}
 }

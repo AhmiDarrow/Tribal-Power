@@ -55,7 +55,8 @@ public final class LeyMagnets {
 
     /** Holds this rope's voice has on it, nearest to the thread first, in order along the thread. */
     public static List<Pull> pulls(List<Magnet> magnets, LeyField.Rope rope) {
-        if (magnets.isEmpty()) return List.of();
+        // A Ley Heart's thread is pinned at the heart and runs straight through its own totem already.
+        if (magnets.isEmpty() || rope.pinned()) return List.of();
         Attunement voice = Attunement.values()[Math.floorMod(rope.voice(), Attunement.values().length)];
         List<Raw> raw = new ArrayList<>();
         for (Magnet magnet : magnets) {

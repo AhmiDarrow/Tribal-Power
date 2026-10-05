@@ -129,6 +129,49 @@ public final class ModPatterns {
             .build();
 
     /**
+     * The Ley Heart: the heart on a 3x3 dais of anchor stones, and one Resonance Totem of each voice five
+     * blocks out on the heart's own level. Six evenly spaced totems do not exist on a square grid, but
+     * five blocks out they nearly do: (5,0) and (3,4) are both exactly five away, so the ring is a true
+     * circle with its spokes at 0, 53, 127, 180, 233 and 307 degrees. Opposed voices face each other across
+     * the heart: Fire and Water, Earth and Air, Spirit and Loom.
+     */
+    public static final RitualPattern LEY_HEART = RitualPattern.builder("ley_heart")
+            .layer(-1,
+                    "...........",
+                    "...........",
+                    "...........",
+                    "...........",
+                    "....AAA....",
+                    "....AAA....",
+                    "....AAA....",
+                    "...........",
+                    "...........",
+                    "...........",
+                    "...........")
+            .layer(0,
+                    "...........",
+                    "..a.....l..",
+                    "...........",
+                    "...........",
+                    "...........",
+                    "w....H....f",
+                    "...........",
+                    "...........",
+                    "...........",
+                    "..s.....e..",
+                    "...........")
+            .where('H', Predicates.anchor(tk.darrow.tribalpower.leyheart.LeyHeartRegistry.LEY_HEART))
+            .where('A', Predicates.block(ModBlocks.ANCHOR_STONE))
+            .where('f', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.FIRE))
+            .where('e', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.EARTH))
+            .where('s', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT))
+            .where('w', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.WATER))
+            .where('a', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.AIR))
+            .where('l', Predicates.totem(tk.darrow.tribalpower.api.pulse.Attunement.LOOM))
+            .where('.', Predicates.anything())
+            .build();
+
+    /**
      * The Shatter Array (section 5): an Echo station centred in a 5x5 with four totems at the corners and
      * an Ancestral Cache beneath. Whether the totems match the recipe's attunement is checked by the
      * station, which already knows which recipe it is running.

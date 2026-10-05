@@ -1,0 +1,6 @@
+{
+  "parent": "tribalpower:block/ley_heart",
+  "textures": {
+    "core": "tribalpower:block/ley_heart_core_on"
+  }
+}

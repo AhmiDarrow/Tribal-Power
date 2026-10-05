@@ -1,0 +1,65 @@
+{
+  "name": "Ley Heart",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "A [Pulse Resonator](pulse_resonator) and a [Ley Collector](ley_collector) made one. Stand it at the heart of a **Heart Star**, all six totem voices around it, and it burns three fuels at once and raises **six ley lines** out into the world.",
+        "It stores **8,000 Pulse**, which it keeps when you break it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The Heart Star",
+      "text": [
+        "Set the heart on a 3x3 of **Anchor Stones**, then stand one Resonance Totem of **each** voice **five blocks** out, on the heart's own level. Fire and Water face each other across the heart on one line. Earth and Air, and Spirit and Loom, face each other on the slants: three blocks across and four along.",
+        "Any facing works. Until every piece is in place the heart is silent. Crouch and right-click it with this book to hear what is missing; the missing places sparkle in the world."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "The Heart Star",
+      "text": "Anchor Stones under the heart; a totem of every voice five blocks out."
+    },
+    {
+      "type": "text",
+      "title": "Three fuels",
+      "text": [
+        "Right-click the heart to open it. Each fuel has its own intake:",
+        "- **Resonator crystals** go in the crystal slot: Echo Shard, Attuned Echo, Bound Echo or Resonant Core. One burns **5, 10, 20 or 40 minutes**.",
+        "- Any **creature reagent** goes in the reagent slot. One burns **2 minutes**.",
+        "- **Water** fills an 8,000 mB tank from a bucket, a pipe or a fluid relay plate. It burns fastest of the three: **200 mB a second**, a bucket every five seconds.",
+        "Hoppers and relays can feed both slots; nothing comes back out. Fuel is only spent on seconds that deliver Pulse, so a full heart rests."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it makes",
+      "text": [
+        "Each second the heart sings the Resonator's song: **voices x (voices + 2)**, times what the burning fuels are worth, over four. A crystal is worth what it is worth in a Resonator (**4, 6, 8 or 12**), a reagent **3** and water **2**. Its voices are the answered totems of the six.",
+        "To that it adds the Collector's share at double yield: **3 Pulse a second for each point** of ley strength at the heart, with six voices answering. The heart reads the land and the planet's lines its totems pull in, but not its own six.",
+        "Then the harmony: two kinds of fuel burning together multiply it all by **1.25**, all three by **1.5**. With nothing burning it makes nothing.",
+        "Six voices with a Resonant Core, a reagent and water on a perfect site make **378 Pulse a second**. A Resonant Core Resonator and a perfect Collector side by side make 168. Each [rank](machine_ranks) of the heart adds **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Six ley lines",
+      "text": [
+        "While the star is whole the heart raises **six ley lines**, one in each totem's colour, running from the heart out through its totem and on for **64 blocks** into the world. They are real lines: the [Ley Lens](ley_lens) draws them, and a [Ley Collector](ley_collector) set along one feels it like any other. Totems do not bend them.",
+        "They stay while the star stands, through saving and unloaded chunks. Break the heart or any of its six totems and all six come down at once; make the star whole again and they rise within two seconds.",
+        "Only **Answered** totems sing (see [Keeping](keeping)), and a working heart keeps its own six answered. A steady redstone signal stills it."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

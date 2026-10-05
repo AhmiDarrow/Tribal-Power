@@ -114,6 +114,8 @@ public class TribalJeiPlugin implements IModPlugin {
         registration.addIngredientInfo(tk.darrow.tribalpower.lore.LoreRegistry.CARVED_STONE_ITEM.get(),Component.translatable("jei.tribalpower.carving"));
         registration.addIngredientInfo(tk.darrow.tribalpower.lore.LoreRegistry.MURAL_ITEM.get(),Component.translatable("jei.tribalpower.carving"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SWEAT_STONES_ITEM.get(),Component.translatable("jei.tribalpower.sweat_lodge"));
+        // No fuel category exists for the Resonator to share, so the heart's three fuels are an info page.
+        registration.addIngredientInfo(tk.darrow.tribalpower.leyheart.LeyHeartRegistry.LEY_HEART_ITEM.get(),Component.translatable("jei.tribalpower.ley_heart"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_REMNANT.get(),Component.translatable("jei.tribalpower.spirit_remnant"));
         registration.addIngredientInfo(tk.darrow.tribalpower.healing.HealingRegistry.SPIRIT_SALVE.get(),Component.translatable("jei.tribalpower.spirit_sickness"));
         var charmHint=Component.translatable("item.tribalpower.spirit_charm.hint");

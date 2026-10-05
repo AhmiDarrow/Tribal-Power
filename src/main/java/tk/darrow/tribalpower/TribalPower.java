@@ -84,6 +84,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.grit.GritItems.register(modBus);
         tk.darrow.tribalpower.gate.GateRegistry.register(modBus);
         tk.darrow.tribalpower.generator.GeneratorRegistry.register(modBus);
+        tk.darrow.tribalpower.leyheart.LeyHeartRegistry.register(modBus);
         tk.darrow.tribalpower.sound.ModSounds.SOUNDS.register(modBus);
 
         modBus.addListener(this::onCommonSetup);

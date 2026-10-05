@@ -47,6 +47,7 @@ public final class TribalPowerClient {
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) -> {
                 event.register(tk.darrow.tribalpower.echo.StationMenu.TYPE.get(), StationScreen::new);
                 event.register(tk.darrow.tribalpower.healing.HealingRegistry.KETTLE_MENU.get(), KettleScreen::new);
+                event.register(tk.darrow.tribalpower.leyheart.LeyHeartRegistry.LEY_HEART_MENU.get(), LeyHeartScreen::new);
                 event.register(tk.darrow.tribalpower.cuisine.CuisineRegistry.HEARTH_POT_MENU.get(), HearthPotScreen::new);
                 event.register(tk.darrow.tribalpower.echo.RelayMenu.TYPE.get(), RelayScreen::new);
                 event.register(tk.darrow.tribalpower.echo.CacheMenu.TYPE.get(), CacheScreen::new);

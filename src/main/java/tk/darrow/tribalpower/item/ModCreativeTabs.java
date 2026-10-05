@@ -60,6 +60,7 @@ public final class ModCreativeTabs {
                         out.accept(ModItems.DRUMHEART.get());
                         out.accept(ModItems.LEY_COLLECTOR.get());
                         out.accept(ModItems.PULSE_RESONATOR.get());
+                        out.accept(tk.darrow.tribalpower.leyheart.LeyHeartRegistry.LEY_HEART_ITEM.get());
                         out.accept(ModItems.RESONANCE_TOTEM_EARTH.get());
                         out.accept(ModItems.RESONANCE_TOTEM_FIRE.get());
                         out.accept(ModItems.RESONANCE_TOTEM_WATER.get());

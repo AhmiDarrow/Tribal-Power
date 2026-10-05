@@ -90,6 +90,11 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
      * catalyst multiplies on top of that, so every tier is a real upgrade rather than a rounding
      * error. Integer division rounds down, which only ever costs a Pulse or two.
      */
+    /** A catalyst's worth as a multiplier, in quarters; 0 for a rank that is not a catalyst. The Ley Heart burns the same crystals. */
+    public static int quarters(int rank) {
+        return rank <= 0 || rank >= TIER_QUARTERS.length ? 0 : TIER_QUARTERS[rank];
+    }
+
     public static int gainFor(int harmonics, int rank) {
         if (rank <= 0 || rank >= TIER_QUARTERS.length) return 0;
         return harmonics * (harmonics + 2) * TIER_QUARTERS[rank] / 4;

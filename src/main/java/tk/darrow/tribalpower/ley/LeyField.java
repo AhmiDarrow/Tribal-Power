@@ -50,11 +50,18 @@ public final class LeyField {
      * {@link Attunement} ordinal, the totem colour of that thread.
      */
     public record Rope(double x, double y, double z, double angle, double amp, double freq, double phase,
-                       double yAmp, double yFreq, double travel, int voice) {}
+                       double yAmp, double yFreq, double travel, int voice, double reach) {
+        /**
+         * A thread a Ley Heart raised: dead straight from the heart through its totem, so no totem bends it.
+         * The planet's veins always sway, so a straight one can only be a heart's.
+         */
+        public boolean pinned() { return amp == 0 && yAmp == 0; }
+    }
 
     /** Veins within sight of {@code pos}, nearest first, enough of them to read as a web. */
     public static List<Rope> ropes(ServerLevel level, BlockPos pos) {
         List<Hit> hits = gather(level, pos, SIGHT, LeyMagnets.near(level, pos));
+        threads(level, Vec3.atCenterOf(pos), SIGHT, null, hits);
         if (hits.isEmpty()) return List.of();
         hits.sort(Comparator.comparingDouble(Hit::dist));
         if (hits.size() > VIEW) hits = hits.subList(0, VIEW);
@@ -63,7 +70,7 @@ public final class LeyField {
             if (hit.dist > SIGHT) continue;
             Vein vein = hit.vein;
             out.add(new Rope(vein.origin.x, vein.origin.y, vein.origin.z, vein.angle, vein.amp, vein.freq,
-                    vein.phase, vein.yAmp, vein.yFreq, hit.travel, hit.voice.ordinal()));
+                    vein.phase, vein.yAmp, vein.yFreq, hit.travel, hit.voice.ordinal(), vein.reach));
         }
         return out;
     }
@@ -134,7 +141,17 @@ public final class LeyField {
      * reading depends on nothing else, so a caller holding the same totems gets the same reading.
      */
     public static Reading sample(ServerLevel level, BlockPos pos, List<LeyMagnets.Magnet> magnets) {
+        return sample(level, pos, magnets, null);
+    }
+
+    /**
+     * As above, leaving out the threads the Ley Heart at {@code without} raised. A heart reads the land and
+     * the planet's veins it has drawn in; its own six threads leave it, they do not feed it.
+     */
+    public static Reading sample(ServerLevel level, BlockPos pos, List<LeyMagnets.Magnet> magnets,
+                                 @org.jetbrains.annotations.Nullable BlockPos without) {
         List<Hit> hits = gather(level, pos, TUBE, magnets);
+        threads(level, Vec3.atCenterOf(pos), TUBE, without, hits);
         if (hits.isEmpty()) return Reading.QUIET;
         hits.sort(Comparator.comparingDouble(Hit::dist));
         if (hits.size() > MAX_LINES) hits = hits.subList(0, MAX_LINES);
@@ -179,7 +196,8 @@ public final class LeyField {
                             0.018 + (vh & 7) * 0.003,
                             ((vh >>> 4) & 1023) / 1023.0 * Math.PI * 2,
                             22 + ((vh >>> 14) & 31),
-                            0.016 + ((vh >>> 18) & 7) * 0.0025);
+                            0.016 + ((vh >>> 18) & 7) * 0.0025,
+                            REACH);
                     boolean voiced = false;
                     for (LeyMagnets.Magnet magnet : magnets) {
                         if (magnet.voice() == voice) { voiced = true; break; }
@@ -188,7 +206,7 @@ public final class LeyField {
                     // stays outside the tube never needs the sine search.
                     if (!voiced && outOfReach(vein, point, reach)) continue;
                     Rope rope = new Rope(vein.origin.x, vein.origin.y, vein.origin.z, vein.angle, vein.amp, vein.freq,
-                            vein.phase, vein.yAmp, vein.yFreq, 0, voice.ordinal());
+                            vein.phase, vein.yAmp, vein.yFreq, 0, voice.ordinal(), REACH);
                     List<LeyMagnets.Pull> pulls = voiced ? LeyMagnets.pulls(magnets, rope) : List.of();
                     double travel = vein.travel(point);
                     if (pulls.isEmpty() && (travel < -24 || travel > REACH + 24)) continue;
@@ -214,6 +232,34 @@ public final class LeyField {
             }
         }
         return hits;
+    }
+
+    /**
+     * The threads Ley Hearts have raised, added to {@code hits} where they pass within {@code reach} of
+     * {@code point}. Each is a straight segment from the heart's centre along the bearing to its totem, so the
+     * nearest point is a plain projection rather than the sine search a planetary vein needs.
+     */
+    private static void threads(ServerLevel level, Vec3 point, double reach,
+                                @org.jetbrains.annotations.Nullable BlockPos without, List<Hit> hits) {
+        var threads = tk.darrow.tribalpower.rite.world.LeyLines.heartThreads(level);
+        if (threads.isEmpty()) return;
+        Attunement[] voices = Attunement.values();
+        for (var thread : threads) {
+            if (thread.heart().equals(without)) continue;
+            Vec3 origin = Vec3.atCenterOf(thread.heart());
+            double length = thread.length();
+            if (origin.distanceToSqr(point) > (length + reach) * (length + reach)) continue;
+            double angle = Math.atan2(thread.totem().getZ() - thread.heart().getZ(), thread.totem().getX() - thread.heart().getX());
+            double cos = Math.cos(angle), sin = Math.sin(angle);
+            double travel = clamp((point.x - origin.x) * cos + (point.z - origin.z) * sin, 0, length);
+            double dx = point.x - (origin.x + cos * travel);
+            double dy = point.y - origin.y;
+            double dz = point.z - (origin.z + sin * travel);
+            double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            if (dist > reach) continue;
+            Vein straight = new Vein(origin, angle, 0, 0.02, 0, 0, 0.02, length);
+            hits.add(new Hit(straight, voices[Math.floorMod(thread.voice(), voices.length)], dist, travel));
+        }
     }
 
     private static Vec3 curve(double ox, double oy, double oz, double angle, double amp, double freq, double phase,
@@ -269,7 +315,8 @@ public final class LeyField {
         return h;
     }
 
-    private record Vein(Vec3 origin, double angle, double amp, double freq, double phase, double yAmp, double yFreq) {
+    private record Vein(Vec3 origin, double angle, double amp, double freq, double phase, double yAmp, double yFreq,
+                        double reach) {
         Vec3 at(double t) {
             return curve(origin.x, origin.y, origin.z, angle, amp, freq, phase, yAmp, yFreq, t);
         }
