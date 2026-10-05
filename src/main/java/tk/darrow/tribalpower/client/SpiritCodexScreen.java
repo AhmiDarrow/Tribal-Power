@@ -874,7 +874,8 @@ public final class SpiritCodexScreen extends Screen {
         double now = time();
         // it turns on its own until grabbed, then stays where the reader leaves it
         Float held = sceneYaw.get(page);
-        float yaw = held != null ? held : (float) (215 + now * 12 % 360);
+        // a creature at yaw 0 faces the reader; it opens three-quarters on
+        float yaw = held != null ? held : (float) (30 + now * 12 % 360);
         CodexCreature.draw(g, entity, x + 1, y + 1, w - 2, sceneH - 2, yaw, now);
         Area drag = new Area(x, y, w, sceneH, () -> {});
         areas.add(new Area(x, y, w, sceneH, () -> { sceneYaw.putIfAbsent(page, yaw); dragging = drag; dragPage = page; }));

@@ -45,7 +45,7 @@ public final class CodexBook {
     public record Entry(String id, String category, String name, String icon, boolean spoiler, String unlock,
                         int order, List<String> items, List<Page> pages, String next) {}
 
-    public sealed interface Page permits Text, Spotlight, Recipe, Image, Scene, Pattern, Quests, Events, NextStep {
+    public sealed interface Page permits Text, Spotlight, Recipe, Image, Creature, Scene, Pattern, Quests, Events, NextStep {
         String title();
         String text();
     }
