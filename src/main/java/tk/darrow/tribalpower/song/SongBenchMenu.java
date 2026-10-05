@@ -143,6 +143,16 @@ public class SongBenchMenu extends AbstractContainerMenu {
     }
 
     private SongBenchLogic.Attempt act(net.minecraft.server.level.ServerLevel level, Player player, ItemStack pouch, int ordinal, boolean fletch) {
+        if (fletch && !bench.sequence().isEmpty()) {
+            // A laid-out verse fletches as it stands: copies of the lead hit harder, other reagents ride along.
+            var attempt = SongBenchLogic.fletch(level, bench.getBlockPos(), bench, pouch, bench.sequence(), bench.voice(),
+                    bench.getItem(SongBenchBlockEntity.OUTPUT));
+            if (attempt.ok()) {
+                if (!attempt.made().isEmpty()) bench.setItem(SongBenchBlockEntity.OUTPUT, attempt.made());
+                bench.clearSequence();
+            }
+            return attempt;
+        }
         CreatureProfile profile = profile(ordinal);
         if (profile == null) return SongBenchLogic.Attempt.fail("message.tribalpower.song_bench.need_item");
         if (!fletch) return SongBenchLogic.empower(level, bench.getBlockPos(), bench, pouch, profile);

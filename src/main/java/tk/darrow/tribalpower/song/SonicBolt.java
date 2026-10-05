@@ -39,8 +39,12 @@ public class SonicBolt extends AbstractArrow {
      * to a cap, and never hits softer than a plain bolt.
      */
     public static double damage(float pull, @Nullable SongVerse verse) {
-        double bonus = verse == null ? 0 : Math.min(TribalConfig.verseDamageCap(), TribalConfig.verseDamagePerPower() * verse.power());
-        return (TribalConfig.bowDamage() + bonus) * Math.clamp(pull, 0F, 1F);
+        return (TribalConfig.bowDamage() + verseBonus(verse)) * Math.clamp(pull, 0F, 1F);
+    }
+
+    /** What a verse adds to a full bow draw: verseDamagePerPower for each copy of its lead reagent, up to the cap. */
+    public static double verseBonus(@Nullable SongVerse verse) {
+        return verse == null ? 0 : Math.min(TribalConfig.verseDamageCap(), TribalConfig.verseDamagePerPower() * verse.power());
     }
 
     /** A bolt at a given speed, damage multiplier and spread; the crossbow's is faster, heavier and truer. */

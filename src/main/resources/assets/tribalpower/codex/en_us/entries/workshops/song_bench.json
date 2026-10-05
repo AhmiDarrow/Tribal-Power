@@ -206,6 +206,7 @@
       "title": "Verse arrows",
       "text": [
         "Select an empowered reagent and press **Fletch**: one reagent and 8 Pulse make **four** verse arrows, sung in the voice you chose.",
+        "For a stronger arrow, lay out up to 3 empowered reagents with **Add** first, then press **Fletch**: the four arrows carry that short verse, for 8 Pulse a reagent. Each copy of the lead reagent adds a point of power, and any other reagent rides along on the hit.",
         "Hold the Pulse Bow and draw. A plain bolt spends up to 6 Pulse, at full draw; a verse arrow adds 6 more and carries its reagent's song. The Pulse Crossbow fires the same arrows.",
         "A Pulse Cell seated in the bow pays first, then the cells you carry.",
         "A redstone signal pauses the bench."
@@ -217,7 +218,7 @@
       "title": "The Pulse Bow",
       "text": [
         "Forged like the other Spiritgear: two **Manifested Ingots** and a **Bone Chime**, strung with three string. It needs no arrows; each draw throws a sonic bolt that flies straight and fades after about 60 blocks.",
-        "A full draw hits for **7**, a part draw for its share, so a quick tap is only a tap. A verse arrow adds a point for each copy of its lead reagent on the sheet, up to **3**.",
+        "A full draw hits for **7**, a part draw for its share, so a quick tap is only a tap. A verse arrow adds a point for each copy of its lead reagent fletched into it, up to **3**.",
         "Each shot wears it a point, out of 1,024. Mend it at the [Spirit Anvil](spirit_anvil) with Manifested Ingots, a quarter each."
       ]
     },

@@ -28,6 +28,7 @@ import tk.darrow.tribalpower.song.SongShape;
 import tk.darrow.tribalpower.song.SongSheetItem;
 import tk.darrow.tribalpower.song.SongVerse;
 import tk.darrow.tribalpower.song.SongbookTier;
+import tk.darrow.tribalpower.song.SonicBolt;
 import tk.darrow.tribalpower.song.VerseArrowItem;
 
 /** The Song Bench writes verses. It does not refine Echo. */
@@ -197,6 +198,111 @@ public class SongGameTests {
             PulseBowItem.takeVerse(player, arrow);
             h.assertTrue(player.getInventory().getItem(0).isEmpty(), "The last arrow leaves the slot");
             h.assertTrue(PulseBowItem.findVerse(player) == null, "An emptied slot is not another arrow");
+            h.succeed();
+        } finally {
+            h.getLevel().getServer().getPlayerList().remove(player);
+        }
+    }
+
+    /**
+     * A verse arrow carries the verse it was fletched from. Each copy of the lead reagent adds a point of power, up to
+     * three, to the bow and the crossbow alike; another reagent rides along; an arrow from before keeps power 1.
+     */
+    @GameTest(template = "empty")
+    public static void verseArrowsCarryEachCopyOfTheirLead(GameTestHelper h) {
+        var pos = new BlockPos(2, 2, 2);
+        h.setBlock(pos, ModBlocks.SONG_BENCH.get());
+        h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
+        h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        var bench = at(h, pos, SongBenchBlockEntity.class);
+        var drum = at(h, new BlockPos(2, 2, 4), DrumheartBlockEntity.class);
+        drum.insertPulse(400, false);
+        var level = (net.minecraft.server.level.ServerLevel) h.getLevel();
+        var origin = bench.getBlockPos();
+        double full = tk.darrow.tribalpower.config.TribalConfig.bowDamage();
+        double perPower = tk.darrow.tribalpower.config.TribalConfig.verseDamagePerPower();
+        double cap = tk.darrow.tribalpower.config.TribalConfig.verseDamageCap();
+        String ember = CreatureProfile.ASHBOUND.reagent;
+        var player = VerificationPlayers.inLevel(h);
+        try {
+            player.getAbilities().instabuild = true;
+            player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+            var pouch = new ItemStack(ModItems.REAGENT_POUCH.get());
+            ReagentPouch.addRaw(pouch, CreatureProfile.ASHBOUND, 7);
+            ReagentPouch.empower(pouch, CreatureProfile.ASHBOUND, 7);
+            ReagentPouch.addRaw(pouch, CreatureProfile.DAWN_STAG, 1);
+            ReagentPouch.empower(pouch, CreatureProfile.DAWN_STAG, 1);
+
+            var tooLong = SongBenchLogic.fletch(level, origin, bench, pouch, java.util.Collections.nCopies(4, ember), Attunement.FIRE, ItemStack.EMPTY);
+            h.assertTrue(!tooLong.ok() && tooLong.message().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents t
+                    && t.getKey().equals("message.tribalpower.song_bench.arrow_long"), "Four reagents is too long for an arrow: " + tooLong.message().getString());
+            h.assertTrue(ReagentPouch.empowered(pouch, CreatureProfile.ASHBOUND) == 7, "A refused fletch spends nothing");
+
+            ItemStack bow = new ItemStack(ModItems.PULSE_BOW.get());
+            ItemStack strongest = ItemStack.EMPTY;
+            for (int copies = 1; copies <= 3; copies++) {
+                int pulse = drum.getPulseStored();
+                int empowered = ReagentPouch.empowered(pouch, CreatureProfile.ASHBOUND);
+                var made = SongBenchLogic.fletch(level, origin, bench, pouch, java.util.Collections.nCopies(copies, ember), Attunement.FIRE, ItemStack.EMPTY);
+                h.assertTrue(made.ok() && made.made().getCount() == SongBenchLogic.FLETCH_COUNT, copies + " copies fletch four arrows: " + made.message().getString());
+                h.assertTrue(empowered - ReagentPouch.empowered(pouch, CreatureProfile.ASHBOUND) == copies, "Each copy spends one empowered reagent");
+                h.assertTrue(pulse - drum.getPulseStored() == SongBenchLogic.cost(bench, SongBenchLogic.FLETCH_PULSE * copies),
+                        "Each copy costs the fletching Pulse, spent " + (pulse - drum.getPulseStored()));
+                var verse = VerseArrowItem.verse(made.made());
+                h.assertTrue(verse != null && verse.power() == copies && verse.leadProfile() == CreatureProfile.ASHBOUND && verse.voice() == Attunement.FIRE,
+                        "A " + copies + "-copy arrow carries power " + copies + ", saw " + (verse == null ? "none" : verse.power()));
+                double bonus = Math.min(cap, perPower * copies);
+                h.assertTrue(Math.abs(SonicBolt.damage(1.0F, verse) - (full + bonus)) < 1.0E-6, "A full draw adds the arrow's power");
+                SonicBolt bolt = SonicBolt.shoot(player, bow, verse, 1.0F);
+                double hit = bolt.getBaseDamage() * bolt.getDeltaMovement().length();
+                bolt.discard();
+                h.assertTrue(Math.abs(hit - (full + bonus)) < 0.01, "A " + copies + "-copy arrow at full draw hits for " + (full + bonus) + ", saw " + hit);
+                String power = String.valueOf(copies);
+                var lines = new java.util.ArrayList<net.minecraft.network.chat.Component>();
+                made.made().getItem().appendHoverText(made.made(), net.minecraft.world.item.Item.TooltipContext.EMPTY, lines, net.minecraft.world.item.TooltipFlag.NORMAL);
+                h.assertTrue(lines.stream().anyMatch(line -> line.getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents t
+                        && t.getKey().equals("item.tribalpower.verse_arrow.power") && t.getArgs().length == 2
+                        && String.valueOf(t.getArgs()[0]).equals(power) && String.valueOf(t.getArgs()[1]).equals(VerseArrowItem.bonus(bonus))),
+                        "The tooltip says power " + copies + ": " + lines);
+                strongest = made.made();
+            }
+            var rider = SongBenchLogic.fletch(level, origin, bench, pouch, List.of(ember, CreatureProfile.DAWN_STAG.reagent), Attunement.FIRE, ItemStack.EMPTY);
+            var ridden = rider.ok() ? VerseArrowItem.verse(rider.made()) : null;
+            h.assertTrue(ridden != null && ridden.power() == 1 && ridden.riders().equals(List.of(Note.QUIET)),
+                    "Another reagent rides along without adding power: " + rider.message().getString());
+
+            // an arrow fletched before arrows carried their verse: a reagent and a voice, nothing else
+            var oldTag = new net.minecraft.nbt.CompoundTag();
+            oldTag.putString("Reagent", ember);
+            oldTag.putString("Voice", "fire");
+            var old = new ItemStack(ModItems.VERSE_ARROW.get(), 3);
+            old.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA, net.minecraft.world.item.component.CustomData.of(oldTag));
+            var oldVerse = VerseArrowItem.verse(old);
+            h.assertTrue(oldVerse != null && oldVerse.power() == 1 && oldVerse.reagents().equals(List.of(ember)), "An old arrow stays at power 1");
+            h.assertTrue(Math.abs(SonicBolt.damage(1.0F, oldVerse) - (full + Math.min(cap, perPower))) < 1.0E-6, "An old arrow adds one point");
+            h.assertTrue(ItemStack.isSameItemSameComponents(old, VerseArrowItem.create(CreatureProfile.ASHBOUND, Attunement.FIRE, 1)),
+                    "A one-reagent arrow still stacks with old ones");
+
+            // the crossbow loads the arrow's whole verse and fires it a little harder
+            player.getInventory().setItem(1, strongest.copyWithCount(1));   // slot 0 is the hand the crossbow goes in
+            ItemStack crossbow = new ItemStack(tk.darrow.tribalpower.kit.KitRegistry.PULSE_CROSSBOW.get());
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, crossbow);
+            var item = (tk.darrow.tribalpower.song.PulseCrossbowItem) crossbow.getItem();
+            item.releaseUsing(crossbow, level, player, item.getUseDuration(crossbow, player) - tk.darrow.tribalpower.config.TribalConfig.crossbowLoadTicks());
+            h.assertTrue(tk.darrow.tribalpower.song.PulseCrossbowItem.loaded(crossbow), "The crossbow loads the verse arrow");
+            item.use(level, player, net.minecraft.world.InteractionHand.MAIN_HAND);
+            var bolts = level.getEntities(tk.darrow.tribalpower.entity.ModEntities.SONIC_BOLT.get(),
+                    new net.minecraft.world.phys.AABB(player.blockPosition()).inflate(8), b -> b.isAlive());
+            h.assertTrue(bolts.size() == 1, "The crossbow fired one bolt, saw " + bolts.size());
+            SonicBolt bolt = bolts.get(0);
+            var saved = new net.minecraft.nbt.CompoundTag();
+            bolt.addAdditionalSaveData(saved);
+            var flown = SongVerse.read(saved);
+            double want = (full + Math.min(cap, perPower * 3)) * tk.darrow.tribalpower.config.TribalConfig.crossbowDamageMultiplier();
+            double hit = bolt.getBaseDamage() * bolt.getDeltaMovement().length();
+            bolt.discard();
+            h.assertTrue(flown != null && flown.power() == 3, "The crossbow bolt carries power 3, saw " + (flown == null ? "none" : flown.power()));
+            h.assertTrue(Math.abs(hit - want) < 0.01, "A 3-copy crossbow bolt hits for " + want + ", saw " + hit);
             h.succeed();
         } finally {
             h.getLevel().getServer().getPlayerList().remove(player);

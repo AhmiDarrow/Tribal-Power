@@ -46,7 +46,11 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
         int y = topPos + 24;
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.empower"), b -> send(SongBenchMenu.EMPOWER)).bounds(x, y, 84, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.add"), b -> send(SongBenchMenu.APPEND)).bounds(x, y + 16, 84, 14).build());
-        addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.fletch"), b -> send(SongBenchMenu.FLETCH)).bounds(x, y + 32, 84, 14).build());
+        addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.fletch"), b -> {
+            // with a verse laid out, Fletch sings that; otherwise the selected reagent alone
+            if (menu.sequenceLength() > 0) click(SongBenchMenu.FLETCH);
+            else send(SongBenchMenu.FLETCH);
+        }).bounds(x, y + 32, 84, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.take"), b -> send(SongBenchMenu.WITHDRAW)).bounds(x, y + 48, 84, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.write"), b -> click(SongBenchMenu.WRITE)).bounds(x, y + 66, 84, 14).build());
         addRenderableWidget(Button.builder(Component.translatable("gui.tribalpower.song.voice"), b -> click(SongBenchMenu.CYCLE)).bounds(x, y + 82, 40, 14).build());

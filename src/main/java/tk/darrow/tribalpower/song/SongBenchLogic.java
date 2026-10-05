@@ -133,22 +133,45 @@ public final class SongBenchLogic {
 
     public static Attempt fletch(ServerLevel level, BlockPos origin, net.minecraft.world.level.block.entity.BlockEntity bench,
                                  ItemStack pouch, CreatureProfile profile, @Nullable Attunement voice, ItemStack output) {
+        return fletch(level, origin, bench, pouch, List.of(profile.reagent), voice, output);
+    }
+
+    /**
+     * Fletches a short verse into four arrows: the lead reagent up to three times to hit harder, or with other reagents
+     * riding along, never more than {@link VerseArrowItem#MAX_REAGENTS} in all. Each reagent costs one empowered and
+     * {@link #FLETCH_PULSE}.
+     */
+    public static Attempt fletch(ServerLevel level, BlockPos origin, net.minecraft.world.level.block.entity.BlockEntity bench,
+                                 ItemStack pouch, List<String> sequence, @Nullable Attunement voice, ItemStack output) {
         if (pouch == null || !(pouch.getItem() instanceof ReagentPouchItem)) return Attempt.fail("message.tribalpower.song_bench.no_pouch");
         if (level.hasNeighborSignal(origin)) return Attempt.fail("message.tribalpower.redstone.locked");
+        if (sequence.isEmpty()) return Attempt.fail("message.tribalpower.song_bench.need_item");
+        if (sequence.size() > VerseArrowItem.MAX_REAGENTS) {
+            return Attempt.fail("message.tribalpower.song_bench.arrow_long", VerseArrowItem.MAX_REAGENTS);
+        }
+        for (String id : sequence) {
+            if (Reagents.byId(id) == null) return Attempt.fail("message.tribalpower.song_bench.need_item");
+        }
         List<Attunement> near = voices(level, origin);
         if (voice == null || near.isEmpty()) return Attempt.fail("message.tribalpower.song_bench.no_totems");
         if (!near.contains(voice)) return Attempt.fail("message.tribalpower.song_bench.need_attunement",
                 Component.translatable("attunement.tribalpower." + voice.getSerializedName()));
-        if (ReagentPouch.empowered(pouch, profile) < 1) {
-            return Attempt.fail("message.tribalpower.song_bench.need_empowered", Component.translatable("item.tribalpower." + profile.reagent));
+        // Count before spending, so a short stack fails with the pouch untouched.
+        var needed = new java.util.LinkedHashMap<CreatureProfile, Integer>();
+        for (String id : sequence) needed.merge(Reagents.byId(id), 1, Integer::sum);
+        for (var entry : needed.entrySet()) {
+            if (ReagentPouch.empowered(pouch, entry.getKey()) < entry.getValue()) {
+                return Attempt.fail("message.tribalpower.song_bench.need_empowered",
+                        Component.translatable("item.tribalpower." + entry.getKey().reagent));
+            }
         }
-        ItemStack arrows = VerseArrowItem.create(profile, voice, FLETCH_COUNT);
+        ItemStack arrows = VerseArrowItem.create(new SongVerse(sequence, voice), FLETCH_COUNT);
         if (!output.isEmpty() && (!ItemStack.isSameItemSameComponents(output, arrows) || output.getCount() + FLETCH_COUNT > output.getMaxStackSize())) {
             return Attempt.fail("message.tribalpower.song_bench.output_full");
         }
-        int price = cost(bench, FLETCH_PULSE);
+        int price = cost(bench, FLETCH_PULSE * sequence.size());
         if (!pay(level, origin, price)) return Attempt.fail("message.tribalpower.song_bench.no_pulse");
-        ReagentPouch.consumeEmpowered(pouch, profile, 1);
+        for (var entry : needed.entrySet()) ReagentPouch.consumeEmpowered(pouch, entry.getKey(), entry.getValue());
         ItemStack made = output.isEmpty() ? arrows : output.copy();
         if (!output.isEmpty()) made.grow(FLETCH_COUNT);
         return Attempt.made(made, "message.tribalpower.song_bench.fletched", FLETCH_COUNT);
