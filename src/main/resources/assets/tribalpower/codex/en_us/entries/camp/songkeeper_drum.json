@@ -1,10 +1,11 @@
 {
   "name": "Songkeeper Drum",
   "icon": "tribalpower:songkeeper_drum",
-  "order": 37,
+  "order": 190,
   "items": [
     "tribalpower:songkeeper_drum"
   ],
+  "next": "shared_camps",
   "pages": [
     {
       "type": "spotlight",

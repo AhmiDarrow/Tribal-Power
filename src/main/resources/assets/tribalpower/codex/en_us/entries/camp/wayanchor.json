@@ -2,6 +2,7 @@
   "name": "Wayanchor",
   "icon": "tribalpower:wayanchor",
   "order": 80,
+  "next": "summoning_cradle",
   "pages": [
     {
       "type": "spotlight",

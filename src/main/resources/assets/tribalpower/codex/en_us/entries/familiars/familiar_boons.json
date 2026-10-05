@@ -1,7 +1,7 @@
 {
   "name": "What a voice gives",
   "icon": "tribalpower:ember_charm",
-  "order": 30,
+  "order": 50,
   "pages": [
     {
       "type": "text",
@@ -37,7 +37,7 @@
       "type": "text",
       "title": "Songs and rites",
       "text": [
-        "Verses of the familiar's voice strike **30% harder**, and a call reaches **1.5 blocks** further ([the Song Bench](song_bench)).",
+        "Verses of the familiar's voice strike **30% harder**, and a Call reaches **1.5 blocks** further ([song shapes](song_shapes)).",
         "A seal rite of its voice leaves a blessing that lasts **half again as long**."
       ]
     }

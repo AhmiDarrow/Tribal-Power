@@ -6,6 +6,7 @@
     "tribalpower:rite_still_night",
     "tribalpower:rite_ley_binding"
   ],
+  "next": "voice_blessings",
   "pages": [
     {
       "type": "spotlight",

@@ -19,7 +19,7 @@
     "tribalpower:bellcap_spore",
     "tribalpower:stilt_root"
   ],
-  "next": "colossus_warden",
+  "next": "fays",
   "pages": [
     {
       "type": "text",

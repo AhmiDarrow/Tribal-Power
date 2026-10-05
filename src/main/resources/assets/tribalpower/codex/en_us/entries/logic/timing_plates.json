@@ -1,0 +1,40 @@
+{
+  "name": "Timing plates",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Heartbeat, Drift, Strike, Chance",
+      "text": [
+        "- **Heartbeat** pulses **15 for one tick**, then rests. Crouch-use cycles **20, 40, 80, 160** ticks, then back to 20; it starts at 20, one second.",
+        "- **Drift** copies the back only after it has stayed live for **4, 8, 16 or 32** ticks (crouch-use to cycle; it starts at 4), and drops as soon as the back falls.",
+        "- **Strike** gives one tick of 15 on a rising back, then goes quiet: the struck signal Drumhearts and braziers listen for.",
+        "- **Chance** flips a coin on each rising back: 15 or 0, held until the back falls.",
+        "A one-second Heartbeat on a Drumheart is a **24-Pulse** beat when the edge lands in tempo. Slower settings earn only **10** a beat."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

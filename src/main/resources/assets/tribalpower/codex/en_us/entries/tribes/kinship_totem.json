@@ -5,6 +5,7 @@
   "items": [
     "tribalpower:tribe_mark"
   ],
+  "next": "tribe_boons",
   "pages": [
     {
       "type": "spotlight",

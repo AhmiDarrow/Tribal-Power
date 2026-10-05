@@ -6,7 +6,7 @@
     "tribalpower:raw_game",
     "tribalpower:march_leather"
   ],
-  "next": "march_walker",
+  "next": "ashbound",
   "pages": [
     {
       "type": "spotlight",

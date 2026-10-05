@@ -1,0 +1,265 @@
+{
+  "name": "Gate plates",
+  "icon": "tribalpower:chorus_plate",
+  "order": 72,
+  "items": [
+    "tribalpower:chorus_plate",
+    "tribalpower:gathering_plate",
+    "tribalpower:discord_plate",
+    "tribalpower:hush_plate"
+  ],
+  "next": "signal_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Chorus, Gathering, Discord, Hush",
+      "text": [
+        "Four ways two voices can agree:",
+        "- **Chorus** (AND) sings only when left and right are both live.",
+        "- **Gathering** (OR) sings when either side is live.",
+        "- **Discord** (XOR) sings when the sides disagree.",
+        "- **Hush** (NAND) sings unless both sides are live.",
+        "The answer is **15 or 0** from the facing. Put Song Thread on that face to carry it on, or sync another plate to hear it.",
+        "Which side is left and which is right is on the [Song plates](song_plates) page."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Two switches, one station",
+      "steps": [
+        {
+          "caption": "An Echo Shatter we want to pause from either of two places.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Mount a Gathering Plate on the block, pointing at the station. That face is its output.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gathering_plate[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Set a lever on its left and another on its right: those are its two inputs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Either lever on and the plate sings 15 into the station, which pauses and keeps everything it holds.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Swap in a Chorus Plate and it waits for both levers before it sings.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:chorus_plate[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:discord_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_plate"
+    }
+  ]
+}

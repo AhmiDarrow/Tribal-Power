@@ -2,6 +2,7 @@
   "name": "Hush Totem",
   "icon": "tribalpower:hush_totem",
   "order": 70,
+  "next": "wayanchor",
   "pages": [
     {
       "type": "spotlight",

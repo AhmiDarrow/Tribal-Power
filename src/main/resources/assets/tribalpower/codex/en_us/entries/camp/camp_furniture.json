@@ -1,7 +1,7 @@
 {
   "name": "Camp furniture",
   "icon": "tribalpower:march_table",
-  "order": 160,
+  "order": 170,
   "items": [
     "tribalpower:march_stool",
     "tribalpower:spirit_urn",
@@ -10,6 +10,7 @@
     "tribalpower:hanging_rack",
     "tribalpower:spirit_door"
   ],
+  "next": "wind_charm",
   "pages": [
     {
       "type": "spotlight",

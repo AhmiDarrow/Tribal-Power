@@ -1,7 +1,7 @@
 {
   "name": "Keeping the way",
   "icon": "minecraft:map",
-  "order": 90,
+  "order": 50,
   "pages": [
     {
       "type": "text",

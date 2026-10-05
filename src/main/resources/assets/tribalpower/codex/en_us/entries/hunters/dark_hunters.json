@@ -13,7 +13,7 @@
     "tribalpower:gloom_silk",
     "tribalpower:veil_tatter"
   ],
-  "next": "walking_trees",
+  "next": "colossus_warden",
   "pages": [
     {
       "type": "text",

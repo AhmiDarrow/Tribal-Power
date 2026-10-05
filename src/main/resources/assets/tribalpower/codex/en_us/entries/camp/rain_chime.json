@@ -1,7 +1,8 @@
 {
   "name": "Rain Chime",
   "icon": "tribalpower:rain_chime",
-  "order": 110,
+  "order": 120,
+  "next": "offering_table",
   "pages": [
     {
       "type": "spotlight",

@@ -1,0 +1,30 @@
+{
+  "name": "Signal plates",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Inverse and Echo",
+      "text": [
+        "One voice, turned or carried.",
+        "- **Inverse** (NOT) sings while its back is quiet, and hushes when the back is live.",
+        "- **Echo** (BUFFER) copies the back: live stays live, at a full 15.",
+        "Use Inverse to turn a Pulse Threshold into a 'too empty' alarm. Use Echo to bring a fading Song Thread back to full strength."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

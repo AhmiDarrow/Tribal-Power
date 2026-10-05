@@ -1,8 +1,9 @@
 {
   "name": "What familiars do",
   "icon": "tribalpower:lantern_down",
-  "order": 410,
+  "order": 30,
   "items": [],
+  "next": "familiar_attuning",
   "pages": [
     {
       "type": "creature",
@@ -33,7 +34,7 @@
       "type": "text",
       "text": [
         "Sneak-use it with an **empty hand** to open a **9-slot** saddlebag, or **12** with Deep Pocket.",
-        "Sneak-use it while **holding an item** to make it wait or follow. If it dies, the bag spills on the ground."
+        "If it dies, the bag spills on the ground."
       ],
       "title": "The Mossback's saddlebag"
     },
@@ -49,7 +50,7 @@
       "type": "text",
       "text": [
         "Use it to climb on. Steer with your gaze, hold jump for a short leap and sneak to dismount. It carries only the one it is bonded to.",
-        "Stride makes it faster; the Leap mark jumps higher. Brush any bonded animal for **double** reagent, once a minute."
+        "Stride makes it faster; the Leap mark jumps higher."
       ],
       "title": "Riding the stag"
     },
@@ -226,8 +227,7 @@
       "type": "text",
       "text": [
         "A following Mourning Bell within **8 blocks** clears poison, weakness, hunger, mining fatigue, blindness and nausea from you. Still (two copies) also clears slowness. It never lifts Wither.",
-        "A following Echo Weaver picks up drops within **4 blocks** into a **five-slot** pouch and tosses them to you. Gather (two copies) reaches **8**. Sneak-use it empty-handed to empty the pouch yourself.",
-        "Brush a bonded remnant for **double** its reagent, once a minute."
+        "A following Echo Weaver picks up drops within **4 blocks** into a **five-slot** pouch and tosses them to you. Gather (two copies) reaches **8**. Sneak-use it empty-handed to empty the pouch yourself."
       ],
       "title": "Mourning Bell and Echo Weaver"
     }

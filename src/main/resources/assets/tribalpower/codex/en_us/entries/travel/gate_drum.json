@@ -1,8 +1,8 @@
 {
   "name": "Gate Drum",
   "icon": "tribalpower:gate_drum",
-  "order": 60,
-  "next": "way_gate",
+  "order": 10,
+  "next": "waystone_compass",
   "pages": [
     {
       "type": "spotlight",

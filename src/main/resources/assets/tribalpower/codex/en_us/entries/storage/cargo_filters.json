@@ -1,0 +1,26 @@
+{
+  "name": "Filters and void plates",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "The filter",
+      "text": [
+        "Open a plate to fill its **Filter**: eight slots that hold a picture of an item, never the item itself. Click a slot with something in hand to mark it, with an empty hand to clear it, or shift-click goods in your inventory.",
+        "The button beside it switches the list. A **Blacklist** holds the marked goods back and lets everything else cross; an empty blacklist, the way a plate starts, sends everything. A **Whitelist** sends only the marked goods.",
+        "For fluid, mark a bucket or any filled container: a water bucket lists water.",
+        "Crouch and right-click a plate with an empty hand to switch its list without opening it."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Void plates",
+      "text": [
+        "A **Fire Seal** in the **Rune** slot makes a **void plate**: it burns what it pulls from its machine instead of sending it anywhere, items on an Item Relay, fluid on a Fluid Relay. It only burns what its filter names, so an empty filter burns nothing. A void plate burns by tab 1's filter.",
+        "Plates start as a **Blacklist**, so a fresh void plate with cobblestone marked burns everything except cobblestone. Switch it to **Whitelist** first to burn only what you mark, or leave it a Blacklist and mark what to keep.",
+        "A void plate still needs Pulse and its voice. Each beat it burns up to **16 items** or **250 mB**, more when ranked, and pays the plate's usual Pulse for it."
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "name": "Ward Drum",
   "icon": "tribalpower:ward_drum",
-  "order": 40,
-  "next": "tide_pump",
+  "order": 60,
+  "next": "hush_totem",
   "pages": [
     {
       "type": "spotlight",

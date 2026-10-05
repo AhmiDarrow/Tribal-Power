@@ -1,7 +1,7 @@
 {
   "name": "Way Gate",
   "icon": "tribalpower:gate_keystone",
-  "order": 70,
+  "order": 30,
   "items": [
     "tribalpower:gate_frame"
   ],

@@ -1,7 +1,8 @@
 {
   "name": "Wind Charm",
   "icon": "tribalpower:wind_charm",
-  "order": 120,
+  "order": 180,
+  "next": "songkeeper_drum",
   "pages": [
     {
       "type": "spotlight",

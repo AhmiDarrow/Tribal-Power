@@ -1,7 +1,7 @@
 {
-  "name": "Creatures & Familiars",
+  "name": "Bestiary: Companions & Wildlife",
   "icon": "tribalpower:lantern_down",
   "order": 100,
-  "description": "The animals and spirits of the March and its borders, what they give you, and how to bond one as a familiar.",
+  "description": "The gentle beasts of the March and its borders, its walking trees, fays, wisps and wild life: where they live, what they give you, and which of them will bond.",
   "spoiler": true
 }

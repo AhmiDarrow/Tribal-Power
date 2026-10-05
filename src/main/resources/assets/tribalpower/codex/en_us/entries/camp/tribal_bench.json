@@ -1,7 +1,7 @@
 {
   "name": "Tribal Bench",
   "icon": "tribalpower:oak_tribal_bench",
-  "order": 35,
+  "order": 150,
   "items": [
     "tribalpower:oak_tribal_bench",
     "tribalpower:spruce_tribal_bench",
@@ -22,6 +22,7 @@
     "tribalpower:bellcap_tribal_bench",
     "tribalpower:strider_tribal_bench"
   ],
+  "next": "vine_lift",
   "pages": [
     {
       "type": "spotlight",

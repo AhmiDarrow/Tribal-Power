@@ -1,12 +1,13 @@
 {
   "name": "Pulse lights",
   "icon": "tribalpower:shard_lamp",
-  "order": 100,
+  "order": 110,
   "items": [
     "tribalpower:glow_reed",
     "tribalpower:echo_sconce",
     "tribalpower:ember_bowl"
   ],
+  "next": "rain_chime",
   "pages": [
     {
       "type": "spotlight",

@@ -2,7 +2,7 @@
   "name": "Tide Pump",
   "icon": "tribalpower:tide_pump",
   "order": 50,
-  "next": "seal_loom",
+  "next": "ward_drum",
   "pages": [
     {
       "type": "spotlight",

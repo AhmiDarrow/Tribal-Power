@@ -2,6 +2,7 @@
   "name": "Offering Table",
   "icon": "tribalpower:offering_table",
   "order": 130,
+  "next": "builders_chalk",
   "pages": [
     {
       "type": "spotlight",

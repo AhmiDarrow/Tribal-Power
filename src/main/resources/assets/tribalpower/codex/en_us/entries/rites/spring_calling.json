@@ -4,6 +4,7 @@
   "order": 90,
   "spoiler": false,
   "items": [],
+  "next": "world_rites",
   "pages": [
     {
       "type": "spotlight",

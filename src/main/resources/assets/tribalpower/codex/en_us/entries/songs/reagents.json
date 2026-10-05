@@ -1,7 +1,7 @@
 {
   "name": "Reagents",
   "icon": "tribalpower:reagent_pouch",
-  "order": 65,
+  "order": 10,
   "items": [
     "tribalpower:reagent_pouch",
     "tribalpower:dawn_velvet",
