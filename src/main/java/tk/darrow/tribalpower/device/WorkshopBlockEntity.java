@@ -285,7 +285,8 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
         var box = new AABB(worldPosition).inflate(8);
         for (var living : server.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, box,
-                e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive())) {
+                e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive()
+                        && !e.getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))) {
             if (!LatticeNetwork.tryExtractPulseNearby(server, worldPosition, 8, cost)) break;
             living.hurt(server.damageSources().magic(), 4);
             var push = living.position().subtract(worldPosition.getCenter()).normalize().scale(0.35);

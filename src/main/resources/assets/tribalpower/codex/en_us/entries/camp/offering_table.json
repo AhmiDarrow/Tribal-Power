@@ -17,7 +17,7 @@
       "text": [
         "It is storage, not a second Tribe Hearth. Offerings that raise a tribe's standing go on the hearth itself (see [Standing](standing)); the table grants nothing.",
         "Only the player who placed it, their camp, or anyone at all if nobody claimed it, can open it.",
-        "Hoppers and pipes can fill or empty it from every side. Crouch and right-click a face with an empty hand to change that face: Both, Input, Output or Closed.",
+        "Hoppers, pipes and [relay plates](wireless_cargo) can fill or empty it from every side. Crouch and right-click a face with an empty hand to change that face: Both, Input, Output or Closed.",
         "A comparator reads how full it is. A redstone signal locks both the menu and the automation."
       ]
     },

@@ -9,7 +9,7 @@
       "item": "tribalpower:wind_snare",
       "text": [
         "A chest that gathers. The Wind Snare pulls dropped items off the ground around it and keeps them in **27 slots**, so a farm, a Shatter line or a mob pit never leaves a mess behind.",
-        "It only lifts items lying loose. It never takes from chests or machines."
+        "It lifts any item lying loose, from the March, the overworld or another mod. It never takes from chests or machines."
       ]
     },
     {
@@ -336,7 +336,7 @@
       "type": "text",
       "title": "Getting the catch out",
       "text": [
-        "Open it like a chest. Hoppers and pipes take from the **bottom** face; the other faces accept items. Crouch and right-click a face with an empty hand to cycle it: Both, Input, Output, Closed.",
+        "Open it like a chest. Hoppers, pipes and [relay plates](wireless_cargo) take from the **bottom** face; the other faces accept items. Crouch and right-click a face with an empty hand to cycle it: Both, Input, Output, Closed.",
         "Sitting on an Ancestral Cache or another Tribal Power store, its bottom face pushes up to **16 items a second** down with no hopper at all.",
         "A comparator reads how full it is: handy for a warning lamp when the snare needs emptying."
       ]

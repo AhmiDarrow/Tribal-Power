@@ -91,5 +91,13 @@ public final class CampHooks {
         if(event.getEntity().getType().getCategory()==MobCategory.MONSTER&&event.getSpawnType()!=MobSpawnType.COMMAND&&event.getSpawnType()!=MobSpawnType.SPAWN_EGG
                 &&warded(event.getLevel().getLevel(),event.getEntity().blockPosition()))event.setSpawnCancelled(true);
     }
+    /**
+     * Phantoms pass neither spawn check above: the game rolls them per sleepless player and drops them 20 to 34
+     * blocks overhead, out of the ward's reach. So the ward asks where the hunted player stands instead.
+     */
+    public static void phantoms(net.neoforged.neoforge.event.entity.player.PlayerSpawnPhantomsEvent event){
+        if(event.getEntity().level() instanceof ServerLevel level&&warded(level,event.getEntity().blockPosition()))
+            event.setResult(net.neoforged.neoforge.event.entity.player.PlayerSpawnPhantomsEvent.Result.DENY);
+    }
     private CampHooks(){}
 }

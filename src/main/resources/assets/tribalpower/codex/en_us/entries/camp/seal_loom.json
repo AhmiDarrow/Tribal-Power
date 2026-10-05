@@ -11,7 +11,7 @@
       "type": "spotlight",
       "item": "tribalpower:seal_loom",
       "text": [
-        "A crafting table that works on its own. Teach it one crafting-table recipe on a Recipe Seal, keep its grid stocked, and it weaves one result a second for **6 Pulse** each. The seal is never used up."
+        "A crafting table that works on its own. Teach it one crafting-table recipe, vanilla's or any mod's, on a Recipe Seal, keep its grid stocked, and it weaves one result a second for **6 Pulse** each. The seal is never used up."
       ]
     },
     {
@@ -29,7 +29,7 @@
       "title": "Letting it run",
       "text": [
         "With the seal seated and the right items in the right slots, it crafts once a beat for **6 Pulse** from a generator within 8. Two planks give four sticks, and the seal stays. It answers to the **Loom**: keep a Loom totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
-        "Results fill its nine output slots and leave through the **bottom** face. Leftovers such as empty buckets and bottles go out with them, so they never jam the grid; a tool the recipe hands back, like a grinding bowl, goes back to its own slot. When the outputs have no room for a craft and its leftovers, the loom waits and spends nothing.",
+        "Results fill its nine output slots and leave through the **bottom** face, to a hopper or a [relay plate](wireless_cargo) there. Leftovers such as empty buckets and bottles go out with them, so they never jam the grid; a tool the recipe hands back, like a grinding bowl, goes back to its own slot. When the outputs have no room for a craft and its leftovers, the loom waits and spends nothing.",
         "Ranking shortens the beat; Pulse per craft stays 6. A lever pauses it, and a comparator reads how full it is."
       ]
     },
@@ -214,7 +214,7 @@
       "type": "text",
       "title": "Feeding it",
       "text": [
-        "A hopper drops each item into the first grid slot that will take it. That suits one-slot recipes such as logs into planks. For a shaped recipe, fill the slots it uses by hand with full stacks and it crafts until one runs out. If the grid stops matching the seal, it waits and spends nothing.",
+        "A hopper, or a relay plate tuned to the loom, drops each item into the first grid slot that will take it. That suits one-slot recipes such as logs into planks. For a shaped recipe, fill the slots it uses by hand with full stacks and it crafts until one runs out. If the grid stops matching the seal, it waits and spends nothing.",
         "Crouch and right-click a face while holding an item to change that face: Both, Input, Output or Closed.",
         "Test one batch before you connect bulk storage."
       ]

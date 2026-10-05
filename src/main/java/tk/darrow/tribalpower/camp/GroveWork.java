@@ -41,7 +41,16 @@ final class GroveWork {
                 || block instanceof SugarCaneBlock || block instanceof CactusBlock
                 || block instanceof NetherWartBlock || block instanceof CocoaBlock
                 || block instanceof SweetBerryBushBlock || block instanceof BambooSaplingBlock
-                || block instanceof KelpBlock || block instanceof ChorusFlowerBlock;
+                || block instanceof KelpBlock || block instanceof ChorusFlowerBlock
+                || tagged(block.defaultBlockState());
+    }
+
+    /**
+     * Saplings and crops by tag rather than by class, so the ones that are neither a SaplingBlock nor a CropBlock
+     * count too: azaleas, the pitcher pod, and any other mod's crop or sapling filed under the vanilla tags.
+     */
+    private static boolean tagged(BlockState state) {
+        return state.getBlock() instanceof BonemealableBlock && (state.is(BlockTags.SAPLINGS) || state.is(BlockTags.CROPS));
     }
 
     static void tend(CampBlockEntity be, ServerLevel server) {
@@ -167,6 +176,16 @@ final class GroveWork {
             while (server.getBlockState(down).is(block)) { below++; down = down.below(); }
             if (extra + below + 1 >= 3 && extra > 0) return breakLoose(be, server, farmer, top, 12);
         }
+        // a full-grown pitcher is cut at its foot (the top half goes with it) and gives up the plant, as by hand
+        if (block instanceof PitcherCropBlock && state.getValue(PitcherCropBlock.AGE) >= PitcherCropBlock.MAX_AGE
+                && state.getValue(DoublePlantBlock.HALF) == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER)
+            return breakLoose(be, server, farmer, pos, 12);
+        // a pumpkin, a melon, or any other gourd a stem set down: cut it once the stem has turned to it, the stem stays
+        if (!state.isAir()) for (Direction dir : Direction.Plane.HORIZONTAL) {
+            BlockState stem = server.getBlockState(pos.relative(dir));
+            if (stem.getBlock() instanceof AttachedStemBlock && stem.getValue(AttachedStemBlock.FACING) == dir.getOpposite())
+                return breakLoose(be, server, farmer, pos, 12);
+        }
         return false;
     }
 
@@ -179,7 +198,8 @@ final class GroveWork {
         if (state.getBlock() instanceof BonemealableBlock growable && growable.isValidBonemealTarget(server, pos, state)
                 && (state.getBlock() instanceof SaplingBlock || state.getBlock() instanceof StemBlock
                 || state.getBlock() instanceof CocoaBlock || state.getBlock() instanceof CropBlock
-                || state.getBlock() instanceof SweetBerryBushBlock || state.getBlock() instanceof BambooSaplingBlock)) {
+                || state.getBlock() instanceof SweetBerryBushBlock || state.getBlock() instanceof BambooSaplingBlock
+                || tagged(state))) {
             if (!growable.isBonemealSuccess(server, server.random, pos, state)) return false;
             growable.performBonemeal(server, server.random, pos, state);
             be.spendPublic(16); be.active = true; be.setReason("urged"); return true;

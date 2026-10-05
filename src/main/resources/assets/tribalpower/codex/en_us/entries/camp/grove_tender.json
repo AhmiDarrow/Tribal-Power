@@ -9,7 +9,7 @@
       "item": "tribalpower:grove_tender",
       "text": [
         "A farmhand that never sleeps. The Grove Tender plants, grows and harvests the 9-by-9 bed around it, and keeps the harvest in its own store until you, a hopper or a cache takes it away.",
-        "It handles crops, saplings, sugar cane, cactus, bamboo, sweet berries, nether wart and cocoa."
+        "It handles crops, saplings, sugar cane, cactus, bamboo, sweet berries, nether wart and cocoa, cuts the pumpkins and melons its stems set down, and takes a grown pitcher plant. Vanilla's, the March's and other mods' all count: azaleas, mangrove propagules and pitcher pods go in the seed row, and so does any crop or sapling a pack files under the vanilla crop and sapling tags."
       ]
     },
     {
@@ -18,7 +18,7 @@
       "text": [
         "**Place it yourself.** The tender remembers who placed it and works with that player's permissions, so land protection still applies. A tender nobody claimed does nothing. It answers to **Earth**: keep an Earth totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
         "It works on its **own level**: its bed is the square reaching **4 blocks** out on every side, at the tender's height. So set it at crop height, on a block sunk into the farmland, not on top of the crops.",
-        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face."
+        "Seeds go in the **top row** of its menu, the first nine slots. Hoppers and pipes put them there from the top or sides. The harvest fills the other slots and leaves through the **bottom** face. A [relay plate](wireless_cargo) works it like a hopper: one on the bottom sends the harvest on, and a plate tuned to the top or a side fills the seed row."
       ]
     },
     {
@@ -671,7 +671,7 @@
       "text": [
         "Once a second it looks along its bed and does **one** job:",
         "- **Plant** an empty spot: **4 Pulse**.",
-        "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted, keeping one seed back; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall.",
+        "- **Harvest** something ripe: **12 Pulse**. Crops, nether wart and cocoa are cut and replanted, keeping one seed back; berries are picked and the bush stays; cane, cactus and bamboo lose their top once the stalk is **three** tall; a pumpkin or melon is cut and its stem left to grow another, and a grown pitcher is cut whole.",
         "- **Urge** a sapling, stem, crop, cocoa pod, berry bush or bamboo shoot to grow, like bone meal: **16 Pulse**.",
         "- **Water** the bed: **4 Pulse** (see below)."
       ]
