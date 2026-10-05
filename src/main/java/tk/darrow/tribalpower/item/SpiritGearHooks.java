@@ -59,9 +59,7 @@ public final class SpiritGearHooks {
         // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
         SpiritGear.Swing current = SpiritGear.swingFor(player);
         if (current != null && current.aoe()) return;
-        boolean paid = player.getAbilities().instabuild
-                || (tool.getItem() instanceof SpiritgearShearsItem && SpiritgearShearsItem.freeTrim(tool))
-                || SpiritGear.consumeForMine(player, tool);
+        boolean paid = SpiritGear.consumeForMine(player, tool);
         SpiritGear.beginSwing(player, tool, paid, false);
     }
 
@@ -150,26 +148,31 @@ public final class SpiritGearHooks {
         int set = SpiritGear.setRank(player);
         if (set >= 3) event.setAmount(event.getAmount() * SpiritGear.MANIFESTED_SET);
         else if (set >= 2) event.setAmount(event.getAmount() * SpiritGear.BOUND_SET);
+        // The voice perks below answer only for a piece that is switched on and paid for (SpiritweaveArmor.powered).
         ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
         ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         if (SpiritGear.voice(hood).orElse(null) == Attunement.EARTH
                 && event.getSource().is(DamageTypeTags.IS_PROJECTILE)
-                && player.getRandom().nextFloat() < (SpiritGear.rank(hood) >= 3 ? 0.35F : 0.20F)) {
+                && player.getRandom().nextFloat() < (SpiritGear.rank(hood) >= 3 ? 0.35F : 0.20F)
+                && SpiritweaveArmor.powered(player, hood)) {
             event.setCanceled(true);
             return;
         }
         if (SpiritGear.voice(boots).orElse(null) == Attunement.FIRE
-                && event.getSource().is(DamageTypes.HOT_FLOOR)) {
+                && event.getSource().is(DamageTypes.HOT_FLOOR) && SpiritweaveArmor.powered(player, boots)) {
             event.setCanceled(true);
             return;
         }
-        if (event.getSource().getEntity() instanceof LivingEntity attacker) {
-            if (SpiritGear.voice(robe).orElse(null) == Attunement.FIRE) attacker.igniteForSeconds(3);
-            if (SpiritGear.voice(robe).orElse(null) == Attunement.SPIRIT)
+        Attunement robeVoice = SpiritGear.voice(robe).orElse(null);
+        if (event.getSource().getEntity() instanceof LivingEntity attacker
+                && (robeVoice == Attunement.FIRE || robeVoice == Attunement.SPIRIT || robeVoice == Attunement.WATER)
+                && SpiritweaveArmor.powered(player, robe)) {
+            if (robeVoice == Attunement.FIRE) attacker.igniteForSeconds(3);
+            if (robeVoice == Attunement.SPIRIT)
                 attacker.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                         net.minecraft.world.effect.MobEffects.GLOWING, 80, 0));
-            if (SpiritGear.voice(robe).orElse(null) == Attunement.WATER)
+            if (robeVoice == Attunement.WATER)
                 player.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                         net.minecraft.world.effect.MobEffects.REGENERATION,
                         SpiritGear.rank(robe) >= 3 ? 160 : 100, 0, true, false, true));
@@ -180,15 +183,20 @@ public final class SpiritGearHooks {
         if (!(event.getEntity() instanceof Player player)) return;
         ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-        if (SpiritGear.voice(robe).orElse(null) == Attunement.AIR) event.setCanceled(true);
-        if (SpiritGear.voice(boots).orElse(null) == Attunement.EARTH) event.setStrength(event.getStrength() * 0.4F);
+        if (SpiritGear.voice(robe).orElse(null) == Attunement.AIR && SpiritweaveArmor.powered(player, robe)) event.setCanceled(true);
+        else if (SpiritGear.voice(boots).orElse(null) == Attunement.EARTH && SpiritweaveArmor.powered(player, boots))
+            event.setStrength(event.getStrength() * 0.4F);
     }
 
     public static void fall(LivingFallEvent event) {
         if (!(event.getEntity() instanceof Player player)) return;
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         if (SpiritGear.voice(boots).orElse(null) != Attunement.SPIRIT) return;
-        if (SpiritGear.rank(boots) >= 3 && event.getDistance() >= 4) {
+        boolean bounce = SpiritGear.rank(boots) >= 3 && event.getDistance() >= 4;
+        // A landing that would not hurt, and is no bounce, is nothing for the boots to catch or pay for.
+        if (!bounce && event.getDistance() <= player.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.SAFE_FALL_DISTANCE)) return;
+        if (!SpiritweaveArmor.powered(player, boots)) return;
+        if (bounce) {
             player.setDeltaMovement(player.getDeltaMovement().x, 0.55, player.getDeltaMovement().z);
             player.hurtMarked = true;
         }
@@ -197,7 +205,8 @@ public final class SpiritGearHooks {
 
     public static void trample(BlockEvent.FarmlandTrampleEvent event) {
         if (event.getEntity() instanceof Player player
-                && SpiritGear.voice(player.getItemBySlot(EquipmentSlot.FEET)).orElse(null) == Attunement.EARTH) {
+                && SpiritGear.voice(player.getItemBySlot(EquipmentSlot.FEET)).orElse(null) == Attunement.EARTH
+                && SpiritweaveArmor.powered(player, player.getItemBySlot(EquipmentSlot.FEET))) {
             event.setCanceled(true);
             return;
         }
@@ -242,6 +251,12 @@ public final class SpiritGearHooks {
      * swaps the snare for a zero multiplier, which the next move ignores. Only when such a block is really touched:
      * makeStuckInBlock also resets fall distance, which the block itself already did.
      */
+    /** The leggings' voice when it is one that sheds snares and the leggings are on and paid for, else null. */
+    static Attunement snareVoice(Player player, ItemStack legs) {
+        Attunement voice = SpiritGear.voice(legs).orElse(null);
+        return (voice == Attunement.EARTH || voice == Attunement.LOOM) && SpiritweaveArmor.powered(player, legs) ? voice : null;
+    }
+
     public static void shedSnares(Player player, Attunement legVoice) {
         if (legVoice != Attunement.EARTH && legVoice != Attunement.LOOM) return;
         var box = player.getBoundingBox().deflate(1.0E-5);
@@ -272,7 +287,7 @@ public final class SpiritGearHooks {
         Player player = event.getEntity();
         if (player.level().isClientSide) {
             // Only the local player's movement is simulated here; other players arrive as positions.
-            if (player.isLocalPlayer()) shedSnares(player, SpiritGear.voice(player.getItemBySlot(EquipmentSlot.LEGS)).orElse(null));
+            if (player.isLocalPlayer()) shedSnares(player, snareVoice(player, player.getItemBySlot(EquipmentSlot.LEGS)));
             return;
         }
         if (player.tickCount > 5 && player.getPersistentData().contains(KEPT_HEALTH)) {
@@ -292,18 +307,20 @@ public final class SpiritGearHooks {
             step.removeModifier(SpiritweaveArmor.STEP);
 
         // The server replays the client's moves too, so it sheds the snare as well (no "moved wrongly" drift).
-        shedSnares(player, legVoice);
-        soulStride(player, legVoice);
+        Attunement snare = snareVoice(player, legs);
+        shedSnares(player, snare);
+        soulStride(player, snare);
 
         if (bootVoice == Attunement.LOOM && player.isShiftKeyDown() && walkingForward(player)
-                && !player.getCooldowns().isOnCooldown(boots.getItem())
+                && !SpiritGear.abilitiesOff(boots) && !player.getCooldowns().isOnCooldown(boots.getItem())
                 && player.level() instanceof ServerLevel server) {
             int reach = SpiritGear.rank(boots) >= 3 ? 6 : 4;
-            if (stitch(server, player, reach)) player.getCooldowns().addCooldown(boots.getItem(), 160);
+            if (stitch(server, player, boots, reach)) player.getCooldowns().addCooldown(boots.getItem(), 160);
         }
 
-        // A whole Manifested set mends its wearer: a heart every four seconds, paid in Pulse.
+        // A whole Manifested set mends its wearer: a heart every four seconds, paid in Pulse by the robe, if it is on.
         if (player.tickCount % 80 == 0 && player.getHealth() < player.getMaxHealth() && SpiritGear.setRank(player) >= 3
+                && !SpiritGear.abilitiesOff(player.getItemBySlot(EquipmentSlot.CHEST))
                 && (player.getAbilities().instabuild || GearCell.spend(player, player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST), 4)))
             player.heal(2.0F);
 
@@ -408,7 +425,8 @@ public final class SpiritGearHooks {
         }
     }
 
-    private static boolean stitch(ServerLevel server, Player player, int range) {
+    /** Loom boots: a stitch forward to the farthest clear spot in reach, paid as the boots' upkeep when it happens. */
+    private static boolean stitch(ServerLevel server, Player player, ItemStack boots, int range) {
         net.minecraft.world.phys.Vec3 direction = player.getLookAngle();
         net.minecraft.world.phys.Vec3 flat = new net.minecraft.world.phys.Vec3(direction.x, 0, direction.z);
         if (flat.lengthSqr() < 1.0E-4) flat = net.minecraft.world.phys.Vec3.directionFromRotation(0, player.getYRot());
@@ -424,6 +442,7 @@ public final class SpiritGearHooks {
                     candidate.add(0, player.getEyeHeight(), 0), net.minecraft.world.level.ClipContext.Block.COLLIDER,
                     net.minecraft.world.level.ClipContext.Fluid.NONE, player));
             if (clip.getType() != net.minecraft.world.phys.HitResult.Type.MISS) continue;
+            if (!SpiritweaveArmor.powered(player, boots)) return false;
             var from = player.position();
             player.teleportTo(candidate.x, candidate.y, candidate.z);
             player.fallDistance = 0;

@@ -8,10 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -33,8 +30,9 @@ import java.util.function.Predicate;
  * An Earth axe fells the whole tree a struck log belongs to. A tree is every log of the struck kind joined to it
  * (diagonals too) with natural leaves on it in proportion, and nothing a builder lays touching it: a leafless
  * pillar, a build whose leaves were placed, or a cabin grown into a tree still stands. Logs come down from the top,
- * each broken as the player would break it, and each costs a point of the edge, so one felling is only as big as
- * the edge left on the axe.
+ * each broken as the player would break it. The felling is paid in Pulse as it goes, a swing's worth for every
+ * {@link #LOGS_PER_CHARGE} logs, and like every paid action it leaves the edge alone: one felling is only as big as
+ * the Pulse the axe can reach.
  */
 public final class TreeFelling {
     /** Most logs a tree may have before it is not treated as one. A young willow runs to ~220 logs. */
@@ -81,9 +79,10 @@ public final class TreeFelling {
     static void fell(ServerPlayer player, ItemStack tool, BlockPos hit, BlockState state) {
         // Crouching takes one log; and one tree at a time, so a second swing never pays twice for the same wood.
         if (player.isShiftKeyDown() || FALLING.containsKey(player)) return;
-        List<BlockPos> logs = tree(player.level(), hit, state.getBlock(), state.is(WILLOW_LOGS) ? WILLOW_CAP : CAP, room(player.level(), tool));
+        int charge = SpiritGear.mineCost(tool);
+        List<BlockPos> logs = tree(player.level(), hit, state.getBlock(), state.is(WILLOW_LOGS) ? WILLOW_CAP : CAP, room(player, tool, charge));
         if (logs.isEmpty()) return;
-        Felling felling = new Felling(player.level(), tool, state.getBlock(), logs, SpiritGear.mineCost(tool));
+        Felling felling = new Felling(player.level(), tool, state.getBlock(), logs, charge);
         // Block breakers and deployers never tick, so their tree comes down at once.
         if (player instanceof FakePlayer) {
             chop(player, felling, Integer.MAX_VALUE);
@@ -115,12 +114,11 @@ public final class TreeFelling {
         FALLING.clear();
     }
 
-    /** Logs the edge can fell before its last point; Unbreaking stretches it about as far as it spares wear. */
-    private static int room(Level level, ItemStack tool) {
-        if (!tool.isDamageableItem()) return Integer.MAX_VALUE;
-        int unbreaking = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.UNBREAKING)
-                .map(holder -> EnchantmentHelper.getItemEnchantmentLevel(holder, tool)).orElse(0);
-        return Math.max(0, tool.getMaxDamage() - 1 - tool.getDamageValue()) * (unbreaking + 1);
+    /** Logs the Pulse the axe can reach will pay for, a run of {@link #LOGS_PER_CHARGE} for each swing's worth. */
+    private static int room(ServerPlayer player, ItemStack tool, int charge) {
+        if (charge <= 0 || player.getAbilities().instabuild) return Integer.MAX_VALUE;
+        long runs = GearCell.available(player, tool) / charge;
+        return (int) Math.min(Integer.MAX_VALUE, runs * LOGS_PER_CHARGE);
     }
 
     /** Fells up to {@code batch} logs; true once the felling is over, every log down or cut short. */
@@ -129,9 +127,8 @@ public final class TreeFelling {
         SpiritGear.Swing prior = SpiritGear.SWING.get();
         try {
             for (int done = 0; done < batch && !felling.logs.isEmpty(); done++) {
-                // The same axe in hand, in the same world, and never down to its last point.
-                if (player.getMainHandItem() != tool || player.level() != felling.level || player.isRemoved() || !player.isAlive()
-                        || (tool.isDamageableItem() && tool.getDamageValue() >= tool.getMaxDamage() - 1)) return true;
+                // The same axe in hand, in the same world.
+                if (player.getMainHandItem() != tool || player.level() != felling.level || player.isRemoved() || !player.isAlive()) return true;
                 BlockPos pos = felling.logs.poll();
                 if (!player.level().isLoaded(pos) || !player.level().getBlockState(pos).is(felling.wood)
                         || !player.level().mayInteract(player, pos) || !player.mayUseItemAt(pos, Direction.UP, tool)) continue;
@@ -143,15 +140,10 @@ public final class TreeFelling {
                     }
                     felling.paid = LOGS_PER_CHARGE;
                 }
-                // An area swing: rides on the payment above, and destroyBlock fires the break event protection hears.
+                // An area swing: rides on the payment above, so it wears nothing, and destroyBlock fires the break
+                // event protection hears.
                 SpiritGear.beginSwing(player, tool, true, true);
-                int wear = tool.getDamageValue();
-                if (player.gameMode.destroyBlock(pos)) {
-                    felling.paid--;
-                    // Set aside the swing's own wear and mend (see mineBlock): a felled log costs one point, less Unbreaking.
-                    tool.setDamageValue(wear);
-                    tool.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-                }
+                if (player.gameMode.destroyBlock(pos)) felling.paid--;
             }
             return felling.logs.isEmpty();
         } finally {
@@ -177,7 +169,7 @@ public final class TreeFelling {
      */
     public static List<BlockPos> tree(BlockGetter world, Predicate<BlockPos> loaded, BlockPos hit, Block wood, int cap, int room) {
         Comparator<BlockPos> topDown = Comparator.<BlockPos>comparingInt(pos -> -pos.getY()).thenComparingInt(pos -> pos.distManhattan(hit));
-        // An ordinary tree is always seen whole. One bigger than the edge can fell is looked at only to twice that, so
+        // An ordinary tree is always seen whole. One bigger than the Pulse can fell is looked at only to twice that, so
         // its top `room` logs are the crown and not the path the flood climbed up the trunk to reach it.
         long budget = Math.max(CAP, 2L * room);
         LongOpenHashSet seen = new LongOpenHashSet();

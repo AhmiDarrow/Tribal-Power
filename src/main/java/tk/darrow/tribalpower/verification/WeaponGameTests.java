@@ -48,7 +48,7 @@ public final class WeaponGameTests {
             h.assertTrue(Math.abs(damage - TribalConfig.weaponDamage(kind)) < 1.0E-6, kind + " damage " + damage);
             h.assertTrue(Math.abs(speed - TribalConfig.weaponSpeed(kind)) < 1.0E-6, kind + " speed " + speed);
             h.assertTrue(Math.abs(sum(stack, Attributes.ENTITY_INTERACTION_RANGE) - TribalConfig.weaponReach(kind)) < 1.0E-6, kind + " reach");
-            h.assertTrue(stack.getMaxDamage() >= SpiritGear.TOOL_DURABILITY, kind + " durability");
+            h.assertTrue(stack.getMaxDamage() == 1561, kind + " lasts 1,561 like the blade, got " + stack.getMaxDamage());
         }
         ItemStack spear = new ItemStack(ModItems.SPIRITGEAR_WEAPONS.get(WeaponKind.SPEAR).get());
         ItemStack dagger = new ItemStack(ModItems.SPIRITGEAR_WEAPONS.get(WeaponKind.DAGGER).get());

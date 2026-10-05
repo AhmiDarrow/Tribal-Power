@@ -34,8 +34,13 @@ import java.util.List;
  */
 public class SpiritgearHoeItem extends HoeItem {
     public SpiritgearHoeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(HoeItem.createAttributes(Tiers.DIAMOND, -3.0F, 0.0F))
-                .durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(HoeItem.createAttributes(Tiers.DIAMOND, -3.0F, 0.0F)));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
     }
 
     /** How far the reap-and-sow reaches, as a radius in blocks. */
@@ -59,16 +64,7 @@ public class SpiritgearHoeItem extends HoeItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
-                || state.getDestroySpeed(level, pos) == 0.0F) {
-            return super.mineBlock(stack, level, state, pos, entity);
-        }
-        SpiritGear.Swing parent = SpiritGear.swingFor(player);
-        boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
-        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
-        boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        SpiritGear.finishDurability(player, stack, paid);
-        return ok;
+        return SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity)).ok();
     }
 
     @Override
@@ -87,9 +83,9 @@ public class SpiritgearHoeItem extends HoeItem {
                 BlockPos at = context.getClickedPos().offset(x, 0, z);
                 if (!ripe(level.getBlockState(at)) || !level.mayInteract(player, at)
                         || !player.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
+                // Each crop is a paid use; the reap itself never touches the edge, and with no Pulse it stops.
                 if (!player.getAbilities().instabuild && !free
                         && !GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
-                    if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
                     SpiritgearHelper.notifyStarved(player);
                     break;
                 }
@@ -97,8 +93,7 @@ public class SpiritgearHoeItem extends HoeItem {
                 reaped++;
             }
             if (reaped > 0) {
-                if (!player.getAbilities().instabuild && !free)
-                    stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
+                SpiritgearHelper.notifyFueled(player);
                 level.playSound(null, context.getClickedPos(), net.minecraft.sounds.SoundEvents.CROP_BREAK,
                         net.minecraft.sounds.SoundSource.BLOCKS, 0.8F, 1.1F);
                 return InteractionResult.SUCCESS;
@@ -106,15 +101,11 @@ public class SpiritgearHoeItem extends HoeItem {
         }
         if (level.isClientSide) return super.useOn(context);
 
-        InteractionResult result = super.useOn(context);
-        if (!result.consumesAction() || player.getAbilities().instabuild) return result;
-        boolean paid = GearCell.spend(player, stack, SpiritGear.useCost(stack));
-        if (paid) stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
-        else {
-            if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-            SpiritgearHelper.notifyStarved(player);
-        }
-        if (!paid) return result;
+        // Tilling is a paid use: the cell's Pulse instead of the edge, or a starved furrow that wears.
+        int[] wear = {0};
+        InteractionResult result = SpiritGear.held(stack, wear, () -> super.useOn(context));
+        boolean paid = SpiritGear.settleUse(player, stack, LivingEntity.getSlotForHand(context.getHand()), result.consumesAction(), wear[0]);
+        if (!result.consumesAction() || !paid) return result;
         Attunement voice = SpiritGear.voice(stack).orElse(null);
         if (voice == Attunement.EARTH) {
             BlockPos centre = context.getClickedPos();
@@ -122,10 +113,10 @@ public class SpiritgearHoeItem extends HoeItem {
                 if (x == 0 && z == 0) continue;
                 BlockPos at = centre.offset(x, 0, z);
                 if (!level.mayInteract(player, at) || !player.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
-                int damage = stack.getDamageValue();
-                super.useOn(new UseOnContext(player, context.getHand(), new BlockHitResult(
-                        context.getClickLocation().add(x, 0, z), context.getClickedFace(), at, false)));
-                if (!stack.isEmpty()) stack.setDamageValue(damage);
+                // The rest of the 3x3 rides on the one use's Pulse and wears nothing.
+                UseOnContext neighbour = new UseOnContext(player, context.getHand(), new BlockHitResult(
+                        context.getClickLocation().add(x, 0, z), context.getClickedFace(), at, false));
+                SpiritGear.held(stack, new int[1], () -> super.useOn(neighbour));
             }
         }
         if (voice == Attunement.WATER) moisten(level, context.getClickedPos(), 1);

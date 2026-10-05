@@ -34,8 +34,14 @@ public class SpiritgearShearsItem extends ShearsItem {
     public SpiritgearShearsItem(Properties properties) {
         // Shears carry their mining rules in the TOOL component, not in a speed override the way the
         // tiered tools do. Without it these would cut nothing: no leaves, no wool, no cobweb drop.
-        super(properties.durability(SpiritGear.TOOL_DURABILITY)
+        super(properties.durability(SpiritGear.UNTIERED_DURABILITY)
                 .component(net.minecraft.core.component.DataComponents.TOOL, ShearsItem.createToolProperties()));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
     }
 
     /** A free trim: the Air voice pays neither Pulse nor edge. */
@@ -60,43 +66,25 @@ public class SpiritgearShearsItem extends ShearsItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
-                || state.getDestroySpeed(level, pos) == 0.0F) {
-            return super.mineBlock(stack, level, state, pos, entity);
-        }
-        SpiritGear.Swing parent = SpiritGear.swingFor(player);
-        boolean aoe = parent != null && parent.aoe();
-        boolean paid = parent != null ? parent.pulsePaid()
-                : freeTrim(stack) || SpiritGear.consumeForMine(player, stack);
-        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
-        int before = stack.getDamageValue();
-        boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        // Air asks nothing of the blades: undo the point vanilla shears take for every block.
-        if (freeTrim(stack) && !stack.isEmpty()) stack.setDamageValue(before);
-        if (!freeTrim(stack)) SpiritGear.finishDurability(player, stack, paid);
-        if (ok && paid && !aoe && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH && foliage(state)) {
+        // Air trims count as paid (see SpiritGear.consumeForMine), so they too leave the blades untouched.
+        SpiritGear.Break mined = SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity));
+        if (mined.perks() && entity instanceof ServerPlayer player && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH && foliage(state)) {
             Direction.Axis axis = Direction.orderedByNearest(player)[0].getAxis();
             SpiritGearHooks.aoe(player, stack, pos, axis, SpiritgearShearsItem::foliage);
         }
-        return ok;
+        return mined.ok();
     }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
-        int before = stack.getDamageValue();
-        InteractionResult result = super.interactLivingEntity(stack, player, target, hand);
-        if (!result.consumesAction() || player.level().isClientSide || player.getAbilities().instabuild) return result;
+        // A shearing is a paid use: the cell's Pulse instead of the blades, or a starved cut that wears. Air asks neither.
+        int[] wear = {0};
+        InteractionResult result = SpiritGear.held(stack, wear, () -> super.interactLivingEntity(stack, player, target, hand));
+        if (player.level().isClientSide) return result;
+        boolean paid = (freeTrim(stack) && result.consumesAction())
+                || SpiritGear.settleUse(player, stack, LivingEntity.getSlotForHand(hand), result.consumesAction(), wear[0]);
+        if (!result.consumesAction() || !paid) return result;
         Attunement voice = SpiritGear.voice(stack).orElse(null);
-        if (freeTrim(stack)) {
-            // Air asks nothing of the blades: undo the point vanilla shears take for a shearing.
-            if (!stack.isEmpty()) stack.setDamageValue(before);
-        } else if (GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
-            stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
-        } else {
-            if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-            SpiritgearHelper.notifyStarved(player);
-            return result;
-        }
         if (voice == Attunement.WATER && target instanceof Sheep sheep && sheep.isSheared()
                 && (SpiritGear.rank(stack) >= 3 || player.getRandom().nextFloat() < 0.5F)) {
             sheep.setSheared(false);
@@ -122,7 +110,14 @@ public class SpiritgearShearsItem extends ShearsItem {
             serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.CAMPFIRE_COSY_SMOKE,
                     pos.getX() + 0.5, pos.getY() + 0.8, pos.getZ() + 0.5, 6, 0.2, 0.1, 0.2, 0.01);
         }
-        return super.useOn(context);
+        if (player == null) return super.useOn(context);
+        // A trim the shears make on a block (the game's own) is a paid use like any other.
+        ItemStack stack = context.getItemInHand();
+        int[] wear = {0};
+        InteractionResult result = SpiritGear.held(stack, wear, () -> super.useOn(context));
+        if (!freeTrim(stack) || !result.consumesAction())
+            SpiritGear.settleUse(player, stack, LivingEntity.getSlotForHand(context.getHand()), result.consumesAction(), wear[0]);
+        return result;
     }
 
     @Override

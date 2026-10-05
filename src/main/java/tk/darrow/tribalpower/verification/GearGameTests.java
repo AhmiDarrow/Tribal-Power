@@ -31,8 +31,8 @@ public class GearGameTests {
                 "Spiritgear pick must be diamond-tier for obsidian");
         h.assertTrue(pick.isCorrectToolForDrops(Blocks.DEEPSLATE.defaultBlockState()),
                 "Spiritgear pick must mine deepslate");
-        h.assertTrue(pick.getMaxDamage() >= SpiritGear.TOOL_DURABILITY,
-                "Spiritgear tools last at least 1024, got " + pick.getMaxDamage());
+        h.assertTrue(pick.getMaxDamage() == 1561 && SpiritGear.TOOL_DURABILITY == 1561,
+                "Spiritgear tools last what diamond does, 1,561, got " + pick.getMaxDamage());
         h.succeed();
     }
 

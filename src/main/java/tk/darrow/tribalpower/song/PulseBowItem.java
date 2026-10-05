@@ -23,12 +23,12 @@ import tk.darrow.tribalpower.item.SpiritgearHelper;
 
 /**
  * A bow that sings. A full draw spends Pulse and throws a sonic bolt. A verse arrow in the inventory
- * rides that bolt and is spent. With no arrow, the bolt is only the note. Spiritgear: it wears like the
- * tools and mends with Manifested Ingots at the Spirit Anvil.
+ * rides that bolt and is spent. With no arrow, the bolt is only the note. Spiritgear: the Pulse is the price of
+ * a shot, so shooting never wears it, and it mends with Manifested Ingots at the Spirit Anvil.
  */
 public class PulseBowItem extends Item {
     public PulseBowItem(Properties properties) {
-        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.TOOL_DURABILITY));
+        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.UNTIERED_DURABILITY));
     }
 
     public static int cost(float pull, boolean verse) {
@@ -72,7 +72,6 @@ public class PulseBowItem extends Item {
         if (player instanceof net.minecraft.server.level.ServerPlayer server) {
             SonicBolt.shoot(server, bow, verse, pull);
         }
-        bow.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.3F + pull * 0.3F);
         player.awardStat(Stats.ITEM_USED.get(this));
     }

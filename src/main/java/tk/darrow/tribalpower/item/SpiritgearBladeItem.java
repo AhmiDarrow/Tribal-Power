@@ -19,13 +19,25 @@ import java.util.List;
 /** Spiritgear blade — Pulse fuels echo strikes; a linked totem voice adds a combat perk. */
 public class SpiritgearBladeItem extends SwordItem {
     public SpiritgearBladeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3, -2.4F))
-                .durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3, -2.4F)));
     }
 
     /** For the rest of the weapon family, which set their own numbers at runtime. */
     protected SpiritgearBladeItem(Properties properties, net.minecraft.world.item.component.ItemAttributeModifiers attributes) {
-        super(Tiers.DIAMOND, properties.attributes(attributes).durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(attributes));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
+    }
+
+    /** Cutting a cobweb or the like: paid as the break began, it wears nothing, like the tools. */
+    @Override
+    public boolean mineBlock(ItemStack stack, net.minecraft.world.level.Level level, net.minecraft.world.level.block.state.BlockState state,
+            net.minecraft.core.BlockPos pos, LivingEntity entity) {
+        return SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity)).ok();
     }
 
     /** The line under the shared Spiritgear description. */
@@ -47,8 +59,10 @@ public class SpiritgearBladeItem extends SwordItem {
         boolean paid = player.getAbilities().instabuild
                 || GearCell.spend(player, stack, SpiritGear.hitCost(stack));
         if (!paid) {
-            if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-            SpiritgearHelper.notifyStarved(player);
+            // A starved blow wears the blade as a blow wears any sword, and then some (see SpiritGear.settle).
+            int[] wear = {0};
+            SpiritGear.held(stack, wear, () -> { super.postHurtEnemy(stack, target, attacker); return null; });
+            SpiritGear.settle(player, stack, EquipmentSlot.MAINHAND, false, wear[0]);
             return;
         }
         target.invulnerableTime = 0;

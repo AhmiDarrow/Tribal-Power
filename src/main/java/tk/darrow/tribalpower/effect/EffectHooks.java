@@ -145,7 +145,7 @@ public final class EffectHooks {
 
     // ---- charms ---------------------------------------------------------------------------------------------------
 
-    /** A worn Lantern charm keeps a blessing or boon lit longer. */
+    /** A worn Lantern charm, its upkeep paid, keeps a blessing or boon lit longer. */
     public static void effectAdded(MobEffectEvent.Added event) {
         if (!(event.getEntity() instanceof Player player) || player.level().isClientSide) return;
         var effect = event.getEffectInstance().getEffect().value();
@@ -158,6 +158,8 @@ public final class EffectHooks {
     }
 
     private static boolean wearsLantern(Player player) {
+        // When the cells run dry the boons stop: an unpaid Lantern stretches nothing.
+        if (!tk.darrow.tribalpower.charm.CharmHooks.upkeepPaid(player)) return false;
         CharmInventory worn = CharmSlots.of(player);
         for (int i = 0; i < CharmInventory.SIZE; i++)
             if (worn.getItem(i).getItem() instanceof SpiritCharmItem charm && charm.kind == CharmKind.LANTERN) return true;

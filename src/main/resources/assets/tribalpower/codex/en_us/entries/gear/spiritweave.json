@@ -34,8 +34,8 @@
         "- **Robe**: resistance.",
         "- **Leggings**: speed.",
         "- **Boots**: slow falling whenever you drop more than a block.",
-        "Hood, robe and leggings spend **2 Pulse every four seconds**. The boots spend only when they catch you, and not while Slow Falling is already on you.",
-        "When your cells run dry the boons stop. Recharge, or take the pieces off."
+        "Hood, robe and leggings spend **2 Pulse every four seconds**, and that keeps every perk of the piece going, the ones that answer a blow, a fall or a snare as well as the steady boons. The boots spend only when they catch you, and not while Slow Falling is already on you; each payment covers four seconds.",
+        "When your cells run dry the boons stop, every perk with them. Recharge, or take the pieces off."
       ]
     },
     {
@@ -52,7 +52,7 @@
       "text": [
         "Wear a whole set of one rank and it works together:",
         "- A full **Bound** set: **10%** less damage taken.",
-        "- A full **Manifested** set: about **29 armour** and **20 toughness**, **8 extra hearts**, **20%** less damage taken, and it mends a heart every four seconds for **4 Pulse**. Built for the hardest fights."
+        "- A full **Manifested** set: about **29 armour** and **20 toughness**, **8 extra hearts**, **20%** less damage taken, and, while the robe is switched on, it mends a heart every four seconds for **4 Pulse**. Built for the hardest fights."
       ]
     },
     {
@@ -87,7 +87,7 @@
       "type": "text",
       "title": "Switching a piece off",
       "text": [
-        "Every worn piece has an off switch. Open the Gear screen (the apostrophe key by default, under Tribal Power in Controls) and set the piece to Off: it still protects like armour, but gives no effect and draws no Pulse until you switch it back. The tooltip says so in red while it is off.",
+        "Every worn piece has an off switch. Open the Gear screen (the apostrophe key by default, under Tribal Power in Controls) and set the piece to Off: it still protects like armour, but every perk of the piece stops, the ones that answer a blow or a fall too, and it draws no Pulse until you switch it back. The tooltip says so in red while it is off.",
         "The hood's goggles have their own switch there, and their own key. The same screen shows which vault your satchel opens and lets you hide the Pulse HUD."
       ]
     }

@@ -27,13 +27,14 @@ import tk.darrow.tribalpower.item.SpiritgearHelper;
  * The Pulse Bow's heavier sister. Loading takes longer than a full draw and spends its Pulse up front -- and takes
  * a verse arrow then, if you carry one -- but a loaded crossbow holds its shot for as long as you like, and the bolt
  * flies faster, straighter and hits harder than any bow bolt. The bow is quicker and can loose a half draw.
- * Spiritgear: it wears like the tools and mends with Manifested Ingots at the Spirit Anvil.
+ * Spiritgear: the Pulse paid at loading is the price of the shot, so shooting never wears it, and it mends with
+ * Manifested Ingots at the Spirit Anvil.
  */
 public class PulseCrossbowItem extends Item {
     public static final String LOADED = "Loaded", VERSE = "LoadedVerse";
 
     public PulseCrossbowItem(Properties properties) {
-        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.TOOL_DURABILITY));
+        super(properties.stacksTo(1).durability(tk.darrow.tribalpower.item.SpiritGear.UNTIERED_DURABILITY));
     }
 
     private static CompoundTag tag(ItemStack stack) {
@@ -95,7 +96,6 @@ public class PulseCrossbowItem extends Item {
             tag.remove(VERSE);
         });
         crossbow.remove(DataComponents.CUSTOM_MODEL_DATA);
-        crossbow.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
         player.level().playSound(null, player.blockPosition(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, 1.1F);
     }
 

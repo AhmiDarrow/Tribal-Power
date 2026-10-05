@@ -14,9 +14,9 @@
       "type": "spotlight",
       "item": "tribalpower:spiritgear_pickaxe",
       "text": [
-        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They cut like diamond and each lasts **1,024** uses.",
-        "While they can draw Pulse from a carried cell they spare their edge: every paid block or use mends a point of wear instead of costing one, and a paid blow costs none.",
-        "The [Pulse Bow](song_bench) and [Pulse Crossbow](pulse_crossbow) are forged from Manifested Ingots too and last as long, but every shot wears them a point. All of it mends at the [Spirit Anvil](spirit_anvil)."
+        "Tools forged from Manifested Ingots: a pickaxe, axe, shovel, blade, shears and hoe. They cut like diamond. The pickaxe, axe, shovel, blade and hoe last **1,561** uses, as diamond does, and the shears **1,024**.",
+        "While they can draw Pulse from a cell, the Pulse is the price of the work and the edge is spared: a paid block, use or blow takes no wear at all.",
+        "The [Pulse Bow](song_bench) and [Pulse Crossbow](pulse_crossbow) are forged from Manifested Ingots too and last **1,024**. Every shot is paid in Pulse, so shooting never wears them. All of it mends at the [Spirit Anvil](spirit_anvil)."
       ],
       "title": "Spiritgear tools"
     },
@@ -25,7 +25,7 @@
       "title": "Pulse for work",
       "text": [
         "A block mined costs **2 Pulse**, a hit **3**, a use **1**, taken from any Pulse Cell you carry.",
-        "With no Pulse the tool still works, but it wears like any other tool, and the action bar tells you it is starving.",
+        "With no Pulse the tool still works, but then it wears: what any tool would take, and a point more for starving until it is Bound. The action bar tells you it is starving.",
         "An attuned [familiar](familiar_boons) of a piece's voice nearby cuts what it spends by **40%**. The pickaxe, axe, shovel, hoe and blade also mend with diamonds on any anvil."
       ]
     },
@@ -53,8 +53,8 @@
       "title": "What ranks give",
       "text": [
         "- **Attuned**: every action costs one Pulse less, never below one (mining 1, a hit 2, a use 1), mines **20%** faster, and hits harder.",
-        "- **Bound**: a starved swing does not wear the tool, and it mines **45%** faster.",
-        "- **Manifested**: mines **80%** faster, half of starved swings even mend a point, and voice perks grow stronger.",
+        "- **Bound**: a starved action wears no more than any tool's would, and it mines **45%** faster.",
+        "- **Manifested**: mines **80%** faster, half of starved actions take no wear at all, and voice perks grow stronger.",
         "The blade and its [weapon family](spiritgear_weapons) gain the most: **+2**, **+5** and **+10** attack damage by rank, and a little attack speed. A Manifested blade hits **bosses 25% harder** and heals you for **10%** of every blow, which is what you want in a long fight.",
         "A Loom-linked pick spends **0 Pulse** to mine. Echo Unweave takes a damaged tool back apart into one Manifested Ingot, forgetting rank and voice."
       ]

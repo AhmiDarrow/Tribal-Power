@@ -23,8 +23,13 @@ import java.util.List;
 /** Spiritgear pickaxe — Pulse spares the edge; a linked totem voice adds a mining perk. */
 public class SpiritgearPickaxeItem extends PickaxeItem {
     public SpiritgearPickaxeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 1.0F, -2.8F))
-                .durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 1.0F, -2.8F)));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
     }
 
     @Override
@@ -39,24 +44,15 @@ public class SpiritgearPickaxeItem extends PickaxeItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
-                || state.getDestroySpeed(level, pos) == 0.0F) {
-            return super.mineBlock(stack, level, state, pos, entity);
-        }
-        SpiritGear.Swing parent = SpiritGear.swingFor(player);
-        boolean aoe = parent != null && parent.aoe();
-        boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
-        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
-        boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        SpiritGear.finishDurability(player, stack, paid);
-        if (ok && paid && !aoe) {
+        SpiritGear.Break mined = SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity));
+        if (mined.perks() && entity instanceof ServerPlayer player) {
             Attunement voice = SpiritGear.voice(stack).orElse(null);
             if (voice == Attunement.EARTH && SpiritGearHooks.stoneLike(state) && state.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
                 Direction.Axis axis = Direction.orderedByNearest(player)[0].getAxis();
                 SpiritGearHooks.aoe(player, stack, pos, axis, SpiritGearHooks::stoneLike);
             }
         }
-        return ok;
+        return mined.ok();
     }
 
     @Override

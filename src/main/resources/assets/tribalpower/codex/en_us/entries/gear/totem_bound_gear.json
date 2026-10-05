@@ -18,7 +18,7 @@
       "type": "text",
       "title": "Telling them apart",
       "text": [
-        "A bound Spiritweave piece spends **3 Pulse every four seconds** instead of 2, so a bound hood, robe and leggings cost **9**. Boots spend only when they catch you.",
+        "A bound Spiritweave piece spends **3 Pulse every four seconds** instead of 2, so a bound hood, robe and leggings cost **9**. Boots spend only when one of their perks is used, and that covers the next four seconds. A piece switched off, or with no Pulse to reach, gives none of its perks.",
         "You can tell a bound piece at a glance: its trims glow in its voice's colour, Earth green, Fire orange, Water blue, Air pale mint, Spirit violet and Loom cyan, in your hand and when worn. The higher its rank, the brighter it burns."
       ]
     },
@@ -31,14 +31,14 @@
         "- **Water** mines with silk touch.",
         "- **Air** gives haste.",
         "- **Spirit** makes nearby ores glint every few seconds, within 6 blocks (10 at rank 3).",
-        "- **Loom** mines for **0 Pulse**, and even starved it usually spares the edge."
+        "- **Loom** mines for **0 Pulse**, and takes no wear doing it."
       ]
     },
     {
       "type": "text",
       "title": "On the axe",
       "text": [
-        "The **axe**, on logs: **Earth** fells the **whole tree**, top down, wherever you strike it; crouch to cut just one log. Only logs of the kind you struck count, and only with naturally grown leaves on them: at least **3**, and one for every **8** logs. Wood touching planks, glass, doors, fences or other building blocks is a build, so bare log builds and a cabin grown into a tree stand. Each felled log costs a point of the edge (Unbreaking spares some), and the felling stops before the axe would break, so one felling is only as big as the edge left on the axe: a **Weeping Colossus**, tens of thousands of logs, takes several axes (or mendings). Pulse is paid as the logs come down: every 16 logs cost one swing's Pulse, and a swing's worth that fells nothing (protected wood, say) comes back. **Air** always takes two more, **Water** now and then drops an oak sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
+        "The **axe**, on logs: **Earth** fells the **whole tree**, top down, wherever you strike it; crouch to cut just one log. Only logs of the kind you struck count, and only with naturally grown leaves on them: at least **3**, and one for every **8** logs. Wood touching planks, glass, doors, fences or other building blocks is a build, so bare log builds and a cabin grown into a tree stand. Pulse is paid as the logs come down: every 16 logs cost one swing's Pulse, and like any paid work the felling takes no wear. So one felling is only as big as the Pulse the axe can reach: a **Weeping Colossus**, tens of thousands of logs, can take more than a whole Pulse Cell. A swing's worth that fells nothing (protected wood, say) comes back. **Air** always takes two more, **Water** now and then drops an oak sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
         "A tree past **512** logs (a willow aside) is left whole, and so is one that runs into unloaded ground. A swing with no Pulse cuts just one log."
       ]
     },
@@ -78,7 +78,7 @@
       "text": [
         "- **Air**: the hood gives night sight; the robe ignores knockback; the leggings give speed (stronger at rank 3); the boots give slow falling.",
         "- **Spirit**: the hood gives night sight and makes hostiles within 12 blocks glow; the robe gives resistance and makes attackers glow; the leggings give speed and a taller step; the boots cancel fall damage, and at rank 3 bounce you back up from a drop of 4 or more.",
-        "- **Loom**: the hood gives luck; the robe sometimes threads the Pulse it spent back into your cell; the leggings push through cobwebs and berry bushes; the boots let you crouch-walk forward to stitch **4 blocks** (**6** at rank 3), then rest 8 seconds."
+        "- **Loom**: the hood gives luck; the robe sometimes threads the Pulse it spent back into your cell; the leggings push through cobwebs and berry bushes; the boots let you crouch-walk forward to stitch **4 blocks** (**6** at rank 3), paid like their other perks, then rest 8 seconds."
       ]
     }
   ]
