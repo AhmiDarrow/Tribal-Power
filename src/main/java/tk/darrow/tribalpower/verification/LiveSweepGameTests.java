@@ -59,24 +59,34 @@ public final class LiveSweepGameTests {
         h.succeed();
     }
 
+    /** Each ingredient belongs in the seat the recipe shows: the right things in the wrong seats make nothing. */
     @GameTest(template = "empty")
-    public static void theHearthPotCountsAStackInOneSeat(GameTestHelper h) {
+    public static void theHearthPotWantsEachIngredientInItsSeat(GameTestHelper h) {
         h.setBlock(2, 2, 2, Blocks.CAMPFIRE);
         h.setBlock(2, 3, 2, CuisineRegistry.HEARTH_POT.get());
         var pot = (HearthPotBlockEntity) h.getBlockEntity(new BlockPos(2, 3, 2));
         var level = (ServerLevel) h.getLevel();
-        pot.setItem(0, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get(), 2));
-        pot.setItem(1, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.STEPPE_GRAIN).get()));
+        var emberroot = CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get();
+        var grain = CuisineRegistry.CROP_ITEMS.get(MarchCrop.STEPPE_GRAIN).get();
+        // Keeper's Root Mash: emberroot, emberroot on top, steppe grain below left
+        pot.setItem(0, new ItemStack(grain));
+        pot.setItem(1, new ItemStack(emberroot));
+        pot.setItem(2, new ItemStack(emberroot));
         pot.setItem(HearthPotBlockEntity.CONTAINER, new ItemStack(Items.BOWL));
-        h.assertTrue(pot.cookNow(level), "Two emberroot in one seat and a grain make the mash, state " + pot.state());
+        h.assertFalse(pot.cookNow(level), "The mash's ingredients in the wrong seats make nothing");
+        pot.setItem(0, new ItemStack(emberroot, 2));
+        pot.setItem(1, ItemStack.EMPTY);
+        pot.setItem(2, new ItemStack(grain));
+        h.assertFalse(pot.cookNow(level), "Two emberroot in one seat do not fill the second emberroot seat");
+        pot.setItem(0, new ItemStack(emberroot));
+        pot.setItem(1, new ItemStack(emberroot));
+        pot.setItem(2, new ItemStack(grain));
+        pot.setItem(3, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.FROSTBERRY).get()));
+        h.assertFalse(pot.cookNow(level), "A seat the recipe leaves empty spoils the pot");
+        pot.setItem(3, ItemStack.EMPTY);
+        h.assertTrue(pot.cookNow(level), "Each in its seat makes the mash, state " + pot.state());
         h.assertTrue(pot.getItem(HearthPotBlockEntity.OUTPUT).is(CuisineRegistry.DISHES.get(Dish.KEEPERS_ROOT_MASH).get()), "It is the mash");
-        h.assertTrue(pot.getItem(0).isEmpty() && pot.getItem(1).isEmpty(), "Both emberroot and the grain were spent");
-        pot.setItem(HearthPotBlockEntity.OUTPUT, ItemStack.EMPTY);
-        pot.setItem(0, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get(), 2));
-        pot.setItem(1, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.STEPPE_GRAIN).get()));
-        pot.setItem(2, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.FROSTBERRY).get()));
-        pot.setItem(HearthPotBlockEntity.CONTAINER, new ItemStack(Items.BOWL));
-        h.assertFalse(pot.cookNow(level), "A seat nothing asks for spoils the pot");
+        h.assertTrue(pot.getItem(0).isEmpty() && pot.getItem(1).isEmpty() && pot.getItem(2).isEmpty(), "One was taken from each seat");
         h.succeed();
     }
 
@@ -233,20 +243,19 @@ public final class LiveSweepGameTests {
         h.succeed();
     }
 
-    /** A meal asking for "any crop, then emberroot" is still found when the emberroot sits in the seat the tag looked at first. */
+    /** A tag holds its own seat: "any crop, then emberroot" wants the crop first and the emberroot second, not either way round. */
     @GameTest(template = "empty")
-    public static void theHearthPlannerBacksOutOfAGreedyChoice(GameTestHelper h) {
+    public static void theHearthTagHoldsItsOwnSeat(GameTestHelper h) {
         var emberroot = tk.darrow.tribalpower.cuisine.CuisineRegistry.CROP_ITEMS.get(tk.darrow.tribalpower.cuisine.MarchCrop.EMBERROOT).get();
         var grain = tk.darrow.tribalpower.cuisine.CuisineRegistry.CROP_ITEMS.get(tk.darrow.tribalpower.cuisine.MarchCrop.STEPPE_GRAIN).get();
         var anyCrop = net.minecraft.world.item.crafting.Ingredient.of(net.minecraft.tags.ItemTags.create(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "crops")));
         var recipe = new tk.darrow.tribalpower.cuisine.HearthRecipe(List.of(anyCrop, net.minecraft.world.item.crafting.Ingredient.of(emberroot)),
                 java.util.Optional.empty(), new ItemStack(Items.BREAD), 12);
-        var seats = List.of(new ItemStack(emberroot), new ItemStack(grain), ItemStack.EMPTY, ItemStack.EMPTY);
-        int[] plan = recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(seats, ItemStack.EMPTY));
-        h.assertTrue(plan != null, "The planner gives the tag the grain and the emberroot its own seat");
-        h.assertTrue(plan[0] == 1 && plan[1] == 1, "One from each seat: " + java.util.Arrays.toString(plan));
-        var short_ = List.of(new ItemStack(emberroot), ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY);
-        h.assertTrue(recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(short_, ItemStack.EMPTY)) == null, "One emberroot cannot answer for both");
+        var right = List.of(new ItemStack(grain), new ItemStack(emberroot), ItemStack.EMPTY, ItemStack.EMPTY);
+        int[] plan = recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(right, ItemStack.EMPTY));
+        h.assertTrue(plan != null && plan[0] == 1 && plan[1] == 1, "Crop first, emberroot second: " + java.util.Arrays.toString(plan));
+        var swapped = List.of(new ItemStack(emberroot), new ItemStack(grain), ItemStack.EMPTY, ItemStack.EMPTY);
+        h.assertTrue(recipe.plan(new tk.darrow.tribalpower.cuisine.HearthRecipe.Input(swapped, ItemStack.EMPTY)) == null, "The emberroot seat will not take grain");
         h.succeed();
     }
 

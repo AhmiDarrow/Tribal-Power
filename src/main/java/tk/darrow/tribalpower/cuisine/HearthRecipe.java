@@ -21,8 +21,11 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Hearth Pot meal: up to four ingredients, in any order, an optional container (a bowl, a bottle) that the meal
- * is served in, a result and how long it simmers. Data-driven, so a pack can add its own dishes.
+ * A Hearth Pot meal: up to four ingredients, each in its own seat, an optional container (a bowl, a bottle) that the
+ * meal is served in, a result and how long it simmers. Data-driven, so a pack can add its own dishes.
+ *
+ * <p>The seats are laid out two by two, and ingredient {@code i} belongs in seat {@code i}: top left, top right, bottom
+ * left, bottom right, the way the pot's screen, JEI and EMI all draw a recipe.
  */
 public record HearthRecipe(List<Ingredient> ingredients, Optional<Ingredient> container, ItemStack result, int seconds)
         implements Recipe<HearthRecipe.Input> {
@@ -46,47 +49,44 @@ public record HearthRecipe(List<Ingredient> ingredients, Optional<Ingredient> co
             ItemStack.STREAM_CODEC, HearthRecipe::result,
             ByteBufCodecs.VAR_INT, HearthRecipe::seconds, HearthRecipe::new);
 
-    /**
-     * Every ingredient is matched once, in any order, and a stack in one seat can stand for that many; every seated
-     * stack must be used by something, and the container must be right.
-     */
+    /** Every ingredient sits in its own seat, the seats past the last ingredient are empty, and the container is right. */
     @Override
     public boolean matches(Input input, Level level) {
         return plan(input) != null;
     }
 
     /**
-     * How many to take from each ingredient seat for one meal, or null when the seats do not make this meal. A
-     * seat holding two emberroot answers for "emberroot, emberroot"; a seat nothing asks for spoils the pot.
+     * How many to take from each ingredient seat for one meal (one from each seat the recipe uses), or null when the
+     * seats do not make this meal: an ingredient in the wrong seat, a seat the recipe leaves empty holding something.
      */
     public int @Nullable [] plan(Input input) {
         List<ItemStack> seats = input.ingredients();
+        if (ingredients.size() > seats.size()) return null;
         int[] take = new int[seats.size()];
-        if (!assign(seats, take, 0)) return null;
-        for (int i = 0; i < seats.size(); i++) if (!seats.get(i).isEmpty() && take[i] == 0) return null;
+        for (int i = 0; i < seats.size(); i++) {
+            ItemStack seat = seats.get(i);
+            if (i < ingredients.size()) {
+                if (seat.isEmpty() || !ingredients.get(i).test(seat)) return null;
+                take[i] = 1;
+            } else if (!seat.isEmpty()) {
+                return null;
+            }
+        }
         boolean containerRight = container.map(c -> c.test(input.container())).orElse(input.container().isEmpty());
         return containerRight ? take : null;
     }
 
     /**
-     * Seats the wanted ingredients from {@code from} on, trying every seat that fits and backing out of a choice that
-     * leaves a later ingredient with nothing (a tag that took the one seat a named ingredient needed). A seat not yet
-     * drawn on is tried first, so two emberroot in two seats are both used before a stack is.
+     * Whether {@code stack} in seat {@code slot} could be part of this meal given what the other seats already hold:
+     * the recipe wants it there, and every other filled seat holds what the recipe wants in it.
      */
-    private boolean assign(List<ItemStack> seats, int[] take, int from) {
-        if (from == ingredients.size()) return true;
-        Ingredient wanted = ingredients.get(from);
-        for (int pass = 0; pass < 2; pass++) {
-            for (int i = 0; i < seats.size(); i++) {
-                ItemStack seat = seats.get(i);
-                if (seat.isEmpty() || !wanted.test(seat) || seat.getCount() <= take[i]) continue;
-                if ((pass == 0) == (take[i] > 0)) continue;
-                take[i]++;
-                if (assign(seats, take, from + 1)) return true;
-                take[i]--;
-            }
+    public boolean fits(List<ItemStack> seats, int slot, ItemStack stack) {
+        if (slot >= ingredients.size() || !ingredients.get(slot).test(stack)) return false;
+        for (int i = 0; i < seats.size(); i++) {
+            if (i == slot || seats.get(i).isEmpty()) continue;
+            if (i >= ingredients.size() || !ingredients.get(i).test(seats.get(i))) return false;
         }
-        return false;
+        return true;
     }
 
     @Override public ItemStack assemble(Input input, HolderLookup.Provider registries) { return result.copy(); }

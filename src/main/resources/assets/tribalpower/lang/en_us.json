@@ -786,6 +786,7 @@
   "gui.tribalpower.codex.lattice_base": "Unranked: %s seconds | %s Pulse/s | %s total Pulse",
   "gui.tribalpower.codex.shaped": "Shaped crafting",
   "gui.tribalpower.codex.shapeless": "Shapeless crafting",
+  "gui.tribalpower.codex.hearth_kind": "Hearth Pot, each in its seat, %s s",
   "gui.tribalpower.codex.tribes_met": "%s of %s tribes met",
   "gui.tribalpower.codex.tablets_read": "%s of %s tablets read",
   "gui.tribalpower.codex.categories": "Chapters",

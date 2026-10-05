@@ -128,6 +128,14 @@ public final class CuisineGameTests {
         net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()), up);
         h.assertTrue(pot.getItem(0).is(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()), "An ingredient goes to the first ingredient seat");
         h.assertTrue(pot.getItem(HearthPotBlockEntity.CONTAINER).getCount() == 1, "An ingredient never joins the bowls");
+        // the mash wants emberroot in both top seats: a hopper keeps them even rather than piling into the first
+        net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()), up);
+        h.assertTrue(pot.getItem(1).is(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()) && pot.getItem(0).getCount() == 1,
+                "The second emberroot fills the second emberroot seat, seats " + pot.getItem(0) + " / " + pot.getItem(1));
+        net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.STEPPE_GRAIN).get()), up);
+        h.assertTrue(pot.getItem(2).is(CuisineRegistry.CROP_ITEMS.get(MarchCrop.STEPPE_GRAIN).get()), "The grain goes below, where the mash wants it");
+        ItemStack stray = net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(Items.DIRT), up);
+        h.assertTrue(stray.getCount() == 1, "Something no meal wants in any free seat is refused");
         ItemStack bottle = net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(Items.GLASS_BOTTLE), up);
         h.assertTrue(bottle.getCount() == 1, "A bottle waits while the vessel seat holds bowls rather than taking an ingredient seat");
         var handler = h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK, h.absolutePos(new BlockPos(2, 2, 2)), up);

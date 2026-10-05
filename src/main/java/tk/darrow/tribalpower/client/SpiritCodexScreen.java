@@ -960,7 +960,43 @@ public final class SpiritCodexScreen extends Screen {
     }
 
     /** One recipe: its grid, an arrow and the result, and what station and voice a lattice recipe needs. */
+    /**
+     * A Hearth Pot meal as the pot holds it: the two-by-two square with each ingredient in its own seat, the bowl or
+     * bottle seat beside it, then the meal. The seats matter, so the page shows them where they go.
+     */
+    private void drawHearth(GuiGraphics g, tk.darrow.tribalpower.cuisine.HearthRecipe recipe, int x, int y, int w) {
+        long tick = System.currentTimeMillis() / 1400;
+        for (int i = 0; i < tk.darrow.tribalpower.cuisine.HearthRecipe.MAX_INGREDIENTS; i++) {
+            int cx = x + (i % 2) * 18, cy = y + 9 + (i / 2) * 18;
+            g.fill(cx - 1, cy - 1, cx + 17, cy + 17, 0xFF23373F);
+            if (i < recipe.ingredients().size()) {
+                ItemStack[] options = recipe.ingredients().get(i).getItems();
+                if (options.length > 0) item(g, options[(int) (tick % options.length)], cx, cy);
+            }
+        }
+        int vesselX = x + 2 * 18 + 8;
+        g.fill(vesselX - 1, y + 17, vesselX + 17, y + 35, 0xFF1B2D33);
+        recipe.container().ifPresent(c -> {
+            ItemStack[] options = c.getItems();
+            if (options.length > 0) item(g, options[(int) (tick % options.length)], vesselX, y + 18);
+        });
+        int resultX = vesselX + 18 + 22;
+        g.drawString(font, "→", resultX - 16, y + 23, GOLD, false);
+        g.fill(resultX - 3, y + 15, resultX + 19, y + 37, 0xFF2E4A52);
+        item(g, recipe.getResultItem(minecraft.level.registryAccess()), resultX, y + 18);
+        int ky = y + 18;
+        for (FormattedCharSequence line : font.split(Component.translatable("gui.tribalpower.codex.hearth_kind", recipe.seconds()), Math.max(24, w - (resultX - x) - 24))) {
+            if (ky > y + 48) break;
+            g.drawString(font, line, resultX + 24, ky, TEAL, false);
+            ky += 10;
+        }
+    }
+
     private void drawRecipe(GuiGraphics g, Recipe<?> recipe, int x, int y, int w) {
+        if (recipe instanceof tk.darrow.tribalpower.cuisine.HearthRecipe hearth) {
+            drawHearth(g, hearth, x, y, w);
+            return;
+        }
         int columns = recipe instanceof ShapedRecipe shaped ? shaped.getWidth() : 3;
         int index = 0;
         for (Ingredient ingredient : recipe.getIngredients()) {

@@ -129,11 +129,30 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
     @Override public int[] getSlotsForFace(Direction side) { return side == Direction.DOWN ? OUTPUTS : INPUTS; }
     /**
      * A hopper fills the first seat that takes its item, so automation sorts by kind: a bowl or bottle some meal is
-     * served in goes only to the vessel seat, and everything else only to the ingredient seats.
+     * served in goes only to the vessel seat, and an ingredient only to a seat where some meal wants it, given what the
+     * other seats already hold. A meal that wants the same thing in two seats gets them filled evenly, so one seat
+     * never hoards the whole supply while the other stays empty.
      */
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
         if (slot >= OUTPUT) return false;
-        return slot == CONTAINER ? canPlaceItem(slot, stack) : !isVessel(stack) && canPlaceItem(slot, stack);
+        if (slot == CONTAINER) return canPlaceItem(slot, stack);
+        if (isVessel(stack) || !canPlaceItem(slot, stack) || !wanted(slot, stack)) return false;
+        ItemStack here = items.get(slot);
+        for (int i = 0; i < CONTAINER; i++) {
+            if (i == slot) continue;
+            ItemStack other = items.get(i);
+            if (other.isEmpty() ? wanted(i, stack) && !here.isEmpty()
+                    : ItemStack.isSameItemSameComponents(other, stack) && other.getCount() < here.getCount()) return false;
+        }
+        return true;
+    }
+
+    /** Whether some meal wants {@code stack} in seat {@code slot}, given what the other seats hold now. */
+    private boolean wanted(int slot, ItemStack stack) {
+        if (level == null) return false;
+        List<ItemStack> seats = input().ingredients();
+        return level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()).stream()
+                .anyMatch(holder -> holder.value().fits(seats, slot, stack));
     }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return slot == OUTPUT; }
     @Override public int getContainerSize() { return SIZE; }
