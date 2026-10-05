@@ -71,6 +71,8 @@ public final class Diagnostics {
             return device.patternState().get(level, pos);
         if (be instanceof tk.darrow.tribalpower.gate.GateKeystoneBlockEntity keystone)
             return keystone.match(level);
+        if (be instanceof tk.darrow.tribalpower.leyheart.LeyHeartBlockEntity heart)
+            return heart.match(level);
         return null;
     }
 

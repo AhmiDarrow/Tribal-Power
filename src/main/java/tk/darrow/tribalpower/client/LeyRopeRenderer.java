@@ -100,14 +100,14 @@ public final class LeyRopeRenderer {
                 PULLS.clear();
                 for (LeyRopePayload.Rope raw : ropes) {
                     LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
-                            raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice());
+                            raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice(), raw.reach());
                     PULLS.add(tk.darrow.tribalpower.ley.LeyMagnets.pulls(magnets, rope));
                 }
             }
             int i = 0;
             for (LeyRopePayload.Rope raw : ropes) {
                 LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
-                        raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice());
+                        raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice(), raw.reach());
                 var pull = i < PULLS.size() ? PULLS.get(i) : java.util.List.<tk.darrow.tribalpower.ley.LeyMagnets.Pull>of();
                 i++;
                 draw(buffer, matrix, rope, ticks, look, pull);
@@ -128,7 +128,8 @@ public final class LeyRopeRenderer {
     private static void draw(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix, LeyField.Rope rope,
                              double ticks, Vec3 look, java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull> pulls) {
         double from = Math.max(0, rope.travel() - 110);
-        double to = Math.min(LeyField.REACH, rope.travel() + 110);
+        // A Ley Heart's thread stops where it was raised to; a planetary vein runs its full reach.
+        double to = Math.min(rope.reach(), rope.travel() + 110);
         double step = 1.25;
         int voice = rope.voice();
         if (voice < 0 || voice >= HALO_RGB.length) voice = 0;
@@ -147,7 +148,7 @@ public final class LeyRopeRenderer {
             int mark = (int) Math.floor(t / 18.0);
             if (mark != (int) Math.floor((t - step) / 18.0)) {
                 double node = mark * 18.0;
-                if (node >= 0 && node <= LeyField.REACH) {
+                if (node >= 0 && node <= rope.reach()) {
                     float pulse = 0.84F + 0.16F * (float) Math.sin(ticks * PULSE + node * 0.11);
                     glow(buffer, matrix, tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, node, pulls), look, 0.5 * pulse, halo, core);
                 }

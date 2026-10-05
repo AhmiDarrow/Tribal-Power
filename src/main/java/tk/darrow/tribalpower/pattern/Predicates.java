@@ -98,7 +98,8 @@ public final class Predicates {
                 () -> Component.translatable("pattern.tribalpower.expect.totem",
                         Component.translatable("attunement.tribalpower." + voice.getSerializedName())),
                 () -> BlockPredicate.Role.TOTEM,
-                () -> new ItemStack(tk.darrow.tribalpower.block.ModBlocks.RESONANCE_TOTEM_EARTH.get()));
+                // The diagram shows the voice it asks for, not a stand-in Earth totem.
+                () -> new ItemStack(tk.darrow.tribalpower.block.ModBlocks.totemFor(voice).get()));
     }
 
     /** Any Resonance Totem, whatever its voice. */

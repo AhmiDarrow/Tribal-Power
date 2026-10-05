@@ -34,11 +34,22 @@ public class RiteSavedData extends SavedData {
         public boolean touches(BlockPos pos) { return a.equals(pos) || b.equals(pos); }
         public BlockPos other(BlockPos pos) { return a.equals(pos) ? b : a; }
     }
+    /**
+     * A thread a complete Ley Heart raises: from the heart, through the totem of {@code voice}, and on out
+     * into the world for {@code length} blocks. It has no expiry; the heart keeps it while the pattern
+     * stands, and breaking the heart or that totem lowers it.
+     */
+    public record HeartThread(String dimension, BlockPos heart, BlockPos totem, int voice, int length) {
+        public boolean touches(BlockPos pos) { return heart.equals(pos) || totem.equals(pos); }
+    }
 
     private final Map<String, Map<Long, Long>> blessed = new HashMap<>();
     private final List<Ward> wards = new ArrayList<>();
     private final List<LeyLine> leyLines = new ArrayList<>();
     private final List<Spring> springs = new ArrayList<>();
+    private final List<HeartThread> heartThreads = new ArrayList<>();
+    /** Not saved: only readings taken since the server started can be stale. */
+    private int heartEpoch;
 
     public static SavedData.Factory<RiteSavedData> factory() {
         return new SavedData.Factory<>(RiteSavedData::new, RiteSavedData::load);
@@ -106,11 +117,16 @@ public class RiteSavedData extends SavedData {
         setDirty();
     }
 
-    /** Drop every ley line touching {@code pos} (a totem was broken). */
+    /** Drop every ley line touching {@code pos} (a totem was broken), and every Ley Heart thread it carried. */
     public void unbind(ServerLevel level, BlockPos pos) {
-        if (leyLines.isEmpty()) return;
+        if (leyLines.isEmpty() && heartThreads.isEmpty()) return;
         String dim = dimension(level);
         if (leyLines.removeIf(line -> line.dimension().equals(dim) && line.touches(pos))) setDirty();
+        // A heart's six threads stand or fall together: losing one totem lowers the whole star.
+        List<BlockPos> hearts = new ArrayList<>(1);
+        for (HeartThread thread : heartThreads)
+            if (thread.dimension().equals(dim) && thread.touches(pos) && !hearts.contains(thread.heart())) hearts.add(thread.heart());
+        for (BlockPos heart : hearts) lower(level, heart);
     }
 
     public List<LeyLine> leyLines(ServerLevel level) {
@@ -119,6 +135,37 @@ public class RiteSavedData extends SavedData {
         String dim = dimension(level);
         List<LeyLine> out = new ArrayList<>();
         for (LeyLine line : leyLines) if (line.dimension().equals(dim)) out.add(line);
+        return out;
+    }
+
+    // ---- Ley Heart --------------------------------------------------------------------------
+
+    /** Replace whatever threads {@code heart} had with {@code threads}. */
+    public void raise(ServerLevel level, BlockPos heart, List<HeartThread> threads) {
+        String dim = dimension(level);
+        heartThreads.removeIf(thread -> thread.dimension().equals(dim) && thread.heart().equals(heart));
+        heartThreads.addAll(threads);
+        heartEpoch++;
+        setDirty();
+    }
+
+    /** Lower every thread a heart at {@code heart} raised. */
+    public void lower(ServerLevel level, BlockPos heart) {
+        if (heartThreads.isEmpty()) return;
+        String dim = dimension(level);
+        if (heartThreads.removeIf(thread -> thread.dimension().equals(dim) && thread.heart().equals(heart))) {
+            heartEpoch++;
+            setDirty();
+        }
+    }
+
+    public int heartEpoch() { return heartEpoch; }
+
+    public List<HeartThread> heartThreads(ServerLevel level) {
+        if (heartThreads.isEmpty()) return List.of(); // hot path: consulted by every ley reading
+        String dim = dimension(level);
+        List<HeartThread> out = new ArrayList<>();
+        for (HeartThread thread : heartThreads) if (thread.dimension().equals(dim)) out.add(thread);
         return out;
     }
 
@@ -178,6 +225,12 @@ public class RiteSavedData extends SavedData {
             CompoundTag entry = springList.getCompound(i);
             data.springs.add(new Spring(entry.getString("Dim"), BlockPos.of(entry.getLong("Pos")), entry.getLong("Expiry")));
         }
+        ListTag threadList = tag.getList("HeartThreads", Tag.TAG_COMPOUND);
+        for (int i = 0; i < threadList.size(); i++) {
+            CompoundTag entry = threadList.getCompound(i);
+            data.heartThreads.add(new HeartThread(entry.getString("Dim"), BlockPos.of(entry.getLong("Heart")),
+                    BlockPos.of(entry.getLong("Totem")), entry.getInt("Voice"), entry.getInt("Length")));
+        }
         return data;
     }
 
@@ -223,6 +276,17 @@ public class RiteSavedData extends SavedData {
             springList.add(entry);
         }
         tag.put("Springs", springList);
+        ListTag threadList = new ListTag();
+        for (HeartThread thread : heartThreads) {
+            CompoundTag entry = new CompoundTag();
+            entry.putString("Dim", thread.dimension());
+            entry.putLong("Heart", thread.heart().asLong());
+            entry.putLong("Totem", thread.totem().asLong());
+            entry.putInt("Voice", thread.voice());
+            entry.putInt("Length", thread.length());
+            threadList.add(entry);
+        }
+        tag.put("HeartThreads", threadList);
         return tag;
     }
 }

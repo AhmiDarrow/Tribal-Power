@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "tribalpower:block/ley_heart"
+    },
+    "lit=true": {
+      "model": "tribalpower:block/ley_heart_on"
+    }
+  }
+}

@@ -65,14 +65,18 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
      */
     private java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Magnet> lastMagnets;
     private tk.darrow.tribalpower.ley.LeyField.Reading lastReading;
+    /** A Ley Heart raising or lowering its threads changes the reading as surely as a totem moving. */
+    private int lastHearts = -1;
 
     @org.jetbrains.annotations.Nullable
     private tk.darrow.tribalpower.ley.LeyField.Reading reading(Level level, BlockPos pos) {
         if (!(level instanceof net.minecraft.server.level.ServerLevel server)) return null;
         var magnets = tk.darrow.tribalpower.ley.LeyMagnets.near(server, pos);
-        if (lastReading == null || !magnets.equals(lastMagnets)) {
+        int hearts = tk.darrow.tribalpower.rite.world.LeyLines.heartEpoch(server);
+        if (lastReading == null || !magnets.equals(lastMagnets) || hearts != lastHearts) {
             lastReading = tk.darrow.tribalpower.ley.LeyField.sample(server, pos, magnets);
             lastMagnets = magnets;
+            lastHearts = hearts;
         }
         return lastReading;
     }

@@ -189,7 +189,7 @@ public class BuildingGameTests {
                 }
             }
         }
-        h.assertTrue(rites == 7, "The chalk must carry every placement rite, found " + rites);
+        h.assertTrue(rites == 8, "The chalk must carry every placement rite, found " + rites);
         List<BlockPos> pit = BuildPattern.LISTENING_PIT.offsets(1);
         h.assertTrue(pit.contains(BlockPos.ZERO), "The Listening Pit marks where the mesh stands");
         h.assertTrue(pit.contains(new BlockPos(0, -1, 0)), "The pit floor sits under the mesh");

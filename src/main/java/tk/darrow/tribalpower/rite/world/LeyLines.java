@@ -46,6 +46,47 @@ public final class LeyLines {
         RiteSavedData.get(level.getServer()).bind(level, a, b, level.getGameTime() + durationTicks);
     }
 
+    /** How far a Ley Heart's thread runs from the heart, out through its totem and into the world. */
+    public static final int HEART_REACH = 64;
+
+    /**
+     * Raise a Ley Heart's threads: one per voice, from the heart's centre along the bearing to that voice's
+     * totem. Replaces whatever the heart had raised before, so raising twice is harmless.
+     */
+    public static void raise(ServerLevel level, BlockPos heart, java.util.Map<Attunement, BlockPos> totems) {
+        String dim = RiteSavedData.dimension(level);
+        List<RiteSavedData.HeartThread> threads = new ArrayList<>(totems.size());
+        totems.forEach((voice, totem) -> threads.add(new RiteSavedData.HeartThread(dim, heart.immutable(),
+                totem.immutable(), voice.ordinal(), HEART_REACH)));
+        RiteSavedData.get(level.getServer()).raise(level, heart, threads);
+    }
+
+    /** Lower a heart's threads; called when the heart breaks or its pattern does. */
+    public static void lower(ServerLevel level, BlockPos heart) {
+        RiteSavedData.get(level.getServer()).lower(level, heart);
+    }
+
+    /** Every Ley Heart thread standing in this dimension. Empty on the client. */
+    public static List<RiteSavedData.HeartThread> heartThreads(Level level) {
+        if (!(level instanceof ServerLevel server) || server.getServer() == null) return List.of();
+        return RiteSavedData.get(server.getServer()).heartThreads(server);
+    }
+
+    /**
+     * Bumped every time any heart raises or lowers its threads. Readings cached against the totems nearby
+     * (the Ley Collector's) compare it too, so a thread raised sixty blocks away is felt on the next beat.
+     */
+    public static int heartEpoch(ServerLevel level) {
+        return RiteSavedData.get(level.getServer()).heartEpoch();
+    }
+
+    /** Threads the heart at {@code heart} has raised. */
+    public static List<RiteSavedData.HeartThread> raisedBy(Level level, BlockPos heart) {
+        List<RiteSavedData.HeartThread> out = new ArrayList<>(6);
+        for (RiteSavedData.HeartThread thread : heartThreads(level)) if (thread.heart().equals(heart)) out.add(thread);
+        return out;
+    }
+
     /** Drop every line ending at {@code pos}; called when a Resonance Totem is broken. */
     public static void unbind(ServerLevel level, BlockPos pos) {
         RiteSavedData.get(level.getServer()).unbind(level, pos);

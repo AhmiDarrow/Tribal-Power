@@ -123,7 +123,7 @@ public class LatticeGameTests {
                         shown.add(creature.entity());
                     }
                     case tk.darrow.tribalpower.client.codex.CodexBook.Pattern pattern -> h.assertTrue(
-                            java.util.Set.of("stone_font","listening_pit","rite_circle","voice_ring","shatter_array","way_gate","far_gate").contains(pattern.pattern()),e.id()+" draws an unknown pattern "+pattern.pattern());
+                            java.util.Set.of("stone_font","listening_pit","rite_circle","voice_ring","shatter_array","way_gate","far_gate","ley_heart").contains(pattern.pattern()),e.id()+" draws an unknown pattern "+pattern.pattern());
                     case tk.darrow.tribalpower.client.codex.CodexBook.Scene scene -> {
                         h.assertTrue(!scene.steps().isEmpty(),e.id()+" has an empty scene");
                         for(var step:scene.steps()) {

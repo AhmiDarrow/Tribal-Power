@@ -216,6 +216,7 @@ public final class CodexScene {
             case "shatter_array" -> ModPatterns.SHATTER_ARRAY;
             case "way_gate" -> ModPatterns.WAY_GATE;
             case "far_gate" -> ModPatterns.FAR_GATE;
+            case "ley_heart" -> ModPatterns.LEY_HEART;
             default -> null;
         };
         if (pattern == null) return List.of();

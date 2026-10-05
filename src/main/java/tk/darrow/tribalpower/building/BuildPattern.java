@@ -51,7 +51,8 @@ public enum BuildPattern {
     VOICE_RING,
     SHATTER_ARRAY,
     WAY_GATE,
-    FAR_GATE;
+    FAR_GATE,
+    LEY_HEART;
 
     public static final int MIN_SIZE = 2;
     public static final int MAX_SIZE = 128;
@@ -103,6 +104,7 @@ public enum BuildPattern {
             case SHATTER_ARRAY -> ModPatterns.SHATTER_ARRAY;
             case WAY_GATE -> ModPatterns.WAY_GATE;
             case FAR_GATE -> ModPatterns.FAR_GATE;
+            case LEY_HEART -> ModPatterns.LEY_HEART;
             default -> null;
         };
     }
