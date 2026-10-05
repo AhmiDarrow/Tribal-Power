@@ -16,7 +16,9 @@ import org.jetbrains.annotations.Nullable;
  * does. Hunger and saturation sit beside the tribe dishes' (constants, as theirs are); how long each side effect
  * lasts is in the config ({@code cuisine.fare}).
  *
- * <p>Ceiling: no fare outfills the best tribe dish (9 hunger at 0.8), so a dish's boon is never the worse buy.
+ * <p>Ceiling: no fare outfills the best tribe dish (9 hunger at 0.8), so a dish's boon is never the worse buy. The
+ * one exception is {@link Trait#HEARTY} fare, which fills less but stays with you longer than anything else and
+ * carries no gift at all: the fullness is the whole of it.
  */
 public enum Fare {
     // the road: cheap, stackable, most of them cooked several at a time
@@ -35,7 +37,9 @@ public enum Fare {
     // the fight: the fullest fare, for before a hard night
     EMBER_ROAST_SQUASH(6, 0.7F, Serving.PLAIN, 16, MobEffects.DAMAGE_BOOST, 30),
     LONG_HUNT_STEW(9, 0.7F, Serving.BOWL, 16, MobEffects.ABSORPTION, 60),
-    BLOOMSONG_CUSTARD(6, 0.8F, Serving.BOWL, 16, MobEffects.REGENERATION, 15);
+    BLOOMSONG_CUSTARD(6, 0.8F, Serving.BOWL, 16, MobEffects.REGENERATION, 15),
+    // the hearty: two glimmerfin fried over two emberroot cut into chips, the meal that keeps you full longest
+    FISH_AND_CHIPS(8, 1.0F, Serving.PLAIN, 16, null, 0, Trait.HEARTY);
 
     /** What the fare is served in: the pot asks for it as the container, and eating hands it back. */
     public enum Serving {
@@ -46,7 +50,8 @@ public enum Fare {
         Serving(@Nullable Item container) { this.container = container; }
     }
 
-    public enum Trait { FAST, ALWAYS, DRINK }
+    /** HEARTY: saturates past the best tribe dish, in return for no gift and less hunger than the fullest dish. */
+    public enum Trait { FAST, ALWAYS, DRINK, HEARTY }
 
     public final int nutrition;
     public final float saturation;

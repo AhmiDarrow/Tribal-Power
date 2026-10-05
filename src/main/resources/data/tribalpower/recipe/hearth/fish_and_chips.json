@@ -1,0 +1,22 @@
+{
+  "type": "tribalpower:hearth",
+  "ingredients": [
+    {
+      "item": "tribalpower:raw_glimmerfin"
+    },
+    {
+      "item": "tribalpower:raw_glimmerfin"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    },
+    {
+      "item": "tribalpower:emberroot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tribalpower:fish_and_chips"
+  },
+  "seconds": 12
+}

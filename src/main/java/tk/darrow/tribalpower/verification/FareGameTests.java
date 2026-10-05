@@ -93,6 +93,12 @@ public final class FareGameTests {
         }
         for (Fare fare : Fare.values()) {
             h.assertTrue(fare.nutrition <= topNutrition, fare + " fills more than any tribe dish");
+            if (fare.has(Fare.Trait.HEARTY)) {
+                // hearty fare trades the gift away for the longest fullness in camp, and still fills less
+                h.assertTrue(fare.effect == null && fare.nutrition < topNutrition, fare + " is hearty but carries a gift or fills as much as a dish");
+                h.assertTrue(fare.nutrition * fare.saturation > topSaturation, fare + " is hearty but saturates no better than a dish");
+                continue;
+            }
             h.assertTrue(fare.nutrition * fare.saturation < topSaturation, fare + " saturates as much as the best tribe dish");
             h.assertTrue(fare.effect == null || TribalConfig.fareEffectSeconds(fare) <= 120, fare + " lends a long gift; keep fare's gifts short");
         }

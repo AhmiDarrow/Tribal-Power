@@ -2104,6 +2104,8 @@
   "item.tribalpower.ember_roast_squash.desc": "Pumpkin roasted on Emberroot, two to a pot. Fire in the arm",
   "item.tribalpower.long_hunt_stew": "Long-hunt Stew",
   "item.tribalpower.long_hunt_stew.desc": "Roast game stewed down with roots. Eaten before a hard night",
+  "item.tribalpower.fish_and_chips": "Fish and Chips",
+  "item.tribalpower.fish_and_chips.desc": "Battered glimmerfin on emberroot chips. Keeps you full longer than any meal in camp",
   "item.tribalpower.bloomsong_custard": "Bloomsong Custard",
   "item.tribalpower.bloomsong_custard.desc": "Echo Bloom set in sweet egg. Mends you while you walk",
   "item.tribalpower.fare.effect": "%s for %s seconds",

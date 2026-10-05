@@ -9,7 +9,8 @@
     "tribalpower:reed_wrapped_eel",
     "tribalpower:ember_roast_squash",
     "tribalpower:long_hunt_stew",
-    "tribalpower:bloomsong_custard"
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
   ],
   "pages": [
     {
@@ -30,6 +31,7 @@
         "- **Ember-roast Squash**: a pumpkin, Emberroot, Steppe Grain. Two to a pot, 6 hunger and **Strength for 30 seconds**.",
         "- **Long-hunt Stew**: Roast Game, a potato, a carrot, Emberroot, a bowl. 9 hunger, the fullest camp fare, and **Absorption for 60 seconds**: eat it before a hard night.",
         "- **Bloomsong Custard**: Echo Bloom, an egg, sugar, honeycomb, a bowl. 6 hunger and **Regeneration for 15 seconds**, to mend on the move.",
+        "- **Fish and Chips**: two Raw Glimmerfin across the top of the square, two Emberroot below them. 8 hunger and the **most saturation of any meal in camp**, so it keeps you full the longest, but it lends no gift.",
         "Bowls come back when you eat. Packs can change how long each gift lasts in the config."
       ]
     },
@@ -60,6 +62,10 @@
     {
       "type": "recipe",
       "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
     }
   ],
   "next": "feasts"
