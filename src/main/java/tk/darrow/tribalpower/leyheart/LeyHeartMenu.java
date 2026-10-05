@@ -42,6 +42,9 @@ public class LeyHeartMenu extends AbstractContainerMenu {
 
     public int data(int index) { return data.get(index); }
 
+    /** A reading sent as two 15-bit halves, {@code lo} and {@code hi}: ContainerData travels as shorts. */
+    public int wide(int lo, int hi) { return (data.get(lo) & 0x7FFF) | (data.get(hi) & 0xFFFF) << 15; }
+
     @Override public boolean stillValid(Player player) { return container.stillValid(player); }
 
     @Override

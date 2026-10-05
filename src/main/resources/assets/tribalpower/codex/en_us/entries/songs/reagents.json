@@ -89,9 +89,20 @@
       "type": "text",
       "text": [
         "Every March creature leaves something behind: a fang, a scale, a tuft of wool. Those are **reagents**, and they are how Tribal Power turns hunting into magic.",
-        "Keep a {item:tribalpower:reagent_pouch} on your hotbar and every reagent you pick up goes straight into it. The pouch holds up to **999** of each kind, raw and empowered, so it never fills your bags.",
+        "Keep a {item:tribalpower:reagent_pouch} on your hotbar and every plain reagent you pick up goes straight into it. The pouch holds up to **999** of each kind, raw and empowered, so it never fills your bags. A reagent with a **Thread** stays in your bags (next page).",
         "Right-click the pouch to look inside and take raw reagents back out, for dyes, remedies and recipes. The Song Bench's **Take** button does the same.",
         "A reagent starts **raw**. At a [Song Bench](song_bench) you can **empower** it for 16 Pulse. Raw reagents brew remedies and go into a few recipes; empowered ones write songs, fletch verse arrows and anoint weapons."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Threads",
+      "text": [
+        "Some reagents carry a **Thread**, I, II or III, named in gold on the tooltip. It is how strong the creature it came off was, read when the reagent leaves it, by a kill or a brush: its strongest bloodline thread past 2, and one step more for a gold-named **elite**.",
+        "- **Thread I**: a wild creature with a thread at 3, or any elite.",
+        "- **Thread II**: a bred line with a thread at 4, or an elite with a thread at 3.",
+        "- **Thread III**: an **Exalted** line, a thread at 5. Brush your own Exalted familiar for two a minute.",
+        "Reagents of different Threads never stack. Everywhere else a threaded reagent works like any other; a [Ley Heart](ley_heart) burns it hotter, worth **6, 9 or 12** against a plain one's 4."
       ]
     },
     {

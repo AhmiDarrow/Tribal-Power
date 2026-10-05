@@ -9,7 +9,7 @@
       "item": "tribalpower:ley_heart",
       "text": [
         "A [Pulse Resonator](pulse_resonator) and a [Ley Collector](ley_collector) made one. Stand it at the heart of a **Heart Star**, all six totem voices around it, and it burns three fuels at once and raises **six ley lines** out into the world.",
-        "It stores **8,000 Pulse**, which it keeps when you break it."
+        "It stores **200,000 Pulse**, about 45 seconds of its best, which it keeps when you break it."
       ]
     },
     {
@@ -32,8 +32,8 @@
       "title": "Three fuels",
       "text": [
         "Right-click the heart to open it. Each fuel has its own intake:",
-        "- **Resonator crystals** go in the crystal slot: Echo Shard, Attuned Echo, Bound Echo or Resonant Core. One burns **5, 10, 20 or 40 minutes**.",
-        "- Any **creature reagent** goes in the reagent slot. One burns **2 minutes**.",
+        "- **Resonator crystals** go in the crystal slot: Echo Shard, Attuned Echo, Bound Echo or Resonant Core. One burns **15, 12, 10 or 8 minutes**: a better crystal sings louder and burns faster.",
+        "- Any **creature reagent** goes in the reagent slot. A plain one burns **2 minutes**; one with a **Thread** (see [Reagents](reagents)) burns hotter and faster: **90, 60 or 40 seconds** for Thread I, II or III.",
         "- **Water** fills an 8,000 mB tank from a bucket, a pipe or a fluid relay plate. It burns fastest of the three: **200 mB a second**, a bucket every five seconds.",
         "Hoppers and relays can feed both slots; nothing comes back out. Fuel is only spent on seconds that deliver Pulse, so a full heart rests."
       ]
@@ -42,10 +42,29 @@
       "type": "text",
       "title": "What it makes",
       "text": [
-        "Each second the heart sings the Resonator's song: **voices x (voices + 2)**, times what the burning fuels are worth, over four. A crystal is worth what it is worth in a Resonator (**4, 6, 8 or 12**), a reagent **3** and water **2**. Its voices are the answered totems of the six.",
-        "To that it adds the Collector's share at double yield: **3 Pulse a second for each point** of ley strength at the heart, with six voices answering. The heart reads the land and the planet's lines its totems pull in, but not its own six.",
-        "Then the harmony: two kinds of fuel burning together multiply it all by **1.25**, all three by **1.5**. With nothing burning it makes nothing.",
-        "Six voices with a Resonant Core, a reagent and water on a perfect site make **378 Pulse a second**. A Resonant Core Resonator and a perfect Collector side by side make 168. Each [rank](machine_ranks) of the heart adds **15%**."
+        "Each second the heart sings six times the Resonator's song: **6 x voices x (voices + 2)**, times what the burning fuels are worth, over four. A crystal is worth what it is worth in a Resonator (**4, 6, 8 or 12**), a plain reagent **4** and a reagent of Thread I, II or III **6, 9 or 12**, and water **2**. Its voices are the answered totems of the six.",
+        "To that it adds the ley's share: **12 Pulse a second for each point** of ley strength at the heart, with six voices answering. The heart reads the land and the planet's lines its totems pull in, but not its own six.",
+        "Then the harmony: two kinds of fuel burning together multiply it all by **1.25**, all three by **1.5**. With nothing burning it makes nothing. Each [rank](machine_ranks) of the heart adds **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quality is the lever",
+      "text": [
+        "With six voices answering:",
+        "- An Echo Shard, a plain reagent and water make **1,080 to 1,368 Pulse a second**, from a bare site to a perfect one.",
+        "- A Bound Echo, a Thread II reagent and water on a middling site (ley 8) make about **2,200**.",
+        "- A Resonant Core, a Thread III reagent and water on a perfect site make **3,096**; a Manifested heart makes **4,489 Pulse a second**.",
+        "A Resonant Core Resonator and a perfect Ley Collector side by side make 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What it costs",
+      "text": [
+        "Better fuel sings louder and burns faster. An hour of a plain heart (Echo Shard, plain reagents, water) burns **4 Echo Shards, 30 reagents and 720 buckets of water**.",
+        "An hour at its best burns **7.5 Resonant Cores, 90 Thread III reagents** and the same 720 buckets. One Exalted familiar brushed every minute sheds 120 Thread III reagents an hour.",
+        "Fuel is only spent on seconds that deliver Pulse: a full heart rests until something draws on it."
       ]
     },
     {

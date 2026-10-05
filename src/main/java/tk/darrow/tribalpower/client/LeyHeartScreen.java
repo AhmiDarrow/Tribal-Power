@@ -1,13 +1,25 @@
 package tk.darrow.tribalpower.client;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Item;
+import tk.darrow.tribalpower.blockentity.PulseResonatorBlockEntity;
+import tk.darrow.tribalpower.item.ModItems;
 import tk.darrow.tribalpower.leyheart.LeyHeartBlockEntity;
 import tk.darrow.tribalpower.leyheart.LeyHeartMenu;
+import tk.darrow.tribalpower.song.ReagentThread;
 
-/** The Ley Heart: crystal and reagent with their burn, the water, and what the star is singing. */
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The Ley Heart: crystal and reagent with their burn, the water, and what the star is singing. The fuel line says
+ * what each burning fuel is worth in quarters and the harmony they make together; hovering it names the crystal,
+ * the reagent's Thread, the machine rank and the lines raised.
+ */
 public class LeyHeartScreen extends AbstractContainerScreen<LeyHeartMenu> {
     private static final int INK = 0xFF101B22, PANEL = 0xFF14262C, RIM = 0xFFB58A58;
     private static final int SLOT = 0xFF081317, SLOT_RIM = 0xFF385456, TEXT = 0xFFE7DCC1, QUIET = 0xFF98ACA5, TEAL = 0xFF65D7C0;
@@ -66,8 +78,14 @@ public class LeyHeartScreen extends AbstractContainerScreen<LeyHeartMenu> {
         int ley = menu.data(LeyHeartBlockEntity.DATA_LEY);
         g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.ley", ley, tk.darrow.tribalpower.ley.LeyMath.MAX_GAIN), READ_X, 19, TEAL, false);
         g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.totems", menu.data(LeyHeartBlockEntity.DATA_ANSWERED)), READ_X + 50, 28, QUIET, false);
-        g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.rate", menu.data(LeyHeartBlockEntity.DATA_OUTPUT)), READ_X, 38, TEXT, false);
-        g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.threads", menu.data(LeyHeartBlockEntity.DATA_THREADS)), READ_X, 48, QUIET, false);
+        g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.rate",
+                menu.wide(LeyHeartBlockEntity.DATA_OUTPUT, LeyHeartBlockEntity.DATA_OUTPUT_HI)), READ_X, 38, TEXT, false);
+        int rank = menu.data(LeyHeartBlockEntity.DATA_CRYSTAL_RANK), thread = menu.data(LeyHeartBlockEntity.DATA_REAGENT_THREAD) - 1;
+        boolean water = menu.data(LeyHeartBlockEntity.DATA_WATER) >= LeyHeartBlockEntity.WATER_PER_BEAT;
+        g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.worth",
+                PulseResonatorBlockEntity.quarters(rank), thread < 0 ? 0 : LeyHeartBlockEntity.reagentQuarters(thread),
+                water ? LeyHeartBlockEntity.WATER_QUARTERS : 0, String.valueOf(LeyHeartBlockEntity.harmony(kinds(rank, thread, water)))),
+                READ_X, 48, VIOLET, false);
         int state = menu.data(LeyHeartBlockEntity.DATA_STATE);
         g.drawString(font, Component.translatable("gui.tribalpower.ley_heart.state." + state), READ_X, 58,
                 state == LeyHeartBlockEntity.STATE_SINGING ? TEXT : WARN, false);
@@ -85,12 +103,50 @@ public class LeyHeartScreen extends AbstractContainerScreen<LeyHeartMenu> {
         }
         if (rx >= READ_X && rx < READ_X + 100 && ry >= 37 && ry < 47) {
             g.renderTooltip(font, Component.translatable("gui.tribalpower.ley_heart.stored",
-                    menu.data(LeyHeartBlockEntity.DATA_STORED), LeyHeartBlockEntity.CAPACITY), mouseX, mouseY);
+                    menu.wide(LeyHeartBlockEntity.DATA_STORED, LeyHeartBlockEntity.DATA_STORED_HI), LeyHeartBlockEntity.CAPACITY),
+                    mouseX, mouseY);
+            return;
+        }
+        if (rx >= READ_X && rx < READ_X + 100 && ry >= 47 && ry < 57) {
+            g.renderComponentTooltip(font, worth(), mouseX, mouseY);
             return;
         }
         if (burnTip(g, mouseX, mouseY, LeyHeartMenu.CRYSTAL_X, LeyHeartMenu.CRYSTAL_Y, LeyHeartBlockEntity.DATA_CRYSTAL, "crystal")) return;
         if (burnTip(g, mouseX, mouseY, LeyHeartMenu.REAGENT_X, LeyHeartMenu.REAGENT_Y, LeyHeartBlockEntity.DATA_REAGENT, "reagent")) return;
         renderTooltip(g, mouseX, mouseY);
+    }
+
+    private static int kinds(int rank, int thread, boolean water) {
+        return (rank > 0 ? 1 : 0) + (thread >= 0 ? 1 : 0) + (water ? 1 : 0);
+    }
+
+    /** What drives the output, fuel by fuel: the crystal, the reagent's Thread, the water, harmony, rank, lines. */
+    private List<Component> worth() {
+        int rank = menu.data(LeyHeartBlockEntity.DATA_CRYSTAL_RANK), thread = menu.data(LeyHeartBlockEntity.DATA_REAGENT_THREAD) - 1;
+        boolean water = menu.data(LeyHeartBlockEntity.DATA_WATER) >= LeyHeartBlockEntity.WATER_PER_BEAT;
+        Component none = Component.translatable("gui.tribalpower.ley_heart.worth.none");
+        Item crystal = switch (rank) {
+            case 1 -> ModItems.ECHO_SHARD.get();
+            case 2 -> ModItems.ATTUNED_ECHO.get();
+            case 3 -> ModItems.BOUND_ECHO.get();
+            case 4 -> ModItems.RESONANT_CORE.get();
+            default -> null;
+        };
+        List<Component> lines = new ArrayList<>();
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.worth.crystal", crystal == null ? none : crystal.getDescription(),
+                PulseResonatorBlockEntity.quarters(rank)).withStyle(ChatFormatting.LIGHT_PURPLE));
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.worth.reagent", thread < 0 ? none : ReagentThread.name(thread),
+                thread < 0 ? 0 : LeyHeartBlockEntity.reagentQuarters(thread)).withStyle(ChatFormatting.GOLD));
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.worth.water", water ? LeyHeartBlockEntity.WATER_QUARTERS : 0)
+                .withStyle(ChatFormatting.AQUA));
+        int kinds = kinds(rank, thread, water);
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.worth.harmony", String.valueOf(LeyHeartBlockEntity.harmony(kinds)), kinds)
+                .withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.worth.rank", 15 * menu.data(LeyHeartBlockEntity.DATA_RANK))
+                .withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("gui.tribalpower.ley_heart.threads", menu.data(LeyHeartBlockEntity.DATA_THREADS))
+                .withStyle(ChatFormatting.DARK_AQUA));
+        return lines;
     }
 
     /** The burn bar under a slot says how long the fuel already lit has left. */

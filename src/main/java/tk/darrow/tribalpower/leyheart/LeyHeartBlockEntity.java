@@ -43,6 +43,7 @@ import tk.darrow.tribalpower.pattern.PatternMatcher;
 import tk.darrow.tribalpower.pattern.PatternState;
 import tk.darrow.tribalpower.pattern.RitualPattern;
 import tk.darrow.tribalpower.rite.world.LeyLines;
+import tk.darrow.tribalpower.song.ReagentThread;
 import tk.darrow.tribalpower.song.Reagents;
 
 import java.util.ArrayList;
@@ -58,31 +59,45 @@ import java.util.Map;
  * a tank and burns fastest of the three, {@value #WATER_PER_TICK} mB a tick. Every fuel that is burning adds
  * its share, and the more kinds burn together the more the whole song is worth.
  *
+ * <p>Quality is the lever. A better crystal and a reagent of a stronger {@link ReagentThread} are each worth more
+ * quarters of the song, and each burns faster for it: a complete heart on an Echo Shard, a plain reagent and
+ * water makes about 1,100 Pulse a second, and a Manifested heart on a Resonant Core, a Thread III reagent and
+ * water on a perfect site makes {@code 4,489}.
+ *
+ * <p>Its buffer holds {@value #CAPACITY}, about 45 seconds of its best, and the lattice draws on it like any
+ * other generator.
+ *
  * <p>Once the {@link ModPatterns#LEY_HEART} pattern is whole the heart raises six ley threads, one per voice,
  * from itself out through each totem and {@value LeyLines#HEART_REACH} blocks on into the world. They are real
  * threads: the Ley Lens draws them and Ley Collectors along them feel them. They are kept in the rite store,
  * so they outlast a save and an unloaded chunk, and they come down the moment the heart or a totem breaks.
  *
- * <p>What a beat makes is {@link #outputFor}: the Resonator's song over the answered voices and every burning
- * fuel, plus the Collector's ley share at double yield, all times the harmony of how many kinds are burning.
+ * <p>What a beat makes is {@link #outputFor}: six times the Resonator's song over the answered voices and every
+ * burning fuel's quarters, plus a ley share, all times the harmony of how many kinds are burning.
  */
 public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, Diagnosable, WorldlyContainer, MenuProvider, HasSideIo {
-    public static final int CAPACITY = 8000;
+    /** About 45 seconds of a Manifested heart at its best, so a beat never waits on a draw. */
+    public static final int CAPACITY = 200_000;
     public static final int TANK_CAPACITY = 8000;
     /** One beat a second, like the voice generators. */
     public static final int BEAT = 20;
     /** Water burns fastest: 200 mB a beat, a bucket every five seconds. */
     public static final int WATER_PER_TICK = 10;
     public static final int WATER_PER_BEAT = WATER_PER_TICK * BEAT;
-    /** A creature reagent burns two minutes. */
-    public static final int REAGENT_TICKS = 2400;
-    /** A seated crystal burns five, ten, twenty or forty minutes, Echo Shard to Resonant Core. */
-    private static final int[] CRYSTAL_TICKS = {0, 6000, 12000, 24000, 48000};
-    /** A reagent and water join the crystal's quarters in the song. The crystal's are the Resonator's own. */
-    public static final int REAGENT_QUARTERS = 3;
+    /** A plain reagent burns two minutes, Thread I a minute and a half, II one minute, III forty seconds. */
+    private static final int[] REAGENT_TICKS = {2400, 1800, 1200, 800};
+    /** What a reagent is worth in the song, in quarters: plain 4, Thread I 6, II 9, III 12 (a Resonant Core's). */
+    private static final int[] REAGENT_QUARTERS = {4, 6, 9, 12};
+    /** A seated crystal burns 15, 12, 10 or 8 minutes, Echo Shard to Resonant Core: the louder, the faster. */
+    private static final int[] CRYSTAL_TICKS = {0, 18000, 14400, 12000, 9600};
+    /** Water joins the crystal's and the reagent's quarters in the song. The crystal's are the Resonator's own. */
     public static final int WATER_QUARTERS = 2;
-    /** Pulse a second per point of ley strength: twice the Ley Collector's 1.5, at six answered voices. */
-    public static final int LEY_YIELD = 3;
+    /** The heart sings six times a Resonator's song for the same voices and quarters. */
+    public static final int SONG_SCALE = 6;
+    /** Pulse a second per point of ley strength at six answered voices: eight times the Ley Collector's 1.5. */
+    public static final int LEY_YIELD = 12;
+    /** {@link #outputFor}'s reagent Thread when no reagent is burning. 0 is a plain reagent. */
+    public static final int NO_REAGENT = -1;
     /** Each kind of fuel burning beyond the first adds a quarter to the whole beat. */
     public static final double HARMONY = 0.25;
     /** The land survey is a few thousand block reads: once every other beat is plenty. */
@@ -94,10 +109,15 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
     private static final int[] INPUTS = {CRYSTAL, REAGENT};
     private static final int[] NONE = new int[0];
 
-    /** Menu readout slots. ContainerData travels as shorts, so burn times go as seconds. */
+    /**
+     * Menu readout slots. ContainerData travels as shorts, so burn times go as seconds and the output and the
+     * store go as two 15-bit halves, {@code _HI} the upper ({@link LeyHeartMenu#wide}).
+     * {@code DATA_REAGENT_THREAD} is the burning (or waiting) reagent's Thread plus one, 0 for none.
+     */
     public static final int DATA_OUTPUT = 0, DATA_WATER = 1, DATA_LEY = 2, DATA_ANSWERED = 3, DATA_STATE = 4,
             DATA_CRYSTAL = 5, DATA_CRYSTAL_TOTAL = 6, DATA_REAGENT = 7, DATA_REAGENT_TOTAL = 8, DATA_STORED = 9,
-            DATA_THREADS = 10, DATA_COUNT = 11;
+            DATA_THREADS = 10, DATA_OUTPUT_HI = 11, DATA_STORED_HI = 12, DATA_CRYSTAL_RANK = 13, DATA_REAGENT_THREAD = 14,
+            DATA_RANK = 15, DATA_COUNT = 16;
     public static final int STATE_INCOMPLETE = 0, STATE_SINGING = 1, STATE_STILLED = 2, STATE_FULL = 3, STATE_IDLE = 4;
 
     private final PulseStorage pulse = new PulseStorage(CAPACITY);
@@ -115,8 +135,9 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
     /** Ticks left on the crystal now burning, and its rank. */
     private int crystalBurn;
     private int crystalRank;
-    /** Ticks left on the reagent now burning. */
+    /** Ticks left on the reagent now burning, and its Thread. */
     private int reagentBurn;
+    private int reagentThread;
 
     // Live readings, worked out each beat and not saved.
     private boolean complete;
@@ -124,6 +145,9 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
     private int leyGain;
     private double surge = 1.0;
     private int output;
+    /** The crystal rank and reagent Thread the last beat sang with ({@link #NO_REAGENT} for none). */
+    private int singingRank;
+    private int singingThread = NO_REAGENT;
     private int state = STATE_INCOMPLETE;
     private int beats;
     private List<LeyMagnets.Magnet> lastMagnets;
@@ -133,7 +157,8 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
     private final ContainerData data = new ContainerData() {
         @Override public int get(int index) {
             return switch (index) {
-                case DATA_OUTPUT -> output;
+                case DATA_OUTPUT -> output & 0x7FFF;
+                case DATA_OUTPUT_HI -> output >>> 15;
                 case DATA_WATER -> tank.getFluidAmount();
                 case DATA_LEY -> leyGain;
                 case DATA_ANSWERED -> answered;
@@ -141,9 +166,13 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
                 case DATA_CRYSTAL -> crystalBurn / 20;
                 case DATA_CRYSTAL_TOTAL -> crystalTicks(crystalRank) / 20;
                 case DATA_REAGENT -> reagentBurn / 20;
-                case DATA_REAGENT_TOTAL -> REAGENT_TICKS / 20;
-                case DATA_STORED -> pulse.getPulseStored();
+                case DATA_REAGENT_TOTAL -> reagentTicks(reagentThread) / 20;
+                case DATA_STORED -> pulse.getPulseStored() & 0x7FFF;
+                case DATA_STORED_HI -> pulse.getPulseStored() >>> 15;
                 case DATA_THREADS -> level == null ? 0 : LeyLines.raisedBy(level, worldPosition).size();
+                case DATA_CRYSTAL_RANK -> singingRank;
+                case DATA_REAGENT_THREAD -> singingThread + 1;
+                case DATA_RANK -> tk.darrow.tribalpower.item.MachineRank.rank(LeyHeartBlockEntity.this);
                 default -> 0;
             };
         }
@@ -162,23 +191,40 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         return rank <= 0 || rank >= CRYSTAL_TICKS.length ? 0 : CRYSTAL_TICKS[rank];
     }
 
+    /** Burn time of one reagent of this Thread (0 plain to 3), in ticks: the stronger, the faster. */
+    public static int reagentTicks(int thread) {
+        return REAGENT_TICKS[Math.clamp(thread, 0, REAGENT_TICKS.length - 1)];
+    }
+
+    /** What a reagent of this Thread (0 plain to 3) is worth in the song, in quarters. */
+    public static int reagentQuarters(int thread) {
+        return REAGENT_QUARTERS[Math.clamp(thread, 0, REAGENT_QUARTERS.length - 1)];
+    }
+
+    /** One for one kind of fuel burning, then a quarter more for each further kind; 0 with nothing burning. */
+    public static double harmony(int kinds) {
+        return kinds <= 0 ? 0 : 1 + HARMONY * (kinds - 1);
+    }
+
     /**
      * Pulse a second for a beat, before machine rank and the pack's generation scale.
      *
-     * <p>{@code voices} are the answered totems of the six (0 to 6). The song is the Resonator's
-     * {@code voices x (voices + 2)} times the burning fuels' quarters over four: a crystal brings the quarters it
-     * brings a Resonator (4, 6, 8 or 12), a reagent 3 and water 2. The ley share is {@link #LEY_YIELD} a second
-     * per point of strength at the heart, scaled by the answered voices. Both are then multiplied by the harmony,
-     * one and a quarter for two kinds burning and one and a half for all three. Nothing burning, nothing made.
+     * <p>{@code voices} are the answered totems of the six (0 to 6). The song is {@link #SONG_SCALE} times the
+     * Resonator's {@code voices x (voices + 2)} times the burning fuels' quarters over four: a crystal brings the
+     * quarters it brings a Resonator (4, 6, 8 or 12), a reagent 4, 6, 9 or 12 by its Thread ({@code reagentThread}
+     * 0 to 3, {@link #NO_REAGENT} for none) and water 2. The ley share is {@link #LEY_YIELD} a second per point of
+     * strength at the heart, scaled by the answered voices. Both are then multiplied by the harmony, one and a
+     * quarter for two kinds burning and one and a half for all three. Nothing burning, nothing made.
      */
-    public static int outputFor(int voices, int crystalRank, boolean reagent, boolean water, int leyGain) {
+    public static int outputFor(int voices, int crystalRank, int reagentThread, boolean water, int leyGain) {
+        boolean reagent = reagentThread >= 0;
         int kinds = (crystalRank > 0 ? 1 : 0) + (reagent ? 1 : 0) + (water ? 1 : 0);
         if (kinds == 0 || voices <= 0) return 0;
-        int quarters = PulseResonatorBlockEntity.quarters(crystalRank) + (reagent ? REAGENT_QUARTERS : 0) + (water ? WATER_QUARTERS : 0);
-        double song = voices * (voices + 2) * quarters / 4.0;
+        int quarters = PulseResonatorBlockEntity.quarters(crystalRank) + (reagent ? reagentQuarters(reagentThread) : 0)
+                + (water ? WATER_QUARTERS : 0);
+        double song = voices * (voices + 2) * quarters * SONG_SCALE / 4.0;
         double ley = LEY_YIELD * Math.max(0, leyGain) * voices / 6.0;
-        double harmony = 1 + HARMONY * (kinds - 1);
-        return (int) Math.floor((song + ley) * harmony);
+        return (int) Math.floor((song + ley) * harmony(kinds));
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, LeyHeartBlockEntity be) {
@@ -199,9 +245,13 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
 
         boolean stilled = stilled();
         int rank = crystalBurn > 0 ? crystalRank : PulseResonatorBlockEntity.catalystRank(items.get(CRYSTAL));
-        boolean reagent = reagentBurn > 0 || Reagents.isReagent(items.get(REAGENT));
+        int thread = reagentBurn > 0 ? reagentThread
+                : Reagents.isReagent(items.get(REAGENT)) ? ReagentThread.get(items.get(REAGENT)) : NO_REAGENT;
+        boolean reagent = thread != NO_REAGENT;
         boolean water = tank.getFluidAmount() >= WATER_PER_BEAT;
-        int raw = complete && !stilled ? outputFor(answered, rank, reagent, water, (int) Math.round(leyGain * surge)) : 0;
+        singingRank = rank;
+        singingThread = thread;
+        int raw = complete && !stilled ? outputFor(answered, rank, thread, water, (int) Math.round(leyGain * surge)) : 0;
         int made = raw + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, raw);
         made = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(made);
         output = made;
@@ -299,9 +349,10 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         }
         if (reagent) {
             if (reagentBurn <= 0) {
+                reagentThread = ReagentThread.get(items.get(REAGENT));
                 items.get(REAGENT).shrink(1);
                 if (items.get(REAGENT).isEmpty()) items.set(REAGENT, ItemStack.EMPTY);
-                reagentBurn = REAGENT_TICKS;
+                reagentBurn = reagentTicks(reagentThread);
             }
             reagentBurn = Math.max(0, reagentBurn - BEAT);
         }
@@ -323,6 +374,7 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
     public int leyGain() { return leyGain; }
     public int crystalBurn() { return crystalBurn; }
     public int reagentBurn() { return reagentBurn; }
+    public int reagentThread() { return reagentThread; }
 
     /** The star's current match, for the Codex's missing-piece report and ghosts. */
     public PatternMatcher.Match match(Level level) {
@@ -348,11 +400,16 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         lines.add(Component.translatable("diag.tribalpower.ley_heart.voices", answered));
         lines.add(Component.translatable("diag.tribalpower.ley_heart.ley", leyGain, LeyMath.MAX_GAIN));
         int rank = crystalBurn > 0 ? crystalRank : 0;
-        lines.add(rank > 0 ? Component.translatable("diag.tribalpower.ley_heart.crystal", crystalBurn / 20)
+        lines.add(rank > 0 ? Component.translatable("diag.tribalpower.ley_heart.crystal",
+                        PulseResonatorBlockEntity.quarters(rank), crystalBurn / 20)
                 : Component.translatable("diag.tribalpower.ley_heart.no_crystal"));
-        lines.add(reagentBurn > 0 ? Component.translatable("diag.tribalpower.ley_heart.reagent", reagentBurn / 20)
+        lines.add(reagentBurn > 0 ? Component.translatable("diag.tribalpower.ley_heart.reagent",
+                        ReagentThread.name(reagentThread), reagentQuarters(reagentThread), reagentBurn / 20)
                 : Component.translatable("diag.tribalpower.ley_heart.no_reagent"));
         lines.add(Component.translatable("diag.tribalpower.ley_heart.water", tank.getFluidAmount(), TANK_CAPACITY));
+        int kinds = (singingRank > 0 ? 1 : 0) + (singingThread != NO_REAGENT ? 1 : 0) + (tank.getFluidAmount() >= WATER_PER_BEAT ? 1 : 0);
+        lines.add(Component.translatable("diag.tribalpower.ley_heart.harmony", String.valueOf(harmony(kinds)), kinds,
+                15 * tk.darrow.tribalpower.item.MachineRank.rank(this)));
         lines.add(Component.translatable("diag.tribalpower.ley_heart.output", currentOutput()));
         return lines;
     }
@@ -460,6 +517,7 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         tag.putInt("CrystalBurn", crystalBurn);
         tag.putInt("CrystalRank", crystalRank);
         tag.putInt("ReagentBurn", reagentBurn);
+        tag.putInt("ReagentThread", reagentThread);
         sides.save(tag);
     }
 
@@ -473,6 +531,7 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         crystalBurn = Math.max(0, tag.getInt("CrystalBurn"));
         crystalRank = Math.clamp(tag.getInt("CrystalRank"), 0, CRYSTAL_TICKS.length - 1);
         reagentBurn = Math.max(0, tag.getInt("ReagentBurn"));
+        reagentThread = Math.clamp(tag.getInt("ReagentThread"), 0, ReagentThread.MAX);
         sides.load(tag);
     }
 }

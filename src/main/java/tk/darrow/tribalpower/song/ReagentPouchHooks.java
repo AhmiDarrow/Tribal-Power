@@ -27,10 +27,13 @@ public final class ReagentPouchHooks {
         }
     }
 
-    /** Pulls as many reagents as the hotbar pouch can hold. Returns how many remain in the stack. */
+    /**
+     * Pulls as many reagents as the hotbar pouch can hold. Returns how many remain in the stack. A reagent with a
+     * {@link ReagentThread} stays out: the pouch keeps plain counts, and would flatten its Thread away.
+     */
     public static int absorb(Player player, ItemStack stack) {
         CreatureProfile profile = Reagents.of(stack.getItem());
-        if (profile == null || stack.isEmpty()) return stack.getCount();
+        if (profile == null || stack.isEmpty() || ReagentThread.get(stack) > 0) return stack.getCount();
         ItemStack pouch = Reagents.hotbarPouch(player);
         if (pouch == null) return stack.getCount();
         int moved = ReagentPouch.addRaw(pouch, profile, stack.getCount());

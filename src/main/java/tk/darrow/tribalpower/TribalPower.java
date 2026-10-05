@@ -86,6 +86,7 @@ public final class TribalPower {
         tk.darrow.tribalpower.gate.GateRegistry.register(modBus);
         tk.darrow.tribalpower.generator.GeneratorRegistry.register(modBus);
         tk.darrow.tribalpower.leyheart.LeyHeartRegistry.register(modBus);
+        tk.darrow.tribalpower.song.ReagentThread.register(modBus);
         tk.darrow.tribalpower.sound.ModSounds.SOUNDS.register(modBus);
 
         modBus.addListener(this::onCommonSetup);
@@ -141,6 +142,8 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.block.ResonanceTotemBlock::sneakLink);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.block.RelayBlock::placeOnMachines);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentPouchHooks::onPickup);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentThread::onDrops);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.ReagentThread::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::tooltip);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.api.Diagnostics::onRightClickBlock);
         NeoForge.EVENT_BUS.addListener(ModBlocks::tillMarchSoil);

@@ -41,9 +41,12 @@ final class CodexFacts {
             Fact.of("keeping", "Keeping: 40 minutes Answered, Dim stretches station time about 30%", "40 minutes", "30%"),
             Fact.of("ley_collector", "A Ley Collector holds 2,000 Pulse, beats every two seconds and ranks at 15%", "2,000 Pulse", "two seconds", "15%").never("base trickle", "hum harder"),
             Fact.of("ley_lens", "Ley Lens: a roof makes a collector weaker, not dead", "16").never("starves a collector"),
-            // LeyHeartGameTests pins 378 and the burn rates in Java; the book must quote the same.
-            Fact.of("ley_heart", "A Ley Heart holds 8,000 Pulse, drinks 200 mB a second, raises lines 64 blocks long, makes 378 at its best and ranks at 15%",
-                    "8,000 Pulse", "200 mB a second", "64 blocks", "378 Pulse a second", "15%", "2 minutes"),
+            // LeyHeartGameTests pins 1,080, 3,096, 4,489 and the burn rates in Java; the book must quote the same.
+            Fact.of("ley_heart", "A Ley Heart holds 200,000 Pulse, drinks 200 mB a second, raises lines 64 blocks long, makes 1,080 to 4,489 and ranks at 15%",
+                    "200,000 Pulse", "200 mB a second", "64 blocks", "1,080 to 1,368 Pulse a second", "3,096", "4,489 Pulse a second", "15%",
+                    "2 minutes", "90, 60 or 40 seconds", "15, 12, 10 or 8 minutes").never("378 Pulse a second", "8,000 Pulse"),
+            Fact.of("reagents", "A reagent's Thread is worth 6, 9 or 12 in a Ley Heart and stays out of the pouch",
+                    "Thread", "6, 9 or 12", "stays in your bags"),
             Fact.of("pulse_adapter", "The Harmonic Energizer exports FE and cannot receive it", "FE"),
             Fact.of("six_voices", "Kinship Totems lend a tribe's element to stations", "Kinship"),
             Fact.of("ember_horn", "A ranked Ember Horn adds 15% Pulse a second per rank", "15%").never("the rate is the real cap"),

@@ -213,7 +213,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         // Brushing another player's companion falls through to the "not yours" answer below.
         if(tool.is(Items.BRUSH) && !isBaby() && (!isBonded() || isOwnedBy(player))) {
             if(!level().isClientSide && forageCooldown==0) {
-                spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1));
+                spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1)));
                 forageCooldown=1200;
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
                 level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);

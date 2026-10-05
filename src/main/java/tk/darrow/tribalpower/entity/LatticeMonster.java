@@ -243,7 +243,7 @@ public class LatticeMonster extends Monster implements Familiar {
         if(player.isSecondaryUseActive() && tool.getItem() instanceof tk.darrow.tribalpower.ley.LeyLensItem)return InteractionResult.PASS;
         if(tool.is(Items.BRUSH) && isOwnedBy(player) && !isBaby()) {
             if(!level().isClientSide && forageCooldown==0) {
-                spawnAtLocation(new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2));
+                spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2)));
                 forageCooldown=1200;
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
                 level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);
