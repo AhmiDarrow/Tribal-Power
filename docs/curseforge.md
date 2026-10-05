@@ -48,6 +48,9 @@ Project description refreshed for 3.5.0: new March section (terrain, caves, Marc
 ## 5.3.16 — Stone and Lit Glass
 Uploaded 2026-10-01: `tribalpower-5.3.16.jar` as file **9029023** ("Tribal Power 5.3.16 - Stone and Lit Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.16.md`. Stone pressure plates and buttons, chiseled moonstone and moss agate bricks, cracked bricks, and lit quartz glass at Echo Attune. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.16
 
+## 5.6.0 — The Woven Lattice
+Uploaded 2026-10-05: `tribalpower-5.6.0.jar` as file **9066393** ("Tribal Power 5.6.0 - The Woven Lattice", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.6.0.md`. Pulse lattice hard switch: machines draw only through Lattice Conductors within 8 blocks; ranked conductors 64/256/1,024/4,096 per second and cairn stones 4k-256k; totems silent when their network is dry; one-time join notice. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.6.0
+
 ## 5.5.0 — The Ley Heart
 Uploaded 2026-10-05: `tribalpower-5.5.0.jar` as file **9066288** ("Tribal Power 5.5.0 - The Ley Heart", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.5.0.md`. Ley Heart six-totem generator (1,100-4,489 Pulse/s, reagent Threads, six ley lines), Spiritgear Pulse-paid wear + Manifested Ingot mending, verse arrows, Loom/Spiritweave/Lantern fixes, positional Hearth Pot + Fish and Chips, swimming water creatures, Tide Pump well + fluid relays, camp devices on relays/vanilla, four creative tabs, Codex chapters, Builder's Chalk laser level. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.5.0
 
