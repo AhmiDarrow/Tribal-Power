@@ -29,6 +29,14 @@
     },
     {
       "type": "text",
+      "title": "On the lattice",
+      "text": [
+        "Stand a [Lattice Conductor](lattice_conductor) within **8 blocks** of the heart. Its Pulse reaches your machines only along the lattice, so a top heart wants Manifested conductors, or several Bound ones, to carry it all.",
+        "Its six totems keep their voices only while the lattice holds Pulse. A totem that runs dry goes silent and stops counting, so a heart left without fuel for long needs another source on its lattice to wake again."
+      ]
+    },
+    {
+      "type": "text",
       "title": "Three fuels",
       "text": [
         "Right-click the heart to open it. Each fuel has its own intake:",
