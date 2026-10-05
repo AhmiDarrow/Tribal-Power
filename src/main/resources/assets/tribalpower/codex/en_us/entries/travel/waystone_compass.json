@@ -1,11 +1,12 @@
 {
   "name": "Waystone compasses",
   "icon": "tribalpower:waystone_compass",
-  "order": 50,
+  "order": 20,
   "items": [
     "tribalpower:horizon_compass",
     "tribalpower:astral_compass"
   ],
+  "next": "way_gate",
   "pages": [
     {
       "type": "spotlight",

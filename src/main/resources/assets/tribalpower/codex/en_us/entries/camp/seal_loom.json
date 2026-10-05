@@ -1,10 +1,11 @@
 {
   "name": "Seal Loom",
   "icon": "tribalpower:seal_loom",
-  "order": 60,
+  "order": 40,
   "items": [
     "tribalpower:recipe_seal"
   ],
+  "next": "tide_pump",
   "pages": [
     {
       "type": "spotlight",

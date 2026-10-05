@@ -1,7 +1,8 @@
 {
   "name": "Builder's Chalk",
   "icon": "tribalpower:builders_chalk",
-  "order": 15,
+  "order": 140,
+  "next": "tribal_bench",
   "pages": [
     {
       "type": "spotlight",

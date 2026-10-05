@@ -2,7 +2,7 @@
   "name": "What a familiar is",
   "icon": "tribalpower:dawn_velvet",
   "order": 10,
-  "next": "familiar_attuning",
+  "next": "familiars",
   "pages": [
     {
       "type": "text",
@@ -18,35 +18,23 @@
       "title": "Who can be bonded",
       "text": [
         "- **Gentle beasts**: the Dawn Stag and Lantern Fox of forests, the Mossback of swamps, and the grazers, hoppers and moths of every March biome. Anyone can bond them.",
-        "- **Six remnants**, once their tribe calls you **Voice**: Shardback, Rift Hound, Cinder Imp, Storm Moth, Mourning Bell and Echo Weaver ([which tribe for which](familiars)).",
-        "Bosses, goblins, trolls and the March's other hostiles never answer, and the young cannot be bonded.",
+        "- **Six remnants**, once their tribe calls you **Voice** (800 standing): Shardback, Rift Hound, Cinder Imp, Storm Moth, Mourning Bell and Echo Weaver. The next page says which tribe speaks for which.",
+        "Ashbound, Rootbound, Reed Stalkers and Hollow Sentinels never answer, and neither do bosses, goblins, trolls or the March's other hostiles. The young cannot be bonded.",
         "**Sneak and look** at a creature to see whether it can be bonded and what it needs. A Ley Lens sneak-used on it says the same."
       ]
     },
     {
       "type": "text",
-      "title": "Bonding",
       "text": [
-        "Feed a grown one its favourite food, the way you would win over a wolf: about one try in three for gentle beasts, one in five for remnants.",
-        "Or use a **Bonding Charm** on it: three tries in five, two in five for remnants. The charm is used up when the bond takes. A failed try keeps it with a gentle beast, but spends it on a remnant.",
-        "Make the charm early from **four String**, a **Spirit Shard** and one creature reagent. Brush a Dawn Stag, Lantern Fox or Mossback for its reagent, once a minute; other March beasts' reagents will not fit. Later, two Spiritweave can stand in for the string.",
-        "The whole story, threads and breeding included: [Bonding a familiar](familiars)."
-      ]
-    },
-    {
-      "type": "recipe",
-      "item": "tribalpower:bonding_charm",
-      "text": "Any one of the nine creature reagents fills the middle slot."
-    },
-    {
-      "type": "text",
-      "title": "Keeping company",
-      "text": [
-        "**One fighter** (a Shardback or Rift Hound) and **two helpers** follow at once. Sneak-use a familiar to make it wait, and again to call it back. A Mossback sneak-used with an empty hand opens its saddlebag instead, so hold something to make it wait.",
-        "A waiting familiar still lends its voice whenever you come within 16 blocks, so one left sitting by your workshop helps you there.",
-        "Feed a hurt one its food. A fallen one leaves a **Spirit Remnant** that a [Healing Circle](healing_circle) calls back, voice and all.",
-        "What your familiar kills earns you no tribe standing and does not count for a tribe's hunts. The kill has to be your own."
-      ]
+        "- Shardback: the **Grit-singers**.",
+        "- Rift Hound: the **Edge-walkers**.",
+        "- Cinder Imp: the **Drumhearts**.",
+        "- Storm Moth: the **Pattern-weavers**.",
+        "- Mourning Bell: the **Seal-carvers**.",
+        "- Echo Weaver: the **Loom-stitchers**.",
+        "See [standing](standing) for how to earn it."
+      ],
+      "title": "Which tribe for which remnant"
     }
   ]
 }

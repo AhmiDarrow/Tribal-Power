@@ -7,7 +7,7 @@
     "tribalpower:mossback_spawn_egg",
     "tribalpower:mossback_scale"
   ],
-  "next": "game_and_leather",
+  "next": "march_walker",
   "pages": [
     {
       "type": "creature",

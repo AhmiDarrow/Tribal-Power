@@ -1,10 +1,11 @@
 {
   "name": "Vine Lift",
   "icon": "tribalpower:vine_lift",
-  "order": 36,
+  "order": 160,
   "items": [
     "tribalpower:vine_lift"
   ],
+  "next": "camp_furniture",
   "pages": [
     {
       "type": "spotlight",

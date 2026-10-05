@@ -1,10 +1,11 @@
 {
   "name": "Summoning Cradle",
   "icon": "tribalpower:summoning_cradle",
-  "order": 140,
+  "order": 90,
   "items": [
     "tribalpower:binding_effigy"
   ],
+  "next": "spirit_lantern",
   "pages": [
     {
       "type": "spotlight",

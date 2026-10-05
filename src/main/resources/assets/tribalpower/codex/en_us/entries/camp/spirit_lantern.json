@@ -1,7 +1,8 @@
 {
   "name": "Spirit Lantern",
   "icon": "tribalpower:spirit_lantern",
-  "order": 90,
+  "order": 100,
+  "next": "pulse_lights",
   "pages": [
     {
       "type": "spotlight",

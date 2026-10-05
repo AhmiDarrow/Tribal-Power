@@ -1,7 +1,7 @@
 {
   "name": "Shared camps",
   "icon": "tribalpower:camp_charter",
-  "order": 150,
+  "order": 200,
   "pages": [
     {
       "type": "spotlight",

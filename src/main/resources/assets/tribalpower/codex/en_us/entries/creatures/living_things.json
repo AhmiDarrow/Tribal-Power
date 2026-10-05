@@ -45,7 +45,7 @@
       "type": "text",
       "title": "How strong a creature is",
       "text": [
-        "The numbers in this chapter are for a creature of ordinary blood. Every creature carries five threads (see [familiars](familiars)), and each step above or below the usual makes it **12%** stronger or weaker, so no two wild ones are quite alike.",
+        "The numbers in the bestiary are for a creature of ordinary blood. Every creature carries five threads (see [familiars](familiars)), and each step above or below the usual makes it **12%** stronger or weaker, so no two wild ones are quite alike.",
         "In the March, a spirit that rises at night has **40%** more health and hits **25%** harder. About **one in twelve** of them rises as a gold-named **elite**, more often on Hard: double health, half again the damage, **4** more armour, quicker on its feet, and **three times** the experience. Spirits that rise by day are never elites."
       ]
     },
@@ -72,7 +72,8 @@
       "type": "text",
       "text": [
         "Sneak-use this Codex on anything that has gone silent to read what it is doing.",
-        "Each creature has a page in this chapter, alone or with its kin: where it lives, how it fights, what it gives and whether it will bond. The beasts of each land start with the [Steppe](beasts_steppe)."
+        "Each creature has a page in the bestiary, alone or with its kin: where it lives, how it fights, what it gives and whether it will bond. The beasts of each land start with the [Steppe](beasts_steppe).",
+        "Gentle creatures are in this chapter. Remnants and the March's other hunters have a chapter of their own, which opens with [Game and leather](game_and_leather)."
       ],
       "title": "Field notes"
     }

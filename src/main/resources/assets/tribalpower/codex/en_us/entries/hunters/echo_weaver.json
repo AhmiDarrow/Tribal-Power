@@ -7,7 +7,7 @@
     "tribalpower:echo_weaver_spawn_egg",
     "tribalpower:echo_silk"
   ],
-  "next": "beasts_steppe",
+  "next": "dark_hunters",
   "pages": [
     {
       "type": "creature",

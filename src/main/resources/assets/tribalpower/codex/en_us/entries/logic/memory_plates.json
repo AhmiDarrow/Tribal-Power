@@ -1,0 +1,36 @@
+{
+  "name": "Memory plates",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Memory, Tally, Verse",
+      "text": [
+        "These plates remember.",
+        "- **Memory**: a live left sets it to 15; a live right clears it. The output stays until told otherwise. If both are live, clear wins.",
+        "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use with an empty hand cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
+        "- **Verse**: starts at **4** with no pulse. Each rising edge on the back steps it to **8**, then **12**, then **15**, then back to 4. A comparator reads the same number.",
+        "The Verse Plate is not the Verse Call: to carry redstone to a lamp or a machine with no wire, see [Verse Call and Answer](verse_link)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

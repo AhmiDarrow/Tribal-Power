@@ -1,7 +1,7 @@
 {
   "name": "Tribe Boons",
   "icon": "tribalpower:tribe_mark",
-  "order": 86,
+  "order": 35,
   "pages": [
     {
       "type": "spotlight",

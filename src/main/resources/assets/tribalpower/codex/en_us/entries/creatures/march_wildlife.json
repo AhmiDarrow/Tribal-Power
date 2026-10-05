@@ -1,7 +1,7 @@
 {
   "name": "Wild life of the March",
   "icon": "tribalpower:raw_glimmerfin",
-  "order": 35,
+  "order": 190,
   "items": [
     "tribalpower:glimmerfin_spawn_egg",
     "tribalpower:drift_bell_spawn_egg",
@@ -15,6 +15,7 @@
     "tribalpower:drift_jelly",
     "tribalpower:glimmerfin_bucket"
   ],
+  "next": "beasts_steppe",
   "pages": [
     {
       "type": "text",

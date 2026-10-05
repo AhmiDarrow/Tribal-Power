@@ -1,7 +1,7 @@
 {
   "name": "Attuning at a totem",
   "icon": "tribalpower:resonance_totem_spirit",
-  "order": 20,
+  "order": 40,
   "next": "familiar_boons",
   "pages": [
     {
@@ -18,7 +18,7 @@
       "title": "One voice each",
       "text": [
         "A familiar carries one voice at a time. Take it to another totem to change it whenever you like.",
-        "Several familiars can carry several voices. Every one following you counts, and so does the nearest one left waiting ([what a voice gives](familiar_boons)).",
+        "Several familiars can carry several voices; [what a voice gives](familiar_boons) says which of them count.",
         "The voice is the familiar's own: its young are born without one."
       ]
     },

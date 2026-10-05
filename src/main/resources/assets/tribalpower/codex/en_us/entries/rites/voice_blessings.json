@@ -1,7 +1,7 @@
 {
   "name": "Voice Blessings",
   "icon": "tribalpower:resonance_totem_spirit",
-  "order": 85,
+  "order": 120,
   "pages": [
     {
       "type": "spotlight",
@@ -36,6 +36,5 @@
       ],
       "title": "Where to find them"
     }
-  ],
-  "next": "tribe_boons"
+  ]
 }

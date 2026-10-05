@@ -1,10 +1,11 @@
 {
   "name": "Pulse Crossbow",
   "icon": "tribalpower:pulse_crossbow",
-  "order": 71,
+  "order": 40,
   "items": [
     "tribalpower:pulse_crossbow"
   ],
+  "next": "anointing",
   "pages": [
     {
       "type": "spotlight",

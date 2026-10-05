@@ -1,25 +1,15 @@
 {
   "name": "Bonding a familiar",
   "icon": "tribalpower:bonding_charm",
-  "order": 400,
+  "order": 20,
   "next": "familiar_gifts",
   "pages": [
     {
       "type": "image",
       "image": "familiars_bonding",
       "text": [
-        "A familiar follows you, waits where you tell it, never despawns and sheds double reagent when you brush it. No one else can brush it."
+        "Bonding makes a creature yours for good. A familiar sheds **double** reagent when you brush it, once a minute, and no one else can brush it."
       ]
-    },
-    {
-      "type": "text",
-      "text": [
-        "Craft it from **two Spiritweave**, a **Spirit Shard** and **one creature reagent**: Dawn Velvet, Lantern Down, Mossback Scale, Prism Carapace, Rift Tooth, Cinder Knot, Storm Wing, Bell Fragment or Echo Silk.",
-        "Any one of them works, and the finished charm bonds any creature that will answer, whichever reagent went in. Brush a Dawn Stag, Lantern Fox or Mossback for its reagent, or take one from a fallen remnant. Other beasts' reagents will not do.",
-        "Before you have Spiritweave, **four String** around the reagent and the shard make the same charm.",
-        "Once bonded, give your familiar a voice at a totem: see [attuning at a totem](familiar_attuning)."
-      ],
-      "title": "The Bonding Charm"
     },
     {
       "type": "text",
@@ -33,33 +23,34 @@
     {
       "type": "text",
       "text": [
-        "There are two ways to bond an adult. Young ones cannot be bonded.",
+        "There are two ways to bond a grown creature. Young ones cannot be bonded.",
         "- **Feed it**, the way you would win over a wolf. Gentle animals take their usual food and bond about one time in three; remnants take their own reagent and bond one time in five. Every try spends the food.",
-        "- **The Bonding Charm** is quicker: three tries in five for gentle animals, two in five for remnants. A failed charm is only spent on a remnant.",
-        "Remnants need **Voice** standing (800) with their tribe either way. Hearts mean it worked; smoke means it did not. Ashbound, Rootbound, Reed Stalkers and Hollow Sentinels never answer.",
-        "Feed a hurt companion its food to heal it."
+        "- **Use a Bonding Charm** on it: three tries in five for gentle animals, two in five for remnants. The charm is used up when the bond takes. A failed try keeps it with a gentle animal, but spends it on a remnant.",
+        "A remnant answers either way only once its tribe calls you **Voice** ([who can be bonded](familiar_basics)). Hearts mean it worked; smoke means it did not."
       ],
       "title": "Bonding"
     },
     {
       "type": "text",
       "text": [
-        "- Shardback: the **Grit-singers**.",
-        "- Rift Hound: the **Edge-walkers**.",
-        "- Cinder Imp: the **Drumhearts**.",
-        "- Storm Moth: the **Pattern-weavers**.",
-        "- Mourning Bell: the **Seal-carvers**.",
-        "- Echo Weaver: the **Loom-stitchers**.",
-        "See [standing](standing) for how to earn it."
+        "Make it early from **four String** around a **Spirit Shard** and **one creature reagent**. Once you have Spiritweave, **two Spiritweave** can stand in for the string.",
+        "The reagent can be any of nine: Dawn Velvet, Lantern Down, Mossback Scale, Prism Carapace, Rift Tooth, Cinder Knot, Storm Wing, Bell Fragment or Echo Silk. Brush a Dawn Stag, Lantern Fox or Mossback for one, once a minute, or take one from a fallen remnant; other beasts' reagents will not fit. Whichever went in, the charm bonds any creature that will answer.",
+        "The same charm later gives your familiar a voice: see [attuning at a totem](familiar_attuning)."
       ],
-      "title": "Which tribe for which remnant"
+      "title": "The Bonding Charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Any one of the nine creature reagents fills the top middle slot."
     },
     {
       "type": "text",
       "text": [
-        "A familiar follows once you are **10 blocks** away and teleports to you past **12**. Sneak-use it to make it wait, and again to call it back. It never despawns and ignores your blows.",
-        "**One fighter** (a Shardback or Rift Hound) and **two helpers** may follow at once. Sitters and anything being ridden do not count. Extras sit down and tell you why.",
-        "A waiting familiar that gets hurt stands up and follows, if there is room in your company."
+        "A familiar follows once you are **10 blocks** away and teleports to you past **12**. It ignores your blows.",
+        "Sneak-use it to make it wait, and again to call it back. Hold something while you do it to a Mossback, because an empty hand opens its saddlebag.",
+        "**One fighter** (a Shardback or Rift Hound) and **two helpers** may follow at once. Sitters and anything being ridden do not count. Extras sit down and tell you why. A waiting familiar that gets hurt stands up and follows, if there is room in your company.",
+        "What your familiar kills earns you no tribe standing and does not count for a tribe's hunts. The kill has to be your own."
       ],
       "title": "Keeping company"
     },
@@ -87,14 +78,9 @@
       "type": "text",
       "title": "Healing a familiar",
       "text": [
-        "Besides its favourite food, a hurt familiar can be healed by laying a [salve](remedies) on it (use the salve on it), by standing in burning incense, or by the [Healer's Rattle](healers_rattle).",
-        "If one falls, it leaves a **Spirit Remnant**. A [Healing Circle](healing_circle) calls it back."
+        "Feed a hurt familiar its favourite food to heal it. A [salve](remedies) used on it, burning incense and the [Healer's Rattle](healers_rattle) heal it too.",
+        "If one falls, it leaves a **Spirit Remnant**. A [Healing Circle](healing_circle) calls it back, voice and all."
       ]
-    },
-    {
-      "type": "recipe",
-      "item": "tribalpower:bonding_charm",
-      "text": "Any one of the nine creature reagents fills the middle slot."
     }
   ]
 }

@@ -1,0 +1,53 @@
+{
+  "name": "Song shapes",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "The first reagent decides",
+      "text": [
+        "Every song takes one of five **shapes**, and the **first** reagent on the sheet picks it by its family ([Reagents](reagents)):",
+        "- **Bolt**: an Ember, Bolt or Hound reagent first.",
+        "- **Bind**: a Venom, Weaken, Chill or Weave reagent first.",
+        "- **Step**: a Gust reagent first.",
+        "- **Call**: a Root or Shove reagent first.",
+        "- **Ward**: a Quiet reagent first, the family of every gentle beast.",
+        "The voice you chose at the bench colours whichever shape it is."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "The five shapes",
+      "text": [
+        "- **Bolt** strikes the hostile you are looking at, up to **10 blocks** away, for **3** damage plus **1** for each copy of the first reagent. Fire sets it alight, and Air knocks it back.",
+        "- **Bind** slows that hostile: Slowness I for one copy of the first reagent, up to IV for more, and a level more in the Water voice.",
+        "- **Step** throws you forward the way you look, further for each copy. Air lifts you higher, and Air and Spirit let you float down. The Loom also stitches you **2 to 4 blocks** ahead, if there is open air to land in.",
+        "- **Call** strikes every hostile around you, about **3 blocks** out, for **2** damage plus half a point for each copy, with the voice's touch as for a Bolt.",
+        "- **Ward** is for you alone: its voice's [blessing](voice_blessings) for **45 seconds** for each copy, and a guard of its own. Earth gives resistance, Fire fire resistance, Water regeneration and water breathing, Air slow falling and speed, Spirit night vision and the Loom absorption.",
+        "A Bolt or a Bind needs a hostile in sight. With none in reach the song is not sung and costs nothing."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What the rest of the sheet adds",
+      "text": [
+        "The reagents after the first only dress the shape. They never add a second spell.",
+        "- **Another copy of the first reagent** makes the song stronger: it hits harder, slows harder, throws further or blesses longer.",
+        "- **A reagent of another family** adds that family's touch: fire, slowness, poison, weakness, a shove, a glow, or a moment of regeneration for you. Only the **first two** other families count. A third adds nothing, and neither does a different reagent of a family already on the sheet.",
+        "- **Every reagent past the third** makes the song last longer: its slowing, poison and other lingering touches run **4 seconds** on a three-reagent sheet and a second more for each reagent after that, and a Bolt or Bind reaches a block further. A Call spreads a little wider.",
+        "The touches land on a Bolt's or Bind's target and on everything a Call strikes. A Step or a Ward has no target, so only the Quiet touch, your own regeneration, plays on those."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What a song costs",
+      "text": [
+        "Singing costs **8 Pulse, plus 4 for each reagent** on the sheet: **20** for three reagents, **36** for seven. The Loom-stitchers' boon takes a quarter off ([Tribe Boons](tribe_boons)).",
+        "A Song Sheet is used up when you sing it. A songbook keeps its songs, and rests **1.5 seconds** after each one before it sings again.",
+        "A familiar of the song's voice close by makes it strike harder and a Call reach further ([what a voice gives](familiar_boons))."
+      ]
+    }
+  ]
+}

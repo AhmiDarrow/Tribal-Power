@@ -2,7 +2,7 @@
   "name": "Wind Snare",
   "icon": "tribalpower:wind_snare",
   "order": 30,
-  "next": "ward_drum",
+  "next": "seal_loom",
   "pages": [
     {
       "type": "spotlight",
