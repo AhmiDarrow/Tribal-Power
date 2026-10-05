@@ -48,6 +48,9 @@ Project description refreshed for 3.5.0: new March section (terrain, caves, Marc
 ## 5.3.16 — Stone and Lit Glass
 Uploaded 2026-10-01: `tribalpower-5.3.16.jar` as file **9029023** ("Tribal Power 5.3.16 - Stone and Lit Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.16.md`. Stone pressure plates and buttons, chiseled moonstone and moss agate bricks, cracked bricks, and lit quartz glass at Echo Attune. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.16
 
+## 5.4.0 — The March Remade
+Uploaded 2026-10-04: `tribalpower-5.4.0.jar` as file **9065115** ("Tribal Power 5.4.0 - The March Remade", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.4.0.md`. All 97 creatures redesigned in the rig system (z-fight separation), Codex bestiary drawn from live models, full Codex audit, relay channels by rank, Fire Seal void plates, plain-click plates/tuner/chalk, two-block totems, Gathering Charm, Earth-axe tree felling, familiars attuned at totems, game/leather drops and breeding, Glimmer Ridge more common. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.4.0
+
 ## 5.3.19 — Filtered Relays
 Uploaded 2026-10-03: `tribalpower-5.3.19.jar` as file **9053012** ("Tribal Power 5.3.19 - Filtered Relays", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.19.md`. Relay plates: rune + eight-slot ghost whitelist/blacklist, Bond slot retired (bonded pairs become tuner links), wall hitboxes moved onto the plate. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.19
 
