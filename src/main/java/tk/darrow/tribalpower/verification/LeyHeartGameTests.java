@@ -385,9 +385,13 @@ public class LeyHeartGameTests {
             int filled = tk.darrow.tribalpower.item.PulseCellItem.fillFrom(cell, heart);
             h.assertTrue(filled == tk.darrow.tribalpower.item.PulseCellItem.GRAND_CAPACITY && heart.getPulseStored() == made - filled,
                     "A Grand Pulse Cell fills to the brim from the heart, took " + filled);
+            // The rest leaves along the lattice: one Manifested conductor beside the heart carries 4,096 a second.
+            Weaving.conductor(h, CORE.above().east());
             int rest = heart.getPulseStored();
             int drawn = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, h.absolutePos(CORE.above()), 8, rest);
-            h.assertTrue(drawn == rest && heart.getPulseStored() == 0, "A draw beside the heart takes the rest from it, drew " + drawn + " of " + rest);
+            int carried = Math.min(rest, 4096);
+            h.assertTrue(drawn == carried && heart.getPulseStored() == rest - carried,
+                    "A draw through a Manifested conductor takes " + carried + " of the rest in a second, drew " + drawn + " of " + rest);
             h.succeed();
         } finally {
             clear(h);
