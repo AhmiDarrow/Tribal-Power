@@ -74,6 +74,11 @@ public final class PulseEconomy {
      *
      * <p>A Powah blazing furnator is 800 and a Mekanism advanced solar is 750. Above that the pack
      * has niotic, spirited, nitro and reactors, and a ritual generator has no business there.
+     *
+     * <p>The one exception, by the owner's decision (2026-10-04): the Ley Heart, the six-totem end-game
+     * multiblock, runs from about 1,000 to 4,500 Pulse a second (5,000 to 22,000 FE a tick) and is left
+     * uncapped, FE export included. Each Harmonic Energizer keeps its own cap; a wall of them fed by one
+     * heart may export the lot. Do not pull the heart back under this ceiling.
      */
     public static final int PACK_CEILING = 900;
 
