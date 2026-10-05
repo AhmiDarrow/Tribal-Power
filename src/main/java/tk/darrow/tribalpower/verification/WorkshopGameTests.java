@@ -116,6 +116,155 @@ public class WorkshopGameTests {
         h.succeed();
     }
 
+    /** A stone basin with its floor at y=1 and a {@code w} by {@code d} pool of still water at y=2 from (x0, z0). */
+    private static void basin(GameTestHelper h, int x0, int z0, int w, int d) {
+        for (int x = x0 - 1; x <= x0 + w; x++) {
+            for (int z = z0 - 1; z <= z0 + d; z++) {
+                h.setBlock(x, 1, z, Blocks.STONE);
+                boolean pool = x >= x0 && x < x0 + w && z >= z0 && z < z0 + d;
+                h.setBlock(x, 2, z, pool ? Blocks.WATER : Blocks.STONE);
+            }
+        }
+    }
+
+    private static WorkshopBlockEntity pumpAt(GameTestHelper h, BlockPos pos, Direction facing) {
+        h.setBlock(pos, DeviceRegistry.TIDE_PUMP.get().defaultBlockState().setValue(WorkshopBlock.FACING, facing));
+        return (WorkshopBlockEntity) h.getBlockEntity(pos);
+    }
+
+    /** Over a corner of a two-by-two pool, the game's infinite water, the pump fills its well and the pool stays. */
+    @GameTest(template = "empty")
+    public static void tidePumpDrawsFromAnInfinitePoolBelow(GameTestHelper h) {
+        basin(h, 2, 2, 2, 2);
+        var pump = pumpAt(h, new BlockPos(2, 3, 2), Direction.EAST);
+        h.setBlock(2, 3, 6, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        pulse(h, 5, 3, 5, 200);
+        for (int i = 0; i < 3; i++) pump.beat(h.getLevel());
+        h.assertTrue(pump.well.getFluidAmount() == 3000 && pump.well.getFluid().is(Fluids.WATER),
+                "Three beats over water fill the well with three buckets, well=" + pump.well.getFluidAmount() + " " + pump.status().getString());
+        h.assertTrue(h.getBlockState(new BlockPos(2, 2, 2)).is(Blocks.WATER) && h.getLevel().getFluidState(h.absolutePos(new BlockPos(2, 2, 2))).isSource(),
+                "An infinite pool keeps its source");
+        // A tank at the back takes what the well holds, the way the pump fills it from a front tank.
+        h.setBlock(1, 3, 2, ModBlocks.SPIRIT_CISTERN.get());
+        var cistern = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(1, 3, 2));
+        pump.beat(h.getLevel());
+        h.assertTrue(cistern.tank.getFluidAmount() == 250 && pump.well.getFluidAmount() == 3750,
+                "The back tank gets 250 mB of the well, cistern=" + cistern.tank.getFluidAmount() + " well=" + pump.well.getFluidAmount());
+        h.succeed();
+    }
+
+    /** A lone source is no infinite water: the pump takes it up as a bucket would, once. */
+    @GameTest(template = "empty")
+    public static void tidePumpTakesUpALoneSource(GameTestHelper h) {
+        basin(h, 2, 2, 1, 1);
+        var pump = pumpAt(h, new BlockPos(2, 3, 2), Direction.EAST);
+        h.setBlock(2, 3, 6, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        pulse(h, 5, 3, 5, 200);
+        pump.beat(h.getLevel());
+        h.assertTrue(pump.well.getFluidAmount() == 1000, "The pump draws the source's bucket, well=" + pump.well.getFluidAmount() + " " + pump.status().getString());
+        h.assertTrue(h.getLevel().getFluidState(h.absolutePos(new BlockPos(2, 2, 2))).isEmpty(), "And the lone source is gone");
+        pump.beat(h.getLevel());
+        h.assertTrue(pump.well.getFluidAmount() == 1000, "Nothing is left below to draw, well=" + pump.well.getFluidAmount());
+        h.succeed();
+    }
+
+    /** A tank under the pump is drawn from too, 250 mB a beat. */
+    @GameTest(template = "empty")
+    public static void tidePumpDrawsFromATankBelow(GameTestHelper h) {
+        h.setBlock(2, 2, 2, ModBlocks.SPIRIT_CISTERN.get());
+        var below = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 2));
+        below.tank.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
+        var pump = pumpAt(h, new BlockPos(2, 3, 2), Direction.EAST);
+        h.setBlock(2, 3, 6, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        pulse(h, 5, 3, 5, 200);
+        pump.beat(h.getLevel());
+        h.assertTrue(pump.well.getFluidAmount() == 250 && below.tank.getFluidAmount() == 750,
+                "The pump draws 250 mB from the tank below, well=" + pump.well.getFluidAmount() + " below=" + below.tank.getFluidAmount());
+        h.succeed();
+    }
+
+    /** The game's survival fake player, emptied and standing clear of the work, holding {@code held}. */
+    private static net.neoforged.neoforge.common.util.FakePlayer worker(GameTestHelper h, ItemStack held) {
+        var player = net.neoforged.neoforge.common.util.FakePlayerFactory.getMinecraft(h.getLevel());
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        player.getAbilities().instabuild = false;
+        player.getInventory().clearContent();
+        player.setShiftKeyDown(false);
+        BlockPos stand = h.absolutePos(new BlockPos(12, 2, 12));
+        player.moveTo(stand.getX() + 0.5, stand.getY(), stand.getZ() + 0.5, 0, 0);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, held);
+        return player;
+    }
+
+    /** A plain right-click on {@code face} of the block at {@code rel}, with whatever the player holds. */
+    private static void click(GameTestHelper h, net.minecraft.server.level.ServerPlayer player, BlockPos rel, Direction face) {
+        BlockPos abs = h.absolutePos(rel);
+        var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(abs)
+                .add(face.getStepX() * 0.5, face.getStepY() * 0.5, face.getStepZ() * 0.5), face, abs, false);
+        player.gameMode.useItemOn(player, h.getLevel(), player.getMainHandItem(), net.minecraft.world.InteractionHand.MAIN_HAND, hit);
+    }
+
+    /**
+     * A plate goes on the pump with a plain right-click, takes a Water Seal, is tuned to a cistern across the yard and
+     * carries the water the pump draws from its pool into it.
+     */
+    @GameTest(template = "empty", timeoutTicks = 220)
+    public static void fluidPlateCarriesThePumpsWater(GameTestHelper h) {
+        basin(h, 2, 2, 2, 2);
+        var pump = pumpAt(h, new BlockPos(2, 3, 2), Direction.NORTH);
+        h.setBlock(6, 2, 6, ModBlocks.RESONANCE_TOTEM_WATER.get());
+        h.setBlock(7, 2, 6, ModBlocks.RESONANCE_TOTEM_AIR.get());
+        pulse(h, 6, 2, 2, 1000);
+        h.setBlock(9, 2, 2, ModBlocks.SPIRIT_CISTERN.get());
+        var cistern = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(9, 2, 2));
+        var player = worker(h, new ItemStack(ModBlocks.ITEM_RELAY.get()));
+        click(h, player, new BlockPos(2, 3, 2), Direction.UP);
+        var placed = h.getBlockState(new BlockPos(2, 4, 2));
+        h.assertTrue(placed.is(ModBlocks.ITEM_RELAY.get()) && placed.getValue(tk.darrow.tribalpower.block.RelayBlock.FACING) == Direction.UP,
+                "A plain right-click puts the plate on the pump's top, got " + placed);
+        h.assertTrue(player.getMainHandItem().isEmpty(), "A survival player spends the plate");
+        var relay = (tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) h.getBlockEntity(new BlockPos(2, 4, 2));
+        relay.setItem(tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity.RUNE, new ItemStack(tk.darrow.tribalpower.item.ModItems.WATER_SEAL.get()));
+        h.assertTrue(relay.fluid(), "The Water Seal makes it a fluid plate");
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(tk.darrow.tribalpower.item.ModItems.LATTICE_TUNER.get()));
+        click(h, player, new BlockPos(9, 2, 2), Direction.UP);
+        click(h, player, new BlockPos(2, 4, 2), Direction.UP);
+        h.assertTrue(h.absolutePos(new BlockPos(9, 2, 2)).equals(relay.target()), "The tuner binds the plate to the cistern, target=" + relay.target());
+        h.runAfterDelay(160, () -> {
+            h.assertTrue(cistern.tank.getFluidAmount() > 0 && cistern.tank.getFluid().is(Fluids.WATER),
+                    "Water crosses from the pump to the cistern, cistern=" + cistern.tank.getFluidAmount()
+                            + " well=" + pump.well.getFluidAmount() + " pump=" + pump.status().getString() + " plate=" + relay.status().getString());
+            h.assertTrue(h.getLevel().getFluidState(h.absolutePos(new BlockPos(2, 2, 2))).isSource(), "The pool under the pump stays");
+            h.succeed();
+        });
+    }
+
+    /** A fluid plate on a cistern, tuned to the pump's top, fills the pump's well. */
+    @GameTest(template = "empty", timeoutTicks = 220)
+    public static void fluidPlateFillsThePump(GameTestHelper h) {
+        h.setBlock(2, 2, 2, ModBlocks.SPIRIT_CISTERN.get());
+        var cistern = (SpiritCisternBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 2));
+        cistern.tank.fill(new FluidStack(Fluids.WATER, 2000), IFluidHandler.FluidAction.EXECUTE);
+        h.setBlock(8, 1, 2, Blocks.STONE);
+        var pump = pumpAt(h, new BlockPos(8, 2, 2), Direction.EAST);
+        h.setBlock(5, 2, 6, ModBlocks.RESONANCE_TOTEM_AIR.get());
+        pulse(h, 5, 2, 2, 1000);
+        var player = worker(h, new ItemStack(ModBlocks.FLUID_RELAY.get()));
+        click(h, player, new BlockPos(2, 2, 2), Direction.UP);
+        h.assertTrue(h.getBlockState(new BlockPos(2, 3, 2)).is(ModBlocks.FLUID_RELAY.get()), "A plain right-click puts the plate on the cistern");
+        var relay = (tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity) h.getBlockEntity(new BlockPos(2, 3, 2));
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(tk.darrow.tribalpower.item.ModItems.LATTICE_TUNER.get()));
+        click(h, player, new BlockPos(8, 2, 2), Direction.UP);
+        click(h, player, new BlockPos(2, 3, 2), Direction.UP);
+        h.assertTrue(h.absolutePos(new BlockPos(8, 2, 2)).equals(relay.target()), "The tuner binds the plate to the pump, target=" + relay.target());
+        h.runAfterDelay(160, () -> {
+            h.assertTrue(pump.well.getFluidAmount() > 0 && cistern.tank.getFluidAmount() == 2000 - pump.well.getFluidAmount(),
+                    "Water crosses from the cistern into the pump, well=" + pump.well.getFluidAmount()
+                            + " cistern=" + cistern.tank.getFluidAmount() + " plate=" + relay.status().getString());
+            h.succeed();
+        });
+    }
+
     @GameTest(template = "empty")
     public static void windSnareCatchesDroppedItems(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.WIND_SNARE.get());

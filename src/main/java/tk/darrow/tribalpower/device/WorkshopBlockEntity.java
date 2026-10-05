@@ -24,6 +24,7 @@ import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
@@ -34,7 +35,13 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     private int reasonN;
     private String reasonName = "";
     private FluidStack pending = FluidStack.EMPTY;
-    private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.mesh();
+    /** The Tide Pump's own well: what it draws from below and what fluid plates bring, until it is passed on. */
+    public static final int WELL = 4000;
+    public final FluidTank well = new FluidTank(WELL) {
+        @Override protected void onContentsChanged() { setChanged(); }
+    };
+    // A pump's faces are open both ways, so fluid plates can draw from it and fill it; the other hands keep the mesh's.
+    private final tk.darrow.tribalpower.lattice.SideIo sides;
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
     /** Hoppers ask for these every tick; build the slot list once. */
     private static final int[] ALL_SLOTS = java.util.stream.IntStream.range(0, 27).toArray();
@@ -43,7 +50,12 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
 
     public WorkshopBlockEntity(BlockPos pos, BlockState state) {
         super(DeviceRegistry.WORKSHOP.get(), pos, state);
+        sides = isPump(state) ? new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH)
+                : tk.darrow.tribalpower.lattice.SideIo.mesh();
     }
+
+    private static boolean isPump(BlockState state) { return state.is(DeviceRegistry.TIDE_PUMP.get()); }
+    public boolean isPump() { return isPump(getBlockState()); }
 
     public String kind() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
 
@@ -134,28 +146,99 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         BlockPos back = worldPosition.relative(face.getOpposite());
         IFluidHandler from = server.getCapability(Capabilities.FluidHandler.BLOCK, extract ? front : back, extract ? face.getOpposite() : face);
         IFluidHandler to = server.getCapability(Capabilities.FluidHandler.BLOCK, extract ? back : front, extract ? face : face.getOpposite());
-        if (from == null || to == null) { setReason("need_tanks"); return; }
+        BlockPos below = worldPosition.below();
+        // A tank underneath that is already one of the pump's ends is pumped as that end, not drawn from twice.
+        IFluidHandler under = below.equals(front) || below.equals(back) ? null
+                : server.getCapability(Capabilities.FluidHandler.BLOCK, below, Direction.UP);
+        boolean water = waterBelow(server, below);
+        if ((from == null || to == null) && under == null && !water && (to == null || well.isEmpty())) {
+            setReason("need_tanks");
+            return;
+        }
         int cost = 4;
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
-        if (!pending.isEmpty()) {
-            int flushed = to.fill(pending.copy(), IFluidHandler.FluidAction.EXECUTE);
-            if (flushed > 0) { pending.shrink(flushed); setChanged(); }
-            if (!pending.isEmpty()) { setReason("dest_full"); return; }
+        full = false;
+        int drew = water ? drawWater(server, below) : under != null ? move(under, well, 250) : 0;
+        int moved = 0;
+        if (to != null) {
+            if (!pending.isEmpty()) {
+                int flushed = to.fill(pending.copy(), IFluidHandler.FluidAction.EXECUTE);
+                if (flushed > 0) { pending.shrink(flushed); setChanged(); }
+                if (!pending.isEmpty()) full = true;
+            }
+            if (pending.isEmpty()) {
+                // What the well holds goes on first; the tank-to-tank pumping fills the rest of the beat.
+                moved = move(well, to, 250);
+                if (from != null && moved < 250) moved += move(from, to, 250 - moved);
+            }
         }
-        FluidStack drained = from.drain(250, IFluidHandler.FluidAction.SIMULATE);
-        if (drained.isEmpty()) { setReason("nothing"); return; }
-        int filled = to.fill(drained, IFluidHandler.FluidAction.SIMULATE);
-        if (filled <= 0) { setReason("dest_full"); return; }
-        FluidStack moved = from.drain(filled, IFluidHandler.FluidAction.EXECUTE);
-        if (moved.isEmpty()) { setReason("nothing"); return; }
-        int accepted = to.fill(moved, IFluidHandler.FluidAction.EXECUTE);
-        if (accepted < moved.getAmount()) {
-            pending = moved.copy();
-            pending.setAmount(moved.getAmount() - accepted);
-        }
+        if (drew + moved == 0) { setReason(full ? "dest_full" : "nothing"); return; }
         LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false);
-        setReason(extract ? "drawing" : "pushing", accepted);
+        if (moved > 0) setReason(extract ? "drawing" : "pushing", moved);
+        else setReason("drawing", drew);
         setChanged();
+    }
+
+    /** Set by {@link #move} when a receiving tank had no room this beat. */
+    private boolean full;
+
+    /** Up to {@code max} of one fluid from {@code src} into {@code dst}; what {@code dst} turns back waits as pending. */
+    private int move(IFluidHandler src, IFluidHandler dst, int max) {
+        FluidStack offer = src.drain(max, IFluidHandler.FluidAction.SIMULATE);
+        if (offer.isEmpty()) return 0;
+        int room = dst.fill(offer, IFluidHandler.FluidAction.SIMULATE);
+        if (room <= 0) { full = true; return 0; }
+        FluidStack taken = src.drain(room, IFluidHandler.FluidAction.EXECUTE);
+        if (taken.isEmpty()) return 0;
+        int accepted = dst.fill(taken.copy(), IFluidHandler.FluidAction.EXECUTE);
+        if (accepted < taken.getAmount()) {
+            FluidStack rest = taken.copyWithAmount(taken.getAmount() - accepted);
+            if (dst != well) rest.shrink(well.fill(rest.copy(), IFluidHandler.FluidAction.EXECUTE));
+            if (!rest.isEmpty()) {
+                if (pending.isEmpty()) pending = rest;
+                else if (FluidStack.isSameFluidSameComponents(pending, rest)) pending.grow(rest.getAmount());
+            }
+            setChanged();
+        }
+        return accepted;
+    }
+
+    /** A water source the pump can take a bucket from: still water, or a waterlogged block that gives it up. */
+    private static boolean waterBelow(ServerLevel server, BlockPos below) {
+        var fluid = server.getFluidState(below);
+        return fluid.isSource() && fluid.getType().isSame(net.minecraft.world.level.material.Fluids.WATER)
+                && server.getBlockState(below).getBlock() instanceof net.minecraft.world.level.block.BucketPickup;
+    }
+
+    /**
+     * A bucket's worth from the source below, by the game's own rule for infinite water: a source with two source
+     * neighbours on its level and solid ground (or more source) under it refills at once, so it stays; any other
+     * source is taken up the way a bucket takes it.
+     */
+    private int drawWater(ServerLevel server, BlockPos below) {
+        var bucket = new FluidStack(net.minecraft.world.level.material.Fluids.WATER, net.neoforged.neoforge.fluids.FluidType.BUCKET_VOLUME);
+        if (well.fill(bucket.copy(), IFluidHandler.FluidAction.SIMULATE) < bucket.getAmount()) { full = true; return 0; }
+        if (!infinite(server, below)) {
+            BlockState state = server.getBlockState(below);
+            if (!(state.getBlock() instanceof net.minecraft.world.level.block.BucketPickup pickup)
+                    || pickup.pickupBlock(null, server, below, state).isEmpty()) return 0;
+        }
+        return well.fill(bucket, IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    static boolean infinite(ServerLevel server, BlockPos pos) {
+        BlockState state = server.getBlockState(pos);
+        var fluid = state.getFluidState();
+        if (!(state.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock) || !fluid.isSource()) return false;
+        if (!fluid.canConvertToSource(server, pos)) return false;
+        int sources = 0;
+        for (Direction side : Direction.Plane.HORIZONTAL) {
+            var next = server.getFluidState(pos.relative(side));
+            if (next.isSource() && next.getType().isSame(fluid.getType())) sources++;
+        }
+        if (sources < 2) return false;
+        BlockState ground = server.getBlockState(pos.below());
+        return ground.isSolid() || (ground.getFluidState().isSource() && ground.getFluidState().getType().isSame(fluid.getType()));
     }
 
     private void vacuum(ServerLevel server) {
@@ -250,6 +333,10 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         tag.putString("ReasonName", reasonName);
         if (!pending.isEmpty()) tag.put("Pending", pending.save(registries));
         sides.save(tag);
+        if (isPump()) {
+            tag.put("Well", well.writeToNBT(registries, new CompoundTag()));
+            tag.putBoolean("OpenFaces", true);
+        }
     }
     @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
@@ -262,5 +349,11 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         reasonName = tag.getString("ReasonName");
         pending = FluidStack.parseOptional(registries, tag.getCompound("Pending"));
         sides.load(tag);
+        if (isPump()) {
+            well.readFromNBT(registries, tag.getCompound("Well"));
+            // Pumps saved before they had a well carried the mesh's face layout, which nothing used: open them up.
+            if (!tag.getBoolean("OpenFaces"))
+                sides.unpack(new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH).pack());
+        }
     }
 }

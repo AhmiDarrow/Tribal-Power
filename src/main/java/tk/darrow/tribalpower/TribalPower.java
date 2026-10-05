@@ -221,6 +221,10 @@ public final class TribalPower {
                                     side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
                                             : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side))
                                     : null);
+            // The Tide Pump's well: fluid plates and pipes draw from it and fill it through faces its side IO leaves open.
+            event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,
+                    tk.darrow.tribalpower.device.DeviceRegistry.WORKSHOP.get(), (be, side) ->
+                            be.isPump() ? tk.darrow.tribalpower.lattice.SidedFluidHandler.wrap(be, side, be.well) : null);
             event.registerBlockEntity(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,
                     tk.darrow.tribalpower.device.DeviceRegistry.SEAL_LOOM_TYPE.get(), (be, side) ->
                             new tk.darrow.tribalpower.lattice.RedstoneItemHandler(be,
