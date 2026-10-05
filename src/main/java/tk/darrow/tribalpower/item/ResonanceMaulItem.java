@@ -14,6 +14,11 @@ import java.util.List;
 /** Deliberate 3x3 excavation, routed through vanilla player breaking and protection events. */
 public class ResonanceMaulItem extends PickaxeItem {
     public ResonanceMaulItem(Properties properties) { super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 3, -3.1F))); }
+    /** The 3x3 swing is paid in Pulse, block by block, so it leaves the maul's edge alone (see SpiritGear.wear). */
+    @Override public <T extends net.minecraft.world.entity.LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
+    }
     @Override public InteractionResult useOn(UseOnContext context) {
         if (context.getHand() != net.minecraft.world.InteractionHand.MAIN_HAND) return InteractionResult.PASS;
         if (context.getPlayer() == null || !context.getPlayer().isShiftKeyDown()) return InteractionResult.PASS;
@@ -29,7 +34,13 @@ public class ResonanceMaulItem extends PickaxeItem {
                     || !context.getItemInHand().isCorrectToolForDrops(state) || !player.level().mayInteract(player, pos)
                     || !player.mayUseItemAt(pos, context.getClickedFace(), context.getItemInHand())) continue;
             if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < 8) break;
-            if (player.gameMode.destroyBlock(pos)) { GearCell.spend(player, context.getItemInHand(), 8); broken++; }
+            ItemStack maul = context.getItemInHand();
+            int[] wear = {0};
+            if (SpiritGear.held(maul, wear, () -> player.gameMode.destroyBlock(pos))) {
+                // Paid, the block wears nothing; a block the Pulse somehow could not cover wears as any pick's would.
+                if (!GearCell.spend(player, maul, 8) && wear[0] > 0) maul.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
+                broken++;
+            } else if (wear[0] > 0) maul.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
         }
         if (broken > 0) {
             SpiritEffects.ring(player.serverLevel(), center.getCenter(), Attunement.EARTH, 1.3, 16);

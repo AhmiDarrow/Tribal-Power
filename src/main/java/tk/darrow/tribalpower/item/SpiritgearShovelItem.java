@@ -22,8 +22,13 @@ import java.util.List;
 /** Spiritgear shovel — Pulse spares digs and paths; a linked totem voice adds a ground perk. */
 public class SpiritgearShovelItem extends ShovelItem {
     public SpiritgearShovelItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(ShovelItem.createAttributes(Tiers.DIAMOND, 1.5F, -3.0F))
-                .durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(ShovelItem.createAttributes(Tiers.DIAMOND, 1.5F, -3.0F)));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
     }
 
     @Override
@@ -38,53 +43,38 @@ public class SpiritgearShovelItem extends ShovelItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
-                || state.getDestroySpeed(level, pos) == 0.0F) {
-            return super.mineBlock(stack, level, state, pos, entity);
-        }
-        SpiritGear.Swing parent = SpiritGear.swingFor(player);
-        boolean aoe = parent != null && parent.aoe();
-        boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
-        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
-        boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        SpiritGear.finishDurability(player, stack, paid);
-        if (ok && paid && !aoe && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH
+        SpiritGear.Break mined = SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity));
+        if (mined.perks() && entity instanceof ServerPlayer player && SpiritGear.voice(stack).orElse(null) == Attunement.EARTH
                 && SpiritGearHooks.dirtLike(state)) {
             Direction.Axis axis = Direction.orderedByNearest(player)[0].getAxis();
             SpiritGearHooks.aoe(player, stack, pos, axis, SpiritGearHooks::dirtLike);
         }
-        return ok;
+        return mined.ok();
     }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
-        InteractionResult result = super.useOn(context);
-        if (result.consumesAction() && player instanceof ServerPlayer server && !server.level().isClientSide) {
-            ItemStack stack = context.getItemInHand();
-            boolean paid = server.getAbilities().instabuild
-                    || GearCell.spend(server, stack, SpiritGear.useCost(stack));
-            if (!server.getAbilities().instabuild) {
-                if (paid) stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
-                else {
-                    if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, server, EquipmentSlot.MAINHAND);
-                    SpiritgearHelper.notifyStarved(server);
-                }
-            }
-            if (paid && SpiritGear.voice(stack).orElse(null) == Attunement.AIR) {
+        if (player == null) return super.useOn(context);
+        // Pathing is a paid use: the cell's Pulse instead of the edge, or a starved path that wears.
+        ItemStack stack = context.getItemInHand();
+        int[] wear = {0};
+        InteractionResult result = SpiritGear.held(stack, wear, () -> super.useOn(context));
+        if (!player.level().isClientSide) {
+            boolean paid = SpiritGear.settleUse(player, stack, LivingEntity.getSlotForHand(context.getHand()), result.consumesAction(), wear[0]);
+            if (result.consumesAction() && paid && SpiritGear.voice(stack).orElse(null) == Attunement.AIR) {
                 BlockPos center = context.getClickedPos();
                 for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
                     if (x == 0 && z == 0) continue;
                     BlockPos at = center.offset(x, 0, z);
-                    if (!server.level().mayInteract(server, at)
-                            || !server.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
-                    int damage = stack.getDamageValue();
-                    UseOnContext neighbour = new UseOnContext(server, context.getHand(),
+                    if (!player.level().mayInteract(player, at)
+                            || !player.mayUseItemAt(at, context.getClickedFace(), stack)) continue;
+                    UseOnContext neighbour = new UseOnContext(player, context.getHand(),
                             new net.minecraft.world.phys.BlockHitResult(
                                     context.getClickLocation().add(x, 0, z),
                                     context.getClickedFace(), center.offset(x, 0, z), false));
-                    super.useOn(neighbour);
-                    if (!stack.isEmpty()) stack.setDamageValue(damage);
+                    // The wider path rides on the one use's Pulse and wears nothing.
+                    SpiritGear.held(stack, new int[1], () -> super.useOn(neighbour));
                 }
             }
         }

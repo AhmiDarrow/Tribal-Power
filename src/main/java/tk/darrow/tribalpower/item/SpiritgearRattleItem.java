@@ -35,7 +35,7 @@ public class SpiritgearRattleItem extends Item {
     private static final int SHAKE = 10;
 
     public SpiritgearRattleItem(Properties properties) {
-        super(properties.stacksTo(1).durability(SpiritGear.TOOL_DURABILITY));
+        super(properties.stacksTo(1).durability(SpiritGear.UNTIERED_DURABILITY));
     }
 
     @Override public boolean isFoil(ItemStack stack) { return SpiritGear.foil(stack) || super.isFoil(stack); }

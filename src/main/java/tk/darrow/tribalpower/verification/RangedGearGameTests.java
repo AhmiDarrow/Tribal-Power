@@ -45,7 +45,7 @@ public final class RangedGearGameTests {
         for (Item item : ranged()) {
             ItemStack fresh = new ItemStack(item);
             String name = BuiltInRegistries.ITEM.getKey(item).getPath();
-            h.assertTrue(fresh.getMaxDamage() == SpiritGear.TOOL_DURABILITY, name + " lasts as long as the Spiritgear tools, saw " + fresh.getMaxDamage());
+            h.assertTrue(fresh.getMaxDamage() == 1024 && SpiritGear.UNTIERED_DURABILITY == 1024, name + " lasts 1,024 like the shears, saw " + fresh.getMaxDamage());
             h.assertTrue(fresh.is(SpiritAnvil.SPIRITGEAR), name + " is Spiritgear to the Spirit Anvil");
             int quarter = fresh.getMaxDamage() / 4;
             int wear = quarter * 3 + 10;
@@ -154,7 +154,7 @@ public final class RangedGearGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void rangedGearWearsAndSpendsWithUse(GameTestHelper h) {
+    public static void rangedGearSpendsPulseAndTakesNoWear(GameTestHelper h) {
         var player = VerificationPlayers.inLevel(h);
         try {
             player.setGameMode(GameType.SURVIVAL);
@@ -164,7 +164,7 @@ public final class RangedGearGameTests {
             player.setItemInHand(InteractionHand.MAIN_HAND, bow);
             var bowItem = (PulseBowItem) bow.getItem();
             bowItem.releaseUsing(bow, h.getLevel(), player, bowItem.getUseDuration(bow, player) - 20);
-            h.assertTrue(bow.getDamageValue() == 1, "A full draw wears the bow a point, saw " + bow.getDamageValue());
+            h.assertTrue(bow.getDamageValue() == 0, "A paid draw leaves the bow unworn, saw " + bow.getDamageValue());
             h.assertTrue(PulseCellItem.getPulse(player.getInventory().getItem(9)) == 500 - TribalConfig.bowPulse(),
                     "A full draw spends bowPulse, saw " + PulseCellItem.getPulse(player.getInventory().getItem(9)));
 
@@ -176,7 +176,7 @@ public final class RangedGearGameTests {
             h.assertTrue(PulseCellItem.getPulse(player.getInventory().getItem(9)) == 500 - TribalConfig.bowPulse() - TribalConfig.crossbowPulse(),
                     "Loading spends crossbowPulse");
             item.use(h.getLevel(), player, InteractionHand.MAIN_HAND);
-            h.assertTrue(crossbow.getDamageValue() == 1, "A shot wears the crossbow a point, saw " + crossbow.getDamageValue());
+            h.assertTrue(crossbow.getDamageValue() == 0, "A paid shot leaves the crossbow unworn, saw " + crossbow.getDamageValue());
             h.succeed();
         } finally {
             h.getLevel().getServer().getPlayerList().remove(player);
@@ -190,15 +190,15 @@ public final class RangedGearGameTests {
         String bow = PulseBowItem.damage(TribalConfig.bowDamage());
         String bolt = PulseBowItem.damage(TribalConfig.bowDamage() * TribalConfig.crossbowDamageMultiplier());
         String verse = PulseBowItem.damage(Math.min(TribalConfig.verseDamageCap(), TribalConfig.verseDamagePerPower() * 7));
-        String durability = String.format(java.util.Locale.ROOT, "%,d", SpiritGear.TOOL_DURABILITY);
+        String durability = String.format(java.util.Locale.ROOT, "%,d", SpiritGear.UNTIERED_DURABILITY);
         String songBench = CodexFacts.words(book.byId().get("song_bench"));
         String crossbow = CodexFacts.words(book.byId().get("pulse_crossbow"));
         String anvil = CodexFacts.words(book.byId().get("spirit_anvil"));
-        for (String phrase : List.of("A full draw hits for " + bow, "up to " + verse + ".", "out of " + durability, "Manifested Ingots", "Spirit Anvil",
+        for (String phrase : List.of("A full draw hits for " + bow, "up to " + verse + ".", "lasts " + durability, "never wears it", "Manifested Ingots", "Spirit Anvil",
                 "spends up to " + TribalConfig.bowPulse() + " Pulse", "adds " + TribalConfig.versePulse() + " more"))
             h.assertTrue(songBench.contains(phrase), "song_bench must say \"" + phrase + "\"");
         for (String phrase : List.of(bolt + " up close against the bow's " + bow, "up to " + verse + " more to a full bow draw",
-                TribalConfig.crossbowPulse() + " Pulse up front", "for " + TribalConfig.versePulse() + " Pulse more", "out of " + durability, "Manifested Ingots"))
+                TribalConfig.crossbowPulse() + " Pulse up front", "for " + TribalConfig.versePulse() + " Pulse more", "lasts " + durability, "never wears it", "Manifested Ingots"))
             h.assertTrue(crossbow.contains(phrase), "pulse_crossbow must say \"" + phrase + "\"");
         h.assertFalse(crossbow.contains("half again as hard"), "pulse_crossbow must not keep the old one-and-a-half damage");
         h.assertTrue(anvil.contains("Pulse Bow and Pulse Crossbow"), "spirit_anvil must say the bows mend there");

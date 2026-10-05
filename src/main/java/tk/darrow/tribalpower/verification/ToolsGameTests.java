@@ -40,8 +40,9 @@ public class ToolsGameTests {
         ItemStack shears = new ItemStack(ModItems.SPIRITGEAR_SHEARS.get());
         ItemStack hoe = new ItemStack(ModItems.SPIRITGEAR_HOE.get());
         h.assertTrue(SpiritGear.isTool(shears) && SpiritGear.isTool(hoe), "Both rank and bind like Spiritgear");
-        h.assertTrue(shears.getMaxDamage() >= SpiritGear.TOOL_DURABILITY && hoe.getMaxDamage() >= SpiritGear.TOOL_DURABILITY,
-                "Spiritgear lasts at least " + SpiritGear.TOOL_DURABILITY);
+        h.assertTrue(shears.getMaxDamage() == 1024 && SpiritGear.UNTIERED_DURABILITY == 1024,
+                "The shears last 1,024, got " + shears.getMaxDamage());
+        h.assertTrue(hoe.getMaxDamage() == 1561, "The hoe lasts 1,561 like the other tiered tools, got " + hoe.getMaxDamage());
         h.assertTrue(shears.getDestroySpeed(Blocks.OAK_LEAVES.defaultBlockState()) > 1.0F, "Shears cut leaves fast");
         h.assertTrue(hoe.isCorrectToolForDrops(Blocks.HAY_BLOCK.defaultBlockState()), "The hoe takes hay");
         h.assertTrue(SpiritGear.allRankFormulae().stream().anyMatch(f -> f.id().getPath().contains("spiritgear_shears")),
@@ -67,7 +68,7 @@ public class ToolsGameTests {
         BlockState after = h.getLevel().getBlockState(absolute);
         h.assertTrue(after.is(Blocks.WHEAT) && after.getValue(CropBlock.AGE) == 0,
                 "The crop is sown again at age 0, not broken");
-        h.assertTrue(hoe.getDamageValue() == 0, "A paid reap mends rather than wears");
+        h.assertTrue(hoe.getDamageValue() == 0, "A paid reap takes no wear");
         h.succeed();
     }
 

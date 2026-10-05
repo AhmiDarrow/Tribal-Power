@@ -40,6 +40,10 @@ public class SpiritweaveArmor extends ArmorItem {
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("tribalpower", "spiritweave"))),
                     2F, 0.05F));
     static final ResourceLocation STEP = ResourceLocation.fromNamespaceAndPath("tribalpower", "spirit_step");
+    /** Ticks one upkeep payment keeps every perk of a piece going: the four seconds between its timed boons. */
+    public static final int UPKEEP_TICKS = 80;
+    /** When each piece's paid upkeep runs out. Weak, so a piece that is gone is forgotten with it. */
+    private static final Map<ItemStack, Long> PAID_UNTIL = new java.util.WeakHashMap<>();
 
     public SpiritweaveArmor(Type type, Properties properties) {
         super(MATERIAL, type, properties.durability(type.getDurability(33)));
@@ -68,6 +72,31 @@ public class SpiritweaveArmor extends ArmorItem {
         return super.damageItem(stack, amount, entity, onBroken);
     }
 
+    /**
+     * Whether a worn piece's perks work right now, timed and reactive alike: switched on in the Gear screen, and its
+     * upkeep paid. One payment of {@link SpiritGear#armorCost} keeps every perk of the piece going for four seconds;
+     * once that runs out, the next perk wanted pays again, from the piece's own cell first. The hood, robe and
+     * leggings pay it every four seconds anyway for their timed boons, so their reactive perks ride on that; the
+     * boots pay only when one of theirs is used. The client pays nothing, so there a piece counts as powered while
+     * enough Pulse is within its reach.
+     */
+    public static boolean powered(Player player, ItemStack stack) {
+        if (!(stack.getItem() instanceof SpiritweaveArmor armor) || SpiritGear.abilitiesOff(stack)) return false;
+        if (player.getAbilities().instabuild) return true;
+        int cost = SpiritGear.armorCost(stack);
+        if (player.level().isClientSide) return GearCell.available(player, stack) >= cost;
+        long now = player.level().getGameTime();
+        Long until = PAID_UNTIL.get(stack);
+        if (until != null && now < until) return true;
+        if (!GearCell.spend(player, stack, cost)) return false;
+        PAID_UNTIL.put(stack, now + UPKEEP_TICKS);
+        // The Loom robe sometimes threads what it spent back into the cell.
+        if (armor.getType() == Type.CHESTPLATE && SpiritGear.voice(stack).orElse(null) == Attunement.LOOM
+                && player.getRandom().nextFloat() < (SpiritGear.rank(stack) >= 3 ? 0.50F : 0.30F))
+            GearCell.refund(player, stack, cost);
+        return true;
+    }
+
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
@@ -77,7 +106,8 @@ public class SpiritweaveArmor extends ArmorItem {
         var step = player.getAttribute(Attributes.STEP_HEIGHT);
         if (getType() == Type.LEGGINGS && step != null) {
             ItemStack worn = player.getItemBySlot(getEquipmentSlot());
-            boolean spiritLegs = worn == stack && !off && SpiritGear.voice(stack).orElse(null) == Attunement.SPIRIT;
+            boolean spiritLegs = worn == stack && !off && SpiritGear.voice(stack).orElse(null) == Attunement.SPIRIT
+                    && powered(player, stack);
             if (spiritLegs) {
                 if (!step.hasModifier(STEP)) step.addTransientModifier(new AttributeModifier(STEP, 1.0, AttributeModifier.Operation.ADD_VALUE));
             } else if (worn == stack || SpiritGear.voice(worn).orElse(null) != Attunement.SPIRIT
@@ -94,31 +124,21 @@ public class SpiritweaveArmor extends ArmorItem {
         // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
         if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0
                 && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
-            freeze(player, SpiritGear.rank(stack) >= 3 ? 3 : 2);
+            freeze(player, stack, SpiritGear.rank(stack) >= 3 ? 3 : 2);
         }
 
         if (getType() == Type.BOOTS) {
-            if (player.fallDistance > 1 && SpiritGear.voice(stack).orElse(null) == null
-                    && !player.hasEffect(MobEffects.SLOW_FALLING)
-                    && GearCell.spend(player, stack, SpiritGear.armorCost(stack)))
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
-            if (SpiritGear.voice(stack).orElse(null) == Attunement.AIR && player.fallDistance > 1
-                    && !player.hasEffect(MobEffects.SLOW_FALLING)
-                    && GearCell.spend(player, stack, SpiritGear.armorCost(stack)))
+            // Unlinked and Air boots catch a fall with slow falling, paying only when they do.
+            Attunement voice = SpiritGear.voice(stack).orElse(null);
+            if ((voice == null || voice == Attunement.AIR) && player.fallDistance > 1
+                    && !player.hasEffect(MobEffects.SLOW_FALLING) && powered(player, stack))
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
             return;
         }
 
-        if (level.getGameTime() % 80 != 0) return;
-        Attunement voice = SpiritGear.voice(stack).orElse(null);
-        int cost = SpiritGear.armorCost(stack);
-        boolean paid = GearCell.spend(player, stack, cost);
-        if (!paid) return;
-        if (voice == Attunement.LOOM && getType() == Type.CHESTPLATE
-                && player.getRandom().nextFloat() < (SpiritGear.rank(stack) >= 3 ? 0.50F : 0.30F)) {
-            GearCell.refund(player, stack, cost);
-        }
-        apply(player, stack, voice);
+        if (level.getGameTime() % UPKEEP_TICKS != 0) return;
+        if (!powered(player, stack)) return;
+        apply(player, stack, SpiritGear.voice(stack).orElse(null));
     }
 
     private void apply(Player player, ItemStack stack, Attunement voice) {
@@ -179,17 +199,22 @@ public class SpiritweaveArmor extends ArmorItem {
     }
 
 
-    private static void freeze(Player player, int radius) {
+    /** Water boots freeze still water underfoot, paying their upkeep only when there is water to freeze. */
+    private static void freeze(Player player, ItemStack boots, int radius) {
         BlockPos origin = player.blockPosition();
         Level level = player.level();
+        List<BlockPos> water = new java.util.ArrayList<>();
         BlockPos.betweenClosed(origin.offset(-radius, -1, -radius), origin.offset(radius, -1, radius)).forEach(pos -> {
             if (pos.distManhattan(origin) > radius) return;
             BlockState state = level.getBlockState(pos);
             if (state.getFluidState().is(Fluids.WATER) && state.getFluidState().isSource()
                     && level.getBlockState(pos.above()).isAir()) {
-                level.setBlockAndUpdate(pos, Blocks.FROSTED_ICE.defaultBlockState().setValue(FrostedIceBlock.AGE, 0));
+                water.add(pos.immutable());
             }
         });
+        if (water.isEmpty() || !powered(player, boots)) return;
+        for (BlockPos pos : water)
+            level.setBlockAndUpdate(pos, Blocks.FROSTED_ICE.defaultBlockState().setValue(FrostedIceBlock.AGE, 0));
     }
 
     @Override

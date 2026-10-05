@@ -77,19 +77,19 @@ public final class ModItems {
     // Spiritgear — Pulse-fueled tools
     public static final DeferredItem<Item> SPIRITGEAR_PICKAXE = ITEMS.register(
             "spiritgear_pickaxe",
-            () -> new SpiritgearPickaxeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearPickaxeItem(new Item.Properties())
     );
     public static final DeferredItem<Item> SPIRITGEAR_AXE = ITEMS.register(
             "spiritgear_axe",
-            () -> new SpiritgearAxeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearAxeItem(new Item.Properties())
     );
     public static final DeferredItem<Item> SPIRITGEAR_SHOVEL = ITEMS.register(
             "spiritgear_shovel",
-            () -> new SpiritgearShovelItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearShovelItem(new Item.Properties())
     );
     public static final DeferredItem<Item> SPIRITGEAR_BLADE = ITEMS.register(
             "spiritgear_blade",
-            () -> new SpiritgearBladeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearBladeItem(new Item.Properties())
     );
     /** The Healer's Rattle: Spiritgear that mends instead of cutting. */
     public static final DeferredItem<Item> SPIRITGEAR_RATTLE = ITEMS.register("spiritgear_rattle",
@@ -105,11 +105,11 @@ public final class ModItems {
     }
     public static final DeferredItem<Item> SPIRITGEAR_SHEARS = ITEMS.register(
             "spiritgear_shears",
-            () -> new SpiritgearShearsItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearShearsItem(new Item.Properties())
     );
     public static final DeferredItem<Item> SPIRITGEAR_HOE = ITEMS.register(
             "spiritgear_hoe",
-            () -> new SpiritgearHoeItem(new Item.Properties().durability(SpiritGear.TOOL_DURABILITY))
+            () -> new SpiritgearHoeItem(new Item.Properties())
     );
 
     // Carried kit — a tank for the road, a wrench for machine faces, a wand for walls
@@ -228,7 +228,7 @@ public final class ModItems {
     public static final DeferredItem<PulseCellItem> GRAND_PULSE_CELL = ITEMS.register("grand_pulse_cell", () -> new PulseCellItem(new Item.Properties().stacksTo(1), PulseCellItem.GRAND_CAPACITY));
     public static final DeferredItem<SpiritStaffItem> SPIRIT_STAFF = ITEMS.register("spirit_staff", () -> new SpiritStaffItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<WayfarerSatchelItem> WAYFARER_SATCHEL = ITEMS.register("wayfarer_satchel", () -> new WayfarerSatchelItem(new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<ResonanceMaulItem> RESONANCE_MAUL = ITEMS.register("resonance_maul", () -> new ResonanceMaulItem(new Item.Properties().durability(1024)));
+    public static final DeferredItem<ResonanceMaulItem> RESONANCE_MAUL = ITEMS.register("resonance_maul", () -> new ResonanceMaulItem(new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_HOOD = ITEMS.register("spiritweave_hood", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.HELMET, new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_ROBE = ITEMS.register("spiritweave_robe", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final DeferredItem<SpiritweaveArmor> SPIRITWEAVE_LEGGINGS = ITEMS.register("spiritweave_leggings", () -> new SpiritweaveArmor(net.minecraft.world.item.ArmorItem.Type.LEGGINGS, new Item.Properties()));

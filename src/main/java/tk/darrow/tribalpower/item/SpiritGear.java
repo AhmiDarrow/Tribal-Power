@@ -30,7 +30,10 @@ public final class SpiritGear {
     public static final String VOICE_KEY = "GearVoice";
     public static final int MAX_RANK = 3;
     public static final int LINK_COST = 40;
-    public static final int TOOL_DURABILITY = 1024;
+    /** What the pickaxe, axe, shovel, hoe, blade and weapons last: their diamond tier sets it. */
+    public static final int TOOL_DURABILITY = Tiers.DIAMOND.getUses();
+    /** What the untiered pieces last: the shears, the rattle and the Pulse bows. */
+    public static final int UNTIERED_DURABILITY = 1024;
 
     public record Swing(Player player, ItemStack tool, boolean pulsePaid, boolean aoe) {}
 
@@ -208,31 +211,117 @@ public final class SpiritGear {
     }
 
     /**
-     * Spend Pulse for a mine swing. Creative and zero-cost Loom picks count as paid so perks still fire.
+     * Spend Pulse for a mine swing. Creative, zero-cost Loom picks and Air shears count as paid so perks still fire.
      */
     public static boolean consumeForMine(Player player, ItemStack stack) {
         if (player.getAbilities().instabuild) return true;
+        if (stack.getItem() instanceof SpiritgearShearsItem && SpiritgearShearsItem.freeTrim(stack)) return true;
         int cost = mineCost(stack);
         if (cost <= 0) return true;
         return GearCell.spend(player, stack, cost);
     }
 
-    public static void finishDurability(Player player, ItemStack stack, boolean paid) {
-        if (player.getAbilities().instabuild) return;
-        RandomSource random = player.getRandom();
+    // ---- wear: the cell pays instead of the edge ---------------------------------------------------------------
+
+    /** The piece whose wear is held back while its action is settled, and the wear the game asked of it meanwhile. */
+    private static final class Held {
+        final ItemStack stack;
+        int wear;
+
+        Held(ItemStack stack) {
+            this.stack = stack;
+        }
+    }
+
+    private static final ThreadLocal<Held> HELD = new ThreadLocal<>();
+
+    /**
+     * Every Spiritgear tool's {@code damageItem} asks this. Wear the game gives a piece whose action is still being
+     * settled is held back here, and {@link #settle} then decides it: none when Pulse paid for the action, the
+     * held wear and the rest when nothing could.
+     */
+    public static int wear(ItemStack stack, int amount) {
+        Held held = HELD.get();
+        if (held == null || held.stack != stack) return amount;
+        held.wear += amount;
+        return 0;
+    }
+
+    /** Runs {@code action} with any wear it gives {@code tool} held back, adding that wear to {@code wear[0]}. */
+    public static <T> T held(ItemStack tool, int[] wear, java.util.function.Supplier<T> action) {
+        Held prior = HELD.get(), held = new Held(tool);
+        HELD.set(held);
+        try {
+            return action.get();
+        } finally {
+            HELD.set(prior);
+            wear[0] += held.wear;
+        }
+    }
+
+    /**
+     * Settles the wear an action asked of a tool. Paid in Pulse, the tool takes none: the cell's Pulse was the cost.
+     * Unpaid, it takes what the action asked, as any tool would, and a point more for starving until it is Bound; a
+     * Manifested tool spares half its starved actions entirely. (A Loom pick is never starved: it mines for nothing.)
+     */
+    public static void settle(Player player, ItemStack tool, net.minecraft.world.entity.EquipmentSlot slot, boolean paid, int wear) {
+        if (player.getAbilities().instabuild || tool.isEmpty()) return;
         if (paid) {
-            stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
             SpiritgearHelper.notifyFueled(player);
             return;
         }
-        boolean refund = (rank(stack) >= 3 && random.nextFloat() < 0.5F)
-                || (stack.getItem() instanceof SpiritgearPickaxeItem
-                && voice(stack).orElse(null) == Attunement.LOOM && random.nextFloat() < 0.75F);
-        if (refund) stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
-        else if (!skipStarveHurt(stack)) {
-            stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
-        }
+        boolean spared = rank(tool) >= 3 && player.getRandom().nextFloat() < 0.5F;
+        int total = spared ? 0 : wear + (skipStarveHurt(tool) ? 0 : 1);
+        if (total > 0) tool.hurtAndBreak(total, player, slot);
         SpiritgearHelper.notifyStarved(player);
+    }
+
+    /**
+     * Settles a use (stripping, pathing, tilling, shearing) whose own wear was held back. One that did something pays
+     * {@link #useCost}; one that did nothing gives the game back whatever wear it asked. Returns whether it was paid.
+     */
+    public static boolean settleUse(Player player, ItemStack tool, net.minecraft.world.entity.EquipmentSlot slot, boolean acted, int wear) {
+        if (player.level().isClientSide) return false;
+        if (!acted || player.getAbilities().instabuild) {
+            if (wear > 0 && !tool.isEmpty()) tool.hurtAndBreak(wear, player, slot);
+            return acted;
+        }
+        boolean paid = GearCell.spend(player, tool, useCost(tool));
+        settle(player, tool, slot, paid, wear);
+        return paid;
+    }
+
+    /** What a tool's break came to: whether the block broke, and whether it was paid and its own (not an area swing's). */
+    public record Break(boolean ok, boolean paid, boolean aoe) {
+        public boolean perks() {
+            return ok && paid && !aoe;
+        }
+    }
+
+    /**
+     * A Spiritgear tool breaking a block. Its Pulse was paid as the break began ({@link SpiritGearHooks#beforeBreak}),
+     * or is paid here when something calls {@code mineBlock} directly. The game's own wear is held back and settled:
+     * none for a paid break. An instant block (grass, a torch) nothing paid for wears only as the game says.
+     */
+    public static Break mine(ItemStack stack, net.minecraft.world.level.Level level, net.minecraft.world.level.block.state.BlockState state,
+                             net.minecraft.core.BlockPos pos, net.minecraft.world.entity.LivingEntity entity,
+                             java.util.function.BooleanSupplier vanilla) {
+        if (level.isClientSide || !(entity instanceof net.minecraft.server.level.ServerPlayer player) || player.getAbilities().instabuild)
+            return new Break(vanilla.getAsBoolean(), false, false);
+        Swing parent = swingFor(player);
+        if (parent != null && parent.tool() != stack) parent = null;
+        boolean instant = state.getDestroySpeed(level, pos) == 0.0F;
+        boolean aoe = parent != null && parent.aoe();
+        boolean paid = parent != null ? parent.pulsePaid() : !instant && consumeForMine(player, stack);
+        if (parent == null && !instant) beginSwing(player, stack, paid, false);
+        int[] wear = {0};
+        boolean ok = held(stack, wear, vanilla::getAsBoolean);
+        if (instant && !paid) {
+            if (wear[0] > 0 && !stack.isEmpty()) stack.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
+        } else {
+            settle(player, stack, net.minecraft.world.entity.EquipmentSlot.MAINHAND, paid, wear[0]);
+        }
+        return new Break(ok, paid && !instant, aoe);
     }
 
     public static boolean tryLink(Player player, ItemStack stack, Attunement attunement) {

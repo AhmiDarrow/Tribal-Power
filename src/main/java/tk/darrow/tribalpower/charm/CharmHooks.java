@@ -28,6 +28,14 @@ public final class CharmHooks {
 
     private CharmHooks() {}
 
+    /**
+     * Whether the player's worn charms are paid for right now: their last upkeep came out of a cell (or they need
+     * none). An unpaid charm gives nothing, the Lantern's longer blessings included.
+     */
+    public static boolean upkeepPaid(Player player) {
+        return player.getAbilities().instabuild || PULSE_OK.getOrDefault(player.getUUID(), true);
+    }
+
     /** Forget a player's last Pulse verdict when they log out, so the map cannot grow without bound. */
     public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
         PULSE_OK.remove(event.getEntity().getUUID());

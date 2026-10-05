@@ -28,8 +28,13 @@ import java.util.List;
 /** Spiritgear axe — Pulse spares chops and stripping; a linked totem voice adds a wood perk. */
 public class SpiritgearAxeItem extends AxeItem {
     public SpiritgearAxeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5.0F, -3.0F))
-                .durability(SpiritGear.TOOL_DURABILITY));
+        super(Tiers.DIAMOND, properties.attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5.0F, -3.0F)));
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
+            java.util.function.Consumer<net.minecraft.world.item.Item> onBroken) {
+        return SpiritGear.wear(stack, super.damageItem(stack, amount, entity, onBroken));
     }
 
     @Override
@@ -44,17 +49,9 @@ public class SpiritgearAxeItem extends AxeItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity entity) {
-        if (level.isClientSide || !(entity instanceof ServerPlayer player) || player.getAbilities().instabuild
-                || state.getDestroySpeed(level, pos) == 0.0F) {
-            return super.mineBlock(stack, level, state, pos, entity);
-        }
-        SpiritGear.Swing parent = SpiritGear.swingFor(player);
-        boolean aoe = parent != null && parent.aoe();
-        boolean paid = parent != null ? parent.pulsePaid() : SpiritGear.consumeForMine(player, stack);
-        if (parent == null) SpiritGear.beginSwing(player, stack, paid, false);
-        boolean ok = super.mineBlock(stack, level, state, pos, entity);
-        SpiritGear.finishDurability(player, stack, paid);
-        if (ok && paid && !aoe && state.is(BlockTags.LOGS)) {
+        SpiritGear.Break mined = SpiritGear.mine(stack, level, state, pos, entity, () -> super.mineBlock(stack, level, state, pos, entity));
+        boolean ok = mined.ok();
+        if (mined.perks() && entity instanceof ServerPlayer player && state.is(BlockTags.LOGS)) {
             Attunement voice = SpiritGear.voice(stack).orElse(null);
             if (voice == Attunement.EARTH) {
                 TreeFelling.fell(player, stack, pos, state);
@@ -92,16 +89,12 @@ public class SpiritgearAxeItem extends AxeItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();
-        InteractionResult result = super.useOn(context);
-        if (result.consumesAction() && player != null && !player.level().isClientSide && !player.getAbilities().instabuild) {
-            ItemStack stack = context.getItemInHand();
-            if (GearCell.spend(player, stack, SpiritGear.useCost(stack))) {
-                stack.setDamageValue(Math.max(0, stack.getDamageValue() - 1));
-            } else {
-                if (!SpiritGear.skipStarveHurt(stack)) stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-                SpiritgearHelper.notifyStarved(player);
-            }
-        }
+        if (player == null) return super.useOn(context);
+        // Stripping is a paid use: the cell's Pulse instead of the edge, or a starved strip that wears.
+        ItemStack stack = context.getItemInHand();
+        int[] wear = {0};
+        InteractionResult result = SpiritGear.held(stack, wear, () -> super.useOn(context));
+        SpiritGear.settleUse(player, stack, LivingEntity.getSlotForHand(context.getHand()), result.consumesAction(), wear[0]);
         return result;
     }
 

@@ -139,8 +139,8 @@ public class TreeFellingGameTests {
         h.assertTrue(player.gameMode.destroyBlock(h.absolutePos(BASE)), "The struck log breaks");
         h.assertTrue(logsStanding(h) == 0, "Struck at its foot, the whole tree comes down, " + logsStanding(h) + " logs stand");
         h.assertTrue(logDrops(h) == HEIGHT, "Every log drops as if the player broke it, got " + logDrops(h));
-        // The struck log is a normal paid swing (no wear); each of the four felled logs costs one point of the edge.
-        h.assertTrue(axe.getDamageValue() == HEIGHT - 1, "Felling spends a point per felled log, damage " + axe.getDamageValue());
+        // The struck log and the four felled ones are all paid in Pulse, so none of them wears the edge.
+        h.assertTrue(axe.getDamageValue() == 0, "A paid felling takes no wear, damage " + axe.getDamageValue());
         // 2 Pulse for the swing, and one more swing's worth for up to 16 felled logs.
         h.assertTrue(PulseCellItem.getPulse(cell) == 196, "Swing plus one felling charge, cell at " + PulseCellItem.getPulse(cell));
         h.succeed();
@@ -190,19 +190,30 @@ public class TreeFellingGameTests {
         h.succeed();
     }
 
+    /** Paid in Pulse, a felling never touches the edge: an axe on its very last point fells the whole tree and lives. */
     @GameTest(template = "empty")
-    public static void aWornAxeStopsBeforeItBreaks(GameTestHelper h) {
+    public static void aWornAxeFellsWithoutBreaking(GameTestHelper h) {
         oak(h, true, false);
         FakePlayer player = feller(h, "worn");
         ItemStack axe = player.getMainHandItem();
-        axe.setDamageValue(axe.getMaxDamage() - 3);
+        axe.setDamageValue(axe.getMaxDamage() - 1);
         player.gameMode.destroyBlock(h.absolutePos(BASE));
         h.assertTrue(player.getMainHandItem() == axe && !axe.isEmpty(), "The axe survives the felling");
-        h.assertTrue(axe.getDamageValue() == axe.getMaxDamage() - 1, "It is left on its last point, damage " + axe.getDamageValue());
-        h.assertTrue(h.getBlockState(BASE.above(4)).isAir() && h.getBlockState(BASE.above(3)).isAir(),
-                "The two points it had went on the top two logs");
-        h.assertTrue(h.getBlockState(BASE.above(1)).is(Blocks.OAK_LOG) && h.getBlockState(BASE.above(2)).is(Blocks.OAK_LOG),
-                "The rest of the trunk stands once the edge is spent");
+        h.assertTrue(axe.getDamageValue() == axe.getMaxDamage() - 1, "It is still on its last point, damage " + axe.getDamageValue());
+        h.assertTrue(logsStanding(h) == 0, "The whole tree comes down, " + logsStanding(h) + " logs stand");
+        h.succeed();
+    }
+
+    /** A felling is only as big as the Pulse the axe can reach: with only the swing's own, just the struck log goes. */
+    @GameTest(template = "empty")
+    public static void aFellingStopsWhereThePulseRunsOut(GameTestHelper h) {
+        oak(h, true, false);
+        FakePlayer player = feller(h, "dry");
+        PulseCellItem.setPulse(player.getOffhandItem(), 2);
+        player.gameMode.destroyBlock(h.absolutePos(BASE.above(2)));
+        h.assertTrue(logsStanding(h) == HEIGHT - 1, "No Pulse left for a run of logs, so only the struck log falls, " + logsStanding(h) + " stand");
+        h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 0, "The swing took its 2 Pulse");
+        h.assertTrue(player.getMainHandItem().getDamageValue() == 0, "The paid swing took no wear");
         h.succeed();
     }
 
@@ -233,7 +244,7 @@ public class TreeFellingGameTests {
             for (int x = 0; x < 4; x++) for (int y = 0; y < 4; y++) for (int z = 0; z < 4; z++)
                 h.assertTrue(!h.getBlockState(corner.offset(x, y, z)).is(Blocks.OAK_LOG), "The next tick fells the rest, " + corner.offset(x, y, z) + " stands");
             h.assertTrue(logDrops(h) == 64, "Every log drops, got " + logDrops(h));
-            h.assertTrue(axe.getDamageValue() == 63, "A point per felled log, damage " + axe.getDamageValue());
+            h.assertTrue(axe.getDamageValue() == 0, "Paid logs take no wear, damage " + axe.getDamageValue());
             // 2 Pulse for the swing, and 2 for each run of 16 felled logs as it starts: four runs for 63 logs.
             h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 190, "Swing plus four runs, cell at " + PulseCellItem.getPulse(player.getOffhandItem()));
             TreeFelling.tick(player);
@@ -254,7 +265,7 @@ public class TreeFellingGameTests {
         h.assertTrue(h.getBlockState(BASE.above(2)).is(Blocks.OAK_LOG), "The log protection refused stands");
         h.assertTrue(logsStanding(h) == 1, "Every other log still falls, " + logsStanding(h) + " stand");
         h.assertTrue(logDrops(h) == HEIGHT - 1, "Only felled logs drop, got " + logDrops(h));
-        h.assertTrue(axe.getDamageValue() == HEIGHT - 2, "Only felled logs wear the edge, damage " + axe.getDamageValue());
+        h.assertTrue(axe.getDamageValue() == 0, "Paid felled logs wear nothing, damage " + axe.getDamageValue());
         h.assertTrue(PulseCellItem.getPulse(player.getOffhandItem()) == 196, "One run paid, cell at " + PulseCellItem.getPulse(player.getOffhandItem()));
         h.succeed();
     }
@@ -307,11 +318,13 @@ public class TreeFellingGameTests {
 
     /**
      * Every leafy March tree, struck at its foot, has the leaves to count as one; and a colossus, far bigger than one
-     * edge, gives a fresh axe (and one with Unbreaking III) its crown, the scan stopping long before the whole tree.
+     * cell's Pulse fells, gives a 200 Pulse cell (and one four times that) its crown, the scan stopping long before
+     * the whole tree.
      */
     @GameTest(template = "empty", timeoutTicks = 400)
     public static void everyMarchTreeFellsFromItsFoot(GameTestHelper h) {
-        int fresh = SpiritGear.TOOL_DURABILITY - 1;
+        // what a 200 Pulse cell fells, at 2 Pulse for every run of 16 logs
+        int fresh = 200 / 2 * TreeFelling.LOGS_PER_CHARGE;
         for (long seed = 1; seed <= 2; seed++) {
             for (MarchTreeFeature.Shape shape : MarchTreeFeature.Shape.values()) {
                 // A cinder snag may grow no tufts at all, and is then deadwood rather than a tree.
@@ -328,7 +341,7 @@ public class TreeFellingGameTests {
                 }
                 for (int room : new int[]{fresh, fresh * 4}) {
                     List<BlockPos> first = TreeFelling.tree(planned(plan), pos -> true, foot, wood, cap, room);
-                    h.assertTrue(first.size() == room, "An edge good for " + room + " logs fells that many of a colossus (seed " + seed + "), got " + first.size());
+                    h.assertTrue(first.size() == room, "Pulse good for " + room + " logs fells that many of a colossus (seed " + seed + "), got " + first.size());
                     h.assertTrue(first.getLast().getY() > foot.getY() + 40,
                             "The colossus comes down from its crown, not its foot: lowest felled at " + first.getLast().getY() + ", top " + plan.top);
                 }

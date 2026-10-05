@@ -17,6 +17,9 @@ import net.minecraft.world.item.component.CustomData;
  */
 public final class GearCell {
     private static final String CELL = "GearCell", PULSE = "GearCellPulse";
+    /** Loom's share of past spends not yet paid back, in millionths of a Pulse, carried on the piece. */
+    private static final String LOOM_OWED = "GearLoomOwed";
+    private static final long MILLION = 1_000_000L;
 
     private GearCell() {}
 
@@ -129,11 +132,30 @@ public final class GearCell {
         if (fromOwn > 0) set(gear, cell(gear), own - fromOwn);
         // Loom's blessing threads a little of every spend back.
         int loom = tk.darrow.tribalpower.effect.ModEffects.blessingLevel(player, tk.darrow.tribalpower.api.pulse.Attunement.LOOM);
-        if (loom > 0) {
-            int back = (int) Math.floor(amount * tk.darrow.tribalpower.config.TribalConfig.loomBlessingRefund() * loom);
-            if (back > 0) refund(player, gear, back);
-        }
+        if (loom > 0) loomRefund(player, gear, amount * tk.darrow.tribalpower.config.TribalConfig.loomBlessingRefund() * loom);
         return true;
+    }
+
+    /**
+     * Loom's share of a spend comes back whole Pulse at a time. What is left over (a tenth of a 3-Pulse spend is
+     * three tenths) waits on the piece, so many small spends give back exactly their share in the end.
+     */
+    private static void loomRefund(Player player, ItemStack gear, double share) {
+        // Only equipment that seats a cell keeps the rest; anything else (a song sheet) gets the whole Pulse of it.
+        if (!accepts(gear)) {
+            int back = (int) Math.floor(share + 1.0E-9);
+            if (back > 0) refund(player, gear, back);
+            return;
+        }
+        var data = gear.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
+        long owed = Math.max(0, data.getLong(LOOM_OWED)) + Math.round(share * MILLION);
+        int back = (int) (owed / MILLION);
+        long rest = owed % MILLION;
+        CustomData.update(DataComponents.CUSTOM_DATA, gear, tag -> {
+            if (rest > 0) tag.putLong(LOOM_OWED, rest);
+            else tag.remove(LOOM_OWED);
+        });
+        if (back > 0) refund(player, gear, back);
     }
 
     /**

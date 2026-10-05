@@ -13,7 +13,7 @@
         "- **Sing a Ward.** A Ward song grants its voice's blessing, **45 seconds** for every note of power in it.",
         "- **A [seal rite](rite_circle) at a Rite Pedestal** blesses everyone within 6 blocks with the seal's voice for **5 minutes**; an amplified rite gives 7 and a half, at level II. An attuned [familiar](familiar_boons) of that voice beside you stretches it half again.",
         "- **Eat from a voice's [feast](feasts).** Each serving grants that voice's blessing for 8 minutes.",
-        "A worn **Lantern Charm** keeps any blessing or boon lit **half again as long**."
+        "A worn **Lantern Charm** keeps any blessing or boon lit **half again as long**, while its upkeep is paid."
       ]
     },
     {
@@ -24,7 +24,7 @@
         "- **Water**: you swim faster and mend **half a heart a second** while wet.",
         "- **Air**: every fall is 3 blocks shorter, and you jump higher.",
         "- **Spirit**: hostiles within 16 blocks glow through the walls.",
-        "- **Loom**: **a tenth** of the Pulse your gear spends comes back to it.",
+        "- **Loom**: **a tenth** of the Pulse your gear spends comes back to it, even from the smallest spends: a share too small to return yet waits on the piece until it makes a whole Pulse.",
         "Level II doubles the numbers. Milk lifts a blessing, as it does any effect."
       ],
       "title": "The six blessings"
