@@ -12,7 +12,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,7 +22,7 @@ import java.util.List;
 /** Spiritgear pickaxe — Pulse spares the edge; a linked totem voice adds a mining perk. */
 public class SpiritgearPickaxeItem extends PickaxeItem {
     public SpiritgearPickaxeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 1.0F, -2.8F)));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(PickaxeItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, 1.0F, -2.8F)));
     }
 
     @Override

@@ -12,7 +12,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -34,7 +33,7 @@ import java.util.List;
  */
 public class SpiritgearHoeItem extends HoeItem {
     public SpiritgearHoeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(HoeItem.createAttributes(Tiers.DIAMOND, -3.0F, 0.0F)));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(HoeItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, -3.0F, 0.0F)));
     }
 
     @Override

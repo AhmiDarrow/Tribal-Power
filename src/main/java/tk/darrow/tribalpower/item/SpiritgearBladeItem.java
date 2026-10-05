@@ -8,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -19,12 +18,12 @@ import java.util.List;
 /** Spiritgear blade — Pulse fuels echo strikes; a linked totem voice adds a combat perk. */
 public class SpiritgearBladeItem extends SwordItem {
     public SpiritgearBladeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(SwordItem.createAttributes(Tiers.DIAMOND, 3, -2.4F)));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(SwordItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, 3, -2.4F)));
     }
 
     /** For the rest of the weapon family, which set their own numbers at runtime. */
     protected SpiritgearBladeItem(Properties properties, net.minecraft.world.item.component.ItemAttributeModifiers attributes) {
-        super(Tiers.DIAMOND, properties.attributes(attributes));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(attributes));
     }
 
     @Override

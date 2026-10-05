@@ -30,8 +30,25 @@ public final class SpiritGear {
     public static final String VOICE_KEY = "GearVoice";
     public static final int MAX_RANK = 3;
     public static final int LINK_COST = 40;
-    /** What the pickaxe, axe, shovel, hoe, blade and weapons last: their diamond tier sets it. */
+    /**
+     * The tier every tiered piece is forged at: diamond in all but its mending. Spiritgear mends with Manifested
+     * Ingots on any anvil, as the bows, shears and rattle do, never with diamonds.
+     */
+    public static final net.minecraft.world.item.Tier TIER = new net.minecraft.world.item.Tier() {
+        @Override public int getUses() { return Tiers.DIAMOND.getUses(); }
+        @Override public float getSpeed() { return Tiers.DIAMOND.getSpeed(); }
+        @Override public float getAttackDamageBonus() { return Tiers.DIAMOND.getAttackDamageBonus(); }
+        @Override public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops() { return Tiers.DIAMOND.getIncorrectBlocksForDrops(); }
+        @Override public int getEnchantmentValue() { return Tiers.DIAMOND.getEnchantmentValue(); }
+        @Override public net.minecraft.world.item.crafting.Ingredient getRepairIngredient() { return net.minecraft.world.item.crafting.Ingredient.of(ModItems.MANIFESTED_INGOT.get()); }
+    };
+    /** What the pickaxe, axe, shovel, hoe, blade and weapons last: their diamond-strength tier sets it. */
     public static final int TOOL_DURABILITY = Tiers.DIAMOND.getUses();
+
+    /** What every piece of Spiritgear, tiered or not, is mended with on an anvil. */
+    public static boolean mendsWith(ItemStack repair) {
+        return repair.is(ModItems.MANIFESTED_INGOT.get());
+    }
     /** What the untiered pieces last: the shears, the rattle and the Pulse bows. */
     public static final int UNTIERED_DURABILITY = 1024;
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 /** Deliberate 3x3 excavation, routed through vanilla player breaking and protection events. */
 public class ResonanceMaulItem extends PickaxeItem {
-    public ResonanceMaulItem(Properties properties) { super(Tiers.DIAMOND, properties.attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 3, -3.1F))); }
+    public ResonanceMaulItem(Properties properties) { super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(PickaxeItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, 3, -3.1F))); }
     /** The 3x3 swing is paid in Pulse, block by block, so it leaves the maul's edge alone (see SpiritGear.wear). */
     @Override public <T extends net.minecraft.world.entity.LivingEntity> int damageItem(ItemStack stack, int amount, @org.jetbrains.annotations.Nullable T entity,
             java.util.function.Consumer<Item> onBroken) {

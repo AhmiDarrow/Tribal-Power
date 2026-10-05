@@ -26,7 +26,7 @@
       "text": [
         "A block mined costs **2 Pulse**, a hit **3**, a use **1**, taken from any Pulse Cell you carry.",
         "With no Pulse the tool still works, but then it wears: what any tool would take, and a point more for starving until it is Bound. The action bar tells you it is starving.",
-        "An attuned [familiar](familiar_boons) of a piece's voice nearby cuts what it spends by **40%**. The pickaxe, axe, shovel, hoe and blade also mend with diamonds on any anvil."
+        "An attuned [familiar](familiar_boons) of a piece's voice nearby cuts what it spends by **40%**. Every piece mends with Manifested Ingots on any anvil, never with diamonds."
       ]
     },
     {

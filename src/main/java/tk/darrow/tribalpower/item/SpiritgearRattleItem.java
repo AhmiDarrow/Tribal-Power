@@ -114,4 +114,10 @@ public class SpiritgearRattleItem extends Item {
         tooltip.add(Component.translatable("item.tribalpower.spiritgear_rattle.desc"));
         SpiritGear.appendTooltip(stack, tooltip, flag);
     }
+
+    /** Mended with Manifested Ingots on any anvil, like the rest of the Spiritgear. */
+    @Override
+    public boolean isValidRepairItem(net.minecraft.world.item.ItemStack toRepair, net.minecraft.world.item.ItemStack repair) {
+        return tk.darrow.tribalpower.item.SpiritGear.mendsWith(repair);
+    }
 }

@@ -10,7 +10,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -22,7 +21,7 @@ import java.util.List;
 /** Spiritgear shovel — Pulse spares digs and paths; a linked totem voice adds a ground perk. */
 public class SpiritgearShovelItem extends ShovelItem {
     public SpiritgearShovelItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(ShovelItem.createAttributes(Tiers.DIAMOND, 1.5F, -3.0F)));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(ShovelItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, 1.5F, -3.0F)));
     }
 
     @Override

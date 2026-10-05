@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -28,7 +27,7 @@ import java.util.List;
 /** Spiritgear axe — Pulse spares chops and stripping; a linked totem voice adds a wood perk. */
 public class SpiritgearAxeItem extends AxeItem {
     public SpiritgearAxeItem(Properties properties) {
-        super(Tiers.DIAMOND, properties.attributes(AxeItem.createAttributes(Tiers.DIAMOND, 5.0F, -3.0F)));
+        super(tk.darrow.tribalpower.item.SpiritGear.TIER, properties.attributes(AxeItem.createAttributes(tk.darrow.tribalpower.item.SpiritGear.TIER, 5.0F, -3.0F)));
     }
 
     @Override

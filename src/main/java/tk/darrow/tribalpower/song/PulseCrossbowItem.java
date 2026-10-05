@@ -113,4 +113,10 @@ public class PulseCrossbowItem extends Item {
                 ? "item.tribalpower.pulse_crossbow.loaded_verse" : "item.tribalpower.pulse_crossbow.loaded")
                 .withStyle(net.minecraft.ChatFormatting.AQUA));
     }
+
+    /** Mended with Manifested Ingots on any anvil, like the rest of the Spiritgear. */
+    @Override
+    public boolean isValidRepairItem(net.minecraft.world.item.ItemStack toRepair, net.minecraft.world.item.ItemStack repair) {
+        return tk.darrow.tribalpower.item.SpiritGear.mendsWith(repair);
+    }
 }

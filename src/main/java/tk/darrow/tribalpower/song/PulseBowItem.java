@@ -104,4 +104,10 @@ public class PulseBowItem extends Item {
     public static String damage(double amount) {
         return String.valueOf((long) Math.ceil(amount - 1.0E-6));
     }
+
+    /** Mended with Manifested Ingots on any anvil, like the rest of the Spiritgear. */
+    @Override
+    public boolean isValidRepairItem(net.minecraft.world.item.ItemStack toRepair, net.minecraft.world.item.ItemStack repair) {
+        return tk.darrow.tribalpower.item.SpiritGear.mendsWith(repair);
+    }
 }
