@@ -10,10 +10,11 @@
   "next": "mourning_bell",
   "pages": [
     {
-      "type": "image",
-      "image": "cinder_imp",
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
       "text": [
-        "A nimble ember spirit. It gathers sparks before a burning bolt."
+        "A nimble ember spirit. It gathers sparks before a burning bolt.",
+        "Hunted, it also drops a one-in-three chance of Blaze Powder."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Cinder Imp**: a one-in-three chance of Blaze Powder."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

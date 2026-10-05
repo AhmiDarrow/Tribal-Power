@@ -16,8 +16,7 @@
   "next": "beasts_ember_wastes",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:drift_pelt",
+      "type": "text",
       "title": "The snow's own",
       "text": [
         "The Snow Fields keep a seal on the drifts, a caribou, and a jellyfish that floats on the cold air, and an ice scorpion that crawls out of the snow at night.",
@@ -25,46 +24,50 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
       "title": "Driftpelt",
       "text": [
         "A snow seal, heavy and thick-furred, that hauls itself over the drifts on its flippers in herds of two to four. **26 health** and **5 armour**, and very slow.",
-        "It drops **1 to 3 Drift Pelts**, more with Looting."
+        "It drops **1 to 3 Drift Pelts**, more with Looting.",
+        "Hunted, it also drops 1 to 2 Raw Game and up to 2 March Leather. Breed with **Frostberries**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
       "title": "Frost Strider",
       "text": [
         "A heavy caribou with a long white mane, quick under great swept antlers, in herds of two to four. **22 health** and **1 armour**.",
-        "It drops **1 to 3 Frost Hooves**."
+        "It drops **1 to 3 Frost Hooves**.",
+        "Hunted, it also drops 1 to 3 Raw Game, up to 2 March Leather and up to 1 Bone. Breed with **Frostberries**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
       "title": "Snowveil",
       "text": [
         "A pale moon jellyfish of the air, a low white-blue dome with four violet rings in it and four frilled arms trailing under it, that drifts over the snow in ones to threes. **12 health**, no armour.",
-        "It drops **1 to 3 Snow Veils**."
+        "It drops **1 to 3 Snow Veils**.",
+        "Hunted, it also drops up to 2 Snowballs and up to 1 String. Breed with **Frostberries**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
       "title": "Rime Crawler",
       "text": [
         "An ice scorpion, its tail arched over its back, that rises on the open snow at night, one to three at a time. It has **23 health** and **3 armour**, and its sting does **4** and poisons you for 3 seconds.",
-        "It drops **1 to 2 Rime Mandibles**, a Venom reagent. Rime Mandibles call the Cairn Wight at the Cairn Ring, and the Wight calls Rime Crawlers of its own: see [guardians](guardians)."
+        "It drops **1 to 2 Rime Mandibles**, a Venom reagent. Rime Mandibles call the Cairn Wight at the Cairn Ring, and the Wight calls Rime Crawlers of its own: see [guardians](guardians).",
+        "Hunted, it also drops up to 2 Snowballs and up to 1 Spider Eye."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Driftpelt**: 1 to 2 Raw Game and up to 2 March Leather. Breed with **Frostberries**.",
-        "- **Frost Strider**: 1 to 3 Raw Game, up to 2 March Leather and up to 1 Bone. Breed with **Frostberries**.",
-        "- **Snowveil**: up to 2 Snowballs and up to 1 String. Breed with **Frostberries**.",
-        "- **Rime Crawler**: up to 2 Snowballs and up to 1 Spider Eye."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

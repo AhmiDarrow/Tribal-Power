@@ -10,10 +10,11 @@
   "next": "game_and_leather",
   "pages": [
     {
-      "type": "image",
-      "image": "mossback",
+      "type": "creature",
+      "entity": "tribalpower:mossback",
       "text": [
-        "A patient wetland gardener with a living shell. Brush adults for a naturally shed Mossback Scale."
+        "A patient wetland gardener with a living shell. Brush adults for a naturally shed Mossback Scale.",
+        "Hunted, it also drops 2 to 4 Raw Game and up to 2 March Leather. Breed with **seagrass or Ribbon Weed**."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Mossback**: 2 to 4 Raw Game and up to 2 March Leather. Breed with **seagrass or Ribbon Weed**."
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

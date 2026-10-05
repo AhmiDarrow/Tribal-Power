@@ -12,8 +12,7 @@
   "next": "fays",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:kobold_scale",
+      "type": "text",
       "title": "Kobolds",
       "text": [
         "Kobolds live wherever there is something worth digging, and they do not share it."
@@ -23,9 +22,25 @@
       "type": "text",
       "title": "Two kinds",
       "text": [
-        "- **Ridge Kobold**: the dark caves under the Glimmer Ridge.",
-        "- **Geode Kobold**: the dark caves under the Crystal Fields.",
         "Both rise in the dark day or night, one to three at a time. A kobold has **21 health** and **2 armour**, is quick, and hits for **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Ridge Kobold",
+      "text": [
+        "Found in the dark caves under the Glimmer Ridge.",
+        "Hunted, it also drops up to 2 Raw Copper and up to 1 Coal."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Geode Kobold",
+      "text": [
+        "Found in the dark caves under the Crystal Fields.",
+        "Hunted, it also drops up to 2 Amethyst Shards and up to 2 Lapis Lazuli."
       ]
     },
     {
@@ -40,9 +55,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
-        "- **Ridge Kobold**: up to 2 Raw Copper and up to 1 Coal.",
-        "- **Geode Kobold**: up to 2 Amethyst Shards and up to 2 Lapis Lazuli."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting."
       ]
     }
   ]

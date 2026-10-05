@@ -16,8 +16,7 @@
   "next": "familiars",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:barrow_shroud",
+      "type": "text",
       "title": "Shades",
       "text": [
         "The dead of the March walk where they died. Every shade has **25 health** and no armour, and hits for **5**, but each fights its own way.",
@@ -25,46 +24,50 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
       "title": "Barrow Shade",
       "text": [
         "The dark caves under the Highlands, day or night, one to three at a time. Its blow weakens you for 4 seconds.",
-        "It drops **Barrow Shrouds**, a Weaken reagent."
+        "It drops **Barrow Shrouds**, a Weaken reagent.",
+        "Hunted, it also drops 1 to 2 Bones and up to 1 Phantom Membrane."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
       "title": "Pale Wraith",
       "text": [
         "It flies over the Snow Fields at night, one or two at a time. From up to 12 blocks away it casts a chill that slows you for 3 seconds. Cover breaks the cast.",
-        "It drops **Wraith Veils**, a Chill reagent."
+        "It drops **Wraith Veils**, a Chill reagent.",
+        "Hunted, it also drops up to 1 Phantom Membrane and up to 2 Snowballs."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
       "title": "Cinder Shade",
       "text": [
         "It flies over the Ember Wastes at night, one or two at a time, and is **immune to fire**. From up to 12 blocks away it casts a bolt that sets you alight for 2 seconds. Cover breaks the cast.",
-        "It drops **Shade Embers**, a Bolt reagent."
+        "It drops **Shade Embers**, a Bolt reagent.",
+        "Hunted, it also drops up to 1 Phantom Membrane and a one-in-three chance of Blaze Powder."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
       "title": "Drowned Shade",
       "text": [
         "It rises in the water of the Shallows at night, one or two at a time. Its blow weakens you for 4 seconds.",
-        "It drops **Drowned Weed**, a Weaken reagent."
+        "It drops **Drowned Weed**, a Weaken reagent.",
+        "Hunted, it also drops up to 1 Phantom Membrane and up to 2 Prismarine Shards."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
-        "- **Barrow Shade**: 1 to 2 Bones and up to 1 Phantom Membrane.",
-        "- **Pale Wraith**: up to 1 Phantom Membrane and up to 2 Snowballs.",
-        "- **Cinder Shade**: up to 1 Phantom Membrane and a one-in-three chance of Blaze Powder.",
-        "- **Drowned Shade**: up to 1 Phantom Membrane and up to 2 Prismarine Shards."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting."
       ]
     }
   ]

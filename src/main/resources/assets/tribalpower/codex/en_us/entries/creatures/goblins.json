@@ -12,8 +12,7 @@
   "next": "kobolds",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:goblin_ear",
+      "type": "text",
       "title": "Goblins",
       "text": [
         "Small, quick and spiteful, goblins come one to three at a time and go straight for you."
@@ -23,9 +22,25 @@
       "type": "text",
       "title": "Two kinds",
       "text": [
-        "- **Fen Goblin**: the Reed Fen. It rises on the open ground at night.",
-        "- **Tunnel Goblin**: the dark tunnels under the Steppe, where it rises day or night.",
         "A goblin has **18 health** and **1 armour**, is quick, and hits for **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Fen Goblin",
+      "text": [
+        "Found in the Reed Fen. It rises on the open ground at night.",
+        "Hunted, it also drops up to 2 Gold Nuggets, up to 1 Bone and up to 1 String."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Tunnel Goblin",
+      "text": [
+        "Found in the dark tunnels under the Steppe, where it rises day or night.",
+        "Hunted, it also drops up to 2 Coal, up to 2 Iron Nuggets and up to 1 Bone."
       ]
     },
     {
@@ -40,9 +55,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
-        "- **Fen Goblin**: up to 2 Gold Nuggets, up to 1 Bone and up to 1 String.",
-        "- **Tunnel Goblin**: up to 2 Coal, up to 2 Iron Nuggets and up to 1 Bone."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting."
       ]
     }
   ]

@@ -14,20 +14,37 @@
   "next": "goblins",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:troll_hide",
+      "type": "text",
       "title": "Trolls",
       "text": [
         "Big, slow to fall and quick to anger. Three kinds of troll keep the March's high stone and its heat, and all three hunt you."
       ]
     },
     {
-      "type": "text",
-      "title": "Where they live",
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Crag Troll",
       "text": [
-        "- **Crag Troll**: the Highlands. It rises on the open ground at night, one to three at a time.",
-        "- **Rime Troll**: the Snow Fields, the same way.",
-        "- **Slag Troll**: the Ember Wastes, by lava and on the hot stone around it, day or night, one or two at a time. It is **immune to fire**."
+        "Found in the Highlands. It rises on the open ground at night, one to three at a time.",
+        "Hunted, it also drops 1 to 3 March Leather, 1 to 2 Bones and up to 2 Flint."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Rime Troll",
+      "text": [
+        "Found in the Snow Fields. It rises on the open ground at night, one to three at a time.",
+        "Hunted, it also drops 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Snowballs."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Slag Troll",
+      "text": [
+        "Found in the Ember Wastes, by lava and on the hot stone around it, day or night, one or two at a time. It is **immune to fire**.",
+        "Hunted, it also drops 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Iron Nuggets."
       ]
     },
     {
@@ -50,10 +67,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
-        "- **Crag Troll**: 1 to 3 March Leather, 1 to 2 Bones and up to 2 Flint.",
-        "- **Rime Troll**: 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Snowballs.",
-        "- **Slag Troll**: 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Iron Nuggets."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting."
       ]
     }
   ]

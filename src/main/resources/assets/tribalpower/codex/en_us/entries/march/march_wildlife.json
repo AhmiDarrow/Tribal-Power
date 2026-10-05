@@ -17,23 +17,57 @@
   ],
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:raw_glimmerfin",
+      "type": "text",
       "title": "In the water",
       "text": [
         "The March's meres, pools and tarns are full of life.",
-        "- **Glimmerfin**: small fish with lit fins that swim in schools. Catch one in a water bucket, or cook it.",
-        "- **Drift Bell**: a slow, glowing jelly. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while.",
-        "- **Veil Ray**: wide and shy; it glides away from anyone who comes near. Drops March Leather and Glimmerfin.",
-        "- **Silt Eel**: a dark eel of the Reed Fen's pools and channels, the Shallows, and the water where the Ember Wastes run down to the sea. It swims with the Glimmerfin and bites anyone wading in its water. Cook it into a Smoked Silt Eel for a good meal.",
         "All of them keep to open water under the sky, never the water sealed in the rock below."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Glimmerfin",
+      "text": [
+        "Small fish with lit fins that swim in schools. Catch one in a water bucket, or cook it."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Drift Bell",
+      "text": [
+        "A slow, glowing jelly. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Veil Ray",
+      "text": [
+        "Wide and shy; it glides away from anyone who comes near. Drops March Leather and Glimmerfin."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Silt Eel",
+      "text": [
+        "A dark eel of the Reed Fen's pools and channels, the Shallows, and the water where the Ember Wastes run down to the sea. It swims with the Glimmerfin and bites anyone wading in its water. Cook it into a Smoked Silt Eel for a good meal."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Loom Swift",
+      "text": [
+        "**Loom Swifts** wheel over the open land in loose flocks, and drop a feather or two, now and then some Raw Game."
       ]
     },
     {
       "type": "text",
       "title": "In the air",
       "text": [
-        "**Loom Swifts** wheel over the open land in loose flocks, and drop a feather or two, now and then some Raw Game.",
         "Closer to the ground the air is busy with insects: **fireflies** over the fen and steppe at night, **reed darters** skimming the water by day, **glasswings** fluttering over the blooms of the Crystal Fields, and **cinder gnats** drifting up from the Ember Wastes. They are only light and motion; they cannot be caught, and they cost your world nothing."
       ]
     },

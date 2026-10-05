@@ -9,8 +9,8 @@
   "next": "crystal_spire",
   "pages": [
     {
-      "type": "image",
-      "image": "the_unsung",
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
       "text": [
         "A hollow drum-spirit with two rune arms and a cracked mask. It only wants the rhythm back."
       ]

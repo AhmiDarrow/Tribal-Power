@@ -16,8 +16,7 @@
   "next": "beasts_reed_fen",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:cinder_plate",
+      "type": "text",
       "title": "The ash's own",
       "text": [
         "Two of the Wastes' animals live at the edge of lava, one flies through the ash, and one hunts the basalt at night.",
@@ -25,46 +24,50 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
       "title": "Cinderhide",
       "text": [
         "A volcanic tortoise, fire showing between the scutes of its shell, that lives beside lava and on the hot stone around it, one or two at a time. **30 health** and **7 armour**, slow, and **immune to fire**.",
-        "It drops **1 to 3 Cinder Plates**, an Ember reagent."
+        "It drops **1 to 3 Cinder Plates**, an Ember reagent.",
+        "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **Emberroot**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
       "title": "Ashmoth",
       "text": [
         "A grey hawk moth of the ash, its broad wings swept back over salmon hindwings and its body banded salmon toward the tail, in ones to threes. **10 health**, no armour.",
-        "It drops **1 to 3 Ash Wings**, which grind into black dye."
+        "It drops **1 to 3 Ash Wings**, which grind into black dye.",
+        "Hunted, it also drops up to 1 String and up to 1 Gunpowder. Breed with **Emberroot**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
       "title": "Slaglump",
       "text": [
         "A long, low lava salamander with a flat spade of a head, black with orange blotches, that wallows by lava, one or two at a time. **26 health** and **5 armour**, and **immune to fire**.",
-        "It drops **1 to 3 Slag Curd**, an Ember reagent."
+        "It drops **1 to 3 Slag Curd**, an Ember reagent.",
+        "Hunted, it also drops up to 1 Magma Cream and up to 2 Iron Nuggets. Breed with **Emberroot**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
       "title": "Emberjaw",
       "text": [
         "A striped fire raptor, running low with its tail out behind and mostly jaw, that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
-        "It drops **1 to 2 Ember Fangs**, a Shove reagent."
+        "It drops **1 to 2 Ember Fangs**, a Shove reagent.",
+        "Hunted, it also drops up to 2 Bones and up to 2 Charcoal."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Cinderhide**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **Emberroot**.",
-        "- **Ashmoth**: up to 1 String and up to 1 Gunpowder. Breed with **Emberroot**.",
-        "- **Slaglump**: up to 1 Magma Cream and up to 2 Iron Nuggets. Breed with **Emberroot**.",
-        "- **Emberjaw**: up to 2 Bones and up to 2 Charcoal."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

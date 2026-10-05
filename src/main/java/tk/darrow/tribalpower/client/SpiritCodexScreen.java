@@ -32,6 +32,7 @@ import net.minecraft.world.item.crafting.ShapelessRecipe;
 import tk.darrow.tribalpower.client.codex.CodexBook;
 import tk.darrow.tribalpower.client.codex.CodexBook.Entry;
 import tk.darrow.tribalpower.client.codex.CodexBook.Page;
+import tk.darrow.tribalpower.client.codex.CodexCreature;
 import tk.darrow.tribalpower.client.codex.CodexScene;
 import tk.darrow.tribalpower.client.codex.CodexText;
 import tk.darrow.tribalpower.echo.LatticeRecipe;
@@ -169,6 +170,13 @@ public final class SpiritCodexScreen extends Screen {
     }
 
     // ------------------------------------------------------------------ layout and widgets
+
+    /** The bestiary's creatures live only while the book is open. */
+    @Override
+    public void removed() {
+        CodexCreature.clear();
+        super.removed();
+    }
 
     @Override
     protected void init() {
@@ -357,6 +365,7 @@ public final class SpiritCodexScreen extends Screen {
             case CodexBook.Spotlight s -> 58;
             case CodexBook.Recipe r -> 104;
             case CodexBook.Image i -> imageSize() + 8;
+            case CodexBook.Creature c -> sceneH + 16;
             case CodexBook.Scene s -> sceneHeight(s.steps());
             case CodexBook.Pattern p -> sceneHeight(patternSteps.computeIfAbsent(page, k -> CodexScene.pattern(p.pattern(), p.tier())));
             case CodexBook.Quests q -> 96;
@@ -755,6 +764,9 @@ public final class SpiritCodexScreen extends Screen {
                 g.blit(ResourceLocation.parse("tribalpower:textures/gui/codex/" + i.image() + ".png"), x + (pageWidth - 8 - size) / 2, y, 0, 0, size, size, size, size);
                 return y + size + 8;
             }
+            case CodexBook.Creature c -> {
+                return creature(g, page, c.entity(), x, y);
+            }
             case CodexBook.Scene s -> {
                 return scene(g, page, s.steps(), x, y, mx, my);
             }
@@ -852,6 +864,23 @@ public final class SpiritCodexScreen extends Screen {
         ly = y + 64;
         for (var line : font.split(story, w - 8)) { if (ly > y + 84) break; g.drawString(font, line, x + 4, ly, PAPER, false); ly += 10; }
         return y + 96;
+    }
+
+    /** A creature on its own live model, turning slowly until dragged, with its name beneath; returns the y below it. */
+    private int creature(GuiGraphics g, Page page, String entity, int x, int y) {
+        int w = pageWidth - 8;
+        g.fill(x, y, x + w, y + sceneH, 0x55000000);
+        g.renderOutline(x, y, w, sceneH, 0xFF2E4A52);
+        double now = time();
+        // it turns on its own until grabbed, then stays where the reader leaves it
+        Float held = sceneYaw.get(page);
+        float yaw = held != null ? held : (float) (215 + now * 12 % 360);
+        CodexCreature.draw(g, entity, x + 1, y + 1, w - 2, sceneH - 2, yaw, now);
+        Area drag = new Area(x, y, w, sceneH, () -> {});
+        areas.add(new Area(x, y, w, sceneH, () -> { sceneYaw.putIfAbsent(page, yaw); dragging = drag; dragPage = page; }));
+        Component name = CodexCreature.name(entity);
+        g.drawString(font, name, x + (w - font.width(name)) / 2, y + sceneH + 4, GOLD, false);
+        return y + sceneH + 16;
     }
 
     /** A stepped scene with its caption and step controls; returns the y below it. */

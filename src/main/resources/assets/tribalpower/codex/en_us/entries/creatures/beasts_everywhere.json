@@ -24,8 +24,7 @@
   "next": "dark_hunters",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:grazer_wool",
+      "type": "text",
       "title": "Wanderers",
       "text": [
         "Eight gentle creatures are not tied to one land. You will meet them across the March, in the open, in the caves and at the edge of lava.",
@@ -34,45 +33,89 @@
       ]
     },
     {
-      "type": "text",
-      "title": "On the open ground",
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Ash Hopper",
       "text": [
-        "- **Ash Hopper**: a small, quick hopper of the Steppe, the Crystal Fields and the Ember Wastes, in groups of two to four. **12 health**. Drops **1 to 2 Ash Tufts**.",
-        "- **Ridge Grazer**: a woolly grazer of the Highlands, the Glimmer Ridge and the Snow Fields. **26 health**, **2 armour**. Drops **1 to 2 Grazer Wool** (light grey dye).",
-        "- **Crag Bounder**: a horned grazer of the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields. **20 health**, **2 armour**. Drops **1 to 2 Bounder Horns**."
+        "A small, quick hopper of the Steppe, the Crystal Fields and the Ember Wastes, in groups of two to four. **12 health**. Drops **1 to 2 Ash Tufts**.",
+        "Hunted, it also drops up to 1 Raw Game and up to 1 Rabbit Hide. Breed with **carrots or Steppe Grain**."
       ]
     },
     {
-      "type": "text",
-      "title": "In the air",
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Ridge Grazer",
       "text": [
-        "- **Dust Flitter**: the commonest flier in the March, in every land including the Shallows. **8 health**. Drops **1 to 2 Flitter Wings**.",
-        "- **Glimmer Moth**: a small moth of the Crystal Fields, the Glimmer Ridge and the Reed Fen. **10 health**. Drops **1 to 2 Glimmer Dust** (cyan dye)."
+        "A woolly grazer of the Highlands, the Glimmer Ridge and the Snow Fields. **26 health**, **2 armour**. Drops **1 to 2 Grazer Wool** (light grey dye).",
+        "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Crag Bounder",
+      "text": [
+        "A horned grazer of the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields. **20 health**, **2 armour**. Drops **1 to 2 Bounder Horns**.",
+        "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Dust Flitter",
+      "text": [
+        "The commonest flier in the March, in every land including the Shallows. **8 health**. Drops **1 to 2 Flitter Wings**.",
+        "Hunted, it also drops up to 2 Feathers. Breed with **wheat seeds or Steppe Grain**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Glimmer Moth",
+      "text": [
+        "A small moth of the Crystal Fields, the Glimmer Ridge and the Reed Fen. **10 health**. Drops **1 to 2 Glimmer Dust** (cyan dye).",
+        "Hunted, it also drops up to 1 String and up to 1 Glowstone Dust. Breed with **Echo Blooms or any small flower**."
       ]
     },
     {
       "type": "text",
       "title": "Underground and by lava",
       "text": [
-        "- **Stone Grub**: a small, armoured grub of the dark caves under every land but the Shallows, two to five at a time. **10 health**, **4 armour**. Drops **1 to 2 Grub Husks** (brown dye).",
-        "- **Ember Drifter**: a floating ember that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
-        "- **Magma Creeper**: a slow, armoured crawler of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
         "Both lava dwellers turn up wherever the March has lava, in every land but the Shallows."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Stone Grub",
+      "text": [
+        "A small, armoured grub of the dark caves under every land but the Shallows, two to five at a time. **10 health**, **4 armour**. Drops **1 to 2 Grub Husks** (brown dye).",
+        "Hunted, it also drops up to 1 Slimeball. Breed with **Lantern Caps or any mushroom**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Ember Drifter",
+      "text": [
+        "A floating ember that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
+        "Hunted, it also drops up to 2 Charcoal. Breed with **coal or charcoal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Magma Creeper",
+      "text": [
+        "A slow, armoured crawler of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
+        "Hunted, it also drops up to 1 Magma Cream. Breed with **coal or charcoal**."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Ash Hopper**: up to 1 Raw Game and up to 1 Rabbit Hide. Breed with **carrots or Steppe Grain**.",
-        "- **Ridge Grazer**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**.",
-        "- **Crag Bounder**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**.",
-        "- **Glimmer Moth**: up to 1 String and up to 1 Glowstone Dust. Breed with **Echo Blooms or any small flower**.",
-        "- **Dust Flitter**: up to 2 Feathers. Breed with **wheat seeds or Steppe Grain**.",
-        "- **Stone Grub**: up to 1 Slimeball. Breed with **Lantern Caps or any mushroom**.",
-        "- **Ember Drifter**: up to 2 Charcoal. Breed with **coal or charcoal**.",
-        "- **Magma Creeper**: up to 1 Magma Cream. Breed with **coal or charcoal**."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

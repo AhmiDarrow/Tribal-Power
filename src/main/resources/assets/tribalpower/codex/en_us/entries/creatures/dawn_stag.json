@@ -10,10 +10,11 @@
   "next": "lantern_fox",
   "pages": [
     {
-      "type": "image",
-      "image": "dawn_stag",
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
       "text": [
-        "A dawn grazer that carries the old forest song in its antlers. Brush adults for Dawn Velvet."
+        "A dawn grazer that carries the old forest song in its antlers. Brush adults for Dawn Velvet.",
+        "Hunted, it also drops 1 to 3 Raw Game and up to 2 March Leather. Breed with **wheat**."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Dawn Stag**: 1 to 3 Raw Game and up to 2 March Leather. Breed with **wheat**."
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

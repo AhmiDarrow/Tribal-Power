@@ -11,8 +11,8 @@
   "next": "kinship_totem",
   "pages": [
     {
-      "type": "image",
-      "image": "tribal_kin",
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
       "text": [
         "Every camp keeps four Kin: an **Elder**, a **Drummer**, a **Hunter** and a **Weaver**. They wander within **16 blocks** of their camp and never despawn. Right-click any of them to see their job and your rank with the tribe."
       ]

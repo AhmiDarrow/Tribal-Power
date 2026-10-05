@@ -10,10 +10,11 @@
   "next": "echo_weaver",
   "pages": [
     {
-      "type": "image",
-      "image": "rift_hound",
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
       "text": [
-        "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself."
+        "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself.",
+        "Hunted, it also drops up to 2 Bones and up to 1 March Leather."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Rift Hound**: up to 2 Bones and up to 1 March Leather."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

@@ -10,10 +10,11 @@
   "next": "reed_stalker",
   "pages": [
     {
-      "type": "image",
-      "image": "rootbound",
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
       "text": [
-        "A grove guardian twisted by a severed ley line. Slow but sturdy."
+        "A grove guardian twisted by a severed ley line. Slow but sturdy.",
+        "Hunted, it also drops 1 to 3 Sticks and up to 2 Bone Meal."
       ]
     },
     {
@@ -43,8 +44,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Rootbound**: 1 to 3 Sticks and up to 2 Bone Meal."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

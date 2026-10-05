@@ -22,8 +22,7 @@
   "next": "colossus_warden",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:hearth_bark",
+      "type": "text",
       "title": "Wardens of the groves",
       "text": [
         "Not every March tree stands still. In each land where a [March tree](march_trees) grows, a few of its kind have stood up and walk, wearing the same wood and leaf as the tree they came from.",
@@ -31,16 +30,66 @@
       ]
     },
     {
-      "type": "text",
-      "title": "Seven wardens",
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Hearth Warden",
       "text": [
-        "- **Hearth Warden**: the Hearthoak of the Steppe, broad and heavy on stubby roots. Drops **Hearth Bark**.",
-        "- **Grove Elder**: the March tree of the Highlands groves, tall and bent over a staff, bearded in moss. Drops **Elder Bark**.",
-        "- **Frostpine Sentinel**: the Frostpine of the Snow Fields, a tall trunk under a cone of snowy needles, its branch arms reaching out from under the lowest boughs. Drops **Frostpine Bark**.",
-        "- **Snagwalker**: the Cinderwood snag of the Ember Wastes, a burnt deadwood trunk snapped off at the top, still smouldering. Drops **Cinder Bark** (yellow dye).",
-        "- **Weeping Warden**: the willow of the Reed Fen, hunched under a curtain of strands. Drops **Weeping Knots**.",
-        "- **Bellcap Elder**: the Bellcap of the Crystal Fields, a squat stem under one huge cap. Drops **Bellcap Spores** (magenta dye).",
-        "- **Stiltwood**: the Strider of the Shallows, carried high on arching prop roots. Drops **Stilt Roots**."
+        "The Hearthoak of the Steppe, broad and heavy on stubby roots. Drops **Hearth Bark**.",
+        "Hunted, it also drops 1 to 3 Hearthoak Logs, up to 1 Hearthoak Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Grove Elder",
+      "text": [
+        "The March tree of the Highlands groves, tall and bent over a staff, bearded in moss. Drops **Elder Bark**.",
+        "Hunted, it also drops 1 to 3 March Logs, up to 1 March Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Frostpine Sentinel",
+      "text": [
+        "The Frostpine of the Snow Fields, a tall trunk under a cone of snowy needles, its branch arms reaching out from under the lowest boughs. Drops **Frostpine Bark**.",
+        "Hunted, it also drops 1 to 3 Frostpine Logs, up to 1 Frostpine Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Snagwalker",
+      "text": [
+        "The Cinderwood snag of the Ember Wastes, a burnt deadwood trunk snapped off at the top, still smouldering. Drops **Cinder Bark** (yellow dye).",
+        "Hunted, it also drops 1 to 3 Cinderwood Logs, up to 1 Cinderwood Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Weeping Warden",
+      "text": [
+        "The willow of the Reed Fen, hunched under a curtain of strands. Drops **Weeping Knots**.",
+        "Hunted, it also drops 1 to 3 Willow Logs, up to 1 Willow Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Bellcap Elder",
+      "text": [
+        "The Bellcap of the Crystal Fields, a squat stem under one huge cap. Drops **Bellcap Spores** (magenta dye).",
+        "Hunted, it also drops 1 to 3 Bellcap Logs, up to 1 Bellcap Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Stiltwood",
+      "text": [
+        "The Strider of the Shallows, carried high on arching prop roots. Drops **Stilt Roots**.",
+        "Hunted, it also drops 1 to 3 Strider Logs, up to 1 Strider Sapling and 1 to 3 Sticks. Breed with **bone meal**."
       ]
     },
     {
@@ -55,14 +104,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Hearth Warden**: 1 to 3 Hearthoak Logs, up to 1 Hearthoak Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Grove Elder**: 1 to 3 March Logs, up to 1 March Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Frostpine Sentinel**: 1 to 3 Frostpine Logs, up to 1 Frostpine Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Snagwalker**: 1 to 3 Cinderwood Logs, up to 1 Cinderwood Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Weeping Warden**: 1 to 3 Willow Logs, up to 1 Willow Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Bellcap Elder**: 1 to 3 Bellcap Logs, up to 1 Bellcap Sapling and 1 to 3 Sticks. Breed with **bone meal**.",
-        "- **Stiltwood**: 1 to 3 Strider Logs, up to 1 Strider Sapling and 1 to 3 Sticks. Breed with **bone meal**."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

@@ -10,10 +10,11 @@
   "next": "hollow_sentinel",
   "pages": [
     {
-      "type": "image",
-      "image": "shardback",
+      "type": "creature",
+      "entity": "tribalpower:shardback",
       "text": [
-        "A crystal-field scavenger armoured in singing stone. Keep your distance from its heavy shove."
+        "A crystal-field scavenger armoured in singing stone. Keep your distance from its heavy shove.",
+        "Hunted, it also drops up to 2 Amethyst Shards."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Shardback**: up to 2 Amethyst Shards."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

@@ -16,8 +16,7 @@
   "next": "beasts_crystal_fields",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:marsh_foot",
+      "type": "text",
       "title": "The fen's own",
       "text": [
         "Among the reeds and mud channels live a frog, a heron and a puffer that floats in the air, and at night a cobra wakes in the grass.",
@@ -25,46 +24,50 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
       "title": "Marsh Hopper",
       "text": [
         "A small fen frog, quick to jump, in groups of two to four. **12 health**, no armour.",
-        "It drops **1 to 3 Marsh Feet**, more with Looting."
+        "It drops **1 to 3 Marsh Feet**, more with Looting.",
+        "Hunted, it also drops up to 1 Raw Game, up to 1 Rabbit Hide and up to 1 Slimeball. Breed with **Fen Rice**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
       "title": "Fen Strider",
       "text": [
         "A tall heron, wading on stilt legs, in herds of two to four. **22 health** and **1 armour**.",
-        "It drops **1 to 3 Fen Hooves**."
+        "It drops **1 to 3 Fen Hooves**.",
+        "Hunted, it also drops 1 to 3 Raw Game, up to 2 March Leather and up to 1 Bone. Breed with **Fen Rice**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
       "title": "Bog Floater",
       "text": [
         "A green balloon puffer, blown up round and prickly, that drifts over the fen in ones to threes. **12 health**, no armour. A few drift along with the [Colossus Warden](colossus_warden).",
-        "It drops **1 to 3 Bog Bladders**."
+        "It drops **1 to 3 Bog Bladders**.",
+        "Hunted, it also drops up to 1 Slimeball and up to 1 String. Breed with **Fen Rice**."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
       "title": "Reed Coil",
       "text": [
         "A marsh cobra, coiled with its hood spread, that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
-        "It drops **1 to 2 Reed Whorls**, a Shove reagent."
+        "It drops **1 to 2 Reed Whorls**, a Shove reagent.",
+        "Hunted, it also drops up to 1 March Leather and up to 1 Bone."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Marsh Hopper**: up to 1 Raw Game, up to 1 Rabbit Hide and up to 1 Slimeball. Breed with **Fen Rice**.",
-        "- **Fen Strider**: 1 to 3 Raw Game, up to 2 March Leather and up to 1 Bone. Breed with **Fen Rice**.",
-        "- **Bog Floater**: up to 1 Slimeball and up to 1 String. Breed with **Fen Rice**.",
-        "- **Reed Coil**: up to 1 March Leather and up to 1 Bone."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

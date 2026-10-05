@@ -10,10 +10,11 @@
   "next": "rift_hound",
   "pages": [
     {
-      "type": "image",
-      "image": "mourning_bell",
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
       "text": [
-        "A floating relic that remembers the lost tribes. Its telegraphed chime slows."
+        "A floating relic that remembers the lost tribes. Its telegraphed chime slows.",
+        "Hunted, it also drops 1 to 3 Gold Nuggets."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Mourning Bell**: 1 to 3 Gold Nuggets."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

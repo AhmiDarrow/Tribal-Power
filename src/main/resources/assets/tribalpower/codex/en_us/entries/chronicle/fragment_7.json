@@ -6,7 +6,8 @@
   "unlock": "fragment:7",
   "pages": [
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
       "title": "The Unsung",
       "text": [
         "“The ninth thread would not agree even to fall. It hangs at the end of the March in a circle of stones, hollow, keeping a beat no one else can hear. The Loom-stitchers say it is waiting. They do not say for what.”",

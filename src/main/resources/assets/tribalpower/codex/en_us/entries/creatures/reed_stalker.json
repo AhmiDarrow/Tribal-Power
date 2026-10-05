@@ -10,10 +10,11 @@
   "next": "shardback",
   "pages": [
     {
-      "type": "image",
-      "image": "reed_stalker",
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
       "text": [
-        "A marsh hunter concealed among Spirit Reeds. Fast strikes carry a short poison."
+        "A marsh hunter concealed among Spirit Reeds. Fast strikes carry a short poison.",
+        "Hunted, it also drops up to 1 March Leather and up to 1 Bone."
       ]
     },
     {
@@ -43,8 +44,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Reed Stalker**: up to 1 March Leather and up to 1 Bone."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

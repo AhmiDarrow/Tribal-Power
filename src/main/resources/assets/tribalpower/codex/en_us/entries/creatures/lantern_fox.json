@@ -10,10 +10,11 @@
   "next": "mossback",
   "pages": [
     {
-      "type": "image",
-      "image": "lantern_fox",
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
       "text": [
-        "A shy dusk forager whose tail marks safe paths. Brush adults for Lantern Down."
+        "A shy dusk forager whose tail marks safe paths. Brush adults for Lantern Down.",
+        "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **sweet berries**."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Lantern Fox**: 1 to 2 Raw Game and up to 1 March Leather. Breed with **sweet berries**."
+        "When hunted it drops this, more with Looting. Meat drops roasted if the animal died burning. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

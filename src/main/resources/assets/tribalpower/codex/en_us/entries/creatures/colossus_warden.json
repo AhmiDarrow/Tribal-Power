@@ -10,8 +10,8 @@
   "next": "trolls",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:heartwood_core",
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
       "title": "Colossus Warden",
       "text": [
         "The willow grown enormous, and walking. The Colossus Warden is the March's one roaming boss, seven blocks tall, and it is never found alone.",

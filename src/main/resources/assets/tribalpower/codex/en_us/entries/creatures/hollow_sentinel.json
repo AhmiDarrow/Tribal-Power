@@ -10,10 +10,11 @@
   "next": "storm_moth",
   "pages": [
     {
-      "type": "image",
-      "image": "hollow_sentinel",
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
       "text": [
-        "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers."
+        "An empty watchman that still guards the ancient roads. Its touch weakens the grip of attackers.",
+        "Hunted, it also drops 1 to 3 Iron Nuggets."
       ]
     },
     {
@@ -43,8 +44,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Hollow Sentinel**: 1 to 3 Iron Nuggets."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

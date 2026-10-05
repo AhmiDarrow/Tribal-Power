@@ -6,12 +6,12 @@
   "items": [],
   "pages": [
     {
-      "type": "image",
-      "image": "familiar_lantern_fox",
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Lantern Fox",
       "text": [
         "A bonded Lantern Fox lights the way."
-      ],
-      "title": "Lantern Fox"
+      ]
     },
     {
       "type": "text",
@@ -23,12 +23,12 @@
       "title": "The fox's lantern"
     },
     {
-      "type": "image",
-      "image": "familiar_mossback",
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Mossback",
       "text": [
         "A bonded Mossback carries your things."
-      ],
-      "title": "Mossback"
+      ]
     },
     {
       "type": "text",
@@ -39,12 +39,12 @@
       "title": "The Mossback's saddlebag"
     },
     {
-      "type": "image",
-      "image": "familiar_dawn_stag",
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Dawn Stag",
       "text": [
         "A bonded Dawn Stag can be ridden without a saddle."
-      ],
-      "title": "Dawn Stag"
+      ]
     },
     {
       "type": "text",

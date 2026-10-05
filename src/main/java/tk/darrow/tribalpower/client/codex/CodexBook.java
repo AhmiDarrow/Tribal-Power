@@ -69,6 +69,9 @@ public final class CodexBook {
 
     public record Image(String image, String title, String text) implements Page {}
 
+    /** A creature drawn from its own live model, turning, with its name beneath: the bestiary's page. */
+    public record Creature(String entity, String title, String text) implements Page {}
+
     /** A stepped 3D build: each step adds or removes blocks, highlights some, and says what is happening. */
     public record Scene(String title, String text, List<Step> steps) implements Page {}
 
@@ -216,6 +219,7 @@ public final class CodexBook {
             case "spotlight" -> new Spotlight(str(json, "item"), title, text);
             case "recipe" -> new Recipe(str(json, "item"), title, text);
             case "image" -> new Image(str(json, "image"), title, text);
+            case "creature" -> new Creature(str(json, "entity"), title, text);
             case "pattern" -> new Pattern(str(json, "pattern"), json.has("tier") ? json.get("tier").getAsInt() : 1, title, text);
             case "scene" -> new Scene(title, text, steps(json.getAsJsonArray("steps")));
             case "quests" -> new Quests(str(json, "tribe"), title, text);

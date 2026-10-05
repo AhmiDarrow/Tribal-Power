@@ -78,6 +78,8 @@ public class LatticeGameTests {
             }
         }
         text.accept("landing",book.landing());
+        // every creature the bestiary draws, so none of the mod's own goes without a page
+        var shown=new java.util.HashSet<String>();
         for(var e:book.entries()) {
             h.assertTrue(book.category(e.category())!=null,e.id()+" sits in a missing chapter "+e.category());
             h.assertTrue(!e.name().isBlank() && !e.pages().isEmpty(),"Empty entry: "+e.id());
@@ -115,6 +117,11 @@ public class LatticeGameTests {
                             h.fail(e.id()+" shows an unreadable picture "+i.image());
                         }
                     }
+                    case tk.darrow.tribalpower.client.codex.CodexBook.Creature creature -> {
+                        var id=net.minecraft.resources.ResourceLocation.tryParse(creature.entity());
+                        h.assertTrue(id!=null && net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.containsKey(id),e.id()+" shows an unknown creature "+creature.entity());
+                        shown.add(creature.entity());
+                    }
                     case tk.darrow.tribalpower.client.codex.CodexBook.Pattern pattern -> h.assertTrue(
                             java.util.Set.of("stone_font","listening_pit","rite_circle","voice_ring","shatter_array","way_gate","far_gate").contains(pattern.pattern()),e.id()+" draws an unknown pattern "+pattern.pattern());
                     case tk.darrow.tribalpower.client.codex.CodexBook.Scene scene -> {
@@ -136,6 +143,16 @@ public class LatticeGameTests {
                     default -> { }
                 }
             }
+        }
+        // a true bestiary: every living thing the mod adds is drawn from its own model on some page
+        for(var type:net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE) {
+            var key=net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(type);
+            if(!key.getNamespace().equals("tribalpower"))continue;
+            var made=type.create(h.getLevel());
+            if(made==null)continue;
+            boolean living=made instanceof net.minecraft.world.entity.Mob;
+            made.discard();
+            if(living)h.assertTrue(shown.contains(key.toString()),"The Codex bestiary has no page drawing "+key);
         }
         CodexFacts.check(h,book);
         h.succeed();

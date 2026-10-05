@@ -51,7 +51,8 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
       "title": "Wandering spirits",
       "text": [
         "Rarely, out in the March, a warm light drifts near you: a **Wandering Spirit**. It does not flee. Reach it and it tells you a line of its country's story and leaves a small gift, the reagent its guardian answers to, or now and then a Resonant Core, and goes.",

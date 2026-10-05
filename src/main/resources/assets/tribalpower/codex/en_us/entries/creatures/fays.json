@@ -14,8 +14,7 @@
   "next": "shades",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:fay_dust",
+      "type": "text",
       "title": "Fays",
       "text": [
         "Where the light is strange, fays dance in the air. They are small and gentle, and flee from monsters.",
@@ -26,20 +25,41 @@
       "type": "text",
       "title": "Three kinds",
       "text": [
-        "- **Glimmer Fay**: gold, over the Glimmer Ridge. Drops **Fay Dust**.",
-        "- **Prism Fay**: rose, over the Crystal Fields. Drops **Fay Petals** (pink dye).",
-        "- **Marsh Fay**: green, over the Reed Fen. A few fly with the [Colossus Warden](colossus_warden). Drops **Fay Sparks**.",
         "A fay has **8 health** and no armour, flies in ones to threes, and drops **1 to 3** of its reagent, more with Looting."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Glimmer Fay",
+      "text": [
+        "Gold, over the Glimmer Ridge. Drops **Fay Dust**.",
+        "Hunted, it also drops up to 2 Glowstone Dust. Breed with **sugar or a honey bottle**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Prism Fay",
+      "text": [
+        "Rose, over the Crystal Fields. Drops **Fay Petals** (pink dye).",
+        "Hunted, it also drops up to 2 Pink Petals and up to 1 Amethyst Shard. Breed with **sugar or a honey bottle**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Marsh Fay",
+      "text": [
+        "Green, over the Reed Fen. A few fly with the [Colossus Warden](colossus_warden). Drops **Fay Sparks**.",
+        "Hunted, it also drops up to 1 Glow Berries and up to 1 Glowstone Dust. Breed with **sugar or a honey bottle**."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead.",
-        "- **Glimmer Fay**: up to 2 Glowstone Dust. Breed with **sugar or a honey bottle**.",
-        "- **Prism Fay**: up to 2 Pink Petals and up to 1 Amethyst Shard. Breed with **sugar or a honey bottle**.",
-        "- **Marsh Fay**: up to 1 Glow Berries and up to 1 Glowstone Dust. Breed with **sugar or a honey bottle**."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting. To breed wild ones, **sneak** while you feed two adults their food; fed normally, a wild one warms to you instead."
       ]
     }
   ]

@@ -10,10 +10,11 @@
   "next": "cinder_imp",
   "pages": [
     {
-      "type": "image",
-      "image": "storm_moth",
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
       "text": [
-        "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust."
+        "A storm-fed spirit with vast veil wings. A bright gathering of motes warns of its gust.",
+        "Hunted, it also drops up to 2 String and up to 1 Phantom Membrane."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Storm Moth**: up to 2 String and up to 1 Phantom Membrane."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

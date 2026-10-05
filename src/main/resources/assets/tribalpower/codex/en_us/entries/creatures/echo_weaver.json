@@ -10,10 +10,11 @@
   "next": "beasts_steppe",
   "pages": [
     {
-      "type": "image",
-      "image": "echo_weaver",
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
       "text": [
-        "An eight-legged keeper of broken songs. Its bite slows prey."
+        "An eight-legged keeper of broken songs. Its bite slows prey.",
+        "Hunted, it also drops 1 to 3 String and up to 1 Spider Eye."
       ]
     },
     {
@@ -44,8 +45,7 @@
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, it drops this when hunted, more with Looting.",
-        "- **Echo Weaver**: 1 to 3 String and up to 1 Spider Eye."
+        "Besides its reagent, it drops this when hunted, more with Looting."
       ]
     }
   ]

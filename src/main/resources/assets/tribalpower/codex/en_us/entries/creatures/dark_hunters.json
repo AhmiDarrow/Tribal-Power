@@ -16,8 +16,7 @@
   "next": "walking_trees",
   "pages": [
     {
-      "type": "spotlight",
-      "item": "tribalpower:lurker_claw",
+      "type": "text",
       "title": "Below and above",
       "text": [
         "Three hunters own the March's caves, and they rise in the dark there by day as readily as by night. A fourth drifts over the high lands at night.",
@@ -25,46 +24,50 @@
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
       "title": "Deep Lurker",
       "text": [
         "The toughest of the cave hunters, found under every land of the March, one or two at a time. It has **32 health** and **3 armour** and bites for **5**.",
-        "It drops **Lurker Claws**, a Hound reagent that grinds into light blue dye."
+        "It drops **Lurker Claws**, a Hound reagent that grinds into light blue dye.",
+        "Hunted, it also drops up to 2 Bones and up to 1 March Leather."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
       "title": "Pale Stalker",
       "text": [
         "A tall, pale, quick thing of the caves under the Steppe, the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one to three at a time. **24 health** and **1 armour**. Its blow does **4** and weakens you for 4 seconds.",
-        "It drops **Pale Fangs**, a Weaken reagent."
+        "It drops **Pale Fangs**, a Weaken reagent.",
+        "Hunted, it also drops 1 to 2 Bones."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
       "title": "Gloom Crawler",
       "text": [
         "A low, dark crawler of the caves under every land but the Shallows, one to three at a time. **22 health** and **2 armour**. Its bite does **4**, slows you for 3 seconds and can leave you [Frayed](afflictions).",
-        "It drops **Gloom Silk**, a Weave reagent."
+        "It drops **Gloom Silk**, a Weave reagent.",
+        "Hunted, it also drops 1 to 2 String and up to 1 Spider Eye."
       ]
     },
     {
-      "type": "text",
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
       "title": "Veil Drifter",
       "text": [
         "A tattered flier that rises at night over the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one or two at a time. **18 health** and **1 armour**.",
-        "From up to 12 blocks away it casts a gust for **3** that throws you back. Cover breaks the cast. It drops **Veil Tatters**, a Gust reagent."
+        "From up to 12 blocks away it casts a gust for **3** that throws you back. Cover breaks the cast. It drops **Veil Tatters**, a Gust reagent.",
+        "Hunted, it also drops up to 1 Phantom Membrane and up to 1 String."
       ]
     },
     {
       "type": "text",
       "title": "Hunting and herding",
       "text": [
-        "Besides its reagent, each one drops more when hunted, and more again with Looting.",
-        "- **Deep Lurker**: up to 2 Bones and up to 1 March Leather.",
-        "- **Pale Stalker**: 1 to 2 Bones.",
-        "- **Gloom Crawler**: 1 to 2 String and up to 1 Spider Eye.",
-        "- **Veil Drifter**: up to 1 Phantom Membrane and up to 1 String."
+        "Besides its reagent, each one drops more when hunted, and more again with Looting."
       ]
     }
   ]
