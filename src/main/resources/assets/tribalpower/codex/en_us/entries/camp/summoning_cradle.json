@@ -20,7 +20,7 @@
       "title": "Imprinting an effigy",
       "text": [
         "Craft an empty **Binding Effigy**, then crouch and right-click an eligible creature with it. The creature is not hurt.",
-        "Cows, sheep, pigs, chickens, zombies, skeletons, spiders and creepers can be imprinted, and so can the March's own beasts and spirits: its grazers, moths, hounds, stalkers, trolls, goblins, fay, shades, tree-folk and the rest. No other vanilla creature can. The guardians, The Unsung and the Colossus Warden are bosses and cannot be, and neither can Spirit Wisps, March Walkers, Wandering Spirits, Tribal Kin, Glimmerfin, Drift Bells, Veil Rays, Silt Eels or Loom Swifts.",
+        "Any vanilla creature that lives on dry ground can be imprinted (cows, horses, rabbits, foxes, zombies, blazes, endermen, witches, bats and the rest), and so can the March's own beasts and spirits: its grazers, moths, hounds, stalkers, trolls, goblins, fay, shades, tree-folk and the rest. The Wither, the Ender Dragon, the Warden and the Elder Guardian never can, nor evokers, villagers, wandering traders, golems or water creatures. The guardians, The Unsung and the Colossus Warden are bosses and cannot be, and neither can Spirit Wisps, March Walkers, Wandering Spirits, Tribal Kin, Glimmerfin, Drift Bells, Veil Rays, Silt Eels or Loom Swifts.",
         "A live binding cannot be overwritten; spend its threads first. The tooltip names the imprint and the threads left.",
         "An imprint alone has no summons. It must be woven through the three-voice binding."
       ]
@@ -657,7 +657,7 @@
       "text": [
         "It pauses while **8 or more** mobs are within 12 blocks, so move them away. Hostiles are never called in Peaceful or inside a Hush Totem's circle.",
         "A comparator reads the threads left. Redstone pauses everything.",
-        "Hoppers can feed Spiritweave in from above or the sides. The bottom face hands out only an exhausted effigy, ready for renewal.",
+        "Hoppers and [relay plates](wireless_cargo) can feed Spiritweave in from above or the sides. The bottom face hands out only an exhausted effigy, ready for renewal, to a hopper or a plate set under it.",
         "Breaking the cradle drops the same effigy with its remaining threads intact."
       ]
     },

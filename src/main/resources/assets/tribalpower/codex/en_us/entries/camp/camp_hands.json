@@ -37,7 +37,7 @@
         "Each one draws Pulse from generators within **8 blocks**. The Wind Snare, Ward Drum, Tide Pump and Seal Loom pay only when they act. The Grove Tender, Hush Totem, Wayanchor and Summoning Cradle first fill a **2,400-Pulse** reserve of their own, up to **80** a second, and work from that.",
         "A steady redstone signal, such as a lever, pauses it. A comparator reads what it is doing or how full it is; each entry says which.",
         "The Seal Loom, Tide Pump, Wind Snare and Ward Drum can be ranked in Echo Attune, then Echo Bind, then Echo Manifest (see [Machine ranks](machine_ranks)). A ranked hand beats faster, every **85%**, **70%** or **55%** of a second, but the Pulse per job stays the same, so the lattice feels the extra speed.",
-        "Sneak-use a **Totem Wrench** on a machine face to step it through Both, Input, Output and Closed. A Closed face offers no slots to hoppers or pipes."
+        "Sneak-use a **Totem Wrench** on a machine face to step it through Both, Input, Output and Closed. A Closed face offers no slots to hoppers, pipes or relay plates. A relay plate goes on any of them with a plain right-click, even on one whose click opens a screen."
       ]
     },
     {

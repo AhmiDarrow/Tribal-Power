@@ -22,15 +22,26 @@ import java.util.*;
 public class BoundEffigyItem extends Item {
     public static final int MAX_USES=512;
     public BoundEffigyItem(Properties properties){super(properties);}
-    /** Asked for every rendered effigy's bar each frame, so the list is built once. */
-    private static final Set<String> ALLOWED;
-    static {
-        Set<String> ids=new HashSet<>(List.of("minecraft:zombie","minecraft:skeleton","minecraft:spider","minecraft:creeper","minecraft:cow","minecraft:sheep","minecraft:pig","minecraft:chicken"));
-        // The Codex promises bosses can't be imprinted or called from a Cradle.
-        for(var profile:tk.darrow.tribalpower.entity.CreatureProfile.values())if(!profile.boss())ids.add("tribalpower:"+profile.id);
-        ALLOWED=Set.copyOf(ids);
+    /** The vanilla kinds a cradle can call onto its dry floor: animals, monsters and bats. Water creatures never stand there. */
+    private static final Set<MobCategory> VANILLA_KINDS=EnumSet.of(MobCategory.CREATURE,MobCategory.MONSTER,MobCategory.AMBIENT);
+    /** Never: the bosses and the boss-like, the trader, and the evoker, whose totems a cradle must not farm. Villagers and golems are MISC. */
+    private static final Set<String> VANILLA_NEVER=Set.of("minecraft:ender_dragon","minecraft:wither","minecraft:warden","minecraft:elder_guardian",
+            "minecraft:evoker","minecraft:illusioner","minecraft:giant","minecraft:wandering_trader");
+    /** Asked for every rendered effigy's bar each frame, so the list is built once, on first use, after the registries are filled. */
+    private static final class Allowed {
+        static final Set<String> IDS;
+        static {
+            Set<String> ids=new HashSet<>();
+            for(var type:BuiltInRegistries.ENTITY_TYPE){
+                var id=BuiltInRegistries.ENTITY_TYPE.getKey(type);
+                if(id.getNamespace().equals("minecraft")&&VANILLA_KINDS.contains(type.getCategory())&&!VANILLA_NEVER.contains(id.toString()))ids.add(id.toString());
+            }
+            // The Codex promises bosses can't be imprinted or called from a Cradle.
+            for(var profile:tk.darrow.tribalpower.entity.CreatureProfile.values())if(!profile.boss())ids.add("tribalpower:"+profile.id);
+            IDS=Set.copyOf(ids);
+        }
     }
-    public static Set<String> allowed() { return ALLOWED; }
+    public static Set<String> allowed() { return Allowed.IDS; }
     private static CompoundTag data(ItemStack stack){return stack.getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();}
     public static String target(ItemStack stack){String id=data(stack).getString("BoundSpirit");return allowed().contains(id)?id:"";}
     public static int remaining(ItemStack stack){return stack.getItem() instanceof BoundEffigyItem&&!target(stack).isEmpty()?Math.clamp(data(stack).getInt("Summons"),0,MAX_USES):0;}
@@ -40,7 +51,7 @@ public class BoundEffigyItem extends Item {
     @Override public InteractionResult interactLivingEntity(ItemStack stack,Player player,LivingEntity target,InteractionHand hand) {
         if(!(target instanceof Mob)||!player.isShiftKeyDown())return InteractionResult.PASS;
         String id=BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
-        if(!allowed().contains(id))return InteractionResult.FAIL;
+        if(!allowed().contains(id)||target.getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))return InteractionResult.FAIL;
         if(!player.level().isClientSide) {
             if(remaining(stack)>0){player.displayClientMessage(Component.translatable("message.tribalpower.effigy.still_bound"),true);return InteractionResult.FAIL;}
             bind(stack,id,0);player.displayClientMessage(Component.translatable("message.tribalpower.effigy.imprinted",targetName(stack)),true);
