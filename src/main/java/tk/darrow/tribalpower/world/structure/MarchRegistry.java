@@ -4,7 +4,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -63,12 +62,6 @@ public final class MarchRegistry {
         event.register(THE_UNSUNG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, level, reason, pos, random) -> reason != net.minecraft.world.entity.MobSpawnType.NATURAL && reason != net.minecraft.world.entity.MobSpawnType.CHUNK_GENERATION,
                 RegisterSpawnPlacementsEvent.Operation.REPLACE);
-    }
-
-    public static void displayItems(CreativeModeTab.Output out) {
-        out.accept(SILENT_DRUM_ITEM.get());
-        out.accept(LORE_TABLET_ITEM.get());
-        out.accept(THE_UNSUNG_EGG.get());
     }
 
     private MarchRegistry() {}

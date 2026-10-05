@@ -117,14 +117,6 @@ public final class Wildlife {
         }
     }
 
-    /** Items in creative-tab order. */
-    public static List<DeferredItem<? extends Item>> tabItems() {
-        var items = new java.util.ArrayList<DeferredItem<? extends Item>>(List.of(RAW_GLIMMERFIN, COOKED_GLIMMERFIN,
-                RAW_SILT_EEL, SMOKED_SILT_EEL, DRIFT_JELLY, GLIMMERFIN_BUCKET));
-        items.addAll(EGGS);
-        return items;
-    }
-
     private static DeferredHolder<EntityType<?>, EntityType<MarchSwimmerEntity>> swimmer(String id, MobCategory category, float width, float height) {
         return ENTITIES.register(id, () -> EntityType.Builder.of(MarchSwimmerEntity::new, category)
                 .sized(width, height).clientTrackingRange(6).build("tribalpower:" + id));

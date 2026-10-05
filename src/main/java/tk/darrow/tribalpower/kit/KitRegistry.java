@@ -8,7 +8,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -81,13 +80,6 @@ public final class KitRegistry {
         event.setCanceled(true);
         event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide));
         if (!event.getLevel().isClientSide) urn.capture(event.getEntity(), event.getItemStack(), event.getTarget());
-    }
-
-    public static void displayItems(CreativeModeTab.Output out) {
-        out.accept(VINE_LIFT_ITEM.get());
-        out.accept(SONGKEEPER_DRUM_ITEM.get());
-        out.accept(PULSE_CROSSBOW.get());
-        SOUL_URNS.values().forEach(urn -> out.accept(urn.get()));
     }
 
     /** The Songkeeper Drum: open it to pick a track and play. */

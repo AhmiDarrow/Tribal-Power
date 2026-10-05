@@ -7,7 +7,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
@@ -89,9 +88,4 @@ public final class GuardianRegistry {
                     RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 
-    public static void displayItems(CreativeModeTab.Output out) {
-        out.accept(ALTAR_ITEM.get());
-        CORES.values().forEach(core -> out.accept(core.get()));
-        EGGS.values().forEach(egg -> out.accept(egg.get()));
-    }
 }
