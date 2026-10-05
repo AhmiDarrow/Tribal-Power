@@ -1,8 +1,8 @@
 {
   "itemGroup.tribalpower.main": "Tribal Power",
-  "itemGroup.tribalpower.gear": "Gear & Magic",
-  "itemGroup.tribalpower.hearth": "Hearth & Bestiary",
-  "itemGroup.tribalpower.march": "The March",
+  "itemGroup.tribalpower.gear": "Tribal Power: Gear & Magic",
+  "itemGroup.tribalpower.hearth": "Tribal Power: Hearth & Bestiary",
+  "itemGroup.tribalpower.march": "Tribal Power: The March",
   "item.tribalpower.spirit_codex": "Spirit Codex",
   "item.tribalpower.spirit_codex.desc": "Field guide to shamanic technomancy",
   "item.tribalpower.spirit_shard": "Spirit Shard",
