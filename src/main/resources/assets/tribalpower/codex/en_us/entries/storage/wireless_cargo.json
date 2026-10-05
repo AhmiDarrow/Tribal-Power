@@ -400,7 +400,7 @@
       "title": "Channels",
       "text": [
         "A plain plate sends to one place. Rank it and it opens more **channels**: [Echo Attune](machine_ranks) opens a second, Bind a third, Manifest a fourth. Each channel has its own destination and its own filter.",
-        "Pick a channel with the numbered tabs at the top of the plate, then right-click the plate with a marked Lattice Tuner to aim that channel. **Unlink** forgets a channel's destination and keeps its filter.",
+        "Mark a face with the Lattice Tuner and use the tuner on the plate. Each plain click fills the next channel that has no destination, so the channels can send to different places. Select a channel and sneak-click the plate with the tuner to replace that one. **Unlink** forgets a channel's destination and keeps its filter.",
         "**Priority** sends goods to the first channel, in number order, that takes them and has room: whitelist ores on channel 1 to a furnace, and let channel 2 take everything else to storage. **Round-robin** has the channels take turns.",
         "The channels share the plate's one transfer a beat, so a ranked plate moves as much as before, just to more places."
       ]

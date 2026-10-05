@@ -968,6 +968,52 @@ public class LatticeGameTests {
         h.assertTrue(saved.contains("Target") && saved.getLong("Target")==chestPos.asLong(),"The plate binds the marked chest, not itself");
         h.succeed();
     }
+
+    /** Item and fluid plates share one block entity. Each plain tuner click fills the next free channel. */
+    @GameTest(template="empty")
+    public static void tunerGivesEachChannelItsOwnDestination(GameTestHelper h) {
+        h.setBlock(2,2,2,ModBlocks.ITEM_RELAY.get());
+        h.setBlock(2,2,4,ModBlocks.FLUID_RELAY.get());
+        h.setBlock(6,2,2,Blocks.CHEST);h.setBlock(6,2,5,Blocks.CHEST);h.setBlock(6,2,8,Blocks.CHEST);
+        var player=VerificationPlayers.inLevel(h);
+        var tuner=new ItemStack(ModItems.LATTICE_TUNER.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,tuner);
+        var item=at(h,new BlockPos(2,2,2),WirelessRelayBlockEntity.class);
+        var fluid=at(h,new BlockPos(2,2,4),WirelessRelayBlockEntity.class);
+        tk.darrow.tribalpower.item.MachineRank.apply(item,1);
+        tk.darrow.tribalpower.item.MachineRank.apply(fluid,1);
+        BlockPos a=h.absolutePos(new BlockPos(6,2,2)), b=h.absolutePos(new BlockPos(6,2,5)), c=h.absolutePos(new BlockPos(6,2,8));
+        player.setShiftKeyDown(false);
+        mark(h,player,tuner,a); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,2)));
+        mark(h,player,tuner,b); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,2)));
+        h.assertTrue(a.equals(item.target(0)) && b.equals(item.target(1)),"Two plain clicks give the item plate two destinations");
+        h.assertTrue(item.selected()==1,"The plate stays on the channel it just aimed");
+        mark(h,player,tuner,c); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,2)));
+        h.assertTrue(a.equals(item.target(0)) && c.equals(item.target(1)),"A third click replaces the selected channel and leaves the other");
+        item.select(0);
+        player.setShiftKeyDown(true);
+        mark(h,player,tuner,b); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,2)));
+        h.assertTrue(b.equals(item.target(0)) && c.equals(item.target(1)),"Sneak-click retargets the selected channel only");
+        player.setShiftKeyDown(false);
+        mark(h,player,tuner,a); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,4)));
+        mark(h,player,tuner,b); aim(h,player,tuner,h.absolutePos(new BlockPos(2,2,4)));
+        h.assertTrue(a.equals(fluid.target(0)) && b.equals(fluid.target(1)),"A fluid plate keeps a different destination on each channel");
+        var menu=(tk.darrow.tribalpower.echo.RelayMenu)item.createMenu(1,player.getInventory(),player);
+        h.assertTrue(menu.hasTarget(0) && menu.targetCoord(0,0)==b.getX() && menu.targetCoord(0,1)==b.getY() && menu.targetCoord(0,2)==b.getZ(),
+                "The screen is told channel 1's own coordinates");
+        h.assertTrue(menu.hasTarget(1) && menu.targetCoord(1,0)==c.getX() && menu.targetCoord(1,2)==c.getZ() && menu.targetCoord(0,2)!=menu.targetCoord(1,2),
+                "And channel 2's, which are not channel 1's");
+        h.succeed();
+    }
+
+    private static void mark(GameTestHelper h, net.minecraft.world.entity.player.Player player, ItemStack tuner, BlockPos pos) {
+        tuner.getItem().onItemUseFirst(tuner,new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(pos),Direction.UP,pos,false)));
+    }
+    private static void aim(GameTestHelper h, net.minecraft.world.entity.player.Player player, ItemStack tuner, BlockPos plate) {
+        tuner.getItem().onItemUseFirst(tuner,new net.minecraft.world.item.context.UseOnContext(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND,tuner,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(plate),Direction.NORTH,plate,false)));
+    }
     @GameTest(template="empty", timeoutTicks=100)
     public static void adapterExportsButNeverImportsFE(GameTestHelper h) {
         var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.PULSE_ADAPTER.get());power(h);

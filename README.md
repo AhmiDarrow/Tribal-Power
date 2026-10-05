@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 5.3.16.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 5.6.1.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,7 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 5.3.16 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 5.6.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
 - [Previous 4.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v4.0.0)
 - [Previous 3.8.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.8.0)
 - [Previous 3.7.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.1)
@@ -66,7 +66,7 @@ Every inventory worth tidying carries a small **Tidy** button above its slots: y
 
 A Lattice Conductor does not make Pulse. Place conductors within 8 of each other and a machine within 8 of any of them draws generators, Pulse Cairns and totem buffers that line can reach. A redstone signal cuts that conductor out of the line. Ritual Chalk still joins two Resonance Totems (within 16): a Conductor within 8 of them and of a generator pulls up to 10 Pulse a second into those totem buffers (click for a 25-Pulse burst). Ranked conductors pull more. Dedicated Echo stations work with hoppers and item pipes. Cisterns and the FE adapter use standard capabilities.
 
-Wireless relays are thin plates that snap onto a machine face. Mark a destination face with the Lattice Tuner and use it on the plate. A Water Seal rune moves fluid; an Earth Seal moves items. Each plate has an eight-slot filter (ghost entries, a bucket lists its fluid) that works as a blacklist or a whitelist; sneak-click a plate to switch it.
+Wireless relays are thin plates that snap onto a machine face. Mark a destination face with the Lattice Tuner and use it on the plate. A ranked plate opens more channels, and each plain tuner click fills the next channel that has no destination, so they can send to different places. Sneak-use the tuner on the plate to retarget the selected channel. A Water Seal rune moves fluid; an Earth Seal moves items. Each channel has an eight-slot filter (ghost entries, a bucket lists its fluid) that works as a blacklist or a whitelist; sneak-click a plate with an empty hand to switch the selected channel's list.
 
 Each Echo station and Ancestral Cache has a six-face IO pad. Sneak-use an empty hand on a face to cycle Input, Output, Both or Closed. Hoppers and pipes honour those faces.
 

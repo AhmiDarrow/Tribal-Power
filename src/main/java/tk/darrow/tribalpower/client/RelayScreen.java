@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import tk.darrow.tribalpower.blockentity.WirelessRelayBlockEntity;
@@ -13,12 +14,14 @@ import tk.darrow.tribalpower.echo.RelayMenu;
 /**
  * Rune on the left, the selected channel's eight-slot filter, and its controls: whitelist/blacklist, routing (once the
  * plate has more than one channel) and unlink. Channel tabs sit in the title bar; ranks open the locked ones.
+ * A linked tab names that channel's own destination.
  */
 public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
     private final Button[] tabs = new Button[WirelessRelayBlockEntity.MAX_CHANNELS];
     private Button mode, route, unlink;
     /** Everything the buttons show, so they are rebuilt only when the server's state changes. */
     private int shown = -1;
+    private int shownDest = 0;
 
     public RelayScreen(RelayMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -57,11 +60,13 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         return (burns() ? 1 << 16 : 0) | menu.selected() | menu.channels() << 3 | (menu.allowing() ? 1 : 0) << 6 | (menu.roundRobin() ? 1 : 0) << 7 | linked << 8;
     }
 
-    /** The mode and route live on the server and come back through the menu's data; follow them when they change. */
+    /** The mode, route and each channel's destination live on the server and come back through the menu's data. */
     private void refresh() {
         int now = state();
-        if (now == shown || mode == null) return;
+        int dest = destHash();
+        if ((now == shown && dest == shownDest) || mode == null) return;
         shown = now;
+        shownDest = dest;
         int channels = menu.channels(), selected = menu.selected();
         for (int i = 0; i < tabs.length; i++) {
             boolean open = i < channels;
@@ -70,9 +75,7 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
             tabs[i].visible = (channels > 1 && !burns()) || i == 0;
             ChatFormatting colour = i == selected ? ChatFormatting.YELLOW : menu.linked(i) ? ChatFormatting.WHITE : ChatFormatting.GRAY;
             tabs[i].setMessage(Component.literal(String.valueOf(i + 1)).withStyle(colour));
-            tabs[i].setTooltip(Tooltip.create(open
-                    ? Component.translatable(menu.linked(i) ? "gui.tribalpower.relay.channel.linked" : "gui.tribalpower.relay.channel.free", i + 1)
-                    : Component.translatable("gui.tribalpower.relay.channel.locked")));
+            tabs[i].setTooltip(Tooltip.create(channelTip(i, open)));
         }
         boolean allow = menu.allowing();
         mode.setMessage(Component.translatable(allow ? "gui.tribalpower.relay.allow" : "gui.tribalpower.relay.block"));
@@ -84,7 +87,29 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         boolean linked = menu.linked(selected);
         unlink.active = linked;
         unlink.setMessage(Component.translatable(linked ? "gui.tribalpower.relay.unlink" : "gui.tribalpower.relay.not_linked"));
-        unlink.setTooltip(Tooltip.create(Component.translatable(linked ? "gui.tribalpower.relay.unlink.hint" : "gui.tribalpower.relay.not_linked.hint")));
+        unlink.setTooltip(Tooltip.create(linked ? channelTip(selected, true) : Component.translatable("gui.tribalpower.relay.not_linked.hint")));
+    }
+
+    /** So a retarget of an already-linked channel still refreshes the tab text. */
+    private int destHash() {
+        int hash = 1;
+        for (int i = 0; i < tabs.length; i++) {
+            if (!menu.hasTarget(i)) { hash = hash * 31 + 1; continue; }
+            hash = hash * 31 + menu.targetCoord(i, 0);
+            hash = hash * 31 + menu.targetCoord(i, 1);
+            hash = hash * 31 + menu.targetCoord(i, 2);
+            hash = hash * 31 + menu.targetFace(i);
+            if (!menu.sameWorld(i)) hash++;
+        }
+        return hash;
+    }
+
+    private Component channelTip(int channel, boolean open) {
+        if (!open) return Component.translatable("gui.tribalpower.relay.channel.locked");
+        if (!menu.hasTarget(channel)) return Component.translatable("gui.tribalpower.relay.channel.free", channel + 1);
+        String face = Direction.from3DDataValue(menu.targetFace(channel)).getSerializedName();
+        return Component.translatable(menu.sameWorld(channel) ? "gui.tribalpower.relay.channel.at" : "gui.tribalpower.relay.channel.at_other",
+                channel + 1, menu.targetCoord(channel, 0), menu.targetCoord(channel, 1), menu.targetCoord(channel, 2), face);
     }
 
     @Override protected void containerTick() {
@@ -110,11 +135,20 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         g.drawString(font, playerInventoryTitle, 8, 72, 0xFF98ACA5, false);
         g.drawString(font, Component.translatable("gui.tribalpower.relay.rune"), 12, 22, 0xFF98ACA5, false);
         boolean burns = burns();
-        Component filter = burns ? Component.translatable("gui.tribalpower.relay.void_filter")
-                : menu.channels() > 1
-                ? Component.translatable("gui.tribalpower.relay.filter_channel", menu.selected() + 1)
+        Component filter = burns ? Component.translatable("gui.tribalpower.relay.void_filter") : destinationLabel();
+        g.drawString(font, font.plainSubstrByWidth(filter.getString(), 72), 42, 22, 0xFF98ACA5, false);
+    }
+
+    /** The selected channel's own destination, so two linked tabs can be told apart without the codex. */
+    private Component destinationLabel() {
+        int selected = menu.selected();
+        if (menu.hasTarget(selected)) {
+            return Component.translatable(menu.sameWorld(selected) ? "gui.tribalpower.relay.to" : "gui.tribalpower.relay.to_other",
+                    selected + 1, menu.targetCoord(selected, 0), menu.targetCoord(selected, 1), menu.targetCoord(selected, 2));
+        }
+        return menu.channels() > 1
+                ? Component.translatable("gui.tribalpower.relay.filter_channel", selected + 1)
                 : Component.translatable("gui.tribalpower.relay.filter");
-        g.drawString(font, filter, 42, 22, 0xFF98ACA5, false);
     }
 
     @Override public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {

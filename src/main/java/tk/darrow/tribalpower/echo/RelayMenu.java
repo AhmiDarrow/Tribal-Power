@@ -24,7 +24,9 @@ public class RelayMenu extends AbstractContainerMenu {
     public static final int RUNE_SLOT = 0, FILTER_START = 1, FILTER_END = FILTER_START + WirelessRelayBlockEntity.FILTERS;
     /** Menu button ids: flip the selected channel's list, pick channel n (SELECT + n), switch routing, unlink. */
     public static final int TOGGLE_ALLOW = 0, SELECT = 1, TOGGLE_ROUTE = SELECT + WirelessRelayBlockEntity.MAX_CHANNELS, UNLINK = TOGGLE_ROUTE + 1;
-    public static final int DATA_SELECTED = 0, DATA_ALLOW = 1, DATA_CHANNELS = 2, DATA_ROUND_ROBIN = 3, DATA_LINKED = 4, DATA_COUNT = 5;
+    public static final int DATA_SELECTED = 0, DATA_ALLOW = 1, DATA_CHANNELS = 2, DATA_ROUND_ROBIN = 3, DATA_LINKED = 4;
+    /** Seven shorts per channel: coordinate halves, then face and flags. See {@link WirelessRelayBlockEntity#channelSync}. */
+    public static final int DATA_CHAN = 5, CHAN_STRIDE = 7, DATA_COUNT = DATA_CHAN + WirelessRelayBlockEntity.MAX_CHANNELS * CHAN_STRIDE;
     private final Container container;
     private final Container filters;
     private final ContainerData data;
@@ -62,6 +64,20 @@ public class RelayMenu extends AbstractContainerMenu {
     public int channels() { return Math.max(1, data.get(DATA_CHANNELS)); }
     public boolean roundRobin() { return data.get(DATA_ROUND_ROBIN) != 0; }
     public boolean linked(int channel) { return (data.get(DATA_LINKED) & (1 << channel)) != 0; }
+
+    /** Destination of a channel, synced in 16-bit halves so a far astral mark still arrives whole. */
+    public boolean hasTarget(int channel) { return (channelMeta(channel) & 8) != 0; }
+    public boolean sameWorld(int channel) { return (channelMeta(channel) & 16) != 0; }
+    public int targetFace(int channel) { return channelMeta(channel) & 7; }
+    public int targetCoord(int channel, int axis) {
+        if (channel < 0 || channel >= WirelessRelayBlockEntity.MAX_CHANNELS || axis < 0 || axis > 2) return 0;
+        int base = DATA_CHAN + channel * CHAN_STRIDE + axis * 2;
+        return ((data.get(base + 1) & 0xFFFF) << 16) | (data.get(base) & 0xFFFF);
+    }
+    private int channelMeta(int channel) {
+        if (channel < 0 || channel >= WirelessRelayBlockEntity.MAX_CHANNELS) return 0;
+        return data.get(DATA_CHAN + channel * CHAN_STRIDE + 6);
+    }
 
     public static boolean isFilter(int slot) { return slot >= FILTER_START && slot < FILTER_END; }
 

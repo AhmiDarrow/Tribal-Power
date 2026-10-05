@@ -34,9 +34,10 @@ import tk.darrow.tribalpower.lattice.RelayLinks;
 /**
  * Face-mounted plate. Pulls from the host machine and sends to the faces a Lattice Tuner aimed it at, through a rune
  * (items or fluid). A plain plate has one channel; each rank (Echo Attune, Bind, Manifest) opens one more, up to four.
- * Every channel has its own destination and its own eight-slot whitelist or blacklist. The plate routes by priority
- * (the first channel that takes the goods) or round-robin (channels in turn); either way they share the plate's one
- * transfer a beat, so ranking scales speed and Pulse exactly as it did for one channel.
+ * Every channel has its own destination and its own eight-slot whitelist or blacklist. A plain tuner click fills the
+ * next channel that has none, so the channels can send to different places; sneak-click replaces the selected channel.
+ * The plate routes by priority (the first channel that takes the goods) or round-robin (channels in turn); either way
+ * they share the plate's one transfer a beat, so ranking scales speed and Pulse exactly as it did for one channel.
  *
  * <p>The old Bond slot is gone: a bonded pair found loaded becomes the same tuner link on channel 1 and its bond
  * items are handed back.
@@ -230,8 +231,56 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         return net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath().contains("fluid");
     }
 
-    /** Aims the selected channel; what the tuner does. */
+    /** Aims the selected channel. */
     public boolean bind(BlockPos target, Direction face, String dimension) { return bindChannel(selected(), target, face, dimension); }
+
+    /**
+     * Where a tuner mark lands. A plain click uses the selected channel when it is free, otherwise the next free one,
+     * and the selected channel only when every channel already has a destination. Sneak always retargets the selected channel.
+     */
+    public int aimChannel(boolean replaceSelected) {
+        int start = selected();
+        if (replaceSelected) return start;
+        int count = channelCount();
+        for (int i = 0; i < count; i++) {
+            int channel = (start + i) % count;
+            if (channels[channel].target == null) return channel;
+        }
+        return start;
+    }
+
+    /** Aims {@link #aimChannel(boolean)} and leaves that channel selected. Returns the channel, or -1 when the mark cannot be used. */
+    public int bindFromTuner(BlockPos target, Direction face, String dimension, boolean replaceSelected) {
+        int channel = aimChannel(replaceSelected);
+        if (!bindChannel(channel, target, face, dimension)) return -1;
+        select(channel);
+        return channel;
+    }
+
+    /**
+     * Seven shorts per channel for the screen: x low/high, y low/high, z low/high, then face in the low bits,
+     * bit 8 set when the channel has a destination, bit 16 when that destination is in this world.
+     * Each half is returned as a signed short so the menu's 16-bit data slots round-trip a full block coordinate.
+     */
+    public int channelSync(int packed) {
+        int channel = packed / 7;
+        int field = packed % 7;
+        if (channel < 0 || channel >= MAX_CHANNELS) return 0;
+        Channel ch = channels[channel];
+        if (field == 6) {
+            int meta = ch.face.ordinal() & 7;
+            if (ch.target != null) meta |= 8;
+            if (ch.target == null || (level != null && ch.dimension.equals(level.dimension().location().toString()))) meta |= 16;
+            return meta;
+        }
+        if (ch.target == null) return 0;
+        int coord = switch (field / 2) {
+            case 0 -> ch.target.getX();
+            case 1 -> ch.target.getY();
+            default -> ch.target.getZ();
+        };
+        return (short) (field % 2 == 0 ? coord : coord >> 16);
+    }
 
     public boolean bindChannel(int channel, BlockPos target, Direction face, String dimension) {
         if (channel < 0 || channel >= channelCount()) return false;
@@ -530,7 +579,11 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
                     case RelayMenu.DATA_ALLOW -> allowing() ? 1 : 0;
                     case RelayMenu.DATA_CHANNELS -> channelCount();
                     case RelayMenu.DATA_ROUND_ROBIN -> roundRobin ? 1 : 0;
-                    default -> linkedMask();
+                    case RelayMenu.DATA_LINKED -> linkedMask();
+                    default -> {
+                        int packed = index - RelayMenu.DATA_CHAN;
+                        yield packed >= 0 && packed < MAX_CHANNELS * 7 ? channelSync(packed) : 0;
+                    }
                 };
             }
             public void set(int index, int value) {}

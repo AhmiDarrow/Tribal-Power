@@ -37,10 +37,15 @@ public class LatticeTunerItem extends Item {
                 player.displayClientMessage(Component.translatable("message.tribalpower.tuner.own_host"), true);
                 return InteractionResult.CONSUME;
             }
-            boolean ok = relay.bind(endpoint, Direction.from3DDataValue(data.getInt("Face")), dimension);
-            Component said = !ok ? Component.translatable("message.tribalpower.tuner.range")
-                    : relay.channelCount() > 1 ? Component.translatable("message.tribalpower.tuner.linked_channel", relay.selected() + 1)
-                    : Component.translatable("message.tribalpower.tuner.linked");
+            Direction face = Direction.from3DDataValue(data.getInt("Face"));
+            boolean replace = player.isShiftKeyDown();
+            int channel = relay.aimChannel(replace);
+            boolean replaced = relay.target(channel) != null;
+            int bound = relay.bindFromTuner(endpoint, face, dimension, replace);
+            Component said = bound < 0 ? Component.translatable("message.tribalpower.tuner.range")
+                    : relay.channelCount() == 1 ? Component.translatable("message.tribalpower.tuner.linked")
+                    : Component.translatable(replaced ? "message.tribalpower.tuner.replaced_channel" : "message.tribalpower.tuner.linked_channel",
+                            bound + 1, endpoint.getX(), endpoint.getY(), endpoint.getZ(), face.getSerializedName());
             player.displayClientMessage(said, true);
         } else {
             CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> {
