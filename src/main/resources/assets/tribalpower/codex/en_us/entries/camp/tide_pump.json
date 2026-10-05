@@ -8,8 +8,8 @@
       "type": "spotlight",
       "item": "tribalpower:tide_pump",
       "text": [
-        "Moves fluid from one tank to the tank on its other side, **250 mB** a second. Water from a Spirit Cistern into a Wave Drum, lava from one store to another: any fluid tank works, from this mod or another.",
-        "It is a pump, not a tank: it holds no fluid of its own. Break it and it keeps its settings, which way it pumps, how each face is set and its rank, along with any fluid it was partway through moving.",
+        "Moves fluid from one tank to the tank on its other side, **250 mB** a second, and draws water from the block **directly below** it. Water from a Spirit Cistern into a Wave Drum, lava from one store to another: any fluid tank works, from this mod or another.",
+        "It keeps a small well of its own, **4000 mB**, for what it draws from below and what fluid relay plates bring. Break it and it keeps its settings, which way it pumps, how each face is set and its rank, along with its well and any fluid it was partway through moving.",
         "It answers to **Water**: keep a Water totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle."
       ]
     },
@@ -20,6 +20,24 @@
         "The pump has a front, the face with the arrow. Like a furnace, it is placed with that face toward you, and you can aim it up or down as well as sideways.",
         "By default it **draws from the tank at its front** and **pushes into the tank at its back**. Crouch and right-click it with an empty hand to reverse that; right-click normally to see what it last did, such as drawing or pushing **250 mB**.",
         "A comparator reads **15** while it draws from the front and **1** while it pushes into the front."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Water from below",
+      "text": [
+        "Set the pump over still water and each beat it draws a bucket, **1000 mB**, into its well. Over infinite water, a source with two source neighbours and solid ground under it, the source stays; a lone source is taken up the way a bucket takes it.",
+        "Over a tank instead, it draws **250 mB** a beat from that tank, unless that tank is already its front or back.",
+        "What the well holds goes on first into the tank it pushes into, the back one by default, **250 mB** a beat; with no tank there it waits in the well."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fluid relay plates",
+      "text": [
+        "A fluid relay plate, or an item plate given a Water Seal, goes on any face of the pump with a plain right-click. Tune it with the Lattice Tuner and it carries water out of the well to a tank anywhere in range (see [Wireless cargo](wireless_cargo)).",
+        "A plate elsewhere tuned to one of the pump's faces fills the well instead, and the pump passes that on like anything it draws.",
+        "Each face is open both ways. Sneak-use a **Totem Wrench** on a face to step it through Both, Input, Output and Closed."
       ]
     },
     {
@@ -223,7 +241,7 @@
       "text": [
         "Both tanks must accept the same fluid, and the receiving tank needs room.",
         "Ranking it shortens the beat; Pulse per 250 mB stays **4**. A lever pauses it.",
-        "Because the pump stores nothing, pair it with a Spirit Cistern, or a Wave Drum, wherever the fluid should stay put."
+        "The well is small: pair the pump with a Spirit Cistern, or a Wave Drum, wherever the fluid should stay put."
       ]
     },
     {
