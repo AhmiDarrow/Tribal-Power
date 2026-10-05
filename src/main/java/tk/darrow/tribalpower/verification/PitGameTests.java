@@ -329,4 +329,18 @@ public class PitGameTests {
         h.assertTrue(mesh.getItem(ResonanceMeshBlockEntity.SUBSTRATE_A).getCount() == 2, "The mesh receives the stone the cache gave up");
         h.succeed();
     }
+
+    @GameTest(template = "empty")
+    public static void theCacheOnTopNeverPushesOreIntoTheSample(GameTestHelper h) {
+        ResonanceMeshBlockEntity mesh = pit(h);
+        var cache = (AncestralCacheBlockEntity) h.getBlockEntity(MESH.above());
+        cache.setItem(0, new ItemStack(Items.RAW_IRON, 8));
+        h.assertTrue(mesh.canPlaceItemThroughFace(ResonanceMeshBlockEntity.SAMPLE, new ItemStack(Items.RAW_IRON),
+                net.minecraft.core.Direction.UP), "Raw iron is a sample a hopper could still set from above");
+        for (int beat = 0; beat < 3; beat++) tk.darrow.tribalpower.lattice.SideIoAdjacency.push(h.getLevel(), cache);
+        h.assertTrue(mesh.getItem(ResonanceMeshBlockEntity.SAMPLE).isEmpty(),
+                "The pit's own ore must not fall back into the sample slot and steer the pit");
+        h.assertTrue(cache.getItem(0).getCount() == 8, "The ore stays in the cache");
+        h.succeed();
+    }
 }

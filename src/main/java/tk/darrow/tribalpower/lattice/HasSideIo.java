@@ -15,6 +15,12 @@ public interface HasSideIo {
 
     int[] outputSlots(Direction face);
 
+    /**
+     * Whether a touching Tribal machine may push items in through this face. Hoppers and relays are not asked:
+     * this is only for slots that must be set by hand, such as a filter, but stay open to deliberate automation.
+     */
+    default boolean takesFromNeighbours(Direction face) { return true; }
+
     static boolean cycle(Player player, BlockEntity be, Direction face) {
         if (!(be instanceof HasSideIo io)) return false;
         if (player.isSpectator() || !player.mayBuild() || face == null) return false;

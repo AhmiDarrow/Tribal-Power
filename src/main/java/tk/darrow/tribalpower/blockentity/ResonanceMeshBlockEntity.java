@@ -96,6 +96,12 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         };
     }
 
+    /**
+     * The top holds only the sample, and the pit's own cache sits there with the ore the pit put into it. Let the
+     * cache push into it and the first raw ore it held would become the sample and steer the pit by itself.
+     */
+    @Override public boolean takesFromNeighbours(Direction face) { return face != Direction.UP; }
+
     @Override public int[] outputSlots(Direction face) {
         return face == Direction.DOWN
                 ? new int[]{OUTPUT_FIRST, OUTPUT_FIRST + 1, OUTPUT_FIRST + 2, OUTPUT_FIRST + 3}

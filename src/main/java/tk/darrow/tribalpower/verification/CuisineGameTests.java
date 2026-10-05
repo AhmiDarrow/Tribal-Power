@@ -117,6 +117,28 @@ public final class CuisineGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void aHopperSeatsBowlsInTheVesselSeatAndIngredientsElsewhere(GameTestHelper h) {
+        h.setBlock(2, 2, 2, CuisineRegistry.HEARTH_POT.get());
+        var pot = (HearthPotBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 2));
+        var up = net.minecraft.core.Direction.UP;
+        ItemStack left = net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(Items.BOWL), up);
+        h.assertTrue(left.isEmpty() && pot.getItem(HearthPotBlockEntity.CONTAINER).is(Items.BOWL), "A hopper's bowl goes to the vessel seat");
+        for (int seat = 0; seat < HearthPotBlockEntity.CONTAINER; seat++)
+            h.assertTrue(pot.getItem(seat).isEmpty(), "No bowl lands in ingredient seat " + seat);
+        net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()), up);
+        h.assertTrue(pot.getItem(0).is(CuisineRegistry.CROP_ITEMS.get(MarchCrop.EMBERROOT).get()), "An ingredient goes to the first ingredient seat");
+        h.assertTrue(pot.getItem(HearthPotBlockEntity.CONTAINER).getCount() == 1, "An ingredient never joins the bowls");
+        ItemStack bottle = net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, pot, new ItemStack(Items.GLASS_BOTTLE), up);
+        h.assertTrue(bottle.getCount() == 1, "A bottle waits while the vessel seat holds bowls rather than taking an ingredient seat");
+        var handler = h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK, h.absolutePos(new BlockPos(2, 2, 2)), up);
+        if (handler != null) {
+            ItemStack rest = net.neoforged.neoforge.items.ItemHandlerHelper.insertItemStacked(handler, new ItemStack(Items.BOWL), false);
+            h.assertTrue(rest.isEmpty() && pot.getItem(HearthPotBlockEntity.CONTAINER).getCount() == 2, "A pipe's bowl joins the vessel seat too");
+        }
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
     public static void aFeastServesSixAndBlessesEachEater(GameTestHelper h) {
         var player = VerificationPlayers.inLevel(h);
         try {

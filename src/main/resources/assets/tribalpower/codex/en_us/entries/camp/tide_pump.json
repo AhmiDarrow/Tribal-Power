@@ -9,7 +9,7 @@
       "item": "tribalpower:tide_pump",
       "text": [
         "Moves fluid from one tank to the tank on its other side, **250 mB** a second. Water from a Spirit Cistern into a Wave Drum, lava from one store to another: any fluid tank works, from this mod or another.",
-        "It is a pump, not a tank. It keeps nothing when you break it.",
+        "It is a pump, not a tank: it holds no fluid of its own. Break it and it keeps its settings, which way it pumps, how each face is set and its rank, along with any fluid it was partway through moving.",
         "It answers to **Water**: keep a Water totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle."
       ]
     },

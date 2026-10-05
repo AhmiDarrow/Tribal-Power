@@ -48,7 +48,8 @@ public final class SideIoAdjacency {
             Direction toward = face.getOpposite();
             if (!feeds(mode(be, face), mode(dest, toward))) continue;
             if (level.hasNeighborSignal(destPos)) continue;
-            moveItems(level, pos, face, destPos, toward, be);
+            if (!(dest instanceof HasSideIo io) || io.takesFromNeighbours(toward))
+                moveItems(level, pos, face, destPos, toward, be);
             moveFluid(level, pos, face, destPos, toward, be);
         }
     }

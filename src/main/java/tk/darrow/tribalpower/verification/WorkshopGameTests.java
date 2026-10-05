@@ -437,7 +437,7 @@ public class WorkshopGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void sealLoomReturnsContainersToOffsetIngredientSlots(GameTestHelper h) {
+    public static void sealLoomSendsEmptiedBottlesOutWithTheResult(GameTestHelper h) {
         h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
         h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
         pulse(h, 4, 2, 5, 40);
@@ -446,10 +446,82 @@ public class WorkshopGameTests {
         loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
         loom.imprint(VerificationPlayers.inLevel(h));
         loom.beat(h.getLevel());
-        h.assertTrue(loom.getItem(8).is(Items.GLASS_BOTTLE), "Bottle returns to the original bottom-right ingredient slot");
-        h.assertTrue(loom.getItem(0).isEmpty(), "Trimmed recipe coordinates must not move the bottle to top-left");
+        h.assertTrue(loom.getItem(8).isEmpty() && loom.getItem(0).isEmpty(), "An emptied bottle must not stay in the grid");
         h.assertTrue(loom.getItem(SealLoomBlockEntity.OUTPUT).is(Items.SUGAR)
                 && loom.getItem(SealLoomBlockEntity.OUTPUT).getCount() == 3, "Craft produces exactly three sugar");
+        h.assertTrue(loom.getItem(SealLoomBlockEntity.OUTPUT + 1).is(Items.GLASS_BOTTLE), "The bottle leaves through the outputs");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void sealLoomKeepsWeavingPastItsLeftovers(GameTestHelper h) {
+        h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
+        pulse(h, 4, 2, 5, 40);
+        var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
+        loom.setItem(0, new ItemStack(Items.HONEY_BOTTLE));
+        loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
+        loom.imprint(VerificationPlayers.inLevel(h));
+        for (int craft = 0; craft < 3; craft++) {
+            // The last honey goes each time, so the grid slot it emptied is where the bottle would once have stayed.
+            loom.beat(h.getLevel());
+            ItemStack fed = net.minecraft.world.level.block.entity.HopperBlockEntity.addItem(null, loom,
+                    new ItemStack(Items.HONEY_BOTTLE), Direction.UP);
+            h.assertTrue(fed.isEmpty() && loom.getItem(0).is(Items.HONEY_BOTTLE), "A hopper refills the emptied slot after craft " + craft);
+        }
+        int sugar = 0, bottles = 0;
+        for (int i = SealLoomBlockEntity.OUTPUT; i < SealLoomBlockEntity.SIZE; i++) {
+            if (loom.getItem(i).is(Items.SUGAR)) sugar += loom.getItem(i).getCount();
+            if (loom.getItem(i).is(Items.GLASS_BOTTLE)) bottles += loom.getItem(i).getCount();
+        }
+        h.assertTrue(sugar == 9 && bottles == 3, "Three crafts in a row, leftovers and all: sugar=" + sugar + " bottles=" + bottles
+                + " reason=" + loom.status().getString());
+        for (int i = 0; i < SealLoomBlockEntity.GRID; i++)
+            h.assertFalse(loom.getItem(i).is(Items.GLASS_BOTTLE), "No bottle jams grid slot " + i);
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void sealLoomWaitsRatherThanSpillLeftovers(GameTestHelper h) {
+        h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
+        pulse(h, 4, 2, 5, 40);
+        var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
+        loom.setItem(8, new ItemStack(Items.HONEY_BOTTLE));
+        loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
+        loom.imprint(VerificationPlayers.inLevel(h));
+        loom.setItem(SealLoomBlockEntity.OUTPUT, new ItemStack(Items.SUGAR, 61));
+        for (int i = SealLoomBlockEntity.OUTPUT + 1; i < SealLoomBlockEntity.SIZE; i++)
+            loom.setItem(i, new ItemStack(Items.DIRT, 64));
+        loom.beat(h.getLevel());
+        h.assertTrue(loom.getItem(8).is(Items.HONEY_BOTTLE), "The honey stays when its bottle has nowhere to go");
+        h.assertTrue(loom.getItem(SealLoomBlockEntity.OUTPUT).getCount() == 61, "No half-craft is kept");
+        var abs = h.absolutePos(new BlockPos(4, 2, 4));
+        h.assertTrue(h.getLevel().getEntitiesOfClass(ItemEntity.class, new net.minecraft.world.phys.AABB(abs).inflate(3)).isEmpty(),
+                "Nothing spills onto the floor");
+        h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void sealLoomHandsKeptToolsBackToTheirSlots(GameTestHelper h) {
+        h.setBlock(4, 2, 4, DeviceRegistry.SEAL_LOOM.get());
+        h.setBlock(4, 5, 4, ModBlocks.RESONANCE_TOTEM_LOOM.get());
+        pulse(h, 4, 2, 5, 40);
+        var loom = (SealLoomBlockEntity) h.getBlockEntity(new BlockPos(4, 2, 4));
+        var wing = net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "ash_wing"));
+        loom.setItem(6, new ItemStack(Items.BOWL));
+        loom.setItem(7, new ItemStack(tk.darrow.tribalpower.item.ModItems.RITUAL_CHALK.get()));
+        loom.setItem(8, new ItemStack(wing, 2));
+        loom.setItem(SealLoomBlockEntity.SEAL, new ItemStack(DeviceRegistry.RECIPE_SEAL.get()));
+        loom.imprint(VerificationPlayers.inLevel(h));
+        loom.beat(h.getLevel());
+        h.assertTrue(loom.getItem(SealLoomBlockEntity.OUTPUT).is(Items.BLACK_DYE), "The loom grinds dye, reason=" + loom.status().getString());
+        h.assertTrue(loom.getItem(6).is(Items.BOWL), "The grinding bowl goes back to its own slot, not the top-left");
+        h.assertTrue(loom.getItem(7).is(tk.darrow.tribalpower.item.ModItems.RITUAL_CHALK.get()), "The worn chalk goes back to its own slot");
+        h.assertTrue(loom.getItem(0).isEmpty(), "Trimmed recipe coordinates must not move a tool to the top-left");
+        loom.beat(h.getLevel());
+        h.assertTrue(loom.getItem(8).isEmpty() && loom.getItem(SealLoomBlockEntity.OUTPUT).getCount() >= 2,
+                "With its tools back in place the loom grinds again");
         h.succeed();
     }
 

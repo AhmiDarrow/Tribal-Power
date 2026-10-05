@@ -19,7 +19,7 @@
       "type": "text",
       "text": [
         "Every [tribe dish](tribe_dishes), every piece of [road fare](road_fare) and [hearth meal](hearth_meals), and every [feast](feasts) is a Hearth Pot recipe. A meal that wants a bowl or a glass bottle takes it in the seat beside the square. The order of the ingredients does not matter. JEI lists them all under the pot.",
-        "Hoppers feed it from the top and sides and take the meal from the bottom, so a pot can keep a camp fed on its own. Pack makers can add their own meals as recipes of the hearth type."
+        "Hoppers feed it from the top and sides and take the meal from the bottom, so a pot can keep a camp fed on its own. A hopper puts bowls and bottles in the seat beside the square and everything else in the square. Pack makers can add their own meals as recipes of the hearth type."
       ],
       "title": "What it cooks"
     },

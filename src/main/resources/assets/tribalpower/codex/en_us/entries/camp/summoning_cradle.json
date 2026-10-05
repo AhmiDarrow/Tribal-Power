@@ -19,7 +19,7 @@
       "title": "Imprinting an effigy",
       "text": [
         "Craft an empty **Binding Effigy**, then crouch and right-click an eligible creature with it. The creature is not hurt.",
-        "Cows, sheep, pigs, chickens, zombies, skeletons, spiders, creepers and every Tribal Power creature can be imprinted. Bosses cannot.",
+        "Cows, sheep, pigs, chickens, zombies, skeletons, spiders and creepers can be imprinted, and so can the March's own beasts and spirits: its grazers, moths, hounds, stalkers, trolls, goblins, fay, shades, tree-folk and the rest. No other vanilla creature can. The guardians, The Unsung and the Colossus Warden are bosses and cannot be, and neither can Spirit Wisps, March Walkers, Wandering Spirits, Tribal Kin, Glimmerfin, Drift Bells, Veil Rays, Silt Eels or Loom Swifts.",
         "A live binding cannot be overwritten; spend its threads first. The tooltip names the imprint and the threads left.",
         "An imprint alone has no summons. It must be woven through the three-voice binding."
       ]

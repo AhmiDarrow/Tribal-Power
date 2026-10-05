@@ -19,7 +19,7 @@
         "- **Pulse zone**: marks blocks that hold Pulse, and the **8-block** reach they cover. The panel totals Pulse coming in each second against Pulse the machines there are spending.",
         "- **Voices**: marks nearby totems in their own voice's colour when answered, a darker shade when dim, and grey when quiet.",
         "- **Machines**: marks the Tribal Power machines around you.",
-        "- **Off**: the glass goes dark. No lines, no panel, no marks.",
+        "- **Off**: the glass goes dark. No lines, no panel, no marks. Ley goggles you are wearing still show their threads.",
         "Each sight has its own panel on your screen. Ley sight shows the ley strength where you stand, Pulse zone what is stored and flowing, Voices the voices in reach, and Machines the stations, relays and caches around you. Off shows nothing."
       ]
     },
@@ -29,14 +29,14 @@
       "text": [
         "The ley lines are a web across the whole dimension: the planet's Pulse, not blocks. Each line is one thread in a Resonance Totem's colour (earth green, fire orange, water blue, air pale sky, spirit violet or loom gold), with a bright node pulsing along it.",
         "A totem pulls the thread of its own colour through itself, so you can steer a thread by where you stand the totem. A crossing lies roughly every **80 blocks**. Most join two to four threads, and only about one in forty brings all six together.",
-        "Craft a Ley Lens into a [Spiritweave Hood](spiritweave) and the hood's goggles show the same threads while you wear it. Sneak-use the hood, or sneak-click with an empty hand while it is on your head, to turn the goggles off and on."
+        "Craft a Ley Lens into a [Spiritweave Hood](spiritweave) and the hood's goggles show the same threads while you wear it, even with a lens in hand set to Off; a lens held on another sight hides them. Sneak-use the hood, or sneak-click with an empty hand while it is on your head, to turn the goggles off and on."
       ]
     },
     {
       "type": "image",
       "image": "ley_lens",
       "title": "Reading the ground",
-      "text": "Gold is where a Ley Collector would sing loudest; blue is where it would barely hum."
+      "text": "The lens draws only the threads, never the ground. In ley sight the strength bar on your panel turns gold where a Ley Collector would sing loudest and blue where it would barely hum."
     },
     {
       "type": "text",
@@ -44,7 +44,7 @@
       "text": [
         "Sneak-use the lens on a Ley Collector to print that collector's exact factor breakdown in chat: the same numbers it collects with.",
         "Sneak-use it on a March creature, wild or bonded, to print its threads and Marks; see [Bonding a familiar](familiars).",
-        "The strength line is the same beat a collector would count there, from 1 to **16**, shown as a share of the full 16. The land's share stops at 6, and each ley line adds 2. A beat of **8 or more** keeps nearby totems awake. A roof takes away sky, rain and storm, but the lines stay, so a roofed collector gets weaker, not dead."
+        "The strength line is the same beat a collector would count there, from 1 to **16**, shown as a share of the full 16. The land's share stops at 6, and each ley line adds up to 2, less the farther you stand from it. A beat of **8 or more** keeps nearby totems awake. A roof takes away sky, rain and storm, but the lines stay, so a roofed collector gets weaker, not dead."
       ]
     },
     {

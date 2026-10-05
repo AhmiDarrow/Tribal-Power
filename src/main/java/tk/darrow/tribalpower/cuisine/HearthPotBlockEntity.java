@@ -127,7 +127,14 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
     public int state() { return state; }
 
     @Override public int[] getSlotsForFace(Direction side) { return side == Direction.DOWN ? OUTPUTS : INPUTS; }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) { return canPlaceItem(slot, stack); }
+    /**
+     * A hopper fills the first seat that takes its item, so automation sorts by kind: a bowl or bottle some meal is
+     * served in goes only to the vessel seat, and everything else only to the ingredient seats.
+     */
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        if (slot >= OUTPUT) return false;
+        return slot == CONTAINER ? canPlaceItem(slot, stack) : !isVessel(stack) && canPlaceItem(slot, stack);
+    }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return slot == OUTPUT; }
     @Override public int getContainerSize() { return SIZE; }
     @Override public boolean isEmpty() { return items.stream().allMatch(ItemStack::isEmpty); }
@@ -152,6 +159,12 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
     @Override public boolean canPlaceItem(int slot, ItemStack stack) {
         if (slot >= OUTPUT) return false;
         if (slot != CONTAINER || level == null) return true;
+        return isVessel(stack);
+    }
+
+    /** True when some meal is served in this item, as a bowl or a bottle. */
+    public boolean isVessel(ItemStack stack) {
+        if (level == null || stack.isEmpty()) return false;
         return level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()).stream()
                 .anyMatch(holder -> holder.value().container().map(c -> c.test(stack)).orElse(false));
     }
