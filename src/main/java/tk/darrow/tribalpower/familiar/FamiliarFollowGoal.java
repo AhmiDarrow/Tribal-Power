@@ -2,6 +2,7 @@ package tk.darrow.tribalpower.familiar;
 
 import java.util.EnumSet;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
+import tk.darrow.tribalpower.entity.CreatureSwimming;
 
 /**
  * Wolf-style following for bonded familiars: walk toward the owner beyond start distance, stop inside stop
@@ -49,7 +51,9 @@ public class FamiliarFollowGoal extends Goal {
         if(!teleport)mob.getLookControl().setLookAt(owner,10,mob.getMaxHeadXRot());
         if(--recalc<=0) {
             recalc=adjustedTickDelay(10);
-            if(teleport)teleportToOwner(familiar,owner);else navigation.moveTo(owner,speed);
+            if(!teleport)navigation.moveTo(owner,speed);
+            // With no water beside its owner a swimmer cannot be set down there, so it swims as near as its water goes.
+            else if(!teleportToOwner(familiar,owner) && CreatureSwimming.swims(familiar.profile()))navigation.moveTo(owner,speed);
         }
     }
     public static boolean teleportToOwner(Familiar familiar,LivingEntity owner) {
@@ -72,6 +76,12 @@ public class FamiliarFollowGoal extends Goal {
         Mob mob=familiar.asMob();
         if(familiar.profile().flying)
             return mob.level().noCollision(mob,mob.getBoundingBox().move(pos.subtract(mob.blockPosition())));
+        // A swimmer is set down in water by its owner; a fish never on dry land, where it would only flop and dry out.
+        if(CreatureSwimming.swims(familiar.profile())) {
+            if(mob.level().getFluidState(pos).is(FluidTags.WATER))
+                return mob.level().noCollision(mob,mob.getBoundingBox().move(pos.subtract(mob.blockPosition())));
+            if(!CreatureSwimming.amphibious(familiar.profile()))return false;
+        }
         if(WalkNodeEvaluator.getPathTypeStatic(mob,pos)!=PathType.WALKABLE)return false;
         if(mob.level().getBlockState(pos.below()).getBlock() instanceof LeavesBlock)return false;
         return mob.level().noCollision(mob,mob.getBoundingBox().move(pos.subtract(mob.blockPosition())));

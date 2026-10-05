@@ -13,8 +13,10 @@ public class FamiliarSitGoal extends Goal {
         setFlags(EnumSet.of(Flag.JUMP,Flag.MOVE));
     }
     @Override public boolean canUse() {
-        return familiar.isBonded() && familiar.isSitting() && !mob.isInWaterOrBubble() && !mob.isVehicle()
-                && (familiar.profile().flying || mob.onGround());
+        // A swimmer waits where it is in the water; anything else is let finish swimming to shore first.
+        boolean swimming=mob.isInWaterOrBubble() && tk.darrow.tribalpower.entity.CreatureSwimming.swims(familiar.profile());
+        return familiar.isBonded() && familiar.isSitting() && (!mob.isInWaterOrBubble() || swimming) && !mob.isVehicle()
+                && (familiar.profile().flying || mob.onGround() || swimming);
     }
     @Override public boolean canContinueToUse() { return familiar.isBonded() && familiar.isSitting() && !mob.isVehicle(); }
     @Override public void start() { mob.getNavigation().stop(); }

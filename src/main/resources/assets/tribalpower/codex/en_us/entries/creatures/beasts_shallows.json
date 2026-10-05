@@ -19,8 +19,8 @@
       "type": "text",
       "title": "The water's own",
       "text": [
-        "Most of what belongs to the Shallows lives in its water: three gentle swimmers, and a moray that hunts there at night. Stiltwoods walk its banks (see [walking trees](walking_trees)). See [the March](the_march) for the land itself.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning))."
+        "Most of what belongs to the Shallows lives in its water: three gentle swimmers, and a moray that hunts there at night. The swimmers never leave the water: beached, one flops back toward it, and dries out if it cannot reach it. Stiltwoods walk its banks (see [walking trees](walking_trees)). See [the March](the_march) for the land itself.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning)). A bonded swimmer follows you only as far as its water goes, and waits in the water when told to stay."
       ]
     },
     {
@@ -58,7 +58,7 @@
       "entity": "tribalpower:brine_lurker",
       "title": "Brine Lurker",
       "text": [
-        "A moray eel that rises in the Shallows at night, one or two at a time. It has **21 health** and **1 armour**, and its bite does **4** and poisons you for 3 seconds.",
+        "A moray eel that rises in the Shallows at night, one or two at a time. It has **21 health** and **1 armour**, and its bite does **4** and poisons you for 3 seconds. It follows prey out onto the bank, and goes back to the water when it loses it.",
         "It drops **1 to 2 Brine Fangs**, a Venom reagent. Brine Fangs call the Tide Drummer at the Tide Stone: see [guardians](guardians).",
         "Hunted, it also drops up to 2 Ink Sacs and up to 1 Raw Glimmerfin."
       ]

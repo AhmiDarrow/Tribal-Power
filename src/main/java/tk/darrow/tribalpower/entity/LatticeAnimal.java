@@ -53,12 +53,42 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         super(type,level);
         // Flight lived only in LatticeMonster, so a passive flyer bobbed on the spot and walked.
         if(CreatureProfile.of(type).flying) { moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,12,true); setNoGravity(true); }
+        // Likewise a swimmer walked: it bobbed at the surface and could drown. See CreatureSwimming.
+        if(swims()) {
+            moveControl=new CreatureSwimming.SwimMoveControl(this,false);
+            lookControl=new net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl(this,10);
+            setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,0);
+        }
     }
 
     @Override protected net.minecraft.world.entity.ai.navigation.PathNavigation createNavigation(Level level) {
+        if(swims())return CreatureSwimming.navigation(this,level,CreatureProfile.of(getType()));
         return CreatureProfile.of(getType()).flying
                 ? new net.minecraft.world.entity.ai.navigation.FlyingPathNavigation(this,level)
                 : super.createNavigation(level);
+    }
+
+    /**
+     * Lives in water (its habitat): swims, and flops and dries out on land like a fish. It never drowns: the
+     * water creatures are tagged minecraft:can_breathe_under_water.
+     */
+    public boolean swims() { return CreatureSwimming.swims(CreatureProfile.of(getType())); }
+    @Override public void baseTick() {
+        int air=getAirSupply();
+        super.baseTick();
+        if(swims() && !level().isClientSide)CreatureSwimming.breathe(this,air);
+    }
+    @Override public void travel(Vec3 input) {
+        if(swims() && CreatureSwimming.travel(this,input,false))return;
+        super.travel(input);
+    }
+    /** Mob refuses any spawn touching liquid; a swimmer needs it. Its habitat rule has already chosen the water. */
+    @Override public boolean checkSpawnObstruction(LevelReader level) {
+        return swims()?level.isUnobstructed(this):super.checkSpawnObstruction(level);
+    }
+    /** Water is a swimmer's good ground, as grass is a grazer's: natural spawning and its wandering both read this. */
+    @Override public float getWalkTargetValue(BlockPos pos,LevelReader level) {
+        return swims() && level.getFluidState(pos).is(net.minecraft.tags.FluidTags.WATER)?10F:super.getWalkTargetValue(pos,level);
     }
 
     /** A flyer takes no fall damage; it is meant to be in the air. */
@@ -91,7 +121,9 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         builder.define(DATA_VOICE,(byte)-1);
     }
     @Override protected void registerGoals() {
-        goalSelector.addGoal(0,new FloatGoal(this));
+        boolean swims=swims();
+        // A swimmer must not float: that goal is what held the water creatures bobbing at the surface.
+        if(!swims)goalSelector.addGoal(0,new FloatGoal(this));
         goalSelector.addGoal(1,new FamiliarSitGoal(this));
         goalSelector.addGoal(2,new PanicGoal(this,1.3) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
@@ -109,7 +141,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
         goalSelector.addGoal(7,new FollowParentGoal(this,1));
-        goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8) {
+        if(swims)goalSelector.addGoal(8,new CreatureSwimming.Roam(this,()->!isBonded()));
+        else goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
         goalSelector.addGoal(9,new LookAtPlayerGoal(this,Player.class,6));
@@ -222,6 +255,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         super.aiStep();
         if(!level().isClientSide) {
             if(forageCooldown>0)forageCooldown--;
+            if(swims() && CreatureSwimming.flop(this))
+                playSound(profile()==CreatureProfile.PALE_DRIFTER?SoundEvents.SLIME_SQUISH_SMALL:SoundEvents.SALMON_FLOP,getSoundVolume(),getVoicePitch());
             ensureLattice(getRandom(),level() instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH));
             if(isSitting()) {
                 sitTicks++;

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:silt_glider",
+    "tribalpower:pale_drifter",
+    "tribalpower:shoal_darter",
+    "tribalpower:brine_lurker",
+    "tribalpower:drowned_shade"
+  ]
+}
