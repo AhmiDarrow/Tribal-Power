@@ -13,19 +13,18 @@ import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import tk.darrow.tribalpower.item.MachineRank;
 import tk.darrow.tribalpower.lattice.LatticeNetwork;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,9 +116,9 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         NonNullList<ItemStack> preview = snapshot();
         if (!storeInto(preview, result.copy())) { setReason("output_full"); return; }
         List<ItemStack> remain = found.get().value().getRemainingItems(input);
-        List<ItemStack> overflow = new ArrayList<>();
         for (int i = 0; i < GRID; i++) {
             ItemStack slot = preview.get(i);
+            Item used = slot.getItem();
             if (!slot.isEmpty()) {
                 slot.shrink(1);
                 if (slot.isEmpty()) preview.set(i, ItemStack.EMPTY);
@@ -129,13 +128,18 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
             if (x >= 0 && x < input.width() && y >= 0 && y < input.height()
                     && remainderIndex < remain.size() && !remain.get(remainderIndex).isEmpty()) {
                 ItemStack leftover = remain.get(remainderIndex).copy();
-                if (preview.get(i).isEmpty()) preview.set(i, leftover);
-                else if (!storeInto(preview, leftover)) overflow.add(leftover);
+                // A tool the recipe hands back (a grinding bowl, worn chalk) goes back to its slot, so the next craft
+                // still matches. Anything else, an empty bucket or bottle, would jam the grid: it leaves with the
+                // results, and when the outputs cannot hold it the loom waits instead of spilling it.
+                ItemStack held = preview.get(i);
+                if (leftover.is(used) && held.isEmpty()) preview.set(i, leftover);
+                else if (leftover.is(used) && ItemStack.isSameItemSameComponents(held, leftover)
+                        && held.getCount() + leftover.getCount() <= held.getMaxStackSize()) held.grow(leftover.getCount());
+                else if (!storeInto(preview, leftover)) { setReason("output_full"); return; }
             }
         }
         LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, false);
         items = preview;
-        for (ItemStack extra : overflow) Block.popResource(server, worldPosition, extra);
         setReason("wove", result.getHoverName().getString());
         setChanged();
     }

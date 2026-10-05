@@ -8,7 +8,7 @@
       "item": "tribalpower:ley_collector",
       "text": [
         "A generator that drinks the planet's ley lines. Set it where a line passes, among open sky, water, plants and life, and it adds Pulse every **two seconds** without you standing there.",
-        "It holds **2,000 Pulse**."
+        "It holds **2,000 Pulse**, which is lost if you break it."
       ]
     },
     {
@@ -19,7 +19,7 @@
         "- Open sky: **+1** by day, **+3** at night.",
         "- Rain **+2**, and a thunderstorm **+1** more.",
         "- Water: up to **+4**.",
-        "- Plants: up to **+4**. Every four grass, leaf, flower, crop or moss blocks count as one.",
+        "- Plants: up to **+4**. Every four grass, leaf, flower, crop or moss blocks count as one. Water and plants only count from 2 blocks below the collector to 2 above it.",
         "- Resonance Totems: up to **+3**, one per distinct voice.",
         "- A Tribe Hearth **+1**. Animals: up to **+2**, one per pair.",
         "- In the March **+2**; under a full moon **+1**.",
@@ -30,7 +30,7 @@
       "type": "text",
       "title": "Ley lines",
       "text": [
-        "The rest of the beat is the ley lines the collector stands on: **+2** for each line. The lines are a web across the world; only the rarest places bring **six** together, and a collector never counts more than that. The whole beat is capped at **16**, which pays **48 Pulse** every two seconds.",
+        "The rest of the beat is the ley lines passing by the collector: up to **+2** for each line, the full 2 right on the thread and less the farther it is, down to nothing **7.5 blocks** away, above or below as much as to the side. The lines are a web across the world; only the rarest places bring **six** together, and a collector never counts more than that. The whole beat is capped at **16**, which pays **48 Pulse** every two seconds.",
         "A Resonance Totem pulls the thread of its own colour through itself and leaves the other colours alone. Set the six totems around a collector so each thread crosses it on the way through its totem. That is a convergence: six colours, and still no more than six lines on the beat.",
         "During a ley surge, a collector whose threads carry the surging voice yields double; see [The living March](living_march)."
       ]

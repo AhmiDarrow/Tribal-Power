@@ -11,7 +11,7 @@
       "type": "text",
       "title": "One finale",
       "text": [
-        "The Loom was nine threads agreeing. Finish all nine tribes' stories, the eight [guardians](guardians) and The Unsung, and you hold nine relics. Craft the tablet from the eight cores and an Unsung Heart, draw a **Loom circle** (a Loom Seal seated at the brazier), and perform the rite with all nine relics on you.",
+        "The Loom was nine threads agreeing. Finish all nine tribes' stories, the eight [guardians](guardians) and The Unsung, and you hold nine relics. Craft the tablet from the eight cores and an Unsung Heart, draw a **Loom circle** (a Loom Seal seated at the brazier), gather **2,000 Pulse** within **8 blocks** of the brazier (**1,500** in a tier-two circle), and perform the rite with all nine relics on you. The tablet is spent; the relics are not.",
         "The Loom agrees. Nine lights rise from the circle, one in each tribe's colour, and the March answers your voice from then on."
       ]
     },
@@ -19,8 +19,8 @@
       "type": "text",
       "title": "What changes",
       "text": [
-        "For the one who made the agreement: every tribe treats you as **Kin** at the least, whatever your standing; all nine boons settle on you for a while; and the March's aurora burns full and steady every night you stand under it.",
-        "The agreement is yours for good in that world. The rite can be performed once per player; a second time only lights the circle."
+        "For the one who made the agreement: every tribe treats you as **Kin** at the least, whatever your standing; all nine boons settle on you for **30 minutes**; and the March's aurora burns full and steady every night you stand under it.",
+        "The agreement is yours for good in that world, and it is made once per player. After that the rite renews the nine boons: perform it again with a fresh tablet and the same Pulse, and all nine settle on you for another full 30 minutes. The relics are only asked for the first time."
       ]
     }
   ]

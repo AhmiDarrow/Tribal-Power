@@ -19,7 +19,8 @@
         "The way in is a [Gate Drum](gate_drum). It needs no Pulse: beat out the **Gate Rite** on it, four drums on **A**, **S**, **D** and **F**, and the rhythm opens the way.",
         "Right-click it with an empty hand to begin the rite; land **60%** of the beats and it carries you through. A redstone signal locks the drum.",
         "Beating the rite on a Gate Drum in the March always brings you home: to the spot you left from, or to your spawn if that is gone. Your return point survives death, so a bad trip never strands you.",
-        "Later, a pair of [Way Gates](way_gate) is the bulk route."
+        "Later, a pair of [Way Gates](way_gate) is the bulk route.",
+        "When an update reshapes the March's land, an older save sets its March aside once, on the next start, and the dimension grows again as you explore it. The old March, with anything built there, is moved to **tribalpower_backups** inside the save, never deleted. **retrogenMarch** in the **world** section of the common config turns this off."
       ],
       "title": "Getting there and back"
     },

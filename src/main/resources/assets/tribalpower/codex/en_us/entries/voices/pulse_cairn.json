@@ -23,7 +23,7 @@
       "title": "Filling and reading",
       "text": [
         "A cairn only pulls from **generators** within 8 blocks of its stones, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
-        "Break a stone and it takes only its own share with it; the rest of the pile keeps what it holds.",
+        "Break a stone and the Pulse it carried is lost: the stone comes back empty, and the rest of the pile keeps what it holds. Spend a pile down before you move it.",
         "A comparator against any stone reads how full the whole pile is. A redstone signal on any stone stops the pile filling."
       ]
     },
