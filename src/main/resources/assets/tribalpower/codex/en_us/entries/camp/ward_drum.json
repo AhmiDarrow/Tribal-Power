@@ -16,7 +16,7 @@
       "title": "What it hits",
       "text": [
         "On each beat, once a second, it finds one hostile within **8 blocks** (a cube around the drum) and hits it for **4 magic damage** with a shove away from the drum.",
-        "Each strike costs **8 Pulse** from a generator within 8. Ranking shortens the beat; Pulse per strike stays 8. It answers to **Spirit**: keep a Spirit totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
+        "Each strike costs **8 Pulse** from the lattice. Ranking shortens the beat; Pulse per strike stays 8. It answers to **Spirit**: keep a Spirit totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
         "Any hostile counts, the overworld's as well as the March's: zombies, skeletons, creepers, spiders, phantoms, witches, drowned and the rest. Players are never the target, and neither are villagers, bonded familiars, yours or anyone's, nor young ones. Bosses shrug it off: the Wither, the Ender Dragon and the March's guardians are left to you."
       ]
     },
@@ -245,7 +245,7 @@
           ]
         },
         {
-          "caption": "Give it Pulse within 8 blocks: 8 for every strike.",
+          "caption": "Give it Pulse through a conductor within 8 blocks: 8 for every strike.",
           "place": [
             {
               "pos": [
@@ -254,6 +254,14 @@
                 1
               ],
               "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:lattice_conductor"
             }
           ],
           "highlight": [
@@ -261,6 +269,11 @@
               -1,
               0,
               1
+            ],
+            [
+              -1,
+              0,
+              2
             ]
           ]
         },

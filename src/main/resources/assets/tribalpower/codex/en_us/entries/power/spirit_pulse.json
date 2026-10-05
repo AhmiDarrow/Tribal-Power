@@ -19,9 +19,9 @@
       "type": "text",
       "title": "Where Pulse lives",
       "text": [
-        "Pulse is stored energy. A generator such as the Drumheart, the Ley Collector or the Pulse Resonator makes it and keeps it in its own store. A machine reaches out and spends it while it works.",
-        "Machines only look **8 blocks** around themselves. Pulse stored in a generator farther away, or in an unloaded chunk, cannot help. For your first workshop, simply put the generator right beside the machine. A line of Lattice Conductors, each within 8 of the next, extends that same reach.",
-        "Machines drain nearby generators first, then stores such as the totem buffers a [Lattice Conductor](lattice_conductor) fills (each Resonance Totem holds **250 Pulse**) and [Pulse Cairns](pulse_cairn)."
+        "Pulse is stored energy. A generator such as the Drumheart, the Ley Collector or the Pulse Resonator makes it and keeps it in its own store. A machine spends it while it works, but it can only reach that store through the **lattice**.",
+        "Pulse travels only along [Lattice Conductors](lattice_conductor). Anything within **8 blocks** of a conductor is on the lattice: generators, machines, camp hands, relays, totems and [Pulse Cairns](pulse_cairn). Conductors within 8 of each other link into one network, and a machine draws from the generators and cairns on its network. A machine with no conductor in reach starves, even right beside a full drum.",
+        "For your first workshop, put one conductor between the drum and the station. Each conductor carries **64 Pulse a second** at first, more as it [ranks](machine_ranks). Machines drain the network's generators first, then its Pulse Cairns. Totems are not for spending: each Resonance Totem holds **250 Pulse** of its own, and that buffer is what keeps its voice."
       ]
     },
     {
@@ -201,7 +201,7 @@
       "title": "Carrying it",
       "text": [
         "A Pulse Cell holds **1,200 Pulse**; a **Greater Pulse Cell** holds **4,800**; a **Grand Pulse Cell** holds **19,200**. Carry charged cells for spells, Spiritgear, charms and travel, which all draw on cells in your inventory.",
-        "A cell in your pocket is **not** a nearby generator. Workshops and tablet rites still need Pulse within 8 blocks of them.",
+        "A cell in your pocket is **not** on the lattice. Workshops and tablet rites still need Pulse from the lattice around them.",
         "To charge a Way Gate or Far Gate, use a cell on its keystone: each use moves up to **100 Pulse** into it, and trips spend that store, not the cell in your pocket. A Gate Drum needs no Pulse at all: its rite opens it.",
         "Use a cell on a camp to pour Pulse into its **2,400** store for the [camp hands](camp_hands); one use moves as much as the camp has room for.",
         "A [Pulse Gauge](pulse_gauge) pointed at a machine that holds Pulse reads how full it is."

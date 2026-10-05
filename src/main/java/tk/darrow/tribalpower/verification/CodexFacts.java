@@ -34,9 +34,19 @@ final class CodexFacts {
             // and the book must not go back to promising otherwise.
             Fact.of("pulse_resonator", "The Resonator catalyst is spent by the Pulse it makes",
                     "spent").never("never wears out"),
-            Fact.of("lattice_conductor", "A Conductor links chalked totems and drains any nearby generator, voice-crafts included", "Ritual Chalk", "250 Pulse", "generators within 8 blocks"),
-            Fact.of("lattice_conductor", "Conductors within 8 of each other extend the zone a machine draws from", "within 8 of each other", "Pulse Cairns"),
-            Fact.of("spirit_pulse", "Totems hold 250 Pulse; one use fills a cell as far as the source holds", "250 Pulse", "fills the cell as far as")
+            // The lattice change: Pulse moves only along conductors, never straight from a generator to a machine.
+            Fact.of("lattice_conductor", "Machines draw only through the lattice; totems keep 250 Pulse for their voice; chalk carries voices",
+                    "Ritual Chalk", "250 Pulse", "never draws straight from a generator").never("generators within 8 blocks", "routed"),
+            Fact.of("lattice_conductor", "Conductors within 8 of each other weave one network a machine draws from", "within 8 of each other", "Pulse Cairns"),
+            Fact.of("lattice_conductor", "A conductor carries its rank's rate a second (lattice/Weave.rate)",
+                    "Woven 64", "Attuned 256", "Bound 1,024", "Manifested 4,096", "counts once"),
+            Fact.of("spirit_pulse", "Totems hold 250 Pulse; one use fills a cell as far as the source holds", "250 Pulse", "fills the cell as far as"),
+            Fact.of("spirit_pulse", "Pulse travels only along Lattice Conductors", "Pulse travels only along", "starves")
+                    .never("Machines only look", "Machines drain nearby generators"),
+            Fact.of("moving_power", "Conductors weave the network; chalk carries no Pulse", "Pulse travels only along", "64 Pulse a second")
+                    .never("Machines only draw from generators within 8 blocks"),
+            Fact.of("first_workshop", "The first workshop is taught to place a conductor", "Lattice Conductor", "starves"),
+            Fact.of("keeping", "An empty totem is silent whatever its keeping", "silent", "about two minutes")
                     .never("up to 25 Pulse", "100 per use, and"),
             Fact.of("keeping", "Keeping: 40 minutes Answered, Dim stretches station time about 30%", "40 minutes", "30%"),
             Fact.of("ley_collector", "A Ley Collector holds 2,000 Pulse, beats every two seconds and ranks at 15%", "2,000 Pulse", "two seconds", "15%").never("base trickle", "hum harder"),
@@ -51,7 +61,10 @@ final class CodexFacts {
             Fact.of("wave_drum", "A ranked Wave Drum adds 15% Pulse a second per rank", "15%"),
             Fact.of("wake_bell", "A ranked Wake Bell adds 15% Pulse a second per rank", "15%"),
             Fact.of("loom_anchor", "A Loom Anchor counts quiet totems and ranks at 15%", "15%").never("hum harder"),
-            Fact.of("pulse_cairn", "A Pulse Cairn stone swallows 200 Pulse a second; touching stones are one store up to 64", "200 a second", "one pile", "64 stones", "256,000 Pulse")
+            Fact.of("pulse_cairn", "A Woven cairn stone moves 64 Pulse a second; touching stones are one store up to 64",
+                    "64 a second", "one pile", "64 stones", "256,000 Pulse").never("200 a second"),
+            Fact.of("pulse_cairn", "Cairn stones rank like conductors (PulseCairnBlockEntity.capacityFor, Weave.rate)",
+                    "Attuned: 16,000 Pulse, 256 a second", "Bound: 64,000 Pulse, 1,024 a second", "Manifested: 256,000 Pulse, 4,096 a second", "surplus")
                     .never("first five", "sixth stone"),
             // Station Pulse is quoted as the game spends it at the shipped settings: see spend().
             Fact.of("echo_shatter", "A shard is 2 seconds at 16 Pulse a second, grit 4 seconds at 20, both before the consumption multiplier",

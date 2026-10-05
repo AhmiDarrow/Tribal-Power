@@ -248,6 +248,7 @@ public class GearGameTests {
         h.setBlock(pos, ModBlocks.ECHO_ATTUNE.get());
         h.setBlock(3, 2, 2, ModBlocks.RESONANCE_TOTEM_FIRE.get());
         h.setBlock(2, 2, 3, ModBlocks.PULSE_RESONATOR.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var resonator = (tk.darrow.tribalpower.api.pulse.PulseHandler) h.getLevel().getBlockEntity(h.absolutePos(new BlockPos(2, 2, 3)));
         var station = (tk.darrow.tribalpower.blockentity.EchoStationBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(pos));
         station.setItem(0, new ItemStack(ModItems.SPIRITGEAR_BLADE.get()));

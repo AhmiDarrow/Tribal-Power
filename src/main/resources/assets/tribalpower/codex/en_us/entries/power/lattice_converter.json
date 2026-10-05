@@ -16,7 +16,7 @@
       "title": "Setting it up",
       "text": [
         "Run FE into any face. The Converter buffers **48,000 FE** and never gives FE back out.",
-        "Each second it makes up to **40 Pulse** and puts it into Pulse stores within **8 blocks**: Pulse Cairns, totem buffers, gate keystones and other Pulse stores first, then generators with room to spare. If nothing nearby has room, it waits and spends no FE.",
+        "Each second it makes up to **40 Pulse** and puts it onto its lattice network, through a [Lattice Conductor](lattice_conductor) within **8 blocks**: into the network's Pulse Cairns first, then into generators with room to spare, where machines draw it. Off the lattice, or with no room on it, it waits and spends no FE.",
         "Each [rank](machine_ranks) makes more Pulse a second."
       ]
     },

@@ -65,7 +65,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                     case 8 -> worldPosition.getX() >> 16;
                     case 9 -> worldPosition.getY() >> 16;
                     case 10 -> worldPosition.getZ() >> 16;
-                    default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst").indexOf(state));
+                    default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst", "silent", "lattice").indexOf(state));
                 };
             }
             public void set(int index, int value) {}
@@ -206,13 +206,18 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                 : tk.darrow.tribalpower.item.GearCell.asStack(be.items.get(0));
         if (!be.fits(result, freedCell)) { be.state = "full"; return; }
         if (!be.hasCatalysts(recipe)) { be.state = "catalyst"; return; }
-        if (!totems.has(recipe.attunement())) { be.state = "attunement"; return; }
+        // A totem of the voice that stands here but has run its buffer dry is silent, not missing: say which.
+        if (!totems.has(recipe.attunement())) { be.state = totems.silent(recipe.attunement()) ? "silent" : "attunement"; return; }
         var keeping = Keeping.voice(totems, recipe.attunement());
         if (keeping == Keeping.State.QUIET && be.work == 0) { be.state = "quiet"; return; }
         int seconds = be.shownSeconds;
         if (be.work < 0) be.work = 0;
         int cost = be.shownPulse;
-        if (!LatticeNetwork.tryExtractPulseNearby(level, pos, 8, cost)) { be.state = "pulse"; return; }
+        // Pulse comes only through the lattice: a station with no conductor in reach says so rather than "no Pulse".
+        if (!LatticeNetwork.tryExtractPulseNearby(level, pos, 8, cost)) {
+            be.state = tk.darrow.tribalpower.lattice.Weave.onLattice(level, pos) ? "pulse" : "lattice";
+            return;
+        }
         be.state = "working";
         be.work += tk.darrow.tribalpower.effect.EffectHooks.clockNear((ServerLevel) level, pos) ? 2 : 1;
         Keeping.feedWork(totems, recipe.attunement());
@@ -310,7 +315,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     @Override
     public int spendPerSecond() {
         // "pulse" is the starved beat: it still wants this much, which is the deficit the lens is for.
-        if (!"working".equals(state) && !"pulse".equals(state)) return 0;
+        if (!"working".equals(state) && !"pulse".equals(state) && !"lattice".equals(state)) return 0;
         return Math.max(0, shownPulse);
     }
 

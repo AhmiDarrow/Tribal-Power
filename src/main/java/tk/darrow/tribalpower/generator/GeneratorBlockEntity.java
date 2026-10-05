@@ -32,6 +32,26 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         this.pulse = new PulseStorage(capacity);
     }
 
+    // The lattice lists the generators on each network; one arriving or leaving (placed, broken, its chunk loaded
+    // or unloaded) must tell it.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
     /** Redstone held high stills the work. Struck signals mean nothing to a generator. */
     public boolean stilled() {
         return level != null && level.hasNeighborSignal(worldPosition);

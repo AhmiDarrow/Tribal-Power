@@ -58,6 +58,26 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         super(ModBlockEntities.DRUMHEART.get(), pos, state);
     }
 
+    // The lattice lists the generators on each network; one arriving or leaving (placed, broken, its chunk loaded
+    // or unloaded) must tell it.
+    @Override
+    public void clearRemoved() {
+        super.clearRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void setRemoved() {
+        super.setRemoved();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
+    }
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, DrumheartBlockEntity be) {
         if (be.redstoneCooldown > 0) {
             be.redstoneCooldown--;

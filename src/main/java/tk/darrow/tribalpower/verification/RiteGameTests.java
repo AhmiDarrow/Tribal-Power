@@ -57,6 +57,7 @@ public class RiteGameTests {
         drawCircle(h);
         h.setBlock(BRAZIER, ModBlocks.RITUAL_BRAZIER.get());
         h.setBlock(5, 2, 3, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         at(h, BRAZIER, RitualBrazierBlockEntity.class).setSeal(seal);
         DrumheartBlockEntity drum = at(h, new BlockPos(5, 2, 3), DrumheartBlockEntity.class);
         drum.insertPulse(1000, false);
@@ -89,6 +90,7 @@ public class RiteGameTests {
         // Deliberately no circle: brazier, seal and Pulse, and nothing else.
         h.setBlock(BRAZIER, ModBlocks.RITUAL_BRAZIER.get());
         h.setBlock(5, 2, 3, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         at(h, BRAZIER, RitualBrazierBlockEntity.class).setSeal(new ItemStack(ModItems.WATER_SEAL.get()));
         DrumheartBlockEntity drum = at(h, new BlockPos(5, 2, 3), DrumheartBlockEntity.class);
         drum.insertPulse(1000, false);
@@ -275,6 +277,7 @@ public class RiteGameTests {
         h.setBlock(14, 2, 14, ModBlocks.RESONANCE_TOTEM_FIRE.get());
         // Ley Binding costs 1,200 Pulse; a Drumheart caps at 1,000, so add a second drum.
         h.setBlock(3, 2, 7, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         at(h, new BlockPos(3, 2, 7), DrumheartBlockEntity.class).insertPulse(1000, false);
         BlockPos brazier = h.absolutePos(BRAZIER);
         BlockPos a = h.absolutePos(new BlockPos(0, 2, 0)), b = h.absolutePos(new BlockPos(14, 2, 14));

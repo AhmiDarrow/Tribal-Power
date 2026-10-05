@@ -691,7 +691,7 @@
       "text": [
         "Each plant needs its usual ground: farmland near water for crops, dirt for saplings, sand for cactus, sand or dirt beside water for cane, soul sand for nether wart, and jungle logs in the bed for cocoa.",
         "**Water.** Keep a Water Resonance Totem within 8 blocks, Answered or Dim, and the tender keeps the bed's farmland wet: every dried furrow is soaked in one beat for **4 Pulse**. No more trenches through the crops. A Kinship Totem lending Water does not count for this; it has to be a Resonance Totem.",
-        "The tender keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from generators within 8. Right-click it with a Pulse Cell to top it up by hand."
+        "The tender keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from the lattice. Right-click it with a Pulse Cell to top it up by hand."
       ]
     },
     {

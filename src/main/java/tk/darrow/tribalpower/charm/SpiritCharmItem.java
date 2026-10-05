@@ -140,7 +140,7 @@ public class SpiritCharmItem extends Item {
         if (!(stack.getItem() instanceof SpiritCharmItem charm) || charm.kind != CharmKind.CHORUS) return false;
         Set<Attunement> found = new LinkedHashSet<>();
         for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8)) {
-            found.add(totem.getAttunement());
+            if (totem.voiced()) found.add(totem.getAttunement());
         }
         if (found.size() < 3) {
             player.displayClientMessage(Component.translatable("message.tribalpower.charm.chorus_need"), true);

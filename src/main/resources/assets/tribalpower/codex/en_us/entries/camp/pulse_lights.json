@@ -13,7 +13,7 @@
       "type": "spotlight",
       "item": "tribalpower:shard_lamp",
       "text": [
-        "Camp lamps that run on the lattice. Each draws a small trickle of Pulse every second from generators within **8 blocks**, and goes dark the moment it cannot pay. They hold no buffer."
+        "Camp lamps that run on the lattice. Each draws a small trickle of Pulse every second from the lattice, through a conductor within **8 blocks**, and goes dark the moment it cannot pay. They hold no buffer."
       ],
       "title": "Pulse lights"
     },
@@ -34,7 +34,7 @@
       "title": "Lighting a path",
       "steps": [
         {
-          "caption": "Start with a generator; every lamp within 8 blocks of it can draw on it.",
+          "caption": "Start with a generator and a Lattice Conductor; every lamp within 8 blocks of the conductor can draw on it.",
           "place": [
             {
               "pos": [
@@ -243,6 +243,14 @@
                 -2
               ],
               "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
             }
           ],
           "highlight": [
@@ -250,6 +258,11 @@
               -2,
               0,
               -2
+            ],
+            [
+              -2,
+              0,
+              -1
             ]
           ]
         },

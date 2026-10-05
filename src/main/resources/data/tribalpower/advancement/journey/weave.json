@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "id": "tribalpower:echo_shatter"
+      "id": "tribalpower:lattice_conductor"
     },
-    "title": "Teach stone to sing",
-    "description": "Build an Earth-powered Echo Shatter.",
+    "title": "Weave the lattice",
+    "description": "Craft a Lattice Conductor: Pulse travels only along the lattice.",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,
@@ -17,12 +17,12 @@
         "items": [
           {
             "items": [
-              "tribalpower:echo_shatter"
+              "tribalpower:lattice_conductor"
             ]
           }
         ]
       }
     }
   },
-  "parent": "tribalpower:journey/weave"
+  "parent": "tribalpower:journey/hum"
 }

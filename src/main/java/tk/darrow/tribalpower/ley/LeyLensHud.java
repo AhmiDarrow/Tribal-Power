@@ -35,7 +35,7 @@ public final class LeyLensHud {
         boolean more = mode == LeyLensItem.PULSE && reading.count() > rows.size();
         int rowBlock = rows.isEmpty() ? 0 : 6 + rows.size() * 10 + (more ? 10 : 0);
         int width = mode == LeyLensItem.PULSE ? 188 : mode == LeyLensItem.LEY ? 148 : 116;
-        int height = mode == LeyLensItem.PULSE ? 52 + rowBlock : mode == LeyLensItem.LEY ? 58 : 46;
+        int height = mode == LeyLensItem.PULSE ? 64 + rowBlock : mode == LeyLensItem.LEY ? 58 : 46;
         int x = mc.getWindow().getGuiScaledWidth() - width - 12, y = mc.getWindow().getGuiScaledHeight() - 69 - height - 4;
         var g = event.getGuiGraphics();
         g.fill(x, y, x + width, y + height, 0xD9101B22);
@@ -88,12 +88,22 @@ public final class LeyLensHud {
         if (mode == LeyLensItem.PULSE) {
             // Pulse stores are server-side only; ask once a second.
             if (due) net.neoforged.neoforge.network.PacketDistributor.sendToServer(LensPulsePayload.empty());
-            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.zone", r), x + 8, y + 16, 0xFF99C9BD, false);
-            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.pulse", reading.stored(), reading.capacity(), reading.count()), x + 8, y + 28, 0xFF65D7C0, false);
+            // The network you stand on: the one of your nearest Lattice Conductor. Off the lattice, say how to join it.
+            if (reading.conductors() <= 0) {
+                g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.no_lattice"), x + 8, y + 16, 0xFFF0C95E, false);
+                g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.no_lattice.hint", r), x + 8, y + 28, 0xFF99C9BD, false);
+            } else {
+                g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.lattice", reading.conductors(), reading.rate()),
+                        x + 8, y + 16, 0xFF99C9BD, false);
+                g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.tap",
+                                Component.translatable("item.tribalpower.spiritgear.rank." + reading.tapRank()), reading.tapRate(), reading.tapCarried()),
+                        x + 8, y + 28, reading.tapCarried() >= reading.tapRate() ? 0xFFE07A6A : 0xFF99C9BD, false);
+            }
+            g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.pulse", reading.stored(), reading.capacity(), reading.count()), x + 8, y + 40, 0xFF65D7C0, false);
             int flowColour = reading.incoming() >= reading.outgoing() ? 0xFF65D7C0 : 0xFFE07A6A;
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.flow", reading.incoming(), reading.outgoing()),
-                    x + 8, y + 40, flowColour, false);
-            int rowY = y + 52;
+                    x + 8, y + 52, flowColour, false);
+            int rowY = y + 64;
             for (LensPulsePayload.Entry entry : rows) {
                 machineRow(mc, g, entry, x, rowY, width);
                 rowY += 10;

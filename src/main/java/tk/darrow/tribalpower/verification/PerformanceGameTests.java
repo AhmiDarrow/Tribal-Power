@@ -216,64 +216,46 @@ public class PerformanceGameTests {
 
     // ---- Lattice Conductor --------------------------------------------------------------------------------
 
-    /** The conductor keeps its chalk network between beats, but a new link or a broken totem shows on the next one. */
+    /**
+     * The lattice keeps the networks it wove, but a conductor or a generator arriving or leaving shows on the very
+     * next draw: nothing waits for a refresh.
+     */
     @GameTest(template = "empty")
-    public static void conductorSeesChalkChangesOnTheNextBeat(GameTestHelper h) {
-        var pos = new BlockPos(2, 2, 2);
-        h.setBlock(pos, ModBlocks.LATTICE_CONDUCTOR.get());
-        h.setBlock(2, 2, 4, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(4, 2, 4, ModBlocks.RESONANCE_TOTEM_FIRE.get());
-        var earth = at(h, new BlockPos(2, 2, 4), ResonanceTotemBlockEntity.class);
-        var fire = at(h, new BlockPos(4, 2, 4), ResonanceTotemBlockEntity.class);
-        LatticeNetwork.linkTotems(earth, fire);
-        var conductor = at(h, pos, LatticeConductorBlockEntity.class);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 2, "Two linked totems, saw " + conductor.getNetworkSize());
-
-        // A third totem out of the conductor's own reach joins only through chalk.
-        h.setBlock(14, 2, 4, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var far = at(h, new BlockPos(14, 2, 4), ResonanceTotemBlockEntity.class);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 2, "An unlinked totem out of reach is not in the network, saw " + conductor.getNetworkSize());
-        LatticeNetwork.linkTotems(fire, far);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 3, "A new chalk link shows on the next beat, saw " + conductor.getNetworkSize());
-
-        h.setBlock(14, 2, 4, Blocks.AIR);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 2, "A broken totem leaves the network on the next beat, saw " + conductor.getNetworkSize());
+    public static void theWeaveSeesConductorAndGeneratorChangesAtOnce(GameTestHelper h) {
+        var level = h.getLevel();
+        var machine = h.absolutePos(new BlockPos(2, 2, 2));
+        h.setBlock(2, 2, 4, tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        var horn = at(h, new BlockPos(2, 2, 4), tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
+        horn.insertPulse(100, false);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 0, "No conductor, no draw");
+        Weaving.conductor(h, new BlockPos(4, 2, 2));
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 10, "A placed conductor weaves at once");
+        h.setBlock(6, 2, 4, tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        at(h, new BlockPos(6, 2, 4), tk.darrow.tribalpower.generator.EmberHornBlockEntity.class).insertPulse(100, false);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 150, true) == 150,
+                "A new generator joins the cached network on the next draw");
+        h.setBlock(2, 2, 4, Blocks.AIR);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 150, true) == 100,
+                "A broken generator leaves it on the next draw");
+        h.setBlock(4, 2, 2, Blocks.AIR);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 0, "A broken conductor unweaves at once");
         h.succeed();
     }
 
-    /** A redstone signal still stops the conductor's beat, and taking it away starts it again. */
+    /** A redstone signal lifts a conductor out of the weave, and taking it away puts it back. */
     @GameTest(template = "empty")
     public static void conductorRedstoneLockStillHolds(GameTestHelper h) {
-        var pos = new BlockPos(2, 2, 2);
-        h.setBlock(pos, ModBlocks.LATTICE_CONDUCTOR.get());
-        h.setBlock(2, 2, 4, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(4, 2, 4, ModBlocks.RESONANCE_TOTEM_FIRE.get());
-        var earth = at(h, new BlockPos(2, 2, 4), ResonanceTotemBlockEntity.class);
-        var fire = at(h, new BlockPos(4, 2, 4), ResonanceTotemBlockEntity.class);
-        var conductor = at(h, pos, LatticeConductorBlockEntity.class);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 2, "Both totems in reach, saw " + conductor.getNetworkSize());
-
-        h.setBlock(2, 3, 2, Blocks.REDSTONE_BLOCK);
-        h.setBlock(4, 2, 4, Blocks.AIR);
-        beat(h, pos, conductor);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 2, "A locked conductor does not beat, saw " + conductor.getNetworkSize());
-
-        h.setBlock(2, 3, 2, Blocks.AIR);
-        beat(h, pos, conductor);
-        h.assertTrue(conductor.getNetworkSize() == 1, "Unlocked, it beats again and sees the totem gone, saw " + conductor.getNetworkSize());
+        var level = h.getLevel();
+        var machine = h.absolutePos(new BlockPos(2, 2, 2));
+        Weaving.conductor(h, new BlockPos(4, 2, 2));
+        h.setBlock(2, 2, 4, tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        at(h, new BlockPos(2, 2, 4), tk.darrow.tribalpower.generator.EmberHornBlockEntity.class).insertPulse(100, false);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 10, "Unlocked, the conductor carries");
+        h.setBlock(4, 3, 2, Blocks.REDSTONE_BLOCK);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 0, "A locked conductor carries nothing");
+        h.setBlock(4, 3, 2, Blocks.AIR);
+        h.assertTrue(LatticeNetwork.extractPulseNearby(level, machine, 8, 10, true) == 10, "Unlocked again, it carries again");
         h.succeed();
-    }
-
-    private static void beat(GameTestHelper h, BlockPos pos, LatticeConductorBlockEntity conductor) {
-        // The level ticks it too; driving a full interval by hand guarantees at least one beat whatever its phase.
-        for (int i = 0; i < LatticeConductorBlockEntity.TICK_INTERVAL; i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(), h.absolutePos(pos), h.getBlockState(pos), conductor);
     }
 
     // ---- Ley Collector -------------------------------------------------------------------------------------

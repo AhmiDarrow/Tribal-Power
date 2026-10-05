@@ -115,7 +115,7 @@ public class SpiritKettleBlockEntity extends BlockEntity implements WorldlyConta
         // Only totems are gathered and sorted, not every block entity in reach; same cube, same order, same pick.
         for (ResonanceTotemBlockEntity totem : LatticeNetwork.findNearbyTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS)) {
             double distance = totem.getBlockPos().distSqr(pos);
-            if (distance < bestDistance) {
+            if (totem.voiced() && distance < bestDistance) {
                 bestDistance = distance;
                 best = totem.getAttunement();
             }

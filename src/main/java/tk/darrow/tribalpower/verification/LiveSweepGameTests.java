@@ -112,6 +112,7 @@ public final class LiveSweepGameTests {
         for (int dx : new int[] {-1, 1}) for (int dz : new int[] {-1, 1}) h.setBlock(brazierPos.offset(dx, 0, dz), ModBlocks.RITUAL_MARK.get());
         h.setBlock(brazierPos, ModBlocks.RITUAL_BRAZIER.get());
         h.setBlock(5, 2, 3, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var brazier = (RitualBrazierBlockEntity) h.getBlockEntity(brazierPos);
         brazier.setSeal(new ItemStack(ModItems.WATER_SEAL.get()));
         var drum = (DrumheartBlockEntity) h.getBlockEntity(new BlockPos(5, 2, 3));

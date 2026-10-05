@@ -48,6 +48,7 @@ public class CampGameTests {
         h.setBlock(4,2,4,ModBlocks.RITUAL_BRAZIER.get());var pos=h.absolutePos(new BlockPos(4,2,4));
         var brazier=(RitualBrazierBlockEntity)h.getLevel().getBlockEntity(pos);brazier.setSeal(new ItemStack(ModItems.SPIRIT_SEAL.get()));
         h.setBlock(3,2,4,ModBlocks.DRUMHEART.get());var drum=(DrumheartBlockEntity)h.getBlockEntity(new BlockPos(3,2,4));drum.insertPulse(200,false);
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         var use=new UseOnContext(player,InteractionHand.MAIN_HAND,new BlockHitResult(pos.getCenter(),Direction.UP,pos,false));
         CampRegistry.EFFIGY.get().useOn(use);
         h.assertTrue(BoundEffigyItem.remaining(effigy)==0&&drum.getPulseStored()==200,"Missing voices must spend no Pulse");
@@ -127,6 +128,7 @@ public class CampGameTests {
     public static void pulseLampLightsFromLatticeAndDimsOnRedstone(GameTestHelper h){
         h.setBlock(2,2,2,ModBlocks.SHARD_LAMP.get());
         h.setBlock(3,2,4,ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         ((DrumheartBlockEntity)h.getBlockEntity(new BlockPos(3,2,4))).insertPulse(1000,false);
         h.runAfterDelay(25,()->{
             h.assertTrue(h.getBlockState(new BlockPos(2,2,2)).getValue(tk.darrow.tribalpower.block.PulseLightBlock.LIT),"Shard Lamp must light from nearby Pulse");

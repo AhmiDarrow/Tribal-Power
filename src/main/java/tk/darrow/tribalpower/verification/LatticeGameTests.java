@@ -291,6 +291,7 @@ public class LatticeGameTests {
         BlockPos at=new BlockPos(2,2,2), sink=new BlockPos(4,2,2);
         h.setBlock(at, tk.darrow.tribalpower.block.ModBlocks.LATTICE_CONVERTER.get());
         h.setBlock(sink, tk.darrow.tribalpower.block.ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // the Converter pushes onto the lattice, not into whatever stands beside it
         var converter=at(h,at,tk.darrow.tribalpower.blockentity.LatticeConverterBlockEntity.class);
         var drum=at(h,sink,DrumheartBlockEntity.class);
 
@@ -564,6 +565,9 @@ public class LatticeGameTests {
         var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
         tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
         earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
+        // A charged generator keeps the network active, so the full totems sit full instead of draining.
+        h.setBlock(2,2,4,tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
+        at(h,new BlockPos(2,2,4),tk.darrow.tribalpower.generator.EmberHornBlockEntity.class).insertPulse(200,false);
         h.setBlock(6,2,4,ModBlocks.ANCESTRAL_CACHE.get());
         var cache=at(h,new BlockPos(6,2,4),AncestralCacheBlockEntity.class);
         cache.setItem(0,new ItemStack(ModItems.MANIFESTED_INGOT.get()));
@@ -573,144 +577,98 @@ public class LatticeGameTests {
             h.succeed();
         });
     }
-    @GameTest(template="empty")
-    public static void conductorRefundsAHornWhenTotemsAreFull(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+    /** Full totems on a charged network take nothing: the generator keeps every Pulse it made. */
+    @GameTest(template="empty", timeoutTicks=60)
+    public static void fullTotemsTakeNothingFromTheLattice(GameTestHelper h) {
+        Weaving.conductor(h, new BlockPos(2,2,2));
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
         h.setBlock(6,2,2,ModBlocks.RESONANCE_TOTEM_FIRE.get());
         var earth=at(h,new BlockPos(4,2,2),ResonanceTotemBlockEntity.class);
         var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
-        earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
+        h.assertTrue(earth.getPulseStored()==earth.getPulseCapacity() && fire.getPulseStored()==fire.getPulseCapacity(),
+                "A new totem starts with a full breath");
         h.setBlock(2,2,4,tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
         var horn=at(h,new BlockPos(2,2,4),tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
         horn.insertPulse(200,false);
         int before=horn.getPulseStored();
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
-        h.assertTrue(horn.getPulseStored()==before,"Unused extract must return to a horn, stored "+horn.getPulseStored());
-        h.succeed();
+        h.runAfterDelay(45,()->{
+            h.assertTrue(horn.getPulseStored()==before,"Full totems must not draw, horn holds "+horn.getPulseStored());
+            h.assertTrue(earth.getPulseStored()==earth.getPulseCapacity(),"A full totem on an active lattice sits full");
+            h.succeed();
+        });
     }
-    /** A Cairn eats the same generators the Conductor draws on, so the Conductor must be able to read it back. */
+    /** A cairn is the lattice's storage: a machine on the network draws it once the generators are dry. */
     @GameTest(template="empty")
-    public static void conductorLiftsACairnsHeldBeatOntoTheLattice(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
-        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
-        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
-        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+    public static void aCairnLendsItsHeldBeatThroughTheLattice(GameTestHelper h) {
+        var level=h.getLevel();
+        Weaving.conductor(h, new BlockPos(2,2,2));
         h.setBlock(2,2,5,ModBlocks.PULSE_CAIRN.get());
         var cairn=at(h,new BlockPos(2,2,5),PulseCairnBlockEntity.class);
         cairn.insertPulse(500,false);
         h.assertTrue(cairn.getPulseStored()==500,"Cairn must hold what it was given, holds "+cairn.getPulseStored());
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
-        h.assertTrue(conductor.getLastPulsePushed()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "A Cairn alone must feed the lattice, pushed "+conductor.getLastPulsePushed());
-        h.assertTrue(earth.getPulseStored()+fire.getPulseStored()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "Cairn Pulse must land in the totems, earth "+earth.getPulseStored()+" fire "+fire.getPulseStored());
-        h.assertTrue(cairn.getPulseStored()==500-LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "Cairn must be drawn down by exactly what moved, holds "+cairn.getPulseStored());
+        var machine=h.absolutePos(new BlockPos(4,2,2));
+        int drawn=tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level,machine,8,40,false);
+        h.assertTrue(drawn==40,"A machine on the lattice draws the cairn, drew "+drawn);
+        h.assertTrue(cairn.getPulseStored()==460,"The cairn loses exactly the draw, holds "+cairn.getPulseStored());
         h.succeed();
     }
-    /** Pulse a station has already claimed is not the Conductor's to take back. */
+    /** Pulse a station has already claimed, and a totem's voice, are not the lattice's to lend. */
     @GameTest(template="empty")
-    public static void conductorDoesNotRobAStationsOwnBuffer(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+    public static void theLatticeDoesNotRobAStationOrATotem(GameTestHelper h) {
+        var level=h.getLevel();
+        Weaving.conductor(h, new BlockPos(2,2,2));
         h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
         var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
-        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
         h.setBlock(2,2,5,ModBlocks.RESONANCE_MESH.get());
         var mesh=at(h,new BlockPos(2,2,5),ResonanceMeshBlockEntity.class);
         mesh.insertPulse(mesh.getPulseCapacity(),false);
         int held=mesh.getPulseStored();
         h.assertTrue(held>0,"Listening Pit must hold its buffer for the test");
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
+        int drawn=tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level,h.absolutePos(new BlockPos(4,2,2)),8,100,false);
+        h.assertTrue(drawn==0,"Neither a station buffer nor a totem is a source, drew "+drawn);
         h.assertTrue(mesh.getPulseStored()==held,"A station's claimed Pulse must survive, holds "+mesh.getPulseStored());
-        h.assertTrue(conductor.getLastPulsePushed()==0,"Nothing drawable means nothing pushed");
-        h.assertTrue(!conductor.isLatticeFull(),"Empty totems with no source is dry, not full");
+        h.assertTrue(earth.getPulseStored()==earth.getPulseCapacity(),"A totem's buffer must survive, holds "+earth.getPulseStored());
         h.succeed();
     }
-    /** A charged camp with full totems is not a dry one: the Conductor must not cry "No Pulse" at it. */
+    /** A charged network reads as charged; a network with no Pulse in its sources says it is dry. */
     @GameTest(template="empty")
-    public static void fullLatticeIsReportedAsFullNotAsNoPulse(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
-        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
-        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
-        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
-        earth.insertPulse(earth.getPulseCapacity(),false);fire.insertPulse(fire.getPulseCapacity(),false);
+    public static void conductorDiagnosisTellsChargedFromDry(GameTestHelper h) {
+        var pos=new BlockPos(2,2,2);
+        var conductor=Weaving.conductor(h,pos,0);
         h.setBlock(2,2,5,ModBlocks.PULSE_RESONATOR.get());
         var resonator=at(h,new BlockPos(2,2,5),PulseResonatorBlockEntity.class);
+        var dry=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
+        h.assertTrue(dry.contains("conductor.dry") && dry.contains("conductor.rate"),"An empty generator is a dry lattice, said "+dry);
         resonator.insertPulse(resonator.getPulseCapacity(),false);
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
-        h.assertTrue(conductor.getNetworkSize()==2,"Conductor must see the linked pair, saw "+conductor.getNetworkSize());
-        h.assertTrue(conductor.getLastPulsePushed()==0,"Full buffers accept nothing, pushed "+conductor.getLastPulsePushed());
-        h.assertTrue(conductor.getLastSourceAvailable()>0,
-                "A charged generator in range must still read as available, saw "+conductor.getLastSourceAvailable());
-        h.assertTrue(conductor.isLatticeFull(),"A charged camp with full totems must report full, not dry");
-        h.assertTrue(resonator.getPulseStored()==resonator.getPulseCapacity(),
-                "A full lattice must not draw Pulse it can only hand straight back, source at "+resonator.getPulseStored());
-        var lines=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
-        h.assertTrue(lines.contains("conductor.buffers_full") && !lines.contains("conductor.no_pulse"),
-                "Diagnosis must name the full lattice, said "+lines);
+        var charged=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
+        h.assertTrue(!charged.contains("conductor.dry") && !charged.contains("conductor.no_sources"),
+                "A charged generator on the lattice is not dry, said "+charged);
+        h.setBlock(2,2,5,Blocks.AIR);
+        var none=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
+        h.assertTrue(none.contains("conductor.no_sources"),"A lattice with no generator or cairn says so, said "+none);
         h.succeed();
     }
-    /** A camp with room but no charged generator is the genuine dry case, and must still say so. */
-    @GameTest(template="empty")
-    public static void anEmptyCampStillReportsNoPulse(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
-        h.setBlock(2,2,3,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(2,2,4,ModBlocks.RESONANCE_TOTEM_FIRE.get());
-        var earth=at(h,new BlockPos(2,2,3),ResonanceTotemBlockEntity.class);
-        var fire=at(h,new BlockPos(2,2,4),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
-        h.assertTrue(!conductor.isLatticeFull(),"An empty camp is dry, not full");
-        var lines=conductor.diagnose(h.getLevel(),h.absolutePos(pos)).toString();
-        h.assertTrue(lines.contains("conductor.no_pulse") && !lines.contains("conductor.buffers_full"),
-                "Diagnosis must still name a dry camp, said "+lines);
-        h.succeed();
-    }
-    /** The plain camp wiring of the Codex scene: a live generator by the Conductor, two chalk-linked totems. */
-    @GameTest(template="empty")
-    public static void conductorMovesGeneratorPulseOntoTheLattice(GameTestHelper h) {
-        var pos=new BlockPos(2,2,2);h.setBlock(pos,ModBlocks.LATTICE_CONDUCTOR.get());
+    /** The plain camp wiring of the Codex scene: a generator and a totem by one conductor; the totem tops itself up. */
+    @GameTest(template="empty", timeoutTicks=80)
+    public static void aTotemTopsItsBufferUpFromTheLattice(GameTestHelper h) {
+        Weaving.conductor(h, new BlockPos(2,2,2));
         h.setBlock(4,2,2,ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        h.setBlock(6,2,2,ModBlocks.RESONANCE_TOTEM_FIRE.get());
         var earth=at(h,new BlockPos(4,2,2),ResonanceTotemBlockEntity.class);
-        var fire=at(h,new BlockPos(6,2,2),ResonanceTotemBlockEntity.class);
-        tk.darrow.tribalpower.lattice.LatticeNetwork.linkTotems(earth,fire);
+        earth.extractPulse(earth.getPulseCapacity()-10,false);
         h.setBlock(2,2,4,tk.darrow.tribalpower.generator.GeneratorRegistry.EMBER_HORN.get());
         var horn=at(h,new BlockPos(2,2,4),tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
-        horn.insertPulse(200,false);
-        var conductor=at(h,pos,LatticeConductorBlockEntity.class);
-        for(int i=0;i<LatticeConductorBlockEntity.TICK_INTERVAL;i++)
-            LatticeConductorBlockEntity.serverTick(h.getLevel(),h.absolutePos(pos),h.getBlockState(pos),conductor);
-        h.assertTrue(conductor.getNetworkSize()==2,"Conductor must see both totems, saw "+conductor.getNetworkSize());
-        h.assertTrue(conductor.getLastPulsePushed()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "Conductor must push a full cycle from a live generator, pushed "+conductor.getLastPulsePushed());
-        h.assertTrue(earth.getPulseStored()+fire.getPulseStored()==LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "Pushed Pulse must land in totem buffers, earth "+earth.getPulseStored()+" fire "+fire.getPulseStored());
-        h.assertTrue(horn.getPulseStored()==200-LatticeConductorBlockEntity.PUSH_PER_CYCLE,
-                "Generator must be drawn down by exactly what moved, stored "+horn.getPulseStored());
-        h.succeed();
+        horn.insertPulse(400,false);
+        int before=horn.getPulseStored();
+        h.runAfterDelay(45,()->{
+            h.assertTrue(earth.getPulseStored()==earth.getPulseCapacity(),"The totem fills from its network, holds "+earth.getPulseStored());
+            h.assertTrue(horn.getPulseStored()<=before-(earth.getPulseCapacity()-10),
+                    "The generator pays for exactly what the totem took, holds "+horn.getPulseStored());
+            h.succeed();
+        });
     }
     /**
-     * A craft yields four conductors so a line of them can walk the Pulse zone out to a machine.
-     * The machine's own 8-block cube never sees the horn. Only the second conductor does.
+     * A craft yields four conductors so a line of them can walk the lattice out to a machine. The machine's own
+     * conductor never sees the horn; only the second conductor does.
      */
     @GameTest(template="empty")
     public static void conductorsExtendThePulseZone(GameTestHelper h) {
@@ -721,19 +679,19 @@ public class LatticeGameTests {
         var horn = at(h, new BlockPos(14, 2, 14), tk.darrow.tribalpower.generator.EmberHornBlockEntity.class);
         horn.insertPulse(80, false);
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
-                "A horn twelve blocks off is outside a machine's own zone");
+                "A horn twelve blocks off, with no lattice, is out of reach");
         h.assertTrue(horn.getPulseStored() == 80, "A probe must not spend the horn");
 
-        h.setBlock(2, 2, 10, ModBlocks.LATTICE_CONDUCTOR.get());
+        Weaving.conductor(h, new BlockPos(2, 2, 10));
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
                 "One conductor that cannot see the horn must not invent a path");
 
-        h.setBlock(14, 2, 6, ModBlocks.LATTICE_CONDUCTOR.get());
+        Weaving.conductor(h, new BlockPos(14, 2, 6));
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 0,
-                "A conductor more than 8 from the line must not join it");
+                "A conductor more than 8 from the line is another network");
         h.setBlock(14, 2, 6, Blocks.AIR);
 
-        h.setBlock(10, 2, 14, ModBlocks.LATTICE_CONDUCTOR.get());
+        Weaving.conductor(h, new BlockPos(10, 2, 14));
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, true) == 10,
                 "Two conductors within 8 of each other must reach the horn");
         h.assertTrue(horn.getPulseStored() == 80, "Seeing the horn through the line must not spend it");
@@ -748,28 +706,29 @@ public class LatticeGameTests {
         h.setBlock(14, 2, 13, ModBlocks.PULSE_CAIRN.get());
         var cairn = at(h, new BlockPos(14, 2, 13), PulseCairnBlockEntity.class);
         cairn.insertPulse(40, false);
+        h.setBlock(13, 2, 14, ModBlocks.RESONANCE_TOTEM_EARTH.get());
+        var totem = at(h, new BlockPos(13, 2, 14), ResonanceTotemBlockEntity.class);
+        int totemHeld = totem.getPulseStored();
         int drawn = tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 1000, false);
         h.assertTrue(drawn == 70 + 40, "The line takes the horn and then the cairn, drew " + drawn);
         h.assertTrue(horn.getPulseStored() == 0 && cairn.getPulseStored() == 0, "Horn and cairn must be the stores that emptied");
         h.assertTrue(mesh.getPulseStored() == meshHeld, "A station buffer on the line must stay claimed, holds " + mesh.getPulseStored());
+        h.assertTrue(totem.getPulseStored() == totemHeld, "A totem is not a source, holds " + totem.getPulseStored());
 
+        horn.insertPulse(25, false);
         h.setBlock(9, 2, 14, Blocks.REDSTONE_BLOCK);
-        h.setBlock(13, 2, 14, ModBlocks.RESONANCE_TOTEM_EARTH.get());
-        var totem = at(h, new BlockPos(13, 2, 14), ResonanceTotemBlockEntity.class);
-        totem.insertPulse(25, false);
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 25, false) == 0,
-                "Redstone on the linking conductor cuts the zone");
-        h.assertTrue(totem.getPulseStored() == 25, "A cut line must leave the totem buffer alone");
+                "Redstone on the linking conductor cuts the line");
+        h.assertTrue(horn.getPulseStored() == 25, "A cut line must leave the horn alone");
         h.setBlock(9, 2, 14, Blocks.AIR);
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 25, false) == 25,
-                "A totem buffer on the line is spendable without a chalk link");
-        h.assertTrue(totem.getPulseStored() == 0, "The totem must spend through the zone");
+                "With the signal gone the line carries again");
 
         h.setBlock(10, 2, 14, Blocks.AIR);
-        totem.insertPulse(10, false);
+        horn.insertPulse(10, false);
         h.assertTrue(tk.darrow.tribalpower.lattice.LatticeNetwork.extractPulseNearby(level, origin, 8, 10, false) == 0,
-                "Breaking the line drops the far totem back out of reach");
-        h.assertTrue(totem.getPulseStored() == 10, "An unreachable totem must keep its Pulse");
+                "Breaking the line drops the far horn back out of reach");
+        h.assertTrue(horn.getPulseStored() == 10, "An unreachable horn must keep its Pulse");
         h.succeed();
     }
     @GameTest(template="empty", timeoutTicks=40)
@@ -909,6 +868,7 @@ public class LatticeGameTests {
     private static void power(GameTestHelper h) {
         h.setBlock(3,2,4,ModBlocks.DRUMHEART.get());
         at(h,new BlockPos(3,2,4),DrumheartBlockEntity.class).insertPulse(1000,false);
+        Weaving.weave(h); // Pulse reaches a machine only through the lattice
     }
     @GameTest(template="empty", timeoutTicks=160)
     public static void resonanceUsesReusableCatalystAndRedstone(GameTestHelper h) {
@@ -1143,6 +1103,7 @@ public class LatticeGameTests {
         var origin = new BlockPos(2, 2, 2);
         h.setBlock(origin, ModBlocks.LEY_COLLECTOR.get());
         h.setBlock(4, 2, 2, ModBlocks.EMBER_BOWL.get());
+        Weaving.weave(h); // the sight reads the lattice network you stand on
         var level = h.getLevel();
         var collector = at(h, origin, LeyCollectorBlockEntity.class);
         int made = tk.darrow.tribalpower.api.pulse.PulseRate.perSecond(level, h.absolutePos(origin), collector);

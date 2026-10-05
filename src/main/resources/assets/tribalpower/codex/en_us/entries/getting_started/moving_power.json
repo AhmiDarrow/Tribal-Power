@@ -1,5 +1,5 @@
 {
-  "name": "Sharing power",
+  "name": "Weaving the lattice",
   "icon": "tribalpower:lattice_conductor",
   "order": 40,
   "next": "keeping_totems",
@@ -7,10 +7,10 @@
     {
       "type": "text",
       "text": [
-        "Machines only draw from generators within 8 blocks. Once your camp spreads out, you will want Pulse to travel.",
-        "Draw a chalk line between two totems: right-click one with **Ritual Chalk** (bone meal, lapis and a Spirit Shard make four sticks), then the other, less than 16 blocks away. \"Lattice link sealed\" means it worked.",
-        "A [Lattice Conductor](lattice_conductor) near those totems and near a generator then fills the totems from the generator; each holds 250 Pulse. Stations near any linked totem can draw on it.",
-        "Conductors also carry the zone by themselves: place them within 8 of each other and of the generator, and a machine within 8 of any of them draws on the line. One craft makes four."
+        "Pulse travels only along Lattice Conductors. Your first conductor joins the drum and the station; as your camp spreads out, weave more.",
+        "Conductors within 8 blocks of each other link into one network, and everything within 8 of any of them is on it: a generator at one end of camp powers a machine at the other. One craft makes four.",
+        "Each conductor carries **64 Pulse a second** to begin with. When a network has to carry more, [rank](machine_ranks) its conductors (256, 1,024, then 4,096 a second) or add more beside the busy generator and machine.",
+        "Ritual Chalk joins totems for their voices: right-click one with **Ritual Chalk** (bone meal, lapis and a Spirit Shard make four sticks), then another less than 16 blocks away. Chalk carries voices, never Pulse."
       ]
     },
     {
@@ -18,7 +18,7 @@
       "title": "A small lattice",
       "steps": [
         {
-          "caption": "Two totems of any voice, less than 16 blocks apart.",
+          "caption": "A generator at one end of camp, a station at the other.",
           "place": [
             {
               "pos": [
@@ -224,63 +224,40 @@
               "pos": [
                 -2,
                 0,
-                0
+                -2
               ],
-              "block": "tribalpower:resonance_totem_earth"
+              "block": "tribalpower:drumheart"
             },
             {
               "pos": [
                 2,
                 0,
-                0
+                2
               ],
-              "block": "tribalpower:resonance_totem_fire"
+              "block": "tribalpower:echo_attune"
             }
           ],
           "highlight": [
             [
               -2,
               0,
-              0
+              -2
             ],
             [
               2,
               0,
-              0
+              2
             ]
           ]
         },
         {
-          "caption": "Right-click one with Ritual Chalk, then the other, to seal a lattice link between them.",
-          "use": {
-            "pos": [
-              0,
-              0,
-              0
-            ],
-            "item": "tribalpower:ritual_chalk"
-          },
-          "highlight": [
-            [
-              -2,
-              0,
-              0
-            ],
-            [
-              2,
-              0,
-              0
-            ]
-          ]
-        },
-        {
-          "caption": "Place a Lattice Conductor within 8 blocks of the totems.",
+          "caption": "One Lattice Conductor within 8 blocks of both weaves them into one network: the station draws the drum through it.",
           "place": [
             {
               "pos": [
                 0,
                 0,
-                1
+                0
               ],
               "block": "tribalpower:lattice_conductor"
             }
@@ -289,32 +266,52 @@
             [
               0,
               0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A totem in reach fills its buffer from the network and keeps its voice.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
               1
             ]
           ]
         },
         {
-          "caption": "Put a generator within 8 blocks of the Conductor. Each second it moves up to 10 Pulse into the totems.",
+          "caption": "Conductors within 8 of each other link. Each carries 64 Pulse a second, more as it ranks; add them beside busy generators and machines.",
           "place": [
             {
               "pos": [
+                -2,
                 0,
-                0,
-                -1
+                0
               ],
-              "block": "tribalpower:drumheart"
+              "block": "tribalpower:lattice_conductor"
             }
           ],
           "highlight": [
             [
               0,
               0,
-              -1
+              0
             ],
             [
+              -2,
               0,
-              0,
-              1
+              0
             ]
           ]
         }

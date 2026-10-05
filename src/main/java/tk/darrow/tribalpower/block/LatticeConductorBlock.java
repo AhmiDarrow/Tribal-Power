@@ -2,7 +2,6 @@ package tk.darrow.tribalpower.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -11,17 +10,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import tk.darrow.tribalpower.blockentity.LatticeConductorBlockEntity;
-import tk.darrow.tribalpower.blockentity.ModBlockEntities;
 
 /**
- * Lattice hub that pushes Spirit Pulse along chalk-linked totems and assists Song Benches on the network.
+ * A Lattice Conductor: how the Pulse lattice is woven. Everything within 8 blocks of one is on its network, and
+ * machines draw Pulse only through the lattice (see lattice/Weave). It has no ticker: its throughput budget is
+ * counted lazily from the game time.
  */
 public class LatticeConductorBlock extends BaseEntityBlock {
     public static final MapCodec<LatticeConductorBlock> CODEC = simpleCodec(LatticeConductorBlock::new);
@@ -46,13 +44,6 @@ public class LatticeConductorBlock extends BaseEntityBlock {
         return new LatticeConductorBlockEntity(pos, state);
     }
 
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide
-                ? null
-                : createTickerHelper(type, ModBlockEntities.LATTICE_CONDUCTOR.get(), LatticeConductorBlockEntity::serverTick);
-    }
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
@@ -72,14 +63,7 @@ public class LatticeConductorBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(pos) instanceof LatticeConductorBlockEntity conductor)) {
             return InteractionResult.PASS;
         }
-        if (!level.isClientSide) {
-            player.displayClientMessage(conductor.conductOnce(), true);
-            if (conductor.getNetworkSize() >= 2 && conductor.getLastPulsePushed() == 0) {
-                player.displayClientMessage(Component.translatable(conductor.isLatticeFull()
-                        ? "message.tribalpower.conductor.buffers_full"
-                        : "message.tribalpower.conductor.no_pulse"), true);
-            }
-        }
+        if (!level.isClientSide) player.displayClientMessage(conductor.conductOnce(), true);
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
     @Override

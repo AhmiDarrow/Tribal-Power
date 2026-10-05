@@ -51,6 +51,7 @@ public final class HealingGameTests {
         h.setBlock(2, 3, 2, HealingRegistry.SPIRIT_KETTLE.get());
         h.setBlock(4, 2, 2, ModBlocks.RESONANCE_TOTEM_WATER.get());
         h.setBlock(2, 2, 4, ModBlocks.DRUMHEART.get());
+        Weaving.weave(h); // Pulse reaches the machine only through the lattice
         ((DrumheartBlockEntity) h.getBlockEntity(new BlockPos(2, 2, 4))).insertPulse(400, false);
         var kettle = (SpiritKettleBlockEntity) h.getBlockEntity(new BlockPos(2, 3, 2));
         kettle.setItem(SpiritKettleBlockEntity.REAGENT, new ItemStack(Reagents.item(CreatureProfile.ASHBOUND), 2));

@@ -24,7 +24,7 @@
       "type": "text",
       "title": "Cobble",
       "text": [
-        "With its four marks and a Drumheart within **8 blocks**, the font makes **one cobblestone every 2 seconds** at **4 Pulse a second**. No voice is needed.",
+        "With its four marks and a Drumheart woven to it by a conductor within **8 blocks**, the font makes **one cobblestone every 2 seconds** at **4 Pulse a second**. No voice is needed.",
         "Its slots are output only: do not hopper cobble in, the font makes its own. Crouch and right-click it with an empty hand to take what it has made, or use a hopper or relay. With nothing inside, the same crouch-click steps the face you clicked through Both, Input, Output and Closed. Plates work on the font's top and bottom alike: an item plate on either draws the stone out, and a fluid plate tuned to either pours water or lava in.",
         "Font cobble is for building and for hammering into gravel and sand. Echo Shatter makes Echo Shards only from stone, not cobble, and stone is what the next tier makes."
       ]

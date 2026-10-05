@@ -189,7 +189,7 @@
           ]
         },
         {
-          "caption": "Put Pulse within 8 blocks: each second it moves 250 mB for 4 Pulse.",
+          "caption": "Put a generator and a Lattice Conductor within 8 blocks: each second it moves 250 mB for 4 Pulse.",
           "place": [
             {
               "pos": [
@@ -198,6 +198,14 @@
                 2
               ],
               "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
             }
           ],
           "highlight": [
@@ -205,6 +213,11 @@
               0,
               0,
               2
+            ],
+            [
+              0,
+              0,
+              1
             ]
           ]
         },

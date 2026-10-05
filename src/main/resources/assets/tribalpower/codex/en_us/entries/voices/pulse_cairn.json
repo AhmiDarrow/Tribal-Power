@@ -6,23 +6,33 @@
     {
       "type": "spotlight",
       "item": "tribalpower:pulse_cairn",
-      "text": [
-        "A cairn of stones that holds a beat. Each stone stores **4,000 Pulse** and drinks the surplus of nearby generators, up to **200 a second**. Bursty generators fill it; hungry machines draw on it steadily."
-      ]
+      "text": "A cairn of stones that holds a beat: the lattice's storage. Each stone stores **4,000 Pulse**. On a lattice network it drinks the surplus of the network's generators and lends it to the network's machines, up to **64 a second** each way. Bursty generators fill it; hungry machines draw on it steadily."
     },
     {
       "type": "text",
       "title": "Piling",
       "text": [
-        "Cairns that touch face to face, on any side, above or below, join into **one pile** and one store: two stones hold **8,000 Pulse**, three hold **12,000**, and so on. A pile joins up to **64 stones**, which is **256,000 Pulse**; a stone past that stands alone.",
-        "Use any stone and you see the whole pile. Put Pulse in anywhere and it spreads across the stones; draw from any stone and the whole pile pays. Each stone adds 200 a second to how fast the pile drinks."
+        "Cairns that touch face to face, on any side, above or below, join into **one pile** and one store: two stones hold **8,000 Pulse**, three hold **12,000**, and so on. A pile joins up to **64 stones**, which is **256,000 Pulse** of plain stones; a stone past that stands alone.",
+        "Use any stone and you see the whole pile. Put Pulse in anywhere and it spreads across the stones; draw from any stone and the whole pile pays. Each stone adds its own rate to how fast the pile moves Pulse in and out."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ranks",
+      "text": [
+        "Pulse Cairns [rank](machine_ranks) like any machine, in Echo Attune, Echo Bind and Echo Manifest. A ranked stone holds more and moves Pulse faster, in and out, at the same rates as a conductor:",
+        "- **Woven**: 4,000 Pulse, 64 a second.",
+        "- **Attuned**: 16,000 Pulse, 256 a second.",
+        "- **Bound**: 64,000 Pulse, 1,024 a second.",
+        "- **Manifested**: 256,000 Pulse, 4,096 a second.",
+        "A pile adds up its stones, whatever their ranks. A stone from before ranks is Woven, and a broken stone keeps its rank but not its Pulse."
       ]
     },
     {
       "type": "text",
       "title": "Filling and reading",
       "text": [
-        "A cairn only pulls from **generators** within 8 blocks of its stones, never from another cairn. Machines within 8 blocks spend generators first, then cairns.",
+        "A cairn joins the lattice like anything else, within 8 blocks of a [Lattice Conductor](lattice_conductor). It drinks only a generator's **surplus**, what sits above half its store, and never from another cairn, so the Pulse machines are working from is left alone. Machines on the network spend generators first, then cairns. Pulse in and out also passes through the conductors in reach, so rank them to match.",
         "Break a stone and the Pulse it carried is lost: the stone comes back empty, and the rest of the pile keeps what it holds. Spend a pile down before you move it.",
         "A comparator against any stone reads how full the whole pile is. A redstone signal on any stone stops the pile filling."
       ]
@@ -32,7 +42,7 @@
       "title": "A pile of stones",
       "steps": [
         {
-          "caption": "Set a cairn beside a generator that comes in bursts, such as a Wake Bell.",
+          "caption": "Set a cairn beside a generator that comes in bursts, such as a Wake Bell, with a Lattice Conductor in reach of both.",
           "place": [
             {
               "pos": [
@@ -121,6 +131,14 @@
                 0
               ],
               "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
             }
           ],
           "highlight": [
@@ -128,6 +146,11 @@
               0,
               0,
               0
+            ],
+            [
+              -1,
+              0,
+              1
             ]
           ]
         },
@@ -223,7 +246,7 @@
       "type": "text",
       "title": "Where it shines",
       "text": [
-        "Sit a cairn beside a Wake Bell and a Listening Pit, and the bell's bursts become the steady draw the pit wants.",
+        "Sit a cairn, a Wake Bell and a Listening Pit around one conductor, and the bell's bursts become the steady draw the pit wants.",
         "Both ends need to be loaded. Crouch and right-click a cairn with this book to see how many stones its pile has joined and what this stone carries."
       ]
     },

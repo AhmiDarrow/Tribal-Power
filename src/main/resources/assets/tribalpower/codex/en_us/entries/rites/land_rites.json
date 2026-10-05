@@ -13,7 +13,7 @@
       "item": "tribalpower:rite_green_blessing",
       "text": [
         "Land rites change a region for a while: faster crops, fewer hostiles, or a borrowed link between distant totems.",
-        "They follow the same rules as every tablet rite: the matching seal, the circle, and the Pulse within 8 blocks."
+        "They follow the same rules as every tablet rite: the matching seal, the circle, and Pulse through a conductor within 8 blocks."
       ],
       "title": "Land rites"
     },
@@ -23,7 +23,7 @@
       "text": [
         "- **Green Blessing** (Earth, **600** Pulse, a Knotted Root): blesses the **nine chunks** around the brazier for twenty minutes. Crops, saplings and stems there take extra random ticks and sparkle green.",
         "- **Still Night** (Spirit, **600**, a Sentinel Sigil): hushes hostile spawning within **64 blocks** for fifteen minutes, like a wide Hush Totem. Seal-carvers sell this tablet to Friends.",
-        "- **Ley Binding** (Loom, **1,200**, Loom Thread): ties the brazier's nearest Resonance Totem to another within **64 blocks** for thirty minutes. A Lattice Conductor routes Pulse along the humming thread as if the totems stood side by side."
+        "- **Ley Binding** (Loom, **1,200**, Loom Thread): ties the brazier's nearest Resonance Totem to another within **64 blocks** for thirty minutes. While it hums, the conductors in reach of one totem weave into the network of the other, and Pulse crosses the thread."
       ]
     },
     {
