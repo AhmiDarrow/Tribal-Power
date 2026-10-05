@@ -9,7 +9,7 @@
       "title": "A companion for your magic",
       "text": [
         "A **familiar** is a creature bonded to you. It follows you, waits where you tell it and never despawns, and each kind has a gift of its own ([what familiars do](familiar_gifts)).",
-        "Give it a voice at a **Resonance Totem** and it becomes part of your magic: Spirit Charms, Spiritgear, songs and rites of that voice cost less and do more while it is within **16 blocks** of you.",
+        "Give it a voice at a **Resonance Totem** and it becomes part of your magic: Spirit Charms and Spiritgear of that voice cost less, and its songs and rites grow stronger, while it is within **16 blocks** of you.",
         "Magic works without a familiar. A familiar makes it stronger."
       ]
     },
@@ -28,8 +28,8 @@
       "title": "Bonding",
       "text": [
         "Feed a grown one its favourite food, the way you would win over a wolf: about one try in three for gentle beasts, one in five for remnants.",
-        "Or use a **Bonding Charm** on it: three tries in five, two in five for remnants.",
-        "Make the charm early from **four String**, a **Spirit Shard** and one creature reagent. Brush a gentle beast to get its reagent. Later, two Spiritweave can stand in for the string.",
+        "Or use a **Bonding Charm** on it: three tries in five, two in five for remnants. The charm is used up when the bond takes. A failed try keeps it with a gentle beast, but spends it on a remnant.",
+        "Make the charm early from **four String**, a **Spirit Shard** and one creature reagent. Brush a Dawn Stag, Lantern Fox or Mossback for its reagent, once a minute; other March beasts' reagents will not fit. Later, two Spiritweave can stand in for the string.",
         "The whole story, threads and breeding included: [Bonding a familiar](familiars)."
       ]
     },
@@ -42,9 +42,10 @@
       "type": "text",
       "title": "Keeping company",
       "text": [
-        "**One fighter** (a Shardback or Rift Hound) and **two helpers** follow at once. Sneak-use a familiar to make it wait, and again to call it back.",
+        "**One fighter** (a Shardback or Rift Hound) and **two helpers** follow at once. Sneak-use a familiar to make it wait, and again to call it back. A Mossback sneak-used with an empty hand opens its saddlebag instead, so hold something to make it wait.",
         "A waiting familiar still lends its voice whenever you come within 16 blocks, so one left sitting by your workshop helps you there.",
-        "Feed a hurt one its food. A fallen one leaves a **Spirit Remnant** that a [Healing Circle](healing_circle) calls back, voice and all."
+        "Feed a hurt one its food. A fallen one leaves a **Spirit Remnant** that a [Healing Circle](healing_circle) calls back, voice and all.",
+        "What your familiar kills earns you no tribe standing and does not count for a tribe's hunts. The kill has to be your own."
       ]
     }
   ]

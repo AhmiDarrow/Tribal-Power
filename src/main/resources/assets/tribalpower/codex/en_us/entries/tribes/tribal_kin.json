@@ -14,7 +14,7 @@
       "type": "creature",
       "entity": "tribalpower:tribal_kin",
       "text": [
-        "Every camp keeps four Kin: an **Elder**, a **Drummer**, a **Hunter** and a **Weaver**. They wander within **16 blocks** of their camp and never despawn. Right-click any of them to see their job and your rank with the tribe."
+        "Every camp keeps four Kin: an **Elder**, a **Drummer**, a **Hunter** and a **Weaver**. They wander within **16 blocks** of their camp and never despawn; on their tribe's festival day they keep within **5 blocks** of the hearth. Right-click a Drummer, Hunter or Weaver to see their job and your rank. The Elder talks with you instead."
       ]
     },
     {

@@ -2,7 +2,6 @@
   "name": "Echo Manifest",
   "icon": "tribalpower:echo_manifest",
   "order": 50,
-  "spoiler": true,
   "items": [
     "tribalpower:manifested_ingot",
     "tribalpower:resonant_core"
@@ -22,7 +21,8 @@
         "Place Echo Manifest with a Spirit totem within 8 blocks.",
         "- Bound Echo to Manifested Ingot: **5 seconds** at **64 Pulse a second**.",
         "- Manifested Ingot to Resonant Core: **8 seconds** at **80 Pulse a second**.",
-        "Cores unlock Greater Pulse Cells, Spiritgear, long-distance automation and gate keystones. Seated in a Pulse Resonator, a core is its strongest crystal."
+        "Cores go into Greater Pulse Cells, Spiritweave robes and leggings, the Sixfold Staff, long-reach relays and gate keystones. Spiritgear tools need only Manifested Ingots. Seated in a Pulse Resonator, a core is its strongest crystal.",
+        "A guardian's trophy and a Loom Thread craft into six Resonant Cores; see [Guardians](guardians)."
       ]
     },
     {

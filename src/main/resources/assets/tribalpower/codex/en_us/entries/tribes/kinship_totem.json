@@ -2,7 +2,6 @@
   "name": "Kinship Totem",
   "icon": "tribalpower:kinship_totem",
   "order": 30,
-  "spoiler": true,
   "items": [
     "tribalpower:tribe_mark"
   ],
@@ -20,7 +19,7 @@
       "title": "Earning the Mark",
       "text": [
         "Raise your standing with a tribe to **Voice (800)**, then talk to that tribe's Elder. The Elder presses a **Tribe Mark** into your hand. That gift comes only once per tribe, but every **third** request you finish for them also pays a Mark, from Guest up (see [Elders, requests and stories](elders_and_stories)).",
-        "The Mark carries the tribe's name and its saying. Earning it also opens that tribe's page in this book.",
+        "The Mark carries the tribe's name and its saying. The Mark the Elder gives at Voice also opens that tribe's page in this book; Marks paid for requests do not.",
         "Guest and Friend are not enough for the Voice gift. If you are short, trade, offer and take on requests until you reach Voice; see [Tribes and standing](standing)."
       ]
     },
@@ -238,7 +237,8 @@
       "title": "On stations and camp machines",
       "text": [
         "Within 8 blocks of a workshop, the Loom Anchor or a [camp hand](camp_hands) that waits for a voice, a Kinship Totem only **lends its tribe's element**, as if an answered Resonance Totem of that voice stood there. It is not a seventh voice.",
-        "Because it never goes quiet, it counts even beside a quiet Resonance Totem of the same voice. That makes it a good way to keep a station or a camp machine working in a spot you rarely visit."
+        "Because it never goes quiet, it counts even beside a quiet Resonance Totem of the same voice. That makes it a good way to keep a station or a camp machine working in a spot you rarely visit.",
+        "A Grove Tender's watering still needs a Water Resonance Totem."
       ]
     },
     {

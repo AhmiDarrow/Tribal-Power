@@ -2,7 +2,6 @@
   "name": "Wind Harp",
   "icon": "tribalpower:wind_harp",
   "order": 30,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -20,7 +19,7 @@
         "- Under open sky: **2 a second** (1 base, 1 for the sky).",
         "- Height: **+1** at y 128 or higher, **+2** at y 192 or higher.",
         "- Weather: **+1** in rain, **+2** in a storm.",
-        "That tops out at **6 a second** unranked. Ranking adds **15% Pulse a second** per rank."
+        "That tops out at **6 a second** unranked. Ranking adds **15% Pulse a second** per rank. The bonus is rounded to a whole Pulse, so a generator making only 2 or 3 a second gains nothing from its first rank."
       ]
     },
     {

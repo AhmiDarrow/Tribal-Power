@@ -38,6 +38,7 @@
         "The March's day is for working and its night is the danger.",
         "- **By day** spirits rarely rise in the open, never in torch or lantern light, and never beside another. Wild spirits caught under the open sky fade away as the sun comes up, unless they are already chasing you.",
         "- **At night** they rise stronger, with more health and harder hits, and some rise as gold-named **elites**. They come in twos at most, and stop rising once four are near.",
+        "- **Caves** keep their own rules. The cave hunters rise in any unlit spot underground, day or night, and the cap of four does not hold below, so a dark cave can fill up. Light it as you go.",
         "- Elites and night spirits can leave you with [Spirit Sickness](spirit_sickness)."
       ]
     },
@@ -52,17 +53,17 @@
     {
       "type": "text",
       "text": [
-        "- **Steppe**: rolling grass with copses and lone trees. March Walkers, Dawn Stags, Lantern Foxes, rabbits and a few Mossbacks graze. Ashbound, Rootbound, Rift Hounds and Echo Weavers hunt. [Ancestor Halls](ancestor_hall) sink here.",
-        "- **Highlands**: stone, moss and tree groves. Goats, Dawn Stags, foxes, walkers and rabbits. Hollow Sentinels, Storm Moths, Cinder Imps and Rift Hounds. Home of the [Drum Circles](drum_circle), more Ancestor Halls, and the only emeralds.",
-        "- **Crystal Fields**: terraced mesas of calcite and stone, bristling with March Crystal. Foxes, rabbits, Mossbacks and walkers; Reed Stalkers, Shardbacks, Mourning Bells and Echo Weavers. The [Crystal Spire](crystal_spire) stands here."
+        "- **Steppe**: rolling grass with copses and lone trees. March Walkers, Dawn Stags, Lantern Foxes, rabbits and a few Mossbacks graze. Ashbound, Rootbound, Rift Hounds, Echo Weavers and a few Reed Stalkers hunt. [Ancestor Halls](ancestor_hall) sink here.",
+        "- **Highlands**: stone, moss and tree groves. Goats, Dawn Stags, foxes, walkers and rabbits. Hollow Sentinels, Storm Moths, Cinder Imps, Rift Hounds and a few Shardbacks. Home of the [Drum Circles](drum_circle), more Ancestor Halls, and emeralds (the Glimmer Ridge has them too).",
+        "- **Crystal Fields**: terraced mesas of calcite and stone, bristling with March Crystal. Foxes, rabbits, Mossbacks and walkers; Reed Stalkers, Shardbacks, Mourning Bells, Echo Weavers and a few Hollow Sentinels. The [Crystal Spire](crystal_spire) stands here."
       ],
       "title": "Steppe, Highlands, Crystal Fields"
     },
     {
       "type": "text",
       "text": [
-        "- **Snow Fields**: snow and packed ice over March Grass. Lantern Foxes, rabbits, walkers, a few Mossbacks and polar bears. Hollow Sentinels, Storm Moths and Mourning Bells.",
-        "- **Ember Wastes**: dry basalt country with no rain. Few grazers brave it: March Walkers, Lantern Foxes and Ash Hoppers. Cinder Imps, Rift Hounds and Ashbound roam.",
+        "- **Snow Fields**: snow and packed ice over March Grass. Lantern Foxes, rabbits, walkers, a few Mossbacks and polar bears. Hollow Sentinels, Storm Moths, Mourning Bells and Rift Hounds.",
+        "- **Ember Wastes**: dry basalt country with no rain. Few grazers brave it: March Walkers, Lantern Foxes and Ash Hoppers. Cinder Imps, Rift Hounds and Ashbound roam, and a few Storm Moths.",
         "- **Reed Fen**: mud channels thick with Spirit Reed. Mossbacks, Dawn Stags, frogs, Lantern Foxes and walkers; Glimmerfin, Drift Bells, Silt Eels and Veil Rays in the water, and glow squid in the flooded caves. Reed Stalkers, Rootbound and Echo Weavers lurk in the wet.",
         "Spirit Wisps drift through every land of the March."
       ],

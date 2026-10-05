@@ -47,10 +47,14 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         refresh();
     }
 
+    private boolean burns() {
+        return menu.getSlot(RelayMenu.RUNE_SLOT).getItem().is(tk.darrow.tribalpower.item.ModItems.FIRE_SEAL.get());
+    }
+
     private int state() {
         int linked = 0;
         for (int i = 0; i < tabs.length; i++) if (menu.linked(i)) linked |= 1 << i;
-        return menu.selected() | menu.channels() << 3 | (menu.allowing() ? 1 : 0) << 6 | (menu.roundRobin() ? 1 : 0) << 7 | linked << 8;
+        return (burns() ? 1 << 16 : 0) | menu.selected() | menu.channels() << 3 | (menu.allowing() ? 1 : 0) << 6 | (menu.roundRobin() ? 1 : 0) << 7 | linked << 8;
     }
 
     /** The mode and route live on the server and come back through the menu's data; follow them when they change. */
@@ -62,7 +66,8 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         for (int i = 0; i < tabs.length; i++) {
             boolean open = i < channels;
             tabs[i].active = open;
-            tabs[i].visible = channels > 1 || i == 0;
+            // a void plate burns by tab 1 alone, so it shows no others
+            tabs[i].visible = (channels > 1 && !burns()) || i == 0;
             ChatFormatting colour = i == selected ? ChatFormatting.YELLOW : menu.linked(i) ? ChatFormatting.WHITE : ChatFormatting.GRAY;
             tabs[i].setMessage(Component.literal(String.valueOf(i + 1)).withStyle(colour));
             tabs[i].setTooltip(Tooltip.create(open
@@ -72,7 +77,7 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         boolean allow = menu.allowing();
         mode.setMessage(Component.translatable(allow ? "gui.tribalpower.relay.allow" : "gui.tribalpower.relay.block"));
         mode.setTooltip(Tooltip.create(Component.translatable(allow ? "gui.tribalpower.relay.allow.hint" : "gui.tribalpower.relay.block.hint")));
-        route.visible = channels > 1;
+        route.visible = channels > 1 && !burns();
         boolean robin = menu.roundRobin();
         route.setMessage(Component.translatable(robin ? "gui.tribalpower.relay.round_robin" : "gui.tribalpower.relay.priority"));
         route.setTooltip(Tooltip.create(Component.translatable(robin ? "gui.tribalpower.relay.round_robin.hint" : "gui.tribalpower.relay.priority.hint")));
@@ -101,10 +106,10 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
     }
 
     @Override protected void renderLabels(GuiGraphics g, int mouseX, int mouseY) {
-        g.drawString(font, font.plainSubstrByWidth(title.getString(), menu.channels() > 1 ? 92 : 150), 8, 6, 0xFFE7DCC1, false);
+        g.drawString(font, font.plainSubstrByWidth(title.getString(), menu.channels() > 1 && !burns() ? 92 : 150), 8, 6, 0xFFE7DCC1, false);
         g.drawString(font, playerInventoryTitle, 8, 72, 0xFF98ACA5, false);
         g.drawString(font, Component.translatable("gui.tribalpower.relay.rune"), 12, 22, 0xFF98ACA5, false);
-        boolean burns = menu.getSlot(RelayMenu.RUNE_SLOT).getItem().is(tk.darrow.tribalpower.item.ModItems.FIRE_SEAL.get());
+        boolean burns = burns();
         Component filter = burns ? Component.translatable("gui.tribalpower.relay.void_filter")
                 : menu.channels() > 1
                 ? Component.translatable("gui.tribalpower.relay.filter_channel", menu.selected() + 1)

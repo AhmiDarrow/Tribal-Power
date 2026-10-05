@@ -20,7 +20,7 @@
       "title": "The crystal's own",
       "text": [
         "The terraced mesas keep a long-necked grazer and a dragonfly in the open, a pill-bug in the caves beneath, and a crystal mantis that walks the crystal at night.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning))."
       ]
     },
     {
@@ -58,7 +58,7 @@
       "entity": "tribalpower:shard_stalker",
       "title": "Shard Stalker",
       "text": [
-        "A crystal mantis that rises among the crystal at night, one to three at a time. It has **21 health** and **1 armour**, is quick, and its strike does **5** and poisons you for 3 seconds.",
+        "A crystal mantis that rises among the crystal at night, one or two at a time. It has **21 health** and **1 armour**, is quick, and its strike does **5** and poisons you for 3 seconds.",
         "It drops **1 to 2 Shard Barbs**, a Venom reagent.",
         "Hunted, it also drops up to 1 Amethyst Shard and up to 1 String."
       ]

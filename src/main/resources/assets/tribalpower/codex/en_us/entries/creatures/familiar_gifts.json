@@ -2,7 +2,6 @@
   "name": "What familiars do",
   "icon": "tribalpower:lantern_down",
   "order": 410,
-  "spoiler": true,
   "items": [],
   "pages": [
     {
@@ -18,7 +17,7 @@
       "text": [
         "An invisible **Spirit Light** travels with it at light **10**; the Glow-vein mark raises that to **12**.",
         "You have Night Vision while you stay within **8 blocks** of it.",
-        "Every **4 seconds** it marks ores within **6 blocks** of itself with glints only you can see. Keen shortens that wait; Hum and nightfall change the tempo too."
+        "Every **4 seconds** it marks ores within **6 blocks** of itself with glints only you can see. Keen shortens that wait, a strong Hum quickens it, and Night Hum quickens it again after dark."
       ],
       "title": "The fox's lantern"
     },

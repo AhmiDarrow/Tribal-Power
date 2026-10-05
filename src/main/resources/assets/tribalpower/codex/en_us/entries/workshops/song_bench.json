@@ -24,7 +24,8 @@
       "title": "Writing a song",
       "text": [
         "Seat paper and Ritual Chalk, then pick 3 to 7 empowered reagents in order: select one and press **Add**, or click it twice. The first reagent picks the song's shape; **Voice** picks which nearby totem it sings in.",
-        "Press **Write** for a **Song Sheet**. Sing it once straight from your hand, or bind it into a songbook: seat the book, leave the sheet in the output and press **Write** with nothing in the sequence."
+        "Press **Write** for a **Song Sheet**. Sing it once straight from your hand, or bind it into a songbook: seat the book, leave the sheet in the output and press **Write** with nothing in the sequence.",
+        "With a book seated, **Write** puts the song straight into it. **Lift** takes the open page back out as a sheet, and **Take** hands you raw reagents from the pouch."
       ]
     },
     {
@@ -46,7 +47,7 @@
     },
     {
       "type": "scene",
-      "title": "One stone, two songs",
+      "title": "One bench, two voices",
       "steps": [
         {
           "caption": "A Song Bench with a generator in range.",
@@ -171,15 +172,7 @@
               0,
               0
             ]
-          ],
-          "use": {
-            "pos": [
-              0,
-              0,
-              0
-            ],
-            "item": "minecraft:stone"
-          }
+          ]
         },
         {
           "caption": "Add a Fire totem and the bench can sing in either voice.",
@@ -214,6 +207,7 @@
       "text": [
         "Select an empowered reagent and press **Fletch**: one reagent and 8 Pulse make **four** verse arrows, sung in the voice you chose.",
         "Hold the Pulse Bow and draw. A plain bolt spends up to 6 Pulse, at full draw; a verse arrow adds 6 more and carries its reagent's song. The Pulse Crossbow fires the same arrows.",
+        "A Pulse Cell seated in the bow pays first, then the cells you carry.",
         "A redstone signal pauses the bench."
       ]
     },

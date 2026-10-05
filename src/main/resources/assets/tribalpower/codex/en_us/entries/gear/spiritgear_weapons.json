@@ -2,7 +2,6 @@
   "name": "Spiritgear Weapons",
   "icon": "tribalpower:spiritgear_halberd",
   "order": 42,
-  "spoiler": true,
   "items": [
     "tribalpower:spiritgear_spear",
     "tribalpower:spiritgear_halberd",

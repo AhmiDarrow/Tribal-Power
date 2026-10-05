@@ -2,7 +2,6 @@
   "name": "Machine ranks",
   "icon": "tribalpower:echo_attune",
   "order": 90,
-  "spoiler": true,
   "pages": [
     {
       "type": "text",
@@ -283,8 +282,10 @@
         "- Rank 1: **85%** of the time, **118%** of the Pulse a second.",
         "- Rank 2: **70%** of the time, **143%** of the Pulse.",
         "- Rank 3: **55%** of the time, **182%** of the Pulse.",
-        "Pulse per craft stays about even: the extra speed is paid on the lattice.",
-        "Generators work differently: each rank adds **15% Pulse a second**, not the workshop 118%. Relays move more and pay more Pulse for the extra cargo. Camp hands beat faster at the same Pulse per move."
+        "Stations count whole seconds, so a short job may not get any quicker at the next rank but still pays the higher Pulse rate. Ranks pay off best on long work like cores, ranking and the Kiln.",
+        "Generators work differently: each rank adds **15% Pulse a second**, not the workshop 118%. Camp hands beat faster at the same Pulse per move.",
+        "The **Song Bench** is different again: each rank cuts its Pulse, to **85%**, **70%** and **55%**.",
+        "Relay plates move more and pay more Pulse for it, and each rank opens one more channel: one at rank 0, up to four at rank 3. Conductors, the Converter and the Energizer move more Pulse a second. A ranked Cache or Cistern only hands items and fluid to touching machines faster."
       ]
     },
     {
@@ -292,7 +293,7 @@
       "title": "Which machines",
       "text": [
         "Every Echo station, the Ember Kiln and the Song Bench; the Drumheart, Ley Collector, Pulse Resonator and all five voice-crafts; the Lattice Conductor, Harmonic Energizer, Lattice Converter, Ancestral Cache and Spirit Cistern; every relay; the Stone Font and Resonance Mesh; and the camp hands (Tide Pump, Wind Snare, Ward Drum, Seal Loom).",
-        "The tooltip names the rank. If a station will not take the machine, it is the wrong station for its current rank; crouch and right-click the station with this book."
+        "The tooltip shows the rank by name: Woven (0), Attuned (1), Bound (2), Manifested (3). If a station will not take the machine, it is the wrong station for its current rank; crouch and right-click the station with this book."
       ]
     }
   ]

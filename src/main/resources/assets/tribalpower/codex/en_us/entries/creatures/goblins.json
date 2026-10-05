@@ -15,7 +15,7 @@
       "type": "text",
       "title": "Goblins",
       "text": [
-        "Small, quick and spiteful, goblins come one to three at a time and go straight for you."
+        "Small, quick and spiteful, goblins come one or two at a time and go straight for you."
       ]
     },
     {
@@ -30,7 +30,7 @@
       "entity": "tribalpower:fen_goblin",
       "title": "Fen Goblin",
       "text": [
-        "Found in the Reed Fen. It rises on the open ground at night.",
+        "A scrawny, big-eared goblin with a reed spear, found in the Reed Fen. It rises on the open ground at night.",
         "Hunted, it also drops up to 2 Gold Nuggets, up to 1 Bone and up to 1 String."
       ]
     },
@@ -39,7 +39,7 @@
       "entity": "tribalpower:tunnel_goblin",
       "title": "Tunnel Goblin",
       "text": [
-        "Found in the dark tunnels under the Steppe, where it rises day or night.",
+        "A hunched goblin with a spiked club and a candle stuck to its cap, found in the dark tunnels under the Steppe, where it rises day or night.",
         "Hunted, it also drops up to 2 Coal, up to 2 Iron Nuggets and up to 1 Bone."
       ]
     },

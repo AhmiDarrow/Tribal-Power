@@ -2,7 +2,6 @@
   "name": "Keeping",
   "icon": "tribalpower:bone_chime",
   "order": 40,
-  "spoiler": true,
   "pages": [
     {
       "type": "text",
@@ -19,8 +18,9 @@
       "type": "text",
       "title": "Waking a totem",
       "text": [
-        "Right-click the totem with an empty hand, or use a **Bone Chime** on it. It answers at once.",
+        "Right-click a dim or quiet totem with an empty hand, or use a **Bone Chime** on any totem, to wake it and start its clock again.",
         "Drumming a Drumheart by hand wakes every totem within 8 blocks. So do Kin drummers from the tribes, and a Ley Collector whose beat is 8 or more.",
+        "An attuned familiar keeps every totem of its voice within 8 blocks answered, and wakes one that has gone quiet (see [Bonding a familiar](familiars)).",
         "Work keeps totems awake: every second a matching station works, it feeds the totems of its voice. That keeps an answered or dim totem going, but it will not wake one that has already gone quiet.",
         "A Heartbeat Plate can keep a Drumheart producing power, but redstone beats do not keep totems awake."
       ]
@@ -176,9 +176,9 @@
       "type": "text",
       "title": "Planning a camp",
       "text": [
-        "Totems in lush places stay awake **twice as long**: open sky, water and plants right around a totem slow its clock by half. A totem under a roof or on bare ground keeps the normal pace.",
-        "A **Kinship Totem** never goes quiet. Within 8 blocks it keeps its voice answered for stations and camp hands, even beside a Resonance Totem of that voice that has gone quiet.",
-        "The Ley Lens voice sight tints totems gold when answered, dull when dim and grey when quiet. And when a station stops while its power looks fine, crouch and right-click it with this book: it says whether its totem is dim or quiet."
+        "Totems in lush places stay awake **twice as long**. A totem counts the blocks right around it: open sky (more at night), rain, water and plants, grass underfoot included. When those add up to a strong spot, its clock runs at half speed. Most roofed or bare-stone totems keep the normal pace.",
+        "A [Kinship Totem](kinship_totem) never goes quiet. Within 8 blocks it keeps its voice answered for stations and camp hands, even beside a Resonance Totem of that voice that has gone quiet.",
+        "The [Ley Lens](ley_lens) voice sight marks totems in their own voice's colour when answered, a darker shade when dim, and grey when quiet. And when a station stops while its power looks fine, crouch and right-click it with this book: it says whether its totem is dim or quiet."
       ]
     },
     {

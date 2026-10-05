@@ -24,7 +24,7 @@
       "title": "Conductor lines",
       "text": [
         "Conductors extend the zone without any chalk. Set them within 8 of each other, the first within 8 of a generator. A machine within 8 of any conductor on the line draws the generators, Pulse Cairns and totem buffers the line reaches.",
-        "The four from one craft are enough to cross a camp, and nothing caps the length of a line.",
+        "The four from one craft are enough to cross a camp, and a line can run up to **64** conductors.",
         "A redstone signal on a conductor cuts that block out of the line."
       ]
     },
@@ -290,7 +290,7 @@
       "type": "text",
       "title": "How it works",
       "text": [
-        "Every second the Conductor pulls up to **10 Pulse** from generators within 8 blocks and spreads it across the linked totems. Each [rank](machine_ranks) moves more.",
+        "Every second the Conductor pulls up to **10 Pulse** from generators within 8 blocks, then from Pulse Cairns, and spreads it across the linked totems. Each [rank](machine_ranks) moves more.",
         "Right-click it for a **25-Pulse** burst and a status line.",
         "The [Ley Binding](world_rites) rite can join two distant totems for a while, and the Conductor routes along that thread as if they stood side by side.",
         "The lattice carries Pulse, not goods. To move items over distance, use [relays](wireless_cargo)."
@@ -302,7 +302,7 @@
       "text": [
         "A lever or any redstone signal pauses totem filling and cuts that conductor out of the Pulse zone.",
         "Clicking a conductor with no chalk link reports its Pulse zone, which needs no totems. \"No network\" on the Codex reading only means no totem buffers are linked yet; a network needs at least two.",
-        "\"No Pulse\" means there is nothing to move: bring a generator within 8 blocks of the Conductor and charge it.",
+        "\"No Pulse\" means there is nothing to move: bring a charged generator or a Pulse Cairn within 8 blocks of the Conductor.",
         "\"The lattice is full\" is not a fault: every linked totem already holds its 250 Pulse. The Conductor starts again the moment a station spends some.",
         "Crouch and right-click it with this book for the network size, the last Pulse pushed, and what is missing."
       ]

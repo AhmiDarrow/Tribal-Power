@@ -27,7 +27,7 @@
       "type": "text",
       "title": "Letting it run",
       "text": [
-        "With the seal seated and the right items in the right slots, it crafts once a beat for **6 Pulse** from a generator within 8. Two planks give four sticks, and the seal stays. It answers to the **Loom**: keep a Loom totem within 8 blocks (see Camp hands), or it stands idle.",
+        "With the seal seated and the right items in the right slots, it crafts once a beat for **6 Pulse** from a generator within 8. Two planks give four sticks, and the seal stays. It answers to the **Loom**: keep a Loom totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
         "Results fill its nine output slots and leave through the **bottom** face. Leftovers such as empty buckets go back into the grid.",
         "Ranking shortens the beat; Pulse per craft stays 6. A lever pauses it, and a comparator reads how full it is."
       ]

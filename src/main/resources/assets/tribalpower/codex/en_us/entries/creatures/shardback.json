@@ -13,7 +13,7 @@
       "type": "creature",
       "entity": "tribalpower:shardback",
       "text": [
-        "A crystal-field scavenger armoured in singing stone. Keep your distance from its heavy shove.",
+        "A hermit crab in a geode shell, armoured in singing stone. Keep your distance from its heavy shove.",
         "Hunted, it also drops up to 2 Amethyst Shards."
       ]
     },
@@ -36,7 +36,7 @@
     {
       "type": "text",
       "text": [
-        "Reach **Voice** standing with the **Grit-singers**, then use a Bonding Charm on an adult. Two tries in five succeed; a failed charm is spent.",
+        "Reach **Voice** standing with the **Grit-singers**, then use a Bonding Charm on an adult. Two tries in five succeed; a failed charm is spent. Or feed it its own reagent: one try in five, and the reagent is spent either way.",
         "A bonded Shardback is a fighter: it strikes whoever hurts you and whoever you strike. The rare **Brace** mark makes it hard to knock back. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"

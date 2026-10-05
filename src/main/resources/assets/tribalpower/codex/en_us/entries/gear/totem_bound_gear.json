@@ -2,7 +2,6 @@
   "name": "Totem-bound gear",
   "icon": "tribalpower:resonance_totem_earth",
   "order": 50,
-  "spoiler": true,
   "items": [],
   "pages": [
     {
@@ -11,7 +10,8 @@
       "text": [
         "Any Spiritgear tool or Spiritweave piece can answer one totem voice. Place a Resonance Totem, carry a charged Pulse Cell, and crouch-use the piece on the totem.",
         "Binding spends **40 Pulse**. The totem is not used up, the action bar names the voice, and you can overwrite it any time the same way. Empty-handed clicks still read the totem as usual.",
-        "Mixed sets are intended: a Fire hood is fire resistance, not night sight. The Loom voice needs a Loom totem (see [The sixth voice](sixth_voice))."
+        "Mixed sets are intended: a Fire hood is fire resistance, not night sight. The Loom voice needs a Loom totem (see [The sixth voice](sixth_voice)).",
+        "An attuned [familiar](familiar_boons) of the piece's voice nearby makes it spend **40%** less Pulse and its voice perks come more often."
       ]
     },
     {
@@ -26,7 +26,7 @@
       "type": "text",
       "title": "On a pickaxe",
       "text": [
-        "- **Earth** opens a **3 by 3** of stone with each block; the extra blocks spend Pulse the same way as the first.",
+        "- **Earth** opens a **3 by 3** of stone around each block you mine, square to where you face. The whole 3 by 3 costs only the first block's Pulse.",
         "- **Fire** smelts what it mines.",
         "- **Water** mines with silk touch.",
         "- **Air** gives haste.",
@@ -36,9 +36,16 @@
     },
     {
       "type": "text",
-      "title": "On the axe and shovel",
+      "title": "On the axe",
       "text": [
-        "The **axe**, on logs: **Earth** fells the **whole tree**, top down, wherever you strike it; crouch to cut just one log. Only wood with living leaves on it counts as a tree, and wood touching planks, glass, doors, fences or other building blocks is a build, so bare log builds and a cabin grown into a tree stand. Each felled log costs a point of the edge (Unbreaking spares some), and the felling stops before the axe would break, so one felling is only as big as the edge left on the axe: a **Weeping Colossus**, tens of thousands of logs, takes several axes (or mendings). Pulse is paid as the logs come down: every 16 logs cost one swing's Pulse, and a swing's worth that fells nothing (protected wood, say) comes back. **Air** always takes two more, **Water** now and then drops a sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
+        "The **axe**, on logs: **Earth** fells the **whole tree**, top down, wherever you strike it; crouch to cut just one log. Only logs of the kind you struck count, and only with naturally grown leaves on them: at least **3**, and one for every **8** logs. Wood touching planks, glass, doors, fences or other building blocks is a build, so bare log builds and a cabin grown into a tree stand. Each felled log costs a point of the edge (Unbreaking spares some), and the felling stops before the axe would break, so one felling is only as big as the edge left on the axe: a **Weeping Colossus**, tens of thousands of logs, takes several axes (or mendings). Pulse is paid as the logs come down: every 16 logs cost one swing's Pulse, and a swing's worth that fells nothing (protected wood, say) comes back. **Air** always takes two more, **Water** now and then drops an oak sapling, **Spirit** makes hostiles within 8 blocks glow, **Fire** chars the wood, and **Loom** sends the logs to your hand.",
+        "A tree past **512** logs (a willow aside) is left whole, and so is one that runs into unloaded ground. A swing with no Pulse cuts just one log."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "On the shovel",
+      "text": [
         "The **shovel**: **Earth** digs a **3 by 3** of dirt, sand or gravel, **Air** lays paths three wide, **Water** sometimes turns up clay from dirt, **Fire** bakes sand to glass, **Loom** lifts sand and gravel whole, and **Spirit** makes chests, barrels and spawners within 8 blocks glint."
       ]
     },

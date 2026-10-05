@@ -13,7 +13,7 @@
       "type": "creature",
       "entity": "tribalpower:mourning_bell",
       "text": [
-        "A floating relic that remembers the lost tribes. Its telegraphed chime slows.",
+        "A floating bell of green bronze with a mourning mask and a glowing clapper. It remembers the lost tribes, and its telegraphed chime slows.",
         "Hunted, it also drops 1 to 3 Gold Nuggets."
       ]
     },
@@ -36,7 +36,7 @@
     {
       "type": "text",
       "text": [
-        "Reach **Voice** with the **Seal-carvers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "Reach **Voice** with the **Seal-carvers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure. Or feed it its own reagent: one try in five, and the reagent is spent either way.",
         "A bonded bell clears poison, weakness and other hexes from you while it follows. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"

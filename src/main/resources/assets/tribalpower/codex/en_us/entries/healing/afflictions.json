@@ -2,14 +2,13 @@
   "name": "Afflictions",
   "icon": "tribalpower:spirit_remnant",
   "order": 45,
-  "spoiler": true,
   "pages": [
     {
       "type": "text",
       "text": [
         "Beyond [Spirit Sickness](spirit_sickness), three more things can settle on you out there:",
         "- **Unsung Hush**: The Unsung's Silence bolts take your voice with them. For **12 seconds** no song and no staff voice will answer. Wait it out, drink milk, or wash it off.",
-        "- **Frayed**: the touch of a Loom-torn creature, an **Echo Weaver** above all, tears something out of you: **two hearts** of your health for **two minutes**. Milk does nothing for it.",
+        "- **Frayed**: a blow from a wild **Echo Weaver** or **Gloom Crawler** tears something out of you: **two hearts** of your health for **two minutes**. Milk does nothing for it.",
         "- **Ley Sickness**: the ground sways and the cells you carry lose **2 Pulse every two seconds** for each level. It comes from standing on a bare ley crossing while the threads surge. Milk lifts it."
       ],
       "title": "What the March leaves on you"

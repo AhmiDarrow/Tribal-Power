@@ -2,7 +2,6 @@
   "name": "Ritual Brazier",
   "icon": "tribalpower:ritual_brazier",
   "order": 70,
-  "spoiler": true,
   "items": [
     "tribalpower:blank_seal",
     "tribalpower:earth_seal",
@@ -26,7 +25,8 @@
       "text": [
         "Right-click the brazier with a seal to seat it. The seal is never used up; crouch with an empty hand to take it back.",
         "Keep that seal's totem within **8 blocks**, and Pulse in the Lattice nearby. While anyone stands within **6 blocks**, the brazier spends **8 Pulse every two seconds** and blesses them all. With nobody near, it spends nothing.",
-        "A held redstone signal pauses it; stored Pulse is not dumped. A struck signal fires its seated rite (see [Rite Circle](rite_circle))."
+        "A held redstone signal pauses it; stored Pulse is not dumped. A struck signal fires its seated rite (see [Rite Circle](rite_circle)).",
+        "It also burns [incense](remedies) for everyone near, with no seal and no Pulse."
       ]
     },
     {

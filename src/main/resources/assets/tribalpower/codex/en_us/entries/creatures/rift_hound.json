@@ -13,7 +13,7 @@
       "type": "creature",
       "entity": "tribalpower:rift_hound",
       "text": [
-        "A hunter drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself.",
+        "A lean sighthound torn by glowing rifts, drawn to tears in the lattice. It closes distance quickly but cannot cross worlds by itself.",
         "Hunted, it also drops up to 2 Bones and up to 1 March Leather."
       ]
     },
@@ -36,7 +36,7 @@
     {
       "type": "text",
       "text": [
-        "Reach **Voice** with the **Edge-walkers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "Reach **Voice** with the **Edge-walkers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure. Or feed it its own reagent: one try in five, and the reagent is spent either way.",
         "A bonded hound is a fighter, and the rare **Track** mark shows you the last foe that hurt you. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"

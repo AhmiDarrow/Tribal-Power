@@ -2,7 +2,6 @@
   "name": "Wave Drum",
   "icon": "tribalpower:wave_drum",
   "order": 40,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -16,9 +15,9 @@
       "type": "text",
       "title": "Two ways to feed it",
       "text": [
-        "**Beside water.** Water touching any face of the drum gives **3 Pulse a second**. Drums within **8 blocks** every way, edge included, share it, rounding down: two drums make **1 a second** each, and four make nothing.",
+        "**Beside water.** Water touching any face of the drum gives **3 Pulse a second**. Drums within **8 blocks** every way, edge included, piped or not, share it, rounding down: two drums make **1 a second** each, and four make nothing.",
         "**Its own water.** Fill its internal tank with a bucket, a Spirit Cistern or a Fluid Relay, and it makes **10 a second**, drinking **100 mB a second**. Nothing crowds this tier; the water is already the price. It only drinks when it actually delivers Pulse.",
-        "Rain doubles either tier. Ranking adds **15% Pulse a second** per rank. The tank holds **4,000 mB**, and water only."
+        "Rain falling on the drum doubles either tier, so a roofed drum gets no rain bonus. Ranking adds **15% Pulse a second** per rank. The bonus is rounded to a whole Pulse, so a generator making only 2 or 3 a second gains nothing from its first rank. The tank holds **4,000 mB**, and water only."
       ]
     },
     {
@@ -349,7 +348,8 @@
         "Break the drum and the dropped item keeps the water in its tank. Pair a Tide Pump if you need the water to move on after it arrives: relays and the Tide Pump move fluid, they are not storage.",
         "A [Spring Calling](spring_calling) on a nearby Spirit Cistern is how the water refills itself.",
         "A redstone signal pauses it, and a paused drum takes no water. A dry drum only ever gets the beside-water tier. Crouch and right-click it with this book to see which tier it is on and what is in the tank.",
-        "Drums are the [Rootbinders'](tribe_sprout) craft: the recipe needs a Knotted Root and a Water Seal, and the Rootbinders trade a drum to Friends for Spirit Reeds."
+        "Drums are the [Rootbinders'](tribe_sprout) craft: the recipe needs a Knotted Root and a Water Seal, and the Rootbinders trade a drum to Friends for Spirit Reeds.",
+        "Crouch and right-click a face with an empty hand to step it through Both, Input, Output and Closed, as the [Totem Wrench](camp_kit) does."
       ]
     },
     {

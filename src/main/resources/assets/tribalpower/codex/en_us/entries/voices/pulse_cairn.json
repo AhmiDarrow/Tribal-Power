@@ -2,7 +2,6 @@
   "name": "Pulse Cairn",
   "icon": "tribalpower:pulse_cairn",
   "order": 70,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",

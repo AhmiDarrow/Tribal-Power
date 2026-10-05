@@ -22,6 +22,15 @@
       ]
     },
     {
+      "type": "text",
+      "title": "At the table",
+      "text": [
+        "You can only take a serving when you are hungry. Each one fills **6** hunger and gives the blessing at level I.",
+        "A whole feast picks back up when broken. Once a serving is gone it breaks into nothing, so move it before you start.",
+        "Eat one within **24 blocks** of a tribe's hearth during its [festival](living_march) and the tribe counts you at its table: **20 standing**, once a festival."
+      ]
+    },
+    {
       "type": "recipe",
       "item": "tribalpower:earth_feast"
     },

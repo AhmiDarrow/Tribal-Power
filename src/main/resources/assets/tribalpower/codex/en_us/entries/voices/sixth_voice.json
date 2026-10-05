@@ -2,7 +2,6 @@
   "name": "The sixth voice",
   "icon": "tribalpower:resonance_totem_loom",
   "order": 80,
-  "spoiler": true,
   "items": [
     "tribalpower:loom_thread"
   ],
@@ -20,14 +19,14 @@
       "text": [
         "The sunken Ancestor Halls in the March Steppe and Highlands keep Loom Thread in their two chests. Read the four tablets on your way out.",
         "The Loom-stitchers also trade a thread to Friends, for six March Crystals.",
-        "Carve a **Loom Seal**: a Blank Seal and one Loom Thread, shapeless. Seated in a Ritual Brazier with Pulse nearby, it threads **2 Pulse** into a Pulse Cell you carry every **two seconds**, with Luck."
+        "Carve a **Loom Seal**: a Blank Seal and one Loom Thread, shapeless. Seated in a Ritual Brazier with the Loom voice and Pulse within **8 blocks**, it threads **2 Pulse** into a Pulse Cell you carry every **two seconds** while you stand within **6 blocks**, with Luck. The brazier spends **8 Pulse** a beat to do it."
       ]
     },
     {
       "type": "text",
       "title": "Before the totem",
       "text": [
-        "Build Echo Unweave: March Stone around two Copper Resonators, a Spirit Shard and a Loom Thread. It needs the Loom voice within 8 blocks, and until you have the totem only a Loom-stitcher Kinship Totem or a Loom-stitcher camp can lend it.",
+        "Build Echo Unweave: March Stone around two Copper Resonators, a Spirit Shard and a Loom Thread. It needs the Loom voice within 8 blocks. Until you can craft the totem, build it beside a Loom totem that already stands in a Loom-stitcher camp, an Ancestor Hall or a Crystal Spire.",
         "Then wake The Unsung at a Drum Circle and take its **Unsung Heart**."
       ]
     },

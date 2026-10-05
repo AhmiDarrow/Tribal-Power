@@ -22,7 +22,7 @@
       "type": "text",
       "title": "Two kinds",
       "text": [
-        "Both rise in the dark day or night, one to three at a time. A kobold has **21 health** and **2 armour**, is quick, and hits for **4**."
+        "Both rise in the dark day or night, one or two at a time. A kobold has **21 health** and **2 armour**, is quick, and hits for **4**."
       ]
     },
     {
@@ -30,7 +30,7 @@
       "entity": "tribalpower:ridge_kobold",
       "title": "Ridge Kobold",
       "text": [
-        "Found in the dark caves under the Glimmer Ridge.",
+        "A small upright lizard-dog of a miner, with a pick and a lamp on its helmet, found in the dark caves under the Glimmer Ridge.",
         "Hunted, it also drops up to 2 Raw Copper and up to 1 Coal."
       ]
     },
@@ -39,7 +39,7 @@
       "entity": "tribalpower:geode_kobold",
       "title": "Geode Kobold",
       "text": [
-        "Found in the dark caves under the Crystal Fields.",
+        "A kobold grown over with crystal, carrying a crystal-tipped spear, found in the dark caves under the Crystal Fields.",
         "Hunted, it also drops up to 2 Amethyst Shards and up to 2 Lapis Lazuli."
       ]
     },

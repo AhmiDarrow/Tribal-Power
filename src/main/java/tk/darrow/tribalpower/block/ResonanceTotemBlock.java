@@ -159,6 +159,12 @@ public class ResonanceTotemBlock extends BaseEntityBlock {
             }
             return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
+        // Chalk and the Bonding Charm do their work on the totem themselves: hand the click to the item
+        // rather than spend it on the totem's own status report, which would swallow every plain click.
+        if (stack.getItem() instanceof tk.darrow.tribalpower.item.RitualChalkItem
+                || stack.getItem() instanceof tk.darrow.tribalpower.familiar.BondingCharmItem) {
+            return net.minecraft.world.ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+        }
         if (!player.isShiftKeyDown() || !linkable(stack)) {
             return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }

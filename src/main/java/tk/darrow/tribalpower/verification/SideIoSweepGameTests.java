@@ -138,4 +138,33 @@ public class SideIoSweepGameTests {
                 faults.add(name + ": a pipe can fill through a " + mode + " face");
         }
     }
+
+    /**
+     * Ritual Chalk links two totems with a plain right-click, as the Codex and its tooltip say, on either half. The
+     * totem's own status click used to take every plain click first, so only a sneak-click ever reached the chalk.
+     */
+    @GameTest(template = "empty")
+    public static void chalkLinksTotemsWithAPlainClick(GameTestHelper h) {
+        var level = h.getLevel();
+        var block = tk.darrow.tribalpower.block.ModBlocks.RESONANCE_TOTEM_AIR.get();
+        var half = tk.darrow.tribalpower.block.ResonanceTotemBlock.HALF;
+        for (int x : new int[] {1, 5}) {
+            h.setBlock(new BlockPos(x, 1, 2), block.defaultBlockState());
+            h.setBlock(new BlockPos(x, 2, 2), block.defaultBlockState().setValue(half, net.minecraft.world.level.block.state.properties.DoubleBlockHalf.UPPER));
+        }
+        var player = net.neoforged.neoforge.common.util.FakePlayerFactory.getMinecraft(level);
+        var chalk = new ItemStack(tk.darrow.tribalpower.item.ModItems.RITUAL_CHALK.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, chalk);
+        player.setShiftKeyDown(false);
+        // the first totem by its top half, the second by its base: both must reach the chalk
+        for (BlockPos rel : new BlockPos[] {new BlockPos(1, 2, 2), new BlockPos(5, 1, 2)}) {
+            BlockPos at = h.absolutePos(rel);
+            player.gameMode.useItemOn(player, level, player.getMainHandItem(), net.minecraft.world.InteractionHand.MAIN_HAND,
+                    new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(at), Direction.NORTH, at, false));
+        }
+        BlockPos first = h.absolutePos(new BlockPos(1, 1, 2)), second = h.absolutePos(new BlockPos(5, 1, 2));
+        h.assertTrue(level.getBlockEntity(first) instanceof tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity a && a.getLinks().contains(second),
+                "A plain chalk click on two totems links them");
+        h.succeed();
+    }
 }

@@ -7,7 +7,7 @@
       "type": "spotlight",
       "item": "tribalpower:lattice_converter",
       "text": [
-        "The Lattice Converter is the Harmonic Energizer turned around: feed it Forge Energy (FE) from another mod's generators or cables and it beats that energy into Pulse for your camp.",
+        "The Lattice Converter is the [Harmonic Energizer](pulse_adapter) turned around: feed it Forge Energy (FE) from another mod's generators or cables and it beats that energy into Pulse for your camp.",
         "It is not a fair trade. Raw FE is noise to a lattice, and it takes totem voices to make it hold."
       ]
     },
@@ -16,7 +16,7 @@
       "title": "Setting it up",
       "text": [
         "Run FE into any face. The Converter buffers **48,000 FE** and never gives FE back out.",
-        "Each second it makes up to **40 Pulse** and puts it into Pulse stores within **8 blocks**: Pulse Cairns, totem buffers and gate keystones first, then generators with room to spare. If nothing nearby has room, it waits and spends no FE.",
+        "Each second it makes up to **40 Pulse** and puts it into Pulse stores within **8 blocks**: Pulse Cairns, totem buffers, gate keystones and other Pulse stores first, then generators with room to spare. If nothing nearby has room, it waits and spends no FE.",
         "Each [rank](machine_ranks) makes more Pulse a second."
       ]
     },
@@ -25,7 +25,7 @@
       "title": "Voices make it cheaper",
       "text": [
         "With no voices around, one Pulse costs **220 FE**. Every distinct **Answered** Resonance Totem voice within 8 blocks takes **20 FE** off, down to **120 FE** at five voices. Kinship Totems do not count here.",
-        "Pulse to FE and back always loses some: the Energizer pays 100 FE for a Pulse, and the Converter never asks less than 120."
+        "Pulse to FE and back always loses some: the Energizer turns one Pulse into 100 FE, and the Converter never takes less than 120 FE to make one."
       ]
     },
     {

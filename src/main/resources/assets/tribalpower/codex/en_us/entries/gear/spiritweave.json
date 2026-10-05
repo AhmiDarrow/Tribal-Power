@@ -2,7 +2,6 @@
   "name": "Spiritweave",
   "icon": "tribalpower:spiritweave_hood",
   "order": 30,
-  "spoiler": true,
   "items": [
     "tribalpower:spiritweave",
     "tribalpower:spiritweave_robe",
@@ -23,7 +22,7 @@
       "title": "The cloth",
       "text": [
         "Spiritweave cloth comes from **Echo Bind** with the Water voice: any wool becomes one cloth, and Echo Silk, Dawn Velvet, Lantern Down, Mossback Scale or a Storm Wing becomes two.",
-        "Four pieces take the usual armour shapes. Echo Unweave turns cloth back into wool."
+        "Four pieces take the usual armour shapes; the robe and leggings also take a Resonant Core in the middle. Spiritweave cloth mends them on any anvil. Echo Unweave turns cloth back into wool."
       ]
     },
     {

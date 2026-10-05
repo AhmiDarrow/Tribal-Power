@@ -16,7 +16,7 @@
       "title": "What it hits",
       "text": [
         "On each beat, once a second, it finds one hostile within **8 blocks** (a cube around the drum) and hits it for **4 magic damage** with a shove away from the drum.",
-        "Each strike costs **8 Pulse** from a generator within 8. Ranking shortens the beat; Pulse per strike stays 8. It answers to **Spirit**: keep a Spirit totem within 8 blocks (see Camp hands), or it stands idle.",
+        "Each strike costs **8 Pulse** from a generator within 8. Ranking shortens the beat; Pulse per strike stays 8. It answers to **Spirit**: keep a Spirit totem within 8 blocks (see [Camp hands](camp_hands)), or it stands idle.",
         "Players are never the target, and neither are bonded familiars, yours or anyone's, nor young ones."
       ]
     },
@@ -311,7 +311,7 @@
       "title": "Living with it",
       "text": [
         "Right-click it to see what it last struck. A lever silences it.",
-        "It is a guard, not a farm: one strike a second will not keep up with a spawner. If the deaths should pay you back, set a Wake Bell within 16 blocks of where they fall.",
+        "It is a guard, not a farm: one strike a second will not keep up with a spawner. If the deaths should pay you back, set a [Wake Bell](wake_bell) within 16 blocks of where they fall.",
         "A Hush Totem stops hostiles spawning inside camp; the Ward Drum deals with the ones that walk in from outside."
       ]
     },

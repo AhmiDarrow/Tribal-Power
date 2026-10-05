@@ -2,7 +2,6 @@
   "name": "Bonding a familiar",
   "icon": "tribalpower:bonding_charm",
   "order": 400,
-  "spoiler": true,
   "next": "familiar_gifts",
   "pages": [
     {
@@ -16,7 +15,7 @@
       "type": "text",
       "text": [
         "Craft it from **two Spiritweave**, a **Spirit Shard** and **one creature reagent**: Dawn Velvet, Lantern Down, Mossback Scale, Prism Carapace, Rift Tooth, Cinder Knot, Storm Wing, Bell Fragment or Echo Silk.",
-        "Any one of them works, and the finished charm bonds any creature that will answer, whichever reagent went in. Brush a gentle animal for its reagent, or take one from a fallen remnant.",
+        "Any one of them works, and the finished charm bonds any creature that will answer, whichever reagent went in. Brush a Dawn Stag, Lantern Fox or Mossback for its reagent, or take one from a fallen remnant. Other beasts' reagents will not do.",
         "Before you have Spiritweave, **four String** around the reagent and the shard make the same charm.",
         "Once bonded, give your familiar a voice at a totem: see [attuning at a totem](familiar_attuning)."
       ],

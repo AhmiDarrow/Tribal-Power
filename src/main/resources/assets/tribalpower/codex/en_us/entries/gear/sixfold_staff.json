@@ -2,7 +2,6 @@
   "name": "Sixfold Staff",
   "icon": "tribalpower:spirit_staff",
   "order": 10,
-  "spoiler": true,
   "items": [],
   "pages": [
     {
@@ -17,7 +16,7 @@
       "type": "text",
       "title": "The six spells",
       "text": [
-        "Crouch and use to cycle Earth, Fire, Water, Air, Spirit and Loom; the action bar names the voice. Use to cast.",
+        "Crouch and use to cycle Earth, Fire, Water, Air, Spirit and Loom; the action bar names the voice. Use to cast. The **Staff: next voice** key cycles without the crouch once you bind it under Tribal Power in Controls.",
         "- **Earth** (12 Pulse): a 4-damage blow that slows the foe heavily for 5 seconds.",
         "- **Fire** (18): an 8-damage strike that sets the foe alight for 4 seconds.",
         "- **Water** (24): heals and cleanses you. It puts out fire, clears poison, and gives regeneration for 5 seconds and water breathing for 30.",
@@ -40,7 +39,8 @@
       "text": [
         "Earth, Fire and Loom need a hostile target. They reach **18 blocks** and stop at solid blocks; with no target they do not fire and cost nothing.",
         "After a cast the staff rests: **8 seconds** after Water, **2 seconds** after the others, **1.5 seconds** after a stitch.",
-        "It drinks from its own seated cell first, then from the cells you carry, offhand first. If they are all dry, the cast does not fire."
+        "It drinks from its own seated cell first, then from the cells you carry, offhand first. If they are all dry, the cast does not fire.",
+        "While **Unsung Hush** is on you the staff will not cast (see [Afflictions](afflictions))."
       ]
     },
     {

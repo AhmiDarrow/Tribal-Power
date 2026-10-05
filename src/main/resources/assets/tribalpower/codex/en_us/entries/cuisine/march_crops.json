@@ -13,7 +13,7 @@
     {
       "type": "text",
       "text": [
-        "Five crops grow wild out there, each in its own country. Find a patch, pick it, and what you picked is the seed: plant it on tilled ground like a potato.",
+        "Five crops grow wild out there, each in its own country. Find a patch, pick it, and what you picked is the seed: plant it on farmland like a potato. It will also take on plain dirt, March Soil or sand, which is how the wild patches grow.",
         "- **Emberroot** in the Ember Wastes: a hot red tuber.",
         "- **Fen Rice** in the Reed Fen.",
         "- **Frostberry** in the Snow Fields.",
@@ -25,7 +25,7 @@
     {
       "type": "text",
       "text": [
-        "They grow through four stages on farmland. All of them can be eaten raw, though not for much. The [Spiritgear Hoe](spiritgear) reaps and replants them in one stroke, bees pollinate them, and the [Sprout boon](tribe_boons) hurries them along.",
+        "They grow through four stages. All of them can be eaten raw, though not for much. The [Spiritgear Hoe](spiritgear) reaps and replants them in one stroke, bees pollinate them, and the [Sprout boon](tribe_boons) hurries them along.",
         "Frostberry and Glimmer Bean also count as herbs for the [Spirit Kettle](spirit_kettle)."
       ],
       "title": "Farming them"

@@ -2,7 +2,6 @@
   "name": "Far Gate",
   "icon": "tribalpower:gate_sigil",
   "order": 80,
-  "spoiler": true,
   "next": "keeping_the_way",
   "pages": [
     {

@@ -2,7 +2,6 @@
   "name": "Deep Cache",
   "icon": "tribalpower:deep_cache",
   "order": 20,
-  "spoiler": true,
   "items": [
     "tribalpower:wayfarer_satchel"
   ],
@@ -30,6 +29,7 @@
       "text": [
         "The satchel opens the same vault from anywhere, with the same attunement rule. It is a key, not a bag: nothing is stored in the item itself, so it cannot be duplicated or lost with its contents. The vault will not take a satchel, so you can never lock the key inside.",
         "If you belong to a [shared camp](shared_camps), a Deep Cache or satchel opens the camp's shared vault. Crouch as you open it to switch to your personal vault and back; it remembers your choice. The camp vault is a separate inventory.",
+        "The **Satchel vault** key switches between the camp vault and your personal one without opening anything. It starts unbound: set it under Tribal Power in Options, Controls.",
         "Every vault view has a **Tidy** button above its slots that merges and sorts what is inside; see [Ancestral Cache](ancestral_cache)."
       ]
     },

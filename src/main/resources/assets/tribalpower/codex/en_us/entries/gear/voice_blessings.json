@@ -2,7 +2,6 @@
   "name": "Voice Blessings",
   "icon": "tribalpower:resonance_totem_spirit",
   "order": 85,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -12,7 +11,7 @@
         "Each of the six voices has a **blessing**: a way it lends itself to whoever it favours. You will see it as a status effect in that voice's colour.",
         "There are three ways to earn one:",
         "- **Sing a Ward.** A Ward song grants its voice's blessing, **45 seconds** for every note of power in it.",
-        "- **A [seal rite](rite_circle) at a Rite Pedestal** blesses everyone within 6 blocks with the seal's voice for **5 minutes**; an amplified rite gives 7 and a half, at level II.",
+        "- **A [seal rite](rite_circle) at a Rite Pedestal** blesses everyone within 6 blocks with the seal's voice for **5 minutes**; an amplified rite gives 7 and a half, at level II. An attuned [familiar](familiar_boons) of that voice beside you stretches it half again.",
         "- **Eat from a voice's [feast](feasts).** Each serving grants that voice's blessing for 8 minutes.",
         "A worn **Lantern Charm** keeps any blessing or boon lit **half again as long**."
       ]

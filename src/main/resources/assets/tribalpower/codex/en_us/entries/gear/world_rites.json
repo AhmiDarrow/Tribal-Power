@@ -2,7 +2,6 @@
   "name": "World rites",
   "icon": "tribalpower:rite_rain_calling",
   "order": 100,
-  "spoiler": true,
   "items": [
     "tribalpower:rite_sky_clearing",
     "tribalpower:rite_dawn_calling"
@@ -20,7 +19,7 @@
       "type": "text",
       "title": "Carving and casting",
       "text": [
-        "Each tablet is two stone, a creature reagent and the matching seal, shapeless. The seal is handed back.",
+        "Each tablet is two cobblestone (or blackstone or cobbled deepslate), its reagent and the matching seal, shapeless. The seal is handed back.",
         "Seat that seal in the brazier (its blessing keeps running), draw the [Rite Circle](rite_circle), and gather the full cost within **8 blocks** of the brazier: a well-stocked Drumheart, a Resonator with a good catalyst, or several generators together. A cell in your pocket does not count. A Pulse Gauge or the Codex shows the total.",
         "Crouch and use the tablet on the brazier. If the Lattice holds less than the cost, nothing is spent; otherwise the tablet is consumed and the Pulse drawn."
       ]

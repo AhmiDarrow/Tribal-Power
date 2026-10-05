@@ -12,7 +12,7 @@
       "type": "creature",
       "entity": "tribalpower:the_unsung",
       "text": [
-        "A hollow drum-spirit with two rune arms and a cracked mask. It only wants the rhythm back."
+        "An hourglass drum with a cracked porcelain mask and two rune arms. It only wants the rhythm back."
       ]
     },
     {
@@ -37,15 +37,16 @@
       "type": "text",
       "text": [
         "Below two thirds it starts calling **two Echo Weavers every 8 seconds**, up to **six** at once, and the shockwaves come every **2.5 seconds**.",
-        "Clear the weavers before they slow you. Their bite leaves you sluggish, and you still have shockwaves to brace against."
+        "Clear the weavers before they slow you. Their bite leaves you sluggish, and you still have shockwaves to brace against.",
+        "A weaver you bond in the fight (the Loom-stitchers must call you **Voice**) is yours: it stops counting for The Unsung and stays when the fight ends."
       ],
       "title": "Chorus"
     },
     {
       "type": "text",
       "text": [
-        "Below one third it hovers over the drum and cannot be hurt. Every 2 seconds it fires a slow weaving bolt: **5 damage**, Slowness and Weakness. Bolts break on solid blocks, so cover helps.",
-        "Walk to the Silent Drum and play the four-beat again. That resyncs it: it is **stunned for 8 seconds** and takes **double damage**.",
+        "Below one third it hovers over the drum and cannot be hurt. Every 2 seconds it fires a slow weaving bolt: **5 damage**, Slowness and Weakness, and [Unsung Hush](afflictions) for **12 seconds**: no song or staff voice answers until it lifts. Bolts break on solid blocks, so cover helps.",
+        "Walk to the Silent Drum and play the four-beat again. That resyncs it: it is **stunned for 8 seconds** and takes **double damage**, then can still be hurt at normal damage for **4 seconds** more.",
         "Silence returns **12 seconds** after each resync, so hit hard, then play again."
       ],
       "title": "Silence"

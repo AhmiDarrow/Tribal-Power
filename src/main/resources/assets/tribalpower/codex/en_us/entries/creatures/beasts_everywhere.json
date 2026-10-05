@@ -28,7 +28,7 @@
       "title": "Wanderers",
       "text": [
         "Eight gentle creatures are not tied to one land. You will meet them across the March, in the open, in the caves and at the edge of lava.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own.",
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning)).",
         "Several of their reagents grind into dye: see [reagents](reagents)."
       ]
     },
@@ -37,7 +37,7 @@
       "entity": "tribalpower:ash_hopper",
       "title": "Ash Hopper",
       "text": [
-        "A small, quick hopper of the Steppe, the Crystal Fields and the Ember Wastes, in groups of two to four. **12 health**. Drops **1 to 2 Ash Tufts**.",
+        "A small, quick jerboa of the Steppe, the Crystal Fields and the Ember Wastes, in groups of two to four. **12 health**. Drops **1 to 2 Ash Tufts**.",
         "Hunted, it also drops up to 1 Raw Game and up to 1 Rabbit Hide. Breed with **carrots or Steppe Grain**."
       ]
     },
@@ -46,7 +46,7 @@
       "entity": "tribalpower:ridge_grazer",
       "title": "Ridge Grazer",
       "text": [
-        "A woolly grazer of the Highlands, the Glimmer Ridge and the Snow Fields. **26 health**, **2 armour**. Drops **1 to 2 Grazer Wool** (light grey dye).",
+        "A small woolly mammoth of the Highlands, the Glimmer Ridge and the Snow Fields. **26 health**, **2 armour**. Drops **1 to 2 Grazer Wool** (light grey dye).",
         "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**."
       ]
     },
@@ -55,7 +55,7 @@
       "entity": "tribalpower:crag_bounder",
       "title": "Crag Bounder",
       "text": [
-        "A horned grazer of the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields. **20 health**, **2 armour**. Drops **1 to 2 Bounder Horns**.",
+        "An ibex of the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields. **20 health**, **2 armour**. Drops **1 to 2 Bounder Horns**.",
         "Hunted, it also drops 1 to 2 Raw Game and up to 1 March Leather. Breed with **wheat**."
       ]
     },
@@ -64,7 +64,7 @@
       "entity": "tribalpower:dust_flitter",
       "title": "Dust Flitter",
       "text": [
-        "The commonest flier in the March, in every land including the Shallows. **8 health**. Drops **1 to 2 Flitter Wings**.",
+        "A little finch, the commonest flier in the March, in every land including the Shallows. **8 health**. Drops **1 to 2 Flitter Wings**.",
         "Hunted, it also drops up to 2 Feathers. Breed with **wheat seeds or Steppe Grain**."
       ]
     },
@@ -73,7 +73,7 @@
       "entity": "tribalpower:glimmer_moth",
       "title": "Glimmer Moth",
       "text": [
-        "A small moth of the Crystal Fields, the Glimmer Ridge and the Reed Fen. **10 health**. Drops **1 to 2 Glimmer Dust** (cyan dye).",
+        "A pale green luna moth of the Crystal Fields, the Glimmer Ridge and the Reed Fen. **10 health**. Drops **1 to 2 Glimmer Dust** (cyan dye).",
         "Hunted, it also drops up to 1 String and up to 1 Glowstone Dust. Breed with **Echo Blooms or any small flower**."
       ]
     },
@@ -89,7 +89,7 @@
       "entity": "tribalpower:stone_grub",
       "title": "Stone Grub",
       "text": [
-        "A small, armoured grub of the dark caves under every land but the Shallows, two to five at a time. **10 health**, **4 armour**. Drops **1 to 2 Grub Husks** (brown dye).",
+        "A caddis grub in a case of pebbles, of the dark caves under every land but the Shallows, two to four at a time. **10 health**, **4 armour**. Drops **1 to 2 Grub Husks** (brown dye).",
         "Hunted, it also drops up to 1 Slimeball. Breed with **Lantern Caps or any mushroom**."
       ]
     },
@@ -98,7 +98,7 @@
       "entity": "tribalpower:ember_drifter",
       "title": "Ember Drifter",
       "text": [
-        "A floating ember that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
+        "A fire-bellied firefly that gathers by lava. **12 health**, **immune to fire**. Drops **1 to 2 Ember Motes** (red dye), an Ember reagent.",
         "Hunted, it also drops up to 2 Charcoal. Breed with **coal or charcoal**."
       ]
     },
@@ -107,7 +107,7 @@
       "entity": "tribalpower:magma_creeper",
       "title": "Magma Creeper",
       "text": [
-        "A slow, armoured crawler of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
+        "A magma pangolin, slow and armoured, of the hot stone by lava. **22 health**, **6 armour**, **immune to fire**. Drops **1 to 2 Magma Scales** (orange dye), an Ember reagent. Magma Scales call the Slag Titan at the Slag Throne.",
         "Hunted, it also drops up to 1 Magma Cream. Breed with **coal or charcoal**."
       ]
     },

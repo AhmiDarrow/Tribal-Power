@@ -19,11 +19,20 @@
     },
     {
       "type": "text",
+      "title": "Two blocks tall",
+      "text": [
+        "A Resonance Totem stands **two blocks** tall, so leave a free block above where you place one.",
+        "Click either half: the top answers just like the base. Break either half and the whole totem comes away as one item, with everything it holds.",
+        "A one-block totem from an older world grows its top back on its own once the block above it is air."
+      ]
+    },
+    {
+      "type": "text",
       "title": "Which voice does what",
       "text": [
         "Each workshop answers to one voice and waits for a totem of it within **8 blocks**:",
         "- **Earth**: Echo Shatter, the Stone Font and the Listening Pit.",
-        "- **Fire**: Echo Attune and the Ember Kiln.",
+        "- **Fire**: Echo Attune and the Ember Kiln. Attuning a creature reagent asks for **Spirit** instead.",
         "- **Water**: Echo Bind.",
         "- **Spirit**: Echo Manifest.",
         "- **Loom**: Echo Unweave and Far Gates. It is the last voice; see [The sixth voice](sixth_voice).",
@@ -214,8 +223,8 @@
       "title": "Voices, not blocks",
       "text": [
         "Stations count voices, not totems: two Earth totems are still one voice. Having many different voices matters to the Pulse Resonator and the Loom Anchor, which make more Pulse for every **distinct** voice around them.",
-        "A Kinship Totem lends its tribe's element wherever a Resonance Totem of that voice would count, and it never goes quiet. On a Pulse Resonator each tribe also adds an extra voice, but never a seventh element.",
-        "A totem chalk-linked to one near the station lends its voice too, if it stands less than 16 blocks from the station.",
+        "A Kinship Totem lends its tribe's element to stations, camp devices and the Loom Anchor, and it never goes quiet. A Pulse Resonator counts it differently: each tribe adds one extra voice, never a seventh element.",
+        "A totem chalk-linked to one near the station lends its voice too, if it stands less than 16 blocks from the station. Camp devices and the Resonator do not hear chalk links.",
         "Each totem also holds **250 Pulse** for the lattice, and it has to be kept awake: see [Keeping](keeping)."
       ]
     },
@@ -230,7 +239,8 @@
         "- **Water**: the Wave Drum, of the [Rootbinders](tribe_sprout).",
         "- **Spirit**: the Wake Bell, of the [Seal-carvers](tribe_sigil).",
         "- **Loom**: the Loom Anchor, of the [Loom-stitchers](tribe_spindle).",
-        "Get all six producing at once within **32 blocks** of a Loom Anchor and everyone standing near it earns **Six voices singing**."
+        "Get all six producing at once within **32 blocks** of a Loom Anchor and everyone standing near it earns **Six voices singing**.",
+        "In [the March](living_march), weather favours one voice's generators and hampers another's."
       ]
     },
     {

@@ -10,7 +10,7 @@
       "type": "spotlight",
       "item": "tribalpower:spirit_anvil",
       "text": [
-        "An anvil for Spiritgear. Put a worn Spiritgear tool or weapon (the Pulse Bow and Pulse Crossbow too) on the left and **Manifested Ingots** on the right: each ingot mends a quarter of its durability, for a level each, the way an iron anvil mends a tool with its own metal."
+        "An anvil for Spiritgear. Put a worn Spiritgear tool or weapon (the Pulse Bow and Pulse Crossbow too) on the left and **Manifested Ingots** on the right: each ingot mends a quarter of its durability, for a level each plus the usual anvil charge for past work, the way an iron anvil mends a tool with its own metal."
       ]
     },
     {
@@ -19,7 +19,8 @@
       "text": [
         "Everything an anvil does, it does: rename, add enchanted books, combine two of the same tool, mend other gear with its own material.",
         "Unlike an iron anvil it never chips or breaks, from use or from a fall. It still falls if nothing holds it up.",
-        "Its face is a Block of Manifested Metal between two iron blocks: nine Manifested Ingots crafted together, and back into nine ingots whenever you need them."
+        "Its face is a Block of Manifested Metal between two iron blocks: nine Manifested Ingots crafted together, and back into nine ingots whenever you need them.",
+        "On any anvil, the Spiritgear pickaxe, axe, shovel, hoe, blade and weapons, and the [Resonance Maul](resonance_maul), also mend with **diamonds**, as diamond tools do. Spiritweave mends with Spiritweave cloth. Manifested Ingots mend neither the Maul nor Spiritweave."
       ]
     },
     {

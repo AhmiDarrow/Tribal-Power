@@ -2,7 +2,6 @@
   "name": "Anointing",
   "icon": "tribalpower:spiritgear_greatsword",
   "order": 72,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -56,6 +55,5 @@
         "Anointments only fire on your own melee blows, not arrows or spells. Every number is in the **anointing** section of the common config, so a pack may tune them."
       ]
     }
-  ],
-  "next": "spiritgear_weapons"
+  ]
 }

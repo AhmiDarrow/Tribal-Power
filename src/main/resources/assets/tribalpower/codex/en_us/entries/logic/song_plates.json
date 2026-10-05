@@ -23,8 +23,8 @@
       "item": "tribalpower:chorus_plate",
       "text": [
         "Thirteen small plates, each doing one clear job with redstone: gates, memory, clocks and counters.",
-        "Snap one onto a block face the way you snap a relay. The face it points out of is its **output**.",
-        "Right-click a plate to hear what it is doing. Crouch-use Heartbeat, Drift or Tally to change its count. A **Totem Wrench** syncs plates so they hear each other with no wire at all: see Syncing plates.",
+        "Place one on a block face; the face it points out of is its **output**. On a machine, a drum or another plate, crouch while placing, or the click works that block instead.",
+        "Right-click a plate to hear what it is doing. Crouch and right-click Heartbeat, Drift or Tally with an empty hand to change its count. A **Totem Wrench** syncs plates so they hear each other with no wire at all: see Syncing plates.",
         "Every plate is built around [Song Thread](song_thread), which needs **Loom Thread** from the March, so plates come after your first trip there."
       ],
       "title": "Song plates"
@@ -34,7 +34,7 @@
       "title": "Which side is which",
       "text": [
         "A plate's **back** is the block it is mounted on. Its front points away from that block; it powers only the block right in front, and only weakly, so it never latches through stone.",
-        "- **Unary** plates (Inverse, Echo, Drift, Strike, Chance, Tally, Verse) read the **back**. Power the block they sit on: a lever on it, dust into it, or mount the plate straight onto a Pulse Threshold.",
+        "- **Unary** plates (Inverse, Echo, Drift, Strike, Chance, Tally, Verse) read the **back**. Power the block they sit on: a lever on it, dust into it, or mount the plate straight onto a Pulse Threshold. Song Thread never powers the block it touches, so to read a thread line, mount the plate on the last thread itself.",
         "- **Binary** plates (Chorus, Gathering, Discord, Hush) read **left and right**, as seen from behind the plate. On a floor or ceiling, left is west and right is east.",
         "- **Memory** reads left to set and right to clear. **Heartbeat** needs no input.",
         "A plate hears only power pointed into it: a repeater facing away is not heard, and neither is another plate pointed straight into it. To join two plates, sync them with the wrench."
@@ -49,6 +49,7 @@
         "- **A sync runs one way.** Each plate hears up to **8** others within **32 blocks**, in the same world. The wrench keeps the song, so one source can feed a whole row.",
         "- **Use the wrench on the pair again to unsync it.** Crouch-use the wrench in the air to let go of the song.",
         "A new sync costs **1 Pulse** from a carried cell, or a point of the wrench.",
+        "A server can change the reach and the cap with **plateLinkRange** and **plateLinkMax**. Syncs made before a change are kept; one now out of reach is heard as 0.",
         "A plate belongs to whoever set it down and their camp: anyone may read it, but syncing someone else's plate, holding its song or changing its count is refused."
       ]
     },
@@ -89,7 +90,7 @@
       "text": [
         "These plates remember.",
         "- **Memory**: a live left sets it to 15; a live right clears it. The output stays until told otherwise. If both are live, clear wins.",
-        "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
+        "- **Tally**: each rising edge on the back adds one. Once the count reaches the threshold it sings 15. Crouch-use with an empty hand cycles the threshold **1 to 8** (it starts at 4). A rising left resets the count.",
         "- **Verse**: starts at **4** with no pulse. Each rising edge on the back steps it to **8**, then **12**, then **15**, then back to 4. A comparator reads the same number.",
         "The Verse Plate is not the Verse Call: to carry redstone to a lamp or a machine with no wire, see [Verse Call and Answer](verse_link)."
       ]
@@ -102,7 +103,7 @@
         "- **Drift** copies the back only after it has stayed live for **4, 8, 16 or 32** ticks (crouch-use to cycle; it starts at 4), and drops as soon as the back falls.",
         "- **Strike** gives one tick of 15 on a rising back, then goes quiet: the struck signal Drumhearts and braziers listen for.",
         "- **Chance** flips a coin on each rising back: 15 or 0, held until the back falls.",
-        "A one-second Heartbeat on a Drumheart is a **24-Pulse** beat when the edge lands in tempo."
+        "A one-second Heartbeat on a Drumheart is a **24-Pulse** beat when the edge lands in tempo. Slower settings earn only **10** a beat."
       ]
     },
     {

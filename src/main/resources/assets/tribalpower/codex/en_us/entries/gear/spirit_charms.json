@@ -2,7 +2,6 @@
   "name": "Spirit Charms",
   "icon": "tribalpower:sky_charm",
   "order": 60,
-  "spoiler": true,
   "items": [
     "tribalpower:ember_charm",
     "tribalpower:tide_charm",
@@ -30,14 +29,16 @@
       "text": [
         "Use a charm to wear it. Crouch-use any charm to open the three slots.",
         "Worn charms cost **2 Pulse per voice every two seconds** from a carried Pulse Cell. When the cells run dry the boons stop, flight with them, so recharge or unequip.",
-        "Voices add up across everything you wear, but the same voice twice gives its boon once."
+        "Voices add up across everything you wear, but the same voice twice gives its boon once.",
+        "An attuned [familiar](familiar_boons) nearby that shares a charm's voice cuts that charm's upkeep by **40%** and adds a boon of its own.",
+        "Worn charms fall to the ground when you die, unless your world keeps inventory."
       ]
     },
     {
       "type": "text",
       "title": "The eleven charms",
       "text": [
-        "- **Sky** (Air): creative flight while Pulse lasts, as with any charm that carries Air.",
+        "- **Sky** (Air): creative flight while Pulse lasts, as with any charm that carries Air except the Gathering Charm.",
         "- **Ember** (Fire): fire resistance, and attackers catch flame for 3 seconds.",
         "- **Tide** (Water): water breathing and a swimmer's grace.",
         "- **Root** (Earth): resistance.",

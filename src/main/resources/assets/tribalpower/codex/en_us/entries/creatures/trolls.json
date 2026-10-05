@@ -25,7 +25,7 @@
       "entity": "tribalpower:crag_troll",
       "title": "Crag Troll",
       "text": [
-        "Found in the Highlands. It rises on the open ground at night, one to three at a time.",
+        "Found in the Highlands. It rises on the open ground at night, one or two at a time.",
         "Hunted, it also drops 1 to 3 March Leather, 1 to 2 Bones and up to 2 Flint."
       ]
     },
@@ -34,7 +34,7 @@
       "entity": "tribalpower:rime_troll",
       "title": "Rime Troll",
       "text": [
-        "Found in the Snow Fields. It rises on the open ground at night, one to three at a time.",
+        "Found in the Snow Fields. It rises on the open ground at night, one or two at a time.",
         "Hunted, it also drops 1 to 3 March Leather, 1 to 2 Bones and 1 to 3 Snowballs."
       ]
     },

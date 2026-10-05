@@ -24,7 +24,8 @@
       "title": "Setting a layout down",
       "text": [
         "**Use it on a block to set the layout down.** The hologram stops following you and stands on that spot — and it keeps standing while the chalk sits **anywhere in your hotbar**, so you can put it away, take up blocks and build inside the ghosts. Use it on the same spot again to rub the mark out.",
-        "A ghost stands only where a block is still wanted. Fill one and it goes out, so what is left glowing is exactly what is left to build."
+        "A ghost stands only where a block is still wanted. Fill one and it goes out, so what is left glowing is exactly what is left to build.",
+        "The set mark stands only in the world it was set in, and only while you are within **192 blocks** of it."
       ]
     },
     {

@@ -2,7 +2,6 @@
   "name": "Tribe Boons",
   "icon": "tribalpower:tribe_mark",
   "order": 86,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -10,7 +9,7 @@
       "title": "A tribe's way, lent to you",
       "text": [
         "Every tribe has a **boon**: a small perk in that tribe's way of doing things, shown as a status effect in the tribe's colour.",
-        "Reach **Kin** standing with a tribe and you carry its boon for as long as the standing lasts. It refreshes on its own; you never have to ask. Anyone can carry a boon for a while by eating that tribe's [dish](tribe_dishes).",
+        "Reach **Kin** standing with a tribe and you carry its boon for as long as the standing lasts. It refreshes on its own; you never have to ask. Anyone can carry a boon for a while by eating that tribe's [dish](tribe_dishes). Carrying a tribe's [relic](elders_and_stories) gives its boon too, whatever your standing.",
         "A worn **Lantern Charm** keeps a boon lit half again as long."
       ]
     },
@@ -36,6 +35,5 @@
       ],
       "title": "The nine boons, continued"
     }
-  ],
-  "next": "standing"
+  ]
 }

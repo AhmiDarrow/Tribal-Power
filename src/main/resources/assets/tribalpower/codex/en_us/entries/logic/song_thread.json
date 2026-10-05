@@ -10,7 +10,7 @@
       "item": "tribalpower:song_thread",
       "text": [
         "Redstone is a shout; Song Thread is a hummed line through the air. It carries a signal from **0 to 15** in all **six directions**, up and down included, and needs nothing to rest on.",
-        "**It needs Loom Thread**, which only the March gives: Ancestor Hall chests, the Loom-stitchers' trades, and The Unsung. Song Vine, the song plates and the Verse Call are all made with Song Thread, so they wait for it too. Until then, build with redstone dust, repeaters and comparators."
+        "**It needs Loom Thread**, which only the March gives: chests in its old halls, tombs, gates and roosts, the Loom-stitchers' trades at Friend rank, and The Unsung. Song Vine, the song plates and the Verse Call are all made with Song Thread, so they wait for it too. Until then, build with redstone dust, repeaters and comparators."
       ]
     },
     {
@@ -228,7 +228,7 @@
           ]
         },
         {
-          "caption": "Crouch and use the plate until it reads 20 ticks: one beat a second.",
+          "caption": "A new Heartbeat already beats every 20 ticks, one a second. Right-click it to check; crouch-use only to slow it.",
           "highlight": [
             [
               -1,
@@ -253,7 +253,7 @@
       "type": "text",
       "title": "Keeping time",
       "text": [
-        "A Drumheart counts beats **17 to 23 ticks** apart as on time, worth **24 Pulse**. Faster pulses earn less, and beats under 8 ticks apart are ignored, so a steady one-second Heartbeat lands every beat.",
+        "A Drumheart counts beats **17 to 23 ticks** apart as on time, worth **24 Pulse**. Any other spacing pays at most **10**, and beats under 8 ticks apart are ignored, so leave the Heartbeat at 20 ticks: slower settings earn only 10 a beat. Only two drums within 8 blocks of each other earn Pulse.",
         "If the drum does not fill, check the plate's facing, its support block and the thread, and remove any constant power nearby. Get the clock and drum working before you add thresholds or Memory Plates.",
         "Add a [Pulse Gauge](pulse_gauge) if you want the stored amount as a signal."
       ]

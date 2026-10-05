@@ -20,7 +20,7 @@
       "title": "The snow's own",
       "text": [
         "The Snow Fields keep a seal on the drifts, a caribou, and a jellyfish that floats on the cold air, and an ice scorpion that crawls out of the snow at night.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning))."
       ]
     },
     {
@@ -58,7 +58,7 @@
       "entity": "tribalpower:rime_crawler",
       "title": "Rime Crawler",
       "text": [
-        "An ice scorpion, its tail arched over its back, that rises on the open snow at night, one to three at a time. It has **23 health** and **3 armour**, and its sting does **4** and poisons you for 3 seconds.",
+        "An ice scorpion, its tail arched over its back, that rises on the open snow at night, one or two at a time. It has **23 health** and **3 armour**, and its sting does **4** and poisons you for 3 seconds.",
         "It drops **1 to 2 Rime Mandibles**, a Venom reagent. Rime Mandibles call the Cairn Wight at the Cairn Ring, and the Wight calls Rime Crawlers of its own: see [guardians](guardians).",
         "Hunted, it also drops up to 2 Snowballs and up to 1 Spider Eye."
       ]

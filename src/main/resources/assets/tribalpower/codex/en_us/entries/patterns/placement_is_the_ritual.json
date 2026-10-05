@@ -1,6 +1,6 @@
 {
   "name": "Placement is the ritual",
-  "icon": "tribalpower:spirit_codex",
+  "icon": "tribalpower:ritual_chalk",
   "order": 10,
   "spoiler": false,
   "items": [],
@@ -18,7 +18,7 @@
       "type": "text",
       "title": "Checking your work",
       "text": [
-        "Crouch and right-click the anchor with this book. It names the tier the shape has reached, which way it faces, and the first **three** things still missing, and it shows ghosts where they belong.",
+        "Crouch and right-click the Stone Font, the Resonance Mesh or a Gate Keystone with this book. It names the tier the shape has reached, which way it faces and the first **three** things still missing, and sparkles mark where they belong. A Ritual Brazier lists what is missing without the sparkles.",
         "Many patterns have a bigger second tier. Those usually ask for [Anchor Stones](anchor_stone) braced at the corners, and give the machine more to do in return.",
         "Shapes are joined with [Ritual Marks](ritual_mark), drawn with Ritual Chalk."
       ]

@@ -15,7 +15,7 @@
       "title": "Making shards",
       "text": [
         "Put **stone** or **deepslate** in; March Stone works too. Cobblestone does not make shards, so smelt it to stone first.",
-        "A shard takes **2 seconds** at **32 Pulse a second**. A reserve lets a slower generator finish a batch.",
+        "A shard takes **2 seconds** at **32 Pulse a second**. Pulse stored nearby, in a generator's buffer or a cairn, carries a slow generator through a batch.",
         "It needs an Earth totem within 8 blocks and a charged generator. The shard is the small catalyst for your first Pulse Resonator, slowly spent by the Pulse it makes."
       ]
     },
@@ -24,7 +24,7 @@
       "title": "Crushing",
       "text": [
         "- Cobblestone, cobbled deepslate and March Cobble become gravel; gravel becomes sand.",
-        "- Sand becomes dust when the supported sieving mod is installed, or clay otherwise.",
+        "- Sand becomes dust when the supported sieving mod is installed, or a clay ball otherwise.",
         "- Diorite becomes quartz. March Ore becomes two Spirit Shards.",
         "- Raw metals and metal ores become **two grit** each, in 4 seconds at 40 Pulse a second. See [Metals and gems](metals_and_gems).",
         "- Silk-touched gem ores shatter straight to the gem, at twice the ore's own drop.",
@@ -223,7 +223,7 @@
       "title": "Going further",
       "text": [
         "Build the [Shatter Array](shatter_array) pattern around it and it pays a quarter less Pulse and empties its output into an Ancestral Cache beneath it.",
-        "Ranks make it faster; see Machine ranks. A lever pauses it."
+        "Ranks make it faster; see [Machine ranks](machine_ranks). A lever pauses it."
       ]
     },
     {

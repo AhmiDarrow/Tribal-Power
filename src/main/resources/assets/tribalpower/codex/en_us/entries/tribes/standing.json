@@ -345,7 +345,8 @@
         "- A **favoured** item: **+3**.",
         "- Any other **food**: **+1**.",
         "- A charged **Pulse Cell**: the hearth drinks up to **40 Pulse** from it and gives **+2 for every 10**, so at most **+8**. The cell needs at least 10 Pulse in it.",
-        "Each tribe's own page lists its reagent and favourites. Things the tribe has no use for stay in your hand."
+        "Reagents: Pad-keepers **Echo Shard**, Grit-singers **Attuned Echo**, Rootbinders **Mossback Scale**, Edge-walkers **Rift Tooth**, Drumhearts **Bone Chime**, Pattern-weavers **Storm Wing**, Colony-keepers **Lantern Down**, Seal-carvers **Spirit Shard**, Loom-stitchers **Loom Thread**. Each tribe's own page lists its favourites too.",
+        "Things the tribe has no use for stay in your hand, and the hearth says so. A cell holding less than **10 Pulse** is simply ignored."
       ]
     },
     {
@@ -353,7 +354,8 @@
       "title": "How fast it grows",
       "text": [
         "A tribe's hearth accepts at most **60 standing a day** from your offerings. After that it tells you the tribe has taken all it will today, and near the limit a gift worth more than what is left stays in your hand. Seventeen favoured offerings (51) or seven reagents (56) are enough for **Guest** on your first day.",
-        "Three more roads are open, and none of them counts against the hearth's limit. Kill a hostile mob within **24 blocks** of a hearth for **+1**, up to **twenty a day** for each tribe. Every trade with the Elder gives **+2**. And once you are a Guest, the Elder's [requests](elders_and_stories) pay **8 to 16** each.",
+        "Three more roads are open, and none of them counts against the hearth's limit. Kill a hostile mob within **24 blocks** of a hearth for **+1**, up to **twenty a day** for each tribe. The kill must be your own: a foe your familiar fells earns nothing. Every trade with the Elder gives **+2**. And once you are a Guest, the Elder's [requests](elders_and_stories) pay **8 to 16** each.",
+        "On the tribe's [festival day](living_march), joining the Elder's feast pays **40** standing and two bowls of their dish, a rite in their camp pays **30** more, and a feast eaten by their hearth **20**. Each counts once per festival.",
         "Voice takes many days. Offerings alone will never get you there in one."
       ]
     },
@@ -363,7 +365,7 @@
       "text": [
         "- **Stranger** (below 50): the Elder has nothing for you yet.",
         "- **Guest** (50): the Elder opens the first two trades.",
-        "- **Friend** (150): two more trades, and a bowl of the tribe's own dish.",
+        "- **Friend** (150): two more trades, plus the tribe's own dish for four of its March crop.",
         "- **Kin** (400): the last two trades, the tribe's [boon](tribe_boons) for as long as you keep the standing, and its crest: a **banner pattern** for any loom.",
         "- **Voice** (800): the Elder presses a **Tribe Mark** into your hand, once for each tribe. The Mark is the key to a [Kinship Totem](kinship_totem), and it opens that tribe's own page in this book.",
         "Your standing with the Grit-singers also decides how deep a [Listening Pit](listening_pit) may listen."
@@ -385,7 +387,7 @@
       "text": [
         "Type **/tribalpower standing** to see all nine tribes at once, with your standing and rank for each.",
         "A comparator next to a hearth reads the rank of the last player who used it: **0** for a Stranger up to **15** for a Voice. Handy for a door that only opens for friends of the tribe.",
-        "If you belong to a [shared camp](shared_camps), your camp pools its standing. An Elder deals with you at your own standing or the camp's, whichever is higher."
+        "If you belong to a [shared camp](shared_camps), a quarter of every standing a member gains or loses after joining lands on the camp too. Wherever your rank matters, the camp's counts when it is higher than your own."
       ]
     }
   ]

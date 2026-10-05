@@ -2,7 +2,7 @@
   "name": "Gate Drum",
   "icon": "tribalpower:gate_drum",
   "order": 60,
-  "next": "the_march",
+  "next": "way_gate",
   "pages": [
     {
       "type": "spotlight",
@@ -17,7 +17,7 @@
       "text": [
         "Right-click the drum with an **empty hand** to begin the **Gate Rite**. A drumming song of 20 to 30 seconds plays, and its beats fall toward a line on four drums in a row: **A** is the deep frame drum, **S** the low tom, **D** the high hand drum and **F** the rattle.",
         "Strike each drum as its beat reaches the line, with the music. The rattle counts you in, and the rhythm builds as the song goes.",
-        "The four drums answer A, S, D and F by default, and the arrow keys always work. Both sets can be changed under Tribal Power in Options, Controls."
+        "The four drums answer **A**, **S**, **D** and **F**, and the arrow keys always work too. You can bind each drum to another key under Tribal Power in Options, Controls; A, S, D and F still drum as well."
       ]
     },
     {

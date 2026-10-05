@@ -161,7 +161,7 @@
       "type": "text",
       "title": "Ideas",
       "text": [
-        "Pause a Ley Collector or switch camp lights on with the weather. Use the thunder reading as a warning before you head out.",
+        "Pause a [Ley Collector](ley_collector) or switch camp lights on with the weather. Use the thunder reading as a warning before you head out.",
         "No fuel, no upkeep: once it is placed it just listens."
       ]
     },

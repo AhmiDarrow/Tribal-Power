@@ -13,7 +13,7 @@
       "type": "creature",
       "entity": "tribalpower:cinder_imp",
       "text": [
-        "A nimble ember spirit. It gathers sparks before a burning bolt.",
+        "A nimble fire imp. It gathers sparks before a burning bolt.",
         "Hunted, it also drops a one-in-three chance of Blaze Powder."
       ]
     },
@@ -36,8 +36,8 @@
     {
       "type": "text",
       "text": [
-        "Reach **Voice** with the **Drumhearts**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
-        "A bonded imp gives back a little Pulse each time you play a Drumheart by hand. See [familiar gifts](familiar_gifts)."
+        "Reach **Voice** with the **Drumhearts**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure. Or feed it its own reagent: one try in five, and the reagent is spent either way.",
+        "A bonded imp gives back **4 Pulse** each time you play a Drumheart by hand. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"
     },

@@ -12,7 +12,8 @@
         "Tribal machines hear redstone in two ways.",
         "A **held** signal pauses. Keep a line high and workshops, conductors, resonators, collectors, relays, braziers, meshes, fonts, pedestals, gate keystones and every generator except the Drumheart stop and wait. Storage and travel destinations lock.",
         "Nothing is ever lost to a pause: stored Pulse, items and fluids stay where they are.",
-        "A **struck** signal, the rising edge when a line turns on, is a call. Only devices that do one discrete thing listen for it: a Drumheart takes a beat, a Ritual Brazier fires its seated rite, a Gate Keystone lights or darkens."
+        "A **struck** signal, the rising edge when a line turns on, is a call. Only devices that do one discrete thing listen for it: a Drumheart takes a beat, a Ritual Brazier fires its seated rite, a Gate Keystone lights or darkens.",
+        "Strike a keystone with a button or a Strike Plate, not a lever: a line still held a moment later takes the gate back down."
       ]
     },
     {
@@ -31,6 +32,16 @@
         "[Song Thread](song_thread) carries 0 to 15 weakly, like dust, in all six directions. It will not power the stone it touches, so it never latches.",
         "[Song plates](song_plates) output from their facing. Unary plates read their back; binary plates read left and right. A plate hears only power pointed into it, or a plate synced to it with a Totem Wrench, up to 32 blocks away with no wire.",
         "[Verse Call and Answer](verse_link) carry a signal up to 32 blocks with no wire at all."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Click or crouch",
+      "text": [
+        "- **Plain click**, empty hand or not: works the block. A station opens, a Drumheart beats, a Threshold steps its setting, a plate, gauge or totem tells you what it is doing.",
+        "- **Placing a block** against a Tribal machine, drum or plate: crouch, or the click works that block instead. Relay plates are the one exception and place with a plain click.",
+        "- **Crouch with an empty hand**: changes a setting. A station, cache, cistern or camp face steps Input, Output, Both, Closed; Heartbeat, Drift and Tally step their count; a Verse plate steps its verse; a relay plate flips its list.",
+        "- **Crouch with this book**: the block explains itself (see [Codex diagnostics](codex_diagnostics))."
       ]
     },
     {

@@ -2,7 +2,6 @@
   "name": "Land rites",
   "icon": "tribalpower:rite_green_blessing",
   "order": 110,
-  "spoiler": true,
   "items": [
     "tribalpower:rite_still_night",
     "tribalpower:rite_ley_binding"

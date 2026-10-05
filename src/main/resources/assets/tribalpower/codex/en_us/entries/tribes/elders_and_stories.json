@@ -3,14 +3,26 @@
   "icon": "tribalpower:relic_spindle",
   "order": 15,
   "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
   "pages": [
     {
       "type": "text",
       "title": "Talking to an Elder",
       "text": [
         "Every tribe's camp has an **Elder**, and once you are a Guest they will talk to you. Right-click one and a conversation opens: what they say on the left, what you can say back as buttons.",
-        "Trading is one of the things you can ask for; it is the same counter as before, just behind a question. Strangers only get a few gruff words and a hint about the hearth, so bring an offering first (see [Tribes and standing](standing)).",
-        "What the Elder offers changes with what you have done: requests, their story, and once you have finished it, a warmer welcome."
+        "Trading is one of the things you can ask for. Strangers only get a few gruff words and a hint about the hearth, so bring an offering first (see [Tribes and standing](standing)).",
+        "What the Elder offers changes with what you have done: requests, their story, and once you have finished it, a warmer welcome.",
+        "On the tribe's [festival day](living_march) the Elder also invites you to the feast."
       ]
     },
     {
@@ -18,8 +30,8 @@
       "title": "Requests",
       "text": [
         "Ask an Elder **\"Is there work I can do?\"** and they give you one of the tribe's requests. Each tribe has three open on any given day, and they change with the days, so if today's does not suit you, come back tomorrow.",
-        "You hold **one request per tribe** at a time, and you can finish **three a day** in all, across every tribe. After that the Elders have no more work for you until tomorrow.",
-        "Finish it and tell the Elder **\"I've done what you asked.\"** Each pays **8 to 16** standing, and every **third** finished request for a tribe pays a **Tribe Mark** on top, so you no longer have to wait for Voice to hold one.",
+        "You hold **one request per tribe** at a time. Once you have finished **three** in a day, across every tribe, the Elders hand out no new work until tomorrow. Work you already hold can still be handed in.",
+        "Finish it and tell the Elder **\"I've done what you asked.\"** Each pays **8 to 16** standing, and every **third** finished request for a tribe pays a **Tribe Mark** on top, long before you reach Voice.",
         "The Codex keeps track for you: every tribe's page ends with their open request and how far along it is."
       ]
     },
@@ -29,9 +41,9 @@
       "text": [
         "- **Fetch**: bring what they prize, such as their March crop. Carry it when you tell the Elder.",
         "- **Deliver**: bring two bowls of their own [dish](tribe_dishes).",
-        "- **Hunt**: turn back six of the dark's creatures within **48 blocks** of their hearth.",
+        "- **Hunt**: turn back six of the dark's creatures within **48 blocks** of their hearth. The kill must be your own.",
         "- **Rite**: perform any rite at a brazier or pedestal within 48 blocks of their hearth.",
-        "- **Build**: raise **Walls** of size 3 or more within 48 blocks of their hearth, marked with Builder's Chalk, and hold that chalk when you tell the Elder. Build them of worked blocks such as planks, bricks or cobblestone: raw stone, dirt, sand and snow do not count. A build counts **once**: walls already handed in to that tribe will not pay again."
+        "- **Build**: raise **Walls** of size 3 or more within 48 blocks of their hearth, marked with Builder's Chalk, and hold that chalk when you tell the Elder. Build them of worked blocks such as planks, bricks or cobblestone: raw stone, earth, sand, terracotta, ice and the March's own ground do not count. A build counts **once**: walls already handed in to that tribe will not pay again."
       ]
     },
     {
@@ -39,7 +51,8 @@
       "title": "Their story",
       "text": [
         "Ask **\"Tell me your story\"** and the Elder begins a longer road: **seven steps**, one tribe at a time, that lean on everything else you do with them. Become their Friend, bring the one thing they prize, hunt near their fires, perform a rite in their camp, bring their dish, and at the end go where they send you.",
-        "The last step is a **trial**: each tribe's country keeps a guardian, and the tribe wants it faced. The Loom-stitchers' trial is The Unsung itself; the other eight wait at their grounds, told in [The guardians](guardians). Fall in the fight and the story simply waits. A guardian left alone for half a minute goes back to sleep unbeaten, and its altar can be called again straight away."
+        "The last step is a **trial**: each tribe's country keeps a guardian, and the tribe wants it faced. The Loom-stitchers' trial is The Unsung itself; the other eight wait at their grounds, told in [The guardians](guardians). Fall in the fight and the story simply waits. A guardian left alone for half a minute goes back to sleep unbeaten, and its altar can be called again straight away.",
+        "Face the guardian only once the Elder sends you. A guardian beaten earlier does not count for the story."
       ]
     },
     {

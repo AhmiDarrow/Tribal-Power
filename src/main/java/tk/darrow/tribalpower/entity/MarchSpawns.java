@@ -25,7 +25,11 @@ public final class MarchSpawns {
                 || below.is(BlockTags.SNOW)
                 || below.is(BlockTags.ICE)
                 || below.is(Blocks.SNOW_BLOCK)
-                || below.is(Blocks.POWDER_SNOW);
+                || below.is(Blocks.POWDER_SNOW)
+                // the Glimmer Ridge is paved in moonstone and moss agate, with no turf at all: without these its
+                // own grazers could never rise there
+                || below.is(ModBlocks.MOONSTONE.get())
+                || below.is(ModBlocks.MOSS_AGATE.get());
     }
 
     public static boolean wispFooting(BlockState below) {

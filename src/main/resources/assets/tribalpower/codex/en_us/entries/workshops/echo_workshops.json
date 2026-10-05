@@ -7,8 +7,9 @@
       "type": "text",
       "title": "",
       "text": [
-        "Echo stations turn one thing into another: stone into shards, shards into stronger crystals, ore into grit, grit into metal. Every recipe needs three things together: the right **input**, a matching **Resonance Totem** within 8 blocks, and enough **Pulse** within 8 blocks.",
+        "Echo stations turn one thing into another: stone into shards, shards into stronger crystals, ore into grit, grit into metal. Every recipe needs three things together: the right **input**, a matching **Resonance Totem** within 8 blocks, and enough **Pulse** within 8 blocks, or reaching it along a Lattice Conductor line.",
         "Open a station, put the ingredient in its input slot, and take the results from its eight output slots. Keep some output space free; a full station stops.",
+        "Two small **catalyst** slots hold what a job uses up besides its input: the echoes, cores or Loom Thread a Spiritgear rank asks for, or glowstone dust when Attune lights Quartz Glass. Machine ranks need none. If a job lacks one, this book reports **Catalyst needed** and names it.",
         "Recipes in this book, or JEI when it is installed, show each recipe's time, Pulse and voice."
       ]
     },
@@ -210,9 +211,10 @@
       "type": "text",
       "title": "Faces and automation",
       "text": [
-        "Every face of a station has a setting: **Input**, **Output**, **Both** or **Closed**. By default the five upper faces accept items and the bottom exports them. Change a face with the station's side controls, or crouch and right-click that face with an empty hand to cycle it. Hoppers follow the same settings.",
-        "Tribal Power machines that touch pass items between themselves, up to 16 a second: set the source face to Output and the receiving face to Input. A Both face against a Both face moves nothing, so items never bounce back and forth.",
-        "Since the bottom is Output and the top is Input by default, a station sitting on another hands its results straight down with no setup. Relays are for distance."
+        "Every face of a station has a setting: **Input**, **Output**, **Both** or **Closed**. By default the five upper faces accept items and the bottom exports them. Change a face with the station's side controls, or crouch and right-click that face with an empty hand to cycle it. A **Totem Wrench** does the same: crouch and use it on a face. Hoppers follow the same settings.",
+        "Tribal Power machines that touch pass items between themselves, up to **16** a second, and fluid, up to **250 mB** a second, more from a ranked machine: set the source face to Output and the receiving face to Input. A Both face against a Both face moves nothing, so items never bounce back and forth.",
+        "Since the bottom is Output and the top is Input by default, a station sitting on another hands its results straight down with no setup. For distance, right-click a relay plate onto a station face. The plate pulls through that face, so set it to **Output** or **Both** first; see [Wireless cargo](wireless_cargo).",
+        "A redstone signal on a station also stops hoppers, relays and touching machines taking from it or feeding it."
       ]
     },
     {

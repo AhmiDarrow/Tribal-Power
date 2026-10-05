@@ -18,7 +18,7 @@
       "pattern": "listening_pit",
       "tier": 1,
       "title": "The pit",
-      "text": "A 5x5 floor of stone or deepslate, Anchor Stones on the corners, chalk from each edge to the middle, and the mesh at the centre."
+      "text": "A 5x5 floor of any natural Overworld stone (stone, deepslate, granite, diorite, andesite or tuff), Anchor Stones on the corners, chalk from each edge to the middle, and the mesh at the centre."
     },
     {
       "type": "text",

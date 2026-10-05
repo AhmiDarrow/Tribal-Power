@@ -2,7 +2,6 @@
   "name": "Echo Unweave",
   "icon": "tribalpower:echo_unweave",
   "order": 60,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -20,7 +19,7 @@
         "- Attuned Echo: **2** Echo Shards.",
         "- Resonant Core: **3** Manifested Ingots.",
         "- Spiritweave: **1** wool.",
-        "- A damaged Spiritgear tool or weapon: **1** Manifested Ingot.",
+        "- A damaged Spiritgear tool, weapon or Healer's Rattle: **1** Manifested Ingot. Bows and crossbows are not taken apart.",
         "Fresh, undamaged tools are refused: Spiritgear has to take damage first. Spiritweave armour is never taken apart.",
         "It needs a Loom Resonance Totem within 8 blocks. Missing Loom pauses it, and it spends nothing."
       ]

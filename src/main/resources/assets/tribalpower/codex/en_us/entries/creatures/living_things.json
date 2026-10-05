@@ -9,8 +9,8 @@
       "type": "text",
       "text": [
         "Two kinds of creature carry the old song. **Gentle animals** (the Dawn Stag, Lantern Fox, Mossback, and the grazers, fliers, [walking trees](walking_trees) and [fays](fays) of every land) give you reagents when you brush them. **Remnants** are broken guardians and wild spirits; they fight, and drop their reagent when they fall.",
-        "Reagents go into your Echo workshops, and into the Bonding Charm that makes any of them a companion.",
-        "The March also has quiet life that gives nothing but meat or company: March Walkers and Spirit Wisps.",
+        "Reagents feed songs, anointed weapons and remedies (see [reagents](reagents)). The oldest few also go into your Echo workshops and the Bonding Charm.",
+        "The March also has quiet life that gives little more than meat, a feather or company: March Walkers, Spirit Wisps, and the fish, jellies and swifts of its [wild life](march_wildlife).",
         "Hunted or emptied land fills again, slowly: about once a minute a few of its animals may wander in out of sight, until roughly six creatures share the area. Pens count too, so a busy camp is never overrun."
       ]
     },
@@ -19,7 +19,7 @@
       "text": [
         "Hold a **Brush** and use it on an adult. Young animals yield nothing. Each animal rests for **one minute** between harvests.",
         "Breed them with **wheat** (Dawn Stag), **sweet berries** (Lantern Fox) and **seagrass** (Mossback). Every other gentle creature eats the wild crop of its land, or something as easy to come by; its page names the food. To breed wild animals, **sneak** while you feed two adults. Fed normally, a wild one warms to you instead (see [familiars](familiars)).",
-        "Bond an adult with a [Bonding Charm](familiars) to get **double** the reagent and keep a companion. Only you can brush your own familiar."
+        "Bond an adult with a [Bonding Charm](familiars) to keep it as a companion: it sheds **double** the reagent, and at a totem it can take a voice that strengthens your magic (see [attuning at a totem](familiar_attuning)). Only you can brush your own familiar."
       ],
       "title": "Gentle harvesting"
     },
@@ -27,7 +27,7 @@
       "type": "text",
       "text": [
         "Ashbound, Rootbound and Reed Stalkers haunt Overworld forests and swamps, and the March too. Like all remnants they rise in the dark, and never where a torch or lantern burns, so light your paths.",
-        "Keep water close to Ashbound; their blows set you alight. Rootbound roots you in place for a moment: wait it out. Reed Stalkers poison, so bring milk or keep your distance.",
+        "Keep water close to Ashbound; their blows set you alight. Rootbound's blows slow you for a few seconds: step back and wait it out. Reed Stalkers poison, so bring milk or keep your distance.",
         "A Hush Totem, or the Still Night rite, keeps a camp from growing a new pack overnight."
       ],
       "title": "Broken guardians"
@@ -43,9 +43,18 @@
     },
     {
       "type": "text",
+      "title": "How strong a creature is",
+      "text": [
+        "The numbers in this chapter are for a creature of ordinary blood. Every creature carries five threads (see [familiars](familiars)), and each step above or below the usual makes it **12%** stronger or weaker, so no two wild ones are quite alike.",
+        "In the March, a spirit that rises at night has **40%** more health and hits **25%** harder. About **one in twelve** of them rises as a gold-named **elite**, more often on Hard: double health, half again the damage, **4** more armour, quicker on its feet, and **three times** the experience. Spirits that rise by day are never elites."
+      ]
+    },
+    {
+      "type": "text",
       "text": [
         "- Dawn Velvet, Lantern Down, Mossback Scale, Storm Wing and Echo Silk bind into **2 Spiritweave** each under Water, in an Echo Bind.",
         "- Every other remnant reagent attunes into **2 Attuned Echoes** under Spirit, in an Echo Attune.",
+        "Every reagent, these and the beasts' alike, also goes into songs, anointed weapons and remedies: see [reagents](reagents).",
         "The Rootbinders favour Mossback Scale and the Colony-keepers favour Lantern Down, so what you brush also buys standing. Open the recipes in this book, or in JEI if you have it, to follow any reagent into your workshop."
       ],
       "title": "Returning the song"

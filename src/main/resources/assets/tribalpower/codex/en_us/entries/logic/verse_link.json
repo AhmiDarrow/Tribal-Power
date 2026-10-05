@@ -21,7 +21,7 @@
       "text": [
         "Snap a Verse Call onto any block face. It hears redstone from **every side except its facing**.",
         "Snap a Verse Answer onto a face within **32 blocks**, in the same world. It sings out of its facing, into the block in front of it.",
-        "Crouch and use either plate to step its verse from **1 to 16**; both must match. Right-click with an empty hand to read the verse and the strength.",
+        "Crouch and right-click either plate with an empty hand to step its verse from **1 to 16**; both must match. Right-click with an empty hand to read the verse and the strength.",
         "Each plate belongs to whoever set it down and their camp, so retuning someone else's is refused.",
         "The Answer copies the strength the Call hears, so it is not always 15. When several Calls share a verse, the Answer takes the loudest. A mismatched verse stays silent."
       ]
@@ -223,7 +223,7 @@
           ]
         },
         {
-          "caption": "Crouch and use each plate until both show the same verse.",
+          "caption": "Crouch and right-click each plate with an empty hand until both show the same verse.",
           "highlight": [
             [
               -2,
@@ -277,7 +277,7 @@
       "title": "Where it helps",
       "text": [
         "Relays still move items; these plates move only redstone. To join one song plate to another, a Totem Wrench sync is simpler (see [Song plates](song_plates)).",
-        "One clock can run a whole camp: a Heartbeat beside a Call, and an Answer on the same verse at every drum.",
+        "One clock can run a whole camp: a Heartbeat beside a Call, and an Answer on the same verse at each drum. Only two drums within 8 blocks of each other earn Pulse, so spread them out.",
         "An Air Seal goes into the Call and a Bone Chime into the Answer. Pattern-weavers favour clocks and Storm Wing."
       ]
     },

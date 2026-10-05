@@ -26,7 +26,7 @@
         "- **Water**: Tide Pump.",
         "- **Air**: Wind Snare and [relays](wireless_cargo).",
         "- **Loom**: Seal Loom and Astral relays.",
-        "A Resonance Totem counts while it is Answered or Dim, not once it has gone Quiet (see Keeping). A Kinship Totem that lends the same voice counts too, and never goes quiet.",
+        "A Resonance Totem counts while it is Answered or Dim, not once it has gone Quiet (see [Keeping](keeping)). A Kinship Totem that lends the same voice counts too, and never goes quiet.",
         "A hand waiting for its voice does nothing at all: no work, no Pulse spent, and nothing passed on to the blocks beside it."
       ]
     },
@@ -34,9 +34,10 @@
       "type": "text",
       "title": "Rules they all share",
       "text": [
-        "Each one draws Pulse from generators within **8 blocks** and only pays when it actually does something. An idle hand costs nothing.",
+        "Each one draws Pulse from generators within **8 blocks**. The Wind Snare, Ward Drum, Tide Pump and Seal Loom pay only when they act. The Grove Tender, Hush Totem, Wayanchor and Summoning Cradle first fill a **2,400-Pulse** reserve of their own, up to **80** a second, and work from that.",
         "A steady redstone signal, such as a lever, pauses it. A comparator reads what it is doing or how full it is; each entry says which.",
-        "The Seal Loom, Tide Pump, Wind Snare and Ward Drum can be ranked in Echo Attune, then Echo Bind, then Echo Manifest (see [Machine ranks](machine_ranks)). A ranked hand beats faster, every **85%**, **70%** or **55%** of a second, but the Pulse per job stays the same, so the lattice feels the extra speed."
+        "The Seal Loom, Tide Pump, Wind Snare and Ward Drum can be ranked in Echo Attune, then Echo Bind, then Echo Manifest (see [Machine ranks](machine_ranks)). A ranked hand beats faster, every **85%**, **70%** or **55%** of a second, but the Pulse per job stays the same, so the lattice feels the extra speed.",
+        "Sneak-use a **Totem Wrench** on a machine face to step it through Both, Input, Output and Closed. A Closed face offers no slots to hoppers or pipes."
       ]
     },
     {
@@ -44,12 +45,12 @@
       "title": "Keeping the camp",
       "text": [
         "Other camp blocks look after the place itself rather than doing chores:",
-        "- A **Hush Totem** stops hostiles spawning.",
-        "- A **Wayanchor** keeps a distant chunk awake.",
-        "- A **Summoning Cradle** calls a bound creature up again and again.",
-        "- **Spirit Lanterns** and the [Pulse lights](pulse_lights) light the paths.",
-        "- A **Rain Chime** turns the weather into a redstone signal.",
-        "- An **Offering Table** is a 27-slot store beside a hearth.",
+        "- A [Hush Totem](hush_totem) stops hostiles spawning.",
+        "- A [Wayanchor](wayanchor) keeps a distant chunk awake.",
+        "- A [Summoning Cradle](summoning_cradle) calls a bound creature up again and again.",
+        "- [Spirit Lanterns](spirit_lantern) and the [Pulse lights](pulse_lights) light the paths.",
+        "- A [Rain Chime](rain_chime) turns the weather into a redstone signal.",
+        "- An [Offering Table](offering_table) is a 27-slot store beside a hearth.",
         "Crouch and right-click any of them with this book when something will not start."
       ]
     },
@@ -58,12 +59,12 @@
       "title": "Living in camp",
       "text": [
         "A camp is more than its machines. For building and everyday life, see:",
-        "- Builder's Chalk, to lay out huts, walls and rites before you build.",
-        "- The Tribal Bench, a crafting table that keeps its grid.",
-        "- The Vine Lift, for towers and shafts.",
-        "- Camp furniture and the Wind Charm, to make it feel lived in.",
-        "- The Songkeeper Drum, for drumming just for the joy of it.",
-        "- Shared camps, when friends build with you."
+        "- [Builder's Chalk](builders_chalk), to lay out huts, walls and rites before you build.",
+        "- The [Tribal Bench](tribal_bench), a crafting table that keeps its grid.",
+        "- The [Vine Lift](vine_lift), for towers and shafts.",
+        "- [Camp furniture](camp_furniture) and the [Wind Charm](wind_charm), to make it feel lived in.",
+        "- The [Songkeeper Drum](songkeeper_drum), for drumming just for the joy of it.",
+        "- [Shared camps](shared_camps), when friends build with you."
       ]
     }
   ]

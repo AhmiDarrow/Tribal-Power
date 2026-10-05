@@ -2,7 +2,6 @@
   "name": "Loom Anchor",
   "icon": "tribalpower:loom_anchor",
   "order": 60,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -19,7 +18,7 @@
         "It counts voices, not totems: six Earth totems are one voice. Quiet totems still count; empty air does not.",
         "A live [Ley Binding](world_rites) on any totem near it **doubles** the rate.",
         "Kinship Totems lend their tribe's element into the same six-voice set. They are not a seventh voice: a Grit-singer kinship beside an Earth totem adds nothing.",
-        "Ranking it in Echo Attune, Bind, then Manifest adds **15% Pulse a second** per rank, not the workshop 118%."
+        "Ranking it in Echo Attune, Bind, then Manifest adds **15% Pulse a second** per rank, not the workshop 118%. The bonus is rounded to a whole Pulse, so a generator making only 2 or 3 a second gains nothing from its first rank."
       ]
     },
     {

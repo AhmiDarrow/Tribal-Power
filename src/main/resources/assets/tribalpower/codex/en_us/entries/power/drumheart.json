@@ -16,7 +16,7 @@
       "text": [
         "Right-click with an **empty hand**, about **once a second**. A beat on time gives **24 Pulse**. An off-beat gives at most **10**, and less the sooner it follows the last, so a steady pace beats fast clicking.",
         "Machines within **8 blocks** draw from the drum while they work. To carry power somewhere else, use a **Pulse Cell** on the drum.",
-        "Playing by hand also wakes every totem within 8 blocks; see Keeping."
+        "Playing by hand also wakes every totem within 8 blocks; see [Keeping](keeping)."
       ]
     },
     {

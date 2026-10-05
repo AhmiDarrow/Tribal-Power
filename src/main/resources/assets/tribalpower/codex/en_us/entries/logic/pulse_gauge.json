@@ -11,15 +11,16 @@
       "type": "spotlight",
       "item": "tribalpower:pulse_gauge",
       "text": [
-        "The Pulse Gauge turns stored Pulse into redstone. Point it at a Drumheart, a Resonator or any machine holding Pulse, and it gives off **0 to 15** by how full that store is.",
-        "Its sibling, the **Pulse Threshold**, answers a plain yes or no: is the store at least this full?"
+        "The Pulse Gauge turns stored Pulse into redstone. Point it at a Drumheart, a generator, a Resonator or a Ley Collector, anything that stores Pulse, and it gives off **0 to 15** by how full that store is. Workshops draw Pulse from around them and hold none to read.",
+        "Its sibling, the **Pulse Threshold**, answers a plain yes or no: is the store at least this full?",
+        "Both are made with March Stone, so they wait for your first trip to the March."
       ]
     },
     {
       "type": "text",
       "title": "Pulse Gauge",
       "text": [
-        "Place it against the block you want to read; its arrow points into the block you clicked. It emits from **every face except the arrow**, weakly from the sides and strongly out of its back.",
+        "Crouch and place it against the block you want to read; its arrow points into the block you clicked. A plain click would use that block instead, and beat a Drumheart. It emits from **every face except the arrow**, weakly from the sides and strongly out of its back.",
         "The signal is **0** when the store is empty, then climbs from 1 to 15 as it fills. It updates every 4 ticks, and a comparator reading the gauge gets the same number.",
         "Right-click it to see stored Pulse, capacity and signal."
       ]
@@ -28,7 +29,7 @@
       "type": "text",
       "title": "Pulse Threshold",
       "text": [
-        "Place it the same way, arrow into the store. Right-click with an empty hand to cycle **25, 50, 75 and 100%**; it starts at 50.",
+        "Place it the same way, crouching, arrow into the store. Right-click it to cycle **25, 50, 75 and 100%**; it starts at 50.",
         "It emits a full **15** while stored Pulse is at or above that share, and nothing below it. Like the gauge, it never emits from its arrow face, so it does not disturb the store it watches. A comparator reads the setting as 1 to 4."
       ]
     },
@@ -199,7 +200,7 @@
           ]
         },
         {
-          "caption": "Place a Pulse Threshold against the drum, arrow in. Right-click it to choose 25, 50, 75 or 100%.",
+          "caption": "Crouch and place a Pulse Threshold against the drum, arrow in; a plain click would beat the drum instead. Right-click the Threshold to choose 25, 50, 75 or 100%.",
           "place": [
             {
               "pos": [
@@ -219,7 +220,7 @@
           ]
         },
         {
-          "caption": "Mount an Inverse Plate on the back of the Threshold, facing the station. It reads the block it sits on.",
+          "caption": "Crouch and mount an Inverse Plate on the back of the Threshold, facing the station; a plain click would change the Threshold's setting. It reads the block it sits on.",
           "place": [
             {
               "pos": [

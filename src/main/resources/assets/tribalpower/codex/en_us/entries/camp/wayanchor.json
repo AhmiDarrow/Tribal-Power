@@ -2,7 +2,6 @@
   "name": "Wayanchor",
   "icon": "tribalpower:wayanchor",
   "order": 80,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -15,7 +14,7 @@
       "type": "text",
       "title": "Running one",
       "text": [
-        "Place it inside the chunk that must stay awake. It holds exactly that one chunk, not a radius around it. It answers to **Earth**: keep an Earth totem within 8 blocks (see Camp hands), or it lets the chunk go.",
+        "Place it inside the chunk that must stay awake. It holds exactly that one chunk, not a radius around it. It answers to **Earth**: keep an Earth totem within 8 blocks (see [Camp hands](camp_hands)), or it lets the chunk go.",
         "It keeps a reserve of **2,400 Pulse** and refills it by up to **80** a second from generators within 8. You can also top it up with a Pulse Cell.",
         "Redstone, or an empty reserve, lets the chunk go. Breaking the anchor lets it go at once.",
         "Right-click it to see whether it is holding. A comparator reads 15 while it is."

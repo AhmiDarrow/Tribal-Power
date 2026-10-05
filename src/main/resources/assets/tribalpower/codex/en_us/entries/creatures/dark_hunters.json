@@ -28,7 +28,7 @@
       "entity": "tribalpower:deep_lurker",
       "title": "Deep Lurker",
       "text": [
-        "The toughest of the cave hunters, found under every land of the March, one or two at a time. It has **32 health** and **3 armour** and bites for **5**.",
+        "A star-nosed mole the size of a bear, the toughest of the cave hunters, found under every land of the March, one or two at a time. It has **32 health** and **3 armour** and bites for **5**.",
         "It drops **Lurker Claws**, a Hound reagent that grinds into light blue dye.",
         "Hunted, it also drops up to 2 Bones and up to 1 March Leather."
       ]
@@ -38,7 +38,7 @@
       "entity": "tribalpower:pale_stalker",
       "title": "Pale Stalker",
       "text": [
-        "A tall, pale, quick thing of the caves under the Steppe, the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one to three at a time. **24 health** and **1 armour**. Its blow does **4** and weakens you for 4 seconds.",
+        "A gaunt, eyeless cave ghoul, tall, pale and quick, of the caves under the Steppe, the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one or two at a time. **24 health** and **1 armour**. Its blow does **4** and weakens you for 4 seconds.",
         "It drops **Pale Fangs**, a Weaken reagent.",
         "Hunted, it also drops 1 to 2 Bones."
       ]
@@ -48,7 +48,7 @@
       "entity": "tribalpower:gloom_crawler",
       "title": "Gloom Crawler",
       "text": [
-        "A low, dark crawler of the caves under every land but the Shallows, one to three at a time. **22 health** and **2 armour**. Its bite does **4**, slows you for 3 seconds and can leave you [Frayed](afflictions).",
+        "A cave centipede, low and dark, of the caves under every land but the Shallows, one or two at a time. **22 health** and **2 armour**. Its bite does **4**, slows you for 3 seconds and can leave you [Frayed](afflictions).",
         "It drops **Gloom Silk**, a Weave reagent.",
         "Hunted, it also drops 1 to 2 String and up to 1 Spider Eye."
       ]
@@ -58,7 +58,7 @@
       "entity": "tribalpower:veil_drifter",
       "title": "Veil Drifter",
       "text": [
-        "A tattered flier that rises at night over the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one or two at a time. **18 health** and **1 armour**.",
+        "A drifting, tattered shroud on bat-like wings that rises at night over the Highlands, the Glimmer Ridge, the Snow Fields and the Crystal Fields, one or two at a time. **18 health** and **1 armour**.",
         "From up to 12 blocks away it casts a gust for **3** that throws you back. Cover breaks the cast. It drops **Veil Tatters**, a Gust reagent.",
         "Hunted, it also drops up to 1 Phantom Membrane and up to 1 String."
       ]

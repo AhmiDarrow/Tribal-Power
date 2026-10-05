@@ -8,7 +8,7 @@
     {
       "type": "text",
       "text": [
-        "Mending is not a private miracle. Seat a Strand and your pad notices. Seat nine and the cut above your pad closes.",
+        "Mending is not a private miracle. Earn each tribe's relic, carry all nine into a Loom circle, and perform the [Ninth Agreement](ninth_agreement). The threads agree again.",
         "Read every tablet. Strike the Silent Drum when you are ready. Offer at hearths. Ask politely, smaller than the old world asked.",
         "The world does not snap back. It learns to hold."
       ]
@@ -18,7 +18,7 @@
       "item": "tribalpower:lore_tablet",
       "title": "The tablets",
       "text": [
-        "The tribes left twelve stone tablets behind. Look for them on the walls of Seal-carver camps and, in the March, in sunken **Ancestor Halls**, Drum Circles, Crystal Spires, Loom-stitcher camps and Deep Temples. Right-click one to read it.",
+        "The tribes left twelve stone tablets behind. Look for them on the walls of Seal-carver camps (dark forests and the March Highlands) and, in the March, in sunken [Ancestor Halls](ancestor_hall), Drum Circles, Crystal Spires, Loom-stitcher camps and Deep Temples. Right-click one to read it.",
         "Each tablet you read is recorded here, in the Lore chapter, and its words open as a page of their own."
       ]
     },
@@ -33,8 +33,9 @@
       "type": "text",
       "title": "Tablets of your own",
       "text": [
-        "You can craft Lore Tablets from March Stone and an Echo Shard to hang in a hall of your own. A crafted tablet carries the first fragment, the Pad-keepers' Hearth; in creative, sneak-use it to cycle through the twelve.",
-        "A tablet has to hang on the side of a solid block."
+        "Eight March Stone around an Echo Shard make **two** Lore Tablets to hang in a hall of your own. A crafted tablet carries the first fragment, the Pad-keepers' Hearth; in creative, sneak-use it to cycle through the twelve.",
+        "A tablet has to hang on the side of a solid block.",
+        "A tablet you found forgets its words when it is broken and comes back as the Pad-keepers' Hearth, so read it where it hangs."
       ]
     },
     {

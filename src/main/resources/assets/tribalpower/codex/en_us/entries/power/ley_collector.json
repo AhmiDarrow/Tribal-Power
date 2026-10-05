@@ -32,7 +32,7 @@
       "text": [
         "The rest of the beat is the ley lines the collector stands on: **+2** for each line. The lines are a web across the world; only the rarest places bring **six** together, and a collector never counts more than that. The whole beat is capped at **16**, which pays **48 Pulse** every two seconds.",
         "A Resonance Totem pulls the thread of its own colour through itself and leaves the other colours alone. Set the six totems around a collector so each thread crosses it on the way through its totem. That is a convergence: six colours, and still no more than six lines on the beat.",
-        "During a ley surge, a collector whose threads carry the surging voice yields double; see The living March."
+        "During a ley surge, a collector whose threads carry the surging voice yields double; see [The living March](living_march)."
       ]
     },
     {
@@ -453,7 +453,7 @@
       "title": "Tuning it",
       "text": [
         "Sneak-use a Ley Lens on the collector to print the exact breakdown, factor by factor. The number it prints is the beat, not Pulse a second. Ley sight draws the lines that pass near you, so you can stand on one before you build.",
-        "When the beat is **8 or more** (half of 16), each collection also wakes every totem within 8 blocks and keeps it answered. Only the beat matters here; how full the collector is does not. See Keeping.",
+        "When the beat is **8 or more** (half of 16), each collection also wakes every totem within 8 blocks and keeps it answered. Only the beat matters here; how full the collector is does not. See [Keeping](keeping).",
         "A redstone signal pauses it. Each [rank](machine_ranks) adds **15%** to every collection.",
         "If it seems weak, crouch and right-click it with this book."
       ]

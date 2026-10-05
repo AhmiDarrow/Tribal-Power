@@ -20,7 +20,7 @@
       "title": "The fen's own",
       "text": [
         "Among the reeds and mud channels live a frog, a heron and a puffer that floats in the air, and at night a cobra wakes in the grass.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning))."
       ]
     },
     {
@@ -58,7 +58,7 @@
       "entity": "tribalpower:reed_coil",
       "title": "Reed Coil",
       "text": [
-        "A marsh cobra, coiled with its hood spread, that rises on the fen's open ground at night, one to three at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
+        "A marsh cobra, coiled with its hood spread, that rises on the fen's open ground at night, one or two at a time. It is very slow, but it has **30 health** and **6 armour**, hits for **5** and shoves you back with every blow.",
         "It drops **1 to 2 Reed Whorls**, a Shove reagent.",
         "Hunted, it also drops up to 1 March Leather and up to 1 Bone."
       ]

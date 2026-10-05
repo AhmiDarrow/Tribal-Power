@@ -2,7 +2,6 @@
   "name": "Pulse Crossbow",
   "icon": "tribalpower:pulse_crossbow",
   "order": 71,
-  "spoiler": true,
   "items": [
     "tribalpower:pulse_crossbow"
   ],
@@ -14,6 +13,7 @@
       "text": [
         "The Pulse Crossbow fires the same sonic bolts as the [Pulse Bow](song_bench), and carries verse arrows the same way.",
         "**Hold use** to load it. Loading takes a little longer than a full bow draw and spends **10 Pulse** up front; if you carry a verse arrow it loads that too, for 6 Pulse more. **Use it again** to fire.",
+        "A Pulse Cell seated in the crossbow pays first, then the cells you carry.",
         "It is forged like the other Spiritgear: two **Manifested Ingots** and a **Bone Chime** for the prod, string, a tripwire hook and a stick. Each shot wears it a point, out of 1,024, and the [Spirit Anvil](spirit_anvil) mends it with Manifested Ingots, a quarter each."
       ]
     },

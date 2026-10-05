@@ -12,7 +12,15 @@
     "tribalpower:tide_drummer_spawn_egg",
     "tribalpower:stampede_spirit_spawn_egg",
     "tribalpower:storm_roc_spawn_egg",
-    "tribalpower:guardian_altar"
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
   ],
   "pages": [
     {
@@ -21,15 +29,17 @@
       "text": [
         "Every March biome keeps a **guardian**: the thing each tribe's story ends at (see [Elders, requests and stories](elders_and_stories)). They are bosses in every sense: a boss bar, no knockback, no potions, no Soul Urn, two phases, and a fight worth preparing for.",
         "A guardian never wanders in. Each has a **ground** in its biome, a ring of stone with a **Guardian Altar** at its centre, and it rises only from that altar: the altar must sit on polished deepslate with a lit candle at each corner (altar or nothing), there must be room above it, and it rests about twenty minutes between calls.",
-        "Sneak-use the altar with an empty hand and it tells you what it wants: a fistful of that biome's reagent, eight by default. Lay it on and stand back."
+        "Use the altar with an empty hand and it tells you what it wants: a fistful of that biome's reagent, eight by default. Lay it on and stand back."
       ]
     },
     {
       "type": "text",
       "title": "Two phases",
       "text": [
-        "At half health every guardian is **roused**: its signature attack comes faster and harder, and it calls its biome's creatures to its side. Those creatures drop nothing and vanish when it falls. Leave the ground for half a minute and the guardian goes back to sleep unbeaten; the altar does not need its rest after that, and can be called again at once.",
-        "When it falls, everyone within reach who is on that tribe's story finishes the **trial**, and its **core** drops with a heap of its biome's reagents."
+        "At half health every guardian is **roused**: its signature attack, every **4 seconds** before, comes about every **2.4 seconds** and hits harder, and it calls its biome's creatures to its side, **2** at once and **2** more every **15 seconds**, never more than **6**. Those creatures drop nothing and vanish when it falls.",
+        "If no one stays within **48 blocks** for half a minute, the guardian goes back to sleep unbeaten; the altar does not need its rest after that, and can be called again at once.",
+        "A called creature you bond in the fight is yours: a Storm Moth from the Roost, say, once the Pattern-weavers call you **Voice**. It stops counting for the guardian and stays when the fight ends.",
+        "When it falls, everyone within **48 blocks** who is on that tribe's story finishes the **trial**, and its **core** drops with a heap of reagents and **2 to 3 Resonant Cores**. Each ground also keeps a chest that can hold Resonant Cores, Loom Thread, a golden apple or a blank Lore Tablet."
       ]
     },
     {
@@ -37,8 +47,8 @@
       "entity": "tribalpower:slag_titan",
       "title": "Slag Titan",
       "text": [
-        "**The Slag Throne in the Ember Wastes**. Called with Magma Scales. Sneak to brace against its slams; in its second phase the rings ignite and Cinder Imps rise from the slag.",
-        "Drops the **Slag Core**."
+        "A walking smelter: a furnace-bellied giant with crucible fists and a chimney crown. **The Slag Throne in the Ember Wastes**. Called with Magma Scales. **360 health** and **12 armour**. Sneak to brace against its slams; in its second phase the rings ignite and Cinder Imps rise from the slag. Its fall closes the **Drumhearts'** story.",
+        "Drops the **Slag Core**, **8 to 14 Magma Scales**, **4 to 8 Cinder Bark** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -46,8 +56,8 @@
       "entity": "tribalpower:bog_matriarch",
       "title": "Bog Matriarch",
       "text": [
-        "**The Drowned Root in the Reed Fen**. Called with Reed Fangs. Its snare drags you in and slows you; keep to solid ground, and cut down the Reed Stalkers it calls before they swarm.",
-        "Drops the **Fen Heart**."
+        "A great brood toad carrying her young on her back, hung with reeds and root barbels. **The Drowned Root in the Reed Fen**. Called with Reed Fangs. **320 health** and **8 armour**. Its snare drags you in and slows you, and poisons you once it is roused; keep to solid ground, and cut down the Reed Stalkers it calls before they swarm. Its fall closes the **Rootbinders'** story.",
+        "Drops the **Fen Heart**, **8 to 14 Reed Fangs**, **4 to 8 Knotted Roots** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -55,8 +65,8 @@
       "entity": "tribalpower:cairn_wight",
       "title": "Cairn Wight",
       "text": [
-        "**The Cairn Ring in the Snow Fields**. Called with Rime Mandibles. Its breath freezes everything in front of it. Circle behind; the Rime Crawlers it calls are slow.",
-        "Drops the **Cairn Stone**."
+        "A stack of lit cairn stones under an elk skull, in a mantle of rime. **The Cairn Ring in the Snow Fields**. Called with Rime Mandibles. **300 health** and **6 armour**. Its breath freezes everything in front of it. Circle behind, and deal with the Rime Crawlers it calls. Its fall closes the **Colony-keepers'** story.",
+        "Drops the **Cairn Stone**, **8 to 14 Rime Mandibles**, **4 to 8 Pale Down** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -64,8 +74,8 @@
       "entity": "tribalpower:prism_serpent",
       "title": "Prism Serpent",
       "text": [
-        "**The Singing Fracture in the Crystal Fields**. Called with Prism Carapace. It fires bolts of light that mark you glowing. Strafe, close in, and watch the second bolt it adds in phase two.",
-        "Drops the **Prism Core**."
+        "A crystal wyrm with a prism spine and a gem crest. **The Singing Fracture in the Crystal Fields**. Called with Prism Carapace. **300 health** and **8 armour**. It fires bolts of light that mark you glowing. Strafe, close in, and watch the second bolt it adds in phase two, when Shard Stalkers join it. Its fall closes the **Grit-singers'** story.",
+        "Drops the **Prism Core**, **8 to 14 Prism Carapaces**, **4 to 8 Glimmer Dust** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -73,8 +83,8 @@
       "entity": "tribalpower:vault_sentinel",
       "title": "Vault Sentinel",
       "text": [
-        "**The Sealed Gate on Glimmer Ridge**. Called with Sentinel Sigils. The heaviest armour in the March, and a sweep that throws you off the ridge. In phase two it wards itself for three seconds at a time: wait it out.",
-        "Drops the **Vault Seal**."
+        "A walking vault door: a construct whose chest is a sealed vault, with slabs for blades. **The Sealed Gate on Glimmer Ridge**. Called with Sentinel Sigils. **380 health** and **16 armour**, the heaviest in the March, and a sweep that throws you off the ridge. In phase two it wards itself for three seconds at a time (wait it out) and calls Gloom Crawlers. Its fall closes the **Seal-carvers'** story.",
+        "Drops the **Vault Seal**, **8 to 14 Sentinel Sigils**, **4 to 8 Gloom Silk** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -82,8 +92,8 @@
       "entity": "tribalpower:tide_drummer",
       "title": "Tide Drummer",
       "text": [
-        "**The Tide Stone in the Shallows**. Called with Brine Fangs. Each beat pulls everyone toward it and hurts. Fight it from the shore with your back to something solid.",
-        "Drops the **Tide Shell**."
+        "A giant hermit crab living in a barnacled war drum, beating it with its claws. **The Tide Stone in the Shallows**. Called with Brine Fangs. **320 health** and **8 armour**. Each beat pulls everyone toward it and hurts; roused, it slows you too and calls Brine Lurkers. Fight it from the shore with your back to something solid. Its fall closes the **Pattern-weavers'** story.",
+        "Drops the **Tide Shell**, **8 to 14 Brine Fangs**, **4 to 8 Shoal Scales** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -91,8 +101,8 @@
       "entity": "tribalpower:stampede_spirit",
       "title": "Stampede Spirit",
       "text": [
-        "**The Trampled Ring on the Steppe**. Called with Shank Sinew. It charges. Sidestep and hit it as it passes; when Burrow Gnashers surface, stand on a block.",
-        "Drops the **Herd Horn**."
+        "A spirit aurochs with a bone mask, lyre horns and a mane of dust. **The Trampled Ring on the Steppe**. Called with Shank Sinew. **300 health** and **6 armour**. It charges. Sidestep and hit it as it passes, and cut the Burrow Gnashers down before its next charge. Its fall closes the **Pad-keepers'** story.",
+        "Drops the **Herd Horn**, **8 to 14 Shank Sinew**, **4 to 8 Boulder Tusks** and **2 to 3 Resonant Cores**."
       ]
     },
     {
@@ -100,8 +110,8 @@
       "entity": "tribalpower:storm_roc",
       "title": "Storm Roc",
       "text": [
-        "**The Roost on the Highlands**. Called with Storm Wings. It swoops and throws you into the air, and in phase two lightning follows each swoop. A bow and a roof help more than a shield.",
-        "Drops the **Storm Plume**."
+        "A thunderbird: a crested storm eagle with bars of lightning in its wings. **The Roost on the Highlands**. Called with Storm Wings. **280 health** and **4 armour**. It swoops and throws you into the air, and in phase two lightning follows each swoop and Storm Moths join it. A bow and a roof help more than a shield. Its fall closes the **Edge-walkers'** story.",
+        "Drops the **Storm Plume**, **8 to 14 Storm Wings**, **4 to 8 Pale Down** and **2 to 3 Resonant Cores**."
       ]
     },
     {

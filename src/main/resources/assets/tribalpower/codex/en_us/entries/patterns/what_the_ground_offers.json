@@ -10,7 +10,7 @@
       "title": "What the pit calls up",
       "text": [
         "The pit calls up exactly what a silk-touch mining trip would: the **raw item** for a metal, the **ore block** for a gem. Each cycle eats its substrate and gives one result.",
-        "Substrates are renewable on purpose: stone from a [Stone Font](stone_font), March Stone from cobble."
+        "Stone is renewable: a [Stone Font](stone_font) makes it. March Stone is smelted from March Cobble, which you mine in the March."
       ]
     },
     {
@@ -48,7 +48,7 @@
         "Earth is required. Each other voice trades one thing for another; none is a plain multiplier.",
         "- **Water** washes: one extra output every **third** cycle, for **250 mB** from the mesh's tank. Fill it with a bucket; it holds 4,000 mB.",
         "- **Air** quickens the cycle to about **0.65** of its time and charges about **1.55 times** the Pulse a second. Pulse per item does not move.",
-        "- **Fire** opens the hot band at 72 Pulse a second.",
+        "- **Fire** opens the hot band at 72 Pulse a second. The pit only listens there when a quartz or gold sample asks for it, and gold then comes up as Nether Gold Ore.",
         "- **Spirit** listens a band deeper and opens the rare one.",
         "- **The Loom** halves the substrate, rounded up."
       ]

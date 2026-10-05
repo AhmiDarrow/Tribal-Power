@@ -1,15 +1,16 @@
 {
   "name": "Codex diagnostics",
-  "icon": "tribalpower:spirit_codex",
+  "icon": "minecraft:spyglass",
   "order": 20,
   "spoiler": false,
   "items": [],
+  "next": "pulse_gauge",
   "pages": [
     {
       "type": "text",
       "title": "Ask the block",
       "text": [
-        "Crouch and right-click any Tribal block with the Spirit Codex and it explains itself in plain words.",
+        "Crouch and right-click any Tribal machine, plate or store with the Spirit Codex and it explains itself in plain words.",
         "- Stored Pulse, every generator within **8 blocks** with its output this second, the voices present, the Pulse it could draw, and whether redstone is pausing it.",
         "- Workshops name their recipe, and any missing voice or full output.",
         "- Relays report unloaded or locked endpoints.",

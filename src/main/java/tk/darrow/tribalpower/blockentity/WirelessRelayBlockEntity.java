@@ -129,7 +129,8 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     /** Channels this plate has: one, plus one for each rank. */
     public int channelCount() { return Math.max(1, Math.min(MAX_CHANNELS, 1 + MachineRank.rank(this))); }
 
-    public int selected() { return Math.min(selected, channelCount() - 1); }
+    /** A void plate burns by its first channel's filter alone, so that is the one its screen shows. */
+    public int selected() { return voiding() ? 0 : Math.min(selected, channelCount() - 1); }
     public void select(int channel) {
         if (channel < 0 || channel >= channelCount()) return;
         selected = channel;

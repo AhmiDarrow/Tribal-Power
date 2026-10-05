@@ -20,7 +20,7 @@
       "title": "The ash's own",
       "text": [
         "Two of the Wastes' animals live at the edge of lava, one flies through the ash, and one hunts the basalt at night.",
-        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), though none of them has a familiar gift of its own."
+        "Every gentle beast here can be brushed for its reagent once a minute, and is tempted and bred with its own food, named under **Hunting and herding** below. It can be bonded like any gentle animal (see [familiars](familiars)), and though none has a gift of its own, a bonded one can still take a voice at a totem and strengthen your magic (see [attuning at a totem](familiar_attuning))."
       ]
     },
     {
@@ -58,7 +58,7 @@
       "entity": "tribalpower:emberjaw",
       "title": "Emberjaw",
       "text": [
-        "A striped fire raptor, running low with its tail out behind and mostly jaw, that rises on the basalt at night, one to three at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
+        "A striped fire raptor, running low with its tail out behind and mostly jaw, that rises on the basalt at night, one or two at a time. It has **32 health** and **3 armour** and hits for **6**, shoving you back with every blow. For all its colour it is **not** fire-proof.",
         "It drops **1 to 2 Ember Fangs**, a Shove reagent.",
         "Hunted, it also drops up to 2 Bones and up to 2 Charcoal."
       ]

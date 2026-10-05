@@ -2,7 +2,6 @@
   "name": "Healing Circle",
   "icon": "tribalpower:rite_healing_circle",
   "order": 50,
-  "spoiler": true,
   "items": [
     "tribalpower:rite_healing_circle",
     "tribalpower:spirit_remnant"
@@ -13,7 +12,7 @@
       "item": "tribalpower:rite_healing_circle",
       "title": "The camp's rite",
       "text": [
-        "The Healing Circle is a [world rite](world_rites). Build a [Rite Circle](rite_circle), seat a **Spirit Seal** in the brazier, and cast the tablet: **500 Pulse**, and the circle stays open **10 minutes** (a tier-two circle, with four Spirit totems, is cheaper and lasts longer).",
+        "The Healing Circle is a [world rite](world_rites). Build a [Rite Circle](rite_circle), seat a **Spirit Seal** in the brazier, and cast the tablet: **500 Pulse**, and the circle stays open **10 minutes** (a tier-two circle, with four Spirit totems on its cardinals, costs **375 Pulse** and stays open **20 minutes**).",
         "When it opens, everyone within **12 blocks**, players and bonded familiars, is healed **10 hearts**, loses every harmful effect and gains **10 minutes** of [Spirit Blessing](spirit_sickness)."
       ]
     },
@@ -28,7 +27,7 @@
       "type": "text",
       "title": "Calling the fallen back",
       "text": [
-        "When a **bonded familiar** dies, it no longer just vanishes. It leaves a glowing **Spirit Remnant** where it fell, which never despawns, and you get a message telling you so. (Not to be confused with the wild remnants of the March: this is your companion's spirit, waiting.)",
+        "When a **bonded familiar** dies, it does not just vanish. It leaves a glowing **Spirit Remnant** where it fell, which never despawns, and you get a message telling you so. (Not to be confused with the wild remnants of the March: this is your companion's spirit, waiting.)",
         "Lay the remnant on one of the circle's **four pedestals** before you cast. When the circle opens, the familiar comes back on that pedestal: **whole**, still yours, with its name and its lattice. What it was carrying dropped where it fell, as always, so pick that up too."
       ]
     },

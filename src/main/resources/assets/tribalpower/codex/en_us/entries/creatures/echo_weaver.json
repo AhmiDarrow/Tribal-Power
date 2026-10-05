@@ -13,7 +13,7 @@
       "type": "creature",
       "entity": "tribalpower:echo_weaver",
       "text": [
-        "An eight-legged keeper of broken songs. Its bite slows prey.",
+        "A harp spider, its legs strung like a harp: an eight-legged keeper of broken songs. Its bite slows prey.",
         "Hunted, it also drops 1 to 3 String and up to 1 Spider Eye."
       ]
     },
@@ -36,7 +36,7 @@
     {
       "type": "text",
       "text": [
-        "Reach **Voice** with the **Loom-stitchers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure.",
+        "Reach **Voice** with the **Loom-stitchers**, then use a Bonding Charm on an adult: two tries in five, charm spent on failure. Or feed it its own reagent: one try in five, and the reagent is spent either way.",
         "A bonded weaver picks up drops around it and tosses them to you. See [familiar gifts](familiar_gifts)."
       ],
       "title": "As a familiar"

@@ -2,7 +2,6 @@
   "name": "Game and leather",
   "icon": "tribalpower:roast_game",
   "order": 45,
-  "spoiler": true,
   "items": [
     "tribalpower:raw_game",
     "tribalpower:march_leather"

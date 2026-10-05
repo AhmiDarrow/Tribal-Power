@@ -2,7 +2,6 @@
   "name": "Ember Horn",
   "icon": "tribalpower:ember_horn",
   "order": 20,
-  "spoiler": true,
   "pages": [
     {
       "type": "spotlight",
@@ -18,7 +17,8 @@
       "text": [
         "Right-click it with fuel, or let a hopper or relay feed it. The fuel's burn time divided by twenty is its Pulse: coal is **80**, a coal block **800**, a lava bucket **1,000**, a blaze rod **120**.",
         "It lets that Pulse out at up to **20 a second**. More fuel does not raise the cap; it only lasts longer.",
-        "It lights the next piece only when it has room, so a full horn wastes nothing. The empty bucket from lava comes back out; nothing else can be pulled from a lit fire."
+        "It lights the next piece only when it has room, so a full horn wastes nothing. The empty bucket from lava pops out on top of the horn; nothing else can be pulled from a lit fire.",
+        "Crouch and right-click a face with an empty hand to step it through Both, Input, Output and Closed, as the [Totem Wrench](camp_kit) does."
       ]
     },
     {
@@ -196,7 +196,7 @@
       "type": "text",
       "title": "Scaling up",
       "text": [
-        "Unranked, the horn makes at most **20 a second**. Ranking adds **15% Pulse a second** per rank. Beyond that, build more horns.",
+        "Unranked, the horn makes at most **20 a second**. Ranking adds **15% Pulse a second** per rank, rounded to a whole Pulse. Beyond that, build more horns.",
         "No loop you can automate turns fuel into more fuel than it burns. Even coal called up by the Listening Pit costs more Pulse to fetch and shatter than it gives back.",
         "An empty-handed click tells you what it makes and holds. Crouch and right-click it with this book to see the fuel and the burn still owed.",
         "Horns are the [Drumhearts'](tribe_spark) craft: the recipe needs a Cinder Knot and a Fire Seal, and the Drumhearts trade a horn to anyone they call Friend."

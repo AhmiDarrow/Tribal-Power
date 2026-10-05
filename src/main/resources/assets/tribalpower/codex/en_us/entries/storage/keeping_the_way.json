@@ -2,7 +2,6 @@
   "name": "Keeping the way",
   "icon": "minecraft:map",
   "order": 90,
-  "spoiler": true,
   "pages": [
     {
       "type": "text",
@@ -28,7 +27,7 @@
       "text": [
         "- **\"This keystone has no frame around it\"**: a frame block is missing or misplaced. Check against the pattern.",
         "- **Needs Pulse**: charge the keystone; lighting and travel both come from its own store.",
-        "- **Goes dark by itself**: a redstone signal is held on it, or a Far Gate lost its Loom voice.",
+        "- **Goes dark by itself**: a redstone signal is held on it, a frame block was broken, or a Far Gate lost its Loom voice.",
         "- **\"The thread finds nothing\"**: the gate is lit but not linked.",
         "Crouch and right-click a keystone with this book for its full state."
       ]

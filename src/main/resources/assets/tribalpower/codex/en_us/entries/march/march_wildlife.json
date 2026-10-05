@@ -29,7 +29,7 @@
       "entity": "tribalpower:glimmerfin",
       "title": "Glimmerfin",
       "text": [
-        "Small fish with lit fins that swim in schools. Catch one in a water bucket, or cook it."
+        "Small neon fish with lit fins that swim in shoals, in the water of every land. Catch one in a water bucket, or cook it."
       ]
     },
     {
@@ -37,7 +37,7 @@
       "entity": "tribalpower:drift_bell",
       "title": "Drift Bell",
       "text": [
-        "A slow, glowing jelly. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while."
+        "A slow, glowing jelly shaped like a bell, in the water of every land but the Highlands and the Ember Wastes. Harmless. Its **Drift Jelly** lets you breathe underwater and see in the dark for a while."
       ]
     },
     {
@@ -45,7 +45,7 @@
       "entity": "tribalpower:veil_ray",
       "title": "Veil Ray",
       "text": [
-        "Wide and shy; it glides away from anyone who comes near. Drops March Leather and Glimmerfin."
+        "A wide, shy manta of the Steppe, the Highlands, the Reed Fen and the Shallows; it glides away from anyone who comes near. Drops March Leather and Glimmerfin."
       ]
     },
     {
@@ -53,7 +53,7 @@
       "entity": "tribalpower:silt_eel",
       "title": "Silt Eel",
       "text": [
-        "A dark eel of the Reed Fen's pools and channels, the Shallows, and the water where the Ember Wastes run down to the sea. It swims with the Glimmerfin and bites anyone wading in its water. Cook it into a Smoked Silt Eel for a good meal."
+        "An olive fen eel of the Reed Fen's pools and channels, the Shallows, and the water where the Ember Wastes run down to the sea. It swims with the Glimmerfin and bites anyone wading in its water. Cook it into a Smoked Silt Eel for a good meal."
       ]
     },
     {
@@ -61,7 +61,7 @@
       "entity": "tribalpower:loom_swift",
       "title": "Loom Swift",
       "text": [
-        "**Loom Swifts** wheel over the open land in loose flocks, and drop a feather or two, now and then some Raw Game."
+        "**Loom Swifts** wheel over the open land in loose flocks of **3 to 6**, only by day and in dry weather, and never over the Ember Wastes; no more than **12** gather around you. They drop a feather or two, now and then some Raw Game."
       ]
     },
     {

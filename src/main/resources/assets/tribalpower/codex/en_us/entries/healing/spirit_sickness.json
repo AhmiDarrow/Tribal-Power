@@ -2,13 +2,12 @@
   "name": "Spirit Sickness",
   "icon": "tribalpower:spirit_remnant",
   "order": 40,
-  "spoiler": true,
   "pages": [
     {
       "type": "text",
       "text": [
-        "Some spirits in [the March](the_march) leave more than a wound. **Elites** and spirits that **rose at night** have a one in four chance with each hit to leave you with **Spirit Sickness**.",
-        "It stacks up to **level III**. Every level takes **one heart** off your maximum health and slows you a little, and it lasts **5 minutes**, renewed by every fresh hit. You feel it settle in: the game tells you the first time."
+        "Some spirits in [the March](the_march) leave more than a wound. Every hit from an **elite**, and every hit from any spirit **at night**, has a one in four chance to leave you with **Spirit Sickness**.",
+        "It stacks up to **level III**. Every level takes **one heart** off your maximum health and slows you a little, and it lasts **5 minutes**, renewed by every fresh hit. You feel it settle in: the game tells you when it takes hold."
       ]
     },
     {
@@ -19,7 +18,8 @@
         "- any [remedy](remedies), tincture, salve or incense;",
         "- the [Healer's Rattle](healers_rattle) from Bound, a level every shake;",
         "- the [Healing Circle](healing_circle);",
-        "- a night in a [sweat lodge](sweat_lodge)."
+        "- a night in a [sweat lodge](sweat_lodge).",
+        "- a wash in a **Spirit Well** in the March: sneak in its water, for **40 Pulse** from a cell you carry."
       ]
     },
     {

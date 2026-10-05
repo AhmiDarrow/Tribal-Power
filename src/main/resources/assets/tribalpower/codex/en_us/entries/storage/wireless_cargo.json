@@ -16,7 +16,7 @@
       "item": "tribalpower:item_relay",
       "text": [
         "Move items or fluid between two machines without a line of pipes. Snap a relay plate onto a face of the sending machine, aim it at the receiving face with a Lattice Tuner, and every second the cargo jumps across.",
-        "Relays are for distance. For machines that touch, set their faces instead."
+        "Relays are for distance. Two Tribal Power blocks that touch can trade through their faces instead (see [How stations work](echo_workshops)); a vanilla chest still needs a hopper or a plate."
       ],
       "title": "Wireless cargo"
     },
@@ -24,9 +24,11 @@
       "type": "text",
       "title": "Snapping and aiming",
       "text": [
-        "Place a plate against a face of a machine or chest. It pulls from the block it is stuck to.",
+        "Right-click a plate onto a face of a machine or chest. Holding a plate, a plain click places it, even on a machine that opens a screen. It pulls from the block it is stuck to.",
+        "The plate pulls through the face it sits on and delivers into the face you marked, and both follow that block's face settings: the plate's face must give (**Output** or **Both**) and the marked face must take (**Input** or **Both**). A station's sides start as **Input** and only its bottom as **Output**, so set the face first.",
+        "A [Stone Font](stone_font) is set for plates already: its top and bottom faces are **Both**, so item and fluid plates work there either way.",
         "Aim it with the **Lattice Tuner**: right-click the face that should receive the goods, then right-click the plate. The plate sends everything it pulls to that face.",
-        "Keep Pulse within 8 blocks of the plate, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits."
+        "Keep Pulse within 8 blocks of the plate, and a Resonance Totem of its voice there too, awake or dim but not quiet: **Air** for Item, Fluid and Longreach relays, the **Loom** for Astral ones. A Kinship Totem lending that voice counts as well. Without it the plate waits. A server can drop this rule with **automationNeedsVoices** in the common config."
       ]
     },
     {
@@ -323,6 +325,39 @@
           }
         },
         {
+          "caption": "Stand an Air Resonance Totem within 8 blocks of the plate: relays carry on the Air voice.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
           "caption": "Pulse near the sending plate, and up to 16 items a second cross over.",
           "place": [
             {
@@ -355,7 +390,9 @@
       "text": [
         "Each second a relay moves up to **16 items** or **250 mB**.",
         "Item and Fluid relays carry what their name says. A **Water Seal** in the **Rune** slot makes any plate carry fluid; an **Earth Seal** makes it carry items.",
-        "A **Fire Seal** in the **Rune** slot makes a **void plate**: it burns what it pulls from its machine instead of sending it anywhere, items on an Item Relay, fluid on a Fluid Relay. It only burns what its filter names (the first channel's), so an empty filter burns nothing: whitelist the cobblestone to burn, or blacklist what to keep.",
+        "A **Fire Seal** in the **Rune** slot makes a **void plate**: it burns what it pulls from its machine instead of sending it anywhere, items on an Item Relay, fluid on a Fluid Relay. It only burns what its filter names, so an empty filter burns nothing. A void plate burns by tab 1's filter.",
+        "Plates start as a **Blacklist**, so a fresh void plate with cobblestone marked burns everything except cobblestone. Switch it to **Whitelist** first to burn only what you mark, or leave it a Blacklist and mark what to keep.",
+        "A void plate still needs Pulse and its voice. Each beat it burns up to **16 items** or **250 mB**, more when ranked, and pays the plate's usual Pulse for it.",
         "For fluid, park a Spirit Cistern at each end. Relays move fluid; they do not store it."
       ]
     },
@@ -366,7 +403,7 @@
         "Open a plate to fill its **Filter**: eight slots that hold a picture of an item, never the item itself. Click a slot with something in hand to mark it, with an empty hand to clear it, or shift-click goods in your inventory.",
         "The button beside it switches the list. A **Blacklist** holds the marked goods back and lets everything else cross; an empty blacklist, the way a plate starts, sends everything. A **Whitelist** sends only the marked goods.",
         "For fluid, mark a bucket or any filled container: a water bucket lists water.",
-        "Crouch and right-click a plate to switch its list without opening it."
+        "Crouch and right-click a plate with an empty hand to switch its list without opening it."
       ]
     },
     {
@@ -394,7 +431,8 @@
       "type": "text",
       "title": "The Lattice Tuner",
       "text": [
-        "Right-click the face of the block you want goods delivered to; the tuner remembers that face. Then right-click the plate with the tuner to aim it. Mark the destination, never the plate.",
+        "Right-click the face of the block you want goods delivered to; the tuner remembers that face. Then right-click the plate with the tuner to aim it. Mark the destination, never the plate. A plain right-click marks any block, even a cache or chest that opens on a click.",
+        "The mark stays on the tuner after you aim, so one mark can aim several plates; right-click another block to replace it. A mark on the block the plate itself sits on is refused.",
         "The distance limits above apply.",
         "Aiming survives picking the plate up, and so does its filter. Breaking a plate drops its Rune beside it.",
         "A plate is yours: only you and your [camp](shared_camps) can open it, change its filter, or aim it with a tuner."
@@ -405,8 +443,9 @@
       "title": "Controls and when it waits",
       "text": [
         "A steady redstone signal pauses a plate. Power the tuner's target block to stop a transfer from the far end.",
+        "A lever on a Tribal Power station, cache or cistern also stops plates pulling from it or delivering into it.",
         "A comparator on a plate reads **0** unlinked, **1** linked but waiting, **15** while moving cargo.",
-        "Both ends must already be loaded. An unloaded or full destination makes the relay wait; nothing is ever voided. Relays never load chunks themselves, so put a Wayanchor at the far end if it must work while you are away.",
+        "Both ends must already be loaded. An unloaded or full destination makes the relay wait; only a Fire Seal plate destroys anything. Relays never load chunks themselves, so put a Wayanchor at the far end if it must work while you are away.",
         "Crouch and right-click a plate with this book to see its link, cost and why it is waiting."
       ]
     },
