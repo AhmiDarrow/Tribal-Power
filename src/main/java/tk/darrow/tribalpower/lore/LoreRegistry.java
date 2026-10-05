@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BannerPatternItem;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
@@ -52,9 +51,4 @@ public final class LoreRegistry {
         ITEMS.register(modBus);
     }
 
-    public static void displayItems(CreativeModeTab.Output out) {
-        out.accept(CARVED_STONE_ITEM.get());
-        out.accept(MURAL_ITEM.get());
-        PATTERN_ITEMS.values().forEach(item -> out.accept(item.get()));
-    }
 }

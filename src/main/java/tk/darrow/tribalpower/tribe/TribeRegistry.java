@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.tribe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -72,15 +71,6 @@ public final class TribeRegistry {
 
     public static void attributes(EntityAttributeCreationEvent event) {
         event.put(TRIBAL_KIN.get(), TribalKinEntity.createAttributes().build());
-    }
-
-    /** Creative tab: nine hearths, nine banners, nine kinship totems, nine marks, four eggs. */
-    public static void displayItems(CreativeModeTab.Output out) {
-        for (TribeDefinition tribe : TribeDefinition.values()) out.accept(tribe.stamped(TRIBE_HEARTH_ITEM.get()));
-        for (TribeDefinition tribe : TribeDefinition.values()) out.accept(tribe.stamped(TRIBE_BANNER_ITEM.get()));
-        for (TribeDefinition tribe : TribeDefinition.values()) out.accept(tribe.stamped(KINSHIP_TOTEM_ITEM.get()));
-        for (TribeDefinition tribe : TribeDefinition.values()) out.accept(tribe.stamped(TRIBE_MARK.get()));
-        EGGS.values().forEach(egg -> out.accept(egg.get()));
     }
 
     private TribeRegistry() {}
