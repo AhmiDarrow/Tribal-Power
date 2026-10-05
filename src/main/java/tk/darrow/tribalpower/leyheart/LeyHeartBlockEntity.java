@@ -240,7 +240,8 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
         Map<Attunement, ResonanceTotemBlockEntity> totems = star(level);
         answered = 0;
         if (complete) for (ResonanceTotemBlockEntity totem : totems.values())
-            if (totem.keeping() == Keeping.State.ANSWERED) answered++;
+            // answered by its keeping, and voiced: a totem whose lattice buffer has run dry is silent
+            if (totem.keeping() == Keeping.State.ANSWERED && totem.voiced()) answered++;
         if (beats++ % SURVEY_BEATS == 0 || lastReading == null) survey(level);
 
         boolean stilled = stilled();
