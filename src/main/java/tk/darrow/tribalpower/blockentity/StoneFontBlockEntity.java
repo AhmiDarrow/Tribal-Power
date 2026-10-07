@@ -191,7 +191,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
 
         Ask ask = be.best(level, pos);
         if (ask == null) { be.reset("pattern"); return; }
-        if (ask != be.asking) { be.asking = ask; be.work = 0; }
+        if (ask != be.asking) { be.asking = ask; be.work = 0; be.setChanged(); }
 
         ItemStack result = ask.result(pos);
         if (!be.placeOutput(result, true)) { be.stall("full"); return; }

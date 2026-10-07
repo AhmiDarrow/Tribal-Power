@@ -25,7 +25,9 @@ public final class BreedingFood {
         public boolean test(ItemStack stack) {
             if (stack.isEmpty()) return false;
             if (tag != null && stack.is(tag)) return true;
-            for (var id : items) if (stack.is(BuiltInRegistries.ITEM.get(id))) return true;
+            // One registry lookup for the stack, not one per listed id: this is a TemptGoal predicate, per creature per tick.
+            ResourceLocation key = BuiltInRegistries.ITEM.getKey(stack.getItem());
+            for (var id : items) if (id.equals(key)) return true;
             return false;
         }
 

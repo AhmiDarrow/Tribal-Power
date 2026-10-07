@@ -102,8 +102,8 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
     private void craft(ServerLevel server) {
         ResourceLocation id = RecipeSealItem.recipeId(items.get(SEAL));
         if (id == null) { setReason("seat"); return; }
-        Optional<RecipeHolder<CraftingRecipe>> found = match(server);
-        if (found.isEmpty() || !found.get().id().equals(id)) { setReason("mismatch"); return; }
+        Optional<RecipeHolder<CraftingRecipe>> found = matchSealed(server, id);
+        if (found.isEmpty()) { setReason("mismatch"); return; }
         int cost = COST;
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) {
             setReason("need_pulse", cost);
@@ -146,6 +146,17 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
 
     private Optional<RecipeHolder<CraftingRecipe>> match(ServerLevel server) {
         return server.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, grid(), server);
+    }
+
+    /**
+     * The seal names its recipe, so the beat tests that one alone against the grid: walking every crafting recipe
+     * in the pack once a second per loom (the old {@link #match}) is for imprinting, where a player is waiting.
+     */
+    @SuppressWarnings("unchecked")
+    private Optional<RecipeHolder<CraftingRecipe>> matchSealed(ServerLevel server, ResourceLocation id) {
+        Optional<RecipeHolder<?>> sealed = server.getRecipeManager().byKey(id);
+        if (sealed.isEmpty() || !(sealed.get().value() instanceof CraftingRecipe crafting)) return Optional.empty();
+        return crafting.matches(grid(), server) ? Optional.of((RecipeHolder<CraftingRecipe>) sealed.get()) : Optional.empty();
     }
 
     private CraftingInput grid() {

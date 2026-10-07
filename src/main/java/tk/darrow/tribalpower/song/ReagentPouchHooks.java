@@ -1,5 +1,6 @@
 package tk.darrow.tribalpower.song;
 
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,9 +20,15 @@ public final class ReagentPouchHooks {
         int left = absorb(event.getPlayer(), entity.getItem());
         if (left == entity.getItem().getCount()) return;
         ItemStack stack = entity.getItem();
+        int taken = stack.getCount() - left;
         stack.setCount(left);
         entity.setItem(stack);
         if (left <= 0) {
+            // Vanilla's pickup never runs for a fully absorbed stack: play its part (the fly-to-player animation,
+            // the pickup sound on the client, the stat) before the entity goes.
+            Player player = event.getPlayer();
+            player.take(entity, taken);
+            player.awardStat(Stats.ITEM_PICKED_UP.get(stack.getItem()), taken);
             event.setCanPickup(TriState.FALSE);
             entity.discard();
         }

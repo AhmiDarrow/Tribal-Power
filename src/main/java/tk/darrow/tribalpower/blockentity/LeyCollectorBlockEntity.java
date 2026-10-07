@@ -103,8 +103,12 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
 
     /** Landscape beat plus machine rank — the same Pulse the tick inserts. */
     public int currentBeat(Level world, BlockPos pos) {
-        int gain = beatFor(tk.darrow.tribalpower.ley.LeyMath.gain(world, pos));
-        gain = (int) Math.round(gain * tk.darrow.tribalpower.event.LeySurges.multiplier(world, pos));
+        // The same cached ley reading the tick uses: the lens asks every collector on a network once a second,
+        // and a fresh LeyField sample per ask was the dearest thing in that packet.
+        var ley = reading(world, pos);
+        int gain = beatFor(tk.darrow.tribalpower.ley.LeyMath.factors(world, pos, ley).gain());
+        gain = (int) Math.round(gain * (ley == null ? tk.darrow.tribalpower.event.LeySurges.multiplier(world, pos)
+                : tk.darrow.tribalpower.event.LeySurges.multiplier(world, ley)));
         return tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(gain + tk.darrow.tribalpower.item.MachineRank.bonusGain(this, gain));
     }
 

@@ -190,7 +190,7 @@ public class RitualChalkItem extends Item {
     public static int remaining(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
         if (data == null) return USES;
-        CompoundTag tag = data.copyTag();
+        CompoundTag tag = data.getUnsafe();   // read only; the durability bar asks three times a frame
         return tag.contains(TAG_USES) ? Math.clamp(tag.getInt(TAG_USES), 0, USES) : USES;
     }
 
@@ -236,7 +236,7 @@ public class RitualChalkItem extends Item {
         if (data == null) {
             return null;
         }
-        CompoundTag tag = data.copyTag();
+        CompoundTag tag = data.getUnsafe();
         if (!tag.contains(TAG_LINK)) {
             return null;
         }

@@ -29,7 +29,8 @@ public class PulseCellItem extends Item {
         this.capacity = capacity;
     }
 
-    public static int capacity(ItemStack stack) { return stack.getItem() instanceof PulseCellItem cell ? cell.capacity : 0; }
+    public static int capacity(ItemStack stack) { return capacity(stack.getItem()); }
+    public static int capacity(Item item) { return item instanceof PulseCellItem cell ? cell.capacity : 0; }
 
     public static int getPulse(ItemStack stack) {
         CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);

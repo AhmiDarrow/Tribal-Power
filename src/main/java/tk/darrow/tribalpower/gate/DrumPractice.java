@@ -284,7 +284,14 @@ public final class DrumPractice {
         }
         BlockPos rivalPos = drumOf(rival, pos);
         if (rivalPos == null) return;
-        DUELS.values().removeIf(d -> !d.started && Util.getMillis() - d.invitedMs > INVITE_MS);
+        // Unanswered invites expire; a duel both players walked out of (no Result ever sent) is forgotten once its
+        // song and the slack a session gets are long over, or the entry would sit here for the server's life.
+        long nowMs = Util.getMillis();
+        DUELS.values().removeIf(d -> {
+            if (!d.started) return nowMs - d.invitedMs > INVITE_MS;
+            Song duelSong = Songbook.song(d.song);
+            return nowMs - d.invitedMs > INVITE_MS + EXPIRE_MS + (duelSong == null ? 0 : duelSong.lengthMs());
+        });
         int id = NEXT_DUEL.getAndIncrement();
         DUELS.put(id, new Duel(id, player.getUUID(), rival.getUUID(), pos.immutable(), rivalPos, songIndex, difficulty));
         send(rival, new Invite(id, player.getGameProfile().getName(), songIndex, difficulty.ordinal()));

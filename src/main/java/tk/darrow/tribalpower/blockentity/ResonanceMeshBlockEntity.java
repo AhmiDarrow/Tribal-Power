@@ -322,7 +322,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
         OreBand band = be.selectBand(level, pos, tier, voices);
         if (band == null) { be.stall("standing"); return; }
-        if (band != be.band) { be.band = band; be.work = 0; be.calling = ""; }
+        if (band != be.band) { be.band = band; be.work = 0; be.calling = ""; be.setChanged(); }
 
         List<ItemStack> substrate = be.substrate(band, voices);
         if (!be.hasSubstrate(substrate)) be.restock(cache, substrate);

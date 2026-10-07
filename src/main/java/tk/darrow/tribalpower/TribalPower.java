@@ -114,6 +114,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::placed);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::dropped);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::playerTick);
+        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.MachineRank::loggedOut);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::beforeBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::drops);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGearHooks::incomingDamage);

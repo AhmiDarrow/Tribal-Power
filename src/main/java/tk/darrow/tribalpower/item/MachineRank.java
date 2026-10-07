@@ -42,7 +42,7 @@ public final class MachineRank {
     public static int rank(ItemStack stack) {
         if (!isMachine(stack)) return 0;
         return Math.clamp(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
-                .copyTag().getInt(KEY), 0, MAX);
+                .getUnsafe().getInt(KEY), 0, MAX);
     }
 
     public static int rank(BlockEntity be) {
@@ -207,6 +207,11 @@ public final class MachineRank {
         if (stack.getItem() instanceof net.minecraft.world.item.BlockItem blockItem
                 && event.getPlacedBlock().getBlock() != blockItem.getBlock()) return;
         copyToBlock(stack, event.getLevel().getBlockEntity(event.getPos()));
+    }
+
+    /** A player who logs out in the placing tick never reaches {@link #playerTick}; their snapshot goes with them. */
+    public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        PLACING.remove(event.getEntity().getUUID());
     }
 
     /** Drop a leftover snapshot if the click never placed a block. Keep it through the placing tick. */

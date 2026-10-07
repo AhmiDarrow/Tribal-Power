@@ -259,14 +259,18 @@ public final class SpiritGearHooks {
 
     public static void shedSnares(Player player, Attunement legVoice) {
         if (legVoice != Attunement.EARTH && legVoice != Attunement.LOOM) return;
+        BlockState snare = snareAt(player);
+        if (snare != null) player.makeStuckInBlock(snare, net.minecraft.world.phys.Vec3.ZERO);
+    }
+
+    /** The cobweb or berry bush the player stands in, or null. A handful of block reads: far cheaper than asking the leggings. */
+    static BlockState snareAt(Player player) {
         var box = player.getBoundingBox().deflate(1.0E-5);
         for (BlockPos pos : BlockPos.betweenClosed(BlockPos.containing(box.minX, box.minY, box.minZ), BlockPos.containing(box.maxX, box.maxY, box.maxZ))) {
             BlockState state = player.level().getBlockState(pos);
-            if (state.is(Blocks.COBWEB) || state.is(Blocks.SWEET_BERRY_BUSH)) {
-                player.makeStuckInBlock(state, net.minecraft.world.phys.Vec3.ZERO);
-                return;
-            }
+            if (state.is(Blocks.COBWEB) || state.is(Blocks.SWEET_BERRY_BUSH)) return state;
         }
+        return null;
     }
 
     /**
@@ -287,7 +291,13 @@ public final class SpiritGearHooks {
         Player player = event.getEntity();
         if (player.level().isClientSide) {
             // Only the local player's movement is simulated here; other players arrive as positions.
-            if (player.isLocalPlayer()) shedSnares(player, snareVoice(player, player.getItemBySlot(EquipmentSlot.LEGS)));
+            // Snare first, leggings second: the client-side power check walks the whole inventory, and most ticks
+            // there is no cobweb to shed.
+            if (player.isLocalPlayer()) {
+                BlockState snare = snareAt(player);
+                if (snare != null && snareVoice(player, player.getItemBySlot(EquipmentSlot.LEGS)) != null)
+                    player.makeStuckInBlock(snare, net.minecraft.world.phys.Vec3.ZERO);
+            }
             return;
         }
         if (player.tickCount > 5 && player.getPersistentData().contains(KEPT_HEALTH)) {

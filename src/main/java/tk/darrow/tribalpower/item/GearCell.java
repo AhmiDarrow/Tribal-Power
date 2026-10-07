@@ -43,7 +43,7 @@ public final class GearCell {
 
     public static int capacity(ItemStack gear) {
         Item cell = cell(gear);
-        return cell == null ? 0 : PulseCellItem.capacity(new ItemStack(cell));
+        return cell == null ? 0 : PulseCellItem.capacity(cell);
     }
 
     public static int pulse(ItemStack gear) {

@@ -17,8 +17,14 @@ public final class LeyLensHud {
     private static LeyMath.Factors factors;
     private static int[] counts;
     private static java.util.Set<tk.darrow.tribalpower.api.pulse.Attunement> voices;
+    private static String voiceNames = "";
 
     private LeyLensHud() {}
+
+    /** One of the land's conditions as the lens names it: "sky", "rain", "sheltered"... */
+    private static String tag(String id) {
+        return Component.translatable("gui.tribalpower.lens.tag." + id).getString();
+    }
 
     public static void render(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
@@ -65,11 +71,11 @@ public final class LeyLensHud {
             g.fill(x + 8, y + 28, x + 8 + span, y + 31, 0xFF30494A);
             g.fill(x + 8, y + 28, x + 8 + Math.round(span * (percent / 100.0F)), y + 31, colour);
             StringBuilder tags = new StringBuilder();
-            if (ley.sky()) tags.append(ley.night() ? "night sky " : "sky ");
-            if (ley.rain()) tags.append(ley.thunder() ? "storm " : "rain ");
-            if (ley.water() > 0) tags.append("water ");
-            if (ley.greenery() > 0) tags.append("green ");
-            if (tags.isEmpty()) tags.append("sheltered");
+            if (ley.sky()) tags.append(tag(ley.night() ? "night_sky" : "sky")).append(' ');
+            if (ley.rain()) tags.append(tag(ley.thunder() ? "storm" : "rain")).append(' ');
+            if (ley.water() > 0) tags.append(tag("water")).append(' ');
+            if (ley.greenery() > 0) tags.append(tag("green")).append(' ');
+            if (tags.isEmpty()) tags.append(tag("sheltered"));
             g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
             Component veins = sight.lines() <= 0
                     ? Component.translatable("gui.tribalpower.lens.lines_none")
@@ -112,10 +118,15 @@ public final class LeyLensHud {
                 g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.more", reading.count() - rows.size()),
                         x + 8, rowY, 0xFF667A80, false);
         } else if (mode == LeyLensItem.VOICE) {
-            if (due || voices == null) voices = tk.darrow.tribalpower.lattice.LatticeNetwork.collectAttunements(mc.level, pos, r);
+            if (due || voices == null) {
+                voices = tk.darrow.tribalpower.lattice.LatticeNetwork.collectAttunements(mc.level, pos, r);
+                // Named once a second with the scan, not joined again every frame.
+                voiceNames = voices.isEmpty() ? Component.translatable("gui.tribalpower.lens.voices_none").getString()
+                        : voices.stream().map(v -> Component.translatable("attunement.tribalpower." + v.getSerializedName()).getString())
+                        .reduce((a, b) -> a + " " + b).orElse("");
+            }
             g.drawString(mc.font, Component.translatable("gui.tribalpower.lens.voices", voices.size()), x + 8, y + 16, 0xFF99C9BD, false);
-            String names = voices.stream().map(v -> v.getSerializedName()).reduce((a, b) -> a + " " + b).orElse("none");
-            g.drawString(mc.font, mc.font.plainSubstrByWidth(names, 100), x + 8, y + 28, 0xFF74DBCB, false);
+            g.drawString(mc.font, mc.font.plainSubstrByWidth(voiceNames, 100), x + 8, y + 28, 0xFF74DBCB, false);
         } else {
             // Counting the machines walks every block entity in four chunks: once a second is plenty.
             if (due || counts == null) {

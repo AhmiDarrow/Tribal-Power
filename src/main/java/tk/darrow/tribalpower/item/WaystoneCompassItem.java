@@ -27,7 +27,7 @@ public class WaystoneCompassItem extends Item {
     private final int tier;
     public WaystoneCompassItem(Properties properties, int tier) { super(properties); this.tier = tier; }
     public static boolean bound(ItemStack compass) {
-        var data = compass.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        var data = compass.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
         return data.contains("Waypoint") && ResourceLocation.tryParse(data.getString("Dimension")) != null;
     }
 

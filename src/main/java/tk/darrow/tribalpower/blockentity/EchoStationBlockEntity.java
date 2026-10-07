@@ -192,7 +192,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
             if (changed) be.setChanged();
             return;
         }
-        if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); }
+        if (!recipe.id().toString().equals(be.recipeId)) { be.work = 0; be.recipeId = recipe.id().toString(); be.setChanged(); }
         if (level.hasNeighborSignal(pos)) { be.state = "paused"; return; }
         ItemStack result = recipe.result();
         // Voice, keeping (twice) and feeding all ask about the same totems: found once for the beat.

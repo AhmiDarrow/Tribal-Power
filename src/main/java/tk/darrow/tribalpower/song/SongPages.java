@@ -18,7 +18,8 @@ public final class SongPages {
     private SongPages() {}
 
     public static List<SongVerse> pages(ItemStack book) {
-        CompoundTag tag = book.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        // Read in place: the tooltip and the bow's verse lookup ask this every frame, and SongVerse.read copies out.
+        CompoundTag tag = book.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
         ListTag list = tag.getList(PAGES, Tag.TAG_COMPOUND);
         List<SongVerse> pages = new ArrayList<>(list.size());
         for (int i = 0; i < list.size(); i++) {
@@ -31,7 +32,7 @@ public final class SongPages {
     public static int open(ItemStack book) {
         List<SongVerse> pages = pages(book);
         if (pages.isEmpty()) return 0;
-        int index = book.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getInt(OPEN);
+        int index = book.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt(OPEN);
         return Math.floorMod(index, pages.size());
     }
 

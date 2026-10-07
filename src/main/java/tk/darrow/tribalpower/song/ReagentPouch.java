@@ -68,7 +68,8 @@ public final class ReagentPouch {
     }
 
     private static int count(ItemStack pouch, String side, CreatureProfile profile) {
-        CompoundTag tag = pouch.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        // Read in place: kinds() asks this for every profile, and the pouch screens ask per row per frame.
+        CompoundTag tag = pouch.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();
         CompoundTag sideTag = tag.getCompound(side);
         return Math.clamp(sideTag.getInt(profile.reagent), 0, CAP);
     }

@@ -306,6 +306,7 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
     @Override
     public void clearContent() {
         items.clear();
+        setChanged();
     }
 
     @Override

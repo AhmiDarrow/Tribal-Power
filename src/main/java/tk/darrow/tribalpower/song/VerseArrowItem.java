@@ -45,7 +45,7 @@ public class VerseArrowItem extends Item {
 
     public static @Nullable SongVerse verse(ItemStack stack) {
         if (!(stack.getItem() instanceof VerseArrowItem)) return null;
-        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe();   // read only
         SongVerse fletched = SongVerse.read(tag);
         if (fletched != null) {
             return fletched.reagents().size() <= MAX_REAGENTS ? fletched

@@ -39,11 +39,15 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     public CampBlockEntity(BlockPos pos,BlockState state){
         super(CampRegistry.TYPE.get(),pos,state);
         String path=BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
+        kind=path;
         sides="grove_tender".equals(path)?tk.darrow.tribalpower.lattice.SideIo.mesh()
                 :new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
     }
-    public String kind(){return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();}
-    public boolean hasInventory(){return Set.of("grove_tender","summoning_cradle","offering_table").contains(kind());}
+    /** The block never changes under a block entity, so its name is read once: hoppers ask kind() every tick through the face checks. */
+    private final String kind;
+    private static final Set<String> WITH_INVENTORY=Set.of("grove_tender","summoning_cradle","offering_table");
+    public String kind(){return kind;}
+    public boolean hasInventory(){return WITH_INVENTORY.contains(kind);}
     private final tk.darrow.tribalpower.lattice.SideIo sides;
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo(){return sides;}
     @Override public int[] inputSlots(Direction face){return getSlotsForFace(face);}

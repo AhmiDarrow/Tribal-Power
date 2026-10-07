@@ -23,8 +23,8 @@ public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity 
     @Override public int[] inputSlots(net.minecraft.core.Direction face) { return ALL; }
     @Override public int[] outputSlots(net.minecraft.core.Direction face) { return ALL; }
     @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).insert(); }
-    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && sides.get(face).extract(); }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()); }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).extract()); }
     @Override public boolean stillValid(Player player) { return super.stillValid(player) && !level.hasNeighborSignal(worldPosition); }
 
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);

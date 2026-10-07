@@ -83,6 +83,8 @@ public final class SpiritCodexScreen extends Screen {
     private final Map<Page, Double> sceneSince = new IdentityHashMap<>();
     private final Map<Page, List<CodexBook.Step>> patternSteps = new IdentityHashMap<>();
     private final Map<Page, Integer> recipeIndex = new IdentityHashMap<>();
+    /** An image page's texture, resolved once: parsing (and validating) the path every frame is wasted, and a bad name must not throw mid-render. */
+    private final Map<Page, ResourceLocation> imageTexture = new IdentityHashMap<>();
     private final long epoch = System.nanoTime();
     private View view = View.LANDING;
     private String category = "", entry = "", item = "", query = "";
@@ -761,7 +763,11 @@ public final class SpiritCodexScreen extends Screen {
             }
             case CodexBook.Image i -> {
                 int size = imageSize();
-                g.blit(ResourceLocation.parse("tribalpower:textures/gui/codex/" + i.image() + ".png"), x + (pageWidth - 8 - size) / 2, y, 0, 0, size, size, size, size);
+                ResourceLocation texture = imageTexture.computeIfAbsent(page, p -> {
+                    ResourceLocation parsed = ResourceLocation.tryParse("tribalpower:textures/gui/codex/" + i.image() + ".png");
+                    return parsed != null ? parsed : net.minecraft.client.renderer.texture.MissingTextureAtlasSprite.getLocation();
+                });
+                g.blit(texture, x + (pageWidth - 8 - size) / 2, y, 0, 0, size, size, size, size);
                 return y + size + 8;
             }
             case CodexBook.Creature c -> {

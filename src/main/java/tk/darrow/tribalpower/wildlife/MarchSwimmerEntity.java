@@ -46,13 +46,21 @@ public class MarchSwimmerEntity extends AbstractFish implements WildBreeding.Bre
         super(type, level);
     }
 
+    /** Resolved on first ask (no initializer: the super constructor asks while registering goals, and an initializer would wipe it after). */
+    private Kind kind;
+
     /** From the entity type, so it is known even while the constructor is still registering goals. */
     public Kind kind() {
-        return switch (BuiltInRegistries.ENTITY_TYPE.getKey(getType()).getPath()) {
-            case "drift_bell" -> Kind.DRIFT_BELL;
-            case "veil_ray" -> Kind.VEIL_RAY;
-            default -> Kind.SILT_EEL;
-        };
+        Kind known = kind;
+        if (known == null) {
+            known = switch (BuiltInRegistries.ENTITY_TYPE.getKey(getType()).getPath()) {
+                case "drift_bell" -> Kind.DRIFT_BELL;
+                case "veil_ray" -> Kind.VEIL_RAY;
+                default -> Kind.SILT_EEL;
+            };
+            kind = known;
+        }
+        return known;
     }
 
     @Override

@@ -53,7 +53,9 @@ public final class ChocoboCompat {
     /** The bird settles its own colour while finalising, so ours is applied once it joins the level. */
     private static void applyPlumage(EntityJoinLevelEvent event) {
         var entity = event.getEntity();
-        if (event.getLevel().isClientSide() || !entity.getPersistentData().getBoolean(PENDING)) return;
+        // Type first: getPersistentData() allocates a tag on every entity it is asked of, and this hook sees them all.
+        if (event.getLevel().isClientSide() || !BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).equals(CHOCOBO)
+                || !entity.getPersistentData().getBoolean(PENDING)) return;
         entity.getPersistentData().remove(PENDING);
         CompoundTag tag = entity.saveWithoutId(new CompoundTag());
         tag.putInt("Plumage", FLAME);

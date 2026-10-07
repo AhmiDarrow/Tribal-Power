@@ -51,8 +51,11 @@ public class RiteSavedData extends SavedData {
     /** Not saved: only readings taken since the server started can be stale. */
     private int heartEpoch;
 
+    /** One factory: {@link #get} runs on every hostile spawn placement check, and the factory is only a key there. */
+    private static final SavedData.Factory<RiteSavedData> FACTORY = new SavedData.Factory<>(RiteSavedData::new, RiteSavedData::load);
+
     public static SavedData.Factory<RiteSavedData> factory() {
-        return new SavedData.Factory<>(RiteSavedData::new, RiteSavedData::load);
+        return FACTORY;
     }
 
     public static RiteSavedData get(MinecraftServer server) {
@@ -169,7 +172,12 @@ public class RiteSavedData extends SavedData {
         return out;
     }
 
+    /** Not saved: the tick the lists were last swept, so a lattice walk of a hundred nodes sweeps them once, not a hundred times. */
+    private long prunedAt = Long.MIN_VALUE;
+
     private void prune(long now) {
+        if (now == prunedAt) return;
+        prunedAt = now;
         if (wards.removeIf(w -> w.expiry() <= now)) setDirty();
         if (leyLines.removeIf(l -> l.expiry() <= now)) setDirty();
         if (springs.removeIf(s -> s.expiry() <= now)) setDirty();

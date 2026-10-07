@@ -104,7 +104,7 @@ public class RitePedestalBlockEntity extends BlockEntity implements WorldlyConta
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return !stilled() && sides.get(face).extract();
+        return !stilled() && (face == null || sides.get(face).extract());
     }
 
     /** Comparator: occupied or not. A pedestal holds one thing, so there is nothing finer to report. */
