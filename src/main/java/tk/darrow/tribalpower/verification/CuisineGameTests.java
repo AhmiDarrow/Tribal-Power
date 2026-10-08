@@ -57,6 +57,28 @@ public final class CuisineGameTests {
         h.succeed();
     }
 
+    /** The Glimmer Ridge is moonstone and moss agate at the surface: the bean roots there, and in the Crystal Fields too. */
+    @GameTest(template = "empty")
+    public static void glimmerBeansRootInRidgeStone(GameTestHelper h) {
+        var level = (ServerLevel) h.getLevel();
+        var bean = CuisineRegistry.CROPS.get(MarchCrop.GLIMMER_BEAN).get();
+        var grain = CuisineRegistry.CROPS.get(MarchCrop.STEPPE_GRAIN).get();
+        var above = h.absolutePos(new BlockPos(2, 2, 2));
+        for (var stone : new net.minecraft.world.level.block.Block[]{tk.darrow.tribalpower.block.ModBlocks.MOONSTONE.get(),
+                tk.darrow.tribalpower.block.ModBlocks.MOSS_AGATE.get()}) {
+            h.setBlock(2, 1, 2, stone);
+            h.assertTrue(bean.defaultBlockState().canSurvive(level, above), "Glimmer Bean roots in " + stone.getName().getString());
+            h.assertFalse(grain.defaultBlockState().canSurvive(level, above), "Steppe Grain does not root in " + stone.getName().getString());
+        }
+        var placed = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath("tribalpower", "wild_glimmer_bean"));
+        for (String name : new String[]{"march_glimmer_ridge", "march_crystal_fields"}) {
+            var biome = level.registryAccess().registryOrThrow(Registries.BIOME).get(ResourceLocation.fromNamespaceAndPath("tribalpower", name));
+            h.assertTrue(biome != null && biome.getGenerationSettings().features().stream()
+                    .anyMatch(step -> step.stream().anyMatch(f -> f.unwrapKey().map(k -> k.equals(placed)).orElse(false))), "Glimmer Beans grow wild in " + name);
+        }
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void theHoeReapsAndReplantsMarchCrops(GameTestHelper h) {
         var player = VerificationPlayers.inLevel(h);

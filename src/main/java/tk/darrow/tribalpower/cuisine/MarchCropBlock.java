@@ -43,9 +43,16 @@ public class MarchCropBlock extends CropBlock {
         return SHAPES[getAge(state)];
     }
 
-    /** Tilled ground for a farmer; grown wild, the plain ground of the March will do. */
+    /**
+     * Tilled ground for a farmer; grown wild, the plain ground of the March will do. The Glimmer Ridge has no
+     * plain ground, only moonstone and moss agate, so the Glimmer Bean roots in those too or no wild patch lands.
+     */
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+        if (crop == MarchCrop.GLIMMER_BEAN && (state.is(tk.darrow.tribalpower.block.ModBlocks.MOONSTONE.get())
+                || state.is(tk.darrow.tribalpower.block.ModBlocks.MOSS_AGATE.get()))) {
+            return true;
+        }
         return state.is(net.minecraft.world.level.block.Blocks.FARMLAND) || state.is(BlockTags.DIRT)
                 || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_GRASS.get()) || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_SOIL.get())
                 || state.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_MOSS.get()) || state.is(net.minecraft.world.level.block.Blocks.SAND);
