@@ -1,0 +1,14 @@
+{
+  "type": "tribalpower:lattice",
+  "station": "echo_shatter",
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
+  "result": {
+    "id": "minecraft:amethyst_shard",
+    "count": 4
+  },
+  "attunement": "earth",
+  "seconds": 4,
+  "pulse_per_second": 20
+}

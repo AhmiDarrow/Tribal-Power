@@ -40,6 +40,31 @@ public class WildlifeGameTests {
     }
 
     /**
+     * A rod in the March lands the March's fish: every vanilla fish in a haul becomes a glimmerfin or an eel, junk
+     * stays junk, a haul with no fish is left to vanilla, and an empty bucket in the other hand lands a live one.
+     */
+    @GameTest(template = "empty")
+    public static void marchRodLandsMarchFish(GameTestHelper h) {
+        var random = h.getLevel().random;
+        var haul = java.util.List.of(new ItemStack(Items.COD), new ItemStack(Items.SALMON), new ItemStack(Items.STICK));
+        for (int i = 0; i < 50; i++) {
+            var landed = tk.darrow.tribalpower.wildlife.MarchFishing.marchCatch(haul, random, false);
+            h.assertTrue(landed != null && landed.size() == 3, "a haul with fish is the March's to land");
+            for (int n = 0; n < 2; n++)
+                h.assertTrue(landed.get(n).is(Wildlife.RAW_GLIMMERFIN.get()) || landed.get(n).is(Wildlife.RAW_SILT_EEL.get()), "a vanilla fish comes up as March fish");
+            h.assertTrue(landed.get(2).is(Items.STICK), "junk stays junk");
+        }
+        h.assertTrue(tk.darrow.tribalpower.wildlife.MarchFishing.marchCatch(java.util.List.of(new ItemStack(Items.STICK)), random, false) == null,
+                "a haul with no fish is vanilla's");
+        boolean live = false;
+        for (int i = 0; i < 50 && !live; i++)
+            for (ItemStack stack : tk.darrow.tribalpower.wildlife.MarchFishing.marchCatch(java.util.List.of(new ItemStack(Items.COD)), random, true))
+                live |= stack.is(Wildlife.GLIMMERFIN_BUCKET.get());
+        h.assertTrue(live, "an empty bucket in the other hand lands a live glimmerfin");
+        h.succeed();
+    }
+
+    /**
      * Natural spawns land in open water, not in aquifers. The spawner tries heights from the bottom of the
      * world up, and when any water would do, most March swimmers spawned in water sealed under the land
      * where nobody could see them, filling the caps the meres share. A two-deep fen pool open to the sky
