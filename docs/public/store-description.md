@@ -48,6 +48,8 @@ A full standalone book, written the way one player would explain the mod to anot
 
 ![A bestiary page: the Dawn Stag, with its portrait, its habits and what it gives](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/codex_bestiary.jpg)
 
+![The Spiritgear Weapons page: the Blade and its family, with every number the game uses](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/codex_weapons.jpg)
+
 ## A camp that keeps working
 
 Wayanchors sustain their own chunks with Pulse. Hush Totems ward hostile spawning. Ward Drums answer hostiles. Grove Tenders plant, water, harvest and replant crop beds, and work AgriCraft's crop sticks and seeds when that mod is in the pack. Spirit Lanterns, weather-reading Rain Chimes and 27-slot Offering Tables make decorations useful. Every automated hand answers to a kept Resonance Totem of its own voice, redstone controls every device, and standard item handlers connect them to your automation.
