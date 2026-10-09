@@ -44,7 +44,9 @@ Six voice blessings, one per Attunement, come from ward songs, seal rites and re
 
 A full standalone book, written the way one player would explain the mod to another, with creature portraits, animated examples, search, bookmarks, live recipes, and a **Next step** panel that reads where you are on the path from the first hearth to the Ninth Agreement and names one thing to do. Every mention of another entry or item is a link. The Codex keeps the Chronicle: sixteen fragments of the Loom's history carved into the March's ruins and painted on murals at the guardians' grounds, assembled as you find them. Outside the book, every item and block carries a hint tooltip that says what it does and what it needs, and every reagent names its note, its creature, its song, its anointment and its remedy.
 
-![The Spirit Codex: a creature page of the bestiary](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/codex-bestiary.png)
+![The Spirit Codex opens on its chapters, from Getting Started to the March](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/codex_home.jpg)
+
+![A bestiary page: the Dawn Stag, with its portrait, its habits and what it gives](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/codex_bestiary.jpg)
 
 ## A camp that keeps working
 
