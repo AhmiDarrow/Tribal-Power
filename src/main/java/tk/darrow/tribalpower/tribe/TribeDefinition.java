@@ -188,9 +188,9 @@ public enum TribeDefinition {
         if (stack.isEmpty()) return 0;
         // A tribe's own dish, cooked the way it cooks it, is the gift it prizes most.
         if (stack.is(tk.darrow.tribalpower.cuisine.CuisineRegistry.dish(this))) return tk.darrow.tribalpower.config.TribalConfig.dishStanding();
-        if (reagent(stack)) return TribeStanding.GAIN_REAGENT;
-        if (favoured(stack)) return TribeStanding.GAIN_FAVOURED;
-        if (stack.has(DataComponents.FOOD)) return TribeStanding.GAIN_FOOD;
+        if (reagent(stack)) return TribeStanding.gainReagent();
+        if (favoured(stack)) return TribeStanding.gainFavoured();
+        if (stack.has(DataComponents.FOOD)) return TribeStanding.gainFood();
         return 0;
     }
 

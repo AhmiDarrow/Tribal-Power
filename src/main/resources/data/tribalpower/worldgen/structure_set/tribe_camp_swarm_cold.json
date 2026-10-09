@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:tribe_camp_swarm_cold",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 14,
+    "salt": 8259276,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_spark_cold",
+      "chunk_count": 3
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "tribalpower:floating_island",
+  "biomes": "#tribalpower:has_structure/floating_island",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
+}

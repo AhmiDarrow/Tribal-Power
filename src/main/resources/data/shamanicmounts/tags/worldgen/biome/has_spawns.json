@@ -1,0 +1,189 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tribalpower:march_snow_fields",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_glimmer_ridge",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_steppe",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_reed_fen",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_crystal_fields",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_highlands",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_ember_wastes",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_rime_spires",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_rimebirch_taiga",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_frost_shore",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_frozen_mere",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_hoar_peaks",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_shard_peaks",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_frostpine_slopes",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_veil_flats",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_thornfir_taiga",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_elder_thornfir_taiga",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_barrow_moor",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_scree_fells",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_windswept_thornfir",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_hoarmoss_grove",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_grey_shore",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_tarn_country",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_songmaple_wood",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_bloom_meadow",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_hearthoak_wold",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_elder_hearthoak_wold",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_veilwood",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_chime_orchard",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_high_meadow",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_sunwheel_steppe",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_loom_river",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_silt_strand",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_glowcap_mire",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_drumpalm_savanna",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_drumpalm_plateau",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_windswept_drumpalm",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_tanglewood",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_open_tanglewood",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_cane_thicket",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_strider_mangrove",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_sun_peaks",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_salt_flats",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_kiln_mesa",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_cut_mesa",
+      "required": false
+    },
+    {
+      "id": "tribalpower:march_sunbark_mesa",
+      "required": false
+    }
+  ]
+}

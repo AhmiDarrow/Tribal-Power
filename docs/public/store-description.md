@@ -1,6 +1,6 @@
 # Tribal Power — The Living Lattice
 
-**CurseForge summary (one line):** Shamanic technomancy: rhythmic spirit power, automated workshops, songs and spirit weapons, nine tribes that talk, eight guardians, and a March with weather, festivals and music of its own.
+**CurseForge summary (one line):** Shamanic technomancy: rhythmic spirit power, automated workshops, songs and spirit weapons, nine tribes that talk, eight guardians, and the March: fifty-nine lands with weather, festivals and music of their own.
 
 Shamanic technomancy for Minecraft 1.21.1, NeoForge 21.1.249, and Java 21. Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, and paths between worlds. Then cross into the March, where nine tribes keep their stories, eight guardians keep their grounds, and the land itself has weather, surges and festival days.
 
@@ -24,7 +24,7 @@ The Song Bench turns creature reagents into songs. Empower a reagent, write a sh
 
 Nine Spiritgear weapons, each with a move of its own: blade, spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident. Each trades reach, speed and weight against the others, ranks at the Echo stations, takes a totem voice, and swings the way its shape asks.
 
-Fifty-four creatures live in the March beside the older beasts: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot and a habitat. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
+Fifty-four creatures live in the March beside the older beasts: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot, a habitat and a voice of its own; nothing in the March calls with a vanilla animal's sound. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
 
 ## The spirit layer, the table and the kettle
 
@@ -54,11 +54,21 @@ The Elders talk. Right-click one and a conversation opens: trade, daily requests
 
 ## The March
 
-Reach the March through the Gate Drum by beating out the Gate Rite on A, S, D and F. Eight biomes lie under its aurora sky: the Steppe, the Crystal Fields, the Highlands, the Reed Fen, the Snow Fields, the Ember Wastes, the Glimmer Ridge and the Shallows. Every block and plant is painted for the March; six trees grow only here, the Weeping Colossus over a hundred blocks tall. Meres hold Glimmerfin, Drift Bells, Veil Rays and Silt Eels; twenty-seven ruins, shrines, towers and vaults wait to be found; every vanilla ore is set in March slate below.
+![Rime Spires, the frozen rim of the March](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/rime_spires.jpg)
 
-The March acts on its own. Four countries have weather beyond rain: Ashfall, Glimmer Storms, Whiteouts and Fen Mist, each closing the world in with its own fog and sound, favouring one voice's generators and hampering another's. Ley surges set one voice's threads running bright. Every tribe keeps a festival day. Wandering spirits drift near with a line of their country's story and a gift. Every storm and surge is called two minutes before it sets in, so there is time to find shelter. Day is safer and night is the danger; sleeping moves the clock to morning.
+Reach the March through the Gate Drum by beating out the Gate Rite on A, S, D and F. Fifty-nine lands lie under its aurora sky, one more than the Overworld in every climate band: frozen rime spires, taigas and veil flats; cold moors, scree fells and the Glimmer Ridge; the Steppe, the Reed Fen, the Crystal Fields, Songmaple woods, meadows and orchards; drumpalm savannas, the Tanglewood and stilt mangroves; salt flats and kiln-clay mesas; five seas with deep water beyond; and four kinds of cave below, from the Singing Caves to the Hush. Every block and plant is painted for the March; fifteen trees grow only here, the Weeping Colossus over a hundred blocks tall. Meres hold Glimmerfin, Drift Bells, Veil Rays and Silt Eels; twenty-seven ruins, shrines, towers and vaults wait to be found in the lands that suit them; every vanilla ore is set in March slate below. The March is lived in: every tribe keeps a camp in each band, built from that band's own wood, and tribal villages stand in every band with a hearth plaza, streets, workshops, granaries, pens and the tribe's Kin. Over the peaks and over many a Weeping Colossus hang pieces of the old world: floating mountains in clusters, vined and waterfalled, bridged by giant vines and held to the ground by willow roots whose strands you can climb.
 
-The March has music: eight biome tracks and a theme for every guardian in the pack's own instruments, skin drums, horn drones, flutes and chant, a stinger when a festival or a storm begins, and a finale for the Ninth Agreement.
+![Kiln Mesa, the hot end of the March](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/kiln_mesa.jpg)
+
+![The Tanglewood, hung with climbable vines](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/tanglewood.jpg)
+
+The March acts on its own. Seven countries have weather beyond rain: Ashfall, Glimmer Storms, Whiteouts, Fen Mist, Rime Fog, Dust Storms and Spore Drift, each closing the world in with its own fog and sound, favouring one voice's generators and hampering another's. Ley surges set one voice's threads running bright. Every tribe keeps a festival day. Wandering spirits drift near with a line of their country's story and a gift. Every storm and surge is called two minutes before it sets in, so there is time to find shelter. Day is safer and night is the danger; sleeping moves the clock to morning.
+
+![A piece of the old world, rooted to a peak](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/floating_island.jpg)
+
+![The Chime Orchard in blossom](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/chime_orchard.jpg)
+
+The March has music: eight tracks across its bands and a theme for every guardian in the pack's own instruments, skin drums, horn drones, flutes and chant, a stinger when a festival or a storm begins, and a finale for the Ninth Agreement.
 
 ## Start your journey
 
@@ -72,4 +82,4 @@ Every balance number lives in the config: Pulse rates, costs, ranks, spawn rules
 
 Optional, all of it. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/chocobos-reborn), chocobos roam the March. With AgriCraft, the Grove Tender works crop sticks and the March crops are AgriCraft plants of their own, bred from the farm crops everyone starts with. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), the workshops, rituals, transport, bestiary and camp systems are woven into the pack story. Tribal Power never needs any of them.
 
-Version 5.3.15. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 6.0.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).

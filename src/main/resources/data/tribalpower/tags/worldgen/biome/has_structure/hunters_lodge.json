@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_rimebirch_taiga",
+    "tribalpower:march_frostpine_slopes",
+    "tribalpower:march_thornfir_taiga",
+    "tribalpower:march_songmaple_wood",
+    "tribalpower:march_open_tanglewood"
   ]
 }

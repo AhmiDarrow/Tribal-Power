@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_reed_fen"
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_bloom_meadow",
+    "tribalpower:march_chime_orchard",
+    "tribalpower:march_gloomcap_hollows"
   ]
 }

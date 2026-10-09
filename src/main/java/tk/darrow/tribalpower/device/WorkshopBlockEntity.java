@@ -238,7 +238,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
         }
         if (sources < 2) return false;
         BlockState ground = server.getBlockState(pos.below());
-        return ground.isSolid() || (ground.getFluidState().isSource() && ground.getFluidState().getType().isSame(fluid.getType()));
+        return !ground.getCollisionShape(server, pos.below()).isEmpty() || (ground.getFluidState().isSource() && ground.getFluidState().getType().isSame(fluid.getType()));
     }
 
     private void vacuum(ServerLevel server) {

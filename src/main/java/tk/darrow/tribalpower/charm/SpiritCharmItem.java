@@ -13,6 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.item.SpiritgearHelper;
 
 import java.util.ArrayList;
@@ -23,8 +24,6 @@ import java.util.Set;
 /** A worn power object. Sneak-use opens the charm slots; use equips into the first empty one. */
 public class SpiritCharmItem extends Item {
     public static final String VOICES_KEY = "CharmVoices";
-    public static final int LINK_COST = 40;
-    public static final int CHORUS_COST = 200;
 
     public final CharmKind kind;
 
@@ -65,7 +64,7 @@ public class SpiritCharmItem extends Item {
                     Component.translatable("attunement.tribalpower." + voice.getSerializedName())), true);
             return false;
         }
-        if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, LINK_COST)) {
+        if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, TribalConfig.charmLinkCost())) {
             SpiritgearHelper.notifyStarved(player);
             return false;
         }
@@ -76,9 +75,10 @@ public class SpiritCharmItem extends Item {
         return true;
     }
 
+    /** The upkeep this charm asks each beat, as the tooltip shows it: the same figure CharmHooks charges. */
     public static int pulseCost(ItemStack stack) {
         int voices = Math.max(1, voices(stack).size());
-        return 2 * voices;
+        return TribalConfig.charmUpkeepPerVoice() * voices;
     }
 
     public static boolean grantsFlight(ItemStack stack) {
@@ -146,7 +146,7 @@ public class SpiritCharmItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.charm.chorus_need"), true);
             return false;
         }
-        if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, CHORUS_COST)) {
+        if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, TribalConfig.charmChorusCost())) {
             SpiritgearHelper.notifyStarved(player);
             return false;
         }

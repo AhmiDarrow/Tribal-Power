@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import tk.darrow.tribalpower.TribalPower;
+import tk.darrow.tribalpower.world.MarchBiomes;
 import tk.darrow.tribalpower.world.ModDimensions;
 
 /**
@@ -25,20 +26,22 @@ import tk.darrow.tribalpower.world.ModDimensions;
  * (meshing, light, particles), so a regression there should fail a run rather than a player's frame rate.
  * Also writes {@code march_survey.png}: a top-down colour map over a height map for each surveyed site.
  *
- * <p>The GameTest server only has an Overworld, so this rides a real server: {@code gradlew runMarchSurvey}
+ * <p>Every land biome in {@link MarchBiomes} is a site; the cave biomes are found at depth and sampled there.
+ * The GameTest server only has an Overworld, so this rides a real server: {@code gradlew runMarchSurvey}
  * starts one with {@code -Dtribalpower.marchSurvey=true}, surveys, and halts with the verdict as exit code.
  */
 public final class MarchSurvey {
-    private static final int SITE_CHUNKS = 8, SIZE = SITE_CHUNKS * 16;
+    private static final int SITE_CHUNKS = 8, SIZE = SITE_CHUNKS * 16, CAVE_CHUNKS = 4;
     private static final double MAX_PLANTS_PER_CHUNK = 70, MAX_LIGHTS_PER_CHUNK = 8, MIN_PLANTS_PER_CHUNK = 2;
     /** Below this many sampled spots a spawn result is noise, not evidence. */
-    private static final int MIN_SPAWN_SAMPLE = 12;
+    private static final int MIN_SPAWN_SAMPLE = 24;
     /** How much of a land biome may lie under water before it reads as ocean to a player. */
     private static final double MAX_BIOME_UNDER_WATER = 0.35;
-    /** How much dry land the sea biome may stand on before the March reads as ocean. */
+    /** How much dry land the sea biomes may stand on, together, before the March reads as ocean. */
     private static final double MAX_SEA_BIOME_ON_LAND = 0.10;
-    private static final String[] SITES = {"march_steppe", "march_crystal_fields", "march_highlands", "march_reed_fen",
-            "march_snow_fields", "march_ember_wastes", "march_glimmer_ridge"};
+    /** The land biomes, in table order. */
+    private static final String[] SITES = MarchBiomes.land().stream().map(b -> b.id).toArray(String[]::new);
+    private static final List<MarchBiomes> CAVES = MarchBiomes.caves();
 
     /** Water and cave decoration that must turn up across the surveyed sites. */
     private static final java.util.Set<String> DECOR = java.util.Set.of("march_lily_pad", "moon_lily", "ribbon_weed", "march_silt",
@@ -63,11 +66,19 @@ public final class MarchSurvey {
 
     private static boolean run(ServerLevel march) throws java.io.IOException {
         if (march == null) throw new IllegalStateException("The March is not loaded");
+        boolean ok = spread(march);
         List<BlockPos> origins = new ArrayList<>();
-        for (String site : SITES) origins.add(landSite(march, site));
+        for (String site : SITES) {
+            BlockPos origin = landSite(march, site);
+            if (origin == null) {
+                TribalPower.LOGGER.error("March survey site FAIL {}: no dry ground of it within 8000 blocks of the origin", site);
+                ok = false;
+            }
+            origins.add(origin);
+        }
         var image = new BufferedImage(SIZE * SITES.length, SIZE * 2, BufferedImage.TYPE_INT_RGB);
-        boolean ok = true;
         for (int site = 0; site < SITES.length; site++) {
+            if (origins.get(site) == null) continue;
             long[] totals = new long[2]; // plants, lights
             Map<String, Integer> tops = new TreeMap<>();
             long started = System.nanoTime();
@@ -75,14 +86,12 @@ public final class MarchSurvey {
                 survey(march, origins.get(site), site, cx, cz, image, totals, tops);
             int chunks = SITE_CHUNKS * SITE_CHUNKS;
             double plants = totals[0] / (double) chunks, lights = totals[1] / (double) chunks;
-            // The Ember Wastes and the Glimmer Ridge are meant to be nearly bare: one is ash, the
-            // other is a mineral peak. Holding them to a plant count would be asking them to stop
-            // being what they are.
-            boolean bare = SITES[site].equals("march_ember_wastes") || SITES[site].equals("march_glimmer_ridge");
-            // the Glimmer Ridge is the one country meant to glow: its crystal buds are its whole point
-            double lightCap = SITES[site].equals("march_glimmer_ridge") ? MAX_LIGHTS_PER_CHUNK * 1.5 : MAX_LIGHTS_PER_CHUNK;
+            MarchBiomes biome = MarchBiomes.of(SITES[site]);
+            // Ash, rock, ice, salt and sand are meant to be nearly bare: holding them to a plant count would be
+            // asking them to stop being what they are. The glowing lands are allowed their light.
+            double lightCap = biome.glow ? MAX_LIGHTS_PER_CHUNK * 2 : MAX_LIGHTS_PER_CHUNK;
             boolean pass = plants <= MAX_PLANTS_PER_CHUNK && lights <= lightCap
-                    && (plants >= MIN_PLANTS_PER_CHUNK || bare);
+                    && (plants >= MIN_PLANTS_PER_CHUNK || biome.bare);
             ok &= pass;
             TribalPower.LOGGER.info("March survey {} {}: {} plants/chunk, {} lights/chunk, {} ms/chunk, surface {}",
                     pass ? "PASS" : "FAIL", SITES[site], String.format("%.1f", plants), String.format("%.1f", lights),
@@ -90,38 +99,33 @@ public final class MarchSurvey {
         }
         ImageIO.write(image, "png", new File("march_survey.png"));
         TribalPower.LOGGER.info("March survey plants: {}", PLANTS);
-        return ok & spread(march) & underground(march, origins) & structures(march, origins) & spawns(march, origins) & trees(march);
+        List<BlockPos> caveOrigins = new ArrayList<>();
+        for (MarchBiomes cave : CAVES) {
+            BlockPos origin = caveSite(march, cave);
+            if (origin == null) {
+                TribalPower.LOGGER.error("March survey site FAIL {}: none of it found underground within 8000 blocks", cave.id);
+                ok = false;
+            } else {
+                for (int cz = 0; cz < CAVE_CHUNKS; cz++) for (int cx = 0; cx < CAVE_CHUNKS; cx++) march.getChunk(origin.getX() + cx, origin.getZ() + cz);
+            }
+            caveOrigins.add(origin);
+        }
+        List<BlockPos> land = origins.stream().filter(java.util.Objects::nonNull).toList();
+        return ok & underground(march, land) & caves(march, caveOrigins) & structures(march, origins) & spawns(march, origins, caveOrigins) & trees(march);
     }
 
-    /**
-     * Every creature a March biome lists must be able to spawn somewhere in that biome under its own rules.
-     * Samples real ground and water in each surveyed site and runs each listed type's placement and spawn checks,
-     * by day and by night; a type that never passes in its own land is a dead spawn entry.
-     */
     /**
      * How the March actually divides between its biomes.
      *
      * <p>Parameter boxes in the dimension file say what a biome asks for, not how much land it wins:
      * multi-noise picks the nearest point, so a narrow box can end up almost unreachable while a wide
      * one swallows the map. A player who has to walk four thousand blocks to stand in a biome will
-     * never see it. So this samples the biome source over a wide grid and holds every biome to a share
-     * of the whole.
+     * never see it. So this samples the biome source over a wide grid and holds every land biome to a
+     * floor, every band to a share, and the sea biomes to the sea.
      */
-    private static final double MIN_SHARE = 0.05;   // one biome in twenty, at worst
+    private static final double MIN_SHARE = 0.0005;  // one land biome in two thousand, at worst (the rare variants)
     private static final double MAX_SHARE = 0.34;
-
-    /**
-     * The March's own waterline.
-     *
-     * <p>{@code Level.getSeaLevel()} is a flat 63 for every dimension and says nothing about this one,
-     * whose noise settings put the sea at 48. Measuring against 63 counted fifteen blocks of dry
-     * hillside as ocean, which is how the Shallows came to be sized to swallow the map.
-     */
-    private static int drownedTotal(java.util.Map<String, Integer> counts) {
-        int wet = 0;
-        for (var e : counts.entrySet()) if (e.getKey().endsWith("(SEA)")) wet += e.getValue();
-        return wet;
-    }
+    private static final double MIN_BAND_SHARE = 0.03, MAX_BAND_SHARE = 0.55;
 
     private static int seaLevel(ServerLevel march) {
         return march.getChunkSource().getGenerator().getSeaLevel();
@@ -136,18 +140,17 @@ public final class MarchSurvey {
         // be sea everywhere it lands, which is exactly what happened when these were first rebalanced.
         var generator = march.getChunkSource().getGenerator();
         var state = march.getChunkSource().randomState();
-        int step = 48, span = 110, total = 0, wet = 0;
+        int step = 48, span = 130, total = 0, wet = 0;
         for (int gx = -span; gx <= span; gx++) for (int gz = -span; gz <= span; gz++) {
             int x = gx * step, z = gz * step;
             int height = generator.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, march, state);
-            var biome = source.getNoiseBiome(x >> 2, 64 >> 2, z >> 2, sampler);
+            // at the surface itself: sampled at a fixed y 64 a mountain's biome read as the cave biome under it
+            var biome = source.getNoiseBiome(x >> 2, Math.max(height, seaLevel(march)) >> 2, z >> 2, sampler);
             String name = biome.unwrapKey().map(k -> k.location().getPath()).orElse("?");
             if (height <= seaLevel(march)) { wet++; counts.merge(name + " (SEA)", 1, Integer::sum); continue; }
             counts.merge(name, 1, Integer::sum);
             total++;
         }
-        // Where the ground actually sits relative to the waterline: if half the March is sea, that is
-        // the terrain, not the biome list, and no amount of reshuffling parameter boxes will fix it.
         var heights = new ArrayList<Integer>();
         for (int gx = -span; gx <= span; gx += 2) for (int gz = -span; gz <= span; gz += 2)
             heights.add(generator.getBaseHeight(gx * step, gz * step, Heightmap.Types.OCEAN_FLOOR_WG, march, state));
@@ -156,10 +159,8 @@ public final class MarchSurvey {
                 heights.get(heights.size() / 20), heights.get(heights.size() / 4),
                 heights.get(heights.size() / 2), heights.get(heights.size() * 3 / 4),
                 heights.get(heights.size() * 19 / 20), seaLevel(march));
-        TribalPower.LOGGER.info("March survey spread: {} of {} sampled columns were below sea level",
-                wet, wet + total);
-        // What the March's noise actually produces, so the boxes can be aimed at real values
-        // rather than at the whole -1..1 range, most of which is never sampled.
+        TribalPower.LOGGER.info("March survey spread: {} of {} sampled columns were below sea level", wet, wet + total);
+        // What the March's noise actually produces, so the boxes can be aimed at real values.
         var spread = new java.util.TreeMap<String, java.util.List<Double>>();
         for (String k : new String[]{"T", "H", "C", "E", "W"}) spread.put(k, new ArrayList<>());
         for (int gx = -60; gx <= 60; gx += 3) for (int gz = -60; gz <= 60; gz += 3) {
@@ -179,22 +180,42 @@ public final class MarchSurvey {
         TribalPower.LOGGER.info("March climate min/q1/med/q3/max: {}", climate.toString().trim());
         boolean ok = true;
         var report = new StringBuilder();
+        var bands = new TreeMap<MarchBiomes.Band, Integer>();
+        double seaOnLand = 0;
         for (var e : counts.entrySet()) {
             double share = e.getValue() / (double) total;
             report.append(String.format("%s %.1f%%  ", e.getKey(), share * 100));
-            // The Shallows are the March's sea, so they are judged on the water they hold, not land.
-            if (!e.getKey().startsWith("march_") || e.getKey().endsWith("(SEA)")
-                    || e.getKey().equals("march_shallows")) continue;
-            if (share < MIN_SHARE || share > MAX_SHARE) ok = false;
+            if (e.getKey().endsWith("(SEA)")) continue;
+            MarchBiomes biome = MarchBiomes.of(e.getKey());
+            if (biome == null) continue;
+            if (biome.family == MarchBiomes.Family.OCEAN) { seaOnLand += share; continue; }   // judged on the water it holds
+            if (biome.family == MarchBiomes.Family.CAVE) continue;                             // judged below, by caves()
+            bands.merge(biome.band, e.getValue(), Integer::sum);
+            if (share < MIN_SHARE || share > MAX_SHARE) {
+                ok = false;
+                TribalPower.LOGGER.error("March survey spread FAIL: {} holds {}% of the dry land; every land biome must hold between {}% and {}%",
+                        e.getKey(), String.format("%.2f", share * 100), MIN_SHARE * 100, (int) (MAX_SHARE * 100));
+            }
         }
-        // What matters is how much of a biome is under water, not how much of the map. Measuring
-        // against the whole map could never fire: the March is only a fifth sea, so seven biomes
-        // splitting all of it still read as a couple of percent each. A biome that is mostly ocean
-        // is the thing a player actually walks into.
+        var bandReport = new StringBuilder();
+        for (MarchBiomes.Band band : MarchBiomes.Band.values()) {
+            if (band == MarchBiomes.Band.UNDERGROUND) continue;
+            double share = bands.getOrDefault(band, 0) / (double) total;
+            bandReport.append(String.format("%s %.1f%%  ", band, share * 100));
+            if (share < MIN_BAND_SHARE || share > MAX_BAND_SHARE) {
+                ok = false;
+                TribalPower.LOGGER.error("March survey spread FAIL: the {} band holds {}% of the dry land; every band must hold between {}% and {}%",
+                        band, (int) (share * 100), (int) (MIN_BAND_SHARE * 100), (int) (MAX_BAND_SHARE * 100));
+            }
+        }
+        TribalPower.LOGGER.info("March survey bands: {}", bandReport.toString().trim());
+        // What matters is how much of a biome is under water, not how much of the map.
         for (var e : counts.entrySet()) {
             if (!e.getKey().endsWith("(SEA)")) continue;
             String name = e.getKey().substring(0, e.getKey().length() - 6);
-            if (name.equals("march_shallows")) continue;          // the Shallows are meant to be wet
+            MarchBiomes biome = MarchBiomes.of(name);
+            if (biome == null || biome.family == MarchBiomes.Family.OCEAN || biome.family == MarchBiomes.Family.RIVER
+                    || biome.family == MarchBiomes.Family.BEACH) continue;   // a shore meets the sea by definition
             int wetHere = e.getValue(), dryHere = counts.getOrDefault(name, 0);
             if (wetHere + dryHere < 200) continue;                // too small a sample to judge
             double wetFraction = wetHere / (double) (wetHere + dryHere);
@@ -204,30 +225,27 @@ public final class MarchSurvey {
                         + " should meet the sea only at its coast", name, (int) (wetFraction * 100));
             }
         }
-        // And the fault that actually shipped: the sea biome standing on dry land. Ground wearing the
-        // Shallows' fog, water colours and empty feature list reads as ocean whether or not it is wet,
-        // and it covered a quarter of the March's land before this was measured properly.
-        double shallowsOnLand = counts.getOrDefault("march_shallows", 0) / (double) total;
-        if (shallowsOnLand > MAX_SEA_BIOME_ON_LAND) {
+        // And the fault that actually shipped: a sea biome standing on dry land.
+        if (seaOnLand > MAX_SEA_BIOME_ON_LAND) {
             ok = false;
-            TribalPower.LOGGER.error("March survey spread FAIL: the Shallows cover {}% of the dry land;"
-                    + " a sea biome belongs on the sea", (int) (shallowsOnLand * 100));
+            TribalPower.LOGGER.error("March survey spread FAIL: the sea biomes cover {}% of the dry land; a sea biome belongs on the sea", (int) (seaOnLand * 100));
         } else {
-            TribalPower.LOGGER.info("March survey spread: the Shallows stand on {}% of the dry land",
-                    (int) (shallowsOnLand * 100));
+            TribalPower.LOGGER.info("March survey spread: the sea biomes stand on {}% of the dry land", (int) (seaOnLand * 100));
         }
-
         for (String site : SITES) {                    // a biome that never appeared at all
-            if (!counts.containsKey(site)) { counts.put(site, 0); ok = false; }
+            if (!counts.containsKey(site)) { counts.put(site, 0); ok = false; TribalPower.LOGGER.error("March survey spread FAIL: {} never appeared on dry land", site); }
         }
         TribalPower.LOGGER.info("March survey spread {}: {}", ok ? "PASS" : "FAIL", report.toString().trim());
-        if (!ok)
-            TribalPower.LOGGER.error("March survey spread FAIL: every March biome must hold between {}% and {}% of the map",
-                    (int) (MIN_SHARE * 100), (int) (MAX_SHARE * 100));
         return ok;
     }
 
-    private static boolean spawns(ServerLevel march, List<BlockPos> origins) {
+    /**
+     * Every creature a March biome lists must be able to spawn somewhere in that biome under its own rules.
+     * Samples real ground and water in each surveyed site and runs each listed type's placement and spawn checks,
+     * by day and by night; a type that never passes in its own land is a dead spawn entry. The cave biomes are
+     * sampled in the dark pockets under their sites and under every other site that reaches them.
+     */
+    private static boolean spawns(ServerLevel march, List<BlockPos> origins, List<BlockPos> caveOrigins) {
         var categories = new net.minecraft.world.entity.MobCategory[]{net.minecraft.world.entity.MobCategory.MONSTER,
                 net.minecraft.world.entity.MobCategory.CREATURE, net.minecraft.world.entity.MobCategory.WATER_CREATURE,
                 net.minecraft.world.entity.MobCategory.WATER_AMBIENT};
@@ -237,55 +255,47 @@ public final class MarchSurvey {
         long dayTime = march.getDayTime();
         // spirits that rose while the sites generated would crowd the sample (the day cap is one within 32 blocks)
         for (var entity : march.getAllEntities()) if (entity instanceof tk.darrow.tribalpower.entity.LatticeMonster) entity.discard();
+        List<BlockPos> all = new ArrayList<>();
+        List<Integer> spans = new ArrayList<>();
+        List<String> wanted = new ArrayList<>();
+        for (int site = 0; site < SITES.length; site++) if (origins.get(site) != null) { all.add(origins.get(site)); spans.add(SIZE); wanted.add(SITES[site]); }
+        for (int c = 0; c < CAVES.size(); c++) if (caveOrigins.get(c) != null) { all.add(caveOrigins.get(c)); spans.add(CAVE_CHUNKS * 16); wanted.add(CAVES.get(c).id); }
         for (long time : new long[]{6000, 18000}) {
             march.setDayTime(time);
             march.updateSkyBrightness();   // the darkness rule reads the sky's dimming, which only a tick would refresh
-            for (int site = 0; site < SITES.length; site++) {
-                BlockPos origin = origins.get(site);
+            for (int site = 0; site < all.size(); site++) {
+                BlockPos origin = all.get(site);
+                int span = spans.get(site);
                 for (int i = 0; i < 600; i++) {
-                    int x = origin.getX() * 16 + random.nextInt(SIZE), z = origin.getZ() * 16 + random.nextInt(SIZE);
+                    int x = origin.getX() * 16 + random.nextInt(span), z = origin.getZ() * 16 + random.nextInt(span);
                     int surface = march.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
                     BlockPos land = new BlockPos(x, surface, z);
                     boolean wet = march.getFluidState(land.below()).is(net.minecraft.tags.FluidTags.WATER);
+                    // the natural spawner picks any depth of the column, so judge the water at its bed, not its skin
                     BlockPos water = wet ? land.below() : null;
+                    while (water != null && march.getFluidState(water.below()).is(net.minecraft.tags.FluidTags.WATER)) water = water.below();
                     // cave and lava dwellers live below: the first dark pocket, and the first hot ledge, down this column
                     BlockPos cave = null, lava = null;
-                    for (int yy = surface - 6; yy > march.getMinBuildHeight() + 4 && (cave == null || lava == null); yy--) {
+                    List<BlockPos> pockets = new ArrayList<>();
+                    for (int yy = surface - 6; yy > march.getMinBuildHeight() + 4; yy--) {
                         BlockPos at = new BlockPos(x, yy, z);
                         if (!march.getBlockState(at).isAir() || !march.getBlockState(at.below()).isSolid()) continue;
-                        if (cave == null && tk.darrow.tribalpower.entity.CreatureHabitat.cave(march, at)) cave = at;
+                        boolean dark = tk.darrow.tribalpower.entity.CreatureHabitat.cave(march, at);
+                        if (cave == null && dark) cave = at;
                         if (lava == null && tk.darrow.tribalpower.entity.CreatureHabitat.lava(march, at)) lava = at;
+                        if (dark && pockets.size() < 6) pockets.add(at);
                     }
                     var biome = march.getBiome(land);
                     String biomeName = biome.unwrapKey().map(k -> k.location().getPath()).orElse("?");
-                    if (!biomeName.equals(SITES[site])) continue;
-                    for (var category : categories) {
-                        boolean aquatic = category == net.minecraft.world.entity.MobCategory.WATER_CREATURE
-                                || category == net.minecraft.world.entity.MobCategory.WATER_AMBIENT;
-                        for (var entry : biome.value().getMobSettings().getMobs(category).unwrap()) {
-                            var id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entry.type);
-                            String key = biomeName + " " + id;
-                            int[] counts = tally.computeIfAbsent(key, k -> new int[2]);
-                            // each creature is asked where it lives: a cave dweller in the dark below, a lava dweller by the heat
-                            var habitat = tk.darrow.tribalpower.entity.CreatureHabitat.of(id.getPath());
-                            BlockPos pos = aquatic || habitat == tk.darrow.tribalpower.entity.CreatureHabitat.WATER ? water
-                                    : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.CAVE ? cave
-                                    : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.LAVA ? lava : land;
-                            if (pos == null) continue;
-                            counts[1]++;
-                            boolean positionOk = net.minecraft.world.entity.SpawnPlacements.isSpawnPositionOk(entry.type, march, pos);
-                            if (positionOk && net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(entry.type, march,
-                                    net.minecraft.world.entity.MobSpawnType.NATURAL, pos, random)) counts[0]++;
-                            if (category == net.minecraft.world.entity.MobCategory.MONSTER) {
-                                int[] why = reasons.computeIfAbsent(biomeName + "@" + time, k -> new int[6]);
-                                why[0]++;
-                                if (positionOk) why[1]++;
-                                if (net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn(march, pos, random)) why[2]++;
-                                if (march.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0) why[3]++;
-                                if (march.getBrightness(net.minecraft.world.level.LightLayer.SKY, pos) < 15) why[4]++;
-                                if (tk.darrow.tribalpower.entity.MarchSpawns.spiritsRise(march, pos, random)) why[5]++;
-                            }
-                        }
+                    if (biomeName.equals(wanted.get(site)))
+                        sample(march, random, time, biome, biomeName, land, water, cave, lava, categories, tally, reasons, false);
+                    // whatever cave biome a pocket under this column belongs to, judge its dwellers there
+                    for (BlockPos pocket : pockets) {
+                        var deep = march.getBiome(pocket);
+                        String deepName = deep.unwrapKey().map(k -> k.location().getPath()).orElse("?");
+                        MarchBiomes known = MarchBiomes.of(deepName);
+                        if (known == null || known.family != MarchBiomes.Family.CAVE) continue;
+                        sample(march, random, time, deep, deepName, pocket, null, pocket, lava, categories, tally, reasons, true);
                     }
                 }
             }
@@ -295,28 +305,94 @@ public final class MarchSurvey {
             TribalPower.LOGGER.info("March survey spawn WHY {}: sampled {}, position ok {}, dark {}, block-lit {}, under cover {}, spirits rise {}",
                     entry.getKey(), entry.getValue()[0], entry.getValue()[1], entry.getValue()[2], entry.getValue()[3], entry.getValue()[4], entry.getValue()[5]);
         boolean ok = true;
+        int judged = 0, thin = 0;
         for (var entry : tally.entrySet()) {
             int spawnable = entry.getValue()[0], sampled = entry.getValue()[1];
-            // Now that no biome swallows the map, a site window can hold only a handful of its own
-            // biome. One sampled spot says nothing about whether a mob can live there, so too small a
-            // sample is reported and passed over rather than failed on.
+            // A site window can hold only a handful of its own biome. One sampled spot says nothing about whether
+            // a mob can live there, so too small a sample is reported and passed over rather than failed on.
             if (sampled < MIN_SPAWN_SAMPLE) {
-                TribalPower.LOGGER.info("March survey spawn THIN {}: only {} spots sampled, not judged",
-                        entry.getKey(), sampled);
+                thin++;
+                TribalPower.LOGGER.info("March survey spawn THIN {}: only {} spots sampled, not judged", entry.getKey(), sampled);
                 continue;
             }
+            judged++;
             boolean pass = spawnable > 0;
             ok &= pass;
-            TribalPower.LOGGER.info("March survey spawn {} {}: {} of {} spots", pass ? "PASS" : "FAIL", entry.getKey(),
-                    spawnable, sampled);
+            TribalPower.LOGGER.info("March survey spawn {} {}: {} of {} spots", pass ? "PASS" : "FAIL", entry.getKey(), spawnable, sampled);
+        }
+        TribalPower.LOGGER.info("March survey spawns {}: {} entries judged, {} too thin to judge", ok ? "PASS" : "FAIL", judged, thin);
+        return ok;
+    }
+
+    private static void sample(ServerLevel march, net.minecraft.util.RandomSource random, long time, net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome> biome,
+                               String biomeName, BlockPos land, BlockPos water, BlockPos cave, BlockPos lava,
+                               net.minecraft.world.entity.MobCategory[] categories, Map<String, int[]> tally, Map<String, int[]> reasons, boolean underground) {
+        for (var category : categories) {
+            boolean aquatic = category == net.minecraft.world.entity.MobCategory.WATER_CREATURE
+                    || category == net.minecraft.world.entity.MobCategory.WATER_AMBIENT;
+            for (var entry : biome.value().getMobSettings().getMobs(category).unwrap()) {
+                var id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(entry.type);
+                String key = biomeName + " " + id;
+                int[] counts = tally.computeIfAbsent(key, k -> new int[2]);
+                // each creature is asked where it lives: a cave dweller in the dark below, a lava dweller by the heat
+                var habitat = tk.darrow.tribalpower.entity.CreatureHabitat.of(id.getPath());
+                BlockPos pos = aquatic || habitat == tk.darrow.tribalpower.entity.CreatureHabitat.WATER ? water
+                        : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.CAVE ? cave
+                        : habitat == tk.darrow.tribalpower.entity.CreatureHabitat.LAVA ? lava : land;
+                // a cave biome has no surface of its own: only what lives in the dark is judged there
+                if (underground && habitat != tk.darrow.tribalpower.entity.CreatureHabitat.CAVE) continue;
+                if (pos == null) continue;
+                counts[1]++;
+                boolean positionOk = net.minecraft.world.entity.SpawnPlacements.isSpawnPositionOk(entry.type, march, pos);
+                if (positionOk && net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(entry.type, march,
+                        net.minecraft.world.entity.MobSpawnType.NATURAL, pos, random)) counts[0]++;
+                if (category == net.minecraft.world.entity.MobCategory.MONSTER && !underground) {
+                    int[] why = reasons.computeIfAbsent(biomeName + "@" + time, k -> new int[6]);
+                    why[0]++;
+                    if (positionOk) why[1]++;
+                    if (net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn(march, pos, random)) why[2]++;
+                    if (march.getBrightness(net.minecraft.world.level.LightLayer.BLOCK, pos) > 0) why[3]++;
+                    if (march.getBrightness(net.minecraft.world.level.LightLayer.SKY, pos) < 15) why[4]++;
+                    if (tk.darrow.tribalpower.entity.MarchSpawns.spiritsRise(march, pos, random)) why[5]++;
+                }
+            }
+        }
+    }
+
+    /** Each cave biome must actually turn up underground at its site, with the floor it promises. */
+    private static boolean caves(ServerLevel march, List<BlockPos> caveOrigins) {
+        boolean ok = true;
+        var cursor = new BlockPos.MutableBlockPos();
+        for (int c = 0; c < CAVES.size(); c++) {
+            BlockPos origin = caveOrigins.get(c);
+            if (origin == null) { ok = false; continue; }
+            MarchBiomes cave = CAVES.get(c);
+            Map<String, Integer> floors = new TreeMap<>();
+            int volume = 0, claimed = 0;
+            for (int cz = 0; cz < CAVE_CHUNKS; cz++) for (int cx = 0; cx < CAVE_CHUNKS; cx++) {
+                var chunk = march.getChunk(origin.getX() + cx, origin.getZ() + cz);
+                for (int x = 0; x < 16; x += 2) for (int z = 0; z < 16; z += 2) {
+                    int wx = chunk.getPos().getMinBlockX() + x, wz = chunk.getPos().getMinBlockZ() + z;
+                    int surface = chunk.getHeight(Heightmap.Types.OCEAN_FLOOR, x, z);
+                    for (int y = march.getMinBuildHeight() + 6; y < surface - 8; y++) {
+                        BlockState state = chunk.getBlockState(cursor.set(wx, y, wz));
+                        if (!state.isAir()) continue;
+                        volume++;
+                        if (!march.getBiome(cursor).is(cave.key)) continue;
+                        claimed++;
+                        BlockState floor = chunk.getBlockState(cursor.set(wx, y - 1, wz));
+                        if (floor.isSolid()) floors.merge(floor.getBlock().builtInRegistryHolder().key().location().getPath(), 1, Integer::sum);
+                    }
+                }
+            }
+            boolean pass = claimed > 0;
+            ok &= pass;
+            TribalPower.LOGGER.info("March survey cave {} {}: {} of {} open blocks under the site are its own, floors {}",
+                    pass ? "PASS" : "FAIL", cave.id, claimed, volume, floors);
         }
         return ok;
     }
 
-    /**
-     * Grows each of the March's own trees on open ground far from the surveyed sites and holds it to its
-     * promise: real size, no leaf left too far from wood (it would only decay), and strands on the willow.
-     */
     /** Takes down whatever tree stands on a planting site, leaving the ground under it untouched. */
     private static void clearGrowth(ServerLevel march, int x, int z, int span) {
         int standing = march.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
@@ -337,6 +413,10 @@ public final class MarchSurvey {
         return id != null && (id.getPath().contains("strand") || id.getPath().contains("vine"));
     }
 
+    /**
+     * Grows each of the March's own trees on open ground far from the surveyed sites and holds it to its
+     * promise: real size, no leaf left too far from wood (it would only decay), and strands on the willow.
+     */
     private static boolean trees(ServerLevel march) {
         var features = march.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE);
         boolean ok = true;
@@ -348,10 +428,8 @@ public final class MarchSurvey {
             int x = 30000 + slot++ * 128, z = 30000;
             int span = shape == tk.darrow.tribalpower.world.MarchTreeFeature.Shape.WEEPING_COLOSSUS ? 56 : 24;
             march.getChunk(x >> 4, z >> 4);
-            // The survey world is kept between runs, so last run's tree is still standing here.
-            // Measuring the ground first put it on top of that trunk, so every run planted higher than
-            // the last until the tree had no room and reported nothing at all. Clear the old growth,
-            // and only the growth: blanking a column to sea level would quarry the hillside away.
+            // The survey world is kept between runs, so last run's tree is still standing here: clear the growth,
+            // and only the growth, before planting on the same ground.
             clearGrowth(march, x, z, span);
             int y = march.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
             var ground = march.getBlockState(new BlockPos(x, y - 1, z));
@@ -377,10 +455,17 @@ public final class MarchSurvey {
                 } else if (at.getBlock() instanceof tk.darrow.tribalpower.block.WillowStrandBlock) strands++;
             }
             int tall = top - y;
-            int minTall = switch (shape) { case WEEPING_COLOSSUS -> 80; case YOUNG_WILLOW -> 8; case FROSTPINE -> 14; case BELLCAP -> 10; case HEARTHOAK, STRIDER -> 8; case CINDER_SNAG -> 5; };
-            boolean pass = placed && decaying == 0 && tall >= minTall && logs > 0
-                    && (shape == tk.darrow.tribalpower.world.MarchTreeFeature.Shape.CINDER_SNAG || leaves > 20)
-                    && (shape != tk.darrow.tribalpower.world.MarchTreeFeature.Shape.WEEPING_COLOSSUS || strands > 100);
+            int minTall = switch (shape) {
+                case WEEPING_COLOSSUS -> 80; case YOUNG_WILLOW -> 8; case FROSTPINE -> 14; case BELLCAP -> 10; case HEARTHOAK, STRIDER -> 8;
+                case CINDER_SNAG -> 5; case RIMEBIRCH -> 8; case THORNFIR -> 9; case ELDER_THORNFIR -> 18; case SONGMAPLE -> 7;
+                case VEILWOOD -> 6; case CHIMEBLOSSOM -> 5; case DRUMPALM -> 6; case TANGLEWOOD -> 12; case SUNBARK -> 3;
+                case GLOOMCAP -> 5; case ELDER_HEARTHOAK -> 10;
+            };
+            boolean sparse = shape == tk.darrow.tribalpower.world.MarchTreeFeature.Shape.CINDER_SNAG
+                    || shape == tk.darrow.tribalpower.world.MarchTreeFeature.Shape.SUNBARK;
+            boolean pass = placed && decaying == 0 && tall >= minTall && logs > 0 && (sparse || leaves > 20)
+                    && (shape != tk.darrow.tribalpower.world.MarchTreeFeature.Shape.WEEPING_COLOSSUS || strands > 100)
+                    && (shape != tk.darrow.tribalpower.world.MarchTreeFeature.Shape.TANGLEWOOD || strands > 4);
             ok &= pass;
             TribalPower.LOGGER.info("March survey tree {} {}: {} tall, {} logs, {} leaves, {} strands, {} decaying, {} ms (ground was {})",
                     pass ? "PASS" : "FAIL", shape.getSerializedName(), tall, logs, leaves, strands, decaying, ms,
@@ -397,7 +482,7 @@ public final class MarchSurvey {
         var resources = march.getServer().getResourceManager();
         var registry = march.registryAccess().registryOrThrow(Registries.STRUCTURE);
         boolean ok = true;
-        for (String group : new String[]{"snow_ember", "steppe_highlands", "crystal_fen", "underground", "trees"}) {
+        for (String group : new String[]{"snow_ember", "steppe_highlands", "crystal_fen", "underground", "trees", "camps", "villages", "islands"}) {
             var file = ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, "structure/manifest_" + group + ".json");
             var json = group.equals("trees") ? com.google.gson.JsonParser.parseString("[\"willow_grove\"]").getAsJsonArray()
                     : com.google.gson.JsonParser.parseReader(resources.openAsReader(file)).getAsJsonArray();
@@ -407,7 +492,8 @@ public final class MarchSurvey {
                 if (holder == null) { TribalPower.LOGGER.error("March survey structure FAIL {}: not registered", id); ok = false; continue; }
                 long started = System.nanoTime();
                 // The search radius counts placement cells, not chunks: size it from the set's spacing so it means
-                // "within 2560 blocks" for every structure.
+                // "within 5120 blocks" for every structure. With fifty-nine lands a ruin's own country is a smaller
+                // share of the map than it was with eight, so its ruins stand further apart.
                 int spacing = march.registryAccess().registryOrThrow(Registries.STRUCTURE_SET).stream()
                         .filter(set -> set.structures().stream().anyMatch(entry -> entry.structure().equals(holder)))
                         .map(set -> set.placement() instanceof net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement spread
@@ -420,11 +506,11 @@ public final class MarchSurvey {
                 if (biomes.isPresent() && biomes.get().size() > 0) {
                     String home = biomes.get().get(0).unwrapKey().orElseThrow().location().getPath();
                     int site = java.util.Arrays.asList(SITES).indexOf(home);
-                    if (site >= 0) from = new BlockPos(origins.get(site).getX() * 16 + 64, 0, origins.get(site).getZ() * 16 + 64);
+                    if (site >= 0 && origins.get(site) != null) from = new BlockPos(origins.get(site).getX() * 16 + 64, 0, origins.get(site).getZ() * 16 + 64);
                 }
                 var found = march.getChunkSource().getGenerator().findNearestMapStructure(march,
-                        net.minecraft.core.HolderSet.direct(holder), from, Math.max(2, 2560 / (spacing * 16) + 1), false);
-                if (found == null) { TribalPower.LOGGER.error("March survey structure FAIL {}: none within 2560 blocks of its land", id); ok = false; continue; }
+                        net.minecraft.core.HolderSet.direct(holder), from, Math.max(2, 5120 / (spacing * 16) + 1), false);
+                if (found == null) { TribalPower.LOGGER.error("March survey structure FAIL {}: none within 5120 blocks of its land", id); ok = false; continue; }
                 BlockPos at = found.getFirst();
                 for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++) march.getChunk((at.getX() >> 4) + dx, (at.getZ() >> 4) + dz);
                 var start = march.structureManager().getStartForStructure(net.minecraft.core.SectionPos.of(at), holder.value(), march.getChunk(at));
@@ -474,12 +560,12 @@ public final class MarchSurvey {
         return ok;
     }
 
-    /** Nearest spot to the origin that is dry land and sits in the wanted biome at the surface. */
+    /** Nearest spot to the origin that is dry land and sits in the wanted biome at the surface, or null. */
     private static BlockPos landSite(ServerLevel march, String site) {
         var key = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, site));
         var generator = march.getChunkSource().getGenerator();
         var random = march.getChunkSource().randomState();
-        for (int ring = 0; ring <= 40; ring++) for (int gx = -ring; gx <= ring; gx++) for (int gz = -ring; gz <= ring; gz++) {
+        for (int ring = 0; ring <= 50; ring++) for (int gx = -ring; gx <= ring; gx++) for (int gz = -ring; gz <= ring; gz++) {
             if (Math.max(Math.abs(gx), Math.abs(gz)) != ring) continue;
             int x = gx * 160, z = gz * 160;
             int height = generator.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, march, random);
@@ -488,7 +574,22 @@ public final class MarchSurvey {
             if (source.getNoiseBiome(x >> 2, height >> 2, z >> 2, random.sampler()).is(key))
                 return new BlockPos((x >> 4) - SITE_CHUNKS / 2, 0, (z >> 4) - SITE_CHUNKS / 2);
         }
-        throw new IllegalStateException("The March has no dry " + site + " within 6400 blocks");
+        return null;
+    }
+
+    /** Nearest spot to the origin where the wanted cave biome claims the ground at y 16, or null. */
+    private static BlockPos caveSite(ServerLevel march, MarchBiomes cave) {
+        var generator = march.getChunkSource().getGenerator();
+        var random = march.getChunkSource().randomState();
+        for (int ring = 0; ring <= 50; ring++) for (int gx = -ring; gx <= ring; gx++) for (int gz = -ring; gz <= ring; gz++) {
+            if (Math.max(Math.abs(gx), Math.abs(gz)) != ring) continue;
+            int x = gx * 160, z = gz * 160;
+            for (int y : new int[]{16, 0, 32}) {
+                if (generator.getBiomeSource().getNoiseBiome(x >> 2, y >> 2, z >> 2, random.sampler()).is(cave.key))
+                    return new BlockPos((x >> 4) - CAVE_CHUNKS / 2, 0, (z >> 4) - CAVE_CHUNKS / 2);
+            }
+        }
+        return null;
     }
 
     private static void survey(ServerLevel march, BlockPos origin, int site, int cx, int cz, BufferedImage image,

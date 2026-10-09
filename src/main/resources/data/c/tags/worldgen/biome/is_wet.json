@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "tribalpower:march_reed_fen",
-    "tribalpower:march_shallows"
+    "tribalpower:march_shallows",
+    "tribalpower:march_tarn_country",
+    "tribalpower:march_loom_river",
+    "tribalpower:march_glowcap_mire",
+    "tribalpower:march_tanglewood",
+    "tribalpower:march_open_tanglewood",
+    "tribalpower:march_cane_thicket",
+    "tribalpower:march_strider_mangrove"
   ]
 }

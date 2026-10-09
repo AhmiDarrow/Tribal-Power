@@ -7,7 +7,13 @@
   ],
   "type": "neoforge:add_spawns",
   "biomes": [
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_rime_spires",
+    "tribalpower:march_rimebirch_taiga",
+    "tribalpower:march_hoar_peaks",
+    "tribalpower:march_shard_peaks",
+    "tribalpower:march_frostpine_slopes",
+    "tribalpower:march_veil_flats"
   ],
   "spawners": [
     {

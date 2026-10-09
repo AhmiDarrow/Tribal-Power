@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:songmaple_log",
+    "tribalpower:songmaple_wood",
+    "tribalpower:stripped_songmaple_log",
+    "tribalpower:stripped_songmaple_wood"
+  ]
+}

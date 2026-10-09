@@ -5,6 +5,9 @@
     "minecraft:jungle",
     "minecraft:sparse_jungle",
     "minecraft:bamboo_jungle",
-    "tribalpower:march_steppe"
+    "tribalpower:march_steppe",
+    "tribalpower:march_songmaple_wood",
+    "tribalpower:march_elder_hearthoak_wold",
+    "tribalpower:march_reed_fen"
   ]
 }

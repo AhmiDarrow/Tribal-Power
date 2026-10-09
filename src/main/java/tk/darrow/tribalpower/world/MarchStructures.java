@@ -17,6 +17,11 @@ public final class MarchStructures {
             TYPES.register("willow_grove", () -> () -> WillowGroveStructure.CODEC);
     public static final DeferredHolder<StructurePieceType, StructurePieceType> WILLOW =
             PIECES.register("willow", () -> (StructurePieceType.ContextlessType) WillowGroveStructure.Willow::new);
+    /** Pieces of the old world hanging over the mountains and the colossi (FloatingIslandStructure). */
+    public static final DeferredHolder<StructureType<?>, StructureType<FloatingIslandStructure>> FLOATING_ISLAND =
+            TYPES.register("floating_island", () -> () -> FloatingIslandStructure.CODEC);
+    public static final DeferredHolder<StructurePieceType, StructurePieceType> ISLAND =
+            PIECES.register("island", () -> (StructurePieceType.ContextlessType) FloatingIslandStructure.Island::new);
 
     private MarchStructures() {}
 

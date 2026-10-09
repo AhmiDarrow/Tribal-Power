@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tribalpower:block/resonant_spike_top",
+    "side": "tribalpower:block/resonant_spike"
+  }
+}

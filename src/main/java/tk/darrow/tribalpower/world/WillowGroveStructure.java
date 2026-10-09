@@ -60,8 +60,29 @@ public class WillowGroveStructure extends Structure {
         long[] seeds = trees.stream().mapToLong(t -> random.nextLong()).toArray();
         float[] scales = new float[trees.size()];
         for (int i = 0; i < scales.length; i++) scales[i] = 0.85F + random.nextFloat() * 0.25F;
+        // more often than not, a piece of the old world hangs over the first colossus, its roots in the crown
+        boolean island = random.nextFloat() < 0.65F;
+        int radius = 8 + random.nextInt(8);
+        long islandSeed = random.nextLong();
+        int max = context.heightAccessor().getMaxBuildHeight();
         return Optional.of(new GenerationStub(trees.getFirst(), builder -> {
             for (int i = 0; i < trees.size(); i++) builder.addPiece(new Willow(trees.get(i), seeds[i], scales[i]));
+            if (!island) return;
+            MarchTreeFeature.Plan crown = plan(trees.getFirst(), seeds[0], scales[0]);
+            int centre = Math.min(crown.top + 26 + radius, max - 30);
+            if (centre - crown.top < 14) return;
+            // three roots end on the crown's upper limbs, well apart
+            List<BlockPos> targets = new ArrayList<>();
+            BlockPos origin = trees.getFirst();
+            for (int k = 0; k < 3; k++) {
+                double angle = k * Mth.TWO_PI / 3;
+                BlockPos want = new BlockPos(origin.getX() + (int) (Math.cos(angle) * 12), crown.top - 10, origin.getZ() + (int) (Math.sin(angle) * 12));
+                BlockPos best = crown.logs.keySet().stream().filter(l -> l.getY() > crown.top - 24)
+                        .min(java.util.Comparator.comparingDouble(l -> l.distSqr(want))).orElse(want);
+                targets.add(best.above());
+            }
+            builder.addPiece(new FloatingIslandStructure.Island(origin, centre, radius, islandSeed, targets,
+                    FloatingIslandStructure.biomeAt(context, origin.getX(), origin.getY(), origin.getZ())));
         }));
     }
 
@@ -72,7 +93,7 @@ public class WillowGroveStructure extends Structure {
     private static final java.util.LinkedHashMap<String, MarchTreeFeature.Plan> PLANS = new java.util.LinkedHashMap<>(8, 0.75F, true) {
         @Override
         protected boolean removeEldestEntry(java.util.Map.Entry<String, MarchTreeFeature.Plan> eldest) {
-            return size() > 12;
+            return size() > 32;   // two groves of eight and their islands, with worker threads interleaving chunks
         }
     };
 

@@ -29,7 +29,6 @@ public final class SpiritGear {
     public static final String RANK_KEY = "GearRank";
     public static final String VOICE_KEY = "GearVoice";
     public static final int MAX_RANK = 3;
-    public static final int LINK_COST = 40;
     /**
      * The tier every tiered piece is forged at: diamond in all but its mending. Spiritgear mends with Manifested
      * Ingots on any anvil, as the bows, shears and rattle do, never with diamonds.
@@ -186,19 +185,20 @@ public final class SpiritGear {
         if (stack.getItem() instanceof SpiritgearPickaxeItem && voice(stack).orElse(null) == Attunement.LOOM) {
             return 0;
         }
-        return Math.max(1, SpiritgearHelper.MINE_COST - (rank(stack) >= 1 ? 1 : 0));
+        return Math.max(1, tk.darrow.tribalpower.config.TribalConfig.gearMineCost() - (rank(stack) >= 1 ? 1 : 0));
     }
 
     public static int hitCost(ItemStack stack) {
-        return Math.max(1, SpiritgearHelper.HIT_COST - (rank(stack) >= 1 ? 1 : 0));
+        return Math.max(1, tk.darrow.tribalpower.config.TribalConfig.gearHitCost() - (rank(stack) >= 1 ? 1 : 0));
     }
 
     public static int useCost(ItemStack stack) {
-        return Math.max(1, SpiritgearHelper.USE_COST - (rank(stack) >= 1 ? 1 : 0));
+        return Math.max(1, tk.darrow.tribalpower.config.TribalConfig.gearUseCost() - (rank(stack) >= 1 ? 1 : 0));
     }
 
     public static int armorCost(ItemStack stack) {
-        return linked(stack) ? 3 : 2;
+        return linked(stack) ? tk.darrow.tribalpower.config.TribalConfig.armorCostLinked()
+                : tk.darrow.tribalpower.config.TribalConfig.armorCostUnlinked();
     }
 
     public static boolean skipStarveHurt(ItemStack stack) {
@@ -207,6 +207,11 @@ public final class SpiritGear {
 
     public static float destroySpeed(ItemStack stack, float base) {
         return base > 1.0F ? base * MINING[rank(stack)] : base;
+    }
+
+    /** What the rank multiplies mining speed by; the tooltip quotes it. */
+    public static float mining(ItemStack stack) {
+        return MINING[rank(stack)];
     }
 
     public static void beginSwing(Player player, ItemStack tool, boolean pulsePaid, boolean aoe) {
@@ -343,7 +348,7 @@ public final class SpiritGear {
 
     public static boolean tryLink(Player player, ItemStack stack, Attunement attunement) {
         if (!isGear(stack)) return false;
-        if (!player.getAbilities().instabuild && !GearCell.spend(player, stack, LINK_COST)) {
+        if (!player.getAbilities().instabuild && !GearCell.spend(player, stack, tk.darrow.tribalpower.config.TribalConfig.gearLinkCost())) {
             SpiritgearHelper.notifyStarved(player);
             return false;
         }
@@ -442,25 +447,40 @@ public final class SpiritGear {
             var group = net.minecraft.world.entity.EquipmentSlotGroup.bySlot(slot);
             int row = switch (slot) { case HEAD -> 0; case CHEST -> 1; case LEGS -> 2; default -> 3; };
             String name = slot.getName();
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR, "spiritweave_armor_" + name, ARMOR_BONUS[row][rank], group);
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR_TOUGHNESS, "spiritweave_toughness_" + name, TOUGHNESS_BONUS[rank], group);
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, "spiritweave_knockback_" + name, KNOCKBACK_BONUS[rank], group);
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, "spiritweave_health_" + name, HEALTH_BONUS[rank], group);
+            // folded into the armour's own modifiers, so the tooltip's headline numbers are the ranked ones
+            ResourceLocation base = ResourceLocation.withDefaultNamespace("armor." + armor.getType().getName());
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR, base, "spiritweave_armor_" + name, ARMOR_BONUS[row][rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ARMOR_TOUGHNESS, base, "spiritweave_toughness_" + name, TOUGHNESS_BONUS[rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, base, "spiritweave_knockback_" + name, KNOCKBACK_BONUS[rank], group);
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH, null, "spiritweave_health_" + name, HEALTH_BONUS[rank], group);
         } else if (stack.getItem() instanceof SpiritgearBladeItem) {
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, "spiritgear_blade_damage", BLADE_DAMAGE[rank],
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, net.minecraft.world.item.Item.BASE_ATTACK_DAMAGE_ID, "spiritgear_blade_damage", BLADE_DAMAGE[rank],
                     net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED, "spiritgear_blade_speed", BLADE_SPEED[rank],
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED, net.minecraft.world.item.Item.BASE_ATTACK_SPEED_ID, "spiritgear_blade_speed", BLADE_SPEED[rank],
                     net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
         } else if (isTool(stack)) {
-            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, "spiritgear_tool_damage", TOOL_DAMAGE[rank],
+            add(event, net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, net.minecraft.world.item.Item.BASE_ATTACK_DAMAGE_ID, "spiritgear_tool_damage", TOOL_DAMAGE[rank],
                     net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND);
         }
     }
 
+    /**
+     * Adds a rank bonus. Where the piece already carries a modifier under {@code base} (vanilla's own attack or armour
+     * line), the bonus is folded into it so the tooltip shows one upgraded figure; otherwise it is its own modifier.
+     */
     private static void add(net.neoforged.neoforge.event.ItemAttributeModifierEvent event,
-                            net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute, String id, double amount,
-                            net.minecraft.world.entity.EquipmentSlotGroup group) {
+                            net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute, ResourceLocation base,
+                            String id, double amount, net.minecraft.world.entity.EquipmentSlotGroup group) {
         if (amount == 0) return;
+        if (base != null) {
+            for (var entry : event.getModifiers()) {
+                if (!entry.attribute().equals(attribute) || !entry.modifier().id().equals(base)) continue;
+                if (entry.modifier().operation() != net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE) break;
+                event.replaceModifier(attribute, new net.minecraft.world.entity.ai.attributes.AttributeModifier(
+                        base, entry.modifier().amount() + amount, net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), entry.slot());
+                return;
+            }
+        }
         event.addModifier(attribute, new net.minecraft.world.entity.ai.attributes.AttributeModifier(
                 ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID, id), amount,
                 net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), group);
@@ -505,10 +525,18 @@ public final class SpiritGear {
     public static void appendTooltip(ItemStack stack, List<Component> lines, TooltipFlag flag) {
         lines.add(Component.translatable("item.tribalpower.spiritgear.rank",
                 Component.translatable("item.tribalpower.spiritgear.rank." + rank(stack))));
+        GearTooltips.rank(stack, lines);
         voice(stack).ifPresentOrElse(
-                attunement -> lines.add(Component.translatable("item.tribalpower.spiritgear.voice",
-                        Component.translatable("attunement.tribalpower." + attunement.getSerializedName()))),
-                () -> lines.add(Component.translatable("item.tribalpower.spiritgear.unlinked")));
+                attunement -> {
+                    lines.add(Component.translatable("item.tribalpower.spiritgear.voice",
+                            Component.translatable("attunement.tribalpower." + attunement.getSerializedName())));
+                    GearTooltips.voice(stack, attunement, lines);
+                    if (stack.getItem() instanceof SpiritgearRattleItem) GearTooltips.rattleHeal(stack, lines);
+                },
+                () -> {
+                    lines.add(Component.translatable("item.tribalpower.spiritgear.unlinked"));
+                    GearTooltips.unlinked(stack, lines);
+                });
         int rank = rank(stack);
         if (rank < MAX_RANK) {
             String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};

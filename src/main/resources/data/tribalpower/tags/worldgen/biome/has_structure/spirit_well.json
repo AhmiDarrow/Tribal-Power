@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "tribalpower:march_crystal_fields",
-    "tribalpower:march_reed_fen"
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_hoarmoss_grove",
+    "tribalpower:march_tarn_country",
+    "tribalpower:march_veilwood",
+    "tribalpower:march_glowcap_mire",
+    "tribalpower:march_gloomcap_hollows"
   ]
 }

@@ -216,7 +216,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1)));
                 forageCooldown=1200;
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
-                level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);
+                level().playSound(null,blockPosition(),tk.darrow.tribalpower.sound.ModSounds.SPIRIT_BRUSH.get(),SoundSource.NEUTRAL,.7F,1.1F);
             }
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
@@ -256,7 +256,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         if(!level().isClientSide) {
             if(forageCooldown>0)forageCooldown--;
             if(swims() && CreatureSwimming.flop(this))
-                playSound(profile()==CreatureProfile.PALE_DRIFTER?SoundEvents.SLIME_SQUISH_SMALL:SoundEvents.SALMON_FLOP,getSoundVolume(),getVoicePitch());
+                playSound(tk.darrow.tribalpower.sound.ModSounds.SPIRIT_FLOP.get(),getSoundVolume(),profile()==CreatureProfile.PALE_DRIFTER?getVoicePitch()*0.7F:getVoicePitch());
             ensureLattice(getRandom(),level() instanceof ServerLevel server && server.dimension().equals(ModDimensions.THE_MARCH));
             if(isSitting()) {
                 sitTicks++;
@@ -332,7 +332,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     @Override protected Vec3 getPassengerAttachmentPoint(Entity passenger,EntityDimensions dimensions,float partialTick) { return new Vec3(0,isBaby()?.6:1.05,0); }
     @Override public void onPlayerJump(int power) { if(canJump())riderJumpScale=power>=90?1:.4F+.4F*power/90F; }
     @Override public boolean canJump() { return profile()==CreatureProfile.DAWN_STAG && isBonded() && getControllingPassenger()!=null; }
-    @Override public void handleStartJump(int power) { playSound(SoundEvents.GOAT_LONG_JUMP,.5F,1.2F); }
+    @Override public void handleStartJump(int power) { playSound(tk.darrow.tribalpower.sound.ModSounds.SPIRIT_JUMP.get(),.5F,1.2F); }
     @Override public void handleStopJump() {}
     @Override protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
@@ -377,7 +377,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     public static boolean canSpawn(EntityType<LatticeAnimal> type,LevelAccessor level,MobSpawnType reason,BlockPos pos,RandomSource random) {
         return MarchSpawns.animal(type,level,reason,pos,random);
     }
-    @Override protected SoundEvent getAmbientSound() { return profile()==CreatureProfile.LANTERN_FOX?SoundEvents.FOX_AMBIENT:SoundEvents.GOAT_AMBIENT; }
-    @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return SoundEvents.FOX_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.FOX_DEATH; }
+    @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"ambient"); }
+    @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"hurt"); }
+    @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"death"); }
 }

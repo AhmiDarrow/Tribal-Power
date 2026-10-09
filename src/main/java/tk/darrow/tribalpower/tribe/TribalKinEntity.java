@@ -10,7 +10,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -192,7 +191,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     /** Drummer beat: basedrum note, tribe-coloured ring and 2 Pulse into each generator within 8 blocks. */
     public void drum() {
         if (!(level() instanceof ServerLevel server)) return;
-        server.playSound(null, blockPosition(), SoundEvents.NOTE_BLOCK_BASEDRUM.value(), SoundSource.NEUTRAL, 0.8F, 0.85F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.KIN_DRUM.get(), SoundSource.NEUTRAL, 0.8F, 0.85F);
         server.broadcastEntityEvent(this, EVENT_BEAT);
         DustParticleOptions dust = new DustParticleOptions(tribe().particleColour(), 0.9F);
         double phase = server.getGameTime() * 0.05;
@@ -239,10 +238,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public boolean hurt(DamageSource source, float amount) {
         boolean hurt = super.hurt(source, amount);
         if (hurt && !level().isClientSide && source.getEntity() instanceof ServerPlayer player && !player.isCreative()) {
-            TribeStanding.add(player, tribe(), TribeStanding.LOSS_HURT_KIN);
+            TribeStanding.add(player, tribe(), TribeStanding.lossHurtKin());
             for (TribalKinEntity kin : level().getEntitiesOfClass(TribalKinEntity.class, getBoundingBox().inflate(24),
                     k -> k.tribe() == tribe()))
-                kin.setAngryAt(player, TribeStanding.HUNTER_ANGER_TICKS);
+                kin.setAngryAt(player, TribeStanding.hunterAngerTicks());
         }
         return hurt;
     }
@@ -435,7 +434,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         if (index >= 0 && index < tradeUses.length) tradeUses[index] = offer.getUses();
         // Stall trades need no standing and give none: their stock restocks daily and would farm it without bound.
         if (!stall() && tradingPlayer instanceof ServerPlayer sp) {
-            TribeStanding.add(sp, tribe(), TribeStanding.GAIN_TRADE);
+            TribeStanding.add(sp, tribe(), TribeStanding.gainTrade());
         }
     }
 
@@ -443,7 +442,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     @Override public int getVillagerXp() { return 0; }
     @Override public void overrideXp(int xp) {}
     @Override public boolean showProgressBar() { return false; }
-    @Override public SoundEvent getNotifyTradeSound() { return SoundEvents.VILLAGER_YES; }
+    @Override public SoundEvent getNotifyTradeSound() { return tk.darrow.tribalpower.sound.ModSounds.KIN_YES.get(); }
     @Override public boolean isClientSide() { return level().isClientSide; }
 
     // ---- persistence ----
@@ -477,10 +476,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     @Override public boolean removeWhenFarAway(double distance) { return false; }
     @Override protected boolean shouldDespawnInPeaceful() { return false; }
     @Override public boolean isPersistenceRequired() { return true; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.VILLAGER_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.VILLAGER_DEATH; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return tk.darrow.tribalpower.sound.ModSounds.KIN.get("hurt").get(); }
+    @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.KIN.get("death").get(); }
     @Override public int getAmbientSoundInterval() { return 240; }
-    @Override protected SoundEvent getAmbientSound() { return role() == KinRole.DRUMMER ? null : SoundEvents.VILLAGER_AMBIENT; }
+    @Override protected SoundEvent getAmbientSound() { return role() == KinRole.DRUMMER ? null : tk.darrow.tribalpower.sound.ModSounds.KIN.get("ambient").get(); }
 
     @Override
     public Component getTypeName() {
@@ -530,7 +529,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
 
         @Override public void stop() {
             if (workTicks > 0 && level() instanceof ServerLevel server)
-                server.playSound(null, loom, SoundEvents.UI_LOOM_TAKE_RESULT, SoundSource.NEUTRAL, 0.45F, 1.0F);
+                server.playSound(null, loom, tk.darrow.tribalpower.sound.ModSounds.KIN_LOOM.get(), SoundSource.NEUTRAL, 0.45F, 1.0F);
             setWorking(false);
             getNavigation().stop();
             loom = null;
@@ -551,7 +550,7 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             workTicks++;
             if (++soundTicks >= 30 && level() instanceof ServerLevel server) {
                 soundTicks = 0;
-                server.playSound(null, loom, SoundEvents.UI_LOOM_SELECT_PATTERN, SoundSource.NEUTRAL, 0.35F, 0.9F + random.nextFloat() * 0.2F);
+                server.playSound(null, loom, tk.darrow.tribalpower.sound.ModSounds.KIN_LOOM.get(), SoundSource.NEUTRAL, 0.35F, 0.9F + random.nextFloat() * 0.2F);
             }
         }
 

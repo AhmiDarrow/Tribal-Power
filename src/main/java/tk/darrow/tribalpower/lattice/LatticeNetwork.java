@@ -33,21 +33,6 @@ public final class LatticeNetwork {
 
     private LatticeNetwork() {}
 
-    /**
-     * Counts every change that could reshape a chalk network anywhere: a totem arriving or leaving
-     * (placed, broken, its chunk loaded or unloaded), or a totem's links being written. A conductor
-     * keeps the network it walked while this number stays the same.
-     */
-    private static final java.util.concurrent.atomic.AtomicInteger CHALK_GENERATION = new java.util.concurrent.atomic.AtomicInteger();
-
-    public static void chalkChanged() {
-        CHALK_GENERATION.incrementAndGet();
-    }
-
-    public static int chalkGeneration() {
-        return CHALK_GENERATION.get();
-    }
-
     public static boolean canLink(BlockPos from, BlockPos to) {
         return !from.equals(to) && from.closerThan(to, LINK_RANGE);
     }

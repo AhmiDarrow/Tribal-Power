@@ -26,7 +26,7 @@ public class SpiritLightBlock extends Block {
     public static final MapCodec<SpiritLightBlock> CODEC=simpleCodec(SpiritLightBlock::new);
     public static final BooleanProperty BRIGHT=BooleanProperty.create("bright");
     public static final int SWEEP_TICKS=100;
-    /** A fleeing fox can be ~4 blocks from a light placed up to {@link FamiliarAbilities#LIGHT_PERIOD} ticks ago; look a little further before sweeping. */
+    /** A fleeing fox can be ~4 blocks from a light placed up to foxLightPeriodTicks (TribalConfig, 10 shipped) ticks ago; look a little further before sweeping. */
     public static final int SWEEP_REACH=6;
     public SpiritLightBlock(Properties properties) {
         super(properties.lightLevel(s->s.getValue(BRIGHT)?12:10));

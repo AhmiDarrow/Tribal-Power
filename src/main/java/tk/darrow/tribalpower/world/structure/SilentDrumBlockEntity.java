@@ -23,7 +23,7 @@ import tk.darrow.tribalpower.effect.SpiritEffects;
 
 /**
  * Records strike timestamps. Four beats spaced {@link #MIN_GAP}–{@link #MAX_GAP} ticks apart wake The Unsung
- * (once per {@link #COOLDOWN_MILLIS} of real time; a second wake while one is alive is ignored) or, while The
+ * (once per {@link #cooldownTicks()} of game time; a second wake while one is alive is ignored) or, while The
  * Unsung is in its Silence phase, resync it so it can be struck. A first waking only happens on the altar:
  * polished deepslate under the drum, and a candle at each of the four corners, the way the Drum Circle is built.
  */
@@ -32,12 +32,13 @@ public class SilentDrumBlockEntity extends BlockEntity {
     public static final int MIN_GAP = 16;
     public static final int MAX_GAP = 28;
     public static final int DEBOUNCE = 4;
-    public static final long COOLDOWN_MILLIS = 20L * 60L * 1000L;
+    /** Twenty minutes of game time; the drum used to keep wall time, which a clock moved back left resting for ever. */
+    public static long cooldownTicks() { return tk.darrow.tribalpower.config.TribalConfig.silentDrumCooldownMinutes() * 1200L; }
     public static final double BOSS_RANGE = 48;
 
     private final long[] beats = new long[BEATS_NEEDED];
     private int recorded;
-    private long lastWakeMillis = Long.MIN_VALUE / 2;
+    private long lastWake = Long.MIN_VALUE / 2;
     private UUID boss;
     private int glow;
 
@@ -93,10 +94,11 @@ public class SilentDrumBlockEntity extends BlockEntity {
             server.playSound(null, worldPosition, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.9F, 0.45F);
             return;
         }
-        long real = System.currentTimeMillis();
-        if (real - lastWakeMillis < COOLDOWN_MILLIS) {
+        long real = server.getGameTime();
+        if (lastWake > real) lastWake = Long.MIN_VALUE / 2;   // a save from another clock, or an older drum that kept wall time
+        if (real - lastWake < cooldownTicks()) {
             if (player != null) player.displayClientMessage(Component.translatable("message.tribalpower.silent_drum.resting",
-                    (COOLDOWN_MILLIS - (real - lastWakeMillis)) / 60000L + 1), true);
+                    (cooldownTicks() - (real - lastWake)) / 1200L + 1), true);
             server.playSound(null, worldPosition, SoundEvents.WOOD_HIT, SoundSource.BLOCKS, 0.9F, 0.5F);
             return;
         }
@@ -115,7 +117,7 @@ public class SilentDrumBlockEntity extends BlockEntity {
             return;
         }
         boss = unsung.getUUID();
-        lastWakeMillis = real;
+        lastWake = real;
         server.playSound(null, worldPosition, SoundEvents.WITHER_SPAWN, SoundSource.HOSTILE, 1.0F, 0.55F);
         SpiritEffects.ring(server, worldPosition.getCenter().add(0, 1, 0), Attunement.LOOM, 4, 24);
         server.sendParticles(ParticleTypes.SOUL, worldPosition.getX() + 0.5, worldPosition.getY() + 1.5, worldPosition.getZ() + 0.5, 40, 1.2, 1.0, 1.2, 0.03);
@@ -165,23 +167,23 @@ public class SilentDrumBlockEntity extends BlockEntity {
     }
 
     /** Called by The Unsung when it resets because no player stayed near: the drum may be struck again at once. */
-    public void onBossReset() { boss = null; lastWakeMillis = Long.MIN_VALUE / 2; setChanged(); }
+    public void onBossReset() { boss = null; lastWake = Long.MIN_VALUE / 2; setChanged(); }
 
     public int recordedBeats() { return recorded; }
-    public boolean resting() { return System.currentTimeMillis() - lastWakeMillis < COOLDOWN_MILLIS; }
+    public boolean resting() { return level != null && lastWake <= level.getGameTime() && level.getGameTime() - lastWake < cooldownTicks(); }
     public int signal() { return recorded == 0 ? (glow > 0 ? 15 : 0) : recorded * 3; }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        tag.putLong("LastWake", lastWakeMillis);
+        tag.putLong("LastWakeTick", lastWake);
         if (boss != null) tag.putUUID("Boss", boss);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        lastWakeMillis = tag.contains("LastWake") ? tag.getLong("LastWake") : Long.MIN_VALUE / 2;
+        lastWake = tag.contains("LastWakeTick") ? tag.getLong("LastWakeTick") : Long.MIN_VALUE / 2;   // an older LastWake kept wall time and is dropped
         boss = tag.hasUUID("Boss") ? tag.getUUID("Boss") : null;
     }
 }

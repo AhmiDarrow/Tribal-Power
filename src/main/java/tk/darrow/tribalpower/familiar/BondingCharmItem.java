@@ -101,6 +101,6 @@ public class BondingCharmItem extends Item {
         for(CreatureProfile profile:CreatureProfile.values())
             if(!profile.boss() && FamiliarRoster.voiceTribe(profile)!=null)remnants.add(Component.translatable("entity.tribalpower."+profile.id));
         lines.add(Component.translatable("item.tribalpower.bonding_charm.remnants",ComponentUtils.formatList(remnants,Component.literal(", "))).withStyle(ChatFormatting.GRAY));
-        lines.add(Component.translatable("item.tribalpower.bonding_charm.attune",FamiliarBoost.ATTUNE_RANGE).withStyle(ChatFormatting.DARK_AQUA));
+        lines.add(Component.translatable("item.tribalpower.bonding_charm.attune",FamiliarBoost.attuneRange()).withStyle(ChatFormatting.DARK_AQUA));
     }
 }

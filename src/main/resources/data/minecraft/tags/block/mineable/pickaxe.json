@@ -143,6 +143,17 @@
     "tribalpower:moonstone_brick_button",
     "tribalpower:moss_agate_button",
     "tribalpower:polished_moss_agate_button",
-    "tribalpower:moss_agate_brick_button"
+    "tribalpower:moss_agate_brick_button",
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike"
   ]
 }

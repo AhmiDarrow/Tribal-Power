@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:frost_shale",
+    "tribalpower:pale_stone",
+    "tribalpower:resonant_spike",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:scree"
+  ]
+}

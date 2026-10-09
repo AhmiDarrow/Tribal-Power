@@ -3,6 +3,12 @@
   "values": [
     "tribalpower:echo_bloom",
     "tribalpower:ley_thistle",
-    "tribalpower:march_leaf"
+    "tribalpower:march_leaf",
+    "tribalpower:icebloom",
+    "tribalpower:hoar_thistle",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel"
   ]
 }

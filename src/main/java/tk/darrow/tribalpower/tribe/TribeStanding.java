@@ -6,33 +6,31 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import tk.darrow.tribalpower.config.TribalConfig;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/** Standing gains, losses, rank-up toasts and listener fan-out (design 3.0 §2 Standing). */
+/**
+ * Standing gains, losses, rank-up toasts and listener fan-out (design 3.0 §2 Standing). Every number lives in
+ * TribalConfig's tribes section and is read when it is needed, never at class load.
+ */
 public final class TribeStanding {
-    public static final int GAIN_FAVOURED = 3;
-    public static final int GAIN_REAGENT = 8;
-    public static final int GAIN_FOOD = 1;
-    public static final int GAIN_PULSE_PER_10 = 2;
-    public static final int MAX_CELL_DRAIN = 40;
-    public static final int GAIN_KILL = 1;
-    public static final int KILL_CAP_PER_DAY = 20;
-    /**
-     * Standing a player can take from one tribe's hearth in a Minecraft day (design 3.1 section 7.7).
-     * The Listening Pit makes ore renewable, and the hearth is what gates the pit; without this cap the
-     * pit would feed the standing that unlocked it.
-     */
-    public static final int OFFER_CAP_PER_DAY = 60;
-    public static final int KILL_RADIUS = 24;
-    public static final int GAIN_TRADE = 2;
-    public static final int LOSS_HURT_KIN = -25;
-    public static final int LOSS_CAMP_BLOCK = -5;
-    public static final int LOSS_HEARTH = -40;
-    public static final int HUNTER_ANGER_TICKS = 60 * 20;
-
+    public static int gainFavoured() { return TribalConfig.standingFavoured(); }
+    public static int gainReagent() { return TribalConfig.standingReagent(); }
+    public static int gainFood() { return TribalConfig.standingFood(); }
+    public static int gainPulsePer10() { return TribalConfig.standingPulsePer10(); }
+    public static int maxCellDrain() { return TribalConfig.hearthCellDrain(); }
+    public static int gainKill() { return TribalConfig.standingKill(); }
+    public static int killCapPerDay() { return TribalConfig.killCapPerDay(); }
+    public static int offerCapPerDay() { return TribalConfig.offerCapPerDay(); }
+    public static int killRadius() { return TribalConfig.killRadius(); }
+    public static int gainTrade() { return TribalConfig.standingTrade(); }
+    public static int lossHurtKin() { return TribalConfig.standingHurtKin(); }
+    public static int lossCampBlock() { return TribalConfig.standingCampBlock(); }
+    public static int lossHearth() { return TribalConfig.standingHearth(); }
+    public static int hunterAngerTicks() { return TribalConfig.hunterAngerTicks(); }
     private static final List<StandingListener> LISTENERS = new CopyOnWriteArrayList<>();
 
     private TribeStanding() {}
@@ -80,12 +78,12 @@ public final class TribeStanding {
     }
 
     /**
-     * Adds standing from a hearth offering, clamped to {@link #OFFER_CAP_PER_DAY} for that tribe today.
+     * Adds standing from a hearth offering, clamped to {@link #offerCapPerDay()} for that tribe today.
      * @return standing actually granted, which is 0 once the day is spent
      */
     public static int offerGain(ServerPlayer player, TribeDefinition tribe, int want) {
         long day = player.serverLevel().getDayTime() / 24000L;
-        int allowed = TribeStandingSavedData.get(player.server).allowOffering(player.getUUID(), tribe, day, OFFER_CAP_PER_DAY, want);
+        int allowed = TribeStandingSavedData.get(player.server).allowOffering(player.getUUID(), tribe, day, offerCapPerDay(), want);
         if (allowed <= 0) return 0;
         add(player, tribe, allowed);
         return allowed;
@@ -94,14 +92,14 @@ public final class TribeStanding {
     /** Offering standing still available today, without spending it. */
     public static int offerRoom(ServerPlayer player, TribeDefinition tribe) {
         long day = player.serverLevel().getDayTime() / 24000L;
-        return OFFER_CAP_PER_DAY - TribeStandingSavedData.get(player.server).offeringsToday(player.getUUID(), tribe, day);
+        return offerCapPerDay() - TribeStandingSavedData.get(player.server).offeringsToday(player.getUUID(), tribe, day);
     }
 
-    /** +1 per hostile kill within {@link #KILL_RADIUS} of a hearth, capped per Minecraft day per tribe. */
+    /** Standing per hostile kill within {@link #killRadius()} of a hearth, capped per Minecraft day per tribe. */
     public static boolean killGain(ServerPlayer player, TribeDefinition tribe) {
         long day = player.serverLevel().getDayTime() / 24000L;
-        if (!TribeStandingSavedData.get(player.server).tryKillGain(player.getUUID(), tribe, day, KILL_CAP_PER_DAY)) return false;
-        add(player, tribe, GAIN_KILL);
+        if (!TribeStandingSavedData.get(player.server).tryKillGain(player.getUUID(), tribe, day, killCapPerDay())) return false;
+        add(player, tribe, gainKill());
         return true;
     }
 

@@ -62,7 +62,7 @@ public final class Anointing {
         CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> tag.putString(KEY, profile.reagent));
     }
 
-    private static double value(Anointment anointment, String key) {
+    public static double value(Anointment anointment, String key) {
         return TribalConfig.anointing(anointment, key);
     }
 
@@ -196,6 +196,18 @@ public final class Anointing {
         return Math.max(0, (int) Math.round(level) - 1);
     }
 
+    /** The anointment's numbers in the order its params are declared: chances and fractions as percentages, the rest as they are. */
+    public static Object[] describe(Anointment anointment) {
+        Object[] out = new Object[anointment.params.size()];
+        for (int i = 0; i < out.length; i++) {
+            var param = anointment.params.get(i);
+            double value = value(anointment, param.key());
+            boolean fraction = param.key().equals("chance") || param.key().equals("fraction") || param.key().equals("lifeSteal") || param.key().equals("armorFraction");
+            out[i] = fraction ? tk.darrow.tribalpower.item.GearTooltips.percent(value) : tk.darrow.tribalpower.item.GearTooltips.number(value);
+        }
+        return out;
+    }
+
     /** Every anointable weapon shows what it carries, or that it can carry one. */
     public static void tooltip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
@@ -204,7 +216,7 @@ public final class Anointing {
         int at = Math.min(1, lines.size());
         reagent(stack).ifPresentOrElse(profile -> {
             Anointment anointment = Anointment.of(Note.of(profile));
-            lines.add(at, Component.translatable("anointment.tribalpower." + anointment.id() + ".desc").withStyle(ChatFormatting.GRAY));
+            lines.add(at, Component.translatable("anointment.tribalpower." + anointment.id() + ".desc", describe(anointment)).withStyle(ChatFormatting.GRAY));
             lines.add(at, Component.translatable("item.tribalpower.anointed",
                     Component.translatable("anointment.tribalpower." + anointment.id()),
                     Component.translatable("item.tribalpower." + profile.reagent)).withStyle(ChatFormatting.GOLD));

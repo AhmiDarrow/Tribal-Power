@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "tribalpower:block/gloomcap_planks",
+    "top": "tribalpower:block/gloomcap_planks",
+    "side": "tribalpower:block/gloomcap_planks"
+  }
+}

@@ -18,7 +18,6 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -196,7 +195,7 @@ public class GuardianEntity extends Monster {
     private void enterSecondPhase(ServerLevel server) {
         entityData.set(PHASE, 2);
         bossEvent.setName(Component.translatable(guardian().nameKey()).append(" — ").append(Component.translatable("boss.tribalpower.guardian.phase2")));
-        server.playSound(null, blockPosition(), SoundEvents.WARDEN_ROAR, SoundSource.HOSTILE, 2F, 0.6F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(), SoundSource.HOSTILE, 2F, 0.6F);
         SpiritEffects.ring(server, position().add(0, 1, 0), guardian().tribe.attunement(), 5, 24);
         for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE)))
             player.displayClientMessage(Component.translatable("message.tribalpower.guardian." + guardian().id + ".phase2").withStyle(ChatFormatting.RED), false);
@@ -212,7 +211,7 @@ public class GuardianEntity extends Monster {
                 markAttack(server);
                 double radius = sharp ? 8 : 6;
                 for (int r = 2; r <= (int) radius; r += 2) SpiritEffects.ring(server, position().add(0, 0.3, 0), Attunement.FIRE, r, 6 * r);
-                server.playSound(null, blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.HOSTILE, 1F, 0.5F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_IMPACT.get(), SoundSource.HOSTILE, 1F, 0.5F);
                 for (Player player : players(server, radius)) {
                     boolean braced = player.isShiftKeyDown();
                     player.hurt(damageSources().mobAttack(this), braced ? damage * 0.3F : damage * 0.7F);
@@ -230,7 +229,7 @@ public class GuardianEntity extends Monster {
                 target.push(pull.x, 0.3, pull.z);
                 target.hurtMarked = true;
                 target.hurt(damageSources().mobAttack(this), damage * 0.4F);
-                server.playSound(null, blockPosition(), SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.HOSTILE, 1.5F, 0.5F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_THORN.get(), SoundSource.HOSTILE, 1.5F, 0.5F);
             }
             case FROST -> {
                 markAttack(server);
@@ -247,7 +246,7 @@ public class GuardianEntity extends Monster {
                     hit.setTicksFrozen(Math.max(hit.getTicksFrozen(), sharp ? 200 : 140));
                     hit.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 1));
                 }
-                server.playSound(null, blockPosition(), SoundEvents.PLAYER_HURT_FREEZE, SoundSource.HOSTILE, 1.5F, 0.5F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_FROST.get(), SoundSource.HOSTILE, 1.5F, 0.5F);
             }
             case BOLT -> {
                 if (distanceToSqr(target) > BOLT_RANGE * BOLT_RANGE) return;
@@ -256,13 +255,13 @@ public class GuardianEntity extends Monster {
                 Vec3 dir = target.position().add(0, target.getBbHeight() * 0.5, 0).subtract(from).normalize();
                 bolts.add(new Bolt(from, dir.scale(0.5), damage * (sharp ? 0.8F : 0.5F)));
                 if (sharp) bolts.add(new Bolt(from, dir.yRot(0.25F).scale(0.5), damage * 0.4F));
-                server.playSound(null, blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.HOSTILE, 1.5F, 0.6F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CHIME.get(), SoundSource.HOSTILE, 1.5F, 0.6F);
             }
             case SWEEP -> {
                 markAttack(server);
                 double radius = sharp ? 5 : 4;
                 SpiritEffects.ring(server, position().add(0, 1, 0), Attunement.SPIRIT, radius, 24);
-                server.playSound(null, blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.HOSTILE, 1F, 0.5F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_IMPACT.get(), SoundSource.HOSTILE, 1F, 0.5F);
                 for (Player player : players(server, radius)) {
                     player.hurt(damageSources().mobAttack(this), damage * 0.6F);
                     player.knockback(sharp ? 2.2 : 1.6, getX() - player.getX(), getZ() - player.getZ());
@@ -273,7 +272,7 @@ public class GuardianEntity extends Monster {
                 markAttack(server);
                 double radius = sharp ? 10 : 8;
                 for (int r = 2; r <= (int) radius; r += 2) SpiritEffects.ring(server, position().add(0, 0.3, 0), Attunement.WATER, r, 6 * r);
-                server.playSound(null, blockPosition(), SoundEvents.NOTE_BLOCK_BASEDRUM.value(), SoundSource.HOSTILE, 3F, 0.5F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_DRUM.get(), SoundSource.HOSTILE, 3F, 0.5F);
                 for (Player player : players(server, radius)) {
                     Vec3 pull = position().subtract(player.position()).normalize().scale(sharp ? 1.1 : 0.8);
                     player.push(pull.x, 0.25, pull.z);
@@ -285,7 +284,7 @@ public class GuardianEntity extends Monster {
             case CHARGE -> {
                 markAttack(server);
                 chargeTicks = sharp ? 30 : 22;
-                server.playSound(null, blockPosition(), SoundEvents.RAVAGER_ROAR, SoundSource.HOSTILE, 1.5F, 0.7F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(), SoundSource.HOSTILE, 1.5F, 0.7F);
             }
             case SWOOP -> {
                 if (distanceToSqr(target) > 14 * 14) return;
@@ -301,7 +300,7 @@ public class GuardianEntity extends Monster {
                     hit.push(0, sharp ? 1.3 : 1.0, 0);
                     hit.hurtMarked = true;
                 }
-                server.playSound(null, blockPosition(), SoundEvents.PHANTOM_SWOOP, SoundSource.HOSTILE, 2F, 0.6F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_SWOOP.get(), SoundSource.HOSTILE, 2F, 0.6F);
                 if (sharp) {
                     LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(server);
                     if (bolt != null) {
@@ -355,7 +354,7 @@ public class GuardianEntity extends Monster {
     private void ward(ServerLevel server) {
         wardTicks = 60;
         entityData.set(WARDED, true);
-        server.playSound(null, blockPosition(), SoundEvents.BEACON_ACTIVATE, SoundSource.HOSTILE, 1.2F, 1.4F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_SUMMON.get(), SoundSource.HOSTILE, 1.2F, 1.4F);
         SpiritEffects.ring(server, position().add(0, 1, 0), Attunement.SPIRIT, 2.5, 16);
     }
 
@@ -393,7 +392,7 @@ public class GuardianEntity extends Monster {
                 player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
                 return true;
             }
-            return !server.getBlockState(BlockPos.containing(bolt.pos)).isAir() && server.getBlockState(BlockPos.containing(bolt.pos)).isSolid();
+            return false;   // anything solid already ended the bolt above
         });
     }
 
@@ -479,7 +478,7 @@ public class GuardianEntity extends Monster {
 
     @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
     @Override public int getAmbientSoundInterval() { return 160; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return guardian().ability == Guardian.Ability.SWEEP ? SoundEvents.ANVIL_PLACE : SoundEvents.RAVAGER_HURT; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_HURT.get(); }
     @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.GUARDIAN_VOICES.get(guardian().id).get(); }
     @Override protected float getSoundVolume() { return 1.5F; }
     @Override public float getVoicePitch() { return isDeadOrDying() ? 0.45F : 0.8F + random.nextFloat() * 0.2F; }

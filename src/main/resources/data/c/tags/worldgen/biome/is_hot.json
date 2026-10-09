@@ -1,6 +1,21 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_ember_wastes"
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_drumpalm_savanna",
+    "tribalpower:march_drumpalm_plateau",
+    "tribalpower:march_windswept_drumpalm",
+    "tribalpower:march_tanglewood",
+    "tribalpower:march_open_tanglewood",
+    "tribalpower:march_cane_thicket",
+    "tribalpower:march_strider_mangrove",
+    "tribalpower:march_sun_peaks",
+    "tribalpower:march_warm_shallows",
+    "tribalpower:march_deep_warm_shallows",
+    "tribalpower:march_salt_flats",
+    "tribalpower:march_kiln_mesa",
+    "tribalpower:march_cut_mesa",
+    "tribalpower:march_sunbark_mesa",
+    "tribalpower:march_glass_shallows"
   ]
 }

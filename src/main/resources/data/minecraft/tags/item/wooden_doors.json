@@ -7,6 +7,15 @@
     "tribalpower:bellcap_door",
     "tribalpower:frostpine_door",
     "tribalpower:cinder_door",
-    "tribalpower:strider_door"
+    "tribalpower:strider_door",
+    "tribalpower:rimebirch_door",
+    "tribalpower:thornfir_door",
+    "tribalpower:songmaple_door",
+    "tribalpower:veilwood_door",
+    "tribalpower:chimeblossom_door",
+    "tribalpower:drumpalm_door",
+    "tribalpower:tanglewood_door",
+    "tribalpower:sunbark_door",
+    "tribalpower:gloomcap_door"
   ]
 }

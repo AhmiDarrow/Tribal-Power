@@ -6,6 +6,12 @@
     "tribalpower:march_path",
     "tribalpower:march_grass",
     "tribalpower:march_moss",
-    "tribalpower:march_silt"
+    "tribalpower:march_silt",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:pale_sand",
+    "tribalpower:ochre_sand",
+    "tribalpower:glass_sand",
+    "tribalpower:spore_turf"
   ]
 }

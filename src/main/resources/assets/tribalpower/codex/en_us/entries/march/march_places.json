@@ -15,6 +15,22 @@
     },
     {
       "type": "text",
+      "title": "Camps and villages",
+      "text": [
+        "Every tribe keeps a camp in each band of the March, built from that band's own wood and ground: frostpine and snow on the frozen rim, thornfir and needle loam in the cold taigas, drumpalm on the savannas, sunbark and salt in the hot lands. The Pad-keepers hold the meadows and wolds, the Grit-singers the peaks and mesas, the Rootbinders the deep woods, the Edge-walkers the taigas, the Drumhearts the dry and burning ground, the Pattern-weavers the open steppes, the Colony-keepers the flowering lands, the Seal-carvers the dark woods and the Loom-stitchers the strange, lit country.",
+        "**Villages** stand in every band too: a plaza with the tribe's hearth, fire, totem, well and loom, its four Kin, and the voice's own generator humming; streets of the band's stone leading to huts, longhouses, a workshop with an Echo Shatter and a Song Bench, a granary of the band's crop, a shrine, a watchtower, a pen of the band's grazers and a flower garden. A village's hearth takes offerings like a camp's."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pieces of the old world",
+      "text": [
+        "Over the peaks and the high ground, and over many a Weeping Colossus, **floating mountains of the old world** hang in the sky: tall crags of March rock, wide at the crown and tapering to a point below, their faces banded and mossy, turf and trees on top, a broken ring of bricks with a chest in it, vines down every side and a waterfall pouring off the rim. They hang in clusters at different heights, bridged by giant vines, small rocks drifting about them.",
+        "A cluster is held to the ground by **giant roots of willow wood**, sheathed in leaves and hung with curtains of willow strands that run the whole way down. The strands are climbable: take hold at the foot of a root and climb to the sky. Over a colossus the roots end in its crown, so the tree is the ladder."
+      ]
+    },
+    {
+      "type": "text",
       "title": "The Steppe and the Highlands",
       "text": [
         "- **Wayfarer's Shrine**: a roofed roadside shrine on an old path, with an offering chest.",
@@ -24,7 +40,7 @@
         "- **Watchfire Beacon**: a stone tower on a knoll with its signal fire still lit.",
         "- **Echo Quarry**: a terraced pit with March ores in its walls and a crane at the rim.",
         "- **Storm Altar**: a tuff altar under a lightning rod.",
-        "- **Seal-Carver's Retreat**: rooms cut into a crag, with a workshop and a loft.",
+        "- **Seal-carver's Retreat**: rooms cut into a crag, with a workshop and a loft.",
         "- **Old Gate Ruin**: a half-buried Way Gate over a guarded hall and a barred vault."
       ]
     },

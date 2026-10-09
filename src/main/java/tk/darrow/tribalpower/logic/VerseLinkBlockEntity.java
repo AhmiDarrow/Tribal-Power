@@ -36,21 +36,26 @@ public class VerseLinkBlockEntity extends BlockEntity implements tk.darrow.triba
         return getBlockState().getBlock() instanceof VerseLinkBlock link && link.call();
     }
 
+    /** Whether this Call is in VerseCalls; a load before the block state settles can miss it, so the tick checks once. */
+    private boolean registered;
+
     @Override
     public void onLoad() {
         super.onLoad();
-        if (call() && level instanceof ServerLevel server) VerseCalls.add(server, worldPosition);
+        if (call() && level instanceof ServerLevel server) { VerseCalls.add(server, worldPosition); registered = true; }
     }
 
     @Override
     public void setRemoved() {
-        if (call() && level instanceof ServerLevel server) VerseCalls.remove(server, worldPosition);
+        if (level instanceof ServerLevel server) VerseCalls.remove(server, worldPosition);
+        registered = false;
         super.setRemoved();
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, VerseLinkBlockEntity be) {
         if (level.isClientSide) return;
-        if (be.call() && level instanceof ServerLevel server) VerseCalls.add(server, pos);
+        // A Call registers itself on load and leaves in setRemoved (VerseCalls' contract); the tick only makes sure of it
+        if (!be.registered && be.call()) { VerseCalls.add((ServerLevel) level, pos); be.registered = true; }
         int next = be.call() ? listenLocal(level, pos, state.getValue(VerseLinkBlock.FACING))
                 : hear((ServerLevel) level, pos, be.verse);
         be.heard = next;

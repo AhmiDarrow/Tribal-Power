@@ -31,7 +31,11 @@
           "tribalpower:march_grass",
           "tribalpower:march_moss",
           "tribalpower:march_soil",
-          "minecraft:mud"
+          "minecraft:mud",
+          "tribalpower:needle_loam",
+          "tribalpower:hoarmoss",
+          "tribalpower:spore_turf",
+          "tribalpower:glowmoss"
         ]
       }
     },

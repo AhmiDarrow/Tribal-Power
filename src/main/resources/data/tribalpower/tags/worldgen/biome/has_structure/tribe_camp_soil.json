@@ -3,6 +3,9 @@
   "values": [
     "minecraft:plains",
     "minecraft:sunflower_plains",
-    "tribalpower:march_steppe"
+    "tribalpower:march_steppe",
+    "tribalpower:march_hearthoak_wold",
+    "tribalpower:march_sunwheel_steppe",
+    "tribalpower:march_high_meadow"
   ]
 }

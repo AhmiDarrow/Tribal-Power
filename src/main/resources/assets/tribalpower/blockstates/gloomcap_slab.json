@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/gloomcap_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/gloomcap_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/gloomcap_planks"
+    }
+  }
+}

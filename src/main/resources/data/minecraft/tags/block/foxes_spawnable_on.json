@@ -3,6 +3,20 @@
   "values": [
     "tribalpower:march_soil",
     "tribalpower:march_grass",
-    "tribalpower:march_moss"
+    "tribalpower:march_moss",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_sand",
+    "tribalpower:ochre_sand",
+    "tribalpower:scree",
+    "tribalpower:salt_crust",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:frost_shale",
+    "tribalpower:pale_stone",
+    "tribalpower:march_silt",
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble"
   ]
 }

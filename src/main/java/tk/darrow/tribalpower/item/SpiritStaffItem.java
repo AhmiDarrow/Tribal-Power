@@ -15,6 +15,7 @@ import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.world.TravelSafety;
 import java.util.List;
@@ -26,10 +27,16 @@ public class SpiritStaffItem extends Item {
         int mode = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt("Attunement");   // read in place: the HUD asks every frame
         return Attunement.values()[Math.floorMod(mode, Attunement.values().length)];
     }
-    public static int cost(Attunement element) { return switch(element) { case EARTH -> 12; case FIRE -> 18; case WATER -> 24; case AIR -> 16; case SPIRIT -> 20; case LOOM -> TETHER_COST; }; }
-    public static final int TETHER_COST = 6;
-    public static final int STITCH_COST = 10;
-    public static final double TETHER_PULL = 8.0;
+    /** Pulse one cast of a voice spends; the Loom voice's figure is its Tether. All of them live in TribalConfig's staff section. */
+    public static int cost(Attunement element) {
+        return switch (element) {
+            case EARTH -> TribalConfig.staffEarthCost(); case FIRE -> TribalConfig.staffFireCost();
+            case WATER -> TribalConfig.staffWaterCost(); case AIR -> TribalConfig.staffAirCost();
+            case SPIRIT -> TribalConfig.staffSpiritCost(); case LOOM -> TribalConfig.staffTetherCost();
+        };
+    }
+    /** Pulse a Stitch (the Loom voice's blink) spends. */
+    public static int stitchCost() { return TribalConfig.staffStitchCost(); }
     public static final int STITCH_RANGE = 6;
     /** Steps the staff to its next voice and returns it. Sneak-use and the Staff Voice hotkey both come here. */
     public static Attunement cycle(ItemStack staff) {
@@ -66,28 +73,28 @@ public class SpiritStaffItem extends Item {
         }
         switch(element) {
             case EARTH -> {
-                target.hurt(player.damageSources().indirectMagic(player, player), 4);
-                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 3));
+                target.hurt(player.damageSources().indirectMagic(player, player), (float) TribalConfig.staffEarthDamage());
+                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, TribalConfig.staffEarthSlowTicks(), 3));
             }
             case FIRE -> {
-                target.hurt(player.damageSources().indirectMagic(player, player), 8);
-                target.igniteForSeconds(4);
+                target.hurt(player.damageSources().indirectMagic(player, player), (float) TribalConfig.staffFireDamage());
+                target.igniteForSeconds(TribalConfig.staffFireIgniteSeconds());
             }
             case WATER -> {
                 player.clearFire(); player.removeEffect(MobEffects.POISON);
-                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
-                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, TribalConfig.staffWaterRegenTicks(), 0));
+                player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, TribalConfig.staffWaterBreathingTicks(), 0));
             }
             case AIR -> {
                 Vec3 direction = player.getLookAngle();
                 player.push(direction.x * 0.65, 0.30, direction.z * 0.65);
                 player.hurtMarked = true;
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 120, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, TribalConfig.staffAirSlowFallTicks(), 0));
             }
             case SPIRIT -> {
-                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0));
-                for (LivingEntity enemy : level.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(12), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile))
-                    enemy.addEffect(new MobEffectInstance(MobEffects.GLOWING, 240, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, TribalConfig.staffSpiritSightTicks(), 0));
+                for (LivingEntity enemy : level.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(TribalConfig.staffSpiritRadius()), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile))
+                    enemy.addEffect(new MobEffectInstance(MobEffects.GLOWING, TribalConfig.staffSpiritGlowTicks(), 0));
             }
             case LOOM -> tether(player, target);
         }
@@ -95,7 +102,7 @@ public class SpiritStaffItem extends Item {
             SpiritEffects.beam(server, start.add(player.getLookAngle().scale(0.6)), target.getBoundingBox().getCenter(), element);
         SpiritEffects.ring(server, player.position().add(0, 0.2, 0), element, 0.75, 16);
         server.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 0.6F, 0.8F + element.ordinal() * 0.15F);
-        player.getCooldowns().addCooldown(this, element == Attunement.WATER ? 160 : 40);
+        player.getCooldowns().addCooldown(this, element == Attunement.WATER ? TribalConfig.staffWaterCooldownTicks() : TribalConfig.staffCooldownTicks());
         return InteractionResultHolder.consume(staff);
     }
     /** Hostile living entity along the player's look ray within 18 blocks, stopping at blocks. */
@@ -107,12 +114,12 @@ public class SpiritStaffItem extends Item {
                 entity -> entity instanceof LivingEntity living && living.isAlive() && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living));
         return hit != null && hit.getEntity() instanceof LivingEntity living ? living : null;
     }
-    /** Tether: draw the target up to {@link #TETHER_PULL} blocks along the thread toward the caster. */
+    /** Tether: draw the target up to staffTetherPull (TribalConfig) blocks along the thread toward the caster. */
     static void tether(Player player, LivingEntity target) {
         Vec3 toCaster = player.position().subtract(target.position());
         double distance = toCaster.length();
         if (distance < 1.5) return;
-        double pull = Math.min(TETHER_PULL, distance - 1.5);
+        double pull = Math.min(TribalConfig.staffTetherPull(), distance - 1.5);
         Vec3 step = toCaster.normalize().scale(pull);
         Vec3 landing = target.position().add(step);
         // Keep the pulled creature out of solid blocks: fall back to a shove if the landing is blocked.
@@ -147,7 +154,7 @@ public class SpiritStaffItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.staff.stitch_blocked"), true);
             return InteractionResultHolder.fail(staff);
         }
-        if (!GearCell.spend(player, staff, STITCH_COST)) {
+        if (!GearCell.spend(player, staff, stitchCost())) {
             SpiritgearHelper.notifyStarved(player); return InteractionResultHolder.fail(staff);
         }
         Vec3 from = player.position();
@@ -156,13 +163,13 @@ public class SpiritStaffItem extends Item {
         SpiritEffects.beam(server, from.add(0, 1, 0), landing.add(0, 1, 0), Attunement.LOOM);
         SpiritEffects.ring(server, landing.add(0, 0.2, 0), Attunement.LOOM, 0.75, 16);
         server.playSound(null, player.blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.PLAYERS, 0.6F, 1.6F);
-        player.getCooldowns().addCooldown(this, 30);
+        player.getCooldowns().addCooldown(this, TribalConfig.staffStitchCooldownTicks());
         return InteractionResultHolder.consume(staff);
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         var element = element(stack);
         lines.add(Component.translatable("spell.tribalpower." + element.getSerializedName()));
         lines.add(Component.translatable("item.tribalpower.spirit_staff.desc", cost(element)));
-        if (element == Attunement.LOOM) lines.add(Component.translatable("item.tribalpower.spirit_staff.stitch", STITCH_COST));
+        if (element == Attunement.LOOM) lines.add(Component.translatable("item.tribalpower.spirit_staff.stitch", stitchCost()));
     }
 }

@@ -1,0 +1,206 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.95,
+  "downfall": 0.9,
+  "effects": {
+    "fog_color": 4872784,
+    "sky_color": 5929632,
+    "water_color": 3832428,
+    "water_fog_color": 1718836,
+    "foliage_color": 4885082,
+    "grass_color": 5937762,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 5000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "tribalpower:music.march_reed_fen",
+      "min_delay": 6000,
+      "max_delay": 18000,
+      "replace_current_music": false
+    },
+    "particle": {
+      "probability": 0.001,
+      "options": {
+        "type": "minecraft:cloud"
+      }
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "tribalpower:reed_coil",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:reed_stalker",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:fen_goblin",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:drowned_shade",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:gloom_crawler",
+        "weight": 4,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "tribalpower:fen_strider",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:stiltwood",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:bog_floater",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:silt_glider",
+        "weight": 6,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:stone_grub",
+        "weight": 4,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:frog",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [
+      {
+        "type": "tribalpower:spirit_wisp",
+        "weight": 14,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:bat",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [
+      {
+        "type": "minecraft:glow_squid",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "water_creature": [
+      {
+        "type": "tribalpower:drift_bell",
+        "weight": 4,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:veil_ray",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "tribalpower:glimmerfin",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:silt_eel",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "tribalpower:march_cave",
+      "tribalpower:march_cave_deep",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "tribalpower:march_mere"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "tribalpower:march_ore",
+      "tribalpower:march_ore_mid",
+      "tribalpower:march_vanilla_coal",
+      "tribalpower:march_vanilla_iron",
+      "tribalpower:march_vanilla_iron_upper",
+      "tribalpower:march_vanilla_iron_small",
+      "tribalpower:march_vanilla_copper",
+      "tribalpower:march_vanilla_gold",
+      "tribalpower:march_vanilla_redstone",
+      "tribalpower:march_vanilla_lapis",
+      "tribalpower:march_vanilla_diamond",
+      "tribalpower:march_vanilla_diamond_large",
+      "tribalpower:march_silt_bed",
+      "tribalpower:march_clay_bed"
+    ],
+    [
+      "tribalpower:march_amethyst_pocket",
+      "tribalpower:march_veil_lichen",
+      "tribalpower:march_echo_roots",
+      "tribalpower:march_lantern_caps"
+    ],
+    [],
+    [
+      "tribalpower:march_young_willow_fen",
+      "tribalpower:march_strider_fen",
+      "tribalpower:march_lilies",
+      "tribalpower:march_moon_lilies",
+      "tribalpower:march_ribbon_weed",
+      "tribalpower:march_leaf_dense",
+      "tribalpower:spirit_reed_dense"
+    ],
+    []
+  ]
+}

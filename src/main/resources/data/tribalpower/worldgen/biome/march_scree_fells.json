@@ -1,0 +1,168 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.2,
+  "downfall": 0.5,
+  "effects": {
+    "fog_color": 9083044,
+    "sky_color": 8364224,
+    "water_color": 3829388,
+    "water_fog_color": 1718860,
+    "foliage_color": 5147258,
+    "grass_color": 9083528,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 5000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "tribalpower:music.march_glimmer_ridge",
+      "min_delay": 6000,
+      "max_delay": 18000,
+      "replace_current_music": false
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "tribalpower:scree_lurcher",
+        "weight": 12,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:crag_troll",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 2
+      },
+      {
+        "type": "tribalpower:ridge_kobold",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:gloom_crawler",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "tribalpower:stone_grub",
+        "weight": 12,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "tribalpower:cragcoat",
+        "weight": 10,
+        "minCount": 2,
+        "maxCount": 4
+      },
+      {
+        "type": "tribalpower:updrifter",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "tribalpower:crag_bounder",
+        "weight": 8,
+        "minCount": 2,
+        "maxCount": 3
+      },
+      {
+        "type": "minecraft:goat",
+        "weight": 8,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ],
+    "ambient": [
+      {
+        "type": "tribalpower:spirit_wisp",
+        "weight": 14,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "minecraft:bat",
+        "weight": 6,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [
+      {
+        "type": "tribalpower:veil_ray",
+        "weight": 3,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "water_ambient": [
+      {
+        "type": "tribalpower:glimmerfin",
+        "weight": 18,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "tribalpower:march_cave",
+      "tribalpower:march_cave_deep",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [
+      "tribalpower:march_boulder_field",
+      "tribalpower:march_ruin_pillar"
+    ],
+    [],
+    [],
+    [],
+    [
+      "tribalpower:march_ore",
+      "tribalpower:march_ore_mid",
+      "tribalpower:march_ore_high",
+      "tribalpower:march_vanilla_coal",
+      "tribalpower:march_vanilla_iron",
+      "tribalpower:march_vanilla_iron_upper",
+      "tribalpower:march_vanilla_iron_small",
+      "tribalpower:march_vanilla_copper",
+      "tribalpower:march_vanilla_gold",
+      "tribalpower:march_vanilla_redstone",
+      "tribalpower:march_vanilla_lapis",
+      "tribalpower:march_vanilla_diamond",
+      "tribalpower:march_vanilla_diamond_large",
+      "tribalpower:march_silt_bed",
+      "tribalpower:march_clay_bed"
+    ],
+    [
+      "tribalpower:march_amethyst_pocket",
+      "tribalpower:march_veil_lichen",
+      "tribalpower:march_echo_roots",
+      "tribalpower:march_lantern_caps"
+    ],
+    [],
+    [
+      "tribalpower:march_thornfir_scatter",
+      "tribalpower:march_lilies",
+      "tribalpower:march_ribbon_weed",
+      "tribalpower:hoar_thistle_scatter"
+    ],
+    []
+  ]
+}

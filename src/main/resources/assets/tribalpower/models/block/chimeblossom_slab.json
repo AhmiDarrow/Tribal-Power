@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "tribalpower:block/chimeblossom_planks",
+    "top": "tribalpower:block/chimeblossom_planks",
+    "side": "tribalpower:block/chimeblossom_planks"
+  }
+}

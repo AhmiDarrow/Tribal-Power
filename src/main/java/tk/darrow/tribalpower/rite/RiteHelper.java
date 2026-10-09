@@ -38,7 +38,7 @@ public final class RiteHelper {
             return false;
         }
 
-        boolean amplified = SpiritgearHelper.tryConsumePulse(player, 8);
+        boolean amplified = SpiritgearHelper.tryConsumePulse(player, tk.darrow.tribalpower.config.TribalConfig.riteAmplifyPulse());
 
         if (seal.is(ModItems.EARTH_SEAL.get())) {
             earthRite(server, pos, player, amplified);

@@ -249,6 +249,8 @@ final class GroveWork {
     private static void harvestLogs(CampBlockEntity be, ServerLevel server, net.minecraft.world.entity.player.Player farmer) {
         if (be.pulse < 12) return;
         BlockPos origin = be.getBlockPos();
+        // 891 positions and a walk per log is the dear part of an idle tender: one beat in five, staggered by position
+        if ((server.getGameTime() / 20 + origin.getX() + origin.getZ()) % 5 != 0) return;
         // logs this beat already found to belong to no tree, so a log build is walked once, not once per log
         Set<BlockPos> built = new HashSet<>();
         for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-4, 0, -4), origin.offset(4, 10, 4))) {

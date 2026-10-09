@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_shallows"
+    "tribalpower:march_shallows",
+    "tribalpower:march_rime_sea",
+    "tribalpower:march_cold_shallows",
+    "tribalpower:march_warm_shallows",
+    "tribalpower:march_glass_shallows"
   ]
 }

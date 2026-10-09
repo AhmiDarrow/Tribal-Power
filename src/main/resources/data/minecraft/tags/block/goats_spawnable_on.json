@@ -4,6 +4,10 @@
     "tribalpower:march_stone",
     "tribalpower:march_cobble",
     "tribalpower:march_grass",
-    "tribalpower:march_soil"
+    "tribalpower:march_soil",
+    "tribalpower:frost_shale",
+    "tribalpower:pale_stone",
+    "tribalpower:scree",
+    "tribalpower:ochre_sandstone"
   ]
 }

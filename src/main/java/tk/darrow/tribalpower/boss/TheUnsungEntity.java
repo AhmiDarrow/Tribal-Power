@@ -19,7 +19,6 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.BossEvent;
@@ -138,8 +137,8 @@ public class TheUnsungEntity extends Monster {
         bolts.clear();
         setDeltaMovement(Vec3.ZERO);
         if (level() instanceof ServerLevel server) {
-            server.playSound(null, blockPosition(), SoundEvents.BELL_RESONATE, SoundSource.HOSTILE, 2F, 0.5F);
-            server.playSound(null, blockPosition(), SoundEvents.WARDEN_HEARTBEAT, SoundSource.HOSTILE, 2F, 0.7F);
+            server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CHIME.get(), SoundSource.HOSTILE, 2F, 0.5F);
+            server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("ambient").get(), SoundSource.HOSTILE, 2F, 0.7F);
             SpiritEffects.ring(server, position().add(0, 2, 0), Attunement.LOOM, 3, 24);
             server.sendParticles(ParticleTypes.END_ROD, getX(), getY() + 2.5, getZ(), 40, 1.2, 1.5, 1.2, 0.05);
             for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE)))
@@ -204,7 +203,7 @@ public class TheUnsungEntity extends Monster {
         String key = switch (phase) { case PHASE_BEAT -> "beat"; case PHASE_CHORUS -> "chorus"; default -> "silence"; };
         bossEvent.setName(Component.translatable("entity.tribalpower.the_unsung").append(" — ").append(Component.translatable("boss.tribalpower.unsung.phase." + key)));
         if (tickCount > 1) {
-            server.playSound(null, blockPosition(), phase == PHASE_SILENCE ? SoundEvents.WITHER_AMBIENT : SoundEvents.WARDEN_ROAR, SoundSource.HOSTILE, 2F, phase == PHASE_SILENCE ? 0.4F : 0.6F);
+            server.playSound(null, blockPosition(), phase == PHASE_SILENCE ? tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("ambient").get() : tk.darrow.tribalpower.sound.ModSounds.SPIRIT_SUMMON.get(), SoundSource.HOSTILE, 2F, phase == PHASE_SILENCE ? 0.4F : 0.6F);
             for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(RESET_RANGE)))
                 player.displayClientMessage(Component.translatable("message.tribalpower.unsung.phase." + key), false);
         }
@@ -222,7 +221,7 @@ public class TheUnsungEntity extends Monster {
         for (UUID id : weavers) if (server.getEntity(id) instanceof Mob weaver && !bonded(weaver)) weaver.discard();
         weavers.clear();
         if (drumPos != null && server.getBlockEntity(drumPos) instanceof SilentDrumBlockEntity drum) drum.onBossReset();
-        server.playSound(null, blockPosition(), SoundEvents.WITHER_AMBIENT, SoundSource.HOSTILE, 1F, 0.4F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("ambient").get(), SoundSource.HOSTILE, 1F, 0.4F);
         discard();
     }
 
@@ -231,8 +230,8 @@ public class TheUnsungEntity extends Monster {
         Vec3 centre = position();
         for (int r = 2; r <= (int) SHOCK_RADIUS; r += 2) SpiritEffects.ring(server, centre.add(0, 0.3, 0), Attunement.SPIRIT, r, 6 * r);
         server.sendParticles(ParticleTypes.SONIC_BOOM, getX(), getY() + 2.5, getZ(), 1, 0, 0, 0, 0);
-        server.playSound(null, blockPosition(), SoundEvents.NOTE_BLOCK_BASEDRUM.value(), SoundSource.HOSTILE, 3F, 0.45F);
-        server.playSound(null, blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.HOSTILE, 0.6F, 0.5F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_DRUM.get(), SoundSource.HOSTILE, 3F, 0.45F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_IMPACT.get(), SoundSource.HOSTILE, 0.6F, 0.5F);
         for (Player player : server.getEntitiesOfClass(Player.class, getBoundingBox().inflate(SHOCK_RADIUS))) {
             if (player.isSpectator() || player.isCreative()) continue;
             double dx = player.getX() - getX(), dz = player.getZ() - getZ();
@@ -270,7 +269,7 @@ public class TheUnsungEntity extends Monster {
             alive++;
             server.sendParticles(ParticleTypes.SOUL, weaver.getX(), weaver.getY() + 0.5, weaver.getZ(), 12, 0.4, 0.4, 0.4, 0.02);
         }
-        server.playSound(null, blockPosition(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 2F, 0.5F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CAST.get(), SoundSource.HOSTILE, 2F, 0.5F);
     }
 
     private void floatToDrum() {
@@ -289,7 +288,7 @@ public class TheUnsungEntity extends Monster {
         Vec3 from = position().add(0, 2.8, 0);
         Vec3 dir = target.position().add(0, target.getBbHeight() * 0.5, 0).subtract(from).normalize();
         bolts.add(new Bolt(from, dir.scale(0.32)));
-        server.playSound(null, blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.HOSTILE, 1.5F, 0.5F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CHIME.get(), SoundSource.HOSTILE, 1.5F, 0.5F);
     }
 
     private void tickBolts(ServerLevel server) {
@@ -314,7 +313,7 @@ public class TheUnsungEntity extends Monster {
                 }
                 hit = true;
             }
-            if (hit || bolt.life > 120 || server.getBlockState(BlockPos.containing(bolt.pos)).isSolid()) {
+            if (hit || bolt.life > 120 || !server.getBlockState(BlockPos.containing(bolt.pos)).getCollisionShape(server, BlockPos.containing(bolt.pos)).isEmpty()) {
                 SpiritEffects.ring(server, bolt.pos, Attunement.LOOM, 0.8, 8);
                 it.remove();
             }
@@ -333,7 +332,7 @@ public class TheUnsungEntity extends Monster {
     public boolean hurt(DamageSource source, float amount) {
         if (!level().isClientSide && isInvulnerableTo(source) && !source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             if (level() instanceof ServerLevel server && source.getEntity() instanceof Player player) {
-                server.playSound(null, blockPosition(), SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.HOSTILE, 1F, 0.4F);
+                server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("hurt").get(), SoundSource.HOSTILE, 1F, 0.4F);
                 player.displayClientMessage(Component.translatable("message.tribalpower.unsung.silent"), true);
             }
             return false;
@@ -385,9 +384,9 @@ public class TheUnsungEntity extends Monster {
         }
     }
 
-    @Override protected SoundEvent getAmbientSound() { return SoundEvents.WARDEN_HEARTBEAT; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.NOTE_BLOCK_BASEDRUM.value(); }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.WITHER_DEATH; }
+    @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("ambient").get(); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("hurt").get(); }
+    @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.UNSUNG.get("death").get(); }
     @Override protected float getSoundVolume() { return 1.6F; }
     @Override public float getVoicePitch() { return 0.55F; }
     @Override public int getAmbientSoundInterval() { return 60; }

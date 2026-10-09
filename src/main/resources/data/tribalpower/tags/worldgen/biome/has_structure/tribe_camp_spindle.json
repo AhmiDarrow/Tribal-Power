@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_crystal_fields"
+    "tribalpower:march_crystal_fields",
+    "tribalpower:march_sunwheel_steppe",
+    "tribalpower:march_glowcap_mire"
   ]
 }

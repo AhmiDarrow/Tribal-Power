@@ -1036,6 +1036,8 @@ public class LatticeGameTests {
         var ores=new java.util.HashSet<>(java.util.Set.of("march_stone","march_cobble","march_ore",
                 "moonstone","moss_agate"));   // the Glimmer Ridge is world stone and mines like it
         tk.darrow.tribalpower.world.MarchOres.BLOCKS.keySet().forEach(mineral->ores.add("march_"+mineral+"_ore"));
+        // the wider March's world stone: shale, pale stone, kiln clay, ochre sandstone and the resonant spikes
+        ores.addAll(java.util.Set.of("frost_shale","pale_stone","resonant_spike","ochre_sandstone","kiln_clay_rust","kiln_clay_ochre","kiln_clay_bone","kiln_clay_ash"));
         // The stone half of the March building set mines like vanilla stone.
         tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().stream()
                 .filter(id->id.contains("stone")||id.contains("cobble")||id.contains("agate")).forEach(ores::add);

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_rime_spires",
+    "tribalpower:march_frostpine_slopes"
   ]
 }

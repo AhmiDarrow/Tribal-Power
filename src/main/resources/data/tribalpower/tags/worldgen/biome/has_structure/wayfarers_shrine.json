@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_steppe"
+    "tribalpower:march_steppe",
+    "tribalpower:march_veil_flats",
+    "tribalpower:march_bloom_meadow"
   ]
 }

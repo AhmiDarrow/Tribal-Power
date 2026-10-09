@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_steppe",
+    "tribalpower:march_sunwheel_steppe",
+    "tribalpower:march_hearthoak_wold",
+    "tribalpower:march_songmaple_wood",
+    "tribalpower:march_bloom_meadow",
+    "tribalpower:march_high_meadow",
+    "tribalpower:march_chime_orchard",
+    "tribalpower:march_crystal_fields"
+  ]
+}

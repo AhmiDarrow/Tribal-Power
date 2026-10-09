@@ -58,8 +58,13 @@ public final class ModEffects {
         entity.addEffect(new MobEffectInstance(blessing(voice), ticks, amplifier, ambient, !ambient, true));
     }
 
+    /**
+     * An ambient boon is the standing kind, renewed for as long as the standing lasts: it carries no icon, or a
+     * player at Voice with every tribe would wear nine flags in the corner of the screen for good. A boon from a dish
+     * shows its icon and its clock.
+     */
     public static void grantBoon(LivingEntity entity, TribeDefinition tribe, int ticks, boolean ambient) {
-        entity.addEffect(new MobEffectInstance(boon(tribe), ticks, 0, ambient, !ambient, true));
+        entity.addEffect(new MobEffectInstance(boon(tribe), ticks, 0, ambient, !ambient, !ambient));
     }
 
     public static void afflict(LivingEntity entity, AfflictionEffect.Kind kind, int ticks, int amplifier) {

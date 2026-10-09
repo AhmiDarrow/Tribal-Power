@@ -45,11 +45,21 @@ import tk.darrow.tribalpower.item.ModItems;
 public final class MarchWoods {
     public enum Wood {
         WILLOW("willow", MapColor.TERRACOTTA_LIGHT_GREEN, MapColor.COLOR_LIGHT_GREEN, "young_willow", "weeping_colossus"),
-        HEARTHOAK("hearthoak", MapColor.TERRACOTTA_BROWN, MapColor.COLOR_GREEN, "hearthoak", null),
+        HEARTHOAK("hearthoak", MapColor.TERRACOTTA_BROWN, MapColor.COLOR_GREEN, "hearthoak", "elder_hearthoak"),
         BELLCAP("bellcap", MapColor.TERRACOTTA_PURPLE, MapColor.COLOR_PURPLE, "bellcap", null),
         FROSTPINE("frostpine", MapColor.TERRACOTTA_RED, MapColor.COLOR_LIGHT_BLUE, "frostpine", null),
         CINDER("cinder", MapColor.COLOR_BLACK, MapColor.COLOR_ORANGE, "cinder_snag", null),
-        STRIDER("strider", MapColor.TERRACOTTA_CYAN, MapColor.COLOR_CYAN, "strider", null);
+        STRIDER("strider", MapColor.TERRACOTTA_CYAN, MapColor.COLOR_CYAN, "strider", null),
+        // The March, full breadth (docs/DESIGN_MARCH_BIOMES.md): nine more.
+        RIMEBIRCH("rimebirch", MapColor.TERRACOTTA_WHITE, MapColor.COLOR_LIGHT_BLUE, "rimebirch", null),
+        THORNFIR("thornfir", MapColor.TERRACOTTA_BLACK, MapColor.COLOR_GREEN, "thornfir", "elder_thornfir"),
+        SONGMAPLE("songmaple", MapColor.TERRACOTTA_YELLOW, MapColor.COLOR_CYAN, "songmaple", null),
+        VEILWOOD("veilwood", MapColor.TERRACOTTA_PURPLE, MapColor.COLOR_PURPLE, "veilwood", null),
+        CHIMEBLOSSOM("chimeblossom", MapColor.TERRACOTTA_PINK, MapColor.COLOR_PINK, "chimeblossom", null),
+        DRUMPALM("drumpalm", MapColor.TERRACOTTA_ORANGE, MapColor.COLOR_YELLOW, "drumpalm", null),
+        TANGLEWOOD("tanglewood", MapColor.TERRACOTTA_GREEN, MapColor.COLOR_GREEN, "tanglewood", null),
+        SUNBARK("sunbark", MapColor.TERRACOTTA_ORANGE, MapColor.COLOR_ORANGE, "sunbark", null),
+        GLOOMCAP("gloomcap", MapColor.TERRACOTTA_BLUE, MapColor.DIAMOND, "gloomcap", null);
 
         public final String id;
         final MapColor wood, foliage;
@@ -90,10 +100,11 @@ public final class MarchWoods {
     private static Set build(Wood w) {
         Set set = new Set();
         String id = w.id;
-        // Cinderwood grew up in the Ember Wastes: it does not catch fire.
+        // Cinderwood grew up in the Ember Wastes and gloomcap is a fungus: neither catches fire.
         Supplier<BlockBehaviour.Properties> wood = () -> {
-            var p = BlockBehaviour.Properties.of().mapColor(w.wood).strength(2.0F, 3.0F).sound(SoundType.WOOD);
-            return w == Wood.CINDER ? p : p.ignitedByLava();
+            var p = BlockBehaviour.Properties.of().mapColor(w.wood).strength(2.0F, 3.0F)
+                    .sound(w == Wood.GLOOMCAP ? SoundType.STEM : SoundType.WOOD);
+            return w == Wood.CINDER || w == Wood.GLOOMCAP ? p : p.ignitedByLava();
         };
         set.log = block(id + "_log", () -> new RotatedPillarBlock(wood.get()));
         set.wood = block(id + "_wood", () -> new RotatedPillarBlock(wood.get()));
@@ -112,6 +123,8 @@ public final class MarchWoods {
                 .strength(0.5F).pushReaction(PushReaction.DESTROY)));
         block(id + "_button", () -> new ButtonBlock(BlockSetType.OAK, 30, wood.get().noCollission().strength(0.5F)
                 .pushReaction(PushReaction.DESTROY)));
+        // The gloomcap's "leaves" are its cap. It does not glow itself (a hundred light sources a tree would cost
+        // the light engine dearly); its sprouts and the glowmoss at its feet do.
         set.leaves = block(id + "_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(ModBlocks.MARCH_LEAVES.get())
                 .mapColor(w.foliage)));
         TreeGrower grower = new TreeGrower(TribalPower.MOD_ID + ":" + id,

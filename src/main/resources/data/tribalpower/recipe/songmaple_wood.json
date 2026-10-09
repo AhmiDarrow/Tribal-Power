@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:songmaple_log"
+    }
+  },
+  "result": {
+    "count": 3,
+    "id": "tribalpower:songmaple_wood"
+  }
+}

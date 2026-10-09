@@ -65,6 +65,7 @@ public final class TribalConfig {
     public static final ModConfigSpec.DoubleValue GUARDIAN_DAMAGE_SCALE;
     public static final ModConfigSpec.IntValue GUARDIAN_CALL_COST;
     public static final ModConfigSpec.IntValue GUARDIAN_COOLDOWN_MINUTES;
+    public static final ModConfigSpec.IntValue SILENT_DRUM_COOLDOWN_MINUTES;
     public static final ModConfigSpec.IntValue GUARDIAN_ABILITY_INTERVAL;
     public static final ModConfigSpec.IntValue GUARDIAN_ADDS_INTERVAL;
     public static final ModConfigSpec.IntValue GUARDIAN_ADDS_PER_WAVE;
@@ -190,6 +191,168 @@ public final class TribalConfig {
     public static final ModConfigSpec.BooleanValue LODGE_ROOF;
     public static final ModConfigSpec.IntValue LODGE_BLESSING;
     public static final ModConfigSpec.IntValue ANOINT_PULSE_COST;
+    // charms
+    public static final ModConfigSpec.IntValue CHARM_UPKEEP_PER_VOICE;
+    public static final ModConfigSpec.IntValue CHARM_UPKEEP_BEAT;
+    public static final ModConfigSpec.DoubleValue CHARM_LOOM_REFUND_CHANCE;
+    public static final ModConfigSpec.IntValue CHARM_LOOM_REFUND_CAP;
+    public static final ModConfigSpec.IntValue GATHER_REACH;
+    public static final ModConfigSpec.IntValue GATHER_REACH_PER_VOICE;
+    public static final ModConfigSpec.IntValue GATHER_REACH_CAP;
+    public static final ModConfigSpec.IntValue HEARTH_CHARM_FOOD;
+    public static final ModConfigSpec.DoubleValue HEARTH_CHARM_SATURATION;
+    public static final ModConfigSpec.IntValue CHARM_FIRE_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_WATER_BREATHING_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_DOLPHINS_GRACE_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_EARTH_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_SPIRIT_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_LOOM_TICKS;
+    public static final ModConfigSpec.IntValue CHARM_AIR_TICKS;
+    public static final ModConfigSpec.DoubleValue WARD_BLOCK_CHANCE;
+    public static final ModConfigSpec.DoubleValue WARD_BLOCK_CHANCE_SPIRIT;
+    public static final ModConfigSpec.IntValue CHARM_EMBER_SECONDS;
+    public static final ModConfigSpec.IntValue CHARM_LINK_COST;
+    public static final ModConfigSpec.IntValue CHARM_CHORUS_COST;
+    // spiritgear
+    public static final ModConfigSpec.IntValue GEAR_MINE_COST;
+    public static final ModConfigSpec.IntValue GEAR_HIT_COST;
+    public static final ModConfigSpec.IntValue GEAR_USE_COST;
+    public static final ModConfigSpec.IntValue GEAR_LINK_COST;
+    public static final ModConfigSpec.IntValue ARMOR_COST_UNLINKED;
+    public static final ModConfigSpec.IntValue ARMOR_COST_LINKED;
+    public static final ModConfigSpec.IntValue ARMOR_UPKEEP_TICKS;
+    public static final ModConfigSpec.DoubleValue LOOM_ROBE_REFUND;
+    public static final ModConfigSpec.DoubleValue LOOM_ROBE_REFUND_MANIFESTED;
+    public static final ModConfigSpec.IntValue WATER_BOOTS_FREEZE;
+    public static final ModConfigSpec.IntValue WATER_BOOTS_FREEZE_MANIFESTED;
+    public static final ModConfigSpec.IntValue BOOTS_SLOW_FALL_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_NIGHT_VISION_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_RESISTANCE_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_SPEED_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_FIRE_RESISTANCE_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_WATER_BREATHING_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_DOLPHINS_GRACE_TICKS;
+    public static final ModConfigSpec.IntValue ARMOR_LUCK_TICKS;
+    public static final ModConfigSpec.IntValue SPIRIT_HOOD_GLOW_RANGE;
+    public static final ModConfigSpec.IntValue LOOM_BOOTS_STITCH_REACH;
+    public static final ModConfigSpec.IntValue LOOM_BOOTS_STITCH_REACH_MANIFESTED;
+    public static final ModConfigSpec.IntValue LOOM_BOOTS_STITCH_COOLDOWN;
+    public static final ModConfigSpec.DoubleValue SET_MEND_HEALTH;
+    public static final ModConfigSpec.IntValue SET_MEND_PULSE;
+    public static final ModConfigSpec.IntValue SET_MEND_TICKS;
+    public static final ModConfigSpec.IntValue SPIRIT_PICK_GLINT;
+    public static final ModConfigSpec.IntValue SPIRIT_PICK_GLINT_MANIFESTED;
+    public static final ModConfigSpec.IntValue SPIRIT_SHOVEL_GLINT;
+    public static final ModConfigSpec.DoubleValue EARTH_HOOD_BLOCK;
+    public static final ModConfigSpec.DoubleValue EARTH_HOOD_BLOCK_MANIFESTED;
+    public static final ModConfigSpec.IntValue FIRE_ROBE_IGNITE_SECONDS;
+    public static final ModConfigSpec.IntValue SPIRIT_ROBE_GLOW_TICKS;
+    public static final ModConfigSpec.IntValue WATER_ROBE_REGEN_TICKS;
+    public static final ModConfigSpec.IntValue WATER_ROBE_REGEN_TICKS_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_ECHO_DAMAGE;
+    public static final ModConfigSpec.IntValue BLADE_GLOW_TICKS;
+    public static final ModConfigSpec.DoubleValue BLADE_SPIRIT_ECHO;
+    public static final ModConfigSpec.DoubleValue BLADE_SPIRIT_ECHO_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_EARTH_KNOCKBACK;
+    public static final ModConfigSpec.IntValue BLADE_EARTH_SLOWNESS_LEVEL;
+    public static final ModConfigSpec.IntValue BLADE_EARTH_SLOWNESS_LEVEL_MANIFESTED;
+    public static final ModConfigSpec.IntValue BLADE_EARTH_SLOWNESS_TICKS;
+    public static final ModConfigSpec.IntValue BLADE_FIRE_SECONDS;
+    public static final ModConfigSpec.IntValue BLADE_FIRE_SECONDS_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_FIRE_DAMAGE;
+    public static final ModConfigSpec.DoubleValue BLADE_FIRE_DAMAGE_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_WATER_HEAL;
+    public static final ModConfigSpec.DoubleValue BLADE_WATER_HEAL_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_AIR_SWEEP;
+    public static final ModConfigSpec.DoubleValue BLADE_AIR_SWEEP_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue BLADE_LOOM_PULL;
+    public static final ModConfigSpec.DoubleValue BLADE_LOOM_PULL_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue AXE_WATER_SAPLING_CHANCE;
+    public static final ModConfigSpec.IntValue AXE_SPIRIT_GLOW_RANGE;
+    public static final ModConfigSpec.IntValue AXE_SPIRIT_GLOW_TICKS;
+    public static final ModConfigSpec.IntValue PICK_AIR_HASTE_TICKS;
+    public static final ModConfigSpec.DoubleValue SHOVEL_WATER_CLAY_CHANCE;
+    public static final ModConfigSpec.DoubleValue HOE_SPIRIT_BOUNTY_CHANCE;
+    public static final ModConfigSpec.IntValue HOE_WATER_MOISTEN_RADIUS;
+    public static final ModConfigSpec.IntValue HOE_WATER_MOISTEN_RADIUS_MANIFESTED;
+    public static final ModConfigSpec.DoubleValue SHEARS_WATER_REGROW_CHANCE;
+    public static final ModConfigSpec.IntValue SHEARS_SPIRIT_REGEN_TICKS;
+    public static final ModConfigSpec.IntValue SHEARS_SPIRIT_GLOW_RANGE;
+    public static final ModConfigSpec.IntValue SHEARS_SPIRIT_GLOW_RANGE_MANIFESTED;
+    public static final ModConfigSpec.IntValue RATTLE_VOICE_TICKS;
+    public static final ModConfigSpec.IntValue RATTLE_FIRE_TICKS;
+    public static final ModConfigSpec.DoubleValue RATTLE_WATER_BONUS;
+    // staff
+    public static final ModConfigSpec.IntValue STAFF_EARTH_COST;
+    public static final ModConfigSpec.IntValue STAFF_FIRE_COST;
+    public static final ModConfigSpec.IntValue STAFF_WATER_COST;
+    public static final ModConfigSpec.IntValue STAFF_AIR_COST;
+    public static final ModConfigSpec.IntValue STAFF_SPIRIT_COST;
+    public static final ModConfigSpec.IntValue STAFF_TETHER_COST;
+    public static final ModConfigSpec.IntValue STAFF_STITCH_COST;
+    public static final ModConfigSpec.DoubleValue STAFF_EARTH_DAMAGE;
+    public static final ModConfigSpec.DoubleValue STAFF_FIRE_DAMAGE;
+    public static final ModConfigSpec.IntValue STAFF_EARTH_SLOW_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_WATER_REGEN_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_WATER_BREATHING_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_AIR_SLOW_FALL_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_SPIRIT_SIGHT_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_SPIRIT_GLOW_TICKS;
+    public static final ModConfigSpec.IntValue STAFF_COOLDOWN;
+    public static final ModConfigSpec.IntValue STAFF_WATER_COOLDOWN;
+    public static final ModConfigSpec.IntValue STAFF_STITCH_COOLDOWN;
+    public static final ModConfigSpec.IntValue STAFF_FIRE_IGNITE_SECONDS;
+    public static final ModConfigSpec.DoubleValue STAFF_TETHER_PULL;
+    public static final ModConfigSpec.IntValue STAFF_SPIRIT_RADIUS;
+    // tools and rites
+    public static final ModConfigSpec.IntValue WAYSTONE_TIER1_PULSE;
+    public static final ModConfigSpec.IntValue WAYSTONE_TIER2_PULSE;
+    public static final ModConfigSpec.IntValue WAYSTONE_TIER3_PULSE;
+    public static final ModConfigSpec.IntValue WAYSTONE_COOLDOWN;
+    public static final ModConfigSpec.IntValue MAUL_BLOCK_PULSE;
+    public static final ModConfigSpec.IntValue RITE_AMPLIFY_PULSE;
+    // tribes
+    public static final ModConfigSpec.IntValue STANDING_FAVOURED;
+    public static final ModConfigSpec.IntValue STANDING_REAGENT;
+    public static final ModConfigSpec.IntValue STANDING_FOOD;
+    public static final ModConfigSpec.IntValue STANDING_PULSE_PER_10;
+    public static final ModConfigSpec.IntValue HEARTH_CELL_DRAIN;
+    public static final ModConfigSpec.IntValue STANDING_KILL;
+    public static final ModConfigSpec.IntValue KILL_CAP_PER_DAY;
+    public static final ModConfigSpec.IntValue OFFER_CAP_PER_DAY;
+    public static final ModConfigSpec.IntValue KILL_RADIUS;
+    public static final ModConfigSpec.IntValue STANDING_TRADE;
+    public static final ModConfigSpec.IntValue STANDING_HURT_KIN;
+    public static final ModConfigSpec.IntValue STANDING_CAMP_BLOCK;
+    public static final ModConfigSpec.IntValue STANDING_HEARTH;
+    public static final ModConfigSpec.IntValue HUNTER_ANGER_TICKS;
+    // familiars
+    public static final ModConfigSpec.IntValue FAMILIAR_RANGE;
+    public static final ModConfigSpec.IntValue FAMILIAR_ATTUNE_RANGE;
+    public static final ModConfigSpec.DoubleValue FAMILIAR_DISCOUNT;
+    public static final ModConfigSpec.DoubleValue FAMILIAR_GEAR_PERK;
+    public static final ModConfigSpec.DoubleValue FAMILIAR_SONG_DAMAGE;
+    public static final ModConfigSpec.DoubleValue FAMILIAR_SONG_REACH;
+    public static final ModConfigSpec.DoubleValue FAMILIAR_RITE_BLESSING;
+    public static final ModConfigSpec.IntValue FAMILIAR_BOON_TICKS;
+    public static final ModConfigSpec.IntValue FOX_SIGHT_RANGE;
+    public static final ModConfigSpec.IntValue FOX_ORE_RANGE;
+    public static final ModConfigSpec.IntValue FOX_LIGHT_PERIOD;
+    public static final ModConfigSpec.IntValue IMP_RANGE;
+    public static final ModConfigSpec.IntValue IMP_REFUND;
+    public static final ModConfigSpec.IntValue IMP_TEMPO_BONUS;
+    public static final ModConfigSpec.IntValue BELL_RANGE;
+    public static final ModConfigSpec.IntValue MOTH_CLICK_PERIOD;
+    public static final ModConfigSpec.IntValue MOTH_CLICK_TICKS;
+    public static final ModConfigSpec.IntValue MOTH_CLICK_TRUE_TICKS;
+    public static final ModConfigSpec.IntValue WEAVER_RANGE;
+    public static final ModConfigSpec.IntValue WEAVER_GATHER_RANGE;
+    public static final ModConfigSpec.IntValue HOUND_TRACK_RANGE;
+    public static final ModConfigSpec.DoubleValue MARK_SPECIES_CHANCE;
+    public static final ModConfigSpec.DoubleValue MARK_KIN_CHANCE;
+    // echo
+    public static final ModConfigSpec.IntValue KILN_SECONDS;
+    public static final ModConfigSpec.IntValue KILN_PULSE;
     private static final java.util.Map<tk.darrow.tribalpower.song.Anointment, java.util.Map<String, ModConfigSpec.DoubleValue>> ANOINTING =
             new java.util.EnumMap<>(tk.darrow.tribalpower.song.Anointment.class);
     private static final java.util.Map<tk.darrow.tribalpower.cuisine.Fare, ModConfigSpec.IntValue> FARE_SECONDS =
@@ -480,6 +643,7 @@ public final class TribalConfig {
         GUARDIAN_DAMAGE_SCALE = b.comment("Scales every guardian's damage.").defineInRange("guardianDamageScale", 1.0, 0.1, 10.0);
         GUARDIAN_CALL_COST = b.comment("Reagents laid on a Guardian Altar to call its guardian.").defineInRange("guardianCallCost", 8, 1, 64);
         GUARDIAN_COOLDOWN_MINUTES = b.comment("Game minutes an altar rests between calls.").defineInRange("guardianCooldownMinutes", 20, 0, 1440);
+        SILENT_DRUM_COOLDOWN_MINUTES = b.comment("Game minutes a Silent Drum rests after waking the Unsung.").defineInRange("silentDrumCooldownMinutes", 20, 0, 1440);
         GUARDIAN_ABILITY_INTERVAL = b.comment("Ticks between a guardian's signature attacks (shorter when roused).").defineInRange("guardianAbilityInterval", 80, 20, 600);
         GUARDIAN_ADDS_INTERVAL = b.comment("Ticks between waves of creatures a roused guardian calls.").defineInRange("guardianAddsInterval", 300, 40, 2400);
         GUARDIAN_ADDS_PER_WAVE = b.comment("Creatures a guardian calls per wave.").defineInRange("guardianAddsPerWave", 2, 0, 10);
@@ -510,6 +674,177 @@ public final class TribalConfig {
         WANDERING_SPIRITS_ENABLED = b.comment("Whether wandering spirits appear.").define("wanderingSpiritsEnabled", true);
         WANDERING_SPIRIT_ONE_IN = b.comment("A spirit appears near a March player one time in this many five-second checks (360 is about once a game day).").defineInRange("wanderingSpiritOneIn", 360, 1, 100000);
         WANDERING_SPIRIT_LIFE = b.comment("Seconds a wandering spirit lingers before it fades.").defineInRange("wanderingSpiritLifeSeconds", 120, 5, 3600);
+        b.pop();
+        b.comment("Spirit Charms: what worn charms ask in Pulse and what their voices give.").push("charms");
+        CHARM_UPKEEP_PER_VOICE = b.comment("Pulse a worn charm asks each upkeep beat, per voice bound to it (a charm with no voice still asks for one).").defineInRange("charmUpkeepPerVoice", 2, 0, 1000);
+        CHARM_UPKEEP_BEAT = b.comment("Ticks between charm upkeep payments (40 is two seconds).").defineInRange("charmUpkeepBeatTicks", 40, 1, 72000);
+        CHARM_LOOM_REFUND_CHANCE = b.comment("Chance, each upkeep beat, that a worn Loom voice threads some of the upkeep back into a carried cell.").defineInRange("charmLoomRefundChance", 0.30, 0.0, 1.0);
+        CHARM_LOOM_REFUND_CAP = b.comment("Most Pulse one Loom refund gives back.").defineInRange("charmLoomRefundCap", 2, 0, 1000);
+        GATHER_REACH = b.comment("Blocks a Gathering Charm with one voice pulls drops and experience from.").defineInRange("gatherReach", 5, 0, 64);
+        GATHER_REACH_PER_VOICE = b.comment("Blocks each extra voice bound to a Gathering Charm adds to its reach.").defineInRange("gatherReachPerVoice", 2, 0, 64);
+        GATHER_REACH_CAP = b.comment("Farthest a Gathering Charm ever reaches, however many voices it carries.").defineInRange("gatherReachCap", 11, 0, 64);
+        HEARTH_CHARM_FOOD = b.comment("Hunger a worn Hearth Charm restores every four seconds.").defineInRange("hearthCharmNutrition", 1, 0, 20);
+        HEARTH_CHARM_SATURATION = b.comment("Saturation modifier of what the Hearth Charm restores.").defineInRange("hearthCharmSaturation", 0.4, 0.0, 2.0);
+        CHARM_FIRE_TICKS = b.comment("Ticks of Fire Resistance a worn Fire voice grants, renewed every four seconds.").defineInRange("charmFireResistanceTicks", 120, 0, 72000);
+        CHARM_WATER_BREATHING_TICKS = b.comment("Ticks of Water Breathing a worn Water voice grants, renewed every four seconds.").defineInRange("charmWaterBreathingTicks", 220, 0, 72000);
+        CHARM_DOLPHINS_GRACE_TICKS = b.comment("Ticks of Dolphin's Grace a worn Water voice grants, renewed every four seconds.").defineInRange("charmDolphinsGraceTicks", 100, 0, 72000);
+        CHARM_EARTH_TICKS = b.comment("Ticks of Resistance a worn Earth voice grants, renewed every four seconds.").defineInRange("charmResistanceTicks", 100, 0, 72000);
+        CHARM_SPIRIT_TICKS = b.comment("Ticks of Night Vision a worn Spirit voice grants, renewed every four seconds.").defineInRange("charmNightVisionTicks", 300, 0, 72000);
+        CHARM_LOOM_TICKS = b.comment("Ticks of Luck a worn Loom voice grants, renewed every four seconds.").defineInRange("charmLuckTicks", 120, 0, 72000);
+        CHARM_AIR_TICKS = b.comment("Ticks of Slow Falling a worn Air voice grants (not when Fire is worn too), renewed every four seconds.").defineInRange("charmSlowFallingTicks", 80, 0, 72000);
+        WARD_BLOCK_CHANCE = b.comment("Chance a worn Ward Charm with Earth turns a projectile aside.").defineInRange("wardBlockChance", 0.25, 0.0, 1.0);
+        WARD_BLOCK_CHANCE_SPIRIT = b.comment("The same chance when Spirit is worn as well.").defineInRange("wardBlockChanceSpirit", 0.50, 0.0, 1.0);
+        CHARM_EMBER_SECONDS = b.comment("Seconds a worn Fire voice sets an attacker alight for (a Fire familiar near doubles it).").defineInRange("charmEmberSeconds", 3, 0, 600);
+        CHARM_LINK_COST = b.comment("Pulse binding one more voice onto a Spirit Charm at a Resonance Totem spends.").defineInRange("charmLinkCost", 40, 0, 100000);
+        CHARM_CHORUS_COST = b.comment("Pulse imprinting a Chorus Charm with the voices of three or more totems spends.").defineInRange("charmChorusCost", 200, 0, 100000);
+        b.pop();
+        b.comment("Spiritgear and Spiritweave: what the tools, weapons and armour pay in Pulse and what their voices give.").push("spiritgear");
+        GEAR_MINE_COST = b.comment("Pulse a Spiritgear tool spends on each block it breaks, before the rank discount.").defineInRange("gearMineCost", 2, 0, 1000);
+        GEAR_HIT_COST = b.comment("Pulse a Spiritgear blow spends, before the rank discount.").defineInRange("gearHitCost", 3, 0, 1000);
+        GEAR_USE_COST = b.comment("Pulse a Spiritgear use (stripping, pathing, tilling, shearing) spends, before the rank discount.").defineInRange("gearUseCost", 1, 0, 1000);
+        GEAR_LINK_COST = b.comment("Pulse linking a piece to a totem's voice spends.").defineInRange("gearLinkCost", 40, 0, 100000);
+        ARMOR_COST_UNLINKED = b.comment("Pulse one upkeep payment of an unlinked Spiritweave piece spends.").defineInRange("armorCostUnlinked", 2, 0, 1000);
+        ARMOR_COST_LINKED = b.comment("Pulse one upkeep payment of a linked Spiritweave piece spends.").defineInRange("armorCostLinked", 3, 0, 1000);
+        ARMOR_UPKEEP_TICKS = b.comment("Ticks one upkeep payment keeps a Spiritweave piece's perks going (80 is four seconds, the gap between its timed boons).").defineInRange("armorUpkeepTicks", 80, 1, 72000);
+        LOOM_ROBE_REFUND = b.comment("Chance a Loom robe threads an upkeep payment back into its cell.").defineInRange("loomRobeRefundChance", 0.30, 0.0, 1.0);
+        LOOM_ROBE_REFUND_MANIFESTED = b.comment("The same chance for a Manifested Loom robe.").defineInRange("loomRobeRefundChanceManifested", 0.50, 0.0, 1.0);
+        WATER_BOOTS_FREEZE = b.comment("Blocks around Water boots that still water freezes within.").defineInRange("waterBootsFreezeRadius", 2, 0, 16);
+        WATER_BOOTS_FREEZE_MANIFESTED = b.comment("The same radius for Manifested Water boots.").defineInRange("waterBootsFreezeRadiusManifested", 3, 0, 16);
+        BOOTS_SLOW_FALL_TICKS = b.comment("Ticks of Slow Falling unlinked or Air boots catch a fall with.").defineInRange("bootsSlowFallTicks", 80, 0, 72000);
+        ARMOR_NIGHT_VISION_TICKS = b.comment("Ticks of Night Vision an unlinked, Air or Spirit hood grants, renewed every armorUpkeepTicks.").defineInRange("armorNightVisionTicks", 300, 0, 72000);
+        ARMOR_RESISTANCE_TICKS = b.comment("Ticks of Resistance an unlinked, Earth or Spirit robe grants, renewed every armorUpkeepTicks.").defineInRange("armorResistanceTicks", 100, 0, 72000);
+        ARMOR_SPEED_TICKS = b.comment("Ticks of Speed unlinked, Fire (in heat), Air or Spirit leggings grant, renewed every armorUpkeepTicks.").defineInRange("armorSpeedTicks", 100, 0, 72000);
+        ARMOR_FIRE_RESISTANCE_TICKS = b.comment("Ticks of Fire Resistance a Fire hood or robe grants, renewed every armorUpkeepTicks.").defineInRange("armorFireResistanceTicks", 120, 0, 72000);
+        ARMOR_WATER_BREATHING_TICKS = b.comment("Ticks of Water Breathing a Water hood grants, renewed every armorUpkeepTicks.").defineInRange("armorWaterBreathingTicks", 220, 0, 72000);
+        ARMOR_DOLPHINS_GRACE_TICKS = b.comment("Ticks of Dolphin's Grace Water leggings grant, renewed every armorUpkeepTicks.").defineInRange("armorDolphinsGraceTicks", 100, 0, 72000);
+        ARMOR_LUCK_TICKS = b.comment("Ticks of Luck a Loom hood grants, renewed every armorUpkeepTicks.").defineInRange("armorLuckTicks", 120, 0, 72000);
+        SPIRIT_HOOD_GLOW_RANGE = b.comment("Blocks around a Spirit hood within which hostiles glow through walls.").defineInRange("spiritHoodGlowRange", 12, 0, 64);
+        LOOM_BOOTS_STITCH_REACH = b.comment("Blocks Loom boots stitch forward when their wearer sneaks ahead.").defineInRange("loomBootsStitchReach", 4, 2, 32);
+        LOOM_BOOTS_STITCH_REACH_MANIFESTED = b.comment("The same reach for Manifested Loom boots.").defineInRange("loomBootsStitchReachManifested", 6, 2, 32);
+        LOOM_BOOTS_STITCH_COOLDOWN = b.comment("Ticks Loom boots rest between stitches.").defineInRange("loomBootsStitchCooldownTicks", 160, 0, 72000);
+        SET_MEND_HEALTH = b.comment("Health a whole Manifested set mends its wearer every setMendTicks.").defineInRange("setMendHealth", 2.0, 0.0, 100.0);
+        SET_MEND_PULSE = b.comment("Pulse the robe pays for each mend.").defineInRange("setMendPulse", 4, 0, 1000);
+        SET_MEND_TICKS = b.comment("Ticks between mends.").defineInRange("setMendTicks", 80, 1, 72000);
+        SPIRIT_PICK_GLINT = b.comment("Blocks around a held Spirit pickaxe within which ores glint for its holder.").defineInRange("spiritPickGlintRange", 6, 0, 32);
+        SPIRIT_PICK_GLINT_MANIFESTED = b.comment("The same range for a Manifested Spirit pickaxe.").defineInRange("spiritPickGlintRangeManifested", 10, 0, 32);
+        SPIRIT_SHOVEL_GLINT = b.comment("Blocks around a held Spirit shovel within which buried chests and spawners glint.").defineInRange("spiritShovelGlintRange", 8, 0, 32);
+        EARTH_HOOD_BLOCK = b.comment("Chance an Earth hood turns a projectile aside.").defineInRange("earthHoodBlockChance", 0.20, 0.0, 1.0);
+        EARTH_HOOD_BLOCK_MANIFESTED = b.comment("The same chance for a Manifested Earth hood.").defineInRange("earthHoodBlockChanceManifested", 0.35, 0.0, 1.0);
+        FIRE_ROBE_IGNITE_SECONDS = b.comment("Seconds a Fire robe sets whoever strikes its wearer alight for.").defineInRange("fireRobeIgniteSeconds", 3, 0, 600);
+        SPIRIT_ROBE_GLOW_TICKS = b.comment("Ticks whoever strikes a Spirit robe's wearer glows for.").defineInRange("spiritRobeGlowTicks", 80, 0, 72000);
+        WATER_ROBE_REGEN_TICKS = b.comment("Ticks of Regeneration a Water robe grants its wearer when struck.").defineInRange("waterRobeRegenTicks", 100, 0, 72000);
+        WATER_ROBE_REGEN_TICKS_MANIFESTED = b.comment("The same for a Manifested Water robe.").defineInRange("waterRobeRegenTicksManifested", 160, 0, 72000);
+        BLADE_ECHO_DAMAGE = b.comment("Echo damage every fuelled Spiritgear blow adds.").defineInRange("bladeEchoDamage", 2.0, 0.0, 100.0);
+        BLADE_GLOW_TICKS = b.comment("Ticks a struck target glows.").defineInRange("bladeGlowTicks", 80, 0, 72000);
+        BLADE_SPIRIT_ECHO = b.comment("Extra echo damage a Spirit blade adds.").defineInRange("bladeSpiritEcho", 2.0, 0.0, 100.0);
+        BLADE_SPIRIT_ECHO_MANIFESTED = b.comment("The same for a Manifested Spirit blade.").defineInRange("bladeSpiritEchoManifested", 4.0, 0.0, 100.0);
+        BLADE_EARTH_KNOCKBACK = b.comment("Knockback an Earth blade adds to every blow.").defineInRange("bladeEarthKnockback", 1.2, 0.0, 10.0);
+        BLADE_EARTH_SLOWNESS_LEVEL = b.comment("Slowness level an Earth blade applies.").defineInRange("bladeEarthSlownessLevel", 1, 1, 10);
+        BLADE_EARTH_SLOWNESS_LEVEL_MANIFESTED = b.comment("The same for a Manifested Earth blade.").defineInRange("bladeEarthSlownessLevelManifested", 2, 1, 10);
+        BLADE_EARTH_SLOWNESS_TICKS = b.comment("Ticks the Slowness lasts.").defineInRange("bladeEarthSlownessTicks", 60, 0, 72000);
+        BLADE_FIRE_SECONDS = b.comment("Seconds a Fire blade sets the target alight for.").defineInRange("bladeFireSeconds", 4, 0, 600);
+        BLADE_FIRE_SECONDS_MANIFESTED = b.comment("The same for a Manifested Fire blade.").defineInRange("bladeFireSecondsManifested", 6, 0, 600);
+        BLADE_FIRE_DAMAGE = b.comment("Fire damage a Fire blade adds to every blow.").defineInRange("bladeFireDamage", 3.0, 0.0, 100.0);
+        BLADE_FIRE_DAMAGE_MANIFESTED = b.comment("The same for a Manifested Fire blade.").defineInRange("bladeFireDamageManifested", 5.0, 0.0, 100.0);
+        BLADE_WATER_HEAL = b.comment("Health a Water blade heals its wielder on every blow.").defineInRange("bladeWaterHeal", 2.0, 0.0, 100.0);
+        BLADE_WATER_HEAL_MANIFESTED = b.comment("The same for a Manifested Water blade.").defineInRange("bladeWaterHealManifested", 4.0, 0.0, 100.0);
+        BLADE_AIR_SWEEP = b.comment("Damage an Air blade sweeps into hostiles beside the target.").defineInRange("bladeAirSweep", 2.0, 0.0, 100.0);
+        BLADE_AIR_SWEEP_MANIFESTED = b.comment("The same for a Manifested Air blade.").defineInRange("bladeAirSweepManifested", 4.0, 0.0, 100.0);
+        BLADE_LOOM_PULL = b.comment("Blocks a Loom blade pulls the target toward its wielder.").defineInRange("bladeLoomPull", 4.0, 0.0, 32.0);
+        BLADE_LOOM_PULL_MANIFESTED = b.comment("The same for a Manifested Loom blade.").defineInRange("bladeLoomPullManifested", 6.0, 0.0, 32.0);
+        AXE_WATER_SAPLING_CHANCE = b.comment("Chance a log cut by a Water axe drops a sapling (doubled when Manifested).").defineInRange("axeWaterSaplingChance", 0.15, 0.0, 1.0);
+        AXE_SPIRIT_GLOW_RANGE = b.comment("Blocks around a Spirit axe within which hostiles glow when it cuts a log.").defineInRange("axeSpiritGlowRange", 8, 0, 64);
+        AXE_SPIRIT_GLOW_TICKS = b.comment("Ticks that glow lasts.").defineInRange("axeSpiritGlowTicks", 80, 0, 72000);
+        PICK_AIR_HASTE_TICKS = b.comment("Ticks of Haste an Air pickaxe renews while held (Haste II when Manifested).").defineInRange("pickAirHasteTicks", 60, 0, 72000);
+        SHOVEL_WATER_CLAY_CHANCE = b.comment("Chance a dirt block dug by a Water shovel turns up clay (doubled when Manifested).").defineInRange("shovelWaterClayChance", 0.1, 0.0, 1.0);
+        HOE_SPIRIT_BOUNTY_CHANCE = b.comment("Chance a Spirit hoe's reap doubles the harvest (doubled when Manifested).").defineInRange("hoeSpiritBountyChance", 0.25, 0.0, 1.0);
+        HOE_WATER_MOISTEN_RADIUS = b.comment("Blocks around a held Water hoe within which farmland stays wet.").defineInRange("hoeWaterMoistenRadius", 3, 0, 16);
+        HOE_WATER_MOISTEN_RADIUS_MANIFESTED = b.comment("The same for a Manifested Water hoe.").defineInRange("hoeWaterMoistenRadiusManifested", 5, 0, 16);
+        SHEARS_WATER_REGROW_CHANCE = b.comment("Chance a sheep shorn by Water shears keeps its fleece (always when Manifested).").defineInRange("shearsWaterRegrowChance", 0.5, 0.0, 1.0);
+        SHEARS_SPIRIT_REGEN_TICKS = b.comment("Ticks of Regeneration an animal shorn by Spirit shears gets.").defineInRange("shearsSpiritRegenTicks", 100, 0, 72000);
+        SHEARS_SPIRIT_GLOW_RANGE = b.comment("Blocks around held Spirit shears within which shearable animals glow.").defineInRange("shearsSpiritGlowRange", 10, 0, 64);
+        SHEARS_SPIRIT_GLOW_RANGE_MANIFESTED = b.comment("The same for Manifested Spirit shears.").defineInRange("shearsSpiritGlowRangeManifested", 16, 0, 64);
+        RATTLE_VOICE_TICKS = b.comment("Ticks of the Earth (Resistance), Air (Speed) and Loom (Regeneration) rattle's boon on each shake.").defineInRange("rattleVoiceTicks", 40, 0, 72000);
+        RATTLE_FIRE_TICKS = b.comment("Ticks of Fire Resistance a Fire rattle gives on each shake.").defineInRange("rattleFireTicks", 60, 0, 72000);
+        RATTLE_WATER_BONUS = b.comment("What a Water rattle's healing is multiplied by.").defineInRange("rattleWaterBonus", 1.5, 0.0, 10.0);
+        b.pop();
+        b.comment("The Sixfold Staff: what each voice costs and does.").push("staff");
+        STAFF_EARTH_COST = b.comment("Pulse the Earth voice (a bolt that slows) spends.").defineInRange("staffEarthCost", 12, 0, 1000);
+        STAFF_FIRE_COST = b.comment("Pulse the Fire voice (a bolt that burns) spends.").defineInRange("staffFireCost", 18, 0, 1000);
+        STAFF_WATER_COST = b.comment("Pulse the Water voice (cleansing and breath) spends.").defineInRange("staffWaterCost", 24, 0, 1000);
+        STAFF_AIR_COST = b.comment("Pulse the Air voice (a leap) spends.").defineInRange("staffAirCost", 16, 0, 1000);
+        STAFF_SPIRIT_COST = b.comment("Pulse the Spirit voice (sight) spends.").defineInRange("staffSpiritCost", 20, 0, 1000);
+        STAFF_TETHER_COST = b.comment("Pulse the Loom voice's Tether spends.").defineInRange("staffTetherCost", 6, 0, 1000);
+        STAFF_STITCH_COST = b.comment("Pulse the Loom voice's Stitch (a blink forward) spends.").defineInRange("staffStitchCost", 10, 0, 1000);
+        STAFF_EARTH_DAMAGE = b.comment("Damage the Earth bolt deals.").defineInRange("staffEarthDamage", 4.0, 0.0, 100.0);
+        STAFF_FIRE_DAMAGE = b.comment("Damage the Fire bolt deals.").defineInRange("staffFireDamage", 8.0, 0.0, 100.0);
+        STAFF_EARTH_SLOW_TICKS = b.comment("Ticks of Slowness IV the Earth bolt leaves.").defineInRange("staffEarthSlowTicks", 100, 0, 72000);
+        STAFF_WATER_REGEN_TICKS = b.comment("Ticks of Regeneration the Water voice grants.").defineInRange("staffWaterRegenTicks", 100, 0, 72000);
+        STAFF_WATER_BREATHING_TICKS = b.comment("Ticks of Water Breathing the Water voice grants.").defineInRange("staffWaterBreathingTicks", 600, 0, 72000);
+        STAFF_AIR_SLOW_FALL_TICKS = b.comment("Ticks of Slow Falling the Air leap grants.").defineInRange("staffAirSlowFallTicks", 120, 0, 72000);
+        STAFF_SPIRIT_SIGHT_TICKS = b.comment("Ticks of Night Vision the Spirit voice grants.").defineInRange("staffSpiritSightTicks", 600, 0, 72000);
+        STAFF_SPIRIT_GLOW_TICKS = b.comment("Ticks nearby hostiles glow after the Spirit voice.").defineInRange("staffSpiritGlowTicks", 240, 0, 72000);
+        STAFF_COOLDOWN = b.comment("Ticks the staff rests after any voice but Water.").defineInRange("staffCooldownTicks", 40, 0, 72000);
+        STAFF_WATER_COOLDOWN = b.comment("Ticks the staff rests after the Water voice.").defineInRange("staffWaterCooldownTicks", 160, 0, 72000);
+        STAFF_STITCH_COOLDOWN = b.comment("Ticks the staff rests after a Stitch.").defineInRange("staffStitchCooldownTicks", 30, 0, 72000);
+        STAFF_FIRE_IGNITE_SECONDS = b.comment("Seconds the Fire bolt sets its target alight for.").defineInRange("staffFireIgniteSeconds", 4, 0, 600);
+        STAFF_TETHER_PULL = b.comment("Farthest, in blocks, a Tether draws its target along the thread toward the caster.").defineInRange("staffTetherPull", 8.0, 0.0, 64.0);
+        STAFF_SPIRIT_RADIUS = b.comment("Blocks around the caster within which hostiles glow after the Spirit voice.").defineInRange("staffSpiritRadius", 12, 0, 64);
+        b.pop();
+        b.comment("Travel and digging tools.").push("tools");
+        WAYSTONE_TIER1_PULSE = b.comment("Pulse the Waystone Compass (bound within 128 blocks, same world) spends on a jump.").defineInRange("waystoneTier1Pulse", 20, 0, 100000);
+        WAYSTONE_TIER2_PULSE = b.comment("Pulse the second compass (any distance, same world) spends on a jump.").defineInRange("waystoneTier2Pulse", 40, 0, 100000);
+        WAYSTONE_TIER3_PULSE = b.comment("Pulse the third compass (across worlds) spends on a jump.").defineInRange("waystoneTier3Pulse", 100, 0, 100000);
+        WAYSTONE_COOLDOWN = b.comment("Ticks a compass rests after a jump.").defineInRange("waystoneCooldownTicks", 100, 0, 72000);
+        MAUL_BLOCK_PULSE = b.comment("Pulse the Resonance Maul spends on each block of its 3x3 swing.").defineInRange("maulBlockPulse", 8, 0, 1000);
+        b.pop();
+        b.comment("Seal rites at the Rite Pedestal.").push("rites");
+        RITE_AMPLIFY_PULSE = b.comment("Pulse a seal rite draws from carried cells to amplify itself; without it the rite still works, unamplified.").defineInRange("riteAmplifyPulse", 8, 0, 100000);
+        b.pop();
+        b.comment("Standing with the tribes: what each deed is worth.").push("tribes");
+        STANDING_FAVOURED = b.comment("Standing a hearth offering of a tribe's favoured item pays.").defineInRange("standingFavoured", 3, 0, 1000);
+        STANDING_REAGENT = b.comment("Standing a hearth offering of a tribe's reagent pays.").defineInRange("standingReagent", 8, 0, 1000);
+        STANDING_FOOD = b.comment("Standing a hearth offering of any food pays.").defineInRange("standingFood", 1, 0, 1000);
+        STANDING_PULSE_PER_10 = b.comment("Standing every 10 Pulse poured into a hearth from a cell pays.").defineInRange("standingPulsePer10", 2, 0, 1000);
+        HEARTH_CELL_DRAIN = b.comment("Most Pulse a hearth draws from a cell in one offering.").defineInRange("hearthCellDrain", 40, 10, 100000);
+        STANDING_KILL = b.comment("Standing a hostile kill near a tribe's hearth pays.").defineInRange("standingKill", 1, 0, 1000);
+        KILL_CAP_PER_DAY = b.comment("Most kills near one tribe's hearth that pay standing in a Minecraft day.").defineInRange("killCapPerDay", 20, 0, 10000);
+        OFFER_CAP_PER_DAY = b.comment("Most standing one tribe's hearth grants for offerings in a Minecraft day: the Listening Pit makes ore renewable, and this keeps it from feeding the standing that unlocked it.").defineInRange("offerCapPerDay", 60, 0, 100000);
+        KILL_RADIUS = b.comment("Blocks from a hearth within which a kill counts for its tribe.").defineInRange("killRadius", 24, 1, 128);
+        STANDING_TRADE = b.comment("Standing a trade with a tribe's Kin pays.").defineInRange("standingTrade", 2, 0, 1000);
+        STANDING_HURT_KIN = b.comment("Standing lost for striking a tribe's Kin (negative).").defineInRange("standingHurtKin", -25, -100000, 0);
+        STANDING_CAMP_BLOCK = b.comment("Standing lost for breaking a tribe's banner (negative).").defineInRange("standingCampBlock", -5, -100000, 0);
+        STANDING_HEARTH = b.comment("Standing lost for breaking a tribe's hearth (negative).").defineInRange("standingHearth", -40, -100000, 0);
+        HUNTER_ANGER_TICKS = b.comment("Ticks a tribe's Hunters stay angry at whoever struck their Kin or broke their hearth.").defineInRange("hunterAngerTicks", 1200, 0, 72000);
+        b.pop();
+        b.comment("Familiars: how far their boosts reach and what their species gifts give.").push("familiars");
+        FAMILIAR_RANGE = b.comment("Blocks from its keeper within which an attuned familiar lends its voice's boost.").defineInRange("familiarBoostRange", 16, 1, 64);
+        FAMILIAR_ATTUNE_RANGE = b.comment("Blocks from a Resonance Totem within which a familiar can be attuned to it.").defineInRange("familiarAttuneRange", 6, 1, 32);
+        FAMILIAR_DISCOUNT = b.comment("Share of the Pulse an attuned familiar takes off its voice's charms and Spiritgear.").defineInRange("familiarDiscount", 0.4, 0.0, 1.0);
+        FAMILIAR_GEAR_PERK = b.comment("Spiritgear voice perks of the familiar's voice fire this many times as often.").defineInRange("familiarGearPerk", 1.5, 1.0, 10.0);
+        FAMILIAR_SONG_DAMAGE = b.comment("Songs of the familiar's voice strike this many times as hard.").defineInRange("familiarSongDamage", 1.3, 1.0, 10.0);
+        FAMILIAR_SONG_REACH = b.comment("Blocks a call of the familiar's voice reaches further.").defineInRange("familiarSongReach", 1.5, 0.0, 32.0);
+        FAMILIAR_RITE_BLESSING = b.comment("Rite blessings of the familiar's voice last this many times as long.").defineInRange("familiarRiteBlessing", 1.5, 1.0, 10.0);
+        FAMILIAR_BOON_TICKS = b.comment("Ticks a charm's familiar-boosted extra effect lasts; longer than the four-second refresh, so it lingers after you part.").defineInRange("familiarBoonTicks", 200, 0, 72000);
+        FOX_SIGHT_RANGE = b.comment("Blocks from a Lantern Fox within which its keeper is given Night Vision.").defineInRange("foxSightRange", 8, 1, 64);
+        FOX_ORE_RANGE = b.comment("Blocks around a Lantern Fox within which ores glint for its keeper.").defineInRange("foxOreRange", 6, 1, 16);
+        FOX_LIGHT_PERIOD = b.comment("Ticks between a Lantern Fox moving its travelling light.").defineInRange("foxLightPeriodTicks", 10, 1, 1200);
+        IMP_RANGE = b.comment("Blocks from a Drumheart within which a Cinder Imp refunds its keeper's hand beats.").defineInRange("impRange", 8, 1, 64);
+        IMP_REFUND = b.comment("Pulse a Cinder Imp refunds per hand beat.").defineInRange("impRefund", 4, 0, 1000);
+        IMP_TEMPO_BONUS = b.comment("Extra Pulse an Imp with the Tempo mark refunds.").defineInRange("impTempoBonus", 2, 0, 1000);
+        BELL_RANGE = b.comment("Blocks from a Mourning Bell within which it cleanses its keeper.").defineInRange("bellRange", 8, 1, 64);
+        MOTH_CLICK_PERIOD = b.comment("Ticks between a sitting Storm Moth's redstone clicks.").defineInRange("mothClickPeriodTicks", 20, 1, 1200);
+        MOTH_CLICK_TICKS = b.comment("Ticks a Storm Moth's click holds.").defineInRange("mothClickTicks", 2, 1, 1200);
+        MOTH_CLICK_TRUE_TICKS = b.comment("Ticks the click holds for a moth with the Click-true mark.").defineInRange("mothClickTrueTicks", 4, 1, 1200);
+        WEAVER_RANGE = b.comment("Blocks around an Echo Weaver within which it gathers drops.").defineInRange("weaverRange", 4, 1, 64);
+        WEAVER_GATHER_RANGE = b.comment("The same reach for a weaver with the Gather mark.").defineInRange("weaverGatherRange", 8, 1, 64);
+        HOUND_TRACK_RANGE = b.comment("Blocks from a Rift Hound within which the foe that last hurt its keeper glints.").defineInRange("houndTrackRange", 48, 1, 128);
+        MARK_SPECIES_CHANCE = b.comment("When a bred child's Mark mutates, chance the new Mark is its species' own rather than a common one.").defineInRange("markSpeciesChance", 0.35, 0.0, 1.0);
+        MARK_KIN_CHANCE = b.comment("When both parents share a keeper, chance a mutated Mark becomes the Kin Mark instead.").defineInRange("markKinChance", 0.2, 0.0, 1.0);
+        b.pop();
+        b.comment("Echo stations.").push("echo");
+        KILN_SECONDS = b.comment("Seconds the Ember Kiln takes on a furnace recipe no written kiln recipe covers.").defineInRange("kilnSeconds", 10, 1, 600);
+        KILN_PULSE = b.comment("Pulse that kiln job costs, before the consumption multiplier.").defineInRange("kilnPulse", 32, 0, 100000);
         b.pop();
         SPEC = b.build();
     }
@@ -574,6 +909,7 @@ public final class TribalConfig {
     public static double guardianDamageScale() { return get(GUARDIAN_DAMAGE_SCALE); }
     public static int guardianCallCost() { return get(GUARDIAN_CALL_COST); }
     public static int guardianCooldownMinutes() { return get(GUARDIAN_COOLDOWN_MINUTES); }
+    public static int silentDrumCooldownMinutes() { return get(SILENT_DRUM_COOLDOWN_MINUTES); }
     public static int guardianAbilityInterval() { return get(GUARDIAN_ABILITY_INTERVAL); }
     public static int guardianAddsInterval() { return get(GUARDIAN_ADDS_INTERVAL); }
     public static int guardianAddsPerWave() { return get(GUARDIAN_ADDS_PER_WAVE); }
@@ -705,6 +1041,168 @@ public final class TribalConfig {
     public static int anointPulseCost() { return get(ANOINT_PULSE_COST); }
     public static int plateLinkRange() { return get(PLATE_LINK_RANGE); }
     public static int plateLinkMax() { return get(PLATE_LINK_MAX); }
+    // charms
+    public static int charmUpkeepPerVoice() { return get(CHARM_UPKEEP_PER_VOICE); }
+    public static int charmUpkeepBeatTicks() { return get(CHARM_UPKEEP_BEAT); }
+    public static double charmLoomRefundChance() { return get(CHARM_LOOM_REFUND_CHANCE); }
+    public static int charmLoomRefundCap() { return get(CHARM_LOOM_REFUND_CAP); }
+    public static int gatherReach() { return get(GATHER_REACH); }
+    public static int gatherReachPerVoice() { return get(GATHER_REACH_PER_VOICE); }
+    public static int gatherReachCap() { return get(GATHER_REACH_CAP); }
+    public static int hearthCharmNutrition() { return get(HEARTH_CHARM_FOOD); }
+    public static double hearthCharmSaturation() { return get(HEARTH_CHARM_SATURATION); }
+    public static int charmFireResistanceTicks() { return get(CHARM_FIRE_TICKS); }
+    public static int charmWaterBreathingTicks() { return get(CHARM_WATER_BREATHING_TICKS); }
+    public static int charmDolphinsGraceTicks() { return get(CHARM_DOLPHINS_GRACE_TICKS); }
+    public static int charmResistanceTicks() { return get(CHARM_EARTH_TICKS); }
+    public static int charmNightVisionTicks() { return get(CHARM_SPIRIT_TICKS); }
+    public static int charmLuckTicks() { return get(CHARM_LOOM_TICKS); }
+    public static int charmSlowFallingTicks() { return get(CHARM_AIR_TICKS); }
+    public static double wardBlockChance() { return get(WARD_BLOCK_CHANCE); }
+    public static double wardBlockChanceSpirit() { return get(WARD_BLOCK_CHANCE_SPIRIT); }
+    public static int charmEmberSeconds() { return get(CHARM_EMBER_SECONDS); }
+    public static int charmLinkCost() { return get(CHARM_LINK_COST); }
+    public static int charmChorusCost() { return get(CHARM_CHORUS_COST); }
+    // spiritgear
+    public static int gearMineCost() { return get(GEAR_MINE_COST); }
+    public static int gearHitCost() { return get(GEAR_HIT_COST); }
+    public static int gearUseCost() { return get(GEAR_USE_COST); }
+    public static int gearLinkCost() { return get(GEAR_LINK_COST); }
+    public static int armorCostUnlinked() { return get(ARMOR_COST_UNLINKED); }
+    public static int armorCostLinked() { return get(ARMOR_COST_LINKED); }
+    public static int armorUpkeepTicks() { return get(ARMOR_UPKEEP_TICKS); }
+    public static double loomRobeRefundChance() { return get(LOOM_ROBE_REFUND); }
+    public static double loomRobeRefundChanceManifested() { return get(LOOM_ROBE_REFUND_MANIFESTED); }
+    public static int waterBootsFreezeRadius() { return get(WATER_BOOTS_FREEZE); }
+    public static int waterBootsFreezeRadiusManifested() { return get(WATER_BOOTS_FREEZE_MANIFESTED); }
+    public static int bootsSlowFallTicks() { return get(BOOTS_SLOW_FALL_TICKS); }
+    public static int armorNightVisionTicks() { return get(ARMOR_NIGHT_VISION_TICKS); }
+    public static int armorResistanceTicks() { return get(ARMOR_RESISTANCE_TICKS); }
+    public static int armorSpeedTicks() { return get(ARMOR_SPEED_TICKS); }
+    public static int armorFireResistanceTicks() { return get(ARMOR_FIRE_RESISTANCE_TICKS); }
+    public static int armorWaterBreathingTicks() { return get(ARMOR_WATER_BREATHING_TICKS); }
+    public static int armorDolphinsGraceTicks() { return get(ARMOR_DOLPHINS_GRACE_TICKS); }
+    public static int armorLuckTicks() { return get(ARMOR_LUCK_TICKS); }
+    public static int spiritHoodGlowRange() { return get(SPIRIT_HOOD_GLOW_RANGE); }
+    public static int loomBootsStitchReach() { return get(LOOM_BOOTS_STITCH_REACH); }
+    public static int loomBootsStitchReachManifested() { return get(LOOM_BOOTS_STITCH_REACH_MANIFESTED); }
+    public static int loomBootsStitchCooldownTicks() { return get(LOOM_BOOTS_STITCH_COOLDOWN); }
+    public static double setMendHealth() { return get(SET_MEND_HEALTH); }
+    public static int setMendPulse() { return get(SET_MEND_PULSE); }
+    public static int setMendTicks() { return get(SET_MEND_TICKS); }
+    public static int spiritPickGlintRange() { return get(SPIRIT_PICK_GLINT); }
+    public static int spiritPickGlintRangeManifested() { return get(SPIRIT_PICK_GLINT_MANIFESTED); }
+    public static int spiritShovelGlintRange() { return get(SPIRIT_SHOVEL_GLINT); }
+    public static double earthHoodBlockChance() { return get(EARTH_HOOD_BLOCK); }
+    public static double earthHoodBlockChanceManifested() { return get(EARTH_HOOD_BLOCK_MANIFESTED); }
+    public static int fireRobeIgniteSeconds() { return get(FIRE_ROBE_IGNITE_SECONDS); }
+    public static int spiritRobeGlowTicks() { return get(SPIRIT_ROBE_GLOW_TICKS); }
+    public static int waterRobeRegenTicks() { return get(WATER_ROBE_REGEN_TICKS); }
+    public static int waterRobeRegenTicksManifested() { return get(WATER_ROBE_REGEN_TICKS_MANIFESTED); }
+    public static double bladeEchoDamage() { return get(BLADE_ECHO_DAMAGE); }
+    public static int bladeGlowTicks() { return get(BLADE_GLOW_TICKS); }
+    public static double bladeSpiritEcho() { return get(BLADE_SPIRIT_ECHO); }
+    public static double bladeSpiritEchoManifested() { return get(BLADE_SPIRIT_ECHO_MANIFESTED); }
+    public static double bladeEarthKnockback() { return get(BLADE_EARTH_KNOCKBACK); }
+    public static int bladeEarthSlownessLevel() { return get(BLADE_EARTH_SLOWNESS_LEVEL); }
+    public static int bladeEarthSlownessLevelManifested() { return get(BLADE_EARTH_SLOWNESS_LEVEL_MANIFESTED); }
+    public static int bladeEarthSlownessTicks() { return get(BLADE_EARTH_SLOWNESS_TICKS); }
+    public static int bladeFireSeconds() { return get(BLADE_FIRE_SECONDS); }
+    public static int bladeFireSecondsManifested() { return get(BLADE_FIRE_SECONDS_MANIFESTED); }
+    public static double bladeFireDamage() { return get(BLADE_FIRE_DAMAGE); }
+    public static double bladeFireDamageManifested() { return get(BLADE_FIRE_DAMAGE_MANIFESTED); }
+    public static double bladeWaterHeal() { return get(BLADE_WATER_HEAL); }
+    public static double bladeWaterHealManifested() { return get(BLADE_WATER_HEAL_MANIFESTED); }
+    public static double bladeAirSweep() { return get(BLADE_AIR_SWEEP); }
+    public static double bladeAirSweepManifested() { return get(BLADE_AIR_SWEEP_MANIFESTED); }
+    public static double bladeLoomPull() { return get(BLADE_LOOM_PULL); }
+    public static double bladeLoomPullManifested() { return get(BLADE_LOOM_PULL_MANIFESTED); }
+    public static double axeWaterSaplingChance() { return get(AXE_WATER_SAPLING_CHANCE); }
+    public static int axeSpiritGlowRange() { return get(AXE_SPIRIT_GLOW_RANGE); }
+    public static int axeSpiritGlowTicks() { return get(AXE_SPIRIT_GLOW_TICKS); }
+    public static int pickAirHasteTicks() { return get(PICK_AIR_HASTE_TICKS); }
+    public static double shovelWaterClayChance() { return get(SHOVEL_WATER_CLAY_CHANCE); }
+    public static double hoeSpiritBountyChance() { return get(HOE_SPIRIT_BOUNTY_CHANCE); }
+    public static int hoeWaterMoistenRadius() { return get(HOE_WATER_MOISTEN_RADIUS); }
+    public static int hoeWaterMoistenRadiusManifested() { return get(HOE_WATER_MOISTEN_RADIUS_MANIFESTED); }
+    public static double shearsWaterRegrowChance() { return get(SHEARS_WATER_REGROW_CHANCE); }
+    public static int shearsSpiritRegenTicks() { return get(SHEARS_SPIRIT_REGEN_TICKS); }
+    public static int shearsSpiritGlowRange() { return get(SHEARS_SPIRIT_GLOW_RANGE); }
+    public static int shearsSpiritGlowRangeManifested() { return get(SHEARS_SPIRIT_GLOW_RANGE_MANIFESTED); }
+    public static int rattleVoiceTicks() { return get(RATTLE_VOICE_TICKS); }
+    public static int rattleFireTicks() { return get(RATTLE_FIRE_TICKS); }
+    public static double rattleWaterBonus() { return get(RATTLE_WATER_BONUS); }
+    // staff
+    public static int staffEarthCost() { return get(STAFF_EARTH_COST); }
+    public static int staffFireCost() { return get(STAFF_FIRE_COST); }
+    public static int staffWaterCost() { return get(STAFF_WATER_COST); }
+    public static int staffAirCost() { return get(STAFF_AIR_COST); }
+    public static int staffSpiritCost() { return get(STAFF_SPIRIT_COST); }
+    public static int staffTetherCost() { return get(STAFF_TETHER_COST); }
+    public static int staffStitchCost() { return get(STAFF_STITCH_COST); }
+    public static double staffEarthDamage() { return get(STAFF_EARTH_DAMAGE); }
+    public static double staffFireDamage() { return get(STAFF_FIRE_DAMAGE); }
+    public static int staffEarthSlowTicks() { return get(STAFF_EARTH_SLOW_TICKS); }
+    public static int staffWaterRegenTicks() { return get(STAFF_WATER_REGEN_TICKS); }
+    public static int staffWaterBreathingTicks() { return get(STAFF_WATER_BREATHING_TICKS); }
+    public static int staffAirSlowFallTicks() { return get(STAFF_AIR_SLOW_FALL_TICKS); }
+    public static int staffSpiritSightTicks() { return get(STAFF_SPIRIT_SIGHT_TICKS); }
+    public static int staffSpiritGlowTicks() { return get(STAFF_SPIRIT_GLOW_TICKS); }
+    public static int staffCooldownTicks() { return get(STAFF_COOLDOWN); }
+    public static int staffWaterCooldownTicks() { return get(STAFF_WATER_COOLDOWN); }
+    public static int staffStitchCooldownTicks() { return get(STAFF_STITCH_COOLDOWN); }
+    public static int staffFireIgniteSeconds() { return get(STAFF_FIRE_IGNITE_SECONDS); }
+    public static double staffTetherPull() { return get(STAFF_TETHER_PULL); }
+    public static int staffSpiritRadius() { return get(STAFF_SPIRIT_RADIUS); }
+    // tools and rites
+    public static int waystoneTier1Pulse() { return get(WAYSTONE_TIER1_PULSE); }
+    public static int waystoneTier2Pulse() { return get(WAYSTONE_TIER2_PULSE); }
+    public static int waystoneTier3Pulse() { return get(WAYSTONE_TIER3_PULSE); }
+    public static int waystoneCooldownTicks() { return get(WAYSTONE_COOLDOWN); }
+    public static int maulBlockPulse() { return get(MAUL_BLOCK_PULSE); }
+    public static int riteAmplifyPulse() { return get(RITE_AMPLIFY_PULSE); }
+    // tribes
+    public static int standingFavoured() { return get(STANDING_FAVOURED); }
+    public static int standingReagent() { return get(STANDING_REAGENT); }
+    public static int standingFood() { return get(STANDING_FOOD); }
+    public static int standingPulsePer10() { return get(STANDING_PULSE_PER_10); }
+    public static int hearthCellDrain() { return get(HEARTH_CELL_DRAIN); }
+    public static int standingKill() { return get(STANDING_KILL); }
+    public static int killCapPerDay() { return get(KILL_CAP_PER_DAY); }
+    public static int offerCapPerDay() { return get(OFFER_CAP_PER_DAY); }
+    public static int killRadius() { return get(KILL_RADIUS); }
+    public static int standingTrade() { return get(STANDING_TRADE); }
+    public static int standingHurtKin() { return get(STANDING_HURT_KIN); }
+    public static int standingCampBlock() { return get(STANDING_CAMP_BLOCK); }
+    public static int standingHearth() { return get(STANDING_HEARTH); }
+    public static int hunterAngerTicks() { return get(HUNTER_ANGER_TICKS); }
+    // familiars
+    public static int familiarBoostRange() { return get(FAMILIAR_RANGE); }
+    public static int familiarAttuneRange() { return get(FAMILIAR_ATTUNE_RANGE); }
+    public static double familiarDiscount() { return get(FAMILIAR_DISCOUNT); }
+    public static double familiarGearPerk() { return get(FAMILIAR_GEAR_PERK); }
+    public static double familiarSongDamage() { return get(FAMILIAR_SONG_DAMAGE); }
+    public static double familiarSongReach() { return get(FAMILIAR_SONG_REACH); }
+    public static double familiarRiteBlessing() { return get(FAMILIAR_RITE_BLESSING); }
+    public static int familiarBoonTicks() { return get(FAMILIAR_BOON_TICKS); }
+    public static int foxSightRange() { return get(FOX_SIGHT_RANGE); }
+    public static int foxOreRange() { return get(FOX_ORE_RANGE); }
+    public static int foxLightPeriodTicks() { return get(FOX_LIGHT_PERIOD); }
+    public static int impRange() { return get(IMP_RANGE); }
+    public static int impRefund() { return get(IMP_REFUND); }
+    public static int impTempoBonus() { return get(IMP_TEMPO_BONUS); }
+    public static int bellRange() { return get(BELL_RANGE); }
+    public static int mothClickPeriodTicks() { return get(MOTH_CLICK_PERIOD); }
+    public static int mothClickTicks() { return get(MOTH_CLICK_TICKS); }
+    public static int mothClickTrueTicks() { return get(MOTH_CLICK_TRUE_TICKS); }
+    public static int weaverRange() { return get(WEAVER_RANGE); }
+    public static int weaverGatherRange() { return get(WEAVER_GATHER_RANGE); }
+    public static int houndTrackRange() { return get(HOUND_TRACK_RANGE); }
+    public static double markSpeciesChance() { return get(MARK_SPECIES_CHANCE); }
+    public static double markKinChance() { return get(MARK_KIN_CHANCE); }
+    // echo
+    public static int kilnSeconds() { return get(KILN_SECONDS); }
+    public static int kilnPulse() { return get(KILN_PULSE); }
     /** One anointment's number, by the key it declares in {@link tk.darrow.tribalpower.song.Anointment}. */
     public static double anointing(tk.darrow.tribalpower.song.Anointment anointment, String key) {
         var value = ANOINTING.get(anointment).get(key);

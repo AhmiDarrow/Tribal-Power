@@ -6,6 +6,9 @@
     "tribalpower:march_ore",
     "tribalpower:march_iron_ore",
     "tribalpower:march_copper_ore",
-    "tribalpower:march_lapis_ore"
+    "tribalpower:march_lapis_ore",
+    "tribalpower:frost_shale",
+    "tribalpower:pale_stone",
+    "tribalpower:resonant_spike"
   ]
 }

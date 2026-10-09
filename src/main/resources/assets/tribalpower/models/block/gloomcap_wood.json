@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tribalpower:block/gloomcap_log",
+    "side": "tribalpower:block/gloomcap_log"
+  }
+}

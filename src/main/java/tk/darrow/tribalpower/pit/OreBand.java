@@ -161,9 +161,13 @@ public enum OreBand {
     /** True when {@code stack} is substrate for some band, so the sides cannot be jammed with junk. */
     public static boolean isSubstrate(ItemStack stack) {
         if (stack.isEmpty()) return false;
-        for (OreBand band : values())
-            for (ItemStack want : band.substrate()) if (ItemStack.isSameItemSameComponents(want, stack)) return true;
+        for (ItemStack want : Wants.ALL) if (ItemStack.isSameItemSameComponents(want, stack)) return true;
         return false;
+    }
+
+    /** Every band's substrate, built once: hoppers and relays probe this every tick per slot. */
+    private static final class Wants {
+        static final List<ItemStack> ALL = java.util.Arrays.stream(values()).flatMap(b -> b.substrate().stream()).toList();
     }
 
     /** What one cycle consumes, before the Loom's Threading halves it. */

@@ -24,7 +24,7 @@ public class BestiaryGameTests {
             h.assertTrue(entity!=null && entity.getMaxHealth()==p.health,"Creature must construct with its authored attributes: "+p.id);
             if(p.attack.equals("ember") || p.attack.equals("bolt"))h.assertTrue(entity.fireImmune(),"Fire spirits should resist fire");
             boolean habitat=false;
-            for(String name:java.util.List.of("march_steppe","march_highlands","march_crystal_fields","march_snow_fields","march_ember_wastes","march_reed_fen","march_glimmer_ridge","march_shallows")) {
+            for(String name:tk.darrow.tribalpower.world.MarchBiomes.ids()) {
                 var biome=biomes.get(net.minecraft.resources.ResourceLocation.parse("tribalpower:"+name));
                 if(biome!=null)for(var entry:biome.getMobSettings().getMobs(p.animal?MobCategory.CREATURE:MobCategory.MONSTER).unwrap())if(entry.type==entity.getType())habitat=true;
             }
@@ -154,14 +154,14 @@ public class BestiaryGameTests {
     @GameTest(template="empty")
     public static void everyBiomeIsInhabitedInEveryLayer(GameTestHelper h) {
         var biomes = h.getLevel().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME);
-        var flying = java.util.Set.of("storm_moth", "mourning_bell", "glimmer_moth", "dust_flitter",
-                "veil_drifter", "ember_drifter");
-        var caves = java.util.Set.of("deep_lurker", "pale_stalker", "gloom_crawler", "stone_grub");
         java.util.List<String> gaps = new java.util.ArrayList<>();
         for (var entry : biomes.entrySet()) {
             var id = entry.getKey().location();
             if (!id.getNamespace().equals("tribalpower") || !id.getPath().startsWith("march_")) continue;
-            if (id.getPath().equals("march_shallows")) continue;      // open sea, judged on its water
+            var march = tk.darrow.tribalpower.world.MarchBiomes.of(id.getPath());
+            h.assertTrue(march != null, id.getPath() + " is listed in MarchBiomes");
+            if (march.family == tk.darrow.tribalpower.world.MarchBiomes.Family.OCEAN) continue;      // open sea, judged on its water
+            boolean underground = march.family == tk.darrow.tribalpower.world.MarchBiomes.Family.CAVE;  // no sky, so nothing flies
             var settings = entry.getValue().getMobSettings();
             int air = 0, ground = 0, cave = 0, water = 0;
             for (var category : MobCategory.values()) {
@@ -170,13 +170,14 @@ public class BestiaryGameTests {
                     String name = key == null ? "" : key.getPath();
                     boolean wet = category == MobCategory.WATER_CREATURE || category == MobCategory.WATER_AMBIENT
                             || category == MobCategory.UNDERGROUND_WATER_CREATURE;
+                    var habitat = CreatureHabitat.of(name);
                     if (wet) water++;
-                    else if (flying.contains(name)) air++;
-                    else if (caves.contains(name)) cave++;
+                    else if (habitat == CreatureHabitat.AIR) air++;
+                    else if (habitat == CreatureHabitat.CAVE) cave++;
                     else ground++;
                 }
             }
-            if (air == 0) gaps.add(id.getPath() + ": nothing in the air");
+            if (air == 0 && !underground) gaps.add(id.getPath() + ": nothing in the air");
             if (ground == 0) gaps.add(id.getPath() + ": nothing on the ground");
             if (cave == 0) gaps.add(id.getPath() + ": nothing in its caves");
             if (water == 0) gaps.add(id.getPath() + ": nothing in its water");

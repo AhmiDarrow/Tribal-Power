@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/salt_pillar"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/salt_pillar",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/salt_pillar",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

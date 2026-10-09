@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_reed_fen"
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_rimebirch_taiga",
+    "tribalpower:march_thornfir_taiga",
+    "tribalpower:march_elder_thornfir_taiga",
+    "tribalpower:march_songmaple_wood",
+    "tribalpower:march_hearthoak_wold",
+    "tribalpower:march_elder_hearthoak_wold",
+    "tribalpower:march_veilwood",
+    "tribalpower:march_tanglewood",
+    "tribalpower:march_cane_thicket"
   ]
 }

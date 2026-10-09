@@ -44,7 +44,11 @@ import tk.darrow.tribalpower.world.MarchWoods.Wood;
 public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
     public enum Shape implements StringRepresentable {
         WEEPING_COLOSSUS(Wood.WILLOW), YOUNG_WILLOW(Wood.WILLOW), HEARTHOAK(Wood.HEARTHOAK), BELLCAP(Wood.BELLCAP),
-        FROSTPINE(Wood.FROSTPINE), CINDER_SNAG(Wood.CINDER), STRIDER(Wood.STRIDER);
+        FROSTPINE(Wood.FROSTPINE), CINDER_SNAG(Wood.CINDER), STRIDER(Wood.STRIDER),
+        // The March, full breadth: the nine new woods and the two elder forms.
+        RIMEBIRCH(Wood.RIMEBIRCH), THORNFIR(Wood.THORNFIR), ELDER_THORNFIR(Wood.THORNFIR), SONGMAPLE(Wood.SONGMAPLE),
+        VEILWOOD(Wood.VEILWOOD), CHIMEBLOSSOM(Wood.CHIMEBLOSSOM), DRUMPALM(Wood.DRUMPALM), TANGLEWOOD(Wood.TANGLEWOOD),
+        SUNBARK(Wood.SUNBARK), GLOOMCAP(Wood.GLOOMCAP), ELDER_HEARTHOAK(Wood.HEARTHOAK);
 
         public static final Codec<Shape> CODEC = StringRepresentable.fromEnum(Shape::values);
         public final Wood wood;
@@ -86,11 +90,22 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
         switch (shape) {
             case WEEPING_COLOSSUS -> willow(plan, random, 2.0 * scale);
             case YOUNG_WILLOW -> willow(plan, random, 0.3);
-            case HEARTHOAK -> hearthoak(plan, random);
+            case HEARTHOAK -> hearthoak(plan, random, 1.0);
+            case ELDER_HEARTHOAK -> hearthoak(plan, random, 1.45);
             case BELLCAP -> bellcap(plan, random);
             case FROSTPINE -> frostpine(plan, random);
             case CINDER_SNAG -> snag(plan, random);
             case STRIDER -> strider(plan, random);
+            case RIMEBIRCH -> rimebirch(plan, random);
+            case THORNFIR -> thornfir(plan, random, false);
+            case ELDER_THORNFIR -> thornfir(plan, random, true);
+            case SONGMAPLE -> songmaple(plan, random);
+            case VEILWOOD -> veilwood(plan, random);
+            case CHIMEBLOSSOM -> chimeblossom(plan, random);
+            case DRUMPALM -> drumpalm(plan, random);
+            case TANGLEWOOD -> tanglewood(plan, random);
+            case SUNBARK -> sunbark(plan, random);
+            case GLOOMCAP -> gloomcap(plan, random);
         }
         plan.settle();
         return plan;
@@ -99,7 +114,10 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
     /** Soil (or a shallow fen bed) underfoot and open air above. */
     static boolean rooted(WorldGenLevel level, BlockPos origin, Shape shape) {
         BlockState below = level.getBlockState(origin.below());
-        if (!below.is(BlockTags.DIRT) && !below.is(Blocks.MUD)) return false;
+        // A gloomcap is a fungus: it roots on cave stone and glowmoss as readily as on soil.
+        boolean fungal = shape == Shape.GLOOMCAP && (below.is(BlockTags.BASE_STONE_OVERWORLD) || below.is(ModBlocks.MARCH_STONE.get())
+                || below.is(ModBlocks.MARCH_COBBLE.get()) || below.is(tk.darrow.tribalpower.block.MarchTags.CAVE_FOOTING));
+        if (!below.is(BlockTags.DIRT) && !below.is(Blocks.MUD) && !fungal) return false;
         int water = 0;
         for (int y = 0; y < 5; y++) {
             BlockState at = level.getBlockState(origin.above(y));
@@ -186,28 +204,230 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
         else p.strands(0.45, 2, 9, 0.0, 0.8);
     }
 
-    /** The Hearthoak: a squat, broad steppe giant whose limbs spread wide and low, meant to be camped under. */
-    private static void hearthoak(Plan p, RandomSource r) {
+    /**
+     * The Hearthoak: a squat, broad steppe giant whose limbs spread wide and low, meant to be camped under. At
+     * {@code s} above 1 it is the Elder Hearthoak of the old wolds, grown from four saplings.
+     */
+    private static void hearthoak(Plan p, RandomSource r, double s) {
         BlockState leaf = p.set.leaves.get().defaultBlockState();
-        int height = 7 + r.nextInt(3);
-        for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), 1.6 - 0.5 * y / height + Math.max(0, 2 - y) * 0.5, y == 0, 99);
+        int height = (int) ((7 + r.nextInt(3)) * s);
+        // the elder is hollow, so its girth costs few logs and the whole tree still fells under the axe's cap
+        for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), (1.6 - 0.5 * y / height + Math.max(0, 2 - y) * 0.5) * s, y == 0, s > 1.2 ? 1.0 : 99);
         for (int i = 0; i < 4; i++) {
             Vec3 dir = dir(i * Mth.HALF_PI + r.nextDouble());
             p.rooting = true;
-            p.limb(p.at(dir.x * 1.5, 1, dir.z * 1.5), p.at(dir.x * 4, -1, dir.z * 4), 0.8, 0.5);
+            p.limb(p.at(dir.x * 1.5 * s, 1, dir.z * 1.5 * s), p.at(dir.x * 4 * s, -1, dir.z * 4 * s), 0.8 * s, 0.5);
             p.rooting = false;
         }
         int limbs = 5 + r.nextInt(2);
         for (int i = 0; i < limbs; i++) {
             Vec3 dir = dir(i * Mth.TWO_PI / limbs + r.nextDouble() * 0.6);
-            double reach = 9 + r.nextInt(4);
+            // the elder's limbs are capped so limb plus crown stays inside the chunk margin a feature may write
+            double reach = Math.min(11.5, (9 + r.nextInt(4)) * s);
             Vec3 start = p.at(0, height - 2 + r.nextInt(3), 0);
-            Vec3 end = p.at(dir.x * reach, height + 3 + r.nextInt(3), dir.z * reach);
-            List<Vec3> path = p.bezier(start, start.add(dir.scale(reach * 0.5)).add(0, 3, 0), end, 1.2, 0.5);
+            Vec3 end = p.at(dir.x * reach, height + (3 + r.nextInt(3)) * s, dir.z * reach);
+            List<Vec3> path = p.bezier(start, start.add(dir.scale(reach * 0.5)).add(0, 3 * s, 0), end, Math.min(1.2 * s, 1.3), 0.5);
             for (int k = path.size() / 2; k < path.size(); k += 2) p.blob(leaf, path.get(k), 3.4, 2.0, r);
             p.blob(leaf, end, 4.0, 2.2, r);
         }
-        p.blob(leaf, p.at(0, height + 3, 0), 4.5, 2.5, r);
+        p.blob(leaf, p.at(0, height + 3 * s, 0), 4.5 * Math.min(s, 1.3), 2.5, r);
+    }
+
+    /** The Rimebirch: slim and bone-white, with a few sparse tiers of pale leaf. */
+    private static void rimebirch(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 8 + r.nextInt(4);
+        p.limb(p.at(0, 0, 0), p.at(0, height, 0), 0.5, 0.5);
+        p.base(p.at(0, 0, 0));
+        double twist = r.nextDouble() * Mth.TWO_PI;
+        for (int y = height / 2; y < height; y += 2) {
+            double radius = 1.6 + r.nextDouble();
+            for (int i = 0; i < 3; i++) {
+                Vec3 d = dir(twist + i * Mth.TWO_PI / 3);
+                Vec3 tip = p.at(d.x * radius, y + 1, d.z * radius);
+                p.limb(p.at(0, y, 0), tip, 0.5, 0.5);
+                p.blob(leaf, tip, 1.7, 1.3, r);
+            }
+            twist += 1.1;
+        }
+        p.blob(leaf, p.at(0, height + 1, 0), 1.9, 1.6, r);
+    }
+
+    /**
+     * The Thornfir: a dense dark cone, shorter and fuller than the Frostpine. The elder stands twenty blocks and
+     * more on a hollow base.
+     */
+    private static void thornfir(Plan p, RandomSource r, boolean elder) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = elder ? 20 + r.nextInt(7) : 9 + r.nextInt(6);
+        if (elder) {
+            for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), Math.max(0.5, 2.4 - 2.0 * y / height), y == 0, y > 1 && y < 6 ? 1.2 : 99);
+        } else {
+            p.limb(p.at(0, 0, 0), p.at(0, height, 0), 0.5, 0.5);
+            p.base(p.at(0, 0, 0));
+        }
+        double twist = r.nextDouble() * Mth.TWO_PI;
+        for (int y = 2 + r.nextInt(2); y < height; y += 2) {
+            double t = y / (double) height, radius = Mth.lerp(t, elder ? 6.5 : 4.0, 1.0) + r.nextDouble() * 0.6;
+            int arms = radius > 3 ? 5 : 3;
+            for (int i = 0; i < arms; i++) {
+                Vec3 d = dir(twist + i * Mth.TWO_PI / arms);
+                p.limb(p.at(0, y, 0), p.at(d.x * (radius - 1), y - 0.3, d.z * (radius - 1)), 0.5, 0.5);
+            }
+            p.ring(leaf, p.at(0, y, 0), 0, radius);
+            p.ring(leaf, p.at(0, y - 1, 0), radius - 1.2, radius + 0.3);
+            p.ring(leaf, p.at(0, y + 1, 0), 0, radius - 1.4);
+            twist += 0.7;
+        }
+        for (int k = 0; k < 3; k++) p.ring(leaf, p.at(0, height + k, 0), 0, 1.4 - 0.4 * k);
+    }
+
+    /** The Songmaple: a straight trunk under a broad, round, layered crown. */
+    private static void songmaple(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 6 + r.nextInt(4);
+        p.limb(p.at(0, 0, 0), p.at(0, height, 0), 0.8, 0.5);
+        p.base(p.at(0, 0, 0));
+        int limbs = 5 + r.nextInt(3);
+        for (int i = 0; i < limbs; i++) {
+            Vec3 d = dir(i * Mth.TWO_PI / limbs + r.nextDouble() * 0.5);
+            double reach = 3 + r.nextInt(3);
+            Vec3 start = p.at(0, height - 2 + r.nextInt(2), 0);
+            Vec3 end = p.at(d.x * reach, height + 1 + r.nextInt(2), d.z * reach);
+            p.bezier(start, start.add(d.scale(reach * 0.5)).add(0, 1.5, 0), end, 0.6, 0.5);
+            p.blob(leaf, end, 3.0, 2.2, r);
+        }
+        p.blob(leaf, p.at(0, height + 2, 0), 4.0, 2.6, r);
+        p.blob(leaf, p.at(0, height, 0), 4.6, 2.0, r);
+    }
+
+    /** The Veilwood: a short dark trunk opening into a flat, wide crown that closes over the ground. */
+    private static void veilwood(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 6 + r.nextInt(3);
+        for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), y < 2 ? 1.2 : 0.8, y == 0, 99);
+        int limbs = 6 + r.nextInt(3);
+        for (int i = 0; i < limbs; i++) {
+            Vec3 d = dir(i * Mth.TWO_PI / limbs + r.nextDouble() * 0.4);
+            double reach = 5 + r.nextInt(3);
+            Vec3 start = p.at(0, height - 1, 0);
+            Vec3 end = p.at(d.x * reach, height + 1, d.z * reach);
+            p.bezier(start, start.add(d.scale(reach * 0.5)).add(0, 1.5, 0), end, 0.7, 0.5);
+            p.blob(leaf, end, 3.2, 1.4, r);
+        }
+        p.ring(leaf, p.at(0, height + 1, 0), 0, 6.5);
+        p.ring(leaf, p.at(0, height + 2, 0), 0, 5.0);
+        p.ring(leaf, p.at(0, height, 0), 2.5, 7.0);
+    }
+
+    /** The Chimeblossom: a leaning, forked trunk under pink bells of blossom. */
+    private static void chimeblossom(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 5 + r.nextInt(4);
+        Vec3 lean = dir(r.nextDouble() * Mth.TWO_PI).scale(2 + r.nextInt(2));
+        Vec3 top = p.at(lean.x, height, lean.z);
+        List<Vec3> trunk = p.bezier(p.at(0, 0, 0), p.at(lean.x * 0.3, height * 0.6, lean.z * 0.3), top, 0.8, 0.5);
+        p.base(trunk.getFirst());
+        p.blob(leaf, top, 3.4, 2.2, r);
+        int forks = 2 + r.nextInt(2);
+        for (int i = 0; i < forks; i++) {
+            Vec3 from = trunk.get(trunk.size() / 2 + r.nextInt(Math.max(1, trunk.size() / 3)));
+            Vec3 tip = from.add(dir(r.nextDouble() * Mth.TWO_PI).scale(3 + r.nextInt(2))).add(0, 2 + r.nextInt(2), 0);
+            p.limb(from, tip, 0.5, 0.5);
+            p.blob(leaf, tip, 2.6, 1.8, r);
+        }
+    }
+
+    /** The Drumpalm: a bare, ringed trunk with an umbrella of fronds at the top. */
+    private static void drumpalm(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 8 + r.nextInt(5);
+        Vec3 lean = dir(r.nextDouble() * Mth.TWO_PI).scale(0.8 + r.nextDouble() * 1.2);
+        Vec3 top = p.at(lean.x, height, lean.z);
+        List<Vec3> trunk = p.bezier(p.at(0, 0, 0), p.at(0, height * 0.5, 0), top, 0.7, 0.6);
+        p.base(trunk.getFirst());
+        int fronds = 7 + r.nextInt(3);
+        for (int i = 0; i < fronds; i++) {
+            Vec3 d = dir(i * Mth.TWO_PI / fronds + r.nextDouble() * 0.3);
+            Vec3 lift = top.add(d.scale(2.2)).add(0, 1.6, 0);
+            Vec3 mid = top.add(d.scale(4.6)).add(0, 0.6, 0);
+            Vec3 end = top.add(d.scale(6.4)).add(0, -1.6, 0);
+            frond(p, leaf, top.add(0, 1, 0), lift);
+            frond(p, leaf, lift, mid);
+            frond(p, leaf, mid, end);
+        }
+        p.blob(leaf, top.add(0, 1, 0), 2.2, 1.2, r);
+    }
+
+    /** A line of leaves, two wide, from one point to another: a palm frond. */
+    private static void frond(Plan p, BlockState leaf, Vec3 a, Vec3 b) {
+        int steps = Math.max(2, Mth.ceil(a.distanceTo(b) * 2));
+        for (int s = 0; s <= steps; s++) {
+            Vec3 c = a.add(b.subtract(a).scale(s / (double) steps));
+            BlockPos pos = BlockPos.containing(c);
+            p.leaf(leaf, pos);
+            p.leaf(leaf, pos.offset(Math.abs(b.x - a.x) > Math.abs(b.z - a.z) ? 0 : 1, 0, Math.abs(b.x - a.x) > Math.abs(b.z - a.z) ? 1 : 0));
+        }
+    }
+
+    /** The Tanglewood: tall and buttressed, with a dense crown hung with climbable vines. */
+    private static void tanglewood(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 12 + r.nextInt(8);
+        for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), y < 3 ? 1.4 - 0.2 * y : 0.8, y == 0, 99);
+        for (int i = 0; i < 4; i++) {
+            Vec3 d = dir(i * Mth.HALF_PI + r.nextDouble() * 0.6);
+            p.rooting = true;
+            p.limb(p.at(d.x * 1.2, 3, d.z * 1.2), p.at(d.x * 4, -1, d.z * 4), 0.8, 0.5);
+            p.rooting = false;
+        }
+        int limbs = 5 + r.nextInt(3);
+        for (int i = 0; i < limbs; i++) {
+            Vec3 d = dir(i * Mth.TWO_PI / limbs + r.nextDouble() * 0.5);
+            double reach = 4 + r.nextInt(4);
+            int from = height - 4 + r.nextInt(4);
+            Vec3 start = p.at(0, from, 0);
+            Vec3 end = p.at(d.x * reach, from + 2 + r.nextInt(3), d.z * reach);
+            List<Vec3> path = p.bezier(start, start.add(d.scale(reach * 0.5)).add(0, 2, 0), end, 0.8, 0.5);
+            for (int k = path.size() / 2; k < path.size(); k += 2) p.blob(leaf, path.get(k), 2.6, 1.8, r);
+            p.blob(leaf, end, 3.2, 2.2, r);
+        }
+        p.blob(leaf, p.at(0, height + 1, 0), 4.0, 2.6, r);
+        p.strands(0.22, 3, 10, 0.02, 0.9);   // Loom Vines: the willow's climbable strand, hung from the crown
+    }
+
+    /** The Sunbark: low, twisted mesa scrub with a sparse dusty crown. */
+    private static void sunbark(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 3 + r.nextInt(3);
+        Vec3 lean = dir(r.nextDouble() * Mth.TWO_PI);
+        Vec3 at = p.at(0, 0, 0);
+        p.base(at);
+        for (int y = 1; y <= height; y++) {
+            Vec3 next = p.at(lean.x * y * 0.5 + r.nextDouble() - 0.5, y, lean.z * y * 0.5 + r.nextDouble() - 0.5);
+            p.limb(at, next, 0.7, 0.5);
+            at = next;
+        }
+        int branches = 3 + r.nextInt(3);
+        for (int i = 0; i < branches; i++) {
+            Vec3 tip = at.add(dir(r.nextDouble() * Mth.TWO_PI).scale(2 + r.nextInt(3))).add(0, 1 + r.nextInt(2), 0);
+            p.limb(at, tip, 0.5, 0.5);
+            p.blob(leaf, tip, 2.4, 1.5, r);
+        }
+        p.blob(leaf, at.add(0, 1, 0), 3.0, 1.6, r);
+    }
+
+    /** The Gloomcap: a thick fungus stem under a wide glowing cap. */
+    private static void gloomcap(Plan p, RandomSource r) {
+        BlockState leaf = p.set.leaves.get().defaultBlockState();
+        int height = 5 + r.nextInt(5);
+        for (int y = 0; y <= height; y++) p.disc(p.at(0, y, 0), y < 2 ? 1.3 : 0.9, y == 0, 99);
+        double radius = 3.5 + r.nextDouble() * 2;
+        p.ring(leaf, p.at(0, height - 1, 0), radius - 1.0, radius + 0.8);
+        p.ring(leaf, p.at(0, height, 0), 1.0, radius + 0.5);
+        p.ring(leaf, p.at(0, height + 1, 0), 0, radius);
+        p.ring(leaf, p.at(0, height + 2, 0), 0, radius - 1.5);
+        p.ring(leaf, p.at(0, height + 3, 0), 0, Math.max(0.6, radius - 3));
     }
 
     /** The Bellcap: a thin, swaying trunk under a broad violet bell of blossom, sometimes with a smaller twin. */

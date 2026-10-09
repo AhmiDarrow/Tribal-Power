@@ -47,9 +47,9 @@ public class TribeGameTests {
         h.assertTrue(data.get(id, TribeDefinition.CLAW) == 0, "Standing never drops below zero");
         long day = 7;
         int allowed = 0;
-        for (int i = 0; i < 25; i++) if (data.tryKillGain(id, TribeDefinition.SOIL, day, TribeStanding.KILL_CAP_PER_DAY)) allowed++;
-        h.assertTrue(allowed == TribeStanding.KILL_CAP_PER_DAY, "Kill gains cap at 20 per day, got " + allowed);
-        h.assertTrue(data.tryKillGain(id, TribeDefinition.SOIL, day + 1, TribeStanding.KILL_CAP_PER_DAY), "A new day resets the kill cap");
+        for (int i = 0; i < 25; i++) if (data.tryKillGain(id, TribeDefinition.SOIL, day, TribeStanding.killCapPerDay())) allowed++;
+        h.assertTrue(allowed == TribeStanding.killCapPerDay(), "Kill gains cap at 20 per day, got " + allowed);
+        h.assertTrue(data.tryKillGain(id, TribeDefinition.SOIL, day + 1, TribeStanding.killCapPerDay()), "A new day resets the kill cap");
         h.succeed();
     }
 
@@ -67,27 +67,27 @@ public class TribeGameTests {
         var hit = new BlockHitResult(Vec3.atCenterOf(pos), net.minecraft.core.Direction.UP, pos, false);
         h.getBlockState(rel).useItemOn(ore, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);
         int after = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
-        h.assertTrue(after - before == TribeStanding.GAIN_FAVOURED, "Raw iron is favoured by the Grit-singers: +3, got " + (after - before));
+        h.assertTrue(after - before == TribeStanding.gainFavoured(), "Raw iron is favoured by the Grit-singers: +3, got " + (after - before));
         // The GameTest mock ServerPlayer hard-codes isCreative() == true, so the block path must NOT consume for it...
         h.assertTrue(ore.getCount() == 4, "Creative offerings are free");
         // ...while the survival path (what a real player right-clicking gets) consumes exactly one.
         int survivalBefore = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
-        h.assertTrue(TribeHearthBlock.offer(player, hearth, ore, true) == TribeStanding.GAIN_FAVOURED, "Survival offering grants +3");
+        h.assertTrue(TribeHearthBlock.offer(player, hearth, ore, true) == TribeStanding.gainFavoured(), "Survival offering grants +3");
         h.assertTrue(ore.getCount() == 3, "One offering is consumed");
         after = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
-        h.assertTrue(after - survivalBefore == TribeStanding.GAIN_FAVOURED, "Survival offering raises standing");
+        h.assertTrue(after - survivalBefore == TribeStanding.gainFavoured(), "Survival offering raises standing");
         ItemStack echo = new ItemStack(ModItems.ATTUNED_ECHO.get());
         player.setItemInHand(InteractionHand.MAIN_HAND, echo);
         h.getBlockState(rel).useItemOn(echo, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);
         int reagent = TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE);
-        h.assertTrue(reagent - after == TribeStanding.GAIN_REAGENT, "Attuned Echo is the Grit-singers' reagent tier: +8");
+        h.assertTrue(reagent - after == TribeStanding.gainReagent(), "Attuned Echo is the Grit-singers' reagent tier: +8");
         h.assertTrue(TribeDefinition.STONE.offeringValue(new ItemStack(Items.STONE)) == 0, "Plain stone is not an offering");
         ItemStack plain = new ItemStack(Items.STONE, 2);
         player.setItemInHand(InteractionHand.MAIN_HAND, plain);
         var refused = h.getBlockState(rel).useItemOn(plain, h.getLevel(), player, InteractionHand.MAIN_HAND, hit);
         h.assertTrue(refused.consumesAction() && plain.getCount() == 2 && TribeStanding.get(player.server, player.getUUID(), TribeDefinition.STONE) == reagent,
                 "An unwanted gift is refused aloud, kept, and changes nothing");
-        h.assertTrue(TribeDefinition.SOIL.offeringValue(new ItemStack(Items.COOKED_BEEF)) == TribeStanding.GAIN_FOOD, "Any food gives +1");
+        h.assertTrue(TribeDefinition.SOIL.offeringValue(new ItemStack(Items.COOKED_BEEF)) == TribeStanding.gainFood(), "Any food gives +1");
         h.assertTrue(hearth.signal() == 0, "A Stranger reads 0 on the comparator");
         ItemStack drop = h.getBlockState(rel).getBlock().getCloneItemStack(h.getBlockState(rel), hit, h.getLevel(), pos, player);
         h.assertTrue(TribeDefinition.of(drop) == TribeDefinition.STONE, "The hearth item keeps its tribe");
@@ -172,7 +172,7 @@ public class TribeGameTests {
         // Without this cap, renewable ore feeds the hearth that gates the pit that makes the ore.
         var data = new tk.darrow.tribalpower.tribe.TribeStandingSavedData();
         var player = java.util.UUID.randomUUID();
-        int cap = tk.darrow.tribalpower.tribe.TribeStanding.OFFER_CAP_PER_DAY;
+        int cap = tk.darrow.tribalpower.tribe.TribeStanding.offerCapPerDay();
 
         int granted = 0;
         for (int i = 0; i < 40; i++)

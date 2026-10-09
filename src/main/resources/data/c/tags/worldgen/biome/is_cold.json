@@ -2,6 +2,27 @@
   "replace": false,
   "values": [
     "tribalpower:march_glimmer_ridge",
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_rime_spires",
+    "tribalpower:march_rimebirch_taiga",
+    "tribalpower:march_frost_shore",
+    "tribalpower:march_frozen_mere",
+    "tribalpower:march_rime_sea",
+    "tribalpower:march_deep_rime_sea",
+    "tribalpower:march_hoar_peaks",
+    "tribalpower:march_shard_peaks",
+    "tribalpower:march_frostpine_slopes",
+    "tribalpower:march_veil_flats",
+    "tribalpower:march_thornfir_taiga",
+    "tribalpower:march_elder_thornfir_taiga",
+    "tribalpower:march_barrow_moor",
+    "tribalpower:march_scree_fells",
+    "tribalpower:march_windswept_thornfir",
+    "tribalpower:march_hoarmoss_grove",
+    "tribalpower:march_grey_shore",
+    "tribalpower:march_cold_shallows",
+    "tribalpower:march_deep_cold_shallows",
+    "tribalpower:march_tarn_country",
+    "tribalpower:march_the_hush"
   ]
 }

@@ -8,7 +8,9 @@
   ],
   "type": "neoforge:add_features",
   "biomes": [
-    "tribalpower:march_reed_fen"
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_strider_mangrove",
+    "tribalpower:march_tarn_country"
   ],
   "features": "chocobosreborn:wild_gysahl_thicket",
   "step": "vegetal_decoration"

@@ -86,11 +86,11 @@ public class SpiritgearShearsItem extends ShearsItem {
         if (!result.consumesAction() || !paid) return result;
         Attunement voice = SpiritGear.voice(stack).orElse(null);
         if (voice == Attunement.WATER && target instanceof Sheep sheep && sheep.isSheared()
-                && (SpiritGear.rank(stack) >= 3 || player.getRandom().nextFloat() < 0.5F)) {
+                && (SpiritGear.rank(stack) >= 3 || player.getRandom().nextFloat() < tk.darrow.tribalpower.config.TribalConfig.shearsWaterRegrowChance())) {
             sheep.setSheared(false);
         }
         if (voice == Attunement.SPIRIT) {
-            target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
+            target.addEffect(new MobEffectInstance(MobEffects.REGENERATION, tk.darrow.tribalpower.config.TribalConfig.shearsSpiritRegenTicks(), 0));
         }
         return result;
     }
@@ -125,7 +125,7 @@ public class SpiritgearShearsItem extends ShearsItem {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level.isClientSide || !selected || !(entity instanceof ServerPlayer player)) return;
         if (SpiritGear.voice(stack).orElse(null) != Attunement.SPIRIT || level.getGameTime() % 80 != 0) return;
-        int range = SpiritGear.rank(stack) >= 3 ? 16 : 10;
+        int range = SpiritGear.rank(stack) >= 3 ? tk.darrow.tribalpower.config.TribalConfig.shearsSpiritGlowRangeManifested() : tk.darrow.tribalpower.config.TribalConfig.shearsSpiritGlowRange();
         for (LivingEntity mob : ((ServerLevel) level).getEntitiesOfClass(LivingEntity.class,
                 player.getBoundingBox().inflate(range),
                 mob -> mob instanceof net.neoforged.neoforge.common.IShearable shearable

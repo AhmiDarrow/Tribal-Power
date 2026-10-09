@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:chimeblossom_log",
+    "tribalpower:chimeblossom_wood",
+    "tribalpower:stripped_chimeblossom_log",
+    "tribalpower:stripped_chimeblossom_wood"
+  ]
+}

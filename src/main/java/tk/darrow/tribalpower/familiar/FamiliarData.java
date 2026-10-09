@@ -335,10 +335,11 @@ public final class FamiliarData {
     }
 
     private static void mutateMark(FamiliarData child, CreatureProfile profile, RandomSource random, boolean sameOwner) {
-        Mark incoming = random.nextFloat() < 0.35F ? speciesMark(profile) : WILD_COMMON[random.nextInt(WILD_COMMON.length)];
+        Mark incoming = random.nextFloat() < tk.darrow.tribalpower.config.TribalConfig.markSpeciesChance()
+                ? speciesMark(profile) : WILD_COMMON[random.nextInt(WILD_COMMON.length)];
         if (incoming == Mark.NONE) incoming = Mark.QUIET_THREAD;
         if (incoming == speciesMark(profile) && (child.markA == incoming || child.markB == incoming)) incoming = WILD_COMMON[random.nextInt(WILD_COMMON.length)];
-        if (sameOwner && random.nextFloat() < 0.2F) incoming = Mark.KIN_MARK;
+        if (sameOwner && random.nextFloat() < tk.darrow.tribalpower.config.TribalConfig.markKinChance()) incoming = Mark.KIN_MARK;
         if (child.markA == Mark.NONE) child.markA = incoming;
         else child.markB = incoming;
     }

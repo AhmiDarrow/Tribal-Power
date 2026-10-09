@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_salt_flats",
+    "tribalpower:march_sunbark_mesa",
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_cut_mesa"
+  ]
+}

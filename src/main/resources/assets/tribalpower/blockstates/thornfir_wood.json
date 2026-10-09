@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/thornfir_wood"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/thornfir_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/thornfir_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

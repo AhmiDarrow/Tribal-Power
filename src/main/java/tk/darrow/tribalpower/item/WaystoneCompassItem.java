@@ -78,13 +78,14 @@ public class WaystoneCompassItem extends Item {
                 || hazard || target.hasNeighborSignal(feet.below()) || !target.noCollision(bounds) || !target.getFluidState(feet).isEmpty() || !target.getFluidState(feet.above()).isEmpty()) {
             player.displayClientMessage(Component.translatable("message.tribalpower.waystone.blocked"), true); return InteractionResultHolder.fail(stack);
         }
-        var charge = SpiritgearHelper.reservePulse(player, tier == 1 ? 20 : tier == 2 ? 40 : 100);
+        var charge = SpiritgearHelper.reservePulse(player, tier == 1 ? tk.darrow.tribalpower.config.TribalConfig.waystoneTier1Pulse()
+                : tier == 2 ? tk.darrow.tribalpower.config.TribalConfig.waystoneTier2Pulse() : tk.darrow.tribalpower.config.TribalConfig.waystoneTier3Pulse());
         if (charge == null) { SpiritgearHelper.notifyStarved(player); return InteractionResultHolder.fail(stack); }
         if (serverPlayer.changeDimension(new DimensionTransition(target, landing, Vec3.ZERO, player.getYRot(), player.getXRot(), DimensionTransition.DO_NOTHING)) == null) {
             charge.refund();
             return InteractionResultHolder.fail(stack);
         }
-        serverPlayer.fallDistance = 0; player.getCooldowns().addCooldown(this, 100);
+        serverPlayer.fallDistance = 0; player.getCooldowns().addCooldown(this, tk.darrow.tribalpower.config.TribalConfig.waystoneCooldownTicks());
         tk.darrow.tribalpower.effect.SpiritEffects.ring(target, landing.add(0,0.2,0), tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT, 1, 20);
         return InteractionResultHolder.consume(stack);
     }

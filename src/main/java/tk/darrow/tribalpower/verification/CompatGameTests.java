@@ -24,8 +24,7 @@ import java.util.List;
 public final class CompatGameTests {
     private CompatGameTests() {}
 
-    private static final List<String> MARCH = List.of("march_steppe", "march_highlands", "march_glimmer_ridge",
-            "march_snow_fields", "march_reed_fen", "march_shallows", "march_crystal_fields", "march_ember_wastes");
+    private static final List<String> MARCH = tk.darrow.tribalpower.world.MarchBiomes.ids();
 
     private static TagKey<Biome> c(String path) {
         return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", path));
@@ -58,8 +57,9 @@ public final class CompatGameTests {
         if (!net.neoforged.fml.ModList.get().isLoaded("shamanicmounts")) { h.succeed(); return; }
         var biomes = h.getLevel().registryAccess().registryOrThrow(Registries.BIOME);
         var spawns = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("shamanicmounts", "has_spawns"));
-        for (String id : MARCH) {
-            var holder = biomes.getHolderOrThrow(ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("tribalpower", id)));
+        for (var land : tk.darrow.tribalpower.world.MarchBiomes.land()) {   // mounts neither swim nor burrow
+            String id = land.id;
+            var holder = biomes.getHolderOrThrow(land.key);
             h.assertTrue(holder.is(spawns), id + " is in shamanicmounts:has_spawns");
             boolean spawner = holder.value().getMobSettings().getMobs(net.minecraft.world.entity.MobCategory.CREATURE).unwrap().stream()
                     .anyMatch(data -> BuiltInRegistries.ENTITY_TYPE.getKey(data.type).getNamespace().equals("shamanicmounts"));

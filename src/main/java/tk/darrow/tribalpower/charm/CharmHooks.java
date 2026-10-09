@@ -16,6 +16,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.item.PulseCellItem;
 import tk.darrow.tribalpower.item.SpiritgearHelper;
 
@@ -36,44 +37,74 @@ public final class CharmHooks {
         return player.getAbilities().instabuild || PULSE_OK.getOrDefault(player.getUUID(), true);
     }
 
-    /** Forget a player's last Pulse verdict when they log out, so the map cannot grow without bound. */
+    /** Forget a player's last Pulse verdict and last reading of their slots when they log out, so the maps cannot grow without bound. */
     public static void loggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
         PULSE_OK.remove(event.getEntity().getUUID());
+        WORN.remove(event.getEntity().getUUID());
+    }
+
+    /**
+     * What a player's worn charms came to when they were last read. voices() parses each charm's tag, and
+     * reading three slots for every player every tick was the cost of this handler, so the slots are read
+     * again only on the upkeep beat, or sooner when a charm is put on or taken off (the slot then holds a
+     * different stack). A voice bound onto a worn charm between beats is counted from the next beat.
+     */
+    private static final class Worn {
+        final ItemStack[] slots = new ItemStack[CharmInventory.SIZE];
+        Set<Attunement> voices;   // null when nothing is worn
+        int cost;
+        boolean flight;
+        int gathering;
+
+        boolean sameSlots(CharmInventory worn) {
+            for (int i = 0; i < CharmInventory.SIZE; i++) if (worn.getItem(i) != slots[i]) return false;
+            return true;
+        }
+    }
+    private static final java.util.Map<java.util.UUID, Worn> WORN = new java.util.HashMap<>();
+
+    private static Worn read(Player player, CharmInventory worn) {
+        Worn out = new Worn();
+        int perVoice = TribalConfig.charmUpkeepPerVoice();
+        for (int i = 0; i < CharmInventory.SIZE; i++) {
+            ItemStack charm = worn.getItem(i);
+            out.slots[i] = charm;
+            if (charm.isEmpty()) continue;
+            Set<Attunement> theirs = SpiritCharmItem.voices(charm);
+            // Cost and pull radius count every voice; the shared effects skip a Gathering Charm's own Air.
+            Set<Attunement> effects = charm.getItem() instanceof SpiritCharmItem item
+                    ? SpiritCharmItem.effectVoices(item.kind, theirs) : theirs;
+            if (out.voices == null) out.voices = new HashSet<>();
+            out.voices.addAll(effects);
+            // an attuned familiar near you carries part of its voice's upkeep (FamiliarBoost)
+            out.cost += tk.darrow.tribalpower.familiar.FamiliarBoost.charmCost(player, theirs, perVoice * Math.max(1, theirs.size()));
+            if (effects.contains(Attunement.AIR)) out.flight = true;
+            if (charm.getItem() instanceof SpiritCharmItem item && item.kind == CharmKind.GATHERING)
+                out.gathering = Math.max(out.gathering, Math.max(1, theirs.size()));
+        }
+        return out;
     }
 
     public static void playerTick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         if (player.level().isClientSide) return;
         CharmInventory worn = CharmSlots.of(player);
-        Set<Attunement> voices = null;
-        int cost = 0;
-        boolean flight = false;
-        int gathering = 0;
-        // Read each charm's voices once. This runs every tick for every player, and voices() parses the
-        // charm's tag, so asking it three times per charm (voices, cost, flight) was three times the work.
-        for (int i = 0; i < CharmInventory.SIZE; i++) {
-            ItemStack charm = worn.getItem(i);
-            if (charm.isEmpty()) continue;
-            Set<Attunement> theirs = SpiritCharmItem.voices(charm);
-            // Cost and pull radius count every voice; the shared effects skip a Gathering Charm's own Air.
-            Set<Attunement> effects = charm.getItem() instanceof SpiritCharmItem item
-                    ? SpiritCharmItem.effectVoices(item.kind, theirs) : theirs;
-            if (voices == null) voices = new HashSet<>();
-            voices.addAll(effects);
-            // an attuned familiar near you carries part of its voice's upkeep (FamiliarBoost)
-            cost += tk.darrow.tribalpower.familiar.FamiliarBoost.charmCost(player, theirs, 2 * Math.max(1, theirs.size()));
-            if (effects.contains(Attunement.AIR)) flight = true;
-            if (charm.getItem() instanceof SpiritCharmItem item && item.kind == CharmKind.GATHERING)
-                gathering = Math.max(gathering, Math.max(1, theirs.size()));
+        long time = player.level().getGameTime();
+        boolean due = time % TribalConfig.charmUpkeepBeatTicks() == 0;
+        Worn read = WORN.get(player.getUUID());
+        if (read == null || due || !read.sameSlots(worn)) {
+            read = read(player, worn);
+            WORN.put(player.getUUID(), read);
         }
+        Set<Attunement> voices = read.voices;
         if (voices == null) {
             // Nothing worn: no Pulse to spend, no effects to apply, and flight to take back if it was given.
             setFlight(player, false);
             return;
         }
-        if (tk.darrow.tribalpower.effect.ModEffects.hasBoon(player, tk.darrow.tribalpower.tribe.TribeDefinition.SIGIL))
-            cost = Math.max(1, (int) Math.round(cost * (1 - tk.darrow.tribalpower.config.TribalConfig.sigilBoonDiscount())));
-        boolean due = player.level().getGameTime() % 40 == 0;
+        int cost = read.cost;
+        if (cost > 0 && tk.darrow.tribalpower.effect.ModEffects.hasBoon(player, tk.darrow.tribalpower.tribe.TribeDefinition.SIGIL))
+            cost = Math.max(1, (int) Math.round(cost * (1 - TribalConfig.sigilBoonDiscount())));
         boolean last = PULSE_OK.getOrDefault(player.getUUID(), true);
         boolean paid;
         if (cost <= 0 || player.getAbilities().instabuild) {
@@ -88,20 +119,20 @@ public final class CharmHooks {
             setFlight(player, false);
             return;
         }
-        if (player.level().getGameTime() % 80 == 0) apply(player, voices);
+        if (time % 80 == 0) apply(player, voices);
         applyKinds(player, worn);
-        if (gathering > 0) gather(player, gathering);
-        if (voices.contains(Attunement.LOOM) && player.level().getGameTime() % 40 == 0
-                && player.getRandom().nextFloat() < 0.30F && cost > 0) {
+        if (read.gathering > 0) gather(player, read.gathering);
+        if (voices.contains(Attunement.LOOM) && due && cost > 0
+                && player.getRandom().nextFloat() < TribalConfig.charmLoomRefundChance()) {
             for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
                 ItemStack stack = player.getInventory().getItem(i);
                 if (stack.getItem() instanceof PulseCellItem) {
-                    PulseCellItem.insertPulse(stack, Math.min(2, cost), false);
+                    PulseCellItem.insertPulse(stack, Math.min(TribalConfig.charmLoomRefundCap(), cost), false);
                     break;
                 }
             }
         }
-        setFlight(player, flight);
+        setFlight(player, read.flight);
     }
 
     private static void applyKinds(Player player, CharmInventory worn) {
@@ -111,7 +142,8 @@ public final class CharmHooks {
             ItemStack charm = worn.getItem(i);
             if (!(charm.getItem() instanceof SpiritCharmItem item)) continue;
             if (item.kind == CharmKind.HEARTH && time % 80 == 0) {
-                player.getFoodData().eat(1, 0.4F);
+                player.getFoodData().eat(TribalConfig.hearthCharmNutrition(),
+                        (float) TribalConfig.hearthCharmSaturation());
             }
             if (item.kind == CharmKind.VEIL && player.isShiftKeyDown()) {
                 player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 40, 0, true, false, true));
@@ -122,9 +154,10 @@ public final class CharmHooks {
     // Cross-mod convention (conveyors, other magnets): an entity carrying this flag must not be moved remotely.
     private static final String PREVENT_REMOTE_MOVEMENT = "PreventRemoteMovement";
 
-    /** Gathering Charm reach: 5 blocks with one voice, 2 more per extra voice, never past 11. */
+    /** Gathering Charm reach: the base with one voice, a step more per extra voice, never past the cap (all in config). */
     public static double gatherRadius(int voices) {
-        return Math.min(11, 5 + 2 * (Math.max(1, voices) - 1));
+        return Math.min(TribalConfig.gatherReachCap(),
+                TribalConfig.gatherReach() + TribalConfig.gatherReachPerVoice() * (Math.max(1, voices) - 1));
     }
 
     /**
@@ -164,21 +197,25 @@ public final class CharmHooks {
         return !entity.getPersistentData().contains(PREVENT_REMOTE_MOVEMENT);
     }
 
+    private static MobEffectInstance timed(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effect, int ticks) {
+        return new MobEffectInstance(effect, ticks, 0, true, false, true);
+    }
+
     private static void apply(Player player, Set<Attunement> voices) {
         if (voices.contains(Attunement.FIRE))
-            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 120, 0, true, false, true));
+            player.addEffect(timed(MobEffects.FIRE_RESISTANCE, TribalConfig.charmFireResistanceTicks()));
         if (voices.contains(Attunement.WATER)) {
-            player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 220, 0, true, false, true));
-            player.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 100, 0, true, false, true));
+            player.addEffect(timed(MobEffects.WATER_BREATHING, TribalConfig.charmWaterBreathingTicks()));
+            player.addEffect(timed(MobEffects.DOLPHINS_GRACE, TribalConfig.charmDolphinsGraceTicks()));
         }
         if (voices.contains(Attunement.EARTH))
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 0, true, false, true));
+            player.addEffect(timed(MobEffects.DAMAGE_RESISTANCE, TribalConfig.charmResistanceTicks()));
         if (voices.contains(Attunement.SPIRIT))
-            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, true, false, true));
+            player.addEffect(timed(MobEffects.NIGHT_VISION, TribalConfig.charmNightVisionTicks()));
         if (voices.contains(Attunement.LOOM))
-            player.addEffect(new MobEffectInstance(MobEffects.LUCK, 120, 0, true, false, true));
+            player.addEffect(timed(MobEffects.LUCK, TribalConfig.charmLuckTicks()));
         if (voices.contains(Attunement.AIR) && !voices.contains(Attunement.FIRE))
-            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
+            player.addEffect(timed(MobEffects.SLOW_FALLING, TribalConfig.charmSlowFallingTicks()));
         tk.darrow.tribalpower.familiar.FamiliarBoost.charmBoons(player, voices);
     }
 
@@ -215,11 +252,14 @@ public final class CharmHooks {
             if (charm.getItem() instanceof SpiritCharmItem item && item.kind == CharmKind.WARD) ward = true;
         }
         if (ward && voices.contains(Attunement.EARTH) && event.getSource().is(DamageTypeTags.IS_PROJECTILE)
-                && player.getRandom().nextFloat() < (voices.contains(Attunement.SPIRIT) ? 0.50F : 0.25F)) {
+                && player.getRandom().nextFloat() < (voices.contains(Attunement.SPIRIT)
+                        ? TribalConfig.wardBlockChanceSpirit()
+                        : TribalConfig.wardBlockChance())) {
             event.setCanceled(true);
         }
         if (voices.contains(Attunement.FIRE) && event.getSource().getEntity() instanceof LivingEntity attacker) {
-            attacker.igniteForSeconds(tk.darrow.tribalpower.familiar.FamiliarBoost.emberSeconds(player, 3));
+            attacker.igniteForSeconds(tk.darrow.tribalpower.familiar.FamiliarBoost.emberSeconds(player,
+                    TribalConfig.charmEmberSeconds()));
         }
     }
 

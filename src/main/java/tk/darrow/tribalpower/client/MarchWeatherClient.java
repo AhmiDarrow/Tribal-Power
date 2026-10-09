@@ -38,7 +38,9 @@ public final class MarchWeatherClient {
         var random = mc.level.random;
         for (int i = 0; i < 12; i++) {
             double x = mc.player.getX() + (random.nextDouble() - 0.5) * 24, y = mc.player.getY() + random.nextDouble() * 12 - 2, z = mc.player.getZ() + (random.nextDouble() - 0.5) * 24;
-            double fall = weather == MarchWeather.WHITEOUT ? -0.12 : weather == MarchWeather.ASHFALL ? -0.05 : weather == MarchWeather.FEN_MIST ? 0.0 : 0.01;
+            double fall = weather == MarchWeather.WHITEOUT || weather == MarchWeather.RIME_FOG ? -0.12
+                    : weather == MarchWeather.ASHFALL || weather == MarchWeather.DUST_STORM ? -0.05
+                    : weather == MarchWeather.FEN_MIST ? 0.0 : 0.01;
             mc.level.addParticle(weather.particle, x, y, z, (random.nextDouble() - 0.5) * 0.08, fall, (random.nextDouble() - 0.5) * 0.08);
         }
         if (mc.player.tickCount % 40 == 0 && (ambience == null || !mc.getSoundManager().isActive(ambience))) {
@@ -47,6 +49,9 @@ public final class MarchWeatherClient {
                 case GLIMMER_STORM -> SoundEvents.AMETHYST_BLOCK_CHIME;
                 case WHITEOUT -> SoundEvents.ELYTRA_FLYING;
                 case FEN_MIST -> SoundEvents.AMBIENT_UNDERWATER_LOOP;
+                case RIME_FOG -> SoundEvents.AMBIENT_UNDERWATER_LOOP;
+                case DUST_STORM -> SoundEvents.ELYTRA_FLYING;
+                case SPORE_DRIFT -> SoundEvents.AMBIENT_UNDERWATER_LOOP;
             };
             ambience = net.minecraft.client.resources.sounds.SimpleSoundInstance.forLocalAmbience(sound, weather == MarchWeather.WHITEOUT ? 0.5F : 0.8F, 0.35F);
             mc.getSoundManager().play(ambience);

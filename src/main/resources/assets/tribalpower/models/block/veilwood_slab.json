@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "tribalpower:block/veilwood_planks",
+    "top": "tribalpower:block/veilwood_planks",
+    "side": "tribalpower:block/veilwood_planks"
+  }
+}

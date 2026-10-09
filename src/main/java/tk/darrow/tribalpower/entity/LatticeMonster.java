@@ -13,7 +13,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.ContainerHelper;
@@ -246,7 +245,7 @@ public class LatticeMonster extends Monster implements Familiar {
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2)));
                 forageCooldown=1200;
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
-                level().playSound(null,blockPosition(),SoundEvents.BRUSH_GENERIC,SoundSource.NEUTRAL,.7F,1.1F);
+                level().playSound(null,blockPosition(),tk.darrow.tribalpower.sound.ModSounds.SPIRIT_BRUSH.get(),SoundSource.NEUTRAL,.7F,1.1F);
             }
             return InteractionResult.sidedSuccess(level().isClientSide);
         }
@@ -454,9 +453,9 @@ public class LatticeMonster extends Monster implements Familiar {
     }
 
     @Override public boolean causeFallDamage(float distance,float multiplier,DamageSource source) { return !profile().flying && super.causeFallDamage(distance,multiplier,source); }
-    @Override protected SoundEvent getAmbientSound() { return profile().ranged()?SoundEvents.AMETHYST_BLOCK_CHIME:SoundEvents.SOUL_SAND_STEP; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.AMETHYST_BLOCK_HIT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.AMETHYST_BLOCK_BREAK; }
+    @Override protected SoundEvent getAmbientSound() { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"ambient"); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"hurt"); }
+    @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"death"); }
 
     private final class SpiritCastGoal extends Goal {
         private int cooldown,windup;
@@ -477,7 +476,7 @@ public class LatticeMonster extends Monster implements Familiar {
             windup=0;cooldown=70;
             if(FamiliarOwnerTargetGoals.forbidden(LatticeMonster.this,target))return;
             if(target.hurt(damageSources().indirectMagic(LatticeMonster.this,LatticeMonster.this),(float)(profile().damage*lattice.multiplier(FamiliarData.Thread.FANG))))applyVoice(target);
-            level().playSound(null,blockPosition(),SoundEvents.AMETHYST_BLOCK_RESONATE,SoundSource.HOSTILE,.7F,.8F);
+            level().playSound(null,blockPosition(),tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CAST.get(),SoundSource.HOSTILE,.7F,.8F);
         }
     }
 }

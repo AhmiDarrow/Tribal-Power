@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "minecraft:dark_forest",
-    "tribalpower:march_highlands"
+    "tribalpower:march_highlands",
+    "tribalpower:march_veilwood",
+    "tribalpower:march_chime_orchard"
   ]
 }

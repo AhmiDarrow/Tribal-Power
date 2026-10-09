@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:tribal_village_cold",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 34,
+    "salt": 7501565,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_soil_cold",
+      "chunk_count": 4
+    }
+  }
+}

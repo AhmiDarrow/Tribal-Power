@@ -7,6 +7,15 @@
     "tribalpower:bellcap_fence_gate",
     "tribalpower:frostpine_fence_gate",
     "tribalpower:cinder_fence_gate",
-    "tribalpower:strider_fence_gate"
+    "tribalpower:strider_fence_gate",
+    "tribalpower:rimebirch_fence_gate",
+    "tribalpower:thornfir_fence_gate",
+    "tribalpower:songmaple_fence_gate",
+    "tribalpower:veilwood_fence_gate",
+    "tribalpower:chimeblossom_fence_gate",
+    "tribalpower:drumpalm_fence_gate",
+    "tribalpower:tanglewood_fence_gate",
+    "tribalpower:sunbark_fence_gate",
+    "tribalpower:gloomcap_fence_gate"
   ]
 }

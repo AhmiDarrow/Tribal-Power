@@ -7,6 +7,15 @@
     "tribalpower:bellcap_button",
     "tribalpower:frostpine_button",
     "tribalpower:cinder_button",
-    "tribalpower:strider_button"
+    "tribalpower:strider_button",
+    "tribalpower:rimebirch_button",
+    "tribalpower:thornfir_button",
+    "tribalpower:songmaple_button",
+    "tribalpower:veilwood_button",
+    "tribalpower:chimeblossom_button",
+    "tribalpower:drumpalm_button",
+    "tribalpower:tanglewood_button",
+    "tribalpower:sunbark_button",
+    "tribalpower:gloomcap_button"
   ]
 }

@@ -48,23 +48,27 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
 
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
 
+    /** The slot lists are fixed per device; hoppers ask for them every tick, so they are built once. */
+    private int[] inputSlotCache, outputSlotCache;
+
     @Override
     public int[] inputSlots(net.minecraft.core.Direction face) {
-        int n = 0;
-        for (int i = 0; i < size; i++) if (!isOutputSlot(i)) n++;
-        int[] out = new int[n];
-        int j = 0;
-        for (int i = 0; i < size; i++) if (!isOutputSlot(i)) out[j++] = i;
-        return out;
+        if (inputSlotCache == null) inputSlotCache = slots(false);
+        return inputSlotCache;
     }
 
     @Override
     public int[] outputSlots(net.minecraft.core.Direction face) {
+        if (outputSlotCache == null) outputSlotCache = slots(true);
+        return outputSlotCache;
+    }
+
+    private int[] slots(boolean output) {
         int n = 0;
-        for (int i = 0; i < size; i++) if (isOutputSlot(i)) n++;
+        for (int i = 0; i < size; i++) if (isOutputSlot(i) == output) n++;
         int[] out = new int[n];
         int j = 0;
-        for (int i = 0; i < size; i++) if (isOutputSlot(i)) out[j++] = i;
+        for (int i = 0; i < size; i++) if (isOutputSlot(i) == output) out[j++] = i;
         return out;
     }
 

@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.wildlife;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -138,7 +137,7 @@ public class LoomSwiftEntity extends AmbientCreature implements WildBreeding.Bre
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return random.nextInt(4) == 0 ? SoundEvents.PARROT_AMBIENT : null;
+        return random.nextInt(4) == 0 ? tk.darrow.tribalpower.sound.ModSounds.creature("loom_swift","ambient") : null;
     }
 
     @Override
@@ -148,12 +147,12 @@ public class LoomSwiftEntity extends AmbientCreature implements WildBreeding.Bre
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.PARROT_HURT;
+        return tk.darrow.tribalpower.sound.ModSounds.creature("loom_swift","hurt");
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PARROT_DEATH;
+        return tk.darrow.tribalpower.sound.ModSounds.creature("loom_swift","death");
     }
 
     @Override

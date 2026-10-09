@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_hoar_peaks",
+    "tribalpower:march_veil_flats"
   ]
 }

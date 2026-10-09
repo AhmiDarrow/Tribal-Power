@@ -57,12 +57,12 @@ public class SpiritgearAxeItem extends AxeItem {
             } else if (voice == Attunement.AIR) {
                 extraLog(player, stack, pos);
                 extraLog(player, stack, pos.relative(player.getDirection()));
-            } else if (voice == Attunement.WATER && SpiritGear.chance(player, player.getRandom(), stack, 0.15F)) {
+            } else if (voice == Attunement.WATER && SpiritGear.chance(player, player.getRandom(), stack, (float) tk.darrow.tribalpower.config.TribalConfig.axeWaterSaplingChance())) {
                 net.minecraft.world.level.block.Block.popResource(level, pos, new ItemStack(Blocks.OAK_SAPLING));
             } else if (voice == Attunement.SPIRIT && level instanceof ServerLevel server) {
                 for (LivingEntity mob : server.getEntitiesOfClass(LivingEntity.class,
-                        player.getBoundingBox().inflate(8), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile)) {
-                    mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 80, 0));
+                        player.getBoundingBox().inflate(tk.darrow.tribalpower.config.TribalConfig.axeSpiritGlowRange()), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile)) {
+                    mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, tk.darrow.tribalpower.config.TribalConfig.axeSpiritGlowTicks(), 0));
                 }
             }
         }
@@ -101,7 +101,5 @@ public class SpiritgearAxeItem extends AxeItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.tribalpower.spiritgear.desc"));
         SpiritGear.appendTooltip(stack, tooltip, flag);
-        if (SpiritGear.voice(stack).orElse(null) == Attunement.EARTH)
-            tooltip.add(Component.translatable("item.tribalpower.spiritgear_axe.earth").withStyle(net.minecraft.ChatFormatting.DARK_GREEN));
     }
 }

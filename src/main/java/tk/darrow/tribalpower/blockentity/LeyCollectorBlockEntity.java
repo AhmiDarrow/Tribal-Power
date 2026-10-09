@@ -106,6 +106,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         // The same cached ley reading the tick uses: the lens asks every collector on a network once a second,
         // and a fresh LeyField sample per ask was the dearest thing in that packet.
         var ley = reading(world, pos);
+        // a fresh survey: the beat must match what the land is now, not what it was at the last beat (the game tests pin this)
         int gain = beatFor(tk.darrow.tribalpower.ley.LeyMath.factors(world, pos, ley).gain());
         gain = (int) Math.round(gain * (ley == null ? tk.darrow.tribalpower.event.LeySurges.multiplier(world, pos)
                 : tk.darrow.tribalpower.event.LeySurges.multiplier(world, ley)));

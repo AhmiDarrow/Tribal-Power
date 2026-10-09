@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tribalpower:block/salt_pillar_top",
+    "side": "tribalpower:block/salt_pillar"
+  }
+}

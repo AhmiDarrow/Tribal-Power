@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_moss"
+    "tribalpower:march_moss",
+    "tribalpower:silence_weave",
+    "tribalpower:hoarmoss",
+    "tribalpower:glowmoss"
   ]
 }

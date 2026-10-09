@@ -21,7 +21,11 @@ public enum MarchWeather {
     ASHFALL("march_ember_wastes", Attunement.FIRE, Attunement.AIR, ParticleTypes.ASH, 0.36F, 0.30F, 0.28F, 40),
     GLIMMER_STORM("march_crystal_fields", Attunement.SPIRIT, Attunement.EARTH, ParticleTypes.END_ROD, 0.72F, 0.66F, 0.90F, 56),
     WHITEOUT("march_snow_fields", Attunement.AIR, Attunement.WATER, ParticleTypes.SNOWFLAKE, 0.90F, 0.92F, 0.96F, 22),
-    FEN_MIST("march_reed_fen", Attunement.WATER, Attunement.FIRE, ParticleTypes.CLOUD, 0.58F, 0.66F, 0.60F, 30);
+    FEN_MIST("march_reed_fen", Attunement.WATER, Attunement.FIRE, ParticleTypes.CLOUD, 0.58F, 0.66F, 0.60F, 30),
+    // The March, full breadth: a frozen coast, the salt flats and the spore-laden mire.
+    RIME_FOG("march_frost_shore", Attunement.WATER, Attunement.FIRE, ParticleTypes.SNOWFLAKE, 0.80F, 0.86F, 0.92F, 18),
+    DUST_STORM("march_salt_flats", Attunement.AIR, Attunement.WATER, ParticleTypes.WHITE_ASH, 0.72F, 0.62F, 0.44F, 24),
+    SPORE_DRIFT("march_glowcap_mire", Attunement.SPIRIT, Attunement.WATER, ParticleTypes.MYCELIUM, 0.56F, 0.50F, 0.72F, 28);
 
     public final ResourceKey<Biome> biome;
     public final Attunement favours, hampers;

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/rimebirch_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/rimebirch_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/rimebirch_planks"
+    }
+  }
+}

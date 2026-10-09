@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_snow_fields"
+    "tribalpower:march_snow_fields",
+    "tribalpower:march_rime_spires",
+    "tribalpower:march_frozen_mere",
+    "tribalpower:march_rime_sea",
+    "tribalpower:march_deep_rime_sea"
   ]
 }

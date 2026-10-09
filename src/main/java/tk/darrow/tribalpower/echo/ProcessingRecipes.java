@@ -55,7 +55,7 @@ public final class ProcessingRecipes {
             if (output.isEmpty()) continue;
             LatticeRecipe recipe = new LatticeRecipe("ember_kiln",
                     net.minecraft.world.item.crafting.Ingredient.of(stack.getItem()), output,
-                    10, 32, Attunement.FIRE);
+                    tk.darrow.tribalpower.config.TribalConfig.kilnSeconds(), tk.darrow.tribalpower.config.TribalConfig.kilnPulse(), Attunement.FIRE);
             return new Formula(holder.id(), recipe);
         }
         return null;
@@ -101,7 +101,10 @@ public final class ProcessingRecipes {
     private static volatile Index serverIndex;
     private static volatile Index clientIndex;
 
-    /** Forget both sides' indexes; the next lookup rebuilds from the live recipe manager. */
+    /**
+     * Forget both sides' indexes; the next lookup rebuilds from the live recipe manager. Called on every tag
+     * reload and when the server stops, so a stopped world's recipe manager is not held by the server index.
+     */
     public static void invalidate() {
         serverIndex = null;
         clientIndex = null;

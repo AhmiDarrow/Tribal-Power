@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.wildlife;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -126,21 +125,21 @@ public class MarchSwimmerEntity extends AbstractFish implements WildBreeding.Bre
 
     @Override
     protected SoundEvent getFlopSound() {
-        return kind() == Kind.DRIFT_BELL ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SALMON_FLOP;
+        return tk.darrow.tribalpower.sound.ModSounds.SPIRIT_FLOP.get();
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return kind() == Kind.DRIFT_BELL ? null : SoundEvents.SALMON_AMBIENT;
+        return tk.darrow.tribalpower.sound.ModSounds.creature(kind() == Kind.DRIFT_BELL ? "drift_bell" : "march_swimmer","ambient");
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return kind() == Kind.DRIFT_BELL ? SoundEvents.SLIME_DEATH_SMALL : SoundEvents.SALMON_DEATH;
+        return tk.darrow.tribalpower.sound.ModSounds.creature(kind() == Kind.DRIFT_BELL ? "drift_bell" : "march_swimmer","death");
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return kind() == Kind.DRIFT_BELL ? SoundEvents.SLIME_HURT_SMALL : SoundEvents.SALMON_HURT;
+        return tk.darrow.tribalpower.sound.ModSounds.creature(kind() == Kind.DRIFT_BELL ? "drift_bell" : "march_swimmer","hurt");
     }
 }

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_reed_fen"
+    "tribalpower:march_reed_fen",
+    "tribalpower:march_deep_shallows",
+    "tribalpower:march_strider_mangrove",
+    "tribalpower:march_deep_cold_shallows"
   ]
 }

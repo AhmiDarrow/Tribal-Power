@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "tribalpower:block/frostcap"
+  },
+  "render_type": "minecraft:cutout"
+}

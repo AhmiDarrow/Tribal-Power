@@ -1,6 +1,16 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_shallows"
+    "tribalpower:march_shallows",
+    "tribalpower:march_frozen_mere",
+    "tribalpower:march_rime_sea",
+    "tribalpower:march_deep_rime_sea",
+    "tribalpower:march_cold_shallows",
+    "tribalpower:march_deep_cold_shallows",
+    "tribalpower:march_loom_river",
+    "tribalpower:march_deep_shallows",
+    "tribalpower:march_warm_shallows",
+    "tribalpower:march_deep_warm_shallows",
+    "tribalpower:march_glass_shallows"
   ]
 }

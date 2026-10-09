@@ -1,0 +1,44 @@
+{
+  "feature": "tribalpower:march_gloomcap",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 8
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "offset": [
+          0,
+          -1,
+          0
+        ],
+        "blocks": [
+          "tribalpower:march_grass",
+          "tribalpower:march_moss",
+          "tribalpower:march_soil",
+          "minecraft:mud",
+          "tribalpower:needle_loam",
+          "tribalpower:hoarmoss",
+          "tribalpower:spore_turf",
+          "tribalpower:glowmoss"
+        ]
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.common.Tags;
 import tk.darrow.tribalpower.blockentity.DrumheartBlockEntity;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.entity.CreatureProfile;
 import tk.darrow.tribalpower.entity.LatticeAnimal;
 import tk.darrow.tribalpower.entity.LatticeMonster;
@@ -28,10 +29,7 @@ import tk.darrow.tribalpower.entity.LatticeMonster;
  * Rift Hound Track: glints the last foe that hurt the owner.
  */
 public final class FamiliarAbilities {
-    public static final int NIGHT_VISION_RANGE=8,ORE_RANGE=6,LIGHT_PERIOD=10;
-    public static final int IMP_RANGE=8,IMP_REFUND=4,IMP_TEMPO_BONUS=2;
-    public static final int BELL_RANGE=8,CLICK_PERIOD=20,CLICK_TICKS=2,CLICK_TRUE_TICKS=4;
-    public static final int WEAVER_RANGE=4,WEAVER_GATHER=8,TRACK_RANGE=48;
+    // Every range, period and refund here is read from TribalConfig's familiars section when it is used.
     private FamiliarAbilities(){}
 
     public static void tick(LatticeAnimal animal) {
@@ -41,16 +39,17 @@ public final class FamiliarAbilities {
         int nvPeriod=animal.lattice().abilityPeriod(40,night);
         int orePeriod=animal.lattice().abilityPeriod(80,night);
         var owner=animal.getOwner();
-        if(time%nvPeriod==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=NIGHT_VISION_RANGE*NIGHT_VISION_RANGE)
+        int sight=TribalConfig.foxSightRange();
+        if(time%nvPeriod==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=sight*sight)
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION,300,0,true,false,true));
         if(time%orePeriod==0 && owner instanceof ServerPlayer player && player.level()==level && player.distanceToSqr(animal)<=48*48)markOres(level,animal,player);
-        if(time%LIGHT_PERIOD==0)carryLight(level,animal);
+        if(time%TribalConfig.foxLightPeriodTicks()==0)carryLight(level,animal);
     }
 
     public static void tickMonster(LatticeMonster monster) {
         if(!(monster.level() instanceof ServerLevel level) || !monster.isBonded() || monster.isBaby())return;
         switch(monster.profile()) {
-            case STORM_MOTH -> { if(monster.isSitting() && level.getGameTime()%CLICK_PERIOD==0)placeClick(level,monster); }
+            case STORM_MOTH -> { if(monster.isSitting() && level.getGameTime()%TribalConfig.mothClickPeriodTicks()==0)placeClick(level,monster); }
             case MOURNING_BELL -> { if(!monster.isSitting())cleanse(level,monster); }
             case ECHO_WEAVER -> { if(!monster.isSitting())forage(level,monster); }
             case RIFT_HOUND -> track(level,monster);
@@ -58,10 +57,10 @@ public final class FamiliarAbilities {
         }
     }
 
-    /** End-rod glints on every ore block within {@link #ORE_RANGE}, visible only to the owner. */
+    /** End-rod glints on every ore block within the fox's ore range, visible only to the owner. */
     public static int markOres(ServerLevel level,LatticeAnimal animal,ServerPlayer owner) {
-        BlockPos center=animal.blockPosition();int marked=0;
-        for(BlockPos pos:BlockPos.betweenClosed(center.offset(-ORE_RANGE,-ORE_RANGE,-ORE_RANGE),center.offset(ORE_RANGE,ORE_RANGE,ORE_RANGE))) {
+        BlockPos center=animal.blockPosition();int marked=0;int range=TribalConfig.foxOreRange();
+        for(BlockPos pos:BlockPos.betweenClosed(center.offset(-range,-range,-range),center.offset(range,range,range))) {
             if(!level.getBlockState(pos).is(Tags.Blocks.ORES))continue;
             level.sendParticles(owner,ParticleTypes.END_ROD,true,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,3,.35,.35,.35,0);
             if(++marked>=96)break;
@@ -96,7 +95,7 @@ public final class FamiliarAbilities {
         var state=level.getBlockState(pos);
         if(!state.isAir() && !state.is(FamiliarRegistry.SPIRIT_CLICK.get()))return false;
         if(!level.getWorldBorder().isWithinBounds(pos))return false;
-        int hold=moth.lattice().expressed(FamiliarData.Mark.CLICK_TRUE)?CLICK_TRUE_TICKS:CLICK_TICKS;
+        int hold=moth.lattice().expressed(FamiliarData.Mark.CLICK_TRUE)?TribalConfig.mothClickTrueTicks():TribalConfig.mothClickTicks();
         level.setBlock(pos,FamiliarRegistry.SPIRIT_CLICK.get().defaultBlockState(),3);
         level.scheduleTick(pos,FamiliarRegistry.SPIRIT_CLICK.get(),hold);
         moth.setLastClick(pos.immutable());
@@ -114,11 +113,12 @@ public final class FamiliarAbilities {
      * At most one Imp refunds per beat so two helpers cannot farm Pulse.
      */
     public static int onOwnerDrum(ServerLevel level,BlockPos drum,Player player,DrumheartBlockEntity be) {
-        AABB box=new AABB(drum).inflate(IMP_RANGE);
+        int range=TribalConfig.impRange();
+        AABB box=new AABB(drum).inflate(range);
         for(LatticeMonster imp:level.getEntitiesOfClass(LatticeMonster.class,box,m->m.isAlive()
                 && m.profile()==CreatureProfile.CINDER_IMP && m.isOwnedBy(player) && !m.isSitting() && !m.isBaby())) {
-            if(imp.distanceToSqr(drum.getX()+.5,drum.getY()+.5,drum.getZ()+.5)>IMP_RANGE*IMP_RANGE)continue;
-            int extra=IMP_REFUND+(imp.lattice().expressed(FamiliarData.Mark.TEMPO)?IMP_TEMPO_BONUS:0);
+            if(imp.distanceToSqr(drum.getX()+.5,drum.getY()+.5,drum.getZ()+.5)>range*range)continue;
+            int extra=TribalConfig.impRefund()+(imp.lattice().expressed(FamiliarData.Mark.TEMPO)?TribalConfig.impTempoBonus():0);
             int gained=be.insertPulse(extra,false);
             if(gained>0)level.sendParticles(ParticleTypes.FLAME,imp.getX(),imp.getY()+imp.getBbHeight()*.6,imp.getZ(),4,.2,.2,.2,.01);
             return gained;
@@ -130,7 +130,8 @@ public final class FamiliarAbilities {
     public static int cleanse(ServerLevel level,LatticeMonster bell) {
         var owner=bell.getOwner();
         if(!(owner instanceof ServerPlayer player) || player.level()!=level)return 0;
-        if(player.distanceToSqr(bell)>BELL_RANGE*BELL_RANGE)return 0;
+        int range=TribalConfig.bellRange();
+        if(player.distanceToSqr(bell)>range*range)return 0;
         long time=level.getGameTime();
         int period=bell.lattice().abilityPeriod(80,!level.isDay());
         if(time%period!=0 && time!=0)return 0;
@@ -149,7 +150,7 @@ public final class FamiliarAbilities {
     }
 
     public static int forage(ServerLevel level,LatticeMonster weaver) {
-        double range=weaver.lattice().expressed(FamiliarData.Mark.GATHER)?WEAVER_GATHER:WEAVER_RANGE;
+        double range=weaver.lattice().expressed(FamiliarData.Mark.GATHER)?TribalConfig.weaverGatherRange():TribalConfig.weaverRange();
         int taken=0;
         for(ItemEntity drop:level.getEntitiesOfClass(ItemEntity.class,weaver.getBoundingBox().inflate(range),
                 e->e.isAlive() && !e.hasPickUpDelay() && !e.getItem().isEmpty())) {
@@ -191,7 +192,7 @@ public final class FamiliarAbilities {
             hound.setLastOwnerAttacker(null);
             return;
         }
-        if(!hound.getBoundingBox().inflate(TRACK_RANGE).intersects(living.getBoundingBox()))return;
+        if(!hound.getBoundingBox().inflate(TribalConfig.houndTrackRange()).intersects(living.getBoundingBox()))return;
         level.sendParticles(player,ParticleTypes.END_ROD,true,living.getX(),living.getY()+living.getBbHeight()*.6,living.getZ(),6,.25,.4,.25,.01);
     }
 }

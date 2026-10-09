@@ -28,6 +28,7 @@ import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.blockentity.ResonanceTotemBlockEntity;
 import tk.darrow.tribalpower.camp.CampHooks;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.item.SpiritGear;
 import tk.darrow.tribalpower.lattice.Keeping;
@@ -37,31 +38,31 @@ import tk.darrow.tribalpower.world.ModDimensions;
 
 /**
  * Familiars and totems lean on each other. A bonded familiar takes a voice at a Resonance Totem: bring it within
- * {@link #ATTUNE_RANGE} blocks and sneak-use a Bonding Charm on the totem. While it follows its keeper within
- * {@link #RANGE} blocks (or is the nearest one left sitting there), that voice's magic is cheaper and stronger: Spirit
+ * {@link #attuneRange()} blocks and sneak-use a Bonding Charm on the totem. While it follows its keeper within
+ * {@link #range()} blocks (or is the nearest one left sitting there), that voice's magic is cheaper and stronger: Spirit
  * Charms, Spiritgear, songs and rites. Near a totem of its own voice it keeps the totem answered. Without an attuned
  * familiar every helper here hands back what it was given, so no magic is weaker than it was before familiars took
  * voices.
  */
 public final class FamiliarBoost {
-    /** Keeper to familiar, for the boost. */
-    public static final int RANGE = 16;
-    /** Totem to familiar, when attuning. */
-    public static final int ATTUNE_RANGE = 6;
+    /** Keeper to familiar, for the boost (TribalConfig familiarBoostRange). */
+    public static int range() { return TribalConfig.familiarBoostRange(); }
+    /** Totem to familiar, when attuning (TribalConfig familiarAttuneRange). */
+    public static int attuneRange() { return TribalConfig.familiarAttuneRange(); }
     /** Familiar to the totems of its voice that it keeps answered. */
     public static final int KEEP_RANGE = LatticeNetwork.DEFAULT_RADIUS;
     public static final int KEEP_PERIOD = 200, SHIMMER_PERIOD = 60;
     /** Share of the Pulse an attuned familiar takes off its voice's charms and Spiritgear. */
-    public static final float DISCOUNT = 0.4F;
+    public static float discount() { return (float) TribalConfig.familiarDiscount(); }
     /** Spiritgear voice perks of the familiar's voice fire this much more often. */
-    public static final float GEAR_PERK = 1.5F;
+    public static float gearPerk() { return (float) TribalConfig.familiarGearPerk(); }
     /** Songs of the voice strike this much harder, and a call reaches this much further. */
-    public static final float SONG_DAMAGE = 1.3F;
-    public static final double SONG_REACH = 1.5;
+    public static float songDamage() { return (float) TribalConfig.familiarSongDamage(); }
+    public static double songReach() { return TribalConfig.familiarSongReach(); }
     /** Rite blessings of the voice last this much longer. */
-    public static final float RITE_BLESSING = 1.5F;
+    public static float riteBlessing() { return (float) TribalConfig.familiarRiteBlessing(); }
     /** A charm's extra effects outlast the 4-second refresh, so they linger a few seconds after you part. */
-    public static final int BOON_TICKS = 200;
+    public static int boonTicks() { return TribalConfig.familiarBoonTicks(); }
 
     /** The voices near a keeper, trusted for a second: the charm upkeep asks every tick. */
     private static final int REFRESH = 20;
@@ -84,7 +85,7 @@ public final class FamiliarBoost {
         if (seen != null && seen.where() == level.dimension() && now >= seen.at() && now - seen.at() < REFRESH) return seen.voices();
         Set<Attunement> found = EnumSet.noneOf(Attunement.class);
         Familiar sitter = null;
-        for (Familiar familiar : owned(level, player, player.position(), RANGE)) {
+        for (Familiar familiar : owned(level, player, player.position(), range())) {
             if (familiar.lattice().voice() == null) continue;
             if (!familiar.isSitting()) found.add(familiar.lattice().voice());
             else if (sitter == null || familiar.asMob().distanceToSqr(player) < sitter.asMob().distanceToSqr(player)) sitter = familiar;
@@ -116,7 +117,7 @@ public final class FamiliarBoost {
     // ---- the boosts -----------------------------------------------------------------------------------------
 
     public static int discounted(int cost) {
-        return cost <= 0 ? cost : Math.max(1, Math.round(cost * (1 - DISCOUNT)));
+        return cost <= 0 ? cost : Math.max(1, Math.round(cost * (1 - discount())));
     }
 
     /** One worn charm's upkeep: cheaper when any of its voices is one a familiar near you carries. */
@@ -128,29 +129,29 @@ public final class FamiliarBoost {
 
     /**
      * What a Spiritgear piece spends: cheaper when its linked voice is one a familiar near you carries. A 1-Pulse
-     * spend cannot round any lower, so it is free {@link #DISCOUNT} of the time instead.
+     * spend cannot round any lower, so it is free {@link #discount()} of the time instead.
      */
     public static int gearCost(Player player, ItemStack gear, int amount) {
         if (amount <= 0 || !boosts(player, SpiritGear.voice(gear).orElse(null))) return amount;
-        if (amount == 1) return player.getRandom().nextFloat() < DISCOUNT ? 0 : 1;
+        if (amount == 1) return player.getRandom().nextFloat() < discount() ? 0 : 1;
         return discounted(amount);
     }
 
     /** A Spiritgear voice perk's odds: higher when its linked voice is one a familiar near you carries. */
     public static float gearChance(Player player, ItemStack gear, float base) {
-        return player != null && boosts(player, SpiritGear.voice(gear).orElse(null)) ? Math.min(1F, base * GEAR_PERK) : base;
+        return player != null && boosts(player, SpiritGear.voice(gear).orElse(null)) ? Math.min(1F, base * gearPerk()) : base;
     }
 
     public static float songDamage(Player player, Attunement voice, float damage) {
-        return boosts(player, voice) ? damage * SONG_DAMAGE : damage;
+        return boosts(player, voice) ? damage * songDamage() : damage;
     }
 
     public static double songReach(Player player, Attunement voice, double radius) {
-        return boosts(player, voice) ? radius + SONG_REACH : radius;
+        return boosts(player, voice) ? radius + songReach() : radius;
     }
 
     public static int riteBlessing(Player player, Attunement voice, int ticks) {
-        return boosts(player, voice) ? Math.round(ticks * RITE_BLESSING) : ticks;
+        return boosts(player, voice) ? Math.round(ticks * riteBlessing()) : ticks;
     }
 
     /** Fire's worn charms burn an attacker twice as long when a Fire familiar is near. */
@@ -175,7 +176,7 @@ public final class FamiliarBoost {
                 case FIRE -> player.addEffect(boon(MobEffects.DIG_SPEED, 0));
                 case SPIRIT -> {
                     // the lantern's sight: hostile things nearby show through walls
-                    for (LivingEntity foe : player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(RANGE), FamiliarRoster::hostile))
+                    for (LivingEntity foe : player.level().getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(range()), FamiliarRoster::hostile))
                         foe.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0, true, false));
                 }
             }
@@ -183,21 +184,21 @@ public final class FamiliarBoost {
     }
 
     private static MobEffectInstance boon(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effect, int amplifier) {
-        return new MobEffectInstance(effect, BOON_TICKS, amplifier, true, false, true);
+        return new MobEffectInstance(effect, boonTicks(), amplifier, true, false, true);
     }
 
     // ---- attuning at a totem --------------------------------------------------------------------------------
 
     /**
-     * Gives the totem's voice to the keeper's nearest grown familiar within {@link #ATTUNE_RANGE} that does not
+     * Gives the totem's voice to the keeper's nearest grown familiar within {@link #attuneRange()} that does not
      * already carry it. Returns the familiar, or null with a message saying why not.
      */
     public static Familiar attune(ServerLevel level, Player player, BlockPos base, Attunement voice) {
         Vec3 at = base.getCenter();
-        List<Familiar> near = owned(level, player, at, ATTUNE_RANGE);
+        List<Familiar> near = owned(level, player, at, attuneRange());
         near.removeIf(f -> f.asMob().isBaby());
         if (near.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.familiar.attune_none", ATTUNE_RANGE), true);
+            player.displayClientMessage(Component.translatable("message.tribalpower.familiar.attune_none", attuneRange()), true);
             return null;
         }
         near.sort(Comparator.comparingDouble(f -> f.asMob().distanceToSqr(at)));
@@ -233,7 +234,7 @@ public final class FamiliarBoost {
             return;
         }
         // only a familiar close enough to attune right now earns a hint, so plain clicks do not fill the chat
-        owned(level, player, base.getCenter(), ATTUNE_RANGE).stream().filter(f -> !f.asMob().isBaby()).findFirst().ifPresent(f ->
+        owned(level, player, base.getCenter(), attuneRange()).stream().filter(f -> !f.asMob().isBaby()).findFirst().ifPresent(f ->
                 player.displayClientMessage(Component.translatable("message.tribalpower.familiar.attune_hint",
                         f.asMob().getDisplayName(), voiceName(voice)), false));
     }

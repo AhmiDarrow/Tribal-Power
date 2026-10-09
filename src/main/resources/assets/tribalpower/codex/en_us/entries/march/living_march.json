@@ -15,7 +15,7 @@
       "type": "text",
       "title": "March weather",
       "text": [
-        "Four of the March's countries have weather of their own, beyond rain: **Ashfall** in the Ember Wastes, a **Glimmer Storm** over the Crystal Fields, a **Whiteout** on the Snow Fields and **Fen Mist** in the Reed Fen.",
+        "Seven of the March's countries have weather of their own, beyond rain: **Ashfall** in the Ember Wastes, a **Glimmer Storm** over the Crystal Fields, a **Whiteout** on the Snow Fields, **Fen Mist** in the Reed Fen, **Rime Fog** on the Frost Shore, a **Dust Storm** over the Salt Flats and **Spore Drift** in the Glowcap Mire.",
         "Each closes the world in: you see less, and spirits rise by day under it as they would at night.",
         "Each kind sets in about once a game day and lasts **8 to 20 minutes**. The Codex page above tells you what is running; so does the sky."
       ]
@@ -29,6 +29,9 @@
         "- A **Glimmer Storm** feeds Wake Bells and dulls Drumhearts.",
         "- A **Whiteout** drives Wind Harps and freezes Wave Drums.",
         "- **Fen Mist** swells Wave Drums and damps Ember Horns.",
+        "- **Rime Fog** on the Frost Shore swells Wave Drums and chokes Ember Horns.",
+        "- A **Dust Storm** on the Salt Flats drives Wind Harps and dries Wave Drums.",
+        "- **Spore Drift** in the Glowcap Mire feeds Wake Bells and damps Wave Drums.",
         "**Weather gives warning.** Two minutes before a weather settles, the March says so, in chat and over the hotbar: time to reach a roof, a camp or a gate. A surge is called the same way."
       ]
     },

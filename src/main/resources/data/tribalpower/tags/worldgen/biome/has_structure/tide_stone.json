@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_shallows"
+    "tribalpower:march_shallows",
+    "tribalpower:march_frost_shore",
+    "tribalpower:march_grey_shore",
+    "tribalpower:march_silt_strand"
   ]
 }

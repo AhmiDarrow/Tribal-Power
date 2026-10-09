@@ -27,25 +27,26 @@ public class ResonanceMaulItem extends PickaxeItem {
         Direction.Axis axis = context.getClickedFace().getAxis();
         BlockPos center = context.getClickedPos();
         int broken = 0;
+        int perBlock = tk.darrow.tribalpower.config.TribalConfig.maulBlockPulse();
         for (int a = -1; a <= 1; a++) for (int b = -1; b <= 1; b++) {
             BlockPos pos = switch(axis) { case X -> center.offset(0, a, b); case Y -> center.offset(a, 0, b); case Z -> center.offset(a, b, 0); };
             var state = player.level().getBlockState(pos);
             if (context.getItemInHand().isEmpty() || !state.is(BlockTags.MINEABLE_WITH_PICKAXE) || state.getDestroySpeed(player.level(), pos) < 0
                     || !context.getItemInHand().isCorrectToolForDrops(state) || !player.level().mayInteract(player, pos)
                     || !player.mayUseItemAt(pos, context.getClickedFace(), context.getItemInHand())) continue;
-            if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < 8) break;
+            if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < perBlock) break;
             ItemStack maul = context.getItemInHand();
             int[] wear = {0};
             if (SpiritGear.held(maul, wear, () -> player.gameMode.destroyBlock(pos))) {
                 // Paid, the block wears nothing; a block the Pulse somehow could not cover wears as any pick's would.
-                if (!GearCell.spend(player, maul, 8) && wear[0] > 0) maul.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
+                if (!GearCell.spend(player, maul, perBlock) && wear[0] > 0) maul.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
                 broken++;
             } else if (wear[0] > 0) maul.hurtAndBreak(wear[0], player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
         }
         if (broken > 0) {
             SpiritEffects.ring(player.serverLevel(), center.getCenter(), Attunement.EARTH, 1.3, 16);
             player.getCooldowns().addCooldown(this, 20);
-        } else if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < 8) SpiritgearHelper.notifyStarved(player);
+        } else if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < perBlock) SpiritgearHelper.notifyStarved(player);
         else player.displayClientMessage(Component.translatable("message.tribalpower.maul.nothing"), true);
         return InteractionResult.CONSUME;
     }

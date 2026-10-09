@@ -2,7 +2,7 @@
 
 <img src="docs/public/tribal-power-icon-400.png" alt="Tribal Power spirit totem logo" width="256" />
 
-Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 5.6.3.
+Shamanic technomancy for Minecraft Java 1.21.1, NeoForge 21.1.249. Version 6.0.0.
 
 Build a camp that answers you: rhythmic power, elemental workshops, woven equipment, sustained rites, paths between worlds, and the Nine Tribes who once kept the Loom. Tribal Power works by itself and forms the Tribal Weave progression in Ninjacat Skies.
 
@@ -12,7 +12,7 @@ Authors: Ahmi & Risika Darrow. GNU GPL v3; see License.txt.
 
 `master` is the active Minecraft 1.21.1 / NeoForge version. The former rewrite branch has been incorporated into it.
 
-- [Current 5.6.3 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
+- [Current 6.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/master)
 - [Previous 4.0.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v4.0.0)
 - [Previous 3.8.0 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.8.0)
 - [Previous 3.7.1 source](https://github.com/AhmiDarrow/Tribal-Power/tree/v3.7.1)
@@ -136,7 +136,7 @@ Use a standard ingredient, including compatible mod ingredients. Station names a
 
 ## The Nine Tribes
 
-Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered them. Their camps still stand: Pad-keepers (plains), Grit-singers (mountains), Rootbinders (forests), Edge-walkers (taiga), Drumhearts (savanna), Pattern-weavers (birch), Colony-keepers (flower meadows), Seal-carvers (dark forests) and Loom-stitchers (the March crystal fields only). Every tribe also keeps a March camp. Each camp holds four **Tribal Kin**: an Elder who trades, a Drummer whose beat feeds 2 Pulse into a Drumheart, Ley Collector or Pulse Resonator within eight blocks, a Hunter who strikes hostiles within twelve blocks, and a Weaver who returns to the loom in their hut every minute or so to work it. Kin never despawn and wander within sixteen blocks of their camp.
+Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered them. Their camps still stand: Pad-keepers (plains), Grit-singers (mountains), Rootbinders (forests), Edge-walkers (taiga), Drumhearts (savanna), Pattern-weavers (birch), Colony-keepers (flower meadows), Seal-carvers (dark forests) and Loom-stitchers (the March only). Every tribe also keeps a March camp. Each camp holds four **Tribal Kin**: an Elder who trades, a Drummer whose beat feeds 2 Pulse into a Drumheart, Ley Collector or Pulse Resonator within eight blocks, a Hunter who strikes hostiles within twelve blocks, and a Weaver who returns to the loom in their hut every minute or so to work it. Kin never despawn and wander within sixteen blocks of their camp.
 
 - **Standing:** right-click a **Tribe Hearth** with a favoured item (+3), the tribe's reagent (+8), any food (+1) or a charged Pulse Cell (+2 per 10 Pulse, up to 40 drained). Hostile kills within 24 blocks of a hearth give +1 (twenty per day per tribe); a completed trade gives +2. Hurting Kin costs 25 and turns the Hunters on you for a minute; breaking a tribe banner costs 5, the hearth 40. Generic camp blocks do not cost standing. Ranks: Guest 50, Friend 150, Kin 400, Voice 800. `/tribalpower standing [player]` prints all nine. A comparator on the hearth reads the last visitor's rank.
 - **Trades:** Elders open a merchant screen with two offers per rank (Guest, Friend, Kin), paid in the tribe's favoured items and Echo tiers. At Voice the Elder gives a **Tribe Mark** once. Camp members trade at the camp's standing when it beats their own.
@@ -148,7 +148,7 @@ Nine tribes kept the Loom of Worlds, one Strand each, until the Cut scattered th
 - **Ancestor Halls** (March steppe and highlands): sunken three-room halls with four **Lore Tablets** on the walls, two loot chests (Loom Thread, echoes, Spiritweave, seals) and Hollow Sentinels in the side rooms. Right-click a tablet to read it; each of the twelve tablets becomes a Codex entry once read (the Spirit Codex shows tablet pages and tribe crest pages you have earned without the spoiler veil; the Voice-rank Tribe Mark unlocks a tribe's page).
 - **Drum Circle** (March highlands): twelve pillars around a **Silent Drum**. Strike the drum empty-handed or with a Bone Chime; four beats 16 to 28 ticks apart wake **The Unsung**, once per twenty minutes of real time per drum, and only when the drum stands on its altar (polished deepslate under it, a candle at each of the four corners). A drum without that altar keeps the rhythm and does not call anything.
 - **The Unsung:** a hollow drum-spirit, 400 health, armour 8, with a boss bar. Beat phase: a shockwave every three seconds deals 6 to unbraced players within eight blocks (sneak to brace for half and no knockback); swipes deal 10. Chorus (below two thirds): two Echo Weavers every eight seconds, up to six, shockwaves every 2.5 seconds. Silence (below one third): invulnerable over the drum, casting slow weaving bolts; strike the four-beat on the Silent Drum to stun it for eight seconds at double damage. Drops an Unsung Heart, 16 to 24 Loom Thread and 4 Resonant Cores; resets after thirty seconds with no player within 48 blocks.
-- **Crystal Spire** (crystal fields): a March Crystal spire with the Loom-stitchers' waystation at its foot, their only camp.
+- **Crystal Spire** (crystal fields): a March Crystal spire with the Loom-stitchers' waystation at its foot.
 
 ## The sixth voice
 
@@ -195,6 +195,10 @@ A **Bonding Charm** (two Spiritweave, a Spirit Shard and Lantern Down, Mossback 
 
 Sneak-use the Spirit Codex on any Tribal block: stored Pulse, every generator within eight blocks with its output this second, attunements present, drawable Pulse and redstone state. Workshops name their recipe and any missing voice or full output; relays report unloaded or locked endpoints; braziers list the rites their seal allows. Blocks implement `Diagnosable`; others get a default report.
 
+## The Wide March, 6.0
+
+6.0.0 grows the March from eight lands to **fifty-nine**, one more per climate band than the Overworld: frozen, cold, temperate, warm and hot bands with their seas, shores, rivers, peaks and highlands, and four lands underground. Nine new **woods** (Rimebirch, Thornfir, Songmaple, Veilwood, Chimeblossom, Drumpalm, Tanglewood, Sunbark, Gloomcap) with saplings, planks and the full wood set; thirty-four new ground and plant blocks; three new weathers (rime fog, dust storm, spore drift). Every tribe keeps a **camp** in every band and the bands have **tribal villages** of their own. **Pieces of the old world** hang in the sky over the peaks and the Weeping Colossi: clusters of floating crags, bridged by giant vines and held down by roots you can climb. Existing worlds should delete the March dimension folder before updating; the release notes say how.
+
 ## The March, 4.x
 
 The 4.x releases give the March a life of its own. Tribe **Elders talk**: conversations, daily requests, a seven-step story per tribe ending at a **guardian trial**, and a relic for each. Eight **guardians** keep the eight March countries, called from altars at their grounds; The Unsung keeps the ninth trial, and the **Ninth Agreement** rite closes the story for anyone carrying all nine relics. The March has **weather** of its own, **ley surges**, tribe **festival days** and **wandering spirits**, and its own music. Its history is carved into **Carved Stones** and **Murals** that the Codex's **Chronicle** assembles, and the Codex's *Where to go next* page keeps one concrete **next step** in view.
@@ -238,6 +242,6 @@ Night skies carry an animated aurora and nine small constellations. The March ha
 
 ## Illustrated Spirit Codex
 
-Use the Spirit Codex item for an interactive native wiki: searchable teachings (210, with nine tribe crests, the March structures, the twelve Lore Tablets and walkthroughs), a picture on every 3.0 page (thirteen creature portraits plus the Kin, The Unsung and the bonded familiars, and Blender vignettes of the real block models for the structures, rites, camps, ley sight, Pulse logic and diagnostics), a per-system animated diagram on every page (tribe offerings, the Unsung's four-beat and boss bar, Echo Unweave running the lattice backwards, the six rites' effects, familiar tricks, the ley grid, the Pulse Gauge driving a lamp), bookmarks, related-page links, and crafting/Echo recipe and use cards from the current world. No other mod is required; JEI is optional. Advanced discoveries and the full recipe graph require an explicit spoiler choice per reading session. Pictures on spoiler-free pages are limited to the page's own item. Hide spoilers returns to the safe landing page. Motion toggles animation; scroll or use Page Up / Page Down to read longer pages.
+Use the Spirit Codex item for an interactive native wiki: searchable teachings (224, with nine tribe crests, the March structures, the twelve Lore Tablets and walkthroughs), a picture on every 3.0 page (thirteen creature portraits plus the Kin, The Unsung and the bonded familiars, and Blender vignettes of the real block models for the structures, rites, camps, ley sight, Pulse logic and diagnostics), a per-system animated diagram on every page (tribe offerings, the Unsung's four-beat and boss bar, Echo Unweave running the lattice backwards, the six rites' effects, familiar tricks, the ley grid, the Pulse Gauge driving a lamp), bookmarks, related-page links, and crafting/Echo recipe and use cards from the current world. No other mod is required; JEI is optional. Advanced discoveries and the full recipe graph require an explicit spoiler choice per reading session. Pictures on spoiler-free pages are limited to the page's own item. Hide spoilers returns to the safe landing page. Motion toggles animation; scroll or use Page Up / Page Down to read longer pages.
 
 ![Spirit Codex](docs/images/codex-cover.png)

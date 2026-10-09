@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:tribe_camp_soil_frozen",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 14,
+    "salt": 8107033
+  }
+}

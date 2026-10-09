@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:drumpalm_log",
+    "tribalpower:drumpalm_wood",
+    "tribalpower:stripped_drumpalm_log",
+    "tribalpower:stripped_drumpalm_wood"
+  ]
+}

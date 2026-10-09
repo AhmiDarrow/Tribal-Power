@@ -81,7 +81,7 @@ public class SpiritgearRattleItem extends Item {
         int rank = SpiritGear.rank(rattle);
         float heal = (float) (TribalConfig.rattleHeal() * (1 + rank * TribalConfig.rattleRankBonus()));
         Attunement voice = SpiritGear.voice(rattle).orElse(null);
-        if (voice == Attunement.WATER) heal *= 1.5F;
+        if (voice == Attunement.WATER) heal *= (float) TribalConfig.rattleWaterBonus();
         patient.heal(heal);
         if (rank >= 2) {
             var sickness = patient.getEffect(HealingRegistry.SPIRIT_SICKNESS);
@@ -94,10 +94,10 @@ public class SpiritgearRattleItem extends Item {
         if (voice != null) switch (voice) {
             case SPIRIT -> List.copyOf(patient.getActiveEffects()).stream()
                     .filter(effect -> !effect.getEffect().value().isBeneficial()).forEach(effect -> patient.removeEffect(effect.getEffect()));
-            case EARTH -> patient.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, true, false, true));
-            case FIRE -> patient.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 60, 0, true, false, true));
-            case AIR -> patient.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 40, 0, true, false, true));
-            case LOOM -> patient.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 40, 0, true, false, true));
+            case EARTH -> patient.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, TribalConfig.rattleVoiceTicks(), 0, true, false, true));
+            case FIRE -> patient.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, TribalConfig.rattleFireTicks(), 0, true, false, true));
+            case AIR -> patient.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, TribalConfig.rattleVoiceTicks(), 0, true, false, true));
+            case LOOM -> patient.addEffect(new MobEffectInstance(MobEffects.REGENERATION, TribalConfig.rattleVoiceTicks(), 0, true, false, true));
             default -> {}
         }
         if (healer.level() instanceof ServerLevel server) {

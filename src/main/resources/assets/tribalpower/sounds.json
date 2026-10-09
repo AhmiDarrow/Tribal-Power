@@ -364,5 +364,3839 @@
       "tribalpower:block/wind_charm/rod5"
     ],
     "subtitle": "subtitles.tribalpower.wind_charm.rod"
+  },
+  "creature.dawn_stag.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 0.906,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 0.906,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 0.906,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.dawn_stag.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 0.906,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 0.906,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.dawn_stag.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 0.906,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.lantern_fox.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.171,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.171,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.171,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.lantern_fox.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.171,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.171,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.lantern_fox.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.171,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.mossback.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.085,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.085,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.085,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.mossback.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.085,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.085,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.mossback.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.085,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ashbound.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/ambient1",
+        "pitch": 1.049,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient2",
+        "pitch": 1.049,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient3",
+        "pitch": 1.049,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ashbound.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/hurt1",
+        "pitch": 1.049,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/grunt/hurt2",
+        "pitch": 1.049,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ashbound.death": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/death1",
+        "pitch": 1.049,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rootbound.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/ambient1",
+        "pitch": 0.998,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient2",
+        "pitch": 0.998,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient3",
+        "pitch": 0.998,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.rootbound.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/hurt1",
+        "pitch": 0.998,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/grunt/hurt2",
+        "pitch": 0.998,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rootbound.death": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/death1",
+        "pitch": 0.998,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.reed_stalker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 0.986,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 0.986,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 0.986,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.reed_stalker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 0.986,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 0.986,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.reed_stalker.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 0.986,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shardback.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 1.002,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 1.002,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 1.002,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.shardback.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 1.002,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 1.002,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shardback.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 1.002,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.hollow_sentinel.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.moan.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/ambient1",
+        "pitch": 0.987,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient2",
+        "pitch": 0.987,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient3",
+        "pitch": 0.987,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.hollow_sentinel.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.moan.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/hurt1",
+        "pitch": 0.987,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/moan/hurt2",
+        "pitch": 0.987,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.hollow_sentinel.death": {
+    "subtitle": "subtitles.tribalpower.creature.moan.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/death1",
+        "pitch": 0.987,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.storm_moth.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 0.937,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 0.937,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 0.937,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.storm_moth.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 0.937,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 0.937,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.storm_moth.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 0.937,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinder_imp.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/ambient1",
+        "pitch": 1.05,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/crackle/ambient2",
+        "pitch": 1.05,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/crackle/ambient3",
+        "pitch": 1.05,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.cinder_imp.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/hurt1",
+        "pitch": 1.05,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/crackle/hurt2",
+        "pitch": 1.05,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinder_imp.death": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/death1",
+        "pitch": 1.05,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.mourning_bell.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bell.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/ambient1",
+        "pitch": 0.989,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bell/ambient2",
+        "pitch": 0.989,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bell/ambient3",
+        "pitch": 0.989,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.mourning_bell.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bell.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/hurt1",
+        "pitch": 0.989,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bell/hurt2",
+        "pitch": 0.989,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.mourning_bell.death": {
+    "subtitle": "subtitles.tribalpower.creature.bell.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/death1",
+        "pitch": 0.989,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rift_hound.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 1.102,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 1.102,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 1.102,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.rift_hound.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 1.102,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 1.102,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rift_hound.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 1.102,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.echo_weaver.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 1.282,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 1.282,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 1.282,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.echo_weaver.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 1.282,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 1.282,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.echo_weaver.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 1.282,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ash_hopper.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.222,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.222,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.222,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ash_hopper.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.222,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.222,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ash_hopper.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.222,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ridge_grazer.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 1.044,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 1.044,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 1.044,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ridge_grazer.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 1.044,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 1.044,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ridge_grazer.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 1.044,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glimmer_moth.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.243,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.243,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.243,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.glimmer_moth.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.243,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.243,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glimmer_moth.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.243,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.deep_lurker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 1.048,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 1.048,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 1.048,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.deep_lurker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 1.048,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 1.048,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.deep_lurker.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 1.048,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_stalker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 0.869,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 0.869,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 0.869,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.pale_stalker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 0.869,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 0.869,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_stalker.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 0.869,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.dust_flitter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.289,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.289,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.289,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.dust_flitter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.289,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.289,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.dust_flitter.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.289,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.veil_drifter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.005,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.005,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.005,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.veil_drifter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.005,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.005,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.veil_drifter.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.005,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.crag_bounder.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 1.082,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.crag_bounder.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 1.082,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.crag_bounder.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.stone_grub.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/ambient1",
+        "pitch": 1.304,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient2",
+        "pitch": 1.304,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient3",
+        "pitch": 1.304,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.stone_grub.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/hurt1",
+        "pitch": 1.304,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chitter/hurt2",
+        "pitch": 1.304,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.stone_grub.death": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/death1",
+        "pitch": 1.304,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.gloom_crawler.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 1.211,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 1.211,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 1.211,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.gloom_crawler.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 1.211,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 1.211,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.gloom_crawler.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 1.211,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ember_drifter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/ambient1",
+        "pitch": 1.119,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/crackle/ambient2",
+        "pitch": 1.119,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/crackle/ambient3",
+        "pitch": 1.119,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ember_drifter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/hurt1",
+        "pitch": 1.119,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/crackle/hurt2",
+        "pitch": 1.119,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ember_drifter.death": {
+    "subtitle": "subtitles.tribalpower.creature.crackle.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/crackle/death1",
+        "pitch": 1.119,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.magma_creeper.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.321,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.321,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.321,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.magma_creeper.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.321,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.321,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.magma_creeper.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.321,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.tuftback.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.082,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.tuftback.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.082,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.tuftback.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.longshank.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 1.035,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 1.035,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 1.035,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.longshank.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 1.035,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 1.035,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.longshank.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 1.035,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.palewing.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.314,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.314,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.314,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.palewing.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.314,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.314,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.palewing.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.314,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.burrow_gnasher.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 1.24,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 1.24,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 1.24,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.burrow_gnasher.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 1.24,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 1.24,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.burrow_gnasher.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 1.24,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cragcoat.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.082,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.082,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.cragcoat.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.082,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cragcoat.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.082,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bouldersnout.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 0.999,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 0.999,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 0.999,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.bouldersnout.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 0.999,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 0.999,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bouldersnout.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 0.999,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.updrifter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hum.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/ambient1",
+        "pitch": 0.868,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient2",
+        "pitch": 0.868,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient3",
+        "pitch": 0.868,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.updrifter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hum.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/hurt1",
+        "pitch": 0.868,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hum/hurt2",
+        "pitch": 0.868,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.updrifter.death": {
+    "subtitle": "subtitles.tribalpower.creature.hum.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/death1",
+        "pitch": 0.868,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.scree_lurcher.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 0.981,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 0.981,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 0.981,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.scree_lurcher.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 0.981,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 0.981,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.scree_lurcher.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 0.981,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.prism_grazer.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 1.047,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 1.047,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 1.047,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.prism_grazer.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 1.047,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 1.047,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.prism_grazer.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 1.047,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shardmoth.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.176,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.176,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.176,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.shardmoth.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.176,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.176,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shardmoth.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.176,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glowgrub.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/ambient1",
+        "pitch": 1.265,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient2",
+        "pitch": 1.265,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient3",
+        "pitch": 1.265,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.glowgrub.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/hurt1",
+        "pitch": 1.265,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chitter/hurt2",
+        "pitch": 1.265,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glowgrub.death": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/death1",
+        "pitch": 1.265,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.facet_stalker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 1.124,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 1.124,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 1.124,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.facet_stalker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 1.124,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 1.124,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.facet_stalker.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 1.124,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.driftpelt.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.168,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.168,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.168,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.driftpelt.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.168,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.168,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.driftpelt.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.168,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.frost_strider.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 1.009,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 1.009,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 1.009,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.frost_strider.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 1.009,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 1.009,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.frost_strider.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 1.009,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.snowveil.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.15,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.15,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.15,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.snowveil.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.15,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.15,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.snowveil.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.15,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rime_crawler.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 1.055,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 1.055,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 1.055,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.rime_crawler.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 1.055,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 1.055,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rime_crawler.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 1.055,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinderhide.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.105,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.105,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.105,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.cinderhide.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.105,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.105,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinderhide.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.105,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ashmoth.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.314,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.314,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.314,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ashmoth.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.314,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.314,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ashmoth.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.314,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.slaglump.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.low.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/ambient1",
+        "pitch": 1.207,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient2",
+        "pitch": 1.207,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/low/ambient3",
+        "pitch": 1.207,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.slaglump.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.low.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/hurt1",
+        "pitch": 1.207,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/low/hurt2",
+        "pitch": 1.207,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.slaglump.death": {
+    "subtitle": "subtitles.tribalpower.creature.low.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/low/death1",
+        "pitch": 1.207,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.emberjaw.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 1.012,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 1.012,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 1.012,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.emberjaw.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 1.012,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 1.012,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.emberjaw.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 1.012,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.marsh_hopper.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.204,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.204,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.204,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.marsh_hopper.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.204,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.204,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.marsh_hopper.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.204,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.fen_strider.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 0.963,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 0.963,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 0.963,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.fen_strider.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 0.963,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 0.963,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.fen_strider.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 0.963,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bog_floater.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hum.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/ambient1",
+        "pitch": 1.075,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient2",
+        "pitch": 1.075,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient3",
+        "pitch": 1.075,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.bog_floater.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hum.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/hurt1",
+        "pitch": 1.075,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hum/hurt2",
+        "pitch": 1.075,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bog_floater.death": {
+    "subtitle": "subtitles.tribalpower.creature.hum.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/death1",
+        "pitch": 1.075,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.reed_coil.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 0.974,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 0.974,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 0.974,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.reed_coil.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 0.974,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 0.974,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.reed_coil.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 0.974,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.chime_grazer.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/ambient1",
+        "pitch": 0.907,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient2",
+        "pitch": 0.907,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bleat/ambient3",
+        "pitch": 0.907,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.chime_grazer.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/hurt1",
+        "pitch": 0.907,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bleat/hurt2",
+        "pitch": 0.907,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.chime_grazer.death": {
+    "subtitle": "subtitles.tribalpower.creature.bleat.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bleat/death1",
+        "pitch": 0.907,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glass_flitter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/ambient1",
+        "pitch": 1.159,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient2",
+        "pitch": 1.159,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/flutter/ambient3",
+        "pitch": 1.159,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.glass_flitter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/hurt1",
+        "pitch": 1.159,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/flutter/hurt2",
+        "pitch": 1.159,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glass_flitter.death": {
+    "subtitle": "subtitles.tribalpower.creature.flutter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/flutter/death1",
+        "pitch": 1.159,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.geode_grub.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/ambient1",
+        "pitch": 1.091,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient2",
+        "pitch": 1.091,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chitter/ambient3",
+        "pitch": 1.091,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.geode_grub.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/hurt1",
+        "pitch": 1.091,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chitter/hurt2",
+        "pitch": 1.091,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.geode_grub.death": {
+    "subtitle": "subtitles.tribalpower.creature.chitter.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chitter/death1",
+        "pitch": 1.091,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shard_stalker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/ambient1",
+        "pitch": 0.995,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient2",
+        "pitch": 0.995,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hiss/ambient3",
+        "pitch": 0.995,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.shard_stalker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/hurt1",
+        "pitch": 0.995,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hiss/hurt2",
+        "pitch": 0.995,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shard_stalker.death": {
+    "subtitle": "subtitles.tribalpower.creature.hiss.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hiss/death1",
+        "pitch": 0.995,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.silt_glider.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/ambient1",
+        "pitch": 1.147,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient2",
+        "pitch": 1.147,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient3",
+        "pitch": 1.147,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.silt_glider.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/hurt1",
+        "pitch": 1.147,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bubble/hurt2",
+        "pitch": 1.147,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.silt_glider.death": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/death1",
+        "pitch": 1.147,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_drifter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.hum.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/ambient1",
+        "pitch": 0.877,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient2",
+        "pitch": 0.877,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/hum/ambient3",
+        "pitch": 0.877,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.pale_drifter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.hum.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/hurt1",
+        "pitch": 0.877,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/hum/hurt2",
+        "pitch": 0.877,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_drifter.death": {
+    "subtitle": "subtitles.tribalpower.creature.hum.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/hum/death1",
+        "pitch": 0.877,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shoal_darter.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/ambient1",
+        "pitch": 1.209,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient2",
+        "pitch": 1.209,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient3",
+        "pitch": 1.209,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.shoal_darter.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/hurt1",
+        "pitch": 1.209,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/bubble/hurt2",
+        "pitch": 1.209,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.shoal_darter.death": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/death1",
+        "pitch": 1.209,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.brine_lurker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/ambient1",
+        "pitch": 1.117,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient2",
+        "pitch": 1.117,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/snarl/ambient3",
+        "pitch": 1.117,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.brine_lurker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/hurt1",
+        "pitch": 1.117,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/snarl/hurt2",
+        "pitch": 1.117,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.brine_lurker.death": {
+    "subtitle": "subtitles.tribalpower.creature.snarl.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/snarl/death1",
+        "pitch": 1.117,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.hearth_warden.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.821,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.821,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.821,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.hearth_warden.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.821,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.821,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.hearth_warden.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.821,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.grove_elder.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.789,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.789,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.789,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.grove_elder.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.789,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.789,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.grove_elder.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.789,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.frostpine_sentinel.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.818,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.818,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.818,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.frostpine_sentinel.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.818,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.818,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.frostpine_sentinel.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.818,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.snagwalker.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.83,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.83,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.83,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.snagwalker.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.83,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.83,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.snagwalker.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.83,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.weeping_warden.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.828,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.828,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.828,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.weeping_warden.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.828,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.828,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.weeping_warden.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.828,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bellcap_elder.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.838,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.838,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.838,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.bellcap_elder.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.838,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.838,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.bellcap_elder.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.838,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.stiltwood.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.792,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.792,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.792,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.stiltwood.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.792,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.792,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.stiltwood.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.792,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.colossus_warden.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.creak.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/ambient1",
+        "pitch": 0.63,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient2",
+        "pitch": 0.63,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/creak/ambient3",
+        "pitch": 0.63,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.colossus_warden.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.creak.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/hurt1",
+        "pitch": 0.63,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/creak/hurt2",
+        "pitch": 0.63,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.colossus_warden.death": {
+    "subtitle": "subtitles.tribalpower.creature.creak.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/creak/death1",
+        "pitch": 0.63,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.crag_troll.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/ambient1",
+        "pitch": 0.769,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient2",
+        "pitch": 0.769,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient3",
+        "pitch": 0.769,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.crag_troll.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/hurt1",
+        "pitch": 0.769,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/grunt/hurt2",
+        "pitch": 0.769,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.crag_troll.death": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/death1",
+        "pitch": 0.769,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rime_troll.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/ambient1",
+        "pitch": 0.863,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient2",
+        "pitch": 0.863,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient3",
+        "pitch": 0.863,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.rime_troll.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/hurt1",
+        "pitch": 0.863,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/grunt/hurt2",
+        "pitch": 0.863,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.rime_troll.death": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/death1",
+        "pitch": 0.863,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.slag_troll.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/ambient1",
+        "pitch": 0.823,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient2",
+        "pitch": 0.823,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/grunt/ambient3",
+        "pitch": 0.823,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.slag_troll.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/hurt1",
+        "pitch": 0.823,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/grunt/hurt2",
+        "pitch": 0.823,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.slag_troll.death": {
+    "subtitle": "subtitles.tribalpower.creature.grunt.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/grunt/death1",
+        "pitch": 0.823,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.fen_goblin.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.064,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.064,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.064,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.fen_goblin.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.064,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.064,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.fen_goblin.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.064,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.tunnel_goblin.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.06,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.06,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.06,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.tunnel_goblin.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.06,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.06,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.tunnel_goblin.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.06,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ridge_kobold.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.123,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.123,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.123,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.ridge_kobold.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.123,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.123,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.ridge_kobold.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.123,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.geode_kobold.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.yip.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/ambient1",
+        "pitch": 1.159,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient2",
+        "pitch": 1.159,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/yip/ambient3",
+        "pitch": 1.159,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.geode_kobold.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.yip.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/hurt1",
+        "pitch": 1.159,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/yip/hurt2",
+        "pitch": 1.159,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.geode_kobold.death": {
+    "subtitle": "subtitles.tribalpower.creature.yip.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/yip/death1",
+        "pitch": 1.159,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glimmer_fay.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chime.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/ambient1",
+        "pitch": 1.032,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient2",
+        "pitch": 1.032,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient3",
+        "pitch": 1.032,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.glimmer_fay.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chime.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/hurt1",
+        "pitch": 1.032,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chime/hurt2",
+        "pitch": 1.032,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glimmer_fay.death": {
+    "subtitle": "subtitles.tribalpower.creature.chime.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/death1",
+        "pitch": 1.032,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.prism_fay.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chime.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/ambient1",
+        "pitch": 1.045,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient2",
+        "pitch": 1.045,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient3",
+        "pitch": 1.045,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.prism_fay.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chime.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/hurt1",
+        "pitch": 1.045,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chime/hurt2",
+        "pitch": 1.045,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.prism_fay.death": {
+    "subtitle": "subtitles.tribalpower.creature.chime.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/death1",
+        "pitch": 1.045,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.marsh_fay.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.chime.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/ambient1",
+        "pitch": 1.021,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient2",
+        "pitch": 1.021,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/chime/ambient3",
+        "pitch": 1.021,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.marsh_fay.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.chime.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/hurt1",
+        "pitch": 1.021,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/chime/hurt2",
+        "pitch": 1.021,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.marsh_fay.death": {
+    "subtitle": "subtitles.tribalpower.creature.chime.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/chime/death1",
+        "pitch": 1.021,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.barrow_shade.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.moan.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/ambient1",
+        "pitch": 0.984,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient2",
+        "pitch": 0.984,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient3",
+        "pitch": 0.984,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.barrow_shade.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.moan.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/hurt1",
+        "pitch": 0.984,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/moan/hurt2",
+        "pitch": 0.984,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.barrow_shade.death": {
+    "subtitle": "subtitles.tribalpower.creature.moan.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/death1",
+        "pitch": 0.984,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_wraith.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.moan.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/ambient1",
+        "pitch": 0.899,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient2",
+        "pitch": 0.899,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient3",
+        "pitch": 0.899,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.pale_wraith.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.moan.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/hurt1",
+        "pitch": 0.899,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/moan/hurt2",
+        "pitch": 0.899,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.pale_wraith.death": {
+    "subtitle": "subtitles.tribalpower.creature.moan.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/death1",
+        "pitch": 0.899,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinder_shade.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.moan.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/ambient1",
+        "pitch": 0.99,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient2",
+        "pitch": 0.99,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient3",
+        "pitch": 0.99,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.cinder_shade.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.moan.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/hurt1",
+        "pitch": 0.99,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/moan/hurt2",
+        "pitch": 0.99,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.cinder_shade.death": {
+    "subtitle": "subtitles.tribalpower.creature.moan.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/death1",
+        "pitch": 0.99,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.drowned_shade.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.moan.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/ambient1",
+        "pitch": 1.003,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient2",
+        "pitch": 1.003,
+        "volume": 0.9
+      },
+      {
+        "name": "tribalpower:creature/moan/ambient3",
+        "pitch": 1.003,
+        "volume": 0.9
+      }
+    ]
+  },
+  "creature.drowned_shade.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.moan.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/hurt1",
+        "pitch": 1.003,
+        "volume": 1.0
+      },
+      {
+        "name": "tribalpower:creature/moan/hurt2",
+        "pitch": 1.003,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.drowned_shade.death": {
+    "subtitle": "subtitles.tribalpower.creature.moan.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/moan/death1",
+        "pitch": 1.003,
+        "volume": 1.0
+      }
+    ]
+  },
+  "creature.glimmerfin.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/ambient1",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient2",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient3",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.glimmerfin.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/hurt1",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/hurt2",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.glimmerfin.death": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/death1",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.march_swimmer.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/ambient1",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient2",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/ambient3",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.march_swimmer.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/hurt1",
+        "pitch": 1.2
+      },
+      {
+        "name": "tribalpower:creature/bubble/hurt2",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.march_swimmer.death": {
+    "subtitle": "subtitles.tribalpower.creature.bubble.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bubble/death1",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "creature.drift_bell.ambient": {
+    "subtitle": "subtitles.tribalpower.creature.bell.ambient",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/ambient1",
+        "pitch": 1.5
+      },
+      {
+        "name": "tribalpower:creature/bell/ambient2",
+        "pitch": 1.5
+      },
+      {
+        "name": "tribalpower:creature/bell/ambient3",
+        "pitch": 1.5
+      }
+    ]
+  },
+  "creature.drift_bell.hurt": {
+    "subtitle": "subtitles.tribalpower.creature.bell.hurt",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/hurt1",
+        "pitch": 1.5
+      },
+      {
+        "name": "tribalpower:creature/bell/hurt2",
+        "pitch": 1.5
+      }
+    ]
+  },
+  "creature.drift_bell.death": {
+    "subtitle": "subtitles.tribalpower.creature.bell.death",
+    "sounds": [
+      {
+        "name": "tribalpower:creature/bell/death1",
+        "pitch": 1.5
+      }
+    ]
+  },
+  "creature.loom_swift.ambient": {
+    "subtitle": "subtitles.tribalpower.swift.ambient",
+    "sounds": [
+      "tribalpower:creature/swift/ambient1",
+      "tribalpower:creature/swift/ambient2",
+      "tribalpower:creature/swift/ambient3"
+    ]
+  },
+  "kin.ambient": {
+    "subtitle": "subtitles.tribalpower.kin.ambient",
+    "sounds": [
+      "tribalpower:kin/ambient1",
+      "tribalpower:kin/ambient2",
+      "tribalpower:kin/ambient3"
+    ]
+  },
+  "unsung.ambient": {
+    "subtitle": "subtitles.tribalpower.unsung.ambient",
+    "sounds": [
+      "tribalpower:unsung/ambient1",
+      "tribalpower:unsung/ambient2",
+      "tribalpower:unsung/ambient3"
+    ]
+  },
+  "creature.loom_swift.hurt": {
+    "subtitle": "subtitles.tribalpower.swift.hurt",
+    "sounds": [
+      "tribalpower:creature/swift/hurt1",
+      "tribalpower:creature/swift/hurt2"
+    ]
+  },
+  "kin.hurt": {
+    "subtitle": "subtitles.tribalpower.kin.hurt",
+    "sounds": [
+      "tribalpower:kin/hurt1",
+      "tribalpower:kin/hurt2"
+    ]
+  },
+  "unsung.hurt": {
+    "subtitle": "subtitles.tribalpower.unsung.hurt",
+    "sounds": [
+      "tribalpower:unsung/hurt1",
+      "tribalpower:unsung/hurt2"
+    ]
+  },
+  "creature.loom_swift.death": {
+    "subtitle": "subtitles.tribalpower.swift.death",
+    "sounds": [
+      "tribalpower:creature/swift/death1"
+    ]
+  },
+  "kin.death": {
+    "subtitle": "subtitles.tribalpower.kin.death",
+    "sounds": [
+      "tribalpower:kin/death1"
+    ]
+  },
+  "unsung.death": {
+    "subtitle": "subtitles.tribalpower.unsung.death",
+    "sounds": [
+      "tribalpower:unsung/death1"
+    ]
+  },
+  "guardian.hurt": {
+    "subtitle": "subtitles.tribalpower.guardian.hurt",
+    "sounds": [
+      "tribalpower:guardian/hurt1",
+      "tribalpower:guardian/hurt2"
+    ]
+  },
+  "kin.drum": {
+    "subtitle": "subtitles.tribalpower.kin.drum",
+    "sounds": [
+      "tribalpower:kin/drum1",
+      "tribalpower:kin/drum2"
+    ]
+  },
+  "kin.loom": {
+    "subtitle": "subtitles.tribalpower.kin.loom",
+    "sounds": [
+      "tribalpower:kin/loom1",
+      "tribalpower:kin/loom2"
+    ]
+  },
+  "kin.yes": {
+    "subtitle": "subtitles.tribalpower.kin.yes",
+    "sounds": [
+      "tribalpower:kin/yes"
+    ]
+  },
+  "spirit.cast": {
+    "subtitle": "subtitles.tribalpower.spirit.cast",
+    "sounds": [
+      "tribalpower:spirit/cast"
+    ]
+  },
+  "spirit.chime": {
+    "subtitle": "subtitles.tribalpower.spirit.chime",
+    "sounds": [
+      "tribalpower:spirit/chime"
+    ]
+  },
+  "spirit.impact": {
+    "subtitle": "subtitles.tribalpower.spirit.impact",
+    "sounds": [
+      "tribalpower:spirit/impact"
+    ]
+  },
+  "spirit.swoop": {
+    "subtitle": "subtitles.tribalpower.spirit.swoop",
+    "sounds": [
+      "tribalpower:spirit/swoop"
+    ]
+  },
+  "spirit.frost": {
+    "subtitle": "subtitles.tribalpower.spirit.frost",
+    "sounds": [
+      "tribalpower:spirit/frost"
+    ]
+  },
+  "spirit.thorn": {
+    "subtitle": "subtitles.tribalpower.spirit.thorn",
+    "sounds": [
+      "tribalpower:spirit/thorn"
+    ]
+  },
+  "spirit.summon": {
+    "subtitle": "subtitles.tribalpower.spirit.summon",
+    "sounds": [
+      "tribalpower:spirit/summon"
+    ]
+  },
+  "spirit.drum": {
+    "subtitle": "subtitles.tribalpower.spirit.drum",
+    "sounds": [
+      "tribalpower:spirit/drum"
+    ]
+  },
+  "spirit.flop": {
+    "subtitle": "subtitles.tribalpower.spirit.flop",
+    "sounds": [
+      "tribalpower:spirit/flop"
+    ]
+  },
+  "spirit.brush": {
+    "subtitle": "subtitles.tribalpower.spirit.brush",
+    "sounds": [
+      "tribalpower:spirit/brush"
+    ]
+  },
+  "spirit.jump": {
+    "subtitle": "subtitles.tribalpower.spirit.jump",
+    "sounds": [
+      "tribalpower:spirit/jump"
+    ]
+  },
+  "spirit.sniff": {
+    "subtitle": "subtitles.tribalpower.spirit.sniff",
+    "sounds": [
+      "tribalpower:spirit/sniff"
+    ]
   }
 }

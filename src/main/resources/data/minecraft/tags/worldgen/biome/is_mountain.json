@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "tribalpower:march_highlands",
-    "tribalpower:march_glimmer_ridge"
+    "tribalpower:march_glimmer_ridge",
+    "tribalpower:march_hoar_peaks",
+    "tribalpower:march_shard_peaks",
+    "tribalpower:march_sun_peaks",
+    "tribalpower:march_kiln_mesa"
   ]
 }

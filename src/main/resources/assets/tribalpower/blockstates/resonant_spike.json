@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/resonant_spike"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/resonant_spike",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/resonant_spike",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

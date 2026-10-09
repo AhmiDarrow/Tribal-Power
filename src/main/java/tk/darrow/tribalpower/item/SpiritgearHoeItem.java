@@ -134,7 +134,7 @@ public class SpiritgearHoeItem extends HoeItem {
         // the plant goes back only when one of its own seeds came out of the harvest to sow
         boolean kept = false;
         boolean bounty = SpiritGear.voice(tool).orElse(null) == Attunement.SPIRIT
-                && SpiritGear.chance(player, level.random, tool, 0.25F);
+                && SpiritGear.chance(player, level.random, tool, (float) tk.darrow.tribalpower.config.TribalConfig.hoeSpiritBountyChance());
         for (ItemStack drop : Block.getDrops(state, level, pos, null, player, tool)) {
             if (!kept && !seed.isEmpty() && ItemStack.isSameItem(drop, seed)) {
                 drop.shrink(1);
@@ -162,7 +162,7 @@ public class SpiritgearHoeItem extends HoeItem {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level.isClientSide || !selected || !(entity instanceof Player player)) return;
         if (SpiritGear.voice(stack).orElse(null) == Attunement.WATER && level.getGameTime() % 40 == 0) {
-            moisten(level, player.blockPosition(), SpiritGear.rank(stack) >= 3 ? 5 : 3);
+            moisten(level, player.blockPosition(), SpiritGear.rank(stack) >= 3 ? tk.darrow.tribalpower.config.TribalConfig.hoeWaterMoistenRadiusManifested() : tk.darrow.tribalpower.config.TribalConfig.hoeWaterMoistenRadius());
         }
     }
 

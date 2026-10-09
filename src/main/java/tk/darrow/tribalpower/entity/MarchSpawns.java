@@ -29,7 +29,9 @@ public final class MarchSpawns {
                 // the Glimmer Ridge is paved in moonstone and moss agate, with no turf at all: without these its
                 // own grazers could never rise there
                 || below.is(ModBlocks.MOONSTONE.get())
-                || below.is(ModBlocks.MOSS_AGATE.get());
+                || below.is(ModBlocks.MOSS_AGATE.get())
+                // the ground of the fifty-one newer biomes: needle loam, hoarmoss, scree, salt, sand and the rest
+                || below.is(tk.darrow.tribalpower.block.MarchTags.MARCH_TURF);
     }
 
     public static boolean wispFooting(BlockState below) {
@@ -63,11 +65,22 @@ public final class MarchSpawns {
         return !march || !crowded(level, pos, dark ? tk.darrow.tribalpower.config.TribalConfig.nightCrowdCap() : tk.darrow.tribalpower.config.TribalConfig.dayCrowdCap());
     }
 
+    /** The crowd count near each chunk, good for one game tick: the spawner asks many times per chunk per tick. */
+    private static final java.util.Map<Long, long[]> CROWD = new java.util.concurrent.ConcurrentHashMap<>();
+
     private static boolean crowded(ServerLevelAccessor level, BlockPos pos, int limit) {
         if (limit <= 0) return false;
+        long key = net.minecraft.world.level.ChunkPos.asLong(pos), tick = level.getLevel().getGameTime();
+        long[] cached = CROWD.get(key);
+        if (cached != null && cached[0] == tick) return cached[1] >= limit;
         var box = new net.minecraft.world.phys.AABB(pos).inflate(tk.darrow.tribalpower.config.TribalConfig.crowdRadius());
-        return level.getEntitiesOfClass(LatticeMonster.class, box, m -> !m.isPersistenceRequired()).size() >= limit;
+        int count = level.getEntitiesOfClass(LatticeMonster.class, box, m -> !m.isPersistenceRequired()).size();
+        if (CROWD.size() > 4096) CROWD.clear();
+        CROWD.put(key, new long[]{tick, count});
+        return count >= limit;
     }
+
+    public static void clearCrowd() { CROWD.clear(); }
 
     public static boolean monster(
             EntityType<LatticeMonster> type, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random

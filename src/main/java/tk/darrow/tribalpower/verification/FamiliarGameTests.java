@@ -411,7 +411,7 @@ public class FamiliarGameTests {
         h.assertTrue(drum.getPulseStored()>before,"A hand beat stores Pulse without an Imp");
         int afterBeat=drum.getPulseStored();
         int refund=FamiliarAbilities.onOwnerDrum(level,h.absolutePos(new BlockPos(4,2,4)),player,drum);
-        h.assertTrue(refund==FamiliarAbilities.IMP_REFUND && drum.getPulseStored()==afterBeat+refund,"A following Imp refunds hand-drum Pulse");
+        h.assertTrue(refund==tk.darrow.tribalpower.config.TribalConfig.impRefund() && drum.getPulseStored()==afterBeat+refund,"A following Imp refunds hand-drum Pulse");
         imp.setSitting(true);
         h.assertTrue(FamiliarAbilities.onOwnerDrum(level,h.absolutePos(new BlockPos(4,2,4)),player,drum)==0,"A sitting Imp refunds nothing");
         int redstoneBefore=drum.getPulseStored();

@@ -3,6 +3,9 @@
   "values": [
     "tribalpower:march_soil",
     "tribalpower:march_grass",
-    "tribalpower:march_moss"
+    "tribalpower:march_moss",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:spore_turf"
   ]
 }

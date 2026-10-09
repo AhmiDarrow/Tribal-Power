@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:gloomcap_log",
+    "tribalpower:gloomcap_wood",
+    "tribalpower:stripped_gloomcap_log",
+    "tribalpower:stripped_gloomcap_wood"
+  ]
+}

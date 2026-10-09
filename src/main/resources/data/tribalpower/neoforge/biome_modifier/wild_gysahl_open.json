@@ -9,7 +9,11 @@
   "type": "neoforge:add_features",
   "biomes": [
     "tribalpower:march_steppe",
-    "tribalpower:march_highlands"
+    "tribalpower:march_highlands",
+    "tribalpower:march_sunwheel_steppe",
+    "tribalpower:march_high_meadow",
+    "tribalpower:march_bloom_meadow",
+    "tribalpower:march_drumpalm_savanna"
   ],
   "features": "chocobosreborn:wild_gysahl_scatter",
   "step": "vegetal_decoration"

@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_highlands"
+    "tribalpower:march_highlands",
+    "tribalpower:march_barrow_moor",
+    "tribalpower:march_scree_fells",
+    "tribalpower:march_windswept_thornfir",
+    "tribalpower:march_windswept_drumpalm"
   ]
 }

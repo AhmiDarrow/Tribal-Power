@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_highlands"
+    "tribalpower:march_highlands",
+    "tribalpower:march_frostpine_slopes",
+    "tribalpower:march_barrow_moor",
+    "tribalpower:march_scree_fells",
+    "tribalpower:march_windswept_thornfir",
+    "tribalpower:march_high_meadow",
+    "tribalpower:march_drumpalm_plateau",
+    "tribalpower:march_cut_mesa"
   ]
 }

@@ -62,28 +62,36 @@ public final class TribeHooks {
 
     // ---- events ----
 
-    /** Killing a hostile within 24 blocks of a hearth: +1 standing with that hearth's tribe (capped daily). */
+    /**
+     * Killing a hostile near a hearth: standing with that hearth's tribe (capped daily) and quest progress.
+     * Registered at LOWEST priority so a death another mod cancels (a totem, a revive) pays nothing.
+     */
     public static void onDeath(LivingDeathEvent event) {
+        if (event.isCanceled()) return;
         if (!(event.getEntity() instanceof net.minecraft.world.entity.LivingEntity living)
                 || !tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living)
                 || !(event.getEntity().level() instanceof ServerLevel level)) return;
         if (!(event.getSource().getEntity() instanceof ServerPlayer player)) return;
-        for (TribeDefinition tribe : hearthsNear(level, event.getEntity().blockPosition(), TribeStanding.KILL_RADIUS))
+        for (TribeDefinition tribe : hearthsNear(level, event.getEntity().blockPosition(), TribeStanding.killRadius()))
             TribeStanding.killGain(player, tribe);
         tk.darrow.tribalpower.quest.QuestEvents.slew(player, living);
     }
 
-    /** Breaking camp blocks costs standing: hearth -40, banner -5. */
+    /**
+     * Breaking camp blocks costs standing: the hearth more than a banner. Registered at LOWEST priority so a
+     * break a claim or protection mod refuses costs nothing.
+     */
     public static void onBreak(BlockEvent.BreakEvent event) {
+        if (event.isCanceled()) return;
         if (!(event.getPlayer() instanceof ServerPlayer player) || player.isCreative()) return;
         BlockState state = event.getState();
         if (state.is(TribeRegistry.TRIBE_HEARTH.get())) {
             if (event.getLevel().getBlockEntity(event.getPos()) instanceof TribeHearthBlockEntity hearth) {
-                TribeStanding.add(player, hearth.tribe(), TribeStanding.LOSS_HEARTH);
+                TribeStanding.add(player, hearth.tribe(), TribeStanding.lossHearth());
                 angerCamp(player.serverLevel(), event.getPos(), hearth.tribe(), player);
             }
         } else if (state.is(TribeRegistry.TRIBE_BANNER.get())) {
-            TribeStanding.add(player, TribeDefinition.byOrdinal(state.getValue(TribeBannerBlock.TRIBE)), TribeStanding.LOSS_CAMP_BLOCK);
+            TribeStanding.add(player, TribeDefinition.byOrdinal(state.getValue(TribeBannerBlock.TRIBE)), TribeStanding.lossCampBlock());
         }
     }
 
@@ -94,6 +102,6 @@ public final class TribeHooks {
     /** Anger every Hunter of the tribe near {@code pos} at {@code player} (used when camp blocks are broken). */
     public static void angerCamp(ServerLevel level, BlockPos pos, TribeDefinition tribe, Player player) {
         for (TribalKinEntity kin : level.getEntitiesOfClass(TribalKinEntity.class, TribalKinEntity.campBox(pos, 24), k -> k.tribe() == tribe))
-            kin.setAngryAt(player, TribeStanding.HUNTER_ANGER_TICKS);
+            kin.setAngryAt(player, TribeStanding.hunterAngerTicks());
     }
 }

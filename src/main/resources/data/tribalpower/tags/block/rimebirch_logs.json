@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:rimebirch_log",
+    "tribalpower:rimebirch_wood",
+    "tribalpower:stripped_rimebirch_log",
+    "tribalpower:stripped_rimebirch_wood"
+  ]
+}

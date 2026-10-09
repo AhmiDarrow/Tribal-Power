@@ -31,7 +31,7 @@ public class MarchGrassBlock extends SpreadingSnowyDirtBlock implements Bonemeal
     @Override
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!canStay(state, level, pos)) {
-            if (!level.isAreaLoaded(pos, 1)) return;
+            if (!level.hasChunksAt(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) return;
             level.setBlockAndUpdate(pos, ModBlocks.MARCH_SOIL.get().defaultBlockState());
             return;
         }

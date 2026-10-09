@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_sand",
+    "tribalpower:ochre_sand",
+    "tribalpower:salt_crust",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:scree",
+    "minecraft:snow_block",
+    "minecraft:packed_ice",
+    "minecraft:mud"
+  ]
+}

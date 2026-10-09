@@ -77,8 +77,10 @@ public enum CreatureHabitat {
 
     /** Room to fly: open air with something solid a little way below, and sky overhead. */
     public static boolean air(LevelAccessor level, BlockPos pos) {
-        if (!level.getFluidState(pos).isEmpty() || !level.getBlockState(pos).isAir()) return false;
-        if (!level.getBlockState(pos.above()).isAir()) return false;
+        // grass and flowers are open air to a moth: a meadow would otherwise have nowhere for one to rise
+        BlockState here = level.getBlockState(pos), over = level.getBlockState(pos.above());
+        if (!level.getFluidState(pos).isEmpty() || !(here.isAir() || here.canBeReplaced())) return false;
+        if (!(over.isAir() || over.canBeReplaced())) return false;
         for (int drop = 1; drop <= 6; drop++)
             if (!level.getBlockState(pos.below(drop)).isAir())
                 return level.getRawBrightness(pos, 0) > 6;
@@ -96,7 +98,8 @@ public enum CreatureHabitat {
                 || below.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_COBBLE.get())
                 || below.is(tk.darrow.tribalpower.block.ModBlocks.MOONSTONE.get())
                 || below.is(tk.darrow.tribalpower.block.ModBlocks.MOSS_AGATE.get())
-                || below.is(Blocks.TUFF) || below.is(Blocks.GRAVEL);
+                || below.is(Blocks.TUFF) || below.is(Blocks.GRAVEL)
+                || below.is(tk.darrow.tribalpower.block.MarchTags.CAVE_FOOTING);
     }
 
     /** Hot stone, with lava close enough to matter. */
@@ -118,10 +121,29 @@ public enum CreatureHabitat {
         return false;
     }
 
+    /** Three deep or more above this block: a bed the sky does not reach into, where the drowned rise by day. */
+    public static boolean deep(LevelAccessor level, BlockPos pos) {
+        return level.getFluidState(pos.above()).is(FluidTags.WATER) && level.getFluidState(pos.above(2)).is(FluidTags.WATER);
+    }
+
+    /** Water the sky does not look straight into: iced over, lidded by mud or a lily, or under a canopy of leaves and limbs. */
+    public static boolean shaded(LevelAccessor level, BlockPos pos) {
+        BlockPos.MutableBlockPos top = pos.mutable();
+        while (level.getFluidState(top.above()).is(FluidTags.WATER)) top.move(net.minecraft.core.Direction.UP);
+        BlockState lid = level.getBlockState(top.above());
+        if (!lid.isAir() && !(lid.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock)) return true;
+        return level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ()) > top.getY() + 1;
+    }
+
     /** Swimming room. */
     public static boolean water(LevelAccessor level, BlockPos pos) {
-        return level.getFluidState(pos).is(FluidTags.WATER)
-                && level.getFluidState(pos.above()).is(FluidTags.WATER);
+        // two deep, counted either way: the spawner's heightmap lands on the top block of a lake or a shore
+        if (!level.getFluidState(pos).is(FluidTags.WATER)) return false;
+        if (level.getFluidState(pos.above()).is(FluidTags.WATER) || level.getFluidState(pos.below()).is(FluidTags.WATER)
+                || level.getBlockState(pos.above()).is(net.minecraft.tags.BlockTags.ICE)) return true;   // a mere frozen over kept its depth under the lid
+        // a shallow shelf along a shore is a body of water too; a lone puddle is not
+        return (level.getFluidState(pos.north()).is(FluidTags.WATER) && level.getFluidState(pos.south()).is(FluidTags.WATER))
+                || (level.getFluidState(pos.east()).is(FluidTags.WATER) && level.getFluidState(pos.west()).is(FluidTags.WATER));
     }
 
     /** The check Minecraft is handed for a passive creature of this habitat. */
@@ -141,7 +163,9 @@ public enum CreatureHabitat {
         if (level.getDifficulty() == Difficulty.PEACEFUL) return false;
         if (this == CAVE) return cave(level, pos);          // caves are dark by definition
         if (this == LAVA) return lava(level, pos);
-        if (this == WATER) return water(level, pos) && MarchSpawns.spiritsRise(level, pos, random);
+        // deep water is dark on its own: a few blocks down the sky no longer reaches, and the drowned rise by day
+        if (this == WATER) return water(level, pos)
+                && (level.getBrightness(LightLayer.SKY, pos) < 12 || deep(level, pos) || shaded(level, pos) || MarchSpawns.spiritsRise(level, pos, random));
         if (!MarchSpawns.spiritsRise(level, pos, random)) return false;
         if (this == AIR) return air(level, pos);
         BlockPos belowPos = pos.below();

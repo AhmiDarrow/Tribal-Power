@@ -7,7 +7,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
@@ -129,7 +128,7 @@ public class GuardianAltarBlockEntity extends BlockEntity {
         if (!player.getAbilities().instabuild) offered.shrink(TribalConfig.guardianCallCost());
         boss = entity.getUUID();
         lastWake = server.getGameTime();
-        server.playSound(null, worldPosition, SoundEvents.WITHER_SPAWN, SoundSource.HOSTILE, 1.0F, 0.6F);
+        server.playSound(null, worldPosition, tk.darrow.tribalpower.sound.ModSounds.SPIRIT_SUMMON.get(), SoundSource.HOSTILE, 1.0F, 0.6F);
         SpiritEffects.ring(server, worldPosition.getCenter().add(0, 1, 0), guardian.tribe.attunement(), 4, 24);
         server.sendParticles(ParticleTypes.SOUL, worldPosition.getX() + 0.5, worldPosition.getY() + 1.5, worldPosition.getZ() + 0.5, 40, 1.2, 1.0, 1.2, 0.03);
         for (Player near : server.getEntitiesOfClass(Player.class, new AABB(worldPosition).inflate(GuardianEntity.RESET_RANGE)))

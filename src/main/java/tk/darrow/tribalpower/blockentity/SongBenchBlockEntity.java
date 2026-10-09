@@ -102,10 +102,6 @@ public class SongBenchBlockEntity extends BlockEntity implements net.minecraft.w
         }
     }
 
-    /** Conductors used to feed this bench Pulse for Echo work. Songs pay in a single draw instead. */
-    public boolean wantsPulseAssist() {
-        return false;
-    }
 
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
     @Override public int[] inputSlots(Direction face) { return INPUTS; }

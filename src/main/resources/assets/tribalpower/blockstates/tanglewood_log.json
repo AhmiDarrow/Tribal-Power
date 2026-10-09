@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "tribalpower:block/tanglewood_log"
+    },
+    "axis=z": {
+      "model": "tribalpower:block/tanglewood_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "tribalpower:block/tanglewood_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

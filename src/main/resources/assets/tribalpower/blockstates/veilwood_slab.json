@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/veilwood_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/veilwood_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/veilwood_planks"
+    }
+  }
+}

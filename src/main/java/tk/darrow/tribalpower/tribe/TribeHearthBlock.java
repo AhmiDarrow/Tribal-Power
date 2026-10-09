@@ -64,14 +64,16 @@ public class TribeHearthBlock extends BaseEntityBlock {
         if (!(level.getBlockEntity(pos) instanceof TribeHearthBlockEntity hearth)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         TribeDefinition tribe = hearth.tribe();
         if (stack.getItem() instanceof PulseCellItem) {
-            if (PulseCellItem.getPulse(stack) < 10) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            int per10 = TribeStanding.gainPulsePer10();
+            // A pack that sets the Pulse gain to 0 has turned Pulse offerings off: the hearth then takes none.
+            if (per10 <= 0 || PulseCellItem.getPulse(stack) < 10) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             if (player instanceof ServerPlayer sp) {
                 int room = TribeStanding.offerRoom(sp, tribe);
                 if (room <= 0) { sated(sp, tribe); return ItemInteractionResult.sidedSuccess(level.isClientSide); }
                 // Draw only what today's remaining room can turn into standing.
-                int want = Math.min(TribeStanding.MAX_CELL_DRAIN, (room + TribeStanding.GAIN_PULSE_PER_10 - 1) / TribeStanding.GAIN_PULSE_PER_10 * 10);
+                int want = Math.min(TribeStanding.maxCellDrain(), (room + per10 - 1) / per10 * 10);
                 int drained = PulseCellItem.extractPulse(stack, want, false);
-                int gain = drained / 10 * TribeStanding.GAIN_PULSE_PER_10;
+                int gain = drained / 10 * per10;
                 offered(sp, hearth, gain, pos);
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
@@ -114,7 +116,7 @@ public class TribeHearthBlock extends BaseEntityBlock {
 
     private static void sated(ServerPlayer player, TribeDefinition tribe) {
         player.displayClientMessage(Component.translatable("message.tribalpower.hearth.sated",
-                tribe.displayNameComponent(), TribeStanding.OFFER_CAP_PER_DAY).withStyle(net.minecraft.ChatFormatting.YELLOW), true);
+                tribe.displayNameComponent(), TribeStanding.offerCapPerDay()).withStyle(net.minecraft.ChatFormatting.YELLOW), true);
     }
 
     private static void offered(ServerPlayer player, TribeHearthBlockEntity hearth, int gain, BlockPos pos) {

@@ -4,7 +4,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -70,7 +69,7 @@ public class WanderingSpiritEntity extends SpiritWispEntity {
         ItemStack gift = random.nextInt(8) == 0 ? new ItemStack(ModItems.RESONANT_CORE.get())
                 : guardian == null ? new ItemStack(ModItems.SPIRIT_SHARD.get(), 2) : new ItemStack(guardian.callItem(), 2 + random.nextInt(3));
         SpiritgearHelper.give(player, gift);
-        server.playSound(null, blockPosition(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.NEUTRAL, 1F, 1.4F);
+        server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.SPIRIT_CHIME.get(), SoundSource.NEUTRAL, 1F, 1.4F);
         fade(server);
     }
 

@@ -36,6 +36,7 @@ public class MarchPlantBlock extends BushBlock {
                 || state.is(ModBlocks.MARCH_GRASS.get())
                 || state.is(ModBlocks.MARCH_MOSS.get())
                 || state.is(ModBlocks.MARCH_FARMLAND.get())
+                || state.is(MarchTags.PLANT_GROUND)
                 || super.mayPlaceOn(state, level, pos);
     }
 }

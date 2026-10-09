@@ -82,7 +82,7 @@ public class LoomGameTests {
             seen.add(SpiritStaffItem.element(staff));
         }
         h.assertTrue(seen.size() == 6 && seen.contains(Attunement.LOOM), "Staff must cycle through all six voices, got " + seen);
-        h.assertTrue(SpiritStaffItem.cost(Attunement.LOOM) == 6 && SpiritStaffItem.STITCH_COST == 10, "Tether costs 6 Pulse, Stitch 10");
+        h.assertTrue(SpiritStaffItem.cost(Attunement.LOOM) == 6 && SpiritStaffItem.stitchCost() == 10, "Tether costs 6 Pulse, Stitch 10");
         h.succeed();
     }
 

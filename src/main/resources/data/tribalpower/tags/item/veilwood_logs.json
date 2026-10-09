@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:veilwood_log",
+    "tribalpower:veilwood_wood",
+    "tribalpower:stripped_veilwood_log",
+    "tribalpower:stripped_veilwood_wood"
+  ]
+}

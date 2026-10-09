@@ -192,6 +192,14 @@ public final class ModItems {
     public static final DeferredItem<BlockItem> SPIRIT_REED = ITEMS.registerSimpleBlockItem("spirit_reed", ModBlocks.SPIRIT_REED);
     public static final DeferredItem<BlockItem> ECHO_BLOOM = ITEMS.registerSimpleBlockItem("echo_bloom", ModBlocks.ECHO_BLOOM);
     public static final DeferredItem<BlockItem> LEY_THISTLE = ITEMS.registerSimpleBlockItem("ley_thistle", ModBlocks.LEY_THISTLE);
+    /** The ground and growth of the fifty-one newer March biomes, in the order ModBlocks lists them. */
+    public static final java.util.Map<String, DeferredItem<BlockItem>> BREADTH = breadth();
+
+    private static java.util.Map<String, DeferredItem<BlockItem>> breadth() {
+        java.util.Map<String, DeferredItem<BlockItem>> out = new java.util.LinkedHashMap<>();
+        ModBlocks.BREADTH.forEach((id, block) -> out.put(id, ITEMS.registerSimpleBlockItem(id, block)));
+        return java.util.Collections.unmodifiableMap(out);
+    }
 
     private ModItems() {}
     public static final DeferredItem<BlockItem> SPIRIT_CISTERN = ITEMS.registerSimpleBlockItem("spirit_cistern", ModBlocks.SPIRIT_CISTERN);

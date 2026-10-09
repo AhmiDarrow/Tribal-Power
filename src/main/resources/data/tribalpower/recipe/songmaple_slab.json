@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:songmaple_planks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:songmaple_slab"
+  }
+}

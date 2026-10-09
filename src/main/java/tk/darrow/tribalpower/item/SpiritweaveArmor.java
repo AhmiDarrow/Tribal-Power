@@ -28,6 +28,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,6 @@ public class SpiritweaveArmor extends ArmorItem {
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath("tribalpower", "spiritweave"))),
                     2F, 0.05F));
     static final ResourceLocation STEP = ResourceLocation.fromNamespaceAndPath("tribalpower", "spirit_step");
-    /** Ticks one upkeep payment keeps every perk of a piece going: the four seconds between its timed boons. */
-    public static final int UPKEEP_TICKS = 80;
     /** When each piece's paid upkeep runs out. Weak, so a piece that is gone is forgotten with it. */
     private static final Map<ItemStack, Long> PAID_UNTIL = new java.util.WeakHashMap<>();
 
@@ -89,10 +88,11 @@ public class SpiritweaveArmor extends ArmorItem {
         Long until = PAID_UNTIL.get(stack);
         if (until != null && now < until) return true;
         if (!GearCell.spend(player, stack, cost)) return false;
-        PAID_UNTIL.put(stack, now + UPKEEP_TICKS);
+        PAID_UNTIL.put(stack, now + TribalConfig.armorUpkeepTicks());
         // The Loom robe sometimes threads what it spent back into the cell.
         if (armor.getType() == Type.CHESTPLATE && SpiritGear.voice(stack).orElse(null) == Attunement.LOOM
-                && player.getRandom().nextFloat() < (SpiritGear.rank(stack) >= 3 ? 0.50F : 0.30F))
+                && player.getRandom().nextFloat() < (SpiritGear.rank(stack) >= 3
+                        ? TribalConfig.loomRobeRefundChanceManifested() : TribalConfig.loomRobeRefundChance()))
             GearCell.refund(player, stack, cost);
         return true;
     }
@@ -124,7 +124,8 @@ public class SpiritweaveArmor extends ArmorItem {
         // Frost only has to answer where the wearer walks, so it looks every few ticks rather than every one.
         if (getType() == Type.BOOTS && level.getGameTime() % 5 == 0
                 && SpiritGear.voice(stack).orElse(null) == Attunement.WATER) {
-            freeze(player, stack, SpiritGear.rank(stack) >= 3 ? 3 : 2);
+            freeze(player, stack, SpiritGear.rank(stack) >= 3
+                    ? TribalConfig.waterBootsFreezeRadiusManifested() : TribalConfig.waterBootsFreezeRadius());
         }
 
         if (getType() == Type.BOOTS) {
@@ -132,57 +133,56 @@ public class SpiritweaveArmor extends ArmorItem {
             Attunement voice = SpiritGear.voice(stack).orElse(null);
             if ((voice == null || voice == Attunement.AIR) && player.fallDistance > 1
                     && !player.hasEffect(MobEffects.SLOW_FALLING) && powered(player, stack))
-                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 80, 0, true, false, true));
+                player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, TribalConfig.bootsSlowFallTicks(), 0, true, false, true));
             return;
         }
 
-        if (level.getGameTime() % UPKEEP_TICKS != 0) return;
+        if (level.getGameTime() % TribalConfig.armorUpkeepTicks() != 0) return;
         if (!powered(player, stack)) return;
         apply(player, stack, SpiritGear.voice(stack).orElse(null));
     }
 
     private void apply(Player player, ItemStack stack, Attunement voice) {
         int rankAmp = SpiritGear.rank(stack) >= 3 ? 1 : 0;
+        int sight = TribalConfig.armorNightVisionTicks(), resist = TribalConfig.armorResistanceTicks(), speed = TribalConfig.armorSpeedTicks();
         if (voice == null) {
-            var effect = switch (getType()) {
-                case HELMET -> MobEffects.NIGHT_VISION;
-                case CHESTPLATE -> MobEffects.DAMAGE_RESISTANCE;
-                case LEGGINGS -> MobEffects.MOVEMENT_SPEED;
-                default -> null;
-            };
-            if (effect != null) player.addEffect(new MobEffectInstance(effect, getType() == Type.HELMET ? 300 : 100,
-                    0, true, false, true));
+            switch (getType()) {
+                case HELMET -> effect(player, MobEffects.NIGHT_VISION, sight, 0);
+                case CHESTPLATE -> effect(player, MobEffects.DAMAGE_RESISTANCE, resist, 0);
+                case LEGGINGS -> effect(player, MobEffects.MOVEMENT_SPEED, speed, 0);
+                default -> { }
+            }
             return;
         }
         switch (voice) {
             case EARTH -> {
                 if (getType() == Type.CHESTPLATE)
-                    effect(player, MobEffects.DAMAGE_RESISTANCE, 100, rankAmp);
+                    effect(player, MobEffects.DAMAGE_RESISTANCE, resist, rankAmp);
             }
             case FIRE -> {
                 if (getType() == Type.HELMET || getType() == Type.CHESTPLATE)
-                    effect(player, MobEffects.FIRE_RESISTANCE, 120, 0);
+                    effect(player, MobEffects.FIRE_RESISTANCE, TribalConfig.armorFireResistanceTicks(), 0);
                 if (getType() == Type.LEGGINGS && (player.isInLava() || player.level().dimensionType().ultraWarm()))
-                    effect(player, MobEffects.MOVEMENT_SPEED, 100, 0);
+                    effect(player, MobEffects.MOVEMENT_SPEED, speed, 0);
             }
             case WATER -> {
-                if (getType() == Type.HELMET) effect(player, MobEffects.WATER_BREATHING, 220, 0);
-                if (getType() == Type.LEGGINGS) effect(player, MobEffects.DOLPHINS_GRACE, 100, 0);
+                if (getType() == Type.HELMET) effect(player, MobEffects.WATER_BREATHING, TribalConfig.armorWaterBreathingTicks(), 0);
+                if (getType() == Type.LEGGINGS) effect(player, MobEffects.DOLPHINS_GRACE, TribalConfig.armorDolphinsGraceTicks(), 0);
             }
             case AIR -> {
-                if (getType() == Type.HELMET) effect(player, MobEffects.NIGHT_VISION, 300, 0);
-                if (getType() == Type.LEGGINGS) effect(player, MobEffects.MOVEMENT_SPEED, 100, rankAmp);
+                if (getType() == Type.HELMET) effect(player, MobEffects.NIGHT_VISION, sight, 0);
+                if (getType() == Type.LEGGINGS) effect(player, MobEffects.MOVEMENT_SPEED, speed, rankAmp);
             }
             case SPIRIT -> {
                 if (getType() == Type.HELMET) {
-                    effect(player, MobEffects.NIGHT_VISION, 300, 0);
-                    glowHostiles(player, 12);
+                    effect(player, MobEffects.NIGHT_VISION, sight, 0);
+                    glowHostiles(player, TribalConfig.spiritHoodGlowRange());
                 }
-                if (getType() == Type.CHESTPLATE) effect(player, MobEffects.DAMAGE_RESISTANCE, 100, 0);
-                if (getType() == Type.LEGGINGS) effect(player, MobEffects.MOVEMENT_SPEED, 100, 0);
+                if (getType() == Type.CHESTPLATE) effect(player, MobEffects.DAMAGE_RESISTANCE, resist, 0);
+                if (getType() == Type.LEGGINGS) effect(player, MobEffects.MOVEMENT_SPEED, speed, 0);
             }
             case LOOM -> {
-                if (getType() == Type.HELMET) effect(player, MobEffects.LUCK, 120, 0);
+                if (getType() == Type.HELMET) effect(player, MobEffects.LUCK, TribalConfig.armorLuckTicks(), 0);
             }
         }
     }

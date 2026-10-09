@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:thornfir_log",
+    "tribalpower:thornfir_wood",
+    "tribalpower:stripped_thornfir_log",
+    "tribalpower:stripped_thornfir_wood"
+  ]
+}

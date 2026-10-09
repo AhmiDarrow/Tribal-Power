@@ -2,7 +2,6 @@ package tk.darrow.tribalpower.wildlife;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -75,21 +74,21 @@ public class GlimmerfinEntity extends AbstractSchoolingFish implements WildBreed
 
     @Override
     protected SoundEvent getFlopSound() {
-        return SoundEvents.TROPICAL_FISH_FLOP;
+        return tk.darrow.tribalpower.sound.ModSounds.SPIRIT_FLOP.get();
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.TROPICAL_FISH_AMBIENT;
+        return tk.darrow.tribalpower.sound.ModSounds.creature("glimmerfin","ambient");
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.TROPICAL_FISH_DEATH;
+        return tk.darrow.tribalpower.sound.ModSounds.creature("glimmerfin","death");
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.TROPICAL_FISH_HURT;
+        return tk.darrow.tribalpower.sound.ModSounds.creature("glimmerfin","hurt");
     }
 }

@@ -374,6 +374,67 @@ public final class ModBlocks {
                     .ignitedByLava())
     );
 
+    // ---- The March, full breadth: the ground, stone and growth of the fifty-one newer biomes
+    // (tools/march_breadth_data.py; assets and data from tools/generate_march_breadth.py). Kept in one map so
+    // the items, the creative tab and the tests can walk them.
+    public static final java.util.Map<String, DeferredBlock<? extends Block>> BREADTH = breadth();
+
+    private static java.util.Map<String, DeferredBlock<? extends Block>> breadth() {
+        java.util.Map<String, DeferredBlock<? extends Block>> out = new java.util.LinkedHashMap<>();
+        java.util.function.BiConsumer<String, java.util.function.Supplier<? extends Block>> put = (id, factory) -> out.put(id, BLOCKS.register(id, factory));
+        java.util.function.Function<BlockBehaviour.Properties, java.util.function.Supplier<Block>> plain = props -> () -> new Block(props);
+        // ice that does not melt, slick underfoot, faintly clear
+        put.accept("rime_ice", () -> new net.minecraft.world.level.block.HalfTransparentBlock(BlockBehaviour.Properties.of()
+                .mapColor(MapColor.ICE).friction(0.98F).strength(0.6F).sound(SoundType.GLASS).noOcclusion()
+                .isValidSpawn((s, l, p, e) -> e == net.minecraft.world.entity.EntityType.POLAR_BEAR)
+                .isRedstoneConductor((s, l, p) -> false).isSuffocating((s, l, p) -> false).isViewBlocking((s, l, p) -> false)));
+        // stone
+        put.accept("frost_shale", plain.apply(stone(MapColor.ICE, SoundType.DEEPSLATE, 1.5F)));
+        put.accept("pale_stone", plain.apply(stone(MapColor.TERRACOTTA_WHITE, SoundType.CALCITE, 1.2F)));
+        put.accept("salt_crust", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.8F, 2.0F).sound(SoundType.CALCITE)));
+        put.accept("ochre_sandstone", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.8F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+        for (var tone : new String[][]{{"kiln_clay_rust", "TERRACOTTA_RED"}, {"kiln_clay_ochre", "TERRACOTTA_ORANGE"},
+                {"kiln_clay_bone", "TERRACOTTA_WHITE"}, {"kiln_clay_ash", "TERRACOTTA_GRAY"}}) {
+            MapColor colour = switch (tone[1]) { case "TERRACOTTA_RED" -> MapColor.TERRACOTTA_RED; case "TERRACOTTA_ORANGE" -> MapColor.TERRACOTTA_ORANGE;
+                case "TERRACOTTA_WHITE" -> MapColor.TERRACOTTA_WHITE; default -> MapColor.TERRACOTTA_GRAY; };
+            put.accept(tone[0], plain.apply(BlockBehaviour.Properties.of().mapColor(colour).strength(1.25F, 4.2F).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+        }
+        // loose ground
+        put.accept("scree", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(0.6F).sound(SoundType.GRAVEL)));
+        put.accept("needle_loam", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(0.5F).sound(SoundType.ROOTED_DIRT)));
+        put.accept("hoarmoss", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.MOSS)));
+        put.accept("pale_sand", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.SAND)));
+        put.accept("ochre_sand", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.5F).sound(SoundType.SAND)));
+        put.accept("glass_sand", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).strength(0.5F).sound(SoundType.SAND)));
+        put.accept("spore_turf", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.6F).sound(SoundType.NYLIUM)));
+        // cave floors
+        put.accept("glowmoss", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).strength(0.3F).sound(SoundType.MOSS).lightLevel(s -> 6)));
+        put.accept("silence_weave", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(0.6F).sound(SoundType.SCULK)));
+        put.accept("hush_bloom", plain.apply(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(0.6F).sound(SoundType.SCULK).lightLevel(s -> 1)));
+        // columns
+        put.accept("salt_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.8F, 2.0F).sound(SoundType.CALCITE)));
+        put.accept("resonant_spike", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F, 6.0F)
+                .sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
+        // growth
+        for (String plant : new String[]{"icebloom", "frostcap", "grey_heather", "hoar_thistle", "songgrass", "loom_bell", "dawn_poppy",
+                "chime_bud", "sunwheel", "thornbrush", "tangle_fern", "spirit_cane", "gloomcap_sprout"}) {
+            boolean glows = plant.equals("gloomcap_sprout") || plant.equals("loom_bell");
+            put.accept(plant, () -> new MarchPlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.GRASS)
+                    .noCollission().noOcclusion().replaceable().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)
+                    .ignitedByLava().lightLevel(s -> glows ? 3 : 0)));
+        }
+        return java.util.Collections.unmodifiableMap(out);
+    }
+
+    private static BlockBehaviour.Properties stone(MapColor colour, SoundType sound, float hardness) {
+        return BlockBehaviour.Properties.of().mapColor(colour).strength(hardness, 6.0F).sound(sound).requiresCorrectToolForDrops();
+    }
+
+    /** A breadth block by id, for the features and tests. */
+    public static Block breadth(String id) {
+        return BREADTH.get(id).get();
+    }
+
     private static DeferredBlock<ResonanceTotemBlock> totem(String id, Attunement attunement, MapColor color) {
         return BLOCKS.register(id, () -> new ResonanceTotemBlock(attunement, BlockBehaviour.Properties.of()
                 .mapColor(color)

@@ -12,6 +12,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 
 import java.util.List;
 
@@ -65,23 +66,25 @@ public class SpiritgearBladeItem extends SwordItem {
             return;
         }
         target.invulnerableTime = 0;
-        float echo = 2.0F;
+        // every number here is the config's, and GearTooltips quotes the same ones
+        boolean manifested = SpiritGear.rank(stack) >= 3;
+        float echo = (float) TribalConfig.bladeEchoDamage();
         Attunement voice = SpiritGear.voice(stack).orElse(null);
-        if (voice == Attunement.SPIRIT) echo += SpiritGear.rank(stack) >= 3 ? 4 : 2;
+        if (voice == Attunement.SPIRIT) echo += (float) (manifested ? TribalConfig.bladeSpiritEchoManifested() : TribalConfig.bladeSpiritEcho());
         target.hurt(player.damageSources().magic(), echo);
-        target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20 * 4, 0));
+        target.addEffect(new MobEffectInstance(MobEffects.GLOWING, TribalConfig.bladeGlowTicks(), 0));
         if (voice == Attunement.EARTH) {
-            target.knockback(1.2, player.getX() - target.getX(), player.getZ() - target.getZ());
-            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60,
-                    SpiritGear.rank(stack) >= 3 ? 2 : 1));
+            target.knockback(TribalConfig.bladeEarthKnockback(), player.getX() - target.getX(), player.getZ() - target.getZ());
+            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, TribalConfig.bladeEarthSlownessTicks(),
+                    (manifested ? TribalConfig.bladeEarthSlownessLevelManifested() : TribalConfig.bladeEarthSlownessLevel()) - 1));
         } else if (voice == Attunement.FIRE) {
-            target.igniteForSeconds(SpiritGear.rank(stack) >= 3 ? 6 : 4);
+            target.igniteForSeconds(manifested ? TribalConfig.bladeFireSecondsManifested() : TribalConfig.bladeFireSeconds());
             target.invulnerableTime = 0;
-            target.hurt(player.damageSources().magic(), SpiritGear.rank(stack) >= 3 ? 5 : 3);
+            target.hurt(player.damageSources().magic(), (float) (manifested ? TribalConfig.bladeFireDamageManifested() : TribalConfig.bladeFireDamage()));
         } else if (voice == Attunement.WATER) {
-            player.heal(SpiritGear.rank(stack) >= 3 ? 4 : 2);
+            player.heal((float) (manifested ? TribalConfig.bladeWaterHealManifested() : TribalConfig.bladeWaterHeal()));
         } else if (voice == Attunement.AIR) {
-            float sweep = SpiritGear.rank(stack) >= 3 ? 4 : 2;
+            float sweep = (float) (manifested ? TribalConfig.bladeAirSweepManifested() : TribalConfig.bladeAirSweep());
             AABB box = target.getBoundingBox().inflate(1.5, 0.25, 1.5);
             for (LivingEntity extra : player.level().getEntitiesOfClass(LivingEntity.class, box,
                     e -> e != player && e != target && e.isAlive()
@@ -89,7 +92,7 @@ public class SpiritgearBladeItem extends SwordItem {
                 extra.hurt(player.damageSources().playerAttack(player), sweep);
             }
         } else if (voice == Attunement.LOOM) {
-            double pull = SpiritGear.rank(stack) >= 3 ? 6 : 4;
+            double pull = manifested ? TribalConfig.bladeLoomPullManifested() : TribalConfig.bladeLoomPull();
             Vec3 delta = player.position().subtract(target.position());
             if (delta.lengthSqr() > 1) {
                 Vec3 step = delta.normalize().scale(Math.min(pull, delta.length()));

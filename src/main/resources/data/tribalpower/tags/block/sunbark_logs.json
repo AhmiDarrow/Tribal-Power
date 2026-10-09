@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:sunbark_log",
+    "tribalpower:sunbark_wood",
+    "tribalpower:stripped_sunbark_log",
+    "tribalpower:stripped_sunbark_wood"
+  ]
+}

@@ -89,7 +89,7 @@ public class FamiliarVoiceGameTests {
         var away=h.absolutePos(new BlockPos(7,2,0));
         fox.teleportTo(away.getX()+.5,away.getY(),away.getZ()+.5);
         sneakUse(h,player,charm,new BlockPos(1,2,7));
-        h.assertTrue(fox.lattice().voice()==Attunement.WATER,"A familiar beyond "+FamiliarBoost.ATTUNE_RANGE+" blocks keeps its voice");
+        h.assertTrue(fox.lattice().voice()==Attunement.WATER,"A familiar beyond "+FamiliarBoost.attuneRange()+" blocks keeps its voice");
         fox.discard();
         h.succeed();
     }
@@ -179,7 +179,7 @@ public class FamiliarVoiceGameTests {
         h.assertTrue(FamiliarBoost.gearChance(player,blade,0.2F)>0.2F,"It also raises the blade's voice perk odds");
         int free=0;
         for(int i=0;i<200;i++)if(FamiliarBoost.gearCost(player,blade,1)==0)free++;
-        h.assertTrue(free>40 && free<120,"A 1-Pulse spend cannot round lower, so it is free about "+Math.round(FamiliarBoost.DISCOUNT*100)+"% of the time, free "+free+" of 200");
+        h.assertTrue(free>40 && free<120,"A 1-Pulse spend cannot round lower, so it is free about "+Math.round(FamiliarBoost.discount()*100)+"% of the time, free "+free+" of 200");
         fox.discard();
         h.assertTrue(hit.getAsInt()==base,"Without the familiar the blow costs "+base+" again");
         h.succeed();

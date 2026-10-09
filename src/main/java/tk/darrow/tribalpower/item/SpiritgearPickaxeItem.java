@@ -60,7 +60,7 @@ public class SpiritgearPickaxeItem extends PickaxeItem {
         if (level.isClientSide || !selected || !(entity instanceof Player player)) return;
         if (SpiritGear.voice(stack).orElse(null) == Attunement.AIR && level.getGameTime() % 40 == 0) {
             player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED,
-                    60, SpiritGear.rank(stack) >= 3 ? 1 : 0, true, false, true));
+                    tk.darrow.tribalpower.config.TribalConfig.pickAirHasteTicks(), SpiritGear.rank(stack) >= 3 ? 1 : 0, true, false, true));
         }
     }
 

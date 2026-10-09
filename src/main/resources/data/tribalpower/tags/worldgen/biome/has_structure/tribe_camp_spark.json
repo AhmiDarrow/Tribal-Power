@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#minecraft:is_savanna",
-    "tribalpower:march_steppe"
+    "tribalpower:march_steppe",
+    "tribalpower:march_sunwheel_steppe"
   ]
 }

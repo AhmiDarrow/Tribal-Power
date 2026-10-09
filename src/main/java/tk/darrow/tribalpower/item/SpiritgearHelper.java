@@ -5,13 +5,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * Shared Pulse drain for Spiritgear — prefers held Pulse Cells, then inventory.
+ * Shared Pulse drain for Spiritgear: prefers held Pulse Cells, then inventory. The mine, hit and use costs
+ * live in TribalConfig (gearMineCost, gearHitCost, gearUseCost) and are read by {@link SpiritGear}.
  */
 public final class SpiritgearHelper {
-    public static final int MINE_COST = 2;
-    public static final int HIT_COST = 3;
-    public static final int USE_COST = 1;
-
     private SpiritgearHelper() {}
 
     public static int availablePulse(Player player) {

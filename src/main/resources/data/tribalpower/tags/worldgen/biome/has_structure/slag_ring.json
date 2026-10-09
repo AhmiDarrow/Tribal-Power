@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tribalpower:march_ember_wastes"
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_salt_flats"
   ]
 }

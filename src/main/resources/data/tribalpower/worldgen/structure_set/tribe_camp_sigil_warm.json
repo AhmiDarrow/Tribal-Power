@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "tribalpower:tribe_camp_sigil_warm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 28,
+    "separation": 14,
+    "salt": 8371924,
+    "exclusion_zone": {
+      "other_set": "tribalpower:tribe_camp_claw_warm",
+      "chunk_count": 3
+    }
+  }
+}

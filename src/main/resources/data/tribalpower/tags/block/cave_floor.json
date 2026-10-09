@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:moonstone",
+    "minecraft:stone",
+    "minecraft:deepslate",
+    "minecraft:tuff",
+    "minecraft:gravel",
+    "minecraft:dirt"
+  ]
+}

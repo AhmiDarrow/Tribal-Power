@@ -29,6 +29,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import tk.darrow.tribalpower.api.pulse.Attunement;
 import tk.darrow.tribalpower.block.ModBlocks;
+import tk.darrow.tribalpower.config.TribalConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +82,7 @@ public final class SpiritGearHooks {
             silk(event, level, tool);
         } else if (voice == Attunement.WATER && tool.getItem() instanceof SpiritgearShovelItem
                 && state.is(BlockTags.DIRT)
-                && SpiritGear.chance(swing.player(), level.random, tool, 0.10F)) {
+                && SpiritGear.chance(swing.player(), level.random, tool, (float) TribalConfig.shovelWaterClayChance())) {
             event.getDrops().add(new ItemEntity(level, event.getPos().getX() + 0.5, event.getPos().getY() + 0.5,
                     event.getPos().getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.CLAY_BALL)));
         }
@@ -154,7 +155,8 @@ public final class SpiritGearHooks {
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         if (SpiritGear.voice(hood).orElse(null) == Attunement.EARTH
                 && event.getSource().is(DamageTypeTags.IS_PROJECTILE)
-                && player.getRandom().nextFloat() < (SpiritGear.rank(hood) >= 3 ? 0.35F : 0.20F)
+                && player.getRandom().nextFloat() < (SpiritGear.rank(hood) >= 3
+                        ? TribalConfig.earthHoodBlockChanceManifested() : TribalConfig.earthHoodBlockChance())
                 && SpiritweaveArmor.powered(player, hood)) {
             event.setCanceled(true);
             return;
@@ -168,14 +170,15 @@ public final class SpiritGearHooks {
         if (event.getSource().getEntity() instanceof LivingEntity attacker
                 && (robeVoice == Attunement.FIRE || robeVoice == Attunement.SPIRIT || robeVoice == Attunement.WATER)
                 && SpiritweaveArmor.powered(player, robe)) {
-            if (robeVoice == Attunement.FIRE) attacker.igniteForSeconds(3);
+            if (robeVoice == Attunement.FIRE) attacker.igniteForSeconds(TribalConfig.fireRobeIgniteSeconds());
             if (robeVoice == Attunement.SPIRIT)
                 attacker.addEffect(new net.minecraft.world.effect.MobEffectInstance(
-                        net.minecraft.world.effect.MobEffects.GLOWING, 80, 0));
+                        net.minecraft.world.effect.MobEffects.GLOWING, TribalConfig.spiritRobeGlowTicks(), 0));
             if (robeVoice == Attunement.WATER)
                 player.addEffect(new net.minecraft.world.effect.MobEffectInstance(
                         net.minecraft.world.effect.MobEffects.REGENERATION,
-                        SpiritGear.rank(robe) >= 3 ? 160 : 100, 0, true, false, true));
+                        SpiritGear.rank(robe) >= 3 ? TribalConfig.waterRobeRegenTicksManifested() : TribalConfig.waterRobeRegenTicks(),
+                        0, true, false, true));
         }
     }
 
@@ -324,27 +327,28 @@ public final class SpiritGearHooks {
         if (bootVoice == Attunement.LOOM && player.isShiftKeyDown() && walkingForward(player)
                 && !SpiritGear.abilitiesOff(boots) && !player.getCooldowns().isOnCooldown(boots.getItem())
                 && player.level() instanceof ServerLevel server) {
-            int reach = SpiritGear.rank(boots) >= 3 ? 6 : 4;
-            if (stitch(server, player, boots, reach)) player.getCooldowns().addCooldown(boots.getItem(), 160);
+            int reach = SpiritGear.rank(boots) >= 3 ? TribalConfig.loomBootsStitchReachManifested() : TribalConfig.loomBootsStitchReach();
+            if (stitch(server, player, boots, reach)) player.getCooldowns().addCooldown(boots.getItem(), TribalConfig.loomBootsStitchCooldownTicks());
         }
 
         // A whole Manifested set mends its wearer: a heart every four seconds, paid in Pulse by the robe, if it is on.
-        if (player.tickCount % 80 == 0 && player.getHealth() < player.getMaxHealth() && SpiritGear.setRank(player) >= 3
+        if (player.tickCount % TribalConfig.setMendTicks() == 0 && player.getHealth() < player.getMaxHealth() && SpiritGear.setRank(player) >= 3
                 && !SpiritGear.abilitiesOff(player.getItemBySlot(EquipmentSlot.CHEST))
-                && (player.getAbilities().instabuild || GearCell.spend(player, player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST), 4)))
-            player.heal(2.0F);
+                && (player.getAbilities().instabuild || GearCell.spend(player, player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST), TribalConfig.setMendPulse())))
+            player.heal((float) TribalConfig.setMendHealth());
 
         if (player instanceof ServerPlayer serverPlayer && player.level() instanceof ServerLevel server
                 && player.getMainHandItem().getItem() instanceof SpiritgearPickaxeItem
                 && SpiritGear.voice(player.getMainHandItem()).orElse(null) == Attunement.SPIRIT
                 && server.getGameTime() % 80 == 0) {
-            glintOres(server, serverPlayer, SpiritGear.rank(player.getMainHandItem()) >= 3 ? 10 : 6);
+            glintOres(server, serverPlayer, SpiritGear.rank(player.getMainHandItem()) >= 3
+                    ? TribalConfig.spiritPickGlintRangeManifested() : TribalConfig.spiritPickGlintRange());
         }
         if (player instanceof ServerPlayer serverPlayer && player.level() instanceof ServerLevel server
                 && player.getMainHandItem().getItem() instanceof SpiritgearShovelItem
                 && SpiritGear.voice(player.getMainHandItem()).orElse(null) == Attunement.SPIRIT
                 && server.getGameTime() % 80 == 0) {
-            glintBuried(server, serverPlayer, 8);
+            glintBuried(server, serverPlayer, TribalConfig.spiritShovelGlintRange());
         }
     }
 

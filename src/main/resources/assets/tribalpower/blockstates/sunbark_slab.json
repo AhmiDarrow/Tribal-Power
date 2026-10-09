@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/sunbark_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/sunbark_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/sunbark_planks"
+    }
+  }
+}

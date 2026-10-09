@@ -1,0 +1,117 @@
+{
+  "name": "Lands of the March",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Six bands of the March",
+      "text": [
+        "The March runs from frozen to hot and down into the dark, **fifty-nine lands** in six bands. Each band is a long drift of temperature across the map; within it the wet and the dry, the high and the low, and the strange ground of high weirdness each keep their own country.",
+        "Every land has its own ground, its own growth and its own spirits. The Codex's bestiary says where each creature lives."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Frozen",
+      "text": [
+        "The cold end of the March: snow over March grass, rime ice where the wind has had its way, and the night veil at its brightest.",
+        "March Snow Fields, Rime Spires, Rimebirch Taiga, Frost Shore, Frozen Mere, Rime Sea, Deep Rime Sea, Hoar Peaks, Shard Peaks, Frostpine Slopes, Veil Flats."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cold",
+      "text": [
+        "Taigas of Thornfir, moors, scree and the mineral peak of the Glimmer Ridge.",
+        "Glimmer Ridge, Thornfir Taiga, Elder Thornfir Taiga, Barrow Moor, Scree Fells, Windswept Thornfir, Hoarmoss Grove, Grey Shore, Cold Shallows, Deep Cold Shallows, Tarn Country."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Temperate",
+      "text": [
+        "The heart of the March: steppe, fen, crystal country, woods of Songmaple and Hearthoak, and the sea.",
+        "March Steppe, March Reed Fen, March Crystal Fields, March Shallows, Songmaple Woods, Bloom Meadow, Hearthoak Wold, Elder Hearthoak Wold, Veilwood, Chime Orchard, High Meadow, Sunwheel Steppe, Loom River, Silt Strand, Deep Shallows, Glowcap Mire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Warm",
+      "text": [
+        "Drumpalm savannas, the Tanglewood and the stilt swamps, under the Highlands and the Sun Peaks.",
+        "March Highlands, Drumpalm Savanna, Drumpalm Plateau, Windswept Drumpalm, Tanglewood, Open Tanglewood, Cane Thicket, Strider Mangrove, Sun Peaks, Warm Shallows, Deep Warm Shallows."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hot",
+      "text": [
+        "Salt, kiln clay and ash: the dry end of the March, down to a sea bed of fused glass.",
+        "March Ember Wastes, Salt Flats, Kiln Mesa, Cut Mesa, Sunbark Mesa, Glass Shallows."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Underground",
+      "text": [
+        "What lies below every band: the singing caves, the glowing hollows, the ley veins and the Hush.",
+        "Singing Caves, Gloomcap Hollows, The Hush, Ley Veins."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "New ground",
+      "text": [
+        "- **Rime Ice** and **Frost Shale** in the frozen peaks and spires; **Needle Loam** and **Hoarmoss** under the taigas; **Scree** on the fells.",
+        "- **Pale Sand** on the strands, **Spore Turf** in the Glowcap Mire, **Pale Stone** on the Sun Peaks.",
+        "- **Salt Crust** and **Salt Pillars** on the flats; **Ochre Sand**, **Ochre Sandstone** and four tones of **Kiln Clay** in the mesas; **Glass Sand** under the Glass Shallows.",
+        "- **Resonant Spikes** that chime underfoot in the Singing Caves, **Glowmoss** in the Gloomcap Hollows, and **Silence Weave** with its **Hush Blooms** in the Hush."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "New growth",
+      "text": [
+        "Icebloom, Frostcap, Grey Heather, Hoar Thistle, Songgrass, Loom Bell, Dawn Poppy, Chime Bud, Sunwheel, Thornbrush, Tangle Fern, Spirit Cane and Gloomcap Sprouts, each in the land that suits it. The nine new trees are on the trees page."
+      ]
+    }
+  ]
+}

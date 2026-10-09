@@ -64,8 +64,9 @@ public final class TribalPower {
         tk.darrow.tribalpower.wildlife.Wildlife.register(modBus);
         tk.darrow.tribalpower.world.MarchStructures.register(modBus);
         tk.darrow.tribalpower.tribe.TribeRegistry.register(modBus);
-        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
-        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
+        // Last in line, so a death or break another mod cancels never pays or costs standing.
+        NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.LOWEST, tk.darrow.tribalpower.tribe.TribeHooks::onDeath);
+        NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.LOWEST, tk.darrow.tribalpower.tribe.TribeHooks::onBreak);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.TribeHooks::onCommands);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.tribe.DockShop::register);
         modBus.addListener(tk.darrow.tribalpower.tribe.CodexUnlocksPayload::register);
@@ -125,7 +126,7 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::armorBroken);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.GearCell::loggedOut);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.TreeFelling::loggedOut);
-        NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritGear::rankAttributes);
+        NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.LOW, tk.darrow.tribalpower.item.SpiritGear::rankAttributes);   // after the weapons' config swap, so the rank folds into the final base
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::attributes);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.item.SpiritgearWeaponItem::incomingDamage);
         NeoForge.EVENT_BUS.addListener(tk.darrow.tribalpower.song.Anointing::incomingDamage);
@@ -164,8 +165,11 @@ public final class TribalPower {
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.server.ServerStoppedEvent event) -> {
             tk.darrow.tribalpower.lattice.RelayLinks.clear();
             tk.darrow.tribalpower.world.WillowGroveStructure.clearPlans();
+            tk.darrow.tribalpower.world.FloatingIslandStructure.clearPlans();
+            tk.darrow.tribalpower.entity.MarchSpawns.clearCrowd();
             tk.darrow.tribalpower.lattice.LatticeNetwork.clearConductorLines(null);
             tk.darrow.tribalpower.item.TreeFelling.clear();
+            tk.darrow.tribalpower.echo.ProcessingRecipes.invalidate();
         });
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.level.LevelEvent.Unload event) -> {
             if (event.getLevel() instanceof net.minecraft.world.level.Level unloaded)
@@ -261,9 +265,10 @@ public final class TribalPower {
                 if (entry.getKey() != tk.darrow.tribalpower.world.MarchWoods.Wood.CINDER) {
                     for (var log : java.util.List.of(set.log, set.wood, set.strippedLog, set.strippedWood)) fire.setFlammable(log.get(), 5, 5);
                     fire.setFlammable(set.planks.get(), 5, 20);
+                    // Looked up by id; getOptional, since get() hands back air for an id that was never registered.
                     for (String part : new String[]{"stairs", "slab", "fence", "fence_gate"})
-                        fire.setFlammable(net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation
-                                .fromNamespaceAndPath(MOD_ID, entry.getKey().id + "_" + part)), 5, 20);
+                        net.minecraft.core.registries.BuiltInRegistries.BLOCK.getOptional(net.minecraft.resources.ResourceLocation
+                                .fromNamespaceAndPath(MOD_ID, entry.getKey().id + "_" + part)).ifPresent(block -> fire.setFlammable(block, 5, 20));
                 }
                 fire.setFlammable(set.leaves.get(), 30, 60);
                 fire.setFlammable(set.sapling.get(), 60, 100);

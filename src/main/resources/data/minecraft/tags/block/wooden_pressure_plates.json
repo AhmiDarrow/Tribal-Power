@@ -7,6 +7,15 @@
     "tribalpower:bellcap_pressure_plate",
     "tribalpower:frostpine_pressure_plate",
     "tribalpower:cinder_pressure_plate",
-    "tribalpower:strider_pressure_plate"
+    "tribalpower:strider_pressure_plate",
+    "tribalpower:rimebirch_pressure_plate",
+    "tribalpower:thornfir_pressure_plate",
+    "tribalpower:songmaple_pressure_plate",
+    "tribalpower:veilwood_pressure_plate",
+    "tribalpower:chimeblossom_pressure_plate",
+    "tribalpower:drumpalm_pressure_plate",
+    "tribalpower:tanglewood_pressure_plate",
+    "tribalpower:sunbark_pressure_plate",
+    "tribalpower:gloomcap_pressure_plate"
   ]
 }

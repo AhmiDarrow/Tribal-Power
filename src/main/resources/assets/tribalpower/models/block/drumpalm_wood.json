@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tribalpower:block/drumpalm_log",
+    "side": "tribalpower:block/drumpalm_log"
+  }
+}

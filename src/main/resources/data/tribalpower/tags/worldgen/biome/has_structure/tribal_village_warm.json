@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tribalpower:march_drumpalm_savanna",
+    "tribalpower:march_drumpalm_plateau",
+    "tribalpower:march_open_tanglewood",
+    "tribalpower:march_cane_thicket",
+    "tribalpower:march_tanglewood"
+  ]
+}

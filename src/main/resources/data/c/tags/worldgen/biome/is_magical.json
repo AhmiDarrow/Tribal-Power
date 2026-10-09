@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "tribalpower:march_glimmer_ridge",
-    "tribalpower:march_crystal_fields"
+    "tribalpower:march_crystal_fields",
+    "tribalpower:march_veil_flats",
+    "tribalpower:march_tarn_country",
+    "tribalpower:march_veilwood",
+    "tribalpower:march_glowcap_mire",
+    "tribalpower:march_ley_veins"
   ]
 }

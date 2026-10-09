@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "tribalpower:march_snow_fields",
-    "tribalpower:march_ember_wastes"
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_rimebirch_taiga",
+    "tribalpower:march_elder_thornfir_taiga"
   ]
 }

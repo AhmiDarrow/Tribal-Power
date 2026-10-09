@@ -2,6 +2,13 @@
   "replace": false,
   "values": [
     "tribalpower:march_crystal_fields",
-    "tribalpower:march_ember_wastes"
+    "tribalpower:march_ember_wastes",
+    "tribalpower:march_drumpalm_savanna",
+    "tribalpower:march_drumpalm_plateau",
+    "tribalpower:march_windswept_drumpalm",
+    "tribalpower:march_salt_flats",
+    "tribalpower:march_kiln_mesa",
+    "tribalpower:march_cut_mesa",
+    "tribalpower:march_sunbark_mesa"
   ]
 }

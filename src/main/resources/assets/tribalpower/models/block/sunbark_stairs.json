@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "tribalpower:block/sunbark_planks",
+    "top": "tribalpower:block/sunbark_planks",
+    "side": "tribalpower:block/sunbark_planks"
+  }
+}

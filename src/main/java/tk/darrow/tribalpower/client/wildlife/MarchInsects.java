@@ -77,13 +77,14 @@ public final class MarchInsects {
             if (Math.abs(surface - mc.player.getY()) > 24) continue;
             BlockPos top = new BlockPos(x, surface, z);
             boolean water = level.getFluidState(top.below()).is(FluidTags.WATER);
-            String biome = level.getBiome(top).unwrapKey().map(key -> key.location().getPath()).orElse("");
+            var land = tk.darrow.tribalpower.world.MarchBiomes.of(level.getBiome(top).unwrapKey().orElse(null));
+            var band = land == null ? null : land.band;
             boolean rain = level.isRainingAt(top);
             SimpleParticleType type = null;
             double y = surface + 0.4 + random.nextDouble();
-            if (biome.equals("march_ember_wastes")) {
+            if (band == tk.darrow.tribalpower.world.MarchBiomes.Band.HOT) {
                 type = Wildlife.CINDER_GNAT.get();
-            } else if (rain || biome.equals("march_snow_fields")) {
+            } else if (rain || band == tk.darrow.tribalpower.world.MarchBiomes.Band.FROZEN) {
                 continue;
             } else if (water) {
                 type = night ? Wildlife.FIREFLY.get() : Wildlife.REED_DARTER.get();

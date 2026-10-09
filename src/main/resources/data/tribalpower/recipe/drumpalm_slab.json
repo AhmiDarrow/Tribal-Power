@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:drumpalm_planks"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:drumpalm_slab"
+  }
+}
