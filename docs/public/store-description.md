@@ -14,6 +14,8 @@ Strike the Drumheart in rhythm, drink the ley lines with the Ley Collector, and 
 
 The ley lines are real: a web of coloured threads folded from the world seed, one voice each, crossing every dimension. Hold a Ley Lens to see them flow, read a collector's beat, or point it at a machine to see what it draws.
 
+![The ley lines through a Ley Lens: the threads of every voice drawn down into a circle of totems](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/ley_lines.jpg)
+
 ## A living, automated workshop
 
 Progress through Echo Shatter, Attune, Bind, Manifest, Kiln and Unweave. Each is a hearth block with a face, a batch input, eight output slots, a progress screen and a status readout, and hopper or pipe automation. The Lattice Conductor moves Pulse along chalk-linked totems. Store goods in 54-slot Ancestral Caches and personal Deep Caches, carry a Wayfarer Satchel, and hold fluids in Spirit Cisterns that show their level through their crystal windows.
