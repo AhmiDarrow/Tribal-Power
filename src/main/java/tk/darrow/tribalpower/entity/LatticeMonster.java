@@ -71,6 +71,9 @@ public class LatticeMonster extends Monster implements Familiar {
     private int age,inLove,forageCooldown,sitTicks;
     private UUID lastOwnerAttacker;
     private BlockPos lastClick;
+    /** Resolved on first ask, with no initialiser: the super constructor asks while registering goals, and an initialiser would wipe it after. */
+    private CreatureProfile profile;
+    private Boolean swims;
 
     public LatticeMonster(EntityType<? extends Monster> type,Level level) {
         super(type,level);xpReward=profile().health>=35?8:5;
@@ -80,7 +83,11 @@ public class LatticeMonster extends Monster implements Familiar {
         if(swims()) { moveControl=new CreatureSwimming.SwimMoveControl(this,true);setPathfindingMalus(net.minecraft.world.level.pathfinder.PathType.WATER,0); }
     }
     /** Lives in water (its habitat): swims there, walks on land, and breathes in both (tagged minecraft:can_breathe_under_water). */
-    public boolean swims() { return CreatureSwimming.swims(profile()); }
+    public boolean swims() {
+        Boolean known=swims;
+        if(known==null)swims=known=CreatureSwimming.swims(profile());
+        return known;
+    }
     @Override public void travel(net.minecraft.world.phys.Vec3 input) {
         if(swims() && CreatureSwimming.travel(this,input,true))return;
         super.travel(input);
@@ -89,7 +96,11 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader level) {
         return swims()?level.isUnobstructed(this):super.checkSpawnObstruction(level);
     }
-    @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    @Override public CreatureProfile profile() {
+        CreatureProfile known=profile;
+        if(known==null)profile=known=CreatureProfile.of(getType());
+        return known;
+    }
     @Override public FamiliarData lattice() { return lattice; }
     public void applyLattice() { lattice.apply(this,profile());entityData.set(DATA_STATS,lattice.pack());entityData.set(DATA_VOICE,FamiliarData.voiceId(lattice.voice())); }
     @Override public int syncedStats() { return entityData.get(DATA_STATS); }
@@ -243,7 +254,7 @@ public class LatticeMonster extends Monster implements Familiar {
         if(tool.is(Items.BRUSH) && isOwnedBy(player) && !isBaby()) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2)));
-                forageCooldown=1200;
+                forageCooldown=tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks();
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
                 level().playSound(null,blockPosition(),tk.darrow.tribalpower.sound.ModSounds.SPIRIT_BRUSH.get(),SoundSource.NEUTRAL,.7F,1.1F);
             }
@@ -435,7 +446,7 @@ public class LatticeMonster extends Monster implements Familiar {
         age=tag.getInt("Age");
         setBabyFlag(age<0);
         inLove=Math.max(0,tag.getInt("InLove"));
-        forageCooldown=Math.max(0,tag.getInt("ForageCooldown"));
+        forageCooldown=Math.clamp(tag.getInt("ForageCooldown"),0,tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks());
         if(tag.contains("Lattice",Tag.TAG_COMPOUND)) {
             lattice.load(tag.getCompound("Lattice"));applyLattice();
             // The lattice health bonus is transient, so the saved Health was clamped to the base maximum on load

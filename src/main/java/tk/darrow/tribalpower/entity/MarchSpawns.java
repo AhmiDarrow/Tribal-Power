@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Monster;
@@ -44,8 +43,7 @@ public final class MarchSpawns {
     public static boolean animal(
             EntityType<LatticeAnimal> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random
     ) {
-        BlockState below = level.getBlockState(pos.below());
-        return turf(below) && level.getRawBrightness(pos, 0) > 8 && level.getFluidState(pos).isEmpty();
+        return CreatureHabitat.ground(level, pos);
     }
 
     /**
@@ -81,16 +79,4 @@ public final class MarchSpawns {
     }
 
     public static void clearCrowd() { CROWD.clear(); }
-
-    public static boolean monster(
-            EntityType<LatticeMonster> type, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random
-    ) {
-        if (level.getDifficulty() == Difficulty.PEACEFUL) {
-            return false;
-        }
-        if (!spiritsRise(level, pos, random)) return false;
-        BlockPos belowPos = pos.below();
-        BlockState below = level.getBlockState(belowPos);
-        return turf(below) || wispFooting(below) || below.isValidSpawn(level, belowPos, type);
-    }
 }

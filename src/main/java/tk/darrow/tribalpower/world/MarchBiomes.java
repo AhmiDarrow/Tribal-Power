@@ -97,7 +97,7 @@ public enum MarchBiomes {
     }
 
     public static MarchBiomes of(ResourceKey<Biome> key) {
-        return key == null ? null : of(key.location().getPath());
+        return key == null || !key.location().getNamespace().equals("tribalpower") ? null : of(key.location().getPath());
     }
 
     /** Ground a player can stand on at the surface: everything but the open sea and the caves. */

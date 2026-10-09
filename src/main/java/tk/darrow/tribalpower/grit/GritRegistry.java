@@ -46,7 +46,10 @@ public final class GritRegistry {
     public static final String TAG_INGOTS = "ingots/";
     public static final String TAG_GEMS = "gems/";
 
-    /** Shattering is Earth work, four seconds, twenty Pulse a second -- the same terms as a written recipe. */
+    /**
+     * Shattering is Earth work, four seconds, twenty Pulse a second -- the same terms as a written recipe. The
+     * shipped figures, which the Codex and the game tests quote; the live ones are the config's (echo section).
+     */
     public static final String STATION = "echo_shatter";
     public static final int SHATTER_SECONDS = 4;
     public static final int SHATTER_PULSE = 20;
@@ -77,6 +80,7 @@ public final class GritRegistry {
      */
     public static final int GRIT_PER_UNIT = 2;
     public static final String KILN = "ember_kiln";
+    /** The shipped kiln figures (what the game tests quote); a firing reads the config's kilnSeconds and kilnPulse. */
     public static final int KILN_SECONDS = 10;
     public static final int KILN_PULSE = 32;
 
@@ -310,7 +314,7 @@ public final class GritRegistry {
         ItemStack ingot = ingotFor(stack);
         if (ingot.isEmpty()) return null;
         LatticeRecipe recipe = new LatticeRecipe(KILN, Ingredient.of(stack.getItem()), ingot,
-                KILN_SECONDS, KILN_PULSE, Attunement.FIRE);
+                TribalConfig.kilnSeconds(), TribalConfig.kilnPulse(), Attunement.FIRE);
         String name = materialOf(stack);
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(TribalPower.MOD_ID,
                 "grit/fire/" + (name == null ? "unknown" : name));
@@ -342,7 +346,7 @@ public final class GritRegistry {
         ItemStack result = material.shatterResult();
         if (result.isEmpty()) return null;
         LatticeRecipe recipe = new LatticeRecipe(STATION, Ingredient.of(stack.getItem()), result,
-                SHATTER_SECONDS, SHATTER_PULSE, Attunement.EARTH);
+                TribalConfig.gritShatterSeconds(), TribalConfig.gritShatterPulse(), Attunement.EARTH);
         return new ProcessingRecipes.Formula(syntheticId(material, stack), recipe);
     }
 

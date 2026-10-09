@@ -52,6 +52,14 @@ public class VerseLinkBlockEntity extends BlockEntity implements tk.darrow.triba
         super.setRemoved();
     }
 
+    /** An unloaded Call leaves the registry rather than being skipped by every Answer's tick; onLoad puts it back. */
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        if (level instanceof ServerLevel server) VerseCalls.remove(server, worldPosition);
+        registered = false;
+    }
+
     public static void tick(Level level, BlockPos pos, BlockState state, VerseLinkBlockEntity be) {
         if (level.isClientSide) return;
         // A Call registers itself on load and leaves in setRemoved (VerseCalls' contract); the tick only makes sure of it

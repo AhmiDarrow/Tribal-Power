@@ -1,6 +1,7 @@
 package tk.darrow.tribalpower.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -81,8 +82,9 @@ public enum CreatureHabitat {
         BlockState here = level.getBlockState(pos), over = level.getBlockState(pos.above());
         if (!level.getFluidState(pos).isEmpty() || !(here.isAir() || here.canBeReplaced())) return false;
         if (!(over.isAir() || over.canBeReplaced())) return false;
+        BlockPos.MutableBlockPos under = pos.mutable();
         for (int drop = 1; drop <= 6; drop++)
-            if (!level.getBlockState(pos.below(drop)).isAir())
+            if (!level.getBlockState(under.move(Direction.DOWN)).isAir())
                 return level.getRawBrightness(pos, 0) > 6;
         return false;
     }
@@ -128,11 +130,11 @@ public enum CreatureHabitat {
 
     /** Water the sky does not look straight into: iced over, lidded by mud or a lily, or under a canopy of leaves and limbs. */
     public static boolean shaded(LevelAccessor level, BlockPos pos) {
-        BlockPos.MutableBlockPos top = pos.mutable();
-        while (level.getFluidState(top.above()).is(FluidTags.WATER)) top.move(net.minecraft.core.Direction.UP);
-        BlockState lid = level.getBlockState(top.above());
+        BlockPos.MutableBlockPos lidPos = pos.mutable().move(Direction.UP);
+        while (level.getFluidState(lidPos).is(FluidTags.WATER)) lidPos.move(Direction.UP);
+        BlockState lid = level.getBlockState(lidPos);
         if (!lid.isAir() && !(lid.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock)) return true;
-        return level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ()) > top.getY() + 1;
+        return level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ()) > lidPos.getY();
     }
 
     /** Swimming room. */
@@ -170,7 +172,6 @@ public enum CreatureHabitat {
         if (this == AIR) return air(level, pos);
         BlockPos belowPos = pos.below();
         BlockState below = level.getBlockState(belowPos);
-        return MarchSpawns.turf(below) || MarchSpawns.wispFooting(below)
-                || below.isValidSpawn(level, belowPos, type);
+        return MarchSpawns.wispFooting(below) || below.isValidSpawn(level, belowPos, type);
     }
 }

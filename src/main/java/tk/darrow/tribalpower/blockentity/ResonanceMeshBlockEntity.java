@@ -65,6 +65,11 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     public static final int PULSE_BUFFER = 200;
 
     private static final int RADIUS = LatticeNetwork.DEFAULT_RADIUS;
+    /** Fixed per face; hoppers ask every tick, so nothing is built per probe. */
+    private static final int[] SAMPLE_SLOTS = {SAMPLE};
+    private static final int[] SUBSTRATE_SLOTS = {SUBSTRATE_A, SUBSTRATE_B};
+    private static final int[] OUTPUT_SLOTS = {OUTPUT_FIRST, OUTPUT_FIRST + 1, OUTPUT_FIRST + 2, OUTPUT_FIRST + 3};
+    private static final int[] NONE = new int[0];
 
     public final FluidTank tank = new FluidTank(TANK_CAPACITY, stack -> stack.getFluid() == Fluids.WATER) {
         @Override public int fill(FluidStack resource, FluidAction action) {
@@ -90,9 +95,9 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
     @Override public int[] inputSlots(Direction face) {
         return switch (face) {
-            case UP -> new int[]{SAMPLE};
-            case DOWN -> new int[0];
-            default -> new int[]{SUBSTRATE_A, SUBSTRATE_B};
+            case UP -> SAMPLE_SLOTS;
+            case DOWN -> NONE;
+            default -> SUBSTRATE_SLOTS;
         };
     }
 
@@ -103,9 +108,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     @Override public boolean takesFromNeighbours(Direction face) { return face != Direction.UP; }
 
     @Override public int[] outputSlots(Direction face) {
-        return face == Direction.DOWN
-                ? new int[]{OUTPUT_FIRST, OUTPUT_FIRST + 1, OUTPUT_FIRST + 2, OUTPUT_FIRST + 3}
-                : new int[0];
+        return face == Direction.DOWN ? OUTPUT_SLOTS : NONE;
     }
 
     // ---- inventory -------------------------------------------------------------------------
@@ -193,9 +196,13 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     }
 
     private int cycleSeconds(OreBand band, Set<Attunement> voices) {
-        int seconds = seconds(band, voices);
-        if (level == null) return seconds;
-        return Keeping.stretch(Keeping.voice(level, worldPosition, Attunement.EARTH), seconds);
+        if (level == null) return seconds(band, voices);
+        return cycleSeconds(band, voices, Keeping.voice(level, worldPosition, Attunement.EARTH));
+    }
+
+    /** As above, with the Earth keeping the beat already read. */
+    private int cycleSeconds(OreBand band, Set<Attunement> voices, Keeping.State keeping) {
+        return Keeping.stretch(keeping, seconds(band, voices));
     }
 
     @Override
@@ -227,8 +234,13 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
     /** A Tribe Hearth or a Grit-singer Kinship Totem standing inside the pattern (section 7.2). */
     public boolean kinshipPresent(Level level, BlockPos pos) {
+        return kinshipPresent(level, pos, LatticeNetwork.findNearbyKinshipTotems(level, pos, RADIUS));
+    }
+
+    /** As above, with the Kinship Totems in reach already found. */
+    private boolean kinshipPresent(Level level, BlockPos pos, List<KinshipTotemBlockEntity> kinship) {
         BoundingBox box = pattern.pattern().boundsAround(pos);
-        for (KinshipTotemBlockEntity totem : LatticeNetwork.findNearbyKinshipTotems(level, pos, RADIUS))
+        for (KinshipTotemBlockEntity totem : kinship)
             if (totem.tribe() == TribeDefinition.STONE && box.isInside(totem.getBlockPos())) return true;
         for (BlockPos cursor : BlockPos.betweenClosed(
                 new BlockPos(box.minX(), box.minY(), box.minZ()), new BlockPos(box.maxX(), box.maxY(), box.maxZ())))
@@ -276,8 +288,11 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
     /** The band this cycle listens to, or null when the pit may not listen at all. */
     public OreBand selectBand(Level level, BlockPos pos, int tier, Set<Attunement> voices) {
+        return selectBand(level, pos, tier, voices, kinshipPresent(level, pos));
+    }
+
+    private OreBand selectBand(Level level, BlockPos pos, int tier, Set<Attunement> voices, boolean kinship) {
         TribeRank rank = standing(level);
-        boolean kinship = kinshipPresent(level, pos);
         String sample = sampleMaterial();
         if (sample != null)
             // A sample asks for the deepest band that holds it and the pit may reach; one no reachable
@@ -312,15 +327,17 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         if (!match.found()) { be.stall("pattern"); return; }
         int tier = match.tier();
 
-        Set<Attunement> voices = be.voices(level, pos);
+        // Voices, keeping, kinship and feeding all ask about the same totems: found once for the beat.
+        var totems = LatticeNetwork.TotemsNear.of(level, pos, RADIUS);
+        Set<Attunement> voices = totems.attunements();
         if (!voices.contains(Attunement.EARTH)) { be.stall("attunement"); return; }
-        var keeping = Keeping.voice(level, pos, Attunement.EARTH);
+        var keeping = Keeping.voice(totems, Attunement.EARTH);
         if (keeping == Keeping.State.QUIET && be.work == 0) { be.stall("quiet"); return; }
 
         Container cache = be.cache(level, pos);
         if (cache == null) { be.stall("cache"); return; }
 
-        OreBand band = be.selectBand(level, pos, tier, voices);
+        OreBand band = be.selectBand(level, pos, tier, voices, be.kinshipPresent(level, pos, totems.kinship()));
         if (band == null) { be.stall("standing"); return; }
         if (band != be.band) { be.band = band; be.work = 0; be.calling = ""; be.setChanged(); }
 
@@ -342,10 +359,10 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
 
         be.state = "working";
         be.work++;
-        Keeping.feedWork(level, pos, Attunement.EARTH);
+        Keeping.feedWork(totems, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.55, 0), Attunement.EARTH, 0.5, 8);
 
-        if (be.work >= be.cycleSeconds(band, voices)) {
+        if (be.work >= be.cycleSeconds(band, voices, keeping)) {
             be.finish(level, pos, band, voices, substrate, result);
         }
         be.setChanged();
@@ -399,7 +416,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     private boolean hasSubstrate(List<ItemStack> cost) {
         for (ItemStack want : cost) {
             int found = 0;
-            for (int slot : new int[]{SUBSTRATE_A, SUBSTRATE_B}) {
+            for (int slot : SUBSTRATE_SLOTS) {
                 ItemStack held = getItem(slot);
                 if (ItemStack.isSameItemSameComponents(held, want)) found += held.getCount();
             }
@@ -419,7 +436,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
             for (int from = 0; from < cache.getContainerSize(); from++) {
                 ItemStack offered = cache.getItem(from);
                 if (!ItemStack.isSameItemSameComponents(offered, want)) continue;
-                for (int slot : new int[]{SUBSTRATE_A, SUBSTRATE_B}) {
+                for (int slot : SUBSTRATE_SLOTS) {
                     ItemStack held = getItem(slot);
                     if (!held.isEmpty() && !ItemStack.isSameItemSameComponents(held, want)) continue;
                     int room = want.getMaxStackSize() - held.getCount();
@@ -440,7 +457,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
     private void takeSubstrate(List<ItemStack> cost) {
         for (ItemStack want : cost) {
             int remaining = want.getCount();
-            for (int slot : new int[]{SUBSTRATE_A, SUBSTRATE_B}) {
+            for (int slot : SUBSTRATE_SLOTS) {
                 if (remaining <= 0) break;
                 ItemStack held = getItem(slot);
                 if (!ItemStack.isSameItemSameComponents(held, want)) continue;

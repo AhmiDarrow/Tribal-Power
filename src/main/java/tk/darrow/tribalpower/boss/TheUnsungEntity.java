@@ -211,8 +211,12 @@ public class TheUnsungEntity extends Monster {
     }
 
     private void tickReset(ServerLevel server) {
-        Player near = server.getNearestPlayer(this, RESET_RANGE);
-        if (near == null || near.isSpectator()) awayTicks++; else awayTicks = 0;
+        // Runs every tick: walk the level's few players by distance rather than a nearest-player scan with its predicate.
+        boolean anyone = false;
+        for (ServerPlayer player : server.players()) {
+            if (!player.isSpectator() && player.distanceToSqr(this) <= RESET_RANGE * RESET_RANGE) { anyone = true; break; }
+        }
+        awayTicks = anyone ? 0 : awayTicks + 1;
         if (awayTicks >= RESET_TICKS) resetAndDespawn(server);
     }
 

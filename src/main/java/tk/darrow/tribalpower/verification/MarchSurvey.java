@@ -49,6 +49,7 @@ public final class MarchSurvey {
 
     /** Every plant seen, by id, so compat flora shows up by name in the log. */
     private static final Map<String, Integer> PLANTS = new TreeMap<>();
+    private static final Map<String, Integer> LIGHTS = new TreeMap<>();
 
     private MarchSurvey() {}
 
@@ -81,6 +82,7 @@ public final class MarchSurvey {
             if (origins.get(site) == null) continue;
             long[] totals = new long[2]; // plants, lights
             Map<String, Integer> tops = new TreeMap<>();
+            Map<String, Integer> lightsBefore = new TreeMap<>(LIGHTS);
             long started = System.nanoTime();
             for (int cz = 0; cz < SITE_CHUNKS; cz++) for (int cx = 0; cx < SITE_CHUNKS; cx++)
                 survey(march, origins.get(site), site, cx, cz, image, totals, tops);
@@ -96,9 +98,18 @@ public final class MarchSurvey {
             TribalPower.LOGGER.info("March survey {} {}: {} plants/chunk, {} lights/chunk, {} ms/chunk, surface {}",
                     pass ? "PASS" : "FAIL", SITES[site], String.format("%.1f", plants), String.format("%.1f", lights),
                     (System.nanoTime() - started) / 1_000_000 / chunks, tops);
+            if (lights > lightCap) {
+                Map<String, Integer> siteLights = new TreeMap<>();
+                for (var e : LIGHTS.entrySet()) {
+                    int n = e.getValue() - lightsBefore.getOrDefault(e.getKey(), 0);
+                    if (n > 0) siteLights.put(e.getKey(), n);
+                }
+                TribalPower.LOGGER.info("March survey lights at {}: {}", SITES[site], siteLights);
+            }
         }
         ImageIO.write(image, "png", new File("march_survey.png"));
         TribalPower.LOGGER.info("March survey plants: {}", PLANTS);
+        TribalPower.LOGGER.info("March survey lights: {}", LIGHTS);
         List<BlockPos> caveOrigins = new ArrayList<>();
         for (MarchBiomes cave : CAVES) {
             BlockPos origin = caveSite(march, cave);
@@ -607,7 +618,10 @@ public final class MarchSurvey {
                     totals[0]++;
                     PLANTS.merge(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString(), 1, Integer::sum);
                 }
-                if (state.getLightEmission(march, cursor) > 0) totals[1]++;
+                if (state.getLightEmission(march, cursor) > 0) {
+                    totals[1]++;
+                    LIGHTS.merge(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString(), 1, Integer::sum);
+                }
                 canopy |= state.getBlock() instanceof LeavesBlock;
             }
             BlockState surface = chunk.getBlockState(cursor.set(wx, ground, wz));

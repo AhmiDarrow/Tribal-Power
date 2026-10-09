@@ -362,11 +362,11 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
     /** A line of leaves, two wide, from one point to another: a palm frond. */
     private static void frond(Plan p, BlockState leaf, Vec3 a, Vec3 b) {
         int steps = Math.max(2, Mth.ceil(a.distanceTo(b) * 2));
+        boolean alongX = Math.abs(b.x - a.x) > Math.abs(b.z - a.z);
         for (int s = 0; s <= steps; s++) {
-            Vec3 c = a.add(b.subtract(a).scale(s / (double) steps));
-            BlockPos pos = BlockPos.containing(c);
+            BlockPos pos = BlockPos.containing(a.add(b.subtract(a).scale(s / (double) steps)));
             p.leaf(leaf, pos);
-            p.leaf(leaf, pos.offset(Math.abs(b.x - a.x) > Math.abs(b.z - a.z) ? 0 : 1, 0, Math.abs(b.x - a.x) > Math.abs(b.z - a.z) ? 1 : 0));
+            p.leaf(leaf, pos.offset(alongX ? 0 : 1, 0, alongX ? 1 : 0));
         }
     }
 
@@ -627,7 +627,7 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
                 }
                 int r = Mth.ceil(radius);
                 for (int dx = -r; dx <= r; dx++) for (int dy = -r; dy <= r; dy++) for (int dz = -r; dz <= r; dz++)
-                    if (dx * dx + dy * dy + dz * dz <= radius * radius) log(BlockPos.containing(c.add(dx, dy, dz)), axis);
+                    if (dx * dx + dy * dy + dz * dz <= radius * radius) log(BlockPos.containing(c.x + dx, c.y + dy, c.z + dz), axis);
             }
         }
 
@@ -649,7 +649,7 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
             int ix = Mth.ceil(rx), iy = Mth.ceil(ry);
             for (int dx = -ix; dx <= ix; dx++) for (int dy = -iy; dy <= iy; dy++) for (int dz = -ix; dz <= ix; dz++) {
                 double f = (dx * dx + dz * dz) / (rx * rx) + dy * dy / (ry * ry);
-                if (f <= 1 - r.nextDouble() * 0.28) leaf(leaf, BlockPos.containing(c.add(dx, dy, dz)));
+                if (f <= 1 - r.nextDouble() * 0.28) leaf(leaf, BlockPos.containing(c.x + dx, c.y + dy, c.z + dz));
             }
         }
 
@@ -658,7 +658,7 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
             int r = Mth.ceil(outer);
             for (int dx = -r; dx <= r; dx++) for (int dz = -r; dz <= r; dz++) {
                 double d = Math.sqrt(dx * dx + dz * dz);
-                if (d >= inner && d <= outer) leaf(leaf, BlockPos.containing(c.add(dx, 0, dz)));
+                if (d >= inner && d <= outer) leaf(leaf, BlockPos.containing(c.x + dx, c.y, c.z + dz));
             }
         }
 
@@ -714,9 +714,9 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
 
         public boolean write(WorldGenLevel level, Predicate<BlockPos> writable) {
             BlockState wood = set.log.get().defaultBlockState();
-            // A sapling grows its tree in the live world: skip neighbour updates there, or a colossus stalls the tick.
-            int flags = level instanceof WorldGenRegion ? Block.UPDATE_ALL | Block.UPDATE_KNOWN_SHAPE
-                    : Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
+            // A worldgen region ignores the flags; a sapling grows its tree in the live world, where neighbour updates
+            // on a colossus would stall the tick.
+            int flags = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
             boolean any = false;
             Set<BlockPos> missing = new HashSet<>();
             for (var entry : logs.entrySet()) {

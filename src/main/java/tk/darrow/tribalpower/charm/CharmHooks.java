@@ -264,7 +264,8 @@ public final class CharmHooks {
     }
 
     public static void drops(LivingDropsEvent event) {
-        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide) return;
+        // A death whose drops another mod already waved off keeps its charms where they are (the slots survive death).
+        if (event.isCanceled() || !(event.getEntity() instanceof Player player) || player.level().isClientSide) return;
         if (player.level().getGameRules().getBoolean(net.minecraft.world.level.GameRules.RULE_KEEPINVENTORY)
                 || player.getAbilities().instabuild) return;
         CharmInventory inv = CharmSlots.of(player);

@@ -80,6 +80,13 @@ public class WakeBellBlockEntity extends GeneratorBlockEntity {
         super.setRemoved();
     }
 
+    /** The chunk's bells leave the registry with it; {@link #onLoad} puts them back when it returns. */
+    @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        if (level instanceof net.minecraft.server.level.ServerLevel server) WakeBells.remove(server, worldPosition);
+    }
+
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);

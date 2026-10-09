@@ -918,10 +918,4 @@ public final class Weave {
                 tk.darrow.tribalpower.item.MachineRank.rank(nearest), nearest.rate(), nearest.carriedLastSecond(now),
                 net.active());
     }
-
-    /** Test and diagnostics hook: how many networks the level currently holds resolved. */
-    public static int cachedNets(Level level) {
-        LevelWeave weave = LEVELS.get(level);
-        return weave == null ? 0 : (int) weave.nets.values().stream().distinct().count();
-    }
 }

@@ -20,6 +20,8 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
     private static final int SLOT = 0xFF081317, SLOT_RIM = 0xFF385456, TEXT = 0xFFE7DCC1, QUIET = 0xFF98ACA5, TEAL = 0xFF65D7C0;
     private static final int ROW = 12, VISIBLE = 7;
     private final List<Row> rows = new ArrayList<>();
+    /** One stack per reagent for the scroll and the seats, made once rather than once per row per frame. */
+    private final java.util.Map<CreatureProfile, ItemStack> icons = new java.util.EnumMap<>(CreatureProfile.class);
     private int scroll;
     private int hovered = -1;
     /** The row last clicked. The side buttons act on it, since the mouse has left the list to reach them. */
@@ -34,9 +36,13 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
         inventoryLabelY = SongBenchMenu.INVENTORY_Y - 11;
         for (var entry : Reagents.byNote().entrySet()) {
             if (entry.getValue().isEmpty()) continue;
-            rows.add(new Row(entry.getKey(), null));
-            for (CreatureProfile profile : entry.getValue()) rows.add(new Row(null, profile));
+            rows.add(new Row(entry.getKey(), null, Component.translatable("song.tribalpower.note." + entry.getKey().name().toLowerCase(java.util.Locale.ROOT))));
+            for (CreatureProfile profile : entry.getValue()) rows.add(new Row(null, profile, Component.translatable("item.tribalpower." + profile.reagent)));
         }
+    }
+
+    private ItemStack icon(CreatureProfile profile) {
+        return icons.computeIfAbsent(profile, p -> new ItemStack(Reagents.item(p)));
     }
 
     @Override
@@ -92,11 +98,11 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
                 g.fill(x + 8, ry, x + 148, ry + ROW, start + i == selected ? 0xFF2F5448 : 0xFF1C3338);
             }
             if (row.header != null) {
-                g.drawString(font, Component.translatable("song.tribalpower.note." + row.header.name().toLowerCase(java.util.Locale.ROOT)), x + 10, ry + 2, TEAL, false);
+                g.drawString(font, row.label, x + 10, ry + 2, TEAL, false);
             } else {
                 int raw = pouch.isEmpty() ? 0 : ReagentPouch.raw(pouch, row.profile);
                 int empowered = pouch.isEmpty() ? 0 : ReagentPouch.empowered(pouch, row.profile);
-                g.drawString(font, Component.translatable("item.tribalpower." + row.profile.reagent), x + 10, ry + 2, TEXT, false);
+                g.drawString(font, row.label, x + 10, ry + 2, TEXT, false);
                 String counts = raw + "/" + empowered;
                 g.drawString(font, counts, x + 146 - font.width(counts), ry + 2, empowered > 0 ? 0xFFE3B55A : QUIET, false);
             }
@@ -109,7 +115,7 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
         for (int i = 0; i < 7; i++) {
             g.fill(sx + i * 18, y + 112, sx + i * 18 + 16, y + 122, SLOT);
             CreatureProfile profile = menu.reagentAt(i);
-            if (profile != null) g.renderItem(new ItemStack(Reagents.item(profile)), sx + i * 18, y + 108);
+            if (profile != null) g.renderItem(icon(profile), sx + i * 18, y + 108);
         }
     }
 
@@ -159,5 +165,6 @@ public class SongBenchScreen extends AbstractContainerScreen<SongBenchMenu> {
         renderTooltip(g, mouseX, mouseY);
     }
 
-    private record Row(Note header, CreatureProfile profile) {}
+    /** A note's heading or one of its reagents, with the name it is drawn under. */
+    private record Row(Note header, CreatureProfile profile, Component label) {}
 }

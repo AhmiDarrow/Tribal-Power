@@ -213,9 +213,15 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         setChanged();
     }
 
+    /** Read from the block id once: the beat, the cost and every link check ask for it. */
+    private int tier;
+
     public int tier() {
-        String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();
-        return id.startsWith("astral_") ? 3 : id.startsWith("longreach_") ? 2 : 1;
+        if (tier == 0) {
+            String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();
+            tier = id.startsWith("astral_") ? 3 : id.startsWith("longreach_") ? 2 : 1;
+        }
+        return tier;
     }
 
     /**
@@ -418,7 +424,7 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
     }
 
     private int pulseCost() {
-        int cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(tier() == 3 ? 16 : tier() == 2 ? 8 : 4);
+        int cost = tk.darrow.tribalpower.config.TribalConfig.scaleConsumption(tk.darrow.tribalpower.config.TribalConfig.relayCost(tier()));
         return MachineRank.scalePulse(this, cost);
     }
 

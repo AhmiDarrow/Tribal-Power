@@ -9,6 +9,7 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import tk.darrow.tribalpower.api.pulse.Attunement;
+import tk.darrow.tribalpower.config.TribalConfig;
 import tk.darrow.tribalpower.effect.SpiritEffects;
 import tk.darrow.tribalpower.familiar.FamiliarRoster;
 
@@ -25,7 +26,7 @@ public final class SongCast {
         LivingEntity target = look(player, verse.reach());
         if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && target == null) return false;
         switch (verse.shape()) {
-            case BOLT -> strike(player, target, 3.0F + verse.power(), verse);
+            case BOLT -> strike(player, target, (float) (TribalConfig.songBoltDamage() + TribalConfig.songBoltDamagePerPower() * verse.power()), verse);
             case BIND -> hold(target, verse);
             case WARD -> ward(player, verse);
             case STEP -> step(player, verse);
@@ -123,8 +124,9 @@ public final class SongCast {
         double radius = tk.darrow.tribalpower.familiar.FamiliarBoost.songReach(player, verse.voice(),
                 3.0 + Math.max(0, verse.reagents().size() - SongVerse.MIN_SHEET) * 0.45);
         var box = player.getBoundingBox().inflate(radius, 1.5, radius);
+        float damage = (float) (TribalConfig.songCallDamage() + TribalConfig.songCallDamagePerPower() * verse.power());
         for (LivingEntity living : level.getEntitiesOfClass(LivingEntity.class, box, FamiliarRoster::hostile)) {
-            strike(player, living, 2.0F + verse.power() * 0.5F, verse);
+            strike(player, living, damage, verse);
             for (Note rider : verse.riders()) ride(player, living, rider, verse);
         }
         SpiritEffects.ring(level, player.position().add(0, 0.1, 0), verse.voice(), radius, 20);

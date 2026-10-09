@@ -69,10 +69,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
     public static final int WANDER_RADIUS = 16;
     public static final int STALL_RADIUS = 2;
     public static final int HUNT_RADIUS = 12;
-    public static final int DRUM_INTERVAL = 120;
-    public static final int DRUM_RADIUS = 8;
-    public static final int DRUM_PULSE = 2;
     public static final byte EVENT_BEAT = 64;
+    /** The camp's anger reaches this far; one conditions object, since the goal asks every tick while a Hunter is angry. */
+    private static final int ANGER_RANGE = 24;
+    private static final TargetingConditions ANGER_CONDITIONS = TargetingConditions.forCombat().range(ANGER_RANGE);
     /** Weaver loom goal: search radius around the anchor, cooldown window (ticks) and working time at the loom. */
     public static final int LOOM_RADIUS = 12;
     public static final int LOOM_COOLDOWN_MIN = 800, LOOM_COOLDOWN_MAX = 1800;
@@ -181,14 +181,14 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
             restrictTo(anchor, wanderRadius());
         }
         else if (!hasRestriction()) restrictTo(anchor, wanderRadius());
-        if (role() == KinRole.DRUMMER && ++drumTimer >= DRUM_INTERVAL) {
+        if (role() == KinRole.DRUMMER && ++drumTimer >= tk.darrow.tribalpower.config.TribalConfig.kinDrumIntervalTicks()) {
             drumTimer = random.nextInt(20);
             drum();
         }
         if (angerTarget != null && level().getGameTime() > angerUntil) { angerTarget = null; setTarget(null); }
     }
 
-    /** Drummer beat: basedrum note, tribe-coloured ring and 2 Pulse into each generator within 8 blocks. */
+    /** Drummer beat: basedrum note, tribe-coloured ring and kinDrumPulse into each generator within kinDrumRadius (TribalConfig). */
     public void drum() {
         if (!(level() instanceof ServerLevel server)) return;
         server.playSound(null, blockPosition(), tk.darrow.tribalpower.sound.ModSounds.KIN_DRUM.get(), SoundSource.NEUTRAL, 0.8F, 0.85F);
@@ -202,10 +202,11 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         BlockPos origin = blockPosition();
         // The drummers walk with the camp, so this beat runs wherever they wander: read the loaded chunks'
         // block-entity maps rather than probing all 4,913 positions of the cube.
-        for (BlockEntity be : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(server, origin, DRUM_RADIUS)) {
+        int pulse = tk.darrow.tribalpower.config.TribalConfig.kinDrumPulse();
+        for (BlockEntity be : tk.darrow.tribalpower.lattice.LatticeNetwork.blockEntitiesAround(server, origin, tk.darrow.tribalpower.config.TribalConfig.kinDrumRadius())) {
             if (be instanceof PulseHandler handler && (be instanceof DrumheartBlockEntity
                     || be instanceof LeyCollectorBlockEntity || be instanceof PulseResonatorBlockEntity))
-                handler.insertPulse(DRUM_PULSE, false);
+                handler.insertPulse(pulse, false);
         }
         tk.darrow.tribalpower.lattice.Keeping.livingBeat(server, origin);
     }
@@ -584,8 +585,8 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         @Override public boolean canUse() {
             if (role() != KinRole.HUNTER || angerTarget == null || level().getGameTime() > angerUntil) return false;
             Player p = level().getPlayerByUUID(angerTarget);
-            if (p == null || !p.isAlive() || p.isCreative() || p.isSpectator() || distanceToSqr(p) > 24 * 24) return false;
-            return TargetingConditions.forCombat().range(24).test(TribalKinEntity.this, p);
+            if (p == null || !p.isAlive() || p.isCreative() || p.isSpectator() || distanceToSqr(p) > ANGER_RANGE * ANGER_RANGE) return false;
+            return ANGER_CONDITIONS.test(TribalKinEntity.this, p);
         }
         @Override public void start() { setTarget(angerTarget == null ? null : level().getPlayerByUUID(angerTarget)); super.start(); }
         @Override public boolean canContinueToUse() { return canUse() && super.canContinueToUse(); }

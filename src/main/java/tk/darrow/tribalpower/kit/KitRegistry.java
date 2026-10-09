@@ -76,7 +76,7 @@ public final class KitRegistry {
 
     /** A soul urn used on a creature takes it before the creature's own right-click can. */
     public static void captureSoul(PlayerInteractEvent.EntityInteract event) {
-        if (!(event.getItemStack().getItem() instanceof SoulUrnItem urn)) return;
+        if (event.isCanceled() || !(event.getItemStack().getItem() instanceof SoulUrnItem urn)) return;
         event.setCanceled(true);
         event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide));
         if (!event.getLevel().isClientSide) urn.capture(event.getEntity(), event.getItemStack(), event.getTarget());

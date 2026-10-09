@@ -29,7 +29,8 @@ public class SongSheetItem extends Item {
 
     public static @Nullable SongVerse verse(ItemStack stack) {
         if (!(stack.getItem() instanceof SongSheetItem)) return null;
-        return SongVerse.read(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag());
+        // read in place: the name and the tooltip ask every frame, and SongVerse.read copies out what it keeps
+        return SongVerse.read(stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe());
     }
 
     @Override
@@ -39,10 +40,8 @@ public class SongSheetItem extends Item {
         SongVerse verse = verse(sheet);
         if (verse == null || level.isClientSide || !(player instanceof net.minecraft.server.level.ServerPlayer server))
             return net.minecraft.world.InteractionResultHolder.pass(sheet);
-        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.hushed"), true);
-            return net.minecraft.world.InteractionResultHolder.fail(sheet);
-        }
+        // hushed() tells the player itself
+        if (tk.darrow.tribalpower.effect.ModEffects.hushed(player)) return net.minecraft.world.InteractionResultHolder.fail(sheet);
         if ((verse.shape() == SongShape.BOLT || verse.shape() == SongShape.BIND) && SongCast.look(server, verse.reach()) == null) {
             player.displayClientMessage(Component.translatable("message.tribalpower.song.no_target"), true);
             return net.minecraft.world.InteractionResultHolder.fail(sheet);

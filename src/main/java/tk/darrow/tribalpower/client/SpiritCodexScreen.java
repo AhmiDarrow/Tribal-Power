@@ -47,6 +47,8 @@ public final class SpiritCodexScreen extends Screen {
     private static final int TEAL = 0xFF74DBCB, GOLD = 0xFFE4C18A, PAPER = 0xFFE4E5DA, DIM = 0xFF9CB8B9;
     private static final int SCENE_H = 118;
     private static final ResourceLocation ATLAS = ResourceLocation.parse("tribalpower:textures/gui/codex/quest_atlas.png");
+    /** The closed book that stands in for a veiled entry's icon. */
+    private static final ItemStack VEILED = new ItemStack(net.minecraft.world.item.Items.BOOK);
 
     private enum View { LANDING, CATEGORY, ENTRY, SEARCH, BOOKMARKS, ITEM }
 
@@ -696,7 +698,7 @@ public final class SpiritCodexScreen extends Screen {
         int y = pageY + 20;
         for (Entry e : entries.subList(Math.min(entries.size(), listPage * per), Math.min(entries.size(), (listPage + 1) * per))) {
             boolean open = visible(e);
-            ItemStack icon = open ? stack(e.icon()) : new ItemStack(net.minecraft.world.item.Items.BOOK);
+            ItemStack icon = open ? stack(e.icon()) : VEILED;
             Component name = open ? Component.literal(e.name()) : Component.translatable("gui.tribalpower.codex.hidden_entry");
             row(g, icon, name, null, rightX, y, () -> openEntry(e.id()));
             y += 20;

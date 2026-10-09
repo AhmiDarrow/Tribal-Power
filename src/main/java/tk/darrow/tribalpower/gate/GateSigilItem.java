@@ -3,7 +3,6 @@ package tk.darrow.tribalpower.gate;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -55,8 +54,8 @@ public class GateSigilItem extends Item {
 
     /** The gate a sigil is carrying, for the tooltip and for tests. */
     public static String written(ItemStack sigil) {
-        CompoundTag data = sigil.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
-        return data.contains("GateName") ? data.getString("GateName") : "";
+        // read in place: the tooltip asks every frame, and getString is empty for a sigil that carries nothing
+        return sigil.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getString("GateName");
     }
 
     @Override

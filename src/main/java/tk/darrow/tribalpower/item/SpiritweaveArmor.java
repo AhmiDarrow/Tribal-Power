@@ -194,7 +194,7 @@ public class SpiritweaveArmor extends ArmorItem {
     private static void glowHostiles(Player player, int range) {
         for (LivingEntity mob : player.level().getEntitiesOfClass(LivingEntity.class,
                 player.getBoundingBox().inflate(range), tk.darrow.tribalpower.familiar.FamiliarRoster::hostile)) {
-            mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
+            mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, TribalConfig.spiritHoodGlowTicks(), 0));
         }
     }
 

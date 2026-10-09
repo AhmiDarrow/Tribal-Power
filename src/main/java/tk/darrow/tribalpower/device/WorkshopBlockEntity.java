@@ -57,16 +57,27 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     private static boolean isPump(BlockState state) { return state.is(DeviceRegistry.TIDE_PUMP.get()); }
     public boolean isPump() { return isPump(getBlockState()); }
 
-    public String kind() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
+    /** The block id's path, read once: the beat, the faces and the comparator all ask for it. */
+    private String kind;
+
+    public String kind() {
+        if (kind == null) kind = BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();
+        return kind;
+    }
+
+    /** What one beat of this hand's work costs, by kind. */
+    private int unitCost() {
+        return switch (kind()) {
+            case "tide_pump" -> tk.darrow.tribalpower.config.TribalConfig.tidePumpCost();
+            case "wind_snare" -> tk.darrow.tribalpower.config.TribalConfig.windSnareCost();
+            case "ward_drum" -> tk.darrow.tribalpower.config.TribalConfig.wardDrumCost();
+            default -> 0;
+        };
+    }
 
     @Override
     public int spendPerSecond() {
-        int unit = switch (kind()) {
-            case "tide_pump" -> 4;
-            case "wind_snare" -> 2;
-            case "ward_drum" -> 8;
-            default -> 0;
-        };
+        int unit = unitCost();
         if (unit == 0) return 0;
         return switch (reason) {
             case "drawing", "pushing", "need_pulse", "struck" -> unit;
@@ -155,7 +166,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
             setReason("need_tanks");
             return;
         }
-        int cost = 4;
+        int cost = unitCost();
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
         full = false;
         int drew = water ? drawWater(server, below) : under != null ? move(under, well, 250) : 0;
@@ -242,7 +253,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     }
 
     private void vacuum(ServerLevel server) {
-        int cost = 2;
+        int cost = unitCost();
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse_stack", cost); return; }
         var box = new AABB(worldPosition).inflate(8);
         int pulled = 0;
@@ -281,7 +292,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
     }
 
     private void fight(ServerLevel server) {
-        int cost = 8;
+        int cost = unitCost();
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) { setReason("need_pulse", cost); return; }
         var box = new AABB(worldPosition).inflate(8);
         for (var living : server.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, box,

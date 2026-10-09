@@ -28,7 +28,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     private boolean active;
     private boolean lastSignal;
     public RitualBrazierBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.RITUAL_BRAZIER.get(), pos, state); }
-    /** Eight Pulse every two seconds while a blessing is up, reported as four a second. */
+    /** The blessing's cost every two seconds ({@code brazierBlessingCost}, 8 by default), reported per second. */
     @Override
     public int spendPerSecond() {
         if (level == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition)) return 0;
@@ -36,7 +36,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
         if (voice == null) return 0;
         if (level.getEntitiesOfClass(Player.class, new AABB(worldPosition).inflate(6), p -> p.isAlive() && !p.isSpectator()).isEmpty()) return 0;
         if (!LatticeNetwork.hasAttunement(level, worldPosition, 8, voice)) return 0;
-        return 4;
+        return (tk.darrow.tribalpower.config.TribalConfig.brazierBlessingCost() + 1) / 2;
     }
 
     public ItemStack seal() { return seal; }
@@ -150,7 +150,7 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
         if (element == null || tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, pos)) return;
         var players = level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(6), p -> p.isAlive() && !p.isSpectator());
         if (players.isEmpty() || !LatticeNetwork.hasAttunement(level, pos, 8, element)
-                || !LatticeNetwork.tryExtractPulseNearby(level, pos, 8, 8)) return;
+                || !LatticeNetwork.tryExtractPulseNearby(level, pos, 8, tk.darrow.tribalpower.config.TribalConfig.brazierBlessingCost())) return;
         be.active = true;
         var effect = switch(element) {
             case EARTH -> MobEffects.DIG_SPEED;

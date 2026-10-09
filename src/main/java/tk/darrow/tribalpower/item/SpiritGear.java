@@ -168,7 +168,7 @@ public final class SpiritGear {
     public static Optional<Attunement> voice(ItemStack stack) {
         if (!isGear(stack)) return Optional.empty();
         String name = tag(stack).getString(VOICE_KEY);
-        if (name == null || name.isEmpty()) return Optional.empty();
+        if (name.isEmpty()) return Optional.empty();
         return VOICES.getOrDefault(name, Optional.empty());
     }
 
@@ -292,7 +292,7 @@ public final class SpiritGear {
             SpiritgearHelper.notifyFueled(player);
             return;
         }
-        boolean spared = rank(tool) >= 3 && player.getRandom().nextFloat() < 0.5F;
+        boolean spared = rank(tool) >= 3 && player.getRandom().nextDouble() < tk.darrow.tribalpower.config.TribalConfig.manifestedSpareChance();
         int total = spared ? 0 : wear + (skipStarveHurt(tool) ? 0 : 1);
         if (total > 0) tool.hurtAndBreak(total, player, slot);
         SpiritgearHelper.notifyStarved(player);
@@ -364,9 +364,12 @@ public final class SpiritGear {
         return copy;
     }
 
+    /** The stations that rank a piece, in rank order: Attune 0→1, Bind 1→2, Manifest 2→3. */
+    static final String[] STATIONS = {"echo_attune", "echo_bind", "echo_manifest"};
+
     /**
      * Echo Attune 0→1 (Fire), Bind 1→2 (Water), Manifest 2→3 (Spirit). Bind refuses rank 0.
-     * Snapshots the input so voice and damage survive the station.
+     * Snapshots the input so voice and damage survive the station. Times and Pulse are the config's (echo section).
      */
     public static ProcessingRecipes.Formula rankFormula(String station, ItemStack stack) {
         if (stack.isEmpty() || !isGear(stack)) return null;
@@ -379,15 +382,18 @@ public final class SpiritGear {
         switch (station) {
             case "echo_attune" -> {
                 if (from != 0) return null;
-                to = 1; attunement = Attunement.FIRE; seconds = 45; pulse = 48; step = "attune";
+                to = 1; attunement = Attunement.FIRE; step = "attune";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.gearAttuneSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.gearAttunePulse();
             }
             case "echo_bind" -> {
                 if (from != 1) return null;
-                to = 2; attunement = Attunement.WATER; seconds = 90; pulse = 64; step = "bind";
+                to = 2; attunement = Attunement.WATER; step = "bind";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.gearBindSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.gearBindPulse();
             }
             case "echo_manifest" -> {
                 if (from != 2) return null;
-                to = 3; attunement = Attunement.SPIRIT; seconds = 180; pulse = 96; step = "manifest";
+                to = 3; attunement = Attunement.SPIRIT; step = "manifest";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.gearManifestSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.gearManifestPulse();
             }
             default -> { return null; }
         }
@@ -432,10 +438,6 @@ public final class SpiritGear {
     private static final double[] BLADE_SPEED = {0, 0, 0.1, 0.2};
     private static final double[] TOOL_DAMAGE = {0, 1, 2, 3};
     private static final float[] MINING = {1.0F, 1.2F, 1.45F, 1.8F};
-    /** Incoming damage taken with a whole set of Bound (or better) and of Manifested pieces. */
-    public static final float BOUND_SET = 0.9F, MANIFESTED_SET = 0.8F;
-    /** A Manifested blade hits bosses harder and gives some of the blow back as health. */
-    public static final float BOSS_BONUS = 1.25F, LIFESTEAL = 0.1F;
 
     /** Adds rank bonuses to a piece's attributes. Everything here scales with rank alone; voices add perks. */
     public static void rankAttributes(net.neoforged.neoforge.event.ItemAttributeModifierEvent event) {
@@ -509,17 +511,35 @@ public final class SpiritGear {
         pieces = new ArrayList<>(pieces);
         for (var weapon : ModItems.SPIRITGEAR_WEAPONS.values()) pieces.add(weapon.get());
         pieces.add(ModItems.SPIRITGEAR_RATTLE.get());
-        String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
         List<ProcessingRecipes.Formula> out = new ArrayList<>();
         for (Item piece : pieces) {
             for (int rank = 0; rank < MAX_RANK; rank++) {
                 ItemStack input = new ItemStack(piece);
                 setRank(input, rank);
-                ProcessingRecipes.Formula formula = rankFormula(stations[rank], input);
+                ProcessingRecipes.Formula formula = rankFormula(STATIONS[rank], input);
                 if (formula != null) out.add(formula);
             }
         }
         return out;
+    }
+
+    /**
+     * The "next rank" line, one per rank, built on first use: it depends on nothing but the rank, and the tooltip
+     * asked for it (station name, catalyst stacks and all) on every frame the piece was hovered.
+     */
+    private static final Component[] NEXT_RANK = new Component[MAX_RANK];
+
+    private static Component nextRank(int rank) {
+        Component line = NEXT_RANK[rank];
+        if (line == null) {
+            List<Component> parts = new ArrayList<>();
+            for (ItemStack want : catalysts(rank + 1)) parts.add(Component.literal(want.getCount() + " ").append(want.getHoverName()));
+            NEXT_RANK[rank] = line = Component.translatable("item.tribalpower.spiritgear.next_rank",
+                    Component.translatable("block.tribalpower." + STATIONS[rank]),
+                    net.minecraft.network.chat.ComponentUtils.formatList(parts, Component.literal(", ")))
+                    .withStyle(net.minecraft.ChatFormatting.DARK_GRAY);
+        }
+        return line;
     }
 
     public static void appendTooltip(ItemStack stack, List<Component> lines, TooltipFlag flag) {
@@ -538,20 +558,23 @@ public final class SpiritGear {
                     GearTooltips.unlinked(stack, lines);
                 });
         int rank = rank(stack);
-        if (rank < MAX_RANK) {
-            String[] stations = {"echo_attune", "echo_bind", "echo_manifest"};
-            List<Component> parts = new ArrayList<>();
-            for (ItemStack want : catalysts(rank + 1)) parts.add(Component.literal(want.getCount() + " ").append(want.getHoverName()));
-            lines.add(Component.translatable("item.tribalpower.spiritgear.next_rank",
-                    Component.translatable("block.tribalpower." + stations[rank]),
-                    net.minecraft.network.chat.ComponentUtils.formatList(parts, Component.literal(", ")))
-                    .withStyle(net.minecraft.ChatFormatting.DARK_GRAY));
-        }
-        if (isArmor(stack) && rank >= 2)
-            lines.add(Component.translatable(rank >= 3 ? "item.tribalpower.spiritweave.set_manifested" : "item.tribalpower.spiritweave.set_bound")
+        if (rank < MAX_RANK) lines.add(nextRank(rank));
+        // the set and blade lines carry the config's figures, so the lang file can quote them
+        if (isArmor(stack) && rank >= 3)
+            lines.add(Component.translatable("item.tribalpower.spiritweave.set_manifested",
+                    GearTooltips.percent(1 - tk.darrow.tribalpower.config.TribalConfig.manifestedSetDamageTaken()),
+                    GearTooltips.number(tk.darrow.tribalpower.config.TribalConfig.setMendHealth()),
+                    GearTooltips.seconds(tk.darrow.tribalpower.config.TribalConfig.setMendTicks()))
+                    .withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
+        else if (isArmor(stack) && rank >= 2)
+            lines.add(Component.translatable("item.tribalpower.spiritweave.set_bound",
+                    GearTooltips.percent(1 - tk.darrow.tribalpower.config.TribalConfig.boundSetDamageTaken()))
                     .withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
         if (stack.getItem() instanceof SpiritgearBladeItem && rank >= 3)
-            lines.add(Component.translatable("item.tribalpower.spiritgear_blade.manifested").withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
+            lines.add(Component.translatable("item.tribalpower.spiritgear_blade.manifested",
+                    GearTooltips.percent(tk.darrow.tribalpower.config.TribalConfig.bladeBossBonusManifested() - 1),
+                    GearTooltips.percent(tk.darrow.tribalpower.config.TribalConfig.bladeLifestealManifested()))
+                    .withStyle(net.minecraft.ChatFormatting.DARK_AQUA));
         if (goggles(stack))
             lines.add(Component.translatable(gogglesOpen(stack)
                     ? "item.tribalpower.spiritweave.goggles" : "item.tribalpower.spiritweave.goggles_off")

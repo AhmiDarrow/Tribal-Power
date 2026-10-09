@@ -56,11 +56,20 @@ public class SpiritCisternRenderer implements BlockEntityRenderer<SpiritCisternB
         quad(vc, m, r, g, b, a, light, u0, v0, u1, v1, 1, 0, 0, x1, y1, z1, x1, y0, z1, x1, y0, z0, x1, y1, z0);
     }
 
+    /** Four corners in turn, each with its own texel corner; no arrays, as this runs twenty times a frame per cistern. */
     private static void quad(VertexConsumer vc, PoseStack.Pose m, int r, int g, int b, int a, int light,
-                             float u0, float v0, float u1, float v1, float nx, float ny, float nz, float... p) {
-        float[][] uv = {{u0, v0}, {u0, v1}, {u1, v1}, {u1, v0}};
-        for (int i = 0; i < 4; i++)
-            vc.addVertex(m, p[i * 3], p[i * 3 + 1], p[i * 3 + 2]).setColor(r, g, b, a).setUv(uv[i][0], uv[i][1])
-                    .setOverlay(net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY).setLight(light).setNormal(m, nx, ny, nz);
+                             float u0, float v0, float u1, float v1, float nx, float ny, float nz,
+                             float x0, float y0, float z0, float x1, float y1, float z1,
+                             float x2, float y2, float z2, float x3, float y3, float z3) {
+        vertex(vc, m, r, g, b, a, light, u0, v0, nx, ny, nz, x0, y0, z0);
+        vertex(vc, m, r, g, b, a, light, u0, v1, nx, ny, nz, x1, y1, z1);
+        vertex(vc, m, r, g, b, a, light, u1, v1, nx, ny, nz, x2, y2, z2);
+        vertex(vc, m, r, g, b, a, light, u1, v0, nx, ny, nz, x3, y3, z3);
+    }
+
+    private static void vertex(VertexConsumer vc, PoseStack.Pose m, int r, int g, int b, int a, int light,
+                               float u, float v, float nx, float ny, float nz, float x, float y, float z) {
+        vc.addVertex(m, x, y, z).setColor(r, g, b, a).setUv(u, v)
+                .setOverlay(net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY).setLight(light).setNormal(m, nx, ny, nz);
     }
 }

@@ -24,19 +24,18 @@ import java.util.List;
  * <p>The event's drop list is a copy, so the catch is cancelled and landed here the way the hook lands it.
  */
 public final class MarchFishing {
-    /** One fish catch in four is an eel; the rest are glimmerfin. */
-    public static final int EEL_ONE_IN = 4;
-
     private MarchFishing() {}
 
     /** The March's catch for a vanilla haul, or null when nothing in it was a fish and vanilla should land it. */
     public static List<ItemStack> marchCatch(List<ItemStack> drops, RandomSource random, boolean bucketInHand) {
         List<ItemStack> out = new ArrayList<>(drops.size());
         boolean fished = false;
+        // One fish catch in eelOneIn (TribalConfig) is an eel; the rest are glimmerfin.
+        int eelOneIn = tk.darrow.tribalpower.config.TribalConfig.eelOneIn();
         for (ItemStack drop : drops) {
             if (!drop.is(ItemTags.FISHES)) { out.add(drop); continue; }
             fished = true;
-            boolean eel = random.nextInt(EEL_ONE_IN) == 0;
+            boolean eel = random.nextInt(eelOneIn) == 0;
             if (eel) out.add(new ItemStack(Wildlife.RAW_SILT_EEL.get(), drop.getCount()));
             else if (bucketInHand) out.add(new ItemStack(Wildlife.GLIMMERFIN_BUCKET.get()));
             else out.add(new ItemStack(Wildlife.RAW_GLIMMERFIN.get(), drop.getCount()));

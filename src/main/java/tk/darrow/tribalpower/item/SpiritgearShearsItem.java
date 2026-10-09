@@ -130,7 +130,7 @@ public class SpiritgearShearsItem extends ShearsItem {
                 player.getBoundingBox().inflate(range),
                 mob -> mob instanceof net.neoforged.neoforge.common.IShearable shearable
                         && shearable.isShearable(player, stack, level, mob.blockPosition()))) {
-            mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0, true, false, true));
+            mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, tk.darrow.tribalpower.config.TribalConfig.shearsSpiritGlowTicks(), 0, true, false, true));
         }
     }
 

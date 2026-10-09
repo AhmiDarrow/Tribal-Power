@@ -34,6 +34,9 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     private final tk.darrow.tribalpower.lattice.SideIo sides = tk.darrow.tribalpower.lattice.SideIo.station();
     private static final int[] INPUT_SLOTS = {0, CATALYST_A, CATALYST_B};
     private static final int[] OUTPUT_SLOTS = {1, 2, 3, 4, 5, 6, 7, 8};
+    private static final int[] CATALYST_SLOTS = {CATALYST_A, CATALYST_B};
+    /** The menu's state index, in the order StationMenu reads it back. */
+    private static final java.util.List<String> STATES = java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst", "silent", "lattice");
 
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
     @Override public int[] inputSlots(Direction face) { return INPUT_SLOTS; }
@@ -65,7 +68,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
                     case 8 -> worldPosition.getX() >> 16;
                     case 9 -> worldPosition.getY() >> 16;
                     case 10 -> worldPosition.getZ() >> 16;
-                    default -> Math.max(0, java.util.List.of("idle", "working", "paused", "full", "attunement", "pulse", "quiet", "catalyst", "silent", "lattice").indexOf(state));
+                    default -> Math.max(0, STATES.indexOf(state));
                 };
             }
             public void set(int index, int value) {}
@@ -85,14 +88,20 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
         if (tk.darrow.tribalpower.item.SpiritGear.isCatalyst(stack)) return true;
         if ("echo_attune".equals(station()) && stack.is(net.minecraft.world.item.Items.GLOWSTONE_DUST)) return true;
         var formula = ProcessingRecipes.find(level, station(), items.get(0));
-        return formula != null && formula.catalysts().stream().anyMatch(c -> ItemStack.isSameItem(c, stack));
+        return formula != null && asksFor(formula, stack);
+    }
+
+    /** Whether the seated job lists {@code stack} among its catalysts. */
+    private static boolean asksFor(ProcessingRecipes.Formula formula, ItemStack stack) {
+        for (ItemStack want : formula.catalysts()) if (ItemStack.isSameItem(want, stack)) return true;
+        return false;
     }
     @Override public int[] getSlotsForFace(Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, Direction face) {
         if (slot == CATALYST_A || slot == CATALYST_B) {
             // Automation only feeds a catalyst the seated input actually asks for, so ordinary inputs never pile up there.
             var formula = ProcessingRecipes.find(level, station(), items.get(0));
-            if (formula == null || formula.catalysts().stream().noneMatch(c -> ItemStack.isSameItem(c, stack))) return false;
+            if (formula == null || !asksFor(formula, stack)) return false;
         }
         return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
     }
@@ -278,7 +287,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     public boolean hasCatalysts(ProcessingRecipes.Formula recipe) {
         for (ItemStack want : recipe.catalysts()) {
             int held = 0;
-            for (int slot : new int[]{CATALYST_A, CATALYST_B})
+            for (int slot : CATALYST_SLOTS)
                 if (ItemStack.isSameItem(items.get(slot), want)) held += items.get(slot).getCount();
             if (held < want.getCount()) return false;
         }
@@ -288,7 +297,7 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     private void takeCatalysts(ProcessingRecipes.Formula recipe) {
         for (ItemStack want : recipe.catalysts()) {
             int remaining = want.getCount();
-            for (int slot : new int[]{CATALYST_A, CATALYST_B}) {
+            for (int slot : CATALYST_SLOTS) {
                 if (remaining <= 0) break;
                 ItemStack held = items.get(slot);
                 if (!ItemStack.isSameItem(held, want)) continue;

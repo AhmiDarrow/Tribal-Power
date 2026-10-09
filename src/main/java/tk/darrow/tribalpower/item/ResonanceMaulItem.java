@@ -45,12 +45,12 @@ public class ResonanceMaulItem extends PickaxeItem {
         }
         if (broken > 0) {
             SpiritEffects.ring(player.serverLevel(), center.getCenter(), Attunement.EARTH, 1.3, 16);
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, tk.darrow.tribalpower.config.TribalConfig.maulCooldownTicks());
         } else if (!player.isCreative() && GearCell.available(player, context.getItemInHand()) < perBlock) SpiritgearHelper.notifyStarved(player);
         else player.displayClientMessage(Component.translatable("message.tribalpower.maul.nothing"), true);
         return InteractionResult.CONSUME;
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        lines.add(Component.translatable("item.tribalpower.resonance_maul.desc"));
+        lines.add(Component.translatable("item.tribalpower.resonance_maul.desc", tk.darrow.tribalpower.config.TribalConfig.maulBlockPulse()));
     }
 }

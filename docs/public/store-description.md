@@ -24,7 +24,7 @@ The Song Bench turns creature reagents into songs. Empower a reagent, write a sh
 
 Nine Spiritgear weapons, each with a move of its own: blade, spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident. Each trades reach, speed and weight against the others, ranks at the Echo stations, takes a totem voice, and swings the way its shape asks.
 
-Fifty-four creatures live in the March beside the older beasts: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot, a habitat and a voice of its own; nothing in the March calls with a vanilla animal's sound. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
+Ninety-one creatures live in the March: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot, a habitat and a voice of its own; nothing in the March calls with a vanilla animal's sound. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
 
 ## The spirit layer, the table and the kettle
 

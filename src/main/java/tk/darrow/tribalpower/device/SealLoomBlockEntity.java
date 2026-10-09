@@ -34,11 +34,10 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
     public static final int SEAL = 9;
     public static final int OUTPUT = 10;
     public static final int SIZE = 19;
-    public static final int COST = 6;
 
     @Override
     public int spendPerSecond() {
-        return "need_pulse".equals(reason) || "wove".equals(reason) ? COST : 0;
+        return "need_pulse".equals(reason) || "wove".equals(reason) ? tk.darrow.tribalpower.config.TribalConfig.sealLoomCost() : 0;
     }
     private static final int[] INPUT_SLOTS = java.util.stream.IntStream.range(0, GRID).toArray();
     private static final int[] OUTPUT_SLOTS = java.util.stream.IntStream.range(OUTPUT, SIZE).toArray();
@@ -104,7 +103,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
         if (id == null) { setReason("seat"); return; }
         Optional<RecipeHolder<CraftingRecipe>> found = matchSealed(server, id);
         if (found.isEmpty()) { setReason("mismatch"); return; }
-        int cost = COST;
+        int cost = tk.darrow.tribalpower.config.TribalConfig.sealLoomCost();
         if (LatticeNetwork.extractPulseNearby(server, worldPosition, 8, cost, true) < cost) {
             setReason("need_pulse", cost);
             return;

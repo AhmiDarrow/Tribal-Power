@@ -397,11 +397,11 @@ public class GuardianEntity extends Monster {
     }
 
     private void tickReset(ServerLevel server) {
-        // Runs every tick: walk the level's few players rather than an entity search over a 97-block box.
-        AABB range = getBoundingBox().inflate(RESET_RANGE);
+        // Runs every tick: walk the level's few players rather than an entity search over a 97-block box, and
+        // measure by distance so nothing is allocated for it.
         boolean anyone = false;
         for (ServerPlayer player : server.players()) {
-            if (!player.isSpectator() && player.getBoundingBox().intersects(range)) { anyone = true; break; }
+            if (!player.isSpectator() && player.distanceToSqr(this) <= RESET_RANGE * RESET_RANGE) { anyone = true; break; }
         }
         awayTicks = anyone ? 0 : awayTicks + 1;
         if (awayTicks >= TribalConfig.guardianResetSeconds() * 20) {

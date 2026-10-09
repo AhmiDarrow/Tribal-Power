@@ -179,18 +179,6 @@ public final class LeyMath {
                 raw, lines, linePoints, false);
     }
 
-    public static int gain(Level level, BlockPos pos) {
-        return factors(level, pos).gain();
-    }
-
-    public static double strength(Level level, BlockPos pos) {
-        return factors(level, pos).strength();
-    }
-
-    public static int percent(Level level, BlockPos pos) {
-        return (int) Math.round(strength(level, pos) * 100);
-    }
-
     public static List<Component> breakdown(Level level, BlockPos pos) {
         Factors f = factors(level, pos);
         List<Component> lines = new ArrayList<>();

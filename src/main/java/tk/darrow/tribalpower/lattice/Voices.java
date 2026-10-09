@@ -41,9 +41,11 @@ public final class Voices {
      */
     public static boolean kept(Level level, BlockPos pos, @Nullable Attunement voice) {
         if (voice == null || !TribalConfig.automationNeedsVoices()) return true;
-        for (var totem : LatticeNetwork.findNearbyTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
+        // Every automated hand asks this on its beat: both kinds of totem come from one walk of the chunks.
+        var near = LatticeNetwork.TotemsNear.of(level, pos, LatticeNetwork.DEFAULT_RADIUS);
+        for (var totem : near.totems())
             if (totem.getAttunement() == voice && totem.keeping() != Keeping.State.QUIET && totem.voiced()) return true;
-        for (var kinship : LatticeNetwork.findNearbyKinshipTotems(level, pos, LatticeNetwork.DEFAULT_RADIUS))
+        for (var kinship : near.kinship())
             if (kinship.attunement() == voice) return true;
         return false;
     }

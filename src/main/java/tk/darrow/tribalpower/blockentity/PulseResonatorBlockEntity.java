@@ -68,12 +68,15 @@ public class PulseResonatorBlockEntity extends BlockEntity implements PulseHandl
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, PulseResonatorBlockEntity be) {
         if ((level.getGameTime() + pos.asLong()) % GAIN_INTERVAL != 0) return;
+        // Resonance and Kinship Totems found in one walk of the chunks.
+        var near = tk.darrow.tribalpower.lattice.LatticeNetwork.TotemsNear.of(level, pos, 8);
         var voices = java.util.EnumSet.noneOf(tk.darrow.tribalpower.api.pulse.Attunement.class);
-        for (var totem : tk.darrow.tribalpower.lattice.LatticeNetwork.findNearbyTotems(level, pos, 8))
+        for (var totem : near.totems())
             if (totem.keeping() == tk.darrow.tribalpower.lattice.Keeping.State.ANSWERED && totem.voiced())
                 voices.add(totem.getAttunement());
-        int raw = voices.size()
-                + tk.darrow.tribalpower.lattice.LatticeNetwork.countKinshipTribes(level, pos, 8); // Kinship Totems: extra tribe voices
+        var tribes = java.util.EnumSet.noneOf(tk.darrow.tribalpower.tribe.TribeDefinition.class);
+        for (var kinship : near.kinship()) tribes.add(kinship.tribe());
+        int raw = voices.size() + tribes.size(); // Kinship Totems: extra tribe voices
         be.ringed = be.ring.satisfied(level, pos, 1);
         be.harmonics = be.ringed ? raw : Math.min(UNARRANGED_VOICES, raw);
         int rank = catalystRank(be.items.get(SLOT));

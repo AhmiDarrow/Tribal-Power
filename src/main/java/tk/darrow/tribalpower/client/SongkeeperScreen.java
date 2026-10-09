@@ -35,6 +35,10 @@ public class SongkeeperScreen extends Screen {
     private double scroll;
     private int panelX, panelY, panelW, panelH, listW;
     private final List<Button> rivalButtons = new ArrayList<>();
+    /** Each song's length as the list prints it, formatted once rather than once per row per frame. */
+    private final Map<Songbook.Song, String> lengths = new HashMap<>();
+    /** The duel hint under the Play button, wrapped once per size; empty while a rival's button stands there. */
+    private List<net.minecraft.util.FormattedCharSequence> duelHint = List.of();
 
     public SongkeeperScreen(DrumPractice.Browse browse) {
         super(Component.translatable("block.tribalpower.songkeeper_drum"));
@@ -45,6 +49,7 @@ public class SongkeeperScreen extends Screen {
             rows.addAll(songs);
         });
         for (Object row : rows) if (row instanceof Songbook.Song first) { selected = first.index(); break; }
+        for (Songbook.Song song : Songbook.songs()) lengths.put(song, clock(song.lengthMs()));
     }
 
     public static void open(DrumPractice.Browse browse) {
@@ -104,6 +109,9 @@ public class SongkeeperScreen extends Screen {
             SkyConfig.SONG_HIT_SOUNDS.set(!SkyConfig.SONG_HIT_SOUNDS.get());
             SkyConfig.SPEC.save();
         }).bounds(rx, sy - 18, 90, 14).build());
+        duelHint = rivalButtons.isEmpty()
+                ? font.split(Component.translatable(browse.paired() ? "gui.tribalpower.songkeeper.duel.nobody_there" : "gui.tribalpower.songkeeper.duel.pair_hint"), (int) ((rw / 2 - 6) / 0.75F))
+                : List.of();
         askBoard();
     }
 
@@ -272,7 +280,7 @@ public class SongkeeperScreen extends Screen {
             boolean hot = mouseX >= panelX + 6 && mouseX < panelX + listW && mouseY >= y && mouseY < y + ROW && mouseY >= panelY + 26;
             if (s.index() == selected) g.fill(panelX + 6, y, panelX + listW - 2, y + ROW - 2, ROW_SEL);
             else if (hot) g.fill(panelX + 6, y, panelX + listW - 2, y + ROW - 2, ROW_HOT);
-            String length = clock(s.lengthMs());
+            String length = lengths.computeIfAbsent(s, song -> clock(song.lengthMs()));
             int right = panelX + listW - 8;
             boolean played = starsOf(s.index(), difficulty) >= 0;
             int room = right - font.width(length) - (played ? 42 : 6) - (panelX + 14);
@@ -314,9 +322,11 @@ public class SongkeeperScreen extends Screen {
             g.drawCenteredString(font, name, tx + tw / 2, ty + 4, on ? 0xFF0A1014 : DIFF_COLOUR[d.ordinal()]);
         }
         int pips = perSecond < 1.2 ? 1 : perSecond < 2.0 ? 2 : perSecond < 3.0 ? 3 : perSecond < 4.2 ? 4 : 5;
-        g.drawString(font, Component.translatable("gui.tribalpower.songkeeper.intensity"), rx, ty + 22, QUIET, false);
+        Component intensity = Component.translatable("gui.tribalpower.songkeeper.intensity");
+        g.drawString(font, intensity, rx, ty + 22, QUIET, false);
+        int pipX = rx + font.width(intensity) + 6;
         for (int i = 0; i < 5; i++) {
-            int px = rx + font.width(Component.translatable("gui.tribalpower.songkeeper.intensity")) + 6 + i * 9;
+            int px = pipX + i * 9;
             g.fill(px, ty + 22, px + 7, ty + 29, i < pips ? DIFF_COLOUR[difficulty.ordinal()] : 0xFF263238);
         }
 
@@ -351,9 +361,8 @@ public class SongkeeperScreen extends Screen {
         g.drawString(font, Component.translatable(SkyConfig.SONG_HIT_SOUNDS.get() ? "options.on" : "options.off"), rx + 94, sy - 15, QUIET, false);
 
         // the duel
-        if (rivalButtons.isEmpty()) {
-            Component hint = Component.translatable(browse.paired() ? "gui.tribalpower.songkeeper.duel.nobody_there" : "gui.tribalpower.songkeeper.duel.pair_hint");
-            var lines = font.split(hint, (int) ((rw / 2 - 6) / 0.75F));
+        if (!duelHint.isEmpty()) {
+            var lines = duelHint;
             int hy = panelY + panelH - 28 + Math.max(0, (20 - lines.size() * 7) / 2);
             g.pose().pushPose();
             g.pose().translate(rx + rw / 2F + 6, hy, 0);

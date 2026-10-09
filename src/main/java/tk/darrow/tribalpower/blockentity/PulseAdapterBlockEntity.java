@@ -52,10 +52,18 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
         public boolean canExtract() { return true; }
         public boolean canReceive() { return false; }
     };
+    /** The comparator level last announced; FE moves every tick, the level only now and then. */
+    private int shownSignal = -1;
     private void changed() {
         setChanged();
-        if (level != null) level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+        int now = signal();
+        if (now != shownSignal && level != null) {
+            shownSignal = now;
+            level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+        }
     }
+    /** Comparator: how full the FE buffer is. */
+    public int signal() { return energy == 0 ? 0 : 1 + 14 * energy / CAPACITY; }
     public int pulseRate() { return MachineRank.scalePulse(this, RATE); }
 
     @Override
@@ -83,13 +91,15 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
         int budget = Math.min(1000, be.energy);
         if (budget <= 0 || !(level instanceof ServerLevel server)) return;
         if (be.sinks == null) be.sinks = sinks(server, pos);
+        int sent = 0;
         for (Direction face : Direction.values()) {
             if (budget <= 0 || !level.hasChunkAt(pos.relative(face))) continue;
             var sink = be.sinks[face.ordinal()].getCapability();
             if (sink == null || !sink.canReceive()) continue;
             int moved = Math.max(0, Math.min(budget, sink.receiveEnergy(budget, false)));
-            budget -= moved; be.energy -= moved; if (moved > 0) be.changed();
+            budget -= moved; be.energy -= moved; sent += moved;
         }
+        if (sent > 0) be.changed();   // once a tick, not once a face
     }
     @SuppressWarnings("unchecked")
     private static net.neoforged.neoforge.capabilities.BlockCapabilityCache<IEnergyStorage, Direction>[] sinks(ServerLevel server, BlockPos pos) {

@@ -249,7 +249,11 @@ public class FloatingIslandStructure extends Structure {
         final Map<BlockPos, BlockState> solid = new HashMap<>();
         final Map<BlockPos, BlockState> strands = new HashMap<>();
         public int top, bottom;
-        private final BlockState stone = ModBlocks.MARCH_STONE.get().defaultBlockState(), ore = ModBlocks.MARCH_ORE.get().defaultBlockState();
+        /** Glowing strand tips a cluster may hang; past this the tips are plain, whatever the draw says. */
+        static final int GLOW_BUDGET = 48;
+        private int glows;
+        private final BlockState stone = ModBlocks.MARCH_STONE.get().defaultBlockState(), ore = ModBlocks.MARCH_ORE.get().defaultBlockState(),
+                strand = MarchTrees.WILLOW_STRAND.get().defaultBlockState();
         /** The land's dress: its turf, soil, face stone, band and accent stone, its wood for the vines and roots. */
         private final BlockState cobble, soil, grass, moss, agate, leaf, log;
         private final Palette palette;
@@ -442,6 +446,13 @@ public class FloatingIslandStructure extends Structure {
                     }
                 }
             }
+            // a long chain or walk of stones is pulled in rather than cut off: a chunk past the piece's box never writes it
+            int fit = REACH - 28;
+            for (int i = 0; i < crags.size(); i++) {
+                Crag c = crags.get(i);
+                int x = Mth.clamp(c.x, ax - fit, ax + fit), z = Mth.clamp(c.z, az - fit, az + fit);
+                if (x != c.x || z != c.z) crags.set(i, new Crag(x, c.y, z, c.radius, c.height, c.taper, c.dome, c.trees, c.ruin, c.main, c.leanX, c.leanZ, c.gapAngle, c.gapWidth));
+            }
             Crag main = crags.getFirst();
             for (Crag c : crags) if (c.main) main = c;
             // the cluster leans the way it pulls, away from its moorings
@@ -464,8 +475,8 @@ public class FloatingIslandStructure extends Structure {
                 Crag near = crags.get(r.nextInt(crags.size()));
                 double angle = r.nextDouble() * Mth.TWO_PI;
                 int dist = near.radius + 4 + r.nextInt(form == Formation.SWARM ? 18 : 10), rr = 1 + r.nextInt(3);
-                BlockPos at = new BlockPos(near.x + (int) (Math.cos(angle) * dist), near.y + r.nextInt(Math.max(1, near.height)) - near.height / 2, near.z + (int) (Math.sin(angle) * dist));
-                p.rock(at, rr, r);
+                int rx = Mth.clamp(near.x + (int) (Math.cos(angle) * dist), ax - REACH + 6, ax + REACH - 6), rz = Mth.clamp(near.z + (int) (Math.sin(angle) * dist), az - REACH + 6, az + REACH - 6);
+                p.rock(new BlockPos(rx, near.y + r.nextInt(Math.max(1, near.height)) - near.height / 2, rz), rr, r);
             }
             // vine bridges and arches
             for (int[] pair : bridges) {
@@ -611,9 +622,8 @@ public class FloatingIslandStructure extends Structure {
                 }
             }
             // boulders and a few tall stones on the crown; turf growth
-            for (var e : new ArrayList<>(tops.entrySet())) {
-                BlockPos at = BlockPos.of(e.getKey());
-                BlockPos spot = new BlockPos(at.getX(), e.getValue() + 1, at.getZ());
+            for (var e : tops.entrySet()) {
+                BlockPos spot = BlockPos.of(e.getKey()).atY(e.getValue() + 1);
                 float f = r.nextFloat();
                 if (f < 0.06F && !solid.containsKey(spot)) solid.put(spot, palette.plants()[(int) (f / 0.06F * palette.plants().length)].defaultBlockState());
                 else if (f < 0.07F) { solid.put(spot, cobble); if (r.nextBoolean()) solid.put(spot.above(), moss); }
@@ -714,7 +724,7 @@ public class FloatingIslandStructure extends Structure {
                 int R = Mth.ceil(rad + 1);
                 for (int dx = -R; dx <= R; dx++) for (int dy = -R; dy <= R; dy++) for (int dz = -R; dz <= R; dz++) {
                     double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-                    BlockPos pos = BlockPos.containing(at.add(dx, dy, dz));
+                    BlockPos pos = BlockPos.containing(at.x + dx, at.y + dy, at.z + dz);
                     if (dist <= rad) {
                         BlockState there = solid.get(pos);
                         if (there == null || there.getBlock() instanceof LeavesBlock) solid.put(pos, log.setValue(RotatedPillarBlock.AXIS, axis));
@@ -730,7 +740,6 @@ public class FloatingIslandStructure extends Structure {
 
         /** A strand chain of up to {@code length} from {@code from} down, stopping at anything solid in the plan. */
         void hang(BlockPos from, int length, RandomSource r) {
-            BlockState strand = MarchTrees.WILLOW_STRAND.get().defaultBlockState();
             BlockPos.MutableBlockPos cursor = from.mutable();
             int placed = 0;
             while (placed < length && !solid.containsKey(cursor)) {
@@ -740,7 +749,11 @@ public class FloatingIslandStructure extends Structure {
             }
             if (placed > 0) {
                 cursor.move(Direction.UP);
-                strands.put(cursor.immutable(), strand.setValue(WillowStrandBlock.TIP, true).setValue(WillowStrandBlock.GLOW, r.nextFloat() < 0.02F));   // a glow here and there: light is what costs a chunk
+                // a glow here and there, and never more than a cluster's share: light is what costs a chunk, and a
+                // cluster hung with long curtains has thousands of chains (the random draw stays, so the layout does not move)
+                boolean glow = r.nextFloat() < 0.02F && glows < GLOW_BUDGET;
+                if (glow) glows++;
+                strands.put(cursor.immutable(), strand.setValue(WillowStrandBlock.TIP, true).setValue(WillowStrandBlock.GLOW, glow));
             }
         }
 
@@ -749,19 +762,18 @@ public class FloatingIslandStructure extends Structure {
             for (var e : solid.entrySet()) {
                 BlockPos pos = e.getKey();
                 if (!writable.test(pos)) continue;
-                BlockState there = level.getBlockState(pos);
-                boolean plant = e.getValue().getBlock() instanceof net.minecraft.world.level.block.BushBlock;
-                if (plant && !there.isAir()) continue;
+                // the rock overwrites whatever is there; a plant only stands in air
+                if (e.getValue().getBlock() instanceof net.minecraft.world.level.block.BushBlock && !level.getBlockState(pos).isAir()) continue;
                 level.setBlock(pos, e.getValue(), flags);
                 if (e.getValue().is(Blocks.WATER)) level.scheduleTick(pos, net.minecraft.world.level.material.Fluids.WATER, 5);
                 if (e.getValue().is(Blocks.CHEST) && level.getBlockEntity(pos) instanceof ChestBlockEntity chest)
                     chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,
                             net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "chests/ancestor_hall")), level.getSeed() ^ pos.asLong());
             }
-            // strands from the top down, so each hangs from what holds it
-            strands.entrySet().stream().sorted((a, b) -> Integer.compare(b.getKey().getY(), a.getKey().getY())).forEach(e -> {
+            // strands from the top down, so each hangs from what holds it; only this chunk's share is sorted
+            strands.entrySet().stream().filter(e -> writable.test(e.getKey()))
+                    .sorted((a, b) -> Integer.compare(b.getKey().getY(), a.getKey().getY())).forEach(e -> {
                 BlockPos pos = e.getKey();
-                if (!writable.test(pos)) return;
                 BlockState there = level.getBlockState(pos);
                 if (!there.isAir() && !there.canBeReplaced()) return;
                 if (!WillowStrandBlock.holds(level.getBlockState(pos.above()))) return;

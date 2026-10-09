@@ -19,6 +19,14 @@ import tk.darrow.tribalpower.familiar.FamiliarData;
  */
 public final class FamiliarInspectHud {
     private static final int[] TIER = {0xFF5A5F63, 0xFFB8C4BC, 0xFF7CE0A0, 0xFF5CC8F0, 0xFFC08CFF, 0xFFFFC857};
+    /**
+     * The wrapped Marks, status and summary of the creature last looked at, kept while its synced stats, voice
+     * and ownership hold: wrapping three texts a frame for a panel that changes a few times a minute was waste.
+     */
+    private static int shownId = -1, shownPacked;
+    private static Object shownVoice;
+    private static boolean shownOwn, shownBonded, shownBaby;
+    private static List<FormattedCharSequence> markLines = List.of(), summaryLines = List.of(), statusLines = List.of();
 
     private FamiliarInspectHud() {}
 
@@ -34,23 +42,29 @@ public final class FamiliarInspectHud {
         var font = mc.font;
         int x = mc.getWindow().getGuiScaledWidth() / 2 + 14, y = mc.getWindow().getGuiScaledHeight() / 2 - 44;
         int width = 132, room = width - 10;
-        int bloodline = 0;
-        for (FamiliarData.Thread thread : FamiliarData.Thread.values()) bloodline += FamiliarData.unpackThread(packed, thread);
-        var marks = Component.empty();
-        for (int slot = 0; slot < 2; slot++) {
-            var mark = FamiliarData.unpackMark(packed, slot);
-            if (mark == FamiliarData.Mark.NONE) continue;
-            if (!marks.getSiblings().isEmpty()) marks.append(Component.literal(" · ").withStyle(ChatFormatting.DARK_GRAY));
-            marks.append(Component.translatable("mark.tribalpower." + mark.id).withStyle(ChatFormatting.GOLD));
+        var voice = familiar.syncedVoice();
+        int id = familiar.asMob().getId();
+        boolean bonded = familiar.isBonded(), baby = familiar.asMob().isBaby();
+        if (id != shownId || packed != shownPacked || voice != shownVoice || own != shownOwn || bonded != shownBonded || baby != shownBaby) {
+            shownId = id; shownPacked = packed; shownVoice = voice; shownOwn = own; shownBonded = bonded; shownBaby = baby;
+            int bloodline = 0;
+            for (FamiliarData.Thread thread : FamiliarData.Thread.values()) bloodline += FamiliarData.unpackThread(packed, thread);
+            var marks = Component.empty();
+            for (int slot = 0; slot < 2; slot++) {
+                var mark = FamiliarData.unpackMark(packed, slot);
+                if (mark == FamiliarData.Mark.NONE) continue;
+                if (!marks.getSiblings().isEmpty()) marks.append(Component.literal(" · ").withStyle(ChatFormatting.DARK_GRAY));
+                marks.append(Component.translatable("mark.tribalpower." + mark.id).withStyle(ChatFormatting.GOLD));
+            }
+            if (marks.getSiblings().isEmpty()) marks = Component.translatable("gui.tribalpower.lattice.marks_none").withStyle(ChatFormatting.DARK_GRAY);
+            // Two long Marks, or the summary, wrap onto another row and the panel grows to hold them.
+            markLines = font.split(marks, room);
+            summaryLines = font.split(Component.translatable("gui.tribalpower.lattice.summary",
+                    FamiliarData.unpackGeneration(packed), bloodline), room);
+            // its voice once attuned, or whether and how a wild one can be bonded
+            var status = tk.darrow.tribalpower.familiar.FamiliarBoost.status(familiar, voice);
+            statusLines = status == null ? List.of() : font.split(status, room);
         }
-        if (marks.getSiblings().isEmpty()) marks = Component.translatable("gui.tribalpower.lattice.marks_none").withStyle(ChatFormatting.DARK_GRAY);
-        // Two long Marks, or the summary, wrap onto another row and the panel grows to hold them.
-        List<FormattedCharSequence> markLines = font.split(marks, room);
-        List<FormattedCharSequence> summaryLines = font.split(Component.translatable("gui.tribalpower.lattice.summary",
-                FamiliarData.unpackGeneration(packed), bloodline), room);
-        // its voice once attuned, or whether and how a wild one can be bonded
-        var status = tk.darrow.tribalpower.familiar.FamiliarBoost.status(familiar, familiar.syncedVoice());
-        List<FormattedCharSequence> statusLines = status == null ? List.of() : font.split(status, room);
         int height = 86 + 10 * (Math.max(1, markLines.size()) - 1 + Math.max(1, summaryLines.size()) - 1 + statusLines.size());
         g.fill(x, y, x + width, y + height, 0xD9101B22);
         g.fill(x, y, x + 2, y + height, own ? 0xFF65D7C0 : 0xFFB58A58);

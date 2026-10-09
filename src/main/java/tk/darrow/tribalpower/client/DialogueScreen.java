@@ -18,6 +18,8 @@ public class DialogueScreen extends Screen {
     private final DialogueSession.Open open;
     private final TribeDefinition tribe;
     private final List<Component> choices = new ArrayList<>();
+    /** The Elder's lines wrapped to the panel, one list per line, laid out once per size rather than every frame. */
+    private final List<List<FormattedCharSequence>> wrapped = new ArrayList<>();
 
     public DialogueScreen(DialogueSession.Open open) {
         super(Component.translatable("entity.tribalpower.tribal_kin.elder", TribeDefinition.byOrdinal(open.tribe()).displayNameComponent()));
@@ -34,13 +36,15 @@ public class DialogueScreen extends Screen {
     private int rowPitch() { return height < 220 ? 16 : 22; }
     private int textLines() {
         int lines = 0;
-        for (String key : open.lines()) lines += font.split(Component.translatable(key), panelWidth() - 32).size() + 1;
+        for (List<FormattedCharSequence> line : wrapped) lines += line.size() + 1;
         return lines;
     }
     private int panelHeight() { return Math.min(height - 24, 44 + textLines() * 10 + choices.size() * rowPitch() + 12); }
 
     @Override
     protected void init() {
+        wrapped.clear();
+        for (String key : open.lines()) wrapped.add(font.split(Component.translatable(key), panelWidth() - 32));
         int w = panelWidth(), h = panelHeight();
         int x = (width - w) / 2, y = (height - h) / 2;
         int pitch = rowPitch();
@@ -71,8 +75,8 @@ public class DialogueScreen extends Screen {
         g.fill(x + 24, y + 23, x + w - 24, y + 24, GOLD);
         // the last line drawn must end above the first answer button (y + h - 10 - its rows), not run under it
         int ly = y + 30, limit = y + h - 19 - choices.size() * rowPitch();
-        for (String key : open.lines()) {
-            for (FormattedCharSequence line : font.split(Component.translatable(key), w - 32)) {
+        for (List<FormattedCharSequence> lines : wrapped) {
+            for (FormattedCharSequence line : lines) {
                 if (ly > limit) break;
                 g.drawString(font, line, x + 16, ly, INK, false);
                 ly += 10;

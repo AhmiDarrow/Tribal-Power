@@ -119,7 +119,7 @@ public class TotemWrenchItem extends Item {
 
     private static void damage(ItemStack stack, Player player) {
         if (player.getAbilities().instabuild) return;
-        if (SpiritgearHelper.tryConsumePulse(player, 1)) return;
+        if (SpiritgearHelper.tryConsumePulse(player, tk.darrow.tribalpower.config.TribalConfig.wrenchUsePulse())) return;
         stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
     }
 

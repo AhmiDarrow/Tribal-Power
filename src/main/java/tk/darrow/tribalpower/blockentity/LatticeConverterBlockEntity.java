@@ -80,10 +80,20 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
         @Override public boolean canReceive() { return true; }
     };
 
+    /** The comparator level last announced; cables push FE every tick, the level only now and then. */
+    private int shownSignal = -1;
+
     private void changed() {
         setChanged();
-        if (level != null) level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+        int now = signal();
+        if (now != shownSignal && level != null) {
+            shownSignal = now;
+            level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+        }
     }
+
+    /** Comparator: how full the FE buffer is. */
+    public int signal() { return energy == 0 ? 0 : 1 + 14 * energy / CAPACITY; }
 
     public static void tick(Level level, BlockPos pos, BlockState state, LatticeConverterBlockEntity be) {
         if (level.hasNeighborSignal(pos)) return;

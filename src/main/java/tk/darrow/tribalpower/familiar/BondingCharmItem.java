@@ -28,12 +28,11 @@ import tk.darrow.tribalpower.tribe.TribeDefinition;
 import tk.darrow.tribalpower.tribe.TribeRank;
 
 /**
- * Use on an adult, unbonded tameable familiar. Gentle animals: 60% keep the charm on failure.
- * Remnants: Voice standing with their tribe, 40%, charm spent on failure. The lattice does not reroll.
+ * Use on an adult, unbonded tameable familiar. Gentle animals: TribalConfig bondChance, keep the charm on failure.
+ * Remnants: Voice standing with their tribe, bondRemnantChance, charm spent on failure. The lattice does not reroll.
  * Sneak-used on a Resonance Totem it attunes a bonded familiar standing by to the totem's voice, and is not spent.
  */
 public class BondingCharmItem extends Item {
-    public static final float CHANCE=0.6F,HOSTILE_CHANCE=0.4F;
     public BondingCharmItem(Properties properties) { super(properties); }
     @Override public InteractionResult interactLivingEntity(ItemStack stack,Player player,LivingEntity target,InteractionHand hand) {
         if(!(target instanceof Familiar familiar))return InteractionResult.PASS;
@@ -61,8 +60,8 @@ public class BondingCharmItem extends Item {
     /** Bonding with an optional forced success (used by tests and rites). Creative players keep the charm. */
     public static boolean attempt(ServerLevel level,Player player,Familiar familiar,ItemStack charm,boolean force) {
         boolean hostile=FamiliarRoster.voiceTribe(familiar.profile())!=null;
-        float chance=hostile?HOSTILE_CHANCE:CHANCE;
-        boolean success=force || level.random.nextFloat()<chance;
+        double chance=hostile?tk.darrow.tribalpower.config.TribalConfig.bondRemnantChance():tk.darrow.tribalpower.config.TribalConfig.bondChance();
+        boolean success=force || level.random.nextDouble()<chance;
         return conclude(level,player,familiar,charm,success,hostile);
     }
     /** Deterministic finish used by tests: {@code success} is the roll. */

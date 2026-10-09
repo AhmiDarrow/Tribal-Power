@@ -51,7 +51,8 @@ public final class FamiliarAbilities {
         switch(monster.profile()) {
             case STORM_MOTH -> { if(monster.isSitting() && level.getGameTime()%TribalConfig.mothClickPeriodTicks()==0)placeClick(level,monster); }
             case MOURNING_BELL -> { if(!monster.isSitting())cleanse(level,monster); }
-            case ECHO_WEAVER -> { if(!monster.isSitting())forage(level,monster); }
+            // Twice a second: a drop's own pick-up delay is as long, and the box search is not free every tick.
+            case ECHO_WEAVER -> { if(!monster.isSitting() && (monster.tickCount+monster.getId())%10==0)forage(level,monster); }
             case RIFT_HOUND -> track(level,monster);
             default -> { }
         }

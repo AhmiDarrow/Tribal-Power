@@ -28,6 +28,9 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
 
     private static boolean showAll;
     private final List<Row> rows = new ArrayList<>();
+    /** Each reagent's icon and name, settled once; the rows are rebuilt every tick and drawn every frame. */
+    private final java.util.Map<CreatureProfile, Row> reagentRows = new java.util.EnumMap<>(CreatureProfile.class);
+    private final java.util.Map<Note, Row> headerRows = new java.util.EnumMap<>(Note.class);
     private int scroll;
     private int hovered = -1;
     /** The reagent last clicked; Take works on it, since the mouse leaves the list to reach the button. */
@@ -35,7 +38,18 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
     private long lastClick;
     private Button take, toggle;
 
-    private record Row(Note header, CreatureProfile profile) {}
+    /** A note's heading (its name in capitals) or one of its reagents (its name and icon). */
+    private record Row(Note header, CreatureProfile profile, String name, ItemStack icon) {}
+
+    private Row headerRow(Note note) {
+        return headerRows.computeIfAbsent(note, n -> new Row(n, null,
+                Component.translatable("song.tribalpower.note." + n.name().toLowerCase(java.util.Locale.ROOT)).getString().toUpperCase(java.util.Locale.ROOT), ItemStack.EMPTY));
+    }
+
+    private Row reagentRow(CreatureProfile profile) {
+        return reagentRows.computeIfAbsent(profile, p -> new Row(null, p,
+                Component.translatable("item.tribalpower." + p.reagent).getString(), new ItemStack(Reagents.item(p))));
+    }
 
     public PouchScreen(PouchMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -51,9 +65,9 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
         for (var entry : Reagents.byNote().entrySet()) {
             List<Row> held = new ArrayList<>();
             for (CreatureProfile profile : entry.getValue())
-                if (showAll || ReagentPouch.raw(pouch, profile) > 0 || ReagentPouch.empowered(pouch, profile) > 0) held.add(new Row(null, profile));
+                if (showAll || ReagentPouch.raw(pouch, profile) > 0 || ReagentPouch.empowered(pouch, profile) > 0) held.add(reagentRow(profile));
             if (held.isEmpty()) continue;
-            rows.add(new Row(entry.getKey(), null));
+            rows.add(headerRow(entry.getKey()));
             rows.addAll(held);
         }
         scroll = Math.max(0, Math.min(scroll, Math.max(0, rows.size() - VISIBLE)));
@@ -116,8 +130,7 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
             Row row = rows.get(scroll + i);
             int ry = y + LIST_TOP + i * ROW;
             if (row.header != null) {
-                drawSmall(g, Component.translatable("song.tribalpower.note." + row.header.name().toLowerCase(java.util.Locale.ROOT)).getString().toUpperCase(java.util.Locale.ROOT),
-                        x + LIST_LEFT + 4, ry + 5, TEAL, false);
+                drawSmall(g, row.name, x + LIST_LEFT + 4, ry + 5, TEAL, false);
                 g.fill(x + LIST_LEFT + 4, ry + ROW - 3, x + imageWidth - LIST_LEFT - 10, ry + ROW - 2, 0xFF26414A);
                 continue;
             }
@@ -130,10 +143,9 @@ public class PouchScreen extends AbstractContainerScreen<PouchMenu> {
             g.pose().pushPose();
             g.pose().translate(x + LIST_LEFT + 3, ry + 1, 0);
             g.pose().scale(0.75F, 0.75F, 1);
-            g.renderItem(new ItemStack(Reagents.item(row.profile)), 0, 0);
+            g.renderItem(row.icon, 0, 0);
             g.pose().popPose();
-            g.drawString(font, font.plainSubstrByWidth(Component.translatable("item.tribalpower." + row.profile.reagent).getString(), imageWidth - 100),
-                    x + LIST_LEFT + 18, ry + 3, any ? TEXT : DIM, false);
+            g.drawString(font, font.plainSubstrByWidth(row.name, imageWidth - 100), x + LIST_LEFT + 18, ry + 3, any ? TEXT : DIM, false);
             String rawText = String.valueOf(raw), empText = String.valueOf(empowered);
             g.drawString(font, rawText, x + imageWidth - 58 - font.width(rawText) / 2, ry + 3, raw > 0 ? TEXT : DIM, false);
             g.drawString(font, empText, x + imageWidth - 22 - font.width(empText) / 2, ry + 3, empowered > 0 ? GOLD : DIM, false);

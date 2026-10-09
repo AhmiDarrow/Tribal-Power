@@ -27,9 +27,8 @@ import java.util.Set;
  * face outward across every neighbour like it, spending the blocks from your pack and Pulse from your cells.
  */
 public class WeaversWandItem extends Item {
-    /** Pulse per block laid, and the most blocks one sweep will lay. */
-    public static final int PULSE_PER_BLOCK = 2;
-    public static final int MAX_BLOCKS = 32;
+    /** How far across a face the flood looks for neighbours; the config's wandMaxBlocks caps what it lays. */
+    private static final int SPREAD = 32;
 
     public WeaversWandItem(Properties properties) {
         super(properties.stacksTo(1).durability(768));
@@ -63,6 +62,7 @@ public class WeaversWandItem extends Item {
             return InteractionResult.FAIL;
         }
         int laid = 0;
+        int perBlock = tk.darrow.tribalpower.config.TribalConfig.wandPulsePerBlock();
         for (BlockPos target : targets) {
             if (laid >= available) break;
             BlockState before = level.getBlockState(target);
@@ -75,7 +75,7 @@ public class WeaversWandItem extends Item {
                 continue;
             }
             // Pulse is paid for blocks that actually land; a sweep that runs dry puts the last one back.
-            if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, PULSE_PER_BLOCK)) {
+            if (!player.getAbilities().instabuild && !SpiritgearHelper.tryConsumePulse(player, perBlock)) {
                 level.setBlock(target, before, Block.UPDATE_ALL);
                 SpiritgearHelper.notifyStarved(player);
                 break;
@@ -120,9 +120,10 @@ public class WeaversWandItem extends Item {
         List<BlockPos> targets = new ArrayList<>();
         Set<BlockPos> seen = new HashSet<>();
         Deque<BlockPos> queue = new ArrayDeque<>();
+        int most = tk.darrow.tribalpower.config.TribalConfig.wandMaxBlocks();
         queue.add(origin);
         seen.add(origin);
-        while (!queue.isEmpty() && targets.size() < MAX_BLOCKS) {
+        while (!queue.isEmpty() && targets.size() < most) {
             BlockPos at = queue.poll();
             if (!level.getBlockState(at).is(clicked.getBlock())) continue;
             BlockPos target = at.relative(face);
@@ -130,7 +131,7 @@ public class WeaversWandItem extends Item {
             for (Direction step : Direction.values()) {
                 if (step.getAxis() == face.getAxis()) continue;
                 BlockPos next = at.relative(step);
-                if (next.distManhattan(origin) > MAX_BLOCKS || !seen.add(next)) continue;
+                if (next.distManhattan(origin) > SPREAD || !seen.add(next)) continue;
                 queue.add(next);
             }
         }
@@ -166,6 +167,7 @@ public class WeaversWandItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("item.tribalpower.weavers_wand.desc", MAX_BLOCKS, PULSE_PER_BLOCK));
+        tooltip.add(Component.translatable("item.tribalpower.weavers_wand.desc",
+                tk.darrow.tribalpower.config.TribalConfig.wandMaxBlocks(), tk.darrow.tribalpower.config.TribalConfig.wandPulsePerBlock()));
     }
 }

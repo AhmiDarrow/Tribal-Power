@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Workshop machines rank the same way Spiritgear does — Echo Attune, Bind, Manifest —
- * but the station asks for twice the time and Pulse. Rank lives on the item as
- * {@code MachineRank} and on the placed block entity as persistent NBT.
+ * Workshop machines rank the same way Spiritgear does — Echo Attune, Bind, Manifest — at their own
+ * times and Pulse (the config's echo section). Rank lives on the item as {@code MachineRank} and on
+ * the placed block entity as persistent NBT.
  */
 public final class MachineRank {
     public static final String KEY = "MachineRank";
@@ -83,28 +83,23 @@ public final class MachineRank {
         if (!level.isClientSide) copyToBlock(stack, level.getBlockEntity(pos));
     }
 
-    /** Rank 1/2/3: 85% / 70% / 55% duration. Extra speed is paid 1:1 in Pulse. */
+    /** What a job's time is multiplied by at this rank (shipped 85% / 70% / 55%). Extra speed is paid 1:1 in Pulse. */
     public static float timeFactor(int rank) {
-        return switch (Math.clamp(rank, 0, MAX)) {
-            case 1 -> 0.85F;
-            case 2 -> 0.70F;
-            case 3 -> 0.55F;
-            default -> 1.0F;
-        };
+        return (float) tk.darrow.tribalpower.config.TribalConfig.machineRankTime(Math.clamp(rank, 0, MAX));
     }
 
-    /** Inverse of {@link #timeFactor}: 118% / 143% / 182% draw or cargo. */
+    /** Inverse of {@link #timeFactor}: the draw or cargo (shipped 118% / 143% / 182%). */
     public static float pulseFactor(int rank) {
         float time = timeFactor(rank);
         return time <= 0F ? 1.0F : 1.0F / time;
     }
 
-    /** Rank 1/2/3: 118% / 143% / 182% Pulse a second (or items / mB per beat). */
+    /** Pulse a second (or items / mB per beat) at the block's rank. */
     public static int scalePulse(BlockEntity be, int pulse) {
         return Math.max(1, Math.round(pulse * pulseFactor(rank(be))));
     }
 
-    /** Rank 1/2/3: 85% / 70% / 55% duration. */
+    /** Duration at the block's rank. */
     public static int scaleTime(BlockEntity be, int units) {
         return Math.max(1, Math.round(units * timeFactor(rank(be))));
     }
@@ -121,7 +116,7 @@ public final class MachineRank {
     /** Extra Pulse a second for generators. */
     public static int bonusGain(BlockEntity be, int gain) {
         if (gain <= 0) return 0;
-        return Math.round(gain * 0.15F * rank(be));
+        return (int) Math.round(gain * tk.darrow.tribalpower.config.TribalConfig.machineRankGainBonus() * rank(be));
     }
 
     public static int itemBurst(BlockEntity be, int base) {
@@ -135,7 +130,8 @@ public final class MachineRank {
     }
 
     /**
-     * Twice Spiritgear's station cost: Attune 16s/48 Pulse a second, Bind 20s/64, Manifest 24s/80.
+     * The station's time and Pulse a second for a machine, from the config's echo section (shipped: Attune 16s at
+     * 48, Bind 20s at 64, Manifest 24s at 80).
      */
     public static ProcessingRecipes.Formula rankFormula(String station, ItemStack stack) {
         if (!isMachine(stack)) return null;
@@ -148,15 +144,18 @@ public final class MachineRank {
         switch (station) {
             case "echo_attune" -> {
                 if (from != 0) return null;
-                to = 1; attunement = Attunement.FIRE; seconds = 16; pulse = 48; step = "attune";
+                to = 1; attunement = Attunement.FIRE; step = "attune";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.machineAttuneSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.machineAttunePulse();
             }
             case "echo_bind" -> {
                 if (from != 1) return null;
-                to = 2; attunement = Attunement.WATER; seconds = 20; pulse = 64; step = "bind";
+                to = 2; attunement = Attunement.WATER; step = "bind";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.machineBindSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.machineBindPulse();
             }
             case "echo_manifest" -> {
                 if (from != 2) return null;
-                to = 3; attunement = Attunement.SPIRIT; seconds = 24; pulse = 80; step = "manifest";
+                to = 3; attunement = Attunement.SPIRIT; step = "manifest";
+                seconds = tk.darrow.tribalpower.config.TribalConfig.machineManifestSeconds(); pulse = tk.darrow.tribalpower.config.TribalConfig.machineManifestPulse();
             }
             default -> { return null; }
         }

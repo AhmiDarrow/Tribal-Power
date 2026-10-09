@@ -54,7 +54,8 @@ public final class SpiritGearHooks {
 
     /** Pulse and voice must be recorded here: vanilla drops run before {@code Item#mineBlock}. */
     public static void beforeBreak(BlockEvent.BreakEvent event) {
-        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+        // A break a claim already refused never reaches mineBlock, so its Pulse would be paid for nothing.
+        if (event.isCanceled() || !(event.getPlayer() instanceof ServerPlayer player)) return;
         ItemStack tool = player.getMainHandItem();
         if (!SpiritGear.isTool(tool)) return;
         // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
@@ -132,7 +133,8 @@ public final class SpiritGearHooks {
         if (event.getNewDamage() <= 0 || !(event.getSource().getEntity() instanceof Player striker)
                 || event.getSource().getDirectEntity() != striker || !event.getSource().is(net.minecraft.world.damagesource.DamageTypes.PLAYER_ATTACK)) return;
         ItemStack blade = striker.getMainHandItem();
-        if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) striker.heal(event.getNewDamage() * SpiritGear.LIFESTEAL);
+        if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3)
+            striker.heal((float) (event.getNewDamage() * TribalConfig.bladeLifestealManifested()));
     }
 
     public static void incomingDamage(LivingIncomingDamageEvent event) {
@@ -142,13 +144,13 @@ public final class SpiritGearHooks {
             ItemStack blade = striker.getMainHandItem();
             if (blade.getItem() instanceof SpiritgearBladeItem && SpiritGear.rank(blade) >= 3) {
                 if (event.getEntity().getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))
-                    event.setAmount(event.getAmount() * SpiritGear.BOSS_BONUS);
+                    event.setAmount((float) (event.getAmount() * TribalConfig.bladeBossBonusManifested()));
             }
         }
         if (!(event.getEntity() instanceof Player player)) return;
         int set = SpiritGear.setRank(player);
-        if (set >= 3) event.setAmount(event.getAmount() * SpiritGear.MANIFESTED_SET);
-        else if (set >= 2) event.setAmount(event.getAmount() * SpiritGear.BOUND_SET);
+        if (set >= 3) event.setAmount((float) (event.getAmount() * TribalConfig.manifestedSetDamageTaken()));
+        else if (set >= 2) event.setAmount((float) (event.getAmount() * TribalConfig.boundSetDamageTaken()));
         // The voice perks below answer only for a piece that is switched on and paid for (SpiritweaveArmor.powered).
         ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
         ItemStack robe = player.getItemBySlot(EquipmentSlot.CHEST);
@@ -188,19 +190,19 @@ public final class SpiritGearHooks {
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         if (SpiritGear.voice(robe).orElse(null) == Attunement.AIR && SpiritweaveArmor.powered(player, robe)) event.setCanceled(true);
         else if (SpiritGear.voice(boots).orElse(null) == Attunement.EARTH && SpiritweaveArmor.powered(player, boots))
-            event.setStrength(event.getStrength() * 0.4F);
+            event.setStrength((float) (event.getStrength() * TribalConfig.earthBootsKnockbackKept()));
     }
 
     public static void fall(LivingFallEvent event) {
         if (!(event.getEntity() instanceof Player player)) return;
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
         if (SpiritGear.voice(boots).orElse(null) != Attunement.SPIRIT) return;
-        boolean bounce = SpiritGear.rank(boots) >= 3 && event.getDistance() >= 4;
+        boolean bounce = SpiritGear.rank(boots) >= 3 && event.getDistance() >= TribalConfig.spiritBootsBounceFall();
         // A landing that would not hurt, and is no bounce, is nothing for the boots to catch or pay for.
         if (!bounce && event.getDistance() <= player.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.SAFE_FALL_DISTANCE)) return;
         if (!SpiritweaveArmor.powered(player, boots)) return;
         if (bounce) {
-            player.setDeltaMovement(player.getDeltaMovement().x, 0.55, player.getDeltaMovement().z);
+            player.setDeltaMovement(player.getDeltaMovement().x, TribalConfig.spiritBootsBounceSpeed(), player.getDeltaMovement().z);
             player.hurtMarked = true;
         }
         event.setCanceled(true);

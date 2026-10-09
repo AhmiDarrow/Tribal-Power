@@ -37,7 +37,7 @@ public class SpiritCharmItem extends Item {
         if (!(stack.getItem() instanceof SpiritCharmItem charm)) return out;
         @SuppressWarnings("deprecation")   // read-only
         String raw = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getString(VOICES_KEY);
-        if (raw == null || raw.isEmpty()) {
+        if (raw.isEmpty()) {
             if (charm.kind.nativeVoice != null) out.add(charm.kind.nativeVoice);
             return out;
         }

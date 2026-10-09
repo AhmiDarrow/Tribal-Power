@@ -10,7 +10,6 @@ import tk.darrow.tribalpower.blockentity.SongBenchBlockEntity;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -251,52 +250,9 @@ public final class LatticeNetwork {
         return false;
     }
 
-    public static List<BlockPos> networkHubs(List<ResonanceTotemBlockEntity> network) {
-        List<BlockPos> hubs = new ArrayList<>(network.size());
-        for (ResonanceTotemBlockEntity totem : network) {
-            hubs.add(totem.getBlockPos());
-        }
-        return hubs;
-    }
-
-    public static List<SongBenchBlockEntity> findSongBenchesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
-        return nearHubs(level, SongBenchBlockEntity.class, hubs, radius);
-    }
-
-    public static List<AncestralCacheBlockEntity> findCachesNearHubs(Level level, Collection<BlockPos> hubs, int radius) {
-        return nearHubs(level, AncestralCacheBlockEntity.class, hubs, radius);
-    }
-
-    /**
-     * One pass over the box the hubs span, then a range test per candidate. The old walk repeated a whole
-     * radius-8 cube for every hub and allocated a BlockPos per position to dedupe them; a conductor with
-     * eight hubs paid tens of thousands of block-entity lookups a second for a handful of benches.
-     */
-    private static <T extends BlockEntity> List<T> nearHubs(Level level, Class<T> type,
-                                                            Collection<BlockPos> hubs, int radius) {
-        if (hubs.isEmpty()) return List.of();
-        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE;
-        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
-        for (BlockPos hub : hubs) {
-            minX = Math.min(minX, hub.getX() - radius); maxX = Math.max(maxX, hub.getX() + radius);
-            minY = Math.min(minY, hub.getY() - radius); maxY = Math.max(maxY, hub.getY() + radius);
-            minZ = Math.min(minZ, hub.getZ() - radius); maxZ = Math.max(maxZ, hub.getZ() + radius);
-        }
-        List<T> found = inBox(level, type, minX, minY, minZ, maxX, maxY, maxZ);
-        found.removeIf(be -> {
-            BlockPos at = be.getBlockPos();
-            for (BlockPos hub : hubs) {
-                if (Math.abs(at.getX() - hub.getX()) <= radius && Math.abs(at.getY() - hub.getY()) <= radius
-                        && Math.abs(at.getZ() - hub.getZ()) <= radius) return false;
-            }
-            return true;
-        });
-        return found;
-    }
-
     /**
      * Echo items no longer travel through the Song Bench. The bench writes songs. Stations and
-     * caches move their own items with hoppers. Kept so a conductor tick stays a single call.
+     * caches move their own items with hoppers. Kept for the game tests that pin it.
      * @return false, always
      */
     public static boolean routeEchoItems(Level level, List<SongBenchBlockEntity> benches,

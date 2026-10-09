@@ -64,7 +64,7 @@ public class SongkeeperDuelInviteScreen extends Screen {
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
         super.render(g, mouseX, mouseY, partialTick);
-        int w = 260, h = 96, x = width / 2 - w / 2, y = height / 2 - 60;
+        int h = 96, y = height / 2 - 60;
         Songbook.Song song = Songbook.song(invite.song());
         g.drawCenteredString(font, Component.translatable("gui.tribalpower.songkeeper.duel.invite", invite.from()), width / 2, y + 10, 0xFFFFD36B);
         if (song != null) {

@@ -79,7 +79,10 @@ public final class WeaponAnimations {
         return TUNED.getOrDefault(key, fallback);
     }
 
-    private static String name(WeaponKind.Swing kind) { return kind.name().toLowerCase(Locale.ROOT); }
+    /** Each swing's tuning-key stem, lowered once: this is asked for every hand every frame. */
+    private static final String[] NAMES = java.util.Arrays.stream(WeaponKind.Swing.values()).map(s -> s.name().toLowerCase(Locale.ROOT)).toArray(String[]::new);
+
+    private static String name(WeaponKind.Swing kind) { return NAMES[kind.ordinal()]; }
 
     /**
      * The in-hand item: vanilla's equip offset, then the kind's resting carry, then its motion instead of the

@@ -81,6 +81,10 @@ public class SongkeeperPlayScreen extends Screen {
     private long calloutAt = -9999;
     private String callout = "";
     private final RandomSource random = RandomSource.create();
+    // The lines the heads-up says every frame, translated once; the score and clock are formatted when they change.
+    private final String getReady, leaveText, failedText, surgeOnText, resonanceText, surgeKeyText, subtitle;
+    private long shownScore = -1, shownSecond = -1;
+    private String scoreText = "0", clockText = "";
 
     /** Set only by the development screenshot driver: strike every note dead on, to exercise the whole game. */
     public static boolean autoplay;
@@ -131,6 +135,29 @@ public class SongkeeperPlayScreen extends Screen {
         offset = SkyConfig.SONG_OFFSET_MS.get();
         speed = SkyConfig.SONG_SPEED.get();
         hitSounds = SkyConfig.SONG_HIT_SOUNDS.get();
+        getReady = Component.translatable("gui.tribalpower.songkeeper.get_ready").getString();
+        leaveText = Component.translatable("gui.tribalpower.songkeeper.leave").getString();
+        failedText = Component.translatable("gui.tribalpower.songkeeper.failed").getString();
+        surgeOnText = Component.translatable("gui.tribalpower.songkeeper.surge_on").getString();
+        resonanceText = Component.translatable("gui.tribalpower.songkeeper.resonance").getString();
+        surgeKeyText = Component.translatable("gui.tribalpower.songkeeper.surge_key").getString();
+        subtitle = song.album() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString();
+    }
+
+    private String scoreText() {
+        if (score != shownScore) { shownScore = score; scoreText = String.format("%,d", score); }
+        return scoreText;
+    }
+
+    /** "m:ss / m:ss", remade once a second rather than once a frame. */
+    private String clockText(long t) {
+        long shown = Math.max(0, t) / 1000;
+        if (shown != shownSecond) {
+            shownSecond = shown;
+            long total = song.lengthMs() / 1000;
+            clockText = String.format("%d:%02d / %d:%02d", shown / 60, shown % 60, total / 60, total % 60);
+        }
+        return clockText;
     }
 
     // ---- network entry points ------------------------------------------------------------------------------------
@@ -305,7 +332,7 @@ public class SongkeeperPlayScreen extends Screen {
         // a full bar lasts sixteen seconds, half a bar eight
         surgeActiveUntil = t + (long) (surge * 16000);
         surge = 0;
-        callout = Component.translatable("gui.tribalpower.songkeeper.surge_on").getString();
+        callout = surgeOnText;
         calloutAt = t;
         Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(tk.darrow.tribalpower.sound.ModSounds.WIND_CHARM_GUST.get(), 1.0F, 0.9F));
     }
@@ -682,9 +709,9 @@ public class SongkeeperPlayScreen extends Screen {
             hud(g, t, frame);
             if (duel != 0) duelHud(g, t);
         }
-        if (t < 0 || t < 1400) {
+        if (t < 1400) {
             float a = t < 0 ? 1 : 1 - t / 1400F;
-            text(g, Component.translatable("gui.tribalpower.songkeeper.get_ready").getString(), centre, height * 0.4F, 2, argb(TEXT, a), true);
+            text(g, getReady, centre, height * 0.4F, 2, argb(TEXT, a), true);
         }
         if (t - calloutAt < 1400 && !done) {
             float k = (t - calloutAt) / 1400F;
@@ -692,10 +719,10 @@ public class SongkeeperPlayScreen extends Screen {
             text(g, callout, centre, height * 0.30F, s, argb(GOLD, k > 0.7F ? (1 - k) / 0.3F : 1), true);
         }
         if (t - leaveAsk < 2500 && !done)
-            text(g, Component.translatable("gui.tribalpower.songkeeper.leave").getString(), centre, height * 0.46F, 1, 0xFFFFB0A0, true);
+            text(g, leaveText, centre, height * 0.46F, 1, 0xFFFFB0A0, true);
         if (failed && !done) {
             float k = Mth.clamp((t - failedAt) / 800F, 0, 1);
-            text(g, Component.translatable("gui.tribalpower.songkeeper.failed").getString(), centre, height * 0.38F, 3.2F, argb(RED, k), true);
+            text(g, failedText, centre, height * 0.38F, 3.2F, argb(RED, k), true);
         }
         if (done) {
             g.pose().pushPose();
@@ -732,7 +759,7 @@ public class SongkeeperPlayScreen extends Screen {
         float top = strikeY - (compact ? 126 : 104), bottom = strikeY - 6;
         g.fill((int) left, (int) top, (int) right, (int) bottom, 0xB0080C10);
         g.renderOutline((int) left, (int) top, (int) (right - left), (int) (bottom - top), argb(railColour(t), 0.5F));
-        String points = String.format("%,d", score);
+        String points = scoreText();
         float scoreScale = Math.min(2, (cardW - 12) / Math.max(1, font.width(points)));
         text(g, points, right - 6 - font.width(points) * scoreScale, top + 6, scoreScale, TEXT, false);
         String run = Component.translatable("gui.tribalpower.songkeeper.streak_small", streak).getString();
@@ -751,25 +778,19 @@ public class SongkeeperPlayScreen extends Screen {
         }
         g.flush();
         text(g, "x" + mult, cx, cy - 6, radius / 15F, col, true);
-        if (surging(t)) text(g, Component.translatable("gui.tribalpower.songkeeper.surge_on").getString(), right - 6 - font.width(
-                Component.translatable("gui.tribalpower.songkeeper.surge_on").getString()), top + 20 + 9 * scoreScale, 1, GOLD, false);
+        if (surging(t)) text(g, surgeOnText, right - 6 - font.width(surgeOnText), top + 20 + 9 * scoreScale, 1, GOLD, false);
 
-        // Resonance meter, right of the highway: red, amber, green, with a needle
+        // Resonance meter, right of the highway: red, amber, green, with a needle (the rite draws its own, with the mark it must reach)
         float rx = centre + halfBottom + 26, ry = strikeY - 130, rh = 120, rw = 12;
         g.fill((int) rx - 2, (int) ry - 2, (int) (rx + rw + 2), (int) (ry + rh + 2), 0xFF0A1014);
         g.fill((int) rx, (int) ry, (int) (rx + rw), (int) (ry + rh / 3), 0xFF2E7D4F);
         g.fill((int) rx, (int) (ry + rh / 3), (int) (rx + rw), (int) (ry + rh * 2 / 3), 0xFF8A7A2A);
         g.fill((int) rx, (int) (ry + rh * 2 / 3), (int) (rx + rw), (int) (ry + rh), 0xFF8A2E2A);
-        if (rite) {
-            // the mark the rite must reach to open the gate
-            int mark = (int) (ry + rh * (1 - tk.darrow.tribalpower.gate.DrumRite.PASS));
-            g.fill((int) rx - 3, mark, (int) (rx + rw + 3), mark + 1, GOLD);
-        }
         float needle = ry + rh * (1 - (float) resonance);
-        boolean danger = (rite ? resonance < tk.darrow.tribalpower.gate.DrumRite.PASS : resonance < 0.33) && !failed;
+        boolean danger = resonance < 0.33 && !failed;
         int needleColour = danger && (frame / 200) % 2 == 0 ? RED : 0xFFFFFFFF;
         g.fill((int) rx - 5, (int) needle - 1, (int) (rx + rw + 5), (int) needle + 2, needleColour);
-        text(g, Component.translatable("gui.tribalpower.songkeeper.resonance").getString(), rx + rw / 2, ry + rh + 6, 0.75F, QUIET, true);
+        text(g, resonanceText, rx + rw / 2, ry + rh + 6, 0.75F, QUIET, true);
         // Spirit Surge, under it
         float sy = ry + rh + 20;
         for (int i = 0; i < 4; i++) {
@@ -779,18 +800,15 @@ public class SongkeeperPlayScreen extends Screen {
             if (fill > 0) g.fill(x0, (int) sy, x0 + (int) (7 * fill), (int) sy + 5, surging(t) ? GOLD : 0xFFFFE7A0);
         }
         if (surge >= 0.5 && !surging(t))
-            text(g, Component.translatable("gui.tribalpower.songkeeper.surge_key").getString(), rx + rw / 2, sy + 8, 0.75F,
-                    argb(GOLD, 0.6F + 0.4F * Mth.sin(frame / 120F)), true);
+            text(g, surgeKeyText, rx + rw / 2, sy + 8, 0.75F, argb(GOLD, 0.6F + 0.4F * Mth.sin(frame / 120F)), true);
 
         // song, difficulty, progress along the top
         text(g, song.title(), 10, 8, 1, TEXT, false);
-        text(g, rite ? Component.translatable("gui.tribalpower.songkeeper.rite_line", (int) (tk.darrow.tribalpower.gate.DrumRite.PASS * 100)).getString()
-                : song.album() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString(), 10, 19, 0.75F, QUIET, false);
+        text(g, subtitle, 10, 19, 0.75F, QUIET, false);
         float progress = Mth.clamp(Math.max(0, t) / (float) song.lengthMs(), 0, 1);
         g.fill(10, 30, 160, 32, 0xFF1C262C);
         g.fill(10, 30, 10 + (int) (150 * progress), 32, TEAL);
-        long shown = Math.max(0, t) / 1000, total = song.lengthMs() / 1000;
-        text(g, String.format("%d:%02d / %d:%02d", shown / 60, shown % 60, total / 60, total % 60), 164, 28, 0.75F, QUIET, false);
+        text(g, clockText(t), 164, 28, 0.75F, QUIET, false);
     }
 
     /**
@@ -880,7 +898,7 @@ public class SongkeeperPlayScreen extends Screen {
             if (appear > 0) star(g, width / 2F - 56 + i * 28, y + 58, 11 * (i < stars ? 0.8F + 0.2F * appear : 1), argb(fill, appear));
         }
         g.flush();
-        text(g, String.format("%,d", score), width / 2F, y + 76, 2, TEXT, true);
+        text(g, scoreText(), width / 2F, y + 76, 2, TEXT, true);
         int total = chart.size();
         int accuracy = total == 0 ? 0 : Math.round(100F * hits / total);
         text(g, Component.translatable("gui.tribalpower.songkeeper.accuracy", accuracy, hits, total).getString(), width / 2F, y + 98, 1, TEAL, true);

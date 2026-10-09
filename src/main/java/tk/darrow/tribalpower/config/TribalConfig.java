@@ -49,6 +49,7 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue MARCH_REPOPULATE_MAX_DISTANCE;
     public static final ModConfigSpec.IntValue MARCH_REPOPULATE_RADIUS;
     public static final ModConfigSpec.IntValue MARCH_REPOPULATE_CAP;
+    public static final ModConfigSpec.IntValue EEL_ONE_IN;
 
     /** Per weapon kind: attack damage, attacks per second, extra reach, and its trait number. */
     public record WeaponValues(ModConfigSpec.DoubleValue damage, ModConfigSpec.DoubleValue speed,
@@ -102,6 +103,14 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue DISH_STANDING;
     public static final ModConfigSpec.IntValue GROVE_WATER;
     public static final ModConfigSpec.BooleanValue AUTOMATION_VOICES;
+    public static final ModConfigSpec.IntValue TIDE_PUMP_COST;
+    public static final ModConfigSpec.IntValue WIND_SNARE_COST;
+    public static final ModConfigSpec.IntValue WARD_DRUM_COST;
+    public static final ModConfigSpec.IntValue SEAL_LOOM_COST;
+    public static final ModConfigSpec.IntValue RELAY_COST;
+    public static final ModConfigSpec.IntValue LONGREACH_RELAY_COST;
+    public static final ModConfigSpec.IntValue ASTRAL_RELAY_COST;
+    public static final ModConfigSpec.IntValue BRAZIER_COST;
     public static final ModConfigSpec.IntValue PLATE_LINK_RANGE;
     public static final ModConfigSpec.IntValue PLATE_LINK_MAX;
     public static final ModConfigSpec.DoubleValue EARTH_KNOCKBACK;
@@ -149,6 +158,14 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue URN_COPPER;
     public static final ModConfigSpec.IntValue URN_MANIFESTED;
     public static final ModConfigSpec.IntValue DYE_YIELD;
+    // songs
+    public static final ModConfigSpec.IntValue SONG_CAST_PULSE_BASE;
+    public static final ModConfigSpec.IntValue SONG_CAST_PULSE_PER_REAGENT;
+    public static final ModConfigSpec.DoubleValue SONG_BOLT_DAMAGE;
+    public static final ModConfigSpec.DoubleValue SONG_BOLT_DAMAGE_PER_POWER;
+    public static final ModConfigSpec.DoubleValue SONG_CALL_DAMAGE;
+    public static final ModConfigSpec.DoubleValue SONG_CALL_DAMAGE_PER_POWER;
+    public static final ModConfigSpec.IntValue SONGBOOK_COOLDOWN;
     public static final ModConfigSpec.DoubleValue SICKNESS_CHANCE;
     public static final ModConfigSpec.BooleanValue SICKNESS_FROM_ELITES;
     public static final ModConfigSpec.BooleanValue SICKNESS_FROM_NIGHT;
@@ -282,6 +299,16 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue RATTLE_VOICE_TICKS;
     public static final ModConfigSpec.IntValue RATTLE_FIRE_TICKS;
     public static final ModConfigSpec.DoubleValue RATTLE_WATER_BONUS;
+    public static final ModConfigSpec.DoubleValue BOUND_SET_DAMAGE;
+    public static final ModConfigSpec.DoubleValue MANIFESTED_SET_DAMAGE;
+    public static final ModConfigSpec.DoubleValue BLADE_BOSS_BONUS;
+    public static final ModConfigSpec.DoubleValue BLADE_LIFESTEAL;
+    public static final ModConfigSpec.DoubleValue MANIFESTED_SPARE_CHANCE;
+    public static final ModConfigSpec.DoubleValue EARTH_BOOTS_KNOCKBACK;
+    public static final ModConfigSpec.DoubleValue SPIRIT_BOOTS_BOUNCE_FALL;
+    public static final ModConfigSpec.DoubleValue SPIRIT_BOOTS_BOUNCE_SPEED;
+    public static final ModConfigSpec.IntValue SPIRIT_HOOD_GLOW_TICKS;
+    public static final ModConfigSpec.IntValue SHEARS_SPIRIT_GLOW_TICKS;
     // staff
     public static final ModConfigSpec.IntValue STAFF_EARTH_COST;
     public static final ModConfigSpec.IntValue STAFF_FIRE_COST;
@@ -304,12 +331,19 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue STAFF_FIRE_IGNITE_SECONDS;
     public static final ModConfigSpec.DoubleValue STAFF_TETHER_PULL;
     public static final ModConfigSpec.IntValue STAFF_SPIRIT_RADIUS;
+    public static final ModConfigSpec.IntValue STAFF_RANGE;
+    public static final ModConfigSpec.IntValue STAFF_STITCH_RANGE;
     // tools and rites
     public static final ModConfigSpec.IntValue WAYSTONE_TIER1_PULSE;
     public static final ModConfigSpec.IntValue WAYSTONE_TIER2_PULSE;
     public static final ModConfigSpec.IntValue WAYSTONE_TIER3_PULSE;
     public static final ModConfigSpec.IntValue WAYSTONE_COOLDOWN;
+    public static final ModConfigSpec.IntValue WAYSTONE_TIER1_RANGE;
     public static final ModConfigSpec.IntValue MAUL_BLOCK_PULSE;
+    public static final ModConfigSpec.IntValue MAUL_COOLDOWN;
+    public static final ModConfigSpec.IntValue WAND_PULSE_PER_BLOCK;
+    public static final ModConfigSpec.IntValue WAND_MAX_BLOCKS;
+    public static final ModConfigSpec.IntValue WRENCH_USE_PULSE;
     public static final ModConfigSpec.IntValue RITE_AMPLIFY_PULSE;
     // tribes
     public static final ModConfigSpec.IntValue STANDING_FAVOURED;
@@ -326,6 +360,9 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue STANDING_CAMP_BLOCK;
     public static final ModConfigSpec.IntValue STANDING_HEARTH;
     public static final ModConfigSpec.IntValue HUNTER_ANGER_TICKS;
+    public static final ModConfigSpec.IntValue KIN_DRUM_INTERVAL;
+    public static final ModConfigSpec.IntValue KIN_DRUM_RADIUS;
+    public static final ModConfigSpec.IntValue KIN_DRUM_PULSE;
     // familiars
     public static final ModConfigSpec.IntValue FAMILIAR_RANGE;
     public static final ModConfigSpec.IntValue FAMILIAR_ATTUNE_RANGE;
@@ -350,9 +387,30 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue HOUND_TRACK_RANGE;
     public static final ModConfigSpec.DoubleValue MARK_SPECIES_CHANCE;
     public static final ModConfigSpec.DoubleValue MARK_KIN_CHANCE;
+    public static final ModConfigSpec.IntValue BRUSH_COOLDOWN;
+    public static final ModConfigSpec.DoubleValue BOND_CHANCE;
+    public static final ModConfigSpec.DoubleValue BOND_REMNANT_CHANCE;
     // echo
     public static final ModConfigSpec.IntValue KILN_SECONDS;
     public static final ModConfigSpec.IntValue KILN_PULSE;
+    public static final ModConfigSpec.IntValue GRIT_SHATTER_SECONDS;
+    public static final ModConfigSpec.IntValue GRIT_SHATTER_PULSE;
+    public static final ModConfigSpec.IntValue GEAR_ATTUNE_SECONDS;
+    public static final ModConfigSpec.IntValue GEAR_ATTUNE_PULSE;
+    public static final ModConfigSpec.IntValue GEAR_BIND_SECONDS;
+    public static final ModConfigSpec.IntValue GEAR_BIND_PULSE;
+    public static final ModConfigSpec.IntValue GEAR_MANIFEST_SECONDS;
+    public static final ModConfigSpec.IntValue GEAR_MANIFEST_PULSE;
+    public static final ModConfigSpec.IntValue MACHINE_ATTUNE_SECONDS;
+    public static final ModConfigSpec.IntValue MACHINE_ATTUNE_PULSE;
+    public static final ModConfigSpec.IntValue MACHINE_BIND_SECONDS;
+    public static final ModConfigSpec.IntValue MACHINE_BIND_PULSE;
+    public static final ModConfigSpec.IntValue MACHINE_MANIFEST_SECONDS;
+    public static final ModConfigSpec.IntValue MACHINE_MANIFEST_PULSE;
+    public static final ModConfigSpec.DoubleValue MACHINE_RANK1_TIME;
+    public static final ModConfigSpec.DoubleValue MACHINE_RANK2_TIME;
+    public static final ModConfigSpec.DoubleValue MACHINE_RANK3_TIME;
+    public static final ModConfigSpec.DoubleValue MACHINE_RANK_GAIN;
     private static final java.util.Map<tk.darrow.tribalpower.song.Anointment, java.util.Map<String, ModConfigSpec.DoubleValue>> ANOINTING =
             new java.util.EnumMap<>(tk.darrow.tribalpower.song.Anointment.class);
     private static final java.util.Map<tk.darrow.tribalpower.cuisine.Fare, ModConfigSpec.IntValue> FARE_SECONDS =
@@ -484,6 +542,7 @@ public final class TribalConfig {
                         "marchRepopulateRadius, and a group never takes the count past it. 6 is a little above how many a",
                         "stretch of new March land starts with, so land refills to about its first state and no further.")
                 .defineInRange("marchRepopulateCap", 6, 1, 64);
+        EEL_ONE_IN = b.comment("One fish in this many a rod lands in the March is a Raw Silt Eel; the rest are glimmerfin.").defineInRange("eelOneIn", 4, 1, 100);
         b.pop();
         b.comment("Spiritgear weapons. Damage and speed are the rank 0 values the tooltip shows (attack damage, attacks",
                 "per second); ranks add the Blade's bonuses on top. Reach is added to the wielder's reach in blocks.").push("weapons");
@@ -581,6 +640,15 @@ public final class TribalConfig {
         URN_MANIFESTED = b.comment("Uses a Manifested Soul Urn has. A Resonant Soul Urn never wears out.").defineInRange("manifestedUrnUses", 20, 2, 10000);
         DYE_YIELD = b.comment("Dye one reagent ground with chalk in a bowl makes.").defineInRange("dyeYield", 2, 1, 64);
         b.pop();
+        b.comment("Songs: what a sung verse costs and strikes for.").push("songs");
+        SONG_CAST_PULSE_BASE = b.comment("Pulse singing a sheet or a songbook page costs, before the per-reagent part and the Spindle boon.").defineInRange("songCastPulseBase", 8, 0, 1000);
+        SONG_CAST_PULSE_PER_REAGENT = b.comment("Pulse each reagent of the verse adds to that cost.").defineInRange("songCastPulsePerReagent", 4, 0, 1000);
+        SONG_BOLT_DAMAGE = b.comment("Damage a bolt-shaped song deals, plus songBoltDamagePerPower for each copy of its lead reagent.").defineInRange("songBoltDamage", 3.0, 0.0, 100.0);
+        SONG_BOLT_DAMAGE_PER_POWER = b.comment("Extra bolt damage per copy of the lead reagent (its power).").defineInRange("songBoltDamagePerPower", 1.0, 0.0, 100.0);
+        SONG_CALL_DAMAGE = b.comment("Damage a call-shaped song deals to every hostile in its ring, plus songCallDamagePerPower per copy of its lead reagent.").defineInRange("songCallDamage", 2.0, 0.0, 100.0);
+        SONG_CALL_DAMAGE_PER_POWER = b.comment("Extra call damage per copy of the lead reagent.").defineInRange("songCallDamagePerPower", 0.5, 0.0, 100.0);
+        SONGBOOK_COOLDOWN = b.comment("Ticks a songbook rests after a verse.").defineInRange("songbookCooldownTicks", 30, 0, 72000);
+        b.pop();
         b.comment("The spirit layer: the six voice blessings, the nine tribe boons and the March's afflictions.").push("effects");
         EARTH_KNOCKBACK = b.comment("Earth blessing: knockback resistance per level.").defineInRange("earthBlessingKnockback", 0.3, 0.0, 1.0);
         EARTH_MINING = b.comment("Earth blessing: extra mining speed per level, as a fraction.").defineInRange("earthBlessingMining", 0.25, 0.0, 5.0);
@@ -626,6 +694,14 @@ public final class TribalConfig {
         b.comment("Camp and workshop hands: what the automated devices ask for.").push("camp");
         AUTOMATION_VOICES = b.comment("Whether every automated device needs a kept Resonance Totem of its own voice within 8 blocks: Earth for the Grove Tender and Wayanchor, Spirit for the Ward Drum, Hush Totem and Summoning Cradle, Water for the Tide Pump, Air for the Wind Snare and relays, Loom for the Seal Loom and Astral relays.").define("automationNeedsVoices", true);
         GROVE_WATER = b.comment("Pulse a Grove Tender spends on a beat that re-wets its bed's farmland, when a Water totem keeps within 8 blocks of it.").defineInRange("groveWaterCost", 4, 0, 200);
+        TIDE_PUMP_COST = b.comment("Pulse a Tide Pump spends on a beat that moves fluid.").defineInRange("tidePumpCost", 4, 0, 1000);
+        WIND_SNARE_COST = b.comment("Pulse a Wind Snare spends per item stack it catches.").defineInRange("windSnareCost", 2, 0, 1000);
+        WARD_DRUM_COST = b.comment("Pulse a Ward Drum spends on a strike.").defineInRange("wardDrumCost", 8, 0, 1000);
+        SEAL_LOOM_COST = b.comment("Pulse a Seal Loom spends on a craft.").defineInRange("sealLoomCost", 6, 0, 1000);
+        RELAY_COST = b.comment("Pulse a relay plate spends on a transfer, before rank and the consumption multiplier.").defineInRange("relayCost", 4, 0, 1000);
+        LONGREACH_RELAY_COST = b.comment("Pulse a Longreach relay plate spends on a transfer, before rank and the consumption multiplier.").defineInRange("longreachRelayCost", 8, 0, 1000);
+        ASTRAL_RELAY_COST = b.comment("Pulse an Astral relay plate spends on a transfer, before rank and the consumption multiplier.").defineInRange("astralRelayCost", 16, 0, 1000);
+        BRAZIER_COST = b.comment("Pulse a Ritual Brazier draws every two seconds to sustain its blessing.").defineInRange("brazierBlessingCost", 8, 0, 1000);
         b.pop();
         b.comment("Song plates synced with the Totem Wrench: one plate hears another with no wire between them.").push("logic");
         PLATE_LINK_RANGE = b.comment("Blocks a synced song plate can hear another across, in the same world. A link beyond this reads 0.").defineInRange("plateLinkRange", 32, 1, 256);
@@ -767,6 +843,16 @@ public final class TribalConfig {
         RATTLE_VOICE_TICKS = b.comment("Ticks of the Earth (Resistance), Air (Speed) and Loom (Regeneration) rattle's boon on each shake.").defineInRange("rattleVoiceTicks", 40, 0, 72000);
         RATTLE_FIRE_TICKS = b.comment("Ticks of Fire Resistance a Fire rattle gives on each shake.").defineInRange("rattleFireTicks", 60, 0, 72000);
         RATTLE_WATER_BONUS = b.comment("What a Water rattle's healing is multiplied by.").defineInRange("rattleWaterBonus", 1.5, 0.0, 10.0);
+        BOUND_SET_DAMAGE = b.comment("What damage taken is multiplied by for a wearer of a whole Spiritweave set of Bound or better.").defineInRange("boundSetDamageTaken", 0.9, 0.0, 1.0);
+        MANIFESTED_SET_DAMAGE = b.comment("The same for a whole Manifested set.").defineInRange("manifestedSetDamageTaken", 0.8, 0.0, 1.0);
+        BLADE_BOSS_BONUS = b.comment("What a Manifested blade's blows against bosses are multiplied by.").defineInRange("bladeBossBonusManifested", 1.25, 1.0, 10.0);
+        BLADE_LIFESTEAL = b.comment("Fraction of every blow a Manifested blade lands that comes back to its wielder as health.").defineInRange("bladeLifestealManifested", 0.1, 0.0, 1.0);
+        MANIFESTED_SPARE_CHANCE = b.comment("Chance a Manifested tool's starved action wears it nothing at all.").defineInRange("manifestedSpareChance", 0.5, 0.0, 1.0);
+        EARTH_BOOTS_KNOCKBACK = b.comment("Fraction of a blow's knockback Earth boots let through.").defineInRange("earthBootsKnockbackKept", 0.4, 0.0, 1.0);
+        SPIRIT_BOOTS_BOUNCE_FALL = b.comment("Blocks a Manifested Spirit boots' wearer must fall before the landing bounces them back up.").defineInRange("spiritBootsBounceFall", 4.0, 0.0, 64.0);
+        SPIRIT_BOOTS_BOUNCE_SPEED = b.comment("Upward speed of that bounce.").defineInRange("spiritBootsBounceSpeed", 0.55, 0.0, 4.0);
+        SPIRIT_HOOD_GLOW_TICKS = b.comment("Ticks hostiles a Spirit hood lights up glow for, renewed every armorUpkeepTicks.").defineInRange("spiritHoodGlowTicks", 100, 0, 72000);
+        SHEARS_SPIRIT_GLOW_TICKS = b.comment("Ticks shearable animals near held Spirit shears glow for, renewed every four seconds.").defineInRange("shearsSpiritGlowTicks", 100, 0, 72000);
         b.pop();
         b.comment("The Sixfold Staff: what each voice costs and does.").push("staff");
         STAFF_EARTH_COST = b.comment("Pulse the Earth voice (a bolt that slows) spends.").defineInRange("staffEarthCost", 12, 0, 1000);
@@ -790,13 +876,20 @@ public final class TribalConfig {
         STAFF_FIRE_IGNITE_SECONDS = b.comment("Seconds the Fire bolt sets its target alight for.").defineInRange("staffFireIgniteSeconds", 4, 0, 600);
         STAFF_TETHER_PULL = b.comment("Farthest, in blocks, a Tether draws its target along the thread toward the caster.").defineInRange("staffTetherPull", 8.0, 0.0, 64.0);
         STAFF_SPIRIT_RADIUS = b.comment("Blocks around the caster within which hostiles glow after the Spirit voice.").defineInRange("staffSpiritRadius", 12, 0, 64);
+        STAFF_RANGE = b.comment("Blocks along the look within which the Earth, Fire and Loom voices find their target.").defineInRange("staffRange", 18, 1, 64);
+        STAFF_STITCH_RANGE = b.comment("Farthest, in blocks, a Stitch blinks forward; it falls back to shorter blinks when the air is not clear.").defineInRange("staffStitchRange", 6, 2, 32);
         b.pop();
         b.comment("Travel and digging tools.").push("tools");
-        WAYSTONE_TIER1_PULSE = b.comment("Pulse the Waystone Compass (bound within 128 blocks, same world) spends on a jump.").defineInRange("waystoneTier1Pulse", 20, 0, 100000);
+        WAYSTONE_TIER1_PULSE = b.comment("Pulse the Waystone Compass (bound within waystoneTier1Range blocks, same world) spends on a jump.").defineInRange("waystoneTier1Pulse", 20, 0, 100000);
         WAYSTONE_TIER2_PULSE = b.comment("Pulse the second compass (any distance, same world) spends on a jump.").defineInRange("waystoneTier2Pulse", 40, 0, 100000);
         WAYSTONE_TIER3_PULSE = b.comment("Pulse the third compass (across worlds) spends on a jump.").defineInRange("waystoneTier3Pulse", 100, 0, 100000);
         WAYSTONE_COOLDOWN = b.comment("Ticks a compass rests after a jump.").defineInRange("waystoneCooldownTicks", 100, 0, 72000);
+        WAYSTONE_TIER1_RANGE = b.comment("Blocks the Waystone Compass can jump from its bound spot.").defineInRange("waystoneTier1Range", 128, 1, 100000);
         MAUL_BLOCK_PULSE = b.comment("Pulse the Resonance Maul spends on each block of its 3x3 swing.").defineInRange("maulBlockPulse", 8, 0, 1000);
+        MAUL_COOLDOWN = b.comment("Ticks the Resonance Maul rests after a swing that broke something.").defineInRange("maulCooldownTicks", 20, 0, 72000);
+        WAND_PULSE_PER_BLOCK = b.comment("Pulse the Weaver's Wand spends on each block it lays.").defineInRange("wandPulsePerBlock", 2, 0, 1000);
+        WAND_MAX_BLOCKS = b.comment("Most blocks one sweep of the Weaver's Wand lays.").defineInRange("wandMaxBlocks", 32, 1, 512);
+        WRENCH_USE_PULSE = b.comment("Pulse the Totem Wrench spends on a turn in place of a point of wear; with no Pulse to hand it wears instead. 0 makes every turn free.").defineInRange("wrenchUsePulse", 1, 0, 1000);
         b.pop();
         b.comment("Seal rites at the Rite Pedestal.").push("rites");
         RITE_AMPLIFY_PULSE = b.comment("Pulse a seal rite draws from carried cells to amplify itself; without it the rite still works, unamplified.").defineInRange("riteAmplifyPulse", 8, 0, 100000);
@@ -816,6 +909,9 @@ public final class TribalConfig {
         STANDING_CAMP_BLOCK = b.comment("Standing lost for breaking a tribe's banner (negative).").defineInRange("standingCampBlock", -5, -100000, 0);
         STANDING_HEARTH = b.comment("Standing lost for breaking a tribe's hearth (negative).").defineInRange("standingHearth", -40, -100000, 0);
         HUNTER_ANGER_TICKS = b.comment("Ticks a tribe's Hunters stay angry at whoever struck their Kin or broke their hearth.").defineInRange("hunterAngerTicks", 1200, 0, 72000);
+        KIN_DRUM_INTERVAL = b.comment("Ticks between a Drummer's beats (less up to a second of drift).").defineInRange("kinDrumIntervalTicks", 120, 20, 12000);
+        KIN_DRUM_RADIUS = b.comment("Blocks from a Drummer within which its beat feeds Drumhearts, Ley Collectors and Pulse Resonators.").defineInRange("kinDrumRadius", 8, 1, 32);
+        KIN_DRUM_PULSE = b.comment("Pulse a Drummer's beat puts into each generator it reaches.").defineInRange("kinDrumPulse", 2, 0, 1000);
         b.pop();
         b.comment("Familiars: how far their boosts reach and what their species gifts give.").push("familiars");
         FAMILIAR_RANGE = b.comment("Blocks from its keeper within which an attuned familiar lends its voice's boost.").defineInRange("familiarBoostRange", 16, 1, 64);
@@ -841,10 +937,31 @@ public final class TribalConfig {
         HOUND_TRACK_RANGE = b.comment("Blocks from a Rift Hound within which the foe that last hurt its keeper glints.").defineInRange("houndTrackRange", 48, 1, 128);
         MARK_SPECIES_CHANCE = b.comment("When a bred child's Mark mutates, chance the new Mark is its species' own rather than a common one.").defineInRange("markSpeciesChance", 0.35, 0.0, 1.0);
         MARK_KIN_CHANCE = b.comment("When both parents share a keeper, chance a mutated Mark becomes the Kin Mark instead.").defineInRange("markKinChance", 0.2, 0.0, 1.0);
+        BRUSH_COOLDOWN = b.comment("Ticks a creature rests after a brush before it sheds reagent again.").defineInRange("brushCooldownTicks", 1200, 0, 72000);
+        BOND_CHANCE = b.comment("Chance a Bonding Charm bonds a gentle animal (the charm is kept on failure).").defineInRange("bondChance", 0.6, 0.0, 1.0);
+        BOND_REMNANT_CHANCE = b.comment("Chance a Bonding Charm bonds a remnant at Voice standing (the charm is spent on failure).").defineInRange("bondRemnantChance", 0.4, 0.0, 1.0);
         b.pop();
         b.comment("Echo stations.").push("echo");
         KILN_SECONDS = b.comment("Seconds the Ember Kiln takes on a furnace recipe no written kiln recipe covers.").defineInRange("kilnSeconds", 10, 1, 600);
         KILN_PULSE = b.comment("Pulse that kiln job costs, before the consumption multiplier.").defineInRange("kilnPulse", 32, 0, 100000);
+        GRIT_SHATTER_SECONDS = b.comment("Seconds the Echo Shatter takes on a raw metal or ore the tag scan found, with no written recipe for it.").defineInRange("gritShatterSeconds", 4, 1, 600);
+        GRIT_SHATTER_PULSE = b.comment("Pulse a second that shattering costs, before the consumption multiplier.").defineInRange("gritShatterPulse", 20, 0, 100000);
+        GEAR_ATTUNE_SECONDS = b.comment("Seconds Echo Attune takes to rank a Spiritgear piece.").defineInRange("gearAttuneSeconds", 45, 1, 3600);
+        GEAR_ATTUNE_PULSE = b.comment("Pulse a second that attuning costs, before the consumption multiplier.").defineInRange("gearAttunePulse", 48, 0, 100000);
+        GEAR_BIND_SECONDS = b.comment("Seconds Echo Bind takes to rank a Spiritgear piece.").defineInRange("gearBindSeconds", 90, 1, 3600);
+        GEAR_BIND_PULSE = b.comment("Pulse a second that binding costs, before the consumption multiplier.").defineInRange("gearBindPulse", 64, 0, 100000);
+        GEAR_MANIFEST_SECONDS = b.comment("Seconds Echo Manifest takes to rank a Spiritgear piece.").defineInRange("gearManifestSeconds", 180, 1, 3600);
+        GEAR_MANIFEST_PULSE = b.comment("Pulse a second that manifesting costs, before the consumption multiplier.").defineInRange("gearManifestPulse", 96, 0, 100000);
+        MACHINE_ATTUNE_SECONDS = b.comment("Seconds Echo Attune takes to rank a workshop machine.").defineInRange("machineAttuneSeconds", 16, 1, 3600);
+        MACHINE_ATTUNE_PULSE = b.comment("Pulse a second that costs, before the consumption multiplier.").defineInRange("machineAttunePulse", 48, 0, 100000);
+        MACHINE_BIND_SECONDS = b.comment("Seconds Echo Bind takes to rank a workshop machine.").defineInRange("machineBindSeconds", 20, 1, 3600);
+        MACHINE_BIND_PULSE = b.comment("Pulse a second that costs, before the consumption multiplier.").defineInRange("machineBindPulse", 64, 0, 100000);
+        MACHINE_MANIFEST_SECONDS = b.comment("Seconds Echo Manifest takes to rank a workshop machine.").defineInRange("machineManifestSeconds", 24, 1, 3600);
+        MACHINE_MANIFEST_PULSE = b.comment("Pulse a second that costs, before the consumption multiplier.").defineInRange("machineManifestPulse", 80, 0, 100000);
+        MACHINE_RANK1_TIME = b.comment("What an Attuned machine's job time is multiplied by; its Pulse draw and cargo scale up by the inverse.").defineInRange("machineRank1Time", 0.85, 0.05, 1.0);
+        MACHINE_RANK2_TIME = b.comment("The same for a Bound machine.").defineInRange("machineRank2Time", 0.70, 0.05, 1.0);
+        MACHINE_RANK3_TIME = b.comment("The same for a Manifested machine.").defineInRange("machineRank3Time", 0.55, 0.05, 1.0);
+        MACHINE_RANK_GAIN = b.comment("Extra Pulse a ranked generator makes per rank, as a fraction of its beat.").defineInRange("machineRankGainBonus", 0.15, 0.0, 2.0);
         b.pop();
         SPEC = b.build();
     }
@@ -893,6 +1010,7 @@ public final class TribalConfig {
     public static int marchRepopulateMaxDistance() { return get(MARCH_REPOPULATE_MAX_DISTANCE); }
     public static int marchRepopulateRadius() { return get(MARCH_REPOPULATE_RADIUS); }
     public static int marchRepopulateCap() { return get(MARCH_REPOPULATE_CAP); }
+    public static int eelOneIn() { return get(EEL_ONE_IN); }
 
     public static double weaponDamage(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).damage()); }
     public static double weaponSpeed(tk.darrow.tribalpower.item.WeaponKind kind) { return get(WEAPONS.get(kind).speed()); }
@@ -952,6 +1070,13 @@ public final class TribalConfig {
     public static int dishStanding() { return get(DISH_STANDING); }
     public static int groveWaterCost() { return get(GROVE_WATER); }
     public static boolean automationNeedsVoices() { return get(AUTOMATION_VOICES); }
+    public static int tidePumpCost() { return get(TIDE_PUMP_COST); }
+    public static int windSnareCost() { return get(WIND_SNARE_COST); }
+    public static int wardDrumCost() { return get(WARD_DRUM_COST); }
+    public static int sealLoomCost() { return get(SEAL_LOOM_COST); }
+    /** A relay plate's cost by tier (1 plain, 2 Longreach, 3 Astral), before rank and the consumption multiplier. */
+    public static int relayCost(int tier) { return get(tier >= 3 ? ASTRAL_RELAY_COST : tier == 2 ? LONGREACH_RELAY_COST : RELAY_COST); }
+    public static int brazierBlessingCost() { return get(BRAZIER_COST); }
     public static double earthBlessingKnockback() { return get(EARTH_KNOCKBACK); }
     public static double earthBlessingMining() { return get(EARTH_MINING); }
     public static double fireBlessingBurn() { return get(FIRE_BURN); }
@@ -997,6 +1122,14 @@ public final class TribalConfig {
     public static int copperUrnUses() { return get(URN_COPPER); }
     public static int manifestedUrnUses() { return get(URN_MANIFESTED); }
     public static int dyeYield() { return get(DYE_YIELD); }
+    // songs
+    public static int songCastPulseBase() { return get(SONG_CAST_PULSE_BASE); }
+    public static int songCastPulsePerReagent() { return get(SONG_CAST_PULSE_PER_REAGENT); }
+    public static double songBoltDamage() { return get(SONG_BOLT_DAMAGE); }
+    public static double songBoltDamagePerPower() { return get(SONG_BOLT_DAMAGE_PER_POWER); }
+    public static double songCallDamage() { return get(SONG_CALL_DAMAGE); }
+    public static double songCallDamagePerPower() { return get(SONG_CALL_DAMAGE_PER_POWER); }
+    public static int songbookCooldownTicks() { return get(SONGBOOK_COOLDOWN); }
     public static double sicknessChance() { return get(SICKNESS_CHANCE); }
     public static boolean sicknessFromElites() { return get(SICKNESS_FROM_ELITES); }
     public static boolean sicknessFromNight() { return get(SICKNESS_FROM_NIGHT); }
@@ -1132,6 +1265,16 @@ public final class TribalConfig {
     public static int rattleVoiceTicks() { return get(RATTLE_VOICE_TICKS); }
     public static int rattleFireTicks() { return get(RATTLE_FIRE_TICKS); }
     public static double rattleWaterBonus() { return get(RATTLE_WATER_BONUS); }
+    public static double boundSetDamageTaken() { return get(BOUND_SET_DAMAGE); }
+    public static double manifestedSetDamageTaken() { return get(MANIFESTED_SET_DAMAGE); }
+    public static double bladeBossBonusManifested() { return get(BLADE_BOSS_BONUS); }
+    public static double bladeLifestealManifested() { return get(BLADE_LIFESTEAL); }
+    public static double manifestedSpareChance() { return get(MANIFESTED_SPARE_CHANCE); }
+    public static double earthBootsKnockbackKept() { return get(EARTH_BOOTS_KNOCKBACK); }
+    public static double spiritBootsBounceFall() { return get(SPIRIT_BOOTS_BOUNCE_FALL); }
+    public static double spiritBootsBounceSpeed() { return get(SPIRIT_BOOTS_BOUNCE_SPEED); }
+    public static int spiritHoodGlowTicks() { return get(SPIRIT_HOOD_GLOW_TICKS); }
+    public static int shearsSpiritGlowTicks() { return get(SHEARS_SPIRIT_GLOW_TICKS); }
     // staff
     public static int staffEarthCost() { return get(STAFF_EARTH_COST); }
     public static int staffFireCost() { return get(STAFF_FIRE_COST); }
@@ -1154,12 +1297,19 @@ public final class TribalConfig {
     public static int staffFireIgniteSeconds() { return get(STAFF_FIRE_IGNITE_SECONDS); }
     public static double staffTetherPull() { return get(STAFF_TETHER_PULL); }
     public static int staffSpiritRadius() { return get(STAFF_SPIRIT_RADIUS); }
+    public static int staffRange() { return get(STAFF_RANGE); }
+    public static int staffStitchRange() { return get(STAFF_STITCH_RANGE); }
     // tools and rites
     public static int waystoneTier1Pulse() { return get(WAYSTONE_TIER1_PULSE); }
     public static int waystoneTier2Pulse() { return get(WAYSTONE_TIER2_PULSE); }
     public static int waystoneTier3Pulse() { return get(WAYSTONE_TIER3_PULSE); }
     public static int waystoneCooldownTicks() { return get(WAYSTONE_COOLDOWN); }
+    public static int waystoneTier1Range() { return get(WAYSTONE_TIER1_RANGE); }
     public static int maulBlockPulse() { return get(MAUL_BLOCK_PULSE); }
+    public static int maulCooldownTicks() { return get(MAUL_COOLDOWN); }
+    public static int wandPulsePerBlock() { return get(WAND_PULSE_PER_BLOCK); }
+    public static int wandMaxBlocks() { return get(WAND_MAX_BLOCKS); }
+    public static int wrenchUsePulse() { return get(WRENCH_USE_PULSE); }
     public static int riteAmplifyPulse() { return get(RITE_AMPLIFY_PULSE); }
     // tribes
     public static int standingFavoured() { return get(STANDING_FAVOURED); }
@@ -1176,6 +1326,9 @@ public final class TribalConfig {
     public static int standingCampBlock() { return get(STANDING_CAMP_BLOCK); }
     public static int standingHearth() { return get(STANDING_HEARTH); }
     public static int hunterAngerTicks() { return get(HUNTER_ANGER_TICKS); }
+    public static int kinDrumIntervalTicks() { return get(KIN_DRUM_INTERVAL); }
+    public static int kinDrumRadius() { return get(KIN_DRUM_RADIUS); }
+    public static int kinDrumPulse() { return get(KIN_DRUM_PULSE); }
     // familiars
     public static int familiarBoostRange() { return get(FAMILIAR_RANGE); }
     public static int familiarAttuneRange() { return get(FAMILIAR_ATTUNE_RANGE); }
@@ -1200,9 +1353,31 @@ public final class TribalConfig {
     public static int houndTrackRange() { return get(HOUND_TRACK_RANGE); }
     public static double markSpeciesChance() { return get(MARK_SPECIES_CHANCE); }
     public static double markKinChance() { return get(MARK_KIN_CHANCE); }
+    public static int brushCooldownTicks() { return get(BRUSH_COOLDOWN); }
+    public static double bondChance() { return get(BOND_CHANCE); }
+    public static double bondRemnantChance() { return get(BOND_REMNANT_CHANCE); }
     // echo
     public static int kilnSeconds() { return get(KILN_SECONDS); }
     public static int kilnPulse() { return get(KILN_PULSE); }
+    public static int gritShatterSeconds() { return get(GRIT_SHATTER_SECONDS); }
+    public static int gritShatterPulse() { return get(GRIT_SHATTER_PULSE); }
+    public static int gearAttuneSeconds() { return get(GEAR_ATTUNE_SECONDS); }
+    public static int gearAttunePulse() { return get(GEAR_ATTUNE_PULSE); }
+    public static int gearBindSeconds() { return get(GEAR_BIND_SECONDS); }
+    public static int gearBindPulse() { return get(GEAR_BIND_PULSE); }
+    public static int gearManifestSeconds() { return get(GEAR_MANIFEST_SECONDS); }
+    public static int gearManifestPulse() { return get(GEAR_MANIFEST_PULSE); }
+    public static int machineAttuneSeconds() { return get(MACHINE_ATTUNE_SECONDS); }
+    public static int machineAttunePulse() { return get(MACHINE_ATTUNE_PULSE); }
+    public static int machineBindSeconds() { return get(MACHINE_BIND_SECONDS); }
+    public static int machineBindPulse() { return get(MACHINE_BIND_PULSE); }
+    public static int machineManifestSeconds() { return get(MACHINE_MANIFEST_SECONDS); }
+    public static int machineManifestPulse() { return get(MACHINE_MANIFEST_PULSE); }
+    /** What a machine's job time is multiplied by at rank 1, 2 or 3; 1.0 for rank 0 or anything else. */
+    public static double machineRankTime(int rank) {
+        return switch (rank) { case 1 -> get(MACHINE_RANK1_TIME); case 2 -> get(MACHINE_RANK2_TIME); case 3 -> get(MACHINE_RANK3_TIME); default -> 1.0; };
+    }
+    public static double machineRankGainBonus() { return get(MACHINE_RANK_GAIN); }
     /** One anointment's number, by the key it declares in {@link tk.darrow.tribalpower.song.Anointment}. */
     public static double anointing(tk.darrow.tribalpower.song.Anointment anointment, String key) {
         var value = ANOINTING.get(anointment).get(key);

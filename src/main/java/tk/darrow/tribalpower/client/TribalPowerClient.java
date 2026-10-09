@@ -91,6 +91,7 @@ public final class TribalPowerClient {
             tk.darrow.tribalpower.event.MarchStatePayload.latest = tk.darrow.tribalpower.event.MarchStatePayload.EMPTY;
             MarchWeatherClient.reset();
             MarchMusic.reset();
+            LeyRopeRenderer.reset();
         });
     }
 

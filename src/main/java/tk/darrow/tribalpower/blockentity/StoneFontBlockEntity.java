@@ -167,12 +167,18 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
 
     /** The best tier this font can reach right now, given its shape and the voices around it. */
     public Ask best(Level level, BlockPos pos) {
+        return best(level, pos, null);
+    }
+
+    /** As above, with the totems in reach already found (null: find them here). */
+    private Ask best(Level level, BlockPos pos, @org.jetbrains.annotations.Nullable LatticeNetwork.TotemsNear totems) {
         int tier = pattern.tier(level, pos);
         if (tier <= 0) {
             grounded = false;
             return null;
         }
-        Set<Attunement> voices = LatticeNetwork.collectAttunements(level, pos, LatticeNetwork.DEFAULT_RADIUS);
+        Set<Attunement> voices = totems != null ? totems.attunements()
+                : LatticeNetwork.collectAttunements(level, pos, LatticeNetwork.DEFAULT_RADIUS);
         boolean earth = voices.contains(Attunement.EARTH);
         boolean voicesOpen = tier >= Ask.OBSIDIAN.patternTier() && earth
                 && voices.contains(Attunement.FIRE) && voices.contains(Attunement.WATER);
@@ -189,7 +195,9 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
         if (be.stilled()) { be.stall("paused"); return; }
 
-        Ask ask = be.best(level, pos);
+        // Voices, keeping (twice) and feeding all ask about the same totems: found once for the beat.
+        var totems = LatticeNetwork.TotemsNear.of(level, pos, LatticeNetwork.DEFAULT_RADIUS);
+        Ask ask = be.best(level, pos, totems);
         if (ask == null) { be.reset("pattern"); return; }
         if (ask != be.asking) { be.asking = ask; be.work = 0; be.setChanged(); }
 
@@ -197,7 +205,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
         if (!be.placeOutput(result, true)) { be.stall("full"); return; }
 
         // Cobble is the starter ask: shape and Pulse only. Earth Keeping starts at stone.
-        var keeping = ask == Ask.COBBLE ? Keeping.State.ANSWERED : Keeping.voice(level, pos, Attunement.EARTH);
+        var keeping = ask == Ask.COBBLE ? Keeping.State.ANSWERED : Keeping.voice(totems, Attunement.EARTH);
         if (ask != Ask.COBBLE && keeping == Keeping.State.QUIET && be.work == 0) { be.stall("quiet"); return; }
 
         int cost = be.pulseCost(ask);
@@ -207,9 +215,9 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
         }
         be.state = "working";
         be.work++;
-        if (ask != Ask.COBBLE) Keeping.feedWork(level, pos, Attunement.EARTH);
+        if (ask != Ask.COBBLE) Keeping.feedWork(totems, Attunement.EARTH);
         SpiritEffects.ring((ServerLevel) level, pos.getCenter().add(0, 0.6, 0), Attunement.EARTH, 0.4, 8);
-        if (be.work >= be.workSeconds(ask)) {
+        if (be.work >= be.workSeconds(ask, keeping)) {
             if (ask == Ask.OBSIDIAN && be.grounded) {
                 if (be.water.getFluidAmount() < GROUND_COST || be.lava.getFluidAmount() < GROUND_COST) {
                     be.stall("fluid");
@@ -243,9 +251,13 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
     }
 
     private int workSeconds(Ask ask) {
-        int seconds = MachineRank.scaleTime(this, ask.seconds());
-        var keeping = ask == Ask.COBBLE || level == null ? Keeping.State.ANSWERED : Keeping.voice(level, worldPosition, Attunement.EARTH);
-        return Keeping.stretch(keeping, seconds);
+        return workSeconds(ask, ask == Ask.COBBLE || level == null ? Keeping.State.ANSWERED
+                : Keeping.voice(level, worldPosition, Attunement.EARTH));
+    }
+
+    /** As above, with the Earth keeping the beat already read. */
+    private int workSeconds(Ask ask, Keeping.State keeping) {
+        return Keeping.stretch(keeping, MachineRank.scaleTime(this, ask.seconds()));
     }
 
     /** Stopped short of a beat, keeping the progress. The comparator reads progress only while working, so it has to hear this. */

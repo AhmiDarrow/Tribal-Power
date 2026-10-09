@@ -25,8 +25,9 @@ public class WaveDrumBlockEntity extends GeneratorBlockEntity implements tk.darr
     public static final int TANK_CAPACITY = 4000;
     private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.INPUT);
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
-    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return new int[0]; }
-    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return new int[0]; }
+    private static final int[] NONE = new int[0];
+    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return NONE; }
+    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return NONE; }
 
     public final FluidTank tank = new FluidTank(TANK_CAPACITY, stack -> stack.getFluid() == Fluids.WATER) {
         @Override public int fill(FluidStack resource, FluidAction action) {

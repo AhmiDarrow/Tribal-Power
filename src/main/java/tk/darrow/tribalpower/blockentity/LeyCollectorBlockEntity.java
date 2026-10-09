@@ -72,9 +72,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
         gain = (int) Math.round(gain * (ley == null ? 1.0 : tk.darrow.tribalpower.event.LeySurges.multiplier(level, ley)));
         gain += tk.darrow.tribalpower.item.MachineRank.bonusGain(be, gain);
         gain = tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(gain);
-        if (be.insertPulse(gain, false) > 0) {
-            be.setChanged();
-        }
+        be.insertPulse(gain, false);   // marks the chunk itself when anything landed
         if (factors.pad()) tk.darrow.tribalpower.lattice.Keeping.livingBeat(level, pos);
     }
 

@@ -19,6 +19,11 @@ public final class SideIoWidget {
     private static final int[] OX = {STEP, 0, STEP, 2 * STEP, STEP, STEP};
     private static final int[] OY = {0, STEP, STEP, STEP, 2 * STEP, 3 * STEP};
     private static final SideIo.Mode[] LEGEND = {SideIo.Mode.INPUT, SideIo.Mode.OUTPUT, SideIo.Mode.BOTH, SideIo.Mode.NONE};
+    /** Each face's initial, settled once rather than cut from its name every frame. */
+    private static final String[] LETTERS = new String[FACES.length];
+    static {
+        for (int i = 0; i < FACES.length; i++) LETTERS[i] = FACES[i].getSerializedName().substring(0, 1).toUpperCase(java.util.Locale.ROOT);
+    }
 
     private SideIoWidget() {}
 
@@ -30,7 +35,7 @@ public final class SideIoWidget {
             if (hot) hovered = i;
             g.fill(px, py, px + CELL, py + CELL, colour(io.get(FACES[i])));
             g.renderOutline(px, py, CELL, CELL, hot ? 0xFFE4C18A : 0xFF0A1418);
-            String letter = FACES[i].getSerializedName().substring(0, 1).toUpperCase();
+            String letter = LETTERS[i];
             g.drawString(font, letter, px + (CELL - font.width(letter)) / 2 + 1, py + 1, 0xFFF2EAD5, true);
         }
         // Legend: the four modes as small swatches under the pad.

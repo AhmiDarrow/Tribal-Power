@@ -151,7 +151,8 @@ public final class MarchDecor {
 
         @Override
         protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-            return SHAPE.move(state.getOffset(level, pos).x, 0, state.getOffset(level, pos).z);
+            var offset = state.getOffset(level, pos);
+            return SHAPE.move(offset.x, 0, offset.z);
         }
 
         @Override

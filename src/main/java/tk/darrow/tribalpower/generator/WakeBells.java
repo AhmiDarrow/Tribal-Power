@@ -33,11 +33,6 @@ public final class WakeBells {
         if (bells != null) bells.remove(pos);
     }
 
-    public static int count(ServerLevel level) {
-        Set<BlockPos> bells = BELLS.get(level);
-        return bells == null ? 0 : bells.size();
-    }
-
     public static void onDeath(LivingDeathEvent event) {
         LivingEntity dead = event.getEntity();
         if (dead instanceof Player || !(dead.level() instanceof ServerLevel level)) return;
@@ -54,6 +49,8 @@ public final class WakeBells {
             best = distance;
         }
         if (nearest == null) return;
+        // A bell whose chunk has gone since it registered is not worth loading the chunk for.
+        if (!level.isLoaded(nearest)) return;
         if (!(level.getBlockEntity(nearest) instanceof WakeBellBlockEntity bell)) {
             // The registry outlived the block: forget it rather than looking again next death.
             bells.remove(nearest);

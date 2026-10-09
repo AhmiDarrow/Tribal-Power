@@ -49,7 +49,8 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     private int redstoneCooldown;
     private long lastManualBeat = -100;
     private long lastRedstoneBeat = -100;
-    private int lastRedstoneGain;
+    /** What the last beat, by hand or by signal, was worth: the drum's reported output. */
+    private int lastGain;
     private boolean lastSignal;
     private long zoneCheckedAt = Long.MIN_VALUE;
     private boolean zonePays = true;
@@ -151,7 +152,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         int beat = paysInZone()
                 ? weathered(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(beatValue(interval))) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
-        lastRedstoneGain = beat;
+        lastGain = beat;
         int gained = insertPulse(beat, false);
         if (level instanceof net.minecraft.server.level.ServerLevel server) {
             tk.darrow.tribalpower.effect.SpiritEffects.ring(server, worldPosition.getCenter().add(0, 0.4, 0),
@@ -194,12 +195,12 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         lastRedstoneBeat = now;
         redstoneCooldown = MIN_SPACING;
         if (value <= 0) {
-            lastRedstoneGain = 0;
+            lastGain = 0;
             return 0;
         }
         int beat = paysInZone() ? weathered(tk.darrow.tribalpower.config.TribalConfig.scaleGeneration(value)) : 0;
         beat += tk.darrow.tribalpower.item.MachineRank.bonusGain(this, beat);
-        lastRedstoneGain = beat;
+        lastGain = beat;
         int gained = insertPulse(beat, false);
         strike(value == ON_TEMPO);
         setChanged();
@@ -222,13 +223,13 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     public int currentOutput() {
         // A drum is beaten, not run: report what the last beat was worth rather than a steady rate.
         if (level != null && tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition)) return 0;
-        return paysInZone() ? lastRedstoneGain : 0;
+        return paysInZone() ? lastGain : 0;
     }
 
     @Override
     public java.util.List<net.minecraft.network.chat.Component> breakdown() {
         return java.util.List.of(net.minecraft.network.chat.Component.translatable(
-                "drum.tribalpower.tempo", TEMPO_MIN, TEMPO_MAX, ON_TEMPO, OFF_TEMPO, lastRedstoneGain));
+                "drum.tribalpower.tempo", TEMPO_MIN, TEMPO_MAX, ON_TEMPO, OFF_TEMPO, lastGain));
     }
 
     @Override
@@ -272,7 +273,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         super.loadAdditional(tag, registries);
         pulse.load(tag);
         redstoneCooldown = net.minecraft.util.Mth.clamp(tag.getInt("RedstoneCooldown"), 0, MIN_SPACING);
-        lastRedstoneGain = 0;
+        lastGain = 0;
         lastSignal = tag.getBoolean("LastSignal");
     }
 

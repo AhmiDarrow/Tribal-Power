@@ -143,7 +143,7 @@ public final class ChalkGhostRenderer {
         builtAt = now;
 
         List<BlockPos> offsets = offsets(pattern, scale, Rotation.values()[rotation]);
-        BlockPos eye = Minecraft.getInstance().player.blockPosition();
+        BlockPos eye = player.blockPosition();
         int reach = VIEW;
         count = gather(level, offsets, origin, eye, reach);
         // Too much to draw at once: close in rather than thin out, so what is shown stays solid.

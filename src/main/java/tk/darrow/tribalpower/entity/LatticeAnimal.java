@@ -49,10 +49,13 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     private final FamiliarData lattice=new FamiliarData();
     private BlockPos lastLight;
     private float riderJumpScale;
+    /** Resolved on first ask, with no initialiser: the super constructor asks while registering goals, and an initialiser would wipe it after. */
+    private CreatureProfile profile;
+    private Boolean swims;
     public LatticeAnimal(EntityType<? extends Animal> type,Level level) {
         super(type,level);
         // Flight lived only in LatticeMonster, so a passive flyer bobbed on the spot and walked.
-        if(CreatureProfile.of(type).flying) { moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,12,true); setNoGravity(true); }
+        if(profile().flying) { moveControl=new net.minecraft.world.entity.ai.control.FlyingMoveControl(this,12,true); setNoGravity(true); }
         // Likewise a swimmer walked: it bobbed at the surface and could drown. See CreatureSwimming.
         if(swims()) {
             moveControl=new CreatureSwimming.SwimMoveControl(this,false);
@@ -62,8 +65,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
 
     @Override protected net.minecraft.world.entity.ai.navigation.PathNavigation createNavigation(Level level) {
-        if(swims())return CreatureSwimming.navigation(this,level,CreatureProfile.of(getType()));
-        return CreatureProfile.of(getType()).flying
+        if(swims())return CreatureSwimming.navigation(this,level,profile());
+        return profile().flying
                 ? new net.minecraft.world.entity.ai.navigation.FlyingPathNavigation(this,level)
                 : super.createNavigation(level);
     }
@@ -72,7 +75,11 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
      * Lives in water (its habitat): swims, and flops and dries out on land like a fish. It never drowns: the
      * water creatures are tagged minecraft:can_breathe_under_water.
      */
-    public boolean swims() { return CreatureSwimming.swims(CreatureProfile.of(getType())); }
+    public boolean swims() {
+        Boolean known=swims;
+        if(known==null)swims=known=CreatureSwimming.swims(profile());
+        return known;
+    }
     @Override public void baseTick() {
         int air=getAirSupply();
         super.baseTick();
@@ -93,9 +100,13 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
 
     /** A flyer takes no fall damage; it is meant to be in the air. */
     @Override public boolean causeFallDamage(float distance,float multiplier,net.minecraft.world.damagesource.DamageSource source) {
-        return !CreatureProfile.of(getType()).flying && super.causeFallDamage(distance,multiplier,source);
+        return !profile().flying && super.causeFallDamage(distance,multiplier,source);
     }
-    @Override public CreatureProfile profile() { return CreatureProfile.of(getType()); }
+    @Override public CreatureProfile profile() {
+        CreatureProfile known=profile;
+        if(known==null)profile=known=CreatureProfile.of(getType());
+        return known;
+    }
     @Override public FamiliarData lattice() { return lattice; }
     public void applyLattice() {
         lattice.apply(this,profile());
@@ -133,15 +144,16 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
         goalSelector.addGoal(5,new FamiliarFollowGoal(this,1.1));
-        if(CreatureProfile.of(getType()).flying)
-            goalSelector.addGoal(6,new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal(this,.8) {
-                @Override public boolean canUse() { return !isBonded() && super.canUse(); }
-            });
         goalSelector.addGoal(6,new AvoidEntityGoal<>(this,Monster.class,8,1,1.2) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
         goalSelector.addGoal(7,new FollowParentGoal(this,1));
+        // One roam per habitat, below the flee goal so a monster interrupts it: a flyer that also carried the walking
+        // stroll kept diving for the ground, and its flight shared the flee goal's priority, so it never fled mid-air.
         if(swims)goalSelector.addGoal(8,new CreatureSwimming.Roam(this,()->!isBonded()));
+        else if(profile().flying)goalSelector.addGoal(8,new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomFlyingGoal(this,.8) {
+            @Override public boolean canUse() { return !isBonded() && super.canUse(); }
+        });
         else goalSelector.addGoal(8,new WaterAvoidingRandomStrollGoal(this,.8) {
             @Override public boolean canUse() { return !isBonded() && super.canUse(); }
         });
@@ -214,7 +226,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
         if(tool.is(Items.BRUSH) && !isBaby() && (!isBonded() || isOwnedBy(player))) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1)));
-                forageCooldown=1200;
+                forageCooldown=tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks();
                 tool.hurtAndBreak(1,player,LivingEntity.getSlotForHand(hand));
                 level().playSound(null,blockPosition(),tk.darrow.tribalpower.sound.ModSounds.SPIRIT_BRUSH.get(),SoundSource.NEUTRAL,.7F,1.1F);
             }
@@ -354,7 +366,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        forageCooldown=Math.clamp(tag.getInt("ForageCooldown"),0,1200);
+        forageCooldown=Math.clamp(tag.getInt("ForageCooldown"),0,tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks());
         entityData.set(DATA_OWNER,tag.hasUUID("Owner")?Optional.of(tag.getUUID("Owner")):Optional.empty());
         setSitting(tag.getBoolean("Sitting") && isBonded());
         saddlebag.clearContent();

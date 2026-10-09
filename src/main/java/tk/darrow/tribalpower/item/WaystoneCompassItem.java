@@ -61,7 +61,8 @@ public class WaystoneCompassItem extends Item {
             player.displayClientMessage(Component.translatable("message.tribalpower.waystone.unbound"), true); return InteractionResultHolder.fail(stack);
         }
         BlockPos feet = BlockPos.of(data.getLong("Waypoint"));
-        if ((tier < 3 && target != level) || (tier == 1 && player.blockPosition().distSqr(feet) > 128*128)) {
+        long range = tk.darrow.tribalpower.config.TribalConfig.waystoneTier1Range();
+        if ((tier < 3 && target != level) || (tier == 1 && player.blockPosition().distSqr(feet) > range * range)) {
             player.displayClientMessage(Component.translatable("message.tribalpower.waystone.range"), true); return InteractionResultHolder.fail(stack);
         }
         // Reject invalid coordinates before requesting any destination chunks.
@@ -89,5 +90,9 @@ public class WaystoneCompassItem extends Item {
         tk.darrow.tribalpower.effect.SpiritEffects.ring(target, landing.add(0,0.2,0), tk.darrow.tribalpower.api.pulse.Attunement.SPIRIT, 1, 20);
         return InteractionResultHolder.consume(stack);
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) { lines.add(Component.translatable("item.tribalpower.waystone_compass.desc")); }
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
+        lines.add(Component.translatable("item.tribalpower.waystone_compass.desc", tk.darrow.tribalpower.config.TribalConfig.waystoneTier1Range(),
+                tk.darrow.tribalpower.config.TribalConfig.waystoneTier1Pulse(), tk.darrow.tribalpower.config.TribalConfig.waystoneTier2Pulse(),
+                tk.darrow.tribalpower.config.TribalConfig.waystoneTier3Pulse()));
+    }
 }

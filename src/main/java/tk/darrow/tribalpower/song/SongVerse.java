@@ -93,7 +93,6 @@ public record SongVerse(List<String> reagents, Attunement voice) {
         return 10.0 + Math.max(0, reagents.size() - MIN_SHEET);
     }
 
-    /** Pulse a cast spends. A longer sheet costs more. The bow has its own price. */
     /** What a song costs this singer: the Spindle boon's Loom-stitchers sing cheaper. */
     public static int castCost(net.minecraft.world.entity.player.Player player, SongVerse verse) {
         int cost = verse.castPulse();
@@ -102,8 +101,10 @@ public record SongVerse(List<String> reagents, Attunement voice) {
         return cost;
     }
 
+    /** Pulse a cast spends (the config's songs section). A longer sheet costs more. The bow has its own price. */
     public int castPulse() {
-        return 8 + 4 * Math.max(1, reagents.size());
+        return tk.darrow.tribalpower.config.TribalConfig.songCastPulseBase()
+                + tk.darrow.tribalpower.config.TribalConfig.songCastPulsePerReagent() * Math.max(1, reagents.size());
     }
 
     public Component name() {

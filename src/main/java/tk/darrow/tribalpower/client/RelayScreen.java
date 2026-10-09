@@ -123,8 +123,9 @@ public class RelayScreen extends AbstractContainerScreen<RelayMenu> {
         g.renderOutline(x, y, 176, 166, 0xFFB58A58);
         g.fill(x + 1, y + 1, x + 175, y + 18, 0xFF20333A);
         g.fill(x + 8, y + 20, x + 168, y + 70, 0xFF14262C);
-        for (var slot : menu.slots) {
-            boolean ghost = RelayMenu.isFilter(menu.slots.indexOf(slot));
+        for (int i = 0; i < menu.slots.size(); i++) {
+            var slot = menu.slots.get(i);
+            boolean ghost = RelayMenu.isFilter(i);
             g.fill(x + slot.x - 1, y + slot.y - 1, x + slot.x + 17, y + slot.y + 17, ghost ? 0xFF0D1C21 : 0xFF081317);
             g.renderOutline(x + slot.x - 1, y + slot.y - 1, 18, 18, ghost ? (menu.allowing() ? 0xFF3F8C7C : 0xFF8C4A3F) : 0xFF385456);
         }

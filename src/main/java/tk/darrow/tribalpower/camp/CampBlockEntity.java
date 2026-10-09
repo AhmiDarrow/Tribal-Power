@@ -46,6 +46,8 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     /** The block never changes under a block entity, so its name is read once: hoppers ask kind() every tick through the face checks. */
     private final String kind;
     private static final Set<String> WITH_INVENTORY=Set.of("grove_tender","summoning_cradle","offering_table");
+    /** The devices that draw no Pulse from the lattice. */
+    private static final Set<String> UNPOWERED=Set.of("spirit_lantern","rain_chime","offering_table");
     public String kind(){return kind;}
     public boolean hasInventory(){return WITH_INVENTORY.contains(kind);}
     private final tk.darrow.tribalpower.lattice.SideIo sides;
@@ -62,15 +64,18 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
     public boolean canAccess(Player player){return owner==null||player.getUUID().equals(owner)||tk.darrow.tribalpower.camp.identity.Camps.sameCamp(level instanceof ServerLevel server?server.getServer():null,owner,player.getUUID());}
     @Override public UUID owner(){return owner;}
     @Override public void setOwner(UUID owner){this.owner=owner;setChanged();}
+    /** The slot sets a face can offer, built once: hoppers and pipes ask every tick, and the arrays are never written. */
+    private static final int[] NO_SLOTS=new int[0],ALL_SLOTS=java.util.stream.IntStream.range(0,27).toArray(),STORE_SLOTS=java.util.stream.IntStream.range(9,27).toArray(),
+            SEED_SLOTS=java.util.stream.IntStream.range(0,9).toArray(),CRADLE_EFFIGY={0},CRADLE_OFFERING={1};
     @Override public int[] getSlotsForFace(Direction side){
         // a face switched off offers nothing, so a pipe does not even connect to it
-        if(sides.get(side)==tk.darrow.tribalpower.lattice.SideIo.Mode.NONE)return new int[0];
-        if(kind().equals("offering_table"))return java.util.stream.IntStream.range(0,27).toArray();
-        if(kind().equals("summoning_cradle"))return side==Direction.DOWN?new int[]{0}:new int[]{1};
+        if(sides.get(side)==tk.darrow.tribalpower.lattice.SideIo.Mode.NONE)return NO_SLOTS;
+        if(kind().equals("offering_table"))return ALL_SLOTS;
+        if(kind().equals("summoning_cradle"))return side==Direction.DOWN?CRADLE_EFFIGY:CRADLE_OFFERING;
         // a face set to take out reaches the store, one set to put in reaches the seed row, one doing both reaches all
         var io=sides.get(side);
-        if(io.insert()&&io.extract())return java.util.stream.IntStream.range(0,27).toArray();
-        return io.extract()?java.util.stream.IntStream.range(9,27).toArray():java.util.stream.IntStream.range(0,9).toArray();
+        if(io.insert()&&io.extract())return ALL_SLOTS;
+        return io.extract()?STORE_SLOTS:SEED_SLOTS;
     }
     @Override public boolean canPlaceItemThroughFace(int slot,ItemStack stack,Direction side){return !level.hasNeighborSignal(worldPosition)&&sides.get(side).insert()&&canPlaceItem(slot,stack);}
     @Override public boolean canPlaceItem(int slot,ItemStack stack){
@@ -135,7 +140,7 @@ public class CampBlockEntity extends RandomizableContainerBlockEntity implements
             if(kind.equals("hush_totem"))CampHooks.ward(server,worldPosition,false);
             setReason("need_voice",voice.getSerializedName());return;
         }
-        if(!Set.of("spirit_lantern","rain_chime","offering_table").contains(kind)){
+        if(!UNPOWERED.contains(kind)){
             int add=LatticeNetwork.extractPulseNearby(server,worldPosition,8,Math.min(80,CAPACITY-pulse),false);
             if(add>0){pulse+=add;setChanged();}
         }

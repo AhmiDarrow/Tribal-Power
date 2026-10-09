@@ -37,7 +37,6 @@ public class SpiritStaffItem extends Item {
     }
     /** Pulse a Stitch (the Loom voice's blink) spends. */
     public static int stitchCost() { return TribalConfig.staffStitchCost(); }
-    public static final int STITCH_RANGE = 6;
     /** Steps the staff to its next voice and returns it. Sneak-use and the Staff Voice hotkey both come here. */
     public static Attunement cycle(ItemStack staff) {
         int next = (element(staff).ordinal() + 1) % Attunement.values().length;
@@ -105,10 +104,10 @@ public class SpiritStaffItem extends Item {
         player.getCooldowns().addCooldown(this, element == Attunement.WATER ? TribalConfig.staffWaterCooldownTicks() : TribalConfig.staffCooldownTicks());
         return InteractionResultHolder.consume(staff);
     }
-    /** Hostile living entity along the player's look ray within 18 blocks, stopping at blocks. */
+    /** Hostile living entity along the player's look ray within staffRange blocks, stopping at blocks. */
     static LivingEntity findTarget(Level level, Player player) {
         Vec3 start = player.getEyePosition();
-        Vec3 end = player.pick(18, 0, false).getLocation();
+        Vec3 end = player.pick(TribalConfig.staffRange(), 0, false).getLocation();
         var hit = ProjectileUtil.getEntityHitResult(level, player, start, end,
                 player.getBoundingBox().expandTowards(end.subtract(start)).inflate(1),
                 entity -> entity instanceof LivingEntity living && living.isAlive() && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(living));
@@ -137,7 +136,7 @@ public class SpiritStaffItem extends Item {
         if (flat.lengthSqr() < 1.0E-4) flat = Vec3.directionFromRotation(0, player.getYRot());
         flat = flat.normalize();
         Vec3 landing = null;
-        for (int reach = STITCH_RANGE; reach >= 2; reach--) {
+        for (int reach = TribalConfig.staffStitchRange(); reach >= 2; reach--) {
             Vec3 candidate = player.position().add(flat.scale(reach));
             net.minecraft.core.BlockPos feet = net.minecraft.core.BlockPos.containing(candidate);
             if (!TravelSafety.withinBounds(server, feet) || TravelSafety.hasHazard(server, feet)) continue;
@@ -170,6 +169,6 @@ public class SpiritStaffItem extends Item {
         var element = element(stack);
         lines.add(Component.translatable("spell.tribalpower." + element.getSerializedName()));
         lines.add(Component.translatable("item.tribalpower.spirit_staff.desc", cost(element)));
-        if (element == Attunement.LOOM) lines.add(Component.translatable("item.tribalpower.spirit_staff.stitch", stitchCost()));
+        if (element == Attunement.LOOM) lines.add(Component.translatable("item.tribalpower.spirit_staff.stitch", stitchCost(), TribalConfig.staffStitchRange()));
     }
 }

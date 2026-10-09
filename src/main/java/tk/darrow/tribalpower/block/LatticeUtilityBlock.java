@@ -73,8 +73,8 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
     @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         var be = level.getBlockEntity(pos);
         if (be instanceof SpiritCisternBlockEntity tank) return tank.tank.getFluidAmount() == 0 ? 0 : 1 + 14 * tank.tank.getFluidAmount() / tank.tank.getCapacity();
-        if (be instanceof PulseAdapterBlockEntity adapter) return adapter.handler.getEnergyStored() == 0 ? 0 : 1 + 14 * adapter.handler.getEnergyStored() / adapter.handler.getMaxEnergyStored();
-        if (be instanceof LatticeConverterBlockEntity converter) return converter.getEnergy() == 0 ? 0 : 1 + 14 * converter.getEnergy() / LatticeConverterBlockEntity.CAPACITY;
+        if (be instanceof PulseAdapterBlockEntity adapter) return adapter.signal();
+        if (be instanceof LatticeConverterBlockEntity converter) return converter.signal();
         return 0;
     }
 }

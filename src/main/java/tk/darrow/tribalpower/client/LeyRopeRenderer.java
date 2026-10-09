@@ -58,6 +58,17 @@ public final class LeyRopeRenderer {
     private static java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Magnet> magnets = java.util.List.of();
     private static LeyRopePayload pullsFor;
     private static final java.util.ArrayList<java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull>> PULLS = new java.util.ArrayList<>();
+    /** The packet's ropes as the field reads them, built with the pulls rather than again every frame. */
+    private static final java.util.ArrayList<LeyField.Rope> ROPES = new java.util.ArrayList<>();
+
+    /** Another world's totems and threads must not bend this one's. */
+    public static void reset() {
+        magnetStamp = Long.MIN_VALUE;
+        magnets = java.util.List.of();
+        pullsFor = null;
+        PULLS.clear();
+        ROPES.clear();
+    }
 
     public static void render(RenderLevelStageEvent event) {
         if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_PARTICLES) return;
@@ -98,20 +109,16 @@ public final class LeyRopeRenderer {
             if (pullsFor != LeyRopePayload.latest) {
                 pullsFor = LeyRopePayload.latest;
                 PULLS.clear();
+                ROPES.clear();
                 for (LeyRopePayload.Rope raw : ropes) {
                     LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
                             raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice(), raw.reach());
+                    ROPES.add(rope);
                     PULLS.add(tk.darrow.tribalpower.ley.LeyMagnets.pulls(magnets, rope));
                 }
             }
-            int i = 0;
-            for (LeyRopePayload.Rope raw : ropes) {
-                LeyField.Rope rope = new LeyField.Rope(raw.x(), raw.y(), raw.z(), raw.angle(), raw.amp(), raw.freq(),
-                        raw.phase(), raw.yAmp(), raw.yFreq(), raw.travel(), raw.voice(), raw.reach());
-                var pull = i < PULLS.size() ? PULLS.get(i) : java.util.List.<tk.darrow.tribalpower.ley.LeyMagnets.Pull>of();
-                i++;
-                draw(buffer, matrix, rope, ticks, look, pull);
-            }
+            var surge = tk.darrow.tribalpower.event.LeySurges.voice(mc.level);
+            for (int i = 0; i < ROPES.size(); i++) draw(buffer, matrix, ROPES.get(i), ticks, look, PULLS.get(i), surge);
             var mesh = buffer.build();
             if (mesh != null) BufferUploader.drawWithShader(mesh);
         } finally {
@@ -126,7 +133,8 @@ public final class LeyRopeRenderer {
     }
 
     private static void draw(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix, LeyField.Rope rope,
-                             double ticks, Vec3 look, java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull> pulls) {
+                             double ticks, Vec3 look, java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull> pulls,
+                             tk.darrow.tribalpower.api.pulse.Attunement surge) {
         double from = Math.max(0, rope.travel() - 110);
         // A Ley Heart's thread stops where it was raised to; a planetary vein runs its full reach.
         double to = Math.min(rope.reach(), rope.travel() + 110);
@@ -135,7 +143,6 @@ public final class LeyRopeRenderer {
         if (voice < 0 || voice >= HALO_RGB.length) voice = 0;
         float[] halo = HALO_RGB[voice];
         float[] core = CORE_RGB[voice];
-        var surge = tk.darrow.tribalpower.event.LeySurges.voice(net.minecraft.client.Minecraft.getInstance().level);
         float surging = surge != null && surge.ordinal() == voice ? 1.8F : 1.0F;
         Vec3 a = tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, from, pulls);
         for (double t = from; t < to; t += step) {

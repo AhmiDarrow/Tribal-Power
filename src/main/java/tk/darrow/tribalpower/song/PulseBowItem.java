@@ -58,10 +58,9 @@ public class PulseBowItem extends Item {
     public void releaseUsing(ItemStack bow, Level level, LivingEntity entity, int timeLeft) {
         if (!(entity instanceof Player player)) return;
         float pull = BowItem.getPowerForTime(getUseDuration(bow, entity) - timeLeft);
-        if (pull < 0.1F) return;
+        if (pull < 0.1F || level.isClientSide) return;
         ItemStack arrow = findVerse(player);
         int price = cost(pull, arrow != null);
-        if (level.isClientSide) return;
         if (!GearCell.spend(player, bow, price)) {
             SpiritgearHelper.notifyStarved(player);
             return;

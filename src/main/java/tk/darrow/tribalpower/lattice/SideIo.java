@@ -62,13 +62,28 @@ public final class SideIo {
     public void load(CompoundTag tag) { if (tag.contains("SideIo")) packed = tag.getInt("SideIo"); }
 
     public static int[] slots(HasSideIo io, Direction face) {
-        Mode mode = io.sideIo().get(face);
+        SideIo sides = io.sideIo();
+        Mode mode = sides.get(face);
         return switch (mode) {
             case NONE -> EMPTY;
             case INPUT -> io.inputSlots(face);
             case OUTPUT -> io.outputSlots(face);
-            case BOTH -> concat(io.inputSlots(face), io.outputSlots(face));
+            case BOTH -> sides.both(face, io.inputSlots(face), io.outputSlots(face));
         };
+    }
+
+    /** The joined list of a BOTH face, kept per face: hoppers ask every tick and the slot lists are constants. */
+    private int[][] bothIn, bothOut, both;
+
+    private int[] both(Direction face, int[] in, int[] out) {
+        int i = face.get3DDataValue();
+        if (both == null) { bothIn = new int[6][]; bothOut = new int[6][]; both = new int[6][]; }
+        if (both[i] == null || bothIn[i] != in || bothOut[i] != out) {
+            bothIn[i] = in;
+            bothOut[i] = out;
+            both[i] = concat(in, out);
+        }
+        return both[i];
     }
 
     private static int[] concat(int[] a, int[] b) {

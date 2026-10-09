@@ -11,8 +11,9 @@ import net.neoforged.neoforge.fluids.FluidStack;
 public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.tribalpower.lattice.HasSideIo {
     private final tk.darrow.tribalpower.lattice.SideIo sides = new tk.darrow.tribalpower.lattice.SideIo(tk.darrow.tribalpower.lattice.SideIo.Mode.BOTH);
     @Override public tk.darrow.tribalpower.lattice.SideIo sideIo() { return sides; }
-    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return new int[0]; }
-    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return new int[0]; }
+    private static final int[] NONE = new int[0];
+    @Override public int[] inputSlots(net.minecraft.core.Direction face) { return NONE; }
+    @Override public int[] outputSlots(net.minecraft.core.Direction face) { return NONE; }
     public final FluidTank tank = new FluidTank(16000) {
         @Override public int fill(FluidStack resource, FluidAction action) {
             return paused() ? 0 : super.fill(resource, action);

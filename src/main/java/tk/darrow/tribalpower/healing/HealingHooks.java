@@ -56,6 +56,7 @@ public final class HealingHooks {
 
     /** A salve used on someone else is laid on them: a friend, a villager, a familiar. Before the mob sees the click. */
     public static void salveOthers(PlayerInteractEvent.EntityInteract event) {
+        if (event.isCanceled()) return;
         ItemStack stack = event.getItemStack();
         if (!(stack.getItem() instanceof RemedyItem remedy) || remedy.form() != Remedies.Form.SALVE) return;
         if (!(event.getTarget() instanceof LivingEntity patient) || !patient.isAlive()) return;

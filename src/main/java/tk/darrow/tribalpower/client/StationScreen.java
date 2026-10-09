@@ -30,6 +30,16 @@ public class StationScreen extends AbstractContainerScreen<StationMenu> {
     private int ioX() { return leftPos + 168; }
     private int ioY() { return topPos + 34; }
 
+    /** The six faces as last synced; unpacked again only when the server's word changes, not every frame. */
+    private final SideIo io = new SideIo(SideIo.Mode.BOTH);
+    private int ioPacked = Integer.MIN_VALUE;
+
+    private SideIo io() {
+        int packed = menu.ioPacked();
+        if (packed != ioPacked) { ioPacked = packed; io.unpack(packed); }
+        return io;
+    }
+
     private ItemStack lookedUp = ItemStack.EMPTY;
     private ProcessingRecipes.Formula cached;
 
@@ -124,10 +134,8 @@ public class StationScreen extends AbstractContainerScreen<StationMenu> {
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
         super.render(g, mouseX, mouseY, partialTick);
-        SideIo io = new SideIo(SideIo.Mode.BOTH);
-        io.unpack(menu.ioPacked());
         renderTooltip(g, mouseX, mouseY);
-        SideIoWidget.render(g, font, ioX(), ioY(), io, mouseX, mouseY);
+        SideIoWidget.render(g, font, ioX(), ioY(), io(), mouseX, mouseY);
     }
 
     @Override
