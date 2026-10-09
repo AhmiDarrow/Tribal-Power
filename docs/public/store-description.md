@@ -10,6 +10,8 @@ https://github.com/AhmiDarrow/Tribal-Power
 
 Strike the Drumheart in rhythm, drink the ley lines with the Ley Collector, and seat a reusable Echo catalyst (Echo Shard through Resonant Core) in the Pulse Resonator with at least two distinct totem voices nearby. Coal and wood are not fuel. Every voice has a generator of its own: Drumheart, Ember Horn, Wind Harp, Wave Drum, Wake Bell and Loom Anchor. Store Spirit Pulse in cells or convert it to standard FE through the one-way Harmonic Energizer, at rates measured against the big power mods so a Tribal Power camp can drive a pack.
 
+![A lattice at work: six totems round a Pulse Resonator, a Drumheart, a Ley Collector and the Echo stations](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/lattice_circle.jpg)
+
 The ley lines are real: a web of coloured threads folded from the world seed, one voice each, crossing every dimension. Hold a Ley Lens to see them flow, read a collector's beat, or point it at a machine to see what it draws.
 
 ## A living, automated workshop
@@ -24,7 +26,13 @@ The Song Bench turns creature reagents into songs. Empower a reagent, write a sh
 
 Nine Spiritgear weapons, each with a move of its own: blade, spear, halberd, battle axe, warhammer, dagger, scythe, greatsword and trident. Each trades reach, speed and weight against the others, ranks at the Echo stations, takes a totem voice, and swings the way its shape asks.
 
+![The nine Spiritgear weapons, ranked to Manifested, in Spiritweave](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/spiritgear_rank.jpg)
+
 Ninety-one creatures live in the March: ents for every tree it grows, trolls, goblins, kobolds, fairies and the dead, and the Colossus Warden, a walking boss with an escort. Each has a reagent, loot, a habitat and a voice of its own; nothing in the March calls with a vanilla animal's sound. Win animals over like wolves, with food or a Bonding Charm, breed strong to strong, and read a bloodline through the Ley Lens.
+
+![Dawn Stags, Lantern Foxes, Mossbacks and a Glimmer Fay at a meadow mere](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/march_creatures.jpg)
+
+![A Crag Troll, Fen Goblins and a Barrow Shade on the moor after dark](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/march_monsters.jpg)
 
 ## The spirit layer, the table and the kettle
 
@@ -33,6 +41,8 @@ Six voice blessings, one per Attunement, come from ward songs, seal rites and re
 ## The illustrated Spirit Codex
 
 A full standalone book, written the way one player would explain the mod to another, with creature portraits, animated examples, search, bookmarks, live recipes, and a **Next step** panel that reads where you are on the path from the first hearth to the Ninth Agreement and names one thing to do. Every mention of another entry or item is a link. The Codex keeps the Chronicle: sixteen fragments of the Loom's history carved into the March's ruins and painted on murals at the guardians' grounds, assembled as you find them. Outside the book, every item and block carries a hint tooltip that says what it does and what it needs, and every reagent names its note, its creature, its song, its anointment and its remedy.
+
+![The Spirit Codex: a creature page of the bestiary](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/codex-bestiary.png)
 
 ## A camp that keeps working
 
@@ -44,13 +54,19 @@ Summoning Cradles call creatures through ritual-bound effigies: imprint one of t
 
 Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Pulse-powered Spiritweave armour, excavate with the Resonance Maul, and sustain blessings through Ritual Braziers and reusable elemental seals. Rank Spiritgear and Spiritweave up to Manifested; seat a Pulse Cell inside any piece so it spends its own charge first. Totem-bound gear glows in its voice's colour.
 
+![A Manifested greatsword in Spiritweave, mid-swing](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/spiritgear_swing.jpg)
+
 Placement is the ritual: draw chalk patterns for the Stone Font, the Listening Pit, tablet Rite Circles, and built Way and Far Gates, and let Builder's Chalk ghost the shape for you.
 
 ## The Nine Tribes, and what they ask
 
 Nine tribes once kept the Loom. Their camps stand in the Overworld and the March, each with a hearth, a banner and four Kin. Offer favoured goods at a Tribe Hearth to rise from Guest to Voice, earn a Tribe Mark and carve it into a Kinship Totem for an extra Resonator voice.
 
+![A village plaza of the cold band: the hearth fire, the totem and the Kin about it](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/tribal_plaza.jpg)
+
 The Elders talk. Right-click one and a conversation opens: trade, daily requests, and a seven-step story in the tribe's own voice that ends at a guardian trial and a relic. Eight guardians keep the eight March countries, called from altars at their grounds: the Slag Titan, the Bog Matriarch, the Cairn Wight, the Prism Serpent, the Vault Sentinel, the Tide Drummer, the Stampede Spirit and the Storm Roc. The Unsung keeps the ninth trial under the Silent Drum, and the Ninth Agreement rite closes the story for anyone carrying all nine relics. Every line of dialogue is data a pack can rewrite.
+
+![The Slag Titan, the Drumhearts' guardian, risen from its altar](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/slag_titan.jpg)
 
 ## The March
 
@@ -58,15 +74,23 @@ The Elders talk. Right-click one and a conversation opens: trade, daily requests
 
 Reach the March through the Gate Drum by beating out the Gate Rite on A, S, D and F. Fifty-nine lands lie under its aurora sky, one more than the Overworld in every climate band: frozen rime spires, taigas and veil flats; cold moors, scree fells and the Glimmer Ridge; the Steppe, the Reed Fen, the Crystal Fields, Songmaple woods, meadows and orchards; drumpalm savannas, the Tanglewood and stilt mangroves; salt flats and kiln-clay mesas; five seas with deep water beyond; and four kinds of cave below, from the Singing Caves to the Hush. Every block and plant is painted for the March; fifteen trees grow only here, the Weeping Colossus over a hundred blocks tall. Meres hold Glimmerfin, Drift Bells, Veil Rays and Silt Eels; twenty-seven ruins, shrines, towers and vaults wait to be found in the lands that suit them; every vanilla ore is set in March slate below. The March is lived in: every tribe keeps a camp in each band, built from that band's own wood, and tribal villages stand in every band with a hearth plaza, streets, workshops, granaries, pens and the tribe's Kin. Over the peaks and over many a Weeping Colossus hang pieces of the old world: floating mountains in clusters, vined and waterfalled, bridged by giant vines and held to the ground by willow roots whose strands you can climb.
 
+![A tribal village of the warm band, under the Tanglewood](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/tribal_village.jpg)
+
 ![Kiln Mesa, the hot end of the March](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/kiln_mesa.jpg)
 
 ![The Tanglewood, hung with climbable vines](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/tanglewood.jpg)
 
 The March acts on its own. Seven countries have weather beyond rain: Ashfall, Glimmer Storms, Whiteouts, Fen Mist, Rime Fog, Dust Storms and Spore Drift, each closing the world in with its own fog and sound, favouring one voice's generators and hampering another's. Ley surges set one voice's threads running bright. Every tribe keeps a festival day. Wandering spirits drift near with a line of their country's story and a gift. Every storm and surge is called two minutes before it sets in, so there is time to find shelter. Day is safer and night is the danger; sleeping moves the clock to morning.
 
+![The Prism Serpent, the Grit-singers' guardian, in the Crystal Fields](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/prism_serpent.jpg)
+
 ![A piece of the old world, rooted to a peak](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/floating_island.jpg)
 
 ![The Chime Orchard in blossom](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/march/chime_orchard.jpg)
+
+Somewhere in the March a Drum Circle waits, and The Unsung with it: a boss fought to the beat, whose drums must be struck in time to still it through its chorus of Echo Weavers and its shockwaves. Still it, and carry its heart out of the circle.
+
+![The Unsung in its Drum Circle, under the March moon](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/the_unsung.jpg)
 
 The March has music: eight tracks across its bands and a theme for every guardian in the pack's own instruments, skin drums, horn drones, flutes and chant, a stinger when a festival or a storm begins, and a finale for the Ninth Agreement.
 

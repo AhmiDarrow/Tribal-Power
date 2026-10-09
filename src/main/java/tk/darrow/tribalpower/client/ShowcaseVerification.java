@@ -251,6 +251,11 @@ public final class ShowcaseVerification {
             case "fps" -> {
                 return "ok " + mc.getFps();
             }
+            case "hud" -> {
+                // hud on|off: F1, for photographs with nothing drawn over the world
+                mc.options.hideGui = parts.length > 1 && parts[1].equals("off");
+                return "ok hud " + (mc.options.hideGui ? "off" : "on");
+            }
             case "shot" -> {
                 String label = parts.length > 1 ? parts[1].replaceAll("[^A-Za-z0-9_-]", "_") : "shot";
                 grab(mc, "showcase-" + (++captures) + "-" + label + ".png");
