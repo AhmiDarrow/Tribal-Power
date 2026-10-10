@@ -253,6 +253,9 @@ public final class TribalPower {
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            // The game gives a dispenser its shearing to vanilla's shears alone; without this one spits the Spiritgear pair out.
+            net.minecraft.world.level.block.DispenserBlock.registerBehavior(ModItems.SPIRITGEAR_SHEARS.get(),
+                    new net.minecraft.core.dispenser.ShearsDispenseItemBehavior());
             var fire = (net.minecraft.world.level.block.FireBlock) net.minecraft.world.level.block.Blocks.FIRE;
             fire.setFlammable(ModBlocks.MARCH_LOG.get(), 5, 5);
             fire.setFlammable(ModBlocks.MARCH_PLANKS.get(), 5, 20);

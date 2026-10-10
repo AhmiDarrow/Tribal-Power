@@ -51,6 +51,11 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
     private int voices;
     private int lastMade;
 
+    /** The redstone hold, asked on every push a cable makes: read again on a neighbour change, or after a second. */
+    private final HeldSignal held = new HeldSignal(20);
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
+
     public LatticeConverterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.LATTICE_CONVERTER.get(), pos, state);
     }
@@ -68,7 +73,7 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
     /** Takes FE and will not give it back, so it can never feed the Energizer that fed it. */
     public final IEnergyStorage handler = new IEnergyStorage() {
         @Override public int receiveEnergy(int amount, boolean simulate) {
-            if (level != null && level.hasNeighborSignal(worldPosition)) return 0;
+            if (level != null && held.get(level, worldPosition)) return 0;
             int room = Math.min(Math.max(0, amount), CAPACITY - energy);
             if (!simulate && room > 0) { energy += room; changed(); }
             return room;
@@ -84,7 +89,8 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
     private int shownSignal = -1;
 
     private void changed() {
-        setChanged();
+        // Only the chunk is marked here: setChanged() would also wake every comparator, every tick a cable pushes.
+        if (level != null) level.blockEntityChanged(worldPosition);
         int now = signal();
         if (now != shownSignal && level != null) {
             shownSignal = now;
@@ -96,8 +102,8 @@ public class LatticeConverterBlockEntity extends BlockEntity implements Diagnosa
     public int signal() { return energy == 0 ? 0 : 1 + 14 * energy / CAPACITY; }
 
     public static void tick(Level level, BlockPos pos, BlockState state, LatticeConverterBlockEntity be) {
-        if (level.hasNeighborSignal(pos)) return;
         if ((level.getGameTime() + pos.asLong()) % 20 != 0) return;
+        if (be.held.get(level, pos)) return;
         be.voices = be.countVoices(level, pos);
         int cost = be.cost();
         int affordable = be.energy / cost;

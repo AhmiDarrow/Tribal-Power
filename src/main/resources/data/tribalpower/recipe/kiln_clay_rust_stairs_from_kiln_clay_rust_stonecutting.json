@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:kiln_clay_rust"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:kiln_clay_rust_stairs"
+  }
+}

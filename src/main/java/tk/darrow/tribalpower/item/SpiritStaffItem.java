@@ -23,9 +23,11 @@ import java.util.List;
 /** Six readable, bounded spells (the Sixfold Staff). Ray spells stop at blocks and target hostiles, not teammates. */
 public class SpiritStaffItem extends Item {
     public SpiritStaffItem(Properties properties) { super(properties); }
+    /** values() clones its array on every call, and the HUD asks for the element every frame. */
+    private static final Attunement[] VOICES = Attunement.values();
     public static Attunement element(ItemStack stack) {
         int mode = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).getUnsafe().getInt("Attunement");   // read in place: the HUD asks every frame
-        return Attunement.values()[Math.floorMod(mode, Attunement.values().length)];
+        return VOICES[Math.floorMod(mode, VOICES.length)];
     }
     /** Pulse one cast of a voice spends; the Loom voice's figure is its Tether. All of them live in TribalConfig's staff section. */
     public static int cost(Attunement element) {
@@ -39,9 +41,9 @@ public class SpiritStaffItem extends Item {
     public static int stitchCost() { return TribalConfig.staffStitchCost(); }
     /** Steps the staff to its next voice and returns it. Sneak-use and the Staff Voice hotkey both come here. */
     public static Attunement cycle(ItemStack staff) {
-        int next = (element(staff).ordinal() + 1) % Attunement.values().length;
+        int next = (element(staff).ordinal() + 1) % VOICES.length;
         CustomData.update(DataComponents.CUSTOM_DATA, staff, tag -> tag.putInt("Attunement", next));
-        return Attunement.values()[next];
+        return VOICES[next];
     }
 
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

@@ -13,7 +13,7 @@
       "type": "spotlight",
       "item": "tribalpower:spiritweave_hood",
       "text": [
-        "Cloth armour with a boon woven into every piece, and as tough as diamond. It spends a little Pulse from a Pulse Cell you carry to keep those boons going."
+        "Cloth armour as tough as diamond, woven to answer a totem. Bound to a voice, every piece wakes a boon, kept going by a little Pulse from a Pulse Cell you carry, and the bound piece shines with it."
       ],
       "title": "Spiritweave armour"
     },
@@ -29,12 +29,8 @@
       "type": "text",
       "title": "Wearing it",
       "text": [
-        "Unlinked, each piece has its own boon:",
-        "- **Hood**: night sight.",
-        "- **Robe**: resistance.",
-        "- **Leggings**: speed.",
-        "- **Boots**: slow falling whenever you drop more than a block.",
-        "Hood, robe and leggings spend **2 Pulse every four seconds**, and that keeps every perk of the piece going, the ones that answer a blow, a fall or a snare as well as the steady boons. The boots spend only when they catch you, and not while Slow Falling is already on you; each payment covers four seconds.",
+        "Unlinked, Spiritweave is plain armour: it protects like diamond, gives no boon and spends no Pulse. Its tooltip lists what each voice would wake in that piece.",
+        "Crouch-use a piece on a placed Resonance Totem with **40 Pulse** in a carried cell to bind its voice. A bound hood, robe or leggings spends **3 Pulse every four seconds**, and that keeps every perk of the piece going, the ones that answer a blow, a fall or a snare as well as the steady boons. The boots spend only when one of their perks is used; each payment covers four seconds.",
         "When your cells run dry the boons stop, every perk with them. Recharge, or take the pieces off."
       ]
     },
@@ -42,7 +38,7 @@
       "type": "text",
       "title": "Voices and ranks",
       "text": [
-        "Crouch-use a piece on a placed Resonance Totem with **40 Pulse** in a carried cell, and the totem's voice replaces the default boon. A bound piece spends **3 Pulse** instead of 2. Mixed voices are intended; see [Totem-bound gear](totem_bound_gear).",
+        "Each voice gives each piece a different boon; mixed voices are intended. See [Totem-bound gear](totem_bound_gear) for every one.",
         "Rank each piece in Echo Attune, Bind and Manifest, with the same costs and catalysts as [Spiritgear](spiritgear). Every rank makes a piece sturdier: more armour and toughness, more knockback resistance, and extra health, up to **2 hearts** a piece at Manifested."
       ]
     },

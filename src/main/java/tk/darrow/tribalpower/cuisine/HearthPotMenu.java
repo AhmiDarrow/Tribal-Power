@@ -51,8 +51,9 @@ public class HearthPotMenu extends AbstractContainerMenu {
         if (index < size) {
             if (!moveItemStackTo(stack, size, slots.size(), true)) return ItemStack.EMPTY;
         } else {
-            // A bowl or bottle goes to the container seat; everything else to the first free ingredient seat.
-            boolean vessel = stack.is(net.minecraft.world.item.Items.BOWL) || stack.is(net.minecraft.world.item.Items.GLASS_BOTTLE) || stack.is(net.minecraft.world.item.Items.BUCKET);
+            // What some meal is served in (a bowl, a bottle, or a pack's own vessel) goes to the container seat;
+            // everything else to the first free ingredient seat. Both sides read the same synced recipes.
+            boolean vessel = HearthPotBlockEntity.isVessel(player.level(), stack);
             boolean moved = vessel ? moveItemStackTo(stack, HearthPotBlockEntity.CONTAINER, HearthPotBlockEntity.CONTAINER + 1, false)
                     : moveItemStackTo(stack, 0, 4, false);
             if (!moved) return ItemStack.EMPTY;

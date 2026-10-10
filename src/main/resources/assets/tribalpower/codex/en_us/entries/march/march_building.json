@@ -70,7 +70,31 @@
     "tribalpower:chiseled_moss_agate_bricks",
     "tribalpower:cracked_march_stone_bricks",
     "tribalpower:cracked_moonstone_bricks",
-    "tribalpower:cracked_moss_agate_bricks"
+    "tribalpower:cracked_moss_agate_bricks",
+    "tribalpower:pale_stone_stairs",
+    "tribalpower:pale_stone_slab",
+    "tribalpower:pale_stone_wall",
+    "tribalpower:frost_shale_stairs",
+    "tribalpower:frost_shale_slab",
+    "tribalpower:frost_shale_wall",
+    "tribalpower:ochre_sandstone_stairs",
+    "tribalpower:ochre_sandstone_slab",
+    "tribalpower:ochre_sandstone_wall",
+    "tribalpower:salt_crust_stairs",
+    "tribalpower:salt_crust_slab",
+    "tribalpower:salt_crust_wall",
+    "tribalpower:kiln_clay_ash_stairs",
+    "tribalpower:kiln_clay_ash_slab",
+    "tribalpower:kiln_clay_ash_wall",
+    "tribalpower:kiln_clay_bone_stairs",
+    "tribalpower:kiln_clay_bone_slab",
+    "tribalpower:kiln_clay_bone_wall",
+    "tribalpower:kiln_clay_ochre_stairs",
+    "tribalpower:kiln_clay_ochre_slab",
+    "tribalpower:kiln_clay_ochre_wall",
+    "tribalpower:kiln_clay_rust_stairs",
+    "tribalpower:kiln_clay_rust_slab",
+    "tribalpower:kiln_clay_rust_wall"
   ],
   "pages": [
     {
@@ -80,6 +104,8 @@
       "text": [
         "March stone, cobble and planks make a full building set. Four March Stone in a square give **March Stone Bricks**; four bricks give **Polished March Stone**; two brick slabs stacked give **Chiseled March Stone Bricks**, carved with a drum and a teal eye.",
         "Every stone has **stairs** and **slabs**, and all but polished stone have **walls**. The Stonecutter turns plain March Stone into any of them with no waste.",
+        "**Moonstone** and **Moss Agate** build the same way: four in a square give their bricks, four bricks give the polished stone, and the Stonecutter turns the plain stone into any of its set.",
+        "**Pale Stone**, **Frost Shale**, **Ochre Sandstone**, **Salt Crust** and the four **Kiln Clays** have stairs, slabs and walls too, crafted the usual way or cut on the Stonecutter.",
         "Two of a stone in a row give its **pressure plate**, and players and mobs can stand on it. One stone gives its **button**, which stays on for a second.",
         "Smelting **March Stone Bricks**, **Moonstone Bricks** or **Moss Agate Bricks** cracks them. Two **Moonstone Brick Slabs** stacked give **Chiseled Moonstone Bricks**, and two **Moss Agate Brick Slabs** stacked give **Chiseled Moss Agate Bricks**. The Stonecutter cuts those too."
       ]

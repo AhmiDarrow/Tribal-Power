@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/salt_crust_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/salt_crust_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/salt_crust"
+    }
+  }
+}

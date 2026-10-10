@@ -98,6 +98,12 @@ public final class LeyRopeRenderer {
             var buffer = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
             var rawLook = event.getCamera().getLookVector();
             Vec3 look = new Vec3(rawLook.x(), rawLook.y(), rawLook.z());
+            // The nodes face the camera: one basis for the frame rather than one per node.
+            Vec3 lookN = look.normalize();
+            Vec3 right = lookN.cross(new Vec3(0, 1, 0));
+            if (right.lengthSqr() < 1.0e-4) right = new Vec3(1, 0, 0);
+            right = right.normalize();
+            Vec3 camUp = right.cross(lookN).normalize();
             long stamp = mc.level.getGameTime() / 10;
             var at = mc.player.blockPosition();
             if (stamp != magnetStamp || !at.equals(magnetAt)) {
@@ -118,7 +124,7 @@ public final class LeyRopeRenderer {
                 }
             }
             var surge = tk.darrow.tribalpower.event.LeySurges.voice(mc.level);
-            for (int i = 0; i < ROPES.size(); i++) draw(buffer, matrix, ROPES.get(i), ticks, look, PULLS.get(i), surge);
+            for (int i = 0; i < ROPES.size(); i++) draw(buffer, matrix, ROPES.get(i), ticks, right, camUp, PULLS.get(i), surge);
             var mesh = buffer.build();
             if (mesh != null) BufferUploader.drawWithShader(mesh);
         } finally {
@@ -133,7 +139,7 @@ public final class LeyRopeRenderer {
     }
 
     private static void draw(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix, LeyField.Rope rope,
-                             double ticks, Vec3 look, java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull> pulls,
+                             double ticks, Vec3 right, Vec3 camUp, java.util.List<tk.darrow.tribalpower.ley.LeyMagnets.Pull> pulls,
                              tk.darrow.tribalpower.api.pulse.Attunement surge) {
         double from = Math.max(0, rope.travel() - 110);
         // A Ley Heart's thread stops where it was raised to; a planetary vein runs its full reach.
@@ -157,7 +163,7 @@ public final class LeyRopeRenderer {
                 double node = mark * 18.0;
                 if (node >= 0 && node <= rope.reach()) {
                     float pulse = 0.84F + 0.16F * (float) Math.sin(ticks * PULSE + node * 0.11);
-                    glow(buffer, matrix, tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, node, pulls), look, 0.5 * pulse, halo, core);
+                    glow(buffer, matrix, tk.darrow.tribalpower.ley.LeyMagnets.apply(rope, node, pulls), right, camUp, 0.5 * pulse, halo, core);
                 }
             }
             a = b;
@@ -206,13 +212,8 @@ public final class LeyRopeRenderer {
      * A soft round light. Three discs, each a ring of wedges bright at the centre and clear at the rim,
      * so the node blooms instead of sitting there as a white square.
      */
-    private static void glow(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix, Vec3 at, Vec3 look,
+    private static void glow(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix, Vec3 at, Vec3 right, Vec3 camUp,
                              double size, float[] halo, float[] core) {
-        Vec3 lookN = look.normalize();
-        Vec3 right = lookN.cross(new Vec3(0, 1, 0));
-        if (right.lengthSqr() < 1.0e-4) right = new Vec3(1, 0, 0);
-        right = right.normalize();
-        Vec3 camUp = right.cross(lookN).normalize();
         disc(buffer, matrix, at, right, camUp, size * 2.4, halo[0], halo[1], halo[2], 0.14F);
         disc(buffer, matrix, at, right, camUp, size * 0.95, core[0], core[1], core[2], 0.42F);
         float hr = Math.min(1F, core[0] * 0.4F + 0.6F);
@@ -221,25 +222,29 @@ public final class LeyRopeRenderer {
         disc(buffer, matrix, at, right, camUp, size * 0.32, hr, hg, hb, 0.62F);
     }
 
-    private static void disc(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix,
-                             Vec3 at, Vec3 right, Vec3 up, double radius, float r, float g, float b, float alpha) {
-        int slices = 8;
-        for (int i = 0; i < slices; i++) {
-            double a0 = i * (Math.PI * 2 / slices);
-            double a1 = (i + 1) * (Math.PI * 2 / slices);
-            Vec3 e0 = at.add(right.scale(Math.cos(a0) * radius)).add(up.scale(Math.sin(a0) * radius));
-            Vec3 e1 = at.add(right.scale(Math.cos(a1) * radius)).add(up.scale(Math.sin(a1) * radius));
-            wedge(buffer, matrix, at, e0, e1, r, g, b, alpha);
+    private static final int SLICES = 8;
+    /** The rim's corners, worked out once: each wedge used to take two cosines, two sines and eight Vec3s. */
+    private static final double[] RIM_COS = new double[SLICES + 1], RIM_SIN = new double[SLICES + 1];
+    static {
+        for (int i = 0; i <= SLICES; i++) {
+            RIM_COS[i] = Math.cos(i * (Math.PI * 2 / SLICES));
+            RIM_SIN[i] = Math.sin(i * (Math.PI * 2 / SLICES));
         }
     }
 
-    /** One slice of a disc: full colour at the centre, nothing at the rim. */
-    private static void wedge(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix,
-                              Vec3 center, Vec3 e0, Vec3 e1, float r, float g, float b, float alpha) {
-        buffer.addVertex(matrix, (float) center.x, (float) center.y, (float) center.z).setColor(r, g, b, alpha);
-        buffer.addVertex(matrix, (float) e0.x, (float) e0.y, (float) e0.z).setColor(r, g, b, 0F);
-        buffer.addVertex(matrix, (float) e1.x, (float) e1.y, (float) e1.z).setColor(r, g, b, 0F);
-        buffer.addVertex(matrix, (float) center.x, (float) center.y, (float) center.z).setColor(r, g, b, alpha);
+    private static void disc(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix,
+                             Vec3 at, Vec3 right, Vec3 up, double radius, float r, float g, float b, float alpha) {
+        float cx = (float) at.x, cy = (float) at.y, cz = (float) at.z;
+        for (int i = 0; i < SLICES; i++) {
+            double c0 = RIM_COS[i] * radius, s0 = RIM_SIN[i] * radius, c1 = RIM_COS[i + 1] * radius, s1 = RIM_SIN[i + 1] * radius;
+            // One slice of the disc: full colour at the centre, nothing at the rim.
+            buffer.addVertex(matrix, cx, cy, cz).setColor(r, g, b, alpha);
+            buffer.addVertex(matrix, (float) (at.x + right.x * c0 + up.x * s0), (float) (at.y + right.y * c0 + up.y * s0),
+                    (float) (at.z + right.z * c0 + up.z * s0)).setColor(r, g, b, 0F);
+            buffer.addVertex(matrix, (float) (at.x + right.x * c1 + up.x * s1), (float) (at.y + right.y * c1 + up.y * s1),
+                    (float) (at.z + right.z * c1 + up.z * s1)).setColor(r, g, b, 0F);
+            buffer.addVertex(matrix, cx, cy, cz).setColor(r, g, b, alpha);
+        }
     }
 
     private static void quad(com.mojang.blaze3d.vertex.BufferBuilder buffer, Matrix4f matrix,

@@ -153,6 +153,7 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
 
     // Conductors keep the chalk network they walked; a totem arriving or leaving must drop it.
     // The lattice lists the totems on each network too, for its readings.
+    // An unloading chunk calls setRemoved, so that covers it without a second notice.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
@@ -162,12 +163,6 @@ public class ResonanceTotemBlockEntity extends BlockEntity implements PulseHandl
     @Override
     public void setRemoved() {
         super.setRemoved();
-        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
-    }
-
-    @Override
-    public void onChunkUnloaded() {
-        super.onChunkUnloaded();
         tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 

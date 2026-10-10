@@ -337,7 +337,8 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         Container cache = be.cache(level, pos);
         if (cache == null) { be.stall("cache"); return; }
 
-        OreBand band = be.selectBand(level, pos, tier, voices, be.kinshipPresent(level, pos, totems.kinship()));
+        // Kinship only opens the tier-2 bands, so a tier-1 pit skips the walk over its pattern's block entities.
+        OreBand band = be.selectBand(level, pos, tier, voices, tier >= 2 && be.kinshipPresent(level, pos, totems.kinship()));
         if (band == null) { be.stall("standing"); return; }
         if (band != be.band) { be.band = band; be.work = 0; be.calling = ""; be.setChanged(); }
 
@@ -365,8 +366,7 @@ public class ResonanceMeshBlockEntity extends LatticeDeviceBlockEntity implement
         if (be.work >= be.cycleSeconds(band, voices, keeping)) {
             be.finish(level, pos, band, voices, substrate, result);
         }
-        be.setChanged();
-        level.updateNeighbourForOutputSignal(pos, blockState.getBlock());
+        be.setChanged();   // which also wakes the comparators reading the progress
     }
 
     private void finish(Level level, BlockPos pos, OreBand band, Set<Attunement> voices,

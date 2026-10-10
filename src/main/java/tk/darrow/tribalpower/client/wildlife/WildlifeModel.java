@@ -17,6 +17,8 @@ import tk.darrow.tribalpower.client.GeneratedMarchLayers;
  */
 public class WildlifeModel<T extends Entity> extends HierarchicalModel<T> {
     private final ModelPart root;
+    /** Every part, root included, gathered once: getAllParts() built a fresh stream per creature per frame. */
+    private final ModelPart[] all;
     private final String kind;
     // Parts found by name once, not by building "tendril"+i and friends for every creature every frame; null when absent.
     private final ModelPart head, body, tail, clapper, flap0, flap1;
@@ -27,6 +29,7 @@ public class WildlifeModel<T extends Entity> extends HierarchicalModel<T> {
     public WildlifeModel(ModelPart root, String kind, boolean translucent) {
         super(translucent ? RenderType::entityTranslucent : RenderType::entityCutoutNoCull);
         this.root = root;
+        all = root.getAllParts().toArray(ModelPart[]::new);
         this.kind = kind;
         head = part("head"); body = part("body"); tail = part("tail"); clapper = part("clapper");
         flap0 = part("flap0"); flap1 = part("flap1");
@@ -55,7 +58,7 @@ public class WildlifeModel<T extends Entity> extends HierarchicalModel<T> {
 
     @Override
     public void setupAnim(T entity, float limbSwing, float limbAmount, float age, float yaw, float pitch) {
-        root.getAllParts().forEach(ModelPart::resetPose);
+        for (ModelPart part : all) part.resetPose();
         boolean wet = entity.isInWater();
         float phase = entity.getId() * 1.7F;
         switch (kind) {

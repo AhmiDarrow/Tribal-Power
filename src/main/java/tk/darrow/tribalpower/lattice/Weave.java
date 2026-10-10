@@ -93,10 +93,27 @@ public final class Weave {
      * server thread. The caches compare against these on the server thread and drop what they must.
      */
     private static final java.util.concurrent.atomic.AtomicInteger CONDUCTORS = new java.util.concurrent.atomic.AtomicInteger();
-    private static final java.util.concurrent.ConcurrentLinkedQueue<Change> MEMBER_CHANGES = new java.util.concurrent.ConcurrentLinkedQueue<>();
 
     /** A reported change: a member (generator, cairn, totem) or a conductor ({@code conductor}) at {@code pos}. */
-    private record Change(Level level, long pos, long seenAt, boolean conductor) {}
+    private record Change(long pos, long seenAt, boolean conductor) {}
+
+    /**
+     * One level's reported changes, waiting for that level's next lattice lookup. Kept per level: with one shared
+     * queue every draw in one dimension walked the changes another dimension had not drained yet, and a level
+     * nobody draws in filled it until every network everywhere had to re-read.
+     */
+    private static final class Pending {
+        final java.util.concurrent.ConcurrentLinkedQueue<Change> changes = new java.util.concurrent.ConcurrentLinkedQueue<>();
+        final java.util.concurrent.atomic.AtomicInteger queued = new java.util.concurrent.atomic.AtomicInteger();
+        /** Bumped when the queue overflowed and was dropped: every network of the level re-reads its members. */
+        final java.util.concurrent.atomic.AtomicInteger flushes = new java.util.concurrent.atomic.AtomicInteger();
+    }
+
+    private static final java.util.concurrent.ConcurrentHashMap<Level, Pending> PENDING = new java.util.concurrent.ConcurrentHashMap<>();
+
+    private static Pending pending(Level level) {
+        return PENDING.computeIfAbsent(level, l -> new Pending());
+    }
 
     /** Something changed that no position can describe: every network in every level is woven again. */
     public static void conductorsChanged() {
@@ -109,14 +126,15 @@ public final class Weave {
      */
     public static void conductorChanged(@Nullable Level level, BlockPos pos) {
         if (level == null || level.isClientSide) return;
-        if (QUEUED.incrementAndGet() > MAX_QUEUED) {
-            MEMBER_CHANGES.clear();
-            QUEUED.set(0);
-            FLUSHES.incrementAndGet();
+        Pending pending = pending(level);
+        if (pending.queued.incrementAndGet() > MAX_QUEUED) {
+            pending.changes.clear();
+            pending.queued.set(0);
+            pending.flushes.incrementAndGet();
             CONDUCTORS.incrementAndGet();
             return;
         }
-        MEMBER_CHANGES.add(new Change(level, pos.asLong(), Long.MIN_VALUE, true));
+        pending.changes.add(new Change(pos.asLong(), Long.MIN_VALUE, true));
     }
 
     /**
@@ -125,31 +143,29 @@ public final class Weave {
      */
     public static void memberChanged(@Nullable Level level, BlockPos pos) {
         if (level == null || level.isClientSide) return;
-        // A level nobody draws in never drains its changes; past this many, every network simply re-reads.
-        if (QUEUED.incrementAndGet() > MAX_QUEUED) {
-            MEMBER_CHANGES.clear();
-            QUEUED.set(0);
-            FLUSHES.incrementAndGet();
+        Pending pending = pending(level);
+        // A level nobody draws in never drains its changes; past this many, every network of it simply re-reads.
+        if (pending.queued.incrementAndGet() > MAX_QUEUED) {
+            pending.changes.clear();
+            pending.queued.set(0);
+            pending.flushes.incrementAndGet();
             return;
         }
-        MEMBER_CHANGES.add(new Change(level, pos.asLong(), Long.MIN_VALUE, false));
+        pending.changes.add(new Change(pos.asLong(), Long.MIN_VALUE, false));
     }
 
     private static final int MAX_QUEUED = 8192;
     /** Conductor changes handled one by one in a single pass; past this, the level's weave is simply dropped. */
     private static final int MAX_LOCAL_UNWEAVES = 16;
-    private static final java.util.concurrent.atomic.AtomicInteger QUEUED = new java.util.concurrent.atomic.AtomicInteger();
-    private static final java.util.concurrent.atomic.AtomicInteger FLUSHES = new java.util.concurrent.atomic.AtomicInteger();
 
     /** Server stopped ({@code level} null) or a level unloaded: forget what was woven there. */
     public static void clear(@Nullable Level level) {
         if (level == null) {
             LEVELS.clear();
-            MEMBER_CHANGES.clear();
-            QUEUED.set(0);
+            PENDING.clear();
         } else {
             LEVELS.remove(level);
-            MEMBER_CHANGES.removeIf(change -> change.level() == level);
+            PENDING.remove(level);
         }
     }
 
@@ -246,14 +262,18 @@ public final class Weave {
             this.leySignature = ley.hashCode();
         }
 
-        private int flushes = FLUSHES.get();
+        /** This level's change queue, once the weave is cached; a throwaway weave never registers one. */
+        private @Nullable Pending pending;
+        private int flushes;
         private long leyReadAt = Long.MIN_VALUE;
 
         void validate() {
-            int flushed = FLUSHES.get();
-            if (flushed != flushes) {
-                flushes = flushed;
-                for (Net net : nets.values()) net.dropMembers();
+            if (pending != null) {
+                int flushed = pending.flushes.get();
+                if (flushed != flushes) {
+                    flushes = flushed;
+                    for (Net net : nets.values()) net.dropMembers();
+                }
             }
             int generation = CONDUCTORS.get();
             // Bindings come and go on the scale of minutes: read them once a tick, not once a draw.
@@ -291,6 +311,10 @@ public final class Weave {
         boolean cached = level instanceof net.minecraft.server.level.ServerLevel server && server.getServer().isSameThread();
         if (!cached) return new LevelWeave(level);
         LevelWeave weave = LEVELS.computeIfAbsent(level, LevelWeave::new);
+        if (weave.pending == null) {
+            weave.pending = pending(level);
+            weave.flushes = weave.pending.flushes.get();
+        }
         weave.validate();
         applyMemberChanges(level, weave);
         return weave;
@@ -298,15 +322,13 @@ public final class Weave {
 
     /** Marks the networks in reach of each reported member change; a change in a chunk not yet visible waits. */
     private static void applyMemberChanges(Level level, LevelWeave weave) {
-        if (MEMBER_CHANGES.isEmpty()) return;
+        Pending pending = weave.pending;
+        if (pending == null || pending.changes.isEmpty()) return;
         long now = level.getGameTime();
         List<Change> later = null;
         int unwoven = 0;
-        for (var it = MEMBER_CHANGES.iterator(); it.hasNext(); ) {
-            Change change = it.next();
-            if (change.level() != level) continue;
-            it.remove();
-            QUEUED.decrementAndGet();
+        for (Change change; (change = pending.changes.poll()) != null; ) {
+            pending.queued.decrementAndGet();
             BlockPos pos = BlockPos.of(change.pos());
             // A conductor that left (broken, or its chunk unloaded) must leave the weave at once.
             boolean visible = level.getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4) != null;
@@ -325,7 +347,7 @@ public final class Weave {
                 long seen = change.seenAt() == Long.MIN_VALUE ? now : change.seenAt();
                 if (now - seen < REFRESH_TICKS) {
                     if (later == null) later = new ArrayList<>();
-                    later.add(new Change(level, change.pos(), seen, change.conductor()));
+                    later.add(new Change(change.pos(), seen, change.conductor()));
                 }
                 continue;
             }
@@ -337,8 +359,8 @@ public final class Weave {
         }
 
         if (later != null) {
-            QUEUED.addAndGet(later.size());
-            MEMBER_CHANGES.addAll(later);
+            pending.queued.addAndGet(later.size());
+            pending.changes.addAll(later);
         }
     }
 

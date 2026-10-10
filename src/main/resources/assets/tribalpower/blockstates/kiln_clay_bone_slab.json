@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/kiln_clay_bone_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/kiln_clay_bone_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/kiln_clay_bone"
+    }
+  }
+}

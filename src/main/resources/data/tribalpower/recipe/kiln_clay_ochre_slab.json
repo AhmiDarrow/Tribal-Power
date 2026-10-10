@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:kiln_clay_ochre"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:kiln_clay_ochre_slab"
+  }
+}

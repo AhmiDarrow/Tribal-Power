@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:kiln_clay_ochre"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:kiln_clay_ochre_stairs"
+  }
+}

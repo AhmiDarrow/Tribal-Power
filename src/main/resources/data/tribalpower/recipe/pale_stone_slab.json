@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:pale_stone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:pale_stone_slab"
+  }
+}

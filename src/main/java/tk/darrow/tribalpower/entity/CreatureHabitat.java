@@ -113,6 +113,7 @@ public enum CreatureHabitat {
                 || below.is(tk.darrow.tribalpower.block.ModBlocks.MARCH_STONE.get());
         if (!footing) return false;
         // Lava within a few blocks, so these gather at the edges rather than anywhere underground.
+        if (noLavaInSections(level, pos.getX() - 4, pos.getY() - 3, pos.getZ() - 4, pos.getX() + 4, pos.getY() + 2, pos.getZ() + 4)) return false;
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
         for (int dx = -4; dx <= 4; dx++)
             for (int dy = -3; dy <= 2; dy++)
@@ -121,6 +122,31 @@ public enum CreatureHabitat {
                     if (level.getFluidState(cursor).is(FluidTags.LAVA)) return true;
                 }
         return false;
+    }
+
+    private static final java.util.function.Predicate<BlockState> HOLDS_LAVA = state -> state.getFluidState().is(FluidTags.LAVA);
+
+    /**
+     * Whether the chunk sections around a box hold no lava at all, read from their palettes. Base stone counts as hot
+     * footing, so nearly every cave floor asks for the 486-block lava search above on every spawn try, and nearly
+     * all of them have none in reach. False (search the blocks) whenever it cannot tell: off the server level (a
+     * world-generation region), or with a chunk around the box not loaded. A palette can list a state no block uses
+     * any more, so this may send a lava-free spot to the search, but never turns away one with lava in reach.
+     */
+    private static boolean noLavaInSections(LevelAccessor level, int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel server)) return false;
+        for (int cx = minX >> 4; cx <= maxX >> 4; cx++)
+            for (int cz = minZ >> 4; cz <= maxZ >> 4; cz++) {
+                // never loads or waits: a chunk not already loaded and full is left to the block search, as before
+                var chunk = server.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) return false;
+                for (int sy = minY >> 4; sy <= maxY >> 4; sy++) {
+                    int index = chunk.getSectionIndexFromSectionY(sy);
+                    if (index < 0 || index >= chunk.getSectionsCount()) continue;   // outside the world: no fluid there
+                    if (chunk.getSection(index).maybeHas(HOLDS_LAVA)) return false;
+                }
+            }
+        return true;
     }
 
     /** Three deep or more above this block: a bed the sky does not reach into, where the drowned rise by day. */

@@ -32,8 +32,9 @@ public class FamiliarFollowGoal extends Goal {
     private float startDistance() { return familiar.lattice().followStart(); }
     private float stopDistance() { return familiar.lattice().followStop(); }
     @Override public boolean canUse() {
+        // Every wild creature carries this goal and has no owner: answer that before the owner lookup or its lattice.
+        if(!familiar.isBonded())return false;
         LivingEntity target=familiar.getOwner();
-        // Every wild creature carries this goal and has no owner: answer that before reading its lattice.
         if(target==null || target.level()!=mob.level() || familiar.unableToMoveToOwner())return false;
         float start=startDistance();
         if(mob.distanceToSqr(target)<start*start)return false;

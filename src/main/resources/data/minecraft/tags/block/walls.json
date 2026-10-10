@@ -7,6 +7,14 @@
     "tribalpower:moonstone_wall",
     "tribalpower:moonstone_brick_wall",
     "tribalpower:moss_agate_wall",
-    "tribalpower:moss_agate_brick_wall"
+    "tribalpower:moss_agate_brick_wall",
+    "tribalpower:pale_stone_wall",
+    "tribalpower:frost_shale_wall",
+    "tribalpower:ochre_sandstone_wall",
+    "tribalpower:salt_crust_wall",
+    "tribalpower:kiln_clay_ash_wall",
+    "tribalpower:kiln_clay_bone_wall",
+    "tribalpower:kiln_clay_ochre_wall",
+    "tribalpower:kiln_clay_rust_wall"
   ]
 }

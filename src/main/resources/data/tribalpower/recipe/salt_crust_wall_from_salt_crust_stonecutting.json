@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tribalpower:salt_crust"
+  },
+  "result": {
+    "count": 1,
+    "id": "tribalpower:salt_crust_wall"
+  }
+}

@@ -39,11 +39,15 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
     public static final int CAPACITY = 48000;
     public static final int RATE = 60;
     public static final int FE_PER_PULSE = 100;
+    /** The redstone hold, asked every tick and on every transfer: read again on a neighbour change, or after a second. */
+    private final HeldSignal held = new HeldSignal(20);
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
     public PulseAdapterBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.PULSE_ADAPTER.get(), pos, state); }
     public final IEnergyStorage handler = new IEnergyStorage() {
         public int receiveEnergy(int amount, boolean simulate) { return 0; }
         public int extractEnergy(int amount, boolean simulate) {
-            if (level != null && level.hasNeighborSignal(worldPosition)) return 0;
+            if (level != null && held.get(level, worldPosition)) return 0;
             int take = Math.min(energy, Math.max(0, Math.min(1000, amount)));
             if (!simulate && take > 0) { energy -= take; changed(); } return take;
         }
@@ -55,7 +59,8 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
     /** The comparator level last announced; FE moves every tick, the level only now and then. */
     private int shownSignal = -1;
     private void changed() {
-        setChanged();
+        // Only the chunk is marked here: setChanged() would also wake every comparator, every tick FE moves.
+        if (level != null) level.blockEntityChanged(worldPosition);
         int now = signal();
         if (now != shownSignal && level != null) {
             shownSignal = now;
@@ -83,8 +88,11 @@ public class PulseAdapterBlockEntity extends BlockEntity implements Diagnosable,
         return lines;
     }
     public static void tick(Level level, BlockPos pos, BlockState state, PulseAdapterBlockEntity be) {
-        if (level.hasNeighborSignal(pos)) return;
-        if ((level.getGameTime() + pos.asLong()) % 20 == 0) {
+        boolean beat = (level.getGameTime() + pos.asLong()) % 20 == 0;
+        // An empty adapter between beats has nothing to do: skip the six-neighbour redstone read.
+        if (!beat && be.energy <= 0) return;
+        if (be.held.get(level, pos)) return;
+        if (beat) {
             int want = Math.min(be.pulseRate(), (CAPACITY - be.energy) / FE_PER_PULSE);
             if (want > 0) { int pulse = LatticeNetwork.extractPulseNearby(level, pos, 8, want, false); be.energy += pulse * FE_PER_PULSE; if (pulse > 0) be.changed(); }
         }

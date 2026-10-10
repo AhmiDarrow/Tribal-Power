@@ -297,11 +297,8 @@ public class GateKeystoneBlockEntity extends BlockEntity implements PulseHandler
     }
 
     private void changed() {
-        setChanged();
-        if (level != null) {
-            level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
-            level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-        }
+        setChanged();   // which also tells the comparators
+        if (level != null) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GateKeystoneBlockEntity be) {

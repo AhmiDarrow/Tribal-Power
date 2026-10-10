@@ -9,6 +9,12 @@
     "tribalpower:march_lapis_ore",
     "tribalpower:frost_shale",
     "tribalpower:pale_stone",
-    "tribalpower:resonant_spike"
+    "tribalpower:resonant_spike",
+    "tribalpower:pale_stone_stairs",
+    "tribalpower:pale_stone_slab",
+    "tribalpower:pale_stone_wall",
+    "tribalpower:frost_shale_stairs",
+    "tribalpower:frost_shale_slab",
+    "tribalpower:frost_shale_wall"
   ]
 }

@@ -30,33 +30,54 @@ final class ItemHints {
     /** About vanilla's own tooltip wrap: wide enough for a sentence, narrow enough to read. */
     private static final int WRAP_WIDTH = 220;
 
+    /**
+     * The wrapped lines each item adds, which depend on the item alone. A tooltip is rebuilt every frame it shows,
+     * and this looked up the hint key, resolved up to six translations and wrapped them each time; the text is kept
+     * until the language is loaded again (any resource reload makes a new one).
+     */
+    private static final java.util.Map<net.minecraft.world.item.Item, List<String>> WRAPPED = new java.util.concurrent.ConcurrentHashMap<>();
+    private static volatile net.minecraft.locale.Language wrappedFor;
+
     private ItemHints() {}
 
     static void tooltip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         List<Component> lines = event.getToolTip();
-        if (TribalPower.MOD_ID.equals(BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace())) {
-            String key = stack.getItem().getDescriptionId() + ".hint";
-            if (I18n.exists(key)) addWrapped(lines, Component.translatable(key));
+        net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
+        if (language != wrappedFor) {
+            WRAPPED.clear();
+            wrappedFor = language;
         }
-        CreatureProfile profile = Reagents.of(stack.getItem());
+        for (String line : WRAPPED.computeIfAbsent(stack.getItem(), ItemHints::hints))
+            lines.add(Component.literal(line).withStyle(ChatFormatting.GRAY));
+        tk.darrow.tribalpower.item.MachineRank.appendTooltip(stack, lines);
+    }
+
+    /** The item's how-to hint, then its reagent lines, wrapped. */
+    private static List<String> hints(net.minecraft.world.item.Item item) {
+        List<String> out = new java.util.ArrayList<>();
+        if (TribalPower.MOD_ID.equals(BuiltInRegistries.ITEM.getKey(item).getNamespace())) {
+            String key = item.getDescriptionId() + ".hint";
+            if (I18n.exists(key)) addWrapped(out, Component.translatable(key));
+        }
+        CreatureProfile profile = Reagents.of(item);
         if (profile != null) {
             Note note = Note.of(profile);
             String noteId = note.name().toLowerCase(java.util.Locale.ROOT);
-            addWrapped(lines, Component.translatable("item.tribalpower.reagent.from",
+            addWrapped(out, Component.translatable("item.tribalpower.reagent.from",
                     Component.translatable("song.tribalpower.note." + noteId),
                     Component.translatable("entity.tribalpower." + profile.id)));
-            addWrapped(lines, Component.translatable("item.tribalpower.reagent.uses",
+            addWrapped(out, Component.translatable("item.tribalpower.reagent.uses",
                     Component.translatable("item.tribalpower.reagent.song." + noteId),
                     Component.translatable("anointment.tribalpower." + Anointment.of(note).id()),
                     Component.translatable("remedy.tribalpower." + Remedy.of(note).id())));
         }
-        tk.darrow.tribalpower.item.MachineRank.appendTooltip(stack, lines);
+        return out.isEmpty() ? List.of() : List.copyOf(out);
     }
 
-    private static void addWrapped(List<Component> lines, Component text) {
+    private static void addWrapped(List<String> lines, Component text) {
         for (FormattedText part : Minecraft.getInstance().font.getSplitter().splitLines(text, WRAP_WIDTH, Style.EMPTY)) {
-            lines.add(Component.literal(part.getString()).withStyle(ChatFormatting.GRAY));
+            lines.add(part.getString());
         }
     }
 }

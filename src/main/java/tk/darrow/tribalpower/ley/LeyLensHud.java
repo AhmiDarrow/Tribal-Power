@@ -15,6 +15,8 @@ public final class LeyLensHud {
     private static long nextScan;
     private static long leyReadAt = Long.MIN_VALUE;
     private static LeyMath.Factors factors;
+    /** The conditions line, named with the reading: translated once a tick, not every frame. */
+    private static String factorTags = "";
     private static int[] counts;
     private static java.util.Set<tk.darrow.tribalpower.api.pulse.Attunement> voices;
     private static String voiceNames = "";
@@ -24,6 +26,16 @@ public final class LeyLensHud {
     /** One of the land's conditions as the lens names it: "sky", "rain", "sheltered"... */
     private static String tag(String id) {
         return Component.translatable("gui.tribalpower.lens.tag." + id).getString();
+    }
+
+    private static String tags(LeyMath.Factors ley) {
+        StringBuilder tags = new StringBuilder();
+        if (ley.sky()) tags.append(tag(ley.night() ? "night_sky" : "sky")).append(' ');
+        if (ley.rain()) tags.append(tag(ley.thunder() ? "storm" : "rain")).append(' ');
+        if (ley.water() > 0) tags.append(tag("water")).append(' ');
+        if (ley.greenery() > 0) tags.append(tag("green")).append(' ');
+        if (tags.isEmpty()) tags.append(tag("sheltered"));
+        return tags.toString().trim();
     }
 
     public static void render(RenderGuiEvent.Post event) {
@@ -53,6 +65,7 @@ public final class LeyLensHud {
             if (factors == null || time != leyReadAt) {
                 leyReadAt = time;
                 factors = LeyMath.glimpse(mc.level, mc.player.blockPosition());
+                factorTags = tags(factors);
             }
             LeyMath.Factors ley = factors;
             boolean due = time >= nextScan || time < nextScan - 20;
@@ -70,13 +83,7 @@ public final class LeyLensHud {
             int span = width - 16;
             g.fill(x + 8, y + 28, x + 8 + span, y + 31, 0xFF30494A);
             g.fill(x + 8, y + 28, x + 8 + Math.round(span * (percent / 100.0F)), y + 31, colour);
-            StringBuilder tags = new StringBuilder();
-            if (ley.sky()) tags.append(tag(ley.night() ? "night_sky" : "sky")).append(' ');
-            if (ley.rain()) tags.append(tag(ley.thunder() ? "storm" : "rain")).append(' ');
-            if (ley.water() > 0) tags.append(tag("water")).append(' ');
-            if (ley.greenery() > 0) tags.append(tag("green")).append(' ');
-            if (tags.isEmpty()) tags.append(tag("sheltered"));
-            g.drawString(mc.font, tags.toString().trim(), x + 8, y + 34, 0xFF99C9BD, false);
+            g.drawString(mc.font, factorTags, x + 8, y + 34, 0xFF99C9BD, false);
             Component veins = sight.lines() <= 0
                     ? Component.translatable("gui.tribalpower.lens.lines_none")
                     : Component.translatable("gui.tribalpower.lens.lines", sight.lines());

@@ -196,9 +196,9 @@ public final class SpiritGear {
         return Math.max(1, tk.darrow.tribalpower.config.TribalConfig.gearUseCost() - (rank(stack) >= 1 ? 1 : 0));
     }
 
+    /** One upkeep payment of a bound Spiritweave piece; an unlinked piece has no boon to keep and never pays. */
     public static int armorCost(ItemStack stack) {
-        return linked(stack) ? tk.darrow.tribalpower.config.TribalConfig.armorCostLinked()
-                : tk.darrow.tribalpower.config.TribalConfig.armorCostUnlinked();
+        return tk.darrow.tribalpower.config.TribalConfig.armorCostLinked();
     }
 
     public static boolean skipStarveHurt(ItemStack stack) {
@@ -488,12 +488,14 @@ public final class SpiritGear {
                 net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), group);
     }
 
-    /** The lowest rank among four worn Spiritweave pieces, or -1 when the set is not complete. */
+    private static final net.minecraft.world.entity.EquipmentSlot[] SET_SLOTS = {net.minecraft.world.entity.EquipmentSlot.HEAD,
+            net.minecraft.world.entity.EquipmentSlot.CHEST, net.minecraft.world.entity.EquipmentSlot.LEGS,
+            net.minecraft.world.entity.EquipmentSlot.FEET};
+
+    /** The lowest rank among four worn Spiritweave pieces, or -1 when the set is not complete. Asked on every blow a player takes. */
     public static int setRank(Player player) {
         int lowest = MAX_RANK;
-        for (var slot : new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,
-                net.minecraft.world.entity.EquipmentSlot.CHEST, net.minecraft.world.entity.EquipmentSlot.LEGS,
-                net.minecraft.world.entity.EquipmentSlot.FEET}) {
+        for (var slot : SET_SLOTS) {
             ItemStack worn = player.getItemBySlot(slot);
             if (!isArmor(worn)) return -1;
             lowest = Math.min(lowest, rank(worn));

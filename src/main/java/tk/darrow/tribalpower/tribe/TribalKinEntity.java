@@ -158,7 +158,10 @@ public class TribalKinEntity extends PathfinderMob implements Merchant {
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new AngerTargetGoal());
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, 10, true, false,
-                e -> role() == KinRole.HUNTER && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.distanceToSqr(this) <= HUNT_RADIUS * HUNT_RADIUS));
+                e -> role() == KinRole.HUNTER && tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.distanceToSqr(this) <= HUNT_RADIUS * HUNT_RADIUS) {
+            // Only Hunters hunt: the Elders, Drummers and Weavers skip the monster search over the follow range entirely.
+            @Override public boolean canUse() { return role() == KinRole.HUNTER && super.canUse(); }
+        });
     }
 
     @Override

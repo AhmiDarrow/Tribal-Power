@@ -17,6 +17,8 @@ import tk.darrow.tribalpower.guardian.GuardianEntity;
  */
 public class GuardianModel extends HierarchicalModel<GuardianEntity> {
     private final ModelPart root;
+    /** Every part, root included, gathered once: getAllParts() built a fresh stream every frame. */
+    private final ModelPart[] all;
     // Parts found by name once, not by building "leg"+i and friends for every guardian every frame; null when absent.
     private final ModelPart head, tail, jaw;
     private final ModelPart[] legs = new ModelPart[8], arms = new ModelPart[2], wings = new ModelPart[2],
@@ -24,6 +26,7 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
 
     public GuardianModel(ModelPart root) {
         this.root = root;
+        this.all = root.getAllParts().toArray(ModelPart[]::new);
         head = part("head");
         tail = part("tail");
         jaw = part("jaw");
@@ -38,7 +41,7 @@ public class GuardianModel extends HierarchicalModel<GuardianEntity> {
 
     @Override
     public void setupAnim(GuardianEntity entity, float swing, float amount, float age, float yaw, float pitch) {
-        root.getAllParts().forEach(ModelPart::resetPose);
+        for (ModelPart part : all) part.resetPose();
         Guardian guardian = entity.guardian();
         float attack = attackPose(entity, age);
         if (head != null) {

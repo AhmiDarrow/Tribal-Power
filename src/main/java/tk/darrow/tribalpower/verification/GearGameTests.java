@@ -217,6 +217,57 @@ public class GearGameTests {
         else h.runAfterDelay(wait, check);
     }
 
+    /** Unlinked Spiritweave is plain armour; a bound piece shines, and every piece has a line for every voice. */
+    @GameTest(template = "empty", timeoutTicks = 120)
+    public static void unlinkedSpiritweaveIsPlainAndBoundShines(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        player.getAbilities().instabuild = false;
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack cell = PulseCellItem.createFilled(200);
+        player.getInventory().setItem(1, cell);
+        var slots = new EquipmentSlot[] {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
+        var items = new net.minecraft.world.item.Item[] {ModItems.SPIRITWEAVE_HOOD.get(), ModItems.SPIRITWEAVE_ROBE.get(),
+                ModItems.SPIRITWEAVE_LEGGINGS.get(), ModItems.SPIRITWEAVE_BOOTS.get()};
+        for (int i = 0; i < 4; i++) player.setItemSlot(slots[i], new ItemStack(items[i]));
+
+        // Every piece, every voice: a tooltip line whose text is in the lang file.
+        var lang = com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(GearGameTests.class
+                .getResourceAsStream("/assets/tribalpower/lang/en_us.json"), java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
+        for (var item : items)
+            for (Attunement voice : Attunement.values()) {
+                var lines = new java.util.ArrayList<net.minecraft.network.chat.Component>();
+                tk.darrow.tribalpower.item.GearTooltips.voice(new ItemStack(item), voice, lines);
+                h.assertTrue(!lines.isEmpty(), item + " has no tooltip for the " + voice + " voice");
+                for (var line : lines)
+                    if (line.getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents key)
+                        h.assertTrue(lang.has(key.getKey()), "Missing lang " + key.getKey());
+            }
+
+        ItemStack hood = player.getItemBySlot(EquipmentSlot.HEAD);
+        h.assertFalse(hood.hasFoil(), "An unlinked hood does not shine");
+        ItemStack bound = new ItemStack(items[0]);
+        SpiritGear.setVoice(bound, Attunement.WATER);
+        h.assertTrue(bound.hasFoil(), "A bound hood shines with its boon");
+        SpiritGear.setAbilitiesOff(bound, true);
+        h.assertFalse(bound.hasFoil(), "Switched off, it does not");
+
+        long mod = h.getLevel().getGameTime() % tk.darrow.tribalpower.config.TribalConfig.armorUpkeepTicks();
+        int wait = mod == 0 ? 0 : (int) (tk.darrow.tribalpower.config.TribalConfig.armorUpkeepTicks() - mod);
+        Runnable check = () -> {
+            player.fallDistance = 3;
+            for (int i = 0; i < 4; i++) {
+                ItemStack worn = player.getItemBySlot(slots[i]);
+                worn.getItem().inventoryTick(worn, h.getLevel(), player, 36 + i, false);
+            }
+            for (var effect : java.util.List.of(MobEffects.NIGHT_VISION, MobEffects.DAMAGE_RESISTANCE, MobEffects.MOVEMENT_SPEED, MobEffects.SLOW_FALLING))
+                h.assertFalse(player.hasEffect(effect), "Unlinked Spiritweave gave " + effect.getRegisteredName());
+            h.assertTrue(PulseCellItem.getPulse(cell) == 200, "Unlinked Spiritweave spent Pulse, cell at " + PulseCellItem.getPulse(cell));
+            h.succeed();
+        };
+        if (wait == 0) check.run();
+        else h.runAfterDelay(wait, check);
+    }
+
     @GameTest(template = "empty")
     public static void gearRanksAreCostlyAndBindRefusesZero(GameTestHelper h) {
         ItemStack station = new ItemStack(ModItems.ECHO_SHATTER.get());
@@ -521,6 +572,7 @@ public class GearGameTests {
         player.getAbilities().instabuild = false;
         player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);
         ItemStack boots = new ItemStack(ModItems.SPIRITWEAVE_BOOTS.get());
+        SpiritGear.setVoice(boots, Attunement.AIR);
         ItemStack cell = PulseCellItem.createFilled(200);
         player.setItemSlot(EquipmentSlot.FEET, boots);
         player.getInventory().setItem(1, cell);

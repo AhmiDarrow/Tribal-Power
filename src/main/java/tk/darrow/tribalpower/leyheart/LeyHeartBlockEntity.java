@@ -262,8 +262,7 @@ public class LeyHeartBlockEntity extends BlockEntity implements PulseGenerator, 
             // A totem you use stays answered: the heart's song is work for all six.
             for (ResonanceTotemBlockEntity totem : totems.values())
                 if (totem.keeping() != Keeping.State.QUIET) totem.feed();
-            setChanged();
-            level.updateNeighbourForOutputSignal(pos, getBlockState().getBlock());
+            setChanged();   // which also tells the comparators
         }
         state = !complete ? STATE_INCOMPLETE : stilled ? STATE_STILLED : made <= 0 ? STATE_IDLE
                 : accepted <= 0 ? STATE_FULL : STATE_SINGING;

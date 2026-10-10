@@ -25,7 +25,7 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     }
 
     // The lattice lists the generators on each network; one arriving or leaving (placed, broken, its chunk loaded
-    // or unloaded) must tell it.
+    // or unloaded) must tell it. An unloading chunk calls setRemoved too, so that covers it without a second notice.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
@@ -35,12 +35,6 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
     @Override
     public void setRemoved() {
         super.setRemoved();
-        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
-    }
-
-    @Override
-    public void onChunkUnloaded() {
-        super.onChunkUnloaded();
         tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
@@ -57,8 +51,14 @@ public class LeyCollectorBlockEntity extends BlockEntity implements PulseHandler
 
     public static int beatFor(int gain) { return gain * YIELD; }
 
+    /** The redstone hold, asked every tick: read again on a neighbour change, or after a second regardless. */
+    private final HeldSignal held = new HeldSignal(20);
+
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, LeyCollectorBlockEntity be) {
-        if (level.hasNeighborSignal(pos)) return;
+        if (be.held.get(level, pos)) return;
         be.tickCounter++;
         if (be.tickCounter < GAIN_INTERVAL) {
             return;

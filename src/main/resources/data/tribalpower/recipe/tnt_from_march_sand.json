@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "X#X",
+    "#X#",
+    "X#X"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "tribalpower:pale_sand"
+      },
+      {
+        "item": "tribalpower:ochre_sand"
+      },
+      {
+        "item": "tribalpower:glass_sand"
+      }
+    ],
+    "X": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:tnt"
+  }
+}

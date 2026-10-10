@@ -274,8 +274,9 @@ public final class CreatureSwimming {
             // The last few blocks to prey in the water it goes straight at it: a path ends on the block grid, which
             // can leave a hunter hanging a block above prey on the bottom, or a wide one standing on the brink.
             LivingEntity target = mob.getTarget();
+            // the sensing's sight line: one ray per target per tick, which the attack goal has usually already cast
             boolean closing = target != null && target.isAlive() && (wet || target.isInWater())
-                    && mob.distanceToSqr(target) < 9 && mob.hasLineOfSight(target);
+                    && mob.distanceToSqr(target) < 9 && mob.getSensing().hasLineOfSight(target);
             if (closing) setWantedPosition(target.getX(), target.getY(), target.getZ(), speedModifier > 0 ? speedModifier : 1);
             if (!wet) {
                 super.tick();

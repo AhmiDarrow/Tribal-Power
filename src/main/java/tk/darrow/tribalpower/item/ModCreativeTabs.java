@@ -335,7 +335,11 @@ public final class ModCreativeTabs {
         out.accept(ModItems.LEY_THISTLE.get());
         accept(out, "march_lily_pad", "moon_lily", "ribbon_weed", "veil_lichen", "echo_roots", "lantern_cap");
         // The ground, stone and growth of the wider March
-        ModItems.BREADTH.values().forEach(item -> out.accept(item.get()));
+        // ...each building stone followed by its stairs, slab and wall
+        ModItems.BREADTH.forEach((id, item) -> {
+            out.accept(item.get());
+            if (tk.darrow.tribalpower.world.MarchBuilding.ITEMS.containsKey(id + "_wall")) accept(out, id + "_stairs", id + "_slab", id + "_wall");
+        });
         // Quartz glass: clear, then vanilla's colour order; each block and pane sits beside its lit twin
         glass(out, "quartz_glass", "horizontal_quartz_glass_pane");
         for (DyeColor dye : COLOURS)

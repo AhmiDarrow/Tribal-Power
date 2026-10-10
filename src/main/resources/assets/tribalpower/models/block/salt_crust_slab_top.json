@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "tribalpower:block/salt_crust",
+    "top": "tribalpower:block/salt_crust",
+    "side": "tribalpower:block/salt_crust"
+  }
+}

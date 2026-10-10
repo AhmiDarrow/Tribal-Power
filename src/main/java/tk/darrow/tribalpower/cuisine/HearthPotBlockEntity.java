@@ -136,23 +136,27 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
     @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
         if (slot >= OUTPUT) return false;
         if (slot == CONTAINER) return canPlaceItem(slot, stack);
-        if (isVessel(stack) || !canPlaceItem(slot, stack) || !wanted(slot, stack)) return false;
+        if (level == null) return false;
+        // A hopper asks this for every seat and every stack it holds, each tick it cannot move anything: the meals
+        // (getAllRecipesFor copies them) and the seats are looked up once here, not once per question.
+        List<RecipeHolder<HearthRecipe>> meals = level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get());
+        if (isVessel(meals, stack)) return false;
+        List<ItemStack> seats = input().ingredients();
+        if (!wanted(meals, seats, slot, stack)) return false;
         ItemStack here = items.get(slot);
         for (int i = 0; i < CONTAINER; i++) {
             if (i == slot) continue;
             ItemStack other = items.get(i);
-            if (other.isEmpty() ? wanted(i, stack) && !here.isEmpty()
+            if (other.isEmpty() ? !here.isEmpty() && wanted(meals, seats, i, stack)
                     : ItemStack.isSameItemSameComponents(other, stack) && other.getCount() < here.getCount()) return false;
         }
         return true;
     }
 
     /** Whether some meal wants {@code stack} in seat {@code slot}, given what the other seats hold now. */
-    private boolean wanted(int slot, ItemStack stack) {
-        if (level == null) return false;
-        List<ItemStack> seats = input().ingredients();
-        return level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()).stream()
-                .anyMatch(holder -> holder.value().fits(seats, slot, stack));
+    private static boolean wanted(List<RecipeHolder<HearthRecipe>> meals, List<ItemStack> seats, int slot, ItemStack stack) {
+        for (RecipeHolder<HearthRecipe> holder : meals) if (holder.value().fits(seats, slot, stack)) return true;
+        return false;
     }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return slot == OUTPUT; }
     @Override public int getContainerSize() { return SIZE; }
@@ -183,9 +187,22 @@ public class HearthPotBlockEntity extends BlockEntity implements WorldlyContaine
 
     /** True when some meal is served in this item, as a bowl or a bottle. */
     public boolean isVessel(ItemStack stack) {
+        return isVessel(level, stack);
+    }
+
+    /** As {@link #isVessel(ItemStack)}, from either side's recipes: the pot's screen sorts a shift-click by it. */
+    public static boolean isVessel(@Nullable Level level, ItemStack stack) {
         if (level == null || stack.isEmpty()) return false;
-        return level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()).stream()
-                .anyMatch(holder -> holder.value().container().map(c -> c.test(stack)).orElse(false));
+        return isVessel(level.getRecipeManager().getAllRecipesFor(CuisineRegistry.HEARTH_TYPE.get()), stack);
+    }
+
+    private static boolean isVessel(List<RecipeHolder<HearthRecipe>> meals, ItemStack stack) {
+        if (stack.isEmpty()) return false;
+        for (RecipeHolder<HearthRecipe> holder : meals) {
+            var container = holder.value().container();
+            if (container.isPresent() && container.get().test(stack)) return true;
+        }
+        return false;
     }
     @Override public boolean stillValid(Player player) { return Container.stillValidBlockEntity(this, player); }
     @Override public void clearContent() { items.clear(); }

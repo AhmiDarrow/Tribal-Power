@@ -59,9 +59,10 @@ public class SpiritweaveArmor extends ArmorItem {
         return super.use(level, player, hand);
     }
 
+    /** A piece carrying a totem's boon shines, worn or carried; switched off, only a Manifested piece still does. */
     @Override
     public boolean isFoil(ItemStack stack) {
-        return SpiritGear.foil(stack) || super.isFoil(stack);
+        return SpiritGear.foil(stack) || (SpiritGear.linked(stack) && !SpiritGear.abilitiesOff(stack)) || super.isFoil(stack);
     }
 
     @Override
@@ -129,31 +130,23 @@ public class SpiritweaveArmor extends ArmorItem {
         }
 
         if (getType() == Type.BOOTS) {
-            // Unlinked and Air boots catch a fall with slow falling, paying only when they do.
-            Attunement voice = SpiritGear.voice(stack).orElse(null);
-            if ((voice == null || voice == Attunement.AIR) && player.fallDistance > 1
+            // Air boots catch a fall with slow falling, paying only when they do.
+            if (SpiritGear.voice(stack).orElse(null) == Attunement.AIR && player.fallDistance > 1
                     && !player.hasEffect(MobEffects.SLOW_FALLING) && powered(player, stack))
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, TribalConfig.bootsSlowFallTicks(), 0, true, false, true));
             return;
         }
 
-        if (level.getGameTime() % TribalConfig.armorUpkeepTicks() != 0) return;
+        // An unlinked piece is plain armour: every boon waits on a totem's voice, and so does the upkeep.
+        Attunement voice = SpiritGear.voice(stack).orElse(null);
+        if (voice == null || level.getGameTime() % TribalConfig.armorUpkeepTicks() != 0) return;
         if (!powered(player, stack)) return;
-        apply(player, stack, SpiritGear.voice(stack).orElse(null));
+        apply(player, stack, voice);
     }
 
     private void apply(Player player, ItemStack stack, Attunement voice) {
         int rankAmp = SpiritGear.rank(stack) >= 3 ? 1 : 0;
         int sight = TribalConfig.armorNightVisionTicks(), resist = TribalConfig.armorResistanceTicks(), speed = TribalConfig.armorSpeedTicks();
-        if (voice == null) {
-            switch (getType()) {
-                case HELMET -> effect(player, MobEffects.NIGHT_VISION, sight, 0);
-                case CHESTPLATE -> effect(player, MobEffects.DAMAGE_RESISTANCE, resist, 0);
-                case LEGGINGS -> effect(player, MobEffects.MOVEMENT_SPEED, speed, 0);
-                default -> { }
-            }
-            return;
-        }
         switch (voice) {
             case EARTH -> {
                 if (getType() == Type.CHESTPLATE)

@@ -20,7 +20,9 @@ public final class GearTooltips {
         int rank = SpiritGear.rank(stack);
         var item = stack.getItem();
         if (item instanceof SpiritweaveArmor) {
-            lines.add(grey("item.tribalpower.spiritgear.upkeep", SpiritGear.armorCost(stack), seconds(TribalConfig.armorUpkeepTicks())));
+            // only a bound piece has a boon to keep
+            if (SpiritGear.linked(stack))
+                lines.add(grey("item.tribalpower.spiritgear.upkeep", SpiritGear.armorCost(stack), seconds(TribalConfig.armorUpkeepTicks())));
         } else if (item instanceof SpiritgearBladeItem) {
             lines.add(grey("item.tribalpower.spiritgear.cost_blow", SpiritGear.hitCost(stack)));
         } else if (item instanceof SpiritgearRattleItem) {
@@ -100,12 +102,11 @@ public final class GearTooltips {
             return;
         }
         if (item instanceof SpiritweaveArmor armor) {
-            String piece = switch (armor.getType()) { case HELMET -> "hood"; case CHESTPLATE -> "robe"; case LEGGINGS -> "leggings"; default -> "boots"; };
-            armorVoice(lines, piece, voice, m);
+            armorVoice(lines, piece(armor), voice, m);
         }
     }
 
-    /** The unlinked piece's own gift; a voice replaces it. */
+    /** The unlinked piece's own gift. Spiritweave has none of its own: it lists what each voice would wake in it. */
     public static void unlinked(ItemStack stack, List<Component> lines) {
         var item = stack.getItem();
         if (item instanceof SpiritgearBladeItem) {
@@ -113,12 +114,10 @@ public final class GearTooltips {
         } else if (item instanceof SpiritgearRattleItem) {
             rattleHeal(stack, lines);
         } else if (item instanceof SpiritweaveArmor armor) {
-            switch (armor.getType()) {
-                case HELMET -> lines.add(green("item.tribalpower.spiritweave_hood.plain", seconds(TribalConfig.armorNightVisionTicks())));
-                case CHESTPLATE -> lines.add(green("item.tribalpower.spiritweave_robe.plain", seconds(TribalConfig.armorResistanceTicks())));
-                case LEGGINGS -> lines.add(green("item.tribalpower.spiritweave_leggings.plain", seconds(TribalConfig.armorSpeedTicks())));
-                default -> lines.add(green("item.tribalpower.spiritweave_boots.plain", seconds(TribalConfig.bootsSlowFallTicks())));
-            }
+            lines.add(grey("item.tribalpower.spiritweave.unlinked_preview"));
+            List<Component> boons = new java.util.ArrayList<>();
+            for (Attunement voice : Attunement.values()) armorVoice(boons, piece(armor), voice, SpiritGear.rank(stack) >= 3);
+            for (Component boon : boons) lines.add(boon.copy().withStyle(ChatFormatting.GRAY));
         }
     }
 
@@ -128,6 +127,10 @@ public final class GearTooltips {
         if (SpiritGear.voice(stack).orElse(null) == Attunement.WATER) heal *= TribalConfig.rattleWaterBonus();
         lines.add(green("item.tribalpower.spiritgear_rattle.heal", number(heal)));
         if (SpiritGear.rank(stack) >= 2) lines.add(green("item.tribalpower.spiritgear_rattle.sickness"));
+    }
+
+    private static String piece(SpiritweaveArmor armor) {
+        return switch (armor.getType()) { case HELMET -> "hood"; case CHESTPLATE -> "robe"; case LEGGINGS -> "leggings"; default -> "boots"; };
     }
 
     private static void armorVoice(List<Component> lines, String piece, Attunement voice, boolean m) {
@@ -150,7 +153,7 @@ public final class GearTooltips {
                     case WATER -> add(lines, "robe", v, seconds(m ? TribalConfig.waterRobeRegenTicksManifested() : TribalConfig.waterRobeRegenTicks()));
                     case SPIRIT -> add(lines, "robe", v, seconds(TribalConfig.armorResistanceTicks()), seconds(TribalConfig.spiritRobeGlowTicks()));
                     case LOOM -> add(lines, "robe", v, percent(m ? TribalConfig.loomRobeRefundChanceManifested() : TribalConfig.loomRobeRefundChance()));
-                    case AIR -> { }
+                    case AIR -> add(lines, "robe", v);
                 }
             }
             case "leggings" -> {
@@ -168,7 +171,11 @@ public final class GearTooltips {
                     case FIRE -> add(lines, "boots", v);
                     case WATER -> add(lines, "boots", v, m ? TribalConfig.waterBootsFreezeRadiusManifested() : TribalConfig.waterBootsFreezeRadius());
                     case LOOM -> add(lines, "boots", v, m ? TribalConfig.loomBootsStitchReachManifested() : TribalConfig.loomBootsStitchReach(), seconds(TribalConfig.loomBootsStitchCooldownTicks()));
-                    case EARTH, SPIRIT -> { }
+                    case EARTH -> add(lines, "boots", v, percent(TribalConfig.earthBootsKnockbackKept()));
+                    case SPIRIT -> {
+                        add(lines, "boots", v);
+                        if (m) lines.add(green("item.tribalpower.spiritgear_boots.spirit_bounce", number(TribalConfig.spiritBootsBounceFall())));
+                    }
                 }
             }
         }

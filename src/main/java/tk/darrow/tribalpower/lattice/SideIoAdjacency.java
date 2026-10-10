@@ -38,8 +38,9 @@ public final class SideIoAdjacency {
         if (be instanceof WirelessRelayBlockEntity) return;
         BlockPos pos = be.getBlockPos();
         if (level.hasNeighborSignal(pos)) return;
-        // a hand that answers to a voice stands idle without it, and an idle hand passes nothing on either
-        if (!Voices.kept(level, pos, Voices.required(BuiltInRegistries.BLOCK.getKey(be.getBlockState().getBlock()).getPath()))) return;
+        // a hand that answers to a voice stands idle without it, and an idle hand passes nothing on either. Asked only
+        // once a face could pass something: the voice check walks the chunks around, and most machines feed nobody.
+        boolean voiceChecked = false;
         for (Direction face : Direction.values()) {
             BlockPos destPos = pos.relative(face);
             if (!level.hasChunkAt(destPos)) continue;
@@ -48,6 +49,10 @@ public final class SideIoAdjacency {
             Direction toward = face.getOpposite();
             if (!feeds(mode(be, face), mode(dest, toward))) continue;
             if (level.hasNeighborSignal(destPos)) continue;
+            if (!voiceChecked) {
+                if (!Voices.kept(level, pos, Voices.required(BuiltInRegistries.BLOCK.getKey(be.getBlockState().getBlock()).getPath()))) return;
+                voiceChecked = true;
+            }
             if (!(dest instanceof HasSideIo io) || io.takesFromNeighbours(toward))
                 moveItems(level, pos, face, destPos, toward, be);
             moveFluid(level, pos, face, destPos, toward, be);

@@ -118,8 +118,8 @@ public class RitualBrazierBlockEntity extends BlockEntity implements tk.darrow.t
     public void onRedstoneChanged(ServerLevel level) {
         boolean signal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         boolean rising = signal && !lastSignal;
-        lastSignal = signal;
-        setChanged();
+        // Any neighbour update lands here; only a signal that moved needs saving.
+        if (signal != lastSignal) { lastSignal = signal; setChanged(); }
         if (rising) strike(level);
     }
 

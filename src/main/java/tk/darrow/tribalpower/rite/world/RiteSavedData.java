@@ -44,7 +44,11 @@ public class RiteSavedData extends SavedData {
     }
 
     private final Map<String, Map<Long, Long>> blessed = new HashMap<>();
-    private final List<Ward> wards = new ArrayList<>();
+    /**
+     * Copy-on-write: a spawn placement check reads the wards, and chunk-generation spawns check from a worldgen
+     * thread while the server thread adds, prunes and saves them. Wards are few and change rarely.
+     */
+    private final List<Ward> wards = new java.util.concurrent.CopyOnWriteArrayList<>();
     private final List<LeyLine> leyLines = new ArrayList<>();
     private final List<Spring> springs = new ArrayList<>();
     private final List<HeartThread> heartThreads = new ArrayList<>();
@@ -104,10 +108,12 @@ public class RiteSavedData extends SavedData {
 
     public List<Ward> wards(ServerLevel level) {
         if (wards.isEmpty()) return List.of(); // hot path: consulted on every hostile spawn placement check
-        prune(level.getGameTime());
+        long now = level.getGameTime();
+        // Only the server thread prunes: a worldgen thread asking for a chunk's first spawns only reads.
+        if (level.getServer().isSameThread()) prune(now);
         String dim = dimension(level);
         List<Ward> out = new ArrayList<>();
-        for (Ward ward : wards) if (ward.dimension().equals(dim)) out.add(ward);
+        for (Ward ward : wards) if (ward.dimension().equals(dim) && ward.expiry() > now) out.add(ward);
         return out;
     }
 

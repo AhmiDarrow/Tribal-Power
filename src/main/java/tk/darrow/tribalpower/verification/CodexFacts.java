@@ -118,7 +118,8 @@ final class CodexFacts {
             Fact.of("spiritgear", "Gear ranks are 48, 64 and 96 Pulse a second before the consumption multiplier; Manifest needs Loom Thread from The Unsung",
                     "45 seconds at " + spend(48) + " Pulse a second", "90 seconds at " + spend(64), "180 seconds at " + spend(96), "Loom Thread", "25% harder").never("8 seconds"),
             Fact.of("spiritweave", "A full Manifested set: 20% less damage taken", "20%", "8 extra hearts"),
-            Fact.of("spiritweave", "Bound Spiritweave spends 3 Pulse upkeep, unlinked 2", "3 Pulse", "2 Pulse"),
+            Fact.of("spiritweave", "Bound Spiritweave spends 3 Pulse upkeep; unlinked is plain armour that spends nothing", "3 Pulse", "spends no Pulse")
+                    .never("2 Pulse every four seconds", "its own boon"),
             Fact.of("totem_bound_gear", "An Earth hood turns aside one projectile in five", "one projectile in five"),
             Fact.of("totem_bound_gear", "An Earth axe fells the whole tree and charges a swing's Pulse per batch of logs",
                     "fells the whole tree", "every " + tk.darrow.tribalpower.item.TreeFelling.LOGS_PER_CHARGE + " logs").never("sometimes fells a second log"),

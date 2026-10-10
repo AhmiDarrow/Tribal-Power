@@ -10,6 +10,14 @@
     "tribalpower:moonstone_brick_slab",
     "tribalpower:moss_agate_slab",
     "tribalpower:polished_moss_agate_slab",
-    "tribalpower:moss_agate_brick_slab"
+    "tribalpower:moss_agate_brick_slab",
+    "tribalpower:pale_stone_slab",
+    "tribalpower:frost_shale_slab",
+    "tribalpower:ochre_sandstone_slab",
+    "tribalpower:salt_crust_slab",
+    "tribalpower:kiln_clay_ash_slab",
+    "tribalpower:kiln_clay_bone_slab",
+    "tribalpower:kiln_clay_ochre_slab",
+    "tribalpower:kiln_clay_rust_slab"
   ]
 }

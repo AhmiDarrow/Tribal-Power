@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:salt_crust"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:salt_crust_wall"
+  }
+}

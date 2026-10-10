@@ -10,6 +10,14 @@
     "tribalpower:moonstone_brick_stairs",
     "tribalpower:moss_agate_stairs",
     "tribalpower:polished_moss_agate_stairs",
-    "tribalpower:moss_agate_brick_stairs"
+    "tribalpower:moss_agate_brick_stairs",
+    "tribalpower:pale_stone_stairs",
+    "tribalpower:frost_shale_stairs",
+    "tribalpower:ochre_sandstone_stairs",
+    "tribalpower:salt_crust_stairs",
+    "tribalpower:kiln_clay_ash_stairs",
+    "tribalpower:kiln_clay_bone_stairs",
+    "tribalpower:kiln_clay_ochre_stairs",
+    "tribalpower:kiln_clay_rust_stairs"
   ]
 }

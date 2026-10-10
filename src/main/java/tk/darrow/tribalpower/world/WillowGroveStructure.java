@@ -147,7 +147,9 @@ public class WillowGroveStructure extends Structure {
         @Override
         public void postProcess(WorldGenLevel level, StructureManager structures, ChunkGenerator generator, RandomSource random,
                                 BoundingBox chunkBox, ChunkPos chunk, BlockPos pivot) {
-            plan(origin, seed, scale).write(level, pos -> chunkBox.isInside(pos) && !level.isOutsideBuildHeight(pos));
+            // every chunk the tree overlaps writes it, so each visits only its own share of the plan
+            plan(origin, seed, scale).write(level, pos -> chunkBox.isInside(pos) && !level.isOutsideBuildHeight(pos),
+                    MarchTreeFeature.inChunk(chunkBox, chunk) ? chunk : null);
         }
     }
 }

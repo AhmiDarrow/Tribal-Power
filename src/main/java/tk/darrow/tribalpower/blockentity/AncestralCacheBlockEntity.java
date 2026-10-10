@@ -23,9 +23,15 @@ public class AncestralCacheBlockEntity extends RandomizableContainerBlockEntity 
     @Override public int[] inputSlots(net.minecraft.core.Direction face) { return ALL; }
     @Override public int[] outputSlots(net.minecraft.core.Direction face) { return ALL; }
     @Override public int[] getSlotsForFace(net.minecraft.core.Direction face) { return tk.darrow.tribalpower.lattice.SideIo.slots(this, face); }
-    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()); }
-    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).extract()); }
-    @Override public boolean stillValid(Player player) { return super.stillValid(player) && !level.hasNeighborSignal(worldPosition); }
+    @Override public boolean canPlaceItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !held.get(level, worldPosition) && (face == null || sides.get(face).insert()); }
+    @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, net.minecraft.core.Direction face) { return !held.get(level, worldPosition) && (face == null || sides.get(face).extract()); }
+    @Override public boolean stillValid(Player player) { return super.stillValid(player) && !held.get(level, worldPosition); }
+    /** A hopper asks about each of the 54 slots in turn; the redstone hold is read once a tick, not once a slot. */
+    private final HeldSignal held = new HeldSignal();
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
+    /** Redstone held high closes it to hoppers and pipes; read at most once a tick. */
+    public boolean stilled() { return level != null && held.get(level, worldPosition); }
 
     private NonNullList<ItemStack> items = NonNullList.withSize(SIZE, ItemStack.EMPTY);
 

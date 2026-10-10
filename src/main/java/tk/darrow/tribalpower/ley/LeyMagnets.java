@@ -40,8 +40,9 @@ public final class LeyMagnets {
         List<Magnet> out = new ArrayList<>();
         for (int cx = minX; cx <= maxX; cx++) {
             for (int cz = minZ; cz <= maxZ; cz++) {
-                if (!level.hasChunk(cx, cz)) continue;
-                LevelChunk chunk = level.getChunk(cx, cz);
+                // One lookup, and never a load: a chunk still loading is skipped like one that is not there.
+                LevelChunk chunk = level.getChunkSource().getChunkNow(cx, cz);
+                if (chunk == null) continue;
                 for (var be : chunk.getBlockEntities().values()) {
                     if (!(be.getBlockState().getBlock() instanceof ResonanceTotemBlock totem)) continue;
                     BlockPos pos = be.getBlockPos();

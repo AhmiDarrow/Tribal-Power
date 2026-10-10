@@ -50,6 +50,62 @@ public class ToolsGameTests {
         h.succeed();
     }
 
+    /** Every shears-only drop asks for the shearing ability, not the vanilla item, so Spiritgear shears take it too. */
+    @GameTest(template = "empty")
+    public static void spiritgearShearsTakeShearsOnlyDrops(GameTestHelper h) {
+        var player = VerificationPlayers.inLevel(h);
+        var pos = new BlockPos(1, 2, 1);
+        ItemStack spirit = new ItemStack(ModItems.SPIRITGEAR_SHEARS.get());
+        h.assertTrue(spirit.is(net.minecraft.tags.ItemTags.MINING_ENCHANTABLE) && spirit.is(net.minecraft.tags.ItemTags.DURABILITY_ENCHANTABLE),
+                "Spiritgear shears take Efficiency, Unbreaking and Mending like vanilla shears");
+        h.assertTrue(net.minecraft.world.level.block.DispenserBlock.DISPENSER_REGISTRY.get(spirit.getItem())
+                        instanceof net.minecraft.core.dispenser.ShearsDispenseItemBehavior,
+                "A dispenser shears with Spiritgear shears like vanilla ones");
+        for (String id : new String[] {"ribbon_weed", "veil_lichen", "echo_roots", "willow_strand", "willow_leaves", "march_leaves"}) {
+            var block = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", id));
+            for (ItemStack shears : new ItemStack[] {new ItemStack(Items.SHEARS), new ItemStack(ModItems.SPIRITGEAR_SHEARS.get())}) {
+                var drops = net.minecraft.world.level.block.Block.getDrops(block.defaultBlockState(), h.getLevel(),
+                        h.absolutePos(pos), null, player, shears);
+                h.assertTrue(drops.stream().anyMatch(s -> s.is(block.asItem())),
+                        id + " must drop itself to " + shears.getHoverName().getString() + ", got " + drops);
+            }
+        }
+        h.succeed();
+    }
+
+    /** The building stones and their shapes all have a recipe, and the March sands work like vanilla sand. */
+    @GameTest(template = "empty")
+    public static void marchBuildingBlocksAreCraftable(GameTestHelper h) {
+        var level = h.getLevel();
+        var made = new java.util.HashSet<net.minecraft.world.item.Item>();
+        for (var recipe : level.getRecipeManager().getRecipes())
+            made.add(recipe.value().getResultItem(level.registryAccess()).getItem());
+        var ids = new java.util.ArrayList<>(java.util.List.of("moonstone_bricks", "polished_moonstone", "moss_agate_bricks",
+                "polished_moss_agate", "ochre_sandstone", "salt_pillar"));
+        for (String base : new String[] {"pale_stone", "frost_shale", "ochre_sandstone", "salt_crust",
+                "kiln_clay_ash", "kiln_clay_bone", "kiln_clay_ochre", "kiln_clay_rust"})
+            for (String shape : new String[] {"_stairs", "_slab", "_wall"}) ids.add(base + shape);
+        tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().forEach(ids::add);
+        for (String id : ids) {
+            var item = net.minecraft.core.registries.BuiltInRegistries.ITEM.get(
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", id));
+            h.assertTrue(item != Items.AIR, id + " must be registered");
+            h.assertTrue(made.contains(item), id + " must have a recipe");
+        }
+        for (String sand : new String[] {"pale_sand", "ochre_sand", "glass_sand"}) {
+            var stack = new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", sand)));
+            var glass = level.getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.SMELTING,
+                    new net.minecraft.world.item.crafting.SingleRecipeInput(stack), level);
+            h.assertTrue(glass.isPresent() && glass.get().value().getResultItem(level.registryAccess()).is(Items.GLASS),
+                    sand + " must smelt to glass like vanilla sand");
+            h.assertTrue(stack.is(net.neoforged.neoforge.common.Tags.Items.SANDS), sand + " must be c:sands");
+        }
+        h.assertTrue(made.contains(Items.TNT) && made.contains(Items.WHITE_CONCRETE_POWDER), "Sand recipes must load");
+        h.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void hoeReapsAndSowsRipeWheat(GameTestHelper h) {
         var player = VerificationPlayers.inLevel(h);

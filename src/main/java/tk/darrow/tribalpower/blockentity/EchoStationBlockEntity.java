@@ -47,7 +47,18 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
     /** Where the array seats its totems, as offsets from the station. Rotation-invariant as a set. */
     private static final int[][] CORNERS = {{2, 2}, {2, -2}, {-2, 2}, {-2, -2}};
     public EchoStationBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.ECHO_STATION.get(), pos, state); }
-    public String station() { return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath(); }
+    /** The block id, read from the registry once: every hopper probe asks which station this is. */
+    private String station;
+    public String station() {
+        if (station == null) station = BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();
+        return station;
+    }
+    /** A hopper asks about each slot in turn; the redstone hold is read once a tick, not once a slot. */
+    private final HeldSignal held = new HeldSignal();
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
+    /** Redstone held high closes it to hoppers and pipes; read at most once a tick. */
+    public boolean stilled() { return level != null && held.get(level, worldPosition); }
     public int work() { return work; }
     @Override protected NonNullList<ItemStack> getItems() { return items; }
     @Override protected void setItems(NonNullList<ItemStack> value) { items = value; }
@@ -103,10 +114,10 @@ public class EchoStationBlockEntity extends BaseContainerBlockEntity implements 
             var formula = ProcessingRecipes.find(level, station(), items.get(0));
             if (formula == null || !asksFor(formula, stack)) return false;
         }
-        return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
+        return !held.get(level, worldPosition) && (face == null || sides.get(face).insert()) && canPlaceItem(slot, stack);
     }
     @Override public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction face) {
-        return !level.hasNeighborSignal(worldPosition) && (face == null || sides.get(face).extract()) && slot > 0 && slot < CATALYST_A;
+        return !held.get(level, worldPosition) && (face == null || sides.get(face).extract()) && slot > 0 && slot < CATALYST_A;
     }
     public Component status() { return Component.translatable("message.tribalpower.station." + state, work); }
 

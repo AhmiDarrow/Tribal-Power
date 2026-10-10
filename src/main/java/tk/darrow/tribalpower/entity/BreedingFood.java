@@ -128,8 +128,11 @@ public final class BreedingFood {
         return of(profile.id);
     }
 
+    /** Each type's food, looked up once: the tempt goals and the swifts' feeder search ask per player in reach, every few ticks. */
+    private static final Map<EntityType<?>, java.util.Optional<Food>> BY_TYPE = new java.util.concurrent.ConcurrentHashMap<>();
+
     public static Food of(EntityType<?> type) {
-        return of(BuiltInRegistries.ENTITY_TYPE.getKey(type).getPath());
+        return BY_TYPE.computeIfAbsent(type, t -> java.util.Optional.ofNullable(of(BuiltInRegistries.ENTITY_TYPE.getKey(t).getPath()))).orElse(null);
     }
 
     public static boolean isFood(EntityType<?> type, ItemStack stack) {

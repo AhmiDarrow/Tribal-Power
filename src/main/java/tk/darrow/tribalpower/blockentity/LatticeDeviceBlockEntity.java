@@ -78,12 +78,16 @@ public abstract class LatticeDeviceBlockEntity extends BlockEntity
 
     public PatternState patternState() { return pattern; }
 
+    /** Read once a tick: hoppers and pipes ask {@link #stilled} for every slot and every fill. */
+    private final HeldSignal held = new HeldSignal();
+
     /** Redstone held high stills the device: no work, no insertion, no extraction. */
     public boolean stilled() {
-        return level != null && level.hasNeighborSignal(worldPosition);
+        return level != null && held.get(level, worldPosition);
     }
 
     public void onNeighbourChanged(BlockPos changed) {
+        held.forget();
         pattern.onNeighbourChanged(worldPosition, changed);
     }
 

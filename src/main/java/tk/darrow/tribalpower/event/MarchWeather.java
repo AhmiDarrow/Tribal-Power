@@ -57,6 +57,9 @@ public enum MarchWeather {
     /** The weather running over this position, or null when the sky is plain. */
     public static MarchWeather at(Level level, BlockPos pos) {
         if (!level.dimension().equals(tk.darrow.tribalpower.world.ModDimensions.THE_MARCH)) return null;
+        // Chunk-generation spawns ask from a worldgen thread: a biome read through the ServerLevel there waits on
+        // the server thread for every spawn attempt, and the saved data is not the worker's to read. No weather.
+        if (level instanceof ServerLevel server && !server.getServer().isSameThread()) return null;
         var biome = level.getBiome(pos).unwrapKey().orElse(null);
         if (biome == null) return null;
         MarchWeather weather = forBiome(biome);

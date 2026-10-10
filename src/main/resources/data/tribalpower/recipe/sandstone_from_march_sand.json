@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "tribalpower:pale_sand"
+      },
+      {
+        "item": "tribalpower:glass_sand"
+      }
+    ]
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:sandstone"
+  }
+}

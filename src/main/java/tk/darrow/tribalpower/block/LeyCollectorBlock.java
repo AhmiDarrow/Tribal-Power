@@ -58,6 +58,12 @@ public class LeyCollectorBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, neighbour, neighbourPos, movedByPiston);
+        if (level.getBlockEntity(pos) instanceof LeyCollectorBlockEntity collector) collector.neighbourChanged();
+    }
+
+    @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof LeyCollectorBlockEntity ley) {
             player.displayClientMessage(Component.translatable(

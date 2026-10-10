@@ -17,6 +17,8 @@ public class MarchCreatureModel<T extends Entity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation WISP = new ModelLayerLocation(ResourceLocation.parse("tribalpower:spirit_wisp"), "main");
     public static final ModelLayerLocation WANDERER = new ModelLayerLocation(ResourceLocation.parse("tribalpower:wandering_spirit"), "main");
     private final ModelPart root;
+    /** Every part, root included, gathered once: getAllParts() built a fresh stream per creature per frame. */
+    private final ModelPart[] all;
     private final String kind;
     // Parts found by name once, not by building "leg"+i and friends every frame; null when absent.
     private final ModelPart head,body,tail;
@@ -24,6 +26,7 @@ public class MarchCreatureModel<T extends Entity> extends HierarchicalModel<T> {
 
     public MarchCreatureModel(ModelPart root, String kind) {
         this.root=root; this.kind=kind;
+        all=root.getAllParts().toArray(ModelPart[]::new);
         head=part("head");body=part("body");tail=part("tail");
         for(int i=0;i<4;i++)legs[i]=part("leg"+i);
         for(int i=0;i<2;i++)flaps[i]=part("flap"+i);
@@ -40,7 +43,7 @@ public class MarchCreatureModel<T extends Entity> extends HierarchicalModel<T> {
     }
 
     @Override public void setupAnim(T entity,float limbSwing,float limbAmount,float age,float yaw,float pitch) {
-        root.getAllParts().forEach(ModelPart::resetPose);
+        for(ModelPart part:all)part.resetPose();
         float phase=entity.getId()*1.3F;
         switch(kind) {
             case "march_walker" -> {

@@ -76,6 +76,12 @@ public class AncestralCacheBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, neighbour, neighbourPos, movedByPiston);
+        if (level.getBlockEntity(pos) instanceof AncestralCacheBlockEntity cache) cache.neighbourChanged();
+    }
+
+    @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (!state.is(newState.getBlock()) && level instanceof ServerLevel serverLevel
                 && level.getBlockEntity(pos) instanceof AncestralCacheBlockEntity cache) {

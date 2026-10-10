@@ -87,8 +87,7 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         be.afterProduce(level, pos, spent);
         // A full buffer accepts nothing. Do not dirty the chunk or wake neighbours for that.
         if (accepted <= 0) return;
-        be.setChanged();
-        level.updateNeighbourForOutputSignal(pos, state.getBlock());
+        be.setChanged();   // which also tells the comparators
     }
 
     // ---- PulseHandler ----------------------------------------------------------------------
@@ -110,9 +109,9 @@ public abstract class GeneratorBlockEntity extends BlockEntity implements PulseG
         return n;
     }
 
+    /** Dirties the chunk and wakes the comparators: {@link #setChanged} does both, so the lattice's every draw is one pass. */
     protected void changed() {
         setChanged();
-        if (level != null) level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
     }
 
     /** Comparator: how full the generator's own buffer is. */

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:kiln_clay_bone"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:kiln_clay_bone_slab"
+  }
+}

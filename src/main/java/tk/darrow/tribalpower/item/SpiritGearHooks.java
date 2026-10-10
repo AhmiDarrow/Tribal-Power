@@ -57,7 +57,9 @@ public final class SpiritGearHooks {
         // A break a claim already refused never reaches mineBlock, so its Pulse would be paid for nothing.
         if (event.isCanceled() || !(event.getPlayer() instanceof ServerPlayer player)) return;
         ItemStack tool = player.getMainHandItem();
-        if (!SpiritGear.isTool(tool)) return;
+        // The rattle mends, it does not mine: a block broken with it in hand is a bare-handed break, with no Pulse to
+        // pay and no voice in the drops (it has no mineBlock of its own to settle a swing either).
+        if (!SpiritGear.isTool(tool) || tool.getItem() instanceof SpiritgearRattleItem) return;
         // Only the blocks an area swing breaks ride on its payment; every other break pays for itself.
         SpiritGear.Swing current = SpiritGear.swingFor(player);
         if (current != null && current.aoe()) return;
@@ -75,7 +77,9 @@ public final class SpiritGearHooks {
         BlockState state = event.getState();
 
         if (voice == Attunement.FIRE) {
-            smelt(event, level);
+            // Fire smelts on the digging tools only, as their tooltips and the Codex say; on the blade and its
+            // family it burns the foe, and on the shears it smokes a hive.
+            if (smelts(tool)) smelt(event, level);
         } else if (voice == Attunement.WATER && tool.getItem() instanceof SpiritgearPickaxeItem) {
             silk(event, level, tool);
         } else if (voice == Attunement.LOOM && tool.getItem() instanceof SpiritgearShovelItem
@@ -95,6 +99,13 @@ public final class SpiritGearHooks {
                 drop.setPickUpDelay(0);
             }
         }
+    }
+
+    /** The tools whose Fire voice smelts what they break: pickaxe, shovel, axe and hoe. */
+    static boolean smelts(ItemStack tool) {
+        var item = tool.getItem();
+        return item instanceof SpiritgearPickaxeItem || item instanceof SpiritgearShovelItem
+                || item instanceof SpiritgearAxeItem || item instanceof SpiritgearHoeItem;
     }
 
     private static void smelt(BlockDropsEvent event, ServerLevel level) {
@@ -296,11 +307,14 @@ public final class SpiritGearHooks {
         Player player = event.getEntity();
         if (player.level().isClientSide) {
             // Only the local player's movement is simulated here; other players arrive as positions.
-            // Snare first, leggings second: the client-side power check walks the whole inventory, and most ticks
-            // there is no cobweb to shed.
+            // The leggings' voice (one tag read) first, then the snare, then the power: the client-side power check
+            // walks the whole inventory, and most ticks there is no cobweb to shed and no such leggings on.
             if (player.isLocalPlayer()) {
+                ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+                Attunement legVoice = SpiritGear.voice(legs).orElse(null);
+                if (legVoice != Attunement.EARTH && legVoice != Attunement.LOOM) return;
                 BlockState snare = snareAt(player);
-                if (snare != null && snareVoice(player, player.getItemBySlot(EquipmentSlot.LEGS)) != null)
+                if (snare != null && snareVoice(player, legs) != null)
                     player.makeStuckInBlock(snare, net.minecraft.world.phys.Vec3.ZERO);
             }
             return;

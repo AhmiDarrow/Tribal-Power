@@ -77,6 +77,10 @@ public class EchoStationBlock extends BaseEntityBlock {
     @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
     }
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, neighbour, neighbourPos, movedByPiston);
+        if (level.getBlockEntity(pos) instanceof EchoStationBlockEntity station) station.neighbourChanged();
+    }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof EchoStationBlockEntity station) {
             if (player.isShiftKeyDown()) {

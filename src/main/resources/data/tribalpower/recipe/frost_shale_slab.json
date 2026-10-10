@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tribalpower:frost_shale"
+    }
+  },
+  "result": {
+    "count": 6,
+    "id": "tribalpower:frost_shale_slab"
+  }
+}

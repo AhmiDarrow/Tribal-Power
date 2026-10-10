@@ -173,7 +173,9 @@ public class GuardianEntity extends Monster {
         if (!(level() instanceof ServerLevel server)) return;
         bossEvent.setProgress(getHealth() / getMaxHealth());
         if (phase() == 1 && getHealth() <= getMaxHealth() * 0.5F) enterSecondPhase(server);
-        tickReset(server);
+        // Gone back to sleep: nothing more this tick, or a target it still held (a mob that hit it) could call adds
+        // after they were dismissed, and those, persistent, would stand there for good.
+        if (tickReset(server)) return;
         if (guardian().flying) hover(server);
         if (wardTicks > 0 && --wardTicks == 0) entityData.set(WARDED, false);
         if (chargeTicks > 0) tickCharge(server);
@@ -396,7 +398,8 @@ public class GuardianEntity extends Monster {
         });
     }
 
-    private void tickReset(ServerLevel server) {
+    /** Returns true when the guardian reset and is gone. */
+    private boolean tickReset(ServerLevel server) {
         // Runs every tick: walk the level's few players rather than an entity search over a 97-block box, and
         // measure by distance so nothing is allocated for it.
         boolean anyone = false;
@@ -404,11 +407,11 @@ public class GuardianEntity extends Monster {
             if (!player.isSpectator() && player.distanceToSqr(this) <= RESET_RANGE * RESET_RANGE) { anyone = true; break; }
         }
         awayTicks = anyone ? 0 : awayTicks + 1;
-        if (awayTicks >= TribalConfig.guardianResetSeconds() * 20) {
-            dismissAdds(server);
-            if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar && altar.calls(getUUID())) altar.onGuardianReset();
-            discard();
-        }
+        if (awayTicks < TribalConfig.guardianResetSeconds() * 20) return false;
+        dismissAdds(server);
+        if (altarPos != null && server.getBlockEntity(altarPos) instanceof GuardianAltarBlockEntity altar && altar.calls(getUUID())) altar.onGuardianReset();
+        discard();
+        return true;
     }
 
     private void dismissAdds(ServerLevel server) {

@@ -122,12 +122,16 @@ public final class LeyMath {
         boolean thunder = rain && level.isThundering();
         int waterHits = 0, greenHits = 0;
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+        // Column by column, the chunk looked up once per column rather than twice per block: a collector
+        // surveys 1,445 blocks every beat. Counts do not depend on the order they are taken in.
         for (int dx = -RADIUS; dx <= RADIUS; dx += STEP) {
-            for (int dy = -2; dy <= 2; dy++) {
-                for (int dz = -RADIUS; dz <= RADIUS; dz += STEP) {
-                    cursor.set(pos.getX() + dx, pos.getY() + dy, pos.getZ() + dz);
-                    if (!level.hasChunkAt(cursor)) continue;
-                    BlockState state = level.getBlockState(cursor);
+            for (int dz = -RADIUS; dz <= RADIUS; dz += STEP) {
+                int x = pos.getX() + dx, z = pos.getZ() + dz;
+                var chunk = level.getChunkSource().getChunkNow(x >> 4, z >> 4);
+                if (chunk == null) continue;
+                for (int dy = -2; dy <= 2; dy++) {
+                    cursor.set(x, pos.getY() + dy, z);
+                    BlockState state = chunk.getBlockState(cursor);
                     if (water(state)) waterHits++;
                     if (living(state)) greenHits++;
                 }
@@ -207,6 +211,8 @@ public final class LeyMath {
     }
 
     static boolean living(BlockState state) {
+        // Most of a survey is open air: nothing below can match it, so skip the two dozen tests.
+        if (state.isAir()) return false;
         if (state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(BlockTags.CROPS)
                 || state.is(BlockTags.SAPLINGS)) return true;
         if (state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.PODZOL) || state.is(Blocks.MYCELIUM)

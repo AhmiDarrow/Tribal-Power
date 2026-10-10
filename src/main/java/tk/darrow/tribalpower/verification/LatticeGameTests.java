@@ -1040,7 +1040,8 @@ public class LatticeGameTests {
         ores.addAll(java.util.Set.of("frost_shale","pale_stone","resonant_spike","ochre_sandstone","kiln_clay_rust","kiln_clay_ochre","kiln_clay_bone","kiln_clay_ash"));
         // The stone half of the March building set mines like vanilla stone.
         tk.darrow.tribalpower.world.MarchBuilding.ITEMS.keySet().stream()
-                .filter(id->id.contains("stone")||id.contains("cobble")||id.contains("agate")).forEach(ores::add);
+                .filter(id->id.contains("stone")||id.contains("cobble")||id.contains("agate")
+                        ||id.startsWith("frost_shale_")||id.startsWith("kiln_clay_")).forEach(ores::add);
         var never=java.util.Set.of("gate_portal","spirit_light","spirit_click");
         for(var block:net.minecraft.core.registries.BuiltInRegistries.BLOCK) {
             var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block);

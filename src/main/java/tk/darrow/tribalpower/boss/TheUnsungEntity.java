@@ -157,7 +157,8 @@ public class TheUnsungEntity extends Monster {
         if (phase != entityData.get(PHASE)) entityData.set(PHASE, phase);
         if (phase != lastPhase) enterPhase(server, phase);
         bossEvent.setProgress(getHealth() / getMaxHealth());
-        tickReset(server);
+        // Reset and gone: nothing more this tick, or a Chorus summon could call weavers after they were sent away.
+        if (tickReset(server)) return;
         if (stunTicks > 0) {
             stunTicks--;
             setDeltaMovement(getDeltaMovement().multiply(0, 1, 0));
@@ -210,14 +211,17 @@ public class TheUnsungEntity extends Monster {
         if (phase == PHASE_SILENCE) { bolts.clear(); boltTimer = 30; }
     }
 
-    private void tickReset(ServerLevel server) {
+    /** Returns true when no one stayed and it reset and is gone. */
+    private boolean tickReset(ServerLevel server) {
         // Runs every tick: walk the level's few players by distance rather than a nearest-player scan with its predicate.
         boolean anyone = false;
         for (ServerPlayer player : server.players()) {
             if (!player.isSpectator() && player.distanceToSqr(this) <= RESET_RANGE * RESET_RANGE) { anyone = true; break; }
         }
         awayTicks = anyone ? 0 : awayTicks + 1;
-        if (awayTicks >= RESET_TICKS) resetAndDespawn(server);
+        if (awayTicks < RESET_TICKS) return false;
+        resetAndDespawn(server);
+        return true;
     }
 
     /** No one stayed: the drum falls silent again and may be struck anew. */

@@ -223,7 +223,7 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
             if(!isBonded() && !isBaby())return InteractionResult.PASS;
         }
         // Brushing another player's companion falls through to the "not yours" answer below.
-        if(tool.is(Items.BRUSH) && !isBaby() && (!isBonded() || isOwnedBy(player))) {
+        if(tool.canPerformAction(net.neoforged.neoforge.common.ItemAbilities.BRUSH_BRUSH) && !isBaby() && (!isBonded() || isOwnedBy(player))) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),isBonded()?2:1)));
                 forageCooldown=tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks();
@@ -308,7 +308,8 @@ public class LatticeAnimal extends Animal implements PlayerRideableJumping, Fami
     }
     @Override public void die(DamageSource source) {
         super.die(source);
-        if(!level().isClientSide) { Containers.dropContents(level(),blockPosition(),saddlebag);saddlebag.clearContent(); }
+        // A death another mod cancelled (a totem, a revive) leaves the creature standing with its saddlebag.
+        if(!level().isClientSide && dead) { Containers.dropContents(level(),blockPosition(),saddlebag);saddlebag.clearContent(); }
     }
     // ---- riding (Dawn Stag) ------------------------------------------------------------------------------------
     @Override public LivingEntity getControllingPassenger() {

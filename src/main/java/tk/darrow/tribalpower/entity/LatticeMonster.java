@@ -227,7 +227,8 @@ public class LatticeMonster extends Monster implements Familiar {
         return super.isAlliedTo(other);
     }
 
-    public boolean canCastAt(LivingEntity target) { return target.isAlive() && distanceToSqr(target)<=144 && hasLineOfSight(target); }
+    public boolean canCastAt(LivingEntity target) { return inCastRange(target) && hasLineOfSight(target); }
+    private boolean inCastRange(LivingEntity target) { return target.isAlive() && distanceToSqr(target)<=144; }
     /** What this spirit's attack leaves on whoever it hits. Public so tests can prove it without a fight. */
     public void applyVoice(LivingEntity target) {
         switch(profile().attack) {
@@ -251,7 +252,7 @@ public class LatticeMonster extends Monster implements Familiar {
         ItemStack tool=player.getItemInHand(hand);
         // a Ley Lens read comes before any sneak-use of the creature's own: the game asks the creature first
         if(player.isSecondaryUseActive() && tool.getItem() instanceof tk.darrow.tribalpower.ley.LeyLensItem)return InteractionResult.PASS;
-        if(tool.is(Items.BRUSH) && isOwnedBy(player) && !isBaby()) {
+        if(tool.canPerformAction(net.neoforged.neoforge.common.ItemAbilities.BRUSH_BRUSH) && isOwnedBy(player) && !isBaby()) {
             if(!level().isClientSide && forageCooldown==0) {
                 spawnAtLocation(tk.darrow.tribalpower.song.ReagentThread.shed(this,new ItemStack(CreatureItems.REAGENTS.get(profile()).get(),2)));
                 forageCooldown=tk.darrow.tribalpower.config.TribalConfig.brushCooldownTicks();
@@ -405,7 +406,8 @@ public class LatticeMonster extends Monster implements Familiar {
     }
     @Override public void die(DamageSource source) {
         super.die(source);
-        if(!level().isClientSide) { Containers.dropContents(level(),blockPosition(),pouch);pouch.clearContent(); }
+        // A death another mod cancelled (a totem, a revive) leaves the creature standing with its pouch.
+        if(!level().isClientSide && dead) { Containers.dropContents(level(),blockPosition(),pouch);pouch.clearContent(); }
         FamiliarAbilities.clearClick(this);
     }
     @Override public void remove(RemovalReason reason) {
@@ -469,18 +471,26 @@ public class LatticeMonster extends Monster implements Familiar {
     @Override protected SoundEvent getDeathSound() { return tk.darrow.tribalpower.sound.ModSounds.creature(profile().id,"death"); }
 
     private final class SpiritCastGoal extends Goal {
-        private int cooldown,windup;
+        private int cooldown,windup,repath;
         SpiritCastGoal() { setFlags(EnumSet.of(Flag.MOVE,Flag.LOOK)); }
         @Override public boolean canUse() {
             return !isBaby() && (!isBonded() || FamiliarRoster.combat(profile())) && getTarget()!=null && getTarget().isAlive() && !isSitting();
         }
         @Override public boolean requiresUpdateEveryTick() { return true; }
+        @Override public void start() { repath=0; }
         @Override public void stop() { windup=0;getNavigation().stop(); }
         @Override public void tick() {
             var target=getTarget();if(target==null || isSitting())return;
             if(cooldown>0)cooldown--;
             getLookControl().setLookAt(target,30,30);
-            if(!canCastAt(target)) { windup=0;getNavigation().moveTo(target,1);return; }
+            // canCastAt's test, with the sight line from the mob's sensing (one ray per target per tick, shared with
+            // its other goals), and a fresh path a few times a second as the melee goal does, not a path search every tick.
+            if(!inCastRange(target) || !getSensing().hasLineOfSight(target)) {
+                windup=0;
+                if(--repath<=0) { repath=4+getRandom().nextInt(7);getNavigation().moveTo(target,1); }
+                return;
+            }
+            repath=0;
             getNavigation().stop();if(cooldown>0)return;
             if(level() instanceof ServerLevel server && windup%4==0)server.sendParticles(ParticleTypes.END_ROD,getX(),getEyeY(),getZ(),2,.12,.12,.12,.01);
             if(++windup<16)return;

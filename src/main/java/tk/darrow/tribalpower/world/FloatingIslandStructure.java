@@ -506,6 +506,7 @@ public class FloatingIslandStructure extends Structure {
                     p.hang(from.below(), sy - 1 - target.getY(), r);
                 }
             }
+            p.cut();
             return p;
         }
 
@@ -757,9 +758,34 @@ public class FloatingIslandStructure extends Structure {
             }
         }
 
+        /** Strands from the top down, so each hangs from what holds it. */
+        private static final java.util.Comparator<Map.Entry<BlockPos, BlockState>> TOP_DOWN =
+                (a, b) -> Integer.compare(b.getKey().getY(), a.getKey().getY());
+
+        /** The plan cut by chunk ({@link ChunkPos#toLong}), in its own order and the strands sorted: a cluster spans ~169 chunks. */
+        private final Map<Long, List<Map.Entry<BlockPos, BlockState>>> solidByChunk = new HashMap<>(), strandsByChunk = new HashMap<>();
+
+        /** Done once the plan is whole, before it is shared between worldgen threads. */
+        private void cut() {
+            for (var e : solid.entrySet()) solidByChunk.computeIfAbsent(ChunkPos.asLong(e.getKey()), k -> new ArrayList<>()).add(e);
+            for (var e : strands.entrySet()) strandsByChunk.computeIfAbsent(ChunkPos.asLong(e.getKey()), k -> new ArrayList<>()).add(e);
+            for (var share : strandsByChunk.values()) share.sort(TOP_DOWN);   // stable, so as the whole-plan filter-then-sort
+        }
+
         public void write(WorldGenLevel level, java.util.function.Predicate<BlockPos> writable) {
+            // only this chunk's share of the strands is sorted
+            place(level, writable, solid.entrySet(), strands.entrySet().stream().filter(e -> writable.test(e.getKey())).sorted(TOP_DOWN).toList());
+        }
+
+        /** One chunk's share, when {@code writable} holds nothing outside {@code chunk}: the rest of the cluster is not visited. */
+        void write(WorldGenLevel level, ChunkPos chunk, java.util.function.Predicate<BlockPos> writable) {
+            place(level, writable, solidByChunk.getOrDefault(chunk.toLong(), List.of()), strandsByChunk.getOrDefault(chunk.toLong(), List.of()));
+        }
+
+        private void place(WorldGenLevel level, java.util.function.Predicate<BlockPos> writable, Iterable<Map.Entry<BlockPos, BlockState>> blocks,
+                           List<Map.Entry<BlockPos, BlockState>> hanging) {
             int flags = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
-            for (var e : solid.entrySet()) {
+            for (var e : blocks) {
                 BlockPos pos = e.getKey();
                 if (!writable.test(pos)) continue;
                 // the rock overwrites whatever is there; a plant only stands in air
@@ -770,15 +796,14 @@ public class FloatingIslandStructure extends Structure {
                     chest.setLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE,
                             net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("tribalpower", "chests/ancestor_hall")), level.getSeed() ^ pos.asLong());
             }
-            // strands from the top down, so each hangs from what holds it; only this chunk's share is sorted
-            strands.entrySet().stream().filter(e -> writable.test(e.getKey()))
-                    .sorted((a, b) -> Integer.compare(b.getKey().getY(), a.getKey().getY())).forEach(e -> {
+            for (var e : hanging) {
                 BlockPos pos = e.getKey();
+                if (!writable.test(pos)) continue;
                 BlockState there = level.getBlockState(pos);
-                if (!there.isAir() && !there.canBeReplaced()) return;
-                if (!WillowStrandBlock.holds(level.getBlockState(pos.above()))) return;
+                if (!there.isAir() && !there.canBeReplaced()) continue;
+                if (!WillowStrandBlock.holds(level.getBlockState(pos.above()))) continue;
                 level.setBlock(pos, e.getValue(), flags);
-            });
+            }
         }
     }
 
@@ -825,7 +850,10 @@ public class FloatingIslandStructure extends Structure {
         @Override
         public void postProcess(WorldGenLevel level, StructureManager structures, ChunkGenerator generator, RandomSource random,
                                 BoundingBox chunkBox, ChunkPos chunk, BlockPos pivot) {
-            plan(anchor, centre, radius, seed, targets, biome).write(level, pos -> chunkBox.isInside(pos) && !level.isOutsideBuildHeight(pos));
+            Plan plan = plan(anchor, centre, radius, seed, targets, biome);
+            java.util.function.Predicate<BlockPos> writable = pos -> chunkBox.isInside(pos) && !level.isOutsideBuildHeight(pos);
+            if (MarchTreeFeature.inChunk(chunkBox, chunk)) plan.write(level, chunk, writable);
+            else plan.write(level, writable);
         }
     }
 }

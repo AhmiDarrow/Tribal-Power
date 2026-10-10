@@ -60,7 +60,7 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     }
 
     // The lattice lists the generators on each network; one arriving or leaving (placed, broken, its chunk loaded
-    // or unloaded) must tell it.
+    // or unloaded) must tell it. An unloading chunk calls setRemoved too, so that covers it without a second notice.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
@@ -70,12 +70,6 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
     @Override
     public void setRemoved() {
         super.setRemoved();
-        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
-    }
-
-    @Override
-    public void onChunkUnloaded() {
-        super.onChunkUnloaded();
         tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 
@@ -178,8 +172,8 @@ public class DrumheartBlockEntity extends BlockEntity implements PulseHandler, t
         if (level == null) return 0;
         boolean signal = tk.darrow.tribalpower.familiar.SpiritClickBlock.hearsRealSignal(level, worldPosition);
         boolean rising = signal && !lastSignal;
-        lastSignal = signal;
-        setChanged();
+        // Any neighbour update lands here; only a signal that moved needs saving (a paid beat saves itself).
+        if (signal != lastSignal) { lastSignal = signal; setChanged(); }
         return rising ? onRedstonePulse() : 0;
     }
 

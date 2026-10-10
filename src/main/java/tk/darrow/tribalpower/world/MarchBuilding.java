@@ -27,7 +27,8 @@ import tk.darrow.tribalpower.item.ModItems;
 /**
  * The March building set: stairs, slabs and walls for its stones, cut and chiseled stone bricks, and a full
  * wood set for March planks. Each stone also has a pressure plate and a button, and moonstone and moss agate
- * have chiseled bricks; each brick has a cracked form. Models, recipes, loot and tags come from
+ * have chiseled bricks; each brick has a cracked form. Pale stone, frost shale, ochre sandstone, salt crust and
+ * the four kiln clays have stairs, slabs and walls. Models, recipes, loot and tags come from
  * tools/generate_march_building.py.
  */
 public final class MarchBuilding {
@@ -58,6 +59,13 @@ public final class MarchBuilding {
         stoneSet("moss_agate", ModBlocks.MOSS_AGATE, true);
         stoneSet("polished_moss_agate", POLISHED_MOSS_AGATE, false);
         stoneSet("moss_agate_brick", MOSS_AGATE_BRICKS, true);
+        // The March's other building stones, from the breadth: stairs, slabs and walls, but no plate or button.
+        for (String id : new String[]{"pale_stone", "frost_shale", "ochre_sandstone", "salt_crust",
+                "kiln_clay_ash", "kiln_clay_bone", "kiln_clay_ochre", "kiln_clay_rust"}) {
+            DeferredBlock<? extends Block> base = ModBlocks.BREADTH.get(id);
+            stairsAndSlab(id, base);
+            block(id + "_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(base.get()).forceSolidOn()));
+        }
 
         Supplier<BlockBehaviour.Properties> wood = () -> BlockBehaviour.Properties.ofFullCopy(ModBlocks.MARCH_PLANKS.get());
         stairsAndSlab("march_planks", ModBlocks.MARCH_PLANKS);

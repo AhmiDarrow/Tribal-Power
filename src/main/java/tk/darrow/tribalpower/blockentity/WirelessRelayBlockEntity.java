@@ -215,10 +215,13 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
 
     /** Read from the block id once: the beat, the cost and every link check ask for it. */
     private int tier;
+    /** A fluid plate by its block id, read with the tier: an unruned plate asks on every beat. */
+    private boolean fluidPlate;
 
     public int tier() {
         if (tier == 0) {
             String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath();
+            fluidPlate = id.contains("fluid");
             tier = id.startsWith("astral_") ? 3 : id.startsWith("longreach_") ? 2 : 1;
         }
         return tier;
@@ -234,7 +237,8 @@ public class WirelessRelayBlockEntity extends BlockEntity implements tk.darrow.t
         ItemStack rune = items.get(RUNE);
         if (rune.is(ModItems.WATER_SEAL.get())) return true;
         if (rune.is(ModItems.EARTH_SEAL.get())) return false;
-        return net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath().contains("fluid");
+        tier();
+        return fluidPlate;
     }
 
     /** Aims the selected channel. */

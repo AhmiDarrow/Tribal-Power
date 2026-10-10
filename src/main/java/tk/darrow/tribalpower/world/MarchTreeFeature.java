@@ -127,6 +127,11 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
         return water <= (shape == Shape.STRIDER ? 3 : 1);
     }
 
+    /** Whether every block of {@code box} lies in {@code chunk}'s columns, so a plan cut by chunk may write that share alone. */
+    static boolean inChunk(net.minecraft.world.level.levelgen.structure.BoundingBox box, ChunkPos chunk) {
+        return box.minX() >> 4 == chunk.x && box.maxX() >> 4 == chunk.x && box.minZ() >> 4 == chunk.z && box.maxZ() >> 4 == chunk.z;
+    }
+
     private static Predicate<BlockPos> writable(WorldGenLevel level) {
         // A sapling growing in the live world: never reach into unloaded chunks (a colossus spans ~3 chunks), which
         // would load or generate them synchronously on the server thread.
@@ -712,14 +717,46 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
             return (h >>> 11) * 0x1.0p-53;
         }
 
+        /** One chunk's logs and leaves, in the plan's own order. */
+        private record Share(List<Map.Entry<BlockPos, Direction.Axis>> logs, List<Map.Entry<BlockPos, Integer>> leaves) {
+            static final Share EMPTY = new Share(List.of(), List.of());
+        }
+
+        /** The plan cut by chunk ({@link ChunkPos#toLong}); built on first use, since only a colossus is written chunk by chunk. */
+        private volatile Map<Long, Share> shares;
+
+        private Map<Long, Share> shares() {
+            Map<Long, Share> cut = shares;
+            if (cut != null) return cut;
+            synchronized (this) {
+                if (shares != null) return shares;
+                cut = new HashMap<>();
+                for (var entry : logs.entrySet())
+                    cut.computeIfAbsent(ChunkPos.asLong(entry.getKey()), k -> new Share(new ArrayList<>(), new ArrayList<>())).logs.add(entry);
+                for (var entry : distance.entrySet())
+                    cut.computeIfAbsent(ChunkPos.asLong(entry.getKey()), k -> new Share(new ArrayList<>(), new ArrayList<>())).leaves.add(entry);
+                shares = cut;
+                return cut;
+            }
+        }
+
         public boolean write(WorldGenLevel level, Predicate<BlockPos> writable) {
+            return write(level, writable, null);
+        }
+
+        /**
+         * With a {@code chunk}, {@code writable} must hold nothing outside it: only the logs and leaves planned in that
+         * chunk are visited, in the same order, rather than the whole tree for each of the fifty-odd chunks a colossus spans.
+         */
+        boolean write(WorldGenLevel level, Predicate<BlockPos> writable, ChunkPos chunk) {
+            Share share = chunk == null ? null : shares().getOrDefault(chunk.toLong(), Share.EMPTY);
             BlockState wood = set.log.get().defaultBlockState();
             // A worldgen region ignores the flags; a sapling grows its tree in the live world, where neighbour updates
             // on a colossus would stall the tick.
             int flags = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
             boolean any = false;
             Set<BlockPos> missing = new HashSet<>();
-            for (var entry : logs.entrySet()) {
+            for (var entry : share == null ? logs.entrySet() : share.logs) {
                 BlockPos pos = entry.getKey();
                 if (!writable.test(pos)) continue;
                 BlockState there = level.getBlockState(pos);
@@ -739,24 +776,39 @@ public class MarchTreeFeature extends Feature<MarchTreeFeature.Config> {
                     level.setBlock(cursor, wood, flags);
                 }
             }
-            // Leaves beside a log that could not be placed would never decay: measure again without it.
-            Map<BlockPos, Integer> distance = missing.isEmpty() ? this.distance : distances(missing);
-            for (var entry : distance.entrySet()) {
+            // Leaves beside a log that could not be placed would never decay: measure again without it. A missing log
+            // with no planned leaf beside it (a root in rock, the usual case) seeds nothing, so the measure would not move.
+            Map<BlockPos, Integer> distance = seedsLeaves(missing) ? distances(missing) : this.distance;
+            Iterable<Map.Entry<BlockPos, Integer>> planted = share == null || distance != this.distance ? distance.entrySet() : share.leaves;
+            for (var entry : planted) {
                 BlockPos pos = entry.getKey();
                 if (!writable.test(pos)) continue;
                 BlockState there = level.getBlockState(pos);
                 if (!there.isAir() && !there.is(BlockTags.REPLACEABLE_BY_TREES) || !there.getFluidState().isEmpty()) continue;
                 level.setBlock(pos, leaves.get(pos).setValue(LeavesBlock.DISTANCE, entry.getValue()), flags);
             }
-            if (strandChance > 0) hang(level, writable, distance);
+            if (strandChance > 0) hang(level, writable, distance, planted);
             return any;
         }
 
-        private void hang(WorldGenLevel level, Predicate<BlockPos> writable, Map<BlockPos, Integer> distance) {
+        /** Whether any of these logs is where a leaf's distance is measured from, as {@link #distances} seeds it. */
+        private boolean seedsLeaves(Set<BlockPos> missing) {
+            for (BlockPos pos : missing)
+                for (Direction d : Direction.values()) {
+                    BlockPos next = pos.relative(d);
+                    if (leaves.containsKey(next) && !logs.containsKey(next)) return true;
+                }
+            return false;
+        }
+
+        /** {@code planted} is {@code distance}'s entries, or the chunk's share of them; a strand hangs in its leaf's column. */
+        private void hang(WorldGenLevel level, Predicate<BlockPos> writable, Map<BlockPos, Integer> distance,
+                          Iterable<Map.Entry<BlockPos, Integer>> planted) {
             BlockState strand = MarchTrees.WILLOW_STRAND.get().defaultBlockState();
             int flags = Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE;
             double cx = origin.getX() + 0.5, cz = origin.getZ() + 0.5;
-            for (BlockPos leaf : distance.keySet()) {
+            for (var planting : planted) {
+                BlockPos leaf = planting.getKey();
                 BlockPos below = leaf.below();
                 if (!writable.test(below) || distance.containsKey(below) || logs.containsKey(below)) continue;
                 if (!(level.getBlockState(leaf).getBlock() instanceof LeavesBlock)) continue;

@@ -106,6 +106,7 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue TIDE_PUMP_COST;
     public static final ModConfigSpec.IntValue WIND_SNARE_COST;
     public static final ModConfigSpec.IntValue WARD_DRUM_COST;
+    public static final ModConfigSpec.DoubleValue WARD_DRUM_DAMAGE;
     public static final ModConfigSpec.IntValue SEAL_LOOM_COST;
     public static final ModConfigSpec.IntValue RELAY_COST;
     public static final ModConfigSpec.IntValue LONGREACH_RELAY_COST;
@@ -235,7 +236,6 @@ public final class TribalConfig {
     public static final ModConfigSpec.IntValue GEAR_HIT_COST;
     public static final ModConfigSpec.IntValue GEAR_USE_COST;
     public static final ModConfigSpec.IntValue GEAR_LINK_COST;
-    public static final ModConfigSpec.IntValue ARMOR_COST_UNLINKED;
     public static final ModConfigSpec.IntValue ARMOR_COST_LINKED;
     public static final ModConfigSpec.IntValue ARMOR_UPKEEP_TICKS;
     public static final ModConfigSpec.DoubleValue LOOM_ROBE_REFUND;
@@ -697,6 +697,7 @@ public final class TribalConfig {
         TIDE_PUMP_COST = b.comment("Pulse a Tide Pump spends on a beat that moves fluid.").defineInRange("tidePumpCost", 4, 0, 1000);
         WIND_SNARE_COST = b.comment("Pulse a Wind Snare spends per item stack it catches.").defineInRange("windSnareCost", 2, 0, 1000);
         WARD_DRUM_COST = b.comment("Pulse a Ward Drum spends on a strike.").defineInRange("wardDrumCost", 8, 0, 1000);
+        WARD_DRUM_DAMAGE = b.comment("Magic damage a Ward Drum strike deals to a hostile within 8 blocks.").defineInRange("wardDrumDamage", 4.0, 0.0, 1000.0);
         SEAL_LOOM_COST = b.comment("Pulse a Seal Loom spends on a craft.").defineInRange("sealLoomCost", 6, 0, 1000);
         RELAY_COST = b.comment("Pulse a relay plate spends on a transfer, before rank and the consumption multiplier.").defineInRange("relayCost", 4, 0, 1000);
         LONGREACH_RELAY_COST = b.comment("Pulse a Longreach relay plate spends on a transfer, before rank and the consumption multiplier.").defineInRange("longreachRelayCost", 8, 0, 1000);
@@ -779,8 +780,7 @@ public final class TribalConfig {
         GEAR_HIT_COST = b.comment("Pulse a Spiritgear blow spends, before the rank discount.").defineInRange("gearHitCost", 3, 0, 1000);
         GEAR_USE_COST = b.comment("Pulse a Spiritgear use (stripping, pathing, tilling, shearing) spends, before the rank discount.").defineInRange("gearUseCost", 1, 0, 1000);
         GEAR_LINK_COST = b.comment("Pulse linking a piece to a totem's voice spends.").defineInRange("gearLinkCost", 40, 0, 100000);
-        ARMOR_COST_UNLINKED = b.comment("Pulse one upkeep payment of an unlinked Spiritweave piece spends.").defineInRange("armorCostUnlinked", 2, 0, 1000);
-        ARMOR_COST_LINKED = b.comment("Pulse one upkeep payment of a linked Spiritweave piece spends.").defineInRange("armorCostLinked", 3, 0, 1000);
+        ARMOR_COST_LINKED = b.comment("Pulse one upkeep payment of a bound Spiritweave piece spends. An unlinked piece has no boon and spends nothing.").defineInRange("armorCostLinked", 3, 0, 1000);
         ARMOR_UPKEEP_TICKS = b.comment("Ticks one upkeep payment keeps a Spiritweave piece's perks going (80 is four seconds, the gap between its timed boons).").defineInRange("armorUpkeepTicks", 80, 1, 72000);
         LOOM_ROBE_REFUND = b.comment("Chance a Loom robe threads an upkeep payment back into its cell.").defineInRange("loomRobeRefundChance", 0.30, 0.0, 1.0);
         LOOM_ROBE_REFUND_MANIFESTED = b.comment("The same chance for a Manifested Loom robe.").defineInRange("loomRobeRefundChanceManifested", 0.50, 0.0, 1.0);
@@ -1073,6 +1073,7 @@ public final class TribalConfig {
     public static int tidePumpCost() { return get(TIDE_PUMP_COST); }
     public static int windSnareCost() { return get(WIND_SNARE_COST); }
     public static int wardDrumCost() { return get(WARD_DRUM_COST); }
+    public static float wardDrumDamage() { return get(WARD_DRUM_DAMAGE).floatValue(); }
     public static int sealLoomCost() { return get(SEAL_LOOM_COST); }
     /** A relay plate's cost by tier (1 plain, 2 Longreach, 3 Astral), before rank and the consumption multiplier. */
     public static int relayCost(int tier) { return get(tier >= 3 ? ASTRAL_RELAY_COST : tier == 2 ? LONGREACH_RELAY_COST : RELAY_COST); }
@@ -1201,7 +1202,6 @@ public final class TribalConfig {
     public static int gearHitCost() { return get(GEAR_HIT_COST); }
     public static int gearUseCost() { return get(GEAR_USE_COST); }
     public static int gearLinkCost() { return get(GEAR_LINK_COST); }
-    public static int armorCostUnlinked() { return get(ARMOR_COST_UNLINKED); }
     public static int armorCostLinked() { return get(ARMOR_COST_LINKED); }
     public static int armorUpkeepTicks() { return get(ARMOR_UPKEEP_TICKS); }
     public static double loomRobeRefundChance() { return get(LOOM_ROBE_REFUND); }

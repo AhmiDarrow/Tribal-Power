@@ -155,8 +155,10 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
 
     /** Comparator output: progress through the current cycle, 0 when nothing is being asked. */
     public int progressSignal() {
+        // The state first: the cycle length asks the totems, and an idle font answers 0 without them.
+        if (!"working".equals(state)) return 0;
         int seconds = workSeconds(asking);
-        if (!"working".equals(state) || seconds <= 0) return 0;
+        if (seconds <= 0) return 0;
         return Math.max(1, Math.min(15, 1 + 14 * work / seconds));
     }
 
@@ -233,8 +235,7 @@ public class StoneFontBlockEntity extends LatticeDeviceBlockEntity implements tk
             tk.darrow.tribalpower.sound.ModSounds.play(level, pos,
                     tk.darrow.tribalpower.sound.ModSounds.FONT_FORM, 0.5F, 1.05F);
         }
-        be.setChanged();
-        level.updateNeighbourForOutputSignal(pos, blockState.getBlock());
+        be.setChanged();   // which also wakes the comparators reading the progress
     }
 
     @Override

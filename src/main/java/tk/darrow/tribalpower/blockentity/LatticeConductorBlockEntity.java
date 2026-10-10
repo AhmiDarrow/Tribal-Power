@@ -39,7 +39,7 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
     }
 
     // The lattice keeps the networks it wove; a conductor arriving or leaving (placed, broken, its chunk loaded or
-    // unloaded) must have them woven again.
+    // unloaded) must have them woven again. An unloading chunk calls setRemoved too, so that covers it.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
@@ -49,12 +49,6 @@ public class LatticeConductorBlockEntity extends BlockEntity implements tk.darro
     @Override
     public void setRemoved() {
         super.setRemoved();
-        Weave.conductorChanged(level, worldPosition);
-    }
-
-    @Override
-    public void onChunkUnloaded() {
-        super.onChunkUnloaded();
         Weave.conductorChanged(level, worldPosition);
     }
 

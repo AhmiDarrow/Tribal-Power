@@ -22,9 +22,12 @@ import tk.darrow.tribalpower.client.GeneratedMarchLayers;
 public class TheUnsungModel extends HierarchicalModel<TheUnsungEntity> {
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("tribalpower", "the_unsung"), "main");
     private final ModelPart root, body, head, halo, arm0, arm1, band0, band1;
+    /** Every part, root included, gathered once: getAllParts() built a fresh stream every frame. */
+    private final ModelPart[] all;
 
     public TheUnsungModel(ModelPart root) {
         this.root = root;
+        this.all = root.getAllParts().toArray(ModelPart[]::new);
         body = root.getChild("body");
         head = root.getChild("head");
         halo = root.getChild("halo");
@@ -42,7 +45,7 @@ public class TheUnsungModel extends HierarchicalModel<TheUnsungEntity> {
 
     @Override
     public void setupAnim(TheUnsungEntity entity, float swing, float amount, float age, float yaw, float pitch) {
-        root.getAllParts().forEach(ModelPart::resetPose);
+        for (ModelPart part : all) part.resetPose();
         long time = entity.level().getGameTime();
         head.yRot = yaw * Mth.DEG_TO_RAD;
         head.xRot = pitch * Mth.DEG_TO_RAD;

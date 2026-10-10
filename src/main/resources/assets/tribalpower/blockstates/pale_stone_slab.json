@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tribalpower:block/pale_stone_slab"
+    },
+    "type=top": {
+      "model": "tribalpower:block/pale_stone_slab_top"
+    },
+    "type=double": {
+      "model": "tribalpower:block/pale_stone"
+    }
+  }
+}

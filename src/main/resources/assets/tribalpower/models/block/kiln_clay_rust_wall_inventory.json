@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "tribalpower:block/kiln_clay_rust"
+  }
+}

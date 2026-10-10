@@ -206,22 +206,28 @@ public class SpiritFlaskItem extends Item {
         }
     }
 
+    /** The contents as stored, not copied: the bar below is drawn every frame for every flask on screen. */
+    private static SimpleFluidContent stored(ItemStack stack) {
+        return stack.getOrDefault(CONTENT.get(), SimpleFluidContent.EMPTY);
+    }
+
     @Override
     public boolean isBarVisible(ItemStack stack) {
-        return !contents(stack).isEmpty();
+        return !stored(stack).isEmpty();
     }
 
     @Override
     public int getBarWidth(ItemStack stack) {
-        return Math.clamp(Math.round(13.0F * contents(stack).getAmount() / capacity), 0, 13);
+        return Math.clamp(Math.round(13.0F * stored(stack).getAmount() / capacity), 0, 13);
     }
 
     @Override
     public int getBarColor(ItemStack stack) {
-        FluidStack fluid = contents(stack);
-        return fluid.isEmpty() ? 0x3FFFE0
-                : net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions.of(fluid.getFluid())
-                        .getTintColor(fluid) & 0xFFFFFF;
+        SimpleFluidContent held = stored(stack);
+        if (held.isEmpty()) return 0x3FFFE0;
+        FluidStack fluid = held.copy();
+        return net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions.of(fluid.getFluid())
+                .getTintColor(fluid) & 0xFFFFFF;
     }
 
     @Override

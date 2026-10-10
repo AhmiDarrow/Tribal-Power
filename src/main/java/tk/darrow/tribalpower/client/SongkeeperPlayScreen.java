@@ -85,6 +85,12 @@ public class SongkeeperPlayScreen extends Screen {
     private final String getReady, leaveText, failedText, surgeOnText, resonanceText, surgeKeyText, subtitle;
     private long shownScore = -1, shownSecond = -1;
     private String scoreText = "0", clockText = "";
+    // The streak, multiplier, rite and duel lines likewise, each remade only when its number moves.
+    private int shownStreak = -1, shownMult = -1, shownRiteCombo = -1, shownRitePercent = -1;
+    private long shownRiteLeft = -1, shownTheirs = -1;
+    private String runText = "", multText = "", riteComboText = "", riteResonanceText = "", riteTimeText = "", theirsText = "0", rivalLine = "";
+    private final String riteTitle, riteLine, youText, brokeText;
+    private DrumPractice.Rival shownRival;
 
     /** Set only by the development screenshot driver: strike every note dead on, to exercise the whole game. */
     public static boolean autoplay;
@@ -142,6 +148,10 @@ public class SongkeeperPlayScreen extends Screen {
         resonanceText = Component.translatable("gui.tribalpower.songkeeper.resonance").getString();
         surgeKeyText = Component.translatable("gui.tribalpower.songkeeper.surge_key").getString();
         subtitle = song.album() + "  ·  " + Component.translatable("gui.tribalpower.songkeeper.difficulty." + difficulty.key()).getString();
+        riteTitle = Component.translatable("gui.tribalpower.rite.title").getString();
+        riteLine = Component.translatable("gui.tribalpower.songkeeper.rite_line", (int) (tk.darrow.tribalpower.gate.DrumRite.PASS * 100)).getString();
+        youText = Component.translatable("gui.tribalpower.songkeeper.duel.you").getString();
+        brokeText = Component.translatable("gui.tribalpower.songkeeper.duel.broke").getString();
     }
 
     private String scoreText() {
@@ -499,16 +509,33 @@ public class SongkeeperPlayScreen extends Screen {
         vertex(v, m, x4, y4, top);
     }
 
+    /**
+     * The unit circle cut into each step count the ellipses and rings use (12 to 48), worked out once: every note on
+     * the highway draws four or five of them a frame, at the same angles every time.
+     */
+    private static final float[][] CIRCLE_COS = new float[49][], CIRCLE_SIN = new float[49][];
+    static {
+        for (int steps = 12; steps <= 48; steps++) {
+            CIRCLE_COS[steps] = new float[steps + 1];
+            CIRCLE_SIN[steps] = new float[steps + 1];
+            for (int i = 0; i <= steps; i++) {
+                double a = Math.PI * 2 * i / steps;
+                CIRCLE_COS[steps][i] = (float) Math.cos(a);
+                CIRCLE_SIN[steps][i] = (float) Math.sin(a);
+            }
+        }
+    }
+
     /** A filled ellipse from a fan of thin quads. */
     private static void ellipse(GuiGraphics g, float cx, float cy, float rx, float ry, int centre, int edge) {
         VertexConsumer v = g.bufferSource().getBuffer(RenderType.gui());
         Matrix4f m = g.pose().last().pose();
         int steps = Math.max(12, Math.min(40, (int) (rx * 1.2F)));
+        float[] cos = CIRCLE_COS[steps], sin = CIRCLE_SIN[steps];
         for (int i = 0; i < steps; i++) {
-            double a0 = Math.PI * 2 * i / steps, a1 = Math.PI * 2 * (i + 1) / steps;
             vertex(v, m, cx, cy, centre);
-            vertex(v, m, cx + (float) Math.cos(a1) * rx, cy + (float) Math.sin(a1) * ry, edge);
-            vertex(v, m, cx + (float) Math.cos(a0) * rx, cy + (float) Math.sin(a0) * ry, edge);
+            vertex(v, m, cx + cos[i + 1] * rx, cy + sin[i + 1] * ry, edge);
+            vertex(v, m, cx + cos[i] * rx, cy + sin[i] * ry, edge);
             vertex(v, m, cx, cy, centre);
         }
     }
@@ -517,9 +544,9 @@ public class SongkeeperPlayScreen extends Screen {
         VertexConsumer v = g.bufferSource().getBuffer(RenderType.gui());
         Matrix4f m = g.pose().last().pose();
         int steps = Math.max(14, Math.min(48, (int) (rx * 1.4F)));
+        float[] cos = CIRCLE_COS[steps], sin = CIRCLE_SIN[steps];
         for (int i = 0; i < steps; i++) {
-            double a0 = Math.PI * 2 * i / steps, a1 = Math.PI * 2 * (i + 1) / steps;
-            float c0 = (float) Math.cos(a0), s0 = (float) Math.sin(a0), c1 = (float) Math.cos(a1), s1 = (float) Math.sin(a1);
+            float c0 = cos[i], s0 = sin[i], c1 = cos[i + 1], s1 = sin[i + 1];
             vertex(v, m, cx + c0 * (rx - thick), cy + s0 * (ry - thick * ry / rx), colour);
             vertex(v, m, cx + c1 * (rx - thick), cy + s1 * (ry - thick * ry / rx), colour);
             vertex(v, m, cx + c1 * rx, cy + s1 * ry, colour);
@@ -762,7 +789,8 @@ public class SongkeeperPlayScreen extends Screen {
         String points = scoreText();
         float scoreScale = Math.min(2, (cardW - 12) / Math.max(1, font.width(points)));
         text(g, points, right - 6 - font.width(points) * scoreScale, top + 6, scoreScale, TEXT, false);
-        String run = Component.translatable("gui.tribalpower.songkeeper.streak_small", streak).getString();
+        if (streak != shownStreak) { shownStreak = streak; runText = Component.translatable("gui.tribalpower.songkeeper.streak_small", streak).getString(); }
+        String run = runText;
         text(g, run, right - 6 - font.width(run), top + 8 + 9 * scoreScale, 1, QUIET, false);
         float radius = compact ? Math.min(22, cardW / 2 - 8) : 24;
         float cx = compact ? (left + right) / 2 : left + 32, cy = compact ? bottom - radius - 8 : strikeY - 38;
@@ -777,7 +805,8 @@ public class SongkeeperPlayScreen extends Screen {
                     cx + (float) Math.cos(a1) * radius, cy + (float) Math.sin(a1) * radius, cx + (float) Math.cos(a1) * inner, cy + (float) Math.sin(a1) * inner, c, c);
         }
         g.flush();
-        text(g, "x" + mult, cx, cy - 6, radius / 15F, col, true);
+        if (mult != shownMult) { shownMult = mult; multText = "x" + mult; }
+        text(g, multText, cx, cy - 6, radius / 15F, col, true);
         if (surging(t)) text(g, surgeOnText, right - 6 - font.width(surgeOnText), top + 20 + 9 * scoreScale, 1, GOLD, false);
 
         // Resonance meter, right of the highway: red, amber, green, with a needle (the rite draws its own, with the mark it must reach)
@@ -816,15 +845,18 @@ public class SongkeeperPlayScreen extends Screen {
      * No score, no multiplier, no Surge: the rite is the way to the March, not a game to be ranked on.
      */
     private void riteHud(GuiGraphics g, long t, long frame) {
-        text(g, Component.translatable("gui.tribalpower.rite.title").getString(), 10, 8, 1, TEXT, false);
-        text(g, Component.translatable("gui.tribalpower.songkeeper.rite_line", (int) (tk.darrow.tribalpower.gate.DrumRite.PASS * 100)).getString(),
-                10, 19, 0.75F, QUIET, false);
+        text(g, riteTitle, 10, 8, 1, TEXT, false);
+        text(g, riteLine, 10, 19, 0.75F, QUIET, false);
         float progress = Mth.clamp(Math.max(0, t) / (float) song.lengthMs(), 0, 1);
         g.fill(10, 30, 160, 32, 0xFF1C262C);
         g.fill(10, 30, 10 + (int) (150 * progress), 32, TEAL);
         long left = Math.max(0, song.lengthMs() - Math.max(0, t)) / 1000;
-        text(g, Component.translatable("gui.tribalpower.rite.time", left).getString(), 164, 28, 0.75F, QUIET, false);
-        if (streak > 1) text(g, Component.translatable("gui.tribalpower.rite.combo", streak).getString(), centre, topY + 10, 1, TEXT, true);
+        if (left != shownRiteLeft) { shownRiteLeft = left; riteTimeText = Component.translatable("gui.tribalpower.rite.time", left).getString(); }
+        text(g, riteTimeText, 164, 28, 0.75F, QUIET, false);
+        if (streak > 1) {
+            if (streak != shownRiteCombo) { shownRiteCombo = streak; riteComboText = Component.translatable("gui.tribalpower.rite.combo", streak).getString(); }
+            text(g, riteComboText, centre, topY + 10, 1, TEXT, true);
+        }
         float rx = centre + halfBottom + 26, ry = strikeY - 130, rh = 120, rw = 12;
         g.fill((int) rx - 2, (int) ry - 2, (int) (rx + rw + 2), (int) (ry + rh + 2), 0xFF0A1014);
         float pass = (float) tk.darrow.tribalpower.gate.DrumRite.PASS;
@@ -835,7 +867,9 @@ public class SongkeeperPlayScreen extends Screen {
         float needle = ry + rh * (1 - (float) resonance);
         boolean short_ = resonance < pass;
         g.fill((int) rx - 5, (int) needle - 1, (int) (rx + rw + 5), (int) needle + 2, short_ && (frame / 250) % 2 == 0 ? RED : 0xFFFFFFFF);
-        text(g, Component.translatable("gui.tribalpower.rite.resonance", (int) Math.round(resonance * 100)).getString(), rx + rw / 2, ry + rh + 6, 0.75F, QUIET, true);
+        int percent = (int) Math.round(resonance * 100);
+        if (percent != shownRitePercent) { shownRitePercent = percent; riteResonanceText = Component.translatable("gui.tribalpower.rite.resonance", percent).getString(); }
+        text(g, riteResonanceText, rx + rw / 2, ry + rh + 6, 0.75F, QUIET, true);
     }
 
     private void duelHud(GuiGraphics g, long t) {
@@ -846,7 +880,7 @@ public class SongkeeperPlayScreen extends Screen {
         g.fill(x, y, x + (int) (w * share), y + 8, TEAL);
         g.fill(x + (int) (w * share), y, x + w, y + 8, 0xFFFF8A5A);
         g.fill(x + w / 2, y - 2, x + w / 2 + 1, y + 10, 0xFFFFFFFF);
-        text(g, Component.translatable("gui.tribalpower.songkeeper.duel.you").getString(), x, y + 11, 0.75F, TEAL, false);
+        text(g, youText, x, y + 11, 0.75F, TEAL, false);
         String name = opponent;
         text(g, name, x + w - font.width(name) * 0.75F, y + 11, 0.75F, 0xFFFF8A5A, false);
         // their card, top right
@@ -854,13 +888,18 @@ public class SongkeeperPlayScreen extends Screen {
         g.fill(cx, cy, cx + 120, cy + 52, 0xC00A1014);
         g.renderOutline(cx, cy, 120, 52, 0xFFFF8A5A);
         text(g, name, cx + 6, cy + 5, 1, TEXT, false);
-        text(g, String.format("%,d", theirs), cx + 6, cy + 17, 1.3F, 0xFFFFB08A, false);
+        if (theirs != shownTheirs) { shownTheirs = theirs; theirsText = String.format("%,d", theirs); }
+        text(g, theirsText, cx + 6, cy + 17, 1.3F, 0xFFFFB08A, false);
         if (rival != null) {
-            text(g, "x" + rival.multiplier() + "  " + Component.translatable("gui.tribalpower.songkeeper.streak_small", rival.streak()).getString(),
-                    cx + 6, cy + 32, 0.75F, QUIET, false);
+            // a fresh record arrives with each progress packet; the line is rebuilt with it
+            if (rival != shownRival) {
+                shownRival = rival;
+                rivalLine = "x" + rival.multiplier() + "  " + Component.translatable("gui.tribalpower.songkeeper.streak_small", rival.streak()).getString();
+            }
+            text(g, rivalLine, cx + 6, cy + 32, 0.75F, QUIET, false);
             g.fill(cx + 6, cy + 43, cx + 114, cy + 46, 0xFF1C262C);
             g.fill(cx + 6, cy + 43, cx + 6 + (int) (108 * rival.meter() / 100F), cy + 46, rival.meter() < 33 ? RED : TEAL);
-            if (rival.failed()) text(g, Component.translatable("gui.tribalpower.songkeeper.duel.broke").getString(), cx + 60, cy + 20, 1, RED, true);
+            if (rival.failed()) text(g, brokeText, cx + 60, cy + 20, 1, RED, true);
         }
     }
 

@@ -27,8 +27,11 @@ public class MarchEventsSavedData extends SavedData {
     private long surgeFrom, surgeUntil, lastSurgeEnd, lastWeatherRoll, lastFestivalDay = -1;
     private final Map<UUID, Set<Long>> festivals = new HashMap<>();
 
+    /** One factory: the weather and surge are asked of this on every collector beat and March generator check. */
+    private static final Factory<MarchEventsSavedData> FACTORY = new Factory<>(MarchEventsSavedData::new, MarchEventsSavedData::load);
+
     public static MarchEventsSavedData get(MinecraftServer server) {
-        return server.overworld().getDataStorage().computeIfAbsent(new Factory<>(MarchEventsSavedData::new, MarchEventsSavedData::load), FILE_ID);
+        return server.overworld().getDataStorage().computeIfAbsent(FACTORY, FILE_ID);
     }
 
     // ---- weather ----

@@ -19,9 +19,12 @@ import tk.darrow.tribalpower.tribe.TribalKinEntity;
 public class TribalKinModel extends HierarchicalModel<TribalKinEntity> {
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.parse("tribalpower:tribal_kin"), "main");
     private final ModelPart root, head, body, cloak, rightArm, leftArm, rightLeg, leftLeg;
+    /** Every part, root included, gathered once: getAllParts() built a fresh stream per kin per frame. */
+    private final ModelPart[] all;
 
     public TribalKinModel(ModelPart root) {
         this.root = root;
+        all = root.getAllParts().toArray(ModelPart[]::new);
         head = root.getChild("head");
         body = root.getChild("body");
         cloak = root.getChild("cloak");
@@ -39,7 +42,7 @@ public class TribalKinModel extends HierarchicalModel<TribalKinEntity> {
 
     @Override
     public void setupAnim(TribalKinEntity entity, float limbSwing, float limbAmount, float age, float yaw, float pitch) {
-        root.getAllParts().forEach(ModelPart::resetPose);
+        for (ModelPart part : all) part.resetPose();
         head.yRot = yaw * Mth.DEG_TO_RAD;
         head.xRot = pitch * Mth.DEG_TO_RAD;
         float swing = Mth.cos(limbSwing * 0.6662F) * 1.2F * limbAmount;

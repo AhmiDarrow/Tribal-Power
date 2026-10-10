@@ -299,7 +299,7 @@ public class WorkshopBlockEntity extends RandomizableContainerBlockEntity implem
                 e -> tk.darrow.tribalpower.familiar.FamiliarRoster.hostile(e) && e.isAlive()
                         && !e.getType().is(net.neoforged.neoforge.common.Tags.EntityTypes.BOSSES))) {
             if (!LatticeNetwork.tryExtractPulseNearby(server, worldPosition, 8, cost)) break;
-            living.hurt(server.damageSources().magic(), 4);
+            living.hurt(server.damageSources().magic(), tk.darrow.tribalpower.config.TribalConfig.wardDrumDamage());
             var push = living.position().subtract(worldPosition.getCenter()).normalize().scale(0.35);
             living.setDeltaMovement(living.getDeltaMovement().add(push.x, 0.15, push.z));
             living.hurtMarked = true;

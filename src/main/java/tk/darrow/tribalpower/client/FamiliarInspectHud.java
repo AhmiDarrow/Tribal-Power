@@ -19,6 +19,13 @@ import tk.darrow.tribalpower.familiar.FamiliarData;
  */
 public final class FamiliarInspectHud {
     private static final int[] TIER = {0xFF5A5F63, 0xFFB8C4BC, 0xFF7CE0A0, 0xFF5CC8F0, 0xFFC08CFF, 0xFFFFC857};
+    /** The five thread names, built once rather than a key, a lower-casing and a component per thread per frame. */
+    private static final FamiliarData.Thread[] THREADS = FamiliarData.Thread.values();
+    private static final Component[] THREAD_NAMES = new Component[THREADS.length];
+    static {
+        for (FamiliarData.Thread thread : THREADS)
+            THREAD_NAMES[thread.ordinal()] = Component.translatable("gui.tribalpower.lattice." + thread.name().toLowerCase(java.util.Locale.ROOT));
+    }
     /**
      * The wrapped Marks, status and summary of the creature last looked at, kept while its synced stats, voice
      * and ownership hold: wrapping three texts a frame for a panel that changes a few times a minute was waste.
@@ -70,9 +77,9 @@ public final class FamiliarInspectHud {
         g.fill(x, y, x + 2, y + height, own ? 0xFF65D7C0 : 0xFFB58A58);
         g.drawString(font, fit(font, familiar.asMob().getDisplayName(), room), x + 6, y + 4, 0xFFE7DCC1, false);
         int row = y + 16;
-        for (FamiliarData.Thread thread : FamiliarData.Thread.values()) {
+        for (FamiliarData.Thread thread : THREADS) {
             int value = FamiliarData.unpackThread(packed, thread);
-            g.drawString(font, Component.translatable("gui.tribalpower.lattice." + thread.name().toLowerCase(java.util.Locale.ROOT)), x + 6, row, 0xFF99C9BD, false);
+            g.drawString(font, THREAD_NAMES[thread.ordinal()], x + 6, row, 0xFF99C9BD, false);
             for (int i = 0; i < FamiliarData.MAX; i++) {
                 int px = x + 62 + i * 9;
                 g.fill(px, row + 1, px + 7, row + 7, i < value ? TIER[Mth.clamp(value, 0, 5)] : 0xFF2A3438);

@@ -347,6 +347,7 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
     }
 
     // The lattice keeps the cairns it found on each network; a stone arriving or leaving must tell it.
+    // An unloading chunk calls setRemoved, so that covers it without a second notice.
     @Override
     public void clearRemoved() {
         super.clearRemoved();
@@ -357,12 +358,6 @@ public class PulseCairnBlockEntity extends BlockEntity implements PulseHandler, 
     public void setRemoved() {
         super.setRemoved();
         invalidatePile();
-        tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
-    }
-
-    @Override
-    public void onChunkUnloaded() {
-        super.onChunkUnloaded();
         tk.darrow.tribalpower.lattice.Weave.memberChanged(level, worldPosition);
     }
 

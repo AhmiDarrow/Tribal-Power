@@ -58,7 +58,7 @@ Summoning Cradles call creatures through ritual-bound effigies: imprint one of t
 
 ## Equipment and elemental rites
 
-Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Pulse-powered Spiritweave armour, excavate with the Resonance Maul, and sustain blessings through Ritual Braziers and reusable elemental seals. Rank Spiritgear and Spiritweave up to Manifested; seat a Pulse Cell inside any piece so it spends its own charge first. Totem-bound gear glows in its voice's colour.
+Switch the Sixfold Staff between Earth, Fire, Water, Air, Spirit and Loom. Wear Spiritweave armour, plain until a totem binds it and then woven with that voice's boon, excavate with the Resonance Maul, and sustain blessings through Ritual Braziers and reusable elemental seals. Rank Spiritgear and Spiritweave up to Manifested; seat a Pulse Cell inside any piece so it spends its own charge first. Totem-bound gear glows in its voice's colour.
 
 ![A Manifested greatsword in Spiritweave, mid-swing](https://raw.githubusercontent.com/AhmiDarrow/Tribal-Power/master/docs/images/showcase/spiritgear_swing.jpg)
 
@@ -112,4 +112,4 @@ Every balance number lives in the config: Pulse rates, costs, ranks, spawn rules
 
 Optional, all of it. With [Chocobos Reborn](https://www.curseforge.com/minecraft/mc-mods/chocobos-reborn), chocobos roam the March. With AgriCraft, the Grove Tender works crop sticks and the March crops are AgriCraft plants of their own, bred from the farm crops everyone starts with. In [Ninjacat Skies](https://www.curseforge.com/minecraft/modpacks/ninjacat-skies), the workshops, rituals, transport, bestiary and camp systems are woven into the pack story. Tribal Power never needs any of them.
 
-Version 6.0.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).
+Version 6.1.0. Created by Ahmi & Risika Darrow. GNU GPL v3. [Source and documentation](https://github.com/AhmiDarrow/Tribal-Power).

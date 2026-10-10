@@ -25,9 +25,15 @@ public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.t
             return paused() ? FluidStack.EMPTY : super.drain(amount, action);
         }
         @Override protected void onContentsChanged() {
-            setChanged();
             if (level != null) {
-                level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+                // setChanged() would wake the comparators on every fill, and this used to wake them a second time on
+                // top: mark the chunk, and wake them only when the level they read moves.
+                level.blockEntityChanged(worldPosition);
+                int signal = signal();
+                if (signal != shownSignal) {
+                    shownSignal = signal;
+                    level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+                }
                 // The windows show the level. A pipe changes the tank every tick, so a packet goes out only when the
                 // fluid or the drawn height moves; the exact amount follows within a second for anything reading it.
                 if (level.isClientSide || shownChanged()) sync();
@@ -54,7 +60,15 @@ public class SpiritCisternBlockEntity extends BlockEntity implements tk.darrow.t
         syncPending = false;
         level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
     }
-    private boolean paused() { return level != null && level.hasNeighborSignal(worldPosition); }
+    /** The comparator level last announced. */
+    private int shownSignal = -1;
+    /** Comparator: how full the tank is. */
+    public int signal() { return tank.getFluidAmount() == 0 ? 0 : 1 + 14 * tank.getFluidAmount() / tank.getCapacity(); }
+    /** The redstone hold, asked on every fill and drain: read again on a neighbour change, or after a second. */
+    private final HeldSignal held = new HeldSignal(20);
+    /** The block saw a neighbour change: read the redstone hold afresh. */
+    public void neighbourChanged() { held.forget(); }
+    private boolean paused() { return level != null && held.get(level, worldPosition); }
     public SpiritCisternBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.SPIRIT_CISTERN.get(), pos, state); }
     public Component status() { return Component.translatable("message.tribalpower.cistern.status", tank.getFluidAmount(), tank.getCapacity()); }
     public static void tick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, SpiritCisternBlockEntity be) {

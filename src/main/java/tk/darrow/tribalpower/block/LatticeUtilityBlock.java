@@ -36,6 +36,14 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
     @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         tk.darrow.tribalpower.item.MachineRank.onPlacedBy(level, pos, stack);
     }
+    /** The three remember their redstone hold between neighbour changes; this is the change. */
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbour, BlockPos neighbourPos, boolean movedByPiston) {
+        super.neighborChanged(state, level, pos, neighbour, neighbourPos, movedByPiston);
+        var be = level.getBlockEntity(pos);
+        if (be instanceof PulseAdapterBlockEntity adapter) adapter.neighbourChanged();
+        else if (be instanceof LatticeConverterBlockEntity converter) converter.neighbourChanged();
+        else if (be instanceof SpiritCisternBlockEntity cistern) cistern.neighbourChanged();
+    }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
             var be = level.getBlockEntity(pos);
@@ -72,7 +80,7 @@ public class LatticeUtilityBlock extends BaseEntityBlock {
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }
     @Override protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         var be = level.getBlockEntity(pos);
-        if (be instanceof SpiritCisternBlockEntity tank) return tank.tank.getFluidAmount() == 0 ? 0 : 1 + 14 * tank.tank.getFluidAmount() / tank.tank.getCapacity();
+        if (be instanceof SpiritCisternBlockEntity tank) return tank.signal();
         if (be instanceof PulseAdapterBlockEntity adapter) return adapter.signal();
         if (be instanceof LatticeConverterBlockEntity converter) return converter.signal();
         return 0;

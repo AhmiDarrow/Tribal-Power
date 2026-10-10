@@ -270,10 +270,17 @@ public class SongkeeperScreen extends Screen {
         // the list
         g.enableScissor(panelX + 4, panelY + 26, panelX + listW, panelY + panelH - 6);
         int y = panelY + 30 - (int) scroll;
+        // Rows scrolled out of the window are only stepped over: the scissor hid them, but each one was still
+        // measured, cut to fit and drawn every frame.
+        int clipTop = panelY + 26, clipBottom = panelY + panelH - 6;
         for (Object row : rows) {
             if (row instanceof String album) {
-                g.drawString(font, album, panelX + 10, y + 4, TEAL, false);
+                if (y + HEADER > clipTop && y < clipBottom) g.drawString(font, album, panelX + 10, y + 4, TEAL, false);
                 y += HEADER;
+                continue;
+            }
+            if (y + ROW <= clipTop || y >= clipBottom) {
+                y += ROW;
                 continue;
             }
             Songbook.Song s = (Songbook.Song) row;
