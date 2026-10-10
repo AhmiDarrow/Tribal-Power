@@ -48,6 +48,9 @@ Project description refreshed for 3.5.0: new March section (terrain, caves, Marc
 ## 5.3.16 — Stone and Lit Glass
 Uploaded 2026-10-01: `tribalpower-5.3.16.jar` as file **9029023** ("Tribal Power 5.3.16 - Stone and Lit Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.16.md`. Stone pressure plates and buttons, chiseled moonstone and moss agate bricks, cracked bricks, and lit quartz glass at Echo Attune. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.16
 
+## 6.1.0 — Cut and Bound
+Uploaded 2026-10-10: `tribalpower-6.1.0.jar` as file **9115266** ("Tribal Power 6.1.0 - Cut and Bound", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_6.1.0.md`. Stairs, slabs and walls for eight more March stones, recipes for every building block, the March sands as sand, Spiritgear shears that count as shears (loot ability, enchanting tags, dispenser), unlinked Spiritweave as plain armour with bound pieces glinting, and an optimization and bug pass. Store description refreshed with `cf_update_store_pages.py`. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v6.1.0
+
 ## 6.0.0 - The Wide March
 Pending upload: `tribalpower-6.0.0.jar` ("Tribal Power 6.0.0 - The Wide March", release, 1.21.1 / NeoForge / Client+Server). Changelog is `docs/RELEASE_6.0.0.md`, which explains that the old March is set aside automatically on the next start (MarchRetrogen worldgen 4, chunks moved to `tribalpower_backups`) and how to delete `dimensions/tribalpower/the_march` by hand when retrogenMarch is off. The store description (docs/public/store-description.md) gains the fifty-nine lands, seven weathers, fifteen trees, and four photographs from docs/images/march linked raw from GitHub, so the images only resolve once master is pushed; publish with Ninjacat Skies' `tools/cf_update_store_pages.py tribalpower` after the push.
 
