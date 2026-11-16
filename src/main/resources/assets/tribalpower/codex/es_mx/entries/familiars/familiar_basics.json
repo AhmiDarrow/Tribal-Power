@@ -1,0 +1,40 @@
+{
+  "name": "Qué es un familiar",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un compañero para tu magia",
+      "text": [
+        "Un **familiar** es una criatura vinculada a ti. Te sigue, espera donde le indiques y nunca desaparece, y cada tipo tiene un don propio ([qué hacen los familiares](familiar_gifts)).",
+        "Dale una voz en un **Tótem de resonancia** y pasará a formar parte de tu magia: los Amuletos de Espíritu y el Equipo espiritual de esa voz cuestan menos, y sus cantos y ritos se hacen más fuertes, mientras esté a **16 bloques** de ti.",
+        "La magia funciona sin un familiar. Un familiar la hace más fuerte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quién puede vincularse",
+      "text": [
+        "- **Bestias mansas**: el Ciervo del alba y el Zorro farol de los bosques, el Lomomusgo de los pantanos, y los pacedores, los saltadores y las polillas de cada bioma de la Marcha. Cualquiera puede vincularlos.",
+        "- **Seis remanentes**, cuando su tribu te llame **Voz** (800 de estima): Lomoesquirla, Sabueso de la grieta, Diablillo de pavesa, Polilla de tormenta, Campana de duelo y Tejedor de eco. La página siguiente dice qué tribu habla por cuál.",
+        "Cenizligado, Raizligado, los Acechadores de juncos y los Centinelas huecos nunca responden, y tampoco los jefes, los trasgos, los troles ni los demás hostiles de la Marcha. Las crías no pueden vincularse.",
+        "**Agáchate y mira** a una criatura para ver si puede vincularse y qué necesita. Una Lente ley usada mientras te agachas sobre ella dice lo mismo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Lomoesquirla: los **Cantores de grava**.",
+        "- Sabueso de la grieta: los **Caminantes del borde**.",
+        "- Diablillo de pavesa: los **Corazones de tambor**.",
+        "- Polilla de tormenta: los **Tejedores de patrones**.",
+        "- Campana de duelo: los **Talladores de sellos**.",
+        "- Tejedor de eco: los **Zurcidores del telar**.",
+        "Consulta [estima](standing) para ver cómo ganarla."
+      ],
+      "title": "Qué tribu para qué remanente"
+    }
+  ]
+}

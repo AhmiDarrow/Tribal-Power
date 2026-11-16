@@ -1,0 +1,64 @@
+{
+  "name": "Weltriten",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Tafelriten reichen über das Lager hinaus und ändern die Welt selbst. Schnitze eine Tafel, setze das passende Siegel in ein Ritualkohlenbecken in seinem Kreis und gib den Puls aus."
+      ],
+      "title": "Wetterriten"
+    },
+    {
+      "type": "text",
+      "title": "Schnitzen und wirken",
+      "text": [
+        "Jede Tafel ist zwei Bruchsteine (oder Schwarzstein oder Bruchtiefenschiefer), ihr Reagenz und das passende Siegel, formlos. Das Siegel wird zurückgegeben.",
+        "Setze dieses Siegel ins Kohlenbecken (sein Segen läuft weiter), zeichne den [Ritenkreis](rite_circle) und sammle die vollen Kosten innerhalb von **8 Blöcken** um das Kohlenbecken: ein gut gefülltes Trommelherz, ein Resonator mit einem guten Katalysator oder mehrere Generatoren zusammen. Eine Zelle in deiner Tasche zählt nicht. Ein Pulsmesser oder der Geisterkodex zeigt die Summe.",
+        "Ducke dich und benutze die Tafel am Kohlenbecken. Hält das Gitter weniger als die Kosten, wird nichts ausgegeben; sonst wird die Tafel verbraucht und der Puls gezogen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die drei Wetterriten",
+      "text": [
+        "- **Regenruf** (Wasser, **400** Puls, ein Schilfreißzahn): zwanzig Minuten Regen, und stärkere Leysammler, solange er anhält. Fang hier an.",
+        "- **Aufklaren des Himmels** (Luft, **400**, ein Sturmflügel): vierzig Minuten klarer Himmel.",
+        "- **Morgenruf** (Feuer, **800**, ein Glutherz): treibt die Nacht zum Sonnenaufgang, es sei denn, die Spielregel tribalpower:allowDawnRite ist aus.",
+        "Vier passende Totems auf den Himmelsrichtungen des Kreises nehmen ein Viertel von den Kosten und verdoppeln die Zeit. Ein anliegendes Redstone-Signal am Kohlenbecken verweigert den Ritus.",
+        "Als Nächstes probiere die [Landriten](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Heilkreis",
+      "text": [
+        "Ein Ritus des Geistes, gewirkt wie die anderen, mit einem eingesetzten Geistsiegel. Er kostet **500 Puls** und bleibt **10 Minuten** offen.",
+        "Es heilt alle im Kreis, Spieler und gebundene Vertraute, hebt jeden Schaden auf, segnet sie und ruft jeden gefallenen Vertrauten zurück, dessen [Geistrest](healing_circle) du auf seine Sockel gelegt hast. Die ganze Geschichte steht in [Schamanische Heilung](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

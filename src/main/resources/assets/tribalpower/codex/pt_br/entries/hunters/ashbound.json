@@ -1,0 +1,51 @@
+{
+  "name": "Cinzligado",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Uma efígie de vime queimada, os restos de um rito de fogo quebrado. Os golpes dele põem você em chamas.",
+        "Caçado, também larga até 2 Carvão e até 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Cinzligado andam à noite por florestas do Mundo Superior e, na Marcha, percorrem a Estepe e os Ermos de brasa.",
+        "Ele tem **24 de vida** e **2 de armadura**, e bate por **4**. Cada golpe põe você em fogo por 2 segundos, e ele mesmo é imune ao fogo. Mantenha água por perto, ou lute onde você possa entrar numa poça."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Larga **de 1 a 2 Coração de brasa**.",
+        "Um Coração de brasa se sintoniza em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nenhum amuleto vincula um Cinzligado. Ilumine seus caminhos e ele fica longe."
+      ],
+      "title": "Não se vincula"
+    },
+    {
+      "type": "text",
+      "title": "Caça e condução",
+      "text": [
+        "Além do reagente, ele solta isto quando caçado, e mais com Pilhagem."
+      ]
+    }
+  ]
+}

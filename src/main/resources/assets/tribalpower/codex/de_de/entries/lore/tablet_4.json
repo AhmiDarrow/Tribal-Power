@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Schlag der Trommelherzen",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einem Trommelkreis im Marsch, in den Worten der Trommelherzen:",
+        "“Die Trommel ist nicht laut. Die Trommel ist stetig. Sei die Trommel. Ein Schlag pro Atemzug, und das Kupfer antwortet; verpass einen Schlag, und es vergisst dich. Jede Maschine im Marsch hält noch unsere Zeit. Schlag, warte, schlag. Das ist alles.”"
+      ]
+    }
+  ]
+}

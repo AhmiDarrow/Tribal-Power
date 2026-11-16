@@ -1,0 +1,28 @@
+{
+  "name": "Para onde ir depois",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Próximo passo",
+      "text": [
+        "Uma coisa concreta a fazer, lida de onde você está no caminho do primeiro Lar ao nono acordo. Muda conforme você avança."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Quando o seu acampamento fizer a própria energia, siga o que despertar a sua curiosidade:",
+        "- As [Oficinas](echo_attune) transformam fragmentos em cristais mais fortes, metais e melhorias.",
+        "- As [Máquinas do acampamento](grove_tender) cultivam, coletam e guardam enquanto você está ocupado.",
+        "- [Armazenamento e carga](ancestral_cache) guarda seus bens e os move sem tubos, e [bússolas e portais](waystone_compass) movem você.",
+        "- [Padrões](placement_is_the_ritual) são construídos, não fabricados: a Pia de pedra e o Fosso de escuta.",
+        "- Um [familiar](familiar_basics) carrega a voz de um totem e torna mais forte a sua magia dessa voz.",
+        "- [As Nove Tribos](standing) mantêm acampamentos pela terra. Alimente um Lar para ganhar trocas, dádivas e, com o tempo, um Totem de parentesco.",
+        "- Com amigos, um [acampamento compartilhado](shared_camps) compartilha um cofre, dispositivos e Âncoras de caminho.",
+        "- O [Tambor do portal](gate_drum) abre o caminho para a Marcha, quando você estiver pronto."
+      ]
+    }
+  ]
+}

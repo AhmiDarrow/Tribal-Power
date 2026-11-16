@@ -1,0 +1,17 @@
+{
+  "name": "6. 运送",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "运送",
+      "text": [
+        "“垫层守护者没有跑。他们一筐一筐地把地面拾起来，在每一块救下的垫层上放一座炉。其他人笑了，然后过来坐到火边。”",
+        "发现于远行界废墟中的雕石上。"
+      ]
+    }
+  ]
+}

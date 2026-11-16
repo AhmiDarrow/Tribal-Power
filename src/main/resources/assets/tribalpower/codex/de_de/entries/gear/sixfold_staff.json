@@ -1,0 +1,51 @@
+{
+  "name": "Sechsfachstab",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Ein Stab, der alle sechs Stimmen spricht. Wähle eine, ziele und wirke.",
+        "Er verbraucht Puls aus einer Pulszelle, nie Haltbarkeit, und kann eine eigene Zelle tragen wie [Geistergerät](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die sechs Zauber",
+      "text": [
+        "Ducke dich und benutze, um Erde, Feuer, Wasser, Luft, Geist und Webstuhl zu wechseln; die Aktionsleiste nennt die Stimme. Benutzen zum Wirken. Die Taste **Stab: nächste Stimme** wechselt ohne Ducken, sobald du sie unter Tribal Power in der Steuerung belegst.",
+        "- **Erde** (12 Puls): ein Hieb mit 4 Schaden, der den Gegner 5 Sekunden lang stark verlangsamt.",
+        "- **Feuer** (18): ein Schlag mit 8 Schaden, der den Gegner 4 Sekunden lang in Brand setzt.",
+        "- **Wasser** (24): heilt und reinigt dich. Es löscht Feuer, entfernt Gift und gibt Regeneration für 5 Sekunden und Unterwasseratmung für 30.",
+        "- **Luft** (16): ein kurzer Sprung nach vorn und langsames Fallen für 6 Sekunden.",
+        "- **Geist** (20): Nachtsicht für 30 Sekunden, und jedes feindliche Wesen innerhalb von **12 Blöcken** leuchtet 12.",
+        "- **Webstuhl** (6): fesselt einen Gegner und zieht ihn bis zu **8 Blöcke** zu dir."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nähen",
+      "text": [
+        "Mit gewähltem Webstuhl ducke dich und benutze, wenn kein Gegner im Visier ist und kein Block nah vor dir liegt: der Stab **näht** dich **6 Blöcke** vorwärts durch freie Luft für **10 Puls**. Er weigert sich, dich in festen Blöcken oder Gefahren abzusetzen.",
+        "Deshalb schau, um vom Webstuhl weiterzuschalten, einen nahen Block oder einen Gegner an, während du dich duckst und benutzt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Reichweite und Rast",
+      "text": [
+        "Erde, Feuer und Webstuhl brauchen ein feindliches Ziel. Sie reichen **18 Blöcke** weit und stoppen an festen Blöcken; ohne Ziel gehen sie nicht los und kosten nichts.",
+        "Nach einem Zauber ruht der Stab: **8 Sekunden** nach Wasser, **2 Sekunden** nach den anderen, **1.5 Sekunden** nach einer Naht.",
+        "Er trinkt zuerst aus seiner eigenen eingesetzten Zelle, dann aus den Zellen, die du trägst, Nebenhand zuerst. Sind sie alle leer, geht der Zauber nicht los.",
+        "Solange **Ungesungen-Stille** auf dir liegt, wirkt der Stab nicht (siehe [Gebrechen](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

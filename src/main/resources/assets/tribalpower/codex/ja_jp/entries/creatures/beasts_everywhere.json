@@ -1,0 +1,122 @@
+{
+  "name": "あらゆる土地の獣",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "流浪の者",
+      "text": [
+        "穏やかな生き物が八種、一つの土地には縛られない。マーチのあちこちに、開けた場所、洞窟、溶岩の縁で出会う。",
+        "ここの穏やかな獣は、一分に一度ブラシをかけて試薬を得られ、下の**狩りと飼育**に記した専用の餌で誘い、繁殖させる。どの穏やかな動物とも同じように絆を結べる（[使い魔](familiars)を参照）。どれも独自の贈り物は持たないが、絆を結んだ獣はトーテムで声を受け、あなたの魔法を強められる（[トーテムでの調律](familiar_attuning)を参照）。",
+        "試薬のいくつかは砕くと染料になる。[試薬](reagents)を参照。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "灰跳鼠",
+      "text": [
+        "草原、水晶の野、残り火の荒野にいる、小さく素早いトビネズミ。二匹から四匹の群れ。**体力12**。**灰の房を1～2個**落とす。",
+        "狩ると、生の獲物肉を最大1、ウサギの皮を最大1落とす。**ニンジンか草原穀物**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "尾根の草食い",
+      "text": [
+        "高地、微光の尾根、雪の野にいる小さな毛むくじゃらのマンモス。**体力26**、**防具2**。**草食いの羊毛を1～2個**落とす（薄灰色の染料）。",
+        "狩ると、生の獲物肉を1～2、マーチの革を最大1落とす。**小麦**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "岩崖の跳び手",
+      "text": [
+        "高地、微光の尾根、雪の野、水晶の野にいるアイベックス。**体力20**、**防具2**。**跳び手の角を1～2個**落とす。",
+        "狩ると、生の獲物肉を1～2、マーチの革を最大1落とす。**小麦**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "塵羽鳥",
+      "text": [
+        "小さなアトリ。浅瀬を含むすべての土地にいる、マーチで最もありふれた飛び手。**体力8**。**塵羽鳥の翼を1～2個**落とす。",
+        "狩ると、羽根を最大2落とす。**小麦の種か草原穀物**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "微光蛾",
+      "text": [
+        "水晶の野、微光の尾根、葦の湿地にいる淡い緑のオオミズアオ。**体力10**。**微光の粉を1～2個**落とす（青緑色の染料）。",
+        "狩ると、糸を最大1、グロウストーンダストを最大1落とす。**エコーの花か、どの小さな花でも**で繁殖する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "地下と溶岩のそば",
+      "text": [
+        "溶岩に棲む二者は、浅瀬を除くすべての土地で、マーチに溶岩があるところに現れる。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "石の幼虫",
+      "text": [
+        "浅瀬以外のすべての土地の下、暗い洞窟にいる、小石の筒をまとったトビケラの幼虫。一度に二匹から四匹。**体力10**、**防具4**。**幼虫の殻を1～2個**落とす（茶色の染料）。",
+        "狩ると、スライムボールを最大1落とす。**灯籠傘か、どのキノコでも**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "残り火の漂い手",
+      "text": [
+        "溶岩のそばに集まる、腹が火のホタル。**体力12**、**火に免疫**。**残り火の粒を1～2個**落とす（赤色の染料）。残り火の試薬。",
+        "狩ると、木炭を最大2落とす。**石炭か木炭**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "マグマクリーパー",
+      "text": [
+        "溶岩のそばの熱い石にいる、遅く装甲のあるマグマのセンザンコウ。**体力22**、**防具6**、**火に免疫**。**マグマの鱗を1～2個**落とす（橙色の染料）。残り火の試薬。マグマの鱗は鉱滓の玉座で鉱滓の巨人を呼ぶ。",
+        "狩ると、マグマクリームを最大1落とす。**石炭か木炭**で繁殖する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩りと飼育",
+      "text": [
+        "試薬のほかに、狩るとさらに落ち、ドロップ増加でもう一段増える。燃えて死ぬと、肉は焼かれた状態で落ちる。野生を繁殖させるには、大人二匹にそれぞれの餌を与えるあいだ**スニーク**する。普通に与えると、野生の個体は代わりに懐く。"
+      ]
+    }
+  ]
+}

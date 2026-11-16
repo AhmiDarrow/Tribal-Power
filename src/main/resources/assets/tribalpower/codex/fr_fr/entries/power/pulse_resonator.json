@@ -1,0 +1,226 @@
+{
+  "name": "Résonateur de Pulsation",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "Une puissance qui continue d'arriver pendant que tu es absent. Assieds un cristal dedans, entoure-le de totems de voix différentes, et il bourdonne de la Pulsation tout seul. Il stocke jusqu'à **2,500 Pulsation**, et le casser perd ce qui est stocké."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le mettre en marche",
+      "text": [
+        "Fais un clic droit sur le Résonateur avec un **Éclat d'écho** (depuis le [Broyeur d'écho](echo_shatter)). Le cristal reste dedans comme catalyseur et se consume lentement sous la Pulsation qu'il produit, donc un Résonateur qui travaille fort doit le voir remplacé. Accroupis-toi et fais un clic droit à main vide pour sortir ce qui reste du cristal ; il garde son usure. Sors l'ancien cristal avant d'en asseoir un meilleur. Les entonnoirs ne peuvent pas l'alimenter.",
+        "Donne-lui ensuite au moins **deux voix différentes** dans les 8 blocs, par exemple un totem de Terre et un de Feu. Il compte les voix, pas les blocs : deux totems de Terre restent une seule voix.",
+        "Un éclat et deux voix font **8 Pulsation par seconde**. Les voix se multiplient au lieu de s'ajouter : chacune que tu apportes vaut plus que la précédente, donc l'anneau entier vaut bien plus que la somme de ses totems."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Première lueur",
+      "steps": [
+        {
+          "caption": "Place le Résonateur là où ses totems auront de la place autour de lui.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fais un clic droit avec un Éclat d'écho pour asseoir le catalyseur.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un totem de Terre.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un totem de Feu, une deuxième voix. Le Résonateur se met à bourdonner : 8 Pulsation par seconde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Une troisième voix, Eau, le monte à 15 Pulsation par seconde. Chaque voix nouvelle vaut plus que la précédente.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Des cristaux plus forts",
+      "text": [
+        "Chaque seconde, le Résonateur fait **voix × (voix + 2)** de Pulsation, fois son cristal : **×1** pour un Éclat d'écho, **×1.5** Accordé, **×2** Lié, **×3** pour un Noyau résonnant. Ainsi six voix font 48, 72, 96 ou 144 par seconde.",
+        "- **Éclat d'écho** : pierre dans le Broyeur d'écho, avec Terre.",
+        "- **Écho accordé** : éclats dans l'Accordeur d'écho, avec Feu.",
+        "- **Écho lié** : des Écho accordé dans le Lieur d'écho, avec Eau.",
+        "- **Noyau résonnant** : Lingot manifesté dans le Manifesteur d'écho, avec Esprit.",
+        "Six voix exigent la disposition de l'[Anneau de voix](voice_ring) : un tas lâche compte au plus cinq voix, Totem de parenté compris.",
+        "Pour brûler ces cristaux près des réactifs et de l'eau, avec les six voix en étoile, construis un [Cœur de ley](ley_heart)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand il reste sombre",
+      "text": [
+        "Seuls les totems **Répondu** comptent ; un totem silencieux doit d'abord être réveillé (voir [Entretien](keeping)). Les Totem de parenté ajoutent leurs tribus comme voix en plus, mais le Résonateur a encore besoin d'un Totem de résonance Répondu à lui. Un signal de redstone continu le met en pause.",
+        "Un cristal s'effrite quand il a fait sa part : environ **20,000 Pulsation** pour un Éclat d'écho, **60,000** pour un Écho accordé, **150,000** pour un Écho lié et **400,000** pour un Noyau résonnant. Un Résonateur plein ne fait rien, et son cristal se repose jusqu'à ce que quelque chose dépense.",
+        "Chaque [rang](machine_ranks) du Résonateur lui-même ajoute **15% Pulsation par seconde**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

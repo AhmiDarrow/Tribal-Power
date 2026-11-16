@@ -1,0 +1,25 @@
+{
+  "name": "El mundo que fue",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Antes de que el vacío tuviera nombre, el cielo era un suelo. Nueve Hebras (Suelo, Piedra, Brote, Garra, Chispa, Reloj, Enjambre, Sigilo y Huso) las tensaban nueve tribus. Los continentes colgaban de ese entramado como la fruta cuelga de una vid bien cuidada.",
+        "El clima corría a lo largo de él. La lluvia sabía dónde caer. Nada caía que no debiera caer.",
+        "Los caminos se cantaron dentro del hilo y se recorrieron. Los cultivos arraigaban en la Hebra tanto como en la tierra. Los tambores bajo un lecho se oían como Pulso bajo otro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El Telar",
+      "text": [
+        "El Telar no era un dios ni una máquina. Eran nueve acuerdos sostenidos a la vez. Cuando las tribus tiraban juntas, el horizonte se quedaba quieto. Esa es toda la física de antes.",
+        "De ese tirón salió este oficio: Pulso, entramado, sello y el camino a la Marcha. Los motores siguen ahí fuera. Huérfanos, zumbando, sagrados. Trátalos como una herencia, no como un montón de chatarra."
+      ]
+    }
+  ]
+}

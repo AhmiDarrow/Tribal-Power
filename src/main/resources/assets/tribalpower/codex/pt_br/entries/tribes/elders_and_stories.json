@@ -1,0 +1,68 @@
+{
+  "name": "Anciãos, pedidos e histórias",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Falar com um Ancião",
+      "text": [
+        "O acampamento de cada tribo tem um **Ancião**, e quando você for Hóspede eles falam com você. Clique com o botão direito em um e uma conversa se abre: o que eles dizem à esquerda, o que você pode responder como botões.",
+        "Trocar é uma das coisas que você pode pedir. Estranhos só recebem umas poucas palavras ríspidas e uma dica sobre o lar, então traga uma oferenda primeiro (consulte [Tribos e prestígio](standing)).",
+        "O que o Ancião oferece muda conforme o que você fez: pedidos, a história deles e, quando você a termina, uma recepção mais calorosa.",
+        "No [dia de festival](living_march) da tribo, o Ancião também convida você para o banquete."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pedidos",
+      "text": [
+        "Pergunte a um Ancião **\"Há trabalho que eu possa fazer?\"** e eles dão a você um dos pedidos da tribo. Cada tribo tem três abertos em um dado dia, e eles mudam com os dias; se o de hoje não servir, volte amanhã.",
+        "Você segura **um pedido por tribo** de cada vez. Quando termina **três** em um dia, somando todas as tribos, os Anciãos não dão trabalho novo até amanhã. O trabalho que você já tem ainda pode ser entregue.",
+        "Termine e diga ao Ancião **\"Fiz o que você pediu.\"** Cada um paga **8 a 16** de prestígio, e cada **terceiro** pedido terminado de uma tribo paga uma **Marca da tribo** por cima, muito antes de você chegar a Voz.",
+        "O Códice leva a conta por você: a página de cada tribo termina com o pedido aberto e o quanto ele já andou."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles pedem",
+      "text": [
+        "- **Buscar**: traga o que eles prezam, como a colheita deles da Marcha. Carregue isso quando falar com o Ancião.",
+        "- **Entregar**: traga duas tigelas do [prato](tribe_dishes) deles.",
+        "- **Caçar**: faça recuar seis criaturas da escuridão dentro de **48 blocos** do lar delas. O abate tem de ser seu.",
+        "- **Rito**: realize qualquer rito num braseiro ou pedestal dentro de 48 blocos do lar delas.",
+        "- **Construir**: erga **Muros** de tamanho 3 ou mais dentro de 48 blocos do lar delas, marcados com Giz de construtor, e segure esse giz quando falar com o Ancião. Construa-os com blocos trabalhados, como tábuas, tijolos ou pedregulho: pedra bruta, terra, areia, terracota, gelo e o próprio chão da Marcha não contam. Uma construção conta **uma vez**: muros já entregues àquela tribo não pagam de novo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "A história deles",
+      "text": [
+        "Peça **«Conte-me a sua história»** e o Ancião começa um caminho mais longo: **sete passos**, uma tribo de cada vez, que se apoiam em tudo o mais que você faz com eles. Torne-se Amigo deles, traga a única coisa que prezam, cace perto das fogueiras deles, realize um rito no acampamento deles, traga o prato deles e, no fim, vá aonde eles enviarem você.",
+        "O último passo é uma **provação**: a terra de cada tribo guarda um guardião, e a tribo quer que você o enfrente. A provação dos Costureiros do tear é O Não Cantado em pessoa; os outros oito esperam em suas terras, contados em [Os guardiões](guardians). Se você cair na luta, a história simplesmente espera. Um guardião deixado sozinho por meio minuto volta a dormir sem ser vencido, e o altar dele pode ser chamado de novo na hora.",
+        "Enfrente o guardião só depois que o Ancião enviar você. Um guardião derrotado antes não conta para a história."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As nove relíquias",
+      "text": [
+        "Conclua a história e o Ancião entrega a **relíquia** da tribo: uma coisa pequena e única que concede a [bênção](tribe_boons) daquela tribo sempre que estiver no seu inventário, seja qual for a sua posição, e marca você para sempre aos olhos deles.",
+        "{item:tribalpower:relic_soil} (Guardiões do leito). {item:tribalpower:relic_stone} (Cantores de cascalho). {item:tribalpower:relic_sprout} (Vinculadores de raízes). {item:tribalpower:relic_claw} (Caminhantes da borda). {item:tribalpower:relic_spark} (Corações de tambor). {item:tribalpower:relic_clock} (Tecelões de padrões). {item:tribalpower:relic_swarm} (Guardiões da colônia). {item:tribalpower:relic_sigil} (Entalhadores de selos). {item:tribalpower:relic_spindle} (Costureiros do tear).",
+        "Uma para cada tribo, cada uma o fim de uma história e o começo de nove que voltam a concordar."
+      ]
+    }
+  ]
+}

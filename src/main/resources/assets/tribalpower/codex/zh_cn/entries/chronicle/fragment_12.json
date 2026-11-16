@@ -1,0 +1,17 @@
+{
+  "name": "13. 门",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "门",
+      "text": [
+        "“微光岭是印刻者的宝库，在坠落之日从内部封死。关在里面的东西被客气地请留下。从那以后，它就靠这请求过活。”",
+        "发现于一处守护者之地的壁画上。"
+      ]
+    }
+  ]
+}

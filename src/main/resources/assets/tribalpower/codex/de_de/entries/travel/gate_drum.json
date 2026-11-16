@@ -1,0 +1,164 @@
+{
+  "name": "Tortrommel",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "Die Tür zum Marsch, die Welt, die die Stämme zurückließen. Sie braucht keinen Puls: **schlage seinen Rhythmus** und der Rhythmus selbst öffnet den Weg."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hinüberwechseln",
+      "text": [
+        "Rechtsklicke die Trommel mit **leerer Hand**, um den **Torritus** zu beginnen. Ein Trommellied von 20 bis 30 Sekunden spielt, und seine Schläge fallen auf eine Linie über vier Trommeln in einer Reihe: **A** ist die tiefe Rahmentrommel, **S** das tiefe Tom, **D** die hohe Handtrommel und **F** die Rassel.",
+        "Schlage jede Trommel, wenn ihr Schlag die Linie erreicht, zur Musik. Die Rassel zählt dich ein, und der Rhythmus wächst, während das Lied läuft.",
+        "Die vier Trommeln antworten auf **A**, **S**, **D** und **F**, und die Pfeiltasten funktionieren immer auch. Du kannst jede Trommel unter Tribal Power in Optionen, Steuerung auf eine andere Taste legen; A, S, D und F trommeln trotzdem mit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Den Ritus treffen",
+      "text": [
+        "Triff **60%** der Schläge, dann öffnet sich das Tor und trägt dich hindurch. Drücken, wenn kein Schlag da ist, zählt gegen dich, also halte den Rhythmus, statt aufs Geratewohl zu trommeln. Scheiterst du oder brichst du mit **Esc** ab, schlag einfach die Trommel, um es noch einmal zu versuchen.",
+        "Die Welt hält nicht an, während du trommelst, also räum zuerst das Umfeld frei. Ein Redstone-Signal sperrt die Trommel, und du kannst nicht hinüber, solange du reitest.",
+        "Du kommst an der Oberfläche des Marschs an, an derselben Stelle auf der Karte. Dein erster Besuch stimmt dich auf den Tiefspeicher ein, das Öffnen eines solchen ist danach kostenlos."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Den Weg öffnen",
+      "steps": [
+        {
+          "caption": "Stelle die Tortrommel irgendwohin, wo ringsum Platz ist.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke sie mit leerer Hand und schlag den Rhythmus auf A, S, D und F, um in den Marsch zu gehen.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Heimkehr",
+      "text": [
+        "Schlage im Marsch den Ritus auf einer **beliebigen** Tortrommel, um nach Hause zu gehen, also pack eine zweite Trommel ein und stell sie dort ab.",
+        "Es bringt dich dorthin zurück, wo du gegangen bist, auf den nächsten sicheren Platz daneben, frei von Lagerfeuern, Stufen und Leitungen. Ist der Platz weg, bringt es dich zu deinem Spawnpunkt.",
+        "Dein Rückkehrpunkt bleibt erhalten, auch wenn du im Marsch stirbst.",
+        "Ein zu Hause gebundener Astralkompass funktioniert auch. Ein Wegstein oder ein Horizontkompass bleibt in einer Welt, er kann dich also nicht zurückbringen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bevor du gehst",
+      "text": [
+        "Nimm Nahrung, Rüstung und volle Pulszellen mit.",
+        "Der Marsch hat neunundfünfzig Länder in sechs Bändern; die ersten, auf die du wohl triffst, sind die Steppe, das Hochland, die Kristallfelder, die Schneefelder, die Glutöden, das Schilfmoor, der Schimmerkamm und die Untiefen. Lies jede Tafel in einer [Ahnenhalle](ancestor_hall) und such [Trommelkreise](drum_circle) im Hochland.",
+        "Siehe [der Marsch](the_march), was dort lebt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "持续的动力",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "击鼓能让你起步，但营地在你不在时也需要动力。[脉动共鸣器](pulse_resonator)在你安放水晶并给它同伴之后会自行产生脉动。用铁、紫水晶、两个铜共鸣器和灵之碎片合成它。",
+        "从你的回响粉碎取出回响碎片，用它对共鸣器右键点击。碎片作为催化剂留在里面，并被它产生的脉动慢慢消耗：一块碎片大约产生20,000脉动，按最初速率大约四十分钟。留一块备用。",
+        "然后在附近放置**两种不同声音**的图腾，例如土和火。两个土图腾仍然只算一种声音。让网格导体处于共鸣器和那些图腾够得到的地方：它把共鸣器的脉动送到你的机器，并让图腾的缓冲以及它们的声音保持充满。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "安置共鸣器",
+      "steps": [
+        {
+          "caption": "把脉动共鸣器放在空地上。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "用回响碎片右键点击它。碎片作为催化剂留在里面，直到它产生的脉动把它耗尽。",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "在8个方块以内加一个土图腾。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "再加第二种不同的声音，例如火。现在它自己每秒产生8脉动。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "缓慢的起步",
+      "text": [
+        "每秒8脉动并不多；忙碌的工作站花得比这更快。让储备积起来，准备好更强的水晶和更多声音时，阅读[脉动共鸣器](pulse_resonator)页。"
+      ]
+    }
+  ]
+}

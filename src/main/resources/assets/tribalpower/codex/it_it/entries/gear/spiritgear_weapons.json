@@ -1,0 +1,98 @@
+{
+  "name": "Armi di Dotazione spirituale",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "La famiglia della Lama",
+      "text": [
+        "La [Lama di Dotazione spirituale](spiritgear) ha ora una famiglia: lancia, alabarda, ascia da battaglia, martello da guerra, pugnale, falce, spadone e tridente. Si fanno allo stesso modo, da Lingotti manifestati e un Campanello d'osso, quasi tutte con un bastone per asta, e ognuna ha un'**impugnatura d'osso**.",
+        "Sotto, ognuna è una Lama. Sale di rango alle stazioni di eco, spende Pulso sui colpi d'eco (un colpo pagato non si usura), prende una voce di totem e, a Manifestato, colpisce i boss più forte e ti cura a ogni colpo. Ciò che cambia è la portata, il peso e una mossa sua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I numeri",
+      "text": [
+        "- **Lancia**: 7 danni, 1.3 colpi al secondo, portata +1.5. Un affondo in scatto colpisce il **35%** più forte.",
+        "- **Alabarda**: 10 danni, 0.9 colpi al secondo, portata +1, pesante (−4%). Spazza e rompe uno scudo alzato.",
+        "- **Ascia da battaglia**: 11 danni, 0.8 colpi al secondo, portata —, pesante (−6%). Un pesante fendente che squarcia; rompe gli scudi.",
+        "- **Martello da guerra**: 12 danni, 0.7 colpi al secondo, portata —, il più pesante (−8%). I colpi attraversano l'armatura: il **30%** dell'armatura del bersaglio torna come danno extra. Rompe gli scudi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I numeri, continua",
+      "text": [
+        "- **Pugnale**: 4.5 danni, 2.4 colpi al secondo, portata −0.5, leggero (+5%). Un colpo da **dietro** arriva **1.75×** più forte.",
+        "- **Falce**: 8 danni, 1.0 colpi al secondo, portata +0.5, un po' pesante (−2%). Ogni colpo miete anche la **metà** del tuo attacco su ogni ostile intorno al bersaglio.",
+        "- **Spadone**: 10 danni, 0.85 colpi al secondo, portata +0.5, pesante (−6%). Il fendente più ampio e più forte.",
+        "- **Tridente**: 8 danni, 1.1 colpi al secondo, portata +1. Morde **50%** più a fondo tutto ciò che sta in acqua o sotto la pioggia.",
+        "Questi sono al rango 0. I ranghi aggiungono sopra i bonus della Lama: **+2**, **+5** e **+10** danni di attacco. Ogni cifra sta nella sezione **armi** della config comune."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ognuna scambia qualcosa. Le armi pesanti colpiscono più forte, ma si brandiscono lente e **rallentano il tuo passo** mentre sono in mano; il pugnale è debole ma veloce e ti fa muovere un po' più in fretta.",
+        "La portata ti tiene al sicuro, ma le armi lunghe fanno meno al secondo; i fendenti e la mietitura della falce spiccano contro una folla e sprecano il peso su un solo bersaglio.",
+        "La Lama è la tuttofare: niente portata, niente peso, niente mossa speciale, e niente in cui sia scarsa."
+      ],
+      "title": "Nessuna arma vince tutto"
+    },
+    {
+      "type": "text",
+      "title": "Lunghe e corte",
+      "text": [
+        "Le armi lunghe sono davvero lunghe: una lancia è circa il doppio di una spada in mano, l'alabarda e lo spadone quasi altrettanto, l'ascia e il martello una volta e mezzo. Il pugnale è corto e svelto.",
+        "La portata conta quanto il danno. Una lancia o un tridente tengono un Segugio della fenditura a distanza di braccio; un pugnale ti vuole vicino e alle spalle.",
+        "Ognuna di esse può portare un'[unzione](anointing)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

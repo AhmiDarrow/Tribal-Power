@@ -1,0 +1,17 @@
+{
+  "name": "Continentes de hilo",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Un continente era un lecho que había olvidado que era un lecho. Los campos corrían porque el Suelo corría con ellos. Los ríos guardaban los modales porque el Brote enseñó al agua dónde sentarse. Las ciudades no flotaban. Colgaban, y colgar se sentía como estar de pie.",
+        "Los caminos se cantaban, no se cortaban. El Pulso bajo un hogar se oía como Pulso bajo el siguiente. La noche era una cita que los Talladores de sellos cumplían. Las tormentas eran una discusión de Corazón de tambor que se desandaba antes del alba.",
+        "Aún puedes ver la costumbre en la aurora. Es el cielo intentando recordar un horario."
+      ]
+    }
+  ]
+}

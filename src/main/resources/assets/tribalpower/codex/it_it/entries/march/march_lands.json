@@ -1,0 +1,117 @@
+{
+  "name": "Terre della Marcia",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Sei fasce della Marcia",
+      "text": [
+        "La Marcia va dal gelido al torrido e scende nel buio, **cinquantanove terre** in sei fasce. Ogni fascia è una lunga deriva di temperatura attraverso la mappa; al suo interno l'umido e il secco, l'alto e il basso, e il suolo strano di alta stranezza tengono ciascuno il proprio paese.",
+        "Ogni terra ha il proprio suolo, la propria vegetazione e i propri spiriti. Il bestiario del Codice dice dove vive ogni creatura."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gelido",
+      "text": [
+        "L'estremo freddo della Marcia: neve sull'Erba della Marcia, Ghiaccio di brina dove il vento ha fatto a modo suo, e il velo della notte al massimo del suo bagliore.",
+        "Campi di neve della Marcia, Guglie di brina, Taiga di betulla di brina, Costa di brina, Specchio d'acqua gelato, Mare di brina, Mare di brina profondo, Picchi di brina bianca, Picchi di schegge, Pendii di pino di brina, Pianure del velo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Freddo",
+      "text": [
+        "Taighe di abete spinoso, brughiere, ghiaione e la cima minerale della Cresta del barlume.",
+        "Cresta del barlume, Taiga di abete spinoso, Taiga antica di abete spinoso, Brughiera del tumulo, Alture di ghiaione, Abete spinoso ventoso, Boschetto di muschio di brina, Costa grigia, Bassifondi freddi, Bassifondi freddi profondi, Paese dei laghetti alpini."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Temperato",
+      "text": [
+        "Il cuore della Marcia: steppa, acquitrino, paese di cristallo, boschi di acero del canto e di quercia del focolare, e il mare.",
+        "Steppa della Marcia, Acquitrino di canne della Marcia, Campi di cristallo della Marcia, Bassifondi della Marcia, Bosco di acero del canto, Prato in fiore, Bosco rado di quercia del focolare, Bosco rado antico di quercia del focolare, Legno del velo, Frutteto delle campane, Prato alto, Steppa della ruota solare, Fiume del Telaio, Spiaggia di limo, Bassifondi profondi, Pantano dei cappelli luminosi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caldo",
+      "text": [
+        "Savane di palma del tamburo, il Legno intricato e le paludi su palafitte, sotto gli Altipiani e i Picchi del sole.",
+        "Altipiani della Marcia, Savana di palma del tamburo, Altopiano di palma del tamburo, Palma del tamburo ventosa, Legno intricato, Legno intricato aperto, Boschetto fitto di canne, Mangrovia di falcata, Picchi del sole, Bassifondi caldi, Bassifondi caldi profondi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Torrido",
+      "text": [
+        "Sale, argilla da fornace e cenere: l'estremo secco della Marcia, fino a un fondo marino di vetro fuso.",
+        "Distese di brace della Marcia, Pianure di sale, Mesa della fornace, Mesa tagliata, Mesa di corteccia di sole, Bassifondi di vetro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sotterraneo",
+      "text": [
+        "Ciò che sta sotto ogni fascia: le grotte cantanti, le cavità luminose, le vene di ley e il Silenzio.",
+        "Grotte cantanti, Cavità di cappello ombroso, Il Silenzio, Vene di ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nuovo suolo",
+      "text": [
+        "- **Ghiaccio di brina** e **Scisto gelato** nei picchi e nelle guglie gelati; **Terriccio di aghi** e **Muschio di brina** sotto le taighe; **Ghiaione** sulle alture.",
+        "- **Sabbia pallida** sulle spiagge, **Tappeto di spore** nel Pantano dei cappelli luminosi, **Pietra pallida** sui Picchi del sole.",
+        "- **Crosta di sale** e **Pilastri di sale** sulle pianure; **Sabbia ocra**, **Arenaria ocra** e quattro toni di **Argilla da fornace** nelle mese; **Sabbia di vetro** sotto i Bassifondi di vetro.",
+        "- **Spuntoni risonanti** che tintinnano sotto i piedi nelle Grotte cantanti, **Muschio luminoso** nelle Cavità di cappello ombroso, e **Tessitura del silenzio** con i suoi **Fiori cheti** nel Silenzio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vegetazione nuova",
+      "text": [
+        "Fiore di ghiaccio, Cappello di brina, Erica grigia, Cardo di brina, Erba del canto, Campana del Telaio, Papavero dell'alba, Bocciolo campana, Ruota solare, Cespuglio spinoso, Felce intricata, Canna dello Spirito e Germogli di cappello ombroso, ciascuno nella terra che gli si addice. I nove nuovi alberi sono sulla pagina degli alberi."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bestie della torbiera dei canneti",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Propri della torbiera dei canneti",
+      "text": [
+        "Tra le canne e i canali di fango vivono una rana, un airone e un pesce palla che fluttua nell'aria, e di notte un cobra si sveglia nell'erba.",
+        "Puoi spazzolare ogni bestia mansueta qui una volta al minuto per il suo reagente, e la si attira e la si alleva con il suo cibo, indicato più sotto in **Caccia e allevamento**. Puoi legarla come qualsiasi animale mansueto (vedi [famigli](familiars)), e sebbene nessuna abbia un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Saltapalude",
+      "text": [
+        "Una piccola rana dell'acquitrino, pronta al salto, in gruppi da due a quattro. **12 di salute**, senza armatura.",
+        "Lascia **1 a 3 Zampa di palude**, di più con Saccheggio.",
+        "Cacciata, lascia anche fino a 1 Selvaggina cruda, fino a 1 Pelle di coniglio e fino a 1 Palla di slime. Alleva con **Riso di torbiera**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Trampoliere dell'acquitrino",
+      "text": [
+        "Un airone alto, che guada su zampe da trampolo, in gruppi da due a quattro. **22 di salute** e **1 di armatura**.",
+        "Lascia **1 a 3 Zoccolo d'acquitrino**.",
+        "Cacciato, lascia anche da 1 a 3 Selvaggina cruda, fino a 2 Cuoio della Marcia e fino a 1 Osso. Alleva con **Riso di torbiera**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Galleggiatore di torbiera",
+      "text": [
+        "Un pesce palla verde a pallone, gonfio, tondo e spinoso, che va alla deriva sull'acquitrino, da uno a tre. **12 di salute**, senza armatura. Alcuni derivano insieme al [Custode colosso](colossus_warden).",
+        "Lascia **1 a 3 Vescica di torbiera**.",
+        "Cacciato, lascia anche fino a 1 Palla di slime e fino a 1 Filo. Alleva con **Riso di torbiera**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Spira di canna",
+      "text": [
+        "Un cobra di palude, avvolto con il cappuccio aperto, che di notte si alza sul terreno aperto dell'acquitrino, uno o due alla volta. È molto lento, ma ha **30 di salute** e **6 di armatura**, colpisce per **5** e ti spinge indietro a ogni colpo.",
+        "Lascia **1 a 2 Voluta di canna**, un reagente di Spinta.",
+        "Cacciato, lascia anche fino a 1 Cuoio della Marcia e fino a 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuna ne lascia di più se la cacci, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per allevare quelli selvatici, **accovacciati** mentre dai il loro cibo a due adulti; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

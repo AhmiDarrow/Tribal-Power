@@ -1,0 +1,52 @@
+{
+  "name": "Campana del lutto",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Una campana fluttuante di bronzo verde, con una maschera di lutto e un batacchio luminoso. Ricorda le tribù perdute, e il suo rintocco preannunciato ti rallenta.",
+        "Cacciata, lascia anche da 1 a 3 pepite d'oro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le Campane del lutto fluttuano sopra i Campi di cristallo della Marcia e i Campi di neve, e ogni tanto sopra la Palude dei canneti e i Bassifondi.",
+        "Ha **28 di salute** e **3 di armatura**. Fino a 12 blocchi di distanza suona un rintocco da **4 di danno** che ti rallenta per 3 secondi. Mettersi al riparo interrompe il canto."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Frammento di campana**.",
+        "Un Frammento di campana si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi **Voce** con gli **Intagliatori di sigilli**, poi usa un Amuleto di legame su un adulto: due tentativi su cinque, l'amuleto si consuma se fallisce. Oppure nutrila con il suo stesso reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Una campana legata ti toglie veleno, debolezza e altri malefici mentre ti segue. Vedi [doni del familiare](familiar_gifts)."
+      ],
+      "title": "Come familiare"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, quando cacciato lascia questo, di più con Saccheggio."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Soczewka ley",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Szyba, Miedziany rezonator i Odłamek Ducha dają soczewkę do widoku ley. Spójrz przez nią, a zobaczysz, co robi ziemia i twój obóz: jak silna jest ley, dokąd sięga Puls, które totemy czuwają i które maszyny pracują."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pięć widoków",
+      "text": [
+        "Trzymaj ją w którejkolwiek ręce i użyj, by przełączać pięć widoków:",
+        "- **Ley**: rysuje linie ley wokół ciebie, każdą nić w kolorze jej głosu.",
+        "- **Strefa Pulsu**: pokazuje sieć kraty, na której stoisz: zasięg **8 bloków** jej przewodników, ten, którego dotykasz, obrysowany najjaśniej, i znak nad każdym blokiem, który trzyma Puls. Panel podaje przewodniki sieci i tempo, rangę twojego przewodnika i to, co niósł w ostatniej sekundzie, oraz sumuje Puls wchodzący do sieci wobec tego, co wydają jej maszyny. Poza kratą tak właśnie pisze.",
+        "- **Głosy**: znaczy pobliskie totemy kolorem ich własnego głosu, gdy są odpowiedziane, ciemniejszym odcieniem, gdy przygaszone, i szaro, gdy ciche.",
+        "- **Maszyny**: znaczy maszyny Tribal Power wokół ciebie.",
+        "- **Wyłączone**: szkło ciemnieje. Bez linii, bez panelu, bez znaków. Gogle ley, które nosisz, wciąż pokazują swoje nici.",
+        "Każdy widok ma własny panel na ekranie. Widok Ley pokazuje siłę ley tam, gdzie stoisz, Strefa Pulsu to, co jest złożone i co płynie, Głosy głosy w zasięgu, a Maszyny stacje, przekaźniki i skrytki wokół. Wyłączone nie pokazuje nic."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nici ley",
+      "text": [
+        "Linie ley to sieć przez cały wymiar: Puls planety, nie bloki. Każda linia to nić w kolorze Totemu rezonansu (Ziemia zielony, Ogień pomarańczowy, Woda niebieski, Powietrze blade niebo, Duch fioletowy albo Krosno złoty), z jasnym węzłem, który tętni wzdłuż niej.",
+        "Totem przeciąga przez siebie nić własnego koloru, więc nitkę sterujesz tym, gdzie stawiasz totem. Skrzyżowanie leży mniej więcej co **80 bloków**. Większość spina od dwóch do czterech nici, a tylko około jedno na czterdzieści zbiera wszystkie sześć.",
+        "Wytwórz z Soczewka ley [Kaptur duchotkaniny](spiritweave), a gogle kaptura pokazują te same nici, gdy go nosisz, nawet z soczewką w ręce ustawioną na Wyłączone; soczewka na innym widoku je chowa. Skradając się, użyj kaptura albo kliknij przy skradaniu pustą ręką, gdy jest na głowie, by gasić i zapalać gogle."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Czytanie ziemi",
+      "text": "Soczewka rysuje tylko nici, nigdy ziemię. W widoku Ley pasek siły na panelu robi się złoty tam, gdzie Kolektor ley śpiewałby najgłośniej, i niebieski tam, gdzie ledwo by brzęczał."
+    },
+    {
+      "type": "text",
+      "title": "Z bliska",
+      "text": [
+        "Skradając się, użyj soczewki na Kolektor ley, by wypisać na czacie dokładny rozkład czynników tego kolektora: te same liczby, którymi zbiera.",
+        "Skradając się, użyj jej na stworzeniu Marszu, dzikim albo związanym, by wypisać jego nici i Znamiona; zobacz [Wiązanie chowańca](familiars).",
+        "Linia siły to to samo uderzenie, które kolektor zliczyłby tam, od 1 do **16**, pokazane jako udział pełnych 16. Udział ziemi urywa się na 6, a każda linia ley dodaje do 2, tym mniej, im dalej od niej stoisz. Uderzenie **8 lub więcej** trzyma pobliskie totemy przytomne. Dach zabiera niebo, deszcz i burzę, ale linie zostają, więc kolektor pod dachem słabnie, a nie umiera."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

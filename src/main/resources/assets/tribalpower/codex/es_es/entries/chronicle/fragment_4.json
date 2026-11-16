@@ -1,0 +1,17 @@
+{
+  "name": "5. La caída",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La caída",
+      "text": [
+        "“Cuando un hilo cede, los otros ocho aguantan un aliento y luego se rasgan. El suelo se desprendió del cielo en pedazos. Lo que no cayó quedó a la deriva. Lo que quedó a la deriva es la Marcha.”",
+        "Hallado en una Piedra tallada en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

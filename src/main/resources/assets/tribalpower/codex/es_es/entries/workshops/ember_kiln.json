@@ -1,0 +1,231 @@
+{
+  "name": "Horno de brasa",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "La estación de Fuego funde con Pulso en lugar de carbón. Lo que funde un horno, lo funde el Horno de brasa: la roca se vuelve piedra y la grava se vuelve un lingote. Necesita un Tótem de resonancia (Fuego) en un radio de 8 bloques."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo usarlo",
+      "text": [
+        "Aliméntalo con cualquier entrada de horno y toma el resultado del horno. No se quema combustible.",
+        "Cada fundición tarda **10 segundos** a **64 Pulso por segundo**.",
+        "La grava siempre se cuece en su lingote, incluso la grava de un mod que un horno no puede leer.",
+        "Una palanca lo pausa, y también una salida llena. Si falta Fuego, se pausa y no gasta nada."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De adoquín a piedra",
+      "steps": [
+        {
+          "caption": "Coloca el Horno de brasa con un Tótem de resonancia (Fuego) a 8 bloques.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mantén el Pulso al alcance: un generador al lado basta.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mete adoquín y saca piedra. No se quema carbón.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Una tolva bajo el Horno de brasa se lleva los resultados.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatizarlo",
+      "text": [
+        "Pon el Triturador de eco sobre el Horno de brasa, la salida hacia la entrada, para que la grava baje: es lo predeterminado cuando una estación se coloca sobre otra, así que funciona solo. [Metales y gemas](metals_and_gems) muestra una línea completa de mena.",
+        "Pon una tolva o un alijo debajo si quieres recoger los lingotes.",
+        "Súbele el rango en el Sintonizador de eco, luego en el Vinculador y el Manifestador, como en cualquier otro taller."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

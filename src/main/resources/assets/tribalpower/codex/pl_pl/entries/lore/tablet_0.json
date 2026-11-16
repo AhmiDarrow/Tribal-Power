@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Palenisko Strażników posłania",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Trzymana na ścianie obozu Rzeźbiarzy pieczęci, słowami Strażników posłania:",
+        "“Nigdy nie nazywaliśmy tego brudem. Nazywaliśmy to tym, co zostało, i trzymaliśmy ciepło. Gdy ziemia odpadła, nieśliśmy ją w koszach, posłanie po posłaniu, i stawialiśmy palenisko na każdym posłaniu, które ocaliliśmy. Karm palenisko chlebem i mchem. Pamięta, kto je karmił.”"
+      ]
+    }
+  ]
+}

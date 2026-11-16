@@ -1,0 +1,17 @@
+{
+  "name": "1. O céu antigo",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O céu antigo",
+      "text": [
+        "“Antes da Marcha havia um céu só e um chão só sob ele, e nove povos que não concordavam em nada, exceto que o chão devia ficar onde estava. Esse foi o primeiro acordo, e por muito tempo bastou.”",
+        "Encontrado numa pedra entalhada, nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

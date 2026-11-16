@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Ruche des Gardiens de la colonie",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "D'un Cercle de tambours dans la Marche, selon les mots des Gardiens de la colonie :",
+        "“Tu ne possèdes pas une ruche. Tu es en bons termes avec elle. Offre du miel, plante les fleurs de la Marche, et l'essaim fera passer la Pulsation par le rayon pour toi. Prends sans demander et le rayon se tait. Il est très patient là-dessus.”"
+      ]
+    }
+  ]
+}

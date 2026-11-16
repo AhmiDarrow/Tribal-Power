@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Malha dos Cantores de cascalho",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada em um acampamento dos Entalhadores de selos, nas palavras dos Cantores de cascalho:",
+        "“A malha não encontra o minério. A malha dá ao minério um lugar para pousar. Cante baixo sobre a pedra bruta e ela se solta; cante mais baixo e ela se estilhaça em eco. Nossas malhas ainda pendem nos salões, zumbindo para o nada. Traga minério a elas e elas zumbirão para você.”"
+      ]
+    }
+  ]
+}

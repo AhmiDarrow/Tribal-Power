@@ -1,0 +1,17 @@
+{
+  "name": "12. Cristallo",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cristallo",
+      "text": [
+        "“I Campi di cristallo crebbero dove le maglie dei Cantori di ghiaia caddero cantando. La pietra ricordò l'intonazione e crebbe verso di essa. Quasi tutto il campo è intonato. La parte che non lo è ha un corpo lungo e una memoria più lunga.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

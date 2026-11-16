@@ -1,0 +1,184 @@
+{
+  "name": "Une énergie qui continue",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tambouriner te lance, mais un camp a besoin d'énergie pendant que tu es absent. Le [Résonateur de Pulsation](pulse_resonator) fait de la Pulsation tout seul une fois que tu y places un cristal et que tu lui donnes de la compagnie. Fabrique-le avec du fer, de l'améthyste, deux Résonateurs en cuivre et un Éclat d'Esprit.",
+        "Prends l'Éclat d'écho de ton Broyeur d'écho et fais un clic droit sur le Résonateur avec. L'éclat reste dedans comme catalyseur et la Pulsation qu'il produit le consume peu à peu : un éclat vaut environ 20,000 Pulsation, à peu près quarante minutes au premier débit. Garde-en un de rechange.",
+        "Place ensuite à proximité des totems de **deux voix différentes**, par exemple Terre et Feu. Deux totems de Terre comptent encore comme une seule voix. Garde un Conducteur de treillis à portée du Résonateur et des totems : il porte la Pulsation du Résonateur jusqu'à tes machines et garde pleins les tampons des totems, et donc leurs voix."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Installer le Résonateur",
+      "steps": [
+        {
+          "caption": "Place le Résonateur de Pulsation sur un sol dégagé.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fais un clic droit dessus avec un Éclat d'écho. L'éclat reste dedans comme catalyseur jusqu'à ce que la Pulsation qu'il produit l'use.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un totem de Terre dans les 8 blocs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute une deuxième voix, différente, comme Feu. Maintenant il fait 8 Pulsation par seconde tout seul.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un départ lent",
+      "text": [
+        "Huit Pulsation par seconde, c'est modeste ; une station chargée peut les dépenser plus vite. Laisse une réserve se former, et lis la page du [Résonateur de Pulsation](pulse_resonator) quand tu es prêt pour des cristaux plus forts et davantage de voix."
+      ]
+    }
+  ]
+}

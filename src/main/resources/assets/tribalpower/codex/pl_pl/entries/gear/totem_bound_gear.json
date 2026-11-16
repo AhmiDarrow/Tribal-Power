@@ -1,0 +1,85 @@
+{
+  "name": "Sprzęt związany z totemem",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Nadanie sprzętowi głosu",
+      "text": [
+        "Każde narzędzie duchowego sprzętu lub część duchotkaniny może odpowiedzieć jednemu głosowi totemu. Postaw Totem rezonansu, nieś naładowane Ogniwo Pulsu i użyj części na totemie w kucki.",
+        "Wiązanie zużywa **40 Puls**. Totem się nie zużywa, pasek akcji podaje głos i możesz nadpisać go w każdej chwili w ten sam sposób. Kliknięcia pustą ręką nadal odczytują totem jak zwykle.",
+        "Mieszane zestawy są zamierzone: kaptur Ognia to odporność na ogień, nie widzenie w ciemności. Głos Krosno potrzebuje totemu Krosno (zobacz [Szósty głos](sixth_voice)).",
+        "Dostrojony [chowaniec](familiar_boons) głosu części w pobliżu sprawia, że zużywa ona o **40%** mniej Pulsu, a premie głosu przychodzą częściej."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak je odróżnić",
+      "text": [
+        "Związana część duchotkaniny zużywa **3 Puls co cztery sekundy**, więc związany kaptur, szata i nogawice kosztują **9**; niepołączona część nie ma daru i nic nie zużywa. Buty zużywają tylko wtedy, gdy użyta jest jedna z ich premii, i to pokrywa następne cztery sekundy. Część wyłączona albo bez Pulsu w zasięgu nie daje żadnej premii.",
+        "Związaną część poznasz od razu: jej obszycia świecą kolorem jej głosu, zieleń Ziemi, pomarańcz Ognia, niebieski Wody, blada mięta Powietrza, fiolet Ducha i błękitny Krosna, w ręce i gdy noszona. Im wyższa ranga, tym jaśniej płonie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na kilofie",
+      "text": [
+        "- **Ziemia** otwiera **3 na 3** z kamienia wokół każdego bloku, który kopiesz, kwadratem w stronę, w którą patrzysz. Całe 3 na 3 kosztuje tylko Puls pierwszego bloku.",
+        "- **Ogień** wytapia to, co kopie.",
+        "- **Woda** kopie jedwabnym dotykiem.",
+        "- **Powietrze** daje pośpiech.",
+        "- **Duch** sprawia, że pobliskie rudy migoczą co kilka sekund, w zasięgu 6 bloków (10 na randze 3).",
+        "- **Krosno** kopie za **0 Puls** i nie zużywa się przy tym."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na siekierze",
+      "text": [
+        "**siekiera**, na kłodach: **Ziemia** ścina **całe drzewo**, od góry w dół, gdziekolwiek uderzysz; kucnij, by ciąć jedną kłodę. Liczą się tylko kłody tego rodzaju, który uderzyłeś, i tylko z naturalnie wyrośniętymi liśćmi: co najmniej **3**, i jeden na każde **8** kłód. Drewno dotykające desek, szkła, drzwi, płotów lub innych bloków budowlanych to budowla, więc budowle z gołych kłód i chata wrośnięta w drzewo zostają. Puls płaci się, gdy kłody spadają: co 16 kłód kosztuje Puls jednego zamachu, a jak każda płatna praca ścinka nie zużywa. Więc jedna ścinka jest tylko tak duża, jak Puls, do którego sięga siekiera: **Płaczący kolos**, dziesiątki tysięcy kłód, może wziąć więcej niż całe Ogniwo Pulsu. Wartość zamachu, który nic nie ścina (chronione drewno, powiedzmy), wraca. **Powietrze** zawsze bierze dwa więcej, **Woda** od czasu do czasu upuszcza sadzonkę dębu, **Duch** sprawia, że wrodzy w zasięgu 8 bloków świecą, **Ogień** zwęgla drewno, a **Krosno** wysyła kłody do twojej ręki.",
+        "Drzewo powyżej **512** kłód (wierzba na boku) zostaje całe, tak samo takie, które wchodzi w niezaładowany grunt. Zamach bez Pulsu tnie jedną kłodę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na łopacie",
+      "text": [
+        "**łopata**: **Ziemia** kopie **3 na 3** z ziemi, piasku lub żwiru, **Powietrze** kładzie ścieżki szerokie na trzy, **Woda** czasem wyciąga glinę z ziemi, **Ogień** wypala piasek na szkło, **Krosno** podnosi piasek i żwir w całości, a **Duch** sprawia, że skrzynie, beczki i spawnery w 8 blokach migoczą."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na ostrzu",
+      "text": [
+        "Każde opłacone trafienie ostrza dodaje **uderzenie echa**: trochę magicznych obrażeń, a wróg świeci przez kilka sekund. Jego głos dodaje więcej:",
+        "- **Ziemia**: odrzuca wroga i spowalnia go.",
+        "- **Ogień**: podpala go i pali trochę głębiej.",
+        "- **Woda**: leczy cię o serce (dwa na randze 3).",
+        "- **Powietrze**: cios zamiata wrogów obok.",
+        "- **Duch**: silniejsze uderzenie echa.",
+        "- **Krosno**: ciągnie wroga ku tobie.",
+        "Cała [rodzina broni](spiritgear_weapons) przyjmuje głosy tak samo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Duchotkaninie",
+      "text": [
+        "- **Ziemia**: kaptur odbija jeden pocisk na pięć (około jeden na trzy na randze 3); szata daje odporność; nogawice przechodzą przez pajęczyny, krzaki jagód i piasek dusz; buty zmniejszają odrzut i nigdy nie tratują pola uprawnego.",
+        "- **Ogień**: kaptur i szata dają odporność na ogień, a szata podpala atakujących na 3 sekundy; nogawice dają szybkość w lawie i w Nether; buty ignorują gorące podłoże.",
+        "- **Woda**: kaptur daje oddychanie pod wodą; szata regeneruje cię przy trafieniu (dłużej na randze 3); nogawice dają grację delfina; buty zamrażają nieruchomą wodę pod stopami."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Więcej głosów Duchotkaniny",
+      "text": [
+        "- **Powietrze**: kaptur daje widzenie w ciemności; szata ignoruje odrzut; nogawice dają szybkość (mocniejszą na randze 3); buty dają powolne opadanie.",
+        "- **Duch**: kaptur daje widzenie w ciemności i sprawia, że wrogie istoty w promieniu 12 bloków świecą; szata daje odporność i sprawia, że atakujący świecą; nogawice dają szybkość i wyższy krok; buty anulują obrażenia od upadku, a na randze 3 odbijają cię w górę przy spadku z 4 lub więcej.",
+        "- **Krosno**: kaptur daje szczęście; szata czasem wplata zużyty Puls z powrotem w twoje ogniwo; nogawice przechodzą przez pajęczyny i krzaki jagód; buty pozwalają iść naprzód w kucki i zszyć **4 bloki** (**6** na randze 3), opłacane jak inne premie, potem odpoczynek 8 sekund."
+      ]
+    }
+  ]
+}

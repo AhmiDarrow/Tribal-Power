@@ -1,0 +1,51 @@
+{
+  "name": "Popiołozwiązany",
+  "icon": "tribalpower:ember_heart",
+  "order": 70,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ashbound_spawn_egg",
+    "tribalpower:ember_heart"
+  ],
+  "next": "rootbound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashbound",
+      "text": [
+        "Spalona wiklinowa kukła, szczątki złamanego obrzędu ognia. Jego ciosy podpalają cię.",
+        "Upolowany, zostawia też do 2 węgla i do 1 kości."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Popiołozwiązany chodzą nocą po lasach zwykłego świata, a w Marsz wędrują po stepie i Pustkowiach żaru.",
+        "Ma **24 zdrowia** i **2 pancerza**, i zadaje **4**. Każdy cios podpala cię na 2 sekundy, a sam jest odporny na ogień. Trzymaj wodę blisko albo walcz tam, gdzie możesz wejść do kałuży."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **od 1 do 2 Serce żaru**.",
+        "Serce żaru pod Duch dostraja się do 2 Dostrojone echo."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Żaden amulet nie zwiąże Popiołozwiązany. Oświetl swoje ścieżki, a będzie trzymał się z dala."
+      ],
+      "title": "Nie stworzy więzi"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i pędzenie",
+      "text": [
+        "Oprócz swojego odczynnika upuszcza to przy polowaniu, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

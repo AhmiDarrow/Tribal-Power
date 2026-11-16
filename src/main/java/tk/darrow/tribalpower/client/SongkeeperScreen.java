@@ -275,7 +275,8 @@ public class SongkeeperScreen extends Screen {
         int clipTop = panelY + 26, clipBottom = panelY + panelH - 6;
         for (Object row : rows) {
             if (row instanceof String album) {
-                if (y + HEADER > clipTop && y < clipBottom) g.drawString(font, album, panelX + 10, y + 4, TEAL, false);
+                if (y + HEADER > clipTop && y < clipBottom)
+                    g.drawString(font, Songbook.Song.albumComponent(album), panelX + 10, y + 4, TEAL, false);
                 y += HEADER;
                 continue;
             }
@@ -291,7 +292,8 @@ public class SongkeeperScreen extends Screen {
             int right = panelX + listW - 8;
             boolean played = starsOf(s.index(), difficulty) >= 0;
             int room = right - font.width(length) - (played ? 42 : 6) - (panelX + 14);
-            String name = font.width(s.title()) <= room ? s.title() : font.plainSubstrByWidth(s.title(), room - font.width("…")) + "…";
+            String title = s.titleComponent().getString();
+            String name = font.width(title) <= room ? title : font.plainSubstrByWidth(title, room - font.width("…")) + "…";
             g.drawString(font, name, panelX + 14, y + 5, TEXT, false);
             g.drawString(font, length, right - font.width(length), y + 5, QUIET, false);
             if (played) stars(g, right - font.width(length) - 40, y + 5, starsOf(s.index(), difficulty));
@@ -311,9 +313,9 @@ public class SongkeeperScreen extends Screen {
         g.pose().pushPose();
         g.pose().translate(rx, ry, 0);
         g.pose().scale(1.3F, 1.3F, 1);
-        g.drawString(font, font.plainSubstrByWidth(song.title(), (int) (rw / 1.3F)), 0, 0, TEXT, false);
+        g.drawString(font, font.plainSubstrByWidth(song.titleComponent().getString(), (int) (rw / 1.3F)), 0, 0, TEXT, false);
         g.pose().popPose();
-        g.drawString(font, song.album(), rx, ry + 16, QUIET, false);
+        g.drawString(font, song.albumComponent(), rx, ry + 16, QUIET, false);
         Songbook.Chart chart = Songbook.chart(song, difficulty);
         double perSecond = chart.size() / Math.max(1.0, song.lengthMs() / 1000.0);
         g.drawString(font, Component.translatable("gui.tribalpower.songkeeper.about", clock(song.lengthMs()), song.bpm(), chart.size()),

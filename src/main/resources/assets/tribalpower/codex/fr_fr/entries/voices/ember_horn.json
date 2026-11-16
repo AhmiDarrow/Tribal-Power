@@ -1,0 +1,210 @@
+{
+  "name": "Corne de braise",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "L'ouvrage des Cœurs-tambours : une corne qui brûle le combustible du fourneau en Pulsation. Charbon, charbon de bois, lave, bâtons de Blaze : tout ce qu'un fourneau brûle, la corne le change en puissance stable.",
+        "Elle contient **1,000 Pulsation**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'alimenter",
+      "text": [
+        "Fais un clic droit avec du combustible, ou laisse un entonnoir ou un relais l'alimenter. Le temps de combustion du combustible divisé par vingt est sa Pulsation : le charbon vaut **80**, un bloc de charbon **800**, un seau de lave **1,000**, un bâton de blaze **120**.",
+        "Elle laisse sortir cette Pulsation jusqu'à **20 par seconde**. Plus de combustible n'élève pas le plafond ; il dure seulement plus longtemps.",
+        "Elle n'allume le morceau suivant que lorsqu'elle a de la place, donc une corne pleine ne gaspille rien. Le seau vide de la lave ressort au-dessus de la corne ; rien d'autre ne se retire d'un feu allumé.",
+        "Accroupis-toi et fais un clic droit sur une face à main vide pour la faire passer par Les deux, Entrée, Sortie et Fermé, comme le fait la [Clé de totem](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une corne qui s'alimente seule",
+      "steps": [
+        {
+          "caption": "Place la corne là où les machines à 8 blocs peuvent y puiser.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un entonnoir au-dessus lui donne du combustible.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un coffre de charbon au-dessus de l'entonnoir la fait brûler longtemps : chaque charbon vaut 80 Pulsation.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un levier à côté met la corne en pause. Le combustible attend simplement.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Monter en échelle",
+      "text": [
+        "Sans rang, la corne produit au plus **20 par seconde**. Chaque rang ajoute **15% de Pulsation par seconde**, arrondi à une Pulsation entière. Au-delà, construis d'autres cornes.",
+        "Aucune boucle que tu peux automatiser ne change le combustible en plus de combustible qu'elle n'en brûle. Même le charbon appelé par la Fosse d'écoute coûte plus de Pulsation à aller chercher et à briser qu'il n'en rend.",
+        "Un clic à main vide te dit ce qu'elle produit et ce qu'elle contient. Accroupis-toi et fais un clic droit avec ce livre pour voir le combustible et la combustion encore due.",
+        "Les cornes sont l'ouvrage des [Cœurs-tambours](tribe_spark) : la recette demande un Nœud d'escarbille et un Sceau de Feu, et les Cœurs-tambours échangent une corne avec quiconque ils nomment Ami."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

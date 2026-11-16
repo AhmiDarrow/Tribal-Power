@@ -1,0 +1,63 @@
+{
+  "name": "Wegtor",
+  "icon": "tribalpower:gate_keystone",
+  "order": 30,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "Ein Durchgang zu einem anderen Durchgang. Bau zwei Steinrahmen, verknüpfe ihre Schlusssteine, zünde einen an, und alles, was hineingeht, kommt aus dem anderen heraus: Spieler, Tiere, Monster und fallengelassene Gegenstände gleichermaßen."
+      ],
+      "title": "Wegtor"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Den Rahmen bauen",
+      "text": "Ein Ring, fünf mal fünf, ohne die Ecken, der Schlussstein in der Mitte der unteren Reihe. Das Innere, drei breit und drei hoch, bleibt leer."
+    },
+    {
+      "type": "text",
+      "title": "Rahmen und Schlussstein",
+      "text": [
+        "Eine Fertigung aus sechs Marschstein, zwei Kupfer und einer Echoscherbe ergibt **vier Torrahmen**. Ein Ring braucht **11** Rahmen, und der Schlussstein selbst braucht vier weitere, dazu einen Resonanzkern, eine Geistscherbe und eine Pulszelle.",
+        "Der Schlussstein hält den Puls des Tors, bis zu **600**. Rechtsklicke ihn mit einer Pulszelle, um bis zu **100** auf einmal hineinzugießen. Ein leuchtendes Tor füllt sich auch selbst nach, um bis zu 40 pro Sekunde aus dem Gitter, über einen Konduktor innerhalb von 8 Blöcken.",
+        "Nur der Spieler, der einen Torschlussstein gesetzt hat, und sein Lager können ihn laden, verknüpfen, erleuchten oder abbauen. Verknüpfen fädelt beide Enden neu ein, also kannst du dich auch nicht an das Wegtor von jemand anderem hängen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Paar verknüpfen",
+      "text": [
+        "Baue das zweite Wegtor in derselben Welt.",
+        "- **Kompass:** schleiche und rechtsklicke den ersten Torschlussstein mit einem ungebundenen Wegsteinkompass, um ihn dort zu binden, dann schleiche und rechtsklicke den zweiten Torschlussstein mit diesem Kompass.",
+        "- **Kreide:** rechtsklicke einen Torschlussstein mit Ritualkreide, dann den anderen, bis zu **64 Blöcke** entfernt.",
+        "- Ein Torsigill funktioniert ebenfalls; siehe [Ferntor](far_gate).",
+        "Das Paar antwortet in beide Richtungen. **/tribalpower gate list** nennt jedes Wegtor, das du gesetzt hast, und seinen Partner."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Erleuchten und durchqueren",
+      "text": [
+        "Rechtsklicke den Torschlussstein mit leerer Hand, um ihn zu erleuchten: **400 Puls** aus seinem Vorrat. Rechtsklicke erneut, damit er dunkel wird. Ein kurzer Redstone-Impuls schaltet ihn genauso um, ein gehaltenes Signal hält ihn dunkel und verweigert die Reise.",
+        "Jede Durchquerung nimmt **20 Puls** von dem Wegtor, in das du hineingehst. Du landest im Rahmen des Partners, erleuchtet oder nicht. Eine Abklingzeit von **einer Sekunde** hält dich davon ab, sofort zurückzuspringen. Reiter und Fahrzeuge können nicht hindurch.",
+        "Ein Komparator zeigt **0** ohne Verknüpfung, **1 bis 14** für gespeicherten Puls und **15**, wenn etwas hindurchgeht.",
+        "Siehe [Den Weg bewahren](keeping_the_way), wenn etwas schiefgeht."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Czym jest chowaniec",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Towarzysz twojej magii",
+      "text": [
+        "**Chowaniec** to stworzenie związane z tobą. Idzie za tobą, czeka tam, gdzie mu każesz, i nigdy nie znika, a każdy rodzaj ma własny dar ([co robią chowańce](familiar_gifts)).",
+        "Daj mu głos na **Totem rezonansu**, a stanie się częścią twojej magii: amulety Ducha i Duchowy sprzęt tego głosu kosztują mniej, a jego pieśni i rytuały rosną w siłę, dopóki jest w promieniu **16 bloków** od ciebie.",
+        "Magia działa bez chowańca. Chowaniec czyni ją silniejszą."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kogo można związać",
+      "text": [
+        "- **Łagodne bestie**: Jeleń świtu i Lis-latarnia z lasów, Mchogrzbiet z bagien oraz pasące się zwierzęta, skoczki i ćmy każdego biomu Marszu. Związać je może każdy.",
+        "- **Sześć pozostałości**, gdy ich plemię nazwie cię **Głos** (800 poważania): Odłamkogrzbiet, Ogar szczeliny, Chochlik żagwi, Ćma burzy, Dzwon żałobny i Tkacz echa. Następna strona mówi, które plemię przemawia za którym.",
+        "Popiołozwiązany, Korzeniozwiązany, Tropiciele trzcin i Puści strażnicy nigdy nie odpowiadają, tak samo jak bossowie, gobliny, trolle i inne wrogie istoty Marszu. Młodych nie da się związać.",
+        "**Skradaj się i patrz** na stworzenie, by zobaczyć, czy da się je związać i czego potrzebuje. Soczewka ley użyta w skradaniu mówi to samo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Odłamkogrzbiet: **Śpiewacy żwiru**.",
+        "- Ogar szczeliny: **Chodzący po krawędzi**.",
+        "- Chochlik żagwi: **Bęben-serca**.",
+        "- Ćma burzy: **Tkacze wzorów**.",
+        "- Dzwon żałobny: **Rzeźbiarze pieczęci**.",
+        "- Tkacz echa: **Szwacze krosna**.",
+        "Zobacz [poważanie](standing), aby wiedzieć, jak je zdobyć."
+      ],
+      "title": "Które plemię dla której pozostałości"
+    }
+  ]
+}

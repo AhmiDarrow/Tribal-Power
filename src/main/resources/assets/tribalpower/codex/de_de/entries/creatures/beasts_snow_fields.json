@@ -1,0 +1,74 @@
+{
+  "name": "Bestien der Schneefelder",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die Eigenen des Schnees",
+      "text": [
+        "Die Schneefelder bergen eine Robbe auf den Wehen, ein Karibu, eine Qualle, die auf der kalten Luft schwebt, und einen Eisskorpion, der nachts aus dem Schnee kriecht.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute für ihr Reagenz bürsten und wird mit ihrem eigenen Futter angelockt und gezüchtet, genannt unten unter **Jagd und Hüten**. Man kann sie binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene an einem Totem trotzdem eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem einstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Treibpelz",
+      "text": [
+        "Eine Schneerobbe, schwer und dickfellig, die sich auf den Flossen über die Wehen zieht, in Herden von zwei bis vier. **26 Gesundheit** und **5 Rüstung**, und sehr langsam.",
+        "Es lässt **1 bis 3 Treibfell** fallen, mehr mit Plünderung.",
+        "Gejagt lässt es außerdem 1 bis 2 Rohes Wildbret und bis zu 2 Marschleder fallen. Züchte mit **Frostbeere**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Frostläufer",
+      "text": [
+        "Ein schweres Karibu mit langer weißer Mähne, schnell unter großem geschwungenem Geweih, in Herden von zwei bis vier. **22 Gesundheit** und **1 Rüstung**.",
+        "Es lässt **1 bis 3 Frosthuf** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Rohes Wildbret, bis zu 2 Marschleder und bis zu 1 Knochen fallen. Züchte mit **Frostbeere**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Schneeschleier",
+      "text": [
+        "Eine bleiche Mondqualle der Luft, eine niedrige weißblaue Kuppel mit vier violetten Ringen darin und vier gefransten Armen, die darunter nachziehen, die einzeln bis zu dritt über den Schnee treibt. **12 Gesundheit**, keine Rüstung.",
+        "Es lässt **1 bis 3 Schleier aus Schnee** fallen.",
+        "Gejagt lässt es außerdem bis zu 2 Schneeball und bis zu 1 Faden fallen. Züchte mit **Frostbeere**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Reifkriecher",
+      "text": [
+        "Ein Eisskorpion, den Schwanz über den Rücken gebogen, der nachts auf dem offenen Schnee auftaucht, einer oder zwei auf einmal. Er hat **23 Gesundheit** und **3 Rüstung**, und sein Stich macht **4** und vergiftet dich 3 Sekunden lang.",
+        "Es lässt **1 bis 2 Reifmandibel** fallen, ein Gift-Reagenz. Reifmandibel ruft den Steinmalwicht am Steinmalring, und der Wicht ruft eigene Reifkriecher: siehe [Wächter](guardians).",
+        "Gejagt lässt es außerdem bis zu 2 Schneeball und bis zu 1 Spinnenauge fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn es gejagt wird, und noch mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend gestorben ist. Um wilde zu züchten, **schleiche**, während du zwei Erwachsene mit ihrem Futter fütterst; fütterst du normal, wird ein wildes dir stattdessen zutraulich."
+      ]
+    }
+  ]
+}

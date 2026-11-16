@@ -1,0 +1,174 @@
+{
+  "name": "비 풍경",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "날씨를 레드스톤 신호로 바꾼다. 비 풍경은 펄스도 연료도 필요 없고, 펄스를 만들지도 않는다. 하늘이 무엇을 하는지만 알려 준다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "읽는 법",
+      "text": [
+        "비교기를 붙인다. 비에는 **8**, 뇌우에는 **15**, 맑은 하늘에는 **0**. 날씨는 월드 전체라서 지붕이 그것을 잠재우지 못한다.",
+        "비가 오는 동안 **열 초**마다 부드럽게 울린다.",
+        "풍경으로 들어오는 레드스톤 신호는 그것을 잠재우고 출력을 0으로 만든다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "날씨 알림",
+      "steps": [
+        {
+          "caption": "비교기가 읽을 수 있는 곳에 풍경을 둔다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그것에서 바깥을 향한 비교기가 날씨를 읽는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "여기서는 비가 올 때마다 등을 켠다. 더 정밀한 논리로 비(8)와 천둥(15)을 가릴 수 있다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "아이디어",
+      "text": [
+        "날씨로 [레이 수집기](ley_collector)를 멈추거나 야영지 등을 켠다. 나가기 전에 천둥 수치를 경고로 쓴다.",
+        "연료도 유지비도 없다. 놓아두면 그저 듣는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

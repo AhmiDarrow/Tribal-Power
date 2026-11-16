@@ -1,0 +1,281 @@
+{
+  "name": "Conductor de entramado",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "El Conductor de entramado teje el entramado del Pulso; no hace Pulso por sí mismo. El Pulso solo se mueve a lo largo de los conductores: todo lo que está a **8 bloques** de uno (generadores, máquinas, manos del campamento, relés, tótems y Túmulo de Pulso) queda en su red, y las máquinas solo toman Pulso de la red. Una elaboración da cuatro."
+    },
+    {
+      "type": "text",
+      "title": "Tejer una red",
+      "text": [
+        "Los conductores a 8 bloques entre sí se enlazan y tejen una sola red, hasta donde llega la línea. Dos grupos fuera del alcance uno del otro son dos redes y no comparten nada.",
+        "Una máquina toma primero de los generadores de su red y luego de sus [Túmulo de Pulso](pulse_cairn). Nunca toma directo de un generador, ni siquiera de uno justo al lado: sin conductor, no hay Pulso.",
+        "Los tótems de una red con Pulso llenan desde ella sus reservas de **250 Pulso** y después se quedan llenas, sin costar nada más. Esa reserva sostiene la voz del tótem: un tótem vacío está silencioso (ver [Custodia](keeping)). Las máquinas nunca gastan la reserva de un tótem.",
+        "Los tótems se unen con **Tiza ritual** según sus voces: haz clic derecho en un tótem y luego en otro a **menos de 16 bloques**. Una estación cuenta la voz de un tótem unido con tiza a uno cercano, siempre que ese compañero esté a menos de 16 bloques de la estación. La tiza lleva voces, no Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuánto transporta",
+      "text": [
+        "Cada conductor transporta una cantidad fija por segundo, según el [rango](machine_ranks): **Tejido 64**, **Sintonizado 256**, **Vinculado 1,024** y **Manifestado 4,096** de Pulso por segundo. Un conductor de antes de los rangos es Tejido.",
+        "El Pulso sale de un generador por un conductor a 8 bloques de él y llega a una máquina por un conductor a 8 bloques de la máquina, y cuenta para ambos. El Pulso que sale y llega por el mismo conductor cuenta una sola vez. Los enlaces entre conductores transportan sin límite, así que una red transporta tanto como todos sus conductores juntos.",
+        "Un generador grande quiere conductores fuertes o muchos a su alrededor: uno que haga miles por segundo, como un [Corazón de ley](ley_heart) de lo más alto, necesita un conductor manifestado (4.096 por segundo), o cuatro vinculados, para entregarlo todo. Lo mismo vale para una máquina hambrienta.",
+        "Una señal de redstone en un conductor lo saca del tejido hasta que la señal acaba."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un entramado por el campamento",
+      "steps": [
+        {
+          "caption": "Un generador. Ninguna máquina puede extraer de él hasta que el entramado lo alcance.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un Conductor de entramado a 8 bloques de él lo teje dentro del entramado.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Una estación a 8 bloques del conductor toma de la red. Sin el conductor pasaría hambre, por cerca que esté el tambor.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Los tótems al alcance llenan sus reservas desde la red y se quedan llenos: así mantienen sus voces.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leerlo",
+      "text": [
+        "Haz clic derecho en un conductor para ver su red: cuántos conductores, generadores y túmulos contiene, la tasa de este conductor y la de toda la red, y el Pulso guardado en él.",
+        "El rito [Vinculación ley](world_rites) une un tiempo dos tótems lejanos: los conductores al alcance de un extremo se tejen en la red del otro.",
+        "La vista de Pulso de la [Lente ley](ley_lens) muestra la red en la que estás, por qué conductor pasa y cuánto llevó en el último segundo.",
+        "El entramado lleva Pulso, no mercancías. Para mover objetos a distancia, usa [relés](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuando se calla",
+      "text": [
+        "Una palanca o cualquier señal de redstone saca al conductor del tejido.",
+        "«Ni generador ni túmulo» significa que nada en la red produce o guarda Pulso: trae uno a 8 bloques de cualquiera de sus conductores.",
+        "«Seco» significa que los generadores y túmulos de la red están vacíos: haz más Pulso, o gasta menos.",
+        "«Lleva todo lo que puede» significa que el conductor pasó toda su tasa en el último segundo: súbele el rango, o añade conductores junto al generador y la máquina que están ocupados.",
+        "Agáchate y haz clic derecho con este libro para ver su rango, lo que llevó en el último segundo y qué falta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

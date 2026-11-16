@@ -1,0 +1,184 @@
+{
+  "name": "Dzwon pobudki",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "Rzemiosło Rzeźbiarze pieczęci: dzwon, który opłakuje zmarłych. Każde stworzenie, które umiera w pobliżu, wpłaca Puls do jego zbiornika, więc farma mobów staje się elektrownią."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak płaci",
+      "text": [
+        "Śmierć w promieniu **16 bloków** wypłaca **20 Puls** za wrogą istotę i **5** za pasywną. Śmierci graczy nie płacą nic.",
+        "Zgony napełniają zbiornik **2,000**, a dzwon wypuszcza go najwyżej **8 na sekundę** bez rangi. Ranga dodaje **15% Puls na sekundę** za każdą rangę, zaokrąglone do całego Pulsu. Duża farma napełnia zbiornik, a potem stoi bezczynnie; wszystko ponad krawędź przepada.",
+        "Zgon słyszy tylko **najbliższy** dzwon, więc stawianie dzwonów jeden na drugim nic nie daje. Dzwon wstrzymany przez redstone nie słyszy nic."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dzwon przy farmie",
+      "steps": [
+        {
+          "caption": "Zawieś dzwon w odległości do 16 bloków od miejsca, gdzie rzeczy umierają.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Każde zabicie napełnia jego zbiornik; dzwon wypuszcza go do 8 Puls na sekundę.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kopiec Pulsu obok połyka te zrywy tak szybko, jak nadchodzą.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Maszyny w zasięgu 8 bloków od kopca ciągną stałą linię, choćby zabicia były nierówne.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wskazówki",
+      "text": [
+        "Działa ciemna farma albo pole, na którym zabija Bęben ochrony. Gracze nigdy nie są celem, w który bije Bęben ochrony, a dzwon i tak słyszy każdą śmierć, którą tamten zadaje.",
+        "Dół nasłuchu chce stałego poboru, więc zestaw dzwon z Kopiec Pulsu.",
+        "Dzwony to rzemiosło [Rzeźbiarze pieczęci](tribe_sigil): przepis wymaga Odłamek dzwonu i Pieczęć Ducha, a Rzeźbiarze pieczęci wymieniają dzwon na rangę Ród."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

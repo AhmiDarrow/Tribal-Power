@@ -1,0 +1,38 @@
+{
+  "name": "Leggere le pietre",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Pietra intagliata e murali",
+      "text": [
+        "La Marcia ha scritto la propria storia, in pietra. Nei muri delle sue rovine stanno **Pietra intagliata**: rovine del Telaio, villaggi su palafitte, santuari sommersi, tumuli di palude, tombe di cenere, ossari, gallerie di scavo e le volte della Cresta del barlume. Nei terreni dei guardiani, **Murale intagliato** sono larghi due blocchi e alti due, e ognuno dipinge il paese in cui sta.",
+        "Fai clic destro su uno e lo leggi; il frammento resta qui per sempre, e la Cronaca lo mette al suo posto. Ce ne sono **sedici**: otto pietre per la caduta del Telaio, otto murali per i paesi che ha lasciato. Leggili tutti e la Cronaca è intera, con il progresso **La Cronaca intera** a dimostrarlo.",
+        "Le pietre e i murali si possono raccogliere e mettere su qualsiasi muro tuo, e in modalità creativa un clic accovacciato su una pietra o un murale ne cambia il capitolo. Ogni capitolo rovina la sorpresa finché non l'hai trovato."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dipinti e stemmi",
+      "text": [
+        "Sei **dipinti** della Marcia stanno ora tra quelli ordinari: tieni un dipinto contro un muro e uno può venire fuori. I titoli sono i loro.",
+        "Quando il tuo rango presso una tribù raggiunge **Consanguineo**, essa ti consegna il suo **stemma**, una volta sola: un motivo per stendardo con il segno della tribù. Mettilo in un telaio con uno stendardo e una tintura qualsiasi. Fallo sventolare sopra un accampamento tuo per mostrare di chi sei Consanguineo."
+      ]
+    }
+  ]
+}

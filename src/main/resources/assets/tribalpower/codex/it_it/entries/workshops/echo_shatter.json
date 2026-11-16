@@ -1,0 +1,239 @@
+{
+  "name": "Frantumatore di eco",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "La stazione di Terra, e la prima che costruirai. Il Frantumatore di eco ha due compiti: spezzare la **Pietra** in Schegge di eco, il cristallo che alimenta un Risonatore di Pulso, e frantumare blocchi e minerali in qualcosa di più piccolo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fare schegge",
+      "text": [
+        "Metti **Pietra** o **Ardesia profonda**; anche la Pietra della Marcia va bene. Il pietrisco non fa schegge, quindi fondilo prima in pietra.",
+        "Una scheggia richiede **2 secondi** a **32 di Pulso al secondo**. Il Pulso accumulato vicino, nel buffer di un generatore o in un tumulo, porta un generatore lento attraverso un lotto.",
+        "Gli serve un totem di Terra entro 8 blocchi e un generatore carico. La scheggia è il piccolo catalizzatore del tuo primo Risonatore di Pulso, consumata piano dal Pulso che esso produce."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Frantumazione",
+      "text": [
+        "- Pietrisco, pietrisco di ardesia profonda e Ciottoli della Marcia diventano ghiaia; la ghiaia diventa sabbia.",
+        "- La sabbia diventa polvere se la mod di setacciatura supportata è installata, altrimenti una palla di argilla.",
+        "- La diorite diventa quarzo. Il Minerale della Marcia diventa due Schegge di Spirito.",
+        "- I metalli grezzi e i minerali metallici diventano **due ghiaie** ciascuno, in 4 secondi a 40 di Pulso al secondo. Vedi [Metalli e gemme](metals_and_gems).",
+        "- I minerali di gemme con Tocco di velluto si frantumano dritti nella gemma, al doppio di ciò che il minerale lascia da solo.",
+        "Le ricette di questo libro, o JEI, mostrano gli ingressi e le uscite esatti del tuo pack."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "La ghiaia scende",
+      "steps": [
+        {
+          "caption": "Una Fornace di brace con il suo totem di Fuoco.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Posa il Frantumatore di eco sopra di esso, con un totem di Terra vicino.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La faccia inferiore del Frantumatore di eco emette e la faccia superiore della Fornace di brace accetta, così la ghiaia cade dritta dentro.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Aggiungi un generatore, immetti ferro grezzo dall'alto e prendi i lingotti dalla Fornace di brace.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Per andare oltre",
+      "text": [
+        "Costruisci lo schema [Schiera di frantumazione](shatter_array) intorno a esso e consuma un quarto di Pulso in meno e svuota l'uscita in un Deposito ancestrale sotto di esso.",
+        "I ranghi lo rendono più veloce; vedi [Ranghi delle macchine](machine_ranks). Una leva lo mette in pausa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "Ciò che il Frantumatore di eco ricava da pietra e ardesia profonda."
+    }
+  ]
+}

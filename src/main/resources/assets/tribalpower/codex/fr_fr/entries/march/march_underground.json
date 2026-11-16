@@ -1,0 +1,58 @@
+{
+  "name": "Sous la Marche",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "La Marche est creuse en dessous. Creuse vers le bas ou suis une bouche de grotte et tu trouves d'immenses cavernes tenues par des piliers de pierre, de longs tunnels sinueux, de profonds canyons ouverts sur le ciel, et chaque minerai vanilla serti dans la Pierre de la Marche. Apporte beaucoup de lumière. Les Vestiges de l'Esprit apparaissent dans le noir, en bas, comme à la surface."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le minerai de charbon, de fer, de cuivre, d'or, de redstone, de lapis-lazuli, de diamant et d'émeraude de la Marche s'extrait et se fond exactement comme ses jumeaux vanilla. Seule la roche autour diffère.",
+        "- Charbon : n'importe quelle pioche.",
+        "- Fer, cuivre et lapis-lazuli : une pioche en pierre ou mieux.",
+        "- Or, redstone, diamant et émeraude : une pioche en fer ou mieux.",
+        "Ils donnent les mêmes matières brutes et gemmes, Fortune fonctionne, et Toucher de soie garde le bloc de minerai, que tu peux fondre directement. Un Renard-lanterne lié marque tous, et le Minerai de la Marche aussi."
+      ],
+      "title": "Miner les huit minerais"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Charbon : de **y 0** à **192**.",
+        "- Fer : partout, le plus riche aux profondeurs moyennes, et de nouveau haut dans les montagnes.",
+        "- Cuivre : de **y -16** à **112**.",
+        "- Or : en profondeur, jusqu'à **y 32**. Lapis-lazuli : de **y -32** à **32**. Redstone : sous **y 16**.",
+        "- Diamant : sous **y 16**, parfois en un gros filon.",
+        "- Émeraude : seulement dans les **Hautes terres** et sur la **Crête de lueur**, à partir de **y 48**. Elles y sont courantes, donc la montée en vaut la peine."
+      ],
+      "title": "Où chercher"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Çà et là, une paroi de grotte s'ouvre sur une petite poche d'améthyste : quelques blocs d'améthyste pris dans la roche, avec des bourgeons et, si tu as de la chance, un amas entier qui pousse dans la grotte.",
+        "Il n'y a pas d'améthyste bourgeonnante dedans, alors elles ne repoussent jamais. Prends ce qui est là et passe.",
+        "Les éclats d'améthyste s'accordent en Éclats d'Esprit dans un Accordeur d'écho, ce qui fait d'une poche une belle trouvaille au début de la Marche."
+      ],
+      "title": "Poches d'améthyste"
+    }
+  ]
+}

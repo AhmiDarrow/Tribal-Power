@@ -1,0 +1,40 @@
+{
+  "name": "Heilkreis",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "Der Ritus des Lagers",
+      "text": [
+        "Der Heilkreis ist ein [Weltritus](world_rites). Baue einen [Ritenkreis](rite_circle), setze ein **Geistsiegel** in die Feuerschale und wirke die Tafel: **500 Puls**, und der Kreis bleibt **10 Minuten** offen (ein Kreis der zweiten Stufe, mit vier Geist-Totems auf seinen Himmelsrichtungen, kostet **375 Puls** und bleibt **20 Minuten** offen).",
+        "Wenn er sich öffnet, wird jeder innerhalb von **12 Blöcken**, Spieler und gebundene Vertraute, um **10 Herzen** geheilt, verliert jeden schädlichen Effekt und erhält **10 Minuten** [Geistsegen](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Solange er offen bleibt",
+      "text": [
+        "Die übrige Zeit flickt der Kreis jeden darin um **ein Herz alle zwei Sekunden** und hebt die Geistkrankheit auf, sobald sie greift. Ein guter Ort, um sich zurückzuziehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Gefallenen zurückrufen",
+      "text": [
+        "Wenn ein **gebundener Vertrauter** stirbt, verschwindet er nicht einfach. Er hinterlässt einen leuchtenden **Geistrest** dort, wo er fiel; der verschwindet nie, und du bekommst eine Nachricht, die dir das sagt. (Nicht zu verwechseln mit den wilden Resten des Marsches: das ist der Geist deines Gefährten, und er wartet.)",
+        "Leg den Rest auf einen der **vier Sockel** des Kreises, bevor du wirkst. Wenn der Kreis sich öffnet, kommt der Vertraute auf diesem Sockel zurück: **heil**, noch deiner, mit seinem Namen und seinem Gitter. Was er trug, fiel dort, wo er fiel, wie immer, also heb das auch auf."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

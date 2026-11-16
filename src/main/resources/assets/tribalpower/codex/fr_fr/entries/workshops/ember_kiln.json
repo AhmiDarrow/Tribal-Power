@@ -1,0 +1,231 @@
+{
+  "name": "Four de braise",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "La station de Feu fond avec la Pulsation au lieu du charbon. Tout ce qu'un fourneau fond, le Four de braise le fond : la roche devient de la pierre, le gravier devient un lingot. Il lui faut un Totem de résonance (Feu) dans un rayon de 8 blocs."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "S'en servir",
+      "text": [
+        "Nourris-le de n'importe quelle entrée de fourneau et prends le résultat du fourneau. Aucun combustible n'est brûlé.",
+        "Chaque fonte prend **10 secondes** à **64 Pulsation par seconde**.",
+        "Le gravier se cuit toujours en son lingot, même le gravier d'un mod qu'un fourneau ne sait pas lire.",
+        "Un levier le met en pause, et une sortie pleine aussi. Sans Feu, il se met en pause et ne dépense rien."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De pierres à pierre",
+      "steps": [
+        {
+          "caption": "Place le Four de braise avec un Totem de résonance (Feu) à moins de 8 blocs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Garde la Pulsation à portée : un générateur à côté suffit.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mets des pierres et retire de la pierre. Aucun charbon n'est brûlé.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Un entonnoir sous le Four de braise emporte les résultats.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'automatiser",
+      "text": [
+        "Pose le Broyeur d'écho sur le Four de braise, sortie vers entrée, pour que le gravier descende : c'est le défaut quand une station est posée sur une autre, donc ça marche tout seul. [Métaux et gemmes](metals_and_gems) montre toute une ligne de minerai.",
+        "Mets un entonnoir ou une cache dessous si tu veux récupérer les lingots.",
+        "Monte son rang dans l'Accordeur d'écho, puis le Lieur, puis le Manifesteur, comme pour tout autre atelier."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

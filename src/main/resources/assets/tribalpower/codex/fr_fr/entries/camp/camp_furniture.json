@@ -1,0 +1,473 @@
+{
+  "name": "Mobilier de camp",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "Un camp doit sembler habité. La plupart de ces pièces sont en bois de la Marche, en pierre, en roseau et en feuilles, et aucune ne demande de Pulsation. Elles ne sont pas seulement un décor : pose des choses sur l'étagère, la table et l'urne, assieds-toi sur le tabouret, et le charme sonne quand tu le frappes."
+      ],
+      "title": "Mobilier de camp"
+    },
+    {
+      "type": "text",
+      "title": "Les pièces",
+      "text": [
+        "- **Table de la Marche** : se tourne vers toi quand tu la poses, et tient quatre choses sur le dessus.",
+        "- **Tabouret de la Marche** : se tourne vers toi quand tu le poses. Utilise-le à mains vides pour t'asseoir ; accroupis-toi ou utilise-le encore pour te lever.",
+        "- **Urne de l'Esprit** : un pot de pierre pour une étagère ou un coin. Elle tient une chose dans sa bouche.",
+        "- **Natte tissée** : un tapis fin pour n'importe quel sol, dalles et escaliers compris.",
+        "Utilise la table ou l'urne en tenant quelque chose pour le poser, et à mains vides pour le reprendre. Tout ce que tu poses reste là où tu l'as mis, tombe avec la pièce si elle se casse, et un comparateur peut le lire. Les entonnoirs et les tuyaux laissent les meubles tranquilles — les caches servent à ranger."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Étagères et râteliers",
+      "text": [
+        "- **Étagère murale** : s'accroche au flanc de presque n'importe quel bloc (une barrière, un muret, une bûche) et tombe si celui-ci part. Utilise-la en tenant quelque chose pour le poser sur la planche, à mains vides pour le reprendre. Quatre choses y tiennent, une par place, et un comparateur lit à quel point elle est pleine.",
+        "- **Râtelier suspendu** : un rail à quatre crochets de cuivre, haut sur ce à quoi il est fixé. Pots, outils et baluchons pendent aux crochets au lieu de reposer sur une planche. Il fonctionne comme l'étagère : utilise-le en tenant quelque chose pour l'accrocher, à mains vides pour le décrocher, et un comparateur lit à quel point il est plein. Tu passes en dessous.",
+        "Pour les décorations à suspendre, vois le [Charme du vent](wind_charm) ; frappe-le et il sonne."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un coin de camp",
+      "steps": [
+        {
+          "caption": "Pose une Natte tissée sur un sol.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Une Table de la Marche sur la natte, avec des tabourets de chaque côté.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Une Étagère murale a besoin de quelque chose derrière elle pour s'accrocher.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Une Urne de l'Esprit occupe le coin.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Porte spirituelle",
+      "text": [
+        "Une **Porte spirituelle** est un seuil spirituel pour ton camp : deux poteaux, un linteau et une lampe. **Les joueurs, les familiers liés et toute créature douce** traversent le milieu comme s'il n'y avait rien.",
+        "Un **monstre ou esprit hostile** la rencontre comme un mur plein. Accroche-en une dans la brèche de ta palissade, et la nuit reste dehors pendant que tu vas et viens.",
+        "Pose-la tournée dans le sens où tu veux que le chemin aille. Elle donne une lumière douce, et marque ainsi l'entrée une fois la nuit tombée."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

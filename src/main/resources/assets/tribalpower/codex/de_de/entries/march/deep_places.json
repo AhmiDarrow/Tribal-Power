@@ -1,0 +1,48 @@
+{
+  "name": "Tiefe Orte des Marschs",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Unter dem Graben",
+      "text": [
+        "Alles andere, was der Marsch begraben hat, liegt nur knapp darunter — ein Hügelgrab unter der Grasnarbe, ein Grab ein Dutzend Blöcke tiefer. Diese vier liegen weiter innen, im Stein selbst versenkt, ohne Schacht und ohne Eingang. Du findest sie beim Abbauen oder indem du einer Höhle folgst, die sich öffnet, wo sie es nicht sollte.",
+        "Nimm eine Fackel. Keiner ist durchgehend beleuchtet, und was dort unten lebt, war zuerst da."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Der Tiefe Tempel",
+      "text": [
+        "Eine Säulenhalle aus Marschsteinziegel, im Fels versiegelt: ein Stufenaltar unter der Mitte, mit einer **Überlieferungstafel** auf dem Rückenstein, Geistlaternen zu beiden Seiten und einer Truhe in jeder fernen Ecke. Der Boden ist aus poliertem Stein gelegt, und der Zugang fiel vor langer Zeit zu.",
+        "Es bewahrt die alten Dinge — gebundene Echos, Siegel, abgestimmte Arbeit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Schürfgalerie",
+      "text": [
+        "Jemand hat dieses Flöz bearbeitet und aufgehört. Abgestütztes Holz, Dach aus Brettern, Erz noch in den Wänden, und ein Ende unter einem Schuttfall, der das Aufhören wohl erklärt. Eine Truhe mit Werkzeug und Rationen nahe der Öffnung.",
+        "Flacher als der Rest: du triffst sie dort, wo sich Erz noch lohnt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Schimmergewölbe",
+      "text": [
+        "Nur unter dem **Schimmerkamm**. Eine behauene Kammer aus Mondstein und Polierter Mondstein, Moosachat in Ringen im Boden, Leuchtendes Quarzglas im Gewölbe darüber und Marschquarz, aus dem Stein gewachsen — vom Boden hinauf, vom Dach hinab.",
+        "Wer es schlug, wollte angeben. Die Truhe hält den eigenen Stein des Kamms und Leuchtstein, um es zu beleuchten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Ossuarium",
+      "text": [
+        "Eine Gruft: Nischen in drei Lagen an beiden langen Wänden, Knochen darin, Spinnennetz über dem Rest, und alle paar Schritte eine Geistlaterne, die irgendwie noch brennt. Eine Truhe am fernen Ende.",
+        "Die tiefste der vier. Sie ist vor allem Knochen und Fäulnis, aber nicht nur das."
+      ]
+    }
+  ]
+}

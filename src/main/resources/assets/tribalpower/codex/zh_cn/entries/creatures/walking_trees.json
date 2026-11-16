@@ -1,0 +1,111 @@
+{
+  "name": "行走的树",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "树丛守卫",
+      "text": [
+        "并非每棵远行界的树都站着不动。在每一片长着[远行界的树](march_trees)的土地上，有少数同类站起来行走，披着它们所由来的那棵树的同样木头和树叶。",
+        "它们性情温和。每分钟刷一次可得试剂，并用**骨粉**引诱和繁殖。可以像任何温顺的动物一样结契（见[使魔](familiars)）。它自己虽没有赠礼，结契后仍能在图腾上取得一种声音，并强化你的魔法（见[在图腾上调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "炉守卫",
+      "text": [
+        "干草原的炉橡，又宽又重，立在短粗的根上。掉落**炉树皮**。",
+        "被猎杀时还会掉落1到3个炉橡原木、最多1个炉橡树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "树丛长老",
+      "text": [
+        "高地树丛中的远行界之树，身形高大，佝偻着拄杖，长着苔藓胡须。掉落**长老树皮**。",
+        "被猎杀时还会掉落1到3个远行界原木、最多1个远行界树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "霜松哨兵",
+      "text": [
+        "雪原的霜松：高高的树干上是一锥覆雪的针叶，枝臂从最低的枝桠下伸出。掉落**霜松树皮**。",
+        "被猎杀时还会掉落1到3个霜松原木、最多1个霜松树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "枯立木行者",
+      "text": [
+        "余烬荒原上的烬木枯立木：烧焦的枯木，顶部折断，仍在闷烧。掉落**烬树皮**（黄色染料）。",
+        "被猎杀时还会掉落1到3个烬木原木、最多1个烬木树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "垂泪守卫",
+      "text": [
+        "芦苇沼的柳木，在一帘垂丝下佝偻着。掉落**垂泪结**。",
+        "被猎杀时还会掉落1到3个柳木原木、最多1个柳木树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "钟盖木长老",
+      "text": [
+        "水晶原的钟盖木，一顶巨盖之下是矮粗的茎。掉落**钟盖木孢子**（品红色染料）。",
+        "被猎杀时，还会掉落1到3个钟盖木原木、最多1个钟盖木树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "高跷木",
+      "text": [
+        "浅滩的阔步木，高高立在拱起的支柱根上。掉落**高跷根**。",
+        "被猎杀时，还会掉落1到3个阔步木原木、最多1个阔步木树苗和1到3个木棍。用**骨粉**繁殖。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它们什么样",
+      "text": [
+        "每棵行走的树有**48点生命值**和**8点护甲**。它们很慢，躲开怪物，两三到四棵一群地走。每棵掉落其试剂**1到3**个，抢夺时更多。",
+        "微光山脊不长树，所以没有守卫。会走而又不温和的树，只有[巨像守卫](colossus_warden)。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧赶",
+      "text": [
+        "除了试剂，猎杀时还会多掉，有抢夺再多掉一些。要繁殖野生的，给两只成年的喂它们的食物时**潜行**。正常喂的话，野生的反而会亲近你。"
+      ]
+    }
+  ]
+}

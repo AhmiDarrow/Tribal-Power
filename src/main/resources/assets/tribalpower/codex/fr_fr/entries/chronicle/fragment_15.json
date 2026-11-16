@@ -1,0 +1,17 @@
+{
+  "name": "16. Le perchoir",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le perchoir",
+      "text": [
+        "“Les Hautes Terres sont les ponts des Marcheurs de lisière, le dernier sol avant la lisière. Le vent venu de la lisière fut un chant, autrefois. Ce qui y niche maintenant chante le même chant à l'envers et jette les marcheurs pour les entendre toucher terre.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

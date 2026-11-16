@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_stone"
     },
-    "title": "Landed true",
-    "description": "Finish the Grit-singers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_stone.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_stone.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

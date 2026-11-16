@@ -1,0 +1,43 @@
+{
+  "name": "Caldero del Espíritu",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Un caldero sobre el fuego",
+      "text": [
+        "El Caldero del Espíritu es una olla de hierro colgada de un armazón de hueso. Tiene que estar **sobre calor**: una hoguera encendida, fuego, fuego de almas, bloque de magma, lava o un [Cuenco de brasa](pulse_lights) justo debajo.",
+        "No necesita un tótem para funcionar, pero escucha si hay uno: la voz del **Tótem de resonancia más cercano**, en un radio de 8 bloques, se canta en cada brebaje y le da forma."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Elaboración",
+      "text": [
+        "Ábrelo y llena los tres asientos de la izquierda:",
+        "- **Reactivo**: un [reactivo](reagents) crudo, como objeto (sácalo de tu bolsa en el Banco del canto). Su familia decide el remedio.",
+        "- **Hierba**: Caña de Espíritu, Cardo de ley, Flor de eco, Hoja de la Marcha, Lirio de luna, Casquete de farol, Liquen del velo, Baya de escarcha o Frijol de fulgor.",
+        "- **Base**: un **frasco de cristal** hace **2 tinturas**, un **panal** hace **2 ungüentos**, el **carbón vegetal** hace **4 inciensos**.",
+        "Una tanda tarda **10 segundos** y **24 Pulso**, tomados de generadores y almacenes en un radio de 8 bloques al terminar, y gasta uno de cada entrada. La pantalla te dice si espera calor, Pulso o sitio en la salida."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatización",
+      "text": [
+        "Las tolvas y los tubos pueden alimentarlo por arriba y por los lados, y sacar el brebaje por abajo, así que un caldero puede mantener un campamento abastecido por su cuenta.",
+        "Cada número de aquí está en la sección **sanación** de la configuración común."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

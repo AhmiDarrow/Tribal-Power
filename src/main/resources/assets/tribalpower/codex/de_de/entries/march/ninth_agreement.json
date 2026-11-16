@@ -1,0 +1,27 @@
+{
+  "name": "Die neunte Übereinkunft",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ein Finale",
+      "text": [
+        "Der Webstuhl war neun Fäden im Einvernehmen. Schließe die Geschichten aller neun Stämme ab, die acht [Wächter](guardians) und Der Ungesungene, und du hältst neun Relikte. Fertige die Tafel aus den acht Kernen und einem Ungesungen-Herz, ziehe einen **Webstuhlkreis** (ein Webstuhlsiegel am Kohlenbecken), sammle **2,000 Puls** innerhalb von **8 Blöcken** um das Kohlenbecken (**1,500** in einem Kreis der Stufe zwei), und vollziehe den Ritus mit allen neun Relikten bei dir. Die Tafel ist verbraucht; die Relikte nicht.",
+        "Der Webstuhl stimmt zu. Neun Lichter steigen aus dem Kreis, eines in der Farbe jedes Stammes, und der Marsch antwortet von da an auf deine Stimme."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sich ändert",
+      "text": [
+        "Für den, der die Übereinkunft geschlossen hat: jeder Stamm behandelt dich mindestens als **Sippe**, wie auch dein Stand ist; alle neun Gaben legen sich für **30 Minuten** auf dich; und die Aurora des Marschs brennt jede Nacht, die du darunter stehst, voll und stetig.",
+        "Die Übereinkunft gehört in dieser Welt für immer dir, und sie wird einmal pro Spieler geschlossen. Danach erneuert der Ritus die neun Gaben: führe ihn wieder aus, mit einer frischen Tafel und demselben Puls, und alle neun legen sich für weitere volle 30 Minuten auf dich. Die Relikte werden nur beim ersten Mal verlangt."
+      ]
+    }
+  ]
+}

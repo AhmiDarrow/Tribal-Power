@@ -1,0 +1,17 @@
+{
+  "name": "4. Der Schnitt",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der Schnitt",
+      "text": [
+        "“Niemand erinnert sich, wer zuerst mit dem Singen aufgehört hat. Die Siegelkerber sagen, ein Siegel sei als Forderung geschnitten worden. Die Trommelherzen sagen, der Schlag sei fallengelassen worden. Die Musterweber sagen, das Muster sei ohne Fragen geändert worden. Alle haben recht, und das ist das Problem.”",
+        "Gefunden auf Gemeißelter Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

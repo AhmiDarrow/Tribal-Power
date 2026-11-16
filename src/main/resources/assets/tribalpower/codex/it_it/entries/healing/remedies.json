@@ -1,0 +1,70 @@
+{
+  "name": "Rimedi",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Tre modi per prenderlo",
+      "text": [
+        "- **Tintura**: bevila. Il rimedio dura **3 minuti** e riottieni la bottiglia.",
+        "- **Unguento**: usalo per applicartelo, oppure **usalo su qualcun altro**: un amico, un villico, il tuo famiglio. Cura **3 cuori** in una volta, toglie **ogni** effetto dannoso, e il rimedio dura la metà di una tintura.",
+        "- **Incenso**: collocalo in un [Braciere rituale](ritual_brazier) e brucia per tutti intorno. Vedi sotto.",
+        "**Ogni rimedio toglie il [Mal dello Spirito](spirit_sickness)**, e anche le altre [afflizioni](afflictions) della Marcia: Silenzio Non Cantato, Sfilacciato e Mal di ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che ogni famiglia prepara",
+      "text": [
+        "- **Esca** (Brace): Forza.",
+        "- **Accelerazione** (Fulmine): Velocità.",
+        "- **Raffreddamento** (Freddo): Resistenza al fuoco.",
+        "- **Antidoto** (Veleno): toglie veleno, Wither, fame e nausea.",
+        "- **Caduta di piuma** (Folata): Caduta lenta.",
+        "- **Radicamento** (Radice): Resistenza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che ogni famiglia prepara, seguito",
+      "text": [
+        "- **Baluardo** (Spinta): Assorbimento.",
+        "- **Vista chiara** (Tessitura): Visione notturna, toglie cecità e oscurità.",
+        "- **Ripristino** (Indebolimento): Fretta, toglie debolezza, lentezza e fatica.",
+        "- **Vigore** (Segugio): Salute extra.",
+        "- **Riparazione** (Silenzio): Rigenerazione.",
+        "Il colore della miscela è il colore del suo reagente, così puoi distinguerli nello zaino."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La voce del totem",
+      "text": [
+        "Il totem più vicino al calderone mentre preparava aggiunge il proprio dono, mostrato nella descrizione:",
+        "- **Terra**: concede 2 cuori di assorbimento.",
+        "- **Fuoco**: dura la metà in più.",
+        "- **Acqua**: un livello più forte.",
+        "- **Aria**: cura 2 cuori in una volta.",
+        "- **Spirito**: aggiunge 10 secondi di Rigenerazione.",
+        "- **Telaio**: dura il doppio, ma resta al livello I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Incenso che brucia",
+      "text": [
+        "Usa l'incenso su un Braciere rituale per collocarvelo; contiene fino a **16** bastoncini di una stessa miscela. Brucia da solo, **senza sigillo e senza Pulso**.",
+        "Ogni due secondi, tutti entro **8 blocchi**, giocatori e famigli vincolati, ricevono il rimedio per 12 secondi, e i famigli vengono curati di un cuore. Ogni bastoncino dura **30 secondi**. Un segnale di redstone sul braciere lo spegne; usalo in posizione furtiva a mano vuota, senza un sigillo collocato, per riprendere l'incenso.",
+        "È il modo migliore per tenere in piedi un intero accampamento per una lunga notte."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

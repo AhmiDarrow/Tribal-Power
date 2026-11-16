@@ -1,0 +1,42 @@
+{
+  "name": "Bęben «Strażnik pieśni»",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Bębnij dla samej radości",
+      "text": [
+        "Bęben «Strażnik pieśni» to gra rytmiczna na **26 pieśniach** własnych: Obrzędy Wrota i Krąg bębnów, muzyka każdej ziemi Marszu i tematy jego strażników. Przy zainstalowanym **Ninjacat Skies Core** 0.5.16 lub nowszym dołączają dwanaście tematów strażników Ninjacat, a z **Chocobos Reborn** także osiem jego wyścigów. Każda pieśń gra w całości, a każda nuta jest zapisana z prawdziwego uderzenia w nagraniu.",
+        "Wybierz pieśń i poziom (**Łatwy**, **Normalny**, **Trudny** lub **Ekspert**; Łatwy używa trzech bębnów), potem uderzaj **A**, **S**, **D** oraz **F** (albo klawisze strzałek), gdy każda membrana dochodzi do linii. Cztery bębny możesz przypisać na nowo w Sterowaniu (klawisze bębna **obrzęd Wrota**); A, S, D, F i strzałki też zawsze działają."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Granie",
+      "text": [
+        "Trafienie to **Perfekcyjnie**, **Świetnie** albo **Dobrze**, zależnie od tego, jak blisko padnie. Seria podnosi mnożnik: **x2** przy 10 z rzędu, **x3** przy 20, **x4** przy 30. Pudło przerywa serię i pieśń opada.",
+        "Świecące nuty to fraza **Przypływ Ducha**. Każda czysta fraza wypełnia **ćwiartkę** miernika Przypływu; gdy jest w połowie, naciśnij **Spację**, by podwoić każdy punkt, póki trwa: do **16 sekund** przy pełnym mierniku, **8** przy połowie.",
+        "Patrz na miernik **Rezonans**. Pudła go opróżniają, trafienia napełniają; gdy opadnie do zera, pieśń się rwie i wynik nie zostaje. Łatwy nigdy się nie rwie.",
+        "Jeśli nuty i muzyka rozjeżdżają się na twoim urządzeniu, ustaw **przesunięcie dźwięku** na liście pieśni. **Szybkość** zmienia, jak szybko biegną nuty, a **dźwięki trafień** dokładają stuk przy każdym trafieniu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wyniki i pojedynki",
+      "text": [
+        "Bęben trzyma twój **najlepszy wynik i gwiazdki** dla każdej pieśni na każdym poziomie oraz tablicę **pięciu najlepszych** na serwerze. Pełne combo daje złote gwiazdki.",
+        "Ustaw **dwa Bęben «Strażnik pieśni» obok siebie**, a staną się parą do pojedynku. Z jednego bębna wyzywaj gracza przy drugim: obaj gracie tę samą pieśń naraz, każdy widzi wynik drugiego na pasku przeciągania liny, i wyższy wynik wygrywa. Twój rejestr pojedynków widać u góry listy pieśni."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

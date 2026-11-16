@@ -1,0 +1,367 @@
+{
+  "name": "Ancla de Telar",
+  "icon": "tribalpower:loom_anchor",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:loom_anchor",
+      "text": [
+        "Oficio de los Zurcidores del telar, y el generador de final de partida. El Ancla de Telar paga un campamento completo: **1 Pulso por segundo** por cada voz de tótem distinta, dentro de **8 bloques**, hasta seis.",
+        "Guarda **1,000 Pulso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Contar las voces",
+      "text": [
+        "Cuenta voces, no tótems: seis tótems de Tierra son una voz. Los tótems en silencio también cuentan; el aire vacío, no.",
+        "Una [Vinculación ley](world_rites) activa en cualquier tótem cercano **duplica** el ritmo.",
+        "Los Tótem de parentesco prestan el elemento de su tribu al mismo conjunto de seis voces. No son una séptima voz: un Tótem de parentesco de Cantor de grava junto a un tótem de Tierra no añade nada.",
+        "Mejorarla en Sintonizador de eco, luego en Vinculador de eco y después en Manifestador de eco añade **15% de Pulso por segundo** por rango, no el 118% del taller. La bonificación se redondea a un Pulso entero, así que un generador que solo hace 2 o 3 por segundo no gana nada con su primer rango."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "En medio de las voces",
+      "steps": [
+        {
+          "caption": "Planta el ancla en medio de tus tótems.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:loom_anchor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dos voces, Tierra y Fuego: 2 Pulso por segundo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade Agua y Aire: cuatro voces, 4 por segundo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Espíritu y Telar completan el conjunto: 6 por segundo, o 12 mientras una Vinculación ley zumba cerca.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              -2
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comprobarla",
+      "text": [
+        "Un clic con la mano vacía muestra lo que produce y lo que guarda. Agáchate y haz clic derecho con este libro para ver el número de voces y si una Vinculación ley la alcanza.",
+        "Las anclas son el oficio de los [Zurcidores del telar](tribe_spindle): la receta necesita un Núcleo resonante y un Hilo de Telar, y los Zurcidores del telar cambian un ancla a su Pariente por Ecos vinculados y un Hilo de Telar."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_anchor"
+    }
+  ]
+}

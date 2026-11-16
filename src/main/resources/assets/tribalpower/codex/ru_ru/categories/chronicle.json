@@ -1,0 +1,8 @@
+{
+  "name": "Хроника",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "История Стана, вырезанная в Марше по фрагменту за раз. Найди их, и история соберётся здесь сама.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

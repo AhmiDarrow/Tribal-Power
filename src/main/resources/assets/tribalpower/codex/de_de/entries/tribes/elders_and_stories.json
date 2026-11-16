@@ -1,0 +1,68 @@
+{
+  "name": "Älteste, Aufträge und Geschichten",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Mit einem Ältesten sprechen",
+      "text": [
+        "In jedem Stammeslager steht ein **Ältester**, und sobald du Gast bist, reden sie mit dir. Rechtsklicke einen, und ein Gespräch öffnet sich: was sie sagen links, was du antworten kannst als Knöpfe.",
+        "Handeln ist eines der Dinge, nach denen du fragen kannst. Fremde bekommen nur ein paar barsche Worte und einen Hinweis auf den Herd, also bring zuerst eine Gabe (siehe [Stämme und Ansehen](standing)).",
+        "Was der Älteste anbietet, ändert sich mit dem, was du getan hast: Aufträge, ihre Geschichte, und wenn du sie abgeschlossen hast, ein wärmerer Empfang.",
+        "Am [Festtag](living_march) des Stammes lädt der Älteste dich auch zum Mahl ein."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aufträge",
+      "text": [
+        "Frag einen Ältesten **\"Gibt es Arbeit, die ich tun kann?\"** und sie geben dir einen der Aufträge des Stammes. Jeder Stamm hat an einem gegebenen Tag drei offen, und sie wechseln mit den Tagen; wenn der heutige dir nicht passt, komm morgen wieder.",
+        "Du hältst **einen Auftrag je Stamm** auf einmal. Hast du an einem Tag **drei** abgeschlossen, über alle Stämme hinweg, geben die Ältesten bis morgen keine neue Arbeit aus. Arbeit, die du schon hältst, kannst du weiter abgeben.",
+        "Beende ihn und sag dem Ältesten **\"Ich habe getan, was du verlangt hast.\"** Jeder zahlt **8 bis 16** Ansehen, und jeder **dritte** abgeschlossene Auftrag eines Stammes zahlt obendrauf eine **Stammesmarke**, lange bevor du Stimme erreichst.",
+        "Der Kodex führt für dich Buch: die Seite jedes Stammes endet mit seiner offenen Bitte und damit, wie weit sie ist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie verlangen",
+      "text": [
+        "- **Holen**: bring, was ihnen wichtig ist, etwa ihre Ernte aus dem Marsch. Trag es bei dir, wenn du es dem Ältesten sagst.",
+        "- **Liefern**: bring zwei Schalen ihres eigenen [Gerichts](tribe_dishes).",
+        "- **Jagen**: schlag sechs Kreaturen der Dunkelheit innerhalb von **48 Blöcken** um ihren Herd zurück. Der Todesstoß muss von dir kommen.",
+        "- **Ritus**: vollziehe einen beliebigen Ritus an einem Kohlenbecken oder Sockel innerhalb von 48 Blöcken um ihren Herd.",
+        "- **Bauen**: errichte **Mauern** der Größe 3 oder mehr innerhalb von 48 Blöcken um ihren Herd, markiert mit Baukreide, und halte diese Kreide in der Hand, wenn du es dem Ältesten sagst. Baue sie aus bearbeiteten Blöcken wie Brettern, Ziegeln oder Bruchstein: roher Stein, Erde, Sand, Keramik, Eis und der eigene Boden des Marsches zählen nicht. Ein Bau zählt **einmal**: Mauern, die diesem Stamm schon übergeben wurden, zahlen nicht noch einmal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihre Geschichte",
+      "text": [
+        "Frag **„Erzähl mir deine Geschichte“**, und der Älteste beginnt einen längeren Weg: **sieben Schritte**, ein Stamm nach dem anderen, die auf allem anderen aufbauen, was du mit ihnen tust. Werde ihr Freund, bring das eine, woran ihnen liegt, jage nahe ihren Feuern, vollziehe einen Ritus in ihrem Lager, bring ihr Gericht, und geh am Ende dorthin, wohin sie dich schicken.",
+        "Der letzte Schritt ist eine **Prüfung**: das Land jedes Stammes hält einen Wächter, und der Stamm will, dass du ihm gegenübertrittst. Die Prüfung der Webstuhl-Näher ist Der Ungesungene selbst; die anderen acht warten auf ihrem Grund, nachzulesen in [Die Wächter](guardians). Fällst du im Kampf, wartet die Geschichte einfach. Ein Wächter, der eine halbe Minute allein gelassen wird, schläft unbesiegt wieder ein, und sein Altar lässt sich sofort erneut rufen.",
+        "Tritt dem Wächter erst gegenüber, wenn der Älteste dich schickt. Ein früher besiegter Wächter zählt nicht für die Geschichte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die neun Relikte",
+      "text": [
+        "Beende die Geschichte, und der Älteste gibt dir das **Relikt** des Stammes: ein kleines, einzigartiges Ding, das den [Segen](tribe_boons) dieses Stammes gewährt, solange es in deinem Inventar liegt, ganz gleich dein Stand, und dich in ihren Augen für immer zeichnet.",
+        "{item:tribalpower:relic_soil} (Polsterhüter). {item:tribalpower:relic_stone} (Griessänger). {item:tribalpower:relic_sprout} (Wurzelbinder). {item:tribalpower:relic_claw} (Kantenläufer). {item:tribalpower:relic_spark} (Trommelherzen). {item:tribalpower:relic_clock} (Musterweber). {item:tribalpower:relic_swarm} (Koloniehüter). {item:tribalpower:relic_sigil} (Siegelkerber). {item:tribalpower:relic_spindle} (Webstuhl-Näher).",
+        "Eines für jeden Stamm, jedes das Ende einer Geschichte und der Anfang, dass die neun sich wieder einig werden."
+      ]
+    }
+  ]
+}

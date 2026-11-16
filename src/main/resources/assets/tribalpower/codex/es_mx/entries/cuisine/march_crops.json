@@ -1,0 +1,35 @@
+{
+  "name": "Cultivos de la Marcha",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cinco cultivos crecen silvestres ahí fuera, cada uno en su propio país. Encuentra un parche, recógelo, y lo que recogiste es la semilla: plántala en tierra de cultivo como una papa. También se da en tierra lisa, Suelo de la Marcha o arena, que es como crecen los parches silvestres.",
+        "- **Raíz de brasa** en los Yermos de brasa: un tubérculo rojo y caliente.",
+        "- **Arroz de ciénaga** en la Ciénaga de cañas.",
+        "- **Baya de escarcha** en los Campos de nieve.",
+        "- **Frijol de fulgor** en la Cresta de fulgor, donde echa raíces en piedra lunar y ágata musgosa, y en los Campos de cristal.",
+        "- **Grano de la estepa** en la estepa."
+      ],
+      "title": "Lo que cultiva la Marcha"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Crecen en cuatro etapas. Todos se pueden comer crudos, aunque sacian poco. La [Azada de Equipo espiritual](spiritgear) los cosecha y los replanta de una sola pasada, las abejas los polinizan, y el [don Brote](tribe_boons) los apresura.",
+        "La Baya de escarcha y el Frijol de fulgor también cuentan como hierbas para el [Caldero del Espíritu](spirit_kettle)."
+      ],
+      "title": "Cultivarlos"
+    }
+  ],
+  "next": "hearth_pot"
+}

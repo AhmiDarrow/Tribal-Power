@@ -1,0 +1,286 @@
+{
+  "name": "Metalle und Edelsteine",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "Gries ist zerkleinertes Metall, das auf das Feuer wartet. Rohmetall zu zermalmen gibt **zwei Gries** je Stück, und jeder Gries schmilzt zu einem Barren, also gibt jedes Erz dir zweimal das Metall."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Metalle",
+      "text": [
+        "Lege einen Rohmetallgegenstand oder ein mit Behutsamkeit abgebautes Metallerz in den Echozermalmer: **4 Sekunden** bei **40 Puls pro Sekunde**, für zwei Gries.",
+        "Schmelz den Gries zu einem Barren in einem Ofen, einem Schmelzofen oder dem Glutofen.",
+        "Eisen, Gold und Kupfer haben ihren eigenen Gries. Metalle aus Mods laufen über einen **Mineralgries**-Gegenstand, der sein eigenes Material nennt, und sie leuchten ohne Datenpaket auf. Netherit wird nie zermalmt; du musst es dir im Nether verdienen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Edelsteine und Mineralien",
+      "text": [
+        "Mit Behutsamkeit abgebautes Edelsteinerz zerbricht direkt in den Edelstein, auf das **Doppelte** der eigenen Ausbeute des Erzes:",
+        "- Kohle, Diamant, Smaragd und Quarz geben **zwei**.",
+        "- Redstone und Lapislazuli geben **acht**.",
+        "- Edelsteine aus Mods geben zwei.",
+        "Der Edelstein selbst ist nie eine Eingabe."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Erzlinie",
+      "steps": [
+        {
+          "caption": "Der Glutofen unten, mit seinem Feuer-Totem.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Der Echozermalmer oben, mit einem Erde-Totem. Sein Gries fällt direkt in den Glutofen.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Eine Truhe mit Roherz speist den Echozermalmer über einen Trichter, und die Trommel neben dem Glutofen betreibt beide Stationen.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Trichter unter dem Glutofen fängt die Barren in einer Truhe auf.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

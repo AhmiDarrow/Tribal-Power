@@ -1,0 +1,30 @@
+{
+  "name": "Piastre di segnale",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Inversa ed Eco",
+      "text": [
+        "Una voce, girata o portata.",
+        "- **Inversa** (NOT) canta mentre il suo retro è quieto, e tace quando il retro è attivo.",
+        "- **Eco** (BUFFER) copia il retro: attivo resta attivo, a un 15 pieno.",
+        "Usa Inversa per trasformare una Soglia di Pulso in un allarme 'troppo vuoto'. Usa Eco per riportare un Filo di canto che svanisce a piena forza."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

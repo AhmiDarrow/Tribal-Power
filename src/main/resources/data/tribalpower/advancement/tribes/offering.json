@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:tribe_hearth"
     },
-    "title": "Kept warm",
-    "description": "Make an offering at a Tribe Hearth.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.offering.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.offering.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

@@ -1,0 +1,51 @@
+{
+  "name": "Traqueur des roseaux",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Un lynx rayé qui se cache parmi Roseau d'Esprit. Les frappes rapides portent un poison court.",
+        "Chassé, il lâche aussi jusqu'à 1 Cuir de la Marche et jusqu'à 1 Os."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Traqueurs des roseaux se cachent dans les marais de l'Overworld et les marais de mangrove, dans le Marais aux roseaux de la Marche et les hauts-fonds, et plus clairsemés sur les Champs de cristal et la Steppe.",
+        "Il a **22 de santé** et **1 d'armure**, se déplace vite et frappe pour **4**. Chaque morsure t'empoisonne pendant 3 secondes. Apporte du lait, ou garde tes distances et laisse-le venir à toi."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Croc de roseau**.",
+        "Un Croc de roseau s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aucun charme ne liera un Traqueur des roseaux."
+      ],
+      "title": "Il ne se liera pas"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

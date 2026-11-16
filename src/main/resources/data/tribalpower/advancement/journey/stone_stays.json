@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:stone_font"
     },
-    "title": "Stone stays",
-    "description": "Ask a Stone Font for its first cobblestone. Stone is not made; stone is asked to stay.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.stone_stays.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.stone_stays.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

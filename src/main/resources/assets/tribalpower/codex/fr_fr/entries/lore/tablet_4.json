@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Battement des Cœurs-tambours",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "D'un Cercle de tambours dans la Marche, selon les mots des Cœurs-tambours :",
+        "“Le tambour n'est pas fort. Le tambour est régulier. Sois le tambour. Un battement par souffle, et le cuivre répond ; rate un battement et il t'oublie. Chaque moteur de la Marche garde encore notre mesure. Frappe, attends, frappe. C'est tout.”"
+      ]
+    }
+  ]
+}

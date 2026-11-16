@@ -1,0 +1,244 @@
+{
+  "name": "Banco del canto",
+  "icon": "tribalpower:song_bench",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "El Banco del canto es donde los reactivos se vuelven magia. **Potencia** los reactivos en bruto, los escribe en **cantos**, empluma **Flecha de verso** y **unge** armas de Equipo espiritual.",
+        "Potenciar gasta 16 Pulso. Una hoja lleva de 3 a 7 reactivos potenciados, papel y una marca de Tiza ritual."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Potenciación",
+      "text": [
+        "Coloca el banco a 8 bloques o menos de un Tótem de resonancia y de un generador cargado, y ten una Bolsa de reactivos en la barra rápida: el banco lee sus reactivos de la bolsa.",
+        "Haz clic en un reactivo de la lista para seleccionarlo. **Potenciar**, o un clic con Mayús, convierte un reactivo en bruto en uno potenciado por 16 Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Escribir un canto",
+      "text": [
+        "Asienta papel y Tiza ritual, luego elige de 3 a 7 reactivos potenciados en orden: selecciona uno y pulsa **Añadir**, o haz clic dos veces. El primer reactivo elige la [forma](song_shapes) del canto; la **Voz** elige en qué tótem cercano canta.",
+        "Pulsa **Escribir** para obtener una **Hoja de canto**. Cántala una vez directo desde la mano, o encuadérnala en un Cancionero: asienta el libro, deja la hoja en la salida y pulsa **Escribir** sin nada en la secuencia.",
+        "Con un libro asentado, **Escribir** mete el canto directo en él. **Alzar** saca la página abierta otra vez como hoja, y **Tomar** te entrega reactivos en bruto de la bolsa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta",
+      "text": [
+        "Escribir gasta esos reactivos, el papel y una marca de tiza, más **12 Pulso** por cada reactivo de la hoja. Un banco con rango pide menos Pulso por todo lo que hace.",
+        "El primer Cancionero guarda 1 página de hasta 3 reactivos. El Cancionero encuadernado guarda 3 páginas de hasta 5, y el Cancionero del coro 5 páginas de hasta 7.",
+        "Haz clic derecho en un libro que lleves para cantar. Agáchate y haz clic derecho para pasar la página. Una Célula de Pulso asentada en el libro paga primero, luego las células de Pulso que llevas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ungir un arma",
+      "text": [
+        "Junto a la salida hay una **ranura de arma**. Pon en ella un arma de Equipo espiritual (ninguna arma del juego base ni de otro mod acepta una unción), selecciona un reactivo de la lista y pulsa **Ungir**.",
+        "Gasta **4 reactivos potenciados** de ese tipo y **32 Pulso**, y el arma guarda el poder del reactivo hasta que la unjas con otra cosa. Toda la historia está en la página [Unción](anointing)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un banco, dos voces",
+      "steps": [
+        {
+          "caption": "Un Banco del canto con un generador al alcance.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un tótem de Tierra al alcance puede ser la voz de la Hoja de canto.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade un tótem de Fuego y el banco puede cantar en cualquiera de las dos voces.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Flechas de verso",
+      "text": [
+        "Elige un reactivo potenciado y pulsa **Emplumar**: un reactivo y 8 Pulso hacen **cuatro** Flecha de verso, cantadas en la voz que elegiste.",
+        "Para una flecha más fuerte, coloca hasta 3 reactivos potenciados con **Añadir** primero, luego pulsa **Emplumar**: las cuatro flechas llevan ese verso corto, a 8 Pulso por reactivo. Cada copia del reactivo principal suma un punto de poder, y cualquier otro reactivo viaja en el golpe.",
+        "Sostén el Arco de Pulso y tensa. Un Rayo sónico simple gasta hasta 6 Pulso, a tensión plena; una Flecha de verso suma 6 más y lleva el canto de su reactivo. La Ballesta de Pulso dispara las mismas flechas.",
+        "Una Célula de Pulso asentada en el arco paga primero, luego las células de Pulso que llevas.",
+        "Una señal de redstone pausa el banco."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "El Arco de Pulso",
+      "text": [
+        "Forjado como el resto del Equipo espiritual: dos **Lingote manifestado** y una **Campanilla de hueso**, encordado con tres cuerdas. No necesita flechas; cada tensado lanza un Rayo sónico que vuela recto y se desvanece tras unos 60 bloques.",
+        "Un tensado completo golpea por **7**, y uno parcial por su parte, así que un toque rápido es solo un toque. Una Flecha de verso suma un punto por cada copia de su reactivo principal emplumada en ella, hasta **3**.",
+        "Dura 1024 y, como el Pulso paga cada disparo, disparar nunca lo desgasta. Repáralo en el [Yunque del Espíritu](spirit_anvil) con Lingotes manifestados, un cuarto cada vez."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "song_shapes"
+}

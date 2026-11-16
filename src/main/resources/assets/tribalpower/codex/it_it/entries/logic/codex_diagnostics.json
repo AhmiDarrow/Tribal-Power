@@ -1,0 +1,30 @@
+{
+  "name": "Diagnostica del codice",
+  "icon": "minecraft:spyglass",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "next": "pulse_gauge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Chiedi al blocco",
+      "text": [
+        "Accovacciati e fai clic destro con il Codice spirituale su qualsiasi macchina, piastra o magazzino tribale, e si spiega in parole semplici.",
+        "- Pulso immagazzinato, la rete di reticolo su cui si trova (o che è fuori dal reticolo), il conduttore attraverso cui attinge, con rango e ritmo, ogni generatore della rete con la sua uscita in questo secondo, le voci presenti, il Pulso che potrebbe attingere e se la redstone lo sta mettendo in pausa.",
+        "- Le officine indicano la ricetta e ogni voce mancante o uscita piena.",
+        "- I relè segnalano estremità non caricate o bloccate.",
+        "- I bracieri elencano i riti che il loro sigillo consente.",
+        "- Le ancore di trama mostrano i fantasmi dei pezzi mancanti e nominano i primi tre.",
+        "- Le piastre di canto elencano ogni piastra con cui sono sincronizzate per udire, con il suo orecchio e ciò che canta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fanne un'abitudine",
+      "text": [
+        "Quando qualcosa sta fermo, chiediglielo prima di cominciare a smontare la costruzione. Nove volte su dieci la risposta è una riga: una voce quieta, un'uscita piena, un segnale tenuto o un segno mancante."
+      ]
+    }
+  ]
+}

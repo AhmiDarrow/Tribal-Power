@@ -1,0 +1,34 @@
+{
+  "name": "Pietra d'ancora",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Le Pietre d'ancora puntellano gli angoli di uno schema. Non fanno altro: niente Pulso, niente inventario, niente mantenimento.",
+        "Alcune forme, come la Fossa d'ascolto e la Porta lontana, le richiedono dall'inizio; altre, come la Vasca di pietra, le usano per raggiungere un secondo livello."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Piazzarle",
+      "text": [
+        "Mettile dove il Codice mostra i fantasmi agli angoli, poi lasciale stare. Non sono generatori e non chiedono nulla da te.",
+        "Rompi una e la forma scende di un livello finché non la rimetti, oppure si ferma del tutto se non ha un livello senza di esse.",
+        "- **Vasca di pietra**: quattro, agli angoli di un 5x5, per pietra e ossidiana.",
+        "- **Fossa d'ascolto**: quattro per la fossa 5x5, otto per l'Ascolto profondo.",
+        "- **Porta lontana**: quattro, agli angoli della sua impronta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Quattro Pietra della Marcia e una Scheggia di eco fanno **quattro**."
+    }
+  ],
+  "next": "stone_font"
+}

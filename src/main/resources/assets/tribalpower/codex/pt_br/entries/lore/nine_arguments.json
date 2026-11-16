@@ -1,0 +1,17 @@
+{
+  "name": "Nove discussões",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nenhuma tribo podia segurar o céu sozinha. Solo sem Pedra é calor sem onde firmar o pé. Faísca sem Relógio é uma batida sem canção. Sigilo sem Fuso é uma promessa sem caminho de volta para casa.",
+        "O velho mundo não era paz. Era manutenção. Oito puxões viraram oito discussões, e o nono, o próprio dos Costureiros do tear, foi a costura ao longo da qual eles rasgaram. Então o resto se foi como uma corda através de uma mão.",
+        "O Corte não foi uma guerra. Foram nove trabalhos deixados por fazer no mesmo fôlego."
+      ]
+    }
+  ]
+}

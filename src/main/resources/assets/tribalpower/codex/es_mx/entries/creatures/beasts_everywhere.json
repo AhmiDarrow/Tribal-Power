@@ -1,0 +1,122 @@
+{
+  "name": "Bestias de todas las tierras",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Errantes",
+      "text": [
+        "Ocho criaturas mansas no están atadas a una sola tierra. Las encontrarás por toda la Marcha, al aire libre, en las cuevas y al borde de la lava.",
+        "Cada bestia mansa de aquí se puede cepillar para obtener su reactivo una vez por minuto, y se tienta y se reproduce con su propia comida, indicada en **Caza y pastoreo** más abajo. Se puede vincular como cualquier animal manso (ver [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (ver [sintonizar en un tótem](familiar_attuning)).",
+        "Varios de sus reactivos se muelen en tinte: ver [reactivos](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Saltador de ceniza",
+      "text": [
+        "Un jerbo pequeño y rápido de la Estepa, los Campos de cristal y los Páramos de brasa, en grupos de dos a cuatro. **12 de salud**. Suelta **1 a 2 Mechón de ceniza**.",
+        "Al cazarlo, también suelta hasta 1 Caza cruda y hasta 1 piel de conejo. Reprodúcelo con **zanahorias o Grano de la estepa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Pastador de cresta",
+      "text": [
+        "Un mamut lanudo pequeño de las Alturas, la Cresta del destello y los Campos de nieve. **26 de salud**, **2 de armadura**. Suelta **1 a 2 Lana de pastador** (tinte gris claro).",
+        "Al cazarlo, también suelta de 1 a 2 Caza cruda y hasta 1 Cuero de la Marcha. Reprodúcelo con **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Saltarín del risco",
+      "text": [
+        "Un íbice de las Alturas, la Cresta del destello, los Campos de nieve y los Campos de cristal. **20 de salud**, **2 de armadura**. Suelta **1 a 2 Cuerno de saltarín**.",
+        "Al cazarlo, también suelta de 1 a 2 Caza cruda y hasta 1 Cuero de la Marcha. Reprodúcelo con **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Revoloteador de polvo",
+      "text": [
+        "Un pinzón pequeño, el volador más común de la Marcha, en todas las tierras, incluidos los Bajíos. **8 de salud**. Suelta **1 a 2 Ala de revoloteador**.",
+        "Al cazarlo, también suelta hasta 2 plumas. Reprodúcelo con **semillas de trigo o Grano de la estepa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Polilla de destello",
+      "text": [
+        "Una polilla luna de verde pálido de los Campos de cristal, la Cresta del destello y la Ciénaga de juncos. **10 de salud**. Suelta **1 a 2 Polvo de destello** (tinte cian).",
+        "Al cazarla, también suelta hasta 1 cuerda y hasta 1 polvo de piedra luminosa. Reprodúcela con **Flor de eco o cualquier flor pequeña**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bajo tierra y junto a la lava",
+      "text": [
+        "Ambos moradores de la lava aparecen dondequiera que la Marcha tenga lava, en todas las tierras salvo los Bajíos."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Larva de piedra",
+      "text": [
+        "Una larva de frigánea en un estuche de guijarros, de las cuevas oscuras bajo todas las tierras salvo los Bajíos, de dos a cuatro a la vez. **10 de salud**, **4 de armadura**. Suelta **1 a 2 Cáscara de larva** (tinte marrón).",
+        "Al cazarla, también suelta hasta 1 bola de slime. Reprodúcela con **Casquete de farol o cualquier champiñón**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Derivante de brasa",
+      "text": [
+        "Una luciérnaga de vientre de fuego que se reúne junto a la lava. **12 de salud**, **inmune al fuego**. Suelta **1 a 2 Mota de brasa** (tinte rojo), un reactivo de brasa.",
+        "Al cazarlo, también suelta hasta 2 de carbón vegetal. Reprodúcelo con **carbón o carbón vegetal**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Creeper de magma",
+      "text": [
+        "Un pangolín de magma, lento y acorazado, de la piedra caliente junto a la lava. **22 de salud**, **6 de armadura**, **inmune al fuego**. Suelta **1 a 2 Escama de magma** (tinte naranja), un reactivo de brasa. La Escama de magma llama al Titán de escoria en el Trono de escoria.",
+        "Al cazarlo, también suelta hasta 1 crema de magma. Reprodúcelo con **carbón o carbón vegetal**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras das su comida a dos adultos; si lo alimentas con normalidad, el salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

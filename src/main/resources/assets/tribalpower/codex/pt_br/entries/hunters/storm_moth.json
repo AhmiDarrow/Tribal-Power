@@ -1,0 +1,52 @@
+{
+  "name": "Mariposa da tempestade",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Um espírito nutrido pela tempestade, em altas asas de ardósia marcadas por relâmpagos. Um cacho brilhante de partículas avisa da rajada dele.",
+        "Caçado, também solta até 2 linhas e até 1 membrana de phantom."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "As Mariposas da tempestade voam sobre o Planalto da Marcha, os Campos de neve e a Crista do brilho, e algumas sobre os Ermos de brasa.",
+        "Ele tem **20 de vida** e nenhuma armadura. Ele fica para trás e lança uma rajada de até 12 blocos: **4 de dano** e um empurrão forte. Quebre a linha de visão dele e o feitiço falha."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **de 1 a 2 Asa da tempestade**.",
+        "Uma Asa da tempestade se liga em 2 Tece-espírito sob a Água."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance **Voz** com os **Tecelões de padrões** e então use um Amuleto de vínculo em um adulto: duas tentativas em cinco, e o amuleto se gasta se falhar. Ou alimente-a com o próprio reagente: uma tentativa em cinco, e o reagente se gasta de qualquer jeito.",
+        "Uma mariposa vinculada que senta deixa um pequeno clique invisível de redstone uma vez por segundo, um relógio grátis para as suas engenhocas. Veja [presentes do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, ele solta isto quando caçado, e mais com Pilhagem."
+      ]
+    }
+  ]
+}

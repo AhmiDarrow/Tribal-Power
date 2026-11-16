@@ -1,0 +1,39 @@
+{
+  "name": "Doni della tribù",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "Il modo di una tribù, dato in prestito a te",
+      "text": [
+        "Ogni tribù ha un **dono**: un piccolo vantaggio nel modo di quella tribù, mostrato come un effetto di stato nel colore della tribù.",
+        "Raggiungi la reputazione **Consanguineo** con una tribù e porti il suo dono finché quella reputazione dura. Il dono si rinnova da solo; non devi mai chiederlo. Chiunque può portare un dono per un po' mangiando il [piatto](tribe_dishes) di quella tribù. Portare la [reliquia](elders_and_stories) di una tribù dà anch'esso il suo dono, qualunque sia la tua reputazione.",
+        "Un **Amuleto della lanterna** indossato tiene un dono acceso una volta e mezzo più a lungo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Suolo (Custodi del giaciglio)**: i tuoi campi non vengono mai calpestati, e la fame arriva più lentamente.",
+        "- **Pietra (Cantori di ghiaia)**: il minerale che rompi ha una probabilità di **una su cinque** di darne uno in più.",
+        "- **Germoglio (Legaradici)**: colture e arbusti entro 4 blocchi crescono più in fretta intorno a te.",
+        "- **Artiglio (Camminatori del ciglio)**: nessuna caduta ti ferisce mentre **ti acquatti**.",
+        "- **Scintilla (Cuoritamburo)**: una mano più svelta: colpisci il **10%** più veloce."
+      ],
+      "title": "I nove doni"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Orologio (Tessitori di trame)**: le stazioni di eco entro 8 blocchi da te lavorano a **doppia velocità**.",
+        "- **Sciame (Custodi della colonia)**: le api non si rivoltano mai contro di te.",
+        "- **Sigillo (Intagliatori di sigilli)**: i tuoi amuleti chiedono **la metà** del Pulso.",
+        "- **Fuso (Cucitori del telaio)**: i canti costano **un quarto in meno** da cantare.",
+        "Ogni numero è nella sezione **effetti** della config comune."
+      ],
+      "title": "I nove doni, continua"
+    }
+  ]
+}

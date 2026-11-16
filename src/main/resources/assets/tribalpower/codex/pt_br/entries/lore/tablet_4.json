@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Batida dos Corações de tambor",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Círculo de tambores na Marcha, nas palavras dos Corações de tambor:",
+        "“O tambor não é alto. O tambor é constante. Seja o tambor. Uma batida a cada respiração, e o cobre responde; erre uma batida e ele esquece você. Cada motor da Marcha ainda guarda o nosso tempo. Bata, espere, bata. É só isso.”"
+      ]
+    }
+  ]
+}

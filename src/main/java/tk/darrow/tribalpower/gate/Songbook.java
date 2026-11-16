@@ -9,8 +9,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import net.minecraft.network.chat.Component;
 
 /**
  * Every song the Songkeeper Drum plays: the Tribal Power rites, the March and its guardians, the Ninjacat Skies
@@ -53,6 +55,25 @@ public final class Songbook {
                     .map(mod -> since.isEmpty() || mod.getModInfo().getVersion().compareTo(
                             new org.apache.maven.artifact.versioning.DefaultArtifactVersion(since)) >= 0)
                     .orElse(false);
+        }
+
+        /** Title in the player's language. The English title in songs.json is the fallback. */
+        public Component titleComponent() {
+            return Component.translatableWithFallback("songkeeper.tribalpower." + id + ".title", title);
+        }
+
+        /** Album name in the player's language. The English album string stays the grouping key. */
+        public Component albumComponent() {
+            return albumComponent(album);
+        }
+
+        /** Stable lang id for an album name: lowercase, the middle dot and other separators become underscores. */
+        public static String albumId(String album) {
+            return album.toLowerCase(Locale.ROOT).replace('·', ' ').replaceAll("[^a-z0-9]+", "_").replaceAll("^_|_$", "");
+        }
+
+        public static Component albumComponent(String album) {
+            return Component.translatableWithFallback("songkeeper.tribalpower.album." + albumId(album), album);
         }
     }
 

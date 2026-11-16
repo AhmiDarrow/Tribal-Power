@@ -1,0 +1,65 @@
+{
+  "name": "路粮",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "赶路的食物",
+      "text": [
+        "并非每餐都带有部族的[恩惠](tribe_dishes)。营地口粮是行路人随身带的：便宜，在[炉锅](hearth_pot)里做得快，每样只为一件事。大多把远行界的作物和任何农场都种的东西混在一起。",
+        "- **赶畜薄饼**：草原谷×2，小麦。一锅两份，每个5点饥饿，可堆叠至64。填饱肚子最便宜的办法。",
+        "- **微光脆片**：微光豆×2，干海带。一锅三份，3点饥饿，并且**瞬间吃完**，好在出招间隙抓一口。",
+        "- **猎人烤串**：任意生肉，余烬根，甜菜根。一锅两份，6点饥饿和**速度持续20秒**，好追上猎物。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "赶路的食物，续",
+      "text": [
+        "- **草原肉干饼**：任意熟肉，霜莓，甜浆果。一锅三份，饥饿只有4，但就这体积而言饱和度最好：长途跋涉时最能顶饱。",
+        "- **霜莓酱**：霜莓×2，糖，装在玻璃瓶里。4点饥饿和**抗火持续30秒**，用来穿过余烬荒原。瓶子会回来。",
+        "- **蓟茶**：地脉蓟，远行界叶，蜜脾，装在玻璃瓶里。没什么饱食度，但吃饱了也能喝，并且**治愈中毒、饥饿和反胃**：营地对付一顿坏饭的办法。",
+        "- **高地酥**：一个苹果，草原谷，甜浆果，糖。6点饥饿和**跳跃提升持续45秒**，用于山脊。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

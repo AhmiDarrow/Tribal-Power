@@ -1,0 +1,31 @@
+{
+  "name": "Yunque del Espíritu",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Un yunque para el Equipo espiritual, que solo se desgasta cuando trabaja sin Pulso. Pon a la izquierda una herramienta o un arma gastada de Equipo espiritual (también el Arco de Pulso y la Ballesta de Pulso) y a la derecha **Lingote manifestado**: cada lingote repara un cuarto de su durabilidad, a un nivel cada uno más el coste habitual del yunque por el trabajo previo, igual que un yunque de hierro repara una herramienta con su propio metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigue siendo un yunque",
+      "text": [
+        "Hace todo lo que hace un yunque: renombrar, añadir libros encantados, combinar dos de la misma herramienta y reparar otro equipo con su propio material.",
+        "A diferencia de un yunque de hierro, nunca se pica ni se rompe, ni por el uso ni por una caída. Igual cae si nada lo sostiene.",
+        "Su cara es un Bloque de metal manifestado entre dos bloques de hierro: nueve de Lingote manifestado, fabricados juntos, y de vuelta en nueve lingotes cuando los necesites.",
+        "Cada pieza de Equipo espiritual, las herramientas, las armas, las tijeras, la sonaja, ambos arcos y la [Maza de resonancia](resonance_maul), se repara solo con **Lingote manifestado**, aquí o en cualquier yunque, nunca con diamantes. El Tejido espiritual se repara con tela de Tejido espiritual."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

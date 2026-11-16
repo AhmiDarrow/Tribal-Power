@@ -1,0 +1,33 @@
+{
+  "name": "Winny wyciąg",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Żywe pnącze, które cię niesie",
+      "text": [
+        "Winny wyciąg to podkład z żywego pnącza. Postaw po jednym na każdym piętrze wieży albo szybu kopalni, jeden nad drugim w **tej samej kolumnie**, a same się znajdą. Bez łączenia, bez energii.",
+        "- **Skocz** na wyciągu, aby wznieść się do następnego wyciągu wyżej.",
+        "- **Skradaj się** na wyciągu, aby zsunąć się do następnego wyciągu niżej."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Można ustawić dowolną liczbę; każdy skok albo skradanie przenosi o jeden wyciąg, pomijając puste piętra pomiędzy. Wyciąg patrzy do **48 bloków** w każdą stronę.",
+        "Następny wyciąg potrzebuje dwóch bloków miejsca nad sobą, aby tam stanąć; wyciąg z sufitem nad nim jest pomijany, więc nigdy nie trafisz do środka ściany."
+      ],
+      "title": "Nawlekanie ich"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "A Marcha viva",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Agora mesmo",
+      "text": [
+        "O que a Marcha está fazendo enquanto você lê isto. Muda com você ou sem você."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Clima da Marcha",
+      "text": [
+        "Sete dos países da Marcha têm um clima próprio, além da chuva: **Queda de cinza** nos Ermos de brasa, uma **Tempestade de brilho** sobre os Campos de cristal, um **Branco total** nos Campos de neve, **Névoa do brejo** no Brejo dos juncos, **Névoa de geada** na Costa do gelo, uma **Tempestade de poeira** sobre as Planícies de sal e **Deriva de esporos** no Charco dos sombreiros.",
+        "Cada um fecha o mundo: você vê menos, e os espíritos surgem de dia sob ele como fariam à noite.",
+        "Cada tipo se instala cerca de uma vez por dia de jogo e dura **8 a 20 minutos**. A página do Códice acima diz a você o que está correndo; o céu também."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Clima e geradores",
+      "text": [
+        "Cada clima favorece os geradores de uma voz e atrapalha os de outra; por padrão, metade a mais da voz favorecida e metade da voz atrapalhada:",
+        "- **Queda de cinza** alimenta os Chifres de brasa e sufoca as Harpas de vento.",
+        "- Uma **Tempestade de brilho** alimenta os Sinos de despertar e embota os Corações de tambor.",
+        "- Um **Branco total** impulsiona as Harpas de vento e congela os Tambores das ondas.",
+        "- **Névoa do brejo** incha os Tambores das ondas e amortece os Chifres de brasa.",
+        "- **Névoa de geada** na Costa do gelo incha os Tambores das ondas e sufoca os Chifres de brasa.",
+        "- Uma **Tempestade de poeira** nas Planícies de sal impulsiona as Harpas de vento e seca os Tambores das ondas.",
+        "- **Deriva de esporos** no Charco dos sombreiros alimenta os Sinos de despertar e amortece os Tambores das ondas.",
+        "**O clima avisa.** Dois minutos antes de um clima assentar, a Marcha diz, no chat e sobre a barra de atalhos: hora de chegar a um teto, um acampamento ou um portal. Um surto é anunciado do mesmo modo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Surtos de ley",
+      "text": [
+        "De vez em quando os fios de ley de uma voz correm **brilhantes**: um surto. Pela [Lente ley](ley_lens) eles ardem, e a lente nomeia a voz. Enquanto dura, cada Coletor de ley cujos fios levam essa voz rende o **dobro**.",
+        "O outro lado: cada célula de ley tem um **cruzamento**, o ponto em que os fios se encontram, e ficar de pé sobre um nu durante um surto, sem um coletor perto para bebê-lo, dá a você **Mal de ley**: o chão balança e seu Pulso escoa. Saia de cima, ou ponha um coletor nele e faça o surto seu.",
+        "Por padrão um surto dura **15 minutos**, e o próximo chega cerca de uma hora e meia depois que ele termina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Festivais",
+      "text": [
+        "Cada tribo guarda um **dia de festival**, as nove se revezando num ciclo de vinte e sete dias. No dia delas as fogueiras do acampamento queimam, o Lar lança sua cor no ar, e os Parente ficam no Lar em vez de vagar.",
+        "O Ancião tem palavras de festival, e se você pedir para entrar no banquete ele põe nas suas mãos dois do prato da tribo com um monte de posição, uma vez por festival. Um rito feito no acampamento nesse dia ganha o agradecimento do festival além do do rito, e comer um banquete ao lado do Lar conta você à mesa deles.",
+        "A página do Códice acima diz de quem é o dia, e a Marcha avisa você quando o dia vira."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Espíritos errantes",
+      "text": [
+        "Raramente, lá fora na Marcha, uma luz quente deriva perto de você: um **Espírito errante**. Ele não foge. Alcance-o e ele conta uma linha da história do país dele e deixa um presente pequeno, o reagente a que o guardião dele responde, ou de vez em quando um Núcleo ressonante, e vai embora.",
+        "Deixado sozinho, ele some em uns dois minutos. Cada país tem três coisas a dizer; ouça todas e você conhece a Marcha um pouco melhor."
+      ]
+    }
+  ]
+}

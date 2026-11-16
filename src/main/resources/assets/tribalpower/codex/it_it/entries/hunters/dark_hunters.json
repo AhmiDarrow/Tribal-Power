@@ -1,0 +1,74 @@
+{
+  "name": "Cacciatori nel buio",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sotto e sopra",
+      "text": [
+        "Tre cacciatori dominano le grotte della Marcia, e sorgono lì nel buio di giorno come di notte. Un quarto vaga sopra le alte terre di notte.",
+        "Nessuno di loro si legherà. Ognuno lascia **da 1 a 2** del suo reagente, e di più con Saccheggio."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Agguatatore profondo",
+      "text": [
+        "Una talpa dal naso stellato grande come un orso, il più duro dei cacciatori delle grotte, sotto ogni terra della Marcia, uno o due alla volta. Ha **32 di salute** e **3 di armatura** e morde per **5**.",
+        "Lascia **Artiglio di agguatatore**, un reagente di Segugio che si macina in tintura Azzurro.",
+        "Se cacciato, lascia anche fino a 2 ossa e fino a 1 Cuoio della Marcia."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Inseguitore pallido",
+      "text": [
+        "Un ghoul delle caverne scarno e senza occhi, alto, pallido e rapido, delle caverne sotto la Steppa, gli Altipiani, il Crinale del Barlume, i Campi di Neve e i Campi di Cristallo, uno o due alla volta. **24 punti di salute** e **1 punto di armatura**. Il colpo infligge **4** e ti indebolisce per 4 secondi.",
+        "Lascia **Zanna pallida**, un reagente di Indebolimento.",
+        "Cacciato, lascia anche da 1 a 2 ossa."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Strisciatore ombroso",
+      "text": [
+        "Un millepiedi di grotta, basso e scuro, delle caverne sotto ogni terra tranne i Bassifondi, uno o due alla volta. **22 punti di salute** e **2 punti di armatura**. Il morso infligge **4**, ti rallenta per 3 secondi e può lasciarti [Sfilacciato](afflictions).",
+        "Lascia **Seta ombrosa**, un reagente di Tessitura.",
+        "Cacciato, lascia anche da 1 a 2 corde e fino a 1 occhio di ragno."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Derivante del velo",
+      "text": [
+        "Un sudario lacero alla deriva, su ali da pipistrello, che si alza di notte sopra gli Altipiani, il Crinale del Barlume, i Campi di Neve e i Campi di Cristallo, uno o due alla volta. **18 punti di salute** e **1 punto di armatura**.",
+        "Fino a 12 blocchi di distanza lancia una folata da **3** che ti respinge. Una copertura interrompe il lancio. Lascia **Brandello di velo**, un reagente di Folata.",
+        "Cacciato, lascia anche fino a 1 membrana di phantom e fino a 1 corda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pascolo",
+      "text": [
+        "Oltre al suo reagente, ognuno ne lascia di più se cacciato, e ancora di più con Saccheggio."
+      ]
+    }
+  ]
+}

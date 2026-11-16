@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de los campos de nieve",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Lo propio de la nieve",
+      "text": [
+        "Los campos de nieve albergan una foca en los ventisqueros, un caribú, una medusa que flota en el aire frío y un escorpión de hielo que de noche sale arrastrándose de la nieve.",
+        "Toda bestia mansa de aquí se puede cepillar con el pincel para obtener su reactivo una vez por minuto, y se atrae y se cría con su propia comida, nombrada más abajo en **Caza y pastoreo**. Se puede vincular como a cualquier animal manso (véase [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (véase [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Peloderiva",
+      "text": [
+        "Una foca de nieve, pesada y de pelaje tupido, que se arrastra sobre los ventisqueros con las aletas, en manadas de dos a cuatro. **26 de salud** y **5 de armadura**, y muy lenta.",
+        "Suelta **1 a 3 Pellejo a la deriva**, más con Saqueo.",
+        "Cazado, también suelta 1 a 2 Caza cruda y hasta 2 Cuero de la Marcha. Cría con **Baya de escarcha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Trotador de escarcha",
+      "text": [
+        "Un caribú pesado, de larga crin blanca, rápido bajo grandes astas abiertas, en manadas de dos a cuatro. **22 de salud** y **1 de armadura**.",
+        "Suelta **1 a 3 Casco de escarcha**.",
+        "Cazado, también suelta 1 a 3 Caza cruda, hasta 2 Cuero de la Marcha y hasta 1 Hueso. Cría con **Baya de escarcha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Velonieve",
+      "text": [
+        "Una medusa luna pálida del aire, una cúpula baja blancoazulada con cuatro anillos violeta dentro y cuatro brazos con volantes que cuelgan debajo, que flota sobre la nieve de una a tres. **12 de salud**, sin armadura.",
+        "Suelta **1 a 3 Velo de nieve**.",
+        "Cazado, también suelta hasta 2 Bola de nieve y hasta 1 Cuerda. Cría con **Baya de escarcha**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Reptador de escarcha",
+      "text": [
+        "Un escorpión de hielo, con la cola arqueada sobre el lomo, que sale de noche sobre la nieve abierta, uno o dos a la vez. Tiene **23 de salud** y **3 de armadura**, y su picadura hace **4** y te envenena durante 3 segundos.",
+        "Suelta **1 a 2 Mandíbula de escarcha**, un reactivo de veneno. Mandíbula de escarcha invoca al Ánima del túmulo en el Anillo del túmulo, y el Ánima invoca a sus propios Reptador de escarcha: véase [guardianes](guardians).",
+        "Cazado, también suelta hasta 2 Bola de nieve y hasta 1 Ojo de araña."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si los alimentas con normalidad, uno salvaje se encariña contigo en su lugar."
+      ]
+    }
+  ]
+}

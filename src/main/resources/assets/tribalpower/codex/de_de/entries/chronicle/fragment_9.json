@@ -1,0 +1,17 @@
+{
+  "name": "10. Moor",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Moor",
+      "text": [
+        "“Das Schilfmoor ist die ertrunkene Seilarbeit der Wurzelbinder. Jedes Schilf ist ein Knoten, den sie banden, um den Boden zu halten; das Wasser kam trotzdem. Eine von ihnen hielt über das Ende hinaus. Sie hält noch.”",
+        "Gefunden auf einem Wandbild am Platz eines Wächters."
+      ]
+    }
+  ]
+}

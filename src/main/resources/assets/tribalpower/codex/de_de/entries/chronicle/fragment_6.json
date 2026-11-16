@@ -1,0 +1,17 @@
+{
+  "name": "7. Die Lager",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die Lager",
+      "text": [
+        "“Neun Lager auf neun Polstern, jedes sang einen Faden in einen Webstuhl, der nicht mehr da war. Gewohnheit, nannten es die Kantenläufer. Hoffnung, sagten die Wurzelbinder. Die Griessänger sagten, es sei dasselbe, zweimal gesagt.”",
+        "Gefunden auf Gemeißelter Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

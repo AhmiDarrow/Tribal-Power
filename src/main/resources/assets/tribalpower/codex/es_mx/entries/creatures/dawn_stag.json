@@ -1,0 +1,52 @@
+{
+  "name": "Ciervo del alba",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Un pastador del alba cuyas astas se curvan como una lira y llevan la vieja canción del bosque. Cepilla a los adultos para obtener Terciopelo del alba.",
+        "Si lo cazas, también suelta Caza cruda, de 1 a 3, y Cuero de la Marcha, hasta 2. Críalo con **trigo**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Manadas de Ciervo del alba pastan en los bosques del Supramundo y, en la Marcha, en la estepa, en las alturas, en la Cresta del destello y en la ciénaga de juncos. Aparecen en terreno abierto y bien iluminado.",
+        "Un ciervo tiene **24 de salud** y **1 de armadura**. Es manso: huye si lo hieren y se mantiene lejos de los monstruos. Cría a dos con **trigo**."
+      ],
+      "title": "Dónde lo encuentras"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cepilla a un adulto para obtener **Terciopelo del alba**, una vez por minuto. El terciopelo se convierte en 2 Tejido espiritual bajo Agua.",
+        "Si cazas uno, suelta **1 a 3 Caza cruda** y **0 a 2 Cuero de la Marcha**; Saqueo añade hasta uno más de cada, y un ciervo que muere ardiendo suelta la carne ya cocida. Consulta [Caza y cuero](game_and_leather)."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Vincula a un adulto con un Amuleto de vínculo y se convierte en una montura que no necesita silla. Úsalo para subirte, dirige con la mirada, mantén el salto para un brinco corto y agáchate para bajar.",
+        "Solo lleva a quien está vinculado con él. Un ciervo con un hilo de Zancada fuerte corre más rápido, y la marca rara **Salto** salta más alto. Hay más en la página [dones del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Cuando lo cazas, suelta esto, y más con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; alimentado con normalidad, un salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

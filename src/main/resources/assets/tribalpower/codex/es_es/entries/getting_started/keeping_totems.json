@@ -1,0 +1,25 @@
+{
+  "name": "Mantener los tótems despiertos",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "A los tótems les gusta la compañía. El que se usa permanece **Respondido** unos 40 minutos mientras está cargado. Después pasa a **Tenue** otros 40 minutos, y las estaciones de esa voz trabajan cerca de un 30% más lento. Luego cae en **Callado**, y el trabajo nuevo puede pausarse aunque sobre Pulso.",
+        "Despertar un tótem es fácil: haz clic derecho con la mano vacía, o usa una **Campanilla de hueso** sobre él. Tocar un Corazón de tambor a mano a 8 bloques también lo despierta. Una vez despierto, el tótem sigue despierto mientras trabaja cerca una estación de su voz.",
+        "Algunas cosas mantienen los tótems despiertos por ti. Un [familiar](familiar_attuning) que lleve la voz de un tótem lo mantiene despierto hasta a **8 bloques**, el Tamborilero de una tribu despierta cualquier tótem cerca de su ritmo, y un [Tótem de parentesco](kinship_totem) nunca pasa a Callado.",
+        "Los tótems al aire libre, cerca del agua y de las plantas, siguen despiertos el doble de tiempo. Un tótem bajo un techo sigue el ritmo normal.",
+        "Un tótem también necesita Pulso en su propio búfer. En una red de entramado con Pulso, se llena y se queda lleno; fuera del entramado se vacía en unos dos minutos y queda **en silencio**, despierto o no. Un tótem nuevo empieza lleno, así que pon un [Conductor de entramado](lattice_conductor) a su alcance antes de eso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dónde leer más",
+      "text": [
+        "Las reglas completas están en la página [Conservación](keeping). Si una estación se detuvo y su energía está bien, lo habitual es un tótem en silencio, y el Códice espiritual te lo dirá cuando te agaches y hagas clic derecho en la estación."
+      ]
+    }
+  ]
+}

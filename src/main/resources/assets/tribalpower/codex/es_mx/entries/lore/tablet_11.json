@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: la Marcha",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Desde una Sala de los ancestros hundida, para quien camine la Marcha después:",
+        "“La Marcha es donde el hilo se deshilachó más fino y el suelo caído vino a reposar. Las salas yacen hundidas hasta el dintel; los campamentos llevan el compás sin nadie al tambor; el cristal crece donde la tensión del Telar todavía se junta. Recórrela con una Célula de Pulso llena y la mano firme. Todo aquí sigue respondiendo a un ritmo.”"
+      ]
+    }
+  ]
+}

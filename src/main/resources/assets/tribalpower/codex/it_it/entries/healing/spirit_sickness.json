@@ -1,0 +1,34 @@
+{
+  "name": "Malattia dello Spirito",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Alcuni spiriti in [la Marcia](the_march) lasciano più di una ferita. Ogni colpo di un **élite**, e ogni colpo di qualsiasi spirito **di notte**, ha una probabilità su quattro di lasciarti la **Malattia dello Spirito**.",
+        "Si accumula fino al **livello III**. Ogni livello toglie **un cuore** alla tua salute massima e ti rallenta un poco, e dura **5 minuti**, rinnovati a ogni nuovo colpo. Lo senti assestarsi: il gioco ti avvisa quando attecchisce."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Toglierla",
+      "text": [
+        "Il latte non fa nulla. Funzionano solo i vecchi modi:",
+        "- un qualsiasi [rimedio](remedies), tintura, unguento o incenso;",
+        "- il [Sonaglio del guaritore](healers_rattle) di Bound, un livello a ogni scossa;",
+        "- il [Cerchio di guarigione](healing_circle);",
+        "- una notte in una [capanna del sudore](sweat_lodge);",
+        "- un lavaggio in un **Pozzo dello Spirito** della Marcia: accovacciati nella sua acqua, per **40 Pulso** da una cella che porti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Benedizione dello Spirito",
+      "text": [
+        "Il cerchio e la capanna ti lasciano anche la **Benedizione dello Spirito**: **2 cuori in più** e, finché dura, il male non può attecchire affatto. Entra nella Marcia benedetto e gli spiriti della notte possono solo ferirti, non farti ammalare."
+      ]
+    }
+  ],
+  "next": "afflictions"
+}

@@ -1,0 +1,86 @@
+{
+  "name": "Vincular un familiar",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Vincular hace tuya a la criatura para siempre. Un familiar suelta **el doble** de reactivo cuando lo cepillas, una vez por minuto, y nadie más puede cepillarlo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Toda criatura lleva cinco hilos: **Armazón** (salud), **Zancada** (velocidad), **Colmillo** (daño), **Zumbido** (con qué frecuencia funciona su don) y **Guarda** (armadura). Cada paso arriba o abajo vale un 12%.",
+        "**Agáchate y mira a cualquier criatura de la Marcha** para ver sus hilos, sus Marcas, su generación y su **linaje**, la suma de los cinco hilos. Tus compañeros muestran los suyos siempre que los miras.",
+        "Los hilos salvajes salen de 0 a 3, así que dos zorros del mismo claro no son clones. Solo la cría llega a 4, y el **Exaltado** a 5. Elige el que quieras conservar: vincular no relanza nada."
+      ],
+      "title": "Léelo primero"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hay dos formas de vincular a una criatura adulta. Las jóvenes no se pueden vincular.",
+        "- **Aliméntalo**, como harías para ganarte a un lobo. Los animales mansos toman su comida de siempre y se vinculan cerca de una vez de cada tres; los remanentes toman su propio reactivo y se vinculan una vez de cada cinco. Cada intento gasta la comida.",
+        "- **Usa un Amuleto de vínculo** sobre él: tres intentos de cada cinco en animales mansos, dos de cada cinco en remanentes. El amuleto se gasta cuando el vínculo prende. Un intento fallido lo conserva con un animal manso, pero lo gasta en un remanente.",
+        "Un remanente responde, de una forma u otra, solo cuando su tribu te llama **Voz** ([quién puede vincularse](familiar_basics)). Los corazones quieren decir que funcionó; el humo, que no."
+      ],
+      "title": "Vinculación"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hazlo pronto con **cuatro cuerdas** alrededor de un **Fragmento de Espíritu** y **un reactivo de criatura**. Cuando tengas Tejido espiritual, **dos Tejido espiritual** pueden sustituir a la cuerda.",
+        "El reactivo puede ser cualquiera de nueve: Terciopelo del alba, Plumón de farol, Escama de lomomusgo, Caparazón prismático, Diente de la grieta, Nudo de pavesa, Ala de tormenta, Fragmento de campana o Seda de eco. Cepilla un Ciervo del alba, un Zorro farol o un Lomomusgo para obtener uno, una vez por minuto, o toma uno de un remanente caído; los reactivos de otras bestias no sirven. Sea cual sea el que entre, el amuleto vincula a cualquier criatura que responda.",
+        "El mismo amuleto después le da una voz a tu familiar: mira [sintonizar en un tótem](familiar_attuning)."
+      ],
+      "title": "El Amuleto de vínculo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Cualquiera de los nueve reactivos de criatura ocupa la casilla central de arriba."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un familiar te sigue cuando estás a **10 bloques** y se teletransporta hasta ti al pasar de **12**. Ignora tus golpes.",
+        "Úsalo agachado para que espere, y otra vez para llamarlo. Sostén algo cuando lo hagas con un Lomomusgo, porque la mano vacía abre su alforja.",
+        "**Un luchador** (un Lomoesquirla o un Sabueso de la grieta) y **dos ayudantes** pueden seguir a la vez. Los que están sentados y lo que estés montando no cuentan. Los que sobran se sientan y te dicen por qué. Un familiar que espera y resulta herido se levanta y sigue, si hay sitio en tu compañía.",
+        "Lo que mata tu familiar no te da posición en la tribu y no cuenta para las cacerías de una tribu. La muerte tiene que ser tuya."
+      ],
+      "title": "Hacer compañía"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cría dos compañeros vinculados de la misma especie alimentando a ambos con su comida mientras están cerca. Los animales salvajes también crían, si te agachas al alimentarlos, y sus crías nacen salvajes. Como con los lobos, las crías de dos compañeros que son tuyos **nacen en tu compañía**, y más comida las ayuda a crecer.",
+        "Cada cría toma la mitad de cada hilo de cada progenitor, a veces un poco hacia arriba o hacia abajo. Las parejas que son tuyas a la vez mejoran un poco más a menudo.",
+        "**Cría fuerte con fuerte.** Cuando ambos progenitores están en 3 o más en un hilo, la cría tiene una probabilidad de una entre cuatro de subir un paso por encima de cualquiera de los dos, y es la única forma de llegar a 4 y al Exaltado 5. Una línea criada con cuidado acaba mucho más fuerte que cualquier cosa salvaje.",
+        "Cuidado con copiar: criar el mismo Armazón y el mismo Colmillo durante tres generaciones seguidas con un solo dueño **Deshilacha** la línea y baja su Zumbido."
+      ],
+      "title": "Criar mejores hilos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Las marcas son peculiaridades con nombre. Algunas se muestran con una copia; el resto necesita una copia de ambos progenitores.",
+        "- Una copia: **Hilo quieto** (sigue desde 8 bloques, se detiene a 2), **Piel de piedra** (+1 de armadura, un poco más lento), **Deriva** (más rápido, 2 menos de salud, se inquieta tras un minuto de espera), **Fauces blandas** (no muerde a aldeanos ni a gólems), **Vena de brillo** (zorro), **Riostra** (Lomoesquirla).",
+        "- Dos copias: **Agudo** (el don funciona más rápido), **Zumbido nocturno** (más rápido de noche), **Marca de Pariente** (nace de la pareja de un solo dueño, un poco más de armadura), y las marcas de especie **Salto**, **Bolsillo hondo**, **Rastro**, **Tempo**, **Clic certero**, **Quieto** y **Recogida**.",
+        "Unas pocas criaturas salvajes nacidas en la Marcha son **Chispeadas**: brillan y llevan una copia fuerte del hilo hacia el que se inclina su especie."
+      ],
+      "title": "Marcas"
+    },
+    {
+      "type": "text",
+      "title": "Curar a un familiar",
+      "text": [
+        "Alimenta a un familiar herido con su comida favorita para curarlo. Un [ungüento](remedies) usado en él, el incienso al arder y la [Sonaja del sanador](healers_rattle) también lo curan.",
+        "Si uno cae, deja unos **Restos del Espíritu**. Un [Círculo de sanación](healing_circle) lo llama de vuelta, con voz y todo."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "name": "Túmulo de Pulso",
+  "icon": "tribalpower:pulse_cairn",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Un túmulo de piedras que guarda un compás: el almacén del entramado. Cada piedra guarda **4,000 Pulso**. En una red de entramado bebe el sobrante de los generadores de la red y lo presta a las máquinas de la red, hasta **64 por segundo** en cada sentido. Los generadores a rachas lo llenan; las máquinas hambrientas extraen de él sin pausa."
+    },
+    {
+      "type": "text",
+      "title": "Apilar",
+      "text": [
+        "Los túmulos que se tocan cara con cara, por cualquier lado, arriba o abajo, se unen en **una pila** y un solo almacén: dos piedras guardan **8,000 Pulso**, tres guardan **12,000**, y así sucesivamente. Una pila une hasta **64 piedras**, lo que son **256,000 Pulso** de piedras simples; una piedra de más queda sola.",
+        "Usa cualquier piedra y verás la pila entera. Mete Pulso en cualquier punto y se reparte por las piedras; saca de cualquier piedra y paga la pila entera. Cada piedra suma su propia tasa a lo rápido que la pila mueve el Pulso hacia dentro y hacia fuera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangos",
+      "text": [
+        "El Túmulo de Pulso [sube de rango](machine_ranks) como cualquier máquina, en Sintonizador de eco, Vinculador de eco y Manifestador de eco. Una piedra con rango guarda más y mueve el Pulso más rápido, hacia dentro y hacia fuera, a las mismas tasas que un conductor:",
+        "- **Tejido**: 4,000 Pulso, 64 por segundo.",
+        "- **Sintonizado**: 16,000 Pulso, 256 por segundo.",
+        "- **Vinculado**: 64,000 Pulso, 1,024 por segundo.",
+        "- **Manifestado**: 256,000 Pulso, 4,096 por segundo.",
+        "Un montón suma sus piedras, sean cuales sean sus rangos. Una piedra de antes de los rangos es Tejido, y una piedra rota conserva su rango, pero no su Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Llenado y lectura",
+      "text": [
+        "Un túmulo se une al entramado como cualquier otra cosa, en un radio de 8 bloques de un [Conductor de entramado](lattice_conductor). Solo bebe el **excedente** de un generador, lo que queda por encima de la mitad de su reserva, y nunca el de otro túmulo, así el Pulso del que trabajan las máquinas queda intacto. Las máquinas de la red gastan primero los generadores y después los túmulos. El Pulso que entra y el que sale también pasa por los conductores al alcance, así que ajusta su rango para que coincida.",
+        "Rompe una piedra y el Pulso que llevaba se pierde: la piedra vuelve vacía, y el resto del montón conserva lo que guarda. Agota el montón antes de moverlo.",
+        "Un comparador contra cualquier piedra lee lo lleno que está todo el montón. Una señal de redstone en cualquier piedra detiene el llenado del montón."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un montón de piedras",
+      "steps": [
+        {
+          "caption": "Pon un túmulo junto a un generador que llega a ráfagas, como una Campana de despertar, con un Conductor de entramado al alcance de ambos.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Pon más encima o al lado. Las piedras que se tocan son un solo montón: tres guardan 12,000 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Cualquier forma se une, lado a lado o apilada, hasta 64 piedras: 256,000 Pulso en un montón.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                1
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un comparador contra cualquier piedra lee lo lleno que está todo el montón.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dónde destaca",
+      "text": [
+        "Pon un túmulo, una Campana de despertar y un Foso de escucha alrededor de un conductor, y las ráfagas de la campana se vuelven el consumo constante que el foso quiere.",
+        "Los dos extremos tienen que estar cargados. Agáchate y haz clic derecho en un túmulo con este libro para ver cuántas piedras ha reunido su montón y qué lleva esta piedra."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_cairn",
+      "text": "Seis Piedra de la Marcha, dos Eco vinculado y una Célula de Pulso."
+    }
+  ]
+}

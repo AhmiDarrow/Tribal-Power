@@ -1,0 +1,93 @@
+{
+  "name": "Der Marsch",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Der Marsch ist, wo der Faden am dünnsten ausfranste und der gefallene Boden zur Ruhe kam. Hallen liegen bis zum Sturz versunken. Lager halten den Takt, und niemand ist an der Trommel. Kristall wächst, wo die Spannung des Webstuhls noch zusammenläuft.",
+        "Dort antwortet noch alles auf einen Schlag. Das ist kein Spuk. Das ist eine Welt, die nie lernte aufzuhören.",
+        "Du gehst dorthin für Dinge, die Du zu Hause nicht findest: **Marschkristall**, **Webstuhlfaden** und das **Ungesungen-Herz**. Sie öffnen den Astraltransport, die Stimme des Webstuhls und die letzten Überlieferungstafel."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Der Weg hinein ist eine [Tortrommel](gate_drum). Sie braucht keinen Puls: schlage darauf den **Tor-Ritus**, vier Trommeln auf **A**, **S**, **D** und **F**, und der Rhythmus öffnet den Weg.",
+        "Rechtsklick mit leerer Hand, um den Ritus zu beginnen; triff **60%** der Schläge, und die Trommel trägt Dich hindurch. Ein Redstone-Signal sperrt die Trommel.",
+        "Den Ritus auf einer Tortrommel im Marsch zu schlagen bringt Dich immer nach Hause: an die Stelle, von der Du aufgebrochen bist, oder zu Deinem Spawnpunkt, wenn sie weg ist. Dein Rückkehrpunkt übersteht den Tod, also lässt Dich eine schlechte Reise nie stranden.",
+        "Später ist ein Paar [Wegtor](way_gate) die Strecke für viel auf einmal.",
+        "Wenn ein Update das Land des Marschs neu formt, legt ein älterer Spielstand seinen Marsch einmal beiseite, beim nächsten Start, und die Dimension wächst wieder, während Du sie erkundest. Der alte Marsch, samt allem, was dort gebaut wurde, wird nach **tribalpower_backups** im Spielstand verschoben, nie gelöscht. **retrogenMarch** im Abschnitt **world** der gemeinsamen Konfiguration schaltet das ab."
+      ],
+      "title": "Hin und zurück"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Geh hinein mit geladenen Pulszelle, Essen, ein paar [Geistsalbe](remedies) und einer ruhigen Hand. Pack eine Ersatz-Tortrommel ein, die Du für den Heimweg abstellst, und wenn Du einen Astralkompass hast, binde ihn zu Hause an einen trockenen Boden, bevor Du gehst. Der Marsch ist groß, und jedes Biom wirkt beim ersten Mal neu.",
+        "Geistrest erhebt sich, wo es dunkel ist, über der Erde und darunter, also nimm Fackeln oder Laternen mit und leuchte den Weg zurück zu Deiner Trommel."
+      ],
+      "title": "Was Du mitnimmst"
+    },
+    {
+      "type": "text",
+      "title": "Tag und Nacht",
+      "text": [
+        "Der Tag des Marschs ist zum Arbeiten, und seine Nacht ist die Gefahr.",
+        "- **Bei Tag** erheben sich Geister selten im Freien, nie im Licht von Fackel oder Laterne und nie neben einem anderen. Wilde Geister unter freiem Himmel vergehen, wenn die Sonne aufgeht, außer sie jagen Dich schon.",
+        "- **Bei Nacht** erheben sie sich stärker, mit mehr Gesundheit und härteren Treffern, und manche erscheinen als **Eliten** mit goldenem Namen. Sie kommen höchstens zu zweit und hören auf, sobald vier in der Nähe sind.",
+        "- **Höhlen** haben ihre eigenen Regeln. Die Höhlenjäger erheben sich an jeder unbeleuchteten Stelle unter der Erde, Tag oder Nacht, und die Grenze von vier gilt unten nicht, also kann eine dunkle Höhle voll werden. Leuchte sie aus, während Du gehst.",
+        "- Eliten und Nachtgeister können Dich mit [Geistkrankheit](spirit_sickness) zurücklassen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ausschlafen",
+      "text": [
+        "Betten funktionieren im Marsch, und wer die Nacht durchschläft, stellt die Uhr auf den Morgen. (Der Marsch hält die Zeit der Oberwelt, also vergeht auch die Nacht der Oberwelt.)",
+        "Nur ein Geist, der **Dich bereits jagt**, hält Dich vom Schlafen ab. Einer, der an Deinen Mauern vorbeizieht, tut das nicht, also ist ein beleuchtetes, ummauertes Lager ein sicherer Ort zum Ruhen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Steppe**: rollendes Gras mit Gehölzen und einzelnen Bäumen. Es weiden Marschwanderer, Dämmerhirsch, Laternenfuchs, Kaninchen und ein paar Moosrücken. Es jagen Aschegebunden, Wurzelgebunden, Risshund, Echoweber und ein paar Schilfpirscher. [Ahnenhallen](ancestor_hall) sinken hier ein.",
+        "- **Hochland**: Stein, Moos und Baumhaine. Ziegen, Dämmerhirsch, Füchse, Marschwanderer und Kaninchen. Hohlwächter, Sturmmotte, Zunderkobold, Risshund und ein paar Splitterrücken. Heimat der [Trommelkreis](drum_circle), weiterer Ahnenhallen und Smaragde (der Glimmerkamm hat sie auch).",
+        "- **Kristallfelder**: terrassierte Tafeln aus Kalzit und Stein, starrend vor Marschkristall. Füchse, Kaninchen, Moosrücken und Marschwanderer; Schilfpirscher, Splitterrücken, Trauerglocke, Echoweber und ein paar Hohlwächter. Die [Kristallspitze](crystal_spire) steht hier."
+      ],
+      "title": "Steppe, Hochland, Kristallfelder"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Schneefelder**: Schnee und Packeis über Marschgras. Laternenfuchs, Kaninchen, Marschwanderer, ein paar Moosrücken und Eisbären. Hohlwächter, Sturmmotte, Trauerglocke und Risshund.",
+        "- **Glutöde**: trockenes Basaltland ohne Regen. Wenige Weidetiere wagen sich hinein: Marschwanderer, Laternenfuchs und Aschespringer. Zunderkobold, Risshund und Aschegebunden streifen umher, und ein paar Sturmmotte.",
+        "- **Schilfmoor**: Schlammrinnen voller Geistrohr. Moosrücken, Dämmerhirsch, Frösche, Laternenfuchs und Marschwanderer; Glimmerflosse, Treibglocke, Schlickaal und Schleierrochen im Wasser, und Leuchttintenfische in den gefluteten Höhlen. Schilfpirscher, Wurzelgebunden und Echoweber lauern im Nassen.",
+        "Geisterlicht zieht durch jedes Land des Marschs."
+      ],
+      "title": "Schneefelder, Glutöde, Schilfmoor"
+    },
+    {
+      "type": "text",
+      "title": "Untiefen, Glimmerkamm",
+      "text": [
+        "- **Untiefen**: das niedrige Land, ertrunken unter seichtem Wasser. Seen und Tümpel auf Betten aus Schlick und Ton, Schreiter-Bäume mit Stelzenwurzeln, Lilien, Mondlilie und Bandkraut, und hier und da eine Steinsäule mit Kristallkappe. Schlickgleiter, Fahltreiber und Sandbankpfeil schwimmen dort, und Stelzenholz geht an den Ufern; nachts erheben sich Solenlauerer und Ertrunkenenschatten im Wasser, und Schilfpirscher, Wurzelgebunden, Echoweber und Trauerglocke kommen aus dem Schilfmoor. Der Gezeitenstein der [Wächter](guardians) steht hier.",
+        "- **Glimmerkamm**: der höchste Grund, ein Berg aus Mondstein. Siehe [den Glimmerkamm](glimmer_ridge).",
+        "Jedes Land hat neben diesen eigene Tiere und eigene Leute: siehe [Tiere der Steppe](beasts_steppe) und die Seiten danach."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Lies jede Überlieferungstafel in den [Ahnenhallen](ancestor_hall). Der Geisterkodex vermerkt jede.",
+        "- Wenn Du bereit bist, schlage eine Stille Trommel viermal, mit einem Atemzug Abstand, und tritt [Der Ungesungene](the_unsung) gegenüber.",
+        "- Bring Marschkristall, Webstuhlfaden und ein Ungesungen-Herz nach Hause. Zusammen öffnen sie [die sechste Stimme](sixth_voice).",
+        "- Besuche die Webstuhl-Näher an der [Kristallspitze](crystal_spire) für Tausch von Webstuhlfaden."
+      ],
+      "title": "Was Du dort tust"
+    }
+  ]
+}

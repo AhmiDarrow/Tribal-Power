@@ -1,0 +1,96 @@
+{
+  "name": "Fauna Marszu",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "W wodzie",
+      "text": [
+        "Rozlewiska, sadzawki i jeziora górskie Marszu są pełne życia.",
+        "Wszystkie trzymają się otwartej wody pod niebem, nigdy wody zamkniętej w skale poniżej."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Błyskopłetwa",
+      "text": [
+        "Mała neonowa ryba ze świecącymi płetwami. Pływa ławicami w wodzie każdej krainy. Złów jedną wiadrem wody albo ją ugotuj."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Dzwon dryfu",
+      "text": [
+        "Powolna, świecąca meduza w kształcie dzwonu, w wodzie każdej krainy poza Wyżyną i Żarowymi pustkowiami. Niegroźna. Jej **Galareta dryfu** pozwala ci przez chwilę oddychać pod wodą i widzieć w ciemności."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Płaszczka zasłony",
+      "text": [
+        "Szeroka, płochliwa manta Stepu, Wyżyny, Trzcinowego mokradła i Mielizn; odpływa od każdego, kto się zbliży. Upuszcza Skóra Marszu i Błyskopłetwa."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Węgorz mułu",
+      "text": [
+        "Oliwkowy węgorz mokradła ze sadzawek i kanałów Trzcinowego mokradła, Mielizn i wody, gdzie Żarowe pustkowia schodzą do morza. Pływa z Błyskopłetwa i gryzie każdego, kto brodzi w jego wodzie. Ugotuj go jako Wędzony węgorz mułu, na dobry posiłek."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Jerzyk krosna",
+      "text": [
+        "**Jerzyk krosna** krążą nad otwartą ziemią w luźnych stadach po **od 3 do 6**, tylko za dnia i w suchą pogodę, i nigdy nad Żarowymi pustkowiami; wokół ciebie zbiera się nie więcej niż **12**. Upuszczają pióro lub dwa, od czasu do czasu trochę Surowa dziczyzna."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "W powietrzu",
+      "text": [
+        "Bliżej ziemi powietrze roi się od owadów: **świetliki** nad mokradłem i stepem nocą, **trzcinowe śmigacze** muskające wodę za dnia, **szklanoskrzydłe** trzepoczące nad kwiatami Kryształowych pól i **muszki żaru** unoszące się z Żarowych pustkowi. To tylko światło i ruch; nie da się ich złapać, i nic nie kosztują twojego świata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stada wracają",
+      "text": [
+        "Upoluj albo oswoj kawałek Marszu do gołej ziemi, a nie zostanie goły. Mniej więcej **raz na minutę**, w cichym miejscu **od 32 do 96 bloków** od ciebie i nigdy bliżej niż **24 bloki** od kogokolwiek, kilka zwierząt tej krainy może wrócić: te same roślinożerne, od których kraina się zaczęła, także te, które dodają tam inne mody. Mieszkańcy jaskiń i lawy wracają na własny grunt.",
+        "Przestają przychodzić, gdy w promieniu 32 bloków od miejsca jest już **sześć** zwierząt. Oswojone i zamknięte w zagrodzie też się liczą, więc ziemia zapełnia się mniej więcej do stanu z początku i nie dalej, a dzikie stada nigdy nie tłoczą się na twoich farmach ani w ruchliwym obozie.",
+        "Ryby, meduzy i jerzyki same przychodzą i odchodzą z wodą i niebem. Ustawienia serwera mogą zmienić tempo albo wyłączyć powrót."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Karmienie i rozmnażanie",
+      "text": [
+        "Trzymaj **Wstęgowy wodorost** albo **Trawa morska**, a Błyskopłetwa, Dzwon dryfu i Płaszczka zasłony przypłyną do ciebie, nawet płochliwe płaszczki. Nakarm dwa tego samego rodzaju, a zrobią trzecie.",
+        "**Wędka** zarzucona w dowolnej wodzie Marszu wyciąga Surowa błyskopłetwa, a jeden z czterech rzutów Surowy węgorz mułu, zamiast dorsza i łososia. Trzymaj **Puste wiadro** w drugiej ręce, a Błyskopłetwa wychodzi żywa, jako Wiadro z błyskopłetwą: łatwy sposób, by zarybić staw.",
+        "Trzymaj **Nasiona pszenicy** albo **Ziarno stepu**, a Jerzyk krosna krążą tuż przy tobie, dość blisko, by je nakarmić. Dwa nakarmione jerzyki tak samo robią trzeciego.",
+        "Młode rodzą się już dorosłe i nigdy nie odchodzą, więc zarybiony staw zostaje zarybiony. Każda para odpoczywa pięć minut, zanim znów się rozmnoży. Węgorz mułu nie bierze jedzenia.",
+        "Dzwon dryfu od czasu do czasu upuszcza też kulę szlamu."
+      ]
+    }
+  ]
+}

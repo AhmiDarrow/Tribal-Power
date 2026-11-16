@@ -1,0 +1,38 @@
+{
+  "name": "Czytanie kamieni",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Rzeźbiony kamień i murale",
+      "text": [
+        "Marsz spisał własną historię w kamieniu. W ściany jego ruin wstawione są **Rzeźbiony kamień**: ruiny Krosna, wsie na palach, zatopione kaplice, bagienne kurhany, popielne groby, ossuaria, galerie drążenia i skarbce Grzbietu Poświaty. Na terenach strażników **Rzeźbiony mural** stoją na dwa bloki szeroko i dwa wysoko; każdy maluje krainę, w której stoi.",
+        "Kliknij prawym przyciskiem na jeden, a go przeczytasz; fragment zostaje tu na dobre, a Kronika kładzie go na miejsce. Jest ich **szesnaście**: osiem kamieni o upadku Krosna, osiem murali o krainach, które zostawiło. Przeczytaj wszystkie, a Kronika będzie cała, z postępem **Cała Kronika** na dowód.",
+        "Kamienie i murale można podnieść i ustawić na dowolnej własnej ścianie, a w trybie kreatywnym klik przy skradaniu na kamień lub mural zmienia jego rozdział. Każdy rozdział psuje niespodziankę, dopóki go nie znajdziesz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obrazy i herby",
+      "text": [
+        "Sześć **obrazów** Marszu wisi teraz wśród zwykłych: przyłóż obraz do ściany, a może pojawić się jeden. Tytuły mają własne.",
+        "Gdy twoja pozycja u plemienia sięga **Ród**, raz wręcza ci swój **herb**: wzór chorągwi ze znakiem plemienia. Włóż go do krosna z chorągwią i dowolnym barwnikiem. Zawieś go nad własnym obozem, by pokazać, czyim Ród jesteś."
+      ]
+    }
+  ]
+}

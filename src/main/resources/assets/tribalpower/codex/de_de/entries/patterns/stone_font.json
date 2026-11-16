@@ -1,0 +1,79 @@
+{
+  "name": "Steinbecken",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "Das Steinbecken bittet den Stein, zu bleiben. Gib ihm Puls und die richtige Form darum, und es füllt sich mit Bruchstein, dann Stein, dann Obsidian.",
+        "Unverstrebter Bruchstein ist billig genug, um auf einem von Hand gespielten [Trommelherz](drumheart) zu laufen. Deshalb ist dies das erste Muster, das die meisten Lager bauen."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Bruchstein: das Becken und vier Markierungen",
+      "text": "Zeichne auf jeder Seite des Beckens eine Kreidemarkierung, auf demselben Boden."
+    },
+    {
+      "type": "text",
+      "title": "Bruchstein",
+      "text": [
+        "Mit seinen vier Markierungen und einem Trommelherz, das ein Konduktor innerhalb von **8 Blöcken** mit ihm verwebt, macht das Becken **einen Bruchstein alle 2 Sekunden** bei **4 Puls pro Sekunde**. Keine Stimme nötig.",
+        "Seine Plätze sind nur Ausgabe: schütte keinen Bruchstein per Trichter hinein, das Becken macht seinen eigenen. Ducke dich und rechtsklicke es mit leerer Hand, um zu nehmen, was es gemacht hat, oder nutze einen Trichter oder ein Relais. Ist nichts darin, schaltet derselbe Duck-Klick die angeklickte Seite durch Beide, Eingang, Ausgang und Geschlossen. Platten wirken oben und unten am Becken gleich: eine Gegenstandsplatte auf einer der beiden zieht den Stein heraus, und eine Flüssigkeitsplatte, auf das eine oder das andere gestellt, gießt Wasser oder Lava hinein.",
+        "Becken-Bruchstein ist zum Bauen und zum Hämmern zu Kies und Sand. Der Echozermalmer macht Echoscherben nur aus Stein, nicht aus Bruchstein, und Stein macht die nächste Stufe."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Stein und Obsidian: verstrebe es",
+      "text": "Behalte die vier Markierungen und setze an jede Ecke eines 5x5 um das Becken einen Ankerstein."
+    },
+    {
+      "type": "text",
+      "title": "Stein",
+      "text": [
+        "Verstrebt und mit der Stimme **Erde** in Reichweite macht das Becken **Stein alle 3 Sekunden** bei **32 Puls pro Sekunde**. Dieser Stein ist genau das, was der Echozermalmer in Echoscherben verwandelt.",
+        "Das Erde-Totem muss wach bleiben (siehe [Wachhalten](keeping)): solange es matt ist, dauert jeder Stein etwa 30% länger, und sobald es still ist, hört der Stein auf. Bruchstein braucht niemals Erde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsidian",
+      "text": [
+        "Obsidian braucht die Verstrebung und Erde, dazu eines von zwei Dingen:",
+        "- Die Stimmen **Feuer und Wasser**, beide in Reichweite: Obsidian alle **12 Sekunden** bei **48 Puls pro Sekunde**.",
+        "- Oder leite **250 mB Wasser und 250 mB Lava** je Block hinein: derselbe Obsidian bei nur **12 Puls pro Sekunde**. Das Becken fasst bis zu 4000 mB von jedem.",
+        "In ein unverstrebtes Becken zu leiten bewirkt nichts. Sind Feuer und Wasser beide da, nutzt das Becken die Stimmen und lässt seine Tanks in Ruhe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tiefe und Ränge",
+      "text": [
+        "Unter **y 0** gibt das Becken stattdessen den Tiefenschiefer jeder Stufe: Bruchtiefenschiefer, dann Tiefenschiefer. Obsidian bleibt Obsidian. Eine Lauschgrube nimmt keinen Tiefenschiefer, also baue das Becken, das eine Grube speist, über **y 0**.",
+        "Stufe das Becken wie jede andere Werkstatt: schnellere Anfragen, mehr Puls pro Sekunde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Becken lesen",
+      "text": [
+        "Ein Komparator am Becken liest, wie weit es mit dem Block ist, den es macht, und fällt auf 0, während es auf irgendetwas wartet.",
+        "Wenn das Becken untätig dasteht, ducke dich und rechtsklicke es mit diesem Buch. Es nennt fehlende Markierungen, Anker und Stimmen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

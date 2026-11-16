@@ -1,0 +1,33 @@
+{
+  "name": "Stimmring",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 50,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sechs Stimmen, angeordnet",
+      "text": [
+        "Ein [Pulsresonator](pulse_resonator) zählt höchstens **fünf** Stimmen aus einem losen Haufen Totems, Verwandtschafts-Totems eingeschlossen. Um alle sechs Elemente plus Verwandtschaft zu zählen, müssen die Stimmen **angeordnet** sein.",
+        "Der Stimmring sind acht Plätze um den Resonator, **drei Blöcke** hinaus auf den Hauptrichtungen und den Diagonalen, alle auf der Ebene des Resonators selbst. Acht, weil sechs gleichmäßig verteilte Totems nicht auf ein quadratisches Gitter passen."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "voice_ring",
+      "tier": 1,
+      "title": "Der Ring",
+      "text": "Ein Totem in jedem der acht Plätze, drei Blöcke vom Resonator."
+    },
+    {
+      "type": "text",
+      "title": "Den Ring füllen",
+      "text": [
+        "Jeder Platz braucht ein Resonanz-Totem. Ein Verwandtschafts-Totem kann keinen Platz füllen, fügt aber seinen Stamm von überall innerhalb von 8 Blöcken hinzu. Nur **verschiedene** Stimmen zählen, die sechste eingeschlossen: zwei Erde-Totems sind weiter eine Stimme, also dürfen freie Plätze Duplikate halten.",
+        "Nur Totems im Stand **Beantwortet** zählen; ein stilles muss zuerst geweckt werden (siehe [Hüten](keeping)).",
+        "Setze den Katalysator wie üblich. Ducke dich und rechtsklicke den Resonator mit diesem Buch, um seinen Katalysator zu sehen und wie viele Stimmen er hört. Wenn er bei fünf stehen bleibt, obwohl sechs Stimmen um ihn sind, ist ein Platz des Rings noch leer."
+      ]
+    }
+  ]
+}

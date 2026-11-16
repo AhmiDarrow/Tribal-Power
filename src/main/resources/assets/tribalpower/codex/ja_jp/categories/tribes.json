@@ -1,0 +1,8 @@
+{
+  "name": "九つの部族",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "かつて九つの部族が織機を守っていた。野営は今も残る。立場と印を得よ。",
+  "spoiler": true,
+  "progress": "tribes"
+}

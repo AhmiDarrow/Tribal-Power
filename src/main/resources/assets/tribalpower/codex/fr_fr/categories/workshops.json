@@ -1,0 +1,6 @@
+{
+  "name": "Ateliers",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "description": "Les ateliers d'écho changent la pierre, le minerai et la résonance en tout le reste. Chaque station a besoin de Pulsation et de la bonne voix de totem à proximité."
+}

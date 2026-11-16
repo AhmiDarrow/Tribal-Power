@@ -1,0 +1,265 @@
+{
+  "name": "Pompe de marée",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Déplace le fluide d'un réservoir vers le réservoir de l'autre côté, **250 mB** par seconde, et puise l'eau du bloc **directement en dessous**. De l'eau d'une Citerne d'Esprit vers un Tambour des vagues, de la lave d'une réserve à l'autre : tout réservoir de fluide convient, de ce mod ou d'un autre.",
+        "Elle garde un petit puits à elle, de **4000 mB**, pour ce qu'elle puise en dessous et ce qu'apportent les plaques relais de fluide. Casse-la : elle garde ses réglages, le sens où elle pompe, la pose de chaque face et son rang, ainsi que son puits et tout fluide qu'elle était en train de déplacer.",
+        "Elle répond à **Eau** : garde un totem d'Eau à 8 blocs (voir [Mains du camp](camp_hands)), sinon elle reste inactive."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dans quel sens elle pompe",
+      "text": [
+        "La pompe a un devant, la face avec la flèche. Comme un fourneau, elle se pose avec cette face vers toi, et tu peux la viser vers le haut, vers le bas ou de côté.",
+        "Par défaut, elle **puise dans le réservoir de devant** et **pousse dans le réservoir de derrière**. Accroupis-toi et fais un clic droit à main vide pour inverser cela ; un clic droit normal montre ce qu'elle a fait en dernier, par exemple puiser ou pousser **250 mB**.",
+        "Un comparateur indique **15** pendant que la pompe tire depuis l'avant, et **1** pendant qu'elle pousse vers l'avant."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eau par en dessous",
+      "text": [
+        "Pose la pompe sur de l'eau immobile et, à chaque battement, elle aspire un seau, **1000 mB**, dans son puits. Sur de l'eau infinie, une source avec deux sources voisines et un sol solide dessous, la source reste ; une source seule est prise comme le ferait un seau.",
+        "Au-dessus d'un réservoir, en revanche, elle aspire **250 mB** par battement de ce réservoir, sauf si ce réservoir est déjà son avant ou son arrière.",
+        "Ce que le puits contient part d'abord vers le réservoir où elle pousse, celui de l'arrière par défaut, **250 mB** par battement ; sans réservoir là, cela attend dans le puits."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Plaques de relais de fluides",
+      "text": [
+        "Une plaque de relais de fluides, ou une plaque d'objets à laquelle on a donné un Sceau d'Eau, se pose sur n'importe quelle face de la pompe d'un simple clic droit. Accorde-la avec l'Accordeur de treillis et elle emporte l'eau du puits vers un réservoir n'importe où à portée (voir [Cargaison sans fil](wireless_cargo)).",
+        "Une plaque ailleurs, accordée sur l'une des faces de la pompe, remplit le puits à la place, et la pompe transmet cela comme tout ce qu'elle aspire.",
+        "Chaque face est ouverte dans les deux sens. Accroupis-toi et utilise une **Clé de totem** sur une face pour la faire passer par Les deux, Entrée, Sortie et Fermé."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De réservoir à réservoir",
+      "steps": [
+        {
+          "caption": "Deux réservoirs avec un espace entre eux. Celui de droite est plein.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place la Pompe de marée entre eux, la face à la flèche vers le réservoir plein.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose un générateur et un Conducteur de treillis à moins de 8 blocs : chaque seconde, elle déplace 250 mB pour 4 de Pulsation.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Le fluide sort du réservoir de devant et entre dans celui de derrière.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accroupis-toi et fais un clic droit sur la pompe pour l'inverser ; maintenant le réservoir de gauche se vide dans celui de droite.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Astuces",
+      "text": [
+        "Les deux réservoirs doivent accepter le même fluide, et le réservoir qui reçoit doit avoir de la place.",
+        "Monter son rang raccourcit le battement ; la Pulsation pour 250 mB reste **4**. Un levier la met en pause.",
+        "Le puits est petit : associe la pompe à une Citerne d'Esprit, ou à un Tambour des vagues, partout où le fluide doit rester en place."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

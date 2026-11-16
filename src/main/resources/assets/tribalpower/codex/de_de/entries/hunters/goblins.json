@@ -1,0 +1,62 @@
+{
+  "name": "Goblins",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Goblins",
+      "text": [
+        "Klein, schnell und gehässlich kommen Goblins ein oder zwei auf einmal und gehen geradewegs auf dich los."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwei Arten",
+      "text": [
+        "Ein Goblin hat **18 Gesundheit** und **1 Rüstung**, ist schnell und trifft für **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Fenngoblin",
+      "text": [
+        "Ein dürrer Goblin mit großen Ohren und einem Schilfspeer, zu finden im Schilfmoor. Er erscheint nachts auf offenem Boden.",
+        "Gejagt lässt er außerdem bis zu 2 Goldklumpen, bis zu 1 Knochen und bis zu 1 Faden fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Tunnelgoblin",
+      "text": [
+        "Ein gebeugter Goblin mit einer Stachelkeule und einer Kerze an der Mütze, zu finden in den dunklen Tunneln unter der Steppe, wo er bei Tag und Nacht erscheint.",
+        "Gejagt lässt er außerdem bis zu 2 Kohle, bis zu 2 Eisenklumpen und bis zu 1 Knochen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie geben",
+      "text": [
+        "Ein Fenngoblin lässt **1 bis 2 Goblinohr** fallen (Farbstoff Hellgrün), ein Tunnelgoblin **1 bis 2 Goblinzahn**, mehr mit Plünderung. Beide sind Hunde-Reagenzien: gesalbt lassen sie eine Waffe einen Teil jedes Schlags zurücktrinken. Siehe [Reagenzien](reagents).",
+        "Goblins binden sich nie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn man es jagt, und noch mehr mit Plünderung."
+      ]
+    }
+  ]
+}

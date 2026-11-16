@@ -1,0 +1,17 @@
+{
+  "name": "7. Gli accampamenti",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gli accampamenti",
+      "text": [
+        "“Nove accampamenti su nove giacigli, ciascuno a cantare un filo in un Telaio che non c'era più. Abitudine, la chiamavano i Camminatori del ciglio. Speranza, dissero i Legaradici. I Cantori di ghiaia dissero che era la stessa cosa detta due volte.”",
+        "Trovato su una Pietra intagliata nelle rovine della Marcia."
+      ]
+    }
+  ]
+}

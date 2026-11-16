@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:slag_core"
     },
-    "title": "Slag Titan stilled",
-    "description": "Face the Slag Titan at the Slag Throne in the Ember Wastes and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_slag_titan.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_slag_titan.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

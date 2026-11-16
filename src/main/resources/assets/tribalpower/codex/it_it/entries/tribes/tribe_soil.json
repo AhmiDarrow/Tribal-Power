@@ -1,0 +1,64 @@
+{
+  "name": "Custodi del giaciglio",
+  "icon": "tribalpower:tribe_mark",
+  "order": 40,
+  "spoiler": true,
+  "unlock": "tribe:soil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_soil",
+      "title": "Custodi del giaciglio",
+      "text": [
+        "«Non l'abbiamo mai chiamata terra. L'abbiamo chiamata ciò che restava, e l'abbiamo tenuta al caldo.»",
+        "Filo di **Suolo**, voce della **Terra**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "Quando il suolo venne meno, i Custodi del giaciglio lo portarono in ceste, un giaciglio alla volta, e posero un Focolare su ogni giaciglio che salvarono. Il loro mestiere è **focolari e depositi**: tenere ciò che resta, e tenerlo al caldo.",
+        "I loro accampamenti stanno nelle **pianure**, e nella Marcia un loro accampamento sta in ogni fascia, dal nord gelato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è la **Scheggia di eco**, che vale **+8** reputazione al loro Focolare.",
+        "Favoriscono anche qualsiasi terra, un Blocco di muschio, Pane, Suolo della Marcia o Muschio della Marcia: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda che il Focolare prende al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa scambia l'Anziano",
+      "text": [
+        "**Ospite**: 4 Pane per 2 Scheggia di eco; 6 Blocchi di muschio per 4 Muschio della Marcia.",
+        "**Amico**: 2 Eco sintonizzato per una Vasca di pietra; 8 Pane per un Eco sintonizzato; 4 Radice di brace per Purè di radice del custode.",
+        "**Consanguineo**: 4 Eco sintonizzato per un Deposito ancestrale; 2 Eco vincolato e 8 Blocchi di muschio per un Deposito profondo.",
+        "Ogni scambio frutta **+2** reputazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù dei Custodi del giaciglio. Fabbricalo con un {item:tribalpower:resonance_totem_earth} e due Tessitospirito per ottenere il loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Terra**.",
+        "I Consanguinei dei Custodi del giaciglio portano il loro [dono](tribe_boons): i tuoi campi non vengono mai calpestati, e la fame arriva più lentamente.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "I Custodi del giaciglio sono la tribù più facile per iniziare: pane e terra non sono mai lontani."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Custodi del giaciglio ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

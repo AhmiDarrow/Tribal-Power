@@ -1,0 +1,38 @@
+{
+  "name": "Die Steine lesen",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gemeißelter Stein und Wandbilder",
+      "text": [
+        "Der Marsch hat seine eigene Geschichte in Stein festgehalten. In die Wände seiner Ruinen sind **Gemeißelter Stein** gesetzt: Webstuhl-Ruinen, Pfahldörfer, versunkene Schreine, Moorhügelgräber, Aschegräber, Beinhäuser, Grabungsstollen und die Gewölbe des Schimmergrats. An den Plätzen der Wächter stehen **Gemeißeltes Wandbild** zwei Blöcke breit und zwei hoch; jedes malt das Land, in dem es steht.",
+        "Klicke eines rechts an und du liest es; das Bruchstück bleibt hier für immer, und die Chronik setzt es an seinen Platz. Es sind **sechzehn**: acht Steine zum Fall des Webstuhls, acht Wandbilder für die Länder, die er zurückließ. Lies sie alle, und die Chronik ist ganz, mit dem Fortschritt **Die ganze Chronik** als Beleg.",
+        "Die Steine und Wandbilder lassen sich aufheben und an jede eigene Wand setzen, und im Kreativmodus ändert ein Schleichklick auf einen Stein oder ein Wandbild sein Kapitel. Jedes Kapitel verrät die Geschichte, bis du es gefunden hast."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gemälde und Wappen",
+      "text": [
+        "Sechs **Gemälde** des Marsches hängen jetzt zwischen den gewöhnlichen: halte ein Gemälde an eine Wand, und eines kann erscheinen. Ihre Titel sind ihre eigenen.",
+        "Wenn dein Ansehen bei einem Stamm **Sippe** erreicht, gibt er dir einmal sein **Wappen**: ein Bannermuster mit dem Zeichen des Stammes. Leg es mit einem Banner und einem beliebigen Farbstoff in einen Webstuhl. Lass es über einem eigenen Lager wehen, um zu zeigen, wessen Sippe du bist."
+      ]
+    }
+  ]
+}

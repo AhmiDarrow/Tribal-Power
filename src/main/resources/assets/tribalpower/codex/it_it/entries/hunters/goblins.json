@@ -1,0 +1,62 @@
+{
+  "name": "Goblin",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Goblin",
+      "text": [
+        "Piccoli, rapidi e rancorosi, i goblin arrivano uno o due alla volta e ti puntano dritti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Due tipi",
+      "text": [
+        "Un goblin ha **18 di salute** e **1 di armatura**, è rapido e colpisce per **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Goblin della palude",
+      "text": [
+        "Un goblin magro dalle orecchie grandi, con una lancia di canna, che si trova nella Palude delle canne. Compare di notte sul terreno aperto.",
+        "Cacciato, lascia anche fino a 2 pepite d'oro, fino a 1 osso e fino a 1 corda."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Goblin del tunnel",
+      "text": [
+        "Un goblin ingobbito, con una clava chiodata e una candela attaccata al berretto, che si trova nei tunnel bui sotto la steppa, dove compare di giorno o di notte.",
+        "Cacciato, lascia anche fino a 2 carbone, fino a 2 pepite di ferro e fino a 1 osso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa danno",
+      "text": [
+        "Un Goblin della palude lascia **da 1 a 2 Orecchio di goblin** (tintura verde lime), un Goblin del tunnel **da 1 a 2 Zanna di goblin**, di più con Saccheggio. Entrambi sono reagenti di Segugio: unti, fanno sì che un'arma ribeva parte di ogni colpo. Vedi [reagenti](reagents).",
+        "I goblin non si legano mai."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuno lascia di più se cacciato, e ancora di più con Saccheggio."
+      ]
+    }
+  ]
+}

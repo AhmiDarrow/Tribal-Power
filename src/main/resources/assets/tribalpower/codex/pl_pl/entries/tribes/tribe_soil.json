@@ -1,0 +1,64 @@
+{
+  "name": "Strażnicy posłania",
+  "icon": "tribalpower:tribe_mark",
+  "order": 40,
+  "spoiler": true,
+  "unlock": "tribe:soil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_soil",
+      "title": "Strażnicy posłania",
+      "text": [
+        "„Nigdy nie nazywaliśmy tego ziemią. Nazywaliśmy to tym, co zostało, i trzymaliśmy to w cieple.”",
+        "Pasmo **Gleba**, głos **Ziemia**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Gdy ziemia odpadła, Strażnicy posłania nieśli ją w koszach, posłanie po posłaniu, i stawiali Palenisko na każdym ocalonym posłaniu. Ich rzemiosło to **paleniska i skrytki**: zatrzymać to, co zostało, i trzymać to w cieple.",
+        "Ich obozy stoją na **równinach**, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich odczynnik to **Odłamek echa**, wart **+8** reputacji przy ich Palenisku.",
+        "Lubią też każdą ziemię, Blok mchu, Chleb, Gleba Marszu lub Mech Marszu: **+3** za sztukę. Każde inne jedzenie warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, aż do +8.",
+        "Pamiętaj, że Palenisko przyjmuje najwyżej **60** reputacji dziennie z darów; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czym handluje Starszy",
+      "text": [
+        "**Gość**: 4 Chleb za 2 Odłamek echa; 6 Blok mchu za 4 Mech Marszu.",
+        "**Przyjaciel**: 2 Dostrojone echo za Kamienna misa; 8 Chleb za Dostrojone echo; 4 Korzeń żaru za Przecier z korzenia strażnika.",
+        "**Ród**: 4 Dostrojone echo za Skrytka przodków; 2 Związane echo i 8 Blok mchu za Głęboka skrytka.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Przy **Głos** Starszy daje ci Znak plemienia Strażników posłania. Wytwórz go z {item:tribalpower:resonance_totem_earth} i dwóch Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Gdy obok jest Rezonator Pulsu, to jeszcze jeden głos; przy stacji dodaje **Ziemia**.",
+        "Ród Strażników posłania nosi swój [dar](tribe_boons): twoich pól nikt nie tratuje, a głód przychodzi wolniej.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak go nosisz.",
+        "Strażnicy posłania to najłatwiejsze plemię na początek: chleb i ziemia nigdy nie są daleko."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co poprosił cię Starszy Strażników posłania i jak daleko zaszła ich historia. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

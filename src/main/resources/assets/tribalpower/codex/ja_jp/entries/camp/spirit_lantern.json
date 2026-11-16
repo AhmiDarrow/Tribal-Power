@@ -1,0 +1,28 @@
+{
+  "name": "霊のランタン",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "銅と木を彫ったランタン。野営を明るさ**15**で照らし、燃料もパルスも要らない。水晶は生きた格子と同じ色に光る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "使い方",
+      "text": [
+        "作業場のあいだの道に並べよ。レバーか任意のレッドストーン信号で一つが落ち、点灯中はコンパレーターが15を読む。",
+        "光であって結界ではない。敵対モブは湧くのに闇が要る。だから光に静寂のトーテムを足すと、静かな野営になる。",
+        "明かりを格子で動かしたいなら、光る葦、欠片ランプ、エコーの壁灯、残り火の鉢は、代わりにパルスを細く引く。[パルスの灯](pulse_lights)を見よ。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "name": "Accorder et lier",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "L'Accordeur d'écho (Feu) change l'Éclat d'écho en **Écho accordé**. Son partenaire, le Lieur d'écho (Eau), change l'Écho accordé en **Écho lié**.",
+        "Ce sont les étapes du milieu du treillis : des matériaux pour de meilleures machines, et des cristaux plus forts pour ton Résonateur de Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accorder",
+      "text": [
+        "Place l'Accordeur d'écho avec un totem de Feu à 8 blocs ou moins, et donne-lui de l'Éclat d'écho. Chacun devient un Écho accordé en **3 secondes** à **40 Pulsation par seconde**.",
+        "L'Accordeur d'écho change aussi un éclat d'améthyste en un Éclat d'Esprit.",
+        "Avec de la poudre de pierre lumineuse dans un emplacement de catalyseur, l'Accordeur d'écho allume aussi le [Verre de quartz](glimmer_ridge).",
+        "Les trophées des créatures de la Marche, comme un Cœur de braise, un Croc de roseau ou une Dent de faille, s'accordent en **deux** Écho accordé chacun, mais ceux-là demandent la voix **Esprit**, pas Feu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lier",
+      "text": [
+        "Place le Lieur d'écho avec un totem d'Eau à 8 blocs ou moins, et donne-lui de l'Écho accordé. Chacun devient un Écho lié en **4 secondes** à **48 Pulsation par seconde**.",
+        "Le Lieur d'écho change aussi la laine en **Espritissu**, et la terre en **quatre boules d'argile**. Les butins mous de créatures, comme le Velours de l'aube, le Duvet de lanterne ou l'Aile de tempête, se lient en deux Espritissu chacun."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une chaîne sans entonnoirs",
+      "steps": [
+        {
+          "caption": "Place le Lieur d'écho avec un totem d'Eau à côté.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose l'Accordeur d'écho dessus, avec un totem de Feu à proximité.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La face du bas de l'Accordeur d'écho sort par défaut vers la face du haut du Lieur d'écho, donc les échos descendent tout seuls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Nourris le dessus en Éclat d'écho et prends le Écho lié du Lieur d'écho.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enchaîner",
+      "text": [
+        "Pose l'Accordeur d'écho sur le Lieur d'écho, ou à côté avec les faces qui se touchent réglées de Sortie vers Entrée, et la chaîne avance sans entonnoir. Ne tourne jamais Les deux vers Les deux.",
+        "Pose le Lieur d'écho sur l'Manifesteur d'écho pour continuer vers les lingots et les cœurs.",
+        "Un levier met l'une ou l'autre station en pause. Si rien ne bouge, vérifie les voix et la Pulsation avec ce livre."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "13. Wrota",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wrota",
+      "text": [
+        "“Migotliwy Grzbiet to skarbiec Rzeźbiarzy pieczęci, zapieczętowany od środka w dniu upadku. To, co tam zamknęli, grzecznie poproszono, by zostało. Od tamtej pory żywi się tym proszeniem.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

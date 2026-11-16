@@ -1,0 +1,78 @@
+{
+  "name": "Piatti delle tribù",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ogni tribù cucina un piatto come solo lei sa fare, e mangiarlo porta il [dono](tribe_boons) di quella tribù per **5 minuti**. Cuocili alla [Pentola del Focolare](hearth_pot).",
+        "- **Purè di radice del custode** (Suolo): Radice di brace ×2, Grano della steppa, una ciotola.",
+        "- **Pane di ghiaia** (Pietra): Grano della steppa ×2, Ghiaia di ferro.",
+        "- **Riso dei Legaradici** (Germoglio): Riso di torbiera ×2, Canna di Spirito, una ciotola.",
+        "- **Carne secca del camminatore del ciglio** (Artiglio): Selvaggina cruda ×2, Radice di brace.",
+        "- **Chili dei Cuoritamburo** (Scintilla): Radice di brace ×2, Fagiolo di bagliore, Selvaggina cruda, una ciotola."
+      ],
+      "title": "Nove tribù, nove piatti"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Crostata di trame** (Orologio): Fagiolo di bagliore, Grano della steppa, Bacca di brina.",
+        "- **Torta al miele** (Sciame): favo, Grano della steppa ×2, un uovo.",
+        "- **Brodo dell'intagliatore di sigilli** (Sigillo): Riso di torbiera, Fiore di eco, Foglia della Marcia, una ciotola.",
+        "- **Tagliatelle di filo del Telaio** (Fuso): Riso di torbiera ×2, Cardo di ley, una ciotola.",
+        "Quando una tribù ti chiama **Amico**, il suo Consanguineo ti venderà il piatto per quattro della coltura su cui è fatto. Offri a una tribù il suo piatto al suo Focolare e conta **6 di reputazione**, più di qualsiasi altro dono tranne un reagente."
+      ],
+      "title": "Nove tribù, nove piatti, continua"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

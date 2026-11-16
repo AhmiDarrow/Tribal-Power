@@ -1,0 +1,72 @@
+{
+  "name": "Fosso de escuta",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "A Malha de ressonância é o coração do Fosso de escuta: um fosso escorado que escuta o minério para fora da pedra renovável.",
+        "Alimente-o com pedra, dê a ele Pulso e a voz da Terra, e o minério de metal bruto e de gemas cai num depósito em cima. Ele nunca seca como uma mina."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "O fosso",
+      "text": "Um piso de 5x5 de qualquer pedra natural da Superfície (pedra, ardósia profunda, granito, diorito, andesito ou tufo), Pedras de âncora nos cantos, giz de cada borda até o meio e a malha no centro."
+    },
+    {
+      "type": "text",
+      "title": "Antes de escutar",
+      "text": [
+        "O fosso precisa de tudo isso, e o Códice espiritual nomeia o que estiver faltando:",
+        "- A voz da **Terra** em até 8 blocos, mantida desperta: um totem fraco desacelera o ciclo, um quieto o para.",
+        "- Um **Depósito ancestral** encostado na malha. Com giz nos quatro lados e pedra embaixo, isso quer dizer **em cima**. A malha esvazia tudo nele, então você não precisa de funil.",
+        "- Pulso da treliça. A malha guarda a própria reserva de **200 Pulso** para que um gerador em rajadas não faça o ciclo engasgar.",
+        "- Posição de **Amigo** com os Cantores de cascalho, mesmo para minério comum. O fosso de um Estranho empaca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentá-lo",
+      "text": [
+        "Mantenha o **Depósito ancestral** de cima abastecido de pedra: o fosso tira de lá o **substrato** e devolve ao mesmo depósito o minério que ouve. O giz e a pedra fecham a malha em todos os outros lados, então o depósito é por onde suas mãos, os funis e os relés o alimentam.",
+        "Clique com o botão direito na malha com uma **amostra**, como ferro bruto, para orientar o que ela chama. A amostra é um filtro e nunca é consumida; agache com a mão vazia para pegá-la de volta. Veja [O que o chão oferece](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Em volta do fosso",
+      "text": [
+        "Mantenha o tambor ou o gerador fora do 5x5: o chão inteiro pertence ao fosso. Dê posição à malha como a qualquer outra oficina.",
+        "Um comparador na malha lê o quanto o ciclo avançou e cai a 0 sempre que o fosso empaca."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Escuta profunda",
+      "text": "Sete por sete: dois anéis de Pedras de âncora nos cantos e um Totem de ressonância de qualquer voz em cada borda cardeal."
+    },
+    {
+      "type": "text",
+      "title": "Escuta profunda",
+      "text": [
+        "O 7x7 dobra o reforço dos cantos e assenta um totem em cada borda cardeal. Ele abre as faixas **profunda**, **quente** e **rara**.",
+        "As três também precisam de um **Lar da tribo** ou de um **Totem de parentesco dos Cantores de cascalho** de pé dentro do padrão. Minério comum, não.",
+        "Posição com os Cantores de cascalho: **Amigo** para o comum (mesmo num fosso pequeno), **Parente** para o profundo e o quente, **Voz** para o raro. O quente também quer Fogo; o raro quer Espírito. O Códice espiritual nomeia o que ainda lhe falta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

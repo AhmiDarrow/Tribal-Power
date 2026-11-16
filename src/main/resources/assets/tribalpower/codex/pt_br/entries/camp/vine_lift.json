@@ -1,0 +1,33 @@
+{
+  "name": "Elevador de trepadeiras",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Trepadeira viva que carrega você",
+      "text": [
+        "Um Elevador de trepadeiras é uma base de trepadeira viva. Ponha um em cada andar de uma torre ou de um poço de mina, um acima do outro na **mesma coluna**, e eles se acham sozinhos. Sem vínculo, sem energia.",
+        "- **Pule** num elevador para subir ao próximo elevador acima.",
+        "- **Agache** num elevador para descer ao próximo elevador abaixo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Dá para empilhar quantos quiser; cada pulo ou agachamento vai um elevador por vez, pulando os andares vazios no meio. Um elevador olha até **48 blocos** em cada sentido.",
+        "O próximo elevador precisa de dois blocos de espaço acima para você ficar de pé; um elevador com teto em cima é pulado, assim você nunca chega dentro de uma parede."
+      ],
+      "title": "Enfileirar"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

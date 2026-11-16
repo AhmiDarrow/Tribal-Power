@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:tribe_banner"
     },
-    "title": "On good terms",
-    "description": "Reach Friend standing with a tribe.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.friend.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.friend.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

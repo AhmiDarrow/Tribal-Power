@@ -1,0 +1,17 @@
+{
+  "name": "Tablette : Rite des Graveurs de sceaux",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Seul l'autel d'un Temple profond, scellé dans la pierre de la Marche, garde cette tablette. Le Non-chanté la porte aussi et la lâche quand il tombe ; accroche-la à un mur pour la lire.",
+        "Dans les propres mots des Graveurs de sceaux, gravés avec le soin d'un sceau :",
+        "“L'Esprit va là où on le demande poliment et reste là où on le nourrit. Un sceau est une demande polie gravée dans la pierre. Un brasero est le repas. Nous avons taillé des sceaux vierges par milliers avant la Coupure, et demandé bien trop. Demande peu. Nourris-le bien.”"
+      ]
+    }
+  ]
+}

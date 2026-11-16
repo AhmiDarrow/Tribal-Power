@@ -1,0 +1,74 @@
+{
+  "name": "Círculo de rito",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Um Pedestal do rito guarda e mostra um item. Quatro deles ao redor de um Braseiro ritual formam o **Círculo de rito**, de que todo rito de tábua precisa, o chamado da primavera incluso.",
+        "A bênção permanente de um braseiro não precisa dele: ela só quer o selo assentado e o totem dele."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Desenhar o círculo",
+      "text": "Braseiro no meio, quatro Pedestais do rito nas diagonais, giz ligando-os."
+    },
+    {
+      "type": "text",
+      "title": "Usar o círculo",
+      "text": [
+        "Se o círculo está incompleto, um rito de tábua diz que o círculo não está desenhado e que a tábua não é gasta. Agache-se e clique com o botão direito no braseiro com este livro, e ele lista o que ainda falta ao círculo.",
+        "As tábuas podem esperar nos pedestais. Um sinal de redstone acionado no braseiro dispara o rito assentado com a tábua de um pedestal que combine com o selo, e um comparador lê se um pedestal está ocupado. É assim que você põe um [rito em um relógio](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Vozes nos cardeais",
+      "text": "Assente quatro totens da própria voz do rito nos cardeais: o rito custa um quarto a menos e dura o dobro."
+    },
+    {
+      "type": "text",
+      "title": "O círculo mais forte",
+      "text": [
+        "Os quatro totens cardeais só contam quando combinam com o rito que está sendo lançado, então um círculo de Água ajuda o Chamado da chuva e o chamado da primavera, mas não o Chamado da alvorada.",
+        "É opcional. Um círculo simples lança cada rito pelo preço cheio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Um rito de selo à mão",
+      "text": [
+        "Um pedestal também aceita um rito rápido sem círculo nenhum. Use um **selo** elemental em um Pedestal do rito: o selo é gasto, e a voz dele age em você por **20 segundos** a **dois minutos**, e em cada hostil em **6 blocos**.",
+        "Se uma célula que você carrega contém **8 Pulso**, o rito a toma e fica **amplificado**: mais forte e mais longo.",
+        "Todos em até 6 blocos também recebem a [bênção de voz](voice_blessings) do selo por **5 minutos**, ou 7 e meio no nível II quando amplificado. Um [familiar](familiar_boons) sintonizado com a voz do selo ao seu lado faz durar metade a mais. Feito no acampamento de uma tribo, conta como o rito que os pedidos dela exigem.",
+        "Um sinal de redstone no pedestal o recusa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que cada selo faz",
+      "text": [
+        "- **Terra**: resistência, absorção e pressa; hostis próximos ficam enraizados, e a grama sob o pedestal firma-se em trilha.",
+        "- **Fogo**: resistência ao fogo; os hostis pegam fogo, a neve e o gelo derretem, e as fogueiras frias acendem.",
+        "- **Água**: respiração aquática e a graça de um nadador; os fogos se apagam e a terra arada fica encharcada. Amplificado, também apressa as plantas.",
+        "- **Ar**: queda lenta, velocidade e um salto mais alto; os hostis são empurrados para trás, e a chuva se dissipa.",
+        "- **Espírito**: regeneração e visão noturna; remove veneno, wither, cegueira, lentidão, fraqueza e fome, e cura cada jogador próximo; os hostis brilham e enfraquecem. Amplificado, tece **12 Pulso** de volta em uma célula que você carrega.",
+        "- **Tear**: sorte e velocidade; os hostis são puxados e desacelerados, e cada jogador próximo recebe **12 Pulso** (24 se amplificado) tecidos nas suas células."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

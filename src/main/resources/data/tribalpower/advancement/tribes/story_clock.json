@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_clock"
     },
-    "title": "Stopped needing the singer",
-    "description": "Finish the Pattern-weavers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_clock.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_clock.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

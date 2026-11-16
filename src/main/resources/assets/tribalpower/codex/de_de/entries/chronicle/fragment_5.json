@@ -1,0 +1,17 @@
+{
+  "name": "6. Das Tragen",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Das Tragen",
+      "text": [
+        "“Die Polsterhüter liefen nicht. Sie hoben den Boden auf, Korb für Korb, und setzten einen Herd auf jedes Polster, das sie retteten. Die anderen lachten, und dann kamen sie und setzten sich an die Feuer.”",
+        "Gefunden auf Gemeißelter Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

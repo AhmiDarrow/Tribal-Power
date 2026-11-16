@@ -1,0 +1,203 @@
+{
+  "name": "Bússolas de pedra de caminho",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Marque um ponto e volte até ele num piscar de olhos. Uma bússola lembra um piso de chegada e leva você até lá por um pouco de Pulso, de uma célula na sua mochila."
+      ],
+      "title": "Bússolas de pedra de caminho"
+    },
+    {
+      "type": "text",
+      "title": "Vincular e usar",
+      "text": [
+        "Agache e clique com o botão direito no **topo** de um bloco sólido para vincular esse piso como sua chegada.",
+        "Clique com o botão direito no ar para viajar. A viagem é paga com células de Pulso em qualquer lugar do seu inventário, e segue uma recarga de **5 segundos**.",
+        "Você chega em pé sobre o piso vinculado, então ele precisa de **dois blocos livres e secos** acima, e de nada perigoso logo ao lado: fogo, lava, magma, cacto, uma fogueira acesa, arbustos de bagas, rosas do wither ou neve fofa.",
+        "Se não houver um lugar seguro para ficar de pé, a viagem recusa e não gasta nada. O Pulso só é tomado quando a chegada está livre. Você não pode viajar enquanto estiver montado."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Uma chegada",
+      "steps": [
+        {
+          "caption": "Escolha um bloco de piso sólido para a sua chegada.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Agache e clique com o botão direito na face de cima com a bússola para vinculá-lo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Mantenha os dois blocos acima dele livres e secos; é ali que você vai ficar de pé.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma alavanca alimentando o piso trava a chegada, para quando você quiser a porta fechada.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Três bússolas",
+      "text": [
+        "- **Bússola de pedra de caminho**: até **128 blocos**, mesmo mundo, **20 Pulso**.",
+        "- **Bússola do horizonte**: qualquer distância no mesmo mundo, **40 Pulso**.",
+        "- **Bússola astral**: qualquer distância, entre mundos, **100 Pulso**. A única que traz você para casa a partir da Marcha.",
+        "Uma bússola de pedra de caminho também vincula um par de portais da senda (consulte [Portal da senda](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

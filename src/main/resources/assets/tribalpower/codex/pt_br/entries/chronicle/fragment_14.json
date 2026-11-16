@@ -1,0 +1,17 @@
+{
+  "name": "15. Estepe",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Estepe",
+      "text": [
+        "“A Estepe é o leito que os Guardiões do leito não puderam carregar: grande demais, e o rebanho estava em cima quando ele caiu. O rebanho nunca parou de correr. Pés quietos poderiam trazer o leito de volta; os barulhentos entram na debandada.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

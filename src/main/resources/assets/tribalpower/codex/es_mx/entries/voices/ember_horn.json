@@ -1,0 +1,210 @@
+{
+  "name": "Cuerno de brasa",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "El oficio de los Corazones de tambor: un cuerno que quema el combustible del horno y lo vuelve Pulso. Carbón, carbón vegetal, lava, varas de blaze: lo que queme un horno, el cuerno lo convierte en energía constante.",
+        "Contiene **1,000 Pulso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentarlo",
+      "text": [
+        "Haz clic derecho con combustible, o deja que una tolva o un relé lo alimente. El tiempo de quemado del combustible dividido entre veinte es su Pulso: el carbón es **80**, un bloque de carbón **800**, un cubo de lava **1,000**, una vara de blaze **120**.",
+        "Suelta ese Pulso a un máximo de **20 por segundo**. Más combustible no sube el tope; solo dura más.",
+        "Enciende la pieza siguiente solo cuando tiene sitio, así un cuerno lleno no desperdicia nada. El cubo vacío de la lava sale por encima del cuerno; de un fuego encendido no se puede extraer nada más.",
+        "Agáchate y haz clic derecho en una cara con la mano vacía para pasarlo por Ambos, Entrada, Salida y Cerrado, como hace la [Llave de tótem](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un cuerno que se alimenta solo",
+      "steps": [
+        {
+          "caption": "Coloca el cuerno donde las máquinas a 8 bloques puedan extraer de él.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tolva encima le da combustible.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un cofre de carbón sobre la tolva lo mantiene ardiendo mucho tiempo: cada carbón es 80 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una palanca al lado pausa el cuerno. El combustible simplemente espera.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aumentar la escala",
+      "text": [
+        "Sin rango, el cuerno produce como mucho **20 por segundo**. Cada rango suma **15% de Pulso por segundo**, redondeado a un Pulso entero. A partir de ahí, construye más cuernos.",
+        "Ningún ciclo que puedas automatizar convierte el combustible en más combustible del que quema. Incluso el carbón que llama el Foso de escucha cuesta más Pulso traerlo y romperlo de lo que devuelve.",
+        "Un clic con la mano vacía te dice lo que produce y lo que guarda. Agáchate y haz clic derecho con este libro para ver el combustible y lo que aún falta por quemar.",
+        "Los cuernos son el oficio de los [Corazones de tambor](tribe_spark): la receta necesita un Nudo de pavesa y un Sello de Fuego, y los Corazones de tambor cambian un cuerno con quien llamen Amigo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "name": "Il tuo primo Pulso",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ogni accampamento inizia con un tamburo. Il [Cuoretamburo](drumheart) trasforma un battito costante in Pulso immagazzinato, che le macchine sul suo [reticolo](lattice_conductor) possono spendere.",
+        "La ricetta è nell'ultima pagina qui: assi, cuoio, due **Campanello d'osso** e una **Scheggia di Spirito**. Campanelli e schegge si fanno in fretta con osso, spago, ametista e redstone; vedi [Schegge di Spirito e risonatori](crafting_components). Fanne qualcuno: all'inizio quasi tutto li usa.",
+        "Metti il tamburo dove pensi di lavorare e suonalo: clic destro con la **mano vuota**, circa **una volta al secondo**. Un colpo a tempo vale molto più di un clic frenetico.",
+        "Suona finché non tiene qualche centinaio di Pulso (accovacciati e fai clic destro con questo libro per controllare). Il tuo primo laboratorio gira su quella riserva."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tenere il tempo",
+      "steps": [
+        {
+          "caption": "Posa il Cuoretamburo dove pensi di costruire il tuo primo laboratorio.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Con la mano vuota, fai clic destro sopra circa una volta al secondo. Ogni colpo a tempo aggiunge 24 Pulso.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Troppo in fretta, e i colpi cadono fuori tempo e aggiungono meno. Cerca invece un ritmo costante.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "Il tamburo contiene 1,000 Pulso. Le macchine attingono tramite un **Conduttore di reticolo** entro 8 blocchi da entrambi; la pagina dopo mostra dove va. Uno o due tamburi bastano: un terzo entro gli stessi 8 blocchi suona ancora, ma non rende nulla."
+    }
+  ]
+}

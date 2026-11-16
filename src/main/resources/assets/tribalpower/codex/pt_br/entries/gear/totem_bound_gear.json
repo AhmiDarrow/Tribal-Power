@@ -1,0 +1,85 @@
+{
+  "name": "Equipamento ligado ao totem",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dar uma voz ao equipamento",
+      "text": [
+        "Qualquer ferramenta de Equipamento espiritual ou peça de Tece-espírito pode responder a uma voz de totem. Coloque um Totem de ressonância, leve uma Célula de Pulso carregada e use a peça agachado no totem.",
+        "Vincular gasta **40 Pulso**. O totem não se consome, a barra de ação nomeia a voz, e você pode substituí-la a qualquer momento do mesmo jeito. Cliques de mãos vazias ainda leem o totem como sempre.",
+        "Conjuntos mistos são de propósito: um capuz de Fogo é resistência ao fogo, não visão noturna. A voz do Tear precisa de um totem do Tear (veja [A sexta voz](sixth_voice)).",
+        "Um [familiar](familiar_boons) sintonizado da voz da peça, por perto, faz com que ela gaste **40%** menos Pulso e que as vantagens da voz venham mais vezes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como distingui-los",
+      "text": [
+        "Uma peça de Tece-espírito vinculada gasta **3 Pulso a cada quatro segundos**, então um capuz, uma túnica e calças vinculados custam **9**; uma peça não vinculada não tem bênção e não gasta nada. As botas gastam só quando uma de suas vantagens é usada, e isso cobre os quatro segundos seguintes. Uma peça desligada, ou sem Pulso ao alcance, não dá nenhuma de suas vantagens.",
+        "Dá para reconhecer uma peça vinculada de relance: os enfeites brilham na cor da voz, verde da Terra, laranja do Fogo, azul da Água, menta-pálida do Ar, violeta do Espírito e ciano do Tear, na mão e quando vestida. Quanto mais alto o nível, mais forte ela brilha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na picareta",
+      "text": [
+        "- **Terra** abre um **3 por 3** de pedra ao redor de cada bloco que você minera, em quadrado para onde você olha. O 3 por 3 inteiro custa só o Pulso do primeiro bloco.",
+        "- **Fogo** funde o que minera.",
+        "- **Água** minera com toque suave.",
+        "- **Ar** dá pressa.",
+        "- **Espírito** faz os minérios próximos cintilarem a cada poucos segundos, em 6 blocos (10 no nível 3).",
+        "- **Tear** minera por **0 Pulso** e não sofre desgaste ao fazer isso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "No machado",
+      "text": [
+        "O **machado**, em troncos: **Terra** derruba a **árvore inteira**, de cima para baixo, onde quer que você bata; agache para cortar só um tronco. Só contam troncos do tipo em que você bateu, e só com folhas crescidas naturalmente: pelo menos **3**, e uma para cada **8** troncos. Madeira que toca tábuas, vidro, portas, cercas ou outros blocos de construção é uma construção, então construções de troncos nus e uma cabana crescida dentro de uma árvore ficam de pé. O Pulso é pago conforme os troncos caem: a cada 16 troncos custa o Pulso de um golpe, e como qualquer trabalho pago a derrubada não desgasta. Assim uma derrubada só é tão grande quanto o Pulso que o machado alcança: um **Colosso chorão**, dezenas de milhares de troncos, pode levar mais que uma Célula de Pulso inteira. O valor de um golpe que não derruba nada (madeira protegida, digamos) volta. **Ar** sempre leva mais dois, **Água** de vez em quando larga uma muda de carvalho, **Espírito** faz hostis em 8 blocos brilharem, **Fogo** carboniza a madeira, e **Tear** manda os troncos para a sua mão.",
+        "Uma árvore acima de **512** troncos (um salgueiro à parte) fica inteira, e também uma que entra em terreno não carregado. Um golpe sem Pulso corta só um tronco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na pá",
+      "text": [
+        "A **pá**: **Terra** cava um **3 por 3** de terra, areia ou cascalho, **Ar** faz caminhos com três de largura, **Água** às vezes tira argila da terra, **Fogo** assa areia em vidro, **Tear** ergue areia e cascalho inteiros, e **Espírito** faz baús, barris e geradores em 8 blocos cintilarem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Na lâmina",
+      "text": [
+        "Cada golpe pago da lâmina acrescenta um **golpe de eco**: um pouco de dano mágico, e o inimigo brilha por alguns segundos. A voz dela acrescenta mais:",
+        "- **Terra**: empurra o inimigo e o desacelera.",
+        "- **Fogo**: põe fogo nele e queima um pouco mais fundo.",
+        "- **Água**: cura você em um coração (dois no nível 3).",
+        "- **Ar**: o golpe varre os hostis ao lado.",
+        "- **Espírito**: um golpe de eco mais forte.",
+        "- **Tear**: arrasta o inimigo até você.",
+        "Toda a [família de armas](spiritgear_weapons) recebe as vozes do mesmo jeito."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sobre o Tece-espírito",
+      "text": [
+        "- **Terra**: o capuz desvia um projétil em cada cinco (cerca de um em três no grau 3); a túnica dá resistência; as calças atravessam teias de aranha, arbustos de bagas e areia das almas; as botas reduzem a repulsão e nunca pisoteiam a terra arada.",
+        "- **Fogo**: o capuz e a túnica dão resistência ao fogo, e a túnica incendeia os atacantes por 3 segundos; as calças dão velocidade na lava e no Nether; as botas ignoram pisos quentes.",
+        "- **Água**: o capuz dá respiração aquática; a túnica regenera você ao ser atingido (por mais tempo no grau 3); as calças dão graça do golfinho; as botas congelam a água parada sob os pés."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mais vozes do Tece-espírito",
+      "text": [
+        "- **Ar**: o capuz dá visão noturna; a túnica ignora a repulsão; as calças dão velocidade (mais forte no grau 3); as botas dão queda lenta.",
+        "- **Espírito**: o capuz dá visão noturna e faz os hostis a até 12 blocos brilharem; a túnica dá resistência e faz os atacantes brilharem; as calças dão velocidade e um passo mais alto; as botas anulam o dano de queda e, no grau 3, lançam você de volta para cima numa queda de 4 ou mais.",
+        "- **Tear**: o capuz dá sorte; a túnica às vezes reenfia na sua célula o Pulso que gastou; as calças atravessam teias de aranha e arbustos de bagas; as botas deixam você andar agachado para costurar **4 blocos** (**6** no grau 3), pago como as outras vantagens, e depois descansam 8 segundos."
+      ]
+    }
+  ]
+}

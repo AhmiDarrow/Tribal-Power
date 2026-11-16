@@ -1,0 +1,190 @@
+{
+  "name": "메아리 풀기",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "베틀 작업대는 격자를 거꾸로 돌린다. 메아리 풀기는 완성품을 바로 앞 단계의 것으로 더 많이 분해하고, 낡은 정령장비를 다시 금속으로 바꾼다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "분해하는 것",
+      "text": [
+        "- 현현한 주괴: 결속된 메아리 **2**개.",
+        "- 결속된 메아리: 조율된 메아리 **2**개.",
+        "- 조율된 메아리: 메아리 조각 **2**개.",
+        "- 공명 핵: 현현한 주괴 **3**개.",
+        "- 정령직물: 양털 **1**개.",
+        "- 손상된 정령장비 도구나 무기, 또는 치유자의 딸랑이: 현현한 주괴 **1**개. 활과 쇠뇌는 분해되지 않는다.",
+        "새것이고 손상되지 않은 도구는 거부된다. 정령장비는 먼저 피해를 입어야 한다. 정령직물 방어구는 절대 분해되지 않는다.",
+        "8블록 안에 공명 토템 (베틀)이 필요하다. 베틀이 없으면 멈추고, 아무것도 소모하지 않는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "핵을 풀어내기",
+      "steps": [
+        {
+          "caption": "메아리 풀기를 놓고, 8블록 안에 공명 토템 (베틀)을 둔다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "펄스를 범위 안에 유지하고, 출력 공간을 조금 비워 둔다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "공명 핵이 들어가고, 현현한 주괴 세 개가 나온다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "연쇄하기",
+      "text": [
+        "호퍼 없이 역방향 연쇄를 만들려면, 메아리 결속이나 메아리 현현의 산출을 이 장치에 넣는다.",
+        "더 빠르게 하려면 메아리 조율, 메아리 결속, 그다음 메아리 현현 순으로 등급을 올린다. 레버는 투입과 작업을 멈춘다.",
+        "시작하지 않으면, 웅크린 채 이 책으로 우클릭하고 [여섯 번째 목소리](sixth_voice)를 읽는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

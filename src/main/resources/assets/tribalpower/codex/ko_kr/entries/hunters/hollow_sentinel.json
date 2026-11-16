@@ -1,0 +1,51 @@
+{
+  "name": "빈 파수병",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "아직도 옛길을 지키는, 속이 빈 파수꾼의 갑옷. 손에는 창. 그 타격은 팔을 약하게 만든다.",
+        "사냥하면 철 조각 1~3개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "빈 파수병은 마치의 고지와 설원과 희미한 빛 능선을 걷고, 일부는 수정 들판을 걷는다. 모든 [선조의 전당](ancestor_hall)마다 셋이 망을 본다.",
+        "**체력 44**와 **방어력 6**이 있고, 잔재 가운데 가장 단단하며, **6**으로 친다. 맞을 때마다 4초 동안 나약함을 준다. 빛과 충전된 지팡이가 도움이 된다."
+      ],
+      "title": "어디서, 어떻게"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**파수병 인장 1~2개**를 떨어뜨린다.",
+        "파수병 인장은 정령 아래에서 조율된 메아리 2개가 된다."
+      ],
+      "title": "주는 것"
+    },
+    {
+      "type": "text",
+      "text": [
+        "어떤 부적도 빈 파수병을 결속시키지 못한다. 전당을 섬기고, 너를 섬기지 않는다."
+      ],
+      "title": "결속되지 않는다"
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 외에, 사냥하면 이것을 떨어뜨리고, 약탈이면 더 늘어난다."
+      ]
+    }
+  ]
+}

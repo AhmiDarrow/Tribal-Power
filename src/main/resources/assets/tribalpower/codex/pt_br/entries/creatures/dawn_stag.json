@@ -1,0 +1,52 @@
+{
+  "name": "Cervo da alvorada",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Um pastador da alvorada, cuja galhada se curva como uma lira e carrega a velha canção da floresta. Escove os adultos para obter Veludo da alvorada.",
+        "Caçado, também deixa Caça crua, de 1 a 3, e Couro da Marcha, até 2. Reproduza com **trigo**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Manadas de Cervo da alvorada pastam nas florestas do Mundo Superior e, na Marcha, na estepe, no planalto, na Crista do brilho e no brejo de juncos. Surgem em solo aberto e bem iluminado.",
+        "Um cervo tem **24 de vida** e **1 de armadura**. É manso: corre quando é ferido e fica longe dos monstros. Reproduza dois com **trigo**."
+      ],
+      "title": "Onde você o encontra"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Escove um adulto para obter **Veludo da alvorada**, uma vez por minuto. O veludo se liga em 2 Tece-espírito sob Água.",
+        "Se você caçar um, ele deixa **1 a 3 Caça crua** e **0 a 2 Couro da Marcha**; Pilhagem acrescenta até mais um de cada, e um cervo que morre queimando deixa a carne já assada. Veja [Caça e couro](game_and_leather)."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Vincule um adulto com um Amuleto de vínculo e ele vira uma montaria que não precisa de sela. Use-o para subir, conduza com o olhar, segure o pulo para um salto curto e agache para descer.",
+        "Só carrega quem está vinculado a ele. Um cervo com um fio de Passada forte corre mais rápido, e a marca rara **Salto** pula mais alto. Mais na página [dons do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Caçado, deixa isto, e mais com Pilhagem. A carne cai assada se o animal morreu queimando. Para procriar os selvagens, **agache-se** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

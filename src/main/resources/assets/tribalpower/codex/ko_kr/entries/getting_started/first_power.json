@@ -1,0 +1,141 @@
+{
+  "name": "첫 펄스",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "모든 야영지는 북에서 시작한다. [북심장](drumheart)은 고른 박자를 저장된 펄스로 바꾸며, 그 [격자](lattice_conductor)의 기계가 이를 쓸 수 있다.",
+        "제조법은 여기 마지막 쪽에 있다. 판자, 가죽, **뼈 방울** 둘, **정령 조각** 하나. 방울과 조각은 뼈, 실, 자수정, 레드스톤으로 빨리 만든다. [정령 조각과 공명기](crafting_components)를 본다. 몇 개 만들어 둔다. 초반에는 거의 모두가 이걸 쓴다.",
+        "일할 곳에 북을 두고 친다. **맨손**으로 우클릭하고, 대략 **1초에 한 번**. 박자에 맞은 타격은 정신없는 클릭보다 훨씬 값지다.",
+        "수백 펄스를 담을 때까지 친다(이 책을 들고 웅크려 우클릭하면 확인된다). 첫 공방은 그 비축으로 돌아간다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "박자 유지",
+      "steps": [
+        {
+          "caption": "첫 공방을 지을 곳에 북심장을 놓는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "맨손으로 대략 1초에 한 번 우클릭한다. 박자에 맞은 타격마다 펄스 24가 더해진다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "너무 빠르면 박자가 어긋나 더해지는 양이 적다. 고른 리듬을 찾는다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "북은 1,000 펄스를 담는다. 기계는 양쪽 모두에서 8블록 안의 **격자 전도체**를 통해 끌어쓴다. 다음 쪽에 놓을 곳이 나온다. 북은 하나나 둘이면 충분하다. 같은 8블록 안의 세 번째는 소리는 나도 아무것도 얻지 못한다."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "10. Bagno",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Bagno",
+      "text": [
+        "“Trzcinowe bagno to utopiona robota linowa Wiązaczy korzeni. Każda trzcina to węzeł, który związali, by utrzymać ziemię; woda i tak przyszła. Jedna z nich trzymała poza końcem. Nadal trzyma.”",
+        "Znaleziono na muralu na terenie strażnika."
+      ]
+    }
+  ]
+}

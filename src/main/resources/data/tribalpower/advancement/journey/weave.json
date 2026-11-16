@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:lattice_conductor"
     },
-    "title": "Weave the lattice",
-    "description": "Craft a Lattice Conductor: Pulse travels only along the lattice.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.weave.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.weave.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

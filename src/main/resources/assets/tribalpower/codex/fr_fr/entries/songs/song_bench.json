@@ -1,0 +1,244 @@
+{
+  "name": "Établi du chant",
+  "icon": "tribalpower:song_bench",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "L'Établi du chant est l'endroit où les réactifs deviennent magie. Il **renforce** les réactifs bruts, les écrit en **chants**, empenne des **Flèche de vers** et **oint** les armes d'Espritoutillage.",
+        "Renforcer dépense 16 de Pulsation. Une feuille prend de 3 à 7 réactifs renforcés, du papier et une marque de Craie rituelle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Renforcement",
+      "text": [
+        "Place l'établi à 8 blocs ou moins d'un Totem de résonance et d'un générateur chargé, et garde une Bourse de réactifs dans ta barre de raccourcis : l'établi lit ses réactifs dans la bourse.",
+        "Clique un réactif dans la liste pour le sélectionner. **Renforcer**, ou un Maj-clic, change un réactif brut en réactif renforcé pour 16 de Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Écrire un chant",
+      "text": [
+        "Installe du papier et de la Craie rituelle, puis choisis de 3 à 7 réactifs renforcés dans l'ordre : sélectionne-en un et appuie sur **Ajouter**, ou clique-le deux fois. Le premier réactif choisit la [forme](song_shapes) du chant ; la **Voix** choisit le totem proche dans lequel il chante.",
+        "Appuie sur **Écrire** pour une **Feuille de chant**. Chante-la une fois directement depuis ta main, ou relie-la dans un Chansonnier : installe le livre, laisse la feuille dans la sortie et appuie sur **Écrire** sans rien dans la séquence.",
+        "Avec un livre en place, **Écrire** met le chant directement dedans. **Retirer** ressort la page ouverte comme une feuille, et **Prendre** te donne des réactifs bruts de la bourse."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que ça coûte",
+      "text": [
+        "Écrire dépense ces réactifs, le papier et une marque de craie, plus **12 Pulsation** par réactif sur la feuille. Un établi doté d'un rang demande moins de Pulsation pour tout ce qu'il fait.",
+        "Le premier Chansonnier tient 1 page de 3 réactifs au plus. Le Chansonnier relié tient 3 pages de 5 au plus, et le Chansonnier du chœur 5 pages de 7 au plus.",
+        "Clic droit sur un livre en main pour chanter. Accroupis-toi et fais un clic droit pour tourner la page. Une Cellule de Pulsation installée dans le livre paie d'abord, puis les cellules que tu portes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Oindre une arme",
+      "text": [
+        "À côté de la sortie se trouve un **emplacement d'arme**. Mets-y une arme d'Espritoutillage (aucune arme du jeu de base ni d'un autre mod ne prend d'onction), sélectionne un réactif dans la liste et appuie sur **Oindre**.",
+        "Cela dépense **4 réactifs renforcés** de ce type et **32 Pulsation**, et l'arme garde le pouvoir du réactif jusqu'à ce que tu l'oignes avec autre chose. Toute l'histoire est sur la page [Onction](anointing)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un établi, deux voix",
+      "steps": [
+        {
+          "caption": "Un Établi du chant avec un générateur à portée.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un totem de Terre à portée peut être la voix de la Feuille de chant.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un totem de Feu et l'établi peut chanter dans l'une ou l'autre voix.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Flèches de vers",
+      "text": [
+        "Sélectionne un réactif renforcé et appuie sur **Empenner** : un réactif et 8 de Pulsation font **quatre** Flèche de vers, chantées dans la voix que tu as choisie.",
+        "Pour une flèche plus forte, dispose jusqu'à 3 réactifs renforcés avec **Ajouter** d'abord, puis appuie sur **Empenner** : les quatre flèches portent ce court vers, pour 8 de Pulsation par réactif. Chaque copie du réactif de tête ajoute un point de puissance, et tout autre réactif suit au coup.",
+        "Tiens l'Arc de Pulsation et bande-le. Un Trait sonique simple dépense jusqu'à 6 de Pulsation, à pleine tension ; une Flèche de vers en ajoute 6 et porte le chant de son réactif. L'Arbalète de Pulsation tire les mêmes flèches.",
+        "Une Cellule de Pulsation installée dans l'arc paie d'abord, puis les cellules que tu portes.",
+        "Un signal de redstone met l'établi en pause."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "L'Arc de Pulsation",
+      "text": [
+        "Forgé comme le reste de l'Espritoutillage : deux **Lingot manifesté** et un **Carillon d'os**, tendu avec trois ficelles. Il n'a pas besoin de flèches ; chaque tension lance un Trait sonique qui file droit et s'efface après environ 60 blocs.",
+        "Une tension complète frappe pour **7**, une tension partielle pour sa part, donc une tape rapide n'est qu'une tape. Une Flèche de vers ajoute un point pour chaque copie de son réactif principal empennée dessus, jusqu'à **3**.",
+        "Il dure 1024 et, comme la Pulsation paie chaque tir, tirer ne l'use jamais. Répare-le à l'[Enclume de l'Esprit](spirit_anvil) avec des Lingots manifestés, un quart à chaque fois."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "song_shapes"
+}

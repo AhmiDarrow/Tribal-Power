@@ -1,0 +1,78 @@
+{
+  "name": "部族の料理",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "どの部族も、自分にしかできない一つの料理を作り、食べるとその部族の[恩恵](tribe_boons)を**5分**帯びる。[炉の鍋](hearth_pot)で調理する。",
+        "- **守り手の根つぶし**（土壌）：熾根×2、草原穀物、ボウル。",
+        "- **砂礫パン**（石）：草原穀物×2、鉄の砂礫。",
+        "- **根結び米**（芽）：沼沢米×2、霊の葦、ボウル。",
+        "- **縁歩きの干し肉**（爪）：生の獲物肉×2、熾根。",
+        "- **太鼓の心臓チリ**（火花）：熾根×2、微光豆、生の獲物肉、ボウル。"
+      ],
+      "title": "九つの部族、九つの料理"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **模様タルト**（時計）：微光豆、草原穀物、霜の実。",
+        "- **蜂蜜ケーキ**（群れ）：ハニカム、草原穀物×2、卵。",
+        "- **印章彫りの汁**（紋章）：沼沢米、エコーの花、マーチの葉、ボウル。",
+        "- **織機の糸麺**（紡錘）：沼沢米×2、レイのアザミ、ボウル。",
+        "部族から**友**と呼ばれると、その一族は料理の元になる作物四つでその料理を売る。部族の炉でその部族自身の料理を差し出すと**名声6**になり、試薬以外のどの贈り物よりも多い。"
+      ],
+      "title": "九つの部族、九つの料理、続き"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

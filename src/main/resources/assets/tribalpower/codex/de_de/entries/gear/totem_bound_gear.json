@@ -1,0 +1,85 @@
+{
+  "name": "Totemgebundenes Gerät",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dem Gerät eine Stimme geben",
+      "text": [
+        "Jedes Geistergerät-Werkzeug oder Geistergewebe-Teil kann auf eine Totemstimme antworten. Stelle ein Resonanz-Totem auf, trage eine geladene Pulszelle und benutze das Teil geduckt am Totem.",
+        "Binden verbraucht **40 Puls**. Das Totem wird nicht aufgebraucht, die Aktionsleiste nennt die Stimme, und du kannst sie jederzeit auf dieselbe Weise überschreiben. Klicks mit leerer Hand lesen das Totem weiter wie sonst.",
+        "Gemischte Sets sind so gedacht: eine Feuer-Kapuze ist Feuerresistenz, nicht Nachtsicht. Die Stimme Webstuhl braucht ein Webstuhl-Totem (siehe [Die sechste Stimme](sixth_voice)).",
+        "Ein eingestimmter [Vertrauter](familiar_boons) der Stimme des Teils in der Nähe lässt es **40%** weniger Puls verbrauchen, und seine Stimmvorteile kommen öfter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Auseinanderhalten",
+      "text": [
+        "Ein gebundenes Geistergewebe-Teil verbraucht **3 Puls alle vier Sekunden**, also kosten eine gebundene Kapuze, Robe und Hose **9**; ein unverbundenes Teil hat keinen Segen und verbraucht nichts. Stiefel verbrauchen nur, wenn einer ihrer Vorteile genutzt wird, und das deckt die nächsten vier Sekunden. Ein ausgeschaltetes Teil, oder eines ohne erreichbaren Puls, gibt keinen seiner Vorteile.",
+        "Ein gebundenes Teil erkennst du auf einen Blick: seine Verzierungen leuchten in der Farbe seiner Stimme, Erde grün, Feuer orange, Wasser blau, Luft blasses Minzgrün, Geist violett und Webstuhl türkis, in deiner Hand und getragen. Je höher der Rang, desto heller brennt es."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An der Spitzhacke",
+      "text": [
+        "- **Erde** öffnet ein **3 mal 3** aus Stein um jeden Block, den du abbaust, im Quadrat zu deiner Blickrichtung. Das ganze 3 mal 3 kostet nur den Puls des ersten Blocks.",
+        "- **Feuer** schmilzt, was es abbaut.",
+        "- **Wasser** baut mit Behutsamkeit ab.",
+        "- **Luft** gibt Eile.",
+        "- **Geist** lässt nahe Erze alle paar Sekunden glitzern, innerhalb von 6 Blöcken (10 auf Rang 3).",
+        "- **Webstuhl** baut für **0 Puls** ab und nimmt dabei keinen Verschleiß."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An der Axt",
+      "text": [
+        "Die **Axt**, an Stämmen: **Erde** fällt den **ganzen Baum**, von oben nach unten, wo du ihn auch triffst; ducke dich, um nur einen Stamm zu schlagen. Es zählen nur Stämme der getroffenen Art, und nur mit natürlich gewachsenem Laub daran: mindestens **3**, und eines je **8** Stämme. Holz, das Bretter, Glas, Türen, Zäune oder andere Baublöcke berührt, ist ein Bau, also bleiben nackte Stammbauten und eine in einen Baum gewachsene Hütte stehen. Puls wird gezahlt, während die Stämme fallen: alle 16 Stämme kosten den Puls eines Schlags, und wie jede bezahlte Arbeit nutzt das Fällen nicht ab. So ist ein Fällen nur so groß wie der Puls, den die Axt erreichen kann: ein **Trauerkoloss**, Zehntausende Stämme, kann mehr als eine ganze Pulszelle brauchen. Der Wert eines Schlags, der nichts fällt (geschütztes Holz, sagen wir), kommt zurück. **Luft** nimmt immer zwei mehr, **Wasser** lässt ab und zu einen Eichensetzling fallen, **Geist** lässt Feinde innerhalb von 8 Blöcken leuchten, **Feuer** verkohlt das Holz, und **Webstuhl** schickt die Stämme in deine Hand.",
+        "Ein Baum jenseits von **512** Stämmen (eine Weide ausgenommen) bleibt ganz, und ebenso einer, der in ungeladenen Boden läuft. Ein Schlag ohne Puls schlägt nur einen Stamm."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An der Schaufel",
+      "text": [
+        "Die **Schaufel**: **Erde** gräbt ein **3 mal 3** aus Erde, Sand oder Kies, **Luft** legt Pfade drei breit, **Wasser** holt manchmal Ton aus Erde, **Feuer** brennt Sand zu Glas, **Webstuhl** hebt Sand und Kies ganz heraus, und **Geist** lässt Truhen, Fässer und Spawner innerhalb von 8 Blöcken glitzern."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "An der Klinge",
+      "text": [
+        "Jeder bezahlte Treffer der Klinge fügt einen **Echohieb** hinzu: ein wenig magischen Schaden, und der Gegner leuchtet ein paar Sekunden. Seine Stimme fügt mehr hinzu:",
+        "- **Erde**: stößt den Gegner zurück und verlangsamt ihn.",
+        "- **Feuer**: setzt ihn in Brand und brennt ein wenig tiefer.",
+        "- **Wasser**: heilt dich um ein Herz (zwei auf Rang 3).",
+        "- **Luft**: der Schlag fegt in Feinde daneben.",
+        "- **Geist**: ein stärkerer Echohieb.",
+        "- **Webstuhl**: zieht den Gegner zu dir.",
+        "Die ganze [Waffenfamilie](spiritgear_weapons) nimmt Stimmen auf dieselbe Weise an."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zu Geistergewebe",
+      "text": [
+        "- **Erde**: die Kapuze lenkt eines von fünf Geschossen ab (etwa eines von drei auf Rang 3); die Robe gibt Resistenz; die Hose geht durch Spinnennetze, Beerensträucher und Seelensand; die Stiefel senken den Rückstoß und trampeln nie Ackerboden platt.",
+        "- **Feuer**: Kapuze und Robe geben Feuerresistenz, und die Robe setzt Angreifer 3 Sekunden lang in Brand; die Hose gibt Geschwindigkeit in Lava und im Nether; die Stiefel ignorieren heiße Böden.",
+        "- **Wasser**: die Kapuze gibt Unterwasseratmung; die Robe regeneriert dich bei einem Treffer (länger auf Rang 3); die Hose gibt Gunst des Delfins; die Stiefel gefrieren stilles Wasser unter dir."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Weitere Geistergewebe-Stimmen",
+      "text": [
+        "- **Luft**: die Kapuze gibt Nachtsicht; die Robe ignoriert Rückstoß; die Hose gibt Geschwindigkeit (stärker auf Rang 3); die Stiefel geben sanften Fall.",
+        "- **Geist**: die Kapuze gibt Nachtsicht und lässt Feinde im Umkreis von 12 Blöcken leuchten; die Robe gibt Resistenz und lässt Angreifer leuchten; die Hose gibt Geschwindigkeit und eine höhere Stufe; die Stiefel heben Fallschaden auf und werfen dich auf Rang 3 nach einem Fall von 4 oder mehr wieder nach oben.",
+        "- **Webstuhl**: die Kapuze gibt Glück; die Robe fädelt den verbrauchten Puls manchmal zurück in deine Zelle; die Hose geht durch Spinnennetze und Beerensträucher; die Stiefel lassen dich geduckt vorwärtsgehen und **4 Blöcke** nähen (**6** auf Rang 3), bezahlt wie ihre anderen Vorteile, danach ruhen sie 8 Sekunden."
+      ]
+    }
+  ]
+}

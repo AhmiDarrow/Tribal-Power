@@ -1,0 +1,462 @@
+{
+  "name": "レッドストーンの言葉",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "保持と打撃",
+      "text": [
+        "Tribalの機械はレッドストーンを二つの聞き方で受け取る。",
+        "**保持された**信号は止める。線を高く保つと、作業場、伝導体、共鳴器、収集器、リレー、火鉢、網、盤、台座、門の要石、そして太鼓の心臓以外のすべての発電機が止まって待つ。保管と移動先はロックされる。",
+        "停止で失われるものはない。蓄えたパルス、アイテム、流体はその場に残る。",
+        "**打撃された**信号、線がオンになる立ち上がりは、呼び出しである。一つの離散的なことをする装置だけが聞く。太鼓の心臓は一打を取り、儀式の火鉢は据えた儀式を発火し、門の要石は点灯するか暗くなる。",
+        "要石はレバーではなく、ボタンか打撃板で叩く。一瞬後も線が保持されたままだと、門は再び下がる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "キャンプを読む",
+      "text": [
+        "Tribalのブロックにコンパレーターを、外側へ向けて付け、開けずに中身を読む。蓄えたパルス、インベントリやタンクの満ち具合、FEバッファ、リレーの動作。石の盤か共鳴の網は代わりに進行を読み、止まると0になる。",
+        "パルスをきれいな0から15にするには[パルス計](pulse_gauge)を使う。数では足りないとき、この本でブロックをしゃがんで右クリックすると一文が出る（[写本の診断](codex_diagnostics)を参照）。",
+        "クロックとレバーとコンパレーターがあれば、キャンプ全体を振り付けられる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tribalの配線",
+      "text": [
+        "[歌糸](song_thread)は六方向すべてへ、粉のように弱く0から15を運ぶ。触れた石には動力を与えないので、決してラッチしない。",
+        "[歌の板](song_plates)は向いている面から出す。単項の板は背面を読み、二項の板は左右を読む。板が聞くのは、自分へ向けられた動力か、トーテムレンチで同期した板だけで、配線なしに32ブロック先まで。",
+        "[詩句の呼びと応え](verse_link)は、配線なしで信号を32ブロックまで運ぶ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "クリックかスニーク",
+      "text": [
+        "- **普通のクリック**。素手でもそうでなくても、ブロックを動かす。ステーションが開き、太鼓の心臓が打ち、閾値が設定を一段進め、板、計器、トーテムが今何をしているかを告げる。",
+        "- **ブロックを置く**。部族の機械、太鼓、板に対して置くときはスニークする。しないとクリックがそのブロックを動かす。リレー板だけが例外で、普通のクリックで置ける。",
+        "- **素手でスニーク**：設定を変える。ステーション、貯蔵庫、貯槽、野営の面は入力、出力、両方、閉鎖と一段ずつ進む。鼓動、漂い、集計はカウントを一段進める。詩句板は詩句を一段進める。リレー板は一覧を反転する。",
+        "- **この本を持ってスニーク**：ブロックが自分を説明する（[写本の診断](codex_diagnostics)を参照）。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "クロック上の儀式",
+      "text": [
+        "儀式の台座はアイテムを一つ保持して見せ、コンパレーターは埋まっているかを読む。儀式がひとりで回るのに必要なのは、それだけだ:",
+        "- リレーが[儀式の円](rite_circle)の台座に石板を補充する。",
+        "- 鼓動板かレバーが火鉢を打つ。",
+        "- 儀式が発動し、据えた印章と一致する石板を消費する。",
+        "- コンパレーターが台座の空を伝え、リレーがまた満たす。",
+        "ループを入れたり切ったりしたいなら、記憶板を足す。野営が使うのは、手でできる操作だけだ。隠れた追加インベントリはない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "クロック上の火鉢",
+      "steps": [
+        {
+          "caption": "儀式の円を描く。中央に火鉢、対角に台座、その間にチョーク。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "印章を火鉢に据え、同じ声の石板を台座に入れる。",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "火鉢のそばのブロックに、火鉢へ向けて鼓動板を取り付ける。一拍ごとに火鉢を一度打つ。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "コンパレーターが台座を読む。儀式が石板を消費すると 0 になる。リレーが補充する合図だ。",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

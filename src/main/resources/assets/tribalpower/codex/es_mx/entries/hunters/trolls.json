@@ -1,0 +1,74 @@
+{
+  "name": "Troles",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Troles",
+      "text": [
+        "Grandes, lentos para caer y rápidos para enojarse. Tres clases de trol guardan la piedra alta de la Marcha y su calor, y las tres te cazan."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "Trol del peñasco",
+      "text": [
+        "Se encuentra en las Alturas. Surge de noche en terreno abierto, de uno o dos a la vez.",
+        "Cazado, también suelta de 1 a 3 Cuero de la Marcha, de 1 a 2 huesos y hasta 2 Pedernal."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "Trol de escarcha",
+      "text": [
+        "Se encuentra en los Campos de nieve. Surge de noche en terreno abierto, de uno o dos a la vez.",
+        "Cazado, también suelta de 1 a 3 Cuero de la Marcha, de 1 a 2 huesos y de 1 a 3 bolas de nieve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "Trol de escoria",
+      "text": [
+        "Se encuentra en los Yermos de brasa, junto a la lava y sobre la piedra caliente de alrededor, de día o de noche, de uno o dos a la vez. Es **inmune al fuego**.",
+        "Cazado, también suelta de 1 a 3 Cuero de la Marcha, de 1 a 2 huesos y de 1 a 3 pepitas de hierro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Combatir a uno",
+      "text": [
+        "Un trol tiene **69 de salud** y **6 de armadura** y golpea por **9**. El golpe de un Trol del peñasco o de un Trol de escarcha te empuja hacia atrás; el de un Trol de escoria te prende fuego durante 2 segundos.",
+        "Mantén la distancia y nunca luches contra uno con la lava a la espalda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que dan",
+      "text": [
+        "Cada uno suelta **1 a 2** de su piel, más con Saqueo. **Piel de trol** y **Piel de escarcha** son reactivos de Empujón, **Piel de escoria** un reactivo de Brasa: véase [reactivos](reagents).",
+        "Los troles nunca se vinculan."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y manada",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo."
+      ]
+    }
+  ]
+}

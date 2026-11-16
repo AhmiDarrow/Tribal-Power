@@ -1,0 +1,92 @@
+{
+  "name": "Cuore di ley",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "Un [Risonatore di Pulso](pulse_resonator) e un [Collettore di ley](ley_collector) fatti uno. Mettilo al centro di una **Stella del cuore**, con tutte e sei le voci dei totem intorno, e brucia tre combustibili insieme e innalza **sei linee ley** nel mondo.",
+        "Conserva **200.000 Pulso**, circa 45 secondi del suo meglio, e li tiene quando lo rompi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Stella del cuore",
+      "text": [
+        "Metti il cuore su un 3x3 di **Pietra d'ancora**, poi piazza un Totem di risonanza di **ogni** voce a **cinque blocchi**, al livello del cuore stesso. Fuoco e Acqua si fronteggiano oltre il cuore su una linea. Terra e Aria, e Spirito e Telaio, si fronteggiano sulle oblique: tre blocchi di traverso e quattro in lunghezza.",
+        "Qualsiasi orientamento va bene. Finché ogni pezzo non è al suo posto, il cuore tace. Accovacciati e fai clic destro su di esso con questo libro per sentire cosa manca; i posti mancanti brillano nel mondo."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "La Stella del cuore",
+      "text": "Pietra d'ancora sotto il cuore; un totem di ogni voce a cinque blocchi."
+    },
+    {
+      "type": "text",
+      "title": "Sul reticolo",
+      "text": [
+        "Metti un [Conduttore di reticolo](lattice_conductor) entro **8 blocchi** dal cuore. Il suo Pulso raggiunge le tue macchine solo lungo il reticolo, quindi un cuore al massimo vuole conduttori manifestati, o diversi vincolati, per portarlo tutto.",
+        "I suoi sei totem tengono le voci solo finché il reticolo ha Pulso. Un totem che si prosciuga tace e smette di contare, così un cuore a lungo senza combustibile ha bisogno di un'altra fonte sul suo reticolo per svegliarsi di nuovo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tre combustibili",
+      "text": [
+        "Fai clic destro sul cuore per aprirlo. Ogni combustibile ha la sua presa:",
+        "- I **cristalli del risonatore** vanno nello slot del cristallo: Scheggia di eco, Eco sintonizzato, Eco vincolato o Nucleo risonante. Uno brucia **15, 12, 10 o 8 minuti**: un cristallo migliore canta più forte e brucia più in fretta.",
+        "- Qualunque **reagente di creatura** va nello slot del reagente. Uno semplice brucia **2 minuti**; uno con un **Filo** (vedi [Reagenti](reagents)) brucia più caldo e più in fretta: **90, 60 o 40 secondi** per Filo I, II o III.",
+        "- L'**Acqua** riempie un serbatoio da 8.000 mB da un secchio, un tubo o una piastra di Relè di fluidi. Brucia la più veloce delle tre: **200 mB al secondo**, un secchio ogni cinque secondi.",
+        "Tramogge e relè possono alimentare entrambi gli slot; niente esce di nuovo. Il combustibile si spende solo nei secondi che consegnano Pulso, così un cuore pieno riposa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa produce",
+      "text": [
+        "Ogni secondo il cuore canta sei volte il canto del Risonatore: **6 x voci x (voci + 2)**, per quanto valgono i combustibili che bruciano, diviso quattro. Un cristallo vale quanto vale in un Risonatore (**4, 6, 8 o 12**), un reagente semplice **4** e un reagente di Filo I, II o III **6, 9 o 12**, e l'acqua **2**. Le sue voci sono i totem in risposta dei sei.",
+        "A ciò aggiunge la quota della ley: **12 Pulso al secondo per ogni punto** di forza ley al cuore, con sei voci che rispondono. Il cuore legge la terra e le linee del pianeta che i suoi totem tirano dentro, ma non le sue sei.",
+        "Poi l'armonia: due tipi di combustibile che bruciano insieme moltiplicano tutto per **1.25**, tutti e tre per **1.5**. Se non brucia nulla, non fa nulla. Ogni [rango](machine_ranks) del cuore aggiunge **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La qualità è la leva",
+      "text": [
+        "Con sei voci che rispondono:",
+        "- Una Scheggia di eco, un reagente semplice e acqua fanno **1,080 a 1,368 Pulso al secondo**, da un sito spoglio a uno perfetto.",
+        "- Un Eco vincolato, un reagente Filo II e acqua su un sito medio (ley 8) fanno circa **2,200**.",
+        "- Un Nucleo risonante, un reagente Filo III e acqua su un sito perfetto fanno **3,096**; un cuore Manifestato fa **4,489 Pulso al secondo**.",
+        "Un risonatore di Nucleo risonante e un Collettore di ley perfetto, fianco a fianco, fanno 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto costa",
+      "text": [
+        "Un combustibile migliore canta più forte e brucia più in fretta. Un'ora di un cuore semplice (Scheggia di eco, reagenti semplici, acqua) brucia **4 Scheggia di eco, 30 reagenti e 720 secchi d'acqua**.",
+        "Un'ora al meglio brucia **7.5 Nucleo risonante, 90 reagenti Filo III** e gli stessi 720 secchi. Un famiglio Eccelso spazzolato ogni minuto lascia 120 reagenti Filo III all'ora.",
+        "Il combustibile si spende solo nei secondi che consegnano Pulso: un cuore pieno riposa finché qualcosa non attinge da lui."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sei linee di ley",
+      "text": [
+        "Finché la stella è intera, il cuore alza **sei linee di ley**, una nel colore di ogni totem, che escono dal cuore, attraversano il suo totem e proseguono per **64 blocchi** nel mondo. Sono linee vere: la [Lente ley](ley_lens) le disegna, e un [Collettore di ley](ley_collector) posto lungo una la sente come qualunque altra. I totem non le piegano.",
+        "Restano finché la stella sta in piedi, attraverso il salvataggio e i chunk non caricati. Rompi il cuore o uno qualunque dei suoi sei totem e tutte e sei cadono insieme; rifai intera la stella e risorgono entro due secondi.",
+        "Cantano solo i totem in **Risposto** (vedi [Mantenimento](keeping)), e un cuore al lavoro tiene risposti i propri sei. Un segnale di redstone costante lo ferma."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

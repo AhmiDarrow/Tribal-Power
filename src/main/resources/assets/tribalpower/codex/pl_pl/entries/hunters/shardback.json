@@ -1,0 +1,52 @@
+{
+  "name": "Odłamkogrzbiet",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Pustelnik w skorupie z geody, opancerzony śpiewającym kamieniem. Trzymaj się z dala od jego ciężkiego pchnięcia.",
+        "Upolowany upuszcza też do 2 odłamków ametystu."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Odłamkogrzbiety przemierzają Kryształowe pola Marszu, rzadziej Grań połysku i Wyżynę.",
+        "Ma **36 zdrowia** i **8 pancerza** i uderza za **5**. Każde uderzenie mocno cię odpycha, co grozi na tarasach. Walcz z dala od krawędzi."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **1 do 2 Pryzmatyczny pancerz**.",
+        "Pryzmatyczny pancerz pod Duch dostraja się do 2 Dostrojone echo."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij poważanie **Głos** u **Śpiewacy żwiru**, potem użyj Amulet więzi na dorosłym. Dwie próby na pięć się udają; nieudany amulet przepada. Albo nakarm go jego własnym odczynnikiem: jedna próba na pięć, a odczynnik przepada tak czy inaczej.",
+        "Związany Odłamkogrzbiet to wojownik: uderza każdego, kto cię rani, i każdego, kogo ty uderzasz. Rzadkie znamię **Stężenie** utrudnia odrzut. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika upuszcza to przy polowaniu, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

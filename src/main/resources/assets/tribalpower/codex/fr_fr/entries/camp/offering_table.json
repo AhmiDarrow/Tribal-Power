@@ -1,0 +1,29 @@
+{
+  "name": "Table d'offrandes",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Une réserve de camp de 27 emplacements, au visage plus soigné qu'un coffre. Placez-la près d'un âtre ou d'un berceau pour garder offrandes, nourriture et Espritissu sous la main. Elle n'a pas besoin de Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "S'en servir",
+      "text": [
+        "C'est du stockage, pas un second Âtre de la tribu. Les offrandes qui élèvent la position auprès d'une tribu vont sur l'âtre lui-même (voir [Position](standing)) ; la table n'accorde rien.",
+        "Seul le joueur qui l'a posée, son camp, ou n'importe qui si personne ne l'a revendiquée, peut l'ouvrir.",
+        "Les entonnoirs, les tuyaux et les [plaques relais](wireless_cargo) peuvent la remplir ou la vider de chaque côté. Accroupissez-vous et faites un clic droit sur une face la main vide pour changer cette face : Les deux, Entrée, Sortie ou Fermé.",
+        "Un comparateur indique à quel point elle est pleine. Un signal de redstone verrouille le menu et l'automatisation."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

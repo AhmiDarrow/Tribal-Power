@@ -1,0 +1,69 @@
+{
+  "name": "Orte des Marsches",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruinen und Lager",
+      "text": [
+        "Die Stämme ließen mehr zurück als Hallen und Trommelkreise. Jedes Land des Marsches hat seine eigenen Überreste, die meisten mit einer Truhe, die sich zu öffnen lohnt, und einige bewacht von dem, was dort noch geht.",
+        "Die alte Tor-Ruine und die Kristallgrotte halten ihre besten Truhen hinter **Hohlwächter**, und das Aschegrab hinter Spawnern von **Aschegebunden** und **Zunderkobold**. Diese Truhen können einen **Resonanzkern** oder **Webstuhlfaden** enthalten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lager und Dörfer",
+      "text": [
+        "Jeder Stamm hält in jedem Band des Marschs ein Lager, gebaut aus dem eigenen Holz und Boden dieses Bandes: Frostkiefer und Schnee am gefrorenen Rand, Dornentanne und Nadelhumus in den kalten Taigas, Trommelpalme auf den Savannen, Sonnenrinde und Salz in den heißen Ländern. Die Polsterhüter halten die Wiesen und die Hügelrücken, die Griessänger die Gipfel und die Tafelberge, die Wurzelbinder die tiefen Wälder, die Kantenläufer die Taigas, die Trommelherzen den trockenen und brennenden Boden, die Musterweber die offenen Steppen, die Koloniehüter die blühenden Länder, die Siegelkerber die dunklen Wälder und die Webstuhl-Näher das fremde, erleuchtete Land.",
+        "**Dörfer** stehen auch in jedem Band: ein Platz mit dem Herd des Stammes, dem Feuer, dem Totem, dem Brunnen und dem Webstuhl, seinen vier Sippe, und dem eigenen Generator der Stimme, der summt; Straßen aus dem Stein des Bandes zu Hütten, Langhäusern, einer Werkstatt mit einem Echozermalmer und einer Liedbank, einem Speicher der Feldfrucht des Bandes, einem Schrein, einem Wachturm, einem Pferch der Weidetiere des Bandes und einem Blumengarten. Der Herd eines Dorfes nimmt Opfergaben an wie der Herd eines Lagers."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stücke der alten Welt",
+      "text": [
+        "Über den Gipfeln und dem hohen Boden, und über manch einem Trauerkoloss, hängen **schwebende Berge der alten Welt** am Himmel: hohe Klippen aus Marschfels, oben breit und unten zur Spitze verjüngt, die Flächen gebändert und moosig, Rasen und Bäume darauf, ein gebrochener Ring aus Ziegel mit einer Truhe darin, Ranken an jeder Seite und ein Wasserfall, der über den Rand stürzt. Sie hängen in Gruppen auf verschiedenen Höhen, von Riesenranken überbrückt, kleine Felsen treiben um sie.",
+        "Eine Gruppe wird von **Riesenwurzeln aus Weide-Holz** am Boden gehalten, in Laub gehüllt und mit Vorhängen aus Weidensträhne behängt, die den ganzen Weg hinabreichen. Die Strähnen sind kletterbar: fass am Fuß einer Wurzel an und klettere zum Himmel. Über einem Trauerkoloss enden die Wurzeln in seiner Krone, also ist der Baum die Leiter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Steppe und das Hochland",
+      "text": [
+        "- **Schrein des Wanderers**: ein überdachter Wegschrein an einem alten Pfad, mit einer Opfertruhe.",
+        "- **Weidesteine**: ein Ring stehender Steine um eine Salzlecke.",
+        "- **Verlassene Wechselstation**: ein ruinierter Relaisposten, ein Mast steht noch.",
+        "- **Gefallener Trommelturm**: ein gebrochener Turm; seine große Trommel liegt im Gras.",
+        "- **Wachfeuerbake**: ein Steinturm auf einer Kuppe, sein Signalfeuer brennt noch.",
+        "- **Echo-Steinbruch**: eine Terrassengrube mit Marscherz in den Wänden und einem Kran am Rand.",
+        "- **Sturmalter**: ein Altar aus Tuff unter einem Blitzableiter.",
+        "- **Rückzug der Siegelkerber**: in einen Fels geschnittene Räume, mit Werkstatt und Dachboden.",
+        "- **alte Tor-Ruine**: ein halb verschüttetes Wegtor über einer bewachten Halle und einem vergitterten Gewölbe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Schneefelder und die Glutwüsten",
+      "text": [
+        "- **Gefrorene Langhalle**, **Eissteinmal**, **Hütte des Jäger** und **Aurorawacht** im Schnee.",
+        "- **Glutschmiede**, **Zunderturm** und **Schlackering** in der Asche, und die **Resthöhle**, in der Überlebende aushielten.",
+        "- **Aschegrab**: ein vergrabenes Grab unter den Glutwüsten, bewacht, und das Risiko lohnt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Kristallfelder und das Schilfmoor",
+      "text": [
+        "- **Zersplitterte Sternwarte**: eine Sternkartenterrasse unter einer gebrochenen Kuppel.",
+        "- **Resonanzobelisk**: ein mit Kristall gekrönter Obelisk über einem verborgenen Gewölbe.",
+        "- **Webstuhl-Ruine**: ein gefallener großer Webstuhl, das Tuch hängt noch.",
+        "- **Kristallgrotte**: eine Wendeltreppe hinab zu einer Geodenhöhle und einem Gewölbe hinter einer Tür aus Eisen.",
+        "- **Pfahldorf**, **Versunkener Schrein**, **Schilfwehr** und **Moorhügelgrab** im Moor.",
+        "- **Geistbrunnen**: ein überdachter Brunnen, von Blüten umringt, die Opfertruhe auf dem Grund des Wassers."
+      ]
+    }
+  ]
+}

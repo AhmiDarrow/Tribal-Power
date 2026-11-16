@@ -1,0 +1,74 @@
+{
+  "name": "Bestie dei bassifondi",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Quelli dell'acqua",
+      "text": [
+        "Quasi tutto ciò che appartiene ai bassifondi vive nella loro acqua: tre nuotatori mansueti e una murena che vi caccia di notte. I nuotatori non lasciano mai l'acqua: spiaggiato, uno si dibatte per tornarvi e si secca se non riesce a raggiungerla. Legno su trampoli cammina sulle rive (vedi [alberi che camminano](walking_trees)). Vedi [la Marcia](the_march) per la terra stessa.",
+        "Puoi spazzolare ogni bestia mansueta qui una volta al minuto per il suo reagente, e la si attira e la si alleva con il suo cibo, indicato più sotto in **Caccia e allevamento**. Puoi legarla come qualsiasi animale mansueto (vedi [famigli](familiars)), e sebbene nessuna abbia un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning)). Un nuotatore legato ti segue solo fin dove arriva la sua acqua, e aspetta in acqua quando gli dici di restare."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Planatore di limo",
+      "text": [
+        "Una razza che plana sul limo, in gruppi da due a quattro. **14 di salute** e **1 di armatura**.",
+        "Lascia **1 a 3 Pinna di limo**, di più con Saccheggio.",
+        "Cacciata, lascia anche da 1 a 2 Pinnabaleno crudo e fino a 1 Farina di ossa. Alleva con **Alga nastro o erba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Deriva pallida",
+      "text": [
+        "Un'ortica di mare ambrata, con la campana striata e lunghe braccia a nastro, in gruppi da due a quattro. **12 di salute**, senza armatura.",
+        "Lascia **1 a 3 Nastro pallido**.",
+        "Cacciata, lascia anche fino a 1 Gelatina alla deriva e fino a 1 Palla di slime. Alleva con **Alga nastro o erba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Dardo di secca",
+      "text": [
+        "Un piccolo persico striato, in gruppi da due a quattro. **14 di salute** e **1 di armatura**.",
+        "Lascia **1 a 3 Scaglia di secca**.",
+        "Cacciata, lascia anche da 1 a 2 Pinnabaleno crudo e fino a 1 Farina di ossa. Alleva con **Alga nastro o erba marina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Agguatatore di salamoia",
+      "text": [
+        "Una murena che di notte si alza nei bassifondi, una o due alla volta. Ha **21 di salute** e **1 di armatura**, il morso fa **4** e ti avvelena per 3 secondi. Segue la preda fin sulla riva e torna in acqua quando la perde.",
+        "Lascia **1 a 2 Zanna di salamoia**, un reagente di Veleno. Zanna di salamoia chiama il Tamburino della marea alla Pietra della marea: vedi [custodi](guardians).",
+        "Cacciata, lascia anche fino a 2 Sacca d'inchiostro e fino a 1 Pinnabaleno crudo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, ognuno lascia cadere di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; se li nutri normalmente, uno selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

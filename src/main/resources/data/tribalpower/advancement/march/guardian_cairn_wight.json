@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:cairn_stone"
     },
-    "title": "Cairn Wight stilled",
-    "description": "Face the Cairn Wight at the Cairn Ring in the Snow Fields and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_cairn_wight.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_cairn_wight.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

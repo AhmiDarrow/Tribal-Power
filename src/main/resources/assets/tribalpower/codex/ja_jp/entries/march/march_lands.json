@@ -1,0 +1,117 @@
+{
+  "name": "マーチの土地",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "マーチの六つの帯",
+      "text": [
+        "マーチは凍結から酷暑まで、そして闇の下まで続き、六つの帯に**五十九の土地**がある。各帯は地図を横切る長い気温の推移で、その中で湿と乾、高と低、そして高い奇妙さの異質な地面が、それぞれ自分の国を保つ。",
+        "どの土地にも、自分の地面、自分の植物、自分の霊がある。写本の生物誌が、それぞれの生き物のすみかを記す。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "凍結",
+      "text": [
+        "マーチの寒い端。マーチの草の上の雪、風のなすがままの霧氷、そしていちばん明るい夜の帳。",
+        "マーチの雪原、霧氷の尖塔、霧氷の樺のタイガ、霜の岸、凍った浅湖、霧氷の海、深い霧氷の海、白霜の峰、欠片の峰、霜松の斜面、帳の平地。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "寒冷",
+      "text": [
+        "茨樅のタイガ、湿原、ガレ、そして微光の尾根の鉱物峰。",
+        "微光の尾根、茨樅のタイガ、古い茨樅のタイガ、古墳の湿原、ガレの丘陵、吹きさらしの茨樅、白霜苔の林、灰色の岸、冷たい浅瀬、深い冷たい浅瀬、氷河湖の地方。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "温帯",
+      "text": [
+        "マーチの中心。ステップ、湿原、水晶の国、歌楓と炉樫の林、そして海。",
+        "マーチのステップ、マーチの葦湿原、マーチの水晶原、マーチの浅瀬、歌楓の林、花の草地、炉樫の疎林、古い炉樫の疎林、帳の木、鈴の果樹園、高い草地、日輪ステップ、織機の川、シルトの浜、深い浅瀬、光傘の沼地。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "温暖",
+      "text": [
+        "太鼓椰子のサバンナ、絡み木、高床の沼。高地と太陽の峰の下。",
+        "マーチの高地、太鼓椰子のサバンナ、太鼓椰子の台地、吹きさらしの太鼓椰子、絡み木、開けた絡み木、葦の茂み、ストライダー木のマングローブ、太陽の峰、温かい浅瀬、深い温かい浅瀬。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "酷暑",
+      "text": [
+        "塩、窯粘土、灰。マーチの乾いた端で、溶け合ったガラスの海底まで。",
+        "マーチの残り火の荒野、塩の平地、窯のメサ、切り立ったメサ、陽皮のメサ、ガラスの浅瀬。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "地下",
+      "text": [
+        "どの帯の下にもあるもの。歌う洞窟、光る窪地、レイの脈、そして静寂。",
+        "歌う洞窟、昏傘の窪地、静寂、レイの脈。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "新しい地面",
+      "text": [
+        "- 凍った峰と尖塔の**霧氷**と**霜の頁岩**。タイガの下の**針葉土**と**白霜苔**。丘陵の**ガレ**。",
+        "- 浜の**淡い砂**、光傘の沼地の**胞子の芝**、太陽の峰の**淡い石**。",
+        "- 平地の**塩殻**と**塩の柱**。メサの**黄土色の砂**、**黄土色の砂岩**、四色の**窯粘土**。ガラスの浅瀬の下の**ガラス砂**。",
+        "- 歌う洞窟で足元に鳴る**共鳴の棘**、昏傘の窪地の**発光苔**、そして静寂にある**静寂の織り**とその**しじまの花**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "新しい植物",
+      "text": [
+        "氷の花、霜傘、灰色のヒース、霧氷のアザミ、歌草、織機の鈴、夜明けのポピー、鈴の蕾、日輪、茨の茂み、絡みシダ、霊の葦と昏傘の芽。それぞれ似合う土地にある。新しい木は九種、木のページにある。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "9. Asche",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Asche",
+      "text": [
+        "“Die Glutwüsten waren der Wald der Trommelherzen. Er brannte beim Fall und ist nie erloschen. Etwas unter der Schlacke nahm den Schlag auf, als die Trommler flohen, und es hält seither einen falschen Takt.”",
+        "Gefunden auf einem Wandbild am Platz eines Wächters."
+      ]
+    }
+  ]
+}

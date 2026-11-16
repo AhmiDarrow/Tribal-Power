@@ -1,0 +1,30 @@
+{
+  "name": "Amulet wiatru",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Pięć miedzianych prętów i kryształowy żagiel na sznurku, na ganki i wejścia. Nie zużywa Pulsu i nie ma zadania; jest tu, by dobrze wyglądać i brzmieć."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wieszanie",
+      "text": [
+        "Umieść go pod prawie czymkolwiek: sufitem, belką, szczeblem płotu, łańcuchem albo okapem liści. Postaw go przy boku bloku, a zawisnie na wsporniku na tej ścianie.",
+        "Możesz przejść przez niego na wylot: nie ma kolizji, ale otarcie stuka w pręt.",
+        "Dźwięczy sam, czasem w cichy dzień, bardziej w deszczu i bardzo w burzy. Pod dachem jest ciszej. Stuknij go, aby ruszyć wszystkie pięć prętów.",
+        "Zniszcz to, na czym wisi, a odpadnie.",
+        "Redstone nic mu nie robi. To nie światło Pulsu ani Harfa wiatru."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

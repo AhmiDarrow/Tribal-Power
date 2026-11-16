@@ -1,0 +1,40 @@
+{
+  "name": "Segen der Stimmen",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Eine Stimme setzt sich auf dich",
+      "text": [
+        "Jede der sechs Stimmen hat einen **Segen**: eine Art, sich dem zu leihen, den sie begünstigt. Du siehst ihn als Statuseffekt in der Farbe dieser Stimme.",
+        "Es gibt drei Wege, einen zu verdienen:",
+        "- **Singe einen Schutz.** Ein Schutzlied gewährt den Segen seiner Stimme, **45 Sekunden** je Machtnote darin.",
+        "- **Ein [Siegelritus](rite_circle) an einem Ritussockel** segnet alle im Umkreis von 6 Blöcken mit der Stimme des Siegels für **5 Minuten**; ein verstärkter Ritus gibt siebeneinhalb, auf Stufe II. Ein abgestimmter [Vertrauter](familiar_boons) dieser Stimme neben dir streckt ihn um die Hälfte.",
+        "- **Iss von einem [Festmahl](feasts) einer Stimme.** Jede Portion gewährt den Segen dieser Stimme für 8 Minuten.",
+        "Ein getragenes **Laternenamulett** hält jeden Segen oder jede Gunst **um die Hälfte länger** am Leuchten, solange sein Unterhalt bezahlt wird."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Erde**: du gräbst **25%** schneller und stehst fest gegen Rückstoß.",
+        "- **Feuer**: deine Schläge setzen das Ziel 3 Sekunden in Brand; auf **Stufe II** kann Feuer dich nicht berühren.",
+        "- **Wasser**: du schwimmst schneller und heilst **ein halbes Herz pro Sekunde**, solange du nass bist.",
+        "- **Luft**: jeder Fall ist 3 Blöcke kürzer, und du springst höher.",
+        "- **Geist**: Feindliche innerhalb von 16 Blöcken leuchten durch die Wände.",
+        "- **Webstuhl**: **ein Zehntel** des Pulses, den deine Ausrüstung ausgibt, kommt an sie zurück, auch bei den kleinsten Ausgaben: ein Anteil, der noch zu klein zum Zurückgeben ist, wartet am Stück, bis er einen ganzen Puls ergibt.",
+        "Stufe II verdoppelt die Zahlen. Milch hebt einen Segen auf, wie jeden Effekt."
+      ],
+      "title": "Die sechs Segen"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Riten sind der verlässliche Weg: setze ein Siegel, kreide den Kreis, und das ganze Lager ist auf einmal gesegnet, vor einer Nacht im Marsch. Lieder sind der schnelle Weg unterwegs. Jede Zahl steht im Abschnitt **Effekte** der gemeinsamen Konfiguration."
+      ],
+      "title": "Wo du sie findest"
+    }
+  ]
+}

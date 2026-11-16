@@ -1,0 +1,65 @@
+{
+  "name": "Wróżki",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wróżki",
+      "text": [
+        "Tam, gdzie światło jest dziwne, wróżki tańczą w powietrzu. Są małe i łagodne i uciekają przed potworami.",
+        "Raz na minutę wyszczotkuj jedną dla odczynnika. Do wabienia i rozmnażania służą **cukier** albo **butelka miodu**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)) i, choć nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrajanie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzy rodzaje",
+      "text": [
+        "Wróżka ma **8 zdrowia** i nie ma pancerza, lata od jednej do trzech i zostawia **1 do 3** swojego odczynnika, więcej z Grabieżą."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Migotliwa wróżka",
+      "text": [
+        "Złota, nad Migotliwą granią. Zrzuca **Pył wróżki**.",
+        "Upolowana zostawia też do 2 sproszkowanego jasnogłazu. Rozmnażaj: **cukier albo butelka miodu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Pryzmatyczna wróżka",
+      "text": [
+        "Różowa, nad Kryształowymi polami. Zrzuca **Płatek wróżki** (różowy barwnik).",
+        "Upolowana zostawia też do 2 różowych płatków i do 1 odłamka ametystu. Rozmnażaj: **cukier albo butelka miodu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Bagienna wróżka",
+      "text": [
+        "Zielona, nad trzcinowym mokradłem. Kilka lata wraz z [Strażnik kolos](colossus_warden). Zrzuca **Iskra wróżki**.",
+        "Upolowana zostawia też do 1 świecącej jagody i do 1 sproszkowanego jasnogłazu. Rozmnażaj: **cukier albo butelka miodu**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz odczynnika każdy zostawia więcej przy polowaniu i jeszcze więcej z Grabieżą. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zwierzę zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

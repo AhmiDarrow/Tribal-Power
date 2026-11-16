@@ -1,0 +1,71 @@
+{
+  "name": "Mains du camp",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Les Tisserands de motifs ont appris au camp à continuer de travailler après le départ du chanteur. Ce sont les machines qui cultivent, ramassent, fabriquent, pompent et montent la garde pendant que tu es occupé ailleurs.",
+        "- Le **Soigneur du bosquet** plante et récolte un carré de 9 sur 9.",
+        "- Le **Collet du vent** ramasse les objets tombés au sol.",
+        "- Le **Métier à sceaux** fabrique une recette d'établi, encore et encore.",
+        "- La **Pompe de marée** déplace le fluide d'un réservoir à un autre.",
+        "- Le **Tambour de garde** frappe les hostiles qui errent dans le camp."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chaque main répond à une voix",
+      "text": [
+        "Toute main qui travaille seule a besoin d'un totem de sa voix dans un rayon de **8 blocs**. Sans lui, elle reste inactive, et sa ligne d'état nomme le totem qu'elle veut :",
+        "- **Terre** : Soigneur du bosquet et Ancre de voie.",
+        "- **Esprit** : Tambour de garde, Totem du silence et Berceau d'invocation.",
+        "- **Eau** : Pompe de marée.",
+        "- **Air** : Collet du vent et [relais](wireless_cargo).",
+        "- **Métier** : Métier à sceaux et relais astraux.",
+        "Un Totem de résonance compte tant qu'il est Répondu ou Atténué, pas une fois devenu Silencieux (voir [Maintien](keeping)). Un Totem de parenté qui prête la même voix compte aussi, et ne devient jamais silencieux.",
+        "Une main qui attend sa voix ne fait rien du tout : aucun travail, aucune Pulsation dépensée, et rien transmis aux blocs d'à côté."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Règles qu'elles partagent toutes",
+      "text": [
+        "Chacune puise de la Pulsation dans le treillis : un [Conducteur de treillis](lattice_conductor) à **8 blocs** d'elle, sur un réseau avec des générateurs. Le Collet du vent, le Tambour de garde, la Pompe de marée et le Métier à sceaux ne paient que lorsqu'ils agissent. Le Soigneur du bosquet, le Totem du silence, l'Ancre de voie et le Berceau d'invocation remplissent d'abord une réserve propre de **2,400 Pulsation**, jusqu'à **80** par seconde, et travaillent à partir de là.",
+        "Un signal de redstone stable, comme un levier, le met en pause. Un comparateur lit ce qu'il fait ou à quel point il est rempli ; chaque entrée dit lequel.",
+        "Le Métier à sceaux, la Pompe de marée, le Collet du vent et le Tambour de garde peuvent être classés en Accordeur d'écho, puis en Lieur d'écho, puis en Manifesteur d'écho (voir [Rangs des machines](machine_ranks)). Une main classée bat plus vite, chaque **85%**, **70%** ou **55%** d'une seconde, mais la Pulsation par travail reste la même, donc le treillis sent la vitesse en plus.",
+        "En te faufilant, utilise une **Clé de totem** sur une face de la machine pour la faire passer par Les deux, Entrée, Sortie et Fermé. Une face Fermée n'offre aucun emplacement aux entonnoirs, aux tuyaux ni aux plaques relais. Une plaque relais se pose sur n'importe laquelle d'un simple clic droit, même sur une face dont le clic ouvre un écran."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenir le camp",
+      "text": [
+        "Les autres blocs du camp veillent sur le lieu lui-même, plutôt que de faire les corvées :",
+        "- Un [Totem du silence](hush_totem) empêche les hostiles d'apparaître.",
+        "- Une [Ancre de voie](wayanchor) garde un chunk lointain éveillé.",
+        "- Un [Berceau d'invocation](summoning_cradle) rappelle encore et encore une créature liée.",
+        "- Les [Lanternes d'Esprit](spirit_lantern) et les [lumières de Pulsation](pulse_lights) éclairent les chemins.",
+        "- Un [Carillon de pluie](rain_chime) change la météo en signal de redstone.",
+        "- Une [Table d'offrandes](offering_table) est un stockage de 27 emplacements à côté d'un âtre.",
+        "Accroupis-toi et fais un clic droit sur n'importe lequel avec ce livre quand quelque chose ne veut pas démarrer."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivre au camp",
+      "text": [
+        "Un camp est plus que ses machines. Pour bâtir et pour la vie de tous les jours, voir :",
+        "- [Craie de bâtisseur](builders_chalk), pour tracer huttes, murs et rites avant de bâtir.",
+        "- L'[Établi tribal](tribal_bench), un établi qui garde sa grille.",
+        "- L'[Élévateur de lianes](vine_lift), pour les tours et les puits.",
+        "- [Meubles du camp](camp_furniture) et le [Charme du vent](wind_charm), pour lui donner un air habité.",
+        "- Le [Tambour du Gardien du chant](songkeeper_drum), pour tambouriner rien que pour le plaisir.",
+        "- [Camps partagés](shared_camps), quand des amis bâtissent avec toi."
+      ]
+    }
+  ]
+}

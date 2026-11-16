@@ -1,0 +1,455 @@
+{
+  "name": "마치의 땅과 자람",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "마치에는 고유한 땅이 있다. 마치 흙 위에 마치 잔디, 그 아래에 마치 돌이 있고, 나무와 꽃과 수정도 고유하다.",
+        "대부분은 익숙한 오버월드 블록과 같이 동작한다. 그곳에 짓기 전에 알아 둘 차이가 조금 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**마치 돌**은 이 세계 전체의 바위다. 적어도 **돌 곡괭이**가 필요하며, 섬세한 손길을 쓰지 않으면 **마치 조약돌**이 된다. 조약돌을 제련하면 돌로 돌아온다.",
+        "잔디 아래는 **마치 흙**이다. 섬세한 손길을 쓰지 않으면 잔디는 흙을 떨어뜨린다. 마치 흙 위로만, 빛이 좋을 때만 퍼진다. 마치 잔디에 뼛가루를 쓰면 **마치 잎** 다발이 돋는다.",
+        "**마치 이끼**는 갈대 습지와 고지를 덮는다. 몇몇 생물 군계는 바닐라 땅도 더한다. 수정 들판에는 방해석, 눈 들판에는 눈과 꽁꽁 언 얼음, 잔불 황무지에는 매끄러운 현무암, 습지에는 진흙.",
+        "메아리 파쇄는 마치 돌을 메아리 조각으로, 마치 조약돌을 자갈로 부순다."
+      ],
+      "title": "돌과 흙"
+    },
+    {
+      "type": "text",
+      "text": [
+        "괭이는 위가 비어 있으면 마치 흙, 잔디, 이끼를 **마치 경작지**로 만든다. **4블록** 안의 물이 젖은 상태를 유지한다. 마르거나 밟히면 마치 흙으로 돌아가며, 오버월드의 흙이 되지는 않는다.",
+        "삽은 같은 블록을 **마치 길**로 평평하게 만든다. 무언가가 덮으면 이것도 마치 흙으로 돌아간다.",
+        "마치 묘목은 마치 잔디과 마치 경작지에서 자란다."
+      ],
+      "title": "농사와 길"
+    },
+    {
+      "type": "scene",
+      "title": "마치의 땅 다루기",
+      "steps": [
+        {
+          "caption": "마치 흙 위의 마치 잔디. 걷게 될 땅의 대부분이다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "괭이는 위에 아무것도 없으면 잔디를 마치 경작지로 간다.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "네 블록 안의 물이 젖음을 유지한다. 마른 경작지는 천천히 마치 흙으로 돌아간다.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "삽은 잔디를 마치 길로 평평하게 만들어 오솔길로 쓴다.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "남은 잔디에 마치 묘목이 뿌리내린다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "마치의 나무는 고지에서는 숲으로, 스텝에서는 작은 숲과 홀로, 습지와 눈 들판에서는 저마다의 모양으로 자란다.",
+        "**마치 원목** 하나는 **4 마치 판자**가 된다. 마치 나뭇잎는 가끔 마치 묘목을 떨어뜨리고(행운이 돕는다) 막대기를 하나나 둘 떨어뜨린다. 가위나 섬세한 손길은 잎 자체를 남긴다.",
+        "마치 판자는 Tribal Power의 많은 것에 들어간다. 북, 베틀 토템, 걸상, 탁자. 마치 잔디, 마치 이끼, 마치 나뭇잎, 마치 잎 다발은 레이 수집기 주변의 살아 있는 초록으로 친다."
+      ],
+      "title": "나무"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **정령 갈대**는 갈대 습지에서 빽빽하게, 스텝에서는 드물게 자란다. 노래 덩굴, 빛나는 갈대, 바람 부적, 엮은 돗자리, 봄의 부름 서판에 들어가며, 뿌리매듭은 공물로 받는다.",
+        "- **메아리 꽃**은 무리를 지어, 수정 들판 전체에 자라고, 작은 빛 알갱이를 흩뿌린다. 잔불 그릇의 재료가 된다.",
+        "- **레이 엉겅퀴**는 마치의 대부분에 흩어져 있고, 잔불 황무지도 포함한다. 장식이다. 야영용으로 꺾어 두어라.",
+        "셋 다 마치의 어떤 땅에도 다시 심을 수 있고, 맨돌 위에도 된다. 셋 다 탄다."
+      ],
+      "title": "꽃과 갈대"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**마치 수정**은 지표면에서 자라며 수정 들판에서 가장 두텁다. 밝기 **10**으로 빛나고, 아래에 고체 블록이 필요하며, 어떤 도구로든 자기 자신을 떨어뜨린다. 베틀 토템, 베틀 닻, 길닻, 소환 요람, 아스트랄 나침반, 아스트랄 릴레이의 재료가 되고, 베틀 깁는 이가 이것을 좋아한다. 정령 도깨비불이 주변에 모인다.",
+        "**마치 광석**은 돌 속의 정령 광석이며, 대부분 **y -8**보다 깊은 곳에 있고 일부 생물군계에서는 더 위에도 많다. 돌 곡괭이가 필요하며 **정령 조각 1~2개**를 떨어뜨린다(행운이 더한다). 섬세한 손길이면 블록을 지키고, 메아리 파쇄는 이것을 **정령 조각 2개**로 바꾼다."
+      ],
+      "title": "수정과 마치 광석"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "마치 조약돌을 제련해 마치 돌로 되돌린다."
+    },
+    {
+      "type": "text",
+      "title": "물과 동굴",
+      "text": [
+        "마치의 얕은 못은 **마치 수련잎**을 두르고, 가끔 밤에 물 위에서 빛나는 **달나리**가 있다. 그 아래에서 **리본말**이 흔들리며, 회색 **마치 실트**와 점토층에 뿌리를 내린다.",
+        "지하에서는 동굴 벽과 천장에 희미하게 빛나는 **장막 지의**가 붙고, 바위에서 **메아리 뿌리**가 늘어지며, 작게 빛나는 버섯인 **등롱갓**이 동굴 바닥을 밝힌다.",
+        "가위로는 말과 지의와 뿌리가 남는다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Sentinela oco",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Uma armadura vazia de guardião que ainda guarda os caminhos antigos, lança na mão. Os golpes deixam seu braço fraco.",
+        "Caçado, também solta de 1 a 3 pepitas de ferro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Sentinelas ocos percorrem as Terras Altas da Marcha, os Campos de Neve e o Cume Cintilante, uns poucos os Campos de Cristal, e três vigiam em cada [Salão dos ancestrais](ancestor_hall).",
+        "Ele tem **44 de vida** e **6 de armadura**, o mais resistente dos remanescentes, e acerta por **6**. Cada golpe dá Fraqueza a você por 4 segundos. Luz e um cajado carregado ajudam."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **de 1 a 2 Sigilo de sentinela**.",
+        "Um Sigilo de sentinela sintoniza-se em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nenhum amuleto vinculará um Sentinela oco. Ele serve aos salões, não a você."
+      ],
+      "title": "Não se vinculará"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, ele solta isto quando caçado, e mais com Pilhagem."
+      ]
+    }
+  ]
+}

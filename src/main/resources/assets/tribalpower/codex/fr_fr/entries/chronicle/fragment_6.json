@@ -1,0 +1,17 @@
+{
+  "name": "7. Les camps",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Les camps",
+      "text": [
+        "“Neuf camps sur neuf litières, chacun chantant un fil dans un Métier qui n'était plus là. Habitude, l'appelaient les Marcheurs de lisière. Espoir, disaient les Lieurs de racines. Les Chanteurs de gravier disaient que c'était la même chose dite deux fois.”",
+        "Trouvé sur une Pierre gravée dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

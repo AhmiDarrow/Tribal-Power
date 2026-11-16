@@ -1,0 +1,17 @@
+{
+  "name": "11. Mojones",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Mojones",
+      "text": [
+        "“Los Campos de Nieve son los prados de los Guardianes de la colonia, bajo un invierno que llegó con la caída y se quedó. Las colmenas duermen bajo los mojones. El frío aprendió su zumbido y con él hizo algo propio.”",
+        "Hallado en un mural, en el terreno de un guardián."
+      ]
+    }
+  ]
+}

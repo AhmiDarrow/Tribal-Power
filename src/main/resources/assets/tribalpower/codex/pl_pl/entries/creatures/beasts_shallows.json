@@ -1,0 +1,74 @@
+{
+  "name": "Bestie mielizn",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Należące do wody",
+      "text": [
+        "Większość tego, co należy do mielizn, żyje w ich wodzie: trzej łagodni pływacy i murena, która poluje tam nocą. Pływacy nigdy nie opuszczają wody: wyrzucony na brzeg miota się z powrotem i wysycha, jeśli jej nie dosięgnie. Szczudłodrzewo chodzi po brzegach (zobacz [chodzące drzewa](walking_trees)). O samej ziemi zobacz [Marsz](the_march).",
+        "Każdą łagodną bestię tutaj można raz na minutę wyszczotkować, by dostać jej odczynnik; wabi się ją i rozmnaża jej własnym pokarmem, podanym niżej w **Polowanie i wypas**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), i choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning)). Związany pływak idzie za tobą tylko tak daleko, jak sięga jego woda, i czeka w wodzie, gdy każesz mu zostać."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Mułowy szybowiec",
+      "text": [
+        "Płaszczka, która szybuje nad mułem, w grupach od dwóch do czterech. **14 zdrowia** i **1 pancerza**.",
+        "Wypada **od 1 do 3 Mułowa płetwa**, więcej z Grabieżą.",
+        "Upolowana zostawia też od 1 do 2 Surowa błyskopłetwa i do 1 Mączka kostna. Rozmnażaj przy użyciu **Wstęgowy wodorost lub trawa morska**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Blady dryfowiec",
+      "text": [
+        "Bursztynowa pokrzywa morska z prążkowanym dzwonem i długimi wstęgowymi ramionami, w grupach od dwóch do czterech. **12 zdrowia**, bez pancerza.",
+        "Wypada **od 1 do 3 Blada wstęga**.",
+        "Upolowana zostawia też do 1 Galareta dryfu i do 1 Kula szlamu. Rozmnażaj przy użyciu **Wstęgowy wodorost lub trawa morska**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Strzałka mielizny",
+      "text": [
+        "Mały prążkowany okoń, w grupach od dwóch do czterech. **14 zdrowia** i **1 pancerza**.",
+        "Wypada **od 1 do 3 Łuska mielizny**.",
+        "Upolowana zostawia też od 1 do 2 Surowa błyskopłetwa i do 1 Mączka kostna. Rozmnażaj przy użyciu **Wstęgowy wodorost lub trawa morska**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Solankowy czatownik",
+      "text": [
+        "Murena, która nocą podnosi się na mieliznach, jedna albo dwie naraz. Ma **21 zdrowia** i **1 pancerza**, a jej ugryzienie zadaje **4** i zatruwa cię przez 3 sekundy. Goni zdobycz na brzeg i wraca do wody, gdy ją zgubi.",
+        "Wypada **od 1 do 2 Solankowy kieł**, odczynnik Jadu. Solankowy kieł wzywa Bębniarz przypływu przy Kamieniu przypływu: zobacz [strażnicy](guardians).",
+        "Upolowana zostawia też do 2 Worek z atramentem i do 1 Surowa błyskopłetwa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz reagentu każdy upuszcza więcej, gdy jest upolowany, i jeszcze więcej z Grabieżą. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnożyć dzikie, **skradaj się**, kiedy karmisz dwoje dorosłych ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego łagodnieje wobec ciebie."
+      ]
+    }
+  ]
+}

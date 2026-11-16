@@ -1,0 +1,40 @@
+{
+  "name": "Marque rituelle",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "La craie sert à dessiner un motif d'un seul tenant. Chaque bâton trace la **Marque rituelle** au sol, et les marques relient une machine à la forme autour d'elle.",
+        "La même craie scelle aussi des liens durables entre des Totems de résonance."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tracer des marques",
+      "text": [
+        "Clique droit sur le dessus d'un bloc solide pour y tracer une marque. Chaque marque dépense **un usage**, et un bâton en contient **dix**.",
+        "Clique droit sur une marque avec de la craie pour l'effacer. Effacer ne coûte rien, alors corrige librement tes erreurs.",
+        "Une marque cassée ne lâche rien : la craie l'a déjà payée. En mode Créatif, la craie n'est jamais consommée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lier des totems",
+      "text": [
+        "Clique droit sur un Totem de résonance avec de la craie, puis sur un second **à moins de 16 blocs**, pour sceller un lien de treillis entre eux (voir [Conducteur de treillis](lattice_conductor)). Un lien qui se forme dépense un usage.",
+        "Cliquer deux fois le même totem annule le lien que tu as commencé. Deux totems déjà liés restent liés et ne coûtent rien de plus."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Une fabrication donne **quatre** bâtons de dix usages chacun."
+    }
+  ],
+  "next": "anchor_stone"
+}

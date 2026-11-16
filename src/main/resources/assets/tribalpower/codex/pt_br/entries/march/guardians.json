@@ -1,0 +1,125 @@
+{
+  "name": "Os guardiões",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Oito guardiões",
+      "text": [
+        "Oito dos países da Marcha mantêm um **guardião**: aquilo em que a história de cada tribo termina (veja [Anciãos, pedidos e histórias](elders_and_stories)). São chefes em todo sentido: uma barra de chefe, sem recuo, sem poções, sem urna de alma, duas fases, e uma luta que vale a pena preparar.",
+        "Um guardião nunca entra vagando. Cada um tem um **terreno** no seu bioma, um anel de pedra com um **Altar do guardião** no centro, e ele só se ergue daquele altar: o altar tem de ficar sobre ardósia profunda polida, com uma vela acesa em cada canto (o altar ou nada), tem de haver espaço acima, e ele descansa cerca de vinte minutos entre chamados.",
+        "Use o altar de mão vazia e ele diz o que quer: um punhado do reagente daquele bioma, oito por padrão. Coloque em cima e afaste-se."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Duas fases",
+      "text": [
+        "Na metade da vida, todo guardião fica **desperto**: seu ataque próprio, antes a cada **4 segundos**, passa a cerca de **2,4 segundos** e bate mais forte, e ele chama as criaturas do bioma para o seu lado, **2** de uma vez e mais **2** a cada **15 segundos**, nunca mais que **6**. Essas criaturas não deixam nada e somem quando ele cai.",
+        "Se ninguém ficar dentro de **48 blocos** por meio minuto, o guardião volta a dormir sem ser vencido; o altar não precisa do descanso depois disso e pode ser chamado de novo na hora.",
+        "Uma criatura chamada à qual você se vincula na luta é sua: uma Mariposa da tempestade do Poleiro, digamos, quando os Tecelões de padrões chamarem você de **Voz**. Ela deixa de contar para o guardião e fica quando a luta acaba.",
+        "Quando ele cai, todos dentro de **48 blocos** que estejam na história daquela tribo concluem a **prova**, e o **núcleo** dele cai com um monte de reagentes e **2 a 3 núcleos ressonantes**. Cada terreno também guarda um baú que pode conter núcleos ressonantes, Fio de Tear, uma maçã dourada ou uma Tábua de relatos em branco."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Titã de escória",
+      "text": [
+        "Uma fundição que anda: um gigante de ventre de fornalha, punhos de cadinho e coroa de chaminé. **O Trono de Escória nos Ermos de Brasa**. Chamado com Escamas de magma. **360 de vida** e **12 de armadura**. Agache-se para se firmar contra os golpes; na segunda fase os anéis acendem e Diabretes de borralho sobem da escória. A queda dele encerra a história dos **Corações de tambor**.",
+        "Solta o **Núcleo de escória**, **8 a 14 escamas de magma**, **4 a 8 cascas de cinza** e **2 a 3 núcleos ressonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Matriarca do pântano",
+      "text": [
+        "Um grande sapo de ninhada que carrega os filhotes nas costas, coberto de juncos e barbilhões de raiz. **A Raiz Afogada no Brejo dos Juncos**. Chamada com Presas de junco. **320 de vida** e **8 de armadura**. O laço dela puxa você e deixa você lento, e envenena você quando desperta; fique em chão firme e derrube os Espreitadores de juncos que ela chama antes que enxameiem. A queda dela encerra a história dos **Vinculadores de raízes**.",
+        "Solta o **Coração do brejo**, **8 a 14 presas de junco**, **4 a 8 raízes nodosas** e **2 a 3 núcleos ressonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Aparição do túmulo",
+      "text": [
+        "Uma pilha de pedras de túmulo acesas sob um crânio de alce, num manto de geada. **O Anel do Túmulo nos Campos de Neve**. Chamado com Mandíbulas de geada. **300 de vida** e **6 de armadura**. O sopro dele congela tudo à frente. Contorne por trás e cuide dos Rastejantes de geada que ele chama. A queda dele encerra a história dos **Guardiões da colônia**.",
+        "Solta a **Pedra de túmulo**, **8 a 14 mandíbulas de geada**, **4 a 8 penugens pálidas** e **2 a 3 núcleos ressonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Serpente de prisma",
+      "text": [
+        "Um wyrm de cristal com espinha de prisma e crista de gema. **A Fratura Cantante nos Campos de Cristal**. Chamado com Carapaça prismática. **300 de vida** e **8 de armadura**. Dispara raios de luz que marcam você brilhando. Ande de lado, aproxime-se e observe o segundo raio que ele acrescenta na fase dois, quando os Espreitadores de estilhaços se juntam a ele. A queda dele encerra a história dos **Cantores de cascalho**.",
+        "Solta o **Núcleo de prisma**, **8 a 14 carapaças prismáticas**, **4 a 8 pós de brilho** e **2 a 3 núcleos ressonantes**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Sentinela da abóbada",
+      "text": [
+        "Uma porta de abóbada que anda: um constructo cujo peito é uma abóbada selada, com lajes por lâminas. **O Portal Selado na Crista do Brilho**. Chamado com Sigilos de sentinela. **380 de vida** e **16 de armadura**, o mais pesado da Marcha, e uma varredura que joga você para fora da crista. Na fase dois ele se protege por três segundos de cada vez (espere passar) e chama Rastejadores sombrios. A queda dele encerra a história dos **Entalhadores de selos**.",
+        "Solta o **Selo da abóbada**, **8 a 14 Sigilo de sentinela**, **4 a 8 Seda sombria** e **2 a 3 Núcleo ressonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Tamborileiro da maré",
+      "text": [
+        "Um caranguejo-ermitão gigante que vive num tambor de guerra coberto de cracas e o bate com as pinças. **A Pedra da maré nos Baixios**. Chamado com Presa de salmoura. **320 de saúde** e **8 de armadura**. Cada batida puxa todo mundo para ele e fere; desperto, também deixa você mais lento e chama Espreitadores de salmoura. Lute da margem, de costas para algo sólido. A queda dele fecha a história dos **Tecelões de padrões**.",
+        "Solta a **Concha da maré**, **8 a 14 Presa de salmoura**, **4 a 8 Escama de baixio** e **2 a 3 Núcleo ressonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Espírito da disparada",
+      "text": [
+        "Um auroque espírito, com máscara de osso, chifres de lira e crina de poeira. **O Círculo pisoteado na Estepe**. Chamado com Tendão de canela. **300 de saúde** e **6 de armadura**. Ele investe. Desvie para o lado e acerte quando ele passar, e derrube os Rói-toca antes da investida seguinte. A queda dele fecha a história dos **Guardiões do leito**.",
+        "Solta o **Chifre do rebanho**, **8 a 14 Tendão de canela**, **4 a 8 Presa de matacão** e **2 a 3 Núcleo ressonante**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Roc da tempestade",
+      "text": [
+        "Um pássaro-trovão: uma águia-da-tempestade de crista, com barras de relâmpago nas asas. **O poleiro no Planalto**. Chamado com Asa da tempestade. **280 de saúde** e **4 de armadura**. Ele mergulha e joga você para o ar, e na fase dois o relâmpago segue cada mergulho e Mariposas da tempestade se juntam a ele. Um arco e um teto ajudam mais que um escudo. A queda dele fecha a história dos **Caminhantes da borda**.",
+        "Solta a **Pluma da tempestade**, **8 a 14 Asa da tempestade**, **4 a 8 Penugem pálida** e **2 a 3 Núcleo ressonante**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Para que servem os núcleos",
+      "text": [
+        "Cada núcleo com um Fio de Tear faz seis Núcleo ressonante, o caminho mais rápido até eles no jogo. Todos os oito núcleos juntos com um {item:tribalpower:unsung_heart} fazem a tábua de [O nono acordo](ninth_agreement)."
+      ]
+    }
+  ]
+}

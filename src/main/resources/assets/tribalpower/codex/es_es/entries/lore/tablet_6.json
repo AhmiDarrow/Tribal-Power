@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Colmena de los Guardianes de la colonia",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De un Círculo de tambores en la Marcha, en palabras de los Guardianes de la colonia:",
+        "“No posees una colmena. Estás en buenos términos con ella. Ofrece miel, planta las flores de la Marcha, y el enjambre encaminará el Pulso por el panal para ti. Toma sin pedir y el panal enmudece. Es muy paciente con esto.”"
+      ]
+    }
+  ]
+}

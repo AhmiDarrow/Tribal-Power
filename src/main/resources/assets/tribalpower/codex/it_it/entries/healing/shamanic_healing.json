@@ -1,0 +1,27 @@
+{
+  "name": "Guarigione sciamanica",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ogni tribù ha qualcuno che guarisce. Qui sei tu: un calderone sul fuoco, un sonaglio in mano e i vecchi riti.",
+        "- Il [Calderone dello Spirito](spirit_kettle) prepara **rimedi** da un reagente, un'erba e una base.",
+        "- I [Rimedi](remedies) arrivano come tinture da bere, unguenti da stendere e incenso da bruciare per tutti insieme.",
+        "- Il [Sonaglio del guaritore](healers_rattle) guarisce chi guardi, per un po' di Pulso.",
+        "- Il [Mal dello Spirito](spirit_sickness) è ciò che gli spiriti peggiori della Marcia ti lasciano addosso, e perché tutto questo conta.",
+        "- Il [Cerchio di guarigione](healing_circle) guarisce un intero accampamento e richiama i famigli caduti.",
+        "- Una [capanna del sudore](sweat_lodge) ti manda a letto ferito e ti sveglia integro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Da dove iniziare",
+      "text": [
+        "Costruisci prima il calderone. Mettilo su un falò acceso, entro 8 blocchi da un Conduttore di reticolo su una rete carica; un Totem di risonanza vicino è facoltativo, ma aggiunge la sua voce a ogni miscela. Una pila di unguenti nel tuo zaino è la differenza tra una notte dura nella Marcia e una camminata verso casa."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

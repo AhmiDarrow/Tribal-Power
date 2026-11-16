@@ -1,0 +1,71 @@
+{
+  "name": "Hände des Lagers",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Die Musterweber haben dem Lager beigebracht, weiterzuarbeiten, nachdem der Sänger gegangen ist. Das sind die Maschinen, die anbauen, sammeln, fertigen, pumpen und Wache halten, während du woanders etwas tust.",
+        "- Der **Hainpfleger** pflanzt und erntet ein Beet von 9 mal 9.",
+        "- Die **Windschlinge** hebt fallengelassene Gegenstände vom Boden auf.",
+        "- Der **Siegelwebstuhl** fertigt ein Werkbankrezept immer wieder.",
+        "- Die **Gezeitenpumpe** bewegt Flüssigkeit von einem Tank in einen anderen.",
+        "- Die **Schutztrommel** schlägt Feindliche, die ins Lager wandern."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jede Hand antwortet einer Stimme",
+      "text": [
+        "Jede Hand, die von selbst arbeitet, braucht ein Totem ihrer Stimme innerhalb von **8 Blöcken**. Ohne eines steht sie untätig, und ihre Statuszeile nennt das Totem, das sie will:",
+        "- **Erde**: Hainpfleger und Weganker.",
+        "- **Geist**: Schutztrommel, Stilletotem und Beschwörungswiege.",
+        "- **Wasser**: Gezeitenpumpe.",
+        "- **Luft**: Windschlinge und [Relais](wireless_cargo).",
+        "- **Webstuhl**: Siegelwebstuhl und Astral-Relais.",
+        "Ein Resonanz-Totem zählt, solange es Beantwortet oder Gedimmt ist, nicht mehr, wenn es Still geworden ist (siehe [Erhaltung](keeping)). Ein Verwandtschafts-Totem, das dieselbe Stimme leiht, zählt ebenfalls und wird nie still.",
+        "Eine Hand, die auf ihre Stimme wartet, tut gar nichts: keine Arbeit, kein Puls verbraucht, und nichts an die Blöcke daneben weitergegeben."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Regeln, die sie alle teilen",
+      "text": [
+        "Jede zieht Puls aus dem Gitter: ein [Gitterkonduktor](lattice_conductor) innerhalb von **8 Blöcken** von ihr, in einem Netz mit Generatoren. Die Windschlinge, die Schutztrommel, die Gezeitenpumpe und der Siegelwebstuhl zahlen nur, wenn sie handeln. Der Hainpfleger, das Stilletotem, der Weganker und die Beschwörungswiege füllen zuerst eine eigene Reserve von **2,400 Puls**, bis zu **80** pro Sekunde, und arbeiten daraus.",
+        "Ein stetiges Redstone-Signal, etwa ein Hebel, pausiert es. Ein Komparator liest, was es tut oder wie voll es ist; jeder Eintrag sagt, welches davon.",
+        "Siegelwebstuhl, Gezeitenpumpe, Windschlinge und Schutztrommel lassen sich einstufen in Echoabstimmer, dann Echobinder, dann Echomanifestierer (siehe [Maschinenränge](machine_ranks)). Eine eingestufte Hand schlägt schneller, alle **85%**, **70%** oder **55%** einer Sekunde, aber der Puls pro Arbeit bleibt gleich, also spürt das Gitter die zusätzliche Geschwindigkeit.",
+        "Benutze schleichend einen **Totemschlüssel** auf einer Maschinenseite, um sie durch Beide, Eingang, Ausgang und Geschlossen zu schalten. Eine Seite auf Geschlossen bietet Trichtern, Rohren oder Relaisplatten keine Plätze. Eine Relaisplatte setzt du mit einem schlichten Rechtsklick auf jede von ihnen, auch auf eine, deren Klick einen Bildschirm öffnet."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Lager halten",
+      "text": [
+        "Andere Lagerblöcke kümmern sich um den Ort selbst, statt die Arbeiten zu erledigen:",
+        "- Ein [Stilletotem](hush_totem) stoppt das Erscheinen von Feinden.",
+        "- Ein [Weganker](wayanchor) hält einen fernen Chunk wach.",
+        "- Eine [Beschwörungswiege](summoning_cradle) ruft eine gebundene Kreatur immer wieder herbei.",
+        "- [Geistlaternen](spirit_lantern) und die [Puls-Lichter](pulse_lights) beleuchten die Wege.",
+        "- Ein [Regenklangspiel](rain_chime) macht aus dem Wetter ein Redstone-Signal.",
+        "- Ein [Opfertisch](offering_table) ist ein Lager mit 27 Plätzen neben einem Herd.",
+        "Ducke dich und klicke mit diesem Buch rechts auf einen davon, wenn etwas nicht anlaufen will."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leben im Lager",
+      "text": [
+        "Ein Lager ist mehr als seine Maschinen. Zum Bauen und für den Alltag siehe:",
+        "- [Baukreide](builders_chalk), um Hütten, Mauern und Riten auszulegen, bevor du baust.",
+        "- Die [Stammeswerkbank](tribal_bench), eine Werkbank, die ihr Gitter behält.",
+        "- Der [Rankenlift](vine_lift), für Türme und Schächte.",
+        "- [Lagermöbel](camp_furniture) und der [Windanhänger](wind_charm), damit es bewohnt wirkt.",
+        "- Die [Liedhüter-Trommel](songkeeper_drum), zum Trommeln nur aus Freude.",
+        "- [Geteilte Lager](shared_camps), wenn Freunde mit dir bauen."
+      ]
+    }
+  ]
+}

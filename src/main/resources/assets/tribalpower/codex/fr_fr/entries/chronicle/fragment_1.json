@@ -1,0 +1,17 @@
+{
+  "name": "2. Les neuf voix",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Les neuf voix",
+      "text": [
+        "“Terre pour tenir, Feu pour chauffer, Eau pour porter, Air pour soulever, Esprit pour demander, et le Métier pour lier les cinq. Six voix, neuf peuples : trois d'entre elles partagées. Le partage est là où la dispute a commencé.”",
+        "Trouvé sur une pierre gravée, dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

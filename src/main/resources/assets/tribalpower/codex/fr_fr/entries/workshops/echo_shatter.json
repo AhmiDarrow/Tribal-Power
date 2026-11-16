@@ -1,0 +1,239 @@
+{
+  "name": "Broyeur d'écho",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "La station de Terre, et la première que tu construiras. Le Broyeur d'écho a deux tâches : briser la **Pierre** en Éclats d'écho, le cristal qui alimente un Résonateur de Pulsation, et broyer blocs et minerais en quelque chose de plus petit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Faire des éclats",
+      "text": [
+        "Mets de la **Pierre** ou de l'**Ardoise des abîmes** ; la Pierre de la Marche convient aussi. Les Pierres ne donnent pas d'éclats, fais-les donc d'abord fondre en pierre.",
+        "Un éclat prend **2 secondes** à **32 de Pulsation par seconde**. La Pulsation stockée à proximité, dans le tampon d'un générateur ou un cairn, fait tenir un générateur lent pendant un lot.",
+        "Il lui faut un totem de Terre à 8 blocs ou moins et un générateur chargé. L'éclat est le petit catalyseur de ton premier Résonateur de Pulsation, lentement dépensé par la Pulsation qu'il produit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Broyage",
+      "text": [
+        "- Les Pierres, l'ardoise des abîmes cobblée et les Pierres de la Marche deviennent du gravier ; le gravier devient du sable.",
+        "- Le sable devient de la poussière si le mod de tamisage pris en charge est installé, sinon une motte d'argile.",
+        "- La diorite devient du quartz. Le Minerai de la Marche devient deux Éclats d'Esprit.",
+        "- Les métaux bruts et les minerais de métal deviennent **deux graviers** chacun, en 4 secondes à 40 de Pulsation par seconde. Voir [Métaux et gemmes](metals_and_gems).",
+        "- Les minerais de gemmes au Toucher de soie se brisent droit en gemme, au double du butin propre du minerai.",
+        "Les recettes de ce livre, ou JEI, montrent les entrées et sorties exactes de ton pack."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Le gravier descend",
+      "steps": [
+        {
+          "caption": "Un Four de braise avec son totem de Feu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose le Broyeur d'écho dessus, avec un totem de Terre à proximité.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La face du bas du Broyeur d'écho sort, et la face du haut du Four de braise accepte, donc le gravier tombe droit dedans.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un générateur, verse du fer brut par le haut et prends les lingots dans le Four de braise.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pour aller plus loin",
+      "text": [
+        "Construis le motif [Formation de brisure](shatter_array) autour de lui et il dépense un quart de Pulsation en moins, et vide sa sortie dans une Cache ancestrale en dessous.",
+        "Les rangs le rendent plus rapide ; voir [Rangs des machines](machine_ranks). Un levier le met en pause."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "Ce que le Broyeur d'écho fait de la pierre et de l'ardoise des abîmes."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Ancre de voie",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Maintient un chunk en marche pendant que tu es loin. Une extrémité de relais, une Fosse d'écoute ou une Porte dans un chunk lointain s'arrête quand personne n'est près ; une Ancre de voie garde son chunk chargé pour **16 Pulsation** par seconde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En faire tourner un",
+      "text": [
+        "Place-la dans le chunk qui doit rester éveillé. Elle tient exactement ce seul chunk, pas un rayon autour. Elle répond à **Terre** : garde un totem de Terre dans les 8 blocs (voir [Mains du camp](camp_hands)), sinon elle lâche le chunk.",
+        "Elle garde une réserve de **2,400 Pulsation** et la remplit d'au plus **80** par seconde depuis le treillis. Tu peux aussi la compléter avec une Cellule de Pulsation.",
+        "La redstone, ou une réserve vide, lâche le chunk. Casser l'ancre le lâche aussitôt.",
+        "Clic droit pour voir si elle tient. Un comparateur lit 15 tant qu'elle tient."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limites et usages",
+      "text": [
+        "Chaque joueur peut en faire tourner jusqu'à **32** ancres dans chaque monde. Les membres d'un [camp partagé](shared_camps) se partagent plutôt **12** ancres entre eux, comptées dans tous les mondes, alors accorde-toi avec eux sur les chunks qui comptent.",
+        "Les relais ne gardent jamais les chunks chargés eux-mêmes. Si les deux bouts d'un relais doivent marcher pendant que tu voyages, pose une ancre au bout lointain.",
+        "Les Portes tiennent leur bout lointain éveillé quelques secondes quand quelqu'un arrive, donc une Porte n'a besoin d'une ancre que si quelque chose là doit continuer à tourner."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

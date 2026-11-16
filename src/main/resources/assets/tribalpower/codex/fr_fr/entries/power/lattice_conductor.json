@@ -1,0 +1,281 @@
+{
+  "name": "Conducteur de treillis",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "Le Conducteur de treillis tisse le treillis de Pulsation ; il ne produit aucune Pulsation lui-même. La Pulsation ne circule que le long des conducteurs : tout ce qui est à **8 blocs** de l'un d'eux (générateurs, machines, mains du camp, relais, totems et Cairn de Pulsation) est sur son réseau, et les machines ne tirent de la Pulsation que du réseau. Une fabrication en donne quatre."
+    },
+    {
+      "type": "text",
+      "title": "Tisser un réseau",
+      "text": [
+        "Les conducteurs à 8 blocs les uns des autres se lient et tissent un seul réseau, aussi loin que court la ligne. Deux groupes hors de portée l'un de l'autre sont deux réseaux et ne partagent rien.",
+        "Une machine puise d'abord dans les générateurs de son réseau, puis dans ses [Cairn de Pulsation](pulse_cairn). Elle ne puise jamais directement à un générateur, même placé juste à côté : pas de conducteur, pas de Pulsation.",
+        "Les totems d'un réseau qui contient de la Pulsation remplissent grâce à lui leurs tampons de **250 Pulsation**, puis restent pleins, sans coût de plus. Ce tampon tient la voix du totem : un totem vide est silencieux (voir [Maintien](keeping)). Les machines ne dépensent jamais le tampon d'un totem.",
+        "Les totems s'unissent à l'aide de **Craie rituelle** pour leurs voix : clic droit sur un totem, puis sur un autre à **moins de 16 blocs**. Une station compte la voix d'un totem relié par la craie à un totem proche, tant que ce partenaire se tient à moins de 16 blocs de la station. La craie porte les voix, pas la Pulsation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il transporte",
+      "text": [
+        "Chaque conducteur transporte une quantité fixe par seconde, selon le [rang](machine_ranks) : **Tissé 64**, **Accordé 256**, **Lié 1,024** et **Manifesté 4,096** de Pulsation par seconde. Un conducteur d'avant les rangs est Tissé.",
+        "La Pulsation quitte un générateur par un conducteur à 8 blocs de lui et atteint une machine par un conducteur à 8 blocs de la machine, et compte sur les deux. La Pulsation qui part et arrive par le même conducteur ne compte qu'une fois. Les liens entre conducteurs transportent librement, donc un réseau transporte autant que tous ses conducteurs réunis.",
+        "Un gros générateur veut des conducteurs forts ou nombreux autour de lui : un qui en fait des milliers par seconde, comme un [Cœur de ley](ley_heart) du plus haut rang, a besoin d'un conducteur manifesté (4 096 par seconde), ou de quatre liés, pour tout livrer. Il en va de même pour une machine affamée.",
+        "Un signal de redstone sur un conducteur le sort du tissage jusqu'à la fin du signal."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un treillis à travers le camp",
+      "steps": [
+        {
+          "caption": "Un générateur. Aucune machine ne peut y puiser tant que le treillis ne l'atteint pas.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un Conducteur de treillis à moins de 8 blocs de lui le tisse dans le treillis.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Une station à moins de 8 blocs du conducteur puise dans le réseau. Sans le conducteur, elle aurait faim, si près que soit le tambour.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Les totems à portée remplissent leurs tampons depuis le réseau et restent pleins : cela garde leurs voix.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le lire",
+      "text": [
+        "Clic droit sur un conducteur pour son réseau : combien de conducteurs, de générateurs et de cairns il tient, le débit de ce conducteur et celui de tout le réseau, et la Pulsation stockée dessus.",
+        "Le rite [Lien de ley](world_rites) relie un moment deux totems éloignés : les conducteurs à portée d'une extrémité se tissent dans le réseau de l'autre.",
+        "La vue Pulsation de la [Lentille ley](ley_lens) montre le réseau sur lequel tu te tiens, par quel conducteur, et combien il a porté à la dernière seconde.",
+        "Le treillis porte la Pulsation, pas des marchandises. Pour déplacer des objets à distance, utilise des [relais](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand il se tait",
+      "text": [
+        "Un levier ou n'importe quel signal de redstone sort le conducteur du tissage.",
+        "« Aucun générateur ni cairn » veut dire que rien sur le réseau ne fait ou ne garde de Pulsation : amène-en un à 8 blocs de n'importe lequel de ses conducteurs.",
+        "« Sec » veut dire que les générateurs et les cairns du réseau sont vides : fais plus de Pulsation, ou dépense moins.",
+        "« Porte tout ce qu'il peut » veut dire que le conducteur a passé tout son débit à la dernière seconde : monte son rang, ou ajoute des conducteurs près du générateur et de la machine occupés.",
+        "Accroupis-toi et fais un clic droit dessus avec ce livre pour son rang, ce qu'il a porté à la dernière seconde, et ce qui manque."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

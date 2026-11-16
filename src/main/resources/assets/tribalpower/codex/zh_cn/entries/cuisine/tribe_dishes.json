@@ -1,0 +1,78 @@
+{
+  "name": "部族菜肴",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "每个部族都用只有自己会的方式做一道菜，吃下后带有该部族的[恩惠](tribe_boons)，持续**5分钟**。在[炉锅](hearth_pot)里烹制。",
+        "- **守护者根糊**（土壤）：余烬根×2，草原谷，一个碗。",
+        "- **砂砾面包**（石）：草原谷×2，铁砂砾。",
+        "- **缚根米饭**（萌芽）：泽米×2，灵之芦苇，一个碗。",
+        "- **缘行者肉干**（爪）：生野味×2，余烬根。",
+        "- **鼓心辣酱**（火花）：余烬根×2，微光豆，生野味，一个碗。"
+      ],
+      "title": "九族，九肴"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **纹样挞**（时钟）：微光豆，草原谷，霜莓。",
+        "- **蜂蜜蛋糕**（蜂群）：蜜脾，草原谷×2，一个鸡蛋。",
+        "- **印刻者汤**（纹章）：泽米，回响花，远行界叶，一个碗。",
+        "- **织机线面**（纺锤）：泽米×2，地脉蓟，一个碗。",
+        "一旦部族称你为**朋友**，其族人会用做成这道菜的作物四个把菜卖给你。在部族的炉前献上它自己的菜，计为**6点声望**，除试剂外高于任何其他礼物。"
+      ],
+      "title": "九族，九肴，续"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Kobolds",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kobolds",
+      "text": [
+        "Les kobolds vivent partout où il y a quelque chose qui vaut la peine d'être creusé, et ils ne le partagent pas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deux sortes",
+      "text": [
+        "Tous deux apparaissent dans le noir, de jour comme de nuit, un ou deux à la fois. Un kobold a **21 de santé** et **2 d'armure**, est rapide, et frappe pour **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Kobold de la crête",
+      "text": [
+        "Un petit mineur, chien-lézard dressé, avec une pioche et une lampe sur le casque, qu'on trouve dans les cavernes sombres sous la Crête scintillante.",
+        "Chassé, il lâche aussi jusqu'à 2 cuivre brut et jusqu'à 1 charbon."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Kobold de géode",
+      "text": [
+        "Un kobold que le cristal a recouvert, portant une lance à pointe de cristal, trouvé dans les cavernes sombres sous les Champs de cristal.",
+        "Chassé, il lâche aussi jusqu'à 2 éclats d'améthyste et jusqu'à 2 lapis-lazuli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils donnent",
+      "text": [
+        "Un Kobold de la crête lâche **1 à 2 Écaille de kobold**, un Kobold de géode **1 à 2 Corne de kobold**, davantage avec Butin. Tous deux sont des réactifs de molosse : voir [réactifs](reagents).",
+        "Les kobolds ne se lient jamais."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche davantage quand on le chasse, et encore plus avec Butin."
+      ]
+    }
+  ]
+}

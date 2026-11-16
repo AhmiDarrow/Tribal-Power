@@ -1,0 +1,6 @@
+{
+  "name": "Maszyny obozu",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Urządzenia, które zajmują się obozem za ciebie: uprawiają, zbierają, strzegą, pompują, oświetlają drogę i utrzymują chunki w czuwaniu."
+}

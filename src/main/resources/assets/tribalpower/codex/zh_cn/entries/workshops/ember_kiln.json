@@ -1,0 +1,231 @@
+{
+  "name": "余烬窑",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "火之装置用脉动烧炼，不用煤炭。熔炉能烧炼的，余烬窑也能烧炼：圆石变成石头，砂砾变成锭。它需要8格以内有共鸣图腾（火）。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "用法",
+      "text": [
+        "给它任何熔炉能烧的输入，并取出熔炉的结果。不燃烧燃料。",
+        "每次熔炼耗时**10秒**，消耗为**每秒64脉动**。",
+        "砂砾总会烧成对应的锭，哪怕是熔炉认不出的模组砂砾。",
+        "拉杆会暂停它，输出装满也会。缺少火则会暂停，并且什么都不消耗。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "圆石成石",
+      "steps": [
+        {
+          "caption": "将余烬窑放在共鸣图腾（火）的8格以内。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "让脉动保持在范围内：旁边一台发电机就够。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "放入圆石，取出石头。不烧煤炭。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "余烬窑下方的漏斗会把产物运走。",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "自动化",
+      "text": [
+        "把回响粉碎放在余烬窑上，输出对准输入，砂砾就会往下走：站点叠在另一个上面时这是默认，所以直接就能用。[金属与宝石](metals_and_gems)展示整条矿石线。",
+        "若想收集锭，就在下面放漏斗或储柜。",
+        "像其他工坊一样，在回响调谐里提升等级，然后是束缚，再是显化。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

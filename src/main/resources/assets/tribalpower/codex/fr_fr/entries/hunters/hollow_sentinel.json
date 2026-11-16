@@ -1,0 +1,51 @@
+{
+  "name": "Sentinelle creuse",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "Une armure de gardien vide qui garde encore les vieilles routes, lance en main. Ses coups te laissent le bras faible.",
+        "Chassée, elle lâche aussi de 1 à 3 pépites de fer."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Sentinelles creuses parcourent les Hautes Terres de la Marche, les Champs de neige et la Crête scintillante, quelques-unes les Champs de cristal, et trois montent la garde dans chaque [Salle des ancêtres](ancestor_hall).",
+        "Elle a **44 de santé** et **6 d'armure**, la plus coriace des vestiges, et frappe pour **6**. Chaque coup te donne Faiblesse pendant 4 secondes. La lumière et un bâton chargé aident."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Elle lâche **1 à 2 Sceau de sentinelle**.",
+        "Un Sceau de sentinelle s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aucune amulette ne liera une Sentinelle creuse. Elle sert les salles, pas toi."
+      ],
+      "title": "Ne se liera pas"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, elle lâche ceci quand on la chasse, et davantage avec Butin."
+      ]
+    }
+  ]
+}

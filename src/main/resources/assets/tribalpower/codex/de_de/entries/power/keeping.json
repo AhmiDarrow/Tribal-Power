@@ -1,0 +1,190 @@
+{
+  "name": "Wahrung",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Totems brauchen Aufmerksamkeit ebenso wie Kraft. Ein Totem, das du benutzt, bleibt wach; eines, das du ignorierst, schläft langsam ein. Das heißt **Wahrung**, und ein Totem ist immer in einem von drei Zuständen:",
+        "- **Beantwortet**: wach, etwa **40 Minuten** geladene Zeit nach der letzten Nutzung.",
+        "- **Matt**: am Verblassen, weitere **40 Minuten**. Passende Stationen brauchen etwa **30% länger**.",
+        "- **Still**: eingeschlafen. Neue Arbeit kann pausieren, selbst wenn Puls übrig ist.",
+        "Die Uhr läuft nur, solange der Chunk des Totems geladen ist. Ein voller Generator weckt ein stilles Totem nicht von allein.",
+        "Die Wahrung ist eines von zwei Dingen, die ein Totem braucht. Das andere ist Puls in seinem **Puffer**: Ein Totem mit leerem Puffer ist **stumm** und leiht keine Stimme, so wach es auch ist. In einem Netz des Gitters mit Puls darin füllt sich der Puffer und bleibt voll; abseits des Gitters, oder an einem trockenen Gitter, leert er sich in etwa zwei Minuten (siehe [Gitterkonduktor](lattice_conductor)). Die beiden berühren sich nie: Puls weckt kein stilles Totem, und das Wecken füllt keins, das leer ist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Totem wecken",
+      "text": [
+        "Rechtsklicke ein mattes oder stilles Totem mit leerer Hand, oder nutze einen **Knochenklang** an einem beliebigen Totem, um es zu wecken und seine Uhr neu zu starten.",
+        "Ein Trommelherz von Hand zu schlagen weckt jedes Totem im Umkreis von 8 Blöcken. Dasselbe tun Trommler der Sippe aus den Stämmen und ein Leysammler, dessen Schlag 8 oder mehr beträgt.",
+        "Ein abgestimmter Vertrauter hält jedes Totem seiner Stimme im Umkreis von 8 Blöcken beantwortet und weckt eines, das still geworden ist (siehe [Einen Vertrauten binden](familiars)).",
+        "Arbeit hält Totems wach: Jede Sekunde, die eine passende Station arbeitet, speist sie die Totems ihrer Stimme. Das hält ein beantwortetes oder mattes Totem in Gang, weckt aber keines, das schon still ist.",
+        "Eine Herzschlagplatte kann ein Trommelherz am Erzeugen von Kraft halten, aber Redstone-Schläge halten Totems nicht wach."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein stilles Totem wecken",
+      "steps": [
+        {
+          "caption": "Dieser Zermalmer hat Puls und ein Totem der Erde, hat aber aufgehört: Sein Totem ist still geworden.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Nutze einen Knochenklang am Totem, oder rechtsklicke es mit leerer Hand, um es zu wecken.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "Die Station nimmt ihre Arbeit wieder auf, und jede Sekunde Arbeit hält das Totem beantwortet.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Lager planen",
+      "text": [
+        "Totems an üppigen Orten bleiben **doppelt so lange** wach. Ein Totem zählt die Blöcke direkt um sich: offener Himmel (nachts mehr), Regen, Wasser und Pflanzen, Gras unter den Füßen eingeschlossen. Wenn das einen starken Ort ergibt, läuft seine Uhr mit halber Geschwindigkeit. Die meisten Totems unter einem Dach oder auf nacktem Stein behalten das normale Tempo.",
+        "Ein [Verwandtschafts-Totem](kinship_totem) wird nie still. Im Umkreis von 8 Blöcken hält es seine Stimme für Stationen und Lagerhelfer beantwortet, selbst neben einem Resonanz-Totem dieser Stimme, das still geworden ist.",
+        "Die Stimmen-Sicht der [Leylinse](ley_lens) markiert Totems in der Farbe der eigenen Stimme, wenn sie beantwortet sind, in einem dunkleren Ton, wenn sie matt sind, und grau, wenn sie still oder stumm sind. Und wenn eine Station anhält, obwohl ihre Kraft in Ordnung scheint, ducke dich und rechtsklicke sie mit diesem Buch: Es sagt, ob ihr Totem matt oder still ist."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

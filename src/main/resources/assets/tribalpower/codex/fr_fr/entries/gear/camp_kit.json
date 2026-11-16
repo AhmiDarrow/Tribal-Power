@@ -1,0 +1,56 @@
+{
+  "name": "Clé et baguette",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Clé de totem",
+      "text": [
+        "Chaque machine du camp regarde quelque part, et tôt ou tard du mauvais côté. Utilise la clé sur un bloc et il tourne sur place, sans le casser ni le reposer. Les bûches et les piliers roulent vers leur axe suivant.",
+        "**Utilise en te baissant une face de machine** et cette face passe par Les deux, Entrée, Sortie et Fermé — le même réglage que montre le pavé latéral de la machine, joignable hors de l'écran.",
+        "Sur les [plaques de chant](song_plates), elle synchronise au lieu de tourner : utilise-en une en te baissant pour retenir son chant, puis utilise-en une autre pour qu'elle entende la première, sans câble entre les deux."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'elle coûte et ce qu'elle refuse",
+      "text": [
+        "Un tour prend **1 Pulsation** à n'importe quelle cellule que tu portes. Sans Pulsation sur toi, la clé use un point de ses **512** à la place, et elle marche donc encore un mauvais jour.",
+        "Une torche murale, une échelle ou un levier passe au mur suivant qui peut le retenir, et reste en place s'il n'y en a pas.",
+        "Il ne tournera pas un bloc qui en fait vraiment deux : un lit, une porte, un coffre double, une plante haute, ou un **piston étendu** et sa tête. Rétracte d'abord le piston.",
+        "Elle respecte la terre protégée et refuse les machines posées par quelqu'un hors de ton camp, comme le ferait une main vide : elle lit quand même les plaques de chant d'un autre camp, mais ne les synchronise pas et ne retient pas leurs chants."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Baguette du Tisserand",
+      "text": [
+        "Clique la face d'un bloc et la baguette emporte cette face vers l'extérieur à travers chaque voisin pareil : jusqu'à **32 blocs** d'une seule passe, posée contre le côté que tu as cliqué.",
+        "Les blocs viennent de ton sac et de ta barre rapide, et coûtent **2 Pulsation** chacun ; chaque balayage use la baguette d'un point sur ses **768**. Elle ne remplit que le vide, sans jamais remplacer ce qui est déjà là, ainsi un sol se pose en un clic et rien en dessous n'est perdu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Là où elle ne pose pas",
+      "text": [
+        "La baguette ignore tout endroit où le bloc ne tiendrait pas (une torche sans appui, une plante sur de la pierre) et tout endroit en terrain protégé, et pose le reste.",
+        "Elle ne copie pas un bloc qui contient plus d'un objet ou qui garde un inventaire : une double dalle, une porte ou un lit, une pile de bougies ou de cornichons de mer, de la neige en couches, un coffre ou une machine.",
+        "Si tu manques de blocs ou de Pulsation en cours de route, le balayage s'arrête là."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

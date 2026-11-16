@@ -1,0 +1,6 @@
+{
+  "name": "이동",
+  "icon": "tribalpower:waystone_compass",
+  "order": 55,
+  "description": "마치를 여는 관문 북, 표시한 지점으로 다시 데려다주는 나침반, 두 장소를, 심지어 두 세계까지 잇는 돌 관문."
+}

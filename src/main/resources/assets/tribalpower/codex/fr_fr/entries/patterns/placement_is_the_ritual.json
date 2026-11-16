@@ -1,0 +1,35 @@
+{
+  "name": "Le placement est le rituel",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Bâti, pas fabriqué",
+      "text": [
+        "Certaines machines ne s'éveillent que lorsque les blocs autour d'elles sont dans la bonne forme. La machine du milieu est l'**ancre** ; la forme autour d'elle est son **motif**.",
+        "Les ancres sont le Bassin de pierre, le Maillage de résonance, le Brasero rituel, le Résonateur de Pulsation, le Broyeur d'écho et la Clef de porte. Chacun a sa page dans ce livre, avec sa forme montée bloc par bloc.",
+        "N'importe quelle rotation convient, alors oriente la forme du côté qui arrange ton camp."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vérifier ton travail",
+      "text": [
+        "Accroupis-toi et clique droit avec ce livre sur le Bassin de pierre, le Maillage de résonance ou une Clef de porte. Il nomme le palier atteint par la forme, le sens vers lequel elle regarde et les **trois** premières choses encore manquantes, et des étincelles marquent leur place. Un Brasero rituel liste ce qui manque, sans les étincelles.",
+        "Beaucoup de motifs ont un second palier plus grand. Ils demandent d'habitude des [Pierres d'ancre](anchor_stone) étayées aux coins, et donnent en retour plus à faire à la machine.",
+        "Les formes sont jointes par des [Marques rituelles](ritual_mark), tracées à la Craie rituelle."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "La plus petite forme",
+      "text": "Un Bassin de pierre et quatre marques de craie. C'est le motif le plus simple pour apprendre, et il tourne sur un tambour joué à la main."
+    }
+  ],
+  "next": "ritual_mark"
+}

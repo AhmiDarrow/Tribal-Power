@@ -1,0 +1,190 @@
+{
+  "name": "Détissage d'écho",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "La station du Métier fait tourner le treillis à l'envers. Le Détissage d'écho démonte un produit fini en davantage de l'étape d'avant, et retransforme l'Espritoutillage usé en métal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il démonte",
+      "text": [
+        "- Lingot manifesté : **2** échos liés.",
+        "- Écho lié : **2** échos accordés.",
+        "- Écho accordé : **2** éclats d'écho.",
+        "- Noyau résonnant : **3** lingots manifestés.",
+        "- Espritissu : **1** laine.",
+        "- Un outil d'Espritoutillage endommagé, une arme endommagée ou un Hochet du guérisseur endommagé : **1** lingot manifesté. Les arcs et les arbalètes ne sont pas démontés.",
+        "Les outils neufs et intacts sont refusés : l'Espritoutillage doit d'abord subir des dégâts. L'armure en Espritissu n'est jamais démontée.",
+        "Il faut un Totem de résonance (Métier) dans un rayon de 8 blocs. Si le Métier manque, il se met en pause et ne dépense rien."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Détisser un noyau",
+      "steps": [
+        {
+          "caption": "Place le Détissage d'écho avec un Totem de résonance (Métier) dans un rayon de 8 blocs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Garde la Pulsation à portée et laisse un peu d'espace de sortie libre.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Noyau résonnant entre ; trois lingots manifestés sortent.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'enchaîner",
+      "text": [
+        "Pose la sortie du Lieur d'écho ou du Manifesteur d'écho dans cette station, pour une chaîne inverse sans entonnoir.",
+        "Si tu le veux plus rapide, monte son rang dans l'Accordeur d'écho, puis le Lieur d'écho, puis le Manifesteur d'écho. Un levier met en pause l'insertion et le travail.",
+        "S'il ne démarre pas, accroupis-toi et fais un clic droit dessus avec ce livre, puis lis [La sixième voix](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

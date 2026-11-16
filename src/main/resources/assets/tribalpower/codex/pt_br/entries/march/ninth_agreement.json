@@ -1,0 +1,27 @@
+{
+  "name": "O nono acordo",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Um finale",
+      "text": [
+        "O Tear era nove fios em acordo. Termine as histórias das nove tribos, os oito [guardiões](guardians) e O Não Cantado, e você tem nove relíquias. Faça a tábua com os oito núcleos e um Coração Não Cantado, trace um **círculo de Tear** (um Selo de Tear assentado no braseiro), junte **2,000 Pulso** a **8 blocos** do braseiro (**1,500** num círculo de nível dois) e faça o rito com as nove relíquias com você. A tábua se gasta; as relíquias não.",
+        "O Tear concorda. Nove luzes sobem do círculo, uma na cor de cada tribo, e a Marcha responde à sua voz daí em diante."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que muda",
+      "text": [
+        "Para quem fez o acordo: toda tribo trata você no mínimo como **Parente**, qualquer que seja sua posição; todos os nove dons pousam em você por **30 minutos**; e a aurora da Marcha queima plena e firme toda noite em que você estiver sob ela.",
+        "O acordo é seu para sempre naquele mundo, e é feito uma vez por jogador. Depois o rito renova os nove dons: faça de novo com uma tábua nova e o mesmo Pulso, e os nove pousam em você por mais 30 minutos inteiros. As relíquias só são pedidas na primeira vez."
+      ]
+    }
+  ]
+}

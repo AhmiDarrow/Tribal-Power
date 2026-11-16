@@ -1,0 +1,245 @@
+{
+  "name": "Siegelwebstuhl",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Eine Werkbank, die von allein arbeitet. Bring ihr ein Werkbankrezept bei, aus dem Hauptspiel oder einem beliebigen Mod, auf einem Rezeptsiegel, halte das Raster gefüllt, und sie webt ein Ergebnis pro Sekunde für je **6 Puls**. Das Siegel wird nie verbraucht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihm ein Rezept beibringen",
+      "text": [
+        "Fertige ein **Rezeptsiegel** aus einem Leersiegel und Papier, dann öffne den Siegelwebstuhl. Das Siegel kommt in sein eigenes Fach neben dem Raster, nicht in die Mitte des Drei-mal-drei.",
+        "Lege das Rezept im Raster genau wie an einer Werkbank aus: für Stöcke ein Brett über dem anderen.",
+        "Schließe den Bildschirm, schleiche und klicke den Siegelwebstuhl mit **leerer Hand** rechts an. Das Siegel speichert das Rezept, und die Kurzinfo benennt es.",
+        "Beibringen lässt sich nur ein Leersiegel. Für ein neues Rezept fertige ein neues Siegel; das Raster zu ändern ändert nie, was ein altes Siegel behält."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es laufen lassen",
+      "text": [
+        "Sitzt das Siegel und liegen die richtigen Gegenstände in den richtigen Fächern, fertigt es einmal pro Schlag für **6 Puls** aus dem Gitter. Zwei Bretter geben vier Stöcke, und das Siegel bleibt. Es gehorcht dem **Webstuhl**: halte ein Resonanz-Totem (Webstuhl) innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)), sonst steht es still.",
+        "Die Ergebnisse füllen seine neun Ausgabefächer und gehen durch die **untere** Seite zu einem Trichter oder einer [Relaisplatte](wireless_cargo) dort. Reste wie leere Eimer und Flaschen gehen mit hinaus, damit sie das Raster nie verstopfen; ein Werkzeug, das das Rezept zurückgibt, wie eine Mahlschale, geht in sein eigenes Fach zurück. Wenn die Ausgaben keinen Platz für eine Fertigung und ihre Reste haben, wartet der Siegelwebstuhl und gibt nichts aus.",
+        "Der Rang verkürzt den Schlag; Puls pro Fertigung bleibt 6. Ein Hebel pausiert es, und ein Komparator liest, wie voll es ist."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Webstuhl für Stöcke",
+      "steps": [
+        {
+          "caption": "Stelle den Siegelwebstuhl mit einem Generator und einem Gitterkonduktor innerhalb von 8 Blöcken auf.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze ein Rezeptsiegel in sein Siegelfach, lege das Rezept aus und klicke in der Schleiche mit leerer Hand.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Ein Trichter oben hält das Raster voll; jeder Gegenstand geht in das erste Fach, das ihn annimmt.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Trichter unten zieht die Ergebnisse aus der Unterseite.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es versorgen",
+      "text": [
+        "Ein Trichter oder eine auf den Webstuhl abgestimmte Relaisplatte legt jeden Gegenstand in den ersten Rasterplatz, der ihn annimmt. Das passt zu Rezepten mit einem Platz, etwa Stämme zu Brettern. Bei einem geformten Rezept füllst du die genutzten Plätze von Hand mit vollen Stapeln, und es stellt her, bis einer leer ist. Passt das Raster nicht mehr zum Siegel, wartet es und verbraucht nichts.",
+        "Schleiche und rechtsklicke eine Seite, während du einen Gegenstand hältst, um diese Seite zu ändern: Beides, Eingang, Ausgang oder Geschlossen.",
+        "Prüfe eine Charge, bevor du das Massenlager anschließt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Präge es am Webstuhl; ein Siegel merkt sich ein Rezept."
+    }
+  ]
+}

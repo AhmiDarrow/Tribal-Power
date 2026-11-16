@@ -1,0 +1,46 @@
+{
+  "name": "Tenir est le travail",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Raccommoder n'est pas un miracle privé. Gagne la relique de chaque tribu, porte les neuf dans un cercle du Métier et accomplis le [Le neuvième accord](ninth_agreement). Les fils s'accordent de nouveau.",
+        "Lis chaque tablette. Frappe le Tambour silencieux quand tu es prêt. Offre aux âtres. Demande poliment, moins que ce que demandait l'ancien monde.",
+        "Le monde ne revient pas d'un coup. Il apprend à tenir."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "Les tablettes",
+      "text": [
+        "Les tribus ont laissé douze tablettes de pierre. Cherche-les sur les murs des camps des Graveurs de sceaux (forêts sombres et les Hautes Terres de la Marche) et, dans la Marche, dans des [Salles des ancêtres](ancestor_hall) englouties, des Cercles de tambours, des Flèches de cristal, des camps des Couseurs du métier et des Temples profonds. Fais un clic droit sur l'une pour la lire.",
+        "Chaque tablette que tu lis est notée ici, dans le chapitre des Récits, et ses mots s'ouvrent en une page à part."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "Le chapitre compte combien des douze tu as lues. Les tablettes que tu n'as pas encore trouvées restent cachées."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tablettes à toi",
+      "text": [
+        "Huit Pierre de la Marche autour d'un Éclat d'écho font **deux** Tablette de récits à accrocher dans une salle à toi. Une tablette fabriquée porte le premier fragment, l'Âtre des Gardiens des litières ; en mode créatif, utilise-la accroupi pour parcourir les douze.",
+        "Une tablette doit être accrochée sur le côté d'un bloc solide.",
+        "Une tablette que tu as trouvée oublie ses mots quand on la casse et revient en tant qu'Âtre des Gardiens des litières, alors lis-la là où elle est accrochée."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

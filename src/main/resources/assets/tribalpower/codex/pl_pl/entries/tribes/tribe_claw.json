@@ -1,0 +1,65 @@
+{
+  "name": "Chodzący po krawędzi",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Chodzący po krawędzi",
+      "text": [
+        "“Najpierw buty. Potem most. Potem odwaga; przychodzi sama.”",
+        "Pasmo **Szpon**, głos **Ogień**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Chodzący po krawędzi szli skrajem szczeliny, gdzie nić strzępiła się najcieniej, i stawiali punkty oparcia dla wszystkich, którzy przyszli potem. Ich rzemiosło to **Duchowy sprzęt i punkty oparcia**.",
+        "Ich obozy stoją w biomie **tajga**, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy aż po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich odczynnik to **Ząb szczeliny**, wart **+8** reputacji przy ich palenisku.",
+        "Lubią też skórę, sztabkę żelaza albo surowe żelazo: **+3** za sztukę. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj: palenisko bierze najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czym handluje Starszy",
+      "text": [
+        "**Gość**: 6 skóry za 2 Odłamki echa; 4 sztabki żelaza za Skórzane buty.",
+        "**Przyjaciel**: 3 Dostrojone echo i 4 skóry za Buty duchotkaniny; 8 sztabek żelaza za Ząb szczeliny; 4 Korzeń żaru za Susz chodzącego po krawędzi.",
+        "**Ród**: 3 Związane echo za Ostrze duchowego sprzętu; 3 Związane echo za Kilof duchowego sprzętu.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Na randze **Głos** Starszy daje ci Znak plemienia Chodzących po krawędzi. Wytwórz go z {item:tribalpower:resonance_totem_fire} i dwóch Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Obok Rezonatora Pulsu to jeszcze jeden głos; obok stacji użycza **Ogień**.",
+        "Ród Chodzących po krawędzi niesie ich [dar](tribe_boons): żaden upadek nie rani cię, gdy **się skradzasz**.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak go nosisz.",
+        "Kupno Zęba szczeliny na randze Przyjaciel jest bezpieczniejsze, by zdobyć ich odczynnik, niż polowanie na Ogary szczeliny.",
+        "Na randze **Głos** możesz też związać **Ogar szczeliny** jako [chowańca](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co Starszy Chodzący po krawędzi cię prosił i jak daleko zaszła ich opowieść. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

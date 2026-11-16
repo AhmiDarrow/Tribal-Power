@@ -1,0 +1,45 @@
+{
+  "name": "Convertisseur de treillis",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "Le Convertisseur de treillis est l'[Énergiseur harmonique](pulse_adapter) à l'envers : donne-lui de l'énergie Forge (FE) depuis les générateurs ou câbles d'un autre mod, et il bat cette énergie en Pulsation pour ton camp.",
+        "Ce n'est pas un échange juste. Le FE brut est du bruit pour un treillis, et il faut des voix de totem pour qu'il tienne."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le poser",
+      "text": [
+        "Fais entrer le FE par n'importe quelle face. Le convertisseur stocke **48 000 FE** et ne rend jamais de FE.",
+        "Chaque seconde, il fait jusqu'à **40 Pulsation** et la pose sur son réseau de treillis, par un [Conducteur de treillis](lattice_conductor) à **8 blocs** : d'abord dans chaque Cairn de Pulsation du réseau, puis dans les générateurs qui ont de la place, là où les machines la prennent. Hors du treillis, ou sans place dessus, il attend et ne dépense pas de FE.",
+        "Chaque [rang](machine_ranks) fait plus de Pulsation par seconde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les voix le rendent moins cher",
+      "text": [
+        "Sans voix autour, une Pulsation coûte **220 FE**. Chaque voix distincte d'un Totem de résonance **Répondu**, dans les 8 blocs, retire **20 FE**, jusqu'à **120 FE** à cinq voix. Aucun Totem de parenté ne compte ici.",
+        "De la Pulsation vers le FE et retour, on perd toujours un peu : l'énergiseur change une Pulsation en 100 FE, et le convertisseur ne prend jamais moins de 120 FE pour en faire une."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand rien ne coule",
+      "text": [
+        "Un signal de redstone le met en pause, et il ne prend pas de FE pendant la pause. Un comparateur lit à quel point son tampon de FE est plein.",
+        "Clic droit pour une ligne d'état. Accroupis-toi et fais un clic droit dessus avec ce livre pour voir son tampon, son prix par Pulsation et ce qu'il a fait à la dernière seconde."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Il faut un Noyau résonnant du Manifesteur d'écho et deux exemplaires d'Écho accordé de l'Accordeur d'écho."
+    }
+  ]
+}

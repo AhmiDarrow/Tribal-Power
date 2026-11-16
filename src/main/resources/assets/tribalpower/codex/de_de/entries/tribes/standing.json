@@ -1,0 +1,394 @@
+{
+  "name": "Stämme und Ansehen",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Neun Stämme hüteten einst den Webstuhl, jeder eine Strähne, und ihre Lager halten noch den Takt. Jedes Lager ist um einen **Herd des Stammes** gebaut.",
+        "Füttere den Herd, und der Stamm beginnt, dich zu kennen. Das ist dein **Ansehen**, und es öffnet ihren Handel, ihre Geheimnisse und am Ende ihre Marke."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Ein Stammeslager",
+      "text": [
+        "Ein Lager ist leicht zu erkennen: ein Herd, der farbigen Rauch nachzieht, ein Stammesbanner daneben und vier vom Rang Sippe bei ihrem Tagwerk. Die Farbe des Banners nennt den Stamm."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo die Stämme leben",
+      "text": [
+        "Jeder Stamm lagert in dem Land, das zu seiner Strähne passt:",
+        "- **Polsterhüter**: Ebenen.",
+        "- **Griessänger**: Berge und steinige Küsten.",
+        "- **Wurzelbinder**: Wälder und Dschungel.",
+        "- **Kantenläufer**: Taiga.",
+        "- **Trommelherzen**: Savanne.",
+        "- **Musterweber**: Birkenwälder.",
+        "- **Koloniehüter**: Blumenwälder, Wiesen und Kirschhaine.",
+        "- **Siegelkerber**: dunkle Wälder.",
+        "- **Webstuhl-Näher**: nur die Kristallfelder des Marsches.",
+        "Jeder Stamm hält auch ein Lager in jedem Band [des Marsches](the_march), gebaut aus dem Holz und dem Stein dieses Bandes."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dein erster Besuch",
+      "steps": [
+        {
+          "caption": "Jedes Lager ist um den Herd des Stammes gebaut. Hier schließt du Freundschaften.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Das Stammesbanner daneben nennt den Stamm anhand seiner Farbe. Lass es stehen.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Webstuhl in der Nähe ist der Platz, an dem der Weber des Lagers arbeitet. Die vier vom Rang Sippe gehen nie weiter als 16 Blöcke fort.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke den Herd mit etwas, das der Stamm bevorzugt. Brot bringt bei den Polsterhüter +3 Ansehen.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke ihn jederzeit mit leerer Hand, um dein Ansehen und deinen Rang zu sehen.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was du anbietest",
+      "text": [
+        "Rechtsklicke den Herd mit einer Gabe in der Hand. Er nimmt jeweils einen Gegenstand:",
+        "- Das **Reagenz** des Stammes: **+8** Ansehen.",
+        "- Das eigene [Gericht](tribe_dishes) des Stammes: **+6**.",
+        "- Ein **bevorzugter** Gegenstand: **+3**.",
+        "- Jede andere **Nahrung**: **+1**.",
+        "- Eine geladene **Pulszelle**: der Herd trinkt bis zu **40 Puls** daraus und gibt **+2 je 10**, also höchstens **+8**. In der Zelle müssen mindestens 10 Puls sein.",
+        "Reagenzien: Polsterhüter **Echoscherbe**, Griessänger **Abgestimmtes Echo**, Wurzelbinder **Moosrückenschuppe**, Kantenläufer **Risszahn**, Trommelherzen **Knochenklang**, Musterweber **Sturmflügel**, Koloniehüter **Laternendaune**, Siegelkerber **Geistscherbe**, Webstuhl-Näher **Webstuhlfaden**. Die eigene Seite jedes Stammes listet auch seine Lieblinge.",
+        "Was der Stamm nicht brauchen kann, bleibt in deiner Hand, und der Herd sagt es. Eine Zelle mit weniger als **10 Puls** wird einfach übergangen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wie schnell es wächst",
+      "text": [
+        "Der Herd eines Stammes nimmt höchstens **60 Ansehen am Tag** von deinen Opfergaben an. Danach sagt er dir, dass der Stamm heute alles genommen hat, was er nehmen will, und nahe am Limit bleibt ein Geschenk, das mehr wert ist als der Rest, in deiner Hand. Siebzehn begünstigte Opfergaben (51) oder sieben Reagenzien (56) reichen, um am ersten Tag **Gast** zu werden.",
+        "Drei weitere Wege stehen offen, und keiner davon zählt gegen das Limit des Herds. Töte ein feindliches Monster im Umkreis von **24 Blöcken** um einen Herd für **+1**, bis zu **zwanzig am Tag** je Stamm. Der Treffer muss deiner sein: ein Gegner, den dein Vertrauter fällt, bringt nichts. Jeder Handel mit dem Ältesten gibt **+2**. Und sobald du Gast bist, zahlen die [Aufträge](elders_and_stories) des Ältesten jeweils **8 bis 16**.",
+        "Am [Festtag](living_march) des Stammes bringt das Mitfeiern beim Festmahl des Ältesten **40** Ansehen und zwei Schalen ihres Gerichts, ein Ritus in ihrem Lager **30** mehr, und ein Festmahl am Herd **20**. Jedes zählt einmal je Fest.",
+        "Stimme braucht viele Tage. Mit Opfergaben allein schaffst du es an einem Tag nie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Ränge",
+      "text": [
+        "- **Fremder** (unter 50): der Älteste hat noch nichts für dich.",
+        "- **Gast** (50): der Älteste öffnet die ersten zwei Angebote.",
+        "- **Freund** (150): zwei weitere Angebote, dazu das eigene Gericht des Stammes für vier seiner Ernte der Marsch.",
+        "- **Sippe** (400): die letzten zwei Angebote, die [Gunst](tribe_boons) des Stammes, solange du das Ansehen hältst, und sein Wappen: ein **Bannermuster** für jeden Webstuhl.",
+        "- **Stimme** (800): der Älteste drückt dir eine **Stammesmarke** in die Hand, einmal je Stamm. Die Marke ist der Schlüssel zu einem [Verwandtschafts-Totem](kinship_totem) und öffnet die eigene Seite dieses Stammes in diesem Buch.",
+        "Dein Ansehen bei den Griessängern entscheidet auch, wie tief eine [Lauschgrube](listening_pit) lauschen darf."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was du nie tun darfst",
+      "text": [
+        "- **Eine Sippe schlagen** kostet **25** Ansehen, und jede Sippe dieses Stammes innerhalb von 24 Blöcken wendet sich gegen dich. Die Jäger greifen dich eine **Minute** lang an.",
+        "- **Den Herd zerstören** kostet **40** und hetzt die Jäger auf dieselbe Weise auf dich.",
+        "- **Ein Banner zerstören** kostet **5**.",
+        "Ansehen kann unter einen Rang fallen, den du dir verdient hast. Eine rote Nachricht sagt dir, wenn du abgerutscht bist."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Rechnung führen",
+      "text": [
+        "Tippe **/tribalpower standing**, um alle neun Stämme auf einmal zu sehen, mit deinem Ansehen und deinem Rang bei jedem.",
+        "Ein Komparator neben einem Herd liest den Rang des letzten Spielers, der ihn benutzt hat: **0** für den Rang Fremder bis **15** für den Rang Stimme. Praktisch für eine Tür, die nur für Freunde des Stammes aufgeht.",
+        "Wenn du zu einem [gemeinsamen Lager](shared_camps) gehörst, landet ein Viertel jedes Ansehens, das ein Mitglied nach dem Beitritt gewinnt oder verliert, auch auf dem Lager. Wo dein Rang zählt, zählt der des Lagers, wenn er höher ist als deiner."
+      ]
+    }
+  ]
+}

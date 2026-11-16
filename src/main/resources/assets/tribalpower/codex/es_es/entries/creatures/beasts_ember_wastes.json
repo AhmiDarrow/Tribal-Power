@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de los Yermos de brasa",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Los de la ceniza",
+      "text": [
+        "Dos de los animales de los Yermos viven al borde de la lava, uno vuela entre la ceniza y uno caza el basalto de noche.",
+        "Aquí, a toda bestia mansa se la puede cepillar una vez por minuto para obtener su reactivo, y se la tienta y cría con su propia comida, indicada más abajo en **Caza y pastoreo**. Se puede vincular como a cualquier animal manso (ver [familiares](familiars)) y, aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y fortalecer tu magia (ver [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Brasapiel",
+      "text": [
+        "Una tortuga volcánica, con fuego entre las placas del caparazón, que vive junto a la lava y sobre la piedra caliente de alrededor, de una o dos a la vez. **30 de salud** y **7 de armadura**, lenta, e **inmune al fuego**.",
+        "Suelta **de 1 a 3 Placa de brasa**, un reactivo de brasa.",
+        "Si se caza, también suelta de 1 a 2 Caza cruda y hasta 1 Cuero de la Marcha. Cría con **Raíz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Polilla de ceniza",
+      "text": [
+        "Una esfinge gris de la ceniza, con las alas anchas echadas hacia atrás sobre unas alas traseras color salmón y el cuerpo anillado de salmón hacia la cola, de una a tres. **10 de salud**, sin armadura.",
+        "Suelta **de 1 a 3 Ala de ceniza**, que se muelen en tinte negro.",
+        "Si se caza, también suelta hasta 1 cuerda y hasta 1 pólvora. Cría con **Raíz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Terrón de escoria",
+      "text": [
+        "Una salamandra de lava, larga y baja, con la cabeza plana como una pala, negra con manchas naranjas, que se revuelca junto a la lava, de una o dos a la vez. **26 de salud** y **5 de armadura**, e **inmune al fuego**.",
+        "Suelta **de 1 a 3 Cuajada de escoria**, un reactivo de brasa.",
+        "Si se caza, también suelta hasta 1 crema de magma y hasta 2 pepitas de hierro. Cría con **Raíz de brasa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Ascuaquijada",
+      "text": [
+        "Un raptor de fuego rayado, que corre agachado con la cola atrás y es casi todo quijada, y surge sobre el basalto de noche, de uno o dos a la vez. Tiene **32 de salud** y **3 de armadura** y golpea por **6**, empujándote hacia atrás con cada golpe. Con todo su color, **no** es a prueba de fuego.",
+        "Suelta **de 1 a 2 Colmillo de ascua**, un reactivo de empujón.",
+        "Si se caza, también suelta hasta 2 huesos y hasta 2 carbón vegetal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras das su comida a dos adultos; si lo alimentas con normalidad, el salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

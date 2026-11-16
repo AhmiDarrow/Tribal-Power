@@ -1,0 +1,71 @@
+{
+  "name": "Ręce obozu",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Tkacze wzorów nauczyli obóz pracować dalej po odejściu śpiewaka. To maszyny, które uprawiają, zbierają, wytwarzają, pompują i czuwają, gdy zajmujesz się czymś innym.",
+        "- **Opiekun gaju** sadzi i zbiera plon z grządki 9 na 9.",
+        "- **Sidła wiatru** podnosi z ziemi porzucone przedmioty.",
+        "- **Krosno pieczęci** wytwarza w kółko jeden przepis stołu rzemieślniczego.",
+        "- **Pompa pływów** przenosi płyn z jednego zbiornika do drugiego.",
+        "- **Bęben ochrony** uderza wrogich, którzy wchodzą do obozu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Każda ręka odpowiada głosowi",
+      "text": [
+        "Każda ręka, która pracuje sama, potrzebuje totemu swojego głosu w zasięgu **8 bloków**. Bez niego stoi bezczynnie, a wiersz stanu podaje totem, którego chce:",
+        "- **Ziemia**: Opiekun gaju i Kotwica szlaku.",
+        "- **Duch**: Bęben ochrony, Totem ciszy i Kołyska przywołania.",
+        "- **Woda**: Pompa pływów.",
+        "- **Powietrze**: Sidła wiatru i [przekaźniki](wireless_cargo).",
+        "- **Krosno**: Krosno pieczęci i przekaźniki astralne.",
+        "Totem rezonansu liczy się, dopóki jest Odpowiedziany albo Przygasły, a nie gdy już stał się Cichy (zobacz [Utrzymanie](keeping)). Totem pokrewieństwa, który użycza tego samego głosu, też się liczy i nigdy nie cichnie.",
+        "Ręka, która czeka na swój głos, nie robi nic: żadnej pracy, żadnego zużytego Pulsu i nic nie przekazuje blokom obok."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zasady, które dzielą wszystkie",
+      "text": [
+        "Każda czerpie Puls z kraty: [Przewodnik kraty](lattice_conductor) w zasięgu **8 bloków** od niej, w sieci z generatorami. Sidła wiatru, Bęben ochrony, Pompa pływów i Krosno pieczęci płacą tylko wtedy, gdy działają. Opiekun gaju, Totem ciszy, Kotwica szlaku i Kołyska przywołania najpierw napełniają własny zapas **2,400 Puls**, do **80** na sekundę, i pracują z niego.",
+        "Stały sygnał redstone, na przykład dźwignia, wstrzymuje go. Komparator odczytuje, co on robi albo jak bardzo jest pełny; każdy wpis mówi który.",
+        "Krosno pieczęci, Pompa pływów, Sidła wiatru i Bęben ochrony można awansować do Dostrajacz echa, potem Wiązacz echa, potem Manifestator echa (zobacz [Rangi maszyn](machine_ranks)). Ręka z rangą bije szybciej, co **85%**, **70%** albo **55%** sekundy, ale Puls na zadanie zostaje ten sam, więc krata czuje dodatkową prędkość.",
+        "Przyłóż skradając się **Klucz totemu** do ściany maszyny, by przełączać ją przez Oba, Wejście, Wyjście i Zamknięte. Ściana Zamknięte nie daje slotów lejom, rurom ani płytom przekaźnikowym. Płytę przekaźnikową kładziesz na dowolnej zwykłym prawym kliknięciem, nawet na takiej, której klik otwiera ekran."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dbanie o obóz",
+      "text": [
+        "Inne bloki obozu dbają o samo miejsce, zamiast robić roboty:",
+        "- [Totem ciszy](hush_totem) zatrzymuje pojawianie się wrogów.",
+        "- [Kotwica szlaku](wayanchor) utrzymuje odległy chunk w czuwaniu.",
+        "- [Kołyska przywołania](summoning_cradle) wzywa związaną istotę raz za razem.",
+        "- [Latarnie Ducha](spirit_lantern) i [światła Pulsu](pulse_lights) oświetlają ścieżki.",
+        "- [Dzwonek deszczu](rain_chime) zamienia pogodę w sygnał redstone.",
+        "- [Stół ofiarny](offering_table) to magazyn na 27 slotów obok paleniska.",
+        "Przykucnij i kliknij prawym przyciskiem dowolny z nich tą książką, gdy coś nie chce ruszyć."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Życie w obozie",
+      "text": [
+        "Obóz to więcej niż jego maszyny. O budowaniu i codziennym życiu zobacz:",
+        "- [Kreda budowniczego](builders_chalk), by rozrysować chaty, mury i obrzędy, zanim zbudujesz.",
+        "- [Warsztat plemienny](tribal_bench), stół rzemieślniczy, który zachowuje siatkę.",
+        "- [Winny wyciąg](vine_lift), do wież i szybów.",
+        "- [Meble obozu](camp_furniture) i [Amulet wiatru](wind_charm), by sprawiały, że ktoś tu mieszka.",
+        "- [Bęben «Strażnik pieśni»](songkeeper_drum), by bębnić tylko dla radości.",
+        "- [Wspólne obozy](shared_camps), gdy przyjaciele budują z tobą."
+      ]
+    }
+  ]
+}

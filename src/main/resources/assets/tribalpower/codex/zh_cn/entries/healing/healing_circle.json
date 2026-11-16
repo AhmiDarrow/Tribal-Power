@@ -1,0 +1,40 @@
+{
+  "name": "治愈之环",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "营地的仪式",
+      "text": [
+        "治愈之环是一种[世界仪式](world_rites)。搭建一个[仪式圆](rite_circle)，把**灵之印**安进火盆，并施放石板：**500点脉动**，环会开启**10分钟**（二阶的环在四个方位放上灵图腾，花费**375点脉动**，开启**20分钟**）。",
+        "开启时，**12个方块**内的每个人，包括玩家和已结契的使魔，恢复**10颗心**，失去一切有害效果，并获得**10分钟**的[灵祝福](spirit_sickness)。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "保持开启时",
+      "text": [
+        "在余下的时间里，环为里面的每个人修补**每两秒一颗心**，灵病一沾身就被解除。这里适合撤退。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "召回倒下者",
+      "text": [
+        "**已结契的使魔**死去时，并不会就此消失。它在倒下之处留下发光的**灵骸**，永不消失，你也会收到告知此事的消息。（勿与远行界的野生残骸混淆：这是你同伴的灵，正在等候。）",
+        "施放之前，把骸放到环的**四个基座**之一上。环开启时，使魔在那个基座上回来：**完整**，仍属于你，名字和网格都在。它带着的东西照旧掉在倒下的地方，那些也捡起来。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

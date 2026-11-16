@@ -1,0 +1,201 @@
+{
+  "name": "Szósty głos",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "Szósty głos to sama nić. Totem Krosno jest ostatnim Totemem rezonansu i pochodzi z Marsz: **Nić Krosna** z Sal Przodków i serce od Niezaśpiewany."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znaleźć nić",
+      "text": [
+        "Zatopione Sale Przodków na Stepie Marsz i na Wyżynach trzymają Nić Krosna w swoich dwóch skrzyniach. Przeczytaj cztery tabliczki przy wyjściu.",
+        "Szwacze krosna wymieniają też Nić Krosna graczom rangi Przyjaciel, za sześć Kryształ Marszu.",
+        "Wyrzeźb **Pieczęć Krosna**: jedną Czysta pieczęć i jedną Nić Krosna, bez kształtu. Osadzona w Rytualne brasero z głosem Krosno i Puls przez przewodnik w zasięgu **8 bloków**, nawleka **2 Puls** w Ogniwo Pulsu, które nosisz, co **dwie sekundy**, gdy stoisz w zasięgu **6 bloków**, ze Szczęściem. Brasero wydaje **8 Puls** na uderzenie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przed totemem",
+      "text": [
+        "Zbuduj Rozplot echa: Kamień Marszu wokół dwóch Miedziany rezonator, Odłamek Ducha i Nić Krosna. Potrzebuje głosu Krosno w zasięgu 8 bloków. Póki nie możesz wytworzyć totemu, zbuduj go obok totemu Krosno, który już stoi w obozie Szwacze krosna, w Sali Przodków albo w Kryształowej iglicy.",
+        "Potem obudź Niezaśpiewany przy Krąg bębnów i weź jego **Niezaśpiewane serce**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Osadzić szósty głos",
+      "steps": [
+        {
+          "caption": "Rezonator Pulsu i Rozplot echa, kilka bloków od siebie.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw totem Krosno w zasięgu 8 bloków od obu.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Rozplot echa może już działać, a Rezonator słyszy jeszcze jeden odrębny głos.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co Krosno otwiera",
+      "text": [
+        "Stwórz totem Krosno z czterech Kryształ Marszu, dwóch Nić Krosna i dwóch Deski (Marsz) wokół Niezaśpiewane serce.",
+        "Gdy Krosno jest w zasięgu, Rozplot echa zamienia sztabki z powrotem w echa, rdzenie w sztabki, Duchotkanina w wełnę, a uszkodzone narzędzia i broń z Duchowy sprzęt w Manifestowana sztabka.",
+        "Sześciokrotny kostur zyskuje Uwięź oraz, przy skradaniu bez celu, Ścieg. Obrzęd Więź ley wymaga Pieczęć Krosna, a Dalekie wrota wymagają głosu Krosno."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "name": "Bęben-serce",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "Pierwszy generator, który zbudujesz, i ten, do którego będziesz wracać. Bęben-serce mieści do **1,000 Puls**, a każde uderzenie, które mu dasz, dodaje więcej."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Granie na nim",
+      "text": [
+        "Kliknij prawym **pustą ręką**, około **raz na sekundę**. Uderzenie w takt daje **24 Puls**. Uderzenie obok taktu daje najwyżej **10**, i tym mniej, im szybciej następuje po poprzednim, więc równe tempo bije szybkie klikanie.",
+        "Maszyny czerpią z bębna przez [Przewodnik kraty](lattice_conductor) w promieniu 8 bloków od niego, nigdy prosto z niego. By nieść moc gdzie indziej, użyj **Ogniwo Pulsu** na bębnie. Zbicie bębna traci Puls, który trzyma.",
+        "Granie ręką budzi też każdy totem w promieniu 8 bloków; zobacz [Strzeżenie](keeping)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Granie na nim przez redstone",
+      "steps": [
+        {
+          "caption": "Samo Bęben-serce potrzebuje, żebyś trzymał rytm.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw obok Płyta bicia serca. Tyka raz na sekundę.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Każdy impuls z płyty to uderzenie. Bęben napełnia się teraz sam, gdy pracujesz gdzie indziej.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rytm, dokładnie",
+      "text": [
+        "Uderzenia redstone w odstępie **od 17 do 23 ticków gry** liczą się jako na czas. Uderzenia w odstępie mniejszym niż **8 ticków** są pomijane. Dwadzieścia ticków to jedna sekunda przy normalnej prędkości serwera.",
+        "Przytrzymany sygnał redstone nie wstrzymuje Bęben-serce; tylko zbocze narastające impulsu liczy się jako uderzenie.",
+        "Bębny wypierają się nawzajem. Tylko **dwa bębny w strefie** — ten sam zasięg 8 bloków, który tka przewodnik — dają Puls; każdy kolejny nadal bije i brzmi, ale nic nie przynosi. Rozstaw je dalej, a każdy znów płaci.",
+        "Każda [ranga](machine_ranks) dodaje **15% Pulsu na uderzenie**. Generatory nie przyspieszają tak jak stacje z rangą."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Incudine dello Spirito",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Un'incudine per la Dotazione spirituale, che si usura solo quando lavora senza Pulso. Metti a sinistra un attrezzo o un'arma usurata di Dotazione spirituale (anche l'Arco di Pulso e la Balestra di Pulso) e a destra **Lingotto manifestato**: ogni lingotto ripara un quarto della durabilità, per un livello ciascuno più il solito costo dell'incudine per il lavoro già fatto, come un'incudine di ferro ripara un attrezzo con il suo stesso metallo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pur sempre un'incudine",
+      "text": [
+        "Fa tutto ciò che fa un'incudine: rinominare, aggiungere libri incantati, unire due dello stesso attrezzo, riparare altro equipaggiamento con il suo stesso materiale.",
+        "A differenza di un'incudine di ferro, non si scheggia né si rompe, né per l'uso né per una caduta. Cade comunque se niente la sostiene.",
+        "La sua faccia è un Blocco di metallo manifestato tra due blocchi di ferro: nove di Lingotto manifestato, fabbricati insieme, e di nuovo in nove lingotti ogni volta che ti servono.",
+        "Ogni pezzo di Dotazione spirituale, gli attrezzi, le armi, le cesoie, il sonaglio, entrambi gli archi e la [Mazza di risonanza](resonance_maul), si ripara solo con **Lingotto manifestato**, qui o su qualsiasi incudine, mai con i diamanti. Il Tessitospirito si ripara con tela di Tessitospirito."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

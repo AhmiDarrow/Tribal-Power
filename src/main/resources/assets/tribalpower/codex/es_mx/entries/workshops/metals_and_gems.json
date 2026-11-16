@@ -1,0 +1,286 @@
+{
+  "name": "Metales y gemas",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "La grava es metal triturado que espera el fuego. Quebrar el metal en bruto da **dos gravas** por cada pieza, y cada grava se funde en un lingote, así que cada mena te da el doble de metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Metales",
+      "text": [
+        "Pon un objeto de metal en bruto, o una mena de metal con toque de seda, en el Triturador de eco: **4 segundos** a **40 Pulso por segundo**, para dos gravas.",
+        "Funde la grava en un lingote en un horno, un alto horno o el Horno de brasa.",
+        "El hierro, el oro y el cobre tienen cada uno su propia grava. Los metales de mods usan un solo objeto de **Grava mineral** que nombra su propio material, y se iluminan sin paquete de datos. La netherita nunca se tritura; tienes que ganarla en el Nether."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gemas y minerales",
+      "text": [
+        "La mena de gema con toque de seda se tritura directamente en la gema, al **doble** de lo que suelta la propia mena:",
+        "- El carbón, el diamante, la esmeralda y el cuarzo dan **dos**.",
+        "- La redstone y el lapislázuli dan **ocho**.",
+        "- Las gemas de mods dan dos.",
+        "La gema en sí nunca es una entrada."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una línea de mena",
+      "steps": [
+        {
+          "caption": "El Horno de brasa abajo, con su tótem de Fuego.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "El Triturador de eco arriba, con un tótem de Tierra. Su grava cae directo en el Horno de brasa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un cofre de mena en bruto alimenta el Triturador de eco por una tolva, y el tambor junto al Horno de brasa impulsa ambas estaciones.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tolva bajo el Horno de brasa recoge los lingotes en un cofre.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

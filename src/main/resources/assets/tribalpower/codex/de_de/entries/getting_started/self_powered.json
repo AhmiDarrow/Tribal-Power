@@ -1,0 +1,184 @@
+{
+  "name": "Energie, die weiterläuft",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Trommeln bringt dich in Gang, aber ein Lager braucht Energie, während du weg bist. Der [Pulsresonator](pulse_resonator) macht von selbst Puls, sobald du einen Kristall hineinsetzt und ihm Gesellschaft gibst. Stelle ihn aus Eisen, Amethyst, zwei Kupferresonatoren und einer Geistscherbe her.",
+        "Nimm die Echoscherbe aus deinem Echozermalmer und rechtsklicke damit den Resonator. Die Scherbe bleibt darin als Katalysator und wird von dem Puls, den sie macht, langsam verbraucht: eine Scherbe reicht für etwa 20,000 Puls, ungefähr vierzig Minuten bei der ersten Rate. Halte einen Ersatz bereit.",
+        "Stelle dann Totems von **zwei verschiedenen Stimmen** in die Nähe, zum Beispiel Erde und Feuer. Zwei Erde-Totems zählen immer noch als eine Stimme. Halte einen Gitterkonduktor in Reichweite des Resonators und der Totems: er trägt den Puls des Resonators zu deinen Maschinen und hält die Puffer der Totems, und damit ihre Stimmen, voll."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Den Resonator aufstellen",
+      "steps": [
+        {
+          "caption": "Stelle den Pulsresonator auf offenen Boden.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke ihn mit einer Echoscherbe. Die Scherbe sitzt darin als Katalysator, bis der Puls, den sie macht, sie aufreibt.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge ein Erde-Totem innerhalb von 8 Blöcken hinzu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge eine zweite, andere Stimme hinzu, etwa Feuer. Jetzt macht er von selbst 8 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein langsamer Start",
+      "text": [
+        "Acht Puls pro Sekunde ist bescheiden; eine ausgelastete Station kann ihn schneller verbrauchen. Lass einen Vorrat entstehen und lies die Seite zum [Pulsresonator](pulse_resonator), wenn du bereit bist für stärkere Kristalle und mehr Stimmen."
+      ]
+    }
+  ]
+}

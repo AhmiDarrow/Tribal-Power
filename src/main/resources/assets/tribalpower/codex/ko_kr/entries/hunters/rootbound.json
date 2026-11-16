@@ -1,0 +1,51 @@
+{
+  "name": "뿌리결속체",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "엉킨 뿌리의 수호자. 끊긴 레이선에 뒤틀렸다. 느리지만 튼튼하다.",
+        "사냥하면 막대기를 1~3개, 뼛가루를 최대 2개 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "뿌리결속체는 오버월드의 숲, 마치 스텝, 갈대 습지, 얕은 물에 숨어 있다.",
+        "**38 체력**과 **5 방어력**이 있고 **6**으로 친다. 맞을 때마다 뿌리가 내려 3초 동안 느려진다. 놈도 느리다. 물러서서 뿌리가 풀릴 때까지 기다렸다가 다시 쳐라."
+      ],
+      "title": "어디, 어떻게"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**옹이 뿌리 1~2개**를 떨어뜨린다.",
+        "옹이 뿌리는 정령 아래에서 조율된 메아리 2개가 된다."
+      ],
+      "title": "주는 것"
+    },
+    {
+      "type": "text",
+      "text": [
+        "어떤 부적으로도 뿌리결속체는 결속되지 않는다."
+      ],
+      "title": "결속하지 않는다"
+    },
+    {
+      "type": "text",
+      "title": "사냥과 몰이",
+      "text": [
+        "시약 외에 사냥하면 이것을 떨어뜨리며, 약탈이 있으면 더 많다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "name": "Brújulas de piedra de camino",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Marca un lugar y vuelve a él en un parpadeo. Una brújula recuerda un suelo de llegada y te lleva allí por un poco de Pulso, de una célula en tu mochila."
+      ],
+      "title": "Brújulas de piedra de camino"
+    },
+    {
+      "type": "text",
+      "title": "Vincular y usar",
+      "text": [
+        "Agáchate y haz clic derecho en la **cara superior** de un bloque sólido para vincular ese suelo como tu llegada.",
+        "Haz clic derecho en el aire para viajar. El viaje se paga con células de Pulso en cualquier lugar de tu inventario, y sigue una espera de **5 segundos**.",
+        "Aterrizas de pie sobre el suelo vinculado, así que hacen falta **dos bloques despejados y secos** encima, y nada peligroso justo al lado: fuego, lava, magma, cactus, una hoguera encendida, arbustos de bayas, rosas del Wither o nieve en polvo.",
+        "Si no hay donde estar de pie con seguridad, el viaje se niega y no gasta nada. El Pulso solo se toma cuando la llegada está despejada. No puedes viajar mientras vas montado."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Una llegada",
+      "steps": [
+        {
+          "caption": "Elige un bloque de suelo sólido para tu llegada.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Agáchate y haz clic derecho en su cara superior con la brújula para vincularlo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Mantén despejados y secos los dos bloques de encima; ahí es donde estarás de pie.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una palanca que alimente el suelo bloquea la llegada, para cuando quieras la puerta cerrada.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tres brújulas",
+      "text": [
+        "- **Brújula de piedra de camino**: hasta **128 bloques**, mismo mundo, **20 Pulso**.",
+        "- **Brújula del horizonte**: cualquier distancia en el mismo mundo, **40 Pulso**.",
+        "- **Brújula astral**: cualquier distancia, entre mundos, **100 Pulso**. La única que te trae a casa desde la Marcha.",
+        "Una brújula de piedra de camino también vincula un par de portales de senda (consulta [Portal de senda](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

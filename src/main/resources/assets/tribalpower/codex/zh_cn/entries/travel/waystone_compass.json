@@ -1,0 +1,203 @@
+{
+  "name": "路石指南针",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "标记一处，再眨眼之间回来。指南针记住一块落点地板，并从你背包里的一节电池取出少许脉动，把你送到那里。"
+      ],
+      "title": "路石指南针"
+    },
+    {
+      "type": "text",
+      "title": "绑定与使用",
+      "text": [
+        "蹲下并右键固体方块的**顶面**，将该地板绑定为你的落点。",
+        "右键空气即可旅行。费用从物品栏中任意位置的脉动电池支付，随后有**5秒**冷却。",
+        "你会站在绑定的地板上落地，因此它上方需要**两个空旷干燥的方块**，紧挨着也不能有危险物：火、熔岩、岩浆、仙人掌、点燃的营火、浆果丛、凋灵玫瑰或细雪。",
+        "如果没有安全落脚处，旅行会被拒绝且不消耗任何东西。只有落点空旷时才会扣除脉动。骑乘时不能旅行。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "一处落点",
+      "steps": [
+        {
+          "caption": "为落点选一块固体地板方块。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "蹲下并用指南针右键它的顶面来绑定。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "让它上方的两格方块保持空旷干燥；你将站在那里。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "给地板供能的拉杆会锁定到达，用于你想把门关上的时候。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三种指南针",
+      "text": [
+        "- **路石指南针**：同一世界内最远**128个方块**，**20脉动**。",
+        "- **地平线指南针**：同一世界内任意距离，**40脉动**。",
+        "- **星界指南针**：任意距离，可跨世界，**100脉动**。只有它能把你从远行界带回家。",
+        "路石指南针也能连结一对途门（参见[途门](way_gate)）。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

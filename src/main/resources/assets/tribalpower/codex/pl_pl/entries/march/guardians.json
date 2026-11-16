@@ -1,0 +1,125 @@
+{
+  "name": "Strażnicy",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ośmiu strażników",
+      "text": [
+        "Osiem krajów Marszu trzyma **strażnika**: to, na czym kończy się historia każdego plemienia (zobacz [Starsi, prośby i historie](elders_and_stories)). To bossowie w każdym sensie: pasek bossa, bez odrzutu, bez mikstur, bez urny duszy, dwie fazy i walka, do której warto się przygotować.",
+        "Strażnik nigdy nie wchodzi błądząc. Każdy ma **teren** w swoim biomie, pierścień kamienia z **Ołtarz strażnika** pośrodku, i powstaje tylko z tego ołtarza: ołtarz musi stać na wypolerowanym głębokim łupku, z zapaloną świecą w każdym rogu (ołtarz albo nic), nad nim musi być miejsce, i odpoczywa około dwudziestu minut między wezwaniami.",
+        "Użyj ołtarza pustą ręką, a powie, czego chce: garść reagentu tego biomu, domyślnie osiem. Połóż ją i cofnij się."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dwie fazy",
+      "text": [
+        "Przy połowie zdrowia każdy strażnik jest **rozbudzony**: jego własny atak, wcześniej co **4 sekund**, przychodzi mniej więcej co **2,4 sekund** i uderza mocniej, i wzywa stworzenia swojego biomu, **2** naraz i kolejne **2** co **15 sekund**, nigdy więcej niż **6**. Te stworzenia nic nie upuszczają i znikają, gdy on padnie.",
+        "Jeśli przez pół minuty nikt nie zostanie w zasięgu **48 bloków**, strażnik wraca spać niepokonany; ołtarz nie potrzebuje potem odpoczynku i można go wezwać od razu.",
+        "Wezwane stworzenie, które zwiążesz w walce, jest twoje: na przykład Ćma burzy z Grzędy, gdy Tkacze wzorów nazwą cię **Głos**. Przestaje liczyć się strażnikowi i zostaje, gdy walka się kończy.",
+        "Gdy pada, każdy w zasięgu **48 bloków**, kto jest w historii tego plemienia, kończy **próbę**, a jego **rdzeń** wypada ze stertą reagentów i **2 do 3 rdzeni rezonansu**. Każdy teren trzyma też skrzynię, w której mogą być rdzenie rezonansu, Nić Krosna, złote jabłko albo pusta Tabliczka podań."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Tytan żużlu",
+      "text": [
+        "Chodząca huta: olbrzym z brzuchem-piecem, pięściami z tygla i koroną-kominem. **Tron Żużlu na Pustkowiach Żaru**. Przywoływany Łuskami magmy. **360 zdrowia** i **12 pancerza**. Skradaj się, by zaprzeć się przed jego uderzeniami; w drugiej fazie pierścienie się zapalają, a Chochliki żagwi wstają z żużlu. Jego upadek zamyka historię **Bęben-serca**.",
+        "Upuszcza **Rdzeń żużlu**, **8 do 14 łusek magmy**, **4 do 8 kor żaru** i **2 do 3 rdzeni rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Matriarcha bagna",
+      "text": [
+        "Wielka ropucha lęgowa, niosąca młode na grzbiecie, obwieszona trzciną i wąsami korzeni. **Utopiony Korzeń na Trzcinowym mokradle**. Przywoływana Kłami trzciny. **320 zdrowia** i **8 pancerza**. Jej sidło wciąga cię i spowalnia, a gdy jest rozbudzona — zatruwa; trzymaj się twardego gruntu i wytnij Tropicieli trzcin, których wzywa, zanim się roją. Jej upadek zamyka historię **Wiązacze korzeni**.",
+        "Upuszcza **Serce mokradła**, **8 do 14 kłów trzciny**, **4 do 8 sękatych korzeni** i **2 do 3 rdzeni rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Upiór kopca",
+      "text": [
+        "Stos zapalonych kamieni kopca pod czaszką łosia, w płaszczu ze szronu. **Pierścień Kopca na Polach Śniegu**. Przywoływany Żuwaczkami szronu. **300 zdrowia** i **6 pancerza**. Jego oddech mrozi wszystko przed nim. Zajdź od tyłu i zajmij się Pełzaczami szronu, których wzywa. Jego upadek zamyka historię **Strażnicy kolonii**.",
+        "Upuszcza **Kamień kopca**, **8 do 14 żuwaczek szronu**, **4 do 8 bladego puchu** i **2 do 3 rdzeni rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Wąż pryzmatu",
+      "text": [
+        "Kryształowy wiwern z pryzmatycznym kręgosłupem i klejnotowym grzebieniem. **Śpiewające pęknięcie na Polach Kryształu**. Przywoływany Pryzmatycznym pancerzem. **300 zdrowia** i **8 pancerza**. Strzela pociskami światła, które znaczają cię świeceniem. Ruszaj bokiem, podejdź i uważaj na drugi pocisk, który dodaje w fazie drugiej, gdy dołączają Łowcy odłamków. Jego upadek zamyka historię **Śpiewacy żwiru**.",
+        "Upuszcza **Rdzeń pryzmatu**, **8 do 14 pryzmatycznych pancerzy**, **4 do 8 pyłu połysku** i **2 do 3 rdzeni rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Strażnik skarbca",
+      "text": [
+        "Chodzące wrota skarbca: konstrukt, którego pierś to zapieczętowany skarbiec, a płyty służą za ostrza. **Zapieczętowane Wrota na Grzbiecie Połysku**. Przywoływany Sygilami strażnika. **380 zdrowia** i **16 pancerza**, najcięższy w Marszu, i zamach, który zrzuca cię z grzbietu. W fazie drugiej osłania się na trzy sekundy naraz (przeczekaj) i wzywa Mroczne pełzacze. Jego upadek zamyka historię **Rzeźbiarze pieczęci**.",
+        "Zostawia **Pieczęć skarbca**, **od 8 do 14 Sygil strażnika**, **od 4 do 8 Mroczny jedwab** i **od 2 do 3 Rdzeń rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Bębniarz przypływu",
+      "text": [
+        "Wielki krab pustelnik mieszka w wojennym bębnie obrośniętym pąklami i bije weń szczypcami. **Kamień przypływu na Płyciznach**. Do przyzwania: Solankowy kieł. **320 zdrowia** i **8 pancerza**. Każde uderzenie ściąga wszystkich ku niemu i rani; rozbudzony spowalnia też ciebie i wzywa Solankowy czatownik. Walcz z brzegu, plecami do czegoś stałego. Jego upadek zamyka historię **Tkacze wzorów**.",
+        "Zostawia **Muszla przypływu**, **od 8 do 14 Solankowy kieł**, **od 4 do 8 Łuska mielizny** i **od 2 do 3 Rdzeń rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Duch panicznego biegu",
+      "text": [
+        "Duch tur z kościaną maską, rogami jak lira i grzywą z pyłu. **Zdeptany krąg na Stepie**. Do przyzwania: Ścięgno goleni. **300 zdrowia** i **6 pancerza**. Szarżuje. Zrób unik w bok i uderz, gdy mija, i wytnij Gryzak nory przed następną szarżą. Jego upadek zamyka historię **Strażnicy posłania**.",
+        "Zostawia **Róg stada**, **od 8 do 14 Ścięgno goleni**, **od 4 do 8 Kieł głazu** i **od 2 do 3 Rdzeń rezonansu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Rok burzy",
+      "text": [
+        "Ptak gromu: czubaty orzeł burzy z pasami błyskawic w skrzydłach. **Grzęda na Wyżynie**. Do przyzwania: Skrzydło burzy. **280 zdrowia** i **4 pancerza**. Pikuje i ciska cię w powietrze, a w drugiej fazie za każdym pikowaniem idzie błyskawica i dołącza Ćma burzy. Łuk i dach pomagają bardziej niż tarcza. Jego upadek zamyka historię **Chodzący po krawędzi**.",
+        "Zostawia **Pióro burzy**, **od 8 do 14 Skrzydło burzy**, **od 4 do 8 Blady puch** i **od 2 do 3 Rdzeń rezonansu**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Do czego są rdzenie",
+      "text": [
+        "Każdy rdzeń z Nić Krosna daje sześć Rdzeń rezonansu, najszybsza droga do nich w grze. Wszystkie osiem rdzeni razem z {item:tribalpower:unsung_heart} daje tabliczkę [Dziewiąte porozumienie](ninth_agreement)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "name": "Liedfaden",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "Redstone ist ein Ruf; Liedfaden ist eine gesummte Linie durch die Luft. Er trägt ein Signal von **0 bis 15** in allen **sechs Richtungen**, oben und unten eingeschlossen, und braucht nichts, worauf er ruht.",
+        "**Es braucht Webstuhlfaden**, den nur der Marsch gibt: Truhen in seinen alten Hallen, Gräbern, Toren und Horsten, der Handel der Webstuhl-Näher im Rang Freund und Der Ungesungene. Liedranke, die Liedplatten und der Versruf werden alle aus Liedfaden gemacht, also warten auch sie darauf. Bis dahin baue mit Redstone-Staub, Verstärkern und Komparatoren."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Leitung legen",
+      "text": [
+        "Die Stärke fällt um **eins pro Block**, wie Staub. Halte die Leitung kurz, wenn du am fernen Ende volle 15 brauchst, oder frische sie mit einer Echoplatte auf.",
+        "Vanilla-Staub, Hebel, Liedplatten, Liedranken und Komparatoren sprechen alle mit ihm. Zwischen zwei Liedplatten kannst du den Faden ganz weglassen und sie mit einem Totemschlüssel synchronisieren (siehe [Liedplatten](song_plates)).",
+        "Er trägt schwach: er versorgt den Stein, den er berührt, nicht, also rastet er nie ein. Eine Wand aus Faden ist eine Wand aus Lied. Für eine Ranke, die sich um Ecken an Stein schmiegt, siehe [Liedranke](song_vine)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Lieduhr",
+      "steps": [
+        {
+          "caption": "Setze ein Trommelherz. Allein braucht es dich, damit du den Takt hältst.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze eine Herzschlagplatte an die Seite eines Blocks, zur Trommel hin. Die Seite, aus der sie zeigt, ist ihr Ausgang.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lege Liedfaden von der Seite der Platte zur Trommel.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein neuer Herzschlag schlägt schon alle 20 Ticks, einer pro Sekunde. Klicke rechts, um zu prüfen; benutze ihn nur im Schleichen, um ihn zu verlangsamen.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Jeder pünktliche Schlag gibt 24 Puls, also füllt sich die Trommel, solange nichts ihn ausgibt.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Zeit halten",
+      "text": [
+        "Ein Trommelherz zählt Schläge im Abstand von **17 bis 23 Ticks** als pünktlich, wert **24 Puls**. Jeder andere Abstand zahlt höchstens **10**, und Schläge unter 8 Ticks Abstand werden ignoriert, also lass den Herzschlag bei 20 Ticks: langsamere Stufen bringen nur 10 pro Schlag. Nur zwei Trommeln innerhalb von 8 Blöcken voneinander bringen Puls.",
+        "Wenn die Trommel sich nicht füllt, prüfe die Ausrichtung der Platte, ihren Stützblock und den Faden, und entferne jede ständige Stärke in der Nähe. Bring Uhr und Trommel zum Laufen, bevor du Schwellen oder Gedächtnisplatten hinzufügst.",
+        "Füge einen [Pulsmesser](pulse_gauge) hinzu, wenn du die gespeicherte Menge als Signal willst."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "Redstone um Webstuhlfaden ergibt **acht**."
+    }
+  ],
+  "next": "song_vine"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Formação de estilhaço",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Um Triturador de eco escorado",
+      "text": [
+        "A Formação de estilhaço é uma escora opcional para o seu [Triturador de eco](echo_shatter). Centralize a estação num cinco por cinco, coloque um Totem de ressonância em cada canto e ponha um Depósito ancestral diretamente abaixo.",
+        "Em troca, a estação gasta **um quarto a menos de Pulso** e esvazia a saída direto no depósito abaixo.",
+        "É totalmente opcional: sem isso, a estação funciona exatamente como antes."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "A formação",
+      "text": "Quatro totens nos cantos, dois blocos para fora nas diagonais, e o depósito sob a estação."
+    },
+    {
+      "type": "text",
+      "title": "Acertar",
+      "text": [
+        "Os quatro totens dos cantos têm de ser a voz da receita que a estação está rodando. Para fragmentos a partir de pedra, isso é **Terra**. Uma voz errada em qualquer canto significa apenas que não há desconto.",
+        "A formação é traçada só em volta do Triturador de eco; as outras estações de eco não a aceitam.",
+        "Um sinal de redstone no depósito para o esvaziamento. Agache e clique com o botão direito na estação com este livro enquanto ela trabalha, para ver se ela conta como em formação."
+      ]
+    }
+  ]
+}

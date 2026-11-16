@@ -1,0 +1,17 @@
+{
+  "name": "Tábua: Rito dos Entalhadores de selos",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Só o altar de um Templo Profundo, selado na pedra da Marcha, guarda esta tábua. O Não Cantado também a carrega e a entrega quando cai; pendure-a numa parede para lê-la.",
+        "Nas próprias palavras dos Entalhadores de selos, talhadas com o cuidado de um selo:",
+        "“O Espírito vai aonde é pedido com educação e fica onde é alimentado. Um selo é um pedido cortês talhado em pedra. Um braseiro é a refeição. Talhamos selos em branco aos milhares antes do Corte, e pedimos demais. Peça pouco. Alimente-o bem.”"
+      ]
+    }
+  ]
+}

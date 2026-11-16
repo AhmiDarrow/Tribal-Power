@@ -1,0 +1,470 @@
+{
+  "name": "無線の貨物",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "パイプを並べずに、二つの機械の間でアイテムか液体を運ぶ。送り側の機械の面にリレー板をはめ、格子の調律器で受け側の面を狙い、毎秒、貨物が飛び越える。",
+        "リレーは距離のためだ。接している Tribal Power のブロック二つは、面を通してやり取りできる（[ステーションの仕組み](echo_workshops)を見よ）。バニラのチェストには、まだホッパーか板が要る。"
+      ],
+      "title": "無線の貨物"
+    },
+    {
+      "type": "text",
+      "title": "取り付けと照準",
+      "text": [
+        "機械かチェストの面に板を右クリックする。板を持っていれば、画面を開く機械でも普通のクリックで置ける。張り付いたブロックから引き出す。",
+        "板は乗っている面から引き出し、印した面へ届ける。どちらもそのブロックの面設定に従う。板の面は出す側（**出力**か**両方**）、印した面は受ける側（**入力**か**両方**）でなければならない。ステーションの側面は最初**入力**で、底だけが**出力**だ。先に面を設定せよ。",
+        "[石の盤](stone_font)は板向けに初めから設定されている。上下の面は**両方**なので、アイテムの板も液体の板もどちら向きでも働く。",
+        "**格子の調律器**で狙う。受け取る面を右クリックし、次に板を右クリックする。板は引き出したものをすべてその面へ送る。",
+        "板は格子の上に置き、格子の伝導体から8ブロック以内に、その声の共鳴トーテムも置け。目覚めか薄暗く、静寂ではない。アイテム、液体、長距離のリレーは**風**、アストラルのリレーは**織機**。その声を貸す血縁のトーテムも数に入る。それが無いと板は待つ。サーバーは共通コンフィグの**automationNeedsVoices**でこの規則を外せる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "リレーを狙う",
+      "steps": [
+        {
+          "caption": "少し離れたチェスト二つ。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "送り側のチェストの上にアイテムリレーをはめる。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "格子の調律器で遠いチェストの上面を右クリックして印す。",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "次に調律器で板を右クリックする。これで印した面へ送る。",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "板から8ブロック以内に共鳴トーテム（風）を立てよ。リレーは風の声で運ぶ。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "送り側の板の近くでパルスすると、毎秒最大16個が渡る。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "アイテムか液体",
+      "text": [
+        "毎秒、リレーは最大**16個のアイテム**か**250 mB**を運ぶ。",
+        "アイテムリレーと液体リレーは名のとおり運ぶ。**水の印章**を**ルーン**枠に入れると、どの板も液体を運ぶ。**土の印章**はアイテムを運ばせる。",
+        "液体なら、両端に霊の貯槽を置け。リレーは液体を運ぶ。貯えない。",
+        "何を渡すか、または焼くかは[フィルターと虚無板](cargo_filters)を見よ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "チャンネル",
+      "text": [
+        "ただの板は一か所へ送る。ランクを上げると**チャンネル**が増える。[エコー調律](machine_ranks)で二つ目、結束で三つ目、顕現で四つ目。各チャンネルに行き先とフィルターがある。",
+        "格子の調律器で面を印し、板に調律器を使う。普通のクリックは、行き先のない次のチャンネルを埋める。だから別々の場所へ送れる。チャンネルを選び、調律器で板をスニーククリックすると、その一つを置き換える。**解除**はチャンネルの行き先を忘れ、フィルターは残す。",
+        "**優先度**は、番号順で受け取れて空きのある最初のチャンネルへ貨物を送る。チャンネル1は鉱石をホワイトリストでかまどへ、チャンネル2は残りを保管へ。**順繰り**はチャンネルが交代する。",
+        "チャンネルは、板の一拍に一度の転送を分け合う。ランクした板の量は前と同じで、行き先だけ増える。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三つの距離",
+      "text": [
+        "- **アイテムリレー**と**液体リレー**は**32ブロック**先まで届き、何かを動かす拍ごとに**8パルス**を消費する。",
+        "- **長距離**リレーは**128ブロック**先まで届き、1拍につき**16パルス**。",
+        "- **アストラル**リレーは距離の制限がなく、世界をまたぐ。1拍につき**32パルス**。",
+        "何も動かさない拍に消費はない。",
+        "ランク付きの板（[機械のランク](machine_ranks)を参照）は、その**118%**、**143%**、または**182%**を払い、同じ割合だけ多く運ぶ。およそ**19 / 23 / 29**個、または**294 / 357 / 455 mB**。品あたりのパルスはほぼ同じ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "格子の調律器",
+      "text": [
+        "届け先にしたいブロックの面を右クリックすると、調律器がその面を覚える。次に調律器で板を右クリックして狙う。行き先を印し、板には印を付けない。普通の右クリックなら、クリックで開く貯蔵庫やチェストでも、どのブロックにも印が付く。",
+        "印は狙ったあとも調律器に残るので、一つの印で複数の板を狙える。別のブロックを右クリックすると置き換わる。板そのものが載っているブロックへの印は拒否される。",
+        "上の距離の制限が適用される。",
+        "板を拾っても照準は残り、フィルターも残る。板を壊すと、そのルーンがそばに落ちる。",
+        "板はあなたのものだ。あなたとあなたの[キャンプ](shared_camps)だけが、それを開いたり、フィルターを変えたり、調律器で狙ったりできる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "操作と、待つとき",
+      "text": [
+        "持続するレッドストーン信号は板を止める。調律器の対象ブロックに動力を入れると、遠い側からの移送が止まる。",
+        "Tribal Powerのステーション、貯蔵庫、貯槽のレバーも、そこから引き出す板やそこへ届ける板を止める。",
+        "板のコンパレーターは、未接続で**0**、接続済みで待機中は**1**、荷物を動かしている間は**15**を示す。",
+        "両端はすでに読み込まれていなければならない。未読み込みか満杯の行き先はリレーを待たせる。何かを壊すのは火の印章の板だけだ。リレーは自分ではチャンクを読み込まない。離れているあいだも働かせるなら、遠い側に道錨を置く。",
+        "しゃがんでこの本で板を右クリックすると、接続、消費、待っている理由が見える。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

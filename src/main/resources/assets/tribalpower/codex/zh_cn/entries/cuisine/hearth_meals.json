@@ -1,0 +1,72 @@
+{
+  "name": "炉餐",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "为眼前的活儿备的一餐",
+      "text": [
+        "比[路粮](road_fare)更饱，用远行界的野获煮成：每餐都让你吃得扎实，并借一份普通馈赠给眼前的事。没有一餐比最好的[部落菜](tribe_dishes)更饱，也没有一餐带着恩泽。",
+        "- **漂铃饺子**：漂凝胶、草原谷、一个鸡蛋。一锅两个，5点饥饿，**缓降30秒**：坠落前吃。",
+        "- **掘探浓汤**：一个棕色蘑菇和一个红色蘑菇、一个马铃薯、泽米、一个碗。7点饥饿，**急迫90秒**，矿工的一碗。",
+        "- **唤泽者杂烩**：任意生鱼（生微光鳍或生淤泥鳗）、泽米、海带、一个马铃薯、一个碗。8点饥饿，**水下呼吸90秒**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "为眼前的活儿备的一餐，续",
+      "text": [
+        "- **苇裹鳗**：生淤泥鳗、灵之芦苇、远行界叶。7点饥饿，**夜视120秒**，用于暗水和深洞。",
+        "- **余烬烤南瓜**：一个南瓜、余烬根、草原谷。一锅两个，6点饥饿，**力量30秒**。",
+        "- **长猎炖**：烤野味、一个马铃薯、一根胡萝卜、余烬根、一个碗。9点饥饿，营地饭食里最饱的，**伤害吸收60秒**：难熬的夜之前吃。",
+        "- **花歌奶羹**：回响花、一个鸡蛋、糖、蜜脾、一个碗。6点饥饿，**生命恢复15秒**，便于赶路时修补。",
+        "- **炸鱼薯条**：方格上排两个生微光鳍，下面两个余烬根。8点饥饿，以及**营地饭食里最高的饱和**，所以饱得最久，但不借任何馈赠。",
+        "吃的时候碗会回来。包可以在配置里改每份馈赠持续多久。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

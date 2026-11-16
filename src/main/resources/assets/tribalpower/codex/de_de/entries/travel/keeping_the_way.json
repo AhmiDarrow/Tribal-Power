@@ -1,0 +1,36 @@
+{
+  "name": "Den Weg bewahren",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Tore sind so gebaut, dass sie sicher sind. Ein Tor setzt dich immer **im eigenen Rahmen des Ferntors** ab und gräbt, baut oder räumt nie etwas frei, um Platz zu machen.",
+        "Gibt es im fernen Rahmen nirgends einen Stand, verweigert die Reise, und der Puls geht zurück in den Schlussstein.",
+        "Das ferne Ende bleibt **zehn Sekunden** um deine Ankunft geladen, damit ein Partner in einem ungeladenen Chunk noch antwortet. Nur ein [Weganker](wayanchor) hält es länger geladen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn ein Tor bricht",
+      "text": [
+        "Brich einen Schlussstein, dann wird sein Partner sofort gelöst und erlischt. Wer innerhalb von 16 Blöcken beim Partner steht, erfährt, welches Tor verloren ging.",
+        "**/tribalpower gate list** zeigt jedes Tor, das du gesetzt hast, und worauf es antwortet. **/tribalpower gate unlink <name>** kappt einen deiner Fäden von Hand.",
+        "Zum erneuten Verknüpfen nimm wieder einen Kompass, Kreide oder ein Sigill, wie in [Wegtor](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn ein Tor nicht funktioniert",
+      "text": [
+        "- **\"Dieser Schlussstein hat keinen Rahmen um sich\"**: ein Rahmenblock fehlt oder sitzt falsch. Prüf es am Muster.",
+        "- **Braucht Puls**: lade den Schlussstein; Licht und Reise kommen beide aus seinem eigenen Vorrat.",
+        "- **Erlischt von selbst**: ein Redstone-Signal liegt an, ein Rahmenblock wurde zerstört, oder ein Ferntor hat seine Webstuhl-Stimme verloren.",
+        "- **\"Der Faden findet nichts\"**: das Tor leuchtet, ist aber nicht verknüpft.",
+        "Ducke dich und rechtsklicke einen Schlussstein mit diesem Buch, um seinen vollen Zustand zu sehen."
+      ]
+    }
+  ]
+}

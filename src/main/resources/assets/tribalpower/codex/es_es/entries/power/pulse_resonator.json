@@ -1,0 +1,226 @@
+{
+  "name": "Resonador de Pulso",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "Energía que sigue llegando mientras estás fuera. Asienta un cristal dentro, rodéalo de tótems de voces distintas, y zumba Pulso por sí solo. Guarda hasta **2,500 Pulso**, y si lo rompes se pierde lo guardado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ponerlo en marcha",
+      "text": [
+        "Haz clic derecho en el Resonador con un **Fragmento de eco** (del [Triturador de eco](echo_shatter)). El cristal queda dentro como catalizador y el Pulso que produce lo gasta poco a poco, así que un Resonador que trabaja mucho necesita que lo reemplaces. Agáchate y haz clic derecho con la mano vacía para sacar lo que queda del cristal; conserva el desgaste. Saca el cristal viejo antes de asentar uno mejor. Las tolvas no pueden alimentarlo.",
+        "Luego dale al menos **dos voces distintas** en 8 bloques, como un tótem de Tierra y uno de Fuego. Cuenta voces, no bloques: dos tótems de Tierra siguen siendo una voz.",
+        "Un fragmento y dos voces hacen **8 Pulso por segundo**. Las voces se multiplican en vez de sumarse: cada una que traes vale más que la anterior, así que el anillo entero vale mucho más que la suma de sus tótems."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Primera luz",
+      "steps": [
+        {
+          "caption": "Coloca el Resonador donde sus tótems tengan sitio alrededor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho con un Fragmento de eco para asentar el catalizador.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade un tótem de Tierra.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade un tótem de Fuego, una segunda voz. El Resonador empieza a zumbar: 8 Pulso por segundo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tercera voz, Agua, lo sube a 15 Pulso por segundo. Cada voz nueva vale más que la anterior.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cristales más fuertes",
+      "text": [
+        "Cada segundo el Resonador hace **voces × (voces + 2)** de Pulso, por su cristal: **×1** para un Fragmento de eco, **×1.5** Sintonizado, **×2** Vinculado, **×3** para un Núcleo resonante. Así seis voces dan 48, 72, 96 o 144 por segundo.",
+        "- **Fragmento de eco**: piedra en el Triturador de eco, con Tierra.",
+        "- **Eco sintonizado**: fragmentos en el Sintonizador de eco, con Fuego.",
+        "- **Eco vinculado**: varios Eco sintonizado en el Vinculador de eco, con Agua.",
+        "- **Núcleo resonante**: Lingote manifestado en el Manifestador de eco, con Espíritu.",
+        "Seis voces necesitan la disposición del [Anillo de voz](voice_ring): un montón suelto cuenta como mucho cinco voces, Tótem de parentesco incluidos.",
+        "Para quemar estos cristales junto a reactivos y agua, con las seis voces en una estrella, construye un [Corazón de ley](ley_heart)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cuando sigue a oscuras",
+      "text": [
+        "Solo cuentan los tótems **Respondido**; uno en silencio hay que despertarlo antes (véase [Cuidado](keeping)). Los Tótem de parentesco añaden sus tribus como voces extra, pero el Resonador aún necesita un Tótem de resonancia Respondido propio. Una señal constante de redstone lo pausa.",
+        "Un cristal se deshace al cumplir su parte: unos **20,000 Pulso** para un Fragmento de eco, **60,000** para un Eco sintonizado, **150,000** para un Eco vinculado y **400,000** para un Núcleo resonante. Un Resonador lleno no hace nada, y su cristal descansa hasta que algo gasta.",
+        "Cada [rango](machine_ranks) del propio Resonador suma **15% Pulso por segundo**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

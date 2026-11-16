@@ -1,0 +1,6 @@
+{
+  "name": "Máquinas del campamento",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Aparatos que cuidan un campamento por ti: cultivan, recogen, vigilan, bombean, alumbran el camino y mantienen los chunks despiertos."
+}

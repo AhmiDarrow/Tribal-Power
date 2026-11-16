@@ -1,0 +1,71 @@
+{
+  "name": "Parente tribal",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Cada acampamento mantém quatro Parentes: um **Ancião**, um **Tamborileiro**, um **Caçador** e um **Tecelão**. Eles vagam num raio de **16 blocos** do acampamento e nunca somem; no dia de festival da tribo ficam num raio de **5 blocos** do Lar. Clique com o botão direito num Tamborileiro, Caçador ou Tecelão para ver o ofício e o seu posto. O Ancião fala com você."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "O Ancião",
+      "text": [
+        "O Ancião troca quando você já é **Hóspede**. Cada tribo tem sete ofertas: duas para cada posto, de Hóspede a Parente, mais o prato da própria tribo em Amigo. Cada troca rende **+2** de reputação. O Ancião também entrega os [pedidos e a história](elders_and_stories) da tribo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trocar com o Ancião",
+      "text": [
+        "Um Ancião não tem nada para um Estranho. Leve primeiro uma oferenda ao Lar.",
+        "O estoque é limitado. Uma oferta pode ser pega **12 vezes** por dia, **8** se pedir dois itens diferentes, e **6** se vender um reagente de criatura. O Ancião repõe uma vez a cada dia de Minecraft, e fechar a tela não completa de novo.",
+        "Quando você chegar a **Voz**, fale com o Ancião mais uma vez. Ele pressiona na sua mão a **Marca da tribo** da tribo, uma vez por tribo. Guarde-a: ela se torna um [Totem de parentesco](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "O Tamborileiro",
+      "text": [
+        "A cada **5 a 6 segundos** o Tamborileiro bate um compasso que envia **2 Pulso** a cada Coração de tambor, Coletor de ley e Ressonador de Pulso num raio de **8 blocos**. Harpas de vento, Tambores das ondas e Chifres de brasa não recebem nada. O compasso também mantém acordados os totens próximos."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "O Caçador",
+      "text": [
+        "O Caçador vigia a borda do acampamento e golpeia monstros hostis num raio de **12 blocos**. Mas machuque qualquer Parente, e o Caçador vem atrás de você por um **minuto**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "O Tecelão",
+      "text": [
+        "A cada **40 a 90 segundos** o Tecelão anda até o Tear mais próximo, a **12 blocos** do acampamento (ou uma Bancada do canto, se não houver Tear), e trabalha nele por **seis segundos**. Essa pose é o trabalho. Ele não fabrica nada para você."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Viver ao lado deles",
+      "text": [
+        "Os Parentes são neutros e pacientes. Ficam ao lado das suas máquinas, tocam tambor para os seus geradores e guardam as suas noites pelo tempo que você quiser.",
+        "Nunca bata neles. Um golpe de espada perdido custa **25** de reputação e vira o acampamento inteiro contra você. Veja [Tribos e reputação](standing) para tudo o mais que irrita uma tribo.",
+        "Os quatro ovos geradores são para construtores no criativo que querem montar um acampamento só deles."
+      ]
+    }
+  ]
+}

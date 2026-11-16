@@ -1,0 +1,17 @@
+{
+  "name": "10. Brejo",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Brejo",
+      "text": [
+        "“O Brejo dos Juncos é o trabalho de corda dos Vinculadores de raízes, afogado. Cada junco é um nó que eles ataram para segurar o chão; a água veio mesmo assim. Uma deles segurou além do fim. Ela ainda está segurando.”",
+        "Encontrado em um mural no terreno de um guardião."
+      ]
+    }
+  ]
+}

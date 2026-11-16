@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:vault_seal"
     },
-    "title": "Vault Sentinel stilled",
-    "description": "Face the Vault Sentinel at the Sealed Gate on Glimmer Ridge and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_vault_sentinel.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_vault_sentinel.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

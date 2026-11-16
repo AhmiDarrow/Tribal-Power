@@ -1,0 +1,17 @@
+{
+  "name": "3. 织成的织机",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "织成的织机",
+      "text": [
+        "“织机缝工发现，九根彼此对拉的线能承住单独一根承不住的重量。他们以此把地缝上了天。每一处营地都唱自己的那根线。织机撑过了九代。”",
+        "发现于远行界废墟中的雕石上。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Lieurs de racines",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Lieurs de racines",
+      "text": [
+        "“Les racines sont la seule corde que le vide respecte.”",
+        "Brin de **Pousse**, voix de l'**Eau**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Lieurs de racines ont planté les premières ancres vivantes sur les îles qui tombent et les ont liées racine à racine. Leurs ancres ont tenu une saison, et c'est pour cette saison qu'il reste quelque chose ici-haut. Leur art est **ancres vivantes et flore de la Marche**.",
+        "Leurs camps se trouvent dans les **forêts** et les jungles, et dans la Marche l'un de leurs camps se trouve dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est l'**Écaille de dos-mousse**, qui vaut **+8** de réputation à leur âtre.",
+        "Ils privilégient aussi pousses, graines, un bloc de mousse ou un Roseau d'Esprit : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 Pulsation**, jusqu'à +8.",
+        "Rappelle-toi : l'âtre prend au plus **60** de réputation par jour en offrandes ; voir [Tribus et réputation](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 4 pousses de chêne contre 3 Roseau d'Esprit ; 12 graines de blé contre 8 poudre d'os.",
+        "**Ami** : 6 Roseau d'Esprit contre un Tambour des vagues ; 8 blocs de mousse contre une Écaille de dos-mousse ; 4 Riz de tourbière contre Riz du lieur de racines.",
+        "**Parent** : 8 Éclat d'écho contre 6 Bûche de la marche ; 2 Espritissu contre 2 Fleur d'écho.",
+        "Chaque échange donne **+2** de réputation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et bienfait",
+      "text": [
+        "Au rang **Voix**, l'Ancien te donne la Marque de tribu des Lieurs de racines. Fabrique-la avec un {item:tribalpower:resonance_totem_water} et deux Espritissu pour obtenir leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête l'**Eau**.",
+        "Le rang Parent des Lieurs de racines porte leur [bienfait](tribe_boons) : cultures et pousses dans les 4 blocs autour de toi poussent plus vite.",
+        "Leur plat porte le bienfait pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Les Lieurs de racines sont la seule tribu qui vend un **Tambour des vagues**, le générateur d'Eau."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Lieurs de racines t'a demandé, et jusqu'où leur histoire est allée. Voir [Anciens, requêtes et histoires](elders_and_stories)."
+      ]
+    }
+  ]
+}

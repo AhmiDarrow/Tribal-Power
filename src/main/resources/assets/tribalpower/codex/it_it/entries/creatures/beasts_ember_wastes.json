@@ -1,0 +1,74 @@
+{
+  "name": "Bestie delle Distese di brace",
+  "icon": "tribalpower:cinder_plate",
+  "order": 240,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinderhide_spawn_egg",
+    "tribalpower:ashmoth_spawn_egg",
+    "tribalpower:slaglump_spawn_egg",
+    "tribalpower:emberjaw_spawn_egg",
+    "tribalpower:cinder_plate",
+    "tribalpower:ash_wing",
+    "tribalpower:slag_curd",
+    "tribalpower:ember_fang"
+  ],
+  "next": "beasts_reed_fen",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Quelli della cenere",
+      "text": [
+        "Due degli animali delle Distese vivono sul bordo della lava, uno vola nella cenere e uno caccia il basalto di notte.",
+        "Ogni bestia mansueta qui si può spazzolare una volta al minuto per il suo reagente, e si attira e si riproduce con il suo cibo, indicato più sotto in **Caccia e allevamento**. Si può legare come qualsiasi animale mansueto (vedi [famigli](familiars)) e, anche se nessuna ha un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinderhide",
+      "title": "Pelle di tizzone",
+      "text": [
+        "Una tartaruga vulcanica, con il fuoco tra gli scuti del guscio, che vive accanto alla lava e sulla pietra calda intorno, una o due alla volta. **30 di salute** e **7 di armatura**, lenta, e **immune al fuoco**.",
+        "Lascia **da 1 a 3 Piastra di tizzone**, un reagente di brace.",
+        "Cacciata, lascia anche da 1 a 2 Selvaggina cruda e fino a 1 Cuoio della Marcia. Alleva con **Radice di brace**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ashmoth",
+      "title": "Falena di cenere",
+      "text": [
+        "Una sfinge grigia della cenere, le ali larghe ripiegate su ali posteriori color salmone e il corpo fasciato di salmone verso la coda, da una a tre. **10 di salute**, senza armatura.",
+        "Lascia **da 1 a 3 Ala di cenere**, che si macinano in tintura nera.",
+        "Cacciata, lascia anche fino a 1 corda e fino a 1 polvere da sparo. Alleva con **Radice di brace**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slaglump",
+      "title": "Grumo di scoria",
+      "text": [
+        "Una salamandra di lava lunga e bassa, con la testa piatta a pala, nera a chiazze arancioni, che si rotola presso la lava, una o due alla volta. **26 di salute** e **5 di armatura**, e **immune al fuoco**.",
+        "Lascia **da 1 a 3 Cagliata di scoria**, un reagente di brace.",
+        "Cacciato, lascia anche fino a 1 crema di magma e fino a 2 pepite di ferro. Alleva con **Radice di brace**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:emberjaw",
+      "title": "Mascella di brace",
+      "text": [
+        "Un rapace di fuoco striato, che corre basso con la coda indietro ed è quasi tutto mascella, e sorge sul basalto di notte, uno o due alla volta. Ha **32 di salute** e **3 di armatura** e colpisce per **6**, spingendoti indietro a ogni colpo. Con tutto il suo colore, **non** è ignifugo.",
+        "Lascia **da 1 a 2 Zanna di brace**, un reagente di spinta.",
+        "Cacciato, lascia anche fino a 2 ossa e fino a 2 carbonella."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuno lascia cadere di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre dai a due adulti il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

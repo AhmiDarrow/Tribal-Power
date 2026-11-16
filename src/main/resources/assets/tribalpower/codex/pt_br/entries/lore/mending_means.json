@@ -1,0 +1,17 @@
+{
+  "name": "O que remendar significa",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Você não está pondo os continentes de volta. Você está ensinando nove vozes a concordar de novo, um acampamento de cada vez.",
+        "Um elo de giz é uma promessa. Um catalisador sentado é uma conversa recomeçada. Um rito de tábua é pedir com educação, menor do que o velho mundo pedia.",
+        "A Marcha guardou os salões, os tambores, as tábuas. Diga aos acampamentos que lamentamos ter demorado tanto."
+      ]
+    }
+  ]
+}

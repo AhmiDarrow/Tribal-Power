@@ -1,0 +1,49 @@
+{
+  "name": "部族工作台",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "记得住的桌子",
+      "text": [
+        "部族工作台是一张两格宽的工作台，背后沿边有架子，并且每种木材都有，好和它所在的营地相配。",
+        "要紧的差别是：**合成格属于这张工作台**。配方做到一半关上，东西仍留在你放下的地方，而不是洒回背包。",
+        "背后的架子能放**四**样东西，和壁架一样：手里拿着东西点击架子就放下，空手点击就取回。点击台面打开合成格，旁边是绿色配方书。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "配合JEI",
+      "text": [
+        "如果你装了JEI，这张工作台就是完整的合成站：打开一条合成配方，按**+**（或JEI的移动配方键），把物品栏里的材料拉进合成格。点击工作台里的箭头会显示每一条合成配方。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

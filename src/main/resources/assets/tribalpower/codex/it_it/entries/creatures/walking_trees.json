@@ -1,0 +1,111 @@
+{
+  "name": "Gli alberi che camminano",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Custodi dei boschetti",
+      "text": [
+        "Non ogni albero della Marcia sta fermo. In ogni terra dove cresce un [albero della Marcia](march_trees), alcuni della sua specie si sono alzati e camminano, con lo stesso legno e la stessa foglia dell'albero da cui sono venuti.",
+        "Sono mansueti. Spazzolane uno per il reagente una volta al minuto, e attiralo e fallo riprodurre con **Farina di ossa**. Puoi legarlo come qualsiasi animale mansueto (vedi [famigli](familiars)), e anche se non ha un dono suo, uno legato può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Custode del Focolare",
+      "text": [
+        "La quercia del focolare della Steppa, larga e pesante su radici tozze. Lascia **Corteccia del Focolare**.",
+        "Cacciato, lascia anche da 1 a 3 Tronco di quercia del focolare, fino a 1 Arbusto di quercia del focolare e da 1 a 3 bastoni. Fallo riprodurre con **Farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Anziano del boschetto",
+      "text": [
+        "L'albero della Marcia dei boschetti degli Altipiani, alto e piegato su un bastone, con la barba di muschio. Lascia **Corteccia di anziano**.",
+        "Cacciato, lascia anche da 1 a 3 Tronco della Marcia, fino a 1 Arbusto della Marcia e da 1 a 3 bastoni. Fallo riprodurre con **Farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Sentinella di pino di brina",
+      "text": [
+        "Il pino di brina dei Campi di neve, un tronco alto sotto un cono di aghi innevati, le braccia di ramo che spuntano da sotto i rami più bassi. Lascia **Corteccia di pino di brina**.",
+        "Cacciato, lascia anche da 1 a 3 Tronco di pino di brina, fino a 1 Arbusto di pino di brina e da 1 a 3 bastoni. Fallo riprodurre con **Farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Camminatore di troncone",
+      "text": [
+        "Il troncone di legno di cenere delle Distese di brace, un tronco di legno morto bruciato, spezzato in cima, ancora in brace. Lascia **Corteccia di cenere** (tintura gialla).",
+        "Cacciato, lascia anche da 1 a 3 Tronco di legno di cenere, fino a 1 Arbusto di legno di cenere e da 1 a 3 bastoni. Fallo riprodurre con **Farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Custode piangente",
+      "text": [
+        "Il salice della Palude dei canneti, incurvato sotto una cortina di fili. Lascia **Nodo piangente**.",
+        "Cacciato, lascia anche da 1 a 3 Tronco di salice, fino a 1 Arbusto di salice e da 1 a 3 bastoni. Fallo riprodurre con **Farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Anziano di campanula",
+      "text": [
+        "La campanula dei Campi di cristallo, un gambo tozzo sotto un enorme cappello. Lascia **Spora di campanula** (tintura magenta).",
+        "Cacciato, lascia anche da 1 a 3 Tronco di campanula, fino a 1 Arbusto di campanula e da 1 a 3 bastoni. Allevalo con **farina di ossa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Legno su trampoli",
+      "text": [
+        "La falcata dei Bassifondi, portata in alto su radici a trampolo arcuate. Lascia **Radice a trampolo**.",
+        "Cacciato, lascia anche da 1 a 3 Tronco di falcata, fino a 1 Arbusto di falcata e da 1 a 3 bastoni. Allevalo con **farina di ossa**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come sono",
+      "text": [
+        "Ogni albero ambulante ha **48 di salute** e **8 di armatura**. Sono lenti, stanno lontani dai mostri e camminano in gruppi da due a quattro. Ognuno lascia **da 1 a 3** del suo reagente, di più con Saccheggio.",
+        "La Cresta del barlume non fa crescere alcun albero, quindi non ha un custode. L'unico albero che cammina e non è gentile è il [Custode colosso](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e raduno",
+      "text": [
+        "Oltre al reagente, ognuno ne lascia di più quando cacciato, e ancora di più con Saccheggio. Per allevare i selvatici, **accovacciati** mentre dai da mangiare a due adulti il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

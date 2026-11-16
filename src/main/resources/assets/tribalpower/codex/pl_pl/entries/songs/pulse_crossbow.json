@@ -1,0 +1,36 @@
+{
+  "name": "Kusza «Puls»",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 40,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "next": "anointing",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "Cięższa siostra łuku",
+      "text": [
+        "Kusza «Puls» wystrzeliwuje te same Bełt dźwiękowy co [Łuk Pulsu](song_bench) i tak samo niesie Strzała zwrotki.",
+        "**Przytrzymaj użycie**, by załadować. Ładowanie trwa nieco dłużej niż pełne naciągnięcie łuku i wydaje **10 Puls** z góry; jeśli nosisz Strzała zwrotki, ładuje i ją, za 6 Puls więcej. **Użyj ponownie**, by wystrzelić.",
+        "Ogniwo Pulsu osadzone w kuszy płaci pierwsze, potem ogniwa, które nosisz.",
+        "Kuje się jak reszta Duchowy sprzęt: dwa **Manifestowana sztabka** i jeden **Kościany dzwonek** na łęczysko, nić, hak linki i patyk. Wytrzymuje 1,024, a skoro Puls płaci za każdy strzał, strzelanie jej nie zużywa; [Kowadło Ducha](spirit_anvil) naprawia ją Manifestowana sztabka, ćwierć każda."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Kusza** trafia około **o jedną trzecią mocniej**: **10** z bliska wobec **7** łuku, nieco mniej na końcu długiego lotu. Leci szybciej i prawie idealnie prosto i trzyma strzał tak długo, jak chcesz, więc możesz iść załadowany i strzelić w chwili, gdy coś się pokaże.",
+        "- **Łuk** jest szybszy: możesz wypuścić znów wcześniej i wypuścić częściowe naciągnięcie, gdy ci spieszno, choć częściowe naciągnięcie trafia tylko swoją częścią.",
+        "Strzała zwrotki dodaje do **3** więcej do pełnego naciągnięcia łuku, trochę więcej z kuszy, i niesie swoją pieśń. Bełt dźwiękowy nie spadają, ale bledną po około 60 blokach.",
+        "Noś kuszę na ten jeden strzał, który się liczy, łuk na walkę w biegu."
+      ],
+      "title": "Łuk czy kusza?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

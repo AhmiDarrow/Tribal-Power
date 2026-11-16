@@ -1,0 +1,87 @@
+{
+  "name": "儀式の火鉢",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "火鉢は元素の印章を一つ載せ、近くの全員への持続する祝福に変える。すべての石板儀式の核でもある。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "祝福に火をともす",
+      "text": [
+        "印章を持って火鉢を右クリックし、据える。印章は決して消費されない。空の手でしゃがみ、取り返す。",
+        "その印章のトーテムを**8ブロック**以内に保ち、近くの格子にパルスを置く。誰かが**6ブロック**以内に立っているあいだ、火鉢は**2秒ごとに8パルス**を消費し、全員を祝福する。近くに誰もいなければ、何も消費しない。",
+        "維持されたレッドストーン信号は、それを止める。蓄えたパルスは捨てられない。短い信号は、据えた儀式を発火する（[儀式の円](rite_circle)を参照）。",
+        "印章もパルスもなく、近くの全員のために[香](remedies)も焚く。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "祝福",
+      "text": [
+        "- **土**: 採掘速度上昇。",
+        "- **火**: 火炎耐性。",
+        "- **水**: 再生。",
+        "- **風**: 低速落下。",
+        "- **霊**: 暗視。",
+        "- **織機**: 幸運。一拍ごとに、空きのある所持中のパルス電池へ**2パルス**を織り込む。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "印章",
+      "text": [
+        "どの印章も空白から始まる。紙と霊の欠片と骨の鈴で、**二つ**の空白の印章ができる。",
+        "土には土ブロック、火には木炭、水には水入りバケツ、風には羽、霊には霊の欠片、織機には織機の糸を足す。",
+        "印章は護符と儀式板に入る。石板のレシピは、必ず印章を返す。儀式の台座で使った印章は、素早い[印章の儀式](rite_circle)で消費される。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

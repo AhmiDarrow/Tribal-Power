@@ -1,0 +1,65 @@
+{
+  "name": "Cœurs-tambours",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Cœurs-tambours",
+      "text": [
+        "« Le tambour n'est pas bruyant. Le tambour est régulier. Sois le tambour. »",
+        "Brin d'**Étincelle**, voix de **Feu**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Chaque moteur de la Marche garde encore la mesure des Cœurs-tambours. Leur art est **tambours et Pulsation** : un battement à un souffle d'intervalle, et le cuivre répond.",
+        "Leurs camps sont en **savane**, et dans la Marche l'un de leurs camps est dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est le **Carillon d'os**, qui vaut **+8** d'estime à leur Âtre.",
+        "Ils prisent aussi un Lingot de cuivre, du Cuivre brut ou un Résonateur en cuivre : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 de Pulsation**, jusqu'à +8.",
+        "Rappelle-toi : l'Âtre prend au plus **60** d'estime par jour en offrandes ; vois [Tribus et estime](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 6 Lingot de cuivre pour un Carillon d'os ; 3 Lingot de cuivre pour un Résonateur en cuivre.",
+        "**Ami** : 2 Écho accordé pour une Cellule de Pulsation ; 2 Carillon d'os et 6 Lingot de cuivre pour une Corne de braise ; 4 Racine de braise pour Chili des cœurs-tambours.",
+        "**Parent** : un Noyau résonnant pour une Cellule de Pulsation majeure ; 4 Écho lié pour un Cœur-tambour.",
+        "Chaque échange rapporte **+2** d'estime."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Cœurs-tambours. Fabrique-la avec un {item:tribalpower:resonance_totem_fire} et deux Espritissu pour obtenir leur [Totem de parenté](kinship_totem).",
+        "Près d'un Résonateur de Pulsation, c'est une voix de plus ; près d'une station, il prête **Feu**.",
+        "Qui est Parent des Cœurs-tambours porte leur [don](tribe_boons) : une main plus vive : tu frappes **10%** plus vite.",
+        "Leur plat porte le don pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Leur échange d'Hôte change le cuivre en Carillon d'os, qui est leur réactif : un moyen bon marché de monter vers Ami.",
+        "À **Voix**, tu peux aussi lier un **Diablotin d'escarbille** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Cœurs-tambours t'a demandé, et jusqu'où leur récit est allé. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

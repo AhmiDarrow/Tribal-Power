@@ -1,0 +1,260 @@
+{
+  "name": "Manifestador de eco",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "La estación de Espíritu, en lo alto del entramado. El Manifestador de eco convierte los Ecos vinculados en **Lingotes manifestados**, y los lingotes en **Núcleos resonantes**, el corazón del equipo y las máquinas más finos de este libro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo usarlo",
+      "text": [
+        "Coloca el Manifestador de eco con un tótem de Espíritu a 8 bloques o menos.",
+        "- De Eco vinculado a Lingote manifestado: **5 segundos** a **64 de Pulso por segundo**.",
+        "- De Lingote manifestado a Núcleo resonante: **8 segundos** a **80 de Pulso por segundo**.",
+        "Los núcleos entran en las Células de Pulso mayores, la Túnica de Tejido espiritual y los Pantalones de Tejido espiritual, el Báculo séxtuple, los relés de largo alcance y las piedras clave del portal. Las herramientas de Equipo espiritual solo necesitan Lingotes manifestados. Asentado en un Resonador de Pulso, un núcleo es su cristal más fuerte.",
+        "Un trofeo de guardián y un Hilo de Telar se fabrican en seis Núcleos resonantes; consulta [Guardianes](guardians)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "La columna entera",
+      "steps": [
+        {
+          "caption": "El Manifestador de eco, con un tótem de Espíritu al lado.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloca el Vinculador de eco encima, con un tótem de Agua: los Ecos vinculados bajan hasta el Manifestador de eco.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Añade el Sintonizador de eco encima de eso, con un tótem de Fuego, para la cadena completa.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Con un generador al alcance, los Fragmentos de eco entran por arriba y los Lingotes manifestados salen por abajo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consejos",
+      "text": [
+        "Recoge por abajo con una tolva. Para hacer núcleos, vuelve a poner los lingotes en la entrada del Manifestador de eco.",
+        "El Manifestador de eco es también la última parada al dar rango a las máquinas y al Equipo espiritual.",
+        "Una palanca pausa la estación. Las recetas de este libro, o JEI, indican el tiempo y el Pulso."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

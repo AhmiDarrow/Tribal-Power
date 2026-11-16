@@ -1,0 +1,65 @@
+{
+  "name": "Lo que ofrece el suelo",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Lo que llama el foso",
+      "text": [
+        "El foso llama exactamente lo que daría una salida a minar con toque de seda: el **objeto en bruto** para un metal, el **bloque de mena** para una gema. Cada ciclo consume su sustrato y da un resultado.",
+        "La piedra es renovable: una [Pila de piedra](stone_font) la hace. La Piedra de la Marcha se funde a partir de Adoquín de la Marcha, que minas en la Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las cuatro bandas",
+      "text": [
+        "- **Común**: carbón, cobre y hierro. **10 segundos** a **56 Pulso por segundo**, sobre **dos piedras**.",
+        "- **Profunda**: oro, redstone y lapislázuli. **15 segundos** a **64**, sobre **dos Piedra de la Marcha**. El cuarzo no está en esta banda.",
+        "- **Caliente**: el cuarzo y la mena de oro del Nether. **20 segundos** a **72**, sobre dos Piedra de la Marcha, con **Fuego**.",
+        "- **Rara**: diamante, esmeralda y cualquier metal o gema que el escaneo de grava haya encontrado en tu mochila. **40 segundos** a **48**, sobre **cuatro Piedra de la Marcha y un Fragmento de Espíritu**, con **Espíritu**. Más o menos un ciclo raro de cada cuatro da el doble."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué banda oye",
+      "text": [
+        "Profunda, Caliente y Rara necesitan [Escucha profunda](listening_pit) y el rango que corresponda. Sin una muestra, un foso bajo **y 0** oye una banda más abajo, y Espíritu lo baja una banda más.",
+        "Si el rango o la forma no llegan tan lejos, el foso se queda con la banda más profunda que puede alcanzar, en vez de detenerse.",
+        "Bajo y 0, o sobre pizarra profunda, las gemas salen como menas de pizarra profunda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Muestras",
+      "text": [
+        "Una muestra es un filtro, nunca un ingrediente. Coloca una haciendo clic derecho en la malla con un metal en bruto, grava o una gema.",
+        "Un material que la muestra nombra pesa **seis veces** tanto como cualquier otra cosa de la banda. Una muestra también pide la banda más profunda que lo contenga y a la que el foso pueda llegar: el oro significa la banda caliente cuando Fuego está encendido, y la banda profunda si no.",
+        "Una muestra que ninguna banda alcanzable contiene se ignora, y el Códice lo dice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voces en el foso",
+      "text": [
+        "Tierra es obligatoria. Cada otra voz cambia una cosa por otra; ninguna es un simple multiplicador.",
+        "- **Agua** lava: una salida extra cada **tercer** ciclo, por **250 mB** del tanque de la malla. Llénalo con un cubo; admite 4,000 mB.",
+        "- **Aire** acelera el ciclo a cerca de **0.65** de su tiempo y cobra cerca de **1.55 veces** el Pulso por segundo. El Pulso por objeto no cambia.",
+        "- **Fuego** abre la banda caliente a 72 Pulso por segundo. El foso solo oye ahí cuando una muestra de cuarzo o de oro lo pide, y el oro sale entonces como Mena de oro del Nether.",
+        "- **Espíritu** oye una banda más abajo y abre la rara.",
+        "- El **Telar** reduce el sustrato a la mitad, redondeando hacia arriba."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que cuesta",
+      "text": [
+        "Un ciclo de hierro es **560 Pulso** sobre dos piedras.",
+        "Minar sigue costando menos Pulso por lingote. El regalo del foso es que nunca se agota."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: O Não Cantado",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Salão dos ancestrais submerso, sobre o tambor que ninguém tocou:",
+        "“Um tambor foi levado de cada acampamento que caía, para a batida não parar. O último tambor foi levado ao círculo e não restou ninguém para tocá-lo. Seu guardião ficou oco de esperar. Acorde-o com o compasso de quatro e ele se erguerá para ser tocado. Agache-se quando ele bater. Ressincronize-o quando silenciar. Ele só quer o ritmo de volta.”"
+      ]
+    }
+  ]
+}

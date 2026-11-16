@@ -1,0 +1,25 @@
+{
+  "name": "Manter os totens acordados",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Totens gostam de companhia. Um que é usado fica **Respondido** por cerca de 40 minutos de tempo carregado. Depois disso fica **Tênue** por mais 40 minutos, e as estações da mesma voz trabalham cerca de 30% mais devagar. Então cai em **Quieto**, e o trabalho novo pode pausar mesmo com Pulso de sobra.",
+        "Acordar um totem é fácil: clique com o botão direito com a mão vazia, ou use um **Carrilhão de osso** nele. Tocar um Coração de tambor à mão a até 8 blocos também o acorda. Uma vez acordado, o totem continua acordado enquanto uma estação da sua voz trabalha por perto.",
+        "Algumas coisas mantêm os totens acordados por você. Um [familiar](familiar_attuning) que carrega a voz de um totem o mantém acordado a até **8 blocos**, o Tamborileiro de uma tribo acorda qualquer totem perto da sua batida, e um [Totem de parentesco](kinship_totem) nunca fica quieto.",
+        "Totens a céu aberto, perto de água e plantas, ficam acordados o dobro do tempo. Um totem sob um teto mantém o ritmo normal.",
+        "Um totem também precisa de Pulso no próprio reservatório. Numa rede de treliça com Pulso, ele enche e fica cheio; fora da treliça esvazia em cerca de dois minutos e fica **silencioso**, acordado ou não. Um totem novo começa cheio, então coloque um [Condutor de treliça](lattice_conductor) ao alcance antes disso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Onde ler mais",
+      "text": [
+        "As regras completas estão na página [Conservação](keeping). Se uma estação parou e a energia dela está boa, um totem quieto é o motivo usual, e o Códice espiritual dirá quando você se agachar e clicar com o botão direito na estação."
+      ]
+    }
+  ]
+}

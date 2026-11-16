@@ -1,0 +1,52 @@
+{
+  "name": "Zunderkobold",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Ein flinker Feuerkobold. Er sammelt Funken vor einem brennenden Geschoss.",
+        "Gejagt lässt er außerdem mit einer Chance von eins zu drei Lohenstaub fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Exemplare von Zunderkobold huschen durch das Marschhochland und den Schimmergrat und sind im Glutödland am häufigsten.",
+        "Er hat **18 Gesundheit** und **1 Rüstung** und ist immun gegen Feuer. Aus bis zu 12 Blöcken Entfernung schleudert er ein Geschoss für **4 Schaden**, das dich 2 Sekunden in Brand setzt. Das Geschoss entzündet niemals das Gelände. Deckung unterbricht den Zauber."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Zunderknoten** fallen.",
+        "Ein Zunderknoten stimmt sich unter Geist in 2 Abgestimmtes Echo um."
+      ],
+      "title": "Was er gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche **Stimme** bei den **Trommelherzen**, dann nutze ein Bindungsamulett an einem ausgewachsenen: zwei von fünf Versuchen, das Amulett ist bei Fehlschlag verbraucht. Oder füttere ihn mit seinem eigenen Reagenz: einer von fünf Versuchen, und das Reagenz ist so oder so verbraucht.",
+        "Ein gebundener Kobold gibt **4 Puls** zurück, jedes Mal, wenn du ein Trommelherz von Hand spielst. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt er dies fallen, wenn man ihn jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

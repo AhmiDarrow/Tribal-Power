@@ -1,0 +1,8 @@
+{
+  "name": "Les neuf tribus",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Neuf tribus gardaient autrefois le Métier. Leurs camps sont toujours là ; gagne leur rang et leurs marques.",
+  "spoiler": true,
+  "progress": "tribes"
+}

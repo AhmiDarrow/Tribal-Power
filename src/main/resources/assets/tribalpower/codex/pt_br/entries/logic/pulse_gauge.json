@@ -1,0 +1,264 @@
+{
+  "name": "Medidor de Pulso e Limiar de Pulso",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "O Medidor de Pulso transforma o Pulso armazenado em redstone. Aponte-o para um Coração de tambor, um gerador, um ressonador ou um Coletor de ley, qualquer coisa que armazene Pulso, e ele emite de **0 a 15** conforme o quanto esse depósito está cheio. As oficinas puxam Pulso ao redor e não guardam nada para ler.",
+        "O par dele, o **Limiar de Pulso**, responde um simples sim ou não: o depósito está pelo menos tão cheio?",
+        "Os dois são feitos com Pedra da Marcha, então esperam a sua primeira viagem para a Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Medidor de Pulso",
+      "text": [
+        "Agache e coloque-o contra o bloco que você quer ler; a seta aponta para dentro do bloco em que você clicou. Um clique simples usaria esse bloco no lugar e bateria um Coração de tambor. Ele emite de **todas as faces exceto a seta**, fraco pelos lados e forte por trás.",
+        "O sinal é **0** quando o depósito está vazio e sobe de 1 a 15 conforme enche. Atualiza a cada 4 ticks, e um comparador que lê o medidor recebe o mesmo número.",
+        "Clique com o botão direito para ver o Pulso armazenado, a capacidade e o sinal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limiar de Pulso",
+      "text": [
+        "Coloque-o do mesmo jeito, agachado, com a seta para o depósito. Clique com o botão direito para percorrer **25, 50, 75 e 100%**; começa em 50.",
+        "Ele emite **15** cheio enquanto o Pulso armazenado está nessa fração ou acima, e nada abaixo. Como o medidor, nunca emite pela face da seta, então não perturba o depósito que observa. Um comparador lê o ajuste como 1 a 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pausar ou proteger",
+      "text": [
+        "Um sinal mantido pausa as máquinas. Ligado direto a uma máquina, um Limiar de Pulso a pausa enquanto o depósito está **cheio o bastante**.",
+        "Em geral você quer o contrário: pausar uma estação faminta enquanto o tambor está **baixo**, para sobrar uma reserva para você. Ponha uma **Placa inversa** na linha. Agora 'vazio demais' é o sinal ativo: abaixo do ajuste, a Inversa canta e a estação pausa; quando o tambor se recupera, a Inversa cala e o trabalho volta.",
+        "Teste com uma estação faminta antes de ligar o acampamento inteiro."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Manter uma reserva",
+      "steps": [
+        {
+          "caption": "Um Coração de tambor alimenta um Triturador de eco a três blocos de distância.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Agache e coloque um Limiar de Pulso contra o tambor, com a seta para dentro; um clique simples bateria o tambor. Clique com o botão direito no Limiar de Pulso para escolher 25, 50, 75 ou 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Agache e monte uma Placa inversa nas costas do Limiar de Pulso, de frente para a estação; um clique simples mudaria o ajuste do Limiar de Pulso. Ela lê o bloco em que está.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Abaixo do ajuste, o Limiar de Pulso cala, a Inversa canta, e a estação espera até o tambor encher de novo.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

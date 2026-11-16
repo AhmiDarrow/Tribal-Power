@@ -1,0 +1,30 @@
+{
+  "name": "Windanhänger",
+  "icon": "tribalpower:wind_charm",
+  "order": 180,
+  "next": "songkeeper_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_charm",
+      "text": [
+        "Fünf Kupferstäbe und ein Kristallsegel an einer Schnur, für Veranden und Türöffnungen. Er verbraucht keinen Puls und hat keine Aufgabe; er ist da, um gut auszusehen und zu klingen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ihn aufhängen",
+      "text": [
+        "Hänge ihn unter fast alles: eine Decke, einen Balken, eine Zaunlatte, eine Kette oder ein Laubdach. Setze ihn an die Seite eines Blocks, und er hängt stattdessen an einem Träger an dieser Wand.",
+        "Du kannst gerade hindurchgehen: er hat keine Kollision, aber Streifen stößt einen Stab an.",
+        "Er klingt von selbst, ab und zu an einem stillen Tag, mehr im Regen und stark im Sturm. Unter einem Dach ist er leiser. Stoße ihn an, damit alle fünf Stäbe loslegen.",
+        "Baue ab, woran er hängt, und er springt ab.",
+        "Redstone tut ihm nichts. Er ist kein Pulslicht und keine Windharfe."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_charm"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Griessänger",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Griessänger",
+      "text": [
+        "“Das Geflecht findet das Erz nicht. Das Geflecht gibt dem Erz einen Ort zum Landen.”",
+        "Strang von **Stein**, Stimme von **Erde**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Griessänger sangen tief über rohem Stein, bis er sich löste, und noch tiefer, bis er in Echo zerbarst. Ihr Handwerk ist der **Echozermalmer** und die Geflechte.",
+        "Ihre Lager stehen in **Bergen** und an steinigen Ufern, und im Marsch steht in jedem Band ein Lager von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Ihr Reagenz ist das **Abgestimmtes Echo** und ist **+8** Ansehen an ihrem Herd wert.",
+        "Sie bevorzugen auch Roherze, Erzblöcke, Eisengries, Goldgries oder Kupfergries: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 für je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt höchstens **60** Ansehen am Tag aus Opfergaben; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 4 Roheisen für 3 Echoscherben; 4 Abgestimmtes Echo und 8 Marschstein für ein Resonanzgeflecht.",
+        "**Freund**: 6 Eisengries für 2 Abgestimmtes Echo; 3 Rohgold für 4 Goldgries; 4 Steppenkorn für Griesbrot.",
+        "**Sippe**: 6 Abgestimmtes Echo für 2 Gebundenes Echo; 4 Gebundenes Echo für einen Echozermalmer.",
+        "Jeder Handel bringt **+2** Stand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Segen",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Griessänger. Fertige sie mit einem {item:tribalpower:resonance_totem_earth} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Erde**.",
+        "Die Sippe der Griessänger trägt ihren [Segen](tribe_boons): Erz, das du abbrichst, hat eine Chance von **eins zu fünf**, eines mehr zu geben.",
+        "Ihr Gericht trägt den Segen **5 Minuten** lang, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Dein Stand bei den Griessängern entscheidet, wie tief eine [Lauschgrube](listening_pit) hören darf: **Freund** für gewöhnliches Erz, **Sippe** für die tiefen und heißen Bänder, **Stimme** für das seltene. Ihr Verwandtschafts-Totem ist einer der zwei Wege, die tieferen Bänder zu öffnen.",
+        "Bei **Stimme** darfst du auch einen **Splitterrücken** als [Vertrauter](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Griessänger von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Aufträge und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

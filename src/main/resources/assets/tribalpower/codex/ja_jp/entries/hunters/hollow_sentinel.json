@@ -1,0 +1,51 @@
+{
+  "name": "空洞の番兵",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "まだ古い道を守る、中身のない番人の鎧。手に槍。その一撃は腕を弱くする。",
+        "狩ると、さらに鉄塊を1～3落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "空洞の番兵はマーチの高地、雪原、微光の尾根を歩き、少数は水晶の野も歩く。どの[祖先の広間](ancestor_hall)にも三体が見張りに立つ。",
+        "**体力44**と**防具6**があり、残滓の中で最も手強く、打撃は**6**。一撃ごとに4秒の弱体化を与える。光と、チャージした杖が役立つ。"
+      ],
+      "title": "どこで、どう"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**1～2個の番兵の印**を落とす。",
+        "番兵の印は霊のもとで調律されたエコー2個になる。"
+      ],
+      "title": "与えるもの"
+    },
+    {
+      "type": "text",
+      "text": [
+        "どの護符も空洞の番兵を結ばない。広間に仕え、あなたには仕えない。"
+      ],
+      "title": "結ばれない"
+    },
+    {
+      "type": "text",
+      "title": "狩猟と放牧",
+      "text": [
+        "試薬のほか、狩るとこれを落とし、ドロップ増加で増える。"
+      ]
+    }
+  ]
+}

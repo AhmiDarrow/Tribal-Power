@@ -1,0 +1,42 @@
+{
+  "name": "Liedhüter-Trommel",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Trommle aus Freude daran",
+      "text": [
+        "Die Liedhüter-Trommel ist ein Rhythmusspiel mit **26 Liedern** für sich: die Torriten und der Trommelkreis, die Musik jedes Landes des Marschs und die Themen seiner Wächter. Mit **Ninjacat Skies Core** 0.5.16 oder neuer kommen die zwölf Themen der Ninjacat-Wächter dazu, und mit **Chocobos Reborn** auch seine acht Rennen. Jedes Lied spielt ganz, und jede Note ist einem echten Schlag der Aufnahme entnommen.",
+        "Wähle ein Lied und eine Schwierigkeit (**Einfach**, **Normal**, **Schwer** oder **Experte**; Einfach nutzt drei Trommeln) und schlage **A**, **S**, **D** und **F** (oder die Pfeiltasten), sobald jedes Fell die Linie erreicht. Die vier Trommeln kannst du in der Steuerung neu belegen (die Trommeltasten des **Tor-Ritus**); A, S, D, F und die Pfeile gehen immer auch."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spielen",
+      "text": [
+        "Ein Treffer ist **Perfekt**, **Großartig** oder **Gut**, je nachdem, wie nah er liegt. Eine Serie hebt deinen Multiplikator: **x2** bei 10 in Folge, **x3** bei 20, **x4** bei 30. Ein Fehlschlag bricht die Serie und das Lied sackt ab.",
+        "Leuchtende Noten sind eine Phrase von **Geistschub**. Jede saubere Phrase füllt ein **Viertel** der Schubanzeige; ist sie halb voll, drücke **Leertaste**, um jeden Punkt zu verdoppeln, solange es anhält: bis zu **16 Sekunden** bei voller Anzeige, **8** bei halber.",
+        "Achte auf die **Resonanz**-Anzeige. Fehlschläge leeren sie, Treffer füllen sie; ist sie leer, bricht das Lied und kein Ergebnis bleibt. Einfach bricht nie.",
+        "Wenn Noten und Musik auf deinem Gerät auseinanderlaufen, setze den **Audioversatz** in der Liedliste. **Tempo** ändert, wie schnell die Noten laufen, und **Trefferklänge** setzen bei jedem Treffer einen Tick."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Punkte und Duelle",
+      "text": [
+        "Die Trommel merkt sich dein **bestes Ergebnis und Sterne** für jedes Lied auf jeder Schwierigkeit und eine Tafel der **fünf Besten** auf dem Server. Eine volle Kombo gibt goldene Sterne.",
+        "Stelle **zwei Liedhüter-Trommel nebeneinander** und sie werden ein Duellpaar. Fordere von der einen Trommel den Spieler an der anderen heraus: ihr spielt dasselbe Lied zugleich, jeder sieht die Punkte des anderen in einer Tauziehleiste, und der höhere Wert gewinnt. Deine Duellbilanz steht oben in der Liedliste."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

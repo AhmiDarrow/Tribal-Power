@@ -1,0 +1,260 @@
+{
+  "name": "Manifesteur d'écho",
+  "icon": "tribalpower:echo_manifest",
+  "order": 50,
+  "items": [
+    "tribalpower:manifested_ingot",
+    "tribalpower:resonant_core"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_manifest",
+      "text": [
+        "La station d'Esprit, en haut du treillis. Le Manifesteur d'écho change les Échos liés en **Lingots manifestés**, et les lingots en **Noyaux résonnants**, le cœur du meilleur équipement et des meilleures machines de ce livre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "S'en servir",
+      "text": [
+        "Place le Manifesteur d'écho avec un totem d'Esprit à 8 blocs ou moins.",
+        "- D'Écho lié à Lingot manifesté : **5 secondes** à **64 de Pulsation par seconde**.",
+        "- De Lingot manifesté à Noyau résonnant : **8 secondes** à **80 de Pulsation par seconde**.",
+        "Les noyaux entrent dans les Cellules de Pulsation majeures, la Robe d'Espritissu et les Jambières d'Espritissu, le Bâton sextuple, les relais à longue portée et les clefs de porte. Les outils d'Espritoutillage n'ont besoin que de Lingots manifestés. Logé dans un Résonateur de Pulsation, un noyau est son cristal le plus fort.",
+        "Un trophée de gardien et un Fil de Métier s'assemblent en six Noyaux résonnants ; voir [Gardiens](guardians)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Toute la colonne",
+      "steps": [
+        {
+          "caption": "Le Manifesteur d'écho, avec un totem d'Esprit à côté.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pose le Lieur d'écho au-dessus, avec un totem d'Eau : les Échos liés descendent dans le Manifesteur d'écho.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute l'Accordeur d'écho au-dessus, avec un totem de Feu, pour toute la chaîne.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Avec un générateur à portée, les Éclats d'écho entrent par le haut et les Lingots manifestés sortent par le bas.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              2,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Astuces",
+      "text": [
+        "Récupère par le bas avec un entonnoir. Pour faire des noyaux, remets les lingots dans l'entrée du Manifesteur d'écho.",
+        "Le Manifesteur d'écho est aussi le dernier arrêt pour donner un rang aux machines et à l'Espritoutillage.",
+        "Un levier met la station en pause. Les recettes de ce livre, ou JEI, indiquent le temps et la Pulsation."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_manifest"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_ingot"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_core"
+    }
+  ]
+}

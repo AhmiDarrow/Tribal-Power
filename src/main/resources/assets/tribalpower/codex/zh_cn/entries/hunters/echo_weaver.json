@@ -1,0 +1,52 @@
+{
+  "name": "回响织工",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "竖琴蛛，腿如竖琴般绷着弦：八条腿的破碎歌谣守护者。撕咬会减慢猎物。",
+        "被猎杀时还会掉落1到3个线，以及最多1个蜘蛛眼。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "回响织工爬行于远行界草原、水晶原、芦苇泽与浅滩。未歌者也会在其合唱中召来它们。",
+        "拥有**26点生命值**和**3点护甲**，撕咬**4**，使你减速3秒，并可能让你[磨损](afflictions)。从不会结网，也不会破坏你的营地。"
+      ],
+      "title": "何处与如何"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1到2个回响丝**。",
+        "回响丝在水之下结为2份灵织。"
+      ],
+      "title": "它给出什么"
+    },
+    {
+      "type": "text",
+      "text": [
+        "在**织机缝工**处达到**声音**，然后对成年个体使用结缘护符：五次里两次成，失败则护符消耗。或喂它自己的试剂：五次里一次成，试剂无论成败都消耗。",
+        "结缘的织工会捡起周围的掉落物扔给你。参见[使魔赠礼](familiar_gifts)。"
+      ],
+      "title": "作为使魔"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与放牧",
+      "text": [
+        "除自身试剂外，被猎杀时掉落此物，有抢夺时更多。"
+      ]
+    }
+  ]
+}

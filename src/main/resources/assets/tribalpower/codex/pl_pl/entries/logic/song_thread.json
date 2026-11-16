@@ -1,0 +1,268 @@
+{
+  "name": "Nić pieśni",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "Redstone to krzyk; Nić pieśni to nucana linia przez powietrze. Niesie sygnał od **0 do 15** we wszystkich **sześciu kierunkach**, w górę i w dół też, i nie potrzebuje niczego, na czym by spocząć.",
+        "**Potrzebna jest Nić Krosna**, której udziela tylko Marsz: skrzynie w jego starych salach, grobowcach, wrotach i grzędach, handel Szwaczy krosna na randze Przyjaciel i Niezaśpiewany. Pnącze pieśni, płyty pieśni i Wezwanie zwrotki robi się z Nici pieśni, więc też na nią czekają. Do tego czasu buduj z pyłu redstone, przekaźników i komparatorów."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prowadzenie linii",
+      "text": [
+        "Moc spada o **jeden na blok**, jak pył. Trzymaj linię krótko, jeśli na dalekim końcu potrzebujesz pełnych 15, albo odśwież ją Płytą echa.",
+        "Pył redstone vanilla, dźwignie, płyty pieśni, pnącza pieśni i komparatory mówią do niej. Między dwiema płytami pieśni możesz całkiem pominąć nić i zsynchronizować je Kluczem totemu (zobacz [Płyty pieśni](song_plates)).",
+        "Niesie słabo: nie zasila kamienia, którego dotyka, więc nigdy się nie zatrzaskuje. Ściana z nici to ściana z pieśni. O wąsie, który tuli się do kamienia na rogach, zobacz [Pnącze pieśni](song_vine)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Zegar pieśni",
+      "steps": [
+        {
+          "caption": "Postaw Bęben-serce. Samo z siebie potrzebuje, żebyś trzymał rytm.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zamontuj Płytę bicia serca na boku bloku, w stronę bębna. Ścianka, z której wskazuje na zewnątrz, to jej wyjście.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Poprowadź Nić pieśni od ścianki płyty do bębna.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Nowe Bicie serca bije już co 20 ticków, raz na sekundę. Kliknij prawym, by sprawdzić; kucnij i użyj tylko po to, by je spowolnić.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Każde uderzenie w czas dodaje 24 Pulsu, więc bęben się zapełnia, póki nic go nie wydaje.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzymanie czasu",
+      "text": [
+        "Bęben-serce liczy uderzenia w odstępie **17 do 23 ticków** jako w czas, warte **24 Pulsu**. Inny odstęp płaci najwyżej **10**, a uderzenia bliżej niż 8 ticków są pomijane, więc zostaw Bicie serca na 20 tickach: wolniejsze ustawienia dają tylko 10 za uderzenie. Puls dają tylko dwa bębny w odległości do 8 bloków od siebie.",
+        "Jeśli bęben się nie zapełnia, sprawdź skierowanie płyty, jej blok podpory i nić oraz usuń w pobliżu stałą moc. Najpierw uruchom zegar i bęben, zanim dodasz progi albo Płyty pamięci.",
+        "Dodaj [Miernik Pulsu](pulse_gauge), jeśli chcesz zapas jako sygnał."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "Redstone wokół Nici Krosna daje **osiem**."
+    }
+  ],
+  "next": "song_vine"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "코볼트",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "코볼트",
+      "text": [
+        "코볼트는 캘 가치가 있는 것이 있는 곳이라면 어디에든 살며, 그것을 나누지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "두 종류",
+      "text": [
+        "둘 다 밤낮없이 어둠 속에서 나타난다. 한 번에 한두 마리. 코볼트는 **체력 21**과 **방어력 2**가 있고, 빠르며, **4**로 친다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "능선 코볼트",
+      "text": [
+        "똑바로 선 작은 도마뱀개 광부. 곡괭이를 들고 투구에 등불이 있다. 희미한 빛 능선 아래의 어두운 동굴에서 발견된다.",
+        "사냥하면 구리 원석 최대 2개, 석탄 최대 1개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "정동 코볼트",
+      "text": [
+        "수정이 덮여 자란 코볼트. 수정 촉 창을 들고 있으며, 수정 들판 아래 어두운 동굴에서 발견된다.",
+        "사냥하면 자수정 조각을 최대 2개, 청금석을 최대 2개 더 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "그것들이 주는 것",
+      "text": [
+        "능선 코볼트는 **코볼트 비늘 1~2개**를 떨어뜨리고, 정동 코볼트는 **코볼트 뿔 1~2개**를 떨어뜨린다. 약탈이 있으면 더 많다. 둘 다 사냥개 시약이다. [시약](reagents) 참조.",
+        "코볼트는 결코 결속되지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어뜨리고, 약탈이면 그보다 더 늘어난다."
+      ]
+    }
+  ]
+}

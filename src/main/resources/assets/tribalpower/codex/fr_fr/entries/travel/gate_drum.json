@@ -1,0 +1,164 @@
+{
+  "name": "Tambour de porte",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "La porte vers la Marche, le monde que les tribus ont laissé derrière elles. Elle n'a pas besoin de Pulsation : **frappe son rythme** et le rythme lui-même ouvre la voie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Passer de l'autre côté",
+      "text": [
+        "Clique droit sur le tambour avec une **main vide** pour commencer le **Rite de la porte**. Un chant de tambours de 20 à 30 secondes joue, et ses battements tombent vers une ligne sur quatre tambours d'affilée : **A** est le tambour sur cadre grave, **S** le tom bas, **D** le tambour à main aigu et **F** le hochet.",
+        "Frappe chaque tambour quand son battement atteint la ligne, avec la musique. Le hochet te compte l'entrée, et le rythme monte au fil du chant.",
+        "Les quatre tambours répondent à **A**, **S**, **D** et **F**, et les touches fléchées marchent toujours aussi. Tu peux assigner chaque tambour à une autre touche sous Tribal Power dans Options, Contrôles ; A, S, D et F battent encore aussi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Réussir le rite",
+      "text": [
+        "Réussis **60%** des temps et la porte s'ouvre en t'emportant. Appuyer quand aucun temps n'est là compte contre toi, alors tiens le rythme plutôt que de taper au hasard. Si tu échoues, ou si tu arrêtes avec **Esc**, frappe simplement le tambour pour réessayer.",
+        "Le monde ne s'arrête pas pendant que tu tambourines, alors dégage d'abord la zone. Un signal de redstone verrouille le tambour, et tu ne peux pas traverser en étant monté.",
+        "Tu arrives à la surface de la Marche, au même endroit sur la carte. Ta première visite t'accorde à la Cache profonde, donc en ouvrir une est gratuit ensuite."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ouvrir la voie",
+      "steps": [
+        {
+          "caption": "Pose le Tambour de porte quelque part avec de la place autour.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique droit dessus à mains vides et bats le rythme sur A, S, D et F pour entrer dans la Marche.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rentrer chez soi",
+      "text": [
+        "Dans la Marche, bats le rite sur **n'importe quel** Tambour de porte pour rentrer, alors emporte un second tambour à poser là-bas.",
+        "Il te ramène là d'où tu es parti, sur l'endroit sûr le plus proche à côté, à l'écart des feux de camp, des dalles et du câblage. Si cet endroit a disparu, il te mène à ton point d'apparition.",
+        "Ton point de retour est gardé même si tu meurs dans la Marche.",
+        "Une Boussole astrale liée à la maison marche aussi. Une pierre de chemin ou une Boussole de l'horizon reste dans un seul monde, elle ne peut donc pas te ramener."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avant de partir",
+      "text": [
+        "Prends de la nourriture, une armure et des Cellules de Pulsation pleines.",
+        "La Marche a cinquante-neuf terres en six bandes ; les premières que tu risques de croiser sont la Steppe, les Hautes terres, les Champs de cristal, les Champs de neige, les Landes de braise, le Marais de roseaux, la Crête de lueur et les Bas-fonds. Lis chaque tablette dans une [Salle des ancêtres](ancestor_hall), et cherche des [Cercles de tambours](drum_circle) dans les Hautes terres.",
+        "Voir [la Marche](the_march) pour ce qui y vit."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

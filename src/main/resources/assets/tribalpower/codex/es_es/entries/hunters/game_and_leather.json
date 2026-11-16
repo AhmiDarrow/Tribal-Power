@@ -1,0 +1,56 @@
+{
+  "name": "Caza y cuero",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Los animales de la Marcha te alimentan igual que los del Supramundo. Su carne es **Caza cruda**, y sus pieles dan **Cuero de la Marcha**.",
+        "Caza asada sacia tanto como un filete, y así los viajes largos por la Marcha son mucho más fáciles."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Caza cruda** sale de Saltador de ceniza, Peñahocico, Pastador de campanilla, Brasapiel, Saltarín del risco, Riscocapa, Ciervo del alba, Peloderiva, Vadeador del tremedal, Trotador de escarcha, Zorro farol, Zancolargo, Vencejo del Telar, Caminante de la Marcha, Saltapantano, Lomomusgo, Alapálida, Pastador de prisma, Pastador de cresta y Lomomechón.",
+        "**Cuero de la Marcha** sale de Peñahocico, Pastador de campanilla, Brasapiel, Saltarín del risco, Trol del peñasco, Riscocapa, Ciervo del alba, Acechante profundo, Peloderiva, Vadeador del tremedal, Trotador de escarcha, Zorro farol, Zancolargo, Caminante de la Marcha, Lomomusgo, Pastador de prisma, Espiral de junco, Acechador de juncos, Pastador de cresta, Sabueso de la grieta, Trol de escarcha, Trol de escoria, Lomomechón y Raya del velo.",
+        "La página de cada criatura indica las cantidades.",
+        "Saqueo añade hasta uno más de cada uno. Un animal que muere ardiendo suelta la carne ya asada."
+      ],
+      "title": "De dónde sale"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Caza cruda** restaura **3** puntos de hambre y poca saturación. Caza asada restaura 8 con saturación alta.",
+        "Cuécelo en un horno, un ahumador (el doble de rápido) o en una hoguera (lo más lento, pero sin combustible).",
+        "Los dos cuentan como carne: los lobos los comen, y otros mods los tratan como carne cruda o cocinada."
+      ],
+      "title": "Cocinar y comer"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Cuero de la Marcha se fabrica en un cuero normal, así que cualquier cosa que pida cuero, como un Tambor silencioso, queda a un solo paso de fabricación.",
+        "También cuenta como cuero para otros mods que acepten cualquier cuero."
+      ],
+      "title": "Cuero de la Marcha"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Un Cuero de la Marcha hace un cuero."
+    }
+  ]
+}

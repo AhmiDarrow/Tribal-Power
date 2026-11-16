@@ -1,0 +1,467 @@
+{
+  "name": "Kolektor ley",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "Generator, który pije linie ley planety. Ustaw go tam, gdzie biegnie linia, wśród otwartego nieba, wody, roślin i życia, a dodaje Puls co **dwie sekundy**, choć sam tam nie stoisz.",
+        "Trzyma **2 000 Pulsu**, które przepada, jeśli go rozbijesz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego słucha",
+      "text": [
+        "Co dwie sekundy kolektor dodaje **3 Pulsu za każdy punkt** swojego **uderzenia**. Uderzenie zaczyna się od **1**, a ziemia w zasięgu **8 bloków** dodaje więcej:",
+        "- Otwarte niebo: **+1** w dzień, **+3** w nocy.",
+        "- Deszcz **+2**, a burza **+1** więcej.",
+        "- Woda: do **+4**.",
+        "- Rośliny: do **+4**. Każde cztery bloki trawy, liścia, kwiatu, uprawy lub mchu liczą się jako jeden. Woda i rośliny liczą się tylko od 2 bloków pod kolektorem do 2 nad nim.",
+        "- Totemy rezonansu: do **+3**, jeden na każdy osobny głos.",
+        "- Palenisko plemienia **+1**. Zwierzęta: do **+2**, jeden na parę.",
+        "- W Marszu **+2**; przy pełni księżyca **+1**.",
+        "Te dary to udział ziemi, a udział ziemi ma limit **6**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Linie ley",
+      "text": [
+        "Reszta taktu to linie ley mijające kolektor: do **+2** za każdą linię, pełne 2 dokładnie na nici i mniej, im dalej, aż do zera przy **7.5 bloków**, w górę i w dół tak samo jak w bok. Linie są siecią przez świat; tylko najrzadsze miejsca zbierają **sześć** razem, a kolektor nigdy nie liczy więcej. Cały takt ma limit **16**, co płaci **48 Puls** co dwie sekundy.",
+        "Totem rezonansu przeciąga przez siebie nić własnego koloru i zostawia inne kolory w spokoju. Ustaw sześć totemów wokół kolektora tak, by każda nić przecinała go w drodze przez swój totem. To zbieżność: sześć kolorów, a i tak nie więcej niż sześć linii w takcie.",
+        "Podczas przypływu ley kolektor, którego nici niosą wezbrany głos, daje podwójnie; zobacz [Żywy Marsz](living_march).",
+        "[Serce ley](ley_heart) wznosi sześć własnych linii na zewnątrz przez swoje totemy; kolektor ustawiony wzdłuż jednej to czuje."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dobre miejsce",
+      "steps": [
+        {
+          "caption": "Postaw kolektor na otwartym gruncie, gdzie widzi niebo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rośliny wokół dodają do każdego taktu: cztery żywe bloki są warte jeden punkt, do czterech.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Totemy różnych głosów dodają po punkcie, do trzech.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Dach odbiera mu niebo, deszcz i burzę. Słabnie, nie umiera: rośliny i głosy wciąż się liczą.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Strojenie",
+      "text": [
+        "Użyj skradając się Soczewki ley na kolektorze, by wydrukować dokładne rozbicie, czynnik po czynniku. Liczba, którą drukuje, to takt, nie Puls na sekundę. Wzrok ley rysuje linie, które przechodzą blisko ciebie, więc możesz stanąć na jednej, zanim zbudujesz.",
+        "Gdy takt wynosi **8 lub więcej** (połowa z 16), każde zebranie budzi też każdy totem w promieniu 8 bloków i utrzymuje go w odpowiedzi. Tu liczy się tylko takt; to, jak pełny jest kolektor, nie. Zobacz [Utrzymanie](keeping).",
+        "Sygnał redstone wstrzymuje go. Każda [ranga](machine_ranks) dodaje **15%** do każdego zebrania.",
+        "Jeśli wydaje się słaby, przykucnij i kliknij go prawym przyciskiem z tą książką."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

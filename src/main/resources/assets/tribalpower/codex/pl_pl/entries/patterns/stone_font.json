@@ -1,0 +1,79 @@
+{
+  "name": "Kamienna misa",
+  "icon": "tribalpower:stone_font",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:stone_font",
+      "text": [
+        "Kamienna misa prosi kamień, by został. Daj jej Puls i właściwy kształt wokół, a napełni się brukiem, potem kamieniem, potem obsydianem.",
+        "Bruk bez stężenia jest dość tani, by działać na [Bęben-serce](drumheart), na którym gra się ręcznie. To pierwszy wzór, który stawia większość obozów."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Bruk: misa i cztery znaki",
+      "text": "Narysuj kredowy znak po każdej stronie misy, na tej samej podłodze."
+    },
+    {
+      "type": "text",
+      "title": "Bruk",
+      "text": [
+        "Z czterema znakami i z bębnem-sercem, które przewodnik splata z nią w zasięgu **8 bloków**, misa robi **jeden bruk co 2 sekundy** przy **4 Pulsu na sekundę**. Żaden głos nie jest potrzebny.",
+        "Jej miejsca są tylko wyjściowe: nie wkładaj bruku lejkiem, misa robi własny. Przykucnij i kliknij prawym przyciskiem pustą ręką, by wziąć to, co zrobiła, albo użyj lejka albo przekaźnika. Gdy w środku nic nie ma, ten sam kucany klik przełącza klikniętą ścianę przez Oba, Wejście, Wyjście i Zamknięte. Płyty działają tak samo na górze i na dole misy: płyta przedmiotów na którejkolwiek wyciąga kamień, a płyta płynów nastawiona na jeden albo drugi wlewa wodę albo lawę.",
+        "Bruk z misy jest do budowania i do rozbijania w żwir i piasek. Kruszarka echa robi odłamki echa tylko z kamienia, nie z bruku, a kamień robi następny poziom."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 2,
+      "title": "Kamień i obsydian: stęż to",
+      "text": "Zostaw cztery znaki i dodaj Kamień kotwiczny na każdym rogu pola 5x5 wokół misy."
+    },
+    {
+      "type": "text",
+      "title": "Kamień",
+      "text": [
+        "Ze stężeniem i z głosem **Ziemia** w zasięgu misa robi **kamień co 3 sekundy** przy **32 Pulsu na sekundę**. Ten kamień jest dokładnie tym, co Kruszarka echa zamienia w odłamki echa.",
+        "Totem Ziemi trzeba utrzymywać obudzony (zobacz [Utrzymanie](keeping)): póki jest przygaszony, każdy kamień trwa około 30% dłużej, a gdy ucichnie, kamień staje. Bruk nigdy nie potrzebuje Ziemi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obsydian",
+      "text": [
+        "Obsydian potrzebuje stężenia i Ziemi oraz jednej z dwóch rzeczy:",
+        "- Głosy **Ogień i Woda**, oba w zasięgu: obsydian co **12 sekund** przy **48 Pulsu na sekundę**.",
+        "- Albo doprowadź rurą **250 mB wody i 250 mB lawy** na każdy blok: ten sam obsydian przy tylko **12 Pulsu na sekundę**. Misa mieści do 4000 mB każdego.",
+        "Doprowadzanie do misy bez stężenia nic nie daje. Jeśli Ogień i Woda są oba obecne, misa używa głosów i nie rusza zbiorników."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głębokość i rangi",
+      "text": [
+        "Poniżej **y 0** misa daje łupek każdego poziomu: zbrukowany łupek, potem łupek. Obsydian zostaje obsydianem. Dół nasłuchu nie przyjmuje łupku, więc zbuduj misę, która zasila dół, powyżej **y 0**.",
+        "Nadaj misie rangę jak każdemu innemu warsztatowi: szybsze zlecenia, więcej Pulsu na sekundę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Odczyt misy",
+      "text": [
+        "Komparator przy misie czyta, jak daleko jest z blokiem, który robi, i spada do 0, gdy na cokolwiek czeka.",
+        "Jeśli misa stoi bezczynnie, przykucnij i kliknij ją prawym przyciskiem tą książką. Wymienia brakujące znaki, kotwice i głosy."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:stone_font"
+    }
+  ],
+  "next": "listening_pit"
+}

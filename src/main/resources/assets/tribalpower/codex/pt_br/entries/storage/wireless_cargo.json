@@ -1,0 +1,470 @@
+{
+  "name": "Carga sem fio",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Mova itens ou fluido entre duas máquinas sem uma linha de canos. Encaixe uma placa de relé numa face da máquina que envia, mire-a na face que recebe com um Afinador de treliça, e a cada segundo a carga salta.",
+        "Os relés são para a distância. Dois blocos de Tribal Power que se tocam podem trocar pelas faces (veja [Como as estações funcionam](echo_workshops)); um baú vanilla ainda precisa de um funil ou de uma placa."
+      ],
+      "title": "Carga sem fio"
+    },
+    {
+      "type": "text",
+      "title": "Encaixar e mirar",
+      "text": [
+        "Clique com o direito uma placa numa face de uma máquina ou baú. Com uma placa na mão, um clique simples a coloca, mesmo numa máquina que abre uma tela. Ela puxa do bloco em que está grudada.",
+        "A placa puxa pela face em que está e entrega na face que você marcou, e as duas seguem os ajustes de face daquele bloco: a face da placa deve dar (**Saída** ou **Ambos**) e a face marcada deve receber (**Entrada** ou **Ambos**). Os lados de uma estação começam como **Entrada** e só a base como **Saída**, então ajuste a face primeiro.",
+        "Uma [Pia de pedra](stone_font) já vem pronta para placas: as faces de cima e de baixo são **Ambos**, então placas de itens e de fluido funcionam ali nos dois sentidos.",
+        "Mire com o **Afinador de treliça**: clique com o direito na face que deve receber a carga e depois clique com o direito na placa. A placa envia tudo o que puxa para essa face.",
+        "Mantenha a placa na treliça, a até 8 blocos de um Condutor de treliça, e também um totem de ressonância da voz dela, desperto ou fraco, mas não quieto: **Ar** para relés de itens, de fluidos e de longo alcance, o **Tear** para os astrais. Um Totem de parentesco que empreste essa voz também conta. Sem isso, a placa espera. Um servidor pode tirar esta regra com **automationNeedsVoices** na config comum."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Mirar um relé",
+      "steps": [
+        {
+          "caption": "Dois baús a alguma distância.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Encaixe um Relé de itens no topo do baú que envia.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique com o direito no topo do baú distante com um Afinador de treliça para marcá-lo.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Depois clique com o direito na placa com o afinador. Agora ela envia para a face marcada.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Coloque um Totem de ressonância (Ar) a até 8 blocos da placa: os relés seguem na voz Ar.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Pulso perto da placa que envia, e até 16 itens por segundo atravessam.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Itens ou fluido",
+      "text": [
+        "A cada segundo um relé move até **16 itens** ou **250 mB**.",
+        "Relés de itens e de fluidos carregam o que o nome diz. Um **Selo de Água** no espaço **runa** faz qualquer placa carregar fluido; um **Selo de Terra** faz ela carregar itens.",
+        "Para fluido, estacione uma Cisterna de Espírito em cada ponta. Os relés movem fluido; não o guardam.",
+        "Para escolher o que atravessa, ou queimá-lo, veja [Filtros e placas de vazio](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Canais",
+      "text": [
+        "Uma placa simples envia para um lugar. Suba o rank e ela abre mais **canais**: [Sintonizador de eco](machine_ranks) abre um segundo, Vinculador um terceiro, Manifestador um quarto. Cada canal tem o próprio destino e o próprio filtro.",
+        "Marque uma face com o Afinador de treliça e use o afinador na placa. Cada clique simples preenche o próximo canal sem destino, então os canais podem enviar a lugares diferentes. Selecione um canal e clique agachado na placa com o afinador para substituir aquele. **Desvincular** esquece o destino de um canal e mantém o filtro.",
+        "**Prioridade** envia a carga ao primeiro canal, em ordem numérica, que a aceita e tem espaço: lista de permissão de minérios no canal 1 para uma fornalha, e deixe o canal 2 levar todo o resto ao armazenamento. **Rodízio** faz os canais se revezarem.",
+        "Os canais dividem a única transferência da placa por batida, então uma placa com rank move tanto quanto antes, só que para mais lugares."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Três distâncias",
+      "text": [
+        "- **Relé de itens** e **Relé de fluidos** alcançam **32 blocos**, e cada batida que move algo custa **8 Pulso**.",
+        "- Os relés de **longo alcance** alcançam **128 blocos**, por **16 Pulso** a batida.",
+        "- Os relés **astral** não têm limite de distância e cruzam entre mundos, por **32 Pulso** a batida.",
+        "Uma batida que não move nada não custa nada.",
+        "Placas ranqueadas (veja [Ranques de máquina](machine_ranks)) pagam **118%**, **143%** ou **182%** disso e movem outro tanto a mais: cerca de **19 / 23 / 29** itens ou **294 / 357 / 455 mB**. O Pulso por item fica quase igual."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Afinador de treliça",
+      "text": [
+        "Clique com o botão direito na face do bloco para onde você quer entregar os bens; o afinador lembra essa face. Depois clique com o botão direito na placa com o afinador para mirá-la. Marque o destino, nunca a placa. Um clique direito simples marca qualquer bloco, até um depósito ou um baú que abre ao clique.",
+        "A marca fica no afinador depois que você mira, então uma marca pode mirar várias placas; clique com o botão direito em outro bloco para trocá-la. Uma marca no bloco em que a própria placa está é recusada.",
+        "Os limites de distância acima se aplicam.",
+        "A mira permanece ao pegar a placa, e o filtro também. Quebrar uma placa deixa a runa ao lado dela.",
+        "Uma placa é sua: só você e seu [acampamento](shared_camps) podem abri-la, mudar o filtro ou mirá-la com um afinador."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Controles e quando espera",
+      "text": [
+        "Um sinal de redstone constante pausa uma placa. Energize o bloco alvo do afinador para parar uma transferência vinda da ponta distante.",
+        "Uma alavanca numa estação Tribal Power, num depósito ou numa cisterna também impede placas de puxar dali ou de entregar ali.",
+        "Um comparador numa placa lê **0** sem vínculo, **1** vinculada mas à espera, **15** enquanto move carga.",
+        "As duas pontas já precisam estar carregadas. Um destino descarregado ou cheio faz o relé esperar; só uma placa de Selo de Fogo destrói alguma coisa. Relés nunca carregam chunks sozinhos, então coloque uma Âncora de caminho na ponta distante se ela precisar funcionar enquanto você está longe.",
+        "Agache e clique com o botão direito numa placa com este livro para ver o vínculo, o custo e por que ela está esperando."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Sanación chamánica",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Toda tribu tiene a alguien que cura. Aquí eres tú: un caldero sobre el fuego, una sonaja en la mano y los ritos antiguos.",
+        "- El [Caldero del Espíritu](spirit_kettle) elabora **remedios** con un reactivo, una hierba y una base.",
+        "- Los [Remedios](remedies) vienen como tinturas para beber, ungüentos para aplicar e incienso para quemar para todos a la vez.",
+        "- La [Sonaja del sanador](healers_rattle) cura a quien miras, a cambio de un poco de Pulso.",
+        "- El [Mal del Espíritu](spirit_sickness) es lo que te dejan los peores espíritus de la Marcha, y por eso importa todo esto.",
+        "- El [Círculo de sanación](healing_circle) cura a todo un campamento y llama de vuelta a los familiares caídos.",
+        "- Una [cabaña de sudor](sweat_lodge) te manda a la cama herido y te despierta entero."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Por dónde empezar",
+      "text": [
+        "Construye primero el caldero. Colócalo sobre una hoguera encendida a 8 bloques de un Conductor de entramado en una red cargada; un Tótem de resonancia cerca es opcional, pero añade su voz a cada brebaje. Una pila de ungüentos en tu mochila es la diferencia entre una noche dura en la Marcha y volver andando a casa."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

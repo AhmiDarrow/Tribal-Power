@@ -1,0 +1,300 @@
+{
+  "name": "Ranques das máquinas",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Oficinas e geradores podem receber ranque, do mesmo jeito que o Equipamento espiritual: coloque a máquina no Sintonizador de eco, depois no Vinculador de eco e depois no Manifestador de eco. Cada ranque a deixa mais rápida, e ela paga essa velocidade em Pulso.",
+        "Você não pode pular uma etapa: o Vinculador recusa uma máquina de ranque 0, e o Manifestador quer o ranque 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o ranque custa",
+      "text": [
+        "Cada etapa gasta Pulso e tempo, mas nenhum catalisador:",
+        "- Sintonizador (Fogo): **16 segundos** a **96 Pulso por segundo**, para o ranque 1.",
+        "- Vinculador (Água): **20 segundos** a **128**, para o ranque 2.",
+        "- Manifestador (Espírito): **24 segundos** a **160**, para o ranque 3."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Três vozes, três ranques",
+      "steps": [
+        {
+          "caption": "Pegue a máquina. Como item, ela entra no Sintonizador de eco com um Totem de ressonância (Fogo) para o ranque 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Depois no Vinculador de eco, com Água, para o ranque 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Depois no Manifestador de eco, com Espírito, para o ranque 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Coloque de novo. O ranque fica no bloco e no item quando você o pega.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que um ranque faz",
+      "text": [
+        "- Ranque 1: **85%** do tempo, **118%** do Pulso por segundo.",
+        "- Ranque 2: **70%** do tempo, **143%** do Pulso.",
+        "- Ranque 3: **55%** do tempo, **182%** do Pulso.",
+        "As estações contam segundos inteiros, então um trabalho curto pode não ficar mais rápido no ranque seguinte, mas ainda paga a taxa maior de Pulso. Os ranques compensam melhor em trabalhos longos, como núcleos, o ranqueamento e o Forno de brasa.",
+        "Os geradores funcionam diferente: cada ranque soma **15% de Pulso por segundo**, não os 118% da oficina. As mãos do acampamento batem mais rápido com o mesmo Pulso por movimento.",
+        "A **Bancada do canto** é diferente de novo: cada ranque corta o Pulso dela, para **85%**, **70%** e **55%**.",
+        "As placas de relé movem mais e pagam mais Pulso por isso, e cada ranque abre mais um canal: um no ranque 0, até quatro no ranque 3. Um Condutor de treliça carrega **64**, **256**, **1,024** ou **4,096** Pulso por segundo conforme o ranque, e uma pedra de Marco de Pulso guarda **4,000**, **16,000**, **64,000** ou **256,000** e move Pulso na taxa do condutor. O Conversor e o Energizador movem mais Pulso por segundo. Um Depósito ou uma Cisterna com ranque só entrega itens e fluido mais rápido às máquinas que toca."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quais máquinas",
+      "text": [
+        "Toda estação de eco, o Forno de brasa e a Bancada do canto; o Coração de tambor, o Coletor de ley, o Ressonador de Pulso e os cinco ofícios de voz; o Condutor de treliça, o Marco de Pulso, o Energizador harmônico, o Conversor de treliça, o Depósito ancestral e a Cisterna de Espírito; cada relé; a Pia de pedra e a Malha de ressonância; e as mãos do acampamento (Bomba de maré, Laço de vento, Tambor de guarda, Tear de selos).",
+        "A dica mostra o ranque pelo nome: Tecido (0), Sintonizado (1), Vinculado (2), Manifestado (3). Se uma estação não aceitar a máquina, é a estação errada para o ranque atual; agache e clique com o botão direito na estação com este livro."
+      ]
+    }
+  ]
+}

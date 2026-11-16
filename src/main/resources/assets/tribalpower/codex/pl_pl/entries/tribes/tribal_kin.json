@@ -1,0 +1,71 @@
+{
+  "name": "Ród plemienny",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Każdy obóz trzyma cztery Ród: **Starszy**, **Bębniarz**, **Łowca** i **Tkacz**. Wędrują w promieniu **16 bloków** od obozu i nigdy nie znikają; w dzień święta plemienia trzymają się w promieniu **5 bloków** od Palenisko. Prawy przycisk na Bębniarza, Łowcę albo Tkacza pokazuje ich zajęcie i twoją rangę. Starszy zamiast tego rozmawia z tobą."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "Starszy",
+      "text": [
+        "Starszy handluje, gdy jesteś **Gość**. Każde plemię ma siedem ofert: dwie na każdą rangę, od Gość do Ród, plus własne danie plemienia przy randze Przyjaciel. Każdy handel daje **+2** reputacji. Starszy wręcza też [prośby i opowieść](elders_and_stories) plemienia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Handel ze Starszym",
+      "text": [
+        "Starszy nie ma nic dla rangi Obcy. Najpierw zanieś ofiarę do Palenisko.",
+        "Zapas jest ograniczony. Ofertę można wziąć **12 razy** dziennie, **8**, jeśli chce dwóch różnych przedmiotów, i **6**, jeśli sprzedaje reagent stworzenia. Starszy uzupełnia zapas raz na dzień Minecraft, a zamknięcie ekranu go nie uzupełnia.",
+        "Gdy osiągniesz **Głos**, pomów ze Starszym jeszcze raz. Wciska ci w dłoń **Znak plemienia** tego plemienia, po jednym na plemię. Strzeż go: staje się [Totem pokrewieństwa](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "Bębniarz",
+      "text": [
+        "Co **5 do 6 sekund** Bębniarz uderza takt, który podaje **2 Puls** każdemu Bęben-serce, Kolektor ley i Rezonator Pulsu w promieniu **8 bloków**. Harfy wiatru, Bębny fal i Rogi żaru nie biorą z tego nic. Takt utrzymuje też pobliskie totemy w czuwaniu."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "Łowca",
+      "text": [
+        "Łowca pilnuje krawędzi obozu i uderza wrogie moby w promieniu **12 bloków**. Skrzywdz jednak jakikolwiek Ród, a Łowca przyjdzie po ciebie na **minutę**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "Tkacz",
+      "text": [
+        "Co **40 do 90 sekund** Tkacz idzie do najbliższego Krosno w promieniu **12 bloków** od obozu (albo do Stół pieśni, jeśli nie ma Krosno) i pracuje przy nim przez **sześć sekund**. Ta poza jest pracą. Nic dla ciebie nie wytwarza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Żyć obok nich",
+      "text": [
+        "Ród jest neutralny i cierpliwy. Będą stać przy twoich maszynach, bębnić twoim generatorom i strzec twoich nocy, jak długo zechcesz.",
+        "Nigdy ich nie uderzaj. Zabłąkany zamach mieczem kosztuje **25** reputacji i obraca cały obóz przeciw tobie. Zobacz [Plemiona i reputacja](standing), żeby poznać wszystko inne, co gniewa plemię.",
+        "Cztery jaja przyzywające są dla budowniczych w trybie kreatywnym, którzy chcą postawić własny obóz."
+      ]
+    }
+  ]
+}

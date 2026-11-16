@@ -1,0 +1,40 @@
+{
+  "name": "O que é um familiar",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 10,
+  "next": "familiars",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Um companheiro para a sua magia",
+      "text": [
+        "Um **familiar** é uma criatura vinculada a você. Ele segue você, espera onde você mandar e nunca desaparece, e cada tipo tem um dom próprio ([o que os familiares fazem](familiar_gifts)).",
+        "Dê a ele uma voz em um **Totem de ressonância** e ele passa a fazer parte da sua magia: os Amuletos de Espírito e o Equipamento espiritual dessa voz custam menos, e os cantos e ritos dele ficam mais fortes, enquanto ele estiver a **16 blocos** de você.",
+        "A magia funciona sem um familiar. Um familiar a torna mais forte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem pode ser vinculado",
+      "text": [
+        "- **Bestas gentis**: o Cervo da alvorada e a Raposa-lanterna das florestas, o Lomomusgo dos pântanos, e os pastadores, os saltadores e as mariposas de cada bioma da Marcha. Qualquer um pode vinculá-los.",
+        "- **Seis remanescentes**, quando a tribo deles chamar você de **Voz** (800 de prestígio): Lomoestilhaço, Cão da fenda, Diabrete de borralho, Mariposa da tempestade, Sino de luto e Tecelão de eco. A página seguinte diz qual tribo fala por qual.",
+        "Cinzligado, Raizligado, Espreitadores de juncos e Sentinelas ocos nunca respondem, nem os chefes, os goblins, os trols ou os outros hostis da Marcha. Os filhotes não podem ser vinculados.",
+        "**Agache e olhe** para uma criatura para ver se ela pode ser vinculada e do que precisa. Uma Lente ley usada agachado nela diz o mesmo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Lomoestilhaço: os **Cantores de cascalho**.",
+        "- Cão da fenda: os **Caminhantes da borda**.",
+        "- Diabrete de borralho: os **Corações de tambor**.",
+        "- Mariposa da tempestade: os **Tecelões de padrões**.",
+        "- Sino de luto: os **Entalhadores de selos**.",
+        "- Tecelão de eco: os **Costureiros do tear**.",
+        "Veja [prestígio](standing) para saber como ganhá-lo."
+      ],
+      "title": "Qual tribo para qual remanescente"
+    }
+  ]
+}

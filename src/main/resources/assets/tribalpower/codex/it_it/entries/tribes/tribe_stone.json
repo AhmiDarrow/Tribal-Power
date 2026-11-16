@@ -1,0 +1,65 @@
+{
+  "name": "Cantori di ghiaia",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Cantori di ghiaia",
+      "text": [
+        "“La maglia non trova il minerale. La maglia dà al minerale un posto dove posarsi.”",
+        "Filo di **Pietra**, voce di **Terra**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Cantori di ghiaia cantarono basso sulla pietra grezza finché si allentò, e ancora più basso finché si frantumò in eco. Il loro mestiere è il **Frantumatore di eco** e le maglie.",
+        "I loro accampamenti stanno nelle **montagne** e su rive pietrose, e nella Marcia un loro accampamento sta in ogni fascia, dal nord ghiacciato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è l'**Eco sintonizzato**, che vale **+8** di reputazione al loro focolare.",
+        "Favoriscono anche minerali grezzi, blocchi di minerale, Ghiaia di ferro, Ghiaia d'oro o Ghiaia di rame: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda: il focolare prende al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che l'Anziano scambia",
+      "text": [
+        "**Ospite**: 4 Ferro grezzo per 3 Schegge di eco; 4 Eco sintonizzato e 8 Pietra della Marcia per una Maglia di risonanza.",
+        "**Amico**: 6 Ghiaia di ferro per 2 Eco sintonizzato; 3 Oro grezzo per 4 Ghiaia d'oro; 4 Grano della steppa per Pane di ghiaia.",
+        "**Consanguineo**: 6 Eco sintonizzato per 2 Eco vincolato; 4 Eco vincolato per un Frantumatore di eco.",
+        "Ogni scambio frutta **+2** di grado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce**, l'Anziano ti dà il Marchio della tribù dei Cantori di ghiaia. Fabbricalo con un {item:tribalpower:resonance_totem_earth} e due Tessitospirito nel loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Terra**.",
+        "I Consanguinei dei Cantori di ghiaia portano il loro [dono](tribe_boons): il minerale che rompi ha una probabilità di **una su cinque** di darne uno in più.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti con te.",
+        "Il tuo grado presso i Cantori di ghiaia decide quanto a fondo una [Fossa d'ascolto](listening_pit) può ascoltare: **Amico** per il minerale comune, **Consanguineo** per le fasce profonda e calda, **Voce** per quella rara. Il loro Totem di parentela è uno dei due modi per aprire le fasce più profonde.",
+        "A **Voce** puoi anche legare un **Dorsoscheggia** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Cantori di ghiaia ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

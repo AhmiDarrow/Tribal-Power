@@ -1,0 +1,111 @@
+{
+  "name": "Los árboles que caminan",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Guardianes de las arboledas",
+      "text": [
+        "No todo árbol de la Marcha se queda quieto. En cada tierra donde crece un [árbol de la Marcha](march_trees), unos pocos de su especie se han puesto en pie y caminan, con la misma madera y la misma hoja del árbol del que salieron.",
+        "Son mansos. Cepilla uno para obtener su reactivo una vez por minuto, y atráelo y críalo con **Polvo de hueso**. Puedes vincularlo como a cualquier animal manso (véase [familiares](familiars)), y aunque no tiene un regalo propio, uno vinculado aún puede tomar una voz en un tótem y reforzar tu magia (véase [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Guardián del Hogar",
+      "text": [
+        "El roble del hogar de la Estepa, ancho y pesado sobre raíces cortas. Suelta **Corteza del Hogar**.",
+        "Cazado, también suelta de 1 a 3 Tronco de roble del hogar, hasta 1 Brote de roble del hogar y de 1 a 3 palos. Críalo con **Polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Anciano de la arboleda",
+      "text": [
+        "El árbol de la Marcha de las arboledas de las Tierras altas, alto y encorvado sobre un bastón, con barba de musgo. Suelta **Corteza de anciano**.",
+        "Cazado, también suelta de 1 a 3 Tronco de la Marcha, hasta 1 Brote de la Marcha y de 1 a 3 palos. Críalo con **Polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Centinela de pino de escarcha",
+      "text": [
+        "El pino de escarcha de los Campos de nieve, un tronco alto bajo un cono de agujas nevadas; sus brazos de rama salen por debajo de las ramas más bajas. Suelta **Corteza de pino de escarcha**.",
+        "Cazado, también suelta de 1 a 3 Tronco de pino de escarcha, hasta 1 Brote de pino de escarcha y de 1 a 3 palos. Críalo con **Polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Caminante de tocón",
+      "text": [
+        "El tocón de madera de ceniza de los Yermos de brasas, un tronco quemado de madera muerta, partido en lo alto, que aún queda en rescoldo. Suelta **Corteza de ceniza** (tinte amarillo).",
+        "Cazado, también suelta de 1 a 3 Tronco de madera de ceniza, hasta 1 Brote de madera de ceniza y de 1 a 3 palos. Críalo con **Polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Guardián llorón",
+      "text": [
+        "El sauce de la Ciénaga de juncos, encorvado bajo una cortina de hebras. Suelta **Nudo llorón**.",
+        "Cazado, también suelta de 1 a 3 Tronco de sauce, hasta 1 Brote de sauce y de 1 a 3 palos. Críalo con **Polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Anciano de sombrerillo",
+      "text": [
+        "El sombrerillo de los Campos de cristal, un tallo rechoncho bajo un enorme sombrero. Suelta **Espora de sombrerillo** (tinte magenta).",
+        "Cazado, también suelta de 1 a 3 Tronco de sombrerillo, hasta 1 Brote de sombrerillo y de 1 a 3 palos. Críalo con **polvo de hueso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Madera de zancos",
+      "text": [
+        "El zancudo de los Bajíos, en alto sobre raíces fúlcreas arqueadas. Suelta **Raíz de zanco**.",
+        "Cazado, también suelta de 1 a 3 Tronco de zancudo, hasta 1 Brote de zancudo y de 1 a 3 palos. Críalo con **polvo de hueso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo son",
+      "text": [
+        "Cada árbol andante tiene **48 de salud** y **8 de armadura**. Son lentos, se apartan de los monstruos y caminan en grupos de dos a cuatro. Cada uno suelta **1 a 3** de su reactivo, más con Saqueo.",
+        "La Cresta del destello no cría árbol alguno, así que no tiene guardián. El único árbol que camina y no es manso es el [Guardián coloso](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y arreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más al cazarlo, y más aún con Saqueo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si lo alimentas con normalidad, uno salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

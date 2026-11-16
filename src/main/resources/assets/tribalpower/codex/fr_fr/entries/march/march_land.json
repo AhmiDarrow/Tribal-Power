@@ -1,0 +1,455 @@
+{
+  "name": "Sol et croissance de la Marche",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "La Marche a son propre sol : Herbe de la Marche sur Sol de la Marche, Pierre de la Marche en dessous, et ses propres arbres, fleurs et cristal.",
+        "La plupart fonctionne comme les blocs du monde normal que tu connais, avec quelques différences à apprendre avant de commencer à y bâtir."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Pierre de la Marche** est la roche du monde entier. Il faut au moins une **pioche en pierre**, et elle se casse en **Pierres de la Marche** sauf si tu utilises Toucher de soie. Fais fondre ce moellon pour retrouver la pierre.",
+        "Sous l'herbe se trouve **Sol de la Marche**. L'herbe donne du sol sauf si tu utilises Toucher de soie, et elle ne s'étend que sur Sol de la Marche, sous une bonne lumière. De la poudre d'os sur Herbe de la Marche fait pousser des touffes de **Feuille de la Marche**.",
+        "**Mousse de la Marche** recouvre la Tourbière des roseaux et les Hautes terres. Certains biomes ajoutent du sol du jeu de base : de la calcite dans les Champs de cristal, de la neige et de la glace compactée dans les Champs de neige, du basalte lisse dans les Landes de braise, de la boue dans le marais.",
+        "Un Broyeur d'écho broie Pierre de la Marche en un Éclat d'écho, et Pierres de la Marche en gravier."
+      ],
+      "title": "Pierre et sol"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Une houe change Sol de la Marche, l'herbe ou la mousse en **Sol labouré de la Marche**, tant que l'espace au-dessus est libre. De l'eau à **4 blocs** le garde mouillé. Laissé au sec, ou piétiné, il redevient Sol de la Marche, jamais de la terre du monde normal.",
+        "Une pelle aplatit les mêmes blocs en **Chemin de la Marche**, qui redevient aussi Sol de la Marche quand quelque chose le couvre.",
+        "La Pousse de la marche pousse sur Herbe de la Marche et sur Sol labouré de la Marche."
+      ],
+      "title": "Cultures et chemins"
+    },
+    {
+      "type": "scene",
+      "title": "Travailler le sol de la Marche",
+      "steps": [
+        {
+          "caption": "Herbe de la Marche sur Sol de la Marche : la plus grande part du sol que tu fouleras.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Une houe laboure l'herbe en Sol labouré de la Marche, tant que rien ne repose dessus.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "L'eau à quatre blocs le garde mouillé ; un sol labouré sec redevient peu à peu Sol de la Marche.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Une pelle aplatit l'herbe en Chemin de la Marche pour tes sentiers.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Une Pousse de la marche prend racine sur l'herbe qui reste.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les arbres de la Marche poussent en bosquets dans les Hautes terres, en boqueteaux et isolés dans la Steppe, et sous leurs propres formes dans le marais et les Champs de neige.",
+        "Une **Bûche de la marche** donne **4 Planches de la marche**. Les Feuilles de la marche lâchent parfois une Pousse de la marche (Fortune aide) et un ou deux bâtons ; les cisailles ou Toucher de soie gardent les feuilles elles-mêmes.",
+        "Les Planches de la marche entrent dans beaucoup de Tribal Power : tambours, le totem du Métier, tabourets et tables. Herbe de la Marche, Mousse de la Marche, Feuilles de la marche et les touffes de Feuille de la Marche comptent comme vert vivant autour d'un Collecteur de ley."
+      ],
+      "title": "Arbres"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Roseau d'Esprit** pousse dru dans la Tourbière des roseaux et clairsemé dans la Steppe. Il entre dans Liane de chant, Roseau lumineux, Charme du vent, Natte tissée et Tablette de l'appel du printemps, et les Lieurs de racines l'acceptent comme offrande.",
+        "- **Fleur d'écho** pousse en nappes, en champs entiers dans les Champs de cristal, et lâche de petites mouchetures de lumière. Elle entre dans le Bol de braise.",
+        "- **Chardon de ley** est dispersé sur presque toute la Marche, Landes de braise comprises. C'est de la décoration : cueille-le pour ton camp.",
+        "Les trois se replantent sur n'importe quel sol de la Marche, même la pierre nue, et les trois brûlent."
+      ],
+      "title": "Fleurs et roseaux"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Cristal de la Marche** pousse en surface, le plus épais dans les Champs de cristal. Il brille à la lumière **10**, a besoin d'un bloc solide en dessous et tombe tel quel avec n'importe quel outil. Il sert au totem du Métier, à l'Ancre de Métier, à l'Ancre de voie, au Berceau d'invocation, à la Boussole astrale et aux relais astraux, et les Couseurs du métier l'adorent. Les Feux follets spirituels se rassemblent autour de lui.",
+        "**Minerai de la Marche** est du minerai d'esprit dans la pierre, surtout bien en dessous de **y -8**, et plus haut il y en a davantage dans certains biomes. Il faut une pioche en pierre, et il donne **1 à 2 Éclats d'Esprit** (Fortune en ajoute). Avec Toucher de soie, tu gardes le bloc, et un Broyeur d'écho le change en **2 Éclats d'Esprit**."
+      ],
+      "title": "Cristal et Minerai de la Marche"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Fais fondre les Pierres de la Marche pour retrouver la Pierre de la Marche."
+    },
+    {
+      "type": "text",
+      "title": "Eau et grottes",
+      "text": [
+        "Les étangs de la Marche portent des **Nénuphars de la Marche**, et parfois un **Lys de lune** qui luit sur l'eau la nuit. L'**Algue ruban** ondule en dessous, enracinée dans des lits de **Limon de la Marche** gris et d'argile.",
+        "Sous terre, parois et plafonds des grottes portent un **Lichen du voile** faiblement lumineux, des **Racines d'écho** pendent de la roche, et des **Chapeaux-lanternes**, petits champignons lumineux, éclairent le sol des grottes.",
+        "Les cisailles gardent l'algue, le lichen et les racines."
+      ]
+    }
+  ]
+}

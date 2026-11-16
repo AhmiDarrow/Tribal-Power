@@ -1,0 +1,6 @@
+{
+  "name": "Stockage et fret",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 50,
+  "description": "Caches et citernes pour tes biens, et des relais qui les portent d'une machine à l'autre sans tuyaux."
+}

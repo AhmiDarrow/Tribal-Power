@@ -1,0 +1,93 @@
+{
+  "name": "La Marcha",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "La Marcha es donde el hilo se deshilachó más fino y el suelo caído vino a reposar. Los salones yacen hundidos hasta el dintel. Los campamentos llevan el compás sin nadie al tambor. El cristal crece donde la tensión del Telar aún se acumula.",
+        "Allí todo sigue respondiendo a un ritmo. Eso no es un embrujo. Es un mundo que nunca aprendió a parar.",
+        "Vas allí por cosas que no encuentras en casa: **Cristal de la Marcha**, **Hilo de Telar** y el **Corazón No Cantado**. Abren el transporte astral, la voz del Telar y las últimas Tablilla de relatos."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "La entrada es un [Tambor del portal](gate_drum). No necesita Pulso: toca en él el **Rito del Portal**, cuatro tambores en **A**, **S**, **D** y **F**, y el ritmo abre el camino.",
+        "Haz clic derecho con la mano vacía para empezar el rito; acierta el **60%** de los golpes y te lleva al otro lado. Una señal de redstone bloquea el tambor.",
+        "Tocar el rito en un Tambor del portal dentro de la Marcha siempre te trae a casa: al lugar del que saliste, o a tu punto de reaparición si aquel ya no está. Tu punto de regreso sobrevive a la muerte, así que un mal viaje nunca te deja varado.",
+        "Más tarde, un par de [Portal de senda](way_gate) es la ruta de carga.",
+        "Cuando una actualización remodela la tierra de la Marcha, una partida antigua aparta su Marcha una sola vez, en el siguiente arranque, y la dimensión vuelve a crecer mientras la exploras. La Marcha antigua, con todo lo construido allí, se mueve a **tribalpower_backups** dentro de la partida y nunca se borra. **retrogenMarch** en la sección **world** de la configuración común lo desactiva."
+      ],
+      "title": "Ida y vuelta"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Entra con varias Célula de Pulso cargadas, comida, algunos [Ungüento del Espíritu](remedies) y la mano firme. Lleva un Tambor del portal de repuesto para dejarlo en el viaje de vuelta, y si tienes una Brújula astral, vincúlala a un suelo seco de casa antes de salir. La Marcha es grande y cada bioma se ve nuevo la primera vez.",
+        "Los Restos del Espíritu surgen donde está oscuro, en la superficie y debajo, así que lleva antorchas o faroles e ilumina el camino de vuelta a tu tambor."
+      ],
+      "title": "Qué llevar"
+    },
+    {
+      "type": "text",
+      "title": "Día y noche",
+      "text": [
+        "El día de la Marcha es para trabajar, y su noche es el peligro.",
+        "- **De día** los espíritus rara vez surgen a campo abierto, nunca bajo luz de antorcha o farol, y nunca junto a otro. Los espíritus salvajes atrapados bajo el cielo abierto se desvanecen al salir el sol, salvo que ya te estén persiguiendo.",
+        "- **De noche** surgen más fuertes, con más salud y golpes más duros, y algunos salen como **élites** de nombre dorado. Vienen de dos en dos como mucho, y dejan de surgir cuando hay cuatro cerca.",
+        "- **Cuevas** tienen sus propias reglas. Los cazadores de las cuevas surgen en cualquier sitio sin luz bajo tierra, de día o de noche, y el tope de cuatro no vale abajo, así que una cueva oscura puede llenarse. Ilumínala al avanzar.",
+        "- Las élites y los espíritus de la noche pueden dejarte con [Mal del Espíritu](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dormir para pasarlo",
+      "text": [
+        "Las camas funcionan en la Marcha, y dormir toda la noche adelanta el reloj hasta la mañana. (La Marcha sigue el tiempo del Supramundo, así que la noche del Supramundo también pasa.)",
+        "Solo un espíritu que **ya te está cazando** te impide dormir. Uno que merodea junto a tus muros, no, así que un campamento con luz y muros es un lugar seguro para descansar."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Estepa**: hierba ondulada, con sotos y árboles sueltos. Pastan Caminante de la Marcha, Ciervo del alba, Zorro farol, conejos y unos pocos Lomomusgo. Cazan Cenizligado, Raizligado, Sabueso de la grieta, Tejedor de eco y unos pocos Acechador de juncos. Las [Salas de los ancestros](ancestor_hall) se hunden aquí.",
+        "- **Tierras altas**: piedra, musgo y arboledas. Cabras, Ciervo del alba, zorros, Caminante de la Marcha y conejos. Centinela hueco, Polilla de tormenta, Diablillo de pavesa, Sabueso de la grieta y unos pocos Lomoesquirla. Hogar de los [Círculo de tambores](drum_circle), más Salas de los ancestros y esmeraldas (la Cresta de brillo también las tiene).",
+        "- **Campos de cristal**: mesas en terraza de calcita y piedra, erizadas de Cristal de la Marcha. Zorros, conejos, Lomomusgo y Caminante de la Marcha; Acechador de juncos, Lomoesquirla, Campana de duelo, Tejedor de eco y unos pocos Centinela hueco. Aquí se alza la [Aguja de cristal](crystal_spire)."
+      ],
+      "title": "Estepa, Tierras altas, Campos de cristal"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Campos de nieve**: nieve y hielo compacto sobre Césped de la Marcha. Zorro farol, conejos, Caminante de la Marcha, unos pocos Lomomusgo y osos polares. Centinela hueco, Polilla de tormenta, Campana de duelo y Sabueso de la grieta.",
+        "- **Yermos de brasa**: país de basalto seco, sin lluvia. Pocos herbívoros se atreven: Caminante de la Marcha, Zorro farol y Saltador de ceniza. Merodean Diablillo de pavesa, Sabueso de la grieta y Cenizligado, y unas pocas Polilla de tormenta.",
+        "- **Ciénaga de caña**: canales de lodo espesos de Caña de Espíritu. Lomomusgo, Ciervo del alba, ranas, Zorro farol y Caminante de la Marcha; Aletabrillo, Campana a la deriva, Anguila de limo y Raya del velo en el agua, y calamares luminosos en las cuevas inundadas. Acechador de juncos, Raizligado y Tejedor de eco acechan en lo húmedo.",
+        "Fuego fatuo espiritual flota por todas las tierras de la Marcha."
+      ],
+      "title": "Campos de nieve, Yermos de brasa, Ciénaga de caña"
+    },
+    {
+      "type": "text",
+      "title": "Bajíos, Cresta de brillo",
+      "text": [
+        "- **Bajíos**: la tierra baja, ahogada bajo agua poco profunda. Lagunas y pozas sobre lechos de limo y arcilla, árboles de zancudo con raíces de zanco, lirios, Lirio de luna y Alga de cinta, y aquí y allá un pilar de piedra con tapa de cristal. Nadan Planeador de limo, Derivante pálido y Dardo de bajío, y Madera de zancos camina por las orillas; de noche surgen en el agua Acechador de salmuera y Sombra ahogada, y desde la Ciénaga de caña llegan Acechador de juncos, Raizligado, Tejedor de eco y Campana de duelo. Aquí se alza la Piedra de la marea de los [guardianes](guardians).",
+        "- **Cresta de brillo**: el terreno más alto, una montaña de Piedra lunar. Mira [la Cresta de brillo](glimmer_ridge).",
+        "Cada tierra tiene, además de estos, sus propias bestias y su propia gente: mira [Bestias de la Estepa](beasts_steppe) y las páginas que siguen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Lee cada Tablilla de relatos en las [Salas de los ancestros](ancestor_hall). El Códice espiritual anota cada una.",
+        "- Cuando estés listo, golpea un Tambor silencioso cuatro veces, con un respiro entre cada una, y encara a [El No Cantado](the_unsung).",
+        "- Lleva a casa Cristal de la Marcha, Hilo de Telar y un Corazón No Cantado. Juntos abren [la sexta voz](sixth_voice).",
+        "- Visita a los Zurcidores del telar en la [Aguja de cristal](crystal_spire) para trueques de Hilo de Telar."
+      ],
+      "title": "Qué hacer allí"
+    }
+  ]
+}

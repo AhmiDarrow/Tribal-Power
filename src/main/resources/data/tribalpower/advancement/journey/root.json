@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:bone_chime"
     },
-    "title": "A beat in the quiet",
-    "description": "Craft a Bone Chime. The first rhythm belongs to you.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.root.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.root.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

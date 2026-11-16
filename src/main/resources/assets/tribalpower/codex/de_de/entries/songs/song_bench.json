@@ -1,0 +1,244 @@
+{
+  "name": "Liedbank",
+  "icon": "tribalpower:song_bench",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_bench",
+      "text": [
+        "Die Liedbank ist der Ort, an dem Reagenzien zu Magie werden. Sie **stärkt** rohe Reagenzien, schreibt sie in **Lieder**, befiedert **Verspfeil** und **salbt** Waffen aus Geistergerät.",
+        "Stärken verbraucht 16 Puls. Ein Blatt braucht 3 bis 7 verstärkte Reagenzien, Papier und eine Markierung aus Ritualkreide."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stärken",
+      "text": [
+        "Stelle die Bank innerhalb von 8 Blöcken um ein Resonanz-Totem und einen geladenen Generator, und behalte einen Reagenzienbeutel in deiner Schnellzugriffsleiste: die Bank liest ihre Reagenzien aus dem Beutel.",
+        "Klicke ein Reagenz in der Liste an, um es zu wählen. **Stärken**, oder ein Umschaltklick, macht aus einem rohen Reagenz ein verstärktes, für 16 Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ein Lied schreiben",
+      "text": [
+        "Lege Papier und Ritualkreide ein, dann wähle 3 bis 7 verstärkte Reagenzien der Reihe nach: wähle eines und drücke **Hinzufügen**, oder klicke es zweimal. Das erste Reagenz bestimmt die [Form](song_shapes) des Lieds; die **Stimme** wählt, in welchem nahen Totem es singt.",
+        "Drücke **Schreiben** für ein **Liedblatt**. Singe es einmal direkt aus der Hand, oder binde es in ein Liederbuch: setze das Buch ein, lass das Blatt in der Ausgabe und drücke **Schreiben**, wenn in der Folge nichts liegt.",
+        "Liegt ein Buch ein, schreibt **Schreiben** das Lied direkt hinein. **Heben** nimmt die offene Seite wieder als Blatt heraus, und **Nehmen** gibt dir rohe Reagenzien aus dem Beutel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was es kostet",
+      "text": [
+        "Schreiben verbraucht diese Reagenzien, das Papier und eine Kreidemarkierung, plus **12 Puls** je Reagenz auf dem Blatt. Eine Bank mit Rang verlangt weniger Puls für alles, was sie tut.",
+        "Das erste Liederbuch hält 1 Seite mit bis zu 3 Reagenzien. Das Gebundenes Liederbuch hält 3 Seiten mit bis zu 5, und das Chorliederbuch 5 Seiten mit bis zu 7.",
+        "Rechtsklicke ein gehaltenes Buch, um zu singen. Ducke dich und rechtsklicke, um die Seite umzublättern. Eine Pulszelle im Buch zahlt zuerst, dann die Zellen, die du trägst."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Waffe salben",
+      "text": [
+        "Neben der Ausgabe liegt ein **Waffenplatz**. Lege eine Waffe aus Geistergerät hinein (keine Waffe des Grundspiels und keine eines anderen Mods nimmt eine Salbung an), wähle ein Reagenz in der Liste und drücke **Salben**.",
+        "Es verbraucht **4 verstärkte Reagenzien** dieser Art und **32 Puls**, und die Waffe behält die Kraft des Reagenzes, bis du sie mit etwas anderem salbst. Die ganze Geschichte steht auf der Seite [Salbung](anointing)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Bank, zwei Stimmen",
+      "steps": [
+        {
+          "caption": "Eine Liedbank mit einem Generator in Reichweite.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_bench"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Totem der Erde in Reichweite kann die Stimme des Liedblatt sein.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge ein Totem des Feuers hinzu, und die Bank kann in der einen oder der anderen Stimme singen.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Verspfeile",
+      "text": [
+        "Wähle ein verstärktes Reagenz und drücke **Befiedern**: ein Reagenz und 8 Puls ergeben **vier** Verspfeil, gesungen in der Stimme, die du gewählt hast.",
+        "Für einen stärkeren Pfeil lege zuerst bis zu 3 verstärkte Reagenzien mit **Hinzufügen** aus, dann drücke **Befiedern**: die vier Pfeile tragen diesen kurzen Vers, für 8 Puls je Reagenz. Jede Kopie des führenden Reagenzes gibt einen Punkt Kraft, und jedes andere Reagenz reitet beim Treffer mit.",
+        "Halte den Pulsbogen und spanne. Ein schlichter Schallbolzen verbraucht bis zu 6 Puls bei vollem Zug; ein Verspfeil fügt 6 hinzu und trägt das Lied seines Reagenzes. Die Puls-Armbrust schießt dieselben Pfeile.",
+        "Eine Pulszelle im Bogen zahlt zuerst, dann die Zellen, die du trägst.",
+        "Ein Redstone-Signal hält die Bank an."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_bow",
+      "title": "Der Pulsbogen",
+      "text": [
+        "Geschmiedet wie das übrige Geistergerät: zwei **Manifestierter Barren** und ein **Knochenklang**, bespannt mit drei Fäden. Er braucht keine Pfeile; jeder Zug wirft einen Schallbolzen, der gerade fliegt und nach etwa 60 Blöcken vergeht.",
+        "Ein voller Auszug trifft für **7**, ein teilweiser für seinen Anteil, ein kurzes Antippen ist also nur ein Antippen. Ein Verspfeil fügt einen Punkt für jede Kopie seines Leit-Reagenzes hinzu, die auf ihn gefiedert wurde, bis zu **3**.",
+        "Er hält 1024, und da der Puls jeden Schuss zahlt, nutzt Schießen ihn nie ab. Repariere ihn am [Geisteramboss](spirit_anvil) mit Manifestierten Barren, je ein Viertel."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_bow"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_bench"
+    }
+  ],
+  "items": [
+    "tribalpower:bound_songbook",
+    "tribalpower:chorus_songbook",
+    "tribalpower:pulse_bow",
+    "tribalpower:reagent_pouch",
+    "tribalpower:song_sheet",
+    "tribalpower:songbook",
+    "tribalpower:verse_arrow"
+  ],
+  "next": "song_shapes"
+}

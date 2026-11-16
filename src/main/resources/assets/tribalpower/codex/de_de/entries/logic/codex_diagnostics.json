@@ -1,0 +1,30 @@
+{
+  "name": "Kodex-Diagnose",
+  "icon": "minecraft:spyglass",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "next": "pulse_gauge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Frag den Block",
+      "text": [
+        "Schleiche und rechtsklicke mit dem Geisterkodex eine beliebige Stammesmaschine, Platte oder ein beliebiges Lager, und es erklärt sich in schlichten Worten.",
+        "- Gespeicherter Puls, das Netz des Gitters, an dem es hängt (oder dass es nicht am Gitter ist), der Konduktor, durch den es zieht, mit Rang und Rate, jeder Generator im Netz mit seiner Ausgabe in dieser Sekunde, die anwesenden Stimmen, der Puls, den es ziehen könnte, und ob Redstone es anhält.",
+        "- Werkstätten nennen ihr Rezept und jede fehlende Stimme oder volle Ausgabe.",
+        "- Relais melden nicht geladene oder gesperrte Endpunkte.",
+        "- Kohlenbecken listen die Riten auf, die ihr Siegel erlaubt.",
+        "- Musteranker zeigen Geister fehlender Teile und nennen die ersten drei.",
+        "- Liedplatten listen jede Platte auf, auf die sie zum Hören synchronisiert sind, mit ihrem Ohr und dem, was sie singt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mach es zur Gewohnheit",
+      "text": [
+        "Wenn etwas stillsteht, frag es, bevor du anfängst, den Bau auseinanderzunehmen. Neun von zehn Mal ist die Antwort eine Zeile: eine stille Stimme, eine volle Ausgabe, ein gehaltenes Signal oder eine fehlende Markierung."
+      ]
+    }
+  ]
+}

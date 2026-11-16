@@ -1,0 +1,29 @@
+{
+  "name": "Fuoco fatuo spirituale",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "I Fuoco fatuo spirituale sono i fuochi fatui della Marcia: piccole luci alla deriva, con un volto, che trascinano pagliuzze di luce. Fluttuano invece di camminare e non subiscono mai danno da caduta.",
+        "Li trovi in ogni bioma della Marcia, in gruppi radi sopra erba, pietra e cristallo. Si radunano soprattutto intorno a Cristallo della Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un fuoco fatuo ti guarda da lontano, ma resta a circa quattro blocchi, e fugge se qualcosa lo spaventa.",
+        "Ha solo **6 di salute**, non attacca mai e lascia cadere solo un po' di Polvere di luminite. Pensalo come le lucciole della Marcia: un segno che sei dove il filo vibra ancora.",
+        "Una **Scheggia di Spirito** nella tua mano attira i fuochi fatui nonostante la loro timidezza. Nutrine due con una scheggia ciascuno e ne fanno un terzo."
+      ],
+      "title": "Le loro abitudini"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "name": "Dein erster Puls",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Jedes Lager beginnt mit einer Trommel. Das [Trommelherz](drumheart) macht aus einem gleichmäßigen Schlag gespeicherten Puls, den die Maschinen an seinem [Gitter](lattice_conductor) ausgeben können.",
+        "Sein Rezept steht hier auf der letzten Seite: Bretter, Leder, zwei **Knochenklang** und eine **Geistscherbe**. Klänge und Scherben sind schnelle Rezepte aus Knochen, Faden, Amethyst und Redstone; sieh [Geistscherben und Resonatoren](crafting_components). Mach ein paar, denn am Anfang braucht fast alles sie.",
+        "Stell die Trommel dorthin, wo du arbeiten willst, und spiel sie: Rechtsklick mit **leerer Hand**, etwa **einmal pro Sekunde**. Ein Schlag im Takt ist viel mehr wert als wildes Klicken.",
+        "Trommle, bis sie ein paar hundert Puls hält (ducke dich und rechtsklicke sie mit diesem Buch, um nachzusehen). Deine erste Werkstatt läuft von dieser Reserve."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Den Takt halten",
+      "steps": [
+        {
+          "caption": "Setz das Trommelherz dorthin, wo du deine erste Werkstatt bauen willst.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mit leerer Hand rechtsklickst du sie etwa einmal pro Sekunde. Jeder Schlag im Takt gibt 24 Puls.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zu schnell, und die Schläge liegen neben dem Takt und geben weniger. Such dir lieber einen gleichmäßigen Rhythmus.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "Die Trommel hält 1,000 Puls. Maschinen ziehen ihn über einen **Gitterkonduktor** im Umkreis von 8 Blöcken von beiden; die nächste Seite zeigt, wohin er kommt. Eine oder zwei Trommeln reichen: eine dritte innerhalb derselben 8 Blöcke klingt noch, bringt aber nichts."
+    }
+  ]
+}

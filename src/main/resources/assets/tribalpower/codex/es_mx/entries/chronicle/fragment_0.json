@@ -1,0 +1,17 @@
+{
+  "name": "1. El cielo antiguo",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El cielo antiguo",
+      "text": [
+        "“Antes de la Marcha había un solo cielo y un solo suelo bajo él, y nueve pueblos que no se ponían de acuerdo en nada, salvo en que el suelo debía quedarse donde estaba. Ese fue el primer acuerdo, y durante mucho tiempo bastó.”",
+        "Hallado en una piedra tallada, en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

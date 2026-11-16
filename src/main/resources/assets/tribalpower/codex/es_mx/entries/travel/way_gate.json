@@ -1,0 +1,63 @@
+{
+  "name": "Portal de senda",
+  "icon": "tribalpower:gate_keystone",
+  "order": 30,
+  "items": [
+    "tribalpower:gate_frame"
+  ],
+  "next": "far_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_keystone",
+      "text": [
+        "Una entrada hacia otra entrada. Construye dos marcos de piedra, enlaza sus piedras clave, enciende uno, y todo lo que entra sale por el otro: jugadores, animales, criaturas y objetos soltados por igual."
+      ],
+      "title": "Portal de senda"
+    },
+    {
+      "type": "pattern",
+      "pattern": "way_gate",
+      "title": "Construir el marco",
+      "text": "Un anillo de cinco por cinco sin las esquinas, con la piedra clave en el centro de la fila de abajo. El interior, de tres de ancho y tres de alto, se queda vacío."
+    },
+    {
+      "type": "text",
+      "title": "Marcos y piedra clave",
+      "text": [
+        "Una fabricación de seis Piedra de la Marcha, dos de cobre y un Fragmento de eco produce **cuatro Marcos del portal**. Un anillo necesita **11** marcos, y la piedra clave en sí necesita cuatro más, con un Núcleo resonante, un Fragmento de Espíritu y una Célula de Pulso.",
+        "La piedra clave guarda el Pulso del portal, hasta **600**. Haz clic derecho con una Célula de Pulso para verter hasta **100** cada vez. Un portal encendido también se recarga solo, hasta 40 por segundo, desde el entramado, a través de un conductor a 8 bloques.",
+        "Solo el jugador que colocó una piedra clave del portal, y su campamento, pueden cargarla, vincularla, encenderla o romperla. Vincular reenhebra ambos extremos, así que tampoco puedes vincular el portal de senda de otra persona."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vincular un par",
+      "text": [
+        "Construye el segundo portal de senda en el mismo mundo.",
+        "- **Brújula:** agáchate y haz clic derecho en la primera piedra clave del portal con una brújula de piedra de camino sin vincular para vincularla allí; luego agáchate y haz clic derecho en la segunda piedra clave del portal con esa brújula.",
+        "- **Tiza:** haz clic derecho en una piedra clave del portal con tiza ritual, luego en la otra, hasta **64 bloques** de distancia.",
+        "- Un sigilo del portal también sirve; consulta [Portal lejano](far_gate).",
+        "El par responde en ambos sentidos. **/tribalpower gate list** nombra cada portal de senda que colocaste y su pareja."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encender y cruzar",
+      "text": [
+        "Haz clic derecho en la piedra clave del portal con la mano vacía para encenderla: **400 Pulso** de su reserva. Haz clic derecho de nuevo para dejar que se apague. Una señal de redstone al golpearla la alterna del mismo modo, mientras una señal sostenida la mantiene apagada y rechaza el viaje.",
+        "Cada cruce toma **20 Pulso** del portal de senda al que entras. Apareces dentro del marco de la pareja, encendido o no. Una espera de **un segundo** evita que rebotes de vuelta al instante. Quienes van montados y los vehículos no pueden pasar.",
+        "Un comparador lee **0** sin vincular, **1 a 14** por el Pulso almacenado y **15** cuando algo cruza.",
+        "Consulta [Conservar la senda](keeping_the_way) para saber qué pasa cuando algo sale mal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_frame"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_keystone"
+    }
+  ]
+}

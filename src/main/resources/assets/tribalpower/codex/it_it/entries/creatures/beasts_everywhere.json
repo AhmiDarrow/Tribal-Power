@@ -1,0 +1,122 @@
+{
+  "name": "Bestie di ogni terra",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Vaganti",
+      "text": [
+        "Otto creature mansuete non sono legate a una sola terra. Le incontrerai per tutta la Marcia, all'aperto, nelle caverne e sul bordo della lava.",
+        "Ogni bestia mansueta qui si può spazzolare per il suo reagente una volta al minuto, e si attira e si riproduce con il proprio cibo, indicato sotto **Caccia e allevamento** più in basso. Si può legare come qualsiasi animale mansueto (vedi [famigli](familiars)), e benché nessuna abbia un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning)).",
+        "Parecchi dei loro reagenti si macinano in tintura: vedi [reagenti](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Saltatore di cenere",
+      "text": [
+        "Un piccolo e svelto jerboa della Steppa, dei Campi di cristallo e delle Distese di brace, in gruppi da due a quattro. **12 di salute**. Lascia **da 1 a 2 Ciuffo di cenere**.",
+        "Cacciato, lascia anche fino a 1 Selvaggina cruda e fino a 1 pelle di coniglio. Fallo riprodurre con **carote o Grano della steppa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Pascolatore di cresta",
+      "text": [
+        "Un piccolo mammut lanoso degli Altipiani, della Cresta del barlume e dei Campi di neve. **26 di salute**, **2 di armatura**. Lascia **da 1 a 2 Lana di pascolatore** (tintura grigio chiaro).",
+        "Cacciato, lascia anche da 1 a 2 Selvaggina cruda e fino a 1 Cuoio della Marcia. Fallo riprodurre con **grano**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Balzatore di rupe",
+      "text": [
+        "Uno stambecco degli Altipiani, della Cresta del barlume, dei Campi di neve e dei Campi di cristallo. **20 di salute**, **2 di armatura**. Lascia **da 1 a 2 Corno di balzatore**.",
+        "Cacciato, lascia anche da 1 a 2 Selvaggina cruda e fino a 1 Cuoio della Marcia. Fallo riprodurre con **grano**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Svolazzatore di polvere",
+      "text": [
+        "Un piccolo fringuello, il volatile più comune della Marcia, in ogni terra, compresi i Bassifondi. **8 di salute**. Lascia **da 1 a 2 Ala di svolazzatore**.",
+        "Cacciato, lascia anche fino a 2 piume. Fallo riprodurre con **semi di grano o Grano della steppa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Falena del barlume",
+      "text": [
+        "Una falena luna verde pallido dei Campi di cristallo, della Cresta del barlume e della Palude dei canneti. **10 di salute**. Lascia **da 1 a 2 Polvere di barlume** (tintura ciano).",
+        "Cacciata, lascia anche fino a 1 spago e fino a 1 polvere di pietra luminosa. Falla riprodurre con **Fiore di eco o un qualsiasi fiore piccolo**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sottoterra e presso la lava",
+      "text": [
+        "Entrambi gli abitatori della lava compaiono ovunque la Marcia abbia della lava, in ogni terra tranne i Bassifondi."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Larva di pietra",
+      "text": [
+        "Una larva di tricottero in un astuccio di ciottoli, delle caverne buie sotto ogni terra tranne i Bassifondi, da due a quattro alla volta. **10 di salute**, **4 di armatura**. Lascia **da 1 a 2 Guscio di larva** (tintura marrone).",
+        "Cacciata, lascia anche fino a 1 palla di slime. Falla riprodurre con **Cappello lanterna o un fungo qualsiasi**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Derivante di brace",
+      "text": [
+        "Una lucciola dal ventre di fuoco che si raduna presso la lava. **12 di salute**, **immune al fuoco**. Lascia **da 1 a 2 Granello di brace** (tintura rosso), un reagente di brace.",
+        "Cacciato, lascia anche fino a 2 carbone di legna. Fallo riprodurre con **carbone o carbone di legna**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Creeper di magma",
+      "text": [
+        "Un pangolino di magma, lento e corazzato, della pietra calda presso la lava. **22 di salute**, **6 di armatura**, **immune al fuoco**. Lascia **da 1 a 2 Scaglia di magma** (tintura arancione), un reagente di brace. La Scaglia di magma chiama il Titano di scoria al Trono di scoria.",
+        "Cacciato, lascia anche fino a 1 crema di magma. Fallo riprodurre con **carbone o carbone di legna**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuno lascia cadere di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre dai a due adulti il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

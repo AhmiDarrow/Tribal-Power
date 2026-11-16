@@ -1,0 +1,226 @@
+{
+  "name": "脉动共鸣器",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_resonator",
+      "text": [
+        "你不在时仍不断送来的力量。把水晶安进去，用不同声音的图腾围住，它便自己哼出脉动。最多储存**2,500 脉动**，打碎就会失去所存的。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "让它运转起来",
+      "text": [
+        "用**回响碎片**右键共鸣器（来自[回响粉碎](echo_shatter)）。水晶作为催化剂留在里面，会被它产出的脉动慢慢耗掉，所以忙碌的共鸣器需要更换它。蹲下并用空手右键，取出剩下的水晶；磨损会保留。先取出旧水晶，再安放更好的一块。漏斗无法供料。",
+        "然后在8个方块内至少给它**两种不同的声音**，比如一个土图腾和一个火图腾。它数声音，不数方块：两个土图腾仍然只是一种声音。",
+        "一块碎片加两种声音，产出**每秒 8 脉动**。声音相乘，不相加：你带来的每一种都比上一种更值钱，所以整圈远比图腾相加更值。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "第一缕光",
+      "steps": [
+        {
+          "caption": "把共鸣器放在周围摆得下图腾的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "用回响碎片右键，把催化剂安放进去。",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "加一个土图腾。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "加一个火图腾，这是第二种声音。共鸣器开始哼鸣：每秒 8 脉动。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "第三种声音，水，把它提到每秒 15 脉动。每一种新声音都比上一种更值钱。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "更强的水晶",
+      "text": [
+        "共鸣器每秒产出 **声音 × (声音 + 2)** 点脉动，再乘水晶：**×1** 给回响碎片，**×1.5** 调谐，**×2** 束缚，**×3** 给共鸣核心。于是六种声音是每秒 48、72、96 或 144。",
+        "- **回响碎片**：在回响粉碎里用石头，配土。",
+        "- **调谐回响**：在回响调谐里用碎片，配火。",
+        "- **束缚回响**：在回响束缚里用调谐回响，配水。",
+        "- **共鸣核心**：在回响显化里用显化锭，配灵。",
+        "六种声音需要[声音环](voice_ring)的布局：松散的一堆最多算五种声音，亲族图腾也算在内。",
+        "要在试剂和水旁烧掉这些水晶，并把六种声音摆成一颗星，建造[地脉之心](ley_heart)。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "一直不亮的时候",
+      "text": [
+        "只有**已应答**的图腾才算数；安静的必须先唤醒（见[看顾](keeping)）。亲族图腾会把部落算成额外的声音，但共鸣器仍然需要一座属于自己的已应答共鸣图腾。稳定的红石信号会让它暂停。",
+        "水晶在产完自己的一份后就碎掉：回响碎片约**20,000 脉动**，调谐回响为**60,000**，束缚回响为**150,000**，共鸣核心为**400,000**。装满的共鸣器什么也不产，水晶休息，直到有东西来消耗。",
+        "共鸣器自身的每一[等级](machine_ranks)增加**每秒 15% 脉动**。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_resonator"
+    }
+  ]
+}

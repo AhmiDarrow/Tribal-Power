@@ -1,0 +1,50 @@
+{
+  "name": "Rites de la terre",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "Les rites de la terre changent une région pour un temps : cultures plus rapides, moins d'hostiles, ou un lien emprunté entre des totems lointains.",
+        "Ils suivent les mêmes règles que tout rite de tablette : le sceau correspondant, le cercle, et de la Pulsation par un conducteur dans les 8 blocs."
+      ],
+      "title": "Rites de la terre"
+    },
+    {
+      "type": "text",
+      "title": "Les trois rites de la terre",
+      "text": [
+        "- **Bénédiction verte** (Terre, **600** Pulsation, une Racine nouée) : bénit les **neuf chunks** autour du brasero pendant vingt minutes. Cultures, pousses et tiges y reçoivent des ticks aléatoires en plus et scintillent en vert.",
+        "- **Nuit calme** (Esprit, **600**, un Sceau de sentinelle) : fait taire l'apparition d'hostiles dans les **64 blocs** pendant quinze minutes, comme un large Totem du silence. Les Graveurs de sceaux vendent cette tablette aux Amis.",
+        "- **Lien de ley** (Métier, **1 200**, Fil de Métier) : relie le Totem de résonance le plus proche du brasero à un autre dans les **64 blocs** pendant trente minutes. Tant qu'il bourdonne, les conducteurs à portée d'un totem se tissent dans le réseau de l'autre, et la Pulsation traverse le fil."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avant de lancer",
+      "text": [
+        "Trace d'abord le cercle : des piédestaux manquants font échouer le lancer sans dépenser la tablette.",
+        "Quatre totems correspondants sur les cardinaux du cercle réduisent le coût d'un quart et doublent la durée : la Bénédiction verte dure alors quarante minutes pour 450 Pulsation."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

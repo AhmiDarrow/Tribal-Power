@@ -1,0 +1,30 @@
+{
+  "name": "Diagnósticos del códice",
+  "icon": "minecraft:spyglass",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "next": "pulse_gauge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Pregunta al bloque",
+      "text": [
+        "Agáchate y haz clic derecho con el Códice espiritual en cualquier máquina, placa o almacén tribal, y se explica en palabras llanas.",
+        "- Pulso almacenado, la red de entramado en la que está (o que está fuera del entramado), el conductor por el que extrae, con su rango y su tasa, cada generador de la red con su salida en este segundo, las voces presentes, el Pulso que podría extraer y si la redstone lo está pausando.",
+        "- Los talleres nombran su receta y cualquier voz que falte o una salida llena.",
+        "- Los relés informan de extremos sin cargar o bloqueados.",
+        "- Los braseros enumeran los ritos que permite su sello.",
+        "- Las anclas de patrón muestran los fantasmas de las piezas que faltan y nombran las tres primeras.",
+        "- Las placas de canto enumeran cada placa a la que están sincronizadas para oír, con su oído y lo que canta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hazlo costumbre",
+      "text": [
+        "Cuando algo se queda quieto, pregúntale antes de empezar a desarmar la construcción. Nueve de cada diez veces la respuesta es una línea: una voz callada, una salida llena, una señal retenida o una marca que falta."
+      ]
+    }
+  ]
+}

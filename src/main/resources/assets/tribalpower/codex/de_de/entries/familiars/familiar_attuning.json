@@ -1,0 +1,34 @@
+{
+  "name": "Einstimmen an einem Totem",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 40,
+  "next": "familiar_boons",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ihm eine Stimme geben",
+      "text": [
+        "Bring deinen ausgewachsenen Vertrauten innerhalb von **6 Blöcken** an ein Resonanz-Totem und **benutze im Schleichen ein Bindungsamulett auf dem Totem**. Dein nächster Vertrauter, der diese Stimme noch nicht trägt, nimmt sie an. Das Amulett wird nicht verbraucht.",
+        "Das Totem klingt, ein Faden seiner Farbe läuft zum Vertrauten, und von da an schimmert er in dieser Farbe. Seine Stimme zeigt sich, wenn du ihn ansiehst, und auf deiner Leylinse.",
+        "Ein [Verwandtschafts-Totem](kinship_totem) kann keine Stimme geben. Benutze ein Resonanz-Totem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Je eine Stimme",
+      "text": [
+        "Ein Vertrauter trägt jeweils eine Stimme. Bring ihn zu einem anderen Totem, um sie zu wechseln, wann du willst.",
+        "Mehrere Vertraute können mehrere Stimmen tragen; [was eine Stimme gibt](familiar_boons) sagt, welche davon zählen.",
+        "Die Stimme gehört dem Vertrauten selbst: seine Jungen kommen ohne eine zur Welt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Totem und Vertrauter",
+      "text": [
+        "Ein abgestimmter Vertrauter hält jedes Totem seiner Stimme innerhalb von **8 Blöcken** beantwortet und weckt eines, das verstummt ist ([Erhalten](keeping)). Lass eines neben einem Totem warten, das du selten besuchst.",
+        "Benutze ein Totem mit leerer Hand, um zu hören, welche Vertrauten es halten. Wenn keines es tut und dein eigener Vertrauter nah ist, sagt dir das Totem, wie du ihn abstimmst."
+      ]
+    }
+  ]
+}

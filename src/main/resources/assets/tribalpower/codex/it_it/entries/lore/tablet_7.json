@@ -1,0 +1,17 @@
+{
+  "name": "Tavoletta: Rito degli Intagliatori di sigilli",
+  "icon": "tribalpower:lore_tablet",
+  "order": 170,
+  "spoiler": true,
+  "unlock": "tablet:7",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Solo l'altare di un Tempio profondo, sigillato nella pietra della Marcia, custodisce questa tavoletta. Il Non Cantato la porta anch'esso e la cede quando cade; appendila a una parete per leggerla.",
+        "Nelle parole stesse degli Intagliatori di sigilli, intagliate con la cura di un sigillo:",
+        "“Lo Spirito va dove lo si chiede con cortesia e resta dove lo si nutre. Un sigillo è una richiesta cortese intagliata nella pietra. Un braciere è il pasto. Tagliammo sigilli vergini a migliaia prima del Taglio, e chiedemmo davvero troppo. Chiedi poco. Nutrilo bene.”"
+      ]
+    }
+  ]
+}

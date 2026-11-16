@@ -1,0 +1,362 @@
+{
+  "name": "風の罠",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "集めるチェスト。風の罠は周囲の地面に落ちたものを引き寄せ、**27スロット**に収める。農場も、破砕の列も、モブの穴も、散らかりを残さない。",
+        "地面に落ちているものなら何でも持ち上げる。マーチからでも、オーバーワールドからでも、他のモッドからでも。チェストや装置からは決して取らない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "捕らえ方",
+      "text": [
+        "毎拍、1秒に1回、**8スタック**まで、**8ブロック**以内のものを掬う。捕る範囲は立方体なので、横と同じだけ上下にも届く。",
+        "スタックごとに格子から**2パルス**。パルスがなければ捕獲もない。待って、何も使わない。**風**にも応える。8ブロック以内に風のトーテムを保つ（[野営の手](camp_hands)を参照）。ないと待機する。",
+        "位を上げると拍が短くなる。スタックあたりのパルスは2のまま。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "貯蔵庫の上の罠",
+      "steps": [
+        {
+          "caption": "捕れたものの行き先に祖先の貯蔵庫を置く。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "風の罠を上に置く。底面は出力なので、捕まえたものはすべて貯蔵庫へ落ちる。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内の伝導体でパルスを与える。持ち上げるスタックごとに2。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内に落ちているものは、農場の向こう側でも、引き寄せられる。",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "レバーは捕獲と面を同時に止める。自分で何かを拾いたいときのためだ。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "獲物を取り出す",
+      "text": [
+        "チェストのように開く。ホッパー、パイプ、[リレープレート](wireless_cargo)は**下**面から取り出す。ほかの面はアイテムを受け取る。素手でスニークしながら面を右クリックすると切り替わる。両方、入力、出力、閉鎖。",
+        "祖先の貯蔵庫か、別の Tribal Power の倉庫の上に乗っていると、その下面はホッパーなしで下向きに最大**毎秒16個のアイテム**を押し出す。",
+        "コンパレーターはどれだけ満杯かを読む。罠を空にするときの警告ランプに便利だ。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

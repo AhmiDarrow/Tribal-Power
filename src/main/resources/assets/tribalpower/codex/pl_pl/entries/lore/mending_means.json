@@ -1,0 +1,17 @@
+{
+  "name": "Co znaczy cerowanie",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nie układasz kontynentów z powrotem. Uczysz dziewięć głosów znów się zgadzać, obóz po obozie.",
+        "Kredowe połączenie to obietnica. Siedzący katalizator to rozmowa podjęta na nowo. Obrzęd tabliczki to prosić grzecznie, mniej, niż prosił stary świat.",
+        "Marsz zachował sale, bębny i tabliczki. Powiedz obozom, że nam przykro, że to tyle trwało."
+      ]
+    }
+  ]
+}

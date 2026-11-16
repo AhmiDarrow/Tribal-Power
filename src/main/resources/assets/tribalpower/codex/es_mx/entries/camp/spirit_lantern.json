@@ -1,0 +1,28 @@
+{
+  "name": "Farol de Espíritu",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Un farol tallado de cobre y madera que alumbra el campamento al nivel **15** y nunca necesita combustible ni Pulso. Su cristal brilla con los mismos colores que el entramado vivo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cómo usarlo",
+      "text": [
+        "Colócalos en los senderos entre talleres. Una palanca o cualquier señal de redstone atenúa uno, y un comparador lee 15 mientras está encendido.",
+        "Es una luz, no un amparo: los hostiles siguen necesitando oscuridad para aparecer, así que la luz más un Tótem del silencio deja el campamento en calma.",
+        "Si prefieres que tus luces funcionen con el entramado, el Junco luminoso, la Lámpara de esquirla, el Aplique de eco y el Cuenco de brasa extraen un goteo de Pulso. Consulta [Luces de Pulso](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

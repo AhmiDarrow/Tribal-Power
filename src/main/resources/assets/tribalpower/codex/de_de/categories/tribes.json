@@ -1,0 +1,8 @@
+{
+  "name": "Die neun Stämme",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Neun Stämme hüteten einst den Webstuhl. Ihre Lager stehen noch; verdiene dir ihren Rang und ihre Zeichen.",
+  "spoiler": true,
+  "progress": "tribes"
+}

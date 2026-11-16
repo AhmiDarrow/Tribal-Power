@@ -1,0 +1,245 @@
+{
+  "name": "Telar de sellos",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Una mesa de trabajo que funciona sola. Enséñale una receta de mesa de trabajo, del juego base o de cualquier mod, en un Sello de receta, mantén la cuadrícula abastecida, y teje un resultado por segundo por **6 Pulso** cada uno. El sello nunca se gasta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enseñarle una receta",
+      "text": [
+        "Haz un **Sello de receta** con un Sello en blanco y papel, luego abre el Telar de sellos. El sello va en su propia ranura junto a la cuadrícula, no en el centro del tres por tres.",
+        "Dispón la receta en la cuadrícula igual que en una mesa de trabajo: para palos, un tablón sobre otro.",
+        "Cierra la pantalla, agáchate y haz clic derecho en el Telar de sellos con la **mano vacía**. El sello registra la receta y la descripción le pone nombre.",
+        "Solo se le puede enseñar a un Sello en blanco. Para una receta nueva, haz un sello nuevo; cambiar la cuadrícula nunca cambia lo que recuerda un sello viejo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dejarlo funcionar",
+      "text": [
+        "Con el sello asentado y los objetos correctos en las ranuras correctas, fabrica una vez por latido por **6 Pulso** del entramado. Dos tablones dan cuatro palos, y el sello se queda. Responde al **Telar**: mantén un Tótem de resonancia (Telar) a 8 bloques (véase [Manos del campamento](camp_hands)), o queda inactivo.",
+        "Los resultados llenan sus nueve ranuras de salida y salen por la cara **inferior**, hacia una tolva o una [placa de relé](wireless_cargo) ahí. Los restos, como cubos y frascos vacíos, salen con ellos, así que nunca atascan la cuadrícula; una herramienta que la receta devuelve, como un cuenco de moler, vuelve a su propia ranura. Cuando las salidas no tienen sitio para una fabricación y sus restos, el Telar de sellos espera y no gasta nada.",
+        "El rango acorta el latido; el Pulso por fabricación sigue en 6. Una palanca lo pausa, y un comparador lee qué tan lleno está."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un telar de palos",
+      "steps": [
+        {
+          "caption": "Coloca el Telar de sellos con un generador y un Conductor de entramado a 8 bloques.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Asienta un Sello de receta en su ranura de sello, dispón la receta y haz clic agachado con la mano vacía.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Una tolva arriba mantiene la cuadrícula llena; cada objeto entra en la primera ranura que lo acepta.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tolva abajo saca los resultados por la cara inferior.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentarlo",
+      "text": [
+        "Una tolva, o una placa de relé afinada al telar, suelta cada objeto en la primera casilla de la cuadrícula que lo acepte. Sirve para recetas de una sola casilla, como troncos en tablones. En una receta con forma, llena a mano las casillas que usa con pilas completas y fabrica hasta que una se agote. Si la cuadrícula deja de coincidir con el sello, espera y no gasta nada.",
+        "Agáchate y haz clic derecho en una cara mientras sostienes un objeto para cambiar esa cara: Ambos, Entrada, Salida o Cerrado.",
+        "Prueba un lote antes de conectar el almacenamiento a granel."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Estámpalo en el telar; un sello recuerda una receta."
+    }
+  ]
+}

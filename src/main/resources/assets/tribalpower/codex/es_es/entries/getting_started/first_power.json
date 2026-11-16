@@ -1,0 +1,141 @@
+{
+  "name": "Tu primer Pulso",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "next": "first_workshop",
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Todo campamento empieza con un tambor. El [Corazón de tambor](drumheart) convierte un ritmo constante en Pulso almacenado, que las máquinas de su [entramado](lattice_conductor) pueden gastar.",
+        "Su receta está en la última página de aquí: tablones, cuero, dos **Campanilla de hueso** y un **Fragmento de Espíritu**. Las campanillas y los fragmentos se fabrican rápido con hueso, cuerda, amatista y redstone; consulta [Fragmentos de Espíritu y resonadores](crafting_components). Haz unos cuantos, porque casi todo al principio los usa.",
+        "Coloca el tambor donde pienses trabajar y tócalo: clic derecho con la **mano vacía**, más o menos **una vez por segundo**. Un golpe a tiempo vale mucho más que un clic frenético.",
+        "Toca hasta que guarde unos cientos de Pulso (agáchate y haz clic derecho con este libro para comprobarlo). Tu primer taller funciona con esa reserva."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Mantener el ritmo",
+      "steps": [
+        {
+          "caption": "Coloca el Corazón de tambor donde pienses construir tu primer taller.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Con la mano vacía, haz clic derecho sobre él más o menos una vez por segundo. Cada golpe a tiempo suma 24 Pulso.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Si vas demasiado rápido, los golpes caen fuera de tiempo y suman menos. Busca un ritmo constante.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart",
+      "text": "El tambor guarda 1,000 Pulso. Las máquinas lo toman a través de un **Conductor de entramado** a 8 bloques de ambos; la página siguiente muestra dónde va. Uno o dos tambores bastan: un tercero dentro de los mismos 8 bloques sigue sonando, pero no gana nada."
+    }
+  ]
+}

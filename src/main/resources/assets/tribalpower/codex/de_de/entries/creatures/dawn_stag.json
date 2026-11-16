@@ -1,0 +1,52 @@
+{
+  "name": "Dämmerhirsch",
+  "icon": "tribalpower:dawn_velvet",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:dawn_stag_spawn_egg",
+    "tribalpower:dawn_velvet"
+  ],
+  "next": "lantern_fox",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "text": [
+        "Ein Äser der Dämmerung, dessen Geweih sich wie eine Leier biegt und das alte Waldlied trägt. Bürste Erwachsene, um Dämmersamt zu erhalten.",
+        "Gejagt lässt er außerdem Rohes Wildbret, 1 bis 3, und Marschleder, bis zu 2, fallen. Züchte mit **Weizen**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Dämmerhirsche äsen in den Wäldern der Oberwelt und im Marsch: in der Steppe, im Hochland, auf dem Schimmergrat und im Schilffenn. Sie erscheinen auf offenem, gut beleuchtetem Boden.",
+        "Ein Hirsch hat **24 Gesundheit** und **1 Rüstung**. Er ist sanft: er läuft weg, wenn er verletzt wird, und hält Abstand zu Monstern. Züchte zwei mit **Weizen**."
+      ],
+      "title": "Wo du es findest"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Bürste einen Erwachsenen für **Dämmersamt**, einmal pro Minute. Der Samt bindet sich zu 2 Geistergewebe unter der Stimme Wasser.",
+        "Wenn du einen jagst, lässt er **1 bis 3 Rohes Wildbret** und **0 bis 2 Marschleder** fallen; Plünderung gibt bis zu eines mehr von jedem, und ein Hirsch, der brennend stirbt, lässt sein Fleisch schon gegart fallen. Siehe [Wildbret und Leder](game_and_leather)."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Binde einen Erwachsenen mit einem Bindungsamulett, und er wird ein Reittier ohne Sattel. Benutze es, um aufzusteigen, lenke mit dem Blick, halte Sprung für einen kurzen Satz und schleiche, um abzusteigen.",
+        "Es trägt nur die Person, an die es gebunden ist. Ein Hirsch mit einem starken Schrittfaden läuft schneller, und das seltene Mal **Sprung** springt höher. Mehr auf der Seite [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Gejagt lässt es dies fallen, mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche**, während du zwei erwachsene Tiere mit ihrem Futter fütterst; normal gefüttert, wird dir ein wildes stattdessen zutraulich."
+      ]
+    }
+  ]
+}

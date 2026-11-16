@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Canción de los Tejedores de patrones",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada en un campamento de los Talladores de sellos, en palabras de los Tejedores de patrones:",
+        "“Una fábrica es una canción que ya no necesita al cantante. Escribimos los tiempos en ruedas de reloj y en polvo de polilla, y dejamos que el Telar llevara la melodía. Cuando llegó el Corte, las canciones siguieron sonando. Algunas siguen. Escucha el clic antes del zumbido.”"
+      ]
+    }
+  ]
+}

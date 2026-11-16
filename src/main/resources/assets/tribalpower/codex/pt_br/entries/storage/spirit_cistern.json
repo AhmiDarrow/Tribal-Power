@@ -1,0 +1,194 @@
+{
+  "name": "Cisterna de Espírito",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "O tanque do acampamento. Guarda um fluido só, até **16,000 mB** (16 baldes), e mantém o fluido quando você o pega, então dá para mover um tanque cheio sem derramar uma gota."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encher e ler",
+      "text": [
+        "Clique com o botão direito com um balde para enchê-la ou esvaziá-la. Clique com o botão direito de mão vazia para ler o fluido e a quantidade.",
+        "Canos de fluido comuns, uma Bomba de maré ou um Relé de fluidos podem enchê-la e esvaziá-la. Um segundo fluido não entra enquanto o tanque não estiver vazio.",
+        "Um comparador virado para fora lê **0** quando vazia e depois **1 a 15** conforme enche.",
+        "Agache-se e clique com o botão direito numa face com a mão vazia para definir essa face: Ambos, Entrada, Saída ou Fechada. Máquinas de Tribal Power que a tocam movem até **250 mB** por segundo de uma face que entrega para uma que recebe."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um tanque que guarda",
+      "steps": [
+        {
+          "caption": "Coloque a cisterna e despeje um balde; um clique de mão vazia deve ler 1,000 de 16,000 mB.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "Um comparador virado para fora lê o quanto ela está cheia.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma alavanca nela trava encher e esvaziar, mesmo por relés remotos. O fluido fica.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Quebre-a e a cisterna que cai continua com a água; coloque-a de novo e ela segue cheia.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bom saber",
+      "text": [
+        "Os relés e a Bomba de maré movem fluido; não são tanques. Ponha uma cisterna em cada ponta.",
+        "Um Tambor das ondas também guarda o próprio tanque de água quando quebrado.",
+        "[Chamado da primavera](spring_calling) pode marcar uma cisterna colocada como nascente para que ela se reabasteça de água. Mover o bloco encerra a nascente; a água que já está dentro continua no item."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Caminante de la Marcha",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Un Caminante de la Marcha es el herbívoro callado de la Marcha: un tapir robusto con un cojín de silla musgoso y puntas bifurcadas que brillan con luz del Espíritu. La silla es solo su pelaje; no puedes montar uno. Los verás en manadas en la Estepa, y en cada bioma de la Marcha salvo los Bajíos, incluso en los Yermos de Brasa.",
+        "Tiene **18 de salud** y **1 de armadura**. Es tímido: se mantiene a unos diez bloques de los monstruos y entra en pánico si lo hieren."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sostén un **Fragmento de Espíritu** y los caminantes te siguen, curiosos. Es la forma fácil de llevar unos pocos a casa o a un corral.",
+        "Aparecen sobre césped de la Marcha, tierra, musgo y nieve, al aire libre.",
+        "Un caminante suelta **de 1 a 3 Caza cruda**, hasta 2 Cuero de la Marcha y a veces un hueso, más con Saqueo; la carne sale como Caza asada si murió ardiendo.",
+        "Cría a dos con **Trigo** o **Grano de la estepa**, que siguen tan fácilmente como un Fragmento de Espíritu. Un caminante no se puede cepillar ni vincular."
+      ],
+      "title": "Vivir con los caminantes"
+    }
+  ]
+}

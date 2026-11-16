@@ -1,0 +1,231 @@
+{
+  "name": "Forno de brasa",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "A estação de Fogo funde com Pulso em vez de carvão. O que uma fornalha funde, o Forno de brasa também funde: pedregulho vira pedra, cascalho vira uma barra. Precisa de um Totem de ressonância (Fogo) num raio de 8 blocos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como usar",
+      "text": [
+        "Alimente-o com qualquer entrada de fornalha e retire o resultado da fornalha. Nenhum combustível é queimado.",
+        "Cada fundição leva **10 segundos** a **64 Pulso por segundo**.",
+        "O cascalho sempre queima até virar sua barra, mesmo cascalho de mod que uma fornalha não consegue ler.",
+        "Uma alavanca o pausa, e uma saída cheia também. Sem Fogo, ele pausa e não gasta nada."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "De pedregulho a pedra",
+      "steps": [
+        {
+          "caption": "Coloque o Forno de brasa com um Totem de ressonância (Fogo) em até 8 blocos.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mantenha o Pulso ao alcance: um gerador ao lado basta.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque pedregulho e retire pedra. Nenhum carvão é queimado.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Um funil sob o Forno de brasa leva os resultados.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatizar",
+      "text": [
+        "Coloque o Triturador de eco sobre o Forno de brasa, a saída na entrada, para o cascalho descer: é o padrão quando uma estação fica sobre outra, então simplesmente funciona. [Metais e gemas](metals_and_gems) mostra uma linha inteira de minério.",
+        "Coloque um funil ou um depósito embaixo se você quiser recolher as barras.",
+        "Suba o ranque no Sintonizador de eco, depois no Vinculador e no Manifestador, como em qualquer outra oficina."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

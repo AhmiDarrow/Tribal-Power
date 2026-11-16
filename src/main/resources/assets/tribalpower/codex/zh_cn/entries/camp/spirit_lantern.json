@@ -1,0 +1,28 @@
+{
+  "name": "灵灯笼",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "一盏铜与木雕成的灯笼，以**15**级亮度照亮营地，从不要燃料或脉动。它的晶体与活网格同色发光。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "用法",
+      "text": [
+        "把它们沿工坊之间的小路放下。拉杆或任何红石信号会调暗一盏，点亮时比较器读数为15。",
+        "它是光，不是结界：敌对生物仍要黑暗才会生成，所以光加上静默图腾，营地便安静。",
+        "若你更想让灯走网格，荧光芦苇、碎片灯、回响壁灯和余烬碗会改为抽取细细一股脉动。参见[脉动灯](pulse_lights)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

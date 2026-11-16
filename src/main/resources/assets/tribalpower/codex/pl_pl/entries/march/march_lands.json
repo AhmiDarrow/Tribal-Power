@@ -1,0 +1,117 @@
+{
+  "name": "Ziemie Marszu",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Sześć pasm Marszu",
+      "text": [
+        "Marsz biegnie od mroźnego ku gorącemu i w dół, w ciemność, **pięćdziesiąt dziewięć ziem** w sześciu pasmach. Każde pasmo to długi dryf temperatury w poprzek mapy; w nim wilgotne i suche, wysokie i niskie oraz dziwny grunt wysokiej dziwności trzymają każde własny kraj.",
+        "Każda ziemia ma własny grunt, własną roślinność i własne duchy. Bestiariusz kodeksu mówi, gdzie żyje każde stworzenie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mroźny",
+      "text": [
+        "Zimny kraniec Marszu: śnieg na Trawie Marszu, Lód szronu tam, gdzie wiatr postawił na swoim, i nocna zasłona w najjaśniejszej postaci.",
+        "Śnieżne pola Marszu, Iglice szronu, Tajga brzozy szronu, Brzeg szronu, Zamarznięte jezioro, Morze szronu, Głębokie morze szronu, Szczyty szronu, Szczyty odłamków, Stoki mroźnej sosny, Równiny zasłony."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zimny",
+      "text": [
+        "Tajgi ciernistej jodły, wrzosowiska, usypisko i mineralny szczyt Grzbietu połysku.",
+        "Grzbiet połysku, Tajga ciernistej jodły, Prastara tajga ciernistej jodły, Wrzosowisko kurhanu, Wzgórza usypiska, Wietrzna ciernista jodła, Gaj mchu szronu, Szary brzeg, Zimne płycizny, Głębokie zimne płycizny, Kraina jezior górskich."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Umiarkowany",
+      "text": [
+        "Serce Marszu: step, moczary, kraina kryształu, lasy klonu pieśni i dębu paleniska oraz morze.",
+        "Step Marszu, Trzcinowe moczary Marszu, Kryształowe pola Marszu, Płycizny Marszu, Las klonu pieśni, Kwitnąca łąka, Lasy dębu paleniska, Prastare lasy dębu paleniska, Drzewo zasłony, Sad dzwonków, Wysoka łąka, Step słonecznego koła, Rzeka Krosna, Mulisty brzeg, Głębokie płycizny, Moczary świetlistych kapeluszy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciepły",
+      "text": [
+        "Sawanny palmy bębna, Plątanina i bagna na szczudłach, pod Wyżyną i Słonecznymi szczytami.",
+        "Wyżyna Marszu, Sawanna palmy bębna, Płaskowyż palmy bębna, Palma bębna smagana wiatrem, Plątanina, Otwarta plątanina, Gąszcz trzciny, Namorzyn kroczydła, Słoneczne szczyty, Ciepłe płycizny, Głębokie ciepłe płycizny."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gorący",
+      "text": [
+        "Sól, glina piecowa i popiół: suchy kraniec Marszu, aż po dno morza ze stopionego szkła.",
+        "Pustkowia żaru Marszu, Solne równiny, Piecowa mesa, Ścięta mesa, Mesa słonecznej kory, Szklane płycizny."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Podziemie",
+      "text": [
+        "Co leży pod każdym pasmem: śpiewające jaskinie, świecące kotlinki, żyły ley i Cisza.",
+        "Śpiewające jaskinie, Kotlinki mrocznego kapelusza, Cisza, Żyły ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nowy grunt",
+      "text": [
+        "- **Lód szronu** i **Mroźny łupek** w zamarzniętych szczytach i iglicach; **Iglasta gleba** i **Mech szronu** pod tajgami; **Usypisko** na wzgórzach.",
+        "- **Blady piasek** na brzegach, **Darń zarodnikowa** w Moczarach świetlistych kapeluszy, **Blady kamień** na Słonecznych szczytach.",
+        "- **Solna skorupa** i **Słupy soli** na równinach; **Ochrowy piasek**, **Ochrowy piaskowiec** i cztery tony **Glina piecowa** w mesach; **Szklany piasek** pod Szklanymi płyciznami.",
+        "- **Rezonansowe kolce**, które dzwonią pod stopą w Śpiewających jaskiniach, **Świecący mech** w Kotlinkach mrocznego kapelusza, i **Splot ciszy** ze swoimi **Kwiatami szeptu** w Ciszy."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nowa roślinność",
+      "text": [
+        "Lodowy kwiat, Kapelusz szronu, Szary wrzos, Oset szronu, Trawa pieśni, Dzwon Krosna, Mak świtu, Pąk dzwonka, Słoneczne koło, Ciernisty krzew, Splątana paproć, Trzcina Ducha i Kiełki mrocznego kapelusza, każde w ziemi, która mu odpowiada. Dziewięć nowych drzew jest na stronie drzew."
+      ]
+    }
+  ]
+}

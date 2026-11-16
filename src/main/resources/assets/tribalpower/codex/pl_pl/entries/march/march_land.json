@@ -1,0 +1,455 @@
+{
+  "name": "Ziemia i wzrost Marszu",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "Marsz ma własną ziemię: Trawa Marszu na Gleba Marszu, pod spodem Kamień Marszu, oraz własne drzewa, kwiaty i kryształ.",
+        "Większość działa jak bloki Zwykłego świata, które znasz, z kilkoma różnicami, które warto poznać, zanim zaczniesz tam budować."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Kamień Marszu** to skała całego świata. Potrzebujesz co najmniej **kamiennego kilofa**, a bez Jedwabnego dotyku rozpada się w **Bruk Marszu**. Przetop bruk, żeby odzyskać kamień.",
+        "Pod trawą jest **Gleba Marszu**. Trawa upuszcza glebę, chyba że użyjesz Jedwabnego dotyku, i rozrasta się tylko na Gleba Marszu, przy dobrym świetle. Mączka kostna na Trawa Marszu wypuszcza kępki **Liść Marszu**.",
+        "**Mech Marszu** pokrywa Trzcinowe bagno i Wyżyny. Niektóre biomy dodają ziemię z podstawowej gry: kalcyt na Kryształowych polach, śnieg i zbity lód na Śnieżnych polach, gładki bazalt na Pustkowiach żaru, błoto na Bagnie.",
+        "Kruszarka echa kruszy Kamień Marszu w Odłamek echa, a Bruk Marszu w żwir."
+      ],
+      "title": "Kamień i gleba"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Motyka zamienia Gleba Marszu, trawę lub mech w **Pole uprawne Marszu**, o ile miejsce nad nim jest wolne. Woda w zasięgu **4 bloków** utrzymuje je mokre. Suche albo zdeptane wraca do Gleba Marszu, nigdy do ziemi Zwykłego świata.",
+        "Łopata spłaszcza te same bloki w **Ścieżka Marszu**, która też wraca do Gleba Marszu, gdy coś ją przykryje.",
+        "Sadzonka (Marsz) rośnie na Trawa Marszu i na Pole uprawne Marszu."
+      ],
+      "title": "Uprawa i ścieżki"
+    },
+    {
+      "type": "scene",
+      "title": "Obrabianie ziemi Marszu",
+      "steps": [
+        {
+          "caption": "Trawa Marszu na Gleba Marszu: większość ziemi, po której będziesz chodzić.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Motyka orze trawę w Pole uprawne Marszu, o ile nic na niej nie leży.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Woda w zasięgu czterech bloków utrzymuje je mokre; suche pole uprawne powoli wraca w Gleba Marszu.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Łopata spłaszcza trawę w Ścieżka Marszu na twoje szlaki.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Sadzonka (Marsz) zapuszcza korzenie w trawie, która została.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Drzewa Marszu rosną w gajach na Wyżynach, w zagajnikach i samotnie na Stepie, a własnymi kształtami na Bagnie i na Śnieżnych polach.",
+        "Jedna **Kłoda (Marsz)** daje **4 Deski (Marsz)**. Liście (Marsz) czasem upuszcza Sadzonka (Marsz) (Szczęście pomaga) i jeden albo dwa patyki; nożyce albo Jedwabny dotyk zostawiają same liście.",
+        "Deski (Marsz) idą w wiele rzeczy Tribal Power: bębny, totem Krosnoa, stołki i stoły. Trawa Marszu, Mech Marszu, Liście (Marsz) i kępki Liść Marszu liczą się jako żywa zieleń wokół Kolektor ley."
+      ],
+      "title": "Drzewa"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Trzcina Ducha** rośnie gęsto na Trzcinowym bagnie i rzadko na Stepie. Wchodzi w skład Pnącze pieśni, Świecąca trzcina, Amulet wiatru, Tkana mata i Tabliczka wezwania wiosny, a Wiązacze korzeni przyjmują ją jako ofiarę.",
+        "- **Kwiat echa** rośnie łanami, całymi polami po Kryształowych polach, i sypie drobinami światła. Wchodzi w skład Misa żaru.",
+        "- **Oset ley** jest rozsiany po większości Marszu, razem z Pustkowiami żaru. To ozdoba: zbierz go do obozu.",
+        "Wszystkie trzy można posadzić z powrotem na dowolnej ziemi Marszu, nawet na gołym kamieniu, i wszystkie trzy się palą."
+      ],
+      "title": "Kwiaty i trzciny"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Kryształ Marszu** rośnie na powierzchni, najgęściej na Kryształowych polach. Świeci przy świetle **10**, potrzebuje litego bloku pod sobą i wypada sam przy dowolnym narzędziu. Robi się z niego totem Krosna, Krosno-kotwicę, Kotwicę szlaku, Kołyskę przywołania, Kompas astralny i przekaźniki astralne, a Szwacze krosna go kochają. Duchowe ogniki zbierają się wokół niego.",
+        "**Ruda Marszu** to ruda ducha w kamieniu, głównie głęboko poniżej **y -8**, a wyżej w niektórych biomach jest jej więcej. Potrzebuje kamiennego kilofa i daje **1 do 2 Odłamków Ducha** (Szczęście dodaje więcej). Jedwabnym dotykiem zatrzymujesz blok, a Kruszarka echa zamienia go w **2 Odłamki Ducha**."
+      ],
+      "title": "Kryształ i Ruda Marszu"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Przetop Bruk Marszu z powrotem w Kamień Marszu."
+    },
+    {
+      "type": "text",
+      "title": "Woda i jaskinie",
+      "text": [
+        "Jeziora Marszu noszą **Lilie wodne Marszu**, a czasem pojawia się **Lilia księżycowa**, która nocą świeci nad wodą. **Wstęgowy wodorost** kołysze się pod nimi, zakorzeniony w pokładach szarego **Muł Marszu** i gliny.",
+        "Pod ziemią ściany i stropy jaskiń noszą słabo świecący **Porost zasłony**, ze skały zwisają **Korzenie echa**, a **Kapelusze latarni**, małe świecące grzyby, oświetlają dno jaskiń.",
+        "Nożyce zachowują wodorost, porost i korzenie."
+      ]
+    }
+  ]
+}

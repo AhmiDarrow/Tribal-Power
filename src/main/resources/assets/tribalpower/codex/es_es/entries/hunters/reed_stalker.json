@@ -1,0 +1,51 @@
+{
+  "name": "Acechador de juncos",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Un lince rayado que se esconde entre Caña de Espíritu. Los golpes rápidos traen un veneno breve.",
+        "Cazado, también suelta hasta 1 Cuero de la Marcha y hasta 1 Hueso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Acechadores de juncos se esconden en los pantanos de la Superficie y en los pantanos de manglar, en la Ciénaga de juncos de la Marcha y en los Bajíos, y más dispersos en los Campos de cristal y en la Estepa.",
+        "Tiene **22 de salud** y **1 de armadura**, se mueve rápido y golpea por **4**. Cada mordisco te envenena durante 3 segundos. Lleva leche, o guarda distancia y deja que venga a ti."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Colmillo de junco**.",
+        "Un Colmillo de junco se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ningún amuleto vinculará a un Acechador de juncos."
+      ],
+      "title": "No se vinculará"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, al cazarlo suelta esto, y más con Saqueo."
+      ]
+    }
+  ]
+}

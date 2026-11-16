@@ -1,0 +1,164 @@
+{
+  "name": "Tambor del portal",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "La puerta a la Marcha, el mundo que las tribus dejaron atrás. No necesita Pulso: **marca su ritmo** y el ritmo mismo abre el camino."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cruzar al otro lado",
+      "text": [
+        "Haz clic derecho en el tambor con la **mano vacía** para empezar el **Rito del portal**. Suena una canción de tambores de 20 a 30 segundos, y sus compases caen hacia una línea sobre cuatro tambores en fila: **A** es el tambor de marco grave, **S** el tom bajo, **D** el tambor de mano agudo y **F** la sonaja.",
+        "Golpea cada tambor cuando su compás llega a la línea, con la música. La sonaja te da la entrada, y el ritmo crece según avanza la canción.",
+        "Los cuatro tambores responden a **A**, **S**, **D** y **F**, y las teclas de flecha también funcionan siempre. Puedes asignar cada tambor a otra tecla bajo Tribal Power, en Opciones, Controles; A, S, D y F siguen tocando igual."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acertar el rito",
+      "text": [
+        "Acierta el **60%** de los golpes y el portal se abre y te lleva al otro lado. Pulsar cuando no hay golpe cuenta en tu contra, así que sigue el ritmo en lugar de tocar al azar. Si fallas, o paras con **Esc**, solo golpea el tambor para intentarlo de nuevo.",
+        "El mundo no se detiene mientras tocas, así que despeja la zona primero. Una señal de redstone bloquea el tambor, y no puedes cruzar mientras vas montado.",
+        "Llegas a la superficie de la Marcha, en el mismo punto del mapa. Tu primera visita te sintoniza con el Alijo profundo, así que abrir uno es gratis a partir de entonces."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Abrir el camino",
+      "steps": [
+        {
+          "caption": "Coloca el Tambor del portal en un sitio con espacio alrededor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Haz clic derecho con la mano vacía y marca el ritmo con A, S, D y F para entrar en la Marcha.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Volver a casa",
+      "text": [
+        "En la Marcha, toca el rito en **cualquier** Tambor del portal para volver a casa, así que lleva un segundo tambor para dejarlo allí.",
+        "Te devuelve adonde saliste, al punto seguro más cercano junto a ese lugar, libre de hogueras, losas y cableado. Si ese punto ya no está, te lleva a tu punto de aparición.",
+        "Tu punto de regreso se conserva aunque mueras en la Marcha.",
+        "Una Brújula astral vinculada en casa también sirve. Una piedra de camino o una Brújula del horizonte se queda en un solo mundo, así que no puede traerte de vuelta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes de irte",
+      "text": [
+        "Lleva comida, armadura y Células de Pulso llenas.",
+        "La Marcha tiene cincuenta y nueve tierras en seis franjas; las primeras que es probable que encuentres son la Estepa, las Tierras Altas, los Campos de cristal, los Campos de nieve, los Yermos de brasas, la Ciénaga de juncos, la Cresta del destello y los Bajíos. Lee cada tablilla en un [Salón de los ancestros](ancestor_hall), y busca [Círculos de tambores](drum_circle) en las Tierras Altas.",
+        "Consulta [la Marcha](the_march) para ver qué vive allí."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

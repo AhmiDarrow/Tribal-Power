@@ -1,0 +1,74 @@
+{
+  "name": "O Não Cantado",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Um tambor em ampulheta, com uma máscara de porcelana rachada e dois braços de runas. Só quer o ritmo de volta."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "O Não Cantado nunca chega sozinho. Ele só se ergue quando alguém toca o compasso de quatro batidas em um [Tambor silencioso](drum_circle), e volta a esse tambor na última fase.",
+        "Ele tem **400 de vida** e **8 de armadura**, não pode ser empurrado e ignora efeitos de poção. Uma barra de chefe acompanha as três fases: Batida, Coro e Silêncio.",
+        "Leve comida, armadura, Células de Pulso carregadas, um Carrilhão de osso e um caminho de volta já testado. Um amigo deixa isso bem mais fácil."
+      ],
+      "title": "Antes da primeira batida"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Enquanto está acima de dois terços da vida, uma onda de choque sai **a cada 3 segundos** e atinge todos dentro de **8 blocos** por **6**, com um recuo forte.",
+        "Agache-se logo antes do impacto para se firmar: você recebe **metade do dano** e nenhum recuo.",
+        "O golpe de braço dele causa **10**, então mantenha o tambor entre você e ele quando ele se aproximar."
+      ],
+      "title": "Batida"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Abaixo de dois terços, ele começa a chamar **dois Tecelões de eco a cada 8 segundos**, até **seis** de uma vez, e as ondas de choque vêm a cada **2.5 segundos**.",
+        "Elimine os tecelões antes que eles deixem você lento. A mordida deles deixa você lerdo, e ainda há ondas de choque para enfrentar.",
+        "Um tecelão que você vincula na luta (os Costureiros do tear precisam chamar você de **Voz**) é seu: ele deixa de contar para O Não Cantado e fica quando a luta acaba."
+      ],
+      "title": "Coro"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Abaixo de um terço, ele paira sobre o tambor e não pode ser ferido. A cada 2 segundos, dispara um projétil de tecelagem lento: **5 de dano**, Lentidão e Fraqueza, e [Silêncio Não Cantado](afflictions) por **12 segundos**: nenhuma canção nem voz de cajado responde até que passe. Os projéteis quebram em blocos sólidos, então cobertura ajuda.",
+        "Vá até o Tambor silencioso e toque de novo o compasso de quatro batidas. Isso o ressincroniza: ele fica **atordoado por 8 segundos** e recebe **o dobro do dano**, e depois ainda pode ser ferido com dano normal por mais **4 segundos**.",
+        "Silêncio volta **12 segundos** depois de cada ressincronização, então bata forte e toque de novo."
+      ],
+      "title": "Silêncio"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Um **Coração Não Cantado**, que cria o totem do Tear ([a sexta voz](sixth_voice)).",
+        "- **16 a 24 Fio de Tear**.",
+        "- **4 Núcleos ressonantes**.",
+        "- Um **Disco de música** do Círculo de tambores.",
+        "- O [Rito dos Entalhadores de selos](tablet_7), uma Tábua de relatos que, fora isso, só fica num altar do Templo profundo. Pendure-a numa parede e leia-a.",
+        "Se ninguém permanecer dentro de **48 blocos** por **30 segundos**, ele reinicia: some com os tecelões e o tambor fica pronto para tocar de novo."
+      ],
+      "title": "O que ele deixa"
+    },
+    {
+      "type": "text",
+      "title": "A prova dos Costureiros do tear",
+      "text": [
+        "O Não Cantado é o guardião em que a história dos Costureiros do tear termina: imobilize-o com a história deles no último passo, e a relíquia deles é sua. Os Tecelões de eco dele não soltam mais nada, e ele precisa de espaço para se erguer: nada sólido nos cinco blocos acima do tambor, nem no cinco por cinco ao redor. Veja [Os guardiões](guardians)."
+      ]
+    }
+  ]
+}

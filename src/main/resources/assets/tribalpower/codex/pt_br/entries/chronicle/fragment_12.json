@@ -1,0 +1,17 @@
+{
+  "name": "13. O Portal",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O Portal",
+      "text": [
+        "“O Cume Cintilante é a abóbada dos Entalhadores de selos, selada por dentro no dia da queda. Ao que trancaram ali, pediram com educação que ficasse. Desde então, alimenta-se do pedido.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

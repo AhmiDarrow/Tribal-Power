@@ -1,0 +1,239 @@
+{
+  "name": "エコー破砕",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "土の作業台。最初に作ることになる。エコー破砕の仕事は二つ。**石**をエコーの欠片に砕く。その欠片はパルス共鳴器を動かす結晶だ。そしてブロックと鉱石をより細かいものに砕く。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "欠片を作る",
+      "text": [
+        "**石**か**深層岩**を入れる。マーチの石でもよい。丸石は欠片にならないので、先に石へ製錬する。",
+        "欠片一つに**2秒**、**毎秒32パルス**。近くに蓄えたパルス、発電機のバッファや石塚の分が、遅い発電機を一回分のあいだ支える。",
+        "8ブロック以内に土のトーテムと、充電された発電機が要る。欠片は最初のパルス共鳴器の小さな触媒で、それが生むパルスに少しずつ消費される。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "粉砕",
+      "text": [
+        "- 丸石、深層岩の丸石、マーチの丸石は砂利になる。砂利は砂になる。",
+        "- 対応するふるいModが入っていれば砂は粉になり、なければ粘土球になる。",
+        "- 閃緑岩はクォーツになる。マーチの鉱石は霊の欠片二つになる。",
+        "- 金属の原石と金属の鉱石は、それぞれ**砂礫二つ**になる。4秒、毎秒40パルス。[金属と宝石](metals_and_gems)を参照。",
+        "- シルクタッチの宝石鉱石は、宝石そのものに砕ける。数は鉱石自身のドロップの二倍。",
+        "この書のレシピ、またはJEIが、あなたのパックでの正確な入力と出力を示す。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "砂礫が降りていく",
+      "steps": [
+        {
+          "caption": "残り火の窯と、その火のトーテム。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "その上にエコー破砕を置き、近くに土のトーテムを置く。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "エコー破砕の下面が出力し、残り火の窯の上面が受け取る。だから砂礫がそのまま落ちる。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "発電機を足し、上から鉄の原石を入れ、残り火の窯からインゴットを取り出す。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "この先",
+      "text": [
+        "周りに[破砕陣](shatter_array)の模様を組むと、パルスを四分の一少なく払い、出力を下の祖先の貯蔵庫へ空にする。",
+        "ランクが速くする。[機械のランク](machine_ranks)を参照。レバーで止まる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "エコー破砕が石と深層岩から作るもの。"
+    }
+  ]
+}

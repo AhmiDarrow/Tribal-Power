@@ -1,0 +1,214 @@
+{
+  "name": "Ton premier atelier",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Les ateliers de Tribal Power s'appellent **stations d'écho**. Chacun a besoin de trois choses proches : de quoi travailler, de la Pulsation qui l'atteint par le treillis, et du bon **Totem de résonance** à proximité pour lui donner sa voix.",
+        "La première station à viser est [Broyeur d'écho](echo_shatter) : sept pierre autour d'un Carillon d'os et d'un Résonateur en cuivre. Quatre lingots de cuivre autour d'un Carillon d'os font **deux** Résonateur en cuivre. Il brise la pierre en un **Éclat d'écho**, le petit cristal qui te permettra de produire de la Pulsation sans tambouriner.",
+        "La Pulsation ne voyage que le long d'un [Conducteur de treillis](lattice_conductor) : une station sans conducteur à 8 blocs reste à sec même juste à côté d'un tambour plein. Quatre Résonateur en cuivre autour d'une poussière de redstone font **quatre** conducteurs ; places-en un entre le tambour et la station.",
+        "Le Broyeur d'écho a besoin de la voix **Terre**. Fabrique un {item:tribalpower:resonance_totem_earth} avec des bûches, de la terre, un Carillon d'os et un Résonateur en cuivre, et pose-le près de la station. Le totem n'est pas une source d'énergie. Vois-le comme le maître de la station : sans lui, la station attend et ne dépense rien.",
+        "Un totem fait **deux blocs de haut**, alors laisse un bloc libre au-dessus de l'emplacement. Clique l'une ou l'autre moitié ; casser l'une ou l'autre emporte tout le totem. Un totem d'un monde plus ancien refait son sommet dès que le bloc au-dessus est libre."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Le coin du Broyeur d'écho",
+      "steps": [
+        {
+          "caption": "Pose le Broyeur d'écho à côté de ton Cœur-tambour.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place un Conducteur de treillis à 8 blocs des deux. La Pulsation ne voyage que le long des conducteurs : sans l'un d'eux, la station reste à sec, si proche que soit le tambour.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ajoute un Totem de résonance (Terre) à 8 blocs. Tout près, c'est le plus simple.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Ouvre le Broyeur d'écho et mets de la pierre. Les pierres ne donnent que du gravier, alors fais-les fondre d'abord.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Garde le tambour chargé. En quelques secondes, un Éclat d'écho sort.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "S'il ne démarre pas",
+      "text": [
+        "Accroupis-toi et fais un clic droit sur la station avec ce livre. Elle dira s'il lui manque de la Pulsation, un conducteur, son totem, ou de la place en sortie.",
+        "Le Broyeur d'écho dépense la Pulsation plus vite qu'un tambour à la main n'en fait, alors tambourine d'abord une réserve et laisse le tambour porter le travail.",
+        "Un levier ou tout signal de redstone continu met une station en pause. Rien ne se perd pendant l'attente."
+      ]
+    }
+  ]
+}

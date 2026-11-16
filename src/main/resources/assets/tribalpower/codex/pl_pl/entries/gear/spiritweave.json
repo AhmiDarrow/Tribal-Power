@@ -1,0 +1,91 @@
+{
+  "name": "Duchotkanina",
+  "icon": "tribalpower:spiritweave_hood",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritweave",
+    "tribalpower:spiritweave_robe",
+    "tribalpower:spiritweave_leggings",
+    "tribalpower:spiritweave_boots"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritweave_hood",
+      "text": [
+        "Pancerz z tkaniny twardy jak diament, utkany, by odpowiadać totemowi. Związany z głosem, każdy element budzi dar, podtrzymywany odrobiną Pulsu z Ogniwa Pulsu, które nosisz, a związany element świeci tym."
+      ],
+      "title": "Pancerz Duchotkaniny"
+    },
+    {
+      "type": "text",
+      "title": "Tkanina",
+      "text": [
+        "Tkanina Duchotkaniny powstaje z **Wiązacz echa** przy głosie Woda: każda wełna staje się jedną tkaniną, a Jedwab echa, Aksamit świtu, Puch latarni, Łuska mchogrzbietu albo Skrzydło burzy dają dwie.",
+        "Cztery części biorą zwykłe kształty pancerza; szata i nogawice biorą też Rdzeń rezonansu pośrodku. Tkanina Duchotkaniny naprawia je na każdym kowadle. Rozplot echa zamienia tkaninę z powrotem w wełnę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Noszenie",
+      "text": [
+        "Bez powiązania Duchotkanina to zwykły pancerz: chroni jak diament, nie daje daru i nie zużywa Pulsu. Podpowiedź wymienia, co każdy głos obudziłby w tej części.",
+        "Kucnij i użyj części na ustawionym Totemie rezonansu z **40 Puls** w niesionej komórce, by związać jego głos. Związany kaptur, szata lub nogawice zużywają **3 Puls co cztery sekund**, i to podtrzymuje każdą zaletę części, te od ciosu, upadku lub sidła oraz stałe dary. Buty zużywają tylko, gdy użyta jest jedna z ich zalet; każda opłata starcza na cztery sekund.",
+        "Gdy twoje ogniwa wysychają, dary ustają, a z nimi każda zaleta. Doładuj albo zdejmij części."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głosy i rangi",
+      "text": [
+        "Każdy głos daje każdej części inny dar; mieszane głosy są zamierzone. Zobacz [Sprzęt związany z totemem](totem_bound_gear) dla każdego.",
+        "Podnieś rangę każdej części w Dostrajacz echa, Wiązaczu i Manifestatorze, tymi samymi kosztami i katalizatorami co [Duchowy sprzęt](spiritgear). Każda ranga czyni część solidniejszą: więcej pancerza i twardości, więcej odporności na odrzut i dodatkowego zdrowia, do **2 serc** na część przy Zamanifestowanym."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pełne zestawy",
+      "text": [
+        "Noś cały zestaw jednej rangi, a działa razem:",
+        "- Pełny zestaw **Związany**: **10%** mniej otrzymywanych obrażeń.",
+        "- Pełny zestaw **Zamanifestowany**: około **29 pancerza** i **20 twardości**, **8 dodatkowych serc**, **20%** mniej otrzymywanych obrażeń, a gdy szata jest włączona, naprawia serce co cztery sekundy za **4 Puls**. Zrobiony do najcięższych walk."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_hood"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_robe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_leggings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_boots"
+    },
+    {
+      "type": "text",
+      "title": "Własne ogniwo",
+      "text": [
+        "Jak [Duchowy sprzęt](spiritgear), każda część może nieść własne **Ogniwo Pulsu**: kliknij prawym ogniwem na część w ekwipunku, a wejdzie do środka wraz z ładunkiem. Część wydaje z tego ogniwa, zanim tknie ogniwa, które nosisz. Kliknij prawym na część z pustym kursorem, aby wyjąć ogniwo.",
+        "Na kapturze z goglami, gdy ogniwo jest już na zewnątrz, następne kliknięcie pustym kursorem zdejmuje gogle i oddaje Soczewka ley, z której je zrobiono."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wyłączanie części",
+      "text": [
+        "Każda noszona część ma wyłącznik. Otwórz ekran ekwipunku (domyślnie klawisz apostrofu, pod Tribal Power w Sterowaniu) i ustaw część na Wył.: nadal chroni jak pancerz, ale każda premia części ustaje, także te, które odpowiadają na cios lub upadek, i nie ciągnie Pulsu, dopóki jej nie włączysz. Podpowiedź mówi o tym na czerwono, dopóki jest wyłączona.",
+        "Gogle kaptura mają tam własny przełącznik i własny klawisz. Ten sam ekran pokazuje, który skarbiec otwiera twoja sakwa, i pozwala ukryć HUD Pulsu."
+      ]
+    }
+  ]
+}

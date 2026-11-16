@@ -1,0 +1,74 @@
+{
+  "name": "Bestie pól śnieżnych",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne śniegu",
+      "text": [
+        "Pola śnieżne trzymają fokę na zaspach, karibu, meduzę, która unosi się na zimnym powietrzu, i lodowego skorpiona, który nocą wypełza ze śniegu.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyszczotkować pędzlem, by uzyskać jej reagent, i wabi się ją oraz rozmnaża jej własnym jedzeniem, nazwanym niżej w **Polowanie i wypas**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), i choć żadna nie ma własnego daru, związana wciąż może wziąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Dryfoskór",
+      "text": [
+        "Śnieżna foka, ciężka i gęsto owłosiona, która na płetwach wlecze się po zaspach, w stadach od dwóch do czterech. **26 zdrowia** i **5 pancerza**, i bardzo powolna.",
+        "Upuszcza **od 1 do 3 Skóra dryfu**, więcej z Grabieżą.",
+        "Upolowany upuszcza też od 1 do 2 Surowa dziczyzna i do 2 Skóra Marszu. Rozmnażaj z **Mroźna jagoda**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Mroźny kroczyciel",
+      "text": [
+        "Ciężki karibu z długą białą grzywą, szybki pod wielkim rozłożystym porożem, w stadach od dwóch do czterech. **22 zdrowia** i **1 pancerza**.",
+        "Upuszcza **od 1 do 3 Mroźne kopyto**.",
+        "Upolowany upuszcza też od 1 do 3 Surowa dziczyzna, do 2 Skóra Marszu i do 1 Kość. Rozmnażaj z **Mroźna jagoda**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Śniegozasłona",
+      "text": [
+        "Blada księżycowa meduza powietrza, niska biało-niebieska kopuła z czterema fioletowymi pierścieniami w środku i czterema fryzowanymi ramionami ciągnącymi się pod spodem, która dryfuje nad śniegiem pojedynczo albo do trzech. **12 zdrowia**, bez pancerza.",
+        "Upuszcza **od 1 do 3 Zasłona śniegu**.",
+        "Upolowany upuszcza też do 2 Śnieżka i do 1 Nić. Rozmnażaj z **Mroźna jagoda**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Pełzacz szronu",
+      "text": [
+        "Lodowy skorpion z ogonem wygiętym łukiem nad grzbietem, który nocą wychodzi na otwarty śnieg, jeden albo dwa naraz. Ma **23 zdrowia** i **3 pancerza**, a jego żądło zadaje **4** i zatruwa cię przez 3 sekund.",
+        "Upuszcza **od 1 do 2 Żuwaczka szronu**, reagent jadu. Żuwaczka szronu wzywa Upiór kopca przy Kręgu kopca, a Upiór wzywa własne Pełzacz szronu: zobacz [strażnicy](guardians).",
+        "Upolowany upuszcza też do 2 Śnieżka i do 1 Oko pająka."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz reagentu każdy upuszcza więcej, gdy jest upolowany, i jeszcze więcej z Grabieżą. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnożyć dzikie, **skradaj się**, kiedy karmisz dwoje dorosłych ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego łagodnieje wobec ciebie."
+      ]
+    }
+  ]
+}

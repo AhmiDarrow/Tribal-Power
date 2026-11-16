@@ -1,0 +1,190 @@
+{
+  "name": "Rozplot echa",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "Stacja Krosna puszcza kratę wstecz. Rozplot echa rozkłada gotowy wyrób na więcej z poprzedniego kroku i zamienia zużyty duchowy sprzęt z powrotem w metal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co rozkłada",
+      "text": [
+        "- Manifestowana sztabka: **2** związane echa.",
+        "- Związane echo: **2** dostrojone echa.",
+        "- Dostrojone echo: **2** odłamki echa.",
+        "- Rdzeń rezonansu: **3** manifestowane sztabki.",
+        "- Duchotkanina: **1** wełna.",
+        "- Uszkodzone narzędzie Duchowego sprzętu, uszkodzona broń albo uszkodzona Grzechotka uzdrowiciela: **1** manifestowana sztabka. Łuki i kusze nie są rozkładane.",
+        "Świeże, nieuszkodzone narzędzia są odrzucane: Duchowy sprzęt musi najpierw przyjąć obrażenia. Zbroja z Duchotkaniny nigdy nie jest rozkładana.",
+        "W zasięgu 8 bloków musi być Totem rezonansu (Krosno). Brak Krosna wstrzymuje je i nic nie zużywa."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Rozplatanie rdzenia",
+      "steps": [
+        {
+          "caption": "Postaw Rozplot echa tak, by Totem rezonansu (Krosno) był w zasięgu 8 bloków.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Trzymaj Puls w zasięgu i zostaw trochę wolnego miejsca na wyjściu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Wchodzi Rdzeń rezonansu; wychodzą trzy manifestowane sztabki.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spinanie tego",
+      "text": [
+        "Wstaw wyjście Wiązacza echa albo Manifestatora echa do tej stacji, dla odwrotnego łańcucha bez leja.",
+        "Jeśli chcesz szybciej, podnieś rangę po kolei: Dostrajacz echa, Wiązacz echa, potem Manifestator echa. Dźwignia wstrzymuje wkładanie i pracę.",
+        "Jeśli nie ruszy, kucnij i kliknij je prawym przyciskiem z tą książką, i przeczytaj [Szósty głos](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

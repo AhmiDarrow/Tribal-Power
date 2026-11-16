@@ -1,0 +1,78 @@
+{
+  "name": "Stammesgerichte",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Jeder Stamm kocht ein Gericht, wie nur er es kann, und wer es isst, trägt den [Segen](tribe_boons) dieses Stammes für **5 Minuten**. Koch sie am [Herdtopf](hearth_pot).",
+        "- **Hüterwurzelbrei** (Boden): Glutwurzel ×2, Steppenkorn, eine Schüssel.",
+        "- **Griesbrot** (Stein): Steppenkorn ×2, Eisengries.",
+        "- **Wurzelbinderreis** (Spross): Fennreis ×2, Geistrohr, eine Schüssel.",
+        "- **Kantenläufer-Dörrfleisch** (Klaue): Rohes Wildbret ×2, Glutwurzel.",
+        "- **Trommelherzen-Chili** (Funke): Glutwurzel ×2, Schimmerbohne, Rohes Wildbret, eine Schüssel."
+      ],
+      "title": "Neun Stämme, neun Gerichte"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Mustertarte** (Uhr): Schimmerbohne, Steppenkorn, Frostbeere.",
+        "- **Honigkuchen** (Schwarm): Honigwabe, Steppenkorn ×2, ein Ei.",
+        "- **Siegelkerberbrühe** (Sigill): Fennreis, Echoblüte, Marschblatt, eine Schüssel.",
+        "- **Webstuhlfadennudeln** (Spindel): Fennreis ×2, Leydistel, eine Schüssel.",
+        "Sobald ein Stamm dich **Freund** nennt, verkauft dir seine Sippe das Gericht für vier der Feldfrucht, auf der es beruht. Biete einem Stamm sein eigenes Gericht an seinem Herd an, und es zählt **6 Ansehen**, mehr als jedes andere Geschenk außer einem Reagenz."
+      ],
+      "title": "Neun Stämme, neun Gerichte, Fortsetzung"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

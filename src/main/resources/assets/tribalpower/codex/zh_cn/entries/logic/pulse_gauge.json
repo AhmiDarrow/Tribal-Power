@@ -1,0 +1,264 @@
+{
+  "name": "脉动计与脉动阈值",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "脉动计把储存的脉动变成红石。把它对准鼓心、发电机、共鸣器或地脉收集器，任何储存脉动的东西，它就按该储存的满度发出**0到15**。工坊从周围抽取脉动，自己并不留存可供读取的量。",
+        "它的同类**脉动阈值**只回答简单的是或否：储存是否至少这么满？",
+        "二者都用远行界石头制成，所以要等你第一次前往远行界。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "脉动计",
+      "text": [
+        "潜行并把要读取的方块贴着放置；箭头指向你点击的方块内部。普通点击会改为使用那个方块，并敲击鼓心。它从**除箭头外的每一面**输出，侧面为弱，背面为强。",
+        "储存为空时信号为**0**，随后随充满从1升到15。每4刻更新一次，读取此计的比较器得到同一个数。",
+        "右键点击可查看储存的脉动、容量和信号。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "脉动阈值",
+      "text": [
+        "以同样方式潜行放置，箭头朝向储存。右键点击可循环**25、50、75和100%**；初始为50。",
+        "储存的脉动达到或高于该份额时，它输出满**15**，低于则没有输出。和计一样，它从不从箭头那一面输出，因此不会扰动所监视的储存。比较器把设置读成1到4。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "暂停或保护",
+      "text": [
+        "保持的信号会暂停机器。直接接到机器上时，脉动阈值会在储存**足够满**时暂停它。",
+        "通常你要的是相反的一面：在鼓**偏低**时暂停一台饥渴的站点，好给你留下储备。在线路上放一块**反转板**。于是'过于空'成为有信号：低于设置时反转唱出，站点暂停；鼓恢复后，反转安静，工作继续。",
+        "给整座营地接线之前，先用一台饥渴的站点试验。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "留出储备",
+      "steps": [
+        {
+          "caption": "鼓心给三格外的回响粉碎供能。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "潜行并把脉动阈值贴在鼓上，箭头朝内；普通点击会改为敲鼓。右键点击脉动阈值，选择25、50、75或100%。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "潜行并把反转板装在脉动阈值背面，面向站点；普通点击会改变脉动阈值的设置。它读取自己所在的方块。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "低于设置时，脉动阈值安静，反转歌唱，站点一直等到鼓重新蓄满。",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

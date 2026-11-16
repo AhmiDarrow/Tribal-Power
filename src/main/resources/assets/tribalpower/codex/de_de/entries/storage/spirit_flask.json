@@ -1,0 +1,36 @@
+{
+  "name": "Geistflasche",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Ein Tank zum Tragen. Die Flasche hält eine Flüssigkeit, **4.000 mB** (4 Eimer) — die **Große Geistflasche** hält **16.000 mB**, so viel wie eine [Geistzisterne](spirit_cistern).",
+        "Sie zerfällt nie in einen Stapel Eimer, und die Menge darin zeigt sich als Balken unter dem Symbol, in der Farbe der Flüssigkeit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Füllen und Ausgießen",
+      "text": [
+        "- **Benutze sie an einem Tank oder einer Maschine** (einer Geistzisterne, einer Wellentrommel, dem Tank eines anderen Mods), und sie zieht daraus; kann sie nicht ziehen, gießt sie stattdessen hinein, was sie trägt.",
+        "- **Benutze sie an einer Flüssigkeitsquelle in der Welt**, und sie trinkt einen Eimer davon.",
+        "- **Schleich-benutzen**, und sie gießt einen Eimer vor dir wieder aus.",
+        "Andere Mods sehen sie als gewöhnlichen Flüssigkeitsbehälter, also können Rohre und Füllmaschinen sie füllen und leeren, während sie in deinem Rucksack liegt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

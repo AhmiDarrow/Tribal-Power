@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Fil des Couseurs du métier",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "D'une Flèche de cristal ou d'un camp des Couseurs du métier, en leurs propres mots :",
+        "“Le Métier n'a jamais été un seul fil. C'était neuf d'accord. Nous tenions le Fuseau et avons cousu les brins des tribus en une seule étoffe par-dessus le ciel. Quand huit tractions sont devenues huit disputes, l'étoffe s'est déchirée le long de notre couture. Nous cousons encore. Apporte du cristal. Apporte du fil.”"
+      ]
+    }
+  ]
+}

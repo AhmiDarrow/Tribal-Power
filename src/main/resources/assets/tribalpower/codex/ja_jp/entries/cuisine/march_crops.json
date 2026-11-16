@@ -1,0 +1,35 @@
+{
+  "name": "マーチの作物",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "五つの作物があちらで野生に育ち、それぞれ自分の土地にある。群落を見つけ、摘め。摘んだものが種だ。ジャガイモのように耕地へ植える。ただの土、マーチの土壌、砂にも根づく。野生の群落はそうして育つ。",
+        "- **熾根**は熾火の荒野にある。熱い赤い塊茎。",
+        "- **沼沢米**は葦の沼沢にある。",
+        "- **霜の実**は雪原にある。",
+        "- **微光豆**は微光の尾根にあり、月長石と苔瑪瑙に根を張り、水晶の野にもある。",
+        "- **草原穀物**は草原にある。"
+      ],
+      "title": "マーチが育てるもの"
+    },
+    {
+      "type": "text",
+      "text": [
+        "四つの段階で育つ。どれも生で食べられるが、あまり腹はふくれない。[霊装のクワ](spiritgear)は一度で収穫して植え直し、ハチが受粉させ、[芽の恩恵](tribe_boons)が成長を急がせる。",
+        "霜の実と微光豆は[霊の釜](spirit_kettle)の薬草としても数える。"
+      ],
+      "title": "栽培する"
+    }
+  ],
+  "next": "hearth_pot"
+}

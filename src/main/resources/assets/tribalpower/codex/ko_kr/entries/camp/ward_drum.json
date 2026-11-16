@@ -1,0 +1,336 @@
+{
+  "name": "수호의 북",
+  "icon": "tribalpower:ward_drum",
+  "order": 60,
+  "next": "hush_totem",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ward_drum",
+      "text": [
+        "야영지의 야간 경계. 수호의 북은 펄스를 써서 적대적 몹을 한 번에 하나 때리고 밀어낸다. 그래서 크리퍼는 문에 닿지 못한다. 플레이어는 결코 겨냥하지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "무엇을 때리나",
+      "text": [
+        "박마다, 초에 한 번, **8블록** 안(북을 둘러싼 정육면체)의 적대적 몹 하나를 찾아 **4 마법 피해**를 주고 북에서 멀어지게 민다.",
+        "한 번 칠 때마다 격자에서 **8 펄스**를 쓴다. 등급을 올리면 박이 짧아진다. 타격당 펄스는 8로 남는다. **정령**에 응답한다. 8블록 안에 정령 토템을 두어라 ([야영지의 손](camp_hands) 참고). 그렇지 않으면 가만히 선다.",
+        "적대적 몹이라면 무엇이든 센다. 오버월드의 것도, 마치의 것도. 좀비, 스켈레톤, 크리퍼, 거미, 팬텀, 마녀, 드라운드, 그리고 나머지. 플레이어는 결코 대상이 아니고, 주민도, 맺어진 사역마도 (네 것이든 누구의 것이든), 어린 것도 아니다. 보스는 흘려넘긴다. 위더와 엔더 드래곤, 그리고 마치의 수호자는 네 몫으로 남는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "감시 초소",
+      "steps": [
+        {
+          "caption": "적대적 몹이 들어오는 곳, 야영지 가장자리 가까이에 북을 두어라.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ward_drum[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안의 전도체로 펄스를 준다. 타격마다 8.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "북을 읽는 비교기는 치는 박에 15, 기다리는 동안 0을 나타낸다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "조명이나 종으로 이어 두면, 무언가가 야영지를 넘본 때를 알 수 있다.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "함께 지내기",
+      "text": [
+        "우클릭하면 마지막으로 친 대상이 보인다. 레버가 그것을 잠재운다.",
+        "경비이지, 농장이 아니다. 1초에 한 번으로는 생성기를 따라가지 못한다. 죽음이 값을 돌려주어야 한다면, 쓰러지는 곳에서 16블록 안에 [깨어남의 종](wake_bell)을 두어라.",
+        "정적 토템은 야영지 안에서 적대적 몹이 생기는 것을 막는다. 밖에서 걸어 들어오는 것은 수호의 북이 맡는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_drum"
+    }
+  ]
+}

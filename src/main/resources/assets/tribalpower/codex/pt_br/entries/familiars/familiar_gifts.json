@@ -1,0 +1,235 @@
+{
+  "name": "O que os familiares fazem",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Raposa-lanterna",
+      "text": [
+        "Uma Raposa-lanterna vinculada ilumina o caminho."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Uma **Luz de Espírito** invisível viaja com ela na luz **10**; a marca Veio-brilho sobe isso para **12**.",
+        "Você tem Visão noturna enquanto fica a **8 blocos** dela.",
+        "A cada **4 segundos** ela marca minérios a **6 blocos** de si com cintilações que só você vê. Agudeza encurta essa espera, um Zumbido forte acelera isso, e o Zumbido noturno acelera de novo depois de escurecer."
+      ],
+      "title": "A lanterna da raposa"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Lomomusgo",
+      "text": [
+        "Um Lomomusgo vinculado carrega as suas coisas."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Agache e use-o com a **mão vazia** para abrir um alforje de **9 espaços**, ou de **12** com Bolso fundo.",
+        "Se ele morrer, o alforje se espalha no chão."
+      ],
+      "title": "O alforje do Lomomusgo"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Cervo da alvorada",
+      "text": [
+        "Um Cervo da alvorada vinculado pode ser montado sem sela."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Use-o para montar. Conduza com o olhar, segure o pulo para um salto curto e agache para desmontar. Ele só carrega quem está vinculado a ele.",
+        "Passada o deixa mais rápido; a marca Salto pula mais alto."
+      ],
+      "title": "Montar o cervo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eles batem em quem bater em você e em quem você bater, mas nunca em um jogador nem no companheiro de outro guardião. Um remanescente selvagem que eles acertarem revida. São corajosos, não imbatíveis: ainda perdem para os guardiões.",
+        "**Fauce macia** impede que mordam aldeões ou golens. **Rastro** (duas cópias, só cães) faz brilhar o último inimigo que feriu você, em qualquer lugar dentro de 48 blocos."
+      ],
+      "title": "Lutadores: Lomoestilhaço e Cão da fenda"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Uma Mariposa da tempestade **sentada** deixa um **Clique de Espírito** invisível de redstone **15** uma vez por segundo, por 2 ticks. Clique certo o segura por mais 2 ticks. Não é um tambor: os Coração de tambor, os braseiros e as pedras-chave o ignoram, mas as placas de canto e a redstone o ouvem.",
+        "Um Diabrete de borralho **seguindo** devolve **4 Pulso** cada vez que você toca um Coração de tambor à mão dentro de **8 blocos**. Batidas de redstone não recebem nada, e só um diabrete paga por batida. Tempo (duas cópias) devolve mais 2, **6** no total."
+      ],
+      "title": "Mariposa da tempestade e Diabrete de borralho"
+    },
+    {
+      "type": "scene",
+      "title": "Uma mariposa como relógio",
+      "steps": [
+        {
+          "caption": "Coloque uma lâmpada de redstone onde sua mariposa vai sentar e agache e use-a para fazê-la esperar ao lado.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma vez por segundo, um Clique de Espírito invisível aparece onde a mariposa paira.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "A lâmpada ao lado acende a cada clique: um relógio grátis de um segundo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um Coração de tambor do outro lado não ouve nada, porque os tambores ignoram o clique.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Um Sino de luto seguindo, dentro de **8 blocos**, remove de você veneno, fraqueza, fome, fadiga, cegueira e náusea. Quieto (duas cópias) também remove lentidão. Nunca remove o Definhamento.",
+        "Um Tecelão de eco seguindo recolhe o que cai dentro de **4 blocos** para uma bolsa de **cinco espaços** e joga para você. Coleta (duas cópias) alcança **8**. Agache e use-o de mãos vazias para esvaziar a bolsa você mesmo."
+      ],
+      "title": "Sino de luto e Tecelão de eco"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Risshund",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Ein magerer Windhund, von leuchtenden Rissen zerrissen, gezogen zu Rissen im Gitter. Er schließt die Distanz schnell, kann Welten aber nicht allein überqueren.",
+        "Gejagt lässt er außerdem bis zu 2 Knochen und bis zu 1 Marschleder fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Risshunde jagen in der Steppe des Marsches, im Hochland, auf dem Schimmergrat, in den Schneefeldern und im Glutödland.",
+        "Er hat **28 Gesundheit** und **2 Rüstung** und schlägt für **5**. Er ist der schnellste der Reste, also rennst du ihm nicht leicht davon. Dreh dich um und kämpfe mit dem Rücken zur Wand."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Es lässt **1 bis 2 Risszahn** fallen.",
+        "Ein Risszahn wird unter Geist zu 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Erreiche **Stimme** bei den **Kantenläufern**, dann benutze ein Bindungsamulett an einem Erwachsenen: zwei Versuche von fünf, das Amulett wird bei einem Fehlschlag verbraucht. Oder füttere es mit seinem eigenen Reagenz: ein Versuch von fünf, und das Reagenz wird so oder so verbraucht.",
+        "Ein gebundener Hund ist ein Kämpfer, und das seltene Mal **Spur** zeigt dir den letzten Feind, der dich verletzt hat. Siehe [Gaben des Vertrauten](familiar_gifts)."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt es dies fallen, wenn man es jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

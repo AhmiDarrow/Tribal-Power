@@ -1,0 +1,164 @@
+{
+  "name": "Tambor do portal",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "A porta para a Marcha, o mundo que as tribos deixaram para trás. Não precisa de Pulso: **bata o seu ritmo** e o próprio ritmo abre o caminho."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Atravessar",
+      "text": [
+        "Clique com o botão direito no tambor com a **mão vazia** para começar o **Rito do portal**. Toca uma canção de tambores de 20 a 30 segundos, e as batidas caem em direção a uma linha sobre quatro tambores enfileirados: **A** é o tambor de aro grave, **S** o tom baixo, **D** o tambor de mão agudo e **F** o chocalho.",
+        "Bata em cada tambor quando a batida chegar à linha, com a música. O chocalho faz a contagem para você, e o ritmo cresce conforme a canção segue.",
+        "Os quatro tambores respondem a **A**, **S**, **D** e **F**, e as setas sempre funcionam também. Você pode vincular cada tambor a outra tecla em Tribal Power, em Opções, Controles; A, S, D e F ainda tocam do mesmo jeito."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acertar o rito",
+      "text": [
+        "Acerte **60%** das batidas e o portal se abre, levando você. Apertar quando não há batida conta contra você, então siga o ritmo em vez de tocar à toa. Se falhar, ou parar com **Esc**, é só bater no tambor para tentar de novo.",
+        "O mundo não para enquanto você toca, então limpe a área primeiro. Um sinal de redstone trava o tambor, e você não pode atravessar montado.",
+        "Você chega à superfície da Marcha, no mesmo ponto do mapa. Sua primeira visita sintoniza você com o Depósito profundo, então abrir um fica de graça daí em diante."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Abrir o caminho",
+      "steps": [
+        {
+          "caption": "Coloque o Tambor do portal em algum lugar com espaço ao redor.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique com o botão direito de mãos vazias e marque o ritmo em A, S, D e F para entrar na Marcha.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voltando para casa",
+      "text": [
+        "Na Marcha, toque o rito em **qualquer** Tambor do portal para ir para casa, então leve um segundo tambor para colocar lá.",
+        "Ele leva você de volta para onde você saiu, no ponto seguro mais próximo ao lado, longe de fogueiras, lajes e fiação. Se esse ponto sumiu, ele leva você ao seu ponto de renascimento.",
+        "Seu ponto de retorno fica guardado mesmo se você morrer na Marcha.",
+        "Uma Bússola astral vinculada em casa também funciona. Uma pedra de caminho ou uma Bússola do horizonte fica dentro de um só mundo, então não pode trazer você de volta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes de ir",
+      "text": [
+        "Leve comida, armadura e Células de Pulso cheias.",
+        "A Marcha tem cinquenta e nove terras em seis faixas; as primeiras que você provavelmente encontra são a Estepe, as Terras Altas, os Campos de cristal, os Campos de neve, os Ermos de brasa, o Pântano de juncos, a Crista do brilho e os Baixios. Leia cada tábua num [Salão dos ancestrais](ancestor_hall) e procure [Círculos de tambores](drum_circle) nas Terras Altas.",
+        "Veja [a Marcha](the_march) para saber o que vive lá."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "name": "펄스 계기와 펄스 임계값",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "펄스 계기는 저장된 펄스를 레드스톤으로 바꾼다. 북심장, 발전기, 공명기, 레이 수집기처럼 펄스를 저장하는 것을 가리키면, 그 저장량이 찬 정도대로 **0에서 15**를 낸다. 작업장은 주변에서 펄스를 끌어오고, 읽을 저장량은 갖지 않는다.",
+        "그 짝인 **펄스 임계값**은 단순한 예 또는 아니요로 답한다. 저장량은 적어도 이만큼 찼는가?",
+        "둘 다 마치 돌로 만들므로, 마치로의 첫 여행을 기다린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "펄스 계기",
+      "text": [
+        "웅크리고, 읽으려는 블록에 붙여 놓는다. 화살표는 클릭한 블록 안을 가리킨다. 일반 클릭은 그 블록을 대신 쓰고, 북심장을 두드린다. **화살표를 제외한 모든 면**에서 내보내며, 옆면은 약하고 뒷면은 강하다.",
+        "저장량이 비면 신호는 **0**이고, 차면 1에서 15로 오른다. 4틱마다 갱신되며, 계기를 읽는 비교기는 같은 수를 얻는다.",
+        "우클릭하면 저장된 펄스, 용량, 신호를 본다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "펄스 임계값",
+      "text": [
+        "같은 방식으로 웅크려, 화살표를 저장량 쪽으로 놓는다. 우클릭으로 **25, 50, 75, 100%**를 순환한다. 처음은 50이다.",
+        "저장된 펄스가 그 몫 이상인 동안 가득 찬 **15**를 내고, 그 아래에서는 아무것도 내지 않는다. 계기처럼 화살표 면에서는 결코 내지 않으므로, 보는 저장량을 건드리지 않는다. 비교기는 설정을 1에서 4로 읽는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "일시정지 또는 보호",
+      "text": [
+        "유지된 신호는 기계를 멈춘다. 기계에 곧장 잇면, 펄스 임계값은 저장량이 **충분히 찬** 동안 그것을 멈춘다.",
+        "보통은 반대가 필요하다. 북이 **낮을** 때 배고픈 시설을 멈춰 예비를 남긴다. 선 위에 **반전 판**을 놓는다. 이제 '너무 비어 있음'이 활성 신호다. 설정 아래에서는 반전이 노래하고 시설이 멈추며, 북이 회복되면 반전은 조용해지고 일이 다시 시작된다.",
+        "야영지 전체를 배선하기 전에 배고픈 시설 하나로 시험한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "예비 남기기",
+      "steps": [
+        {
+          "caption": "북심장이 세 블록 떨어진 메아리 파쇄에 공급한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "웅크리고 펄스 임계값을 북에 붙인다. 화살표는 안쪽. 일반 클릭은 대신 북을 두드린다. 펄스 임계값을 우클릭해 25, 50, 75 또는 100%를 고른다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "웅크리고 반전 판을 펄스 임계값 뒷면에 붙인다. 시설을 향하게 한다. 일반 클릭은 펄스 임계값의 설정을 바꾼다. 얹힌 블록을 읽는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "설정 아래에서는 펄스 임계값이 조용해지고, 반전이 노래하며, 북이 다시 찰 때까지 시설이 기다린다.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

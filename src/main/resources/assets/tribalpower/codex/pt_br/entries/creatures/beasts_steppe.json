@@ -1,0 +1,74 @@
+{
+  "name": "Feras da estepe",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os próprios da estepe",
+      "text": [
+        "Quatro animais pertencem à estepe: três que pastam ou voam sobre a grama aberta, e um que caça nos túneis por baixo.",
+        "Toda fera mansa daqui pode ser escovada com o pincel para obter seu reagente uma vez por minuto, e é atraída e reproduzida com a própria comida, nomeada abaixo em **Caça e pastoreio**. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer sua magia (veja [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Lomo-de-tufo",
+      "text": [
+        "Um bisão peludo da estepe que pasta em manadas de dois a quatro. Tem **26 de vida** e **5 de armadura**, move-se muito devagar e recua dos monstros.",
+        "Deixa cair **1 a 3 Lã de tufo**, mais com Pilhagem.",
+        "Caçado, também deixa cair 1 a 2 Caça crua e até 1 Couro da Marcha. Reproduza com **Grão da estepe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Canela-longa",
+      "text": [
+        "Um cervo alto, ligeiro nas patas, em manadas de dois a quatro. **22 de vida** e **1 de armadura**.",
+        "Deixa cair **1 a 3 Tendão de canela**. Tendão de canela chama o Espírito da disparada no Anel pisoteado: veja [guardiões](guardians).",
+        "Caçado, também deixa cair 1 a 3 Caça crua, até 2 Couro da Marcha e até 1 Osso. Reproduza com **Grão da estepe**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Asa-pálida",
+      "text": [
+        "Um milhafre ruivo, pálido sob as asas, de cauda profundamente bifurcada, que plana sobre a grama de um a três. **10 de vida**, sem armadura.",
+        "Deixa cair **1 a 3 Penugem pálida**, que é moída em corante branco (veja [reagentes](reagents)).",
+        "Caçado, também deixa cair 1 a 2 Pena e até 1 Caça crua. Reproduza com **Grão da estepe ou sementes de trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Rói-toca",
+      "text": [
+        "Um besouro-veado escavador com grandes pinças curvas, o caçador da estepe. Vive em túneis escuros sob a grama e sobe ali de dia ou de noite, um ou dois de cada vez. Tem **23 de vida** e **3 de armadura**, e a mordida causa **4** e envenena você por 3 segundos.",
+        "Deixa **1 a 2 dentes trituradores**, um reagente de veneno. Os Rói-toca também sobem à superfície para entrar na luta do Espírito da disparada.",
+        "Caçado, também deixa até 1 osso e até 1 olho de aranha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um deixa mais quando caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para procriar os selvagens, **agache-se** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "Lieux de la Marche",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruines et camps",
+      "text": [
+        "Les tribus ont laissé plus que des salles et des cercles de tambours. Chaque terre de la Marche a ses propres restes, la plupart avec un coffre qui vaut d'être ouvert, et quelques-uns gardés par ce qui y marche encore.",
+        "Les Ruines de l'ancienne Porte et la Grotte de cristal gardent leurs meilleurs coffres derrière **Sentinelle creuse**, et la Tombe de cendre derrière des générateurs de **Lié-cendre** et de **Diablotin d'escarbille**. Ces coffres peuvent contenir un **Noyau résonnant** ou un **Fil de Métier**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Camps et villages",
+      "text": [
+        "Chaque tribu tient un camp dans chaque bande de la Marche, bâti du bois et du sol propres à cette bande : pin de givre et neige sur la lisière gelée, sapin d'épines et terreau d'aiguilles dans les taïgas froides, palmier-tambour sur les savanes, écorce-soleil et sel dans les terres chaudes. Les Gardiens des litières tiennent les prés et les croupes, les Chanteurs de gravier les pics et les mesas, les Lieurs de racines les bois profonds, les Marcheurs de lisière les taïgas, les Cœurs-tambours le sol sec et brûlant, les Tisserands de motifs les steppes ouvertes, les Gardiens de la colonie les terres en fleurs, les Graveurs de sceaux les bois sombres et les Couseurs du métier le pays étrange et éclairé.",
+        "**Villages** aussi dans chaque bande : une place avec l'Âtre de la tribu, le feu, le totem, le puits et le Métier, ses quatre Parent, et le générateur propre à la voix, qui bourdonne ; des rues de la pierre de la bande menant à des huttes, des maisons longues, un atelier avec un Broyeur d'écho et un Établi du chant, un grenier de la culture de la bande, un sanctuaire, une tour de guet, un enclos des brouteurs de la bande et un jardin de fleurs. L'Âtre d'un village prend des offrandes comme l'Âtre d'un camp."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Morceaux de l'ancien monde",
+      "text": [
+        "Au-dessus des pics et du terrain haut, et au-dessus de plus d'un Colosse pleureur, **montagnes flottantes de l'ancien monde** pendent dans le ciel : de hautes falaises de roche de la Marche, larges à la couronne et effilées en pointe vers le bas, aux faces rayées et moussues, gazon et arbres au sommet, un anneau brisé de Briques avec un coffre dedans, des lianes sur chaque face et une chute d'eau qui se déverse du bord. Elles pendent en groupes à des hauteurs différentes, reliées par des lianes géantes, de petites roches dérivant autour.",
+        "Un groupe est tenu au sol par des **racines géantes de Bois de saule**, gainées de Feuilles et chargées de rideaux de Brin de saule qui descendent tout du long. On peut y grimper : agrippe-toi au pied d'une racine et monte jusqu'au ciel. Au-dessus d'un Colosse pleureur les racines finissent dans sa couronne, donc l'arbre est l'échelle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Steppe et les hautes terres",
+      "text": [
+        "- **Sanctuaire du voyageur** : un sanctuaire couvert au bord de la route, sur un vieux chemin, avec un coffre d'offrandes.",
+        "- **Pierres de pâture** : un cercle de pierres levées autour d'une pierre à sel.",
+        "- **Relais abandonné** : un poste de relais en ruines, un mât encore debout.",
+        "- **Tour du tambour tombée** : une tour brisée ; son grand tambour gît dans l'herbe.",
+        "- **Fanal de veille** : une tour de pierre sur un tertre, son feu de signal encore allumé.",
+        "- **Carrière d'écho** : une fosse en terrasses avec du Minerai de la Marche dans les parois et une grue au bord.",
+        "- **Autel de la tempête** : un autel de tuf sous un paratonnerre.",
+        "- **Retraite des Graveurs de sceaux** : des salles taillées dans un escarpement, avec un atelier et un grenier.",
+        "- **Ruines de l'ancienne Porte** : une Porte de voie à demi enfouie, au-dessus d'une salle gardée et d'une chambre barrée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les Champs de neige et les Friches de braise",
+      "text": [
+        "- **Longue salle gelée**, **Cairn de glace**, **Pavillon du Chasseur** et **Veille de l'aurore** dans la neige.",
+        "- **Forge de braise**, **Flèche d'escarbille** et **Anneau de scories** dans la cendre, et le **Repaire du reste**, où les survivants ont tenu.",
+        "- **Tombe de cendre** : une tombe enfouie sous les Friches de braise, gardée, et le risque en vaut la peine."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les Champs de cristal et la Tourbière des roseaux",
+      "text": [
+        "- **Observatoire brisé** : une terrasse de carte du ciel sous un dôme brisé.",
+        "- **Obélisque de résonance** : un obélisque coiffé de cristal au-dessus d'une chambre cachée.",
+        "- **Ruine du Métier** : un grand métier tombé, l'étoffe encore pendue.",
+        "- **Grotte de cristal** : un escalier en colimaçon descend vers une grotte-géode et une chambre derrière une Porte de fer.",
+        "- **Village sur pilotis**, **Sanctuaire englouti**, **Barrage de roseaux** et **Tertre de tourbière** dans la tourbière.",
+        "- **Puits de l'Esprit** : un puits couvert ceint de fleurs, son coffre d'offrandes au fond de l'eau."
+      ]
+    }
+  ]
+}

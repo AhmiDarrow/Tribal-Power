@@ -1,0 +1,45 @@
+{
+  "name": "Cache profonde",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Un coffre-fort, partout. Chaque Cache profonde que tu poses ouvre le même coffre-fort personnel de **54 emplacements**, donc un coffre chez toi et un à un avant-poste lointain tiennent les mêmes choses. Une Sacoche du voyageur l'ouvre depuis ta poche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'ouvrir",
+      "text": [
+        "Dès que tu as posé le pied dans la Marche, tu es syntonisé, et chaque ouverture est gratuite.",
+        "Jusque-là, chaque ouverture coûte **5 Pulsation**, prises sur une Cellule de Pulsation que tu portes.",
+        "Le coffre-fort t'appartient, pas au bloc. Casser une Cache profonde ne fait rien perdre ; poses-en une autre et tes affaires y sont.",
+        "Un levier verrouille ce bloc de cache. Le coffre-fort lui-même n'est jamais vidé par une pause."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Sacoche du voyageur",
+      "text": [
+        "La sacoche ouvre le même coffre-fort de n'importe où, avec la même règle de syntonie. C'est une clé, pas un sac : rien n'est stocké dans l'objet lui-même, donc on ne peut ni le dupliquer ni le perdre avec son contenu. Le coffre-fort ne prend pas de sacoche, donc tu ne peux jamais y enfermer la clé.",
+        "Si tu appartiens à un [campement partagé](shared_camps), une Cache profonde ou une sacoche ouvre le coffre-fort partagé du campement. Accroupis-toi en l'ouvrant pour passer au tien et revenir ; il retient ton choix. Le coffre-fort du campement est un inventaire à part.",
+        "La touche **Coffre de la sacoche** bascule entre le coffre-fort du campement et le tien sans rien ouvrir. Elle commence non assignée : règle-la sous Tribal Power dans Options, Contrôles.",
+        "Chaque vue de coffre-fort a un bouton **Ranger** au-dessus de ses emplacements, qui fusionne et trie le contenu ; voir [Cache ancestrale](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

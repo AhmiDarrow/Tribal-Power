@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Siatka Śpiewaków żwiru",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Trzymana w obozie Rzeźbiarzy pieczęci, słowami Śpiewaków żwiru:",
+        "“Siatka nie znajduje rudy. Siatka daje rudzie miejsce, gdzie może osiąść. Śpiewaj nisko nad surowym kamieniem, a się poluzuje; śpiewaj niżej, a rozpadnie się w echo. Nasze siatki wciąż wiszą w salach, buczące w nic. Przynieś im rudę, a będą buczeć do ciebie.”"
+      ]
+    }
+  ]
+}

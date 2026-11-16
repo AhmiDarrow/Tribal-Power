@@ -1,0 +1,52 @@
+{
+  "name": "Moosrücken",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Eine geduldige Teichschildkröte, der ein Garten auf dem Panzer wächst. Bürste Erwachsene für eine natürlich abgeworfene Moosrückenschuppe.",
+        "Gejagt lässt es außerdem 2 bis 4 Rohes Wildbret und bis zu 2 Marschleder fallen. Züchte es mit **Seegras oder Bandkraut**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Moosrücken waten in Sümpfen der Oberwelt und in Mangrovensümpfen. Im Marsch drängen sie sich im Schilfmoor, und ein paar ziehen durch die Kristallfelder, die Steppe und die Schneefelder.",
+        "Ein Moosrücken hat **30 Leben** und **6 Rüstung** und bewegt sich langsam. Er ist sanft und weicht vor Monstern zurück. Züchte zwei mit **Seegras**."
+      ],
+      "title": "Wo du ihn findest"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Bürste einen Erwachsenen einmal pro Minute für eine **Moosrückenschuppe**. Schuppen binden sich zu 2 Geistergewebe unter Wasser, und die Wurzelbinder bevorzugen sie als Opfergabe.",
+        "Wenn du eines jagst, lässt es **2 bis 4 Rohes Wildbret** und bis zu 2 Marschleder fallen, mehr mit Plünderung, gekocht, wenn er brennend starb."
+      ],
+      "title": "Was er gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein gebundener Moosrücken ist eine wandelnde Satteltasche mit **9 Plätze** (12 mit dem Mal Tiefe Tasche). Stirbt er, lässt er alles aus seiner Tasche fallen.",
+        "Sieh auf der Seite [Gaben des Vertrauten](familiar_gifts), wie du die Tasche öffnest und es warten schickst."
+      ],
+      "title": "Als Vertrauter"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Gejagt lässt es dies fallen, mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche**, während du zwei Erwachsenen ihr Futter gibst; normal gefüttert, fasst ein wildes stattdessen Zutrauen zu dir."
+      ]
+    }
+  ]
+}

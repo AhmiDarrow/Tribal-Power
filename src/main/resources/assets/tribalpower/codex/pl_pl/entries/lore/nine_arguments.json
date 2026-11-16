@@ -1,0 +1,17 @@
+{
+  "name": "Dziewięć sporów",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Żadne plemię nie mogło utrzymać nieba samo. Gleba bez Kamienia to ciepło bez miejsca, by stanąć. Iskra bez Zegara to uderzenie bez pieśni. Sygil bez Wrzeciona to obietnica bez drogi do domu.",
+        "Stary świat nie był pokojem. Był utrzymaniem. Osiem pociągnięć stało się ośmioma sporami, a dziewiąte, własne Szwaczy krosna, było szwem, wzdłuż którego darli. Potem reszta poszła jak lina przez dłoń.",
+        "Cięcie nie było wojną. To było dziewięć prac zostawionych niedokończonych jednym tchem."
+      ]
+    }
+  ]
+}

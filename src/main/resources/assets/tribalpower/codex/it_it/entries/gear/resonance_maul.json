@@ -1,0 +1,30 @@
+{
+  "name": "Mazza di risonanza",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Un piccone pesante, di livello diamante, che libera un piano di **3 per 3** in un colpo, pagato in Pulso. Tunnel e cave vanno tre volte più veloci."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nel brandirla",
+      "text": [
+        "Tienila nella mano principale e accovacciati per usare una faccia di blocco. La mazza rompe il piano di 3 per 3 attorno a quel blocco, sul piano della faccia che colpisci.",
+        "Ogni blocco costa **8 Pulso**, prima dalla cella alloggiata della mazza e poi dalle celle che porti, e il Pulso risparmia il filo: il 3 per 3 non consuma. Se il Pulso finisce a metà colpo, i blocchi rimasti restano. Dopo un colpo che rompe qualcosa, la mazza riposa **un secondo**.",
+        "Prende solo ciò che un piccone prenderebbe, e solo ciò che il suo livello diamante può raccogliere. La terra protetta è rispettata.",
+        "Brandita senza accovacciarti, è un piccone normale e si usura come tale.",
+        "Un piccone di Terra legato a un totem apre un 3 per 3 allo stesso modo; vedi [Equipaggiamento legato a un totem](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

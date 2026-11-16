@@ -1,0 +1,201 @@
+{
+  "name": "第六种声音",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "第六种声音就是线本身。织机图腾是最后一座共鸣图腾，它来自远行界：先祖大厅的**织机线**，以及来自未歌者的一颗心。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "找到那根线",
+      "text": [
+        "沉在远行界草原与高地里的先祖大厅，把织机线放在它们的两个箱子中。离开时读四块石板。",
+        "织机缝工也用一根织机线和朋友交换，代价是六个远行界水晶。",
+        "雕刻一枚**织机印**：一枚空白印与一份织机线，无序合成。安放在仪式火盆中，若有织机之声，且脉动经**8格**内的导体传来，则你站在**6格**内时，它每**两秒**把**2脉动**织入你携带的脉动电池，并赋予幸运。火盆为此每一拍消耗**8脉动**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "图腾之前",
+      "text": [
+        "制作回响拆织：用远行界石头围住两个铜共鸣器、一块灵之碎片和一份织机线。它需要8格内有织机之声。在你能制作图腾之前，把它建在织机缝工营地、先祖大厅或水晶尖塔里已经立着的织机图腾旁边。",
+        "然后在鼓圈唤醒未歌者，并取得它的**未歌之心**。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "安放第六种声音",
+      "steps": [
+        {
+          "caption": "脉动共鸣器与回响拆织，相隔数格。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把织机图腾放在两者的8格之内。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "回响拆织现在可以工作，共鸣器能再听到一种不同的声音。",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "织机所开启之物",
+      "text": [
+        "用四个远行界水晶、两份织机线和两块远行界木板围着未歌之心，制作织机图腾。",
+        "织机在范围内时，回响拆织把锭变回回响，把核心变成锭，把灵织变成羊毛，并把受损的灵械工具和武器变成一块显化锭。",
+        "六叠法杖获得系绳，无目标潜行时获得缝合。仪式地脉束缚需要织机印，远门需要织机之声。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

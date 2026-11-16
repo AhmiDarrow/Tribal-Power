@@ -1,0 +1,65 @@
+{
+  "name": "Talladores de sellos",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Talladores de sellos",
+      "text": [
+        "“El Espíritu va adonde se le pide con cortesía y se queda donde se le da de comer.”",
+        "Mechón de **Sigilo**, voz de **Espíritu**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Talladores de sellos cortaron sellos en blanco por millares antes del Corte, y pidieron demasiado. Un sello es una petición cortés tallada en piedra; un brasero es la comida. Su oficio es **sellos y ritos**.",
+        "Sus campamentos están en **bosques oscuros**, y en la Marcha hay un campamento suyo en cada franja, desde el norte helado hasta la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es el **Fragmento de Espíritu**, que vale **+8** de reputación en su Hogar.",
+        "También prefieren un Sello en blanco o cualquier sello de elemento: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada **+2 por cada 10 Pulso**, hasta +8.",
+        "Recuerda que el Hogar acepta como máximo **60** de reputación al día en ofrendas; consulta [Tribus y reputación](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué intercambia el Anciano",
+      "text": [
+        "**Huésped**: 2 Fragmento de Espíritu por un Sello en blanco; 4 Fragmento de eco por 4 Tiza ritual.",
+        "**Amigo**: un Sello en blanco y 2 Fragmento de Espíritu por un Sello de Espíritu; 3 Eco sintonizado y 2 Fragmento de Espíritu por la Tablilla de rito: Noche quieta; 4 Arroz de ciénaga por el Caldo del tallador de sellos.",
+        "**Pariente**: 3 Eco vinculado por un Brasero ritual; 4 Eco vinculado por una Campana de despertar.",
+        "Cada intercambio da **+2** de reputación."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y don",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Talladores de sellos. Fabrícala con un {item:tribalpower:resonance_totem_spirit} y dos Tejido espiritual para hacer su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación aporta **Espíritu**.",
+        "Los Parientes de los Talladores de sellos llevan su [don](tribe_boons): tus amuletos piden **la mitad** del Pulso.",
+        "Su plato lleva el don durante **5 minutos**, y su [reliquia](elders_and_stories) mientras lo lleves.",
+        "Su intercambio de Amigo por una Tablilla de rito es un atajo que evita buscar sus reactivos. También son la única tribu que vende una **Campana de despertar**.",
+        "En **Voz** también puedes vincular una **Campana de duelo** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sigil",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Talladores de sellos te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, peticiones e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

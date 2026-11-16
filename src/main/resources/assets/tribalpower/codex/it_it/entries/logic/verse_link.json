@@ -1,0 +1,294 @@
+{
+  "name": "Chiamata di verso e Risposta di verso",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "Sedici versi, e nessun filo. Una **Chiamata di verso** ascolta la redstone; una **Risposta di verso** entro 32 blocchi, accordata sullo stesso verso, lo ricanta in uscita.",
+        "La Chiamata si fa con [Filo di canto](song_thread) e la Risposta con Vite di canto, quindi entrambe hanno bisogno di **Filo di Telaio** dalla Marcia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accordare una coppia",
+      "text": [
+        "Aggancia una Chiamata di verso su qualsiasi faccia di blocco. Sente la redstone da **ogni lato tranne quello verso cui è rivolta**.",
+        "Aggancia una Risposta di verso su una faccia entro **32 blocchi**, nello stesso mondo. Canta dalla sua faccia, nel blocco davanti a sé.",
+        "Accovacciati e fai clic destro su una delle due piastre con la mano vuota per far avanzare il verso da **1 a 16**; devono coincidere. Fai clic destro con la mano vuota per leggere il verso e la potenza.",
+        "Ogni piastra appartiene a chi l'ha posata e al suo accampamento, quindi riaccordare quella di un altro viene rifiutato.",
+        "La Risposta copia la potenza che la Chiamata sente, quindi non è sempre 15. Quando più Chiamate condividono un verso, la Risposta prende la più forte. Un verso non corrispondente resta in silenzio."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Dall'altra parte del cortile",
+      "steps": [
+        {
+          "caption": "Monta una Chiamata di verso su un blocco. La leva accanto è il canto che porterà.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Monta una Risposta di verso su un altro blocco, rivolta verso la lampada che deve alimentare.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e fai clic destro su ogni piastra con la mano vuota finché entrambe non mostrano lo stesso verso.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tira la leva: la Risposta canta la stessa potenza nella lampada.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dove aiuta",
+      "text": [
+        "I relè spostano ancora gli oggetti; queste piastre spostano solo redstone. Per unire una piastra di canto a un'altra, una sincronizzazione con la Chiave del totem è più semplice (vedi [Piastre di canto](song_plates)).",
+        "Un orologio può far andare un intero accampamento: un Battito accanto a una Chiamata, e una Risposta sullo stesso verso a ogni tamburo. Solo due tamburi entro 8 blocchi l'uno dall'altro guadagnano Pulso, quindi distanziali.",
+        "Un Sigillo d'Aria va nella Chiamata e un Campanello d'osso nella Risposta. I Tessitori di trame prediligono gli orologi e l'Ala di tempesta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

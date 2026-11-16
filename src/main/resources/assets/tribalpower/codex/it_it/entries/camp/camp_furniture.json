@@ -1,0 +1,473 @@
+{
+  "name": "Mobilio dell'accampamento",
+  "icon": "tribalpower:march_table",
+  "order": 170,
+  "items": [
+    "tribalpower:march_stool",
+    "tribalpower:spirit_urn",
+    "tribalpower:woven_mat",
+    "tribalpower:wall_shelf",
+    "tribalpower:hanging_rack",
+    "tribalpower:spirit_door"
+  ],
+  "next": "wind_charm",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_table",
+      "text": [
+        "Un accampamento deve sembrare abitato. La maggior parte di questi pezzi è fatta di legno della Marcia, pietra, canna e foglie, e nessuno chiede Pulso. Non sono solo scenario: appoggia le cose sulla mensola, sul tavolo e sull'urna, siediti sullo sgabello, e l'amuleto suona quando lo batti."
+      ],
+      "title": "Mobilio dell'accampamento"
+    },
+    {
+      "type": "text",
+      "title": "I pezzi",
+      "text": [
+        "- **Tavolo della Marcia**: ti sta di fronte quando lo piazzi, e tiene quattro cose sul piano.",
+        "- **Sgabello della Marcia**: ti sta di fronte quando lo piazzi. Usalo a mani vuote per sederti; accovacciati o usalo di nuovo per alzarti.",
+        "- **Urna dello Spirito**: un vaso di pietra per una mensola o un angolo. Tiene una cosa nella bocca.",
+        "- **Stuoia tessuta**: un tappeto sottile per qualsiasi pavimento, lastre e scale comprese.",
+        "Usa il tavolo o l'urna tenendo qualcosa per posarlo, e a mani vuote per riprenderlo. Ciò che posi resta dove lo metti, cade con il pezzo se si rompe, e un comparatore può leggerlo. Le tramogge e i tubi lasciano stare i mobili — i depositi servono a riporre le cose."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mensole e rastrelliere",
+      "text": [
+        "- **Mensola a muro**: si appende al fianco di quasi ogni blocco (una staccionata, un muretto, un tronco) e cade se quello sparisce. Usala tenendo qualcosa per posarlo sull'asse, a mani vuote per riprenderlo. Ci stanno quattro cose, una per posto, e un comparatore legge quanto è piena.",
+        "- **Rastrelliera sospesa**: un binario con quattro ganci di rame, in alto su ciò a cui è fissata. Vasi, attrezzi e fagotti pendono dai ganci invece di stare su un'asse. Funziona come la mensola: usala tenendo qualcosa per appenderlo, a mani vuote per staccarlo, e un comparatore legge quanto è piena. Ci passi sotto.",
+        "Per le decorazioni da appendere, vedi l'[Amuleto del vento](wind_charm); batti e suona."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un angolo dell'accampamento",
+      "steps": [
+        {
+          "caption": "Stendi una Stuoia tessuta su un pavimento.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:woven_mat"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Tavolo della Marcia sulla stuoia, con sgabelli ai due lati.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_table[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=east]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_stool[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Una Mensola a muro ha bisogno di qualcosa dietro per appendersi.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                0,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                1,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                2,
+                1,
+                2
+              ],
+              "block": "tribalpower:march_planks"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                1
+              ],
+              "block": "tribalpower:wall_shelf[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un'Urna dello Spirito riempie l'angolo.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_urn[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Porta spirituale",
+      "text": [
+        "Una **Porta spirituale** è una soglia spirituale per il tuo accampamento: due montanti, un architrave e una lampada. **I giocatori, i famigli legati e ogni creatura mansueta** attraversano il centro come se non ci fosse nulla.",
+        "Un **mostro o spirito ostile** la incontra come un muro solido. Appendine una nel varco della tua palizzata, e la notte resta fuori mentre vai e vieni.",
+        "Piazzala rivolta verso dove vuoi che corra il sentiero. Emette una luce soffusa e così segna l'ingresso dopo il buio."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_table"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stool"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_mat"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wall_shelf"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hanging_rack"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_door"
+    }
+  ]
+}

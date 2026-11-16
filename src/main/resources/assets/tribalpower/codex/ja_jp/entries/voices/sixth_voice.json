@@ -1,0 +1,201 @@
+{
+  "name": "第六の声",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "第六の声は糸そのものだ。織機のトーテムは最後の共鳴トーテムで、マーチから来る。祖先の広間の**織機の糸**と、歌われぬ者からの心臓だ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "糸を見つける",
+      "text": [
+        "マーチの草原と高地に沈んだ祖先の広間は、二つのチェストに織機の糸を守る。出る途中で四つの石板を読め。",
+        "織機の縫い手は友にも織機の糸を、マーチの水晶六つと交換する。",
+        "**織機の印章**を彫れ。空白の印章一つと織機の糸一つ、不定形。儀式の火鉢に据え、織機の声と、**8ブロック**以内の伝導体を通るパルスがあれば、**6ブロック**以内に立っているあいだ、所持するパルス電池へ**2秒**ごとに**2パルス**を幸運つきで織り込む。火鉢は1拍につき**8パルス**を使う。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "トーテムの前に",
+      "text": [
+        "エコーの解き織りを作れ。マーチの石で銅の共鳴器二つ、霊の欠片、織機の糸を囲む。8ブロック以内に織機の声が要る。トーテムを作れるまでは、織機の縫い手の野営、祖先の広間、水晶の尖塔にすでに立つ織機のトーテムのそばに作れ。",
+        "それから太鼓の輪で歌われぬ者を目覚めさせ、その**歌われぬ心臓**を取れ。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "第六の声を据える",
+      "steps": [
+        {
+          "caption": "パルス共鳴器とエコーの解き織り。数ブロック離して。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "両方から8ブロック以内に織機のトーテムを置け。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "エコーの解き織りは動けるようになり、共鳴器は別個の声を一つ多く聞く。",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "織機が開くもの",
+      "text": [
+        "歌われぬ心臓を囲むように、マーチの水晶四つ、織機の糸二つ、マーチの板材二つで織機のトーテムを作れ。",
+        "織機が届くと、エコーの解き織りはインゴットをエコーに戻し、核をインゴットに、霊織りを羊毛に、傷んだ霊装の道具と武器を顕現したインゴットにする。",
+        "六重の杖は繋留を得て、対象なしでスニークすると縫いを得る。儀式レイ結束には織機の印章が要り、遠門には織機の声が要る。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

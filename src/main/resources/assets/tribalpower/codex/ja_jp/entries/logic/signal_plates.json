@@ -1,0 +1,30 @@
+{
+  "name": "信号板",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "反転とエコー",
+      "text": [
+        "一つの声。反転するか、運ぶか。",
+        "- **反転** (NOT) は背面が静かなあいだ歌い、背面がオンになると黙る。",
+        "- **エコー** (BUFFER) は背面をコピーする。オンはオンのまま、満タンの 15。",
+        "反転を使い、パルス閾値を「空っぽすぎ」の警報にする。エコーを使い、弱まる歌糸を満タンに戻す。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

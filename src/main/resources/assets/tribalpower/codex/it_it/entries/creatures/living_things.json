@@ -1,0 +1,81 @@
+{
+  "name": "Esseri viventi della Marcia",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Due tipi di creatura portano il vecchio canto. Gli **animali mansueti** (il Cervo dell'alba, la Volpe lanterna, il Dorsomuschio e i pascolatori, i volatori, gli [alberi che camminano](walking_trees) e le [fate](fays) di ogni terra) ti danno reagenti quando li spazzoli. I **resti** sono guardiani spezzati e spiriti selvatici; combattono e lasciano il reagente quando cadono.",
+        "I reagenti nutrono canti, armi unte e rimedi (vedi [reagenti](reagents)). I pochi più antichi entrano anche nei tuoi laboratori dell'eco e nell'Amuleto di legame.",
+        "La Marcia ha anche vita quieta che dà poco più di carne, una piuma o compagnia: Camminatori della Marcia, Fuochi fatui spirituali e i pesci, le gelatine e i rondoni della sua [fauna](march_wildlife).",
+        "La terra cacciata o svuotata si riempie di nuovo, lentamente: circa una volta al minuto alcuni dei suoi animali possono entrare fuori vista, finché circa sei creature condividono l'area. I recinti contano anch'essi, così un accampamento pieno non viene mai invaso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tieni un **Pennello** e usalo su un adulto. Gli animali giovani non danno nulla. Ogni animale riposa **un minuto** tra un raccolto e l'altro.",
+        "Falli riprodurre con **grano** (Cervo dell'alba), **bacche dolci** (Volpe lanterna) e **erba marina** (Dorsomuschio). Ogni altra creatura mansueta mangia la coltura selvatica della sua terra, o qualcosa di altrettanto facile da trovare; la sua pagina indica il cibo. Per far riprodurre gli animali selvatici, **accovacciati** mentre nutri due adulti. Nutrito normalmente, un selvatico ti prende in simpatia invece (vedi [famigli](familiars)).",
+        "Lega un adulto con un [Amuleto di legame](familiars) per tenerlo come compagno: lascia il **doppio** del reagente, e a un totem può prendere una voce che rafforza la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning)). Solo tu puoi spazzolare il tuo famiglio."
+      ],
+      "title": "Raccolto gentile"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Legacenere, Radicelegato e gli Inseguitori dei canneti infestano le foreste e le paludi dell'Overworld, e anche la Marcia. Come tutti i resti, sorgono nel buio, e mai dove brucia una torcia o una lanterna, quindi illumina i tuoi sentieri.",
+        "Tieni dell'acqua vicino a Legacenere; i loro colpi ti danno fuoco. I colpi di Radicelegato ti rallentano per pochi secondi: fai un passo indietro e aspetta che passi. Gli Inseguitori dei canneti avvelenano, quindi porta del latte o tieni le distanze.",
+        "Un Totem del silenzio, o il rito Notte quieta, impedisce a un accampamento di far crescere un nuovo branco durante la notte."
+      ],
+      "title": "Guardiani spezzati"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Falene della tempesta, Diavoletti di tizzone, Campane del lutto, Derivanti del velo e le ombre volanti lanciano da fino a **12 blocchi**. Prima radunano un grappolo luminoso di granelli: quello è il tuo avviso.",
+        "Serve loro una linea libera fino a te. Mettiti dietro una copertura solida e l'incantesimo si interrompe. I loro incantesimi non bruciano né sostituiscono mai il terreno.",
+        "Un bastone carico è utile per tenere le distanze. L'onda d'urto del Non Cantato è un altro scontro; accovacciati contro di essa, come spiega la sua pagina."
+      ],
+      "title": "Rispondere a un incantesimo"
+    },
+    {
+      "type": "text",
+      "title": "Quanto è forte una creatura",
+      "text": [
+        "I numeri del bestiario valgono per una creatura di sangue ordinario. Ogni creatura porta cinque fili (vedi [famigli](familiars)), e ogni passo sopra o sotto il solito la rende **12%** più forte o più debole, così non esistono due selvatici proprio uguali.",
+        "Nella Marcia, uno spirito che sorge di notte ha **40%** di salute in più e colpisce **25%** più forte. Circa **uno su dodici** sorge come **élite** dal nome dorato, più spesso in Difficile: salute doppia, la metà in più di danno, **4** di armatura in più, più svelto sulle gambe e **tre volte** l'esperienza. Gli spiriti che sorgono di giorno non sono mai élite."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Velluto dell'alba, Piumino di lanterna, Scaglia di dorsomuschio, Ala di tempesta e Seta di eco si legano in **2 Tessitospirito** ciascuno sotto l'Acqua, in un Vincolatore di eco.",
+        "- Ogni altro reagente dei resti si sintonizza in **2 Eco sintonizzato** sotto lo Spirito, in un Sintonizzatore di eco.",
+        "Ogni reagente, questi e quelli delle bestie allo stesso modo, entra anche in canti, armi unte e rimedi: vedi [reagenti](reagents).",
+        "I Legaradici prediligono Scaglia di dorsomuschio e i Custodi della colonia prediligono Piumino di lanterna, quindi ciò che spazzoli compra anche reputazione. Apri le ricette in questo libro, o in JEI se ce l'hai, per seguire qualunque reagente fino al tuo laboratorio."
+      ],
+      "title": "Restituire il canto"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Dopo il crepuscolo, il cielo dell'Overworld si apre in lente tende di verde e viola. È più luminoso a mezzanotte, e la pioggia o il tuono lo nascondono. La Marcia porta un cielo più freddo, tutto suo.",
+        "È il cielo che prova a ricordare un orario. Da solo non dà Pulso, anche se un Collettore di ley sotto di esso sì.",
+        "Le impostazioni del client possono abbassarne il dettaglio o spegnerlo, il che è comodo con i pacchetti di shader."
+      ],
+      "title": "Il velo di notte"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Accovacciati e usa questo Codice spirituale su qualunque cosa sia ammutolita, per leggere cosa sta facendo.",
+        "Ogni creatura ha una pagina nel bestiario, da sola o con i suoi consanguinei: dove vive, come combatte, cosa dà e se stringerà un legame. Le bestie di ogni terra iniziano dalla [Steppa](beasts_steppe).",
+        "Le creature miti sono in questo capitolo. I Resti e gli altri cacciatori della Marcia hanno un capitolo proprio, che si apre con [Selvaggina e cuoio](game_and_leather)."
+      ],
+      "title": "Note di campo"
+    }
+  ]
+}

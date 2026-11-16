@@ -1,0 +1,69 @@
+{
+  "name": "Lugares de la Marcha",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 64,
+  "spoiler": true,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ruinas y campamentos",
+      "text": [
+        "Las tribus dejaron atrás más que salas y círculos de tambores. Cada tierra de la Marcha tiene sus propios restos, la mayoría con un cofre que vale la pena abrir, y unos pocos custodiados por lo que aún camina allí.",
+        "Las Ruinas del Portal antiguo y la Gruta de cristal guardan sus mejores cofres detrás de **Centinela hueco**, y la Tumba de ceniza detrás de generadores de **Cenizligado** y de **Diablillo de pavesa**. Esos cofres pueden contener un **Núcleo resonante** o **Hilo de Telar**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Campamentos y aldeas",
+      "text": [
+        "Cada tribu mantiene un campamento en cada banda de la Marcha, hecho con la madera y el suelo propios de esa banda: pino de escarcha y nieve en el borde helado, abeto espinoso y marga de agujas en las taigas frías, palma del tambor en las sabanas, corteza de sol y sal en las tierras calientes. Los Guardianes del lecho ocupan los prados y las lomas, los Cantores de grava las cumbres y las mesas, los Vinculadores de raíces los bosques profundos, los Caminantes del borde las taigas, los Corazones de tambor el suelo seco y ardiente, los Tejedores de patrones las estepas abiertas, los Guardianes de la colonia las tierras en flor, los Talladores de sellos los bosques oscuros y los Zurcidores del telar el país extraño e iluminado.",
+        "**Aldeas** hay también en cada banda: una plaza con el Hogar de la tribu, el fuego, el tótem, el pozo y el Telar, sus cuatro Pariente, y el generador propio de la voz, que zumba; calles de la piedra de la banda que llevan a chozas, casas largas, un taller con un Triturador de eco y un Banco del canto, un granero del cultivo de la banda, un santuario, una atalaya, un corral de los pacedores de la banda y un jardín de flores. El Hogar de una aldea acepta ofrendas como el Hogar de un campamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Piezas del viejo mundo",
+      "text": [
+        "Sobre las cumbres y el terreno alto, y sobre más de un Coloso llorón, **montañas flotantes del viejo mundo** cuelgan en el cielo: peñascos altos de roca de la Marcha, anchos en la corona y afinados en una punta por abajo, las caras en franjas y musgosas, césped y árboles arriba, un anillo roto de Ladrillos con un cofre dentro, enredaderas por cada lado y una cascada que cae del borde. Cuelgan en grupos a distintas alturas, unidas por enredaderas gigantes, con rocas pequeñas a la deriva alrededor.",
+        "Un grupo se sujeta al suelo con **raíces gigantes de Leño de sauce**, envueltas en Hojas y con cortinas de Mechón de sauce que bajan todo el camino. Se pueden trepar: agárrate al pie de una raíz y sube hasta el cielo. Sobre un Coloso llorón las raíces acaban en su copa, así que el árbol es la escalera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La Estepa y las alturas",
+      "text": [
+        "- **Santuario del caminante**: un santuario con techo junto al camino, en una senda antigua, con un cofre de ofrendas.",
+        "- **Piedras de pasto**: un anillo de piedras en pie alrededor de un lamidero de sal.",
+        "- **Posta abandonada**: un puesto de relevo en ruinas, con un mástil aún en pie.",
+        "- **Torre de tambor caída**: una torre rota; su gran tambor yace en la hierba.",
+        "- **Almenara de vigilancia**: una torre de piedra en un altozano, con el fuego de señal aún encendido.",
+        "- **Cantera de eco**: un foso en terrazas con Mena de la Marcha en las paredes y una grúa en el borde.",
+        "- **Altar de la tormenta**: un altar de toba bajo un pararrayos.",
+        "- **Retiro de los Talladores de sellos**: salas abiertas en un peñasco, con un taller y un desván.",
+        "- **Ruinas del Portal antiguo**: un Portal de senda semienterrado sobre una sala vigilada y una cámara con barrotes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los Campos de Nieve y los Yermos de Brasa",
+      "text": [
+        "- **Sala larga congelada**, **Mojón de hielo**, **Refugio del Cazador** y **Vigía de la aurora** en la nieve.",
+        "- **Forja de brasa**, **Aguja de pavesa** y **Anillo de escoria** en la ceniza, y la **Guarida del remanente**, donde los supervivientes resistieron.",
+        "- **Tumba de ceniza**: una tumba enterrada bajo los Yermos de Brasa, vigilada, y vale el riesgo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los Campos de Cristal y la Ciénaga de Juncos",
+      "text": [
+        "- **Observatorio hecho pedazos**: una terraza de carta estelar bajo una cúpula rota.",
+        "- **Obelisco de resonancia**: un obelisco coronado de cristal sobre una cámara oculta.",
+        "- **Ruina del Telar**: un gran telar caído, con la tela aún colgando.",
+        "- **Gruta de cristal**: una escalera de caracol baja hasta una cueva geoda y una cámara tras una Puerta de hierro.",
+        "- **Aldea sobre zancos**, **Santuario hundido**, **Azud de juncos** y **Túmulo de ciénaga** en la ciénaga.",
+        "- **Pozo del Espíritu**: un pozo con techo rodeado de flores, su cofre de ofrendas en el fondo del agua."
+      ]
+    }
+  ]
+}

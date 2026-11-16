@@ -1,0 +1,17 @@
+{
+  "name": "9. Cenere",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cenere",
+      "text": [
+        "“Le Distese di brace erano la foresta dei Cuoritamburo. Bruciò nella Caduta e non si spense mai. Qualcosa sotto le scorie prese il ritmo quando i tamburini fuggirono, e da allora tiene un tempo sbagliato.”",
+        "Trovato su un murale nel terreno di un guardiano."
+      ]
+    }
+  ]
+}

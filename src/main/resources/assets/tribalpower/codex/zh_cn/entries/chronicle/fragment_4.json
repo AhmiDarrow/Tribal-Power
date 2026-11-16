@@ -1,0 +1,17 @@
+{
+  "name": "5. 坠落",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "坠落",
+      "text": [
+        "“一根线松开时，另外八根撑过一口气，然后撕裂。大地一块块从天空脱落。没有坠落的漂流了。漂流的便是远行界。”",
+        "发现于远行界废墟中的雕石上。"
+      ]
+    }
+  ]
+}

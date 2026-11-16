@@ -1,0 +1,8 @@
+{
+  "name": "Kronika",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "Oto historia, jaką niesie Krosno, wyryta w Marszu fragment po fragmencie. Znajdź je, a opowieść złoży się tutaj sama.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

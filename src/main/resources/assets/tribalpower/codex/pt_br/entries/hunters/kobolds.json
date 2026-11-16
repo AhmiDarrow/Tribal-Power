@@ -1,0 +1,62 @@
+{
+  "name": "Kobolds",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kobolds",
+      "text": [
+        "Os kobolds vivem onde quer que haja algo que valha a pena cavar, e não compartilham isso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dois tipos",
+      "text": [
+        "Ambos surgem no escuro, de dia ou de noite, um ou dois por vez. Um kobold tem **21 de vida** e **2 de armadura**, é rápido e acerta por **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Kobold da crista",
+      "text": [
+        "Um minerador pequeno, um lagarto-cão em pé, com uma picareta e uma lâmpada no capacete, encontrado nas cavernas escuras sob o Cume Cintilante.",
+        "Caçado, também solta até 2 cobre bruto e até 1 carvão."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Kobold de geodo",
+      "text": [
+        "Um kobold coberto de cristal crescido, com uma lança de ponta de cristal, encontrado nas cavernas escuras sob os Campos de cristal.",
+        "Caçado, também solta até 2 fragmentos de ametista e até 2 lápis-lazúli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles dão",
+      "text": [
+        "Um Kobold da crista solta **de 1 a 2 Escama de kobold**, um Kobold de geodo **de 1 a 2 Chifre de kobold**, mais com Pilhagem. Os dois são reagentes de cão: veja [reagentes](reagents).",
+        "Os kobolds nunca se vinculam."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem."
+      ]
+    }
+  ]
+}

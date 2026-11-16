@@ -1,0 +1,91 @@
+{
+  "name": "Espritissu",
+  "icon": "tribalpower:spiritweave_hood",
+  "order": 30,
+  "items": [
+    "tribalpower:spiritweave",
+    "tribalpower:spiritweave_robe",
+    "tribalpower:spiritweave_leggings",
+    "tribalpower:spiritweave_boots"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritweave_hood",
+      "text": [
+        "Armure de tissu aussi solide que le diamant, tissée pour répondre à un totem. Liée à une voix, chaque pièce éveille un bienfait, entretenu par un peu de Pulsation d'une Cellule de Pulsation que tu portes, et la pièce liée brille avec."
+      ],
+      "title": "Armure d'Espritissu"
+    },
+    {
+      "type": "text",
+      "title": "Le tissu",
+      "text": [
+        "Le tissu d'Espritissu vient du **Lieur d'écho** avec la voix Eau : toute laine devient un tissu, et la Soie d'écho, le Velours de l'aube, le Duvet de lanterne, l'Écaille de dos-mousse ou une Aile de tempête en donnent deux.",
+        "Quatre pièces prennent les formes d'armure habituelles ; la robe et les jambières prennent aussi un Noyau résonnant au milieu. Le tissu d'Espritissu les répare sur toute enclume. Détissage d'écho rend au tissu la forme de laine."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le porter",
+      "text": [
+        "Non lié, l'Espritissu est une armure simple : il protège comme le diamant, ne donne aucun bienfait et ne dépense pas de Pulsation. Son infobulle liste ce que chaque voix éveillerait dans cette pièce.",
+        "Accroupis-toi et utilise une pièce sur un Totem de résonance posé avec **40 Pulsation** dans une cellule portée pour lier sa voix. Une capuche, une robe ou des jambières liées dépensent **3 Pulsation toutes les quatre secondes**, et cela maintient chaque atout de la pièce, ceux qui répondent à un coup, une chute ou un collet comme les bienfaits continus. Les bottes ne dépensent que lorsqu'un de leurs atouts sert ; chaque paiement couvre quatre secondes.",
+        "Quand tes cellules sont à sec, les bienfaits s'arrêtent, et chaque atout avec eux. Recharge, ou retire les pièces."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voix et rangs",
+      "text": [
+        "Chaque voix donne à chaque pièce un bienfait différent ; les voix mêlées sont voulues. Vois [Équipement lié au totem](totem_bound_gear) pour chacune.",
+        "Range chaque pièce dans l'Accordeur d'écho, le Lieur et le Manifesteur, avec les mêmes coûts et catalyseurs que l'[Espritoutillage](spiritgear). Chaque rang rend la pièce plus solide : plus d'armure et de robustesse, plus de résistance au recul et de la vie en plus, jusqu'à **2 cœurs** par pièce au Manifesté."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ensembles complets",
+      "text": [
+        "Porte un ensemble entier d'un seul rang, et il agit ensemble :",
+        "- Un ensemble **Lié** complet : **10%** de dégâts reçus en moins.",
+        "- Un ensemble **Manifesté** complet : environ **29 d'armure** et **20 de robustesse**, **8 cœurs en plus**, **20%** de dégâts reçus en moins, et, tant que la robe est allumée, elle rend un cœur toutes les quatre secondes pour **4 Pulsation**. Conçu pour les combats les plus durs."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_hood"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_robe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_leggings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritweave_boots"
+    },
+    {
+      "type": "text",
+      "title": "Une cellule à elle",
+      "text": [
+        "Comme l'[Espritoutillage](spiritgear), chaque pièce peut porter sa propre **Cellule de Pulsation** : clic droit d'une cellule sur la pièce dans ton inventaire, et elle entre, charge comprise. La pièce dépense cette cellule avant de toucher aux cellules que tu portes. Clic droit sur la pièce avec un curseur vide pour ressortir la cellule.",
+        "Sur une capuche à lunettes, une fois la cellule sortie, le clic suivant au curseur vide retire les lunettes et te rend la Lentille ley dont elles étaient faites."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Éteindre une pièce",
+      "text": [
+        "Chaque pièce portée a un interrupteur. Ouvre l'écran d'équipement (la touche apostrophe par défaut, sous Tribal Power dans Contrôles) et mets la pièce sur Éteint : elle protège encore comme une armure, mais chaque atout de la pièce s'arrête, ceux qui répondent à un coup ou à une chute aussi, et elle ne tire aucune Pulsation tant que tu ne la rallumes pas. L'infobulle le dit en rouge tant qu'elle est éteinte.",
+        "Les lunettes de la capuche y ont leur propre interrupteur, et leur propre touche. Le même écran montre quel caveau ouvre ta sacoche et te laisse masquer le HUD de Pulsation."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Pariente tribal",
+  "icon": "tribalpower:tribal_kin_elder_spawn_egg",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tribal_kin_drummer_spawn_egg",
+    "tribalpower:tribal_kin_hunter_spawn_egg",
+    "tribalpower:tribal_kin_weaver_spawn_egg"
+  ],
+  "next": "kinship_totem",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:tribal_kin",
+      "text": [
+        "Cada campamento guarda cuatro Parientes: un **Anciano**, un **Tamborilero**, un **Cazador** y un **Tejedor**. Vagan en un radio de **16 bloques** de su campamento y nunca desaparecen; el día de festival de su tribu se quedan en un radio de **5 bloques** del Hogar. Haz clic derecho en un Tamborilero, un Cazador o un Tejedor para ver su oficio y tu rango. El Anciano habla contigo."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_elder",
+      "title": "El Anciano",
+      "text": [
+        "El Anciano comercia cuando ya eres **Huésped**. Cada tribu tiene siete ofertas: dos por cada rango, de Huésped a Pariente, más el plato propio de la tribu en Amigo. Cada intercambio da **+2** de reputación. El Anciano también entrega las [peticiones y la historia](elders_and_stories) de la tribu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comerciar con el Anciano",
+      "text": [
+        "Un Anciano no tiene nada para un Extraño. Lleva primero una ofrenda al Hogar.",
+        "Las existencias son limitadas. Una oferta se puede tomar **12 veces** al día, **8** si pide dos objetos distintos, y **6** si vende un reactivo de criatura. El Anciano repone una vez cada día de Minecraft, y cerrar la pantalla no la rellena.",
+        "Cuando llegues a **Voz**, habla con el Anciano una vez más. Te pone en la mano la **Marca tribal** de la tribu, una vez por cada tribu. Guárdala: se convierte en un [Tótem de parentesco](kinship_totem)."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_drummer",
+      "title": "El Tamborilero",
+      "text": [
+        "Cada **5 a 6 segundos** el Tamborilero da un golpe que mete **2 Pulso** en cada Corazón de tambor, Colector de ley y Resonador de Pulso en un radio de **8 bloques**. Las Arpas de viento, los Tambores de olas y los Cuernos de brasa no toman nada. El golpe también mantiene despiertos los tótems cercanos."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_hunter",
+      "title": "El Cazador",
+      "text": [
+        "El Cazador vigila el borde del campamento y golpea a los monstruos hostiles en un radio de **12 bloques**. Pero hiere a cualquier Pariente, y el Cazador viene por ti durante un **minuto**."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribal_kin_weaver",
+      "title": "El Tejedor",
+      "text": [
+        "Cada **40 a 90 segundos** el Tejedor camina hasta el Telar más cercano, a **12 bloques** del campamento (o un Banco del canto, si no hay Telar), y lo trabaja durante **seis segundos**. Esa pose es el trabajo. No fabrica nada para ti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivir a su lado",
+      "text": [
+        "Los Parientes son neutrales y pacientes. Se quedarán junto a tus máquinas, tocarán el tambor para tus generadores y vigilarán tus noches todo el tiempo que quieras.",
+        "Nunca los golpees. Un tajo suelto de espada cuesta **25** de reputación y pone a todo el campamento en tu contra. Mira [Tribus y reputación](standing) para todo lo demás que enfada a una tribu.",
+        "Los cuatro huevos generadores son para constructores en creativo que quieren armar un campamento propio."
+      ]
+    }
+  ]
+}

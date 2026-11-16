@@ -1,0 +1,201 @@
+{
+  "name": "A sexta voz",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "A sexta voz é o próprio fio. O totem de Tear é o último Totem de ressonância, e vem da Marcha: **Fio de Tear** dos Salões dos Ancestrais, e um coração de O Não Cantado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encontrar o fio",
+      "text": [
+        "Os Salões dos Ancestrais submersos, na Estepe da Marcha e no Planalto, guardam Fio de Tear nos seus dois baús. Leia as quatro tábuas ao sair.",
+        "Os Costureiros do tear também trocam um Fio de Tear com os Amigos, por seis Cristal da Marcha.",
+        "Entalhe um **Selo de Tear**: um Selo em branco e um Fio de Tear, sem forma. Assentado num Braseiro ritual com a voz do Tear e Pulso por um condutor dentro de **8 blocos**, ele enfia **2 Pulso** numa Célula de Pulso que você carrega a cada **dois segundos** enquanto você fica dentro de **6 blocos**, com Sorte. O braseiro gasta **8 Pulso** por batida para isso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Antes do totem",
+      "text": [
+        "Construa a Destrama de eco: Pedra da Marcha ao redor de dois Ressonador de cobre, um Fragmento de Espírito e um Fio de Tear. Ela precisa da voz do Tear em 8 blocos. Até você poder fabricar o totem, construa-a ao lado de um totem de Tear que já esteja num acampamento dos Costureiros do tear, num Salão dos Ancestrais ou num Pináculo de cristal.",
+        "Depois acorde O Não Cantado num Círculo de tambores e pegue o **Coração Não Cantado** dele."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Assentar a sexta voz",
+      "steps": [
+        {
+          "caption": "Um Ressonador de Pulso e uma Destrama de eco, a alguns blocos de distância.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque o totem de Tear a 8 blocos de ambos.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "A Destrama de eco agora pode trabalhar, e o Ressonador ouve mais uma voz distinta.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Tear abre",
+      "text": [
+        "Fabrique o totem de Tear com quatro Cristal da Marcha, dois Fio de Tear e dois Tábuas da Marcha ao redor do Coração Não Cantado.",
+        "Com o Tear ao alcance, a Destrama de eco transforma barras de volta em ecos, núcleos em barras, Tece-espírito em lã e ferramentas e armas danificadas de Equipamento espiritual em uma Barra manifestada.",
+        "O Cajado sêxtuplo ganha Amarra e, ao agachar sem alvo, Ponto. O rito Vínculo ley precisa do Selo de Tear, e os Portal distante precisam da voz do Tear."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

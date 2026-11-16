@@ -1,0 +1,712 @@
+{
+  "name": "Hainpfleger",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "Ein Hofknecht, der nie schläft. Der Hainpfleger pflanzt, zieht und erntet das 9-mal-9-Beet um sich und behält die Ernte im eigenen Vorrat, bis du sie holst, oder ein Trichter, oder ein Speicher.",
+        "Er nimmt Feldfrüchte, Setzlinge, Zuckerrohr, Kaktus, Bambus, Süßbeeren, Netherwarze und Kakao, schneidet die Kürbisse und Melonen ab, die seine Stiele absetzen, und nimmt eine ausgewachsene Kannenpflanze. Die von Vanilla, die des Marsches und die anderer Mods zählen alle: Azaleen, Mangroven-Keimlinge und Kannenkapseln kommen in die Samenreihe, und ebenso jede Feldfrucht oder jeder Setzling, den ein Pack unter die Vanilla-Tags für Feldfrüchte und Setzlinge legt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aufstellen",
+      "text": [
+        "**Stelle ihn selbst hin.** Der Pfleger merkt sich, wer ihn gesetzt hat, und arbeitet mit den Rechten dieses Spielers, also gilt der Gebietsschutz weiter. Ein Pfleger, den niemand beansprucht hat, tut nichts. Er antwortet auf **Erde**: halte ein Totem der Erde innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)), sonst steht er still.",
+        "Er arbeitet auf seiner **eigenen Ebene**: sein Beet ist das Quadrat, das auf jeder Seite **4 Blöcke** hinausreicht, auf Höhe des Pflegers. Setze ihn also auf Höhe der Feldfrüchte, auf einen Block, der im Ackerboden versenkt ist, nicht oben auf die Feldfrüchte.",
+        "Samen kommen in die **obere Reihe** seines Menüs, die ersten neun Plätze. Trichter und Rohre legen sie von oben oder von den Seiten hinein. Die Ernte füllt die anderen Plätze und geht durch die **untere** Seite hinaus. Eine [Relaisplatte](wireless_cargo) bedient ihn wie ein Trichter: eine unten schickt die Ernte weiter, und eine auf oben oder eine Seite gestellte Platte füllt die Samenreihe."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mit AgriCraft",
+      "text": [
+        "Wenn AgriCraft im Pack ist, arbeitet der Pfleger dessen Feldfrüchte als eigene. **Pflanzenstäbe** in der oberen Reihe kommen aufs Beet (gepflügter Boden oder der eigene Boden des Marsches), und ein **Samen** geht in leere Stäbe, bevor er sonst wohin geht: ein analysierter AgriCraft-Samen oder eine schlichte Feldfrucht, die AgriCraft kennt, etwa eine Kartoffel oder irgendeine Feldfrucht des Marsches.",
+        "Eine reife Pflanze wird geerntet, wie ein Klick sie ernten würde: der Ertrag geht in den Vorrat und die Pflanze bleibt auf ihren Stäben, zurückgeschnitten, um neu zu wachsen. Unkraut wird für **4 Puls** gerecht und langsame Pflanzen für **16** angetrieben.",
+        "Er will weiter sein Totem der Erde, Puls in seiner Reserve und einen beanspruchten Besitzer, wie bei aller anderen Arbeit. Wenn die Stäbe leer stehen, sieh auf die Statuszeile: sie nennt, worauf der Pfleger wartet."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein betreutes Beet",
+      "steps": [
+        {
+          "caption": "Pflüge den Boden und senke einen Ahnenspeicher in die Mitte.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle den Hainpfleger auf den Speicher, sodass er auf Höhe der Feldfrüchte sitzt; das Wasser hält den Ackerboden nass.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Gib Puls dazu und ein Totem der Erde innerhalb von 8 Blöcken, dann gib ihm Samen: er pflanzt eine Stelle pro Sekunde für 4 Puls.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "Reifer Weizen wird für 12 Puls geschnitten und neu gepflanzt, wobei ein Samen zurückbleibt.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "Die untere Seite des Pflegers ist Ausgang, also fällt die Ernte ohne Trichter in den Speicher.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was jede Arbeit kostet",
+      "text": [
+        "Einmal pro Sekunde sieht er sein Beet entlang und tut **eine** Arbeit:",
+        "- **Pflanzen** eine leere Stelle: **4 Puls**.",
+        "- **Ernten** von Reifem: **12 Puls**. Feldfrüchte, Netherwarzen und Kakao werden abgeschnitten und neu gepflanzt, eine Saat bleibt zurück; Beeren werden gepflückt und der Strauch bleibt; Zuckerrohr, Kakteen und Bambus verlieren ihre Spitze, sobald der Stängel **drei** hoch ist; ein Kürbis oder eine Melone wird abgeschnitten und der Stängel bleibt, damit ein weiterer wächst, und eine ausgewachsene Kannenpflanze wird im Ganzen geschnitten.",
+        "- **Treiben** eines Setzlings, eines Stängels, einer Feldfrucht, einer Kakaoschote, eines Beerenstrauchs oder eines Bambussprosses zum Wachsen, wie Knochenmehl: **16 Puls**.",
+        "- **Wässern** des Beets: **4 Puls** (siehe unten)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bäume",
+      "text": [
+        "Wenn das Beet sonst nichts zu tun hat, fällt es Bäume: Stämme und Laub in einer Säule, **9 breit und 11 hoch**, ab seiner eigenen Höhe aufwärts, für **12 Puls** je Block. Für eine Baumfarm gib ihm Setzlinge: es pflanzt sie auf Erde, treibt sie hoch und nimmt dann den Baum.",
+        "Es fällt nur **gewachsene Bäume**. Ein Stamm zählt, wenn die mit ihm verbundenen Stämme Laub erreichen, das der Baum selbst wachsen ließ, sodass ein hoher Stamm oder ein breites Zwei-mal-zwei bis zum Boden herunterkommt, statt einen Stumpf zu lassen.",
+        "Was du gebaut hast, bleibt unangetastet: Stammwände und Häuser, Laub, das du gesetzt hast, und die Dschungelstämme, die du für Kakao platziert hast."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Boden, Wasser und Kraft",
+      "text": [
+        "Jede Pflanze braucht ihren üblichen Boden: Ackerboden nahe am Wasser für Feldfrüchte, Erde für Setzlinge, Sand für Kakteen, Sand oder Erde neben Wasser für Zuckerrohr, Seelensand für Netherwarzen und Dschungelstämme im Beet für Kakao.",
+        "**Wässern.** Halte ein Resonanz-Totem (Wasser) innerhalb von 8 Blöcken, Beantwortet oder Gedämpft, und der Pfleger hält den Ackerboden des Beets nass: jede trockene Furche wird in einem Schlag getränkt, für **4 Puls**. Keine Gräben mehr durch die Feldfrüchte. Ein Verwandtschafts-Totem, das die Stimme Wasser leiht, zählt hier nicht; es muss ein Resonanz-Totem sein.",
+        "Der Pfleger hält eine Reserve von **2.400 Puls** und füllt sie um bis zu **80** pro Sekunde aus dem Gitter nach. Rechtsklicke ihn mit einer Pulszelle, um von Hand nachzufüllen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wenn er aufhört",
+      "text": [
+        "Rechtsklicke ihn, um zu sehen, was er tut und wie viel Puls er hält. Ist sein Lager voll, lässt er reife Pflanzen stehen und wartet, also leere ihn, oder gib ihm einen Speicher, in den er ablegen kann.",
+        "Ein Hebel pausiert die Arbeit und sperrt das Inventar. Ein Komparator liest, wie voll er ist.",
+        "Ducke dich und rechtsklicke eine Seite mit leerer Hand, um zu ändern, was diese Seite tut: Beides, Eingang, Ausgang oder Geschlossen.",
+        "Eine Windschlinge in der Nähe fängt alles, was doch auf dem Boden landet, und ein Siegelwebstuhl kann die Ernte in etwas anderes verwandeln."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Focolare dei Custodi del giaciglio",
+  "icon": "tribalpower:lore_tablet",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tablet:0",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tenuta sul muro di un accampamento degli Intagliatori di sigilli, nelle parole dei Custodi del giaciglio:",
+        "“Non l'abbiamo mai chiamato terra. Lo abbiamo chiamato ciò che restava, e lo abbiamo tenuto caldo. Quando il suolo è venuto meno, lo abbiamo portato in ceste, un giaciglio alla volta, e abbiamo messo un focolare su ogni giaciglio che abbiamo salvato. Nutri il focolare con pane e muschio. Ricorda chi lo ha nutrito.”"
+      ]
+    }
+  ]
+}

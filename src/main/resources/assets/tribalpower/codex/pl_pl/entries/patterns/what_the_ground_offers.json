@@ -1,0 +1,65 @@
+{
+  "name": "Co daje grunt",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Co dół wzywa",
+      "text": [
+        "Dół wzywa dokładnie to, co dałaby wyprawa z Jedwabnym dotykiem: **surowy przedmiot** dla metalu, **blok rudy** dla klejnotu. Każdy cykl zjada swój substrat i daje jeden wynik.",
+        "Kamień jest odnawialny: robi go [Kamienna misa](stone_font). Kamień Marszu wytapia się z Bruk Marszu, który wydobywasz w Marszu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cztery pasma",
+      "text": [
+        "- **Zwykłe**: węgiel, miedź i żelazo. **10 sekund** przy **56 Puls na sekundę**, na **dwa kamienie**.",
+        "- **Głębokie**: złoto, redstone i lazuryt. **15 sekund** przy **64**, na **dwa Kamień Marszu**. Kwarcu nie ma w tym paśmie.",
+        "- **Gorące**: kwarc i ruda złota Netheru. **20 sekund** przy **72**, na dwa Kamień Marszu, z **Ogień**.",
+        "- **Rzadkie**: diament, szmaragd i dowolny metal lub klejnot, który skan żwiru znalazł w twoim plecaku. **40 sekund** przy **48**, na **cztery Kamień Marszu i jeden Odłamek Ducha**, z **Duch**. Mniej więcej jeden rzadki cykl na cztery daje podwójnie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Które pasmo słyszy",
+      "text": [
+        "Głębokie, Gorące i Rzadkie wymagają [Głęboki nasłuch](listening_pit) i pasującej rangi. Bez próbki dół poniżej **y 0** słyszy pasmo głębiej, a Duch schodzi jeszcze jedno niżej.",
+        "Jeśli ranga albo kształt nie doniosą tak daleko, dół bierze najgłębsze pasmo, do jakiego może sięgnąć, zamiast stanąć.",
+        "Poniżej y 0 albo nad łupkiem klejnoty wychodzą jako rudy łupku."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Próbki",
+      "text": [
+        "Próbka to filtr, nigdy składnik. Osadź jedną, klikając prawym przyciskiem siatkę surowym metalem, żwirem albo klejnotem.",
+        "Materiał, który nazywa próbka, waży **sześć razy** tyle co cokolwiek innego w paśmie. Próbka prosi też o najgłębsze pasmo, które go mieści i do którego dół może sięgnąć: złoto znaczy pasmo gorące, gdy Ogień jest zapalony, a głębokie w przeciwnym razie.",
+        "Próbka, której nie mieści żadne osiągalne pasmo, jest pomijana, a Kodeks tak mówi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głosy przy dole",
+      "text": [
+        "Ziemia jest wymagana. Każdy inny głos wymienia jedno na drugie; żaden nie jest zwykłym mnożnikiem.",
+        "- **Woda** płucze: jeden dodatkowy wynik co **trzeci** cykl, za **250 mB** ze zbiornika siatki. Napełnij go wiadrem; mieści 4,000 mB.",
+        "- **Powietrze** skraca cykl do około **0.65** jego czasu i pobiera około **1.55 razy** tyle Pulsu na sekundę. Puls na przedmiot się nie zmienia.",
+        "- **Ogień** otwiera pasmo gorące przy 72 Puls na sekundę. Dół słucha tam tylko wtedy, gdy próbka kwarcu albo złota o to prosi, a złoto wychodzi wtedy jako Ruda złota Netheru.",
+        "- **Duch** słyszy pasmo głębiej i otwiera rzadkie.",
+        "- **Krosno** zmniejsza substrat o połowę, zaokrąglając w górę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile to kosztuje",
+      "text": [
+        "Jeden cykl żelaza to **560 Puls** na dwa kamienie.",
+        "Wydobycie wciąż kosztuje mniej Puls na sztabkę. Dar dołu jest taki, że on się nie kończy."
+      ]
+    }
+  ]
+}

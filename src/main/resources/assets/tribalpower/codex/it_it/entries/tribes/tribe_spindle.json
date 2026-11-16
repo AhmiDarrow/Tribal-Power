@@ -1,0 +1,65 @@
+{
+  "name": "Cucitori del telaio",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Cucitori del telaio",
+      "text": [
+        "“Il Telaio non è mai stato un solo filo. Erano nove d'accordo.”",
+        "Filo del **Fuso**, voce del **Telaio**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Cucitori del telaio tenevano il Fuso e hanno cucito i fili delle altre tribù in una sola tela sopra il cielo. Quando la tela si strappò, si strappò lungo la loro cucitura, e stanno ancora cucendo. La loro arte è **sentieri di porta e la ritessitura**.",
+        "I loro accampamenti stanno **solo nella Marcia**: nei Campi di cristallo e nella strana terra illuminata di ogni fascia. Dovrai passare dall'altra parte per incontrarli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che vogliono",
+      "text": [
+        "Il loro reagente è il **Filo di Telaio**, che vale **+8** di stima al loro Focolare.",
+        "Prediligono anche il Cristallo della Marcia, una Bussola, una Bussola di pietra di via o una Bussola dell'orizzonte: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda: il Focolare prende al massimo **60** di stima al giorno dalle offerte; vedi [Tribù e stima](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che l'Anziano scambia",
+      "text": [
+        "**Ospite**: 4 Cristallo della Marcia per 3 Scheggia di eco; una Bussola per 8 Assi della Marcia.",
+        "**Amico**: 6 Cristallo della Marcia per un Filo di Telaio; 4 Eco sintonizzato per una Bussola di pietra di via; 4 Riso di torbiera per Tagliatelle di filo del Telaio.",
+        "**Consanguineo**: 4 Eco vincolato e un Filo di Telaio per un'Ancora di Telaio; 2 Filo di Telaio per un Sigillo di Telaio.",
+        "Ogni scambio frutta **+2** di stima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù dei Cucitori del telaio. Creala con un {item:tribalpower:resonance_totem_loom} e due Tessitospirito nel loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Telaio**.",
+        "Chi è Consanguineo dei Cucitori del telaio porta il loro [dono](tribe_boons): i canti costano **un quarto in meno** da intonare.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "Il loro scambio da Amico trasforma Cristallo della Marcia in Filo di Telaio, che è anche il loro reagente. Sono l'unica tribù che vende un'**Ancora di Telaio**.",
+        "Al grado **Voce** puoi anche legare un **Tessitore di eco** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Cucitori del telaio ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

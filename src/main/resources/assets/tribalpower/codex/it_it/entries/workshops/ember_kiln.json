@@ -1,0 +1,231 @@
+{
+  "name": "Fornace di brace",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "La stazione del Fuoco fonde col Pulso invece che col carbone. Ciò che fonde una fornace, lo fonde la Fornace di brace: il pietrisco diventa pietra, la ghiaia diventa un lingotto. Entro 8 blocchi le serve un Totem di risonanza (Fuoco)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come si usa",
+      "text": [
+        "Alimentala con qualsiasi ingresso da fornace e prendi il risultato della fornace. Non si brucia combustibile.",
+        "Ogni fusione richiede **10 secondi** a **64 Pulso al secondo**.",
+        "La ghiaia cuoce sempre nel suo lingotto, anche la ghiaia di una mod che una fornace non sa leggere.",
+        "Una leva lo mette in pausa, e così un'uscita piena. Se manca Fuoco, si mette in pausa e non spende nulla."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Da ciottoli a pietra",
+      "steps": [
+        {
+          "caption": "Piazza la Fornace di brace con un Totem di risonanza (Fuoco) entro 8 blocchi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tieni il Pulso a portata: un generatore accanto basta.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti ciottoli e prendi pietra. Non si brucia carbone.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Una tramoggia sotto la Fornace di brace porta via i risultati.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatizzarlo",
+      "text": [
+        "Posa il Frantumatore di eco sulla Fornace di brace, uscita verso entrata, così la ghiaia scende: è il predefinito quando una stazione sta su un'altra, quindi funziona da solo. [Metalli e gemme](metals_and_gems) mostra un'intera linea di minerale.",
+        "Metti una tramoggia o un deposito sotto se vuoi raccogliere i lingotti.",
+        "Alza il rango nel Sintonizzatore di eco, poi nel Vincolatore e nel Manifestatore, come in qualsiasi altro laboratorio."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

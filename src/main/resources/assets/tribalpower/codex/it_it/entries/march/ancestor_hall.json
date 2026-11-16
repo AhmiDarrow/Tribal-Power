@@ -1,0 +1,47 @@
+{
+  "name": "Sala degli antenati",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Sale di pietra sprofondate nella Steppa della Marcia e negli Altopiani. In superficie si vede solo un pozzo di scala."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le Sale degli antenati sono sepolte: cerca un pozzo di scala che scende nel terreno. Sotto ci sono tre stanze sotto travi di legno del Telaio, illuminate da vecchie lanterne.",
+        "Le **Sentinelle cave** custodiscono le stanze laterali, tre in ogni sala. Colpiscono forte e indeboliscono la presa, quindi illumina le stanze mentre avanzi e tieni a portata un bastone carico per colpire da lontano."
+      ],
+      "title": "Trovarne una"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Quattro **Tavolette dei racconti** sono appese alle pareti. Fai clic destro su ciascuna per leggerla; la prima lettura è registrata in questo Codice, che conta quante delle **12** tavolette hai trovato. I Cerchi di tamburi, la Guglia di cristallo, gli accampamenti degli Intagliatori di sigilli e il Tempio profondo tengono il resto.",
+        "Due casse stanno in fondo. Ciascuna contiene sempre **2 a 4 Filo di Telaio**, più una manciata di echi, Schegge di eco, Schegge di Spirito, Tessitospirito, Cristallo della Marcia o un Sigillo vergine, e a volte un sigillo elementale.",
+        "Il Filo di Telaio è il motivo per cui viene la maggior parte della gente. È il primo passo verso [la sesta voce](sixth_voice)."
+      ],
+      "title": "Ciò che la sala custodisce"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Otto Pietra della Marcia intorno a una Scheggia di eco intagliano **2 Tavolette dei racconti**. Appendile a una parete a casa per segnare la tua sala; restano piatte contro il blocco dietro di loro e cadono se lo togli."
+      ],
+      "title": "Tavolette tue"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

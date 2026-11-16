@@ -1,0 +1,30 @@
+{
+  "name": "Camminatore della Marcia",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Un Camminatore della Marcia è il brucatore silenzioso della Marcia: un tapiro tarchiato, con un cuscinetto da sella muschioso e punte biforcute che brillano di luce dello Spirito. La sella è solo il suo manto; non puoi cavalcarne uno. Li vedrai in branchi nella Steppa e in ogni bioma della Marcia tranne le Secche, perfino nelle Distese di brace.",
+        "Ha **18 di salute** e **1 di armatura**. È timido: resta a circa dieci blocchi dai mostri e va nel panico se viene ferito."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tieni una **Scheggia di Spirito** e i camminatori ti seguono, curiosi. È il modo facile per portarne alcuni a casa o in un recinto.",
+        "Compaiono su zolle della Marcia, suolo, muschio e neve, all'aperto.",
+        "Un camminatore lascia **da 1 a 3 Selvaggina cruda**, fino a 2 Cuoio della Marcia e a volte un osso, di più con Saccheggio; la carne esce come Selvaggina arrostita se è morto bruciando.",
+        "Fanne riprodurre due con **Grano** o **Grano della steppa**, che seguono volentieri come una Scheggia di Spirito. Un camminatore non si spazzola e non stringe un legame."
+      ],
+      "title": "Vivere con i camminatori"
+    }
+  ]
+}

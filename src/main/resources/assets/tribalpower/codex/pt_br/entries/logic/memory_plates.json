@@ -1,0 +1,36 @@
+{
+  "name": "Placas de memória",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Memória, Contagem, Verso",
+      "text": [
+        "Estas placas lembram.",
+        "- **Memória**: uma esquerda ativa define 15; uma direita ativa limpa. A saída fica até nova ordem. Se as duas estão ativas, limpar vence.",
+        "- **Contagem**: cada borda de subida atrás soma um. Quando a contagem chega ao limiar, ela canta 15. O uso agachado com a mão vazia percorre o limiar **1 a 8** (começa em 4). Uma esquerda em subida zera a contagem.",
+        "- **Verso**: começa em **4** sem impulso. Cada borda de subida atrás passa para **8**, depois **12**, depois **15** e volta a 4. Um comparador lê o mesmo número.",
+        "A Placa de verso não é o Chamado de verso: para levar redstone a uma lâmpada ou a uma máquina sem fio, veja [Chamado de verso e resposta](verse_link)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

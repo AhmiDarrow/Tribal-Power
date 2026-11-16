@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de las alturas",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Propios de las alturas",
+      "text": [
+        "Entre la piedra, el musgo y las arboledas de las alturas viven un carnero de montaña, un jabalí, una carabela portuguesa que deriva con el viento y un simio de piedra que sale de noche.",
+        "Toda bestia mansa de aquí se puede cepillar una vez por minuto para sacar su reactivo, y se tienta y se cría con su propia comida, nombrada abajo en **Caza y cría**. Se puede vincular como cualquier animal manso (ver [familiares](familiars)) y, aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (ver [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "Riscocapa",
+      "text": [
+        "Un carnero de montaña de vellón pesado, en rebaños de dos a cuatro. **30 de salud** y **7 de armadura**, y es lento.",
+        "Suelta de 1 a 3 **Vellón de risco**, más con Botín.",
+        "Cazado, también suelta de 1 a 3 Caza cruda y hasta 2 Cuero de la Marcha. Cría con **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "Peñahocico",
+      "text": [
+        "Un jabalí con colmillos y pellejo como un desprendimiento, en rebaños de dos a cuatro. **30 de salud** y **4 de armadura**.",
+        "Suelta de 1 a 3 **Colmillo de peña**.",
+        "Cazado, también suelta de 1 a 3 Caza cruda y hasta 2 Cuero de la Marcha. Cría con **papas o zanahorias**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "Alzaderiva",
+      "text": [
+        "Una carabela portuguesa del cielo: un flotador vítreo bajo una cresta magenta, con tentáculos urticantes a la zaga, que deriva sobre las laderas de una a tres. **12 de salud**, sin armadura.",
+        "Suelta de 1 a 3 **Vejiga a la deriva**.",
+        "Cazado, también suelta hasta 2 Hilo. Cría con **Cardo de ley**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "Tambaleo del pedregal",
+      "text": [
+        "Un simio de piedra, con lajas de roca a la espalda, que aparece de noche en terreno abierto, de uno o dos a la vez. Tiene **32 de salud** y **3 de armadura** y golpea por **6**, y cada golpe te empuja hacia atrás.",
+        "Suelta de 1 a 2 **Nudillo de pedregal**, un reactivo de Empujón.",
+        "Cazado, también suelta de 1 a 2 Pedernal y hasta 2 Pepita de hierro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y cría",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si lo cazas, y aún más con Botín. La carne cae como Caza asada si el animal murió ardiendo. Para criar salvajes, **agáchate** mientras alimentas a dos adultos con su comida; alimentado con normalidad, el salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

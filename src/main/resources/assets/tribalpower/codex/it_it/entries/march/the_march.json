@@ -1,0 +1,93 @@
+{
+  "name": "La Marcia",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "spoiler": true,
+  "next": "march_land",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "La Marcia è dove il filo si è sfilacciato più sottile e il suolo caduto è venuto a posarsi. Le sale giacciono sprofondate fino all'architrave. Gli accampamenti tengono il tempo senza nessuno al tamburo. Il cristallo cresce dove la tensione del Telaio ancora si raccoglie.",
+        "Lì tutto risponde ancora a un ritmo. Non è un'infestazione. È un mondo che non ha mai imparato a smettere.",
+        "Ci vai per ciò che non trovi a casa: **Cristallo della Marcia**, **Filo di Telaio** e il **Cuore Non Cantato**. Aprono il trasporto astrale, la voce del Telaio e le ultime Tavoletta dei racconti."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "L'ingresso è un [Tamburo della porta](gate_drum). Non serve Pulso: batti su di esso il **Rito della Porta**, quattro tamburi su **A**, **S**, **D** e **F**, e il ritmo apre la via.",
+        "Fai clic destro a mano vuota per iniziare il rito; centra il **60%** dei battiti e ti porta oltre. Un segnale di redstone blocca il tamburo.",
+        "Battere il rito su un Tamburo della porta nella Marcia ti riporta sempre a casa: nel punto da cui sei partito, o al tuo punto di rinascita se quello non c'è più. Il tuo punto di ritorno sopravvive alla morte, così un viaggio andato male non ti lascia mai bloccato lontano.",
+        "Più tardi, un paio di [Porta della via](way_gate) è la rotta per i grandi spostamenti.",
+        "Quando un aggiornamento ridisegna la terra della Marcia, un salvataggio vecchio mette da parte la sua Marcia una volta sola, all'avvio successivo, e la dimensione ricresce mentre la esplori. La vecchia Marcia, con tutto ciò che vi è costruito, viene spostata in **tribalpower_backups** dentro il salvataggio, mai cancellata. **retrogenMarch** nella sezione **world** della configurazione comune lo spegne."
+      ],
+      "title": "Andata e ritorno"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Entra con varie Cella di Pulso cariche, cibo, qualche [Unguento dello Spirito](remedies) e la mano ferma. Porta un Tamburo della porta di scorta da posare per il ritorno, e se hai una Bussola astrale, legala a un pavimento asciutto di casa prima di partire. La Marcia è grande e ogni bioma sembra nuovo la prima volta.",
+        "Resto dello Spirito sorge ovunque sia buio, sopra e sotto terra, quindi porta torce o lanterne e illumina la via del ritorno fino al tuo tamburo."
+      ],
+      "title": "Cosa portare"
+    },
+    {
+      "type": "text",
+      "title": "Giorno e notte",
+      "text": [
+        "Il giorno della Marcia è per lavorare, e la sua notte è il pericolo.",
+        "- **Di giorno** gli spiriti sorgono di rado allo scoperto, mai alla luce di una torcia o di una lanterna, e mai accanto a un altro. Gli spiriti selvatici colti sotto il cielo aperto svaniscono al sorgere del sole, a meno che non ti stiano già inseguendo.",
+        "- **Di notte** sorgono più forti, con più salute e colpi più duri, e alcuni escono come **élite** dal nome dorato. Arrivano al massimo in due e smettono di sorgere quando ce ne sono quattro vicini.",
+        "- **Grotte** hanno regole proprie. I cacciatori delle grotte sorgono in ogni punto buio sottoterra, giorno o notte, e il limite di quattro non vale sotto, così una grotta buia può riempirsi. Illumina mentre avanzi.",
+        "- Le élite e gli spiriti della notte possono lasciarti con [Malattia dello Spirito](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Smaltire dormendo",
+      "text": [
+        "I letti funzionano nella Marcia, e dormire tutta la notte porta l'orologio al mattino. (La Marcia tiene il tempo dell'Overworld, quindi passa anche la notte dell'Overworld.)",
+        "Solo uno spirito che **ti sta già dando la caccia** ti impedisce di dormire. Uno che passa oltre le tue mura, no, quindi un campo illuminato e murato è un posto sicuro per riposare."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Steppa**: erba mossa con macchie e alberi soli. Pascolano Camminatore della Marcia, Cervo dell'alba, Volpe lanterna, conigli e qualche Dorsomuschio. Cacciano Legacenere, Radicelegato, Segugio della fenditura, Tessitore di eco e qualche Inseguitore dei canneti. Le [Sale degli antenati](ancestor_hall) sprofondano qui.",
+        "- **Terre alte**: pietra, muschio e boschi. Capre, Cervo dell'alba, volpi, Camminatore della Marcia e conigli. Sentinella cava, Falena della tempesta, Diavoletto di tizzone, Segugio della fenditura e qualche Dorsoscheggia. Casa dei [Cerchio di tamburi](drum_circle), altre Sale degli antenati e smeraldi (anche la Cresta del baleno li ha).",
+        "- **Campi di cristallo**: mesa a terrazze di calcite e pietra, irte di Cristallo della Marcia. Volpi, conigli, Dorsomuschio e Camminatore della Marcia; Inseguitore dei canneti, Dorsoscheggia, Campana del lutto, Tessitore di eco e qualche Sentinella cava. La [Guglia di cristallo](crystal_spire) sorge qui."
+      ],
+      "title": "Steppa, Terre alte, Campi di cristallo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Campi di neve**: neve e ghiaccio compatto sopra Erba della Marcia. Volpe lanterna, conigli, Camminatore della Marcia, qualche Dorsomuschio e orsi polari. Sentinella cava, Falena della tempesta, Campana del lutto e Segugio della fenditura.",
+        "- **Distese di brace**: terra secca di basalto, senza pioggia. Pochi brucatori ci si avventurano: Camminatore della Marcia, Volpe lanterna e Saltatore di cenere. Diavoletto di tizzone, Segugio della fenditura e Legacenere vagano, e qualche Falena della tempesta.",
+        "- **Palude di canne**: canali di fango fitti di Canna di Spirito. Dorsomuschio, Cervo dell'alba, rane, Volpe lanterna e Camminatore della Marcia; Pinnabaleno, Campana alla deriva, Anguilla di limo e Razza del velo nell'acqua, e calamari luminescenti nelle grotte allagate. Inseguitore dei canneti, Radicelegato e Tessitore di eco si appostano nel bagnato.",
+        "Fuoco fatuo spirituale attraversa ogni terra della Marcia."
+      ],
+      "title": "Campi di neve, Distese di brace, Palude di canne"
+    },
+    {
+      "type": "text",
+      "title": "Secche, Cresta del baleno",
+      "text": [
+        "- **Secche**: la terra bassa, annegata sotto acqua bassa. Laghi e pozze su letti di limo e argilla, alberi di falcata con radici a trampolo, gigli, Giglio di luna e Alga nastro, e qua e là un pilastro di pietra col cappello di cristallo. Planatore di limo, Deriva pallida e Dardo di secca nuotano lì, e Legno su trampoli cammina sulle rive; di notte Agguatatore di salamoia e Ombra annegata sorgono nell'acqua, e Inseguitore dei canneti, Radicelegato, Tessitore di eco e Campana del lutto arrivano dalla Palude di canne. La Pietra della marea dei [guardiani](guardians) sorge qui.",
+        "- **Cresta del baleno**: il terreno più alto, una montagna di Pietra di luna. Vedi [la Cresta del baleno](glimmer_ridge).",
+        "Ogni terra ha, oltre a questi, bestie e gente proprie: vedi [Bestie della Steppa](beasts_steppe) e le pagine dopo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Leggi ogni Tavoletta dei racconti nelle [Sale degli antenati](ancestor_hall). Il Codice spirituale registra ognuna.",
+        "- Quando sei pronto, colpisci un Tamburo silenzioso quattro volte, con un respiro tra un colpo e l'altro, e affronta [Il Non Cantato](the_unsung).",
+        "- Porta a casa Cristallo della Marcia, Filo di Telaio e un Cuore Non Cantato. Insieme aprono [la sesta voce](sixth_voice).",
+        "- Visita i Cucitori del telaio alla [Guglia di cristallo](crystal_spire) per scambi di Filo di Telaio."
+      ],
+      "title": "Cosa fare lì"
+    }
+  ]
+}

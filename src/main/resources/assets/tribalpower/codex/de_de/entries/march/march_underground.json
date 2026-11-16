@@ -1,0 +1,58 @@
+{
+  "name": "Unter dem Marsch",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "Der Marsch ist darunter hohl. Grabe hinab oder folge einem Höhleneingang, und du findest riesige Höhlen auf Steinpfeilern, lange gewundene Tunnel, tiefe Schluchten, offen zum Himmel, und jedes Vanilla-Erz in Marschstein. Nimm viel Licht mit. Geistreste erscheinen dort unten im Dunkeln genau wie an der Oberfläche."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Marsch-Steinkohleerz, Marsch-Eisenerz, Marsch-Kupfererz, Marsch-Golderz, Marsch-Redstoneerz, Marsch-Lapislazulierz, Marsch-Diamanterz und Marsch-Smaragderz werden genau wie ihre Vanilla-Zwillinge abgebaut und geschmolzen. Nur das Gestein darum ist anders.",
+        "- Steinkohle: jede Spitzhacke.",
+        "- Eisen, Kupfer und Lapislazuli: eine Steinspitzhacke oder besser.",
+        "- Gold, Redstone, Diamant und Smaragd: eine Eisenspitzhacke oder besser.",
+        "Sie lassen dieselben Rohstoffe und Edelsteine fallen, Glück wirkt, und Behutsamkeit behält den Erzblock, den du direkt schmelzen kannst. Ein gebundener Laternenfuchs markiert sie alle, und auch Marscherz."
+      ],
+      "title": "Die acht Erze abbauen"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Steinkohle: von **y 0** bis **192**.",
+        "- Eisen: überall, am reichsten in mittlerer Tiefe und noch einmal hoch in den Bergen.",
+        "- Kupfer: von **y -16** bis **112**.",
+        "- Gold: tief, bis **y 32**. Lapislazuli: von **y -32** bis **32**. Redstone: unter **y 16**.",
+        "- Diamant: unter **y 16**, hin und wieder in einer großen Ader.",
+        "- Smaragd: nur im **Hochland** und auf dem **Schimmergrat**, ab **y 48** aufwärts. Dort sind sie häufig, der Aufstieg lohnt sich."
+      ],
+      "title": "Wo du suchst"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Hier und da öffnet sich eine Höhlenwand zu einer kleinen Amethysttasche: ein paar Amethystblöcke im Gestein, mit Knospen und, wenn du Glück hast, einem vollen Haufen, der in die Höhle wächst.",
+        "Es gibt keinen Amethystknospenblock darin, also wachsen sie nie nach. Nimm, was da ist, und geh weiter.",
+        "Amethystscherben werden in einem Echoabstimmer zu Geistscherben, darum ist eine Tasche früh im Marsch ein guter Fund."
+      ],
+      "title": "Amethysttaschen"
+    }
+  ]
+}

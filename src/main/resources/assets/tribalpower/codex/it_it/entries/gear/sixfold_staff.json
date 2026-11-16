@@ -1,0 +1,51 @@
+{
+  "name": "Bastone sestuplo",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Un bastone che parla tutte e sei le voci. Scegline una, mira e lancia.",
+        "Consuma Pulso da una Cella di Pulso, mai durabilità, e può portare una cella propria, come la [Dotazione spirituale](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I sei incantesimi",
+      "text": [
+        "Accovacciati e usa per scorrere Terra, Fuoco, Acqua, Aria, Spirito e Telaio; la barra delle azioni nomina la voce. Usa per lanciare. Il tasto **Bastone: voce successiva** scorre senza accovacciarti quando lo assegni sotto Tribal Power nei Controlli.",
+        "- **Terra** (12 Pulso): un colpo da 4 danni che rallenta molto il nemico per 5 secondi.",
+        "- **Fuoco** (18): un colpo da 8 danni che dà fuoco al nemico per 4 secondi.",
+        "- **Acqua** (24): ti cura e ti purifica. Spegne il fuoco, toglie il veleno e dà rigenerazione per 5 secondi e respirazione acquatica per 30.",
+        "- **Aria** (16): un breve balzo in avanti e caduta lenta per 6 secondi.",
+        "- **Spirito** (20): visione notturna per 30 secondi, e ogni ostile entro **12 blocchi** brilla per 12.",
+        "- **Telaio** (6): lega un nemico e lo tira fino a **8 blocchi** verso di te."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cucitura",
+      "text": [
+        "Con il Telaio scelto, accovacciati e usa quando nessun nemico è nel mirino e nessun blocco è vicino davanti: il bastone ti **cuce** **6 blocchi** in avanti nell'aria aperta per **10 Pulso**. Rifiuta di farti atterrare in blocchi solidi o in pericoli.",
+        "Per questo, per andare avanti nel ciclo dal Telaio, guarda un blocco vicino o un nemico mentre ti accovacci e usi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Portata e riposo",
+      "text": [
+        "Terra, Fuoco e Telaio richiedono un bersaglio ostile. Arrivano a **18 blocchi** e si fermano ai blocchi solidi; senza bersaglio non partono e non costano nulla.",
+        "Dopo un lancio il bastone riposa: **8 secondi** dopo Acqua, **2 secondi** dopo le altre, **1.5 secondi** dopo una cucitura.",
+        "Beve prima dalla propria cella alloggiata, poi dalle celle che porti, prima la mano secondaria. Se sono tutte a secco, l'incantesimo non parte.",
+        "Mentre **Silenzio Non Cantato** è su di te, il bastone non lancia (vedi [Afflizioni](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

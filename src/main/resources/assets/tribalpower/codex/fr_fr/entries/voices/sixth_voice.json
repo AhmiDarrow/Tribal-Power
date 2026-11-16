@@ -1,0 +1,201 @@
+{
+  "name": "La sixième voix",
+  "icon": "tribalpower:resonance_totem_loom",
+  "order": 80,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_loom",
+      "text": [
+        "La sixième voix est le fil lui-même. Le totem de Métier est le dernier Totem de résonance, et il vient de la Marche : **Fil de Métier** des Salles des Ancêtres, et un cœur de Le Non-chanté."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trouver le fil",
+      "text": [
+        "Les Salles des Ancêtres englouties, dans la Steppe de la Marche et les Hautes terres, gardent du Fil de Métier dans leurs deux coffres. Lis les quatre tablettes en sortant.",
+        "Les Couseurs du métier échangent aussi un Fil de Métier aux Amis, contre six Cristal de la Marche.",
+        "Sculpte un **Sceau de Métier** : un Sceau vierge et un Fil de Métier, sans forme. Placé dans un Brasero rituel avec la voix Métier et de la Pulsation par un conducteur dans **8 blocs**, il enfile **2 Pulsation** dans une Cellule de Pulsation que tu portes toutes les **deux secondes**, tant que tu restes dans **6 blocs**, avec Chance. Le brasero dépense **8 Pulsation** par battement pour le faire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avant le totem",
+      "text": [
+        "Construis le Détissage d'écho : Pierre de la Marche autour de deux Résonateur en cuivre, un Éclat d'Esprit et un Fil de Métier. Il lui faut la voix Métier dans les 8 blocs. Tant que tu ne peux pas fabriquer le totem, construis-le près d'un totem de Métier qui se dresse déjà dans un camp des Couseurs du métier, une Salle des Ancêtres ou une Flèche de cristal.",
+        "Puis réveille Le Non-chanté dans un Cercle de tambours et prends son **Cœur Non-chanté**."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Asseoir la sixième voix",
+      "steps": [
+        {
+          "caption": "Un Résonateur de Pulsation et un Détissage d'écho, à quelques blocs l'un de l'autre.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place le totem de Métier à 8 blocs des deux.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Le Détissage d'écho peut maintenant travailler, et le Résonateur entend une voix distincte de plus.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:manifested_ingot"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que le Métier ouvre",
+      "text": [
+        "Fabrique le totem de Métier avec quatre Cristal de la Marche, deux Fil de Métier et deux Planches de la marche autour du Cœur Non-chanté.",
+        "Avec Métier à portée, le Détissage d'écho retransforme les lingots en échos, les noyaux en lingots, l'Espritissu en laine et les outils et armes endommagés d'Espritoutillage en un Lingot manifesté.",
+        "Le Bâton sextuple gagne Attache et, en te faufilant sans cible, Point. Le rite Lien de ley exige le Sceau de Métier, et les Porte lointaine exigent la voix Métier."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_loom"
+    }
+  ]
+}

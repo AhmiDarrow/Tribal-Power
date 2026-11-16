@@ -1,0 +1,58 @@
+{
+  "name": "宴",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "野営の食卓",
+      "text": [
+        "宴は皆のための大きな料理だ。固体ブロックに置くと**六人分**入る。一つ食べるたびに腹が満ち、その声の[祝福](voice_blessings)を**8分**与える。",
+        "炉の鍋で、その声の料理と作物から一つ煮る。土の宴は褥の守り手のつぶしと砂礫パンから、火の宴は干し肉とチリから、という具合だ。各レシピは鍋のJEIにある。",
+        "マーチの夜の前に宴を分ける野営は、一緒に祝福を受けて歩き出す。コンパレーターが残りの人分を読む。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "食卓にて",
+      "text": [
+        "腹が減っているときだけ一人分を取れる。一つで満腹度を**6**満たし、祝福をレベルIで与える。",
+        "手つかずの宴は壊すと拾い戻せる。一人分が欠けると壊しても何も出ない。始める前に動かせ。",
+        "部族の炉から**24ブロック**以内で、その[祭り](living_march)のあいだに一つ食べると、部族は食卓にあなたを数える。**声望20**、祭りにつき一度。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "Remedios",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Tres maneras de tomarlo",
+      "text": [
+        "- **Tintura**: bébela. El remedio dura **3 minutos** y recuperas la botella.",
+        "- **Ungüento**: úsalo para aplicártelo, o **úsalo en otra persona**: un amigo, un aldeano, tu familiar. Cura **3 corazones** de una vez, quita **todo** efecto dañino y el remedio dura la mitad de tiempo que una tintura.",
+        "- **Incienso**: asiéntalo en un [Brasero ritual](ritual_brazier) y arde para todos alrededor. Mira más abajo.",
+        "**Todo remedio quita el [Mal del Espíritu](spirit_sickness)**, y también las demás [aflicciones](afflictions) de la Marcha: Silencio No Cantado, Deshilachado y Mal de ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que elabora cada familia",
+      "text": [
+        "- **Yesca** (Brasa): Fuerza.",
+        "- **Aceleración** (Rayo): Velocidad.",
+        "- **Enfriamiento** (Frío): Resistencia al fuego.",
+        "- **Antídoto** (Ponzoña): quita el veneno, el Wither, el hambre y las náuseas.",
+        "- **Caída de pluma** (Ráfaga): Caída lenta.",
+        "- **Arraigo** (Raíz): Resistencia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que elabora cada familia, continuación",
+      "text": [
+        "- **Baluarte** (Empujón): Absorción.",
+        "- **Vista clara** (Tejido): Visión nocturna, quita la ceguera y la oscuridad.",
+        "- **Restauración** (Debilitación): Prisa, quita la debilidad, la lentitud y la fatiga minera.",
+        "- **Vigor** (Sabueso): Salud mejorada.",
+        "- **Reparación** (Silencio): Regeneración.",
+        "El color del brebaje es el color de su reactivo, así puedes distinguirlos en tu mochila."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La voz del tótem",
+      "text": [
+        "El tótem más cercano al caldero mientras se elaboraba añade su propio don, que se muestra en la descripción:",
+        "- **Tierra**: otorga 2 corazones de absorción.",
+        "- **Fuego**: dura la mitad más.",
+        "- **Agua**: un nivel más fuerte.",
+        "- **Aire**: cura 2 corazones de una vez.",
+        "- **Espíritu**: añade 10 segundos de Regeneración.",
+        "- **Telar**: dura el doble, pero se queda en el nivel I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Incienso ardiente",
+      "text": [
+        "Usa el incienso en un Brasero ritual para asentarlo; admite hasta **16** varillas de un mismo brebaje. Arde por su cuenta, **sin sello y sin Pulso**.",
+        "Cada dos segundos, todos en un radio de **8 bloques**, jugadores y familiares vinculados, reciben el remedio durante 12 segundos, y los familiares se curan un corazón. Cada varilla dura **30 segundos**. Una señal de redstone en el brasero lo apaga; agáchate y úsalo con la mano vacía, sin un sello asentado, para recoger el incienso.",
+        "Es la mejor forma de mantener en pie a todo un campamento durante una noche larga."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

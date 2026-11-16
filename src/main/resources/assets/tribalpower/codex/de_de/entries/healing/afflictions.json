@@ -1,0 +1,25 @@
+{
+  "name": "Leiden",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Jenseits der [Geistkrankheit](spirit_sickness) können sich da draußen noch drei Dinge auf dich legen:",
+        "- **Ungesungene Stille**: Die Stille-Bolzen des Ungesungenen nehmen deine Stimme mit. **12 Sekunden** lang antworten kein Lied und keine Stabstimme. Warte es ab, trink Milch oder wasch es ab.",
+        "- **Ausgefranst**: ein Schlag eines wilden **Echowebers** oder **Düsterkriechers** reißt etwas aus dir: **zwei Herzen** deiner Gesundheit für **zwei Minuten**. Milch tut nichts dagegen.",
+        "- **Ley-Krankheit**: der Boden schwankt, und die Zellen, die du trägst, verlieren **2 Puls alle zwei Sekunden** je Stufe. Sie kommt vom Stehen auf einer blanken Ley-Kreuzung, während die Fäden anschwellen. Milch hebt sie auf."
+      ],
+      "title": "Was der Marsch an dir lässt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jedes [Mittel](remedies) hebt sie alle auf, und der [Heilkreis](healing_circle) und eine Nacht in der [Schwitzhütte](sweat_lodge) tun es auch.",
+        "Der alte Weg ist der **Geisterbrunnen**: finde einen im Marsch, steig in sein Wasser und **schleiche**. Für **40 Puls** aus einer Zelle, die du trägst, nimmt dir der Brunnen jedes Leiden, die Geistkrankheit eingeschlossen."
+      ],
+      "title": "Reingewaschen"
+    }
+  ]
+}

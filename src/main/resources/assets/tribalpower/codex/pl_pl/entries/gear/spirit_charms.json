@@ -1,0 +1,123 @@
+{
+  "name": "Amulety Ducha",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Amulety to noszone pieczęcie. Każdy niesie głos totemu i dar, i możesz nosić do **trzech** we własnych miejscach na amulety Tribal Power. Żaden inny mod nie jest potrzebny."
+      ],
+      "title": "Amulety Ducha"
+    },
+    {
+      "type": "text",
+      "title": "Noszenie amuletów",
+      "text": [
+        "Użyj amuletu, aby go założyć. Przykucnij i użyj dowolnego amuletu, aby otworzyć trzy miejsca.",
+        "Noszone amulety kosztują **2 Pulsy na głos co dwie sekundy** z Ogniwo Pulsu, które nosisz. Gdy ogniwa się wyczerpią, dary ustają, a lot wraz z nimi, więc doładuj albo zdejmij.",
+        "Głosy sumują się ze wszystkiego, co nosisz, ale ten sam głos dwa razy daje swój dar tylko raz.",
+        "Dostrojony [chowaniec](familiar_boons) w pobliżu, który dzieli głos amuletu, obniża utrzymanie tego amuletu o **40%** i dodaje własny dar.",
+        "Noszone amulety spadają na ziemię, gdy giniesz, chyba że twój świat zachowuje ekwipunek."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jedenaście amuletów",
+      "text": [
+        "- **Niebo** (Powietrze): kreatywny lot, póki starcza Puls, jak przy każdym amulecie, który niesie Powietrze, oprócz Amulet zbiórki.",
+        "- **Żar** (Ogień): odporność na ogień, a atakujący zajmują się ogniem na 3 sekundy.",
+        "- **Przypływ** (Woda): oddychanie pod wodą i gracja pływaka.",
+        "- **Korzeń** (Ziemia): odporność.",
+        "- **Latarnia** (Duch): widzenie w ciemności, a każde błogosławieństwo albo dar, który zyskasz, póki jest opłacana, trwa **o połowę dłużej**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jedenaście amuletów, ciąg dalszy",
+      "text": [
+        "- **Wrzeciono** (Krosno): szczęście, i mniej więcej trzy razy na dziesięć zwraca do **2 Pulsy** do noszonego ogniwa co dwie sekundy.",
+        "- **Osłona** (Ziemia): odchyla około jednego pocisku na cztery, albo jednego na dwa, jeśli Duch też jest na twoich amuletach.",
+        "- **Palenisko** (Ogień): utrzymuje cię najedzonym.",
+        "- **Zasłona** (Duch): ukrywa cię, gdy się skadasz.",
+        "- **Zbiórka** (Powietrze): przyciąga do ciebie porzucone przedmioty i doświadczenie.",
+        "- **Chór**: zaczyna w milczeniu i uczy się od brasera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chór i dodatkowe głosy",
+      "text": [
+        "Milczący Chór wciąż kosztuje 2. Przykucnij i użyj go na Rytualne brasero z **trzema różnymi totemami** w promieniu 8 bloków i **200 Pulsów**, a zwiąże każdy głos w pobliżu.",
+        "Przykucnij i użyj amuletu na Totem rezonansu, aby dodać ten głos za **40 Pulsów**. Więcej głosów kosztuje więcej w noszeniu i robi więcej.",
+        "Osłona i Palenisko niosą Ziemia i Ogień, więc dają też odporność i odporność na ogień. Powietrze daje także powolne opadanie, chyba że Ogień też jest noszony. Lot przychodzi z głosem Powietrze, a nie z samym Amulet nieba: każdy noszony amulet, który niesie Powietrze, własny Nieba albo dodany przez ciebie, pozwala latać, póki starcza Puls. Amulet zbiórki to jedyny wyjątek: jego własne Powietrze idzie w przyciąganie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amulet zbiórki",
+      "text": [
+        "Gdy jest noszony i opłacony, przyciąga do ciebie porzucone przedmioty i doświadczenie z **5 bloków**, **2 więcej za każdy dodatkowy głos**, do **11**.",
+        "**Skradaj się**, aby wstrzymać i móc upuszczać rzeczy. Stos, który ktoś właśnie rzucił, zostaje w spokoju, aż da się go podnieść, stos zachowany dla innego gracza jest jego, a przedmioty, które inny mod oznacza jako nie do ruszenia, zostają na miejscu.",
+        "Jego Powietrze idzie w przyciąganie, więc w przeciwieństwie do Niebo nie daje lotu ani powolnego opadania. Głosy, które mu dodasz, działają jak na każdym amulecie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

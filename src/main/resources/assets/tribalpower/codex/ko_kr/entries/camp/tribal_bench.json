@@ -1,0 +1,49 @@
+{
+  "name": "부족 작업대",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "기억하는 상",
+      "text": [
+        "부족 작업대는 너비 두 블록인 제작대이며, 뒤를 따라 선반이 있고, 어떤 나무로든 있어 서 있는 야영지와 어울린다.",
+        "중요한 차이: **제작칸은 작업대의 것이다**. 제작법 도중에 닫아도 모두 둔 곳에 남고, 가방으로 쏟아져 돌아가지 않는다.",
+        "뒤의 선반은 벽 선반처럼 **넷**을 담는다. 무언가를 든 채 선반을 클릭하면 내려놓고, 맨손으로 클릭하면 되찾는다. 상판을 클릭하면 제작칸이 열리고, 옆에 초록색 제작법 책이 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "JEI와 함께",
+      "text": [
+        "JEI를 켠다면 작업대는 완전한 제작대다. 제작법을 열고 **+**(또는 JEI의 제작법 이동 키)를 누르면 보관함의 재료를 제작칸으로 가져온다. 작업대의 화살표를 클릭하면 모든 제작법이 나온다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

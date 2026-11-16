@@ -68,9 +68,9 @@ public class SongkeeperDuelInviteScreen extends Screen {
         Songbook.Song song = Songbook.song(invite.song());
         g.drawCenteredString(font, Component.translatable("gui.tribalpower.songkeeper.duel.invite", invite.from()), width / 2, y + 10, 0xFFFFD36B);
         if (song != null) {
-            g.drawCenteredString(font, song.title(), width / 2, y + 28, 0xFFF2E8CF);
+            g.drawCenteredString(font, song.titleComponent(), width / 2, y + 28, 0xFFF2E8CF);
             long s = song.lengthMs() / 1000;
-            g.drawCenteredString(font, Component.literal(song.album() + "  ·  ").append(Component.translatable(
+            g.drawCenteredString(font, song.albumComponent().copy().append("  ·  ").append(Component.translatable(
                     "gui.tribalpower.songkeeper.difficulty." + Songbook.Difficulty.of(invite.difficulty()).key()))
                     .append(String.format("  ·  %d:%02d", s / 60, s % 60)), width / 2, y + 42, 0xFF8FA7A0);
         }

@@ -1,0 +1,17 @@
+{
+  "name": "16. Il posatoio",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il posatoio",
+      "text": [
+        "“Le Terre Alte sono i ponti dei Camminatori del ciglio, l'ultimo suolo prima del ciglio. Il vento che viene dal ciglio fu un canto, un tempo. Ciò che vi nidifica ora canta lo stesso canto al contrario e scaglia i camminatori per sentirli toccare terra.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

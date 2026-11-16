@@ -1,0 +1,46 @@
+{
+  "name": "Gardien colosse",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Gardien colosse",
+      "text": [
+        "Le saule devenu énorme, et qui marche. Le Gardien colosse est le seul boss errant de la Marche, haut de sept blocs, et on ne le trouve jamais seul.",
+        "Ce n'est pas le Colosse pleureur, le grand saule qui se dresse en bosquets à travers la fagne : voir [arbres de la Marche](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En trouver un",
+      "text": [
+        "Il se lève rarement, seulement dans la **Fagne des roseaux**, sur le terrain ouvert la nuit. Il arrive avec son bosquet autour de lui : **2 à 4 Gardien pleureur**, **1 à 3 Fée des marais** et jusqu'à **2 Flotteur de tourbière**. Ils sont doux et le restent.",
+        "Une barre de boss montre sa vie à tous ceux qui sont près de lui. Il ne s'efface pas à l'aube comme les autres esprits, et tant qu'il est proche tu ne peux pas dormir. S'il part sans mourir, son bosquet part avec lui. Seul un Gardien colosse qui se lève de lui-même amène un bosquet : celui qui vient d'un œuf d'apparition arrive seul."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le combattre",
+      "text": [
+        "Il a **260 points de vie** et **14 d'armure**, et il est lent. Chaque coup inflige **12** et t'enracine : tu es ralenti pendant 3 secondes, alors ne le laisse pas t'attraper deux fois.",
+        "Comme tout esprit qui se lève la nuit, il arrive plus fort, et il peut se lever en élite au nom doré. Amène des amis, un arc et de la place pour reculer. Il ne se liera pas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il laisse",
+      "text": [
+        "Il lâche toujours son **Noyau de bois de cœur**, un réactif de Racine introuvable ailleurs, avec **16 à 32 Bûche de saule**, **4 à 8 Pousse de saule**, **6 à 12 Brin de saule**, **4 à 8 Racine nouée** et **8 à 16 fioles d'expérience**. Butin en ajoute.",
+        "Il n'y a pas de Pousse de saule géante : plante quatre Pousse de saule en carré pour faire pousser ton propre Colosse pleureur."
+      ]
+    }
+  ]
+}

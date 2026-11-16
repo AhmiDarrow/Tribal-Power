@@ -1,0 +1,29 @@
+{
+  "name": "Fogo-fátuo espiritual",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "Os Fogo-fátuo espiritual são os fogos-fátuos da Marcha: pequenas luzes à deriva, com rosto, deixando partículas de luz. Flutuam em vez de andar e nunca sofrem dano de queda.",
+        "Você os encontra em cada bioma da Marcha, em grupos soltos sobre grama, pedra e cristal. Eles se reúnem sobretudo ao redor de Cristal da Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Um fogo-fátuo observa você de longe, mas fica a cerca de quatro blocos e foge se algo o assusta.",
+        "Tem só **6 de vida**, nunca ataca e só deixa cair um pouco de Pó de pedra luminosa. Pense nele como os vaga-lumes da Marcha: um sinal de que você está onde o fio ainda zumbe.",
+        "Um **Fragmento de Espírito** na sua mão atrai os fogos-fátuos apesar da timidez deles. Alimente dois com um fragmento cada, e eles fazem um terceiro."
+      ],
+      "title": "Os hábitos deles"
+    }
+  ]
+}

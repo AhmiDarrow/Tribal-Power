@@ -1,0 +1,17 @@
+{
+  "name": "Kontinente aus Faden",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": false,
+  "next": "nine_arguments",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ein Kontinent war ein Polster, das vergessen hatte, ein Polster zu sein. Felder liefen, weil der Boden mit ihnen lief. Flüsse wahrten die Manieren, weil der Spross dem Wasser zeigte, wo es sitzen sollte. Städte schwebten nicht. Sie hingen, und Hängen fühlte sich an wie Stehen.",
+        "Straßen wurden gesungen, nicht geschnitten. Puls unter einem Herd wurde als Puls unter dem nächsten gehört. Die Nacht war ein Termin, den die Siegelkerber hielten. Stürme waren ein Trommelherz-Streit, der vor der Dämmerung zurückgegangen wurde.",
+        "Die Gewohnheit siehst du noch im Polarlicht. Es ist der Himmel, der sich an einen Plan zu erinnern versucht."
+      ]
+    }
+  ]
+}

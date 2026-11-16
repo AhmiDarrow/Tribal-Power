@@ -1,0 +1,184 @@
+{
+  "name": "続く動力",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "太鼓を打てば始まるが、キャンプは留守のあいだも動力が要る。[パルス共鳴器](pulse_resonator)は、結晶を据えて仲間を与えると、ひとりでパルスを作る。鉄、アメジスト、銅の共鳴器2個、霊の欠片からクラフトする。",
+        "エコー破砕からエコーの欠片を取り、それで共鳴器を右クリックする。欠片は触媒として中に残り、作るパルスにゆっくり消費される。欠片1個で約20,000パルス、最初の速度でおよそ40分。予備を持っておく。",
+        "次に、近くへ**二つの異なる声**のトーテムを置く。たとえば土と火。土のトーテムが二つでも声は一つだ。共鳴器とトーテムに届く格子の伝導体を保つ。それが共鳴器のパルスを機械へ運び、トーテムのバッファと、その声を満タンに保つ。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "共鳴器を据える",
+      "steps": [
+        {
+          "caption": "パルス共鳴器を開けた地面に置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "エコーの欠片で右クリックする。欠片は触媒として中に座り、作るパルスがすり減らすまで残る。",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内に土のトーテムを足す。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "二つ目の別の声、たとえば火を足す。これでひとりで毎秒8パルスを作る。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "遅い出だし",
+      "text": [
+        "毎秒8パルスは控えめだ。忙しい作業台はそれより速く使うことがある。蓄えをため、より強いクリスタルとより多くの声の用意ができたら[パルス共鳴器](pulse_resonator)のページを読む。"
+      ]
+    }
+  ]
+}

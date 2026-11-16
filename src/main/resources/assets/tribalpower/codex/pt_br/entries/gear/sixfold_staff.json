@@ -1,0 +1,51 @@
+{
+  "name": "Cajado sêxtuplo",
+  "icon": "tribalpower:spirit_staff",
+  "order": 10,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_staff",
+      "text": [
+        "Um cajado que fala as seis vozes. Escolha uma, aponte e conjure.",
+        "Gasta Pulso de uma Célula de Pulso, nunca durabilidade, e pode carregar uma célula própria, como o [Equipamento espiritual](spiritgear)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os seis feitiços",
+      "text": [
+        "Agache e use para alternar Terra, Fogo, Água, Ar, Espírito e Tear; a barra de ação nomeia a voz. Use para conjurar. A tecla **Cajado: próxima voz** alterna sem agachar depois que você a vincula em Tribal Power, nos Controles.",
+        "- **Terra** (12 de Pulso): um golpe de 4 de dano que deixa o inimigo muito lento por 5 segundos.",
+        "- **Fogo** (18): um golpe de 8 de dano que incendeia o inimigo por 4 segundos.",
+        "- **Água** (24): cura e purifica você. Apaga o fogo, remove o veneno e dá regeneração por 5 segundos e respiração aquática por 30.",
+        "- **Ar** (16): um salto curto para a frente e queda lenta por 6 segundos.",
+        "- **Espírito** (20): visão noturna por 30 segundos, e todo hostil dentro de **12 blocos** brilha por 12.",
+        "- **Tear** (6): prende um inimigo e o puxa até **8 blocos** na sua direção."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Costura",
+      "text": [
+        "Com o Tear escolhido, agache e use quando nenhum inimigo estiver na mira e nenhum bloco estiver perto à frente: o cajado **costura** você **6 blocos** à frente pelo ar livre por **10 Pulso**. Ele se recusa a pousar você em blocos sólidos ou em perigos.",
+        "Por isso, para seguir o ciclo a partir do Tear, olhe para um bloco próximo ou um inimigo enquanto agacha e usa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alcance e descanso",
+      "text": [
+        "Terra, Fogo e Tear precisam de um alvo hostil. Alcançam **18 blocos** e param em blocos sólidos; sem alvo não disparam e não custam nada.",
+        "Depois de uma conjuração, o cajado descansa: **8 segundos** após Água, **2 segundos** após as outras, **1.5 segundos** após uma costura.",
+        "Ele bebe primeiro da própria célula assentada, depois das células que você carrega, a mão secundária primeiro. Se todas estiverem secas, a conjuração não dispara.",
+        "Enquanto **Silêncio Não Cantado** estiver em você, o cajado não conjura (veja [Aflições](afflictions))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_staff"
+    }
+  ]
+}

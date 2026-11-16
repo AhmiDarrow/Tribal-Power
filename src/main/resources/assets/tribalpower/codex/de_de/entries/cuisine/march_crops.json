@@ -1,0 +1,35 @@
+{
+  "name": "Marschkulturen",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Fünf Feldfrüchte wachsen da draußen wild, jede in ihrem eigenen Land. Finde einen Fleck, pflück ihn, und was du gepflückt hast, ist der Samen: pflanz ihn auf Ackerboden wie eine Kartoffel. Er geht auch auf schlichter Erde, Marschboden oder Sand, und so wachsen die wilden Flecken.",
+        "- **Glutwurzel** in der Glutöde: eine heiße rote Knolle.",
+        "- **Fennreis** im Schilffenn.",
+        "- **Frostbeere** in den Schneefeldern.",
+        "- **Schimmerbohne** auf dem Schimmergrat, wo sie in Mondstein und Moosachat wurzelt, und in den Kristallfeldern.",
+        "- **Steppenkorn** in der Steppe."
+      ],
+      "title": "Was der Marsch wachsen lässt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sie wachsen in vier Stufen. Alle kann man roh essen, wenn auch nicht viel. Die [Geistergerät-Hacke](spiritgear) erntet und pflanzt sie in einem Zug neu, Bienen bestäuben sie, und der [Segen Spross](tribe_boons) treibt sie an.",
+        "Frostbeere und Schimmerbohne gelten auch als Kräuter für den [Geistkessel](spirit_kettle)."
+      ],
+      "title": "Sie anbauen"
+    }
+  ],
+  "next": "hearth_pot"
+}

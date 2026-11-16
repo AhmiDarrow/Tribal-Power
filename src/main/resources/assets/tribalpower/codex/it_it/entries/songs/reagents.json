@@ -1,0 +1,261 @@
+{
+  "name": "Reagenti",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Ogni creatura della Marcia lascia qualcosa: una zanna, una scaglia, un ciuffo di lana. Quelli sono **reagenti**, ed è così che Tribal Power trasforma la caccia in magia.",
+        "Tieni {item:tribalpower:reagent_pouch} nella barra rapida. Ogni reagente semplice che raccogli va dritto nella sacca. La sacca tiene fino a **999** per tipo, grezzi e potenziati, così non riempie mai le tue borse. Un reagente con un **Filo** resta nelle tue borse (pagina successiva).",
+        "Fai clic destro sulla sacca per guardare dentro e riprendere i reagenti grezzi, per coloranti, rimedi e ricette. Il pulsante **Prendi** del Banco del canto fa lo stesso.",
+        "Un reagente inizia **grezzo**. A un [Banco del canto](song_bench) lo puoi **potenziare** per 16 Pulso. I reagenti grezzi preparano rimedi ed entrano in qualche ricetta; quelli potenziati scrivono canti, impennano frecce di verso e ungono le armi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fili",
+      "text": [
+        "Alcuni reagenti portano un **Filo**, I, II o III, nominato in oro nella descrizione. È quanto era forte la creatura da cui è uscito, letto quando il reagente la lascia, con un'uccisione o un pennello: il suo filo di stirpe più forte oltre 2, e un gradino in più per un'**élite** dal nome d'oro.",
+        "- **Filo I**: una creatura selvatica con un filo a 3, o qualsiasi élite.",
+        "- **Filo II**: una linea allevata con un filo a 4, o un'élite con un filo a 3.",
+        "- **Filo III**: una linea **Esaltata**, un filo a 5. Pennella il tuo famiglio esaltato: ne ottieni due al minuto.",
+        "I reagenti di Fili diversi non si impilano mai. In tutto il resto un reagente con filo funziona come qualsiasi altro; un [Cuore di ley](ley_heart) lo brucia più caldo, e vale **6, 9 o 12** contro i 4 di uno semplice."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Famiglie",
+      "text": [
+        "Ciò che fa un reagente dipende dalla sua **famiglia**, che viene dalla creatura da cui è uscito. Sono undici, e ognuna significa la stessa cosa ovunque tu la usi:",
+        "- in un **canto**, ciò che un reagente aggiunge dopo il primo;",
+        "- su un'**arma unta**, ciò che l'arma fa a qualunque cosa colpisca ([Unzione](anointing));",
+        "- in un **rimedio**, ciò che il preparato fa a chi lo prende ([Rimedi](remedies)).",
+        "Le pagine successive elencano ogni famiglia, quali reagenti le appartengono e che cosa fa in ciascuno dei tre."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Macina un reagente grezzo in una **ciotola** con un solo bastoncino di **Gesso rituale** (metti tutti e tre in una griglia di fabbricazione; un'intera pila di gesso non va bene) e ottieni **2 colorante**. La ciotola torna, e il gesso perde solo un segno.",
+        "Sedici reagenti fanno i sedici coloranti:",
+        "- **Bianco**: Piumino pallido",
+        "- **Grigio chiaro**: Lana di pascolatore",
+        "- **Grigio**: Ala di tempesta",
+        "- **Nero**: Ala di cenere",
+        "- **Marrone**: Guscio di larva",
+        "- **Rosso**: Granello di brace",
+        "- **Arancione**: Scaglia di magma",
+        "- **Giallo**: Corteccia di cenere"
+      ],
+      "title": "Coloranti dei reagenti"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Verde lime**: Orecchio di goblin",
+        "- **Verde**: Radice nodosa",
+        "- **Ciano**: Polvere di barlume",
+        "- **Azzurro**: Artiglio di agguatatore",
+        "- **Blu**: Carapace prismatico",
+        "- **Viola**: Piumino di lanterna",
+        "- **Magenta**: Spora di campanula",
+        "- **Rosa**: Petalo di fata"
+      ],
+      "title": "Coloranti dei reagenti, continua"
+    },
+    {
+      "type": "text",
+      "title": "Brace",
+      "text": [
+        "**Reagenti**: Cuore di brace, Granello di brace, Scaglia di magma, Piastra di tizzone, Cagliata di scoria, Pelle di scorie.",
+        "- **Canto**: dà fuoco al bersaglio.",
+        "- **Unzione**: Ustione: brucia il bersaglio e aggiunge fuoco a ogni colpo.",
+        "- **Remedy**: Esca: Forza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fulmine",
+      "text": [
+        "**Reagenti**: Nodo di tizzone, Brace d'ombra.",
+        "- **Canto**: dà fuoco al bersaglio.",
+        "- **Unzione**: Richiamo della tempesta: un quarto dei colpi scaglia un fulmine ad arco contro due nemici vicini.",
+        "- **Remedy**: Celerità: Velocità."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Brivido",
+      "text": [
+        "**Reagenti**: Frammento di campana, Velo di spettro.",
+        "- **Canto**: rallenta il bersaglio.",
+        "- **Unzione**: Congelamento: rallenta e congela il bersaglio.",
+        "- **Remedy**: Raffreddamento: Resistenza al fuoco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Veleno",
+      "text": [
+        "**Reagenti**: Zanna di canna, Dente triturante, Barbiglio a faccette, Mandibola di brina, Aculeo di scheggia, Zanna di salamoia.",
+        "- **Canto**: avvelena il bersaglio.",
+        "- **Unzione**: Veleno: avvelena il bersaglio.",
+        "- **Remedy**: Antidoto: toglie il veleno, il Wither, la fame e la nausea."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Folata",
+      "text": [
+        "**Reagenti**: Ala di tempesta, Brandello di velo.",
+        "- **Canto**: respinge il bersaglio.",
+        "- **Unzione**: Burrasca: scaglia il bersaglio indietro e in alto.",
+        "- **Remedy**: Caduta di piuma: Caduta lenta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Radice",
+      "text": [
+        "**Reagenti**: Radice nodosa, Nucleo di durame.",
+        "- **Canto**: rallenta il bersaglio.",
+        "- **Unzione**: Radicamento: un quinto dei colpi radica il bersaglio sul posto.",
+        "- **Remedy**: Saldezza: Resistenza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Spinta",
+      "text": [
+        "**Reagenti**: Carapace prismatico, Nocca di ghiaione, Zanna di brace, Voluta di canna, Pelle di troll, Pelle di brina.",
+        "- **Canto**: respinge con forza il bersaglio.",
+        "- **Unzione**: Squarcio: i colpi mordono più a fondo quanta più armatura indossa il bersaglio.",
+        "- **Remedy**: Baluardo: Assorbimento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trama",
+      "text": [
+        "**Reagenti**: Seta di eco, Seta ombrosa.",
+        "- **Canto**: rallenta il bersaglio.",
+        "- **Unzione**: eco: un quarto dei colpi colpisce una seconda volta a metà.",
+        "- **Remedy**: Vista chiara: Visione notturna, toglie la cecità e l'oscurità."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Indebolire",
+      "text": [
+        "**Reagenti**: Sigillo di sentinella, Zanna pallida, Sudario del tumulo, Alga annegata.",
+        "- **Canto**: indebolisce il bersaglio.",
+        "- **Unzione**: Prosciugamento: indebolisce il bersaglio.",
+        "- **Remedy**: Ripristino: Fretta, toglie debolezza, lentezza e affaticamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Segugio",
+      "text": [
+        "**Reagenti**: Dente di fenditura, Artiglio di agguatatore, Orecchio di goblin, Zanna di goblin, Scaglia di coboldo, Corno di coboldo.",
+        "- **Canto**: fa brillare il bersaglio.",
+        "- **Unzione**: Sete di sangue: furto di vita, il 15% di ogni colpo torna come salute.",
+        "- **Remedy**: Vigore: Incremento salute."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiete",
+      "text": [
+        "**Reagenti**: Velluto dell'alba, Piumino di lanterna, Scaglia di dorsomuschio, Ciuffo di cenere, Lana di pascolatore, Polvere di barlume, Ala di svolazzatore, Corno di balzatore, Guscio di larva, Lana a ciuffo, Tendine di stinco, Piumino pallido, Vello di rupe, Zanna di masso, Vescica alla deriva, Cresta di prisma, Ala di scheggia, Guscio luminoso, Pelle alla deriva, Zoccolo di brina, Velo di neve, Ala di cenere, Zampa di palude, Zoccolo d'acquitrino, Vescica di torbiera, Cresta di campana, Ala di vetro, Guscio di geode, Pinna di limo, Nastro pallido, Scaglia di secca, Corteccia del Focolare, Corteccia di anziano, Corteccia di pino di brina, Corteccia di cenere, Nodo piangente, Spora di campanula, Radice a trampolo, Polvere di fata, Petalo di fata, Scintilla di fata.",
+        "- **Canto**: ti dà un momento di rigenerazione.",
+        "- **Unzione**: Riparazione: l'arma si ripara quando colpisce.",
+        "- **Remedy**: Riparazione: Rigenerazione."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

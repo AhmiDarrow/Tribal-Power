@@ -1,0 +1,264 @@
+{
+  "name": "Medidor de Pulso y Umbral de Pulso",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "El Medidor de Pulso convierte el Pulso almacenado en redstone. Apúntalo a un Corazón de tambor, un generador, un resonador o un Colector de ley, cualquier cosa que almacene Pulso, y emite de **0 a 15** según lo lleno que esté ese almacén. Los talleres toman Pulso de alrededor y no guardan nada que leer.",
+        "Su hermano, el **Umbral de Pulso**, responde con un sí o un no sencillo: ¿el almacén está al menos así de lleno?",
+        "Ambos se hacen con Piedra de la Marcha, así que esperan tu primer viaje a la Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Medidor de Pulso",
+      "text": [
+        "Agáchate y colócalo contra el bloque que quieres leer; su flecha apunta hacia el bloque en el que hiciste clic. Un clic normal usaría ese bloque en su lugar, y golpearía un Corazón de tambor. Emite por **todas las caras excepto la flecha**, débil por los lados y fuerte por detrás.",
+        "La señal es **0** cuando el almacén está vacío y luego sube de 1 a 15 conforme se llena. Se actualiza cada 4 tics, y un comparador que lee el medidor obtiene el mismo número.",
+        "Haz clic derecho para ver el Pulso almacenado, la capacidad y la señal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Umbral de Pulso",
+      "text": [
+        "Colócalo del mismo modo, agachándote, con la flecha hacia el almacén. Haz clic derecho para recorrer **25, 50, 75 y 100%**; empieza en 50.",
+        "Emite un **15** completo mientras el Pulso almacenado está en esa parte o por encima, y nada por debajo. Como el medidor, nunca emite por la cara de la flecha, así que no altera el almacén que vigila. Un comparador lee el ajuste como de 1 a 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pausar o proteger",
+      "text": [
+        "Una señal sostenida pausa las máquinas. Conectado directo a una máquina, un Umbral de Pulso la pausa mientras el almacén está **bastante lleno**.",
+        "Normalmente quieres lo contrario: pausar una estación hambrienta mientras el tambor va **bajo**, para que te quede una reserva. Pon una **Placa inversa** en la línea. Ahora 'demasiado vacío' es la señal activa: por debajo del ajuste, la Inversa canta y la estación se pausa; cuando el tambor se recupera, la Inversa calla y el trabajo sigue.",
+        "Prueba con una estación hambrienta antes de cablear todo el campamento."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Guardar una reserva",
+      "steps": [
+        {
+          "caption": "Un Corazón de tambor alimenta un Triturador de eco a tres bloques de distancia.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Agáchate y coloca un Umbral de Pulso contra el tambor, con la flecha hacia dentro; un clic normal golpearía el tambor. Haz clic derecho en el Umbral de Pulso para elegir 25, 50, 75 o 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Agáchate y monta una Placa inversa en la parte de atrás del Umbral de Pulso, de cara a la estación; un clic normal cambiaría el ajuste del Umbral de Pulso. Lee el bloque sobre el que se apoya.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Por debajo del ajuste, el Umbral de Pulso calla, la Inversa canta y la estación espera hasta que el tambor se vuelva a llenar.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

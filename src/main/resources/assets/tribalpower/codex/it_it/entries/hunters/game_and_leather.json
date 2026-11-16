@@ -1,0 +1,56 @@
+{
+  "name": "Selvaggina e cuoio",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Gli animali della Marcia ti sfamano quanto quelli dell'Overworld. La loro carne è **Selvaggina cruda**, e le pelli danno **Cuoio della Marcia**.",
+        "Selvaggina arrostita sazia quanto una bistecca, e così i lunghi viaggi attraverso la Marcia sono molto più facili."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Selvaggina cruda** viene da Saltatore di cenere, Grugnomasso, Brucatore di campana, Pelle di tizzone, Balzatore di rupe, Manto di rupe, Cervo dell'alba, Pellideriva, Trampoliere dell'acquitrino, Granpasso di brina, Volpe lanterna, Gambalunga, Rondone del Telaio, Camminatore della Marcia, Saltapalude, Dorsomuschio, Alapallida, Brucaprisma, Pascolatore di cresta e Dorsociuffo.",
+        "**Cuoio della Marcia** viene da Grugnomasso, Brucatore di campana, Pelle di tizzone, Balzatore di rupe, Troll della rupe, Manto di rupe, Cervo dell'alba, Agguatatore profondo, Pellideriva, Trampoliere dell'acquitrino, Granpasso di brina, Volpe lanterna, Gambalunga, Camminatore della Marcia, Dorsomuschio, Brucaprisma, Spira di canna, Inseguitore dei canneti, Pascolatore di cresta, Segugio della fenditura, Troll di brina, Troll di scorie, Dorsociuffo e Razza del velo.",
+        "La pagina di ogni creatura indica le quantità.",
+        "Saccheggio ne aggiunge fino a uno in più per ciascuno. Un animale che muore bruciando lascia la carne già arrostita."
+      ],
+      "title": "Da dove viene"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Selvaggina cruda** ripristina **3** punti di fame e poca sazietà. Selvaggina arrostita ripristina 8 con sazietà alta.",
+        "Cuocilo in una fornace, in un affumicatore (due volte più veloce) o su un falò (il più lento, ma senza combustibile).",
+        "Entrambi contano come carne: i lupi li mangiano, e altre mod li trattano come carne cruda o cotta."
+      ],
+      "title": "Cuocere e mangiare"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Cuoio della Marcia si fabbrica in un cuoio normale, così tutto ciò che chiede cuoio, come un Tamburo silenzioso, è solo a un passo di fabbricazione.",
+        "Conta anche come cuoio per le altre mod che accettano qualsiasi cuoio."
+      ],
+      "title": "Cuoio della Marcia"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Un Cuoio della Marcia fa un cuoio."
+    }
+  ]
+}

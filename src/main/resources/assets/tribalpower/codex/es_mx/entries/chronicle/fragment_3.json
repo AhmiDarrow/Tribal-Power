@@ -1,0 +1,17 @@
+{
+  "name": "4. El corte",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El corte",
+      "text": [
+        "“Nadie recuerda quién dejó de cantar primero. Los Talladores de sellos dicen que un sello se talló como una exigencia. Los Corazones de tambor dicen que el compás se dejó caer. Los Tejedores de patrones dicen que el patrón se cambió sin preguntar. Todos tienen razón, que es el problema.”",
+        "Hallado en una Piedra tallada en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

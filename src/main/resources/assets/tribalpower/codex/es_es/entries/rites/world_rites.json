@@ -1,0 +1,64 @@
+{
+  "name": "Ritos del mundo",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Los ritos de tablilla van más allá del campamento y cambian el mundo mismo. Talla una tablilla, asienta el sello que corresponda en un Brasero ritual dentro de su círculo y gasta el Pulso."
+      ],
+      "title": "Ritos del clima"
+    },
+    {
+      "type": "text",
+      "title": "Tallar y lanzar",
+      "text": [
+        "Cada tablilla es dos rocas (o piedra negra o pizarra abisal), su reactivo y el sello que corresponda, sin forma. El sello se devuelve.",
+        "Asienta ese sello en el brasero (su bendición sigue activa), traza el [Círculo de rito](rite_circle) y reúne el costo completo a **8 bloques** del brasero: un Corazón de tambor bien abastecido, un resonador con un buen catalizador, o varios generadores juntos. Una célula en tu bolsillo no cuenta. Un Medidor de Pulso o el Códice espiritual muestra el total.",
+        "Agáchate y usa la tablilla en el brasero. Si el entramado guarda menos del costo, no se gasta nada; si no, la tablilla se consume y se extrae el Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Los tres ritos del clima",
+      "text": [
+        "- **Llamada de la lluvia** (Agua, **400** Pulso, un Colmillo de junco): veinte minutos de lluvia, y Colectores de ley más fuertes mientras dura. Empieza aquí.",
+        "- **Despeje del cielo** (Aire, **400**, una Ala de tormenta): cuarenta minutos de cielo despejado.",
+        "- **Llamada del alba** (Fuego, **800**, un Corazón de brasa): apura la noche hasta el amanecer, salvo que la regla de juego tribalpower:allowDawnRite esté apagada.",
+        "Cuatro tótems concordantes en los puntos cardinales del círculo rebajan el costo un cuarto y duplican el tiempo. Una señal de redstone sostenida en el brasero rechaza el rito.",
+        "Después, prueba los [ritos del terreno](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Círculo de sanación",
+      "text": [
+        "Un rito de Espíritu, lanzado como los demás con un Sello de Espíritu asentado. Cuesta **500 Pulso** y sigue abierto **10 minutos**.",
+        "Cura a todos en el círculo, jugadores y familiares vinculados, quita todo perjuicio, los bendice y llama de vuelta a cualquier familiar caído cuyos [Restos del Espíritu](healing_circle) hayas puesto en sus pedestales. La historia completa está en [Sanación chamánica](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Cercle de soin",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "Le rite du camp",
+      "text": [
+        "Le Cercle de soin est un [rite du monde](world_rites). Construis un [Cercle de rite](rite_circle), place un **Sceau d'Esprit** dans le brasero et lance la tablette : **500 de Pulsation**, et le cercle reste ouvert **10 minutes** (un cercle de second palier, avec quatre totems d'Esprit sur ses cardinaux, coûte **375 de Pulsation** et reste ouvert **20 minutes**).",
+        "Quand il s'ouvre, chacun dans les **12 blocs**, joueurs et familiers liés, est soigné de **10 cœurs**, perd tout effet néfaste et gagne **10 minutes** de [Bénédiction de l'esprit](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tant qu'il reste ouvert",
+      "text": [
+        "Le reste du temps, le cercle soigne quiconque est dedans d'**un cœur toutes les deux secondes** et lève le Mal de l'esprit dès qu'il prend. C'est un bon endroit où se replier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rappeler les tombés",
+      "text": [
+        "Quand un **familier lié** meurt, il ne fait pas que disparaître. Il laisse un **Vestige de l'Esprit** luisant là où il est tombé, qui ne disparaît jamais, et tu reçois un message qui te le dit. (À ne pas confondre avec les vestiges sauvages de la Marche : c'est l'esprit de ton compagnon, qui attend.)",
+        "Pose le vestige sur l'un des **quatre socles** du cercle avant de lancer. Quand le cercle s'ouvre, le familier revient sur ce socle : **entier**, toujours à toi, avec son nom et son treillis. Ce qu'il portait est tombé là où il est tombé, comme toujours, alors ramasse ça aussi."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bestie della steppa",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "I propri della steppa",
+      "text": [
+        "Quattro animali appartengono alla steppa: tre che pascolano o volano sull'erba aperta, e uno che caccia nei tunnel sotto.",
+        "Ogni bestia mansueta qui si può spazzolare per il suo reagente una volta al minuto, ed è attirata e fatta riprodurre con il proprio cibo, indicato più sotto in **Caccia e allevamento**. Si può legare come qualsiasi animale mansueto (vedi [familiari](familiars)), e anche se nessuna ha un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Dorsociuffo",
+      "text": [
+        "Un bisonte irsuto della steppa che pascola in branchi da due a quattro. Ha **26 di salute** e **5 di armatura**, si muove molto lentamente e indietreggia dai mostri.",
+        "Lascia cadere **1 a 3 Lana a ciuffo**, di più con Saccheggio.",
+        "Cacciato, lascia cadere anche da 1 a 2 Selvaggina cruda e fino a 1 Cuoio della Marcia. Riproduci con **Grano della steppa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Gambalunga",
+      "text": [
+        "Un cervo alto, svelto sulle zampe, in branchi da due a quattro. **22 di salute** e **1 di armatura**.",
+        "Lascia cadere **1 a 3 Tendine di stinco**. Tendine di stinco chiama lo Spirito della carica all'Anello calpestato: vedi [guardiani](guardians).",
+        "Cacciato, lascia cadere anche da 1 a 3 Selvaggina cruda, fino a 2 Cuoio della Marcia e fino a 1 Osso. Riproduci con **Grano della steppa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Alapallida",
+      "text": [
+        "Un nibbio rossiccio, pallido sotto le ali, con la coda profondamente forcuta, che plana sull'erba da uno a tre. **10 di salute**, nessuna armatura.",
+        "Lascia cadere **1 a 3 Piumino pallido**, che si macina in colorante bianco (vedi [reagenti](reagents)).",
+        "Cacciato, lascia cadere anche da 1 a 2 Piuma e fino a 1 Selvaggina cruda. Riproduci con **Grano della steppa o semi di grano**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Rosicatana",
+      "text": [
+        "Un cervo volante scavatore dalle grandi pinze ricurve, il cacciatore della steppa. Vive nei tunnel bui sotto l'erba e ne esce di giorno o di notte, uno o due alla volta. Ha **23 di salute** e **3 di armatura**, e il suo morso infligge **4** e ti avvelena per 3 secondi.",
+        "Lascia **1 a 2 denti trituranti**, un reagente di veleno. I Rosicatana emergono anche per unirsi allo scontro dello Spirito della carica.",
+        "Cacciato, lascia anche fino a 1 osso e fino a 1 occhio di ragno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e pastura",
+      "text": [
+        "Oltre al reagente, ognuno ne lascia di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

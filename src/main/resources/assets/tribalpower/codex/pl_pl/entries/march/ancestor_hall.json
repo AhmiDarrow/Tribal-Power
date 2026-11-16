@@ -1,0 +1,47 @@
+{
+  "name": "Sala przodków",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Zapadnięte kamienne sale na Stepie Marszu i na Wyżynach. Na powierzchni widać tylko szyb z drabiną."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sale przodków są zakopane: szukaj szybu z drabiną schodzącego w ziemię. Niżej są trzy pomieszczenia pod belkami z drewna Krosna, oświetlone starymi latarniami.",
+        "**Puści strażnicy** strzegą bocznych pomieszczeń, po trzech w każdej sali. Biją mocno i osłabiają chwyt, więc oświetlaj pomieszczenia idąc i miej pod ręką naładowany kostur do walki z dystansu."
+      ],
+      "title": "Jak znaleźć"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cztery **Tabliczki podań** wiszą na ścianach. Kliknij prawym przyciskiem każdą, aby ją przeczytać; pierwsze przeczytanie zapisuje się w tym kodeksie, który liczy, ile z **12** tabliczek już masz. Resztę trzymają Kręgi bębnów, Kryształowa iglica, obozy Rzeźbiarzy pieczęci i Głęboka świątynia.",
+        "Dwie skrzynie stoją na dalekim końcu. W każdej zawsze jest **2 do 4 Nić Krosna**, plus garść ech, Odłamki echa, Odłamki Ducha, Duchotkanina, Kryształ Marszu albo Czysta pieczęć, i czasem pieczęć żywiołu.",
+        "Nić Krosna jest powodem, dla którego przychodzi większość. To pierwszy krok ku [szóstemu głosowi](sixth_voice)."
+      ],
+      "title": "Co sala przechowuje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiem Kamień Marszu wokół Odłamka echa rzeźbi **2 Tabliczki podań**. Powieś je na ścianie w domu, by oznaczyć własną salę; leżą płasko przy bloku za nimi i spadają, gdy go usuniesz."
+      ],
+      "title": "Własne tabliczki"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

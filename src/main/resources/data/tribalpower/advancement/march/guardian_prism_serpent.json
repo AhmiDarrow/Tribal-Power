@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:prism_core"
     },
-    "title": "Prism Serpent stilled",
-    "description": "Face the Prism Serpent at the Singing Fracture in the Crystal Fields and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_prism_serpent.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_prism_serpent.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

@@ -1,0 +1,26 @@
+{
+  "name": "Filtros y placas de vacío",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "El filtro",
+      "text": [
+        "Abre una placa para llenar su **Filtro**: ocho ranuras que guardan la imagen de un objeto, nunca el objeto en sí. Haz clic en una ranura con algo en la mano para marcarla, con la mano vacía para borrarla, o haz mayús-clic en objetos de tu inventario.",
+        "El botón de al lado cambia la lista. Una **Lista negra** retiene los objetos marcados y deja pasar el resto; una lista negra vacía, tal como empieza la placa, envía todo. Una **Lista blanca** envía solo los objetos marcados.",
+        "Para un fluido, marca un cubo o cualquier recipiente lleno: un cubo de agua lista el agua.",
+        "Agáchate y haz clic derecho en una placa con la mano vacía para cambiar su lista sin abrirla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Placas de vacío",
+      "text": [
+        "Un **Sello de Fuego** en la ranura **Runa** crea una **placa de vacío**: quema lo que saca de su máquina en vez de enviarlo a ninguna parte; objetos en un Relé de objetos, fluido en un Relé de fluidos. Solo quema lo que nombra su filtro, así que un filtro vacío no quema nada. Una placa de vacío quema según el filtro de la pestaña 1.",
+        "Las placas empiezan como **Lista negra**, así que una placa de vacío nueva con adoquín marcado quema todo menos el adoquín. Cámbiala primero a **Lista blanca** para quemar solo lo que marques, o déjala en Lista negra y marca lo que quieras conservar.",
+        "Una placa de vacío sigue necesitando Pulso y su voz. En cada latido quema hasta **16 objetos** o **250 mB**, más si tiene rango, y paga el Pulso habitual de la placa."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Segno rituale",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "Il gesso è il modo di disegnare uno schema tutto insieme. Ogni bastoncino traccia **Segno rituale** a terra, e i segni uniscono una macchina alla forma intorno.",
+        "Lo stesso gesso sigilla anche legami duraturi tra Totem di risonanza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tracciare i segni",
+      "text": [
+        "Fai clic destro sulla faccia superiore di un blocco solido per tracciarvi un segno. Ogni segno consuma **un uso**, e un bastoncino ne tiene **dieci**.",
+        "Fai clic destro su un segno con il gesso per cancellarlo. Cancellare non costa nulla, quindi correggi gli errori liberamente.",
+        "Un segno rotto non lascia cadere nulla: il gesso lo ha già pagato. In modalità creativa il gesso non si consuma mai."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Collegare i totem",
+      "text": [
+        "Fai clic destro su un Totem di risonanza con il gesso, poi su un secondo **a meno di 16 blocchi**, per sigillare un legame di reticolo fra loro (vedi [Conduttore di reticolo](lattice_conductor)). Un legame che si forma consuma un uso.",
+        "Cliccare due volte lo stesso totem annulla il legame che hai iniziato. Due totem già collegati restano collegati e non costano altro."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Una fabbricazione rende **quattro** bastoncini da dieci usi ciascuno."
+    }
+  ],
+  "next": "anchor_stone"
+}

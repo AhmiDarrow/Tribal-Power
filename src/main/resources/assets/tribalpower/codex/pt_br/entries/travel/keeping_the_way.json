@@ -1,0 +1,36 @@
+{
+  "name": "Manter o caminho",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Os portais são feitos para serem seguros. Um portal sempre deixa você **dentro da própria moldura do Portal distante** e nunca cava, constrói nem limpa nada para abrir espaço.",
+        "Se não houver onde ficar em pé dentro da moldura distante, a viagem recusa e o Pulso volta para a pedra-chave.",
+        "A ponta distante fica carregada por **dez segundos** em torno da sua chegada, então um par num chunk descarregado ainda responde. Só uma [Âncora de caminho](wayanchor) a mantém carregada por mais tempo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando um portal quebra",
+      "text": [
+        "Quebre uma pedra-chave e o par é solto na hora e se apaga. Quem estiver a até 16 blocos do par fica sabendo qual portal se perdeu.",
+        "**/tribalpower gate list** mostra cada portal que você colocou e a que ele responde. **/tribalpower gate unlink <name>** corta um dos seus fios à mão.",
+        "Para religar, use de novo uma bússola, giz ou sigilo, como em [Portal da senda](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando um portal não funciona",
+      "text": [
+        "- **\"Esta pedra-chave não tem moldura ao redor\"**: falta um bloco da moldura ou ele está fora do lugar. Confira no padrão.",
+        "- **Precisa de Pulso**: carregue a pedra-chave; a luz e a viagem vêm ambas do estoque dela.",
+        "- **Apaga sozinho**: um sinal de redstone está preso nela, um bloco da moldura foi quebrado, ou um Portal distante perdeu a voz do Tear.",
+        "- **\"O fio não encontra nada\"**: o portal está aceso, mas não ligado.",
+        "Agache e clique com o botão direito numa pedra-chave com este livro para ver o estado completo."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "name": "Geisteramulette",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Amulette sind Siegel, die du trägst. Jedes trägt eine Totemstimme und eine Gunst, und du kannst bis zu **drei** in den eigenen Amulettplätzen von Tribal Power tragen. Kein anderes Mod wird gebraucht."
+      ],
+      "title": "Geisteramulette"
+    },
+    {
+      "type": "text",
+      "title": "Amulette tragen",
+      "text": [
+        "Benutze ein Amulett, um es zu tragen. Schleiche und benutze ein beliebiges Amulett, um die drei Plätze zu öffnen.",
+        "Getragene Amulette kosten **2 Puls pro Stimme alle zwei Sekunden** aus einer getragenen Pulszelle. Wenn die Zellen leer sind, hören die Gunst und der Flug mit ihnen auf, also lade nach oder lege sie ab.",
+        "Stimmen addieren sich über alles, was du trägst, aber dieselbe Stimme zweimal gibt ihre Gunst nur einmal.",
+        "Ein eingestimmter [Vertrauter](familiar_boons) in der Nähe, der die Stimme eines Amuletts teilt, senkt den Unterhalt dieses Amuletts um **40%** und fügt eine eigene Gunst hinzu.",
+        "Getragene Amulette fallen zu Boden, wenn du stirbst, außer deine Welt behält das Inventar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die elf Amulette",
+      "text": [
+        "- **Himmel** (Luft): kreativer Flug, solange Puls reicht, wie bei jedem Amulett, das Luft trägt, außer dem Sammelamulett.",
+        "- **Glut** (Feuer): Feuerresistenz, und Angreifer fangen für 3 Sekunden Feuer.",
+        "- **Gezeiten** (Wasser): Unterwasseratmung und die Anmut eines Schwimmers.",
+        "- **Wurzel** (Erde): Resistenz.",
+        "- **Laterne** (Geist): Nachtsicht, und jeder Segen oder jede Gunst, die du erhältst, solange sie bezahlt wird, hält **anderthalbmal so lang**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die elf Amulette, Fortsetzung",
+      "text": [
+        "- **Spindel** (Webstuhl): Glück, und etwa drei von zehn Mal erstattet sie bis zu **2 Puls** in eine getragene Zelle, alle zwei Sekunden.",
+        "- **Schutz** (Erde): lenkt etwa ein Geschoss von vier ab, oder eines von zwei, wenn Geist auch auf deinen Amuletten liegt.",
+        "- **Herd** (Feuer): hält dich satt.",
+        "- **Schleier** (Geist): verbirgt dich, während du schleichst.",
+        "- **Sammlung** (Luft): zieht Beute und Erfahrung zu dir.",
+        "- **Chor**: beginnt stumm und lernt von einem Kohlenbecken."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chor und zusätzliche Stimmen",
+      "text": [
+        "Ein stiller Chor kostet weiter 2. Schleiche und benutze ihn an einem Ritualkohlenbecken mit **drei verschiedenen Totems** innerhalb von 8 Blöcken und **200 Puls**, und er bindet jede Stimme in der Nähe.",
+        "Schleiche und benutze ein Amulett an einem Resonanz-Totem, um diese Stimme für **40 Puls** hinzuzufügen. Mehr Stimmen kosten mehr beim Tragen und bewirken mehr.",
+        "Schutz und Herd tragen Erde und Feuer, also geben sie auch Resistenz und Feuerresistenz. Luft gibt außerdem Sanfter Fall, außer wenn Feuer auch getragen wird. Der Flug kommt mit der Stimme Luft, nicht mit dem Himmelsamulett allein: jedes getragene Amulett, das Luft trägt, das eigene des Himmels oder eines, das du hinzugefügt hast, lässt dich fliegen, solange Puls reicht. Das Sammelamulett ist die einzige Ausnahme: seine eigene Luft geht in den Zug."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Das Sammelamulett",
+      "text": [
+        "Solange es getragen und bezahlt wird, zieht es fallengelassene Gegenstände und Erfahrung aus **5 Blöcken** zu dir, **2 mehr je zusätzliche Stimme**, bis zu **11**.",
+        "**Schleiche**, um es anzuhalten, damit du Dinge fallen lassen kannst. Ein Stapel, den jemand gerade geworfen hat, bleibt liegen, bis man ihn aufheben kann, ein Stapel, der für einen anderen Spieler behalten wird, gehört ihm, und Gegenstände, die ein anderes Mod als unbeweglich markiert, bleiben liegen.",
+        "Seine Luft geht in den Zug, also gibt es anders als Himmel keinen Flug und keinen Sanfter Fall. Stimmen, die du ihm hinzufügst, wirken wie bei jedem Amulett."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

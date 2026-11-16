@@ -1,0 +1,29 @@
+{
+  "name": "Feu follet spirituel",
+  "icon": "tribalpower:spirit_wisp_spawn_egg",
+  "items": [
+    "tribalpower:spirit_wisp_spawn_egg"
+  ],
+  "order": 60,
+  "spoiler": true,
+  "next": "march_wildlife",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:spirit_wisp",
+      "text": [
+        "Les Feu follet spirituel sont les feux follets de la Marche : petites lumières à la dérive, avec un visage, qui traînent de petites mouchetures de lumière. Ils flottent au lieu de marcher et ne subissent jamais de dégâts de chute.",
+        "Tu les trouves dans chaque biome de la Marche, en groupes lâches au-dessus de l'herbe, de la pierre et du cristal. Ils se rassemblent surtout autour de Cristal de la Marche."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un feu follet te regarde de loin, mais reste à environ quatre blocs, et il fuit si quelque chose l'effraie.",
+        "Il n'a que **6 de vie**, n'attaque jamais et ne lâche qu'un peu de Poudre de pierre lumineuse. Vois-le comme les lucioles de la Marche : un signe que tu es là où le fil vibre encore.",
+        "Un **Éclat d'Esprit** dans ta main attire les feux follets malgré leur timidité. Nourris-en deux d'un éclat chacun, et ils en font un troisième."
+      ],
+      "title": "Leurs habitudes"
+    }
+  ]
+}

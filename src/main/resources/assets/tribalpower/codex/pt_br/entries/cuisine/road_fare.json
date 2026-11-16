@@ -1,0 +1,65 @@
+{
+  "name": "Rancho de estrada",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Comida para a caminhada",
+      "text": [
+        "Nem toda refeição carrega a [dádiva](tribe_dishes) de uma tribo. A comida de acampamento é o que um caminhante leva: barata, rápida na [Panela do Lar](hearth_pot), e cada uma feita para um serviço. A maioria mistura as plantações da Marcha com o que qualquer fazenda cultiva.",
+        "- **Pão chato do tropeiro**: Grão da estepe ×2, trigo. Dois por panela, 5 de fome cada, empilha até 64. O jeito mais barato de continuar alimentado.",
+        "- **Crocantes de fulgor**: Feijão de fulgor ×2, alga seca. Três por panela, 3 de fome, e **comidos num instante**, para você abocanhar um pedaço entre os golpes.",
+        "- **Espeto do Caçador**: qualquer carne crua, Raiz de brasa, beterraba. Dois por panela, 6 de fome e **Velocidade por 20 segundos**, para alcançar a caça."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comida para a caminhada, continuação",
+      "text": [
+        "- **Pemmican da estepe**: qualquer carne cozida, Baga de geada, frutas doces. Três por panela, só 4 de fome, mas a melhor saturação para o tamanho: mantém você cheio por mais tempo numa caminhada longa.",
+        "- **Conserva de baga de geada**: Baga de geada ×2, açúcar, num frasco de vidro. 4 de fome e **Resistência ao fogo por 30 segundos**, para cruzar os Ermos de brasa. O frasco volta.",
+        "- **Chá de cardo**: Cardo de ley, Folha da Marcha, favo de mel, num frasco de vidro. Pouca comida, mas você pode bebê-lo mesmo cheio, e ele **cura veneno, fome e náusea**: a resposta do acampamento a uma refeição ruim.",
+        "- **Crumble do planalto**: uma maçã, Grão da estepe, frutas doces, açúcar. 6 de fome e **Super salto por 45 segundos** para as cristas."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

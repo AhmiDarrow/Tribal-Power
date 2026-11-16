@@ -1,0 +1,17 @@
+{
+  "name": "Neun Streitigkeiten",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Kein Stamm konnte den Himmel allein halten. Boden ohne Stein ist Wärme ohne einen Ort zum Stehen. Funke ohne Uhr ist ein Schlag ohne Lied. Sigill ohne Spindel ist ein Versprechen ohne Heimweg.",
+        "Die alte Welt war nicht Frieden. Sie war Instandhaltung. Acht Züge wurden acht Streitigkeiten, und der neunte, der eigene der Webstuhl-Näher, war die Naht, entlang der sie rissen. Dann ging der Rest wie ein Seil durch eine Hand.",
+        "Der Schnitt war kein Krieg. Es waren neun Arbeiten, die im selben Atemzug ungetan blieben."
+      ]
+    }
+  ]
+}

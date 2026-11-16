@@ -1,0 +1,362 @@
+{
+  "name": "Sidła wiatru",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "Skrzynia, która zbiera. Sidła wiatru ściągają z ziemi wokół upuszczone przedmioty i trzymają je w **27 miejscach**, więc farma, linia rozbicia albo dół na moby nigdy nie zostawia bałaganu.",
+        "Podnoszą każdy przedmiot leżący luzem, z Marszu, ze zwykłego świata albo z innego moda. Nigdy nie biorą ze skrzyń ani z maszyn."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak łapią",
+      "text": [
+        "Przy każdym takcie, raz na sekundę, zgarniają do **8 stosów** leżących w zasięgu **8 bloków**. Obszar połowu to sześcian, więc sięgają tak samo w górę i w dół, jak na boki.",
+        "Każdy stos kosztuje **2 Puls** z kraty. Nie ma Pulsu, nie ma połowu; czekają i nic nie wydają. Odpowiadają też **Powietrze**: trzymaj totem Powietrza w zasięgu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej stoją bezczynnie.",
+        "Podniesienie rangi skraca takt. Puls na stos zostaje 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Sidła nad skrytką",
+      "steps": [
+        {
+          "caption": "Postaw Skrytkę przodków tam, gdzie połów ma trafić.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ustaw Sidła wiatru na wierzchu. Ich dolna ściana to Wyjście, więc wszystko, co łapią, wpada do skrytki.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Podawaj im Puls przez przewodnik w zasięgu 8 bloków: 2 za każdy stos, który podnoszą.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Wszystko, co leży w zasięgu 8 bloków, nawet po drugiej stronie farmy, jest wciągane.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia wstrzymuje naraz łapanie i ścianki, gdy chcesz sam coś podnieść.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wyjąć zdobycz",
+      "text": [
+        "Otwórz je jak skrzynię. Lejki, rury i [płyty przekaźnikowe](wireless_cargo) biorą ze ścianki **dolnej**; pozostałe ścianki przyjmują przedmioty. Przykucnij i kliknij prawym przyciskiem ściankę pustą ręką, aby ją przełączać: Oba, Wejście, Wyjście, Zamknięte.",
+        "Stojąc na bloku „Skrytka przodków” albo na innym magazynie Tribal Power, dolna ścianka wypycha w dół do **16 przedmiotów na sekundę**, całkiem bez lejka.",
+        "Komparator odczytuje poziom zapełnienia: przydaje się do lampy ostrzegawczej, gdy sidła trzeba opróżnić."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

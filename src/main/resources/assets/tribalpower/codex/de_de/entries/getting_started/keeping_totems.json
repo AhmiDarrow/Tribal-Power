@@ -1,0 +1,25 @@
+{
+  "name": "Totems wach halten",
+  "icon": "tribalpower:bone_chime",
+  "order": 50,
+  "next": "where_next",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Totems mögen Gesellschaft. Eines, das benutzt wird, bleibt etwa 40 Minuten geladener Zeit **Beantwortet**. Danach wird es weitere 40 Minuten **Matt**, und passende Stationen arbeiten etwa 30% langsamer. Dann fällt es **Still**, und neue Arbeit kann pausieren, selbst wenn Puls übrig ist.",
+        "Ein Totem zu wecken ist leicht: rechtsklicke es mit leerer Hand oder nutze einen **Knochenklang** daran. Ein Trommelherz von Hand innerhalb von 8 Blöcken zu trommeln weckt es auch. Einmal wach, bleibt ein Totem wach, solange eine Station seiner Stimme in der Nähe arbeitet.",
+        "Manches hält Totems für dich wach. Ein [Vertrauter](familiar_attuning), der die Stimme eines Totems trägt, hält es aus bis zu **8 Blöcken** wach, der Trommler eines Stammes weckt jedes Totem nahe seinem Schlag, und ein [Verwandtschafts-Totem](kinship_totem) wird nie still.",
+        "Totems im Freien, nahe bei Wasser und Pflanzen, bleiben doppelt so lange wach. Ein Totem unter einem Dach hält das normale Tempo.",
+        "Ein Totem braucht außerdem Puls in seinem eigenen Puffer. In einem Gitter-Netzwerk mit Puls füllt es sich und bleibt voll; ohne das Gitter leert es sich in etwa zwei Minuten und wird **still**, wach oder nicht. Ein neues Totem startet voll, also stelle vorher einen [Gitterkonduktor](lattice_conductor) in Reichweite."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo du mehr liest",
+      "text": [
+        "Die vollen Regeln stehen auf der Seite [Bewahren](keeping). Wenn eine Station stehen geblieben ist und ihre Energie stimmt, ist ein stilles Totem der übliche Grund, und der Geisterkodex sagt es dir, wenn du dich duckst und die Station rechtsklickst."
+      ]
+    }
+  ]
+}

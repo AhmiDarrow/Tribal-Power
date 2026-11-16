@@ -1,0 +1,36 @@
+{
+  "name": "Piastre della memoria",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Memoria, Conto, Verso",
+      "text": [
+        "Queste piastre ricordano.",
+        "- **Memoria**: una sinistra attiva la porta a 15; una destra attiva la azzera. L'uscita resta finché non arriva altro. Se entrambe sono attive, vince l'azzeramento.",
+        "- **Conto**: ogni fronte di salita sul retro aggiunge uno. Quando il conteggio raggiunge la soglia, canta 15. L'uso accovacciato a mano vuota scorre la soglia **1 a 8** (parte da 4). Una sinistra in salita azzera il conteggio.",
+        "- **Verso**: parte da **4** senza impulso. Ogni fronte di salita sul retro lo porta a **8**, poi a **12**, poi a **15**, poi di nuovo a 4. Un comparatore legge lo stesso numero.",
+        "La Piastra di verso non è la Chiamata di verso: per portare la pietrarossa a una lampada o a una macchina senza filo, vedi [Chiamata di verso e risposta](verse_link)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

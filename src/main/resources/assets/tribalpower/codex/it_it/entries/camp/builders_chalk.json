@@ -1,0 +1,89 @@
+{
+  "name": "Gessetto del costruttore",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "Il Gesso rituale segna i totem e si consuma nel farlo. Questo è l'altro tipo: un bastone da costruttore, tenuto per misurare. Impugnalo, e alza un **ologramma** di una forma nel mondo — un blocco fantasma in ogni spazio che la forma richiede ancora — così posi blocchi veri dentro i fantasmi invece di contare e sperare.",
+        "Non si consuma mai, e non piazza nulla e non rompe nulla. L'ologramma è disegnato solo sul tuo schermo; nessun altro lo vede, e il server non fa alcun lavoro per esso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come si usa",
+      "text": [
+        "**Usa** ne cambia la forma. **Accovacciarsi e clic destro** la ingrandisce, **accovacciarsi e clic sinistro** la rimpicciolisce; la dimensione si riavvolge a ogni estremo. In un rito di posa, lo stesso accovacciarsi scorre il livello, e la dimensione che avevi impostato resta com'è. Accovacciarsi con il gessetto fuori non rompe mai un blocco, così puoi dimensionarlo in piedi dentro le tue mura.",
+        "Un gessetto senza segno impostato disegna solo finché è nella tua mano, così un tracciato non ti segue mai i piedi mentre brandisci un piccone."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Posare il tracciato",
+      "text": [
+        "**Usalo su un blocco per posare il tracciato.** L'ologramma smette di seguirti e resta su quel punto — e resta in piedi finché il gessetto sta **ovunque nella tua barra rapida**, così puoi riporlo, prendere blocchi e costruire dentro i fantasmi. Usalo di nuovo sullo stesso punto per cancellare il segno.",
+        "Un fantasma sta solo dove un blocco è ancora richiesto. Riempine uno e si spegne, così ciò che resta luminoso è esattamente ciò che resta da costruire.",
+        "Il segno impostato sta solo nel mondo in cui è stato impostato, e solo finché sei nel raggio di **192 blocchi**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dimensione",
+      "text": [
+        "Le dimensioni vanno da **2** a **128**, misurate dal segno — così il cerchio più grande è **257 blocchi di diametro**. Il passo si apre crescendo, fine vicino a una capanna e grosso vicino a una cortina, così l'intero intervallo è diciotto scatti anziché centoventisette.",
+        "L'ologramma arriva a circa **48 blocchi**, e su una forma abbastanza grande da allagare la vista si disegna più vicino invece di diradarsi. Cammina lungo la linea e ti sta dietro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le forme",
+      "text": [
+        "- **Quadrato**, **Cerchio**, **Croce** ed **Esagono**: contorni piatti per un'impronta.",
+        "- **Muri**: un'impronta quadrata alzata di tre filari, cioè una stanza.",
+        "- **Cupola**: il guscio di un emisfero, per un tetto.",
+        "- **Capanna**: quattro muri con un vano su una faccia e un tetto a gradini sopra.",
+        "- **Casa lunga**: una sala lunga il doppio della larghezza, con una trave di colmo e due frontoni.",
+        "- **Accampamento di reticolo**: il quadrato che una macchina al segno raggiunge davvero, e i quattro punti su cui starebbe un Totem di risonanza per portare quella portata verso l'esterno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Perché il quadrato, e non un cerchio",
+      "text": [
+        "Ogni macchina misura la portata lungo ogni direzione per conto suo, quindi la portata è un **cubo**, non una palla. Un blocco otto a est e otto a nord di un generatore è a portata; uno dieci blocchi esattamente a est no, per quanto il secondo sembri più vicino su una mappa.",
+        "Per questo **Accampamento di reticolo** disegna un quadrato. Impostalo su **8** ed è esattamente la zona in cui lavorano un Cuoretamburo, una stazione o un Conduttore di reticolo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I riti",
+      "text": [
+        "Oltre l'Accampamento di reticolo, il gessetto disegna le opere di questo libro, nell'ordine in cui le incontri: **Vasca di pietra**, **Fossa d'ascolto**, **Cerchio del rito**, **Anello di voce**, **Schiera di frantumazione**, **Porta della via**, **Porta lontana**.",
+        "Il segno è dove sta la macchina. Un fantasma è un blocco che il rito vuole ancora — Segni rituali, Pietre d'ancora, totem, piedistalli, il pavimento di pietra sotto una Fossa d'ascolto, il deposito sotto una stazione dell'eco, il telaio di una porta. L'interno aperto di una porta resta buio, perché quello spazio deve restare libero."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Livelli e orientamento",
+      "text": [
+        "Accovacciarsi e clic destro alza il livello; accovacciarsi e clic sinistro lo abbassa. La Fossa d'ascolto inizia come il **5 per 5**; il livello successivo è Ascolto profondo, il **7 per 7** con totem sui punti cardinali. La Vasca di pietra e il Cerchio del rito hanno anch'essi un secondo livello. L'Anello di voce, la Schiera di frantumazione ed entrambe le porte sono un solo tracciato.",
+        "Un rito si gira verso dove stai guardando e resta girato una volta posto il segno. Guarda lungo la porta prima di piantarla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Livella laser",
+      "text": [
+        "Ultimo della lista è la **livella laser**: una linea dritta e in bolla di fantasmi che esce dal segno nella direzione in cui guardi, per un muro, una strada, un tunnel o un lungo canale. **Accovacciarsi e clic destro** oppure **accovacciarsi e clic sinistro** ne scorre la lunghezza tra **64**, **128** e **256** blocchi.",
+        "Finché ti segue, ruota con il tuo sguardo. Usalo su un blocco per posarlo, e tiene l'orientamento che avevi allora. Come ogni forma, disegna circa **48 blocchi** intorno a te, così cammina la linea e il resto si accende davanti."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

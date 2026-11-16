@@ -1,0 +1,17 @@
+{
+  "name": "14. Gezeiten",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gezeiten",
+      "text": [
+        "“Die Untiefen sind die Werke der Musterweber, bis zur Hüfte versunken und noch am Drehen. Die Gezeiten halten ihr Muster Schlag um Schlag. Der Trommler, der es hält, hat vergessen, dass es je Weber gab.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

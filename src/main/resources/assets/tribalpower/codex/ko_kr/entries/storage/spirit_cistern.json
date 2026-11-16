@@ -1,0 +1,194 @@
+{
+  "name": "정령 저수조",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "야영지의 탱크. 유체 하나를 최대 **16,000 mB**(양동이 16개)까지 담고, 주워도 유체가 남는다. 가득 찬 탱크를 한 방울도 흘리지 않고 옮길 수 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "채우고 읽기",
+      "text": [
+        "양동이로 우클릭하면 채우거나 비운다. 빈손 우클릭으로 유체와 양을 읽는다.",
+        "일반 유체 파이프, 조수 펌프, 유체 릴레이로 채우고 뺄 수 있다. 탱크가 비기 전에는 두 번째 유체가 들어가지 않는다.",
+        "바깥을 향한 비교기는 비었을 때 **0**, 차오르면 **1에서 15**를 읽는다.",
+        "웅크린 채 빈손으로 면을 우클릭하면 그 면을 정한다. 양쪽, 입력, 출력, 닫힘. 닿아 있는 Tribal Power 기계는 주는 면에서 받는 면으로 초당 최대 **250 mB**를 옮긴다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "내용물을 지키는 탱크",
+      "steps": [
+        {
+          "caption": "저수조를 놓고 양동이를 붓는다. 빈손 클릭은 1,000 / 16,000 mB로 읽혀야 한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "바깥을 향한 비교기는 얼마나 찼는지 읽는다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "레버를 달면 먼 릴레이로도 채우기와 빼기가 잠긴다. 유체는 남는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "부숴도 떨어진 저수조는 물을 그대로 담고, 다시 놓아도 여전히 가득하다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "알아두면 좋다",
+      "text": [
+        "릴레이와 조수 펌프는 유체를 옮긴다. 탱크가 아니다. 양끝에 저수조를 두어라.",
+        "파도 북도 부서질 때 자기 물탱크를 유지한다.",
+        "[봄의 부름](spring_calling)은 놓인 저수조를 샘으로 표시해 스스로 물을 채우게 한다. 블록을 옮기면 샘은 끝나고, 이미 든 물은 아이템에 남는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

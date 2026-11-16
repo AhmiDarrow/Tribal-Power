@@ -1,0 +1,64 @@
+{
+  "name": "Polsterhüter",
+  "icon": "tribalpower:tribe_mark",
+  "order": 40,
+  "spoiler": true,
+  "unlock": "tribe:soil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_soil",
+      "title": "Polsterhüter",
+      "text": [
+        "„Wir haben es nie Erde genannt. Wir nannten es das, was übrig war, und wir hielten es warm.“",
+        "Strang aus **Boden**, Stimme von **Erde**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Als der Boden wegfiel, trugen die Polsterhüter ihn in Körben, ein Polster nach dem anderen, und setzten einen Herd auf jedes Polster, das sie retteten. Ihr Handwerk ist **Herde und Speicher**: behalten, was übrig ist, und es warm halten.",
+        "Ihre Lager stehen in **Ebenen**, und im Marsch steht eines ihrer Lager in jedem Band, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Ihr Reagenz ist die **Echoscherbe**, **+8** Ansehen an ihrem Herd wert.",
+        "Sie mögen auch jede Erde, einen Moosblock, Brot, Marschboden oder Marschmoos: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran, dass der Herd aus Opfergaben höchstens **60** Ansehen am Tag annimmt; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 4 Brot für 2 Echoscherbe; 6 Moosblöcke für 4 Marschmoos.",
+        "**Freund**: 2 Abgestimmtes Echo für ein Steinbecken; 8 Brot für ein Abgestimmtes Echo; 4 Glutwurzel für Hüterwurzelbrei.",
+        "**Sippe**: 4 Abgestimmtes Echo für einen Ahnenspeicher; 2 Gebundenes Echo und 8 Moosblöcke für einen Tiefspeicher.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gunst",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Polsterhüter. Fertige sie mit einem {item:tribalpower:resonance_totem_earth} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Erde**.",
+        "Die Sippe der Polsterhüter trägt ihre [Gunst](tribe_boons): deine Felder werden nie zertrampelt, und der Hunger kommt langsamer.",
+        "Ihr Gericht trägt die Gunst für **5 Minuten**, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Die Polsterhüter sind der leichteste Stamm für den Anfang: Brot und Erde sind nie weit weg."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Polsterhüter von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

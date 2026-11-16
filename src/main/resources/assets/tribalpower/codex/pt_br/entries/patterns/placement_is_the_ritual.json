@@ -1,0 +1,35 @@
+{
+  "name": "A colocação é o ritual",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Construído, não fabricado",
+      "text": [
+        "Algumas máquinas só despertam quando os blocos ao redor ficam na forma certa. A máquina do meio é a **âncora**; a forma ao redor é o **padrão** dela.",
+        "As âncoras são a Pia de pedra, a Malha de ressonância, o Braseiro ritual, o Ressonador de Pulso, o Triturador de eco e a Pedra-chave do portal. Cada uma tem a própria página neste livro, com a forma montada bloco a bloco.",
+        "Qualquer rotação serve, então vire a forma para o lado que couber no seu acampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Conferir o seu trabalho",
+      "text": [
+        "Agache e clique com o botão direito, com este livro, na Pia de pedra, na Malha de ressonância ou numa Pedra-chave do portal. Ele nomeia o nível que a forma alcançou, para que lado ela olha e as primeiras **três** coisas que ainda faltam, e brilhos marcam onde elas ficam. Um Braseiro ritual lista o que falta, sem os brilhos.",
+        "Muitos padrões têm um segundo nível maior. Esses costumam pedir [Pedras de âncora](anchor_stone) escoradas nos cantos e, em troca, dão mais o que fazer à máquina.",
+        "As formas se unem com [Marcas rituais](ritual_mark), desenhadas com Giz ritual."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "A menor forma",
+      "text": "Uma Pia de pedra e quatro marcas de giz. É o padrão mais fácil de aprender, e funciona com um tambor tocado à mão."
+    }
+  ],
+  "next": "ritual_mark"
+}

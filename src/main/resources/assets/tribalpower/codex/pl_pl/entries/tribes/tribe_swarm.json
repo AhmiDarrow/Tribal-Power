@@ -1,0 +1,64 @@
+{
+  "name": "Strażnicy kolonii",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Strażnicy kolonii",
+      "text": [
+        "“Nie posiadasz ula. Jesteś z nim w dobrych stosunkach.”",
+        "Nić **Rój**, głos **Powietrze**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Strażnicy kolonii poprowadzili Puls przez plaster i posadzili kwiaty Marszu dla swoich rojów. Weź bez pytania, a plaster zamilknie. Ich rzemiosło to **ule i kwiaty Marszu**.",
+        "Ich obozy stoją w **lasach kwiatowych**, na łąkach i w wiśniowych gajach, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich odczynnik to **Puch latarni**, wart **+8** pozycji przy ich Palenisku.",
+        "Cenią też Butelkę miodu, Plaster miodu, Blok miodu albo dowolny kwiat: **+3** każdy. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, aż do +8.",
+        "Pamiętaj: Palenisko bierze najwyżej **60** pozycji dziennie z ofiar; zobacz [Plemiona i pozycja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co wymienia Starszy",
+      "text": [
+        "**Gość**: 4 Plaster miodu za 2 Odłamki echa; 2 Butelki miodu za 2 Osty ley.",
+        "**Przyjaciel**: 8 Plaster miodu za 2 Kwiaty echa; 2 Bloki miodu za Puch latarni; 4 Ziarno stepu za Ciasto miodowe.",
+        "**Ród**: 4 Dostrojone echo za Kolektor ley; 2 Związane echo za 3 Duchotkanina.",
+        "Każdy handel daje **+2** pozycji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Przy **Głos** Starszy daje ci Znak plemienia Strażników kolonii. Wytwórz go z {item:tribalpower:resonance_totem_air} i dwie Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Obok Rezonatora Pulsu to jeszcze jeden głos; obok stacji użycza **Powietrze**.",
+        "Ród Strażników kolonii niesie swój [dar](tribe_boons): pszczoły nigdy nie zwracają się przeciw tobie.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak je nosisz.",
+        "Ich handel Rodu za Duchotkanina jest wygodny: każdy Totem pokrewieństwa potrzebuje dwóch."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co Starszy Strażników kolonii cię poprosił i jak daleko zaszła ich opowieść. Zobacz [Starsi, zlecenia i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

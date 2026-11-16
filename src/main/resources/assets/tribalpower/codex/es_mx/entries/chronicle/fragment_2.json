@@ -1,0 +1,17 @@
+{
+  "name": "3. El Telar tejido",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El Telar tejido",
+      "text": [
+        "“Los Zurcidores del telar hallaron que nueve hilos tirados unos contra otros sostendrían un peso que ninguno podía sostener solo. Con eso cosieron el suelo al cielo. Cada campamento cantó su hilo. El Telar se mantuvo durante nueve generaciones.”",
+        "Hallado en una Piedra tallada en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

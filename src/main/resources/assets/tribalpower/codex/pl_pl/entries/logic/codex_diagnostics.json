@@ -1,0 +1,30 @@
+{
+  "name": "Diagnostyka kodeksu",
+  "icon": "minecraft:spyglass",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "next": "pulse_gauge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Zapytaj blok",
+      "text": [
+        "Przykucnij i kliknij prawym przyciskiem, trzymając Duchowy kodeks, dowolną maszynę, płytę albo magazyn plemienny, a wyjaśni się prostymi słowami.",
+        "- Zgromadzony Puls, sieć kraty, na której stoi (albo że jest poza kratą), przewodnik, przez który ciągnie, z rangą i tempem, każdy generator sieci z jego wyjściem w tej sekundzie, obecne głosy, Puls, który mógłby pobrać, i czy redstone go wstrzymuje.",
+        "- Warsztaty podają swój przepis oraz brakujący głos albo pełne wyjście.",
+        "- Przekaźniki zgłaszają niewczytane albo zablokowane końce.",
+        "- Brasera wymieniają obrzędy, na które pozwala ich pieczęć.",
+        "- Kotwice wzorów pokazują duchy brakujących części i wymieniają pierwsze trzy.",
+        "- Płyty pieśni wymieniają każdą płytę, z którą są zsynchronizowane, by słyszeć, wraz z jej uchem i tym, co śpiewa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zrób z tego nawyk",
+      "text": [
+        "Gdy coś stoi w miejscu, zapytaj je, zanim zaczniesz rozbierać budowlę. Dziewięć razy na dziesięć odpowiedź to jedna linia: cichy głos, pełne wyjście, przytrzymany sygnał albo brakujący znak."
+      ]
+    }
+  ]
+}

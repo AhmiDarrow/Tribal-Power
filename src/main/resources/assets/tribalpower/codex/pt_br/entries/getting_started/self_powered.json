@@ -1,0 +1,184 @@
+{
+  "name": "Energia que continua",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tocar o tambor põe você em marcha, mas um acampamento precisa de energia enquanto você está fora. O [Ressonador de Pulso](pulse_resonator) faz Pulso sozinho depois que você assenta um cristal nele e lhe dá companhia. Fabrique-o com ferro, ametista, dois Ressonadores de cobre e um Fragmento de Espírito.",
+        "Pegue o Fragmento de eco do seu Triturador de eco e clique com o botão direito no Ressonador com ele. O fragmento fica dentro como catalisador e o Pulso que produz o gasta aos poucos: um fragmento rende cerca de 20,000 Pulso, mais ou menos quarenta minutos na taxa inicial. Guarde um reserva.",
+        "Depois coloque por perto totens de **duas vozes diferentes**, por exemplo Terra e Fogo. Dois totens de Terra ainda contam como uma só voz. Mantenha um Condutor de treliça ao alcance do Ressonador e dos totens: ele leva o Pulso do Ressonador às suas máquinas e mantém cheios os reservatórios dos totens e, assim, as vozes deles."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Assentar o Ressonador",
+      "steps": [
+        {
+          "caption": "Coloque o Ressonador de Pulso em chão aberto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique com o botão direito nele com um Fragmento de eco. O fragmento fica dentro como catalisador até o Pulso que produz desgastá-lo.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione um totem de Terra em até 8 blocos.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione uma segunda voz, diferente, como Fogo. Agora ele faz 8 Pulso por segundo sozinho.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Um começo lento",
+      "text": [
+        "Oito Pulso por segundo é modesto; uma estação ocupada pode gastá-lo mais rápido. Deixe uma reserva se formar e leia a página do [Ressonador de Pulso](pulse_resonator) quando estiver pronto para cristais mais fortes e mais vozes."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Dádivas da tribo",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "O jeito de uma tribo, emprestado a você",
+      "text": [
+        "Toda tribo tem um **dom**: uma pequena vantagem no jeito daquela tribo, mostrada como um efeito de estado na cor da tribo.",
+        "Alcance a reputação **Parente** com uma tribo e você carrega o dom dela enquanto essa reputação durar. O dom se renova sozinho; você nunca precisa pedir. Qualquer um pode carregar um dom por um tempo ao comer o [prato](tribe_dishes) daquela tribo. Carregar a [relíquia](elders_and_stories) de uma tribo também dá o dom dela, seja qual for a sua reputação.",
+        "Um **Amuleto da lanterna** equipado mantém um dom aceso por metade a mais de tempo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Solo (Guardiões do leito)**: seus campos nunca são pisoteados, e a fome chega mais devagar.",
+        "- **Pedra (Cantores de cascalho)**: o minério que você quebra tem chance de **uma em cinco** de dar mais um.",
+        "- **Broto (Vinculadores de raízes)**: plantações e mudas em até 4 blocos crescem mais rápido ao seu redor.",
+        "- **Garra (Caminhantes da borda)**: nenhuma queda machuca você enquanto você **se agacha**.",
+        "- **Faísca (Corações de tambor)**: uma mão mais rápida: você golpeia **10%** mais rápido."
+      ],
+      "title": "Os nove dons"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Relógio (Tecelões de padrões)**: estações de eco a até 8 blocos de você funcionam em **velocidade dobrada**.",
+        "- **Enxame (Guardiões da colônia)**: as abelhas nunca se voltam contra você.",
+        "- **Sigilo (Entalhadores de selos)**: seus amuletos pedem **metade** do Pulso.",
+        "- **Fuso (Costureiros do tear)**: as canções custam **um quarto a menos** para cantar.",
+        "Todos os números estão na seção **efeitos** da config comum."
+      ],
+      "title": "Os nove dons, continuação"
+    }
+  ]
+}

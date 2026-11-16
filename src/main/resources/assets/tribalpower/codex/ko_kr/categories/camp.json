@@ -1,0 +1,6 @@
+{
+  "name": "야영 기계",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "야영을 대신 돌보는 장치입니다. 농사하고, 모으고, 지키고, 퍼 올리고, 길을 밝히고, 청크를 깨어 있게 합니다."
+}

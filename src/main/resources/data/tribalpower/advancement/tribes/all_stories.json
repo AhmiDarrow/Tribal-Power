@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_spindle"
     },
-    "title": "Nine relics",
-    "description": "Finish every tribe's story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.all_stories.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.all_stories.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

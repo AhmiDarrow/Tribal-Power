@@ -1,0 +1,52 @@
+{
+  "name": "Sino de luto",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Um sino flutuante de bronze verde, com uma máscara de luto e um badalo brilhante. Lembra as tribos perdidas, e seu badalar anunciado desacelera você.",
+        "Caçado, também solta de 1 a 3 pepitas de ouro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Sinos de luto flutuam sobre os Campos de cristal da Marcha e os Campos de neve, e de vez em quando sobre o Pântano de juncos e os Baixios.",
+        "Tem **28 de vida** e **3 de armadura**. De até 12 blocos de distância, toca um badalar de **4 de dano** que desacelera você por 3 segundos. Abrigar-se interrompe a canção."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **de 1 a 2 Fragmento de sino**.",
+        "Um Fragmento de sino sintoniza em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que ele dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance **Voz** com os **Entalhadores de selos**, depois use um Amuleto de vínculo num adulto: duas tentativas em cinco, o amuleto se gasta se falhar. Ou alimente-o com o próprio reagente: uma tentativa em cinco, e o reagente se gasta de qualquer jeito.",
+        "Um sino vinculado tira de você o veneno, a fraqueza e outros malefícios enquanto segue você. Veja [dons do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, solta isto quando caçado, mais com Pilhagem."
+      ]
+    }
+  ]
+}

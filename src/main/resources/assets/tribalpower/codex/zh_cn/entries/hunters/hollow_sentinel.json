@@ -1,0 +1,51 @@
+{
+  "name": "空心哨卫",
+  "icon": "tribalpower:sentinel_sigil",
+  "order": 110,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hollow_sentinel_spawn_egg",
+    "tribalpower:sentinel_sigil"
+  ],
+  "next": "storm_moth",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:hollow_sentinel",
+      "text": [
+        "一套空的守卫盔甲，仍守着旧路，手握长矛。它的打击会让你的手臂发软。",
+        "猎杀时还会掉落1至3个铁粒。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "空心哨卫行走在远行界高地、雪原和微光岭，少数在水晶原野，每一座[先祖大厅](ancestor_hall)里都有三名看守。",
+        "它有**44点生命值**和**6点护甲**，是残存里最坚韧的，命中**6**。每一击给你4秒虚弱。光和充能的法杖会有帮助。"
+      ],
+      "title": "何处，如何"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1至2个哨卫印**。",
+        "一枚哨卫印在灵之下调谐为2个调谐回响。"
+      ],
+      "title": "它会给出什么"
+    },
+    {
+      "type": "text",
+      "text": [
+        "没有护符能结缘空心哨卫。它侍奉大厅，不侍奉你。"
+      ],
+      "title": "不会结缘"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时掉落这个，有抢夺则更多。"
+      ]
+    }
+  ]
+}

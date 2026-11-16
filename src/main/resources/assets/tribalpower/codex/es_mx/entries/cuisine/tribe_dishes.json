@@ -1,0 +1,78 @@
+{
+  "name": "Platos de las tribus",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cada tribu cocina un plato a su manera, y comerlo lleva el [don](tribe_boons) de esa tribu durante **5 minutos**. Cocínalos en la [Olla del Hogar](hearth_pot).",
+        "- **Puré de raíz del guardián** (Suelo): Raíz de brasa ×2, Grano de la estepa, un cuenco.",
+        "- **Pan de grava** (Piedra): Grano de la estepa ×2, Grava de hierro.",
+        "- **Arroz del vinculador de raíces** (Brote): Arroz de ciénaga ×2, Caña de Espíritu, un cuenco.",
+        "- **Cecina del caminante del borde** (Garra): Caza cruda ×2, Raíz de brasa.",
+        "- **Chile de los corazones de tambor** (Chispa): Raíz de brasa ×2, Frijol de fulgor, Caza cruda, un cuenco."
+      ],
+      "title": "Nueve tribus, nueve platos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Tarta de patrones** (Reloj): Frijol de fulgor, Grano de la estepa, Baya de escarcha.",
+        "- **Pastel de miel** (Enjambre): panal, Grano de la estepa ×2, un huevo.",
+        "- **Caldo del tallador de sellos** (Sigilo): Arroz de ciénaga, Flor de eco, Hoja de la Marcha, un cuenco.",
+        "- **Fideos de hilo del Telar** (Huso): Arroz de ciénaga ×2, Cardo de ley, un cuenco.",
+        "Cuando una tribu te llama **Amigo**, su Pariente te venderá el plato por cuatro del cultivo con el que se hace. Ofrece a una tribu su propio plato en su Hogar y cuenta como **6 de reputación**, más que cualquier otro regalo salvo un reactivo."
+      ],
+      "title": "Nueve tribus, nueve platos, continúa"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

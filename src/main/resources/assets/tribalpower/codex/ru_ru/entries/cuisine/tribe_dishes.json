@@ -1,0 +1,78 @@
+{
+  "name": "Блюда племён",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Каждое племя готовит одно блюдо так, как умеет только оно, и тот, кто его ест, несёт [дар](tribe_boons) этого племени **5 минут**. Готовь их в [Горшок Очага](hearth_pot).",
+        "- **Пюре из корня хранителя** (Почва): Жарокорень ×2, Степное зерно, миска.",
+        "- **Хлеб на щебне** (Камень): Степное зерно ×2, Железный щебень.",
+        "- **Рис вязателя корней** (Росток): Рис топи ×2, Тростник Духа, миска.",
+        "- **Вяленое мясо краехода** (Коготь): Сырая дичь ×2, Жарокорень.",
+        "- **Чили барабанных сердец** (Искра): Жарокорень ×2, Боб отблеска, Сырая дичь, миска."
+      ],
+      "title": "Девять племён, девять блюд"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Пирог узоров** (Часы): Боб отблеска, Степное зерно, Морозная ягода.",
+        "- **Медовый пирог** (Рой): соты, Степное зерно ×2, яйцо.",
+        "- **Бульон резчика печатей** (Сигил): Рис топи, Цветок эха, Лист Марша, миска.",
+        "- **Лапша нити Стана** (Веретено): Рис топи ×2, Чертополох леи, миска.",
+        "Когда племя называет тебя **Друг**, его Родня продаст тебе блюдо за четыре единицы культуры, из которой оно сделано. Предложи племени его собственное блюдо у его Очага, и это даст **6 репутации**, больше, чем любой другой дар, кроме реагента."
+      ],
+      "title": "Девять племён, девять блюд, продолжение"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

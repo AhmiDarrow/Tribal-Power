@@ -1,0 +1,40 @@
+{
+  "name": "Marca ritual",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "La tiza es el modo de dibujar un patrón de una pieza. Cada barra traza **Marca ritual** en el suelo, y las marcas unen una máquina con la forma que la rodea.",
+        "La misma tiza también sella vínculos duraderos entre Tótems de resonancia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dibujar marcas",
+      "text": [
+        "Haz clic derecho en la cara de arriba de un bloque sólido para trazar una marca. Cada marca gasta **un uso**, y una barra guarda **diez**.",
+        "Haz clic derecho en una marca con tiza para borrarla. Borrar no cuesta nada, así que corrige los errores con libertad.",
+        "Una marca rota no suelta nada: la tiza ya la pagó. En modo creativo la tiza nunca se gasta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enlazar tótems",
+      "text": [
+        "Haz clic derecho en un Tótem de resonancia con tiza y luego en un segundo **a menos de 16 bloques**, para sellar un enlace de entramado entre ellos (consulta [Conductor de entramado](lattice_conductor)). Un enlace que queda hecho gasta un uso.",
+        "Pulsar dos veces el mismo tótem cancela el enlace que empezaste. Dos tótems ya enlazados siguen enlazados y no cuestan nada más."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Una fabricación da **cuatro** barras de diez usos cada una."
+    }
+  ],
+  "next": "anchor_stone"
+}

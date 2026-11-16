@@ -1,0 +1,17 @@
+{
+  "name": "1. Stare niebo",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Stare niebo",
+      "text": [
+        "“Przed Marszem było jedno niebo i jedna ziemia pod nim, i dziewięć ludów, które nie zgadzały się co do niczego, poza tym, że ziemia powinna zostać tam, gdzie jest. To było pierwsze porozumienie, i przez długi czas wystarczało.”",
+        "Znalezione na rzeźbionym kamieniu w ruinach Marszu."
+      ]
+    }
+  ]
+}

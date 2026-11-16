@@ -1,0 +1,30 @@
+{
+  "name": "Wędrowiec Marszu",
+  "icon": "tribalpower:march_walker_spawn_egg",
+  "items": [
+    "tribalpower:march_walker_spawn_egg"
+  ],
+  "order": 50,
+  "spoiler": true,
+  "next": "spirit_wisp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:march_walker",
+      "text": [
+        "Wędrowiec Marszu to cichy roślinożerca Marszu: krępy tapir z omszałym podkładem siodła i rozwidlonymi zębami, które świecą światłem Ducha. Siodło to tylko jego sierść; nie możesz na nim jeździć. Zobaczysz je w stadach na Stepie i w każdym biomie Marszu poza Mieliznami, nawet na Żarowych pustkowiach.",
+        "Ma **18 zdrowia** i **1 pancerza**. Jest płochliwy: trzyma się około dziesięciu bloków od potworów i wpada w panikę, gdy zostanie zraniony."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Trzymaj **Odłamek Ducha**, a wędrowcy pójdą za tobą z ciekawości. To łatwy sposób, by zaprowadzić kilka do domu albo do zagrody.",
+        "Pojawiają się na darni Marszu, glebie, mchu i śniegu, pod gołym niebem.",
+        "Wędrowiec upuszcza **od 1 do 3 Surowa dziczyzna**, do 2 Skóra Marszu i czasem kość, więcej z Grabieżą; mięso wypada jako Pieczona dziczyzna, jeśli zginął w ogniu.",
+        "Rozmnóż dwa, trzymając **Pszenica** albo **Ziarno stepu**. Idą za tym równie chętnie jak za Odłamek Ducha. Wędrowca nie da się wyszczotkować i nie tworzy więzi."
+      ],
+      "title": "Życie z wędrowcami"
+    }
+  ]
+}

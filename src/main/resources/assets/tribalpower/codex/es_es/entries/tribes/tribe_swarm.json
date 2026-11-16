@@ -1,0 +1,64 @@
+{
+  "name": "Guardianes de la colonia",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Guardianes de la colonia",
+      "text": [
+        "“No posees una colmena. Estás en buenos términos con ella.”",
+        "Linaje de **Enjambre**, voz de **Aire**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quiénes son",
+      "text": [
+        "Los Guardianes de la colonia encaminaron el Pulso por el panal y plantaron las flores de la Marcha para sus enjambres. Toma sin pedir y el panal enmudece. Su oficio es **colmenas y flores de la Marcha**.",
+        "Sus campamentos están en **bosques de flores**, praderas y cerezales, y en la Marcha hay un campamento suyo en cada banda, del norte helado a la sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué quieren",
+      "text": [
+        "Su reactivo es el **Plumón de farol**, que vale **+8** de posición en su Hogar.",
+        "También prefieren un Frasco de miel, Panal, un Bloque de miel o cualquier flor: **+3** cada uno. Cualquier otra comida vale **+1**, y una Célula de Pulso cargada, **+2 por cada 10 Pulso**, hasta +8.",
+        "Recuerda que el Hogar toma como mucho **60** de posición al día en ofrendas; consulta [Tribus y posición](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que el Anciano trueca",
+      "text": [
+        "**Huésped**: 4 Panal por 2 Fragmentos de eco; 2 Frascos de miel por 2 Cardos de ley.",
+        "**Amigo**: 8 Panal por 2 Flores de eco; 2 Bloques de miel por un Plumón de farol; 4 Grano de la estepa por un Pastel de miel.",
+        "**Pariente**: 4 Eco sintonizado por un Colector de ley; 2 Eco vinculado por 3 Tejido espiritual.",
+        "Cada trueque otorga **+2** de posición."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, tótem y bendición",
+      "text": [
+        "En **Voz**, el Anciano te da la Marca tribal de los Guardianes de la colonia. Fábricala con un {item:tribalpower:resonance_totem_air} y dos Tejido espiritual para obtener su [Tótem de parentesco](kinship_totem).",
+        "Junto a un Resonador de Pulso es una voz más; junto a una estación presta **Aire**.",
+        "Los Parientes de los Guardianes de la colonia llevan su [bendición](tribe_boons): las abejas nunca se vuelven contra ti.",
+        "Su plato lleva la bendición durante **5 minutos**, y su [reliquia](elders_and_stories) mientras la lleves.",
+        "Su trueque de Pariente por Tejido espiritual es práctico: cada Tótem de parentesco necesita dos."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Tu trabajo con ellos",
+      "text": [
+        "Lo que el Anciano de los Guardianes de la colonia te ha pedido, y hasta dónde ha llegado su historia. Consulta [Ancianos, encargos e historias](elders_and_stories)."
+      ]
+    }
+  ]
+}

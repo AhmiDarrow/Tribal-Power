@@ -1,0 +1,17 @@
+{
+  "name": "2. Le nove voci",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le nove voci",
+      "text": [
+        "“Terra per reggere, Fuoco per scaldare, Acqua per portare, Aria per sollevare, Spirito per chiedere, e il Telaio per legare i cinque. Sei voci, nove popoli: tre di esse condivise. La condivisione fu dove iniziò il litigio.”",
+        "Trovato su una pietra scolpita, tra le rovine della Marcia."
+      ]
+    }
+  ]
+}

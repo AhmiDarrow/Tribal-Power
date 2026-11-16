@@ -1,0 +1,33 @@
+{
+  "name": "Ascensore di rampicanti",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Rampicante vivo che ti porta",
+      "text": [
+        "Un Ascensore di rampicanti è un tappeto di rampicante vivo. Mettine uno a ogni piano di una torre o di un pozzo di miniera, uno sopra l'altro nella **stessa colonna**, e si trovano da soli. Nessun collegamento, nessuna energia.",
+        "- **Salta** su un ascensore per salire all'ascensore successivo sopra.",
+        "- **Accovacciati** su un ascensore per scendere all'ascensore successivo sotto."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Se ne possono impilare quanti vuoi; ogni salto o accovacciata va di un ascensore per volta, saltando i piani vuoti in mezzo. Un ascensore guarda fino a **48 blocchi** in ogni senso.",
+        "L'ascensore successivo ha bisogno di due blocchi di spazio sopra per poterci stare in piedi; un ascensore con un soffitto sopra viene saltato, così non arrivi mai dentro un muro."
+      ],
+      "title": "Infilarli"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

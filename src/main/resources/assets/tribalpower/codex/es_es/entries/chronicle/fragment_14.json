@@ -1,0 +1,17 @@
+{
+  "name": "15. Estepa",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Estepa",
+      "text": [
+        "“La Estepa es el lecho que los Guardianes del lecho no pudieron llevar: demasiado grande, y la manada estaba encima cuando cayó. La manada nunca dejó de correr. Los pies callados podrían traer el lecho de vuelta; los ruidosos se unen a la estampida.”",
+        "Hallado en un mural, en el terreno de un guardián."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Płyty pieśni",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "next": "gate_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Płyty pieśni",
+      "text": [
+        "Trzynaście małych płyt, każda z jednym jasnym zadaniem przy redstone: bramki, pamięć, zegary i liczniki.",
+        "Postaw jedną na ścianie bloku; ściana, z której wskazuje na zewnątrz, to jej **wyjście**. Na maszynie, bębnie lub innej płycie skradaj się przy stawianiu, inaczej kliknięcie uruchomi ten blok.",
+        "Kliknij płytę prawym przyciskiem, aby usłyszeć, co robi. Skradaj się i kliknij prawym Bicie serca, Dryf lub Rachunek pustą ręką, by zmienić liczbę. **Klucz totemu** synchronizuje płyty, żeby słyszały się bez żadnego przewodu: zobacz Synchronizowanie płyt.",
+        "Każda płyta jest zbudowana wokół [Nić pieśni](song_thread), i potrzebna jest **Nić Krosna** z Marszu, więc płyty pojawiają się po twojej pierwszej wyprawie tam."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Która strona jest która",
+      "text": [
+        "**Tył** płyty to blok, na którym jest zamontowana. Jej przód wskazuje od tego bloku; zasila tylko blok tuż przed sobą, i tylko słabo, więc nigdy nie zatrzaskuje się przez kamień.",
+        "- Płyty **unarne** (Odwrotna, Echo, Dryf, Uderzenie, Szansa, Rachunek, Zwrotka) czytają **tył**. Zasil blok, na którym siedzą: dźwignia na nim, pył redstone do niego, albo zamontuj płytę wprost na Progu Pulsu. Nić pieśni nigdy nie zasila bloku, którego dotyka, więc aby odczytać linię nici, zamontuj płytę na samej ostatniej nici.",
+        "- Płyty **binarne** (Chór, Zbiórka, Niezgoda, Cisza) czytają **lewo i prawo**, patrząc zza płyty. Na podłodze lub suficie lewo to zachód, a prawo to wschód.",
+        "- **Pamięć** czyta lewo, by ustawić, i prawo, by wyczyścić. **Bicie serca** nie potrzebuje wejścia.",
+        "Płyta słyszy tylko energię skierowaną w nią: przekaźnik redstone odwrócony tyłem nie jest słyszany, ani inna płyta wycelowana prosto w nią. Aby połączyć dwie płyty, zsynchronizuj je kluczem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Synchronizowanie płyt",
+      "text": [
+        "Płyty nie potrzebują przewodu między sobą. Skradaj się i przyłóż **Klucz totemu** do płyty, aby zatrzymać jej pieśń, potem użyj klucza na innej płycie: ta płyta teraz słyszy pierwszą, jakby wchodził w nią przewód.",
+        "- **Miejsce kliknięcia wybiera ucho.** Kliknij lewą lub prawą połowę, by zasilić tę stronę: Płyta chóru, Płyta zbiórki, Płyta niezgody, Płyta ciszy lub Płyta pamięci. Płyty unarne słyszą to tyłem; na Rachunku lewa połowa to reset. Bicie serca nie słyszy nic.",
+        "- **Synchronizacja działa w jedną stronę.** Każda płyta słyszy do **8** innych w zasięgu **32 bloków**, w tym samym świecie. Klucz trzyma pieśń, więc jedno źródło może zasilić cały rząd.",
+        "- **Użyj klucza na parze jeszcze raz, aby ją rozsynchronizować.** Skradaj się i użyj klucza w powietrzu, aby puścić pieśń.",
+        "Nowa synchronizacja kosztuje **1 Puls** z ogniwa, które nosisz, albo punkt klucza.",
+        "Serwer może zmienić zasięg i limit przez **plateLinkRange** i **plateLinkMax**. Synchronizacje zrobione przed zmianą zostają; tę, która jest teraz poza zasięgiem, słychać jako 0.",
+        "Płyta należy do tego, kto ją postawił, i do jego obozu: każdy może ją odczytać, ale synchronizacja cudzej płyty, trzymanie jej pieśni albo zmiana jej liczby są odrzucane."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Odczyt synchronizacji",
+      "text": [
+        "Użyj klucza na płycie, nie trzymając żadnej pieśni, albo przykucnij i kliknij ją prawym przyciskiem tą księgą, aby wymienić każdą płytę, którą słyszy: gdzie jest, które ucho, jak daleko i co śpiewa. Iskry kreślą ci każdą synchronizację.",
+        "Zsynchronizowana płyta słyszy źródło takim, jakie było tick temu, więc pierścień płyt jest bezpieczny: dwie płyty echa, które się słyszą, trzymają to, na co się zgadzają, a dwie płyty odwrotne, które się słyszą, robią zegar, który przełącza się co tick.",
+        "Zniszcz źródło, a słuchacze o nim zapomną. Źródło w niezaładowanym chunku słychać jako **0**, aż załaduje się znowu; płyta nigdy nie ładuje chunku, by słuchać."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rodziny płyt",
+      "text": [
+        "Płyty dzielą się na cztery rodziny, każda z własną stroną:",
+        "- [Płyty wrót](gate_plates): Chór, Zbiórka, Niezgoda i Cisza ważą dwa wejścia przeciw sobie.",
+        "- [Płyty sygnału](signal_plates): Odwrotna odwraca sygnał, a Echo niesie go dalej pełną mocą.",
+        "- [Płyty pamięci](memory_plates): Pamięć, Rachunek i Zwrotka pamiętają, co usłyszały.",
+        "- [Płyty czasu](timing_plates): Bicie serca, Dryf, Uderzenie i Szansa trzymają czas."
+      ]
+    }
+  ]
+}

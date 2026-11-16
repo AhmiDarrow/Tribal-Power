@@ -1,0 +1,235 @@
+{
+  "name": "Was Vertraute tun",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Laternenfuchs",
+      "text": [
+        "Ein gebundener Laternenfuchs leuchtet den Weg."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein unsichtbares **Geistlicht** zieht mit ihm, bei Licht **10**; das Mal Glühader hebt das auf **12**.",
+        "Du hast Nachtsicht, solange du innerhalb von **8 Blöcken** bei ihm bleibst.",
+        "Alle **4 Sekunden** markiert er Erze innerhalb von **6 Blöcken** um sich mit Schimmern, die nur du siehst. Schärfe verkürzt das Warten, ein starkes Summen beschleunigt es, und Nachtsummton beschleunigt es nach Einbruch der Dunkelheit noch einmal."
+      ],
+      "title": "Die Laterne des Fuchses"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Moosrücken",
+      "text": [
+        "Ein gebundener Moosrücken trägt deine Sachen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Benutze ihn schleichend mit **leerer Hand**, um eine Satteltasche mit **9 Plätzen** zu öffnen, oder mit **12** bei Tiefe Tasche.",
+        "Stirbt er, ergießt sich die Satteltasche auf den Boden."
+      ],
+      "title": "Die Satteltasche des Moosrückens"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Dämmerhirsch",
+      "text": [
+        "Ein gebundener Dämmerhirsch lässt sich ohne Sattel reiten."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Benutze ihn zum Aufsteigen. Lenke mit dem Blick, halte Springen für einen kurzen Satz und schleiche zum Absteigen. Er trägt nur den, an den er gebunden ist.",
+        "Schritt macht ihn schneller; das Mal Sprung springt höher."
+      ],
+      "title": "Den Hirsch reiten"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sie schlagen den, der dich schlug, und den, den du schlägst, aber nie einen Spieler oder den Begleiter eines anderen Hüters. Ein wilder Überrest, den sie schlagen, schlägt zurück. Sie sind mutig, nicht unbesiegbar: gegen die Wächter verlieren sie trotzdem.",
+        "**Weiches Maul** hält sie davon ab, Dorfbewohner oder Golems zu beißen. **Spur** (zwei Kopien, nur Hunde) lässt den letzten Gegner schimmern, der dich verletzt hat, überall innerhalb von 48 Blöcken."
+      ],
+      "title": "Kämpfer: Splitterrücken und Risshund"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eine **sitzende** Sturmmotte hinterlässt einmal pro Sekunde einen unsichtbaren **Geistklick** der Redstone-Stärke **15**, für 2 Ticks. Klicktreu hält ihn 2 Ticks länger. Es ist keine Trommel: Trommelherzen, Kohlenbecken und Schlusssteine ignorieren ihn, aber Liedplatten und Redstone hören ihn.",
+        "Ein **folgender** Zunderkobold erstattet **4 Puls**, jedes Mal wenn du ein Trommelherz von Hand innerhalb von **8 Blöcken** spielst. Redstone-Schläge bekommen nichts, und nur ein Kobold zahlt pro Schlag. Tempo (zwei Kopien) erstattet 2 mehr, **6** insgesamt."
+      ],
+      "title": "Sturmmotte und Zunderkobold"
+    },
+    {
+      "type": "scene",
+      "title": "Eine Motte als Uhr",
+      "steps": [
+        {
+          "caption": "Setze eine Redstone-Lampe dorthin, wo deine Motte sitzen wird, und benutze die Motte schleichend, damit sie daneben wartet.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Einmal pro Sekunde erscheint ein unsichtbarer Geistklick dort, wo die Motte schwebt.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Die Lampe daneben flackert bei jedem Klick an: eine kostenlose Uhr von einer Sekunde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Trommelherz auf der anderen Seite hört nichts, weil Trommeln den Klick ignorieren.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eine folgende Trauerglocke innerhalb von **8 Blöcken** nimmt dir Vergiftung, Schwäche, Hunger, Abbauschwäche, Blindheit und Übelkeit. Still (zwei Kopien) nimmt auch Langsamkeit. Verfall hebt sie nie auf.",
+        "Ein folgender Echoweber sammelt Beute innerhalb von **4 Blöcken** in einen Beutel mit **fünf Plätzen** und wirft sie dir zu. Sammeln (zwei Kopien) reicht bis **8**. Benutze ihn schleichend mit leeren Händen, um den Beutel selbst zu leeren."
+      ],
+      "title": "Trauerglocke und Echoweber"
+    }
+  ]
+}

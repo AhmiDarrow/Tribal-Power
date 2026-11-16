@@ -1,0 +1,63 @@
+{
+  "name": "Placas de canto",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "next": "gate_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Placas de canto",
+      "text": [
+        "Treze placas pequenas, cada uma com um trabalho claro com redstone: portas, memória, relógios e contadores.",
+        "Coloque uma na face de um bloco; a face pela qual ela aponta para fora é a **saída** dela. Em uma máquina, um tambor ou outra placa, agache ao colocar, ou o clique aciona esse bloco.",
+        "Clique com o botão direito em uma placa para ouvir o que ela está fazendo. Agache e clique com o botão direito em Batimento, Deriva ou Contagem com a mão vazia para mudar a contagem. Uma **Chave de totem** sincroniza as placas para que se ouçam sem cabo nenhum: veja Sincronizar placas.",
+        "Toda placa é construída em torno do [Fio de canto](song_thread), que precisa de **Fio de Tear** da Marcha, então as placas vêm depois da sua primeira viagem até lá."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qual lado é qual",
+      "text": [
+        "A **traseira** de uma placa é o bloco em que ela está montada. A frente aponta para longe desse bloco; ela alimenta só o bloco bem à frente, e só fracamente, então nunca trava através da pedra.",
+        "- Placas **unárias** (Inversa, Eco, Deriva, Golpe, Acaso, Contagem, Verso) leem a **traseira**. Alimente o bloco em que elas ficam: uma alavanca nele, pó de redstone para dentro, ou monte a placa direto em um Limiar de Pulso. O Fio de canto nunca alimenta o bloco que toca, então para ler uma linha de fio, monte a placa no último fio.",
+        "- Placas **binárias** (Coro, Reunião, Discórdia, Silêncio) leem **esquerda e direita**, vistas de trás da placa. No chão ou no teto, a esquerda é o oeste e a direita é o leste.",
+        "- **Memória** lê a esquerda para definir e a direita para limpar. **Batimento** não precisa de entrada.",
+        "Uma placa só ouve energia apontada para ela: um repetidor virado para o outro lado não é ouvido, nem outra placa apontada direto para ela. Para unir duas placas, sincronize-as com a chave."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sincronizar placas",
+      "text": [
+        "As placas não precisam de cabo entre si. Agache e use uma placa com uma **Chave de totem** para segurar o canto dela, depois use a chave em outra placa: essa placa agora ouve a primeira, como se um cabo entrasse nela.",
+        "- **Onde você clica escolhe o ouvido.** Clique na metade esquerda ou direita de uma Placa de coro, Placa de reunião, Placa de discórdia, Placa de silêncio ou Placa de memória para alimentar esse lado. Placas unárias ouvem isso na traseira; em uma Contagem, a metade esquerda é o reinício. Um Batimento não ouve nada.",
+        "- **Uma sincronização segue um só sentido.** Cada placa ouve até **8** outras dentro de **32 blocos**, no mesmo mundo. A chave guarda o canto, então uma fonte pode alimentar uma fileira inteira.",
+        "- **Use a chave no par de novo para dessincronizar.** Agache e use a chave no ar para soltar o canto.",
+        "Uma sincronização nova custa **1 Pulso** de uma célula que você carregue, ou um ponto da chave.",
+        "Um servidor pode mudar o alcance e o teto com **plateLinkRange** e **plateLinkMax**. Sincronizações feitas antes de uma mudança são mantidas; a que agora está fora de alcance é ouvida como 0.",
+        "Uma placa pertence a quem a colocou e ao acampamento dessa pessoa: qualquer um pode lê-la, mas sincronizar a placa de outra pessoa, segurar o canto dela ou mudar a contagem é recusado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ler uma sincronização",
+      "text": [
+        "Use a chave numa placa sem segurar canto nenhum, ou agache e clique com o botão direito com este livro, para listar cada placa que ela ouve: onde está, qual orelha, a que distância e o que está cantando. Faíscas traçam cada sincronização para você.",
+        "Uma placa sincronizada ouve a fonte como ela estava há um tick, então um anel de placas é seguro: duas Placas de eco que se ouvem guardam aquilo em que concordam, e duas Placas inversas que se ouvem fazem um relógio que alterna a cada tick.",
+        "Quebre uma fonte e quem a escuta a esquece. Uma fonte num chunk descarregado é ouvida como **0** até carregar de novo; uma placa nunca carrega um chunk para ouvir."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As famílias de placas",
+      "text": [
+        "As placas vêm em quatro famílias, cada uma com a própria página:",
+        "- [Placas de portal](gate_plates): Coro, Reunião, Discórdia e Silêncio pesam duas entradas uma contra a outra.",
+        "- [Placas de sinal](signal_plates): Inversa vira um sinal, e Eco o leva adiante em força total.",
+        "- [Placas de memória](memory_plates): Memória, Contagem e Verso lembram o que ouviram.",
+        "- [Placas de tempo](timing_plates): Batimento, Deriva, Golpe e Acaso marcam o tempo."
+      ]
+    }
+  ]
+}

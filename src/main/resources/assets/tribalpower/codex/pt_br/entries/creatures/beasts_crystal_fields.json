@@ -1,0 +1,74 @@
+{
+  "name": "Feras dos Campos de Cristal",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os próprios do cristal",
+      "text": [
+        "As mesas em terraço mantêm um pastador de pescoço longo e uma libélula a céu aberto, um tatuzinho nas cavernas abaixo e uma louva-a-deus de cristal que caminha sobre o cristal à noite.",
+        "Toda fera mansa daqui pode ser escovada uma vez por minuto para obter seu reagente, e é tentada e reproduzida com a própria comida, indicada abaixo em **Caça e pastoreio**. Pode ser vinculada como qualquer animal manso (ver [familiares](familiars)) e, embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer a sua magia (ver [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Pastador de sino",
+      "text": [
+        "Um pastador violeta, lanoso e de pescoço longo, com dois grandes chifres de cristal e uma crista de cristal ao longo do dorso, em manadas de dois a quatro. **24 de vida** e **3 de armadura**.",
+        "Solta **de 1 a 3 Crista de sino**, mais com Pilhagem.",
+        "Caçado, também solta de 1 a 2 Caça crua, até 1 Couro da Marcha e até 1 fragmento de ametista. Crie com **trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Esvoaçante de vidro",
+      "text": [
+        "Uma libélula de asas de vidro, de uma a três. **10 de vida**, sem armadura.",
+        "Solta **de 1 a 3 Asa de vidro**.",
+        "Caçado, também solta até 2 penas. Crie com **Flor de eco ou qualquer flor pequena**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Larva de geodo",
+      "text": [
+        "Um tatu-bolinha pesado de pedra lilás em faixas, com uma placa pálida na cabeça e uma fileira de geodos na espinha, das cavernas escuras sob as mesetas, de um a três por vez. **26 de vida** e **5 de armadura**, muito lento, e manso.",
+        "Solta **de 1 a 3 Casca de geodo**.",
+        "Caçado, também solta até 2 fragmentos de ametista. Crie com **Chapéu-lanterna ou qualquer cogumelo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Espreitador de estilhaços",
+      "text": [
+        "Um louva-a-deus de cristal que surge entre o cristal à noite, um ou dois por vez. Tem **21 de vida** e **1 de armadura**, é rápido, e o golpe causa **5** e envenena você por 3 segundos.",
+        "Solta **de 1 a 2 Farpa de estilhaço**, um reagente de veneno.",
+        "Caçado, também solta até 1 fragmento de ametista e até 1 linha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

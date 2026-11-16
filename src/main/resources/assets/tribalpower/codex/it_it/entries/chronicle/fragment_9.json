@@ -1,0 +1,17 @@
+{
+  "name": "10. Palude",
+  "icon": "tribalpower:mural",
+  "order": 19,
+  "spoiler": true,
+  "unlock": "fragment:9",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Palude",
+      "text": [
+        "“La Palude delle canne è il lavoro di corde dei Legaradici, annegato. Ogni canna è un nodo che legarono per tenere il suolo; l'acqua venne lo stesso. Una di loro tenne oltre la fine. Sta ancora tenendo.”",
+        "Trovato su un murale nel terreno di un guardiano."
+      ]
+    }
+  ]
+}

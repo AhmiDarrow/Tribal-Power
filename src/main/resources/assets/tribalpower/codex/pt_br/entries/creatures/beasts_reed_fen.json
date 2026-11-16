@@ -1,0 +1,74 @@
+{
+  "name": "Feras do brejo dos juncos",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Próprios do brejo dos juncos",
+      "text": [
+        "Entre os juncos e os canais de lama vivem um sapo, uma garça e um baiacu que flutua no ar, e à noite uma naja acorda na grama.",
+        "Você pode escovar cada fera mansa daqui uma vez por minuto para obter o reagente dela, e ela é tentada e criada com a própria comida, nomeada abaixo em **Caça e criação**. Você pode vinculá-la como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer a sua magia (veja [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Pula-pântano",
+      "text": [
+        "Um sapo pequeno do brejo, rápido no salto, em grupos de dois a quatro. **12 de vida**, sem armadura.",
+        "Solta **1 a 3 Pé de pântano**, mais com Pilhagem.",
+        "Caçado, também solta até 1 Caça crua, até 1 Pele de coelho e até 1 Bola de slime. Crie com **Arroz de brejo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Pernalta do paul",
+      "text": [
+        "Uma garça alta, que vadeia em pernas de zanco, em bandos de dois a quatro. **22 de vida** e **1 de armadura**.",
+        "Solta **1 a 3 Casco de paul**.",
+        "Caçada, também solta de 1 a 3 Caça crua, até 2 Couro da Marcha e até 1 Osso. Crie com **Arroz de brejo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Flutua-brejo",
+      "text": [
+        "Um baiacu-balão verde, inflado, redondo e espinhento, que deriva sobre o brejo, de um a três. **12 de vida**, sem armadura. Alguns derivam junto do [Guardião colosso](colossus_warden).",
+        "Solta **1 a 3 Bexiga de brejo**.",
+        "Caçado, também solta até 1 Bola de slime e até 1 Linha. Crie com **Arroz de brejo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Espiral de junco",
+      "text": [
+        "Uma naja do pântano, enrolada com o capelo aberto, que surge à noite no chão aberto do brejo, uma ou duas por vez. É bem lenta, mas tem **30 de vida** e **6 de armadura**, acerta por **5** e empurra você para trás a cada golpe.",
+        "Solta **1 a 2 Voluta de junco**, um reagente de Empurrão.",
+        "Caçada, também solta até 1 Couro da Marcha e até 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e criação",
+      "text": [
+        "Além do reagente, cada uma solta mais quando você a caça, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para criar os selvagens, **agache** enquanto você dá a comida deles a dois adultos; alimentado normalmente, um selvagem se apega a você."
+      ]
+    }
+  ]
+}

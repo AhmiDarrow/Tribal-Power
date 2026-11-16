@@ -1,0 +1,267 @@
+{
+  "name": "六种声音",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "每个回响站除了输入之外还需要两样：脉动，以及正确声音的**共鸣图腾**，范围在**8格**以内。",
+        "图腾是老师，不是发电机。没有正确的声音，站点就等待，什么也不消耗。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "两格高",
+      "text": [
+        "共鸣图腾有**两格**高，所以在你放置的位置上方留出一个空方块。",
+        "点哪一半都行：顶部和底座一样会回应。破坏任意一半，整个图腾会连同所装之物作为一个物品掉落。",
+        "旧世界里只有一格高的图腾，一旦上方的方块是空气，就会自己把顶部长回来。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "哪种声音做什么",
+      "text": [
+        "每间工坊对应一种声音，并等待**8格**内有它的图腾:",
+        "- **土**: 回响粉碎、石盆和聆听坑。",
+        "- **火**: 回响调谐和余烬窑。调谐生物试剂时，改要**灵**。",
+        "- **水**: 回响束缚。",
+        "- **灵**: 回响显化。",
+        "- **织机**: 回响拆织和远门。它是最后一种声音；见[第六种声音](sixth_voice)。",
+        "暂停的机器会在你拿着这本书潜行右键时，说出它缺的是哪种声音。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "营地四周的声音",
+      "text": [
+        "独自运转的营地装置，也要在8格内有一个守着的声音:",
+        "- **土**: 林园照料者和路锚。",
+        "- **水**: 潮汐泵。",
+        "- **灵**: 守护鼓、静默图腾和召唤摇篮。",
+        "- **风**: 风圈套，以及除星界之外的所有中继器。",
+        "- **织机**: 印织机和星界中继器。",
+        "歌之工作台接受任何声音：你选的图腾就是歌的声音。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "正确的老师",
+      "steps": [
+        {
+          "caption": "回响粉碎，里面有石头，旁边有一面充能的鼓。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "火图腾是回响粉碎的错误声音。工作站等待，不消耗任何东西。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "换成土图腾，工作便开始。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "是声音，不是方块",
+      "text": [
+        "工作站计算的是声音，不是图腾：两座土图腾仍只算一种声音。拥有许多不同的声音，对脉动共鸣器和织机锚很重要，它们会为周围每一种**不同的**声音产生更多脉动。",
+        "亲族图腾把自己部族的元素借给工作站、营地装置和织机锚，而且从不会安静。脉动共鸣器的算法不同：每个部族只额外增加一种声音，绝不会变成第七种元素。",
+        "用粉笔连到工作站附近另一座图腾上的图腾，若离工作站不到16格，也会借出声音。营地装置和共鸣器听不见粉笔连结。",
+        "每座图腾还为网格持有**250脉动**，并且必须保持清醒：见[维持](keeping)。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "每种声音一个发生器",
+      "text": [
+        "每种声音也有自己的发生器，即守护它的部族的手艺：",
+        "- **土**: 鼓心。",
+        "- **火**: 余烬号角，[鼓心族](tribe_spark)所制。",
+        "- **风**: 风之竖琴，[纹织者](tribe_clock)所制。",
+        "- **水**: 浪鼓，[缚根者](tribe_sprout)所制。",
+        "- **灵**: 醒钟，[印刻者](tribe_sigil)所制。",
+        "- **织机**: 织机锚，[织机缝工](tribe_spindle)所制。",
+        "让六者在织机锚的**32格**内同时产出，站在近处的每个人获得**六声齐唱**。",
+        "在[远行界](living_march)，天气利于一种声音的发生器，并阻碍另一种。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

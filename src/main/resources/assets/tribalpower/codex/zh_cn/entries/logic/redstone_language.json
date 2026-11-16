@@ -1,0 +1,462 @@
+{
+  "name": "红石语言",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "保持与敲击",
+      "text": [
+        "Tribal机器以两种方式听取红石。",
+        "**保持的**信号会暂停。让一条线路保持为高，工坊、导体、共鸣器、收集器、中继器、火盆、网、盆、台座、门心石，以及除鼓心以外的每台发电机都会停下等待。储存与旅行目的地会锁定。",
+        "暂停从不丢失任何东西：储存的脉动、物品和流体都留在原地。",
+        "**敲击的**信号，即线路开启时的上升沿，是一次呼唤。只有做一件单独事情的装置会听：鼓心接受一次敲击，仪式火盆发动安置好的仪式，门心石变亮或变暗。",
+        "用按钮或敲击板去敲门心石，不要用拉杆：片刻之后线路仍被保持，就会把门重新降下。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "读取营地",
+      "text": [
+        "把比较器贴在Tribal方块上并朝外，即可不打开而读取它所持有的：储存的脉动、物品栏或储罐有多满、FE缓冲，或中继活动。石盆或共鸣网改为读取进度，停滞时降到0。",
+        "要把脉动读成干净的0到15，使用[脉动计](pulse_gauge)。数字不够时，拿着这本书潜行右键该方块，可得到一句话（见[典籍诊断](codex_diagnostics)）。",
+        "时钟、拉杆和比较器就足以编排整座营地。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tribal布线",
+      "text": [
+        "[歌线](song_thread)在全部六个方向上，像粉末一样微弱地传送0到15。它不会给接触到的石头供能，因此从不锁存。",
+        "[歌之板](song_plates)从朝向的一面输出。一元板读取背面；二元板读取左右。板只听取指向它的能量，或用图腾扳手与它同步的板，最远32格，无需导线。",
+        "[诗节呼唤与应答](verse_link)完全不用导线，把信号送到最多32格。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "点击或潜行",
+      "text": [
+        "- **普通点击**，空手与否都会触发方块。工作站会打开，鼓心会敲击，阈值会把设置步进一档，板、仪表或图腾会告诉你它在做什么。",
+        "- **放置方块**，对着部落机器、鼓或板时要潜行，否则点击会改为触发那个方块。中继板是唯一的例外，普通点击就能对着它放置。",
+        "- **空手潜行**：会改一项设置。工作站、储柜、蓄池或营地的面在输入、输出、两者、关闭之间步进；心跳、漂移和计数步进它们的计数；诗节板步进它的诗节；中继板翻转它的列表。",
+        "- **拿着这本书潜行**：方块会解释自己（见[典籍诊断](codex_diagnostics)）。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "时钟上的仪式",
+      "text": [
+        "仪式台座托住并展示一件物品，比较器读取它是否被占用。仪式要自己运转，有这些就够了:",
+        "- 中继器给[仪式圆](rite_circle)的一座台座补上石板。",
+        "- 心跳板或拉杆敲响火盆。",
+        "- 仪式发动，并消耗与安置好的印相符的石板。",
+        "- 比较器报告台座已空，中继器再次把它装满。",
+        "如果想启用和停用这个循环，就加一块记忆板。营地只用你亲手能做的操作：没有隐藏的额外物品栏。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "时钟上的火盆",
+      "steps": [
+        {
+          "caption": "画出仪式圆：火盆在中间，台座在对角上，粉笔画在它们之间。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把印安置在火盆里，并给一座台座备上同一声音的石板。",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "把心跳板装在火盆旁边的方块上，朝向火盆。每一次跳动敲响火盆一次。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "比较器读取台座。仪式消耗石板时，它降到 0：这是让中继器补货的信号。",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

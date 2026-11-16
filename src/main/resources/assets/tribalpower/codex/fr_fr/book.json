@@ -1,0 +1,9 @@
+{
+  "title": "Codex spirituel",
+  "landing": [
+    "Bienvenue, gardien. Ce livre grandit avec ton camp : il explique chaque tambour, totem et machine dans l'ordre où tu risques de les rencontrer.",
+    "Première fois ici ? Ouvre **Pour commencer** et lis-le du début à la fin. Il te mène d'un champ vide à un camp qui produit lui-même son énergie, une courte page à la fois.",
+    "Tu cherches quelque chose de précis ? Écris-le dans le champ de recherche au-dessus. Tout objet affiché sur une page peut être cliqué pour aller à sa page ; un clic droit l'ouvre dans JEI si tu l'as.",
+    "Les pages sur les lieux et les créatures que tu n'as pas encore trouvés restent cachées jusqu'à ce que tu décides de les révéler, ainsi la Marche garde quelques surprises."
+  ]
+}

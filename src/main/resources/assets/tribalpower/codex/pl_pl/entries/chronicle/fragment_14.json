@@ -1,0 +1,17 @@
+{
+  "name": "15. Step",
+  "icon": "tribalpower:mural",
+  "order": 24,
+  "spoiler": true,
+  "unlock": "fragment:14",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Step",
+      "text": [
+        "“Step to posłanie, którego Strażnicy posłania nie zdołali unieść: za duże, a stado było na nim, gdy posłanie upadło. Stado nigdy nie przestało biec. Ciche stopy mogłyby sprowadzić posłanie z powrotem; głośne dołączają do panicznego biegu.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

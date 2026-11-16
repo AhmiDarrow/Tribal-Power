@@ -1,0 +1,74 @@
+{
+  "name": "Bestien der Untiefen",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die Eigenen des Wassers",
+      "text": [
+        "Das meiste, was zu den Untiefen gehört, lebt in ihrem Wasser: drei sanfte Schwimmer und eine Muräne, die dort nachts jagt. Die Schwimmer verlassen das Wasser nie. Strandet einer, zappelt er zurück und trocknet aus, wenn er es nicht erreicht. Stelzenholz geht an den Ufern (siehe [laufende Bäume](walking_trees)). Siehe [der Marsch](the_march) für das Land selbst.",
+        "Jede sanfte Bestie hier kannst du einmal pro Minute abbürsten und so ihr Reagenz bekommen. Gelockt und gezüchtet wird sie mit ihrem eigenen Futter, genannt weiter unten unter **Jagd und Haltung**. Du kannst sie binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene dennoch eine Stimme an einem Totem annehmen und deine Magie stärken (siehe [an einem Totem abstimmen](familiar_attuning)). Ein gebundener Schwimmer folgt dir nur so weit, wie sein Wasser reicht, und wartet im Wasser, wenn du ihm sagst, dass er bleiben soll."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Schlickgleiter",
+      "text": [
+        "Ein Rochen, der über den Schlick gleitet, in Gruppen von zwei bis vier. **14 Gesundheit** und **1 Rüstung**.",
+        "Lässt **1 bis 3 Schlickflosse** fallen, mehr mit Plünderung.",
+        "Gejagt lässt er außerdem 1 bis 2 Rohe Glimmerflosse und bis zu 1 Knochenmehl fallen. Züchte mit **Bandkraut oder Seegras**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Fahltreiber",
+      "text": [
+        "Eine bernsteinfarbene Seenessel mit gestreifter Glocke und langen Bandarmen, in Gruppen von zwei bis vier. **12 Gesundheit**, keine Rüstung.",
+        "Lässt **1 bis 3 Fahlschleppe** fallen.",
+        "Gejagt lässt sie außerdem bis zu 1 Treibgelee und bis zu 1 Schleimball fallen. Züchte mit **Bandkraut oder Seegras**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Sandbankpfeil",
+      "text": [
+        "Ein kleiner gestreifter Barsch, in Gruppen von zwei bis vier. **14 Gesundheit** und **1 Rüstung**.",
+        "Lässt **1 bis 3 Sandbankschuppe** fallen.",
+        "Gejagt lässt er außerdem 1 bis 2 Rohe Glimmerflosse und bis zu 1 Knochenmehl fallen. Züchte mit **Bandkraut oder Seegras**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Solenlauerer",
+      "text": [
+        "Eine Muräne, die nachts in den Untiefen aufsteigt, eine oder zwei auf einmal. Sie hat **21 Gesundheit** und **1 Rüstung**, ihr Biss macht **4** und vergiftet dich 3 Sekunden lang. Sie folgt der Beute bis aufs Ufer und kehrt ins Wasser zurück, wenn sie sie verliert.",
+        "Lässt **1 bis 2 Solenzahn** fallen, ein Gift-Reagenz. Solenzahn ruft den Gezeitentrommler am Gezeitenstein: siehe [Wächter](guardians).",
+        "Gejagt lässt sie außerdem bis zu 2 Tintenbeutel und bis zu 1 Rohe Glimmerflosse fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn es gejagt wird, und noch mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend gestorben ist. Um wilde zu züchten, **schleiche**, während du zwei Erwachsene mit ihrem Futter fütterst; fütterst du normal, wird ein wildes dir stattdessen zutraulich."
+      ]
+    }
+  ]
+}

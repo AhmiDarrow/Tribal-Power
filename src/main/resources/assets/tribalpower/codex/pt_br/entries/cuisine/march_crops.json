@@ -1,0 +1,35 @@
+{
+  "name": "Cultivos da Marcha",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cinco cultivos crescem selvagens lá fora, cada um no seu próprio país. Ache um trecho, colha, e o que você colheu é a semente: plante em terra arada como uma batata. Também pega em terra lisa, Solo da Marcha ou areia, que é como crescem os trechos selvagens.",
+        "- **Raiz de brasa** nos Ermos de brasa: um tubérculo vermelho e quente.",
+        "- **Arroz de brejo** no Brejo dos juncos.",
+        "- **Baga de geada** nos Campos de neve.",
+        "- **Feijão de fulgor** na Crista de fulgor, onde cria raiz em pedra-da-lua e ágata musgosa, e nos Campos de cristal.",
+        "- **Grão da estepe** na estepe."
+      ],
+      "title": "O que a Marcha cultiva"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Eles crescem em quatro estágios. Todos podem ser comidos crus, mas saciam pouco. A [Enxada de Equipamento espiritual](spiritgear) os colhe e replanta de uma só vez, as abelhas os polinizam, e a [dádiva Broto](tribe_boons) os apressa.",
+        "A Baga de geada e o Feijão de fulgor também contam como ervas para o [Caldeirão do Espírito](spirit_kettle)."
+      ],
+      "title": "Cultivá-los"
+    }
+  ],
+  "next": "hearth_pot"
+}

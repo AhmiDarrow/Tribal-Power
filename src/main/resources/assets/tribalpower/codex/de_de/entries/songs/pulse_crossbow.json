@@ -1,0 +1,36 @@
+{
+  "name": "Puls-Armbrust",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 40,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "next": "anointing",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "Die schwerere Schwester des Bogens",
+      "text": [
+        "Die Puls-Armbrust feuert dieselben Schallbolzen wie der [Pulsbogen](song_bench) und trägt Verspfeil auf dieselbe Weise.",
+        "**Benutzen halten** zum Laden. Das Laden dauert etwas länger als ein voller Bogenzug und gibt **10 Puls** im Voraus aus; trägst du einen Verspfeil, lädt sie den auch, für 6 Puls mehr. **Benutze sie erneut**, um zu feuern.",
+        "Eine Pulszelle, die in der Armbrust sitzt, zahlt zuerst, dann die Zellen, die du trägst.",
+        "Sie wird geschmiedet wie das andere Geistergerät: zwei **Manifestierter Barren** und ein **Knochenklang** für den Bügel, Faden, ein Haken und ein Stock. Sie hält 1,024, und da der Puls jeden Schuss zahlt, nutzt Schießen sie nie ab; der [Geisteramboss](spirit_anvil) repariert sie mit Manifestierter Barren, ein Viertel je Stück."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Die **Armbrust** trifft etwa **ein Drittel härter**: **10** aus der Nähe gegen die **7** des Bogens, etwas weniger am Ende eines langen Flugs. Sie fliegt schneller und fast ganz gerade und hält ihren Schuss, solange du willst, sodass du geladen gehen und feuern kannst, sobald sich etwas zeigt.",
+        "- Der **Bogen** ist schneller: du kannst eher wieder loslassen und einen Teilzug loslassen, wenn du es eilig hast, wobei ein Teilzug nur für seinen Anteil trifft.",
+        "Ein Verspfeil fügt bis zu **3** mehr zu einem vollen Bogenzug hinzu, ein wenig mehr von der Armbrust, und trägt sein Lied. Schallbolzen fallen nicht, verblassen aber nach etwa 60 Blöcken.",
+        "Trag die Armbrust für den einen Schuss, der zählt, den Bogen für einen laufenden Kampf."
+      ],
+      "title": "Bogen oder Armbrust?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

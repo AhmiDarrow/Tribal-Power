@@ -1,0 +1,360 @@
+{
+  "name": "Bęben fal",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "Rzemiosło: Wiązacze korzeni. Bęben fal robi Puls z wody: trochę ze stawu obok, dużo z wody wlanej do środka. To generator, nie zapasowy zbiornik.",
+        "Mieści **1,000 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dwa sposoby karmienia",
+      "text": [
+        "**Przy wodzie.** Woda dotykająca dowolnej ściany bębna daje **3 Puls na sekundę**. Bębny w zasięgu **8 bloków** w każdą stronę, z krawędzią włącznie, z rurą albo bez, dzielą to, zaokrąglając w dół: dwa bębny dają po **1 na sekundę**, a cztery nie dają nic.",
+        "**Własna woda.** Napełnij wewnętrzny zbiornik wiadrem, Cysterna Ducha albo Przekaźnik płynów, a robi **10 na sekundę**, pijąc **100 mB na sekundę**. Nikt nie tłoczy się na tym poziomie; woda jest już ceną. Pije tylko wtedy, gdy naprawdę oddaje Puls.",
+        "Deszcz padający na bęben podwaja każdy poziom, więc zadaszony bęben nie dostaje premii za deszcz. Ranga dodaje **15% Puls na sekundę** za każdą rangę. Premia jest zaokrąglana do całego Pulsu, więc generator dający tylko 2 albo 3 na sekundę nic nie zyskuje na pierwszej randze. Zbiornik mieści **4,000 mB**, i tylko wodę."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Przy stawie",
+      "steps": [
+        {
+          "caption": "Postaw Bęben fal przy brzegu wody.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Woda dotykająca dowolnej ściany bębna daje mu 3 Puls na sekundę.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Drugi bęben w zasięgu 8 bloków dzieli to: każdy robi teraz 1 Puls na sekundę.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Bęben, który karmi sam siebie",
+      "steps": [
+        {
+          "caption": "Suchy bęben sam z siebie nie robi nic.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Postaw go przy Cysterna Ducha. Cysterna sama wlewa wodę do bębna.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Z własną wodą bęben robi 10 Puls na sekundę i pije 100 mB na sekundę.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Wezwanie wiosny na cysternie napełnia ją z powrotem, więc całość działa sama.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przenoszenie",
+      "text": [
+        "Zniszcz bęben, a upuszczony przedmiot zatrzyma wodę w zbiorniku. Dołóż Pompa pływów, jeśli woda ma iść dalej po dotarciu: przekaźniki i Pompa pływów przesuwają płyn, nie są magazynem.",
+        "[Wezwanie wiosny](spring_calling) na pobliskiej Cysterna Ducha to sposób, w jaki woda napełnia się sama.",
+        "Sygnał redstone wstrzymuje go, a wstrzymany bęben nie pobiera wody. Suchy bęben dostaje tylko poziom przy wodzie. Przykucnij i kliknij go prawym przyciskiem tą książką, by zobaczyć poziom i co jest w zbiorniku.",
+        "Bębny to rzemiosło [Wiązacze korzeni](tribe_sprout): przepis wymaga Sękaty korzeń i Pieczęć Wody, a Wiązacze korzeni wymieniają bęben na rangę Przyjaciel za Trzcina Ducha.",
+        "Przykucnij i kliknij ścianę prawym przyciskiem pustą ręką, by przełączać Oba, Wejście, Wyjście i Zamknięte, tak jak [Klucz totemu](camp_kit)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

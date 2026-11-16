@@ -1,0 +1,54 @@
+{
+  "name": "Campamentos compartidos",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "¿Juegas con amigos? Funda un campamento con ellos. Un campamento es un grupo con nombre, con una bóveda compartida, dispositivos que cada miembro puede usar y la posición con las tribus reunida entre ustedes."
+      ],
+      "title": "Campamentos compartidos"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Un campamento, muchas manos",
+      "text": "Todo lo que coloca un miembro queda abierto para todo el campamento."
+    },
+    {
+      "type": "text",
+      "title": "Fundar e invitar",
+      "text": [
+        "Ejecuta **/tribalpower camp create <name>** (hasta 24 caracteres). Pasas a ser su primer miembro y su líder.",
+        "Para invitar a alguien, ejecuta **/tribalpower camp invite <player>**, o fabrica una **Carta del campamento** y haz clic derecho sobre el jugador con ella. La carta nunca se gasta. Si haces clic derecho en el aire con ella, muestra tu campamento.",
+        "Una invitación dura **cinco minutos**. Quien la recibe acepta con **/tribalpower camp join <name>**.",
+        "Solo puedes pertenecer a un campamento a la vez."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que comparten los miembros",
+      "text": [
+        "- **Dispositivos.** Los miembros cuentan como dueños de los bloques de campamento, los dispositivos de patrones, Pedestal del rito, los relés, Piedra clave del portal, las placas de canto y los enlaces de verso de los demás. A quien está fuera del campamento se le niega.",
+        "- **La bóveda.** Cualquier Alijo profundo o Zurrón del viajero abre la bóveda compartida de **54 ranuras** del campamento. Agáchate al abrir uno para alternar entre esa y tu bóveda personal; recuerda tu elección.",
+        "- **Posición.** Desde el día en que entras, una cuarta parte de cada posición que un miembro gana o pierde con una tribu cae también en el campamento. Donde tu rango importa (trueques de Pariente, sus dones, misiones de tribu, vincular un remanente), cuenta el rango del campamento si es más alto que el tuyo.",
+        "- **Anclas.** El campamento comparte **12** Ancla de camino, contadas en todos los mundos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dirigir el campamento",
+      "text": [
+        "**/tribalpower camp info** enumera miembros y anclas. El líder puede ejecutar **/tribalpower camp rename <name>** y **/tribalpower camp kick <player>**. Cualquiera puede **/tribalpower camp leave**; si el líder se va, dirige el miembro más antiguo.",
+        "Cuando se va el último miembro, el campamento se disuelve y su bóveda se derrama a sus pies.",
+        "Cuando las tribus te conocen, sus [Tótem de parentesco](kinship_totem) pueden prestar a tu campamento cualquiera de sus voces."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

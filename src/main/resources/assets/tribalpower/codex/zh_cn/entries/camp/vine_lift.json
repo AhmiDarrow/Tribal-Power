@@ -1,0 +1,33 @@
+{
+  "name": "藤蔓升降台",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "载你的活藤蔓",
+      "text": [
+        "藤蔓升降台是一块活藤蔓垫。在塔或矿井的每一层放一个，上下对齐在**同一列**，它们会自己找到彼此。不用连接，也不用能量。",
+        "- 在升降台上**跳跃**，升到上方的下一个升降台。",
+        "- 在升降台上**潜行**，降到下方的下一个升降台。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "可以叠任意多个；每次跳跃或潜行只去一个升降台，并跳过中间的空层。升降台朝上下各看**48格**。",
+        "下一个升降台上方要有两格站人的空间；顶上有天花板的升降台会被跳过，所以你不会出现在墙里。"
+      ],
+      "title": "串成一列"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

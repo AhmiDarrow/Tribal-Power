@@ -1,0 +1,712 @@
+{
+  "name": "Tratador do bosque",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "Um peão que nunca dorme. O Tratador do bosque planta, faz crescer e colhe o canteiro de 9 por 9 ao redor dele, e guarda a colheita no próprio armazém até você, um funil ou um depósito levá-la.",
+        "Ele trata de plantações, mudas, cana-de-açúcar, cacto, bambu, bagas doces, fungo do Nether e cacau, corta as abóboras e melancias que os caules deixam, e pega uma planta-jarro crescida. Os do vanilla, os da Marcha e os de outros mods contam: azaleias, propágulos de mangue e vagens de planta-jarro vão na fileira de sementes, e também qualquer plantação ou muda que um pacote coloque sob as tags vanilla de plantação e de muda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como colocar",
+      "text": [
+        "**Coloque-o você mesmo.** O tratador lembra quem o colocou e trabalha com as permissões desse jogador, então a proteção de terreno ainda vale. Um tratador que ninguém reivindicou não faz nada. Ele responde a **Terra**: mantenha um totem de Terra em até 8 blocos (veja [Mãos do acampamento](camp_hands)), senão fica parado.",
+        "Ele trabalha no **próprio nível**: o canteiro é o quadrado que alcança **4 blocos** para cada lado, na altura do tratador. Então coloque-o na altura da plantação, num bloco afundado na terra arada, não em cima das plantações.",
+        "As sementes vão na **fileira de cima** do menu, os primeiros nove espaços. Funis e tubos as colocam ali por cima ou pelos lados. A colheita enche os outros espaços e sai pela face de **baixo**. Uma [placa de relé](wireless_cargo) trabalha nele como um funil: uma embaixo manda a colheita adiante, e uma placa ajustada para o topo ou para um lado enche a fileira de sementes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Com AgriCraft",
+      "text": [
+        "Quando AgriCraft está no pacote, o tratador trabalha as plantações dele como se fossem suas. **Varetas de cultivo** na fileira de cima vão para o canteiro (terra arada ou o solo próprio da Marcha), e uma **semente** entra em varetas vazias antes de qualquer outro lugar: uma semente AgriCraft analisada, ou uma plantação simples que AgriCraft conhece, como uma batata ou qualquer plantação da Marcha.",
+        "Uma planta madura é colhida do jeito que um clique a colheria: o produto vai para o armazém e a planta fica nas varetas, cortada para crescer de novo. Mato é rastelado por **4 Pulso** e plantas lentas são apressadas por **16**.",
+        "Ele ainda quer seu totem de Terra, Pulso na reserva e um dono que o tenha reivindicado, como em todo o outro trabalho. Se as varetas ficarem vazias, olhe a linha de estado: ela nomeia o que o tratador está esperando."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um canteiro cuidado",
+      "steps": [
+        {
+          "caption": "Are a terra e afunde um Depósito ancestral no meio.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque o Tratador do bosque sobre o depósito, para que fique na altura da plantação; a água mantém a terra arada molhada.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Adicione Pulso e um totem de Terra em até 8 blocos, depois dê sementes a ele: ele planta um ponto por segundo por 4 Pulso.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "O trigo maduro é cortado e replantado por 12 Pulso, guardando uma semente.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "A face de baixo do tratador é Saída, então a colheita cai no depósito sem funil.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que cada tarefa custa",
+      "text": [
+        "Uma vez por segundo ele olha ao longo do canteiro e faz **um** trabalho:",
+        "- **Plantar** um ponto vazio: **4 Pulso**.",
+        "- **Colher** algo maduro: **12 Pulso**. As plantações, o fungo do Nether e o cacau são cortados e replantados, deixando uma semente de reserva; as bagas são colhidas e o arbusto fica; a cana, o cacto e o bambu perdem o topo quando o caule tem **três** de altura; uma abóbora ou uma melancia é cortada e o caule fica para crescer outra, e uma planta-jarro crescida é cortada inteira.",
+        "- **Estimular** uma muda, um caule, uma plantação, uma vagem de cacau, um arbusto de bagas ou um broto de bambu a crescer, como farinha de osso: **16 Pulso**.",
+        "- **Regar** o canteiro: **4 Pulso** (veja abaixo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Árvores",
+      "text": [
+        "Quando o canteiro não tem mais nada a fazer, ele derruba árvores: troncos e folhas numa coluna de **9 de largura e 11 de altura** a partir do próprio nível para cima, por **12 Pulso** o bloco. Para uma fazenda de árvores, dê mudas a ele: ele as planta na terra, as estimula para cima e depois leva a árvore.",
+        "Ele corta só **árvores crescidas**. Um tronco conta quando os troncos ligados a ele alcançam folhas que a própria árvore fez crescer, então um tronco alto ou um largo de dois por dois desce até o chão em vez de deixar um toco.",
+        "O que você construiu fica em paz: muros e casas de troncos, folhas que você colocou e os troncos de selva que você pôs para o cacau."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Solo, água e energia",
+      "text": [
+        "Cada planta precisa do solo de sempre: terra arada perto da água para as plantações, terra para as mudas, areia para o cacto, areia ou terra junto da água para a cana, areia das almas para o fungo do Nether, e troncos de selva no canteiro para o cacau.",
+        "**Regar.** Mantenha um Totem de ressonância (Água) a 8 blocos, Respondido ou Tênue, e o tratador mantém úmida a terra arada do canteiro: cada sulco seco é encharcado em uma batida por **4 Pulso**. Chega de valas no meio das plantações. Um Totem de parentesco que empreste Água não conta para isto; tem de ser um Totem de ressonância.",
+        "O tratador guarda uma reserva de **2.400 Pulso** e a recarrega em até **80** por segundo a partir da treliça. Clique com o botão direito nele com uma Célula de Pulso para encher à mão."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando ele para",
+      "text": [
+        "Clique com o botão direito para ver o que ele está fazendo e quanto Pulso ele guarda. Se o estoque estiver cheio, ele deixa as plantas maduras de pé e espera, então esvazie-o, ou dê a ele um depósito onde soltar.",
+        "Uma alavanca pausa o trabalho e trava o inventário. Um comparador lê o quão cheio ele está.",
+        "Agache-se e clique com o botão direito numa face com a mão vazia para mudar o que essa face faz: Ambos, Entrada, Saída ou Fechado.",
+        "Um Laço de vento por perto pega o que ainda acabar no chão, e um Tear de selos pode transformar a colheita em outra coisa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

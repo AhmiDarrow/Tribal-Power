@@ -1,0 +1,41 @@
+{
+  "name": "Fragmento de Espíritu y resonadores",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Dos piezas humildes aparecen en casi todas las recetas de Tribal Power: el **Fragmento de Espíritu** y el **Resonador de cobre**. Haz una pila de cada uno pronto y rara vez te quedarás atascado.",
+        "Los dos salen de una **Campanilla de hueso**: un hueso, una cuerda y un fragmento de amatista hacen dos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "De dónde salen",
+      "text": [
+        "Un Fragmento de Espíritu es un fragmento de amatista, un polvo de redstone y una Campanilla de hueso, fabricados juntos. Cada fabricación da **dos**.",
+        "Un Resonador de cobre se hace con cuatro lingotes de cobre alrededor de una Campanilla de hueso. Cada fabricación también da **dos**.",
+        "Cuando llegues a la Marcha, la **Mena de la Marcha** es la fuente más barata de fragmentos: pásala por el [Triturador de eco](echo_shatter) con un tótem de Tierra y se rompe en **dos Fragmento de Espíritu** en 4 segundos, a 40 Pulso por segundo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "La Campanilla de hueso también despierta un tótem quieto cuando la usas sobre el tótem."
+    }
+  ]
+}

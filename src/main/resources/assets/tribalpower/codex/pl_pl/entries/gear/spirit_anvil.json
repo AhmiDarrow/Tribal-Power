@@ -1,0 +1,31 @@
+{
+  "name": "Kowadło Ducha",
+  "icon": "tribalpower:spirit_anvil",
+  "order": 45,
+  "items": [
+    "tribalpower:manifested_block"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_anvil",
+      "text": [
+        "Kowadło do Duchowy sprzęt, który zużywa się tylko wtedy, gdy działa bez Pulsu. Połóż po lewej zużyte narzędzie lub broń Duchowy sprzęt (także Łuk Pulsu i Kusza «Puls») i po prawej **Manifestowana sztabka**: każda sztabka naprawia ćwierć wytrzymałości, za jeden poziom każda plus zwykła opłata kowadła za wcześniejszą pracę, tak jak żelazne kowadło naprawia narzędzie jego własnym metalem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nadal kowadło",
+      "text": [
+        "Robi wszystko, co kowadło: zmienia nazwy, dodaje zaklęte książki, łączy dwa takie same narzędzia, naprawia inne wyposażenie jego własnym materiałem.",
+        "W przeciwieństwie do żelaznego kowadła nigdy się nie szczerbi ani nie pęka, ani od użycia, ani od upadku. I tak spada, jeśli nic go nie podtrzymuje.",
+        "Jego lico to Blok zamanifestowanego metalu między dwoma blokami żelaza: dziewięć Manifestowana sztabka wytworzonych razem i z powrotem w dziewięć sztabek, gdy ich potrzebujesz.",
+        "Każdy element Duchowy sprzęt, narzędzia, broń, nożyce, grzechotka, oba łuki i [Młot rezonansu](resonance_maul), naprawia się tylko **Manifestowana sztabka**, tutaj albo na dowolnym kowadle, nigdy diamentami. Duchotkanina naprawia się tkaniną Duchotkanina."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_anvil"
+    }
+  ]
+}

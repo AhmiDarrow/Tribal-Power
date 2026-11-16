@@ -1,0 +1,220 @@
+{
+  "name": "Cache ancestrale",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Une grande réserve **à 54 emplacements** pour les provisions du camp, avec un tour qu'un coffre n'a pas : règle ses faces, et elle nourrit ou vide les machines de Tribal Power qui la touchent, sans entonnoir ni relais."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Régler ses faces",
+      "text": [
+        "Ouvre-le et sers-toi du pavé d'E/S pour régler chaque face sur **Entrée**, **Sortie**, **Les deux** ou **Fermé**. T'accroupir et faire un clic droit sur une face à main vide la fait aussi défiler.",
+        "Les machines de Tribal Power qui le touchent font passer jusqu'à **16 objets par seconde** d'une face qui donne (Sortie ou Les deux) vers une face qui prend (Entrée ou Les deux). Deux faces sur Les deux n'échangent jamais, donc les piles ne peuvent pas faire l'aller-retour entre elles.",
+        "La face du dessous d'une station est Sortie, donc une cache posée sous une station attrape tout ce qu'elle fait. Règle une face sur Sortie contre le côté Entrée d'une station, et elle l'alimente."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une station qui se vide toute seule",
+      "steps": [
+        {
+          "caption": "Pose une Cache ancestrale là où la sortie doit aller.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mets le Broyeur d'écho dessus ; la face du dessous d'une station est Sortie.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Donne au Broyeur d'écho son totem de Terre et de la Pulsation, comme d'habitude.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Les éclats tombent maintenant droit dans la cache, sans entonnoir.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Astuces",
+      "text": [
+        "Les entonnoirs et les tuyaux respectent les mêmes réglages de face, donc une face Fermée les repousse aussi.",
+        "Les voisins passent par les faces ; les relais servent pour la distance. Voir [Cargaison sans fil](wireless_cargo).",
+        "Un levier verrouille à la fois le menu et l'automatisation. Un comparateur indique à quel point il est plein."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "Le bouton Ranger",
+      "text": [
+        "Tout inventaire qui mérite d'être rangé a un petit bouton **Ranger** dans le coin vide au-dessus de ses emplacements : ton propre sac, cette cache, la [Cache profonde](deep_cache) (et le coffre-fort qu'ouvre une Sacoche du voyageur ou un campement), et tout coffre, tonneau, boîte de shulker ou entonnoir.",
+        "Une pression fusionne ce qui peut l'être et aligne le reste. Ta barre d'action et ton armure ne bougent jamais, et les emplacements d'une machine restent intacts : le bouton n'apparaît qu'au-dessus d'un stockage simple. Ranger un coffre-fort n'y place jamais une Sacoche du voyageur.",
+        "Désactive-le avec **sortButtons** dans la config du client s'il encombre l'écran d'un autre mod."
+      ]
+    }
+  ]
+}

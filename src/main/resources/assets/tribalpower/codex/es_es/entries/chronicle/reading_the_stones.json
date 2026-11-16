@@ -1,0 +1,38 @@
+{
+  "name": "Leer las piedras",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Piedra tallada y murales",
+      "text": [
+        "La Marcha escribió su propia historia, en piedra. En los muros de sus ruinas van **Piedra tallada**: ruinas del Telar, aldeas sobre zancos, santuarios hundidos, túmulos de ciénaga, tumbas de ceniza, osarios, galerías de excavación y las bóvedas de la Cresta del Destello. En los terrenos de los guardianes, **Mural tallado** miden dos bloques de ancho y dos de alto, y cada uno pinta el país en el que está.",
+        "Haz clic derecho en uno y lo lees; el fragmento se guarda aquí para siempre, y la Crónica lo pone en su lugar. Hay **dieciséis**: ocho piedras para la caída del Telar, ocho murales para los países que dejó. Léelos todos y la Crónica queda entera, con el progreso **La Crónica entera** para mostrarlo.",
+        "Las piedras y los murales se pueden recoger y poner en cualquier muro tuyo, y en el modo creativo un clic agachado sobre una piedra o un mural cambia su capítulo. Cada capítulo arruina la sorpresa hasta que lo encuentras."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pinturas y emblemas",
+      "text": [
+        "Seis **pinturas** de la Marcha cuelgan ahora entre las comunes: sostén una pintura contra un muro y puede salir una. Sus títulos son suyos.",
+        "Cuando tu posición con una tribu llega a **Pariente**, ella te entrega su **emblema** una sola vez: un patrón de estandarte con la marca de la tribu. Ponlo en un telar con un estandarte y cualquier tinte. Hazlo ondear sobre un campamento tuyo para mostrar de quién eres Pariente."
+      ]
+    }
+  ]
+}

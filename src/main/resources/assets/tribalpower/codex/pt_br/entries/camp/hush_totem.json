@@ -1,0 +1,38 @@
+{
+  "name": "Totem do silêncio",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Paz para o acampamento todo. Enquanto é alimentado, o Totem do silêncio impede hostis de surgir em **24 blocos**, por **8 Pulso** por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mantê-lo quieto",
+      "text": [
+        "Coloque-o no meio do acampamento, a 8 blocos de um Condutor de treliça, e um totem de **Espírito** a 8 blocos também: sem a voz dele ele fica parado (veja [Mãos do acampamento](camp_hands)). Ele guarda uma reserva de **2.400 Pulso** para cobrir um intervalo de silêncio, e a recarrega em até **80 Pulso** por segundo. Clique com o botão direito nele com uma Célula de Pulso para encher à mão.",
+        "Ele impede surgimentos naturais e surgimentos de geradores de todo hostil, os do Mundo Superior e os da Marcha, inclusive os hostis de um Berço de invocação. Também afasta os **phantoms**: nenhum é enviado atrás de um jogador que esteja dentro do círculo.",
+        "Ele não remove os mobs que já estão, não impede os animais e nunca anula comandos nem ovos geradores.",
+        "A redstone o silencia na hora. Um comparador lê 15 enquanto ele silencia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Viver com ele",
+      "text": [
+        "Os hostis ainda podem entrar andando de fora do círculo, então mantenha as bordas iluminadas também, ou coloque um Tambor de guarda na entrada.",
+        "Se você usar um Berço de invocação para hostis, mantenha-o a mais de 24 blocos do totem, ou ponha o totem numa alavanca e alterne entre paz e invocação.",
+        "Uma Lanterna de Espírito e um Totem do silêncio juntos fazem um acampamento quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

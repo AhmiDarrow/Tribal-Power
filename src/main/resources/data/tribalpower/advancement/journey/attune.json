@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:echo_attune"
     },
-    "title": "A warmer note",
-    "description": "Build the Fire-powered Echo Attune.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.attune.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.attune.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

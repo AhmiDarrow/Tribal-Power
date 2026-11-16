@@ -1,0 +1,220 @@
+{
+  "name": "祖先の貯蔵庫",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "キャンプの物資向けの大きな**54スロット**の倉庫。チェストにない仕掛けがある。面を設定すると、接しているTribal Powerの機械へ送り、またはそれを空にする。ホッパーもリレーも要らない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "面の設定",
+      "text": [
+        "開いて入出力パッドで各面を**入力**、**出力**、**両方**、**閉鎖**にする。しゃがんで空手で面を右クリックしても切り替わる。",
+        "接しているTribal Powerの機械は、出す面（出力か両方）から受け取る面（入力か両方）へ、最大**1秒あたり16個**を渡す。両方の面どうしは決してやり取りしない。だから積み重ねが両者の間を往復することはない。",
+        "ステーションの下面は出力なので、ステーションの下に置いた貯蔵庫は、それが作るものすべてを受ける。面を出力にしてステーションの入力側に当てると、そこへ補給する。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "自分で空になるステーション",
+      "steps": [
+        {
+          "caption": "出力の行き先に祖先の貯蔵庫を置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "その上にエコー破砕を置く。ステーションの下面は出力だ。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "エコー破砕に、いつものとおり土のトーテムとパルスを与える。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "欠片はいま貯蔵庫へまっすぐ落ちる。ホッパーは要らない。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "ヒント",
+      "text": [
+        "ホッパーとパイプは同じ面設定に従う。閉鎖の面はそれらも拒む。",
+        "隣は面を使う。リレーは距離のためだ。[無線貨物](wireless_cargo)を参照。",
+        "レバーはメニューと自動化の両方をロックする。コンパレーターはどれだけ満たされているかを読む。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "整頓ボタン",
+      "text": [
+        "整頓する価値のあるインベントリには、スロット上の空いた角に小さな**整頓**ボタンがある。自分の持ち物、この貯蔵庫、[深層貯蔵庫](deep_cache)（旅人の鞄かキャンプが開く保管庫）、それにチェスト、樽、シュルカーボックス、ホッパー。",
+        "押すと、まとめられるものはまとまり、残りは順番に並ぶ。ホットバーと防具は動かず、機械のスロットには触れない。ボタンは普通の貯蔵の上にだけ出る。保管庫を整頓しても、旅人の鞄は中に入らない。",
+        "他のModの画面を圧迫するなら、クライアント設定の**sortButtons**で切る。"
+      ]
+    }
+  ]
+}

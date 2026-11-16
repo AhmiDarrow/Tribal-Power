@@ -1,0 +1,81 @@
+{
+  "name": "Lebewesen des Marsches",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Zwei Arten von Kreaturen tragen den alten Gesang. **Sanfte Tiere** (der Dämmerhirsch, der Laternenfuchs, der Moosrücken und die Graser, die Flieger, die [laufenden Bäume](walking_trees) und die [Feen](fays) jedes Landes) geben dir Reagenzien, wenn du sie abbürstest. **Reste** sind zerbrochene Wächter und wilde Geister; sie kämpfen und lassen ihr Reagenz fallen, wenn sie besiegt werden.",
+        "Reagenzien speisen Lieder, gesalbte Waffen und Heilmittel (siehe [Reagenzien](reagents)). Die ältesten wenigen gehen auch in deine Echo-Werkstätten und das Bindungsamulett.",
+        "Der Marsch hat auch stilles Leben, das kaum mehr gibt als Fleisch, eine Feder oder Gesellschaft: Marschwanderer, Geisterlichter und die Fische, Gelees und Segler seiner [Tierwelt](march_wildlife).",
+        "Gejagtes oder geleertes Land füllt sich wieder, langsam: etwa einmal pro Minute können ein paar seiner Tiere außer Sicht hereinwandern, bis ungefähr sechs Kreaturen sich das Gebiet teilen. Pferche zählen auch, also wird ein belebtes Lager nie überrannt."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Halte einen **Pinsel** und benutze ihn an einem Erwachsenen. Junge Tiere geben nichts. Jedes Tier ruht **eine Minute** zwischen den Ernten.",
+        "Züchte sie mit **Weizen** (Dämmerhirsch), **Süßbeeren** (Laternenfuchs) und **Seegras** (Moosrücken). Jede andere sanfte Kreatur frisst die Wildfrucht ihres Landes oder etwas ebenso Leichtes; ihre Seite nennt das Futter. Um wilde Tiere zu züchten, **schleiche**, während du zwei Erwachsene fütterst. Normal gefüttert, wird ein wildes stattdessen zutraulich (siehe [Vertraute](familiars)).",
+        "Binde einen Erwachsenen mit einem [Bindungsamulett](familiars), um ihn als Begleiter zu behalten: Er gibt **doppelt** so viel Reagenz ab, und an einem Totem kann er eine Stimme annehmen, die deine Magie stärkt (siehe [Einstimmen an einem Totem](familiar_attuning)). Nur du kannst deinen eigenen Vertrauten abbürsten."
+      ],
+      "title": "Sanftes Ernten"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aschegebunden, Wurzelgebunden und Schilfpirscher suchen Wälder und Sümpfe der Oberwelt heim, und auch den Marsch. Wie alle Reste erheben sie sich im Dunkeln, und nie dort, wo eine Fackel oder Laterne brennt, also beleuchte deine Wege.",
+        "Halte Wasser nahe bei Aschegebunden bereit; ihre Schläge setzen dich in Brand. Die Schläge von Wurzelgebunden verlangsamen dich für ein paar Sekunden: tritt zurück und warte es ab. Schilfpirscher vergiften, also bring Milch mit oder halte Abstand.",
+        "Ein Stilletotem oder der Ritus Stille Nacht hält ein Lager davon ab, über Nacht ein neues Rudel wachsen zu lassen."
+      ],
+      "title": "Zerbrochene Wächter"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sturmmotten, Zunderkobolde, Trauerglocken, Schleierstreicher und die fliegenden Schatten wirken aus bis zu **12 Blöcken** Entfernung. Sie sammeln zuerst eine helle Traube aus Körnchen: das ist deine Warnung.",
+        "Sie brauchen eine freie Linie zu dir. Tritt hinter feste Deckung, und der Zauber bricht ab. Ihre Zauber verbrennen oder ersetzen nie das Gelände.",
+        "Ein geladener Stab hilft, Abstand zu halten. Die Schockwelle des Ungesungenen ist ein anderer Kampf; schleiche gegen sie, wie seine eigene Seite erklärt."
+      ],
+      "title": "Einen Zauber beantworten"
+    },
+    {
+      "type": "text",
+      "title": "Wie stark eine Kreatur ist",
+      "text": [
+        "Die Zahlen im Bestiarium gelten für eine Kreatur gewöhnlichen Blutes. Jede Kreatur trägt fünf Fäden (siehe [Vertraute](familiars)), und jede Stufe über oder unter dem Üblichen macht sie **12%** stärker oder schwächer, also sind keine zwei wilden ganz gleich.",
+        "Im Marsch hat ein Geist, der nachts aufsteigt, **40%** mehr Lebenspunkte und schlägt **25%** härter zu. Etwa **einer von zwölf** steigt als goldbenannte **Elite** auf, öfter auf Schwer: doppelte Lebenspunkte, anderthalb so viel Schaden, **4** mehr Rüstung, schneller auf den Beinen und **dreimal** so viel Erfahrung. Geister, die am Tag aufsteigen, sind nie Eliten."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Dämmersamt, Laternendaune, Moosrückenschuppe, Sturmflügel und Echoseide binden jeweils zu **2 Geistergewebe** unter Wasser, in einem Echobinder.",
+        "- Jedes andere Rest-Reagenz wird unter Geist in einem Echoabstimmer zu **2 Abgestimmtes Echo**.",
+        "Jedes Reagenz, diese wie die der Tiere, geht auch in Lieder, gesalbte Waffen und Heilmittel: siehe [Reagenzien](reagents).",
+        "Die Wurzelbinder bevorzugen Moosrückenschuppe und die Koloniehüter bevorzugen Laternendaune, also kauft, was du abbürstest, auch Ansehen. Öffne die Rezepte in diesem Buch, oder in JEI, falls du es hast, um ein Reagenz in deine Werkstatt zu verfolgen."
+      ],
+      "title": "Den Gesang zurückgeben"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nach der Dämmerung entfaltet sich der Himmel der Oberwelt in langsamen Vorhängen aus Grün und Violett. Am hellsten ist er um Mitternacht, und Regen oder Donner verbergen ihn. Der Marsch trägt einen eigenen, kälteren Himmel.",
+        "Es ist der Himmel, der versucht, sich an einen Zeitplan zu erinnern. Er gibt von selbst keinen Puls, doch ein Leysammler darunter schon.",
+        "Die Client-Einstellungen können sein Detail senken oder es abschalten, was bei Shader-Paketen praktisch ist."
+      ],
+      "title": "Der Schleier bei Nacht"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Benutze schleichend diesen Geisterkodex auf allem, was verstummt ist, um zu lesen, was es tut.",
+        "Jede Kreatur hat eine Seite im Bestiarium, allein oder mit ihrer Sippe: wo sie lebt, wie sie kämpft, was sie gibt und ob sie eine Bindung eingeht. Die Tiere jedes Landes beginnen mit der [Steppe](beasts_steppe).",
+        "Sanfte Kreaturen stehen in diesem Kapitel. Die Reste und die anderen Jäger des Marsches haben ein eigenes Kapitel, das mit [Wildbret und Leder](game_and_leather) beginnt."
+      ],
+      "title": "Feldnotizen"
+    }
+  ]
+}

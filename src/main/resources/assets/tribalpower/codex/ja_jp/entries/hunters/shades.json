@@ -1,0 +1,73 @@
+{
+  "name": "影",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "影",
+      "text": [
+        "マーチの死者は死んだ場所を歩く。中に二つの光がある空のフードと、下には何もないローブ。どの影も**25の体力**で防具はなく、**5**で打つ。だが戦い方はそれぞれ違う。",
+        "それぞれ試薬を**1から2個**落とし、ドロップ増加で増える。どれも絆は結ばない。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "古墳の影",
+      "text": [
+        "冠をいただいた死せる王で、墓の布をまとっている。高地の下の暗い洞窟を、昼夜、一匹か二匹でさまよう。一撃は4秒間、弱体にする。",
+        "**古墳の死装束**を落とす。弱体の試薬。",
+        "狩ると、骨を1から2個、ファントムの皮膜を最大1個落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "青白い亡霊",
+      "text": [
+        "長い帳を引く冷たい亡霊。夜、雪原の上を一匹か二匹で飛ぶ。最大12ブロック先から、3秒間遅くする冷気を放つ。遮蔽で詠唱は途切れる。",
+        "**亡霊の帳**を落とす。冷気の試薬。",
+        "狩ると、ファントムの皮膜を最大1個、雪玉を最大2個落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "炭火の影",
+      "text": [
+        "焦げた手の、くすぶる亡霊。夜、残り火の荒野の上を一匹か二匹で飛び、**火に免疫**がある。最大12ブロック先から、2秒間あなたを燃やす雷弾を放つ。遮蔽で詠唱は途切れる。",
+        "**影の残り火**を落とす。雷弾の試薬。",
+        "狩ると、ファントムの皮膜を最大1個落とし、3分の1の確率でブレイズパウダーを落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "溺れた影",
+      "text": [
+        "水草をまとった、ランタンを持つ亡霊。夜、浅瀬の水から一匹か二匹で現れ、泳いでも歩いても追いかけてくる。岸は逃げ場にならない。一撃は4秒間、弱体にする。",
+        "**溺れた草**を落とす。弱化の試薬。",
+        "狩りで倒すと、ファントムの皮膜を最大1個、プリズマリンの欠片を最大2個落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と放牧",
+      "text": [
+        "試薬のほか、狩りで倒すとより多く落ち、ドロップ増加でさらに増える。"
+      ]
+    }
+  ]
+}

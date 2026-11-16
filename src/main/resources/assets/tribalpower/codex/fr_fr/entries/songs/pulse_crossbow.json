@@ -1,0 +1,36 @@
+{
+  "name": "Arbalète de Pulsation",
+  "icon": "tribalpower:pulse_crossbow",
+  "order": 40,
+  "items": [
+    "tribalpower:pulse_crossbow"
+  ],
+  "next": "anointing",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_crossbow",
+      "title": "La sœur plus lourde de l'arc",
+      "text": [
+        "L'Arbalète de Pulsation tire les mêmes Trait sonique que l'[Arc de Pulsation](song_bench), et porte Flèche de vers de la même façon.",
+        "**Maintiens utiliser** pour la charger. Le chargement dure un peu plus qu'une traction complète de l'arc et dépense **10 Pulsation** d'avance ; si tu portes une Flèche de vers, elle charge celle-là aussi, pour 6 Pulsation de plus. **Utilise-la encore** pour tirer.",
+        "Une Cellule de Pulsation logée dans l'arbalète paie d'abord, puis les cellules que tu portes.",
+        "Elle se forge comme le reste de l'Espritoutillage : deux **Lingot manifesté** et un **Carillon d'os** pour l'arc, de la ficelle, un crochet et un bâton. Elle dure 1,024, et comme la Pulsation paie chaque tir, tirer ne l'use jamais ; l'[Enclume de l'Esprit](spirit_anvil) la répare avec Lingot manifesté, un quart chacun."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- L'**arbalète** frappe environ **un tiers plus fort** : **10** de près contre les **7** de l'arc, un peu moins au bout d'un long vol. Elle vole plus vite et presque tout droit, et garde son tir aussi longtemps que tu veux, ainsi tu peux marcher chargé et tirer dès que quelque chose se montre.",
+        "- L'**arc** est plus rapide : tu peux relâcher de nouveau plus tôt, et relâcher une traction partielle si tu es pressé, même si une traction partielle ne frappe que pour sa part.",
+        "Une Flèche de vers ajoute jusqu'à **3** de plus à une traction complète de l'arc, un peu plus depuis l'arbalète, et porte son chant. Les Trait sonique ne tombent pas, mais ils s'effacent après environ 60 blocs.",
+        "Porte l'arbalète pour le tir qui compte, l'arc pour un combat en course."
+      ],
+      "title": "Arc ou arbalète ?"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_crossbow"
+    }
+  ]
+}

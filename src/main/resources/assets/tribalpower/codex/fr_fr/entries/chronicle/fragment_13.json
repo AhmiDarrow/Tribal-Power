@@ -1,0 +1,17 @@
+{
+  "name": "14. Marée",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marée",
+      "text": [
+        "“Les Bas-fonds sont les ouvrages des Tisserands de motifs, noyés jusqu'à la taille et tournant encore. La marée tient leur motif temps pour temps. Le Tambour qui le tient a oublié qu'il y eut jamais des tisserands.”",
+        "Trouvé sur une peinture murale, sur le terrain d'un gardien."
+      ]
+    }
+  ]
+}

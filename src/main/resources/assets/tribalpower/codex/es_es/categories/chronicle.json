@@ -1,0 +1,8 @@
+{
+  "name": "La crónica",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "La historia del Telar, tallada en la Marcha un fragmento cada vez. Encuéntralos y la historia se reúne sola aquí.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

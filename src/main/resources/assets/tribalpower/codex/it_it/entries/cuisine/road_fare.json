@@ -1,0 +1,65 @@
+{
+  "name": "Vettovaglie da strada",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cibo per il cammino",
+      "text": [
+        "Non ogni pasto porta il [dono](tribe_dishes) di una tribù. Il cibo da campo è ciò che un viandante porta con sé: economico, rapido alla [Pentola del Focolare](hearth_pot), e ognuno fatto per un compito. Quasi tutti mescolano le colture della Marcia con ciò che cresce in qualsiasi fattoria.",
+        "- **Schiacciata del mandriano**: Grano della steppa ×2, grano. Due per pentola, 5 di fame ciascuno, si impila fino a 64. Il modo più economico per restare sazio.",
+        "- **Sfogliette di bagliore**: Fagiolo di bagliore ×2, alga secca. Tre per pentola, 3 di fame, e **mangiate in un istante**, così puoi strappare un morso tra un colpo e l'altro.",
+        "- **Spiedino del Cacciatore**: qualsiasi carne cruda, Radice di brace, barbabietola. Due per pentola, 6 di fame e **Velocità per 20 secondi**, per raggiungere la selvaggina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cibo per il cammino, continua",
+      "text": [
+        "- **Pemmican della steppa**: qualsiasi carne cotta, Bacca di brina, bacche dolci. Tre per pentola, solo 4 di fame, ma la migliore saturazione per la sua dimensione: ti tiene sazio più a lungo in un lungo cammino.",
+        "- **Conserva di bacca di brina**: Bacca di brina ×2, zucchero, in una bottiglia di vetro. 4 di fame e **Resistenza al fuoco per 30 secondi**, per attraversare le Distese di brace. La bottiglia torna.",
+        "- **Tè al cardo**: Cardo di ley, Foglia della Marcia, favo, in una bottiglia di vetro. Poco cibo, ma puoi berlo anche da sazio, e **cura veleno, fame e nausea**: la risposta del campo a un pasto andato male.",
+        "- **Crumble degli altipiani**: una mela, Grano della steppa, bacche dolci, zucchero. 6 di fame e **Salto potenziato per 45 secondi** per le creste."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

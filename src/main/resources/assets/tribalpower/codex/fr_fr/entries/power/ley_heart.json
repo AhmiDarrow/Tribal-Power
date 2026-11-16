@@ -1,0 +1,92 @@
+{
+  "name": "Cœur de ley",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "Un [Résonateur de Pulsation](pulse_resonator) et un [Collecteur de ley](ley_collector) faits un. Place-le au centre d'une **Étoile du cœur**, les six voix de totem autour, et il brûle trois combustibles à la fois et élève **six lignes ley** dans le monde.",
+        "Il stocke **200 000 Pulsation**, environ 45 secondes de son meilleur, qu'il garde quand tu le casses."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "L'Étoile du cœur",
+      "text": [
+        "Pose le cœur sur un 3x3 de **Pierre d'ancre**, puis place un Totem de résonance de **chaque** voix à **cinq blocs**, au niveau du cœur lui-même. Feu et Eau se font face de part et d'autre du cœur, sur une ligne. Terre et Air, puis Esprit et Métier, se font face sur les biais : trois blocs en travers et quatre dans la longueur.",
+        "N'importe quelle orientation convient. Tant que chaque pièce n'est pas en place, le cœur se tait. Accroupis-toi et fais un clic droit dessus avec ce livre pour entendre ce qui manque ; les places manquantes scintillent dans le monde."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "L'Étoile du cœur",
+      "text": "Pierre d'ancre sous le cœur ; un totem de chaque voix à cinq blocs."
+    },
+    {
+      "type": "text",
+      "title": "Sur le treillis",
+      "text": [
+        "Place un [Conducteur de treillis](lattice_conductor) à moins de **8 blocs** du cœur. Sa Pulsation n'atteint tes machines que le long du treillis, alors un cœur au sommet veut des conducteurs manifestés, ou plusieurs liés, pour tout porter.",
+        "Ses six totems ne gardent leurs voix que tant que le treillis tient de la Pulsation. Un totem qui se tarit se tait et cesse de compter, donc un cœur longtemps sans combustible a besoin d'une autre source sur son treillis pour se réveiller."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trois combustibles",
+      "text": [
+        "Fais un clic droit sur le cœur pour l'ouvrir. Chaque combustible a sa propre entrée :",
+        "- Les **cristaux de résonateur** vont dans l'emplacement à cristal : Éclat d'écho, Écho accordé, Écho lié ou Noyau résonnant. L'un brûle **15, 12, 10 ou 8 minutes** : un meilleur cristal chante plus fort et brûle plus vite.",
+        "- N'importe quel **réactif de créature** va dans l'emplacement à réactif. Un simple brûle **2 minutes** ; un avec un **Fil** (voir [Réactifs](reagents)) brûle plus chaud et plus vite : **90, 60 ou 40 secondes** pour Fil I, II ou III.",
+        "- L'**Eau** remplit un réservoir de 8 000 mB depuis un seau, un tuyau ou une plaque de Relais de fluides. Elle brûle le plus vite des trois : **200 mB par seconde**, un seau toutes les cinq secondes.",
+        "Les entonnoirs et les relais peuvent nourrir les deux emplacements ; rien ne ressort. Le combustible n'est dépensé que sur les secondes qui livrent de la Pulsation, donc un cœur plein se repose."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'il produit",
+      "text": [
+        "Chaque seconde le cœur chante six fois le chant du Résonateur : **6 x voix x (voix + 2)**, fois ce que valent les combustibles qui brûlent, le tout sur quatre. Un cristal vaut ce qu'il vaut dans un Résonateur (**4, 6, 8 ou 12**), un réactif simple **4** et un réactif de Fil I, II ou III **6, 9 ou 12**, et l'eau **2**. Ses voix sont les totems répondus des six.",
+        "À cela il ajoute la part de la ley : **12 Pulsation par seconde pour chaque point** de force ley au cœur, avec six voix qui répondent. Le cœur lit la terre et les lignes de la planète que ses totems tirent, mais pas ses six à lui.",
+        "Puis l'harmonie : deux sortes de combustible qui brûlent ensemble multiplient le tout par **1.25**, les trois par **1.5**. Si rien ne brûle, il ne fait rien. Chaque [rang](machine_ranks) du cœur ajoute **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La qualité est le levier",
+      "text": [
+        "Avec six voix qui répondent :",
+        "- Un Éclat d'écho, un réactif simple et de l'eau font **1,080 à 1,368 Pulsation par seconde**, d'un site nu à un site parfait.",
+        "- Un Écho lié, un réactif Fil II et de l'eau sur un site moyen (ley 8) font environ **2,200**.",
+        "- Un Noyau résonnant, un réactif Fil III et de l'eau sur un site parfait font **3,096** ; un cœur Manifesté fait **4,489 Pulsation par seconde**.",
+        "Un résonateur de Noyau résonnant et un Collecteur de ley parfait côte à côte font 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que ça coûte",
+      "text": [
+        "Un meilleur combustible chante plus fort et brûle plus vite. Une heure d'un cœur simple (Éclat d'écho, réactifs simples, eau) brûle **4 Éclat d'écho, 30 réactifs et 720 seaux d'eau**.",
+        "Une heure à son meilleur brûle **7.5 Noyau résonnant, 90 réactifs Fil III** et les mêmes 720 seaux. Un familier Exalté brossé chaque minute lâche 120 réactifs Fil III par heure.",
+        "Le combustible ne se dépense que sur les secondes qui livrent de la Pulsation : un cœur plein se repose tant que rien ne tire dessus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Six lignes de ley",
+      "text": [
+        "Tant que l'étoile est entière, le cœur dresse **six lignes de ley**, une de la couleur de chaque totem, qui partent du cœur, traversent son totem et continuent sur **64 blocs** dans le monde. Ce sont de vraies lignes : la [Lentille ley](ley_lens) les dessine, et un [Collecteur de ley](ley_collector) posé le long de l'une la sent comme n'importe quelle autre. Les totems ne les plient pas.",
+        "Elles restent tant que l'étoile tient, à la sauvegarde et dans les chunks non chargés. Brise le cœur ou l'un de ses six totems et les six tombent d'un coup ; rends l'étoile entière et elles se relèvent en deux secondes.",
+        "Seuls les totems en **Répondu** chantent (voir [Maintien](keeping)), et un cœur au travail garde ses six répondus. Un signal de redstone stable l'arrête."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

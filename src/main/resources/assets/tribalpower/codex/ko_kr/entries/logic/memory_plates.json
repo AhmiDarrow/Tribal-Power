@@ -1,0 +1,36 @@
+{
+  "name": "기억 판",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "기억, 집계, 절",
+      "text": [
+        "이 판들은 기억한다.",
+        "- **기억**: 왼쪽이 활성이면 15로 두고, 오른쪽이 활성이면 지운다. 출력은 달리 말할 때까지 유지된다. 둘 다 활성이면 지우기가 이긴다.",
+        "- **집계**: 뒷면의 상승 에지마다 하나를 더한다. 횟수가 임계값에 닿으면 15를 노래한다. 빈손으로 웅크려 사용하면 임계값이 **1에서 8**을 순환한다(처음은 4). 왼쪽 상승은 횟수를 되돌린다.",
+        "- **절**: 입력 펄스 없이 **4**에서 시작한다. 뒷면의 상승 에지마다 **8**, 다음 **12**, 다음 **15**, 그리고 다시 4로 간다. 비교기는 같은 수를 읽는다.",
+        "절 판은 절 호출이 아니다. 전선 없이 램프나 기계로 레드스톤을 보내려면 [절 호출과 응답](verse_link)을 본다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

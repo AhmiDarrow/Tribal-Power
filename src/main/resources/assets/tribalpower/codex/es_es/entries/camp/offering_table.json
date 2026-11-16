@@ -1,0 +1,29 @@
+{
+  "name": "Mesa de ofrendas",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Un almacén de campamento de 27 ranuras, con mejor cara que un cofre. Ponla junto a un hogar o una cuna para tener ofrendas, comida y Tejido espiritual a mano. No necesita Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Al usarla",
+      "text": [
+        "Es almacenamiento, no un segundo Hogar de la tribu. Las ofrendas que suben la posición ante una tribu van en el hogar mismo (ver [Posición](standing)); la mesa no concede nada.",
+        "Solo puede abrirla quien la colocó, su campamento, o cualquiera si nadie la reclamó.",
+        "Las tolvas, los tubos y las [placas de relé](wireless_cargo) pueden llenarla o vaciarla por cualquier lado. Agáchate y haz clic derecho en una cara con la mano vacía para cambiar esa cara: Ambos, Entrada, Salida o Cerrado.",
+        "Un comparador indica lo llena que está. Una señal de redstone bloquea tanto el menú como la automatización."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

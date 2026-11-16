@@ -1,0 +1,17 @@
+{
+  "name": "16. Grzęda",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Grzęda",
+      "text": [
+        "“Wyżyny to mosty Chodzących po krawędzi, ostatnia ziemia przed krawędzią. Wiatr od krawędzi był kiedyś pieśnią. To, co teraz w nim gniazduje, śpiewa tę samą pieśń wspak i zrzuca idących, by usłyszeć, jak uderzają o ziemię.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "name": "Rangi maszyn",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Warsztaty i generatory można podnosić w randze, tak jak Duchowy sprzęt: włóż maszynę do stacji Dostrajacz echa, potem do stacji Wiązacz echa, potem do stacji Manifestator echa. Każda ranga czyni ją szybszą, a za szybkość płaci Pulsem.",
+        "Nie możesz pominąć kroku: Wiązacz odrzuca maszynę rangi 0, a Manifestator chce rangę 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Koszt rangi",
+      "text": [
+        "Każdy krok bierze Puls i czas, ale żadnych katalizatorów:",
+        "- Dostrajacz (Ogień): **16 sekund** przy **96 Puls na sekundę**, dla rangi 1.",
+        "- Wiązacz (Woda): **20 sekund** przy **128**, dla rangi 2.",
+        "- Manifestator (Duch): **24 sekund** przy **160**, dla rangi 3."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Trzy głosy, trzy rangi",
+      "steps": [
+        {
+          "caption": "Podnieś maszynę. Jako przedmiot trafia do stacji Dostrajacz echa razem z przedmiotem Totem rezonansu (Ogień), na rangę 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Potem do stacji Wiązacz echa, z Wodą, na rangę 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Potem do stacji Manifestator echa, z Duchem, na rangę 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Postaw ją znowu. Ranga zostaje na bloku i na przedmiocie, gdy go podnosisz.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co robi ranga",
+      "text": [
+        "- Ranga 1: **85%** czasu, **118%** Pulsu na sekundę.",
+        "- Ranga 2: **70%** czasu, **143%** Pulsu.",
+        "- Ranga 3: **55%** czasu, **182%** Pulsu.",
+        "Stacje liczą pełne sekundy, więc krótka praca na następnej randze może nie być szybsza, ale i tak płaci wyższy Puls. Rangi opłacają się najlepiej przy długiej pracy, jak rdzenie, rangowanie i Piec żaru.",
+        "Generatory działają inaczej: każda ranga dodaje **15% Pulsu na sekundę**, a nie warsztatowe 118%. Ręce obozu biją szybciej przy tym samym Pulsie na ruch.",
+        "**Stół pieśni** znowu działa inaczej: każda ranga tnie jego Puls, do **85%**, **70%** i **55%**.",
+        "Płyty przekaźnika przenoszą więcej i płacą za to więcej Pulsu, a każda ranga otwiera jeszcze jeden kanał: jeden na randze 0, do czterech na randze 3. Przewodnik kraty niesie **64**, **256**, **1,024** lub **4,096** Pulsu na sekundę według rangi, a kamień Kopiec Pulsu trzyma **4,000**, **16,000**, **64,000** lub **256,000** i rusza Puls w tempie przewodnika. Przetwornik i energetyzator ruszają więcej Pulsu na sekundę. Skrytka lub cysterna z rangą tylko szybciej podaje przedmioty i płyn maszynom, których dotyka."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Które maszyny",
+      "text": [
+        "Każda stacja echo, Piec żaru i Stół pieśni; Bęben-serce, Kolektor ley, Rezonator Pulsu i wszystkie pięć rzemiosł głosu; Przewodnik kraty, Kopiec Pulsu, Energetyzator harmoniczny, Przetwornik kraty, Skrytka przodków i Cysterna Ducha; każdy przekaźnik; Kamienna misa i Siatka rezonansu; oraz ręce obozu (Pompa pływów, Sidła wiatru, Bęben ochrony, Krosno pieczęci).",
+        "Podpowiedź pokazuje rangę z nazwy: Tkany (0), Dostrojony (1), Związany (2), Manifestowany (3). Jeśli stacja nie przyjmie maszyny, to zła stacja dla jej obecnej rangi; kucnij i kliknij prawym stację z tą książką."
+      ]
+    }
+  ]
+}

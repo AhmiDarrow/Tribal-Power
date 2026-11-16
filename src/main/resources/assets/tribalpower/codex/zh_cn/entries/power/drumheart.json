@@ -1,0 +1,170 @@
+{
+  "name": "鼓心",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "你会造的第一台发电机，也是你会一再回来用的那台。鼓心最多储存**1,000脉动**，你给它的每一拍都会再加一些。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "敲它",
+      "text": [
+        "用**空手**右键，大约**每秒一次**。合拍的一击给**24脉动**。不合拍的最多给**10**，离上一拍越近给得越少，所以稳定的节奏胜过快速连点。",
+        "机器通过它周围8格内的[网格导体](lattice_conductor)从鼓取能，从不会直接从鼓上取。要把能量带到别处，在鼓上使用**脉动电池**。打碎鼓会失去它储存的脉动。",
+        "用手敲也会唤醒8格内的每个图腾；见[守持](keeping)。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "用红石敲它",
+      "steps": [
+        {
+          "caption": "鼓心单独在时，需要你自己稳住拍子。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "在旁边放一块心跳板，每秒跳动一次。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "板子发出的每一次脉冲都是一拍。现在，你在别处做事时，鼓也会自己充满。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "节奏，分毫不差",
+      "text": [
+        "红石拍子相隔**17到23游戏刻**算作准时。相隔不足**8刻**的拍子会被忽略。正常服务器速度下，二十刻是一秒。",
+        "按住的红石信号不会让鼓心暂停；只有脉冲的上升沿才算一拍。",
+        "鼓会互相挤占。只有**一个区域内的两面鼓**——与导体编织的相同8格范围——才会产生脉动；再多的仍然敲、仍然响，但什么也不挣得。把它们隔得更远，每一面就又会给付。",
+        "每个[等级](machine_ranks)增加**每拍15%脉动**。发生器不会像有等级的工站那样加快。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

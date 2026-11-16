@@ -1,0 +1,17 @@
+{
+  "name": "2. Die neun Stimmen",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Die neun Stimmen",
+      "text": [
+        "“Erde zum Halten, Feuer zum Wärmen, Wasser zum Tragen, Luft zum Heben, Geist zum Fragen und der Webstuhl, um die fünf zu binden. Sechs Stimmen, neun Völker: drei davon geteilt. Das Teilen war, wo der Streit anfing.”",
+        "Gefunden auf einem gemeißelten Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

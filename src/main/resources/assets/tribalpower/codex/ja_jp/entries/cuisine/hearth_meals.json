@@ -1,0 +1,72 @@
+{
+  "name": "炉の食事",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "先の仕事のための食事",
+      "text": [
+        "[道中の糧](road_fare)より腹持ちがよく、マーチの野生の獲物から煮る。食事はどれもよく満たし、目の前の仕事へ素朴な贈り物を一つ貸す。最上の[部族の料理](tribe_dishes)より満たすものはなく、恩寵は持たない。",
+        "- **漂い鈴の団子**：漂いゼリー、草原穀物、卵。鍋につき二つ、満腹度5、**落下速度低下が30秒**。落ちる前に食べよ。",
+        "- **坑夫の煮込み**：茶色のキノコと赤色のキノコ、ジャガイモ、沼沢米、ボウル。満腹度7、**採掘速度上昇が90秒**。坑夫の一杯。",
+        "- **沼沢呼びの鍋**：生魚どれでも（生の煌鰭か生のシルトウナギ）、沼沢米、コンブ、ジャガイモ、ボウル。満腹度8、**水中呼吸が90秒**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "先の仕事のための食事、続き",
+      "text": [
+        "- **葦巻き鰻**：生のシルトウナギ、霊の葦、マーチの葉。満腹度7、**暗視が120秒**。暗い水と深い洞窟のため。",
+        "- **熾火焼き南瓜**：カボチャ、熾根、草原穀物。鍋につき二つ、満腹度6、**攻撃力上昇が30秒**。",
+        "- **長狩りのシチュー**：焼いた獲物肉、ジャガイモ、ニンジン、熾根、ボウル。満腹度9、野営の糧でいちばん腹持ちがよく、**衝撃吸収が60秒**。きつい夜の前に食べよ。",
+        "- **花歌のカスタード**：エコーの花、卵、砂糖、ハニカム、ボウル。満腹度6、**再生が15秒**。歩きながら繕うために。",
+        "- **魚フライとポテト**：正方形の上段に生の煌鰭を二つ、その下に熾根を二つ。満腹度8、**野営の食事でいちばん高い飽和**。いちばん長く腹持ちするが、贈り物は貸さない。",
+        "食べるとボウルは戻る。パックは設定で各贈り物の長さを変えられる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

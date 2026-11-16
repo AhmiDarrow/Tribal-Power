@@ -1,0 +1,28 @@
+{
+  "name": "Lanterne d'Esprit",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Une lanterne taillée de cuivre et de bois qui éclaire le camp au niveau **15** et n'a jamais besoin de combustible ni de Pulsation. Son cristal luit des mêmes couleurs que le treillis vivant."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Utilisation",
+      "text": [
+        "Pose-les le long des chemins entre les ateliers. Un levier ou tout signal de redstone en tamise une, et un comparateur lit 15 tant qu'elle est allumée.",
+        "C'est une lumière, pas une garde : les hostiles ont encore besoin d'obscurité pour apparaître, donc la lumière plus un Totem du silence fait un camp calme.",
+        "Si tu préfères que tes lumières tournent sur le treillis, le Roseau lumineux, la Lampe d'éclat, l'Applique d'écho et le Bol de braise puisent un filet de Pulsation. Voir [Lumières de Pulsation](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

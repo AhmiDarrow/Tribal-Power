@@ -1,0 +1,32 @@
+{
+  "name": "Pentola del Focolare",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Una pentola sul fuoco",
+      "text": [
+        "La Pentola del Focolare è un'ampia pentola d'argilla in una culla di rame. Mettila **sopra il calore**: un falò acceso, fuoco, fuoco delle anime, magma, lava o una [Ciotola di brace](pulse_lights) proprio sotto. Non chiede alcun Pulso, quindi è la prima macchina di un accampamento.",
+        "Aprila e metti ogni ingrediente nel **suo proprio posto** del quadrato due per due, dove lo mostra la ricetta: il primo in alto a sinistra, poi in alto a destra, in basso a sinistra e in basso a destra. I posti che il pasto non usa restano vuoti. Una **ciotola** va nel posto accanto al quadrato quando il pasto ne vuole una. Un piatto impiega circa **12 secondi** sul fuoco, viveri di strada rapidi anche solo **8**, e un banchetto **20**, e il pasto esce a destra."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ogni [piatto di tribù](tribe_dishes), ogni pezzo di [viveri di strada](road_fare) e di [pasto del Focolare](hearth_meals), e ogni [banchetto](feasts) è una ricetta della Pentola del Focolare. Un pasto che vuole una ciotola o una bottiglia di vetro la prende nel posto accanto al quadrato. I posti contano: gli ingredienti giusti nei posti sbagliati non fanno nulla. JEI li elenca tutti sotto la pentola.",
+        "Le tramogge la nutrono dall'alto e dai lati e prendono il pasto dal basso, così una pentola può tenere sfamato un accampamento da sola. Una tramoggia mette ciotole e bottiglie nel posto accanto al quadrato, e ogni ingrediente in un posto dove qualche pasto lo vuole, secondo ciò che gli altri posti già tengono. Per tenere un pasto in corso, metti prima uno di ciascuno a mano; le tramogge poi riempiono ogni posto, e un pasto che vuole la stessa cosa due volte fa riempire entrambi i posti in pari. Chi fa i pacchetti può aggiungere i propri pasti come ricette del tipo Focolare."
+      ],
+      "title": "Cosa cuoce"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

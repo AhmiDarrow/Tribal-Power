@@ -1,0 +1,17 @@
+{
+  "name": "12. Kryształ",
+  "icon": "tribalpower:mural",
+  "order": 21,
+  "spoiler": true,
+  "unlock": "fragment:11",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kryształ",
+      "text": [
+        "“Pola Kryształu urosły tam, gdzie siatki Śpiewaków żwiru spadły, śpiewając. Kamień zapamiętał wysokość dźwięku i rósł ku niej. Większość pola jest w stroju. Część, która nie jest, ma długie ciało i dłuższą pamięć.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

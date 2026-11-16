@@ -1,0 +1,85 @@
+{
+  "name": "Equipaggiamento legato al totem",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dare una voce all'equipaggiamento",
+      "text": [
+        "Qualsiasi attrezzo di Dotazione spirituale o pezzo di Tessitospirito può rispondere a una voce di totem. Piazza un Totem di risonanza, porta una Cella di Pulso carica e usa il pezzo accovacciato sul totem.",
+        "Vincolare spende **40 Pulso**. Il totem non si consuma, la barra delle azioni nomina la voce e puoi sovrascriverla in qualsiasi momento allo stesso modo. I clic a mani vuote leggono ancora il totem come al solito.",
+        "I set misti sono voluti: un cappuccio di Fuoco è resistenza al fuoco, non vista notturna. La voce Telaio richiede un totem del Telaio (vedi [La sesta voce](sixth_voice)).",
+        "Un [famiglio](familiar_boons) sintonizzato della voce del pezzo, vicino, gli fa spendere il **40%** in meno di Pulso e i bonus della voce arrivano più spesso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Distinguerli",
+      "text": [
+        "Un pezzo di Tessitospirito vincolato spende **3 Pulso ogni quattro secondi**, quindi un cappuccio, una veste e dei gambali vincolati costano **9**; un pezzo non collegato non ha alcun beneficio e non spende nulla. Gli stivali spendono solo quando si usa uno dei loro bonus, e questo copre i quattro secondi successivi. Un pezzo spento, o senza Pulso a portata, non dà nessuno dei suoi bonus.",
+        "Un pezzo vincolato si riconosce a colpo d'occhio: le finiture brillano del colore della sua voce, verde della Terra, arancione del Fuoco, blu dell'Acqua, menta pallida dell'Aria, viola dello Spirito e ciano del Telaio, in mano e quando indossato. Più alto è il rango, più brucia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sul piccone",
+      "text": [
+        "- **Terra** apre un **3 per 3** di pietra attorno a ogni blocco che scavi, in quadrato verso dove guardi. L'intero 3 per 3 costa solo il Pulso del primo blocco.",
+        "- **Fuoco** fonde ciò che scava.",
+        "- **Acqua** scava con tocco di velluto.",
+        "- **Aria** dà fretta.",
+        "- **Spirito** fa luccicare i minerali vicini ogni pochi secondi, entro 6 blocchi (10 al rango 3).",
+        "- **Telaio** scava per **0 Pulso** e così facendo non subisce usura."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sull'ascia",
+      "text": [
+        "L'**ascia**, sui tronchi: **Terra** abbatte l'**albero intero**, dall'alto in basso, ovunque lo colpisci; accovacciati per tagliare un solo tronco. Contano solo i tronchi del tipo colpito, e solo con foglie cresciute naturalmente: almeno **3**, e una ogni **8** tronchi. Il legno che tocca assi, vetro, porte, staccionate o altri blocchi da costruzione è una costruzione, quindi le costruzioni di tronchi nudi e una capanna cresciuta dentro un albero restano in piedi. Il Pulso si paga man mano che i tronchi cadono: ogni 16 tronchi costano il Pulso di un colpo, e come ogni lavoro pagato l'abbattimento non si usura. Così un abbattimento è grande solo quanto il Pulso che l'ascia può raggiungere: un **Colosso piangente**, decine di migliaia di tronchi, può prendere più di un'intera Cella di Pulso. Il valore di un colpo che non abbatte nulla (legno protetto, poniamo) torna. **Aria** ne prende sempre due in più, **Acqua** ogni tanto lascia un arbusto di quercia, **Spirito** fa brillare gli ostili entro 8 blocchi, **Fuoco** carbonizza il legno, e **Telaio** manda i tronchi nella tua mano.",
+        "Un albero oltre **512** tronchi (un salice a parte) resta intero, e così uno che finisce in terreno non caricato. Un colpo senza Pulso taglia un solo tronco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sulla pala",
+      "text": [
+        "La **pala**: **Terra** scava un **3 per 3** di terra, sabbia o ghiaia, **Aria** stende sentieri larghi tre, **Acqua** a volte tira su argilla dalla terra, **Fuoco** cuoce la sabbia in vetro, **Telaio** solleva sabbia e ghiaia intere, e **Spirito** fa luccicare casse, barili e generatori entro 8 blocchi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sulla lama",
+      "text": [
+        "Ogni colpo pagato della lama aggiunge un **colpo d'eco**: un po' di danno magico, e il nemico brilla per qualche secondo. La sua voce aggiunge altro:",
+        "- **Terra**: respinge il nemico e lo rallenta.",
+        "- **Fuoco**: lo incendia e brucia un po' più a fondo.",
+        "- **Acqua**: ti cura un cuore (due al rango 3).",
+        "- **Aria**: il colpo spazza gli ostili accanto.",
+        "- **Spirito**: un colpo d'eco più forte.",
+        "- **Telaio**: trascina il nemico verso di te.",
+        "L'intera [famiglia di armi](spiritgear_weapons) prende le voci allo stesso modo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sul Tessitospirito",
+      "text": [
+        "- **Terra**: il cappuccio devia un proiettile su cinque (circa uno su tre al grado 3); la veste dà resistenza; i gambali attraversano ragnatele, cespugli di bacche e sabbia delle anime; gli stivali riducono il contraccolpo e non calpestano mai la terra zappata.",
+        "- **Fuoco**: cappuccio e veste danno resistenza al fuoco, e la veste dà fuoco agli attaccanti per 3 secondi; i gambali danno velocità nella lava e nel Nether; gli stivali ignorano i pavimenti roventi.",
+        "- **Acqua**: il cappuccio dà respirazione acquatica; la veste ti rigenera quando vieni colpito (più a lungo al grado 3); i gambali danno grazia del delfino; gli stivali congelano l'acqua ferma sotto i piedi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Altre voci del Tessitospirito",
+      "text": [
+        "- **Aria**: il cappuccio dà visione notturna; la veste ignora il contraccolpo; i gambali danno velocità (più forte al grado 3); gli stivali danno caduta lenta.",
+        "- **Spirito**: il cappuccio dà visione notturna e fa brillare gli ostili entro 12 blocchi; la veste dà resistenza e fa brillare gli attaccanti; i gambali danno velocità e un passo più alto; gli stivali annullano il danno da caduta e, al grado 3, ti rilanciano in su da un dislivello di 4 o più.",
+        "- **Telaio**: il cappuccio dà fortuna; la veste a volte reinfila nella tua cella il Pulso speso; i gambali attraversano ragnatele e cespugli di bacche; gli stivali ti lasciano avanzare accovacciato per cucire **4 blocchi** (**6** al grado 3), pagato come gli altri bonus, poi riposano 8 secondi."
+      ]
+    }
+  ]
+}

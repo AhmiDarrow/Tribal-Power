@@ -1,0 +1,74 @@
+{
+  "name": "Le Non-chanté",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Un tambour en sablier, avec un masque de porcelaine fêlé et deux bras de runes. Il veut seulement qu'on lui rende le rythme."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le Non-chanté n'arrive jamais de lui-même. Il ne se lève que lorsque quelqu'un joue la mesure à quatre temps sur un [Tambour silencieux](drum_circle), et il revient à ce tambour dans sa dernière phase.",
+        "Il a **400 de santé** et **8 d'armure**, ne peut pas être repoussé et ignore les effets de potion. Une barre de boss suit ses trois phases : Battement, Chœur et Silence.",
+        "Apporte de la nourriture, de l'armure, des Cellules de Pulsation chargées, un Carillon d'os et un chemin du retour déjà éprouvé. Un ami rend ça bien plus facile."
+      ],
+      "title": "Avant le premier battement"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tant qu'il est au-dessus des deux tiers de sa santé, une onde de choc part **toutes les 3 secondes** et touche tout le monde dans **8 blocs** pour **6**, avec un fort recul.",
+        "Accroupis-toi juste avant l'impact pour te caler : tu prends **la moitié des dégâts** et aucun recul.",
+        "Son balayage de bras inflige **10**, alors garde le tambour entre toi et lui quand il s'approche."
+      ],
+      "title": "Battement"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sous les deux tiers, il se met à appeler **deux Tisserands d'écho toutes les 8 secondes**, jusqu'à **six** à la fois, et les ondes de choc arrivent toutes les **2.5 secondes**.",
+        "Élimine les tisserands avant qu'ils ne te ralentissent. Leur morsure te laisse engourdi, et tu as encore des ondes de choc à encaisser.",
+        "Un tisserand que tu lies pendant le combat (les Couseurs du métier doivent t'appeler **Voix**) est à toi : il ne compte plus pour le Non-chanté et reste quand le combat se termine."
+      ],
+      "title": "Chœur"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sous un tiers, il plane au-dessus du tambour et ne peut pas être blessé. Toutes les 2 secondes, il tire un trait de tissage lent : **5 de dégâts**, Lenteur et Faiblesse, et [Silence Non-chanté](afflictions) pendant **12 secondes** : aucune chanson ni voix de bâton ne répond tant que ça ne se lève pas. Les traits se brisent sur les blocs solides, donc un abri aide.",
+        "Va jusqu'au Tambour silencieux et rejoue la mesure à quatre temps. Cela le resynchronise : il est **étourdi pendant 8 secondes** et subit **le double de dégâts**, puis peut encore être blessé à dégâts normaux pendant **4 secondes** de plus.",
+        "Silence revient **12 secondes** après chaque resynchronisation, alors frappe fort, puis rejoue."
+      ],
+      "title": "Silence"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Un **Cœur Non-chanté**, qui fabrique le totem du Métier ([la sixième voix](sixth_voice)).",
+        "- **16 à 24 Fil de Métier**.",
+        "- **4 Noyaux résonnants**.",
+        "- Un **Disque de musique** du Cercle de tambours.",
+        "- Le [Rite des Graveurs de sceaux](tablet_7), une Tablette de récits autrement gardée seulement sur un autel du Temple profond. Accroche-la sur un mur et lis-la.",
+        "Si personne ne reste dans **48 blocs** pendant **30 secondes**, il se réinitialise : il disparaît avec ses tisserands et le tambour est prêt à être rejoué."
+      ],
+      "title": "Ce qu'il laisse"
+    },
+    {
+      "type": "text",
+      "title": "L'épreuve des Couseurs du métier",
+      "text": [
+        "Le Non-chanté est le gardien où s'achève l'histoire des Couseurs du métier : immobilise-le avec leur histoire à sa dernière étape, et leur relique est à toi. Ses Tisserands d'écho ne lâchent plus rien, et il lui faut de la place pour se lever : rien de solide dans les cinq blocs au-dessus du tambour, ni sur le cinq par cinq autour. Voir [Les gardiens](guardians)."
+      ]
+    }
+  ]
+}

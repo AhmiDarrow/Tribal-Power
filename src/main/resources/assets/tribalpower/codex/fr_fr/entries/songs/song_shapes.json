@@ -1,0 +1,53 @@
+{
+  "name": "Formes de chant",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Le premier réactif décide",
+      "text": [
+        "Chaque chant prend l'une de cinq **formes**, et le **premier** réactif de la feuille la choisit selon sa famille ([Réactifs](reagents)) :",
+        "- **Trait** : d'abord un réactif Braise, Trait ou Molosse.",
+        "- **Lien** : d'abord un réactif Venin, Affaiblissement, Froid ou Tissage.",
+        "- **Pas** : d'abord un réactif Rafale.",
+        "- **Appel** : d'abord un réactif Racine ou Poussée.",
+        "- **Garde** : d'abord un réactif Calme, la famille de toute bête douce.",
+        "La voix que tu as choisie à l'établi teinte la forme, quelle qu'elle soit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les cinq formes",
+      "text": [
+        "- **Trait** frappe l'hostile que tu regardes, jusqu'à **10 blocs**, pour **3** de dégâts plus **1** par copie du premier réactif. Feu l'enflamme, et Air le repousse.",
+        "- **Lien** ralentit cet hostile : Lenteur I pour une copie du premier réactif, jusqu'à IV s'il y en a plus, et un niveau de plus avec la voix Eau.",
+        "- **Pas** te lance en avant, dans la direction où tu regardes, plus loin pour chaque copie. Air te soulève plus haut, et Air et Esprit te laissent flotter en descendant. Le Métier te coud aussi **2 à 4 blocs** plus loin, s'il y a de l'air libre pour atterrir.",
+        "- **Appel** frappe chaque hostile autour de toi, à environ **3 blocs**, pour **2** de dégâts plus un demi-point par copie, avec la touche de la voix comme pour un Trait.",
+        "- **Garde** est pour toi seul : la [bénédiction](voice_blessings) de sa voix pendant **45 secondes** par copie, et une garde à elle. Terre donne résistance, Feu résistance au feu, Eau régénération et apnée, Air chute lente et vitesse, Esprit vision nocturne et le Métier absorption.",
+        "Un Trait ou un Lien exige un hostile en vue. S'il n'y en a aucun à portée, le chant n'est pas chanté et ne coûte rien."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que le reste de la feuille ajoute",
+      "text": [
+        "Les réactifs après le premier ne font qu'habiller la forme. Ils n'ajoutent jamais un second sort.",
+        "- **Une autre copie du premier réactif** rend le chant plus fort : il frappe plus, ralentit plus, lance plus loin ou bénit plus longtemps.",
+        "- **Un réactif d'une autre famille** ajoute la touche de cette famille : feu, lenteur, poison, faiblesse, une poussée, une lueur, ou un moment de régénération pour toi. Seules les **deux premières** autres familles comptent. Une troisième n'ajoute rien, pas plus qu'un autre réactif d'une famille déjà sur la feuille.",
+        "- **Chaque réactif après le troisième** fait durer le chant : son ralentissement, son poison et les autres touches qui persistent durent **4 secondes** sur une feuille à trois réactifs, et une seconde de plus par réactif ensuite. Un Trait ou un Lien porte un bloc plus loin. Un Appel s'étend un peu plus.",
+        "Les touches tombent sur la cible d'un Trait ou d'un Lien et sur tout ce qu'un Appel frappe. Un Pas ou une Garde n'a pas de cible, donc seule la touche Calme, ta propre régénération, agit sur ceux-là."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que coûte un chant",
+      "text": [
+        "Chanter coûte **8 Pulsation, plus 4 par réactif** sur la feuille : **20** pour trois réactifs, **36** pour sept. Le bienfait des Couseurs du métier en ôte un quart ([Bienfaits de tribu](tribe_boons)).",
+        "Une Feuille de chant est consommée quand tu la chantes. Un Chansonnier garde ses chants et se repose **1,5 secondes** après chacun avant de chanter de nouveau.",
+        "Un familier de la voix du chant, tout près, le fait frapper plus fort et fait porter un Appel plus loin ([ce qu'une voix donne](familiar_boons))."
+      ]
+    }
+  ]
+}

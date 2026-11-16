@@ -1,0 +1,362 @@
+{
+  "name": "Windschlinge",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "Eine Truhe, die sammelt. Die Windschlinge zieht fallengelassene Gegenstände vom Boden um sie herum und hält sie in **27 Plätzen**, damit eine Farm, eine Splitterlinie oder eine Mobgrube nie ein Durcheinander hinterlässt.",
+        "Sie hebt jeden lose liegenden Gegenstand auf, ob aus dem Marsch, der Oberwelt oder einem anderen Mod. Sie nimmt nie aus Truhen oder Maschinen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wie sie fängt",
+      "text": [
+        "Bei jedem Schlag, einmal pro Sekunde, schöpft sie bis zu **8 Stapel** innerhalb von **8 Blöcken**. Der Fangbereich ist ein Würfel, also reicht sie so weit nach oben und unten wie zur Seite.",
+        "Jeder Stapel kostet **2 Puls** aus dem Gitter. Kein Puls, kein Fang; sie wartet und gibt nichts aus. Sie antwortet auch auf **Luft**: halte ein Totem der Luft innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)), sonst steht sie still.",
+        "Ein höherer Rang verkürzt den Schlag. Puls je Stapel bleibt 2."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Schlinge über einem Speicher",
+      "steps": [
+        {
+          "caption": "Setze einen Ahnenspeicher dorthin, wo der Fang landen soll.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze die Windschlinge obendrauf. Ihre Unterseite ist Ausgang, also fällt alles, was sie fängt, in den Speicher.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Gib ihr Puls durch einen Konduktor innerhalb von 8 Blöcken: 2 je Stapel, den sie hebt.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Alles, was innerhalb von 8 Blöcken liegt, selbst auf der anderen Seite der Farm, wird herangezogen.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel hält das Fangen und die Seiten zugleich an, falls du selbst etwas aufheben willst.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Den Fang herausholen",
+      "text": [
+        "Öffne sie wie eine Truhe. Trichter, Rohre und [Relaisplatten](wireless_cargo) entnehmen von der **unteren** Seite; die anderen Seiten nehmen Gegenstände an. Schleiche und rechtsklicke eine Seite mit leerer Hand, um sie weiterzuschalten: Beides, Eingang, Ausgang, Geschlossen.",
+        "Sitzt sie auf einem Ahnenspeicher oder einem anderen Lager von Tribal Power, schiebt ihre Unterseite bis zu **16 Gegenstände pro Sekunde** nach unten, ganz ohne Trichter.",
+        "Ein Komparator liest, wie voll sie ist: praktisch für eine Warnlampe, wenn die Schlinge geleert werden muss."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

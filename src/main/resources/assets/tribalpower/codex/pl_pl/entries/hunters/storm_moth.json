@@ -1,0 +1,52 @@
+{
+  "name": "Ćma burzy",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Duch karmiony burzą, na wysokich skrzydłach z łupku znaczonych błyskawicą. Jasna kiść pyłków ostrzega przed jego podmuchem.",
+        "Upolowany upuszcza też do 2 nici i do 1 błony fantoma."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ćmy burzy latają nad Wyżynami Marszu, Polami śniegu i Granią połysku, a kilka nad Pustkowiami żaru.",
+        "Ma **20 zdrowia** i nie ma pancerza. Trzyma się z tyłu i rzuca podmuch z odległości do 12 bloków: **4 obrażenia** i mocne pchnięcie. Przerwij linię wzroku, a czar się nie uda."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **1 do 2 Skrzydło burzy**.",
+        "Skrzydło burzy wiąże się w 2 Duchotkanina pod Wodą."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij **Głos** u **Tkacze wzorów**, potem użyj Amulet więzi na dorosłym: dwie próby na pięć, amulet przepada przy porażce. Albo nakarm ją jej własnym odczynnikiem: jedna próba na pięć, a odczynnik przepada tak czy inaczej.",
+        "Związana ćma, która siedzi, zostawia raz na sekundę małe niewidzialne kliknięcie redstone, darmowy zegar do twoich mechanizmów. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika upuszcza to przy polowaniu, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

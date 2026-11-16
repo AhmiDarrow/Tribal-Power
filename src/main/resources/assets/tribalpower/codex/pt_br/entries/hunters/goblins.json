@@ -1,0 +1,62 @@
+{
+  "name": "Goblins",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Goblins",
+      "text": [
+        "Pequenos, rápidos e rancorosos, os goblins vêm um ou dois por vez e vão direto para você."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dois tipos",
+      "text": [
+        "Um goblin tem **18 de vida** e **1 de armadura**, é rápido e acerta por **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Goblin do pântano",
+      "text": [
+        "Um goblin magro, de orelhas grandes, com uma lança de junco, encontrado no Brejo dos Juncos. Surge à noite em terreno aberto.",
+        "Caçado, também solta até 2 pepitas de ouro, até 1 osso e até 1 linha."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Goblin do túnel",
+      "text": [
+        "Um goblin curvado, com uma clava de espinhos e uma vela presa ao boné, encontrado nos túneis escuros sob a estepe, onde surge de dia ou de noite.",
+        "Caçado, também solta até 2 carvão, até 2 pepitas de ferro e até 1 osso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles dão",
+      "text": [
+        "Um Goblin do pântano solta **de 1 a 2 Orelha de goblin** (corante verde-limão), um Goblin do túnel **de 1 a 2 Presa de goblin**, mais com Pilhagem. Ambos são reagentes de Cão: ungidos, fazem uma arma beber de volta parte de cada golpe. Veja [reagentes](reagents).",
+        "Os goblins nunca se vinculam."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem."
+      ]
+    }
+  ]
+}

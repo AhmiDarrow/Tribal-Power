@@ -1,0 +1,65 @@
+{
+  "name": "Cantores de cascalho",
+  "icon": "tribalpower:tribe_mark",
+  "order": 50,
+  "spoiler": true,
+  "unlock": "tribe:stone",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_stone",
+      "title": "Cantores de cascalho",
+      "text": [
+        "“A malha não encontra o minério. A malha dá ao minério um lugar para pousar.”",
+        "Fio de **Pedra**, voz de **Terra**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem eles são",
+      "text": [
+        "Os Cantores de cascalho cantaram grave sobre a pedra bruta até ela afrouxar, e mais grave ainda até ela se estilhaçar em eco. O ofício deles é o **Triturador de eco** e as malhas.",
+        "Os acampamentos deles ficam nas **montanhas** e em costas pedregosas, e na Marcha um acampamento deles fica em cada faixa, do norte congelado ao sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que eles querem",
+      "text": [
+        "O reagente deles é o **Eco sintonizado**, que vale **+8** de reputação no lar deles.",
+        "Eles também preferem minérios brutos, blocos de minério, Cascalho de ferro, Cascalho de ouro ou Cascalho de cobre: **+3** cada. Qualquer outra comida vale **+1**, e uma Célula de Pulso carregada **+2 para cada 10 Pulso**, até +8.",
+        "Lembre-se: o lar toma no máximo **60** de reputação por dia em oferendas; veja [Tribos e reputação](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Ancião troca",
+      "text": [
+        "**Hóspede**: 4 Ferro bruto por 3 Fragmentos de eco; 4 Eco sintonizado e 8 Pedra da Marcha por uma Malha de ressonância.",
+        "**Amigo**: 6 Cascalho de ferro por 2 Eco sintonizado; 3 Ouro bruto por 4 Cascalho de ouro; 4 Grão da estepe por Pão de cascalho.",
+        "**Parente**: 6 Eco sintonizado por 2 Eco vinculado; 4 Eco vinculado por um Triturador de eco.",
+        "Cada troca rende **+2** de posição."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, totem e bênção",
+      "text": [
+        "Em **Voz**, o Ancião entrega a você a Marca da tribo dos Cantores de cascalho. Fabrique-a com um {item:tribalpower:resonance_totem_earth} e dois Tece-espírito para o [Totem de parentesco](kinship_totem) deles.",
+        "Ao lado de um Ressonador de Pulso, é mais uma voz; ao lado de uma estação, empresta **Terra**.",
+        "Os Parentes dos Cantores de cascalho carregam a [bênção](tribe_boons) deles: o minério que você quebra tem chance de **uma em cinco** de dar mais um.",
+        "O prato deles carrega a bênção por **5 minutos**, e a [relíquia](elders_and_stories) deles enquanto você a carregar.",
+        "Sua posição com os Cantores de cascalho decide até que profundidade um [Fosso de escuta](listening_pit) pode escutar: **Amigo** para minério comum, **Parente** para as faixas profunda e quente, **Voz** para a rara. O Totem de parentesco deles é uma das duas formas de abrir as faixas mais profundas.",
+        "Em **Voz**, você também pode vincular um **Lomoestilhaço** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "stone",
+      "title": "Seu trabalho com eles",
+      "text": [
+        "O que o Ancião dos Cantores de cascalho pediu a você, e até onde a história deles chegou. Consulte [Anciãos, pedidos e histórias](elders_and_stories)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "5. Der Fall",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der Fall",
+      "text": [
+        "“Wenn ein Faden loslässt, halten die anderen acht einen Atemzug lang, und dann reißen sie. Der Boden fiel in Stücken vom Himmel weg. Was nicht fiel, trieb. Was trieb, ist der Marsch.”",
+        "Gefunden auf Gemeißelter Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

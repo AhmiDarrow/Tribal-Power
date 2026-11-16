@@ -1,0 +1,41 @@
+{
+  "name": "Odłamek Ducha i rezonatory",
+  "icon": "tribalpower:spirit_shard",
+  "order": 5,
+  "items": [
+    "tribalpower:copper_resonator",
+    "tribalpower:bone_chime"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_shard",
+      "text": [
+        "Dwie skromne części pojawiają się w prawie każdym przepisie Tribal Power: **Odłamek Ducha** i **Miedziany rezonator**. Zrób wcześnie stos każdej, a rzadko utkniesz.",
+        "Obie zaczynają się od **Kościany dzwonek**: kość, nić i odłamek ametystu dają dwa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Skąd pochodzą",
+      "text": [
+        "Odłamek Ducha to odłamek ametystu, pył redstone i Kościany dzwonek, zrobione razem. Każde wytworzenie daje **dwa**.",
+        "Miedziany rezonator to cztery sztabki miedzi wokół Kościany dzwonek. Każde wytworzenie też daje **dwa**.",
+        "Gdy dotrzesz do Marszu, **Ruda Marszu** jest tańszym źródłem odłamków: włóż ją do [Kruszarka echa](echo_shatter) z totemem Ziemia, a w 4 sekundy, przy 40 Puls na sekundę, rozpadnie się na **dwa Odłamek Ducha**."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_shard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_resonator"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime",
+      "text": "Kościany dzwonek budzi też cichy totem, gdy użyjesz go na totemie."
+    }
+  ]
+}

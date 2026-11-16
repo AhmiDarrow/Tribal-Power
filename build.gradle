@@ -245,6 +245,20 @@ tasks.named('jar', Jar).configure {
     duplicatesStrategy = DuplicatesStrategy.FAIL
 }
 
+// Same key set, valid JSON, and the same printf arguments in every locale,
+// plus the Spirit Codex trees. English stays the runtime fallback; this fails
+// the build when a translation file drifts.
+tasks.register('verifyLocales', Exec) {
+    group = 'verification'
+    description = 'Check locale files and Codex trees against English.'
+    workingDir project.projectDir
+    commandLine 'python', 'tools/verify_locales.py'
+}
+
+tasks.named('check').configure {
+    dependsOn 'verifyLocales'
+}
+
 idea {
     module {
         downloadSources = true

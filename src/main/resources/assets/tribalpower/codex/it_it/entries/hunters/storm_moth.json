@@ -1,0 +1,52 @@
+{
+  "name": "Falena della tempesta",
+  "icon": "tribalpower:storm_wing",
+  "order": 120,
+  "spoiler": true,
+  "items": [
+    "tribalpower:storm_moth_spawn_egg",
+    "tribalpower:storm_wing"
+  ],
+  "next": "cinder_imp",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_moth",
+      "text": [
+        "Uno spirito nutrito dalla tempesta, su alte ali di ardesia segnate dal fulmine. Un grappolo luminoso di granelli avvisa della sua raffica.",
+        "Cacciato, lascia anche fino a 2 corde e fino a 1 membrana di phantom."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Le Falene della tempesta volano sugli Altipiani della Marcia, i Campi di neve e la Cresta del barlume, e alcune sulle Distese di brace.",
+        "Ha **20 di salute** e nessuna armatura. Resta indietro e lancia una raffica fino a 12 blocchi: **4 danni** e una forte spinta. Spezza la sua linea di vista e l'incantesimo fallisce."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Ala di tempesta**.",
+        "Un'Ala di tempesta si lega in 2 Tessitospirito sotto l'Acqua."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raggiungi **Voce** con i **Tessitori di trame**, poi usa un Amuleto di legame su un adulto: due tentativi su cinque, e l'amuleto si consuma se fallisce. Oppure nutrila con il suo reagente: un tentativo su cinque, e il reagente si consuma in ogni caso.",
+        "Una falena legata che siede lascia un piccolo clic invisibile di redstone una volta al secondo, un orologio gratis per i tuoi congegni. Vedi [doni del famiglio](familiar_gifts)."
+      ],
+      "title": "Come familiare"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, lascia questo quando viene cacciato, e di più con Saccheggio."
+      ]
+    }
+  ]
+}

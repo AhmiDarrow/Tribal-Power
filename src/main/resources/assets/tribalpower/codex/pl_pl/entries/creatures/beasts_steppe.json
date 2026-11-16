@@ -1,0 +1,74 @@
+{
+  "name": "Bestie stepu",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Własne stepu",
+      "text": [
+        "Do stepu należą cztery zwierzęta: trzy, które pasą się lub latają nad otwartą trawą, i jedno, które poluje w tunelach pod spodem.",
+        "Każdą łagodną bestię tutaj można raz na minutę wyszczotkować pędzlem, by uzyskać jej reagent, i wabi się ją oraz rozmnaża jej własnym jedzeniem, nazwanym niżej w **Polowanie i wypas**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), i choć żadna nie ma własnego daru, związana wciąż może wziąć głos przy totemie i wzmocnić twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Kępogrzbiet",
+      "text": [
+        "Kosmaty bizon stepu, który pasie się w stadach od dwóch do czterech. Ma **26 zdrowia** i **5 pancerza**, porusza się bardzo powoli i cofa się przed potworami.",
+        "Upuszcza **od 1 do 3 Wełna kępy**, więcej z Grabieżą.",
+        "Upolowany upuszcza też od 1 do 2 Surowa dziczyzna i do 1 Skóra Marszu. Rozmnażaj z **Ziarno stepu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Długogoleń",
+      "text": [
+        "Wysoki jeleń, szybki na nogach, w stadach od dwóch do czterech. **22 zdrowia** i **1 pancerza**.",
+        "Upuszcza **od 1 do 3 Ścięgno goleni**. Ścięgno goleni wzywa Duch panicznego biegu przy Zdeptanym kręgu: zobacz [strażnicy](guardians).",
+        "Upolowany upuszcza też od 1 do 3 Surowa dziczyzna, do 2 Skóra Marszu i do 1 Kość. Rozmnażaj z **Ziarno stepu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Bladoskrzydły",
+      "text": [
+        "Ruda kania, blada pod skrzydłami, z głęboko rozwidlonym ogonem, która szybuje nad trawą pojedynczo albo do trzech. **10 zdrowia**, bez pancerza.",
+        "Upuszcza **od 1 do 3 Blady puch**, który mieli się w biały barwnik (zobacz [reagenty](reagents)).",
+        "Upolowany upuszcza też od 1 do 2 Pióro i do 1 Surowa dziczyzna. Rozmnażaj z **Ziarno stepu lub nasiona pszenicy**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Gryzak nory",
+      "text": [
+        "Ryjący jelonek rogacz z wielkimi zakrzywionymi szczypcami, łowca stepu. Żyje w ciemnych tunelach pod trawą i wychodzi stamtąd dniem i nocą, pojedynczo albo parami. Ma **23 zdrowia** i **3 pancerze**, a jego ugryzienie zadaje **4** i zatruwa cię przez 3 sekundy.",
+        "Zrzuca **1 do 2 zębów miażdżących**, odczynnik jadu. Osobniki Gryzak nory też wychodzą na powierzchnię, by dołączyć do walki, którą toczy Duch panicznego biegu.",
+        "Upolowany zostawia też do 1 kości i do 1 oka pająka."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz odczynnika każdy zostawia więcej przy polowaniu i jeszcze więcej z Grabieżą. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmione normalnie, dzikie zwierzę zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

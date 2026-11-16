@@ -1,0 +1,265 @@
+{
+  "name": "Pompa di marea",
+  "icon": "tribalpower:tide_pump",
+  "order": 50,
+  "next": "ward_drum",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tide_pump",
+      "text": [
+        "Sposta fluido da un serbatoio al serbatoio sull'altro lato, **250 mB** al secondo, e preleva acqua dal blocco **direttamente sotto**. Acqua da una Cisterna di Spirito a un Tamburo delle onde, lava da un deposito all'altro: va bene qualsiasi serbatoio di fluidi, di questa mod o di un'altra.",
+        "Tiene un piccolo pozzo proprio, di **4000 mB**, per ciò che preleva da sotto e ciò che portano le piastre relè di fluido. Rompila e conserva le impostazioni, il verso in cui pompa, come è impostata ogni faccia e il suo grado, insieme al pozzo e a ogni fluido che stava spostando a metà.",
+        "Risponde ad **Acqua**: tieni un totem di Acqua entro 8 blocchi (vedi [Mani dell'accampamento](camp_hands)), altrimenti resta inattiva."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In che verso pompa",
+      "text": [
+        "La pompa ha un fronte, la faccia con la freccia. Come una fornace, si piazza con quella faccia verso di te, e puoi puntarla in alto, in basso o di lato.",
+        "Di base **preleva dal serbatoio sul davanti** e **spinge nel serbatoio sul retro**. Accovacciati e fai clic destro a mano vuota per invertire; un clic destro normale mostra l'ultima cosa fatta, come prelevare o spingere **250 mB**.",
+        "Un comparatore segna **15** mentre la pompa tira dal fronte e **1** mentre spinge verso il fronte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acqua dal basso",
+      "text": [
+        "Metti la pompa sopra acqua ferma e, a ogni battito, tira un secchio, **1000 mB**, nel suo pozzo. Sopra acqua infinita, una fonte con due fonti vicine e terreno solido sotto, la fonte resta; una fonte sola viene presa come farebbe un secchio.",
+        "Sopra un serbatoio, invece, tira **250 mB** a battito da quel serbatoio, a meno che quel serbatoio non sia già il suo fronte o il suo retro.",
+        "Ciò che il pozzo tiene va prima nel serbatoio in cui spinge, quello dietro per impostazione, **250 mB** a battito; senza serbatoio lì, aspetta nel pozzo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Piastre relè di fluidi",
+      "text": [
+        "Una piastra relè di fluidi, o una piastra di oggetti a cui è stato dato un Sigillo d'Acqua, va su qualsiasi faccia della pompa con un semplice clic destro. Accordala con l'Accordatore di reticolo e porterà l'acqua dal pozzo a un serbatoio ovunque nel raggio (vedi [Carico senza fili](wireless_cargo)).",
+        "Una piastra altrove, accordata su una delle facce della pompa, riempie invece il pozzo, e la pompa lo passa avanti come tutto ciò che tira.",
+        "Ogni faccia è aperta in entrambi i sensi. Usa accovacciato una **Chiave del totem** su una faccia per farla passare da Entrambi, Ingresso, Uscita e Chiuso."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Da serbatoio a serbatoio",
+      "steps": [
+        {
+          "caption": "Due serbatoi con un varco in mezzo. Quello a destra è pieno.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Piazza la Pompa di marea in mezzo, con la faccia della freccia verso il serbatoio pieno.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tide_pump[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti un generatore e un Conduttore di reticolo entro 8 blocchi: ogni secondo sposta 250 mB per 4 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Il fluido esce dal serbatoio davanti ed entra in quello dietro.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e fai clic destro sulla pompa per invertirla; ora il serbatoio a sinistra si svuota in quello a destra.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Consigli",
+      "text": [
+        "I due serbatoi devono accettare lo stesso fluido, e il serbatoio che riceve ha bisogno di spazio.",
+        "Alzare il rango accorcia il battito; il Pulso per 250 mB resta **4**. Una leva la mette in pausa.",
+        "Il pozzo è piccolo: abbina la pompa a una Cisterna di Spirito, o a un Tamburo delle onde, dovunque il fluido debba restare fermo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_pump"
+    }
+  ]
+}

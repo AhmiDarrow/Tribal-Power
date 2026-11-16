@@ -1,0 +1,17 @@
+{
+  "name": "14. Marea",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marea",
+      "text": [
+        "“I Bassifondi sono le opere dei Tessitori di trame, annegate fino alla vita e ancora in moto. La marea tiene il loro motivo battuta per battuta. Il Tamburino che lo tiene ha dimenticato che siano mai esistiti dei tessitori.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

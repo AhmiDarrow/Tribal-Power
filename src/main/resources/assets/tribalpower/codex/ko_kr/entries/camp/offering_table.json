@@ -1,0 +1,29 @@
+{
+  "name": "공물 탁자",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "상자보다 면이 나은 27칸 야영 창고. 화로나 요람 곁에 두어 공물, 음식, 정령직물을 손에 닿게 한다. 펄스는 필요 없다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사용법",
+      "text": [
+        "보관일 뿐, 두 번째 부족 화로가 아니다. 부족과의 위상을 올리는 공물은 화로 자체에 올린다 ([위상](standing) 참조). 탁자는 아무것도 주지 않는다.",
+        "놓은 플레이어와 그 야영만 열 수 있다. 아무도 차지하지 않았다면 누구나 열 수 있다.",
+        "호퍼, 파이프, [중계 판](wireless_cargo)은 어느 면에서든 채우거나 비울 수 있다. 맨손으로 웅크린 채 면을 우클릭하면 그 면이 바뀐다. 양쪽, 입력, 출력 또는 닫힘.",
+        "비교기는 얼마나 찼는지 읽는다. 레드스톤 신호는 메뉴와 자동화를 모두 잠근다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

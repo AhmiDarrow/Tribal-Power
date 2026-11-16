@@ -1,0 +1,35 @@
+{
+  "name": "Cultures de la Marche",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Cinq cultures poussent sauvages là-bas, chacune dans son propre pays. Trouve une parcelle, cueille-la, et ce que tu as cueilli est la graine : plante-la sur de la terre labourée comme une pomme de terre. Elle prend aussi sur de la terre simple, du Sol de la Marche ou du sable, et c'est ainsi que poussent les parcelles sauvages.",
+        "- **Racine de braise** dans les Landes de braise : un tubercule rouge et chaud.",
+        "- **Riz de tourbière** dans la Tourbière aux roseaux.",
+        "- **Baie de givre** dans les Champs de neige.",
+        "- **Haricot de lueur** sur la Crête de lueur, où il s'enracine dans la pierre de lune et l'agate moussue, et dans les Champs de cristal.",
+        "- **Grain de steppe** dans la steppe."
+      ],
+      "title": "Ce que la Marche fait pousser"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ils poussent en quatre stades. Tous se mangent crus, mais pas pour grand-chose. La [Houe d'Espritoutillage](spiritgear) les récolte et les replante d'un seul geste, les abeilles les pollinisent, et le [don Pousse](tribe_boons) les hâte.",
+        "La Baie de givre et le Haricot de lueur comptent aussi comme herbes pour le [Chaudron de l'Esprit](spirit_kettle)."
+      ],
+      "title": "Les cultiver"
+    }
+  ],
+  "next": "hearth_pot"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Wildbret und Leder",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Die Tiere des Marsches sättigen dich so gut wie die der Oberwelt. Ihr Fleisch ist **Rohes Wildbret**, und ihre Häute geben **Marschleder**.",
+        "Gebratenes Wildbret sättigt wie ein Steak und macht lange Reisen durch den Marsch viel leichter."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Rohes Wildbret** kommt von Aschespringer, Brockenrüssel, Klangweider, Zunderhaut, Klippenspringer, Klippenmantel, Dämmerhirsch, Treibpelz, Fennstelzer, Frostläufer, Laternenfuchs, Langschenkel, Webstuhlsegler, Marschwanderer, Sumpfhüpfer, Moosrücken, Bleichschwinge, Prismengraser, Gratgraser und Schopfrücken.",
+        "**Marschleder** kommt von Brockenrüssel, Klangweider, Zunderhaut, Klippenspringer, Felsentroll, Klippenmantel, Dämmerhirsch, Tiefenlauerer, Treibpelz, Fennstelzer, Frostläufer, Laternenfuchs, Langschenkel, Marschwanderer, Moosrücken, Prismengraser, Schilfkringel, Schilfpirscher, Gratgraser, Risshund, Reiftroll, Schlackentroll, Schopfrücken und Schleierrochen.",
+        "Die eigene Seite jeder Kreatur nennt die Mengen.",
+        "Plünderung gibt bis zu eines mehr von jedem. Ein Tier, das brennend stirbt, lässt sein Fleisch schon gebraten fallen."
+      ],
+      "title": "Woher es kommt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Rohes Wildbret** gibt **3** Hunger und wenig Sättigung. Gebratenes Wildbret gibt 8 bei hoher Sättigung.",
+        "Gare es in einem Ofen, einem Räucherofen (doppelt so schnell) oder über einem Lagerfeuer (am langsamsten, aber ohne Brennstoff).",
+        "Beides zählt als Fleisch: Wölfe fressen es, und andere Mods behandeln es als rohes oder gegartes Fleisch."
+      ],
+      "title": "Kochen und Essen"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ein Marschleder wird zu einem gewöhnlichen Leder, also ist alles, was Leder braucht, etwa eine Stille Trommel, nur einen Herstellungsschritt entfernt.",
+        "Es zählt auch als Leder für andere Mods, die jedes Leder annehmen."
+      ],
+      "title": "Marschleder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Ein Marschleder ergibt ein Leder."
+    }
+  ]
+}

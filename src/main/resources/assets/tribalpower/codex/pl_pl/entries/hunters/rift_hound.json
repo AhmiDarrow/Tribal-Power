@@ -1,0 +1,52 @@
+{
+  "name": "Ogar szczeliny",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Chudy chart rozdarty świecącymi szczelinami, ciągnący do rozdarć w kracie. Szybko skraca dystans, ale sam nie przechodzi między światami.",
+        "Upolowany zostawia też do 2 Kości i do 1 Skóra Marszu."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ogary szczeliny polują na Stepie Marszu, na Wyżynie, na Grani połysku, na Polach śniegu i na Pustkowiach żaru.",
+        "Ma **28 zdrowia** i **2 pancerza** i uderza za **5**. To najszybszy z pozostałości, więc łatwo mu nie uciekniesz. Odwróć się i walcz plecami do ściany."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **od 1 do 2 Ząb szczeliny**.",
+        "Ząb szczeliny dostraja się do 2 Dostrojone echo pod Duchem."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij **Głos** u **Chodzący po krawędzi**, potem użyj Amulet więzi na dorosłym: dwie próby na pięć, amulet zużywa się przy porażce. Albo nakarm je jego własnym odczynnikiem: jedna próba na pięć, a odczynnik zużywa się tak czy inaczej.",
+        "Związany ogar jest wojownikiem, a rzadki znak **Trop** pokazuje ci ostatniego wroga, który cię zranił. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i zaganianie",
+      "text": [
+        "Oprócz swojego odczynnika zostawia to, gdy jest upolowany, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

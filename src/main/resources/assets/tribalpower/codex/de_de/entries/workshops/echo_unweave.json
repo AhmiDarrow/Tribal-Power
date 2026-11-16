@@ -1,0 +1,190 @@
+{
+  "name": "Echoentweben",
+  "icon": "tribalpower:echo_unweave",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_unweave",
+      "text": [
+        "Die Station des Webstuhls lässt das Gitter rückwärts laufen. Echoentweben nimmt ein fertiges Produkt auseinander, in mehr vom Schritt davor, und macht abgenutztes Geistergerät wieder zu Metall."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was es zerlegt",
+      "text": [
+        "- Manifestierter Barren: **2** gebundene Echos.",
+        "- Gebundenes Echo: **2** abgestimmte Echos.",
+        "- Abgestimmtes Echo: **2** Echoscherben.",
+        "- Resonanzkern: **3** manifestierte Barren.",
+        "- Geistergewebe: **1** Wolle.",
+        "- Ein beschädigtes Werkzeug oder eine beschädigte Waffe aus Geistergerät, oder eine beschädigte Heiler-Rassel: **1** manifestierter Barren. Bögen und Armbrüste werden nicht zerlegt.",
+        "Frische, unbeschädigte Werkzeuge werden abgelehnt: Geistergerät muss zuerst Schaden nehmen. Rüstung aus Geistergewebe wird nie zerlegt.",
+        "Es braucht ein Resonanz-Totem (Webstuhl) innerhalb von 8 Blöcken. Fehlt der Webstuhl, pausiert es und verbraucht nichts."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Einen Kern entweben",
+      "steps": [
+        {
+          "caption": "Stelle Echoentweben mit einem Resonanz-Totem (Webstuhl) innerhalb von 8 Blöcken auf.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_unweave"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_loom"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Halte den Puls in Reichweite und lass etwas Platz für die Ausgabe frei.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Resonanzkern geht hinein; drei manifestierte Barren kommen heraus.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:resonant_core"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Verketten",
+      "text": [
+        "Setze die Ausgabe von Echobinder oder Echomanifestierer in diese Station, für eine umgekehrte Kette ohne Trichter.",
+        "Wenn du es schneller willst, stufe es der Reihe nach auf: Echoabstimmer, Echobinder, dann Echomanifestierer. Ein Hebel pausiert Einfügen und Arbeit.",
+        "Wenn es nicht startet, ducke dich und rechtsklicke es mit diesem Buch, und lies [Die sechste Stimme](sixth_voice)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_unweave"
+    }
+  ]
+}

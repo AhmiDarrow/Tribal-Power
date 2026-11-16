@@ -1,0 +1,74 @@
+{
+  "name": "巨魔",
+  "icon": "tribalpower:troll_hide",
+  "order": 320,
+  "spoiler": true,
+  "items": [
+    "tribalpower:crag_troll_spawn_egg",
+    "tribalpower:rime_troll_spawn_egg",
+    "tribalpower:slag_troll_spawn_egg",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:slag_hide"
+  ],
+  "next": "goblins",
+  "pages": [
+    {
+      "type": "text",
+      "title": "巨魔",
+      "text": [
+        "体型大，不易倒下，容易发怒。三种巨魔占据远行界的高处岩石与热地，三种都会猎杀你。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_troll",
+      "title": "岩崖巨魔",
+      "text": [
+        "见于高地。夜里在开阔地面出现，一次一两只。",
+        "被猎杀时还会掉落1至3个远行界皮革、1至2个骨头和最多2个燧石。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_troll",
+      "title": "雾凇巨魔",
+      "text": [
+        "见于雪原。夜里在开阔地面出现，一次一两只。",
+        "被猎杀时，还会掉落1到3个远行界皮革、1到2个骨头和1到3个雪球。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_troll",
+      "title": "炉渣巨魔",
+      "text": [
+        "见于余烬荒原，在熔岩旁及其周围的热石上，昼夜皆有，一次一只或两只。它**免疫火焰**。",
+        "被猎杀时，还会掉落1到3个远行界皮革、1到2个骨头和1到3个铁粒。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "与一只交战",
+      "text": [
+        "巨魔拥有**69生命值**和**6护甲**，攻击为**9**。岩崖巨魔或雾凇巨魔的一击会把你击退；炉渣巨魔的一击会让你燃烧2秒。",
+        "保持距离，绝不要背对熔岩与它交战。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它们给出的",
+      "text": [
+        "每个掉落**1到2**张皮，抢夺则更多。**巨魔皮**和**雾凇皮**是推移试剂，**炉渣皮**是余烬试剂：见[试剂](reagents)。",
+        "巨魔从不结缘。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与兽群",
+      "text": [
+        "除了试剂，每个被猎杀时还会多掉一些，有抢夺时再多一些。"
+      ]
+    }
+  ]
+}

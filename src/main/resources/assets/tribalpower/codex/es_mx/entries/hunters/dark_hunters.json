@@ -1,0 +1,74 @@
+{
+  "name": "Cazadores en la oscuridad",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Abajo y arriba",
+      "text": [
+        "Tres cazadores dominan las cuevas de la Marcha, y surgen allí en la oscuridad de día igual que de noche. Un cuarto deriva sobre las tierras altas de noche.",
+        "Ninguno se vinculará. Cada uno suelta **de 1 a 2** de su reactivo, y más con Botín."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Acechante profundo",
+      "text": [
+        "Un topo de nariz estrellada del tamaño de un oso, el más duro de los cazadores de las cuevas, bajo todas las tierras de la Marcha, de uno o dos a la vez. Tiene **32 de salud** y **3 de armadura** y muerde por **5**.",
+        "Suelta **Garra de acechante**, un reactivo de Sabueso que se muele en tinte Azul claro.",
+        "Al cazarlo, también suelta hasta 2 huesos y hasta 1 Cuero de la Marcha."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Acechador pálido",
+      "text": [
+        "Un necrófago de cueva demacrado y sin ojos, alto, pálido y rápido, de las cuevas bajo la Estepa, las Tierras Altas, la Cresta del Destello, los Campos de Nieve y los Campos de Cristal, de uno o dos a la vez. **24 puntos de salud** y **1 punto de armadura**. Su golpe hace **4** y te debilita durante 4 segundos.",
+        "Suelta **Colmillo pálido**, un reactivo de Debilitar.",
+        "Si lo cazas, también suelta de 1 a 2 huesos."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Reptador umbrío",
+      "text": [
+        "Un ciempiés de cueva, bajo y oscuro, de las cuevas bajo todas las tierras salvo los Bajíos, de uno o dos a la vez. **22 puntos de salud** y **2 puntos de armadura**. Su mordedura hace **4**, te ralentiza durante 3 segundos y puede dejarte [Deshilachado](afflictions).",
+        "Suelta **Seda umbría**, un reactivo de Tejido.",
+        "Si lo cazas, también suelta de 1 a 2 cuerdas y hasta 1 ojo de araña."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Derivante del velo",
+      "text": [
+        "Un sudario andrajoso a la deriva, con alas de murciélago, que se alza de noche sobre las Tierras Altas, la Cresta del Destello, los Campos de Nieve y los Campos de Cristal, de uno o dos a la vez. **18 puntos de salud** y **1 punto de armadura**.",
+        "A hasta 12 bloques de distancia lanza una ráfaga de **3** que te empuja hacia atrás. La cobertura interrumpe el lanzamiento. Suelta **Jirón de velo**, un reactivo de Ráfaga.",
+        "Si lo cazas, también suelta hasta 1 membrana de fantasma y hasta 1 cuerda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más si lo cazas, y aún más con Saqueo."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Chochlik żagwi",
+  "icon": "tribalpower:cinder_knot",
+  "order": 130,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cinder_imp_spawn_egg",
+    "tribalpower:cinder_knot"
+  ],
+  "next": "mourning_bell",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_imp",
+      "text": [
+        "Zwinny chochlik ognia. Zbiera iskry przed płonącym pociskiem.",
+        "Przy polowaniu upuszcza też Płomienny proszek ze szansą jeden do trzech."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osobniki Chochlik żagwi przemykają przez Wyżyny Marszu i Grań połysku, a najwięcej ich w Pustkowia żaru.",
+        "Ma **18 zdrowia** i **1 pancerza** i jest odporny na ogień. Z odległości do 12 bloków rzuca pocisk za **4 obrażeń**, który podpala cię na 2 sekund. Pocisk nigdy nie zapala terenu. Osłona przerywa rzucanie."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Upuszcza **od 1 do 2 Węzeł żagwi**.",
+        "Węzeł żagwi dostraja się w 2 Dostrojone echo pod Duch."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij **Głos** u **Bęben-serca**, potem użyj Amulet więzi na dorosłym: dwie próby na pięć, amulet przepada przy porażce. Albo nakarm go jego własnym odczynnikiem: jedna próba na pięć, a odczynnik przepada tak czy inaczej.",
+        "Związany chochlik oddaje **4 Puls** za każdym razem, gdy grasz na Bęben-serce ręcznie. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i pędzenie",
+      "text": [
+        "Oprócz swojego odczynnika upuszcza to przy polowaniu, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

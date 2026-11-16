@@ -1,0 +1,52 @@
+{
+  "name": "Lomoesquirla",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "Un cangrejo ermitaño en un caparazón de geoda, acorazado en piedra cantarina. Mantén la distancia de su empujón pesado.",
+        "Cazado, también suelta hasta 2 fragmentos de amatista."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Lomoesquirla recorren los Campos de cristal de la Marcha, y menos la Cresta del destello y las Alturas.",
+        "Tiene **36 de salud** y **8 de armadura** y golpea por **5**. Cada golpe te empuja fuerte hacia atrás, lo que es peligroso en las terrazas. Pelea lejos de los bordes."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Caparazón prismático**.",
+        "Un Caparazón prismático se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza la estima **Voz** con los **Cantores de grava** y luego usa un Amuleto de vínculo con un adulto. Dos de cada cinco intentos tienen éxito; un amuleto fallido se gasta. O aliméntalo con su propio reactivo: uno de cada cinco, y el reactivo se gasta de todos modos.",
+        "Un Lomoesquirla vinculado es un luchador: golpea a quien te hace daño y a quien tú golpeas. La marca rara **Riostra** hace que cueste empujarlo. Consulta [regalos del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, suelta esto al cazarlo, y más con Botín."
+      ]
+    }
+  ]
+}

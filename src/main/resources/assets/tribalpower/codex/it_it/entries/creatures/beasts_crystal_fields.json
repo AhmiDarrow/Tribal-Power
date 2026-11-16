@@ -1,0 +1,74 @@
+{
+  "name": "Bestie dei Campi di cristallo",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "I propri del cristallo",
+      "text": [
+        "Le mese a terrazze tengono un pascolatore dal collo lungo e una libellula all'aperto, un porcellino di terra nelle grotte sotto e una mantide di cristallo che di notte cammina sul cristallo.",
+        "Ogni bestia mansueta qui si può spazzolare una volta al minuto per il suo reagente, e si attira e si riproduce con il suo cibo, indicato più sotto in **Caccia e allevamento**. Si può legare come qualsiasi animale mansueto (vedi [famigli](familiars)) e, anche se nessuna ha un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Brucatore di campana",
+      "text": [
+        "Un brucatore viola, lanoso, dal collo lungo, con due grandi corna di cristallo e una cresta di cristallo lungo il dorso, in mandrie da due a quattro. **24 di salute** e **3 di armatura**.",
+        "Lascia **da 1 a 3 Cresta di campana**, di più con Saccheggio.",
+        "Cacciato, lascia anche da 1 a 2 Selvaggina cruda, fino a 1 Cuoio della Marcia e fino a 1 scheggia di ametista. Alleva con **grano**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Sfarfallatore di vetro",
+      "text": [
+        "Una libellula dalle ali di vetro, da una a tre. **10 di salute**, senza armatura.",
+        "Lascia **da 1 a 3 Ala di vetro**.",
+        "Cacciato, lascia anche fino a 2 piume. Alleva con **Fiore di eco o un fiore piccolo qualunque**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Larva di geode",
+      "text": [
+        "Un porcellino di terra pesante, di pietra lilla a bande, con una placca chiara sul capo e una cresta di geodi lungo la schiena, delle caverne oscure sotto le mesas, da uno a tre alla volta. **26 di salute** e **5 di armatura**, molto lento, e mansueto.",
+        "Lascia **da 1 a 3 Guscio di geode**.",
+        "Cacciato, lascia anche fino a 2 schegge di ametista. Alleva con **Cappello lanterna o un fungo qualunque**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Inseguitore di schegge",
+      "text": [
+        "Una mantide di cristallo che sorge tra il cristallo di notte, una o due alla volta. Ha **21 di salute** e **1 di armatura**, è rapida, e il suo colpo infligge **5** e ti avvelena per 3 secondi.",
+        "Lascia **da 1 a 2 Aculeo di scheggia**, un reagente di veleno.",
+        "Cacciato, lascia anche fino a 1 scheggia di ametista e fino a 1 corda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuno lascia di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per riprodurre quelli selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

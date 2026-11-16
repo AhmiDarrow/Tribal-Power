@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Le Non-chanté",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Depuis une Salle des ancêtres engloutie, à propos du tambour que nul n'a frappé :",
+        "“On a emporté un tambour de chaque camp qui tombait, pour que le battement ne s'arrête pas. Le dernier tambour a été porté dans le cercle et il ne restait personne pour le frapper. Son gardien est devenu creux à force d'attendre. Réveille-le avec la mesure à quatre temps et il se lèvera pour être frappé. Accroupis-toi quand il bat. Resynchronise-le quand il se tait. Il veut seulement que le rythme revienne.”"
+      ]
+    }
+  ]
+}

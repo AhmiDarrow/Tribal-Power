@@ -1,0 +1,39 @@
+{
+  "name": "Dones de la tribu",
+  "icon": "tribalpower:tribe_mark",
+  "order": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_mark",
+      "title": "El modo de una tribu, prestado a ti",
+      "text": [
+        "Cada tribu tiene un **don**: una pequeña ventaja al modo de esa tribu, mostrada como un efecto de estado del color de la tribu.",
+        "Alcanza la reputación **Pariente** con una tribu y llevas su don mientras dure esa reputación. El don se renueva solo; nunca tienes que pedirlo. Cualquiera puede llevar un don un tiempo comiendo el [plato](tribe_dishes) de esa tribu. Llevar la [reliquia](elders_and_stories) de una tribu también da su don, sea cual sea tu reputación.",
+        "Un **Amuleto de la linterna** que llevas puesto mantiene un don encendido la mitad más de tiempo."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Suelo (Guardianes del lecho)**: tus campos nunca se pisotean, y el hambre llega más despacio.",
+        "- **Piedra (Cantores de grava)**: la mena que rompes tiene una probabilidad de **una de cada cinco** de dar una más.",
+        "- **Brote (Vinculadores de raíces)**: los cultivos y los brotes a 4 bloques crecen más rápido a tu alrededor.",
+        "- **Garra (Caminantes del borde)**: ninguna caída te hace daño mientras te **agachas**.",
+        "- **Chispa (Corazones de tambor)**: una mano más rápida: golpeas un **10%** más rápido."
+      ],
+      "title": "Los nueve dones"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Reloj (Tejedores de patrones)**: las estaciones de eco a 8 bloques de ti funcionan a **doble velocidad**.",
+        "- **Enjambre (Guardianes de la colonia)**: las abejas nunca se vuelven contra ti.",
+        "- **Sigilo (Talladores de sellos)**: tus amuletos piden **la mitad** del Pulso.",
+        "- **Huso (Zurcidores del telar)**: las canciones cuestan **un cuarto menos** al cantarlas.",
+        "Todos los números están en la sección **efectos** de la configuración común."
+      ],
+      "title": "Los nueve dones, continuación"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Krąg obrzędu",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Cokół obrzędu trzyma i pokazuje jeden przedmiot. Cztery z nich wokół Rytualnego brasera tworzą **Krąg obrzędu**, którego potrzebuje każdy obrzęd tabliczki, włącznie z wezwaniem wiosny.",
+        "Stałe błogosławieństwo brasera go nie potrzebuje: chce tylko osadzonej pieczęci i jej totemu."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Narysuj krąg",
+      "text": "Brasero pośrodku, cztery Cokoły obrzędu na przekątnych, kreda je łączy."
+    },
+    {
+      "type": "text",
+      "title": "Używanie kręgu",
+      "text": [
+        "Jeśli krąg jest niepełny, obrzęd tabliczki mówi, że krąg nie jest narysowany, a tabliczka nie jest zużyta. Przykucnij i kliknij prawym przyciskiem brasero z tą księgą, a wymieni, czego kręgowi jeszcze brakuje.",
+        "Tabliczki mogą czekać na cokołach. Uderzony sygnał redstone na braserze odpala osadzony obrzęd tabliczką cokołu, która pasuje do pieczęci, a komparator czyta, czy cokół jest zajęty. Tak stawiasz [obrzęd na zegarze](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Głosy na kardynałach",
+      "text": "Osadź cztery totemy własnego głosu obrzędu na kardynałach: obrzęd kosztuje o ćwierć mniej i trwa dwa razy dłużej."
+    },
+    {
+      "type": "text",
+      "title": "Silniejszy krąg",
+      "text": [
+        "Cztery totemy kardynalne liczą się tylko, gdy pasują do rzucanego obrzędu, więc krąg Wody pomaga Wezwaniu deszczu i wezwaniu wiosny, ale nie Wezwaniu świtu.",
+        "To opcjonalne. Zwykły krąg rzuca każdy obrzęd za pełną cenę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obrzęd pieczęci ręcznie",
+      "text": [
+        "Cokół też przyjmuje szybki obrzęd całkiem bez kręgu. Użyj żywiołowej **pieczęci** na bloku Cokół obrzędu: pieczęć zostaje zużyta, a jej głos działa na ciebie od **20 sekund** do **dwóch minut** i na każdego wrogiego w promieniu **6 bloków**.",
+        "Jeśli ogniwo, które nosisz, zawiera **8 Puls**, obrzęd zabiera je i jest **wzmocniony**: silniejszy i dłuższy.",
+        "Wszyscy w promieniu 6 bloków dostają też [błogosławieństwo głosu](voice_blessings) pieczęci na **5 minut**, albo 7 i pół na poziomie II, gdy jest wzmocniony. Dostrojony [chowaniec](familiar_boons) głosu pieczęci obok ciebie sprawia, że trwa o połowę dłużej. Wykonany w obozie plemienia liczy się jako obrzęd, o który proszą ich prośby.",
+        "Sygnał redstone na cokole odmawia go."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co robi każda pieczęć",
+      "text": [
+        "- **Ziemia**: odporność, absorpcja i pośpiech; pobliscy wrodzy zostają zakorzenieni, a trawa pod cokołem twardnieje w ścieżkę.",
+        "- **Ogień**: odporność na ogień; wrodzy zajmują się ogniem, śnieg i lód topnieją, a zimne ogniska się zapalają.",
+        "- **Woda**: oddychanie pod wodą i gracja pływaka; ognie gasną, a pole uprawne nasiąka. Wzmocniony przyspiesza też rośliny.",
+        "- **Powietrze**: powolne opadanie, szybkość i wyższy skok; wrodzy są odrzucani, a deszcz się przejaśnia.",
+        "- **Duch**: regeneracja i widzenie w ciemności; zdejmuje zatrucie, uwiąd, ślepotę, spowolnienie, słabość i głód oraz leczy każdego gracza w pobliżu; wrodzy świecą i słabną. Wzmocniony wplata **12 Puls** z powrotem w ogniwo, które nosisz.",
+        "- **Krosno**: szczęście i szybkość; wrodzy są przyciągani i spowalniani, a każdy gracz w pobliżu dostaje **12 Puls** (24 po wzmocnieniu) wplecione w swoje ogniwa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

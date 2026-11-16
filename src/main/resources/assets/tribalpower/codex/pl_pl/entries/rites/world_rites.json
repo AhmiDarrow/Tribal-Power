@@ -1,0 +1,64 @@
+{
+  "name": "Rytuały świata",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "Rytuały tabliczek sięgają poza obóz i zmieniają sam świat. Wyrzeźb tabliczkę, osadź pasującą pieczęć w «Rytualne brasero» wewnątrz jego kręgu i wydaj Puls."
+      ],
+      "title": "Rytuały pogody"
+    },
+    {
+      "type": "text",
+      "title": "Rzeźbienie i rzucanie",
+      "text": [
+        "Każda tabliczka to dwa bruki (albo czernit, albo bruk głębokiego łupka), jej odczynnik i pasująca pieczęć, bez kształtu. Pieczęć jest zwracana.",
+        "Osadź tę pieczęć w brasero (jej błogosławieństwo trwa), narysuj [Krąg obrzędu](rite_circle) i zbierz pełny koszt w zasięgu **8 bloków** od brasero: dobrze zaopatrzone Bęben-serce, rezonator z dobrym katalizatorem albo kilka generatorów razem. Ogniwo w kieszeni się nie liczy. Miernik Pulsu albo Duchowy kodeks pokazuje sumę.",
+        "Przykucnij i użyj tabliczki na brasero. Jeśli krata trzyma mniej niż koszt, nic się nie wydaje; inaczej tabliczka jest zużyta, a Puls pobrany."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzy rytuały pogody",
+      "text": [
+        "- **Wezwanie deszczu** (Woda, **400** Puls, Kieł trzciny): dwadzieścia minut deszczu i silniejsze Kolektory ley, póki trwa. Zacznij tutaj.",
+        "- **Przejaśnienie nieba** (Powietrze, **400**, Skrzydło burzy): czterdzieści minut czystego nieba.",
+        "- **Wezwanie świtu** (Ogień, **800**, Serce żaru): pogania noc ku wschodowi słońca, chyba że reguła gry tribalpower:allowDawnRite jest wyłączona.",
+        "Cztery pasujące totemy na stronach świata kręgu zdejmują ćwierć kosztu i podwajają czas. Trzymany sygnał redstone na brasero odmawia rytuału.",
+        "Potem spróbuj [rytuałów ziemi](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Krąg leczenia",
+      "text": [
+        "Rytuał Ducha, rzucany jak pozostałe, gdy osadzona jest Pieczęć Ducha. Kosztuje **500 Puls** i zostaje otwarty **10 minut**.",
+        "Leczy wszystkich w kręgu, graczy i związane familiary, zdejmuje każdą szkodę, błogosławi ich i przywołuje z powrotem każdego poległego familiara, którego [Pozostałość «Duch»](healing_circle) położyłeś na jego cokołach. Cała historia jest w [Szamańskie leczenie](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

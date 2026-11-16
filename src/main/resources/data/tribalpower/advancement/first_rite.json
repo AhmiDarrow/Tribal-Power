@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:rite_rain_calling"
     },
-    "title": "First Rite",
-    "description": "Perform a world rite at a Ritual Brazier.",
+    "title": {
+      "translate": "advancement.tribalpower.first_rite.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.first_rite.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

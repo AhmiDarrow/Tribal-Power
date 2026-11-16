@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: Ritmo de los Corazones de tambor",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De un Círculo de tambores en la Marcha, en palabras de los Corazones de tambor:",
+        "“El tambor no es fuerte. El tambor es constante. Sé el tambor. Un golpe por cada respiración, y el cobre responde; falla un golpe y te olvida. Cada motor de la Marcha aún guarda nuestro tiempo. Golpea, espera, golpea. Eso es todo.”"
+      ]
+    }
+  ]
+}

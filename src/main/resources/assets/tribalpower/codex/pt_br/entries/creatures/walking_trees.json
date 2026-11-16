@@ -1,0 +1,111 @@
+{
+  "name": "As árvores que andam",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Guardiões dos bosques",
+      "text": [
+        "Nem toda árvore da Marcha fica parada. Em cada terra onde cresce uma [árvore da Marcha](march_trees), alguns da sua espécie se levantaram e andam, com a mesma madeira e a mesma folha da árvore de onde vieram.",
+        "Eles são mansos. Escove um para obter o reagente uma vez por minuto, e atraia-o e cruze-o com **Farinha de osso**. Você pode vinculá-lo como qualquer animal manso (veja [familiares](familiars)), e embora não tenha um dom próprio, um vinculado ainda pode tomar uma voz num totem e fortalecer a sua magia (veja [sintonizar num totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Guardião do Lar",
+      "text": [
+        "O carvalho do lar da Estepe, largo e pesado sobre raízes curtas. Deixa **Casca do Lar**.",
+        "Caçado, também deixa de 1 a 3 Tronco de carvalho do lar, até 1 Muda de carvalho do lar e de 1 a 3 gravetos. Cruze-o com **Farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Ancião do bosque",
+      "text": [
+        "A árvore da Marcha dos bosques do Planalto, alta e curvada sobre um cajado, com barba de musgo. Deixa **Casca de ancião**.",
+        "Caçado, também deixa de 1 a 3 Tronco da Marcha, até 1 Muda da Marcha e de 1 a 3 gravetos. Cruze-o com **Farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Sentinela de pinho de geada",
+      "text": [
+        "O pinho de geada dos Campos de neve, um tronco alto sob um cone de agulhas nevadas, com braços de galho saindo de baixo dos ramos mais baixos. Deixa **Casca de pinho de geada**.",
+        "Caçado, também deixa de 1 a 3 Tronco de pinho de geada, até 1 Muda de pinho de geada e de 1 a 3 gravetos. Cruze-o com **Farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Andarilho de toco",
+      "text": [
+        "O toco de madeira de cinza dos Ermos de brasa, um tronco de madeira morta queimado, quebrado no topo, ainda em brasa. Deixa **Casca de cinza** (corante amarelo).",
+        "Caçado, também deixa de 1 a 3 Tronco de madeira de cinza, até 1 Muda de madeira de cinza e de 1 a 3 gravetos. Cruze-o com **Farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Guardião chorão",
+      "text": [
+        "O salgueiro do Pântano de juncos, curvado sob uma cortina de fios. Deixa **Nó chorão**.",
+        "Caçado, também deixa de 1 a 3 Tronco de salgueiro, até 1 Muda de salgueiro e de 1 a 3 gravetos. Cruze-o com **Farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Ancião de campânula",
+      "text": [
+        "A campânula dos Campos de cristal, um caule atarracado sob um chapéu enorme. Deixa **Esporo de campânula** (corante magenta).",
+        "Caçado, também solta de 1 a 3 Tronco de campânula, até 1 Muda de campânula e de 1 a 3 gravetos. Reproduza com **farinha de osso**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Madeira de zanco",
+      "text": [
+        "O passolargo dos Baixios, carregado no alto sobre raízes-escora arqueadas. Solta **Raiz de zanco**.",
+        "Caçado, também solta de 1 a 3 Tronco de passolargo, até 1 Muda de passolargo e de 1 a 3 gravetos. Reproduza com **farinha de osso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como são",
+      "text": [
+        "Toda árvore ambulante tem **48 de vida** e **8 de armadura**. São lentas, ficam longe dos monstros e andam em grupos de dois a quatro. Cada uma solta **1 a 3** do seu reagente, mais com Pilhagem.",
+        "A Crista do brilho não cria árvore nenhuma, então não tem guardião. A única árvore que anda e não é mansa é o [Guardião colosso](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e condução",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Pilhagem. Para reproduzir os selvagens, **agache** enquanto você alimenta dois adultos com a comida deles; alimentado normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}

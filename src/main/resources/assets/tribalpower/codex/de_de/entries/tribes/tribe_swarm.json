@@ -1,0 +1,64 @@
+{
+  "name": "Koloniehüter",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Koloniehüter",
+      "text": [
+        "“Du besitzt keinen Bienenstock. Du stehst mit ihm auf gutem Fuß.”",
+        "Strang von **Schwarm**, Stimme von **Luft**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Koloniehüter leiteten den Puls durch die Wabe und pflanzten die Blumen des Marsches für ihre Schwärme. Nimm, ohne zu fragen, und die Wabe wird still. Ihr Handwerk ist **Bienenstöcke und Blumen des Marsches**.",
+        "Ihre Lager stehen in **Blumenwäldern**, Wiesen und Kirschhainen, und im Marsch steht in jedem Band ein Lager von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Ihr Reagenz ist die **Laternendaune**, **+8** Stand an ihrem Herd wert.",
+        "Sie bevorzugen auch eine Honigflasche, eine Honigwabe, einen Honigblock oder jede Blume: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt höchstens **60** Stand am Tag aus Gaben; siehe [Stämme und Stand](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 4 Honigwabe für 2 Echoscherben; 2 Honigflaschen für 2 Leydisteln.",
+        "**Freund**: 8 Honigwabe für 2 Echoblüten; 2 Honigblöcke für eine Laternendaune; 4 Steppenkorn für einen Honigkuchen.",
+        "**Sippe**: 4 Abgestimmtes Echo für einen Leysammler; 2 Gebundenes Echo für 3 Geistergewebe.",
+        "Jeder Handel bringt **+2** Stand."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Segen",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Koloniehüter. Fertige sie mit einem {item:tribalpower:resonance_totem_air} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Luft**.",
+        "Die Sippe der Koloniehüter trägt ihren [Segen](tribe_boons): Bienen wenden sich nie gegen dich.",
+        "Ihr Gericht trägt den Segen **5 Minuten** lang, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Ihr Sippenhandel um Geistergewebe ist praktisch: jedes Verwandtschafts-Totem braucht zwei."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Koloniehüter von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Aufträge und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

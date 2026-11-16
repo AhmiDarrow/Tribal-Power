@@ -1,0 +1,190 @@
+{
+  "name": "Custodia",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "I totem hanno bisogno di attenzione, non solo di energia. Un totem che usi resta sveglio; uno che ignori si addormenta piano. Questo si chiama **Custodia**, e un totem è sempre in uno di tre stati:",
+        "- **Risposto**: sveglio, per circa **40 minuti** di tempo caricato dall'ultimo uso.",
+        "- **Fievole**: si sta spegnendo, per altri **40 minuti**. Le stazioni corrispondenti impiegano circa il **30% in più**.",
+        "- **Quieto**: addormentato. Il lavoro nuovo può fermarsi, anche con Pulso d'avanzo.",
+        "L'orologio scorre solo mentre il chunk del totem è caricato. Un generatore pieno non sveglia da solo un totem quieto.",
+        "La Custodia è una delle due cose di cui un totem ha bisogno. L'altra è Pulso nella sua **riserva**: un totem con la riserva vuota è **silenzioso** e non presta alcuna voce, per quanto sia sveglio. In una rete di reticolo con Pulso la riserva si riempie e resta piena; fuori dal reticolo, o su un reticolo secco, si svuota in circa due minuti (vedi [Conduttore di reticolo](lattice_conductor)). Le due non si toccano mai: il Pulso non sveglia un totem quieto, e svegliarlo non riempie una riserva vuota."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Svegliare un totem",
+      "text": [
+        "Fai clic destro su un totem fievole o quieto a mano vuota, oppure usa un **Campanello d'osso** su qualsiasi totem, per svegliarlo e far ripartire il suo orologio.",
+        "Suonare un Cuoretamburo a mano sveglia ogni totem entro 8 blocchi. Lo fanno anche i tamburini di rango Consanguineo delle tribù, e un Collettore di ley il cui battito è 8 o più.",
+        "Un famiglio sintonizzato tiene risposto ogni totem della sua voce entro 8 blocchi, e ne sveglia uno che è diventato quieto (vedi [Legare un famiglio](familiars)).",
+        "Il lavoro tiene svegli i totem: ogni secondo che una stazione corrispondente lavora, nutre i totem della sua voce. Questo tiene in moto un totem risposto o fievole, ma non sveglia uno che è già quieto.",
+        "Una Piastra del battito può tenere un Cuoretamburo a produrre energia, ma i battiti di redstone non tengono svegli i totem."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Svegliare un totem quieto",
+      "steps": [
+        {
+          "caption": "Questo frantumatore ha Pulso e un totem di Terra, ma si è fermato: il suo totem è diventato quieto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Usa un Campanello d'osso sul totem, oppure fai clic destro a mano vuota, per svegliarlo.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "La stazione riprende il lavoro, e ogni secondo di lavoro tiene il totem risposto.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pianificare un accampamento",
+      "text": [
+        "I totem nei luoghi rigogliosi restano svegli **il doppio del tempo**. Un totem conta i blocchi subito intorno: cielo aperto (di più di notte), pioggia, acqua e piante, erba sotto i piedi inclusa. Quando la somma fa un punto forte, il suo orologio va a metà velocità. La maggior parte dei totem sotto un tetto o su pietra nuda tiene il passo normale.",
+        "Un [Totem di parentela](kinship_totem) non diventa mai quieto. Entro 8 blocchi tiene la sua voce risposta per le stazioni e le mani dell'accampamento, anche accanto a un Totem di risonanza di quella voce che è diventato quieto.",
+        "La vista delle voci della [Lente ley](ley_lens) segna i totem nel colore della propria voce quando sono risposti, in una tinta più scura quando sono fievoli, e di grigio quando sono quieti o silenziosi. E quando una stazione si ferma mentre l'energia sembra a posto, accovacciati e fai clic destro con questo libro: dice se il suo totem è fievole o quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

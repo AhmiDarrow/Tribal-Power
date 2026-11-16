@@ -252,7 +252,7 @@ public final class DrumPractice {
             settle(player.getServer(), duel);
         }
         if (result.failed) {
-            player.displayClientMessage(Component.translatable("message.tribalpower.practice.failed", song.title(), points), false);
+            player.displayClientMessage(Component.translatable("message.tribalpower.practice.failed", song.titleComponent(), points), false);
             return points;
         }
         String key = key(song, session.difficulty);
@@ -263,7 +263,7 @@ public final class DrumPractice {
         int place = scores.place(key, player.getUUID());
         Component difficulty = Component.translatable("gui.tribalpower.songkeeper.difficulty." + session.difficulty.key());
         player.displayClientMessage(Component.translatable(personal ? "message.tribalpower.practice.best" : "message.tribalpower.practice.done",
-                song.title(), difficulty, points, accuracy), false);
+                song.titleComponent(), difficulty, points, accuracy), false);
         if (personal && place >= 0 && place < BOARD)
             player.displayClientMessage(Component.translatable("message.tribalpower.practice.board", place + 1), false);
         return points;
@@ -295,7 +295,7 @@ public final class DrumPractice {
         int id = NEXT_DUEL.getAndIncrement();
         DUELS.put(id, new Duel(id, player.getUUID(), rival.getUUID(), pos.immutable(), rivalPos, songIndex, difficulty));
         send(rival, new Invite(id, player.getGameProfile().getName(), songIndex, difficulty.ordinal()));
-        player.displayClientMessage(Component.translatable("message.tribalpower.duel.sent", rival.getGameProfile().getName(), song.title()), true);
+        player.displayClientMessage(Component.translatable("message.tribalpower.duel.sent", rival.getGameProfile().getName(), song.titleComponent()), true);
     }
 
     /** The challenged player answers. On yes both drums start the song together. */
@@ -318,7 +318,7 @@ public final class DrumPractice {
         begin(challenger, duel.challengerPos, song, duel.difficulty, id, player.getGameProfile().getName());
         begin(player, duel.rivalPos, song, duel.difficulty, id, challenger.getGameProfile().getName());
         announce(player.serverLevel(), duel.challengerPos, Component.translatable("message.tribalpower.duel.begins",
-                challenger.getGameProfile().getName(), player.getGameProfile().getName(), song.title()).withStyle(ChatFormatting.GOLD));
+                challenger.getGameProfile().getName(), player.getGameProfile().getName(), song.titleComponent()).withStyle(ChatFormatting.GOLD));
     }
 
     /** A duellist's running score, passed on to the other drum. */

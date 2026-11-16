@@ -1,0 +1,65 @@
+{
+  "name": "Viatique de route",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "À manger en route",
+      "text": [
+        "Tous les repas ne portent pas le [don](tribe_dishes) d'une tribu. Le repas de camp, c'est ce qu'un marcheur emporte : bon marché, rapide au [Pot de l'Âtre](hearth_pot), et chacun fait pour un usage. La plupart mêlent les cultures de la Marche à ce que n'importe quelle ferme fait pousser.",
+        "- **Galette du bouvier** : Grain de steppe ×2, blé. Deux par pot, 5 de faim chacun, s'empile jusqu'à 64. Le moyen le moins cher de rester nourri.",
+        "- **Chips de lueur** : Haricot de lueur ×2, algue séchée. Trois par pot, 3 de faim, et **mangés en un instant**, pour grignoter entre deux coups.",
+        "- **Brochette du Chasseur** : n'importe quelle viande crue, Racine de braise, betterave. Deux par pot, 6 de faim et **Vitesse pendant 20 secondes**, pour rattraper ton gibier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "À manger en route, suite",
+      "text": [
+        "- **Pemmican de la steppe** : n'importe quelle viande cuite, Baie de givre, baies sucrées. Trois par pot, seulement 4 de faim, mais la meilleure saturation pour sa taille : il te garde rassasié le plus longtemps sur une longue route.",
+        "- **Conserve de baie de givre** : Baie de givre ×2, sucre, dans une fiole. 4 de faim et **Résistance au feu pendant 30 secondes**, pour traverser les Landes de braise. La fiole revient.",
+        "- **Thé au chardon** : Chardon de ley, Feuille de la Marche, rayon de miel, dans une fiole. Peu de nourriture, mais tu peux le boire même rassasié, et il **soigne le poison, la faim et la nausée** : la réponse du camp à un mauvais repas.",
+        "- **Crumble des hautes terres** : une pomme, Grain de steppe, baies sucrées, sucre. 6 de faim et **Sauts améliorés pendant 45 secondes** pour les crêtes."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

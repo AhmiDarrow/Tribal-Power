@@ -1,0 +1,8 @@
+{
+  "name": "As nove tribos",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Nove tribos guardavam o Tear. Os acampamentos delas ainda estão de pé; ganhe a posição e as marcas delas.",
+  "spoiler": true,
+  "progress": "tribes"
+}

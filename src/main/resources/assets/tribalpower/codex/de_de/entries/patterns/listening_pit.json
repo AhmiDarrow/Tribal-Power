@@ -1,0 +1,72 @@
+{
+  "name": "Lauschgrube",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "Das Resonanzgeflecht ist das Herz der Lauschgrube: eine abgestützte Grube, die Erz aus erneuerbarem Stein heraushört.",
+        "Füttere sie mit Stein, gib ihr Puls und die Stimme der Erde, und Roherz aus Metall und Edelsteinen landet in einem Speicher darauf. Sie versiegt nie so wie ein Bergwerk."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "Die Grube",
+      "text": "Ein 5x5-Boden aus jedem natürlichen Oberwelt-Stein (Stein, Tiefenschiefer, Granit, Diorit, Andesit oder Tuff), Ankersteine an den Ecken, Kreide von jedem Rand zur Mitte und das Geflecht in der Mitte."
+    },
+    {
+      "type": "text",
+      "title": "Bevor sie lauscht",
+      "text": [
+        "Die Grube braucht all das, und der Geisterkodex nennt, was fehlt:",
+        "- Die Stimme **Erde** innerhalb von 8 Blöcken, wach gehalten: ein mattes Totem verlangsamt den Zyklus, ein stilles stoppt ihn.",
+        "- Ein **Ahnenspeicher**, der das Geflecht berührt. Mit Kreide an allen vier Seiten und Stein darunter heißt das **oben**. Das Geflecht leert alles hinein, du brauchst also keinen Trichter.",
+        "- Puls aus dem Gitter. Das Geflecht hält einen eigenen Puffer von **200 Puls**, damit ein stoßweiser Generator den Zyklus nicht stocken lässt.",
+        "- Stand **Freund** bei den Griessängern, selbst für gewöhnliches Erz. Die Grube eines Fremden stockt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es füttern",
+      "text": [
+        "Halte den **Ahnenspeicher** oben mit Stein gefüllt: die Grube holt von dort ihr **Substrat** und legt das Erz, das sie hört, in denselben Speicher zurück. Kreide und Stein mauern das Geflecht auf allen anderen Seiten ein, also füttern es deine Hände, Trichter und Relais über den Speicher.",
+        "Rechtsklicke das Geflecht mit einer **Probe**, etwa Roheisen, um zu lenken, was es heraufruft. Die Probe ist ein Filter und wird nie verbraucht; ducke dich mit leerer Hand, um sie zurückzunehmen. Siehe [Was der Boden bietet](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Um die Grube",
+      "text": [
+        "Halte die Trommel oder den Generator außerhalb des 5x5: der ganze Boden gehört der Grube. Gib dem Geflecht einen Rang wie jeder anderen Werkstatt.",
+        "Ein Komparator am Geflecht liest, wie weit der Zyklus gekommen ist, und fällt auf 0, sobald die Grube stockt."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Tiefes Lauschen",
+      "text": "Sieben mal sieben: zwei Ringe aus Ankersteinen an den Ecken und ein Resonanz-Totem beliebiger Stimme an jedem Himmelsrand."
+    },
+    {
+      "type": "text",
+      "title": "Tiefes Lauschen",
+      "text": [
+        "Das 7x7 verdoppelt die Eckverstrebung und setzt an jeden Himmelsrand ein Totem. Es öffnet die Bänder **tief**, **heiß** und **selten**.",
+        "Alle drei brauchen außerdem einen **Herd des Stammes** oder ein **Griessänger-Verwandtschafts-Totem**, das im Muster steht. Gewöhnliches Erz nicht.",
+        "Stand bei den Griessängern: **Freund** für gewöhnlich (auch bei einer kleinen Grube), **Sippe** für tief und heiß, **Stimme** für selten. Heiß will außerdem Feuer; selten will Geist. Der Geisterkodex nennt, was dir noch fehlt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

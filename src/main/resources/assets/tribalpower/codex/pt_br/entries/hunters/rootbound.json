@@ -1,0 +1,51 @@
+{
+  "name": "Raizligado",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Um guardião de raízes nodosas, torcido por uma linha ley rompida. Lento, mas firme.",
+        "Caçado, também deixa cair de 1 a 3 gravetos e até 2 Pó de osso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Raizligado espreitam nas florestas do Mundo Superior, na estepe da Marcha, no Brejo de Juncos e nos Rasos.",
+        "Ele tem **38 de vida** e **5 de armadura** e acerta por **6**. Cada golpe enraíza você e deixa você mais lento por 3 segundos. Ele mesmo é lento, então recue, espere as raízes passarem e bata de novo."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ele deixa cair **de 1 a 2 Raiz nodosa**.",
+        "Uma Raiz nodosa sintoniza-se em 2 Eco sintonizado sob Espírito."
+      ],
+      "title": "O que dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nenhum amuleto vinculará um Raizligado."
+      ],
+      "title": "Não vai se vincular"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do seu reagente, ele deixa cair isto quando é caçado, mais com Pilhagem."
+      ]
+    }
+  ]
+}

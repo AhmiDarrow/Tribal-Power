@@ -1,0 +1,268 @@
+{
+  "name": "Filo di canto",
+  "icon": "tribalpower:song_thread",
+  "order": 40,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:song_thread",
+      "text": [
+        "La redstone è un grido; il Filo di canto è una linea mormorata nell'aria. Porta un segnale da **0 a 15** in tutte le **sei direzioni**, alto e basso inclusi, e non ha bisogno di nulla su cui posarsi.",
+        "**Richiede Filo di Telaio**, che solo la Marcia dà: casse nelle sue vecchie sale, tombe, porte e posatoi, gli scambi dei Cucitori del telaio al rango Amico e Il Non Cantato. La Vite di canto, le piastre di canto e la Chiamata di verso sono tutte fatte con Filo di canto, quindi aspettano anche quello. Fino ad allora, costruisci con polvere di redstone, ripetitori e comparatori."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Stendere una linea",
+      "text": [
+        "La potenza cala di **uno per blocco**, come la polvere. Tieni la linea corta se ti serve un 15 pieno all'estremo, oppure rinfrescala con una Piastra dell'eco.",
+        "La polvere di redstone vanilla, le leve, le piastre di canto, le Viti di canto e i comparatori gli parlano tutti. Tra due piastre di canto puoi saltare del tutto il filo e sincronizzarle con una Chiave del totem (vedi [Piastre di canto](song_plates)).",
+        "Conduce debolmente: non alimenta la pietra che tocca, quindi non si aggancia mai. Un muro di filo è un muro di canto. Per un viticcio che abbraccia la pietra agli angoli, vedi [Vite di canto](song_vine)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un orologio di canto",
+      "steps": [
+        {
+          "caption": "Posa un Cuoretamburo. Da solo ha bisogno che tu tenga il tempo.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Monta una Piastra del battito sul lato di un blocco, verso il tamburo. La faccia da cui punta fuori è la sua uscita.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=east]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stendi Filo di canto dalla faccia della piastra al tamburo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:song_thread"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Battito nuovo batte già ogni 20 tick, uno al secondo. Fai clic destro per controllare; accovacciati e usalo solo per rallentarlo.",
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ogni colpo a tempo aggiunge 24 di Pulso, così il tamburo si riempie finché nulla lo spende.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenere il tempo",
+      "text": [
+        "Un Cuoretamburo conta i colpi distanti **17 a 23 tick** come a tempo, del valore di **24 Pulso**. Ogni altro intervallo paga al massimo **10**, e i colpi a meno di 8 tick di distanza sono ignorati, quindi lascia il Battito a 20 tick: le impostazioni più lente rendono solo 10 a colpo. Solo due tamburi entro 8 blocchi l'uno dall'altro guadagnano Pulso.",
+        "Se il tamburo non si riempie, controlla il verso della piastra, il blocco di sostegno e il filo, e togli qualsiasi potenza costante vicina. Fai funzionare orologio e tamburo prima di aggiungere soglie o Piastre della memoria.",
+        "Aggiungi un [Indicatore di Pulso](pulse_gauge) se vuoi la quantità accumulata come segnale."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:song_thread",
+      "text": "La redstone intorno al Filo di Telaio rende **otto**."
+    }
+  ],
+  "next": "song_vine"
+}

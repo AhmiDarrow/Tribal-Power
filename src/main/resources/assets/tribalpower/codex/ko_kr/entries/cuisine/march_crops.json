@@ -1,0 +1,35 @@
+{
+  "name": "마치의 작물",
+  "icon": "tribalpower:emberroot",
+  "order": 0,
+  "items": [
+    "tribalpower:emberroot",
+    "tribalpower:fen_rice",
+    "tribalpower:frostberry",
+    "tribalpower:glimmer_bean",
+    "tribalpower:steppe_grain"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "작물 다섯이 저 밖에서 야생으로 자라고, 각각 자기 땅에 있다. 군락을 찾아 뜯어라. 뜯은 것이 씨앗이다. 감자처럼 경작지에 심어라. 평범한 흙, 마치 흙, 모래에도 붙는다. 야생 군락은 그렇게 자란다.",
+        "- **잿불 뿌리**는 잿불 황무지에 있다. 뜨거운 빨간 덩이줄기.",
+        "- **습지 쌀**은 갈대 습지에 있다.",
+        "- **서리 열매**는 눈밭에 있다.",
+        "- **미광 콩**은 미광 능선에 있으며, 월장석과 이끼 마노에 뿌리를 내리고, 수정 들판에도 있다.",
+        "- **초원 곡식**은 초원에 있다."
+      ],
+      "title": "마치가 기르는 것"
+    },
+    {
+      "type": "text",
+      "text": [
+        "네 단계로 자란다. 모두 날것으로 먹을 수 있지만 많이 채우지는 못한다. [정령장비 괭이](spiritgear)는 한 번에 거두고 다시 심으며, 벌이 수분하고, [새싹 은총](tribe_boons)이 성장을 재촉한다.",
+        "서리 열매와 미광 콩은 [정령 솥](spirit_kettle)의 약초로도 친다."
+      ],
+      "title": "재배하기"
+    }
+  ],
+  "next": "hearth_pot"
+}

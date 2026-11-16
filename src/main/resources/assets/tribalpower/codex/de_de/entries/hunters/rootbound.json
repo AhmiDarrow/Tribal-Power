@@ -1,0 +1,51 @@
+{
+  "name": "Wurzelgebunden",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Ein Wächter verknoteter Wurzeln, verdreht von einer durchtrennten Ley-Linie. Langsam, aber standfest.",
+        "Gejagt lässt es außerdem 1 bis 3 Stöcke und bis zu 2 Knochenmehl fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Wurzelgebunden lauern in Wäldern der Oberwelt, in der Marschsteppe, im Schilfmoor und in den Untiefen.",
+        "Es hat **38 Gesundheit** und **5 Rüstung** und trifft für **6**. Jeder Schlag verwurzelt dich und verlangsamt dich 3 Sekunden lang. Es selbst ist langsam, also tritt zurück, warte die Wurzeln ab und schlag wieder zu."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Es lässt **1 bis 2 Knotige Wurzel** fallen.",
+        "Eine Knotige Wurzel wird unter Geist zu 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kein Amulett bindet einen Wurzelgebunden."
+      ],
+      "title": "Es bindet sich nicht"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt es dies fallen, wenn man es jagt, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

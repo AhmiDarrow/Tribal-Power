@@ -1,0 +1,47 @@
+{
+  "name": "Salão dos Ancestrais",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Salões de pedra afundados na Estepe da Marcha e nas Terras Altas. Na superfície só aparece um poço de escada."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os Salões dos Ancestrais estão enterrados: procure um poço de escada que desce para o chão. Abaixo há três salas sob vigas de madeira do Tear, iluminadas por lanternas velhas.",
+        "Os **Sentinelas ocos** guardam as salas laterais, três em cada salão. Batem forte e enfraquecem seu agarre, então ilumine as salas conforme avança e mantenha um cajado carregado à mão para golpear de longe."
+      ],
+      "title": "Encontrar um"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Quatro **Tábuas de relatos** pendem nas paredes. Clique com o botão direito em cada uma para lê-la; a primeira leitura fica registrada neste Códice, que conta quantas das **12** tábuas você encontrou. Os Círculos de tambores, o Pináculo de cristal, os acampamentos dos Entalhadores de selos e o Templo Profundo guardam o resto.",
+        "Dois baús ficam no fundo. Cada um sempre contém **2 a 4 Fio de Tear**, mais um punhado de ecos, Fragmentos de eco, Fragmentos de Espírito, Tece-espírito, Cristal da Marcha ou um Selo em branco, e às vezes um selo elemental.",
+        "O Fio de Tear é o motivo de a maioria vir. É o primeiro passo para [a sexta voz](sixth_voice)."
+      ],
+      "title": "O que o salão guarda"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Oito Pedra da Marcha ao redor de um Fragmento de eco entalham **2 Tábuas de relatos**. Pendure-as numa parede em casa para marcar seu próprio salão; ficam rentes ao bloco atrás delas e caem se ele for removido."
+      ],
+      "title": "Suas próprias tábuas"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

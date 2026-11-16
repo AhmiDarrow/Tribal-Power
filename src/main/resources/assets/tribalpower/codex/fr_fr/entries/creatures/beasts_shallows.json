@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes des hauts-fonds",
+  "icon": "tribalpower:shoal_scale",
+  "order": 270,
+  "spoiler": true,
+  "items": [
+    "tribalpower:silt_glider_spawn_egg",
+    "tribalpower:pale_drifter_spawn_egg",
+    "tribalpower:shoal_darter_spawn_egg",
+    "tribalpower:brine_lurker_spawn_egg",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:brine_fang"
+  ],
+  "next": "beasts_everywhere",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceux de l'eau",
+      "text": [
+        "Presque tout ce qui appartient aux hauts-fonds vit dans leur eau : trois nageurs doux, et une murène qui y chasse la nuit. Les nageurs ne quittent jamais l'eau : échoué, l'un se débat pour y revenir, et se dessèche s'il ne peut l'atteindre. Bois-échasses marche sur les rives (voir [arbres marcheurs](walking_trees)). Voir [la Marche](the_march) pour la terre elle-même.",
+        "Tu peux brosser chaque bête douce d'ici une fois par minute pour son réactif, et elle s'attire et se reproduit avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. Tu peux la lier comme n'importe quel animal doux (voir [familiers](familiars)), et bien qu'aucune n'ait de don propre, une liée peut tout de même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning)). Un nageur lié ne te suit que là où son eau va, et attend dans l'eau quand tu lui dis de rester."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_glider",
+      "title": "Planeur de limon",
+      "text": [
+        "Une raie qui plane au-dessus du limon, en groupes de deux à quatre. **14 de santé** et **1 d'armure**.",
+        "Lâche **1 à 3 Nageoire de limon**, davantage avec Butin.",
+        "Chassée, elle lâche aussi de 1 à 2 Brillanageoire crue et jusqu'à 1 Poudre d'os. Reproduis-la avec **Algue ruban ou herbe marine**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_drifter",
+      "title": "Dériveur pâle",
+      "text": [
+        "Une ortie de mer ambrée, à ombrelle rayée, qui traîne de longs bras en ruban, en groupes de deux à quatre. **12 de santé**, sans armure.",
+        "Lâche **1 à 3 Banderole pâle**.",
+        "Chassée, elle lâche aussi jusqu'à 1 Gelée à la dérive et jusqu'à 1 Boule de slime. Reproduis-la avec **Algue ruban ou herbe marine**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shoal_darter",
+      "title": "Dard de haut-fond",
+      "text": [
+        "Une petite perche rayée, en groupes de deux à quatre. **14 de santé** et **1 d'armure**.",
+        "Lâche **1 à 3 Écaille de haut-fond**.",
+        "Chassée, elle lâche aussi de 1 à 2 Brillanageoire crue et jusqu'à 1 Poudre d'os. Reproduis-la avec **Algue ruban ou herbe marine**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:brine_lurker",
+      "title": "Rôdeur de saumure",
+      "text": [
+        "Une murène qui se dresse dans les hauts-fonds la nuit, une ou deux à la fois. Elle a **21 de santé** et **1 d'armure**, sa morsure fait **4** et t'empoisonne pendant 3 secondes. Elle suit la proie jusque sur la rive et retourne à l'eau quand elle la perd.",
+        "Lâche **1 à 2 Croc de saumure**, un réactif de Venin. Croc de saumure appelle le Tambour de la marée à la Pierre de la marée : voir [gardiens](guardians).",
+        "Chassée, elle lâche aussi jusqu'à 2 Poche d'encre et jusqu'à 1 Brillanageoire crue."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes avec leur nourriture ; nourris normalement, un sauvage s'adoucit envers toi à la place."
+      ]
+    }
+  ]
+}

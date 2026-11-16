@@ -1,0 +1,394 @@
+{
+  "name": "Tribos e prestígio",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Nove tribos guardavam outrora o Tear, uma Mecha cada, e seus acampamentos ainda marcam o tempo. Cada acampamento é erguido em volta de um **Lar da tribo**.",
+        "Alimente o lar, e a tribo começa a conhecer você. Esse é o seu **prestígio**, e ele abre as trocas deles, os segredos e, no fim, a Marca."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Um acampamento tribal",
+      "text": [
+        "Um acampamento é fácil de reconhecer: um lar soltando fumaça colorida, um Estandarte da tribo ao lado e quatro Parentes no seu dia. A cor do estandarte nomeia a tribo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Onde as tribos vivem",
+      "text": [
+        "Cada tribo acampa na terra que convém à sua Mecha:",
+        "- **Guardiões do leito**: planícies.",
+        "- **Cantores de cascalho**: montanhas e costas rochosas.",
+        "- **Vinculadores de raízes**: florestas e selvas.",
+        "- **Caminhantes da borda**: taiga.",
+        "- **Corações de tambor**: savana.",
+        "- **Tecelões de padrões**: florestas de bétulas.",
+        "- **Guardiões da colônia**: florestas de flores, prados e bosques de cerejeiras.",
+        "- **Entalhadores de selos**: florestas escuras.",
+        "- **Costureiros do tear**: apenas os Campos de Cristal da Marcha.",
+        "Cada tribo também mantém um acampamento em cada faixa d[a Marcha](the_march), feito com a madeira e a pedra dessa faixa."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Sua primeira visita",
+      "steps": [
+        {
+          "caption": "Cada acampamento é erguido em volta do seu Lar da tribo. É aqui que você faz amigos.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "O Estandarte da tribo ao lado nomeia a tribo pela sua cor. Deixe-o de pé.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Um tear por perto é onde o Tecelão do acampamento trabalha. Os quatro Parentes nunca se afastam mais de 16 blocos.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Clique com o botão direito no lar com algo que a tribo prefira. O pão rende +3 de prestígio com os Guardiões do leito.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Clique nele com a mão vazia a qualquer momento para ver o seu prestígio e o seu posto.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que oferecer",
+      "text": [
+        "Clique com o botão direito no lar com uma oferenda na mão. Ele pega um item de cada vez:",
+        "- O **reagente** da tribo: **+8** de prestígio.",
+        "- O [prato](tribe_dishes) próprio da tribo: **+6**.",
+        "- Um item **preferido**: **+3**.",
+        "- Qualquer outra **comida**: **+1**.",
+        "- Uma **Célula de Pulso** carregada: o lar bebe até **40 Pulso** dela e dá **+2 a cada 10**, portanto no máximo **+8**. A célula precisa ter pelo menos 10 Pulso.",
+        "Reagentes: Guardiões do leito **Fragmento de eco**, Cantores de cascalho **Eco sintonizado**, Vinculadores de raízes **Escama de lomomusgo**, Caminhantes da borda **Dente da fenda**, Corações de tambor **Carrilhão de osso**, Tecelões de padrões **Asa da tempestade**, Guardiões da colônia **Penugem de lanterna**, Entalhadores de selos **Fragmento de Espírito**, Costureiros do tear **Fio de Tear**. A página de cada tribo também lista os seus preferidos.",
+        "O que a tribo não tem uso fica na sua mão, e o lar avisa. Uma célula com menos de **10 Pulso** é simplesmente ignorada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quão rápido cresce",
+      "text": [
+        "O Lar de uma tribo aceita no máximo **60 de reputação por dia** das suas oferendas. Depois ele avisa que a tribo já levou tudo o que vai levar hoje, e perto do limite um presente que vale mais do que o restante fica na sua mão. Dezessete oferendas favorecidas (51) ou sete reagentes (56) bastam para chegar a **Hóspede** no primeiro dia.",
+        "Mais três caminhos estão abertos, e nenhum conta para o limite do Lar. Mate um monstro hostil num raio de **24 blocos** de um Lar por **+1**, até **vinte por dia** para cada tribo. O abate tem de ser seu: um inimigo que o seu familiar derrube não rende nada. Cada troca com o Ancião dá **+2**. E, quando você já é Hóspede, os [pedidos](elders_and_stories) do Ancião pagam **8 a 16** cada um.",
+        "No [dia de festival](living_march) da tribo, entrar no banquete do Ancião rende **40** de reputação e duas tigelas do prato deles; um rito no acampamento deles rende mais **30**, e um banquete comido junto ao Lar, **20**. Cada um conta uma vez por festival.",
+        "Chegar a Voz leva muitos dias. Só com oferendas você nunca chega lá em um dia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os postos",
+      "text": [
+        "- **Estranho** (abaixo de 50): o Ancião ainda não tem nada para você.",
+        "- **Hóspede** (50): o Ancião abre as duas primeiras trocas.",
+        "- **Amigo** (150): mais duas trocas, e o prato da própria tribo por quatro da sua colheita da Marcha.",
+        "- **Parente** (400): as duas últimas trocas, a [dádiva](tribe_boons) da tribo enquanto você mantiver a reputação, e o seu brasão: uma **Estampa de estandarte** para qualquer Tear.",
+        "- **Voz** (800): o Ancião pressiona uma **Marca da tribo** na sua mão, uma vez por tribo. A Marca é a chave de um [Totem de parentesco](kinship_totem) e abre a página dessa tribo neste livro.",
+        "Sua reputação com os Cantores de cascalho também decide quão fundo um [Fosso de escuta](listening_pit) pode escutar."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que nunca fazer",
+      "text": [
+        "- **Bater num Parente** custa **25** de reputação, e cada Parente dessa tribo num raio de 24 blocos se volta contra você. Os Caçadores atacam você por um **minuto**.",
+        "- **Quebrar o Lar** custa **40** e manda os Caçadores atrás de você do mesmo jeito.",
+        "- **Quebrar um estandarte** custa **5**.",
+        "A reputação pode cair abaixo de um posto que você já ganhou. Uma mensagem vermelha avisa quando você cai."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Manter a conta",
+      "text": [
+        "Digite **/tribalpower standing** para ver as nove tribos de uma vez, com a sua reputação e o seu posto em cada uma.",
+        "Um comparador ao lado de um Lar lê o posto do último jogador que o usou: **0** para um Estranho até **15** para uma Voz. Útil para uma porta que só abre para os amigos da tribo.",
+        "Se você pertence a um [acampamento compartilhado](shared_camps), um quarto de cada reputação que um membro ganha ou perde depois de entrar também cai no acampamento. Onde o seu posto importa, vale o do acampamento quando ele é mais alto que o seu."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "Sino de despertar",
+  "icon": "tribalpower:wake_bell",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wake_bell",
+      "text": [
+        "O ofício dos Entalhadores de selos: um sino que lamenta os mortos. Toda criatura que morre perto paga Pulso ao reservatório dele, e assim uma fazenda de criaturas vira uma usina."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como ele paga",
+      "text": [
+        "Uma morte dentro de **16 blocos** paga **20 Pulso** por um hostil e **5** por uma criatura passiva. Mortes de jogadores não pagam nada.",
+        "Mortes enchem um reservatório de **2,000**, que o sino solta no máximo **8 por segundo** sem ranque. O ranque acrescenta **15% de Pulso por segundo** por ranque, arredondado para um Pulso inteiro. Uma fazenda grande enche o reservatório e depois fica ociosa; o que passa da borda se perde.",
+        "Só o sino **mais próximo** ouve uma morte, então empilhar sinos não adianta nada. Um sino pausado por redstone não ouve nada."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um sino junto da fazenda",
+      "steps": [
+        {
+          "caption": "Pendure o sino a até 16 blocos de onde as coisas morrem.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wake_bell"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Cada abate enche o reservatório; o sino solta até 8 de Pulso por segundo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um Marco de Pulso ao lado engole esses surtos tão rápido quanto chegam.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_cairn"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Máquinas a até 8 blocos do marco puxam uma linha constante, por mais desiguais que sejam os abates.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dicas",
+      "text": [
+        "Uma fazenda escura ou o campo de abate de um Tambor de guarda servem os dois. Jogadores nunca são alvo de um Tambor de guarda, e o sino ainda ouve cada morte que ele causa.",
+        "Um Fosso de escuta quer uma extração constante, então junte o sino a um Marco de Pulso.",
+        "Os sinos são o ofício dos [Entalhadores de selos](tribe_sigil): a receita precisa de um Fragmento de sino e de um Selo de Espírito, e os Entalhadores de selos trocam um sino com seu Parente."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wake_bell"
+    }
+  ]
+}

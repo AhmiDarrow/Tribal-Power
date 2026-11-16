@@ -1,0 +1,56 @@
+{
+  "name": "Dziczyzna i skóra",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Zwierzęta Marszu karmią cię tak samo jak zwierzęta Zwykłego świata. Ich mięso to **Surowa dziczyzna**, a skóry dają **Skóra Marszu**.",
+        "Pieczona dziczyzna syci jak stek, więc długie wyprawy przez Marsz są dużo łatwiejsze."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Surowa dziczyzna** pochodzi od: Skoczek popiołu, Głazoryj, Dzwonkowy trawożerca, Żaroskóra, Skoczek urwiska, Płaszcz urwiska, Jeleń świtu, Dryfoskór, Brodziec moczarów, Mroźny kroczyciel, Lis-latarnia, Długogoleń, Jerzyk krosna, Wędrowiec Marszu, Bagienny skoczek, Mchogrzbiet, Bladoskrzydły, Pryzmoskub, Skubacz grani i Kępogrzbiet.",
+        "**Skóra Marszu** pochodzi od: Głazoryj, Dzwonkowy trawożerca, Żaroskóra, Skoczek urwiska, Troll urwiska, Płaszcz urwiska, Jeleń świtu, Czyhacz głębin, Dryfoskór, Brodziec moczarów, Mroźny kroczyciel, Lis-latarnia, Długogoleń, Wędrowiec Marszu, Mchogrzbiet, Pryzmoskub, Trzcinowy zwój, Tropiciel trzcin, Skubacz grani, Ogar szczeliny, Troll szronu, Troll żużla, Kępogrzbiet i Płaszczka zasłony.",
+        "Strona każdego stworzenia podaje liczby.",
+        "Grabież dodaje najwyżej jedną sztukę więcej z każdego. Zwierzę, które ginie w ogniu, upuszcza mięso już upieczone."
+      ],
+      "title": "Skąd pochodzi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Surowa dziczyzna** przywraca **3** głodu i niewiele nasycenia. Pieczona dziczyzna przywraca 8 przy wysokim nasyceniu.",
+        "Upiecz w piecu, w wędzarce (dwa razy szybciej) albo na ognisku (najwolniej, ale bez paliwa).",
+        "Oba liczą się jako mięso: wilki je zjedzą, a inne mody traktują je jak mięso surowe albo pieczone."
+      ],
+      "title": "Gotowanie i jedzenie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jedna Skóra Marszu daje jedną zwykłą skórę, więc wszystko, co chce skóry, jak Cichy bęben, jest tylko o krok wytwarzania.",
+        "Liczy się też jako skóra dla innych modów, które przyjmują dowolną skórę."
+      ],
+      "title": "Skóra Marszu"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Jedna Skóra Marszu daje jedną skórę."
+    }
+  ]
+}

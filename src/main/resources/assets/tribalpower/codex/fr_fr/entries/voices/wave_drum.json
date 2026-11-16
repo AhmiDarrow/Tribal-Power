@@ -1,0 +1,360 @@
+{
+  "name": "Tambour des vagues",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "L'ouvrage des Lieurs de racines. Le Tambour des vagues fait de la Pulsation avec l'eau : un peu d'un étang à côté, beaucoup de l'eau versée dedans. C'est un générateur, pas une cuve de rechange.",
+        "Il contient **1,000 de Pulsation**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deux façons de le nourrir",
+      "text": [
+        "**Près de l'eau.** L'eau qui touche n'importe quelle face du tambour donne **3 de Pulsation par seconde**. Les tambours dans les **8 blocs** dans tous les sens, bord compris, reliés ou non, la partagent, en arrondissant vers le bas : deux tambours font **1 par seconde** chacun, et quatre ne font rien.",
+        "**Sa propre eau.** Remplis sa cuve interne avec un seau, une Citerne d'Esprit ou un Relais de fluides, et il fait **10 par seconde**, en buvant **100 mB par seconde**. Rien n'encombre ce palier ; l'eau est déjà le prix. Il ne boit que lorsqu'il livre vraiment de la Pulsation.",
+        "La pluie qui tombe sur le tambour double chaque palier, donc un tambour sous un toit n'a aucun bonus de pluie. Le rang ajoute **15% de Pulsation par seconde** par rang. Le bonus est arrondi à une Pulsation entière, donc un générateur qui ne fait que 2 ou 3 par seconde ne gagne rien à son premier rang. La cuve contient **4,000 mB**, et de l'eau seulement."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Près d'un étang",
+      "steps": [
+        {
+          "caption": "Pose le Tambour des vagues au bord de l'eau.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "L'eau qui touche n'importe quelle face du tambour lui donne 3 de Pulsation par seconde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un second tambour dans les 8 blocs la partage : chacun fait alors 1 de Pulsation par seconde.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un tambour qui se nourrit lui-même",
+      "steps": [
+        {
+          "caption": "Un tambour sec, tout seul, ne fait rien.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Place-le contre une Citerne d'Esprit. La citerne verse l'eau dans le tambour toute seule.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Avec sa propre eau, le tambour fait 10 de Pulsation par seconde et boit 100 mB par seconde.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Appel du printemps sur la citerne la remplit, donc l'ensemble tourne tout seul.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le déplacer",
+      "text": [
+        "Casse le tambour et l'objet lâché garde l'eau de sa cuve. Ajoute une Pompe de marée si l'eau doit continuer après son arrivée : les relais et la Pompe de marée déplacent le fluide, ils ne sont pas un stockage.",
+        "Un [Appel du printemps](spring_calling) sur une Citerne d'Esprit proche est ce qui permet à l'eau de se remplir toute seule.",
+        "Un signal de redstone le met en pause, et un tambour en pause ne prend pas d'eau. Un tambour sec n'obtient jamais que le palier près de l'eau. Accroupis-toi et fais un clic droit dessus avec ce livre pour voir quel palier il utilise et ce que contient la cuve.",
+        "Les tambours sont l'ouvrage des [Lieurs de racines](tribe_sprout) : la recette demande une Racine nouée et un Sceau d'Eau, et les Lieurs de racines échangent un tambour avec un Ami contre un Roseau d'Esprit.",
+        "Accroupis-toi et fais un clic droit sur une face à main vide pour le faire défiler sur Les deux, Entrée, Sortie et Fermé, comme le fait la [Clé de totem](camp_kit)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

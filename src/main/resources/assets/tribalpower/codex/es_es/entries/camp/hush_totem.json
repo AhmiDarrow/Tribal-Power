@@ -1,0 +1,38 @@
+{
+  "name": "Tótem del silencio",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Paz para todo el campamento. Mientras se lo alimenta, el Tótem del silencio impide que aparezcan hostiles en **24 bloques**, por **8 Pulso** por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Mantenerlo en silencio",
+      "text": [
+        "Colócalo en el medio del campamento, a 8 bloques de un Conductor de entramado, y un tótem de **Espíritu** a 8 bloques también: sin su voz queda inactivo (ver [Manos del campamento](camp_hands)). Guarda una reserva de **2.400 Pulso** para salvar un tramo de silencio, y la rellena hasta **80 Pulso** por segundo. Haz clic derecho con una Célula de Pulso para rellenarlo a mano.",
+        "Detiene las apariciones naturales y las de los generadores de todo hostil, tanto del Supramundo como de la Marcha, incluidos los hostiles de una Cuna de invocación. También mantiene lejos a los **fantasmas**: no se envía ninguno tras un jugador que esté dentro del círculo.",
+        "No quita los mobs que ya están, no detiene a los animales y nunca anula los comandos ni los huevos generadores.",
+        "La redstone lo silencia al momento. Un comparador marca 15 mientras está callando."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivir con él",
+      "text": [
+        "Los hostiles aún pueden entrar caminando desde fuera del círculo, así que ilumina también los bordes, o pon un Tambor de amparo en la entrada.",
+        "Si usas una Cuna de invocación para hostiles, mantenla a más de 24 bloques del tótem, o pon el tótem en una palanca y alterna entre la paz y la invocación.",
+        "Un Farol de Espíritu y un Tótem del silencio juntos hacen un campamento quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Liedplatten",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "next": "gate_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Liedplatten",
+      "text": [
+        "Dreizehn kleine Platten, jede mit einer klaren Aufgabe in Redstone: Gatter, Gedächtnis, Uhren und Zähler.",
+        "Setze eine auf eine Blockseite; die Seite, aus der sie zeigt, ist ihr **Ausgang**. Auf einer Maschine, einer Trommel oder einer anderen Platte schleichst du beim Setzen, sonst arbeitet der Klick diesen Block.",
+        "Rechtsklicke eine Platte, um zu hören, was sie tut. Schleiche und rechtsklicke Herzschlag, Verzug oder Zählung mit leerer Hand, um den Zählwert zu ändern. Ein **Totemschlüssel** synchronisiert Platten, damit sie einander ganz ohne Draht hören: siehe Platten synchronisieren.",
+        "Jede Platte ist um [Liedfaden](song_thread) gebaut und braucht **Webstuhlfaden** aus dem Marsch, daher gibt es die Platten erst nach deiner ersten Reise dorthin."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Welche Seite ist welche",
+      "text": [
+        "Die **Rückseite** einer Platte ist der Block, auf dem sie sitzt. Ihre Vorderseite zeigt von diesem Block weg; sie versorgt nur den Block direkt davor, und nur schwach, also rastet sie nie durch Stein.",
+        "- **Unäre** Platten (Umkehr, Echo, Verzug, Schlag, Zufall, Zählung, Vers) lesen die **Rückseite**. Versorge den Block, auf dem sie sitzen: ein Hebel daran, Redstone-Staub hinein, oder setze die Platte direkt auf eine Pulsschwelle. Liedfaden versorgt nie den Block, den er berührt; um eine Fadenlinie zu lesen, setze die Platte auf den letzten Faden selbst.",
+        "- **Binäre** Platten (Chor, Sammlung, Zwietracht, Stille) lesen **links und rechts**, von hinter der Platte gesehen. Auf Boden oder Decke ist links Westen und rechts Osten.",
+        "- **Gedächtnis** liest links zum Setzen und rechts zum Löschen. **Herzschlag** braucht keine Eingabe.",
+        "Eine Platte hört nur Energie, die auf sie zeigt: ein Verstärker, der wegsieht, wird nicht gehört, und auch keine andere Platte, die gerade auf sie zeigt. Um zwei Platten zu verbinden, synchronisiere sie mit dem Schlüssel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Platten synchronisieren",
+      "text": [
+        "Platten brauchen keinen Draht zwischen sich. Schleiche und benutze eine Platte mit einem **Totemschlüssel**, um ihren Gesang zu halten, dann benutze den Schlüssel auf einer anderen Platte: diese Platte hört nun die erste, als liefe ein Draht in sie hinein.",
+        "- **Wo du klickst, wählt das Ohr.** Klicke die linke oder rechte Hälfte einer Chorplatte, Sammelplatte, Zwietrachtplatte, Stilleplatte oder Gedächtnisplatte, um diese Seite zu speisen. Unäre Platten hören es auf ihrer Rückseite; bei einer Zählung ist die linke Hälfte das Rücksetzen. Ein Herzschlag hört nichts.",
+        "- **Eine Synchro läuft nur in eine Richtung.** Jede Platte hört höchstens **8** andere, bis **32 Blöcke** weit, in derselben Welt. Der Schlüssel behält den Gesang, also kann eine Quelle eine ganze Reihe speisen.",
+        "- **Benutze den Schlüssel noch einmal auf dem Paar, um die Synchro zu lösen.** Schleiche und benutze den Schlüssel in der Luft, um den Gesang loszulassen.",
+        "Eine neue Synchronisation kostet **1 Puls** aus einer getragenen Zelle oder einen Punkt des Schlüssels.",
+        "Ein Server kann Reichweite und Obergrenze mit **plateLinkRange** und **plateLinkMax** ändern. Synchronisationen vor einer Änderung bleiben erhalten; eine, die nun außer Reichweite ist, wird als 0 gehört.",
+        "Eine Platte gehört dem, der sie gesetzt hat, und seinem Lager: jeder darf sie lesen, aber die Platte eines anderen zu synchronisieren, ihr Lied zu halten oder ihre Zahl zu ändern, wird verweigert."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Synchronisation lesen",
+      "text": [
+        "Nutze den Schlüssel auf einer Platte, ohne ein Lied zu halten, oder schleiche und rechtsklicke sie mit diesem Buch, um jede Platte aufzulisten, die sie hört: wo sie ist, welches Ohr, wie weit, und was sie singt. Funken zeichnen dir jede Synchronisation nach.",
+        "Eine synchronisierte Platte hört ihre Quelle so, wie sie vor einem Tick stand, darum ist ein Ring aus Platten sicher: zwei Echoplatten, die einander hören, halten, worauf sie sich einigen, und zwei Umkehrplatten, die einander hören, ergeben eine Uhr, die jeden Tick umschaltet.",
+        "Baue eine Quelle ab, und ihre Zuhörer vergessen sie. Eine Quelle in einem entladenen Chunk wird als **0** gehört, bis er wieder lädt; eine Platte lädt nie einen Chunk, um zu hören."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Plattenfamilien",
+      "text": [
+        "Die Platten kommen in vier Familien, jede mit einer eigenen Seite:",
+        "- [Torplatten](gate_plates): Chor, Sammlung, Zwietracht und Stille wägen zwei Eingänge gegeneinander ab.",
+        "- [Signalplatten](signal_plates): Umkehr kehrt ein Signal um, und Echo trägt es in voller Stärke weiter.",
+        "- [Gedächtnisplatten](memory_plates): Gedächtnis, Zählung und Vers merken sich, was sie hörten.",
+        "- [Zeitplatten](timing_plates): Herzschlag, Verzug, Schlag und Zufall halten die Zeit."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Riti del mondo",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "I riti di tavoletta arrivano oltre l'accampamento e cambiano il mondo stesso. Intaglia una tavoletta, insedia il sigillo corrispondente in un Braciere rituale dentro il suo cerchio e spendi il Pulso."
+      ],
+      "title": "Riti del clima"
+    },
+    {
+      "type": "text",
+      "title": "Intagliare e lanciare",
+      "text": [
+        "Ogni tavoletta è due ciottoli (o pietranera o ardesia profonda ciottolosa), il suo reagente e il sigillo corrispondente, senza forma. Il sigillo viene restituito.",
+        "Insedia quel sigillo nel braciere (la sua benedizione continua), traccia il [Cerchio del rito](rite_circle) e raduna l'intero costo entro **8 blocchi** dal braciere: un Cuoretamburo ben fornito, un risonatore con un buon catalizzatore o più generatori insieme. Una cella in tasca non conta. Un Indicatore di Pulso o il Codice spirituale mostra il totale.",
+        "Accovacciati e usa la tavoletta sul braciere. Se il reticolo trattiene meno del costo, non si spende nulla; altrimenti la tavoletta è consumata e il Pulso viene tratto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I tre riti del clima",
+      "text": [
+        "- **Chiamata della pioggia** (Acqua, **400** Pulso, una Zanna di canna): venti minuti di pioggia, e Collettori di ley più forti finché dura. Comincia qui.",
+        "- **Rischiaramento del cielo** (Aria, **400**, un'Ala di tempesta): quaranta minuti di cielo sereno.",
+        "- **Chiamata dell'alba** (Fuoco, **800**, un Cuore di brace): affretta la notte fino all'alba, a meno che la regola di gioco tribalpower:allowDawnRite sia spenta.",
+        "Quattro totem corrispondenti sui punti cardinali del cerchio tolgono un quarto dal costo e raddoppiano il tempo. Un segnale di redstone tenuto sul braciere rifiuta il rito.",
+        "Poi, prova i [riti del terreno](land_rites)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "Cerchio di guarigione",
+      "text": [
+        "Un rito di Spirito, lanciato come gli altri con un Sigillo di Spirito insediato. Costa **500 Pulso** e resta aperto **10 minuti**.",
+        "Cura tutti nel cerchio, giocatori e famigli legati, toglie ogni male, li benedice e richiama ogni famiglio caduto il cui [Resto dello Spirito](healing_circle) hai posato sui suoi piedistalli. Il racconto completo è in [Guarigione sciamanica](healing_circle)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

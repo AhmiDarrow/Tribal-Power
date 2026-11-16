@@ -1,0 +1,65 @@
+{
+  "name": "Feen",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Feen",
+      "text": [
+        "Wo das Licht seltsam ist, tanzen Feen in der Luft. Sie sind klein und sanft und fliehen vor Monstern.",
+        "Bürste eine einmal pro Minute für ihr Reagenz, und locke und züchte sie mit **Zucker** oder einer **Honigflasche**. Sie lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl sie keine eigene Gabe hat, kann eine gebundene an einem Totem trotzdem eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem abstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drei Arten",
+      "text": [
+        "Eine Fee hat **8 Gesundheit** und keine Rüstung, fliegt in Gruppen von eins bis drei und lässt **1 bis 3** ihres Reagenzes fallen, mehr mit Plünderung."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Schimmerfee",
+      "text": [
+        "Golden, über dem Schimmergrat. Lässt **Feenstaub** fallen.",
+        "Gejagt lässt sie außerdem bis zu 2 Glowstonestaub fallen. Züchte mit **Zucker oder eine Honigflasche**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Prismenfee",
+      "text": [
+        "Rosa, über den Kristallfeldern. Lässt **Feenblatt** fallen (rosa Farbstoff).",
+        "Gejagt lässt sie außerdem bis zu 2 rosa Blütenblätter und bis zu 1 Amethystscherbe fallen. Züchte mit **Zucker oder eine Honigflasche**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Sumpffee",
+      "text": [
+        "Grün, über dem Schilffenn. Einige fliegen mit dem [Kolosswächter](colossus_warden). Lässt **Feenfunke** fallen.",
+        "Gejagt lässt sie außerdem bis zu 1 Leuchtbeere und bis zu 1 Glowstonestaub fallen. Züchte mit **Zucker oder eine Honigflasche**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt jedes mehr fallen, wenn du es jagst, und mit Plünderung noch einmal mehr. Um wilde zu züchten, **schleiche**, während du zwei erwachsene Tiere mit ihrem Futter fütterst; normal gefüttert, wird dir ein wildes stattdessen zutraulich."
+      ]
+    }
+  ]
+}

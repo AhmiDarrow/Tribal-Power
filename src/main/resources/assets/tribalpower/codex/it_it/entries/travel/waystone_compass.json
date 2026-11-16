@@ -1,0 +1,203 @@
+{
+  "name": "Bussole di pietra di via",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Segna un punto, poi tornaci in un battito. Una bussola ricorda un pavimento di arrivo e ti ci porta per un po' di Pulso, da una cella nel tuo bagaglio."
+      ],
+      "title": "Bussole di pietra di via"
+    },
+    {
+      "type": "text",
+      "title": "Vincolare e usare",
+      "text": [
+        "Accovacciati e fai clic destro sulla **faccia superiore** di un blocco solido per vincolare quel pavimento come arrivo.",
+        "Fai clic destro in aria per viaggiare. Il viaggio si paga con celle di Pulso ovunque nel tuo inventario, e segue un recupero di **5 secondi**.",
+        "Atterri in piedi sul pavimento vincolato, quindi servono **due blocchi liberi e asciutti** sopra di esso, e niente di ostile proprio accanto: fuoco, lava, magma, cactus, un falò acceso, cespugli di bacche, rose del Wither o neve polverosa.",
+        "Se non c'è un posto sicuro dove stare in piedi, il viaggio rifiuta e non spende nulla. Il Pulso si prende solo quando l'arrivo è libero. Non puoi viaggiare mentre sei in sella."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un arrivo",
+      "steps": [
+        {
+          "caption": "Scegli un blocco di pavimento solido per il tuo arrivo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Accovacciati e fai clic destro sulla sua faccia superiore con la bussola per vincolarlo.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Tieni i due blocchi sopra liberi e asciutti; è lì che starai in piedi.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una leva che alimenta il pavimento blocca l'arrivo, per quando vuoi la porta chiusa.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tre bussole",
+      "text": [
+        "- **Bussola di pietra di via**: fino a **128 blocchi**, stesso mondo, **20 Pulso**.",
+        "- **Bussola dell'orizzonte**: qualsiasi distanza nello stesso mondo, **40 Pulso**.",
+        "- **Bussola astrale**: qualsiasi distanza, tra mondi, **100 Pulso**. L'unica che ti riporta a casa dalla Marcia.",
+        "Una bussola di pietra di via collega anche una coppia di porte della via (vedi [Porta della via](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

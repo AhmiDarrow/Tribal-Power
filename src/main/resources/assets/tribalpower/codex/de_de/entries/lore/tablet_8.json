@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Faden der Webstuhl-Näher",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Von einer Kristallspitze oder einem Lager der Webstuhl-Näher, in ihren eigenen Worten:",
+        "“Der Webstuhl war nie ein einzelner Faden. Es waren neun im Einvernehmen. Wir hielten die Spindel und nähten die Stränge der Stämme zu einem Tuch über dem Himmel. Als aus acht Zügen acht Streitereien wurden, riss das Tuch entlang unserer Naht. Wir nähen noch. Bring Kristall. Bring Faden.”"
+      ]
+    }
+  ]
+}

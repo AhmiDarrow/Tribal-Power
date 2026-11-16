@@ -1,0 +1,74 @@
+{
+  "name": "高地の獣",
+  "icon": "tribalpower:crag_fleece",
+  "order": 210,
+  "spoiler": true,
+  "items": [
+    "tribalpower:cragcoat_spawn_egg",
+    "tribalpower:bouldersnout_spawn_egg",
+    "tribalpower:updrifter_spawn_egg",
+    "tribalpower:scree_lurcher_spawn_egg",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:scree_knuckle"
+  ],
+  "next": "beasts_glimmer_ridge",
+  "pages": [
+    {
+      "type": "text",
+      "title": "高地固有",
+      "text": [
+        "高地の石と苔と木立には、山の雄羊、猪、風に漂うカツオノエボシ、夜に出る石の猿がいる。",
+        "ここの穏やかな獣は、1分に1回ブラシで試薬を取れ、下の**狩猟と飼育**に記したそれぞれの餌で誘い、繁殖できる。穏やかな動物と同じく絆を結べる（[使い魔](familiars)を参照）。固有の贈り物はないが、絆を結んだものはトーテムで声を得て、魔法を強められる（[トーテムでの調律](familiar_attuning)を参照）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cragcoat",
+      "title": "崖外套",
+      "text": [
+        "厚い毛の山の雄羊。2匹から4匹の群れ。**体力30**と**防具7**、遅い。",
+        "**崖の羊毛**を1から3個落とす。ドロップ増加で増える。",
+        "狩猟すると、生の獲物肉を1から3個、マーチの革を最大2個落とす。**小麦**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bouldersnout",
+      "title": "巨岩鼻",
+      "text": [
+        "牙を持ち、落石のような皮の猪。2匹から4匹の群れ。**体力30**と**防具4**。",
+        "**巨岩の牙**を1から3個落とす。",
+        "狩猟すると、生の獲物肉を1から3個、マーチの革を最大2個落とす。**ジャガイモかニンジン**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:updrifter",
+      "title": "昇り漂い",
+      "text": [
+        "空のカツオノエボシ。赤紫色のトサカの下にガラスの浮きがあり、刺す触手を引いて、斜面の上を1匹から3匹で漂う。**体力12**、防具なし。",
+        "**漂い袋**を1から3個落とす。",
+        "狩猟すると、糸を最大2個落とす。**レイのアザミ**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:scree_lurcher",
+      "title": "ガレよろめき",
+      "text": [
+        "背に岩の板を負った石の猿。夜、開けた地面に1匹か2匹現れる。**体力32**と**防具3**があり、打撃は**6**、一撃ごとに後ろへ押される。",
+        "**ガレの拳骨**を1から2個落とす。押しの試薬。",
+        "狩猟すると、火打石を1から2個、鉄塊を最大2個落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と飼育",
+      "text": [
+        "試薬のほか、狩猟するとより多く落とし、ドロップ増加でさらに増える。燃えて死ぬと肉は焼いた獲物肉になる。野生を繁殖させるには、大人二匹にそれぞれの餌をやるあいだ**スニーク**する。普通に餌をやると、野生は代わりに懐く。"
+      ]
+    }
+  ]
+}

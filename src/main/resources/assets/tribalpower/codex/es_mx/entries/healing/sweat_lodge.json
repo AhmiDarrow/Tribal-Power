@@ -1,0 +1,31 @@
+{
+  "name": "Cabaña de sudor",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Piedras calientes",
+      "text": [
+        "Las **Piedras de sudor** echan vapor y brillan cuando están sobre calor: una hoguera encendida, fuego, fuego de almas, bloque de magma, lava o un Cuenco de brasa debajo. Quita el calor y se enfrían.",
+        "Pon algunas en una cabaña pequeña con una cama y tienes una cabaña de sudor."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Una noche en la cabaña",
+      "text": [
+        "Duerme toda la noche en una cama con **Piedras de sudor calientes en un radio de 5 bloques**, a no más de **2 bloques** por encima o por debajo de la cama, y **un techo sobre ti** (cualquier cosa sólida, de dos a cinco bloques por encima de la cama).",
+        "Despiertas **curado del todo**, sin ningún efecto dañino, con **10 minutos** de [Bendición del Espíritu](spirit_sickness) y un poco de Regeneración. Solo funciona si de verdad duermes hasta la mañana."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

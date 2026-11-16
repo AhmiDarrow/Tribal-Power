@@ -1,0 +1,52 @@
+{
+  "name": "碎片背",
+  "icon": "tribalpower:prism_carapace",
+  "order": 100,
+  "spoiler": true,
+  "items": [
+    "tribalpower:shardback_spawn_egg",
+    "tribalpower:prism_carapace"
+  ],
+  "next": "hollow_sentinel",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardback",
+      "text": [
+        "晶洞壳里的寄居蟹，以鸣石为甲。离它沉重的推撞远一点。",
+        "被猎杀时还会掉落最多2个紫水晶碎片。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "碎片背漫游于远行界水晶原，微光山脊和高地较少。",
+        "它有**36点生命值**和**8点护甲**，攻击为**5**。每一击都把你猛地推开，在台地上很危险。远离崖边再打。"
+      ],
+      "title": "地点与方式"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1至2个棱镜甲壳**。",
+        "一块棱镜甲壳在灵之下调谐成2个调谐回响。"
+      ],
+      "title": "它会给出什么"
+    },
+    {
+      "type": "text",
+      "text": [
+        "先与**砂砾歌者**达到**声音**声望，再对成年个体使用结缘护符。五次里有两次成功；失败的护符会被消耗。或者喂给它自己的试剂：五次里有一次，试剂不论成败都会消耗。",
+        "结缘的碎片背是斗士：谁伤害你、你打谁，它就打谁。稀有印记**撑架**让它难以被击退。参见[使魔赠礼](familiar_gifts)。"
+      ],
+      "title": "作为使魔"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时还会掉落这个，抢夺会掉得更多。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "name": "余烬号角",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "鼓心族的手艺：一只把熔炉燃料烧成脉动的号角。煤炭、木炭、熔岩、烈焰棒：熔炉能烧的，号角都变成稳定的动力。",
+        "它容纳**1,000脉动**。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "供料",
+      "text": [
+        "手持燃料右键点击，或让漏斗或中继器为它供料。燃料的燃烧时间除以二十，就是它的脉动：煤炭是**80**，煤炭块是**800**，熔岩桶是**1,000**，烈焰棒是**120**。",
+        "它最多以**每秒20**放出这些脉动。更多燃料不会提高上限，只会持续得更久。",
+        "只有还有空间时才点燃下一份，所以装满的号角不会浪费。熔岩留下的空桶会从号角上方弹出；燃烧着的火里抽不出别的东西。",
+        "潜行并用空手右键点击一个面，即可在双向、输入、输出和关闭之间依次切换，与[图腾扳手](camp_kit)相同。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "自己供料的号角",
+      "steps": [
+        {
+          "caption": "把号角放在8格内的机器能够抽取的地方。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "上方的漏斗为它送入燃料。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "漏斗上方的一箱煤炭能让它烧很久：每份煤炭是80脉动。",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "旁边的拉杆会暂停号角。燃料只是等待。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "扩大规模",
+      "text": [
+        "没有等阶时，号角最多产出**每秒20**。每个等阶增加**每秒15%脉动**，四舍五入为整数脉动。再往上，就多造号角。",
+        "你能自动化的循环，都变不出比烧掉的更多的燃料。就算是聆听坑召来的煤炭，取来并击碎所花的脉动也多于它交还的。",
+        "空手点击会告诉你它产出多少、存着多少。潜行并用这本书右键点击，就能看到燃料和尚未烧完的燃烧。",
+        "号角是[鼓心族](tribe_spark)的手艺：配方需要烬结和火之印，鼓心族会把号角换给任何他们称为朋友的人。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

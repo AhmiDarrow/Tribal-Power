@@ -1,0 +1,52 @@
+{
+  "name": "Campana de duelo",
+  "icon": "tribalpower:bell_fragment",
+  "order": 140,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mourning_bell_spawn_egg",
+    "tribalpower:bell_fragment"
+  ],
+  "next": "rift_hound",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mourning_bell",
+      "text": [
+        "Una campana flotante de bronce verde, con una máscara de duelo y un badajo que brilla. Recuerda a las tribus perdidas, y su tañido anunciado te ralentiza.",
+        "Cazada, también suelta de 1 a 3 pepitas de oro."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Las Campanas de duelo flotan sobre los Campos de cristal de la Marcha y los Campos de nieve, y de vez en cuando sobre la Ciénaga de juncos y los Bajíos.",
+        "Tiene **28 de salud** y **3 de armadura**. A una distancia de hasta 12 bloques hace sonar un tañido de **4 de daño** que te ralentiza durante 3 segundos. Ponerse a cubierto interrumpe la canción."
+      ],
+      "title": "Dónde y cómo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Suelta **de 1 a 2 Fragmento de campana**.",
+        "Un Fragmento de campana se sintoniza en 2 Eco sintonizado bajo Espíritu."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcanza **Voz** con los **Talladores de sellos**, luego usa un Amuleto de vínculo en un adulto: dos intentos de cada cinco, y el amuleto se gasta si falla. O aliméntala con su propio reactivo: un intento de cada cinco, y el reactivo se gasta de todos modos.",
+        "Una campana vinculada te quita el veneno, la debilidad y otros maleficios mientras te sigue. Consulta [dones del familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, al cazarlo suelta esto, y más con Saqueo."
+      ]
+    }
+  ]
+}

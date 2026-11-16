@@ -1,0 +1,174 @@
+{
+  "name": "Carrilhão de chuva",
+  "icon": "tribalpower:rain_chime",
+  "order": 120,
+  "next": "offering_table",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rain_chime",
+      "text": [
+        "Transforma o clima em um sinal de redstone. O Carrilhão de chuva não precisa de Pulso nem de combustível, e também não produz Pulso. Só diz a você o que o céu está fazendo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lendo-o",
+      "text": [
+        "Encoste um comparador nele: **8** na chuva, **15** numa tempestade, **0** sob céu limpo. O clima vale no mundo todo, então um telhado não o silencia.",
+        "Ele também soa baixinho a cada **dez segundos** enquanto chove.",
+        "Um sinal de redstone no carrilhão o silencia e põe a saída em 0."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um indicador do clima",
+      "steps": [
+        {
+          "caption": "Coloque o carrilhão onde um comparador possa lê-lo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:rain_chime"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um comparador virado para o lado oposto lê o clima.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Aqui ele acende uma lâmpada sempre que chove, e uma lógica mais fina distingue chuva (8) de trovão (15).",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ideias",
+      "text": [
+        "Pause um [Coletor de ley](ley_collector) ou acenda as luzes do acampamento com o clima. Use a leitura do trovão como aviso antes de sair.",
+        "Sem combustível, sem manutenção: depois de colocado, ele só escuta."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rain_chime"
+    }
+  ]
+}

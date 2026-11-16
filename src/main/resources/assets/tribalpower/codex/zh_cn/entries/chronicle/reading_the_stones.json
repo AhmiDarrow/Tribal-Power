@@ -1,0 +1,38 @@
+{
+  "name": "读石",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "雕石与壁画",
+      "text": [
+        "远行界把自身的历史写进了石头。废墟的墙壁里嵌着**雕石**：织机废墟、高脚村、沉没的神祠、沼地坟冢、灰墓、藏骨堂、掘进廊道，以及微光岭的宝库。守护者之地立着宽两方块、高两方块的**雕壁画**，每一幅画着它所在的那片土地。",
+        "右键点击其中一块，你就读到它；残篇会永久留在这里，编年史把它放到该放的位置。共有**十六**：八块石头写织机的坠落，八幅壁画写它留下的国度。全部读完，编年史便完整，进度**编年史完整**便是证明。",
+        "这些石头和壁画可以拾起，放到你自己的任意一面墙上。在创造模式里，潜行点击石头或壁画会改变它的章节。每一章在你找到之前都算剧透。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "画与纹章",
+      "text": [
+        "远行界的六幅**画**现在挂在普通的画中间：把画抵在墙上，可能会冒出一幅。标题是它们自己的。",
+        "当你与一个部落的地位达到**族人**，它会把**纹章**交给你，只此一次：一个带有部落标记的旗帜图案。把它和一面旗帜、任意染料一起放进织布机。把它升到你自己的营地上方，以表明你是谁的族人。"
+      ]
+    }
+  ]
+}

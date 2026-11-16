@@ -1,0 +1,17 @@
+{
+  "name": "4. 切断",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "切断",
+      "text": [
+        "“没有人记得是谁先停下了歌唱。印刻者说，一枚印是作为要求刻下的。鼓心族说，节拍被丢下了。纹织者说，纹样没问过就被改了。他们都对，麻烦就在这里。”",
+        "发现于远行界废墟中的雕石上。"
+      ]
+    }
+  ]
+}

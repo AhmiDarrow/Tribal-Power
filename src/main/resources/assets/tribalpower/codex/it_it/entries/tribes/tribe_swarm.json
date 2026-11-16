@@ -1,0 +1,64 @@
+{
+  "name": "Custodi della colonia",
+  "icon": "tribalpower:tribe_mark",
+  "order": 100,
+  "spoiler": true,
+  "unlock": "tribe:swarm",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_swarm",
+      "title": "Custodi della colonia",
+      "text": [
+        "“Non possiedi un alveare. Sei in buoni rapporti con esso.”",
+        "Stirpe di **Sciame**, voce di **Aria**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Custodi della colonia hanno fatto passare il Pulso attraverso il favo e hanno piantato i fiori della Marcia per i loro sciami. Prendi senza chiedere e il favo tace. Il loro mestiere è **alveari e fiori della Marcia**.",
+        "I loro accampamenti stanno nelle **foreste di fiori**, nei prati e nei boschetti di ciliegi, e nella Marcia un loro accampamento sta in ogni fascia, dal nord gelato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è il **Piumino di lanterna**, che vale **+8** di grado al loro Focolare.",
+        "Prediligono anche una Bottiglia di miele, un Favo di miele, un Blocco di miele o qualsiasi fiore: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda che il Focolare prende al massimo **60** di grado al giorno dalle offerte; vedi [Tribù e grado](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che l'Anziano scambia",
+      "text": [
+        "**Ospite**: 4 Favo di miele per 2 Schegge di eco; 2 Bottiglie di miele per 2 Cardi di ley.",
+        "**Amico**: 8 Favo di miele per 2 Fiori di eco; 2 Blocchi di miele per un Piumino di lanterna; 4 Grano della steppa per una Torta al miele.",
+        "**Consanguineo**: 4 Eco sintonizzato per un Collettore di ley; 2 Eco vincolato per 3 Tessitospirito.",
+        "Ogni scambio frutta **+2** di grado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce**, l'Anziano ti dà il Marchio della tribù dei Custodi della colonia. Fabbricalo con un {item:tribalpower:resonance_totem_air} e due Tessitospirito nel loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Aria**.",
+        "I Consanguinei dei Custodi della colonia portano il loro [dono](tribe_boons): le api non si rivoltano mai contro di te.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti con te.",
+        "Il loro scambio da Consanguineo per Tessitospirito è comodo: ogni Totem di parentela ne chiede due."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "swarm",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Custodi della colonia ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

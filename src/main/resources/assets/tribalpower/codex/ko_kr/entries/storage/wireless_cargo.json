@@ -1,0 +1,470 @@
+{
+  "name": "무선 화물",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "파이프 한 줄 없이 두 기계 사이로 아이템이나 유체를 옮긴다. 보내는 기계의 면에 릴레이 판을 끼우고, 격자 조율기로 받는 면을 조준하면, 매초 화물이 건너뛴다.",
+        "릴레이는 거리를 위한 것이다. 맞닿은 Tribal Power 블록 둘은 면으로 주고받을 수 있다 ([스테이션이 작동하는 법](echo_workshops) 참고). 바닐라 상자는 여전히 호퍼나 판이 필요하다."
+      ],
+      "title": "무선 화물"
+    },
+    {
+      "type": "text",
+      "title": "끼우기와 조준",
+      "text": [
+        "기계나 상자의 면에 판을 우클릭한다. 판을 들고 있으면, 화면을 여는 기계에도 일반 클릭으로 놓인다. 붙어 있는 블록에서 꺼낸다.",
+        "판은 붙어 있는 면에서 꺼내 표시한 면으로 넣는다. 둘 다 그 블록의 면 설정을 따른다. 판의 면은 내보내야 하고(**출력** 또는 **양쪽**), 표시한 면은 받아야 한다(**입력** 또는 **양쪽**). 스테이션의 옆면은 처음에 **입력**이고 바닥만 **출력**이니, 면을 먼저 설정하라.",
+        "[돌 수반](stone_font)은 이미 판에 맞게 설정되어 있다. 위와 아래 면이 **양쪽**이라, 아이템 판과 유체 판이 어느 쪽으로든 작동한다.",
+        "**격자 조율기**로 조준한다. 화물을 받을 면을 우클릭한 다음, 판을 우클릭한다. 판은 꺼낸 것을 모두 그 면으로 보낸다.",
+        "판을 격자 위에 두고, 격자 전도체에서 8블록 안에, 그 목소리의 공명 토템도 두어라. 깨어 있거나 흐리되 고요하지는 않아야 한다. 아이템, 유체, 장거리 릴레이는 **바람**, 아스트랄 릴레이는 **베틀**. 그 목소리를 빌려 주는 친족 토템도 인정된다. 그것이 없으면 판은 기다린다. 서버는 공통 설정의 **automationNeedsVoices**로 이 규칙을 끌 수 있다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "릴레이 조준",
+      "steps": [
+        {
+          "caption": "조금 떨어진 상자 둘.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "보내는 상자 위에 아이템 릴레이를 끼운다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "격자 조율기로 먼 상자의 위를 우클릭해 표시한다.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "그다음 조율기로 판을 우클릭한다. 이제 표시한 면으로 보낸다.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "판에서 8블록 안에 공명 토템 (바람)을 세워라. 릴레이는 바람 목소리로 나른다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "보내는 판 근처에서 펄스하면, 초당 최대 16개가 건넌다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "아이템 또는 유체",
+      "text": [
+        "매초 릴레이는 최대 **아이템 16개** 또는 **250 mB**를 옮긴다.",
+        "아이템 릴레이와 유체 릴레이는 이름대로 나른다. **물 인장**을 **룬** 칸에 넣으면 어떤 판이든 유체를 나른다. **땅 인장**은 아이템을 나르게 한다.",
+        "유체라면 양끝에 정령 저수조를 두어라. 릴레이는 유체를 옮길 뿐, 저장하지 않는다.",
+        "무엇을 건넬지, 또는 태울지는 [필터와 공허 판](cargo_filters)을 보라."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "채널",
+      "text": [
+        "평범한 판은 한곳으로 보낸다. 등급을 올리면 **채널**이 더 열린다. [메아리 조율](machine_ranks)은 두 번째, 결속은 세 번째, 현현은 네 번째를 연다. 채널마다 목적지와 필터가 있다.",
+        "격자 조율기로 면을 표시하고, 판에 조율기를 사용한다. 일반 클릭은 목적지가 없는 다음 채널을 채운다. 그래서 채널이 서로 다른 곳으로 보낼 수 있다. 채널을 고르고 조율기로 판을 웅크린 클릭하면 그 채널을 바꾼다. **연결 해제**는 채널의 목적지를 잊고 필터는 남긴다.",
+        "**우선순위**는 번호 순으로, 받고 공간이 있는 첫 채널로 화물을 보낸다. 채널 1은 광석 허용 목록으로 화로에, 채널 2는 나머지를 보관으로. **순번**은 채널이 차례로 받는다.",
+        "채널은 한 박자에 판의 전송 한 번을 나눈다. 그래서 등급 있는 판은 예전과 같은 양만, 더 많은 곳으로 옮긴다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "세 가지 거리",
+      "text": [
+        "- **아이템 릴레이**와 **유체 릴레이**는 **32블록**까지 닿고, 무언가를 옮기는 박마다 **8펄스**가 든다.",
+        "- **장거리** 릴레이는 **128블록**까지 닿고, 박마다 **16펄스**가 든다.",
+        "- **아스트랄** 릴레이는 거리 제한이 없고 세계 사이를 건넌다. 박마다 **32펄스**가 든다.",
+        "아무것도 옮기지 않는 박은 비용이 없다.",
+        "등급이 있는 판([기계 등급](machine_ranks) 참조)은 그만큼의 **118%**, **143%** 또는 **182%**를 내고, 같은 만큼 더 옮긴다. 약 **19 / 23 / 29**개, 또는 **294 / 357 / 455 mB**. 아이템당 펄스는 거의 같다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "격자 조율기",
+      "text": [
+        "물건을 받을 블록의 면을 우클릭하면 조율기가 그 면을 기억한다. 그다음 조율기로 판을 우클릭해 조준한다. 목적지를 표시하고, 판은 표시하지 마라. 평범한 우클릭은 클릭하면 열리는 저장고나 상자라도 어떤 블록이든 표시한다.",
+        "조준한 뒤에도 표식이 조율기에 남아서, 표식 하나로 여러 판을 조준할 수 있다. 다른 블록을 우클릭하면 바뀐다. 판이 직접 놓인 블록의 표식은 거부된다.",
+        "위의 거리 제한이 적용된다.",
+        "판을 집어 올려도 조준은 남고, 필터도 남는다. 판을 부수면 룬이 옆에 떨어진다.",
+        "판은 당신의 것이다. 당신과 당신의 [야영지](shared_camps)만 그것을 열거나, 필터를 바꾸거나, 조율기로 조준할 수 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "조작과 기다리는 때",
+      "text": [
+        "꾸준한 레드스톤 신호가 판을 멈춘다. 조율기의 대상 블록에 동력을 주면 먼쪽에서 오는 전송이 멈춘다.",
+        "Tribal Power 스테이션, 저장고, 저수조의 레버도 거기서 빼거나 그곳으로 넣는 판을 멈춘다.",
+        "판의 비교기는 연결되지 않으면 **0**, 연결되었으나 기다리면 **1**, 화물을 옮기는 동안 **15**를 읽는다.",
+        "양쪽 끝은 이미 불러와져 있어야 한다. 불러오지 않았거나 가득 찬 목적지는 릴레이를 기다리게 한다. 무언가를 부수는 것은 불 인장 판뿐이다. 릴레이는 스스로 청크를 불러오지 않으니, 떠나 있는 동안에도 일하게 하려면 먼쪽에 길닻을 둔다.",
+        "웅크리고 이 책으로 판을 우클릭하면 연결, 비용, 기다리는 이유를 볼 수 있다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

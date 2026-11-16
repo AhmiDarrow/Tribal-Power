@@ -1,0 +1,36 @@
+{
+  "name": "Frasco de Espíritu",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "Un tanque que puedes llevar. El frasco guarda un fluido, **4.000 mB** (4 cubos) — el **Frasco mayor de Espíritu** guarda **16.000 mB**, tanto como una [Cisterna de Espíritu](spirit_cistern).",
+        "Nunca se divide en una pila de cubos, y la cantidad que guarda se ve como una barra bajo el icono, del color del propio fluido."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Llenar y verter",
+      "text": [
+        "- **Úsalo en un tanque o una máquina** (una Cisterna de Espíritu, un Tambor de olas, el tanque de otro mod) y extrae de ahí; si no puede extraer, vierte dentro lo que lleva.",
+        "- **Úsalo en una fuente de fluido del mundo** y bebe un cubo de ella.",
+        "- **Úsalo agachado** y vierte un cubo delante de ti.",
+        "Otros mods lo ven como un recipiente de fluido corriente, así que las tuberías y las máquinas de llenado pueden llenarlo y vaciarlo mientras está en tu mochila."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

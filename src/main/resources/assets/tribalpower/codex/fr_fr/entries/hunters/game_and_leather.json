@@ -1,0 +1,56 @@
+{
+  "name": "Gibier et cuir",
+  "icon": "tribalpower:roast_game",
+  "order": 45,
+  "items": [
+    "tribalpower:raw_game",
+    "tribalpower:march_leather"
+  ],
+  "next": "ashbound",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:roast_game",
+      "text": [
+        "Les animaux de la Marche te nourrissent autant que ceux de l'Overworld. Leur viande est **Gibier cru**, et leurs peaux donnent **Cuir de la Marche**.",
+        "Gibier rôti rassasie autant qu'un steak, ce qui rend les longs trajets à travers la Marche bien plus faciles."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Gibier cru** vient de Sauteur de cendre, Groin-de-roche, Brouteur carillon, Peau-d'escarbille, Bondisseur d'escarpement, Manteau d'escarpement, Cerf de l'aube, Peaudérive, Échassier de fagne, Enjambeur de givre, Renard-lanterne, Longjarret, Martinet du Métier, Marcheur de la Marche, Sauteur des marais, Dos-mousse, Aile pâle, Broute-prisme, Brouteur de crête et Dos huppé.",
+        "**Cuir de la Marche** vient de Groin-de-roche, Brouteur carillon, Peau-d'escarbille, Bondisseur d'escarpement, Troll de la falaise, Manteau d'escarpement, Cerf de l'aube, Guetteur des profondeurs, Peaudérive, Échassier de fagne, Enjambeur de givre, Renard-lanterne, Longjarret, Marcheur de la Marche, Dos-mousse, Broute-prisme, Spirale de roseau, Traqueur des roseaux, Brouteur de crête, Molosse de la faille, Troll de givre, Troll de scories, Dos huppé et Raie du voile.",
+        "La page de chaque créature donne les quantités.",
+        "Butin en ajoute jusqu'à un de plus de chaque. Un animal qui meurt en brûlant lâche sa viande déjà rôtie."
+      ],
+      "title": "D'où ça vient"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Gibier cru** restaure **3** points de faim et peu de saturation. Gibier rôti restaure 8 avec une saturation élevée.",
+        "Cuis-le dans un fourneau, un fumoir (deux fois plus vite) ou sur un feu de camp (le plus lent, mais sans combustible).",
+        "Les deux comptent comme de la viande : les loups les mangent, et d'autres mods les traitent comme de la viande crue ou cuite."
+      ],
+      "title": "Cuire et manger"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Cuir de la Marche se fabrique en un cuir ordinaire, donc tout ce qui demande du cuir, comme un Tambour silencieux, n'est qu'à une étape de fabrication.",
+        "Il compte aussi comme cuir pour les autres mods qui acceptent n'importe quel cuir."
+      ],
+      "title": "Cuir de la Marche"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:roast_game"
+    },
+    {
+      "type": "recipe",
+      "item": "minecraft:leather",
+      "text": "Un Cuir de la Marche fait un cuir."
+    }
+  ]
+}

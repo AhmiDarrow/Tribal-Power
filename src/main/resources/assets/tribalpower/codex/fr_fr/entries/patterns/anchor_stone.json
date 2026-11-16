@@ -1,0 +1,34 @@
+{
+  "name": "Pierre d'ancre",
+  "icon": "tribalpower:anchor_stone",
+  "order": 30,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:anchor_stone",
+      "text": [
+        "Les Pierres d'ancre tiennent les coins d'un motif. Elles ne font rien d'autre : pas de Pulsation, pas d'inventaire, pas d'entretien.",
+        "Certaines formes, comme la Fosse d'écoute et la Porte lointaine, en ont besoin dès le début ; d'autres, comme le Bassin de pierre, s'en servent pour atteindre un second palier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les placer",
+      "text": [
+        "Pose-les là où le Codex montre des fantômes aux coins, puis laisse-les. Ce ne sont pas des générateurs et ils n'ont besoin de rien de toi.",
+        "Casse-en une et la forme redescend d'un palier jusqu'à ce que tu la remettes, ou s'arrête tout à fait si elle n'a pas de palier sans elles.",
+        "- **Bassin de pierre** : quatre, aux coins d'un 5x5, pour la pierre et l'obsidienne.",
+        "- **Fosse d'écoute** : quatre pour la fosse de 5x5, huit pour l'Écoute profonde.",
+        "- **Porte lointaine** : quatre, aux coins de son emprise."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:anchor_stone",
+      "text": "Quatre Pierre de la Marche et un Éclat d'écho font **quatre**."
+    }
+  ],
+  "next": "stone_font"
+}

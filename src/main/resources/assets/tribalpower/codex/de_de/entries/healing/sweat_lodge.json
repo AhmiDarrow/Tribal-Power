@@ -1,0 +1,31 @@
+{
+  "name": "Schwitzhütte",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Heiße Steine",
+      "text": [
+        "**Schwitzsteine** dampfen und leuchten, wenn sie über Hitze stehen: ein brennendes Lagerfeuer, Feuer, Seelenfeuer, ein Magmablock, Lava oder eine Glutschale darunter. Nimm die Hitze weg, und sie werden kalt.",
+        "Leg einige in eine kleine Hütte mit einem Bett, und du hast eine Schwitzhütte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Nacht in der Hütte",
+      "text": [
+        "Schlaf die ganze Nacht durch in einem Bett mit **heißen Schwitzsteine innerhalb von 5 Blöcken**, nicht mehr als **2 Blöcke** über oder unter dem Bett, und **ein Dach über dir** (irgendetwas Festes, zwei bis fünf Blöcke über dem Bett).",
+        "Du wachst **vollständig geheilt** auf, ohne jeden schädlichen Effekt, mit **10 Minuten** [Geistsegen](spirit_sickness) und etwas Regeneration. Es funktioniert nur, wenn du wirklich bis zum Morgen schläfst."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

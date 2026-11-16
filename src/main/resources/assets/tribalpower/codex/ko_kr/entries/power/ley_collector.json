@@ -1,0 +1,467 @@
+{
+  "name": "레이 수집기",
+  "icon": "tribalpower:ley_collector",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_collector",
+      "text": [
+        "행성의 레이 선을 마시는 발전기. 선이 지나는 곳, 열린 하늘과 물, 식물과 생명 사이에 두면, 거기에 서 있지 않아도 **2초**마다 펄스를 더한다.",
+        "**2,000펄스**를 담는다. 부수면 잃는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "무엇을 듣나",
+      "text": [
+        "2초마다 수집기는 **1점당 3펄스**를 자신의 **박자**만큼 더한다. 박자는 **1**에서 시작하고, **8블록** 안의 땅이 더 보탠다:",
+        "- 열린 하늘: 낮에 **+1**, 밤에 **+3**.",
+        "- 비 **+2**, 뇌우면 추가로 **+1**.",
+        "- 물: 최대 **+4**.",
+        "- 식물: 최대 **+4**. 잔디, 잎, 꽃, 작물, 이끼 블록은 넷마다 하나로 센다. 물과 식물은 수집기 아래 2블록부터 위 2블록까지만 센다.",
+        "- 공명 토템: 최대 **+3**, 서로 다른 목소리마다 하나.",
+        "- 부족 화로 **+1**. 동물: 최대 **+2**, 한 쌍당 하나.",
+        "- 마치에서 **+2**. 보름달 아래에서 **+1**.",
+        "그 선물들은 땅의 몫이며, 땅의 몫은 상한이 **6**이다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "레이선",
+      "text": [
+        "박의 나머지는 수집기 곁을 지나는 레이선이다. 선마다 최대 **+2**, 실 바로 위면 2 전부, 멀수록 줄고, **7.5블록**에서 아무것도 없다. 위나 아래도 옆과 같다. 선은 세계를 가로지르는 그물이며, **여섯**이 모이는 곳은 아주 드물고, 수집기는 그보다 많이 세지 않는다. 박 전체의 상한은 **16**이며, 2초마다 **48 펄스**를 낸다.",
+        "공명 토템은 자기 색의 실을 스스로 통과시키고 다른 색은 그대로 둔다. 토템 여섯을 수집기 주위에 두어, 각 실이 자기 토템으로 가는 길에 수집기를 가로지르게 하라. 그것이 수렴이다. 색은 여섯, 박에 실리는 선도 여섯을 넘지 않는다.",
+        "레이 쇄도 동안, 실이 쇄도하는 목소리를 나르는 수집기는 두 배를 낸다. [살아있는 마치](living_march) 참조.",
+        "[레이 심장](ley_heart)은 자기 선 여섯을 토템을 통해 밖으로 일으킨다. 그 선 위에 둔 수집기는 그것을 느낀다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "좋은 자리",
+      "steps": [
+        {
+          "caption": "수집기를 하늘이 보이는 열린 땅에 둔다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ley_collector"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "주변의 식물은 박마다 더해진다. 살아있는 블록 넷이 1점, 최대 넷.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:oak_leaves"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:poppy"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:dandelion"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:fern"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:short_grass"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "다른 목소리의 토템은 하나씩 1점, 최대 셋.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              -1
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "지붕은 하늘과 비와 폭풍을 잃게 한다. 약해질 뿐 죽지는 않는다. 식물과 목소리는 여전히 센다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                0,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                -1
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                0
+              ],
+              "block": "minecraft:oak_planks"
+            },
+            {
+              "pos": [
+                1,
+                2,
+                1
+              ],
+              "block": "minecraft:oak_planks"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "조율",
+      "text": [
+        "웅크린 채 레이 렌즈를 수집기에 쓰면 내역이 요인마다 정확히 찍힌다. 찍히는 수는 박이며, 초당 펄스가 아니다. 레이 시야는 네 곁을 지나는 선을 그린다. 짓기 전에 그 위에 설 수 있다.",
+        "박이 **8 이상**(16의 절반)이면, 수집할 때마다 8블록 안의 토템을 깨우고 응답한 상태로 둔다. 여기서는 박만 중요하다. 수집기가 얼마나 찼는지는 아니다. [유지](keeping) 참조.",
+        "레드스톤 신호가 이를 멈춘다. 각 [등급](machine_ranks)은 수집마다 **15%**를 더한다.",
+        "약해 보이면 웅크려 이 책으로 우클릭한다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_collector"
+    }
+  ]
+}

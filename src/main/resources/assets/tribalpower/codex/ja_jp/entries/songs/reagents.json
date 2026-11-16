@@ -1,0 +1,261 @@
+{
+  "name": "試薬",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "マーチの生き物は皆、何かを残す。牙、鱗、羊毛の房。それが**試薬**であり、これでTribal Powerは狩りを魔法に変える。",
+        "{item:tribalpower:reagent_pouch}をホットバーに置いておけ。拾った普通の試薬はすべて袋へ直接入る。袋は種類ごとに、未加工も強化済みも**999**まで入り、荷物を埋めない。**糸**付きの試薬は荷物に残る（次のページ）。",
+        "袋を右クリックすると、中を見て未加工の試薬を取り出せる。染料、療薬、レシピのためだ。歌の作業台の**取り出す**ボタンも同じことをする。",
+        "試薬は最初**未加工**だ。[歌の作業台](song_bench)で、16パルスを払って**強化**できる。未加工の試薬は療薬を醸し、いくつかのレシピに入る。強化済みは歌を記し、詩の矢を作り、武器に塗油する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "糸",
+      "text": [
+        "一部の試薬は**糸**を帯びる。I、II、IIIで、ツールチップに金色で記される。試薬が離れた生き物の強さであり、討伐かブラシのときに読まれる。血統で最も強く、2を超える糸。金色の名の**精鋭**なら、さらに一段高い。",
+        "- **糸 I**：糸が3の野生の生き物、またはどの精鋭でも。",
+        "- **糸 II**：糸が4の繁殖系統、または糸が3の精鋭。",
+        "- **糸 III**：**崇高**の系統、糸は5。自分の崇高な使い魔をブラシすると、1分に2つ取れる。",
+        "糸が違う試薬は重ならない。それ以外では、糸付きの試薬も他と同じだ。[レイの心臓](ley_heart)はより熱く燃やし、普通の4に対して**6、9または12**の価値がある。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "系統",
+      "text": [
+        "試薬の働きは、離れた生き物に由来する**系統**で決まる。十一あり、使う場所がどこでも意味は同じだ：",
+        "- **歌**では、最初の一つよりあとに試薬が加えるもの;",
+        "- **塗油した武器**では、当たったものに武器がすること（[塗油](anointing)）;",
+        "- **療薬**では、煎じ薬がそれを取る者にすること（[療薬](remedies)）。",
+        "次のページは、すべての系統と、属する試薬と、三つの場での働きを挙げる。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "未加工の試薬を**ボウル**に入れ、**儀式のチョーク**を一本だけ添えてすり潰す（三つをクラフトグリッドに置く。チョークを一スタックまるごとは不可）。**染料2**を得る。ボウルは戻り、チョークが失うのは印一つだけだ。",
+        "十六の試薬が十六の染料になる：",
+        "- **白色**: 淡い綿羽",
+        "- **薄灰色**: 草食いの羊毛",
+        "- **灰色**: 嵐の翼",
+        "- **黒色**: 灰の翅",
+        "- **茶色**: 幼虫の殻",
+        "- **赤色**: 残り火の粒",
+        "- **橙色**: マグマの鱗",
+        "- **黄色**: 炭火の樹皮"
+      ],
+      "title": "試薬の染料"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **黄緑色**: ゴブリンの耳",
+        "- **緑色**: 結ばれた根",
+        "- **青緑色**: 微光の粉",
+        "- **空色**: 潜伏者の爪",
+        "- **青色**: プリズムの甲殻",
+        "- **紫色**: ランタンの綿毛",
+        "- **赤紫色**: 鐘傘の胞子",
+        "- **桃色**: 妖精の花びら"
+      ],
+      "title": "試薬の染料、続き"
+    },
+    {
+      "type": "text",
+      "title": "残り火",
+      "text": [
+        "**試薬**：残り火の心臓、残り火の粒、マグマの鱗、炭火の板、鉱滓の凝乳、鉱滓の皮.",
+        "- **歌**：対象に火をつける。",
+        "- **塗油**：灼熱：対象を燃やし、一撃ごとに火を加える。",
+        "- **Remedy**：焚き付け：力。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "稲妻",
+      "text": [
+        "**試薬**：炭火の結び、影の残り火。",
+        "- **歌**：対象に火をつける。",
+        "- **塗油**：嵐呼び：打撃の四分の一が、近くの敵対者二体へ稲妻を弧にして飛ばす。",
+        "- **Remedy**：迅速：移動速度。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "冷気",
+      "text": [
+        "**試薬**：鐘の破片、亡霊の帳。",
+        "- **歌**：対象を鈍らせる。",
+        "- **塗油**：凍傷：対象を鈍らせ、凍らせる。",
+        "- **Remedy**：冷却：火炎耐性。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "毒",
+      "text": [
+        "**試薬**：葦の牙、砕き歯、切子の棘、霧氷の大顎、欠片の棘、塩水の牙。",
+        "- **歌**：対象を毒にする。",
+        "- **塗油**：毒：対象を毒にする。",
+        "- **Remedy**：解毒：毒、衰弱、空腹、吐き気を解除する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "突風",
+      "text": [
+        "**試薬**：嵐の翼、帳の切れ端。",
+        "- **歌**：対象を後方へ吹き飛ばす。",
+        "- **塗油**：烈風：対象を後ろと上へ吹き飛ばす。",
+        "- **Remedy**：羽落ち：低速落下。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "根",
+      "text": [
+        "**試薬**：結ばれた根、心材の核。",
+        "- **歌**：対象を鈍らせる。",
+        "- **塗油**：根縛り：打撃の五分の一が対象をその場に根づかせる。",
+        "- **Remedy**：根付き：耐性。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "押し",
+      "text": [
+        "**試薬**：プリズムの甲殻、ガレの拳骨、残り火の牙、葦の渦、トロールの皮、霧氷の皮。",
+        "- **歌**：対象を強く後方へ吹き飛ばす。",
+        "- **塗油**：鎧割り：対象の防具が多いほど、打撃は深く食い込む。",
+        "- **Remedy**：防壁：衝撃吸収。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "織り",
+      "text": [
+        "**試薬**：エコーの絹、昏の絹。",
+        "- **歌**：対象を鈍らせる。",
+        "- **塗油**：エコー：打撃の四分の一が、半分の威力でもう一度当たる。",
+        "- **Remedy**：明晰な視界：暗視、盲目と暗闇を解除する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "弱化",
+      "text": [
+        "**試薬**：番兵の印、青白い牙、古墳の死装束、溺れた草。",
+        "- **歌**：対象を弱らせる。",
+        "- **塗油**：削ぎ：対象を弱らせる。",
+        "- **Remedy**：回復：採掘速度上昇を与え、弱体化・移動速度低下・採掘速度低下を解く。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "猟犬",
+      "text": [
+        "**試薬**：裂け目の歯、潜伏者の爪、ゴブリンの耳、ゴブリンの牙、コボルドの鱗、コボルドの角。",
+        "- **歌**：対象を発光させる。",
+        "- **塗油**：血への渇き：生命吸収。一撃ごとに15%が体力として戻る。",
+        "- **Remedy**：活力：体力増強。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "静寂",
+      "text": [
+        "**試薬**：暁のビロード、ランタンの綿毛、苔背の鱗、灰の房、草食いの羊毛、微光の粉、塵羽鳥の翼、跳び手の角、幼虫の殻、房の羊毛、脛の腱、淡い綿羽、崖の羊毛、巨岩の牙、漂い袋、プリズムのトサカ、破片の翅、光の殻、漂い毛皮、霜の蹄、雪の帳、灰の翅、沼の足、湿原の蹄、泥炭の浮き袋、鈴のトサカ、ガラスの翼、晶洞の殻、沈泥のひれ、青白い吹き流し、浅瀬の鱗、炉の樹皮、長老の樹皮、霜松の樹皮、炭火の樹皮、しだれの結び、鐘傘の胞子、高根、妖精の粉、妖精の花びら、妖精の火花。",
+        "- **歌**：一瞬の再生を与える。",
+        "- **塗油**：修繕：武器は命中するたびに自らを直す。",
+        "- **Remedy**：修繕：再生。"
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

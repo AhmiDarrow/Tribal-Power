@@ -1,0 +1,45 @@
+{
+  "name": "Głęboka skrytka",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Jeden skarbiec, wszędzie. Każda Głęboka skrytka, którą stawiasz, otwiera ten sam osobisty skarbiec o **54 miejscach**, więc skrzynia w domu i skrzynia na dalekim posterunku trzymają to samo. Sakwa wędrowca otwiera go z kieszeni."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Otwieranie",
+      "text": [
+        "Gdy postawisz stopę w Marszu, jesteś zestrojony, a każde otwarcie jest darmowe.",
+        "Do tego czasu każde otwarcie kosztuje **5 Puls**. Płaci je Ogniwo Pulsu, które nosisz.",
+        "Skarbiec należy do ciebie, nie do bloku. Głęboka skrytka po zniszczeniu nic nie zabiera; postaw inną, a twoje rzeczy są na miejscu.",
+        "Dźwignia blokuje ten blok skrytki. Sam skarbiec nigdy nie jest opróżniany przez pauzę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sakwa wędrowca",
+      "text": [
+        "Sakwa otwiera ten sam skarbiec z dowolnego miejsca, według tej samej zasady zestrojenia. To klucz, nie torba: w samym przedmiocie nic nie leży, więc nie da się go skopiować ani zgubić wraz z zawartością. Skarbiec nie przyjmie sakwy, więc klucza nie zamkniesz w środku.",
+        "Jeśli należysz do [wspólnego obozu](shared_camps), Głęboka skrytka albo sakwa otwiera wspólny skarbiec obozu. Przykucnij przy otwieraniu, by przejść do swojego i z powrotem; wybór zostaje zapamiętany. Skarbiec obozu to osobny ekwipunek.",
+        "Klawisz **Skarbiec sakwy** przełącza skarbiec obozu i twój, niczego nie otwierając. Na starcie nieprzypisany: ustaw go pod Tribal Power w Opcjach, Sterowanie.",
+        "Każdy widok skarbca ma nad miejscami przycisk **Uporządkuj**, który scala i sortuje zawartość; zobacz [Skrytka przodków](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

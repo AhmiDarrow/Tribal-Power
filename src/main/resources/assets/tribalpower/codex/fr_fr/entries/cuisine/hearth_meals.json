@@ -1,0 +1,72 @@
+{
+  "name": "Repas de l'Âtre",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un repas pour le travail qui vient",
+      "text": [
+        "Plus nourrissant que les [victuailles de route](road_fare), cuit avec la prise sauvage de la Marche : chaque repas te remplit bien et prête un don simple pour la tâche devant toi. Aucun ne remplit plus que le meilleur [plat de tribu](tribe_dishes), et aucun ne porte une aubaine.",
+        "- **Raviolis de cloche à la dérive** : Gelée à la dérive, Grain de steppe, un œuf. Deux par pot, 5 de faim et **Chute lente pendant 30 secondes** : mange-les avant une chute.",
+        "- **Potage du fouisseur** : un champignon marron et un rouge, une pomme de terre, Riz de tourbière, un bol. 7 de faim et **Célérité pendant 90 secondes**, le bol d'un mineur.",
+        "- **Chaudrée de l'appelant de la tourbière** : n'importe quel poisson cru (Brillanageoire crue ou Anguille de limon crue), Riz de tourbière, varech, une pomme de terre, un bol. 8 de faim et **Apnée pendant 90 secondes**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un repas pour le travail qui vient, suite",
+      "text": [
+        "- **Anguille en roseau** : Anguille de limon crue, Roseau d'Esprit, Feuille de la Marche. 7 de faim et **Vision nocturne pendant 120 secondes**, pour l'eau noire et les grottes profondes.",
+        "- **Courge rôtie à la braise** : une citrouille, Racine de braise, Grain de steppe. Deux par pot, 6 de faim et **Force pendant 30 secondes**.",
+        "- **Ragoût de longue chasse** : Gibier rôti, une pomme de terre, une carotte, Racine de braise, un bol. 9 de faim, le repas de camp le plus nourrissant, et **Absorption pendant 60 secondes** : mange-le avant une nuit dure.",
+        "- **Crème du chant des fleurs** : Fleur d'écho, un œuf, sucre, rayon de miel, un bol. 6 de faim et **Régénération pendant 15 secondes**, pour se raccommoder en route.",
+        "- **Poisson-frites** : deux Brillanageoire crue en haut du carré, deux Racine de braise dessous. 8 de faim et la **plus forte saturation de tous les repas du camp**, donc il te tient rassasié le plus longtemps, mais il ne prête aucun don.",
+        "Les bols reviennent quand tu manges. Les packs peuvent changer combien de temps chaque don dure dans la config."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

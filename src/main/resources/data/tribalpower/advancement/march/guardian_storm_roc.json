@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:storm_plume"
     },
-    "title": "Storm Roc stilled",
-    "description": "Face the Storm Roc at the Roost on the Highlands and win.",
+    "title": {
+      "translate": "advancement.tribalpower.march.guardian_storm_roc.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.march.guardian_storm_roc.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,

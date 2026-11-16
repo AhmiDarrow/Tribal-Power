@@ -1,0 +1,123 @@
+{
+  "name": "霊の護符",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "護符は身に着ける印章だ。それぞれがトーテムの声と恩恵を持ち、Tribal Power自身の護符スロットに**三つ**まで装備できる。ほかのモッドは要らない。"
+      ],
+      "title": "霊の護符"
+    },
+    {
+      "type": "text",
+      "title": "護符を装備する",
+      "text": [
+        "護符を使うと装備する。どの護符でもスニークしながら使うと、三つの枠が開く。",
+        "装備した護符は、所持するパルス電池から**声1つにつき2秒ごとにパルス2**を消費する。電池が尽きると恩恵が止まり、飛行も一緒に止まる。充電するか外すこと。",
+        "声は身に着けるものすべてで足されるが、同じ声が二つあっても恩恵は一度だけだ。",
+        "近くで護符の声を共有する、同調した[使い魔](familiar_boons)は、その護符の維持を**40%**下げ、自分の恩恵を加える。",
+        "装備した護符は死ぬと地面に落ちる。ワールドがインベントリを保持する場合を除く。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "十一の護符",
+      "text": [
+        "- **空**（風）：パルスがあるあいだクリエイティブ飛行。風を帯びたどの護符でも同じ。集いの護符は除く。",
+        "- **残り火**（火）：耐火。攻撃してきた者は3秒、炎に包まれる。",
+        "- **潮**（水）：水中呼吸と、泳ぎ手の優雅さ。",
+        "- **根**（土）：耐性。",
+        "- **ランタン**（霊）：暗視。支払われているあいだに得る祝福や恩恵は、どれも**半分長く**続く。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "十一の護符、続き",
+      "text": [
+        "- **紡錘**（織機）：幸運。十回に三回ほど、2秒ごとに、所持する電池へ最大**パルス2**を戻す。",
+        "- **守護**（土）：飛び道具をおよそ4本に1本そらす。護符に霊もあるなら2本に1本。",
+        "- **炉**（火）：空腹にさせない。",
+        "- **帳**（霊）：スニーク中は姿を隠す。",
+        "- **集い**（風）：ドロップと経験値を自分へ引き寄せる。",
+        "- **合唱**：沈黙から始まり、火鉢から学ぶ。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "合唱と追加の声",
+      "text": [
+        "沈黙した合唱も、なお2を消費する。8ブロック以内の**異なるトーテム三つ**と**パルス200**がある儀式の火鉢にスニークしながら使うと、近くのすべての声を結ぶ。",
+        "共鳴トーテムに護符をスニークしながら使うと、その声を**パルス40**で加えられる。声が増えるほど、装備の消費も効果も増える。",
+        "守護と炉は土と火を帯びるので、耐性と耐火も与える。風は低速落下も与えるが、火も装備しているときは別だ。飛行は風の声についてくるのであって、空の護符だけのものではない。風を帯びた装備中の護符なら、空自身のものでもあとから加えたものでも、パルスがあるあいだ飛べる。例外は集いの護符だけで、その風は引き寄せに使われる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "集いの護符",
+      "text": [
+        "装備され、支払われているあいだ、落ちたアイテムと経験値を**5ブロック**から自分へ引く。**追加の声1つにつき2**増え、最大**11**。",
+        "**スニーク**すると止まり、物を捨てられる。誰かが今投げたスタックは拾えるまで触らない。ほかのプレイヤー用に取ってあるスタックは相手のもの。別のモッドが動かさないと印したアイテムはそのまま残る。",
+        "その風は引き寄せに使われるので、空と違い飛行も低速落下も与えない。加えた声は、どの護符でも同じように働く。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "name": "Suolo e crescita della Marcia",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "La Marcia ha un suo suolo: Erba della Marcia sopra Suolo della Marcia, Pietra della Marcia sotto, e i suoi alberi, fiori e cristallo.",
+        "Quasi tutto funziona come i blocchi del Mondo superiore che conosci, con qualche differenza che conviene imparare prima di cominciare a costruire lì."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Pietra della Marcia** è la roccia di tutto il mondo. Serve almeno un **piccone di pietra**, e si rompe in **Ciottoli della Marcia** se non usi Tocco di velluto. Cuoci i ciottoli per riavere la pietra.",
+        "Sotto l'erba c'è **Suolo della Marcia**. L'erba lascia cadere suolo se non usi Tocco di velluto, e si diffonde solo su Suolo della Marcia, con buona luce. La farina di ossa su Erba della Marcia fa spuntare ciuffi di **Foglia della Marcia**.",
+        "**Muschio della Marcia** tappezza la Palude dei canneti e gli Altopiani. Alcuni biomi aggiungono suolo del gioco base: calcite nei Campi di cristallo, neve e ghiaccio compatto nei Campi di neve, basalto levigato nelle Distese di brace, fango nella Palude.",
+        "Un Frantumatore di eco frantuma Pietra della Marcia in una Scheggia di eco, e Ciottoli della Marcia in ghiaia."
+      ],
+      "title": "Pietra e suolo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una zappa trasforma Suolo della Marcia, erba o muschio in **Suolo arato della Marcia**, purché lo spazio sopra sia libero. L'acqua entro **4 blocchi** lo tiene bagnato. Lasciato asciutto, o calpestato, torna Suolo della Marcia, mai terra del Mondo superiore.",
+        "Una pala spiana gli stessi blocchi in **Sentiero della Marcia**, che torna anch'esso Suolo della Marcia quando qualcosa lo copre.",
+        "L'Arbusto della Marcia cresce su Erba della Marcia e su Suolo arato della Marcia."
+      ],
+      "title": "Coltivazione e sentieri"
+    },
+    {
+      "type": "scene",
+      "title": "Lavorare il suolo della Marcia",
+      "steps": [
+        {
+          "caption": "Erba della Marcia sopra Suolo della Marcia: quasi tutto il suolo su cui camminerai.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una zappa ara l'erba in Suolo arato della Marcia, purché non ci sia niente sopra.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "L'acqua entro quattro blocchi lo tiene bagnato; il suolo arato secco torna piano piano Suolo della Marcia.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Una pala spiana l'erba in Sentiero della Marcia per i tuoi sentieri.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un Arbusto della Marcia attecchisce sull'erba che resta.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Gli alberi della Marcia crescono in boschetti sugli Altopiani, in macchie e solitari nella Steppa, e in forme proprie nella Palude e nei Campi di neve.",
+        "Un **Tronco della Marcia** fa **4 Assi della Marcia**. Le Foglie della Marcia lasciano cadere ogni tanto un Arbusto della Marcia (Fortuna aiuta) e uno o due bastoni; le cesoie o Tocco di velluto tengono le foglie stesse.",
+        "Le Assi della Marcia entrano in un sacco di Tribal Power: tamburi, il totem del Telaio, sgabelli e tavoli. Erba della Marcia, Muschio della Marcia, Foglie della Marcia e ciuffi di Foglia della Marcia contano tutti come verde vivo intorno a un Collettore di ley."
+      ],
+      "title": "Alberi"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Canna di Spirito** cresce fitta nella Palude dei canneti e rada nella Steppa. Entra in Vite di canto, Giunco luminoso, Amuleto del vento, Stuoia tessuta e Tavoletta della chiamata di primavera, e i Legaradici la accettano come offerta.",
+        "- **Fiore di eco** cresce a distese, in campi interi per i Campi di cristallo, e perde piccole scintille di luce. Entra nella Ciotola di brace.",
+        "- **Cardo di ley** è sparso su quasi tutta la Marcia, Distese di brace comprese. È decorazione: raccoglilo per il tuo campo.",
+        "Tutte e tre si possono ripiantare su qualunque suolo della Marcia, anche sulla pietra nuda, e tutte e tre bruciano."
+      ],
+      "title": "Fiori e canne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Cristallo della Marcia** cresce in superficie, più fitto nei Campi di cristallo. Brilla a luce **10**, ha bisogno di un blocco solido sotto di sé e lascia cadere se stesso con qualsiasi strumento. Con esso si fanno il totem del Telaio, l'Ancora di Telaio, l'Ancora di via, la Culla di evocazione, la Bussola astrale e i relè astrali, e i Cucitori del telaio lo adorano. I Fuochi fatui spirituali si radunano intorno a esso.",
+        "**Minerale della Marcia** è minerale di spirito nella pietra, soprattutto molto sotto **y -8**, e più in alto ce n'è di più in alcuni biomi. Serve un piccone di pietra e lascia **da 1 a 2 Schegge di Spirito** (Fortuna ne aggiunge). Con Tocco di velluto tieni il blocco, e un Frantumatore di eco lo trasforma in **2 Schegge di Spirito**."
+      ],
+      "title": "Cristallo e Minerale della Marcia"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Fondi i Ciottoli della Marcia di nuovo in Pietra della Marcia."
+    },
+    {
+      "type": "text",
+      "title": "Acqua e grotte",
+      "text": [
+        "Gli specchi d'acqua della Marcia portano **Ninfee della Marcia**, e ogni tanto un **Giglio di luna** che brilla sull'acqua di notte. L'**Alga nastro** ondeggia sotto di essi, radicata in letti di **Limo della Marcia** grigio e di argilla.",
+        "Sottoterra, pareti e soffitti delle grotte portano **Lichene del velo** debolmente luminoso; le **Radici di eco** pendono dalla roccia, e i **Cappelli lanterna**, piccoli funghi luminosi, illuminano il pavimento delle grotte.",
+        "Le cesoie conservano l'alga, il lichene e le radici."
+      ]
+    }
+  ]
+}

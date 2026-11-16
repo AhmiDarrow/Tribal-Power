@@ -1,0 +1,46 @@
+{
+  "name": "Strażnik kolos",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Strażnik kolos",
+      "text": [
+        "Wierzba, która urosła ogromna, i chodzi. Strażnik kolos to jedyny wędrowny boss Marszu, wysoki na siedem bloków, i nigdy nie spotyka się go samego.",
+        "To nie Płaczący kolos, wielka wierzba, która stoi w gajach po moczarach: zobacz [drzewa Marszu](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znaleźć jednego",
+      "text": [
+        "Podnosi się rzadko, tylko na **Trzcinowe moczary**, na otwartym terenie nocą. Przybywa ze swoim gajem wokół: **od 2 do 4 Płaczący strażnik**, **od 1 do 3 Bagienna wróżka** i do **2 Pływak torfowiska**. Są łagodne i takie zostają.",
+        "Pasek bossa pokazuje jego zdrowie wszystkim w pobliżu. Nie znika o świcie jak inne duchy, a dopóki jest blisko, nie możesz spać. Jeśli odejdzie, nie ginąc, jego gaj odchodzi z nim. Tylko Strażnik kolos, który powstaje sam, przyprowadza gaj: ten z jaja przyzywającego przychodzi sam."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Walka z nim",
+      "text": [
+        "Ma **260 zdrowia** i **14 pancerza**, i jest powolny. Każdy cios zadaje **12** i zakorzenia cię: jesteś spowolniony przez 3 sekund, więc nie daj mu złapać się dwa razy.",
+        "Jak każdy duch, który powstaje nocą, przychodzi silniejszy i może pojawić się jako elita o złotej nazwie. Weź przyjaciół, łuk i miejsce, by się cofać. Nie stworzy więzi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co zostawia",
+      "text": [
+        "Zawsze upuszcza swój **Rdzeń twardzieli**, odczynnik Korzeń, którego nie zdobędziesz nigdzie indziej, oraz **od 16 do 32 Kłoda (wierzba)**, **od 4 do 8 Sadzonka (wierzba)**, **od 6 do 12 Pasmo wierzby**, **od 4 do 8 Sękaty korzeń** i **od 8 do 16 butelek doświadczenia**. Grabież dodaje więcej.",
+        "Nie ma gigantycznej Sadzonka (wierzba): posadź cztery Sadzonka (wierzba) w kwadrat, by wyhodować własny Płaczący kolos."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Als die Absprachen scheiterten",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Niemand hat den Webstuhl durchtrennt. Er wurde von neun Seiten gezogen, und dieser Kodex kann nicht sagen, welcher Faden zuerst nachgab. Die Stämme am Ende auch nicht. Einen Moment lang war der Himmel ein Boden. Im nächsten scheiterten die Absprachen im selben Atemzug.",
+        "Die Polsterhüter spürten es zuerst: die Herde erkalteten, während der Himmel noch heil aussah. Dann hielten die lebenden Anker der Wurzelbinder eine Jahreszeit, und wegen dieser Jahreszeit ist hier oben noch etwas.",
+        "Wächter brachen in ihren Arenen. Lieder spielten weiter, und niemand hörte sie. Torpfade blieben offen ins Nirgendwo.",
+        "Es war ein Knoten, der aufging. Kontinente fielen in einem Wirbel. Was nicht fiel, ist ein Polster aus Erde, an das sich die Stränge noch erinnern. Du stehst auf Resten, die gelernt haben, ein Boden zu sein."
+      ]
+    }
+  ]
+}

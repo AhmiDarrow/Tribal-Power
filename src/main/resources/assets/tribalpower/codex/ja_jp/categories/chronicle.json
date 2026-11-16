@@ -1,0 +1,8 @@
+{
+  "name": "年代記",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "織機の歴史。マーチに、断片ずつ刻まれています。それらを見つけると、物語がここでひとりでに組み上がります。",
+  "spoiler": false,
+  "progress": "chronicle"
+}

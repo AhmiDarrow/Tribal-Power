@@ -1,0 +1,17 @@
+{
+  "name": "1. 古老的天空",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "古老的天空",
+      "text": [
+        "“远行界之前，只有一片天，天下只有一块地。九个族群什么都谈不拢，只同意地该留在原地。那是第一份约定，而且很长时间都够用。”",
+        "发现于远行界废墟中的一块刻石上。"
+      ]
+    }
+  ]
+}

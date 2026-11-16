@@ -1,0 +1,27 @@
+{
+  "name": "Dziewiąte porozumienie",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Jeden finał",
+      "text": [
+        "Krosno było dziewięcioma nićmi zgody. Dokończ opowieści wszystkich dziewięciu plemion, ośmiu [strażników](guardians) i Niezaśpiewany, a trzymasz dziewięć reliktów. Wykonaj tabliczkę z ośmiu rdzeni i Niezaśpiewanego serca, narysuj **krąg Krosna** (Pieczęć Krosna osadzona przy brasero), zbierz **2,000 Puls** w zasięgu **8 bloków** od brasero (**1,500** w kręgu poziomu dwa) i odpraw obrzęd ze wszystkimi dziewięcioma reliktami przy sobie. Tabliczka się zużywa; relikty nie.",
+        "Krosno się zgadza. Dziewięć świateł wznosi się z kręgu, po jednym w barwie każdego plemienia, i Marsz odtąd odpowiada na twój głos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co się zmienia",
+      "text": [
+        "Dla tego, kto zawarł porozumienie: każde plemię traktuje cię co najmniej jako **Ród**, jakikolwiek jest twój status; wszystkie dziewięć darów osiada na tobie na **30 minut**; a zorza Marszu płonie pełna i równo każdej nocy, gdy stoisz pod nią.",
+        "Porozumienie jest twoje na zawsze w tym świecie i zawiera się je raz na gracza. Potem obrzęd odnawia dziewięć darów: odpraw go znów ze świeżą tabliczką i tym samym Pulsem, a wszystkie dziewięć osiądą na tobie na kolejne pełne 30 minut. Relikty są potrzebne tylko za pierwszym razem."
+      ]
+    }
+  ]
+}

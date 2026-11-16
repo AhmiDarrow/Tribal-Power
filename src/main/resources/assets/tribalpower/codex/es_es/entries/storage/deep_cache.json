@@ -1,0 +1,45 @@
+{
+  "name": "Alijo profundo",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Una bóveda, en todas partes. Cada Alijo profundo que colocas abre la misma bóveda personal de **54 ranuras**, así que un cofre en casa y otro en un puesto lejano guardan lo mismo. Un Zurrón del viajero la abre desde tu bolsillo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Abrirlo",
+      "text": [
+        "Cuando pones un pie en la Marcha, quedas en sintonía y cada apertura es gratis.",
+        "Hasta entonces, cada apertura cuesta **5 Pulso** de una Célula de Pulso que lleves.",
+        "La bóveda es tuya, no del bloque. Romper un Alijo profundo no pierde nada; coloca otro y tus cosas están ahí.",
+        "Una palanca bloquea ese bloque de alijo. La bóveda en sí nunca se vacía por una pausa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El Zurrón del viajero",
+      "text": [
+        "El zurrón abre la misma bóveda desde cualquier sitio, con la misma regla de sintonía. Es una llave, no una bolsa: en el objeto mismo no se guarda nada, así que no se puede duplicar ni perder con su contenido. La bóveda no acepta un zurrón, así que nunca puedes encerrar la llave dentro.",
+        "Si perteneces a un [campamento compartido](shared_camps), un Alijo profundo o un zurrón abre la bóveda compartida del campamento. Agáchate al abrirlo para pasar a tu bóveda personal y volver; recuerda tu elección. La bóveda del campamento es un inventario aparte.",
+        "La tecla **Bóveda del zurrón** alterna entre la bóveda del campamento y la tuya sin abrir nada. Empieza sin asignar: ponla en Tribal Power, dentro de Opciones, Controles.",
+        "Cada vista de bóveda tiene un botón **Ordenar** sobre sus ranuras, que fusiona y ordena lo de dentro; consulta [Alijo ancestral](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

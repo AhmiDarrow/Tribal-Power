@@ -1,0 +1,54 @@
+{
+  "name": "Wspólne obozy",
+  "icon": "tribalpower:camp_charter",
+  "order": 200,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:camp_charter",
+      "text": [
+        "Grasz ze znajomymi? Załóż obóz razem z nimi. Obóz to nazwana grupa z jednym wspólnym skarbcem, urządzeniami dla każdego członka i poważaniem u plemion zebranym między wami."
+      ],
+      "title": "Wspólne obozy"
+    },
+    {
+      "type": "image",
+      "image": "camps_identity",
+      "title": "Jeden obóz, wiele rąk",
+      "text": "Wszystko, co stawia członek, otwiera się dla całego obozu."
+    },
+    {
+      "type": "text",
+      "title": "Zakładanie i zapraszanie",
+      "text": [
+        "Wpisz **/tribalpower camp create <name>** (do 24 znaków). Zostajesz pierwszym członkiem i przywódcą.",
+        "Aby kogoś zaprosić, wpisz **/tribalpower camp invite <player>** albo wytwórz **Karta obozu** i kliknij nią prawym gracza. Karta nigdy się nie zużywa. Kliknięcie prawym w powietrze nią pokazuje twój obóz.",
+        "Zaproszenie trwa **pięć minut**. Zaproszony przyjmuje je przez **/tribalpower camp join <name>**.",
+        "Możesz należeć tylko do jednego obozu naraz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dzielą członkowie",
+      "text": [
+        "- **Urządzenia.** Członkowie liczą się jako właściciele bloków obozu, urządzeń wzoru, Cokół obrzędu, przekaźników, Zwornik wrót, płyt pieśni i połączeń zwrotek drugiego. Każdy spoza obozu zostaje odesłany.",
+        "- **Skarbiec.** Każda Głęboka skrytka albo Sakwa wędrowca otwiera wspólny skarbiec obozu o **54 miejscach**. Kucnij przy otwieraniu, by przełączyć między nim a twoim skarbcem; zapamiętuje wybór.",
+        "- **Poważanie.** Od dnia, gdy dołączysz, ćwiartka każdego poważania, które członek zyskuje lub traci u plemienia, spada też na obóz. Gdzie liczy się twój stopień (handel Ród, ich dary, zadania plemion, związanie pozostałości), liczy się stopień obozu, gdy jest wyższy od twojego.",
+        "- **Kotwice.** Obóz dzieli **12** Kotwica szlaku, liczone we wszystkich światach."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prowadzenie obozu",
+      "text": [
+        "**/tribalpower camp info** wymienia członków i kotwice. Przywódca może wpisać **/tribalpower camp rename <name>** i **/tribalpower camp kick <player>**. Każdy może **/tribalpower camp leave**; jeśli przywódca odchodzi, prowadzi najstarszy członek.",
+        "Gdy odchodzi ostatni członek, obóz się rozwiązuje, a jego skarbiec wysypuje się u jego stóp.",
+        "Gdy plemiona cię znają, ich [Totem pokrewieństwa](kinship_totem) mogą użyczyć twojemu obozowi dowolny ze swoich głosów."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:camp_charter"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "1. Il cielo antico",
+  "icon": "tribalpower:carved_stone",
+  "order": 10,
+  "spoiler": true,
+  "unlock": "fragment:0",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il cielo antico",
+      "text": [
+        "“Prima della Marcia c'erano un solo cielo e un solo suolo sotto di esso, e nove popoli che non andavano d'accordo su nulla, tranne che il suolo dovesse restare dov'era. Quello fu il primo accordo, e per molto tempo bastò.”",
+        "Trovato su una pietra scolpita, tra le rovine della Marcia."
+      ]
+    }
+  ]
+}

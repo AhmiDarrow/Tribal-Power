@@ -1,0 +1,36 @@
+{
+  "name": "记忆板",
+  "icon": "tribalpower:memory_plate",
+  "order": 76,
+  "items": [
+    "tribalpower:memory_plate",
+    "tribalpower:tally_plate",
+    "tribalpower:verse_plate"
+  ],
+  "next": "timing_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "记忆、计数、诗节",
+      "text": [
+        "这些板会记住。",
+        "- **记忆**：左侧通电时设为15；右侧通电时清除。输出会保持，直到另有指示。若两侧都通电，清除优先。",
+        "- **计数**：背面每个上升沿加一。计数达到阈值时唱出15。空手潜行使用可循环阈值**1到8**（初始为4）。左侧上升沿会重置计数。",
+        "- **诗节**：没有红石脉冲时从**4**开始。背面每个上升沿依次变为**8**、**12**、**15**，然后回到4。比较器读到同一个数。",
+        "诗节板不是诗节呼唤：要不用导线把红石送到灯或机器，见[诗节呼唤与应答](verse_link)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:memory_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tally_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_plate"
+    }
+  ]
+}

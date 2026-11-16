@@ -1,0 +1,17 @@
+{
+  "name": "4. La coupure",
+  "icon": "tribalpower:carved_stone",
+  "order": 13,
+  "spoiler": true,
+  "unlock": "fragment:3",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La coupure",
+      "text": [
+        "“Personne ne se souvient qui a cessé de chanter le premier. Les Graveurs de sceaux disent qu'un sceau a été gravé comme une exigence. Les Cœurs-tambours disent que la mesure a été lâchée. Les Tisserands de motifs disent que le motif a été changé sans demander. Ils ont tous raison, ce qui est le problème.”",
+        "Trouvé sur une Pierre gravée dans les ruines de la Marche."
+      ]
+    }
+  ]
+}

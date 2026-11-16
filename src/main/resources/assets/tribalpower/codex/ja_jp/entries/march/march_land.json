@@ -1,0 +1,455 @@
+{
+  "name": "マーチの地面と生長",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "マーチには独自の地面がある。マーチの土壌の上にマーチの草、その下にマーチの石。木、花、結晶も独自のものだ。",
+        "ほとんどは知っているオーバーワールドのブロックと同じだが、そこで建て始める前に覚えておく違いが少しある。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**マーチの石**はこの世界全体の岩だ。少なくとも**石のツルハシ**が要り、シルクタッチを使わないと**マーチの丸石**になる。丸石を製錬すると石に戻る。",
+        "草の下は**マーチの土壌**だ。シルクタッチを使わないと草は土壌を落とす。広がるのはマーチの土壌の上だけで、明るいところに限る。マーチの草に骨粉を使うと**マーチの葉**の房が生える。",
+        "**マーチの苔**は葦の湿原と高地を覆う。いくつかのバイオームはバニラの地面も足す。水晶の野には方解石、雪原には雪と氷塊、残り火の荒野には滑らかな玄武岩、湿原には泥。",
+        "エコー破砕はマーチの石をエコーの欠片に、マーチの丸石を砂利に砕く。"
+      ],
+      "title": "石と土壌"
+    },
+    {
+      "type": "text",
+      "text": [
+        "クワは、上が空いていれば、マーチの土壌、草、苔を**マーチの耕地**にする。**4ブロック**以内の水が湿りを保つ。乾いたまま、または踏まれると、マーチの土壌に戻り、オーバーワールドの土にはならない。",
+        "シャベルは同じブロックを**マーチの道**にならす。何かが覆うと、これもマーチの土壌に戻る。",
+        "マーチの苗木はマーチの草とマーチの耕地に育つ。"
+      ],
+      "title": "畑と道"
+    },
+    {
+      "type": "scene",
+      "title": "マーチの地面を扱う",
+      "steps": [
+        {
+          "caption": "マーチの土壌の上のマーチの草。歩く地面のほとんどはこれだ。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "クワは、上に何もなければ、草をマーチの耕地にする。",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "四ブロック以内の水が湿りを保つ。乾いた耕地はゆっくりマーチの土壌に戻る。",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "シャベルは草をマーチの道にならし、小道にする。",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "残った草にマーチの苗木が根づく。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "マーチの木は高地では林に、ステップでは小さな木立と一本立ちに、湿原と雪原ではそれぞれ独自の形に育つ。",
+        "**マーチの原木**一つで**4 マーチの板材**になる。マーチの葉はときどきマーチの苗木を落とし（幸運で増える）、棒を一本か二本落とす。ハサミかシルクタッチなら葉そのものが残る。",
+        "マーチの板材はTribal Powerの多くに入る。太鼓、織機のトーテム、腰掛け、机。マーチの草、マーチの苔、マーチの葉、マーチの葉の房は、レイ収集器の周りの生きた緑として数える。"
+      ],
+      "title": "木"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **霊の葦**は葦の湿原では密に、ステップではまばらに育つ。歌蔓、光る葦、風のお守り、織りむしろ、春の呼びの石板の材料になり、根結びは供物として受け取る。",
+        "- **エコーの花**は群生し、水晶の野一面に広がり、小さな光の粒を散らす。残り火の鉢の材料になる。",
+        "- **レイのアザミ**はマーチのほとんどに散らばり、残り火の荒野も含む。飾りだ。キャンプ用に摘め。",
+        "三つともマーチのどの地面にも植え直せ、むき出しの石の上でもよい。三つとも燃える。"
+      ],
+      "title": "花と葦"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**マーチの水晶**は地表に生え、水晶原でいちばん厚い。明るさ**10**で光り、下に固体ブロックが必要で、どの道具でも自身を落とす。織機のトーテム、織機の錨、道錨、召喚の揺りかご、アストラルコンパス、アストラルリレーの材料になり、織機の縫い手がこれを好む。霊の鬼火が周りに集まる。",
+        "**マーチの鉱石**は石の中の霊の鉱石で、主に**y -8**より深く、一部のバイオームではより高い場所にも多い。石のツルハシが必要で、**霊の欠片1～2個**を落とす（幸運で増える）。シルクタッチならブロックを保て、エコー破砕はこれを**霊の欠片2個**にする。"
+      ],
+      "title": "水晶とマーチの鉱石"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "マーチの丸石を製錬してマーチの石に戻す。"
+    },
+    {
+      "type": "text",
+      "title": "水と洞窟",
+      "text": [
+        "マーチの浅湖は**マーチのスイレンの葉**をまとい、ときどき夜に水面で光る**月百合**が混じる。その下で**リボン草**が揺れ、灰色の**マーチのシルト**と粘土の層に根を張る。",
+        "地下では、洞窟の壁と天井にかすかに光る**帳の地衣**がつき、岩から**エコーの根**が垂れ、小さな光るキノコの**灯籠傘**が洞窟の床を照らす。",
+        "ハサミなら草も地衣も根もそのまま残る。"
+      ]
+    }
+  ]
+}

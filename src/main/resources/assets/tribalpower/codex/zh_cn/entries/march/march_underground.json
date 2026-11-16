@@ -1,0 +1,58 @@
+{
+  "name": "远行界之下",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "远行界底下是空的。往下挖，或顺着洞口走，你会看到石柱撑起的巨大洞穴、弯长的隧道、向天空敞开的深峡谷，以及嵌在远行界石头里的每一种原版矿石。多带光。灵骸会在下面的黑暗里生成，和地表一样。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "远行界的煤、铁、铜、金、红石、青金石、钻石和绿宝石矿石，开采和熔炼都与原版对应矿石完全一样。不同的只有周围的石头。",
+        "- 煤：任意镐。",
+        "- 铁、铜和青金石：石镐或更好。",
+        "- 金、红石、钻石和绿宝石：铁镐或更好。",
+        "它们掉落同样的原料和宝石，时运有效，精准采集会保留矿石方块，你可以直接熔炼。一只已结契的灯笼狐会标出所有这些，也包括远行界矿石。"
+      ],
+      "title": "开采八种矿石"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- 煤：从**y 0**到**192**。",
+        "- 铁：到处都有，中层最富，高山上又多起来。",
+        "- 铜：从**y -16**到**112**。",
+        "- 金：在深处，直到**y 32**。青金石：从**y -32**到**32**。红石：在**y 16**以下。",
+        "- 钻石：在**y 16**以下，偶尔成大矿脉。",
+        "- 绿宝石：只在**高地**和**微光山脊**，从**y 48**往上。那里很常见，所以值得爬一趟。"
+      ],
+      "title": "去哪里找"
+    },
+    {
+      "type": "text",
+      "text": [
+        "洞穴岩壁偶尔开出一小处紫水晶囊：几块紫水晶嵌在岩石里，带着芽，运气好的话还有一整簇朝洞穴里长。",
+        "里面没有紫水晶母岩，所以不会再长。拿走有的，继续走。",
+        "紫水晶碎片在回响调谐里调成灵之碎片，所以囊穴在远行界早期是不错的发现。"
+      ],
+      "title": "紫水晶囊"
+    }
+  ]
+}

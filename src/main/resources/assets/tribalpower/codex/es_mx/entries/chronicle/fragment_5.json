@@ -1,0 +1,17 @@
+{
+  "name": "6. El acarreo",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El acarreo",
+      "text": [
+        "“Los Guardianes del lecho no corrieron. Recogieron el suelo, una cesta cada vez, y pusieron un Hogar en cada lecho que salvaron. Los demás rieron, y luego vinieron y se sentaron junto a los fuegos.”",
+        "Hallado en una Piedra tallada en las ruinas de la Marcha."
+      ]
+    }
+  ]
+}

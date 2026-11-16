@@ -1,0 +1,17 @@
+{
+  "name": "3. Utkane Krosno",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Utkane Krosno",
+      "text": [
+        "“Szwacze krosna odkryli, że dziewięć nici ciągniętych przeciw sobie utrzyma ciężar, którego żadna nie utrzymałaby sama. Tym zszyli ziemię z niebem. Każdy obóz śpiewał swoją nić. Krosno wytrzymało dziewięć pokoleń.”",
+        "Znaleziono na Rzeźbiony kamień w ruinach Marszu."
+      ]
+    }
+  ]
+}

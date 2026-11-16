@@ -1,0 +1,62 @@
+{
+  "name": "Koboldy",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Koboldy",
+      "text": [
+        "Koboldy żyją wszędzie, gdzie jest coś wartego kopania, i nie dzielą się tym."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dwa rodzaje",
+      "text": [
+        "Oba pojawiają się w ciemności, w dzień albo w nocy, jeden lub dwa naraz. Kobold ma **21 zdrowia** i **2 pancerza**, jest szybki i uderza za **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "Kobold grzbietu",
+      "text": [
+        "Mały, wyprostowany jaszczuropies-górnik, z kilofem i lampą na hełmie, spotykany w ciemnych jaskiniach pod Migotliwym Grzbietem.",
+        "Upolowany zostawia też do 2 surowej miedzi i do 1 węgla."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "Kobold geody",
+      "text": [
+        "Kobold obrośnięty kryształem, z włócznią o kryształowym grocie, w ciemnych jaskiniach pod Kryształowymi polami.",
+        "Upolowany zostawia też do 2 odłamków ametystu i do 2 lazurytu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co dają",
+      "text": [
+        "Kobold grzbietu zostawia **1 do 2 Łuska kobolda**, a Kobold geody **1 do 2 Róg kobolda**, więcej z Grabieżą. Oba to odczynniki ogara: zobacz [odczynniki](reagents).",
+        "Koboldy nigdy się nie wiążą."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika każdy przy polowaniu zostawia więcej, a z Grabieżą jeszcze więcej."
+      ]
+    }
+  ]
+}

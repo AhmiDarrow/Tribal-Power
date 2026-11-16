@@ -1,0 +1,27 @@
+{
+  "name": "Soin chamanique",
+  "icon": "tribalpower:spirit_salve",
+  "order": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Chaque tribu a quelqu'un qui soigne. Ici, c'est toi : un chaudron sur le feu, un hochet en main, et les vieux rites.",
+        "- Le [Chaudron de l'Esprit](spirit_kettle) prépare des **remèdes** à partir d'un réactif, d'une herbe et d'une base.",
+        "- Les [Remèdes](remedies) se présentent en teintures à boire, baumes à appliquer et encens à brûler pour tous à la fois.",
+        "- Le [Hochet du guérisseur](healers_rattle) soigne celui que tu regardes, pour un peu de Pulsation.",
+        "- Le [Mal de l'Esprit](spirit_sickness) est ce que les pires esprits de la Marche laissent sur toi, et pourquoi tout ceci compte.",
+        "- Le [Cercle de soin](healing_circle) soigne tout un camp et rappelle les familiers tombés.",
+        "- Une [hutte de sueur](sweat_lodge) t'envoie au lit blessé et te réveille entier."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Par où commencer",
+      "text": [
+        "Construis d'abord le chaudron. Pose-le sur un feu de camp allumé, à 8 blocs d'un Conducteur de treillis sur un réseau chargé ; un Totem de résonance proche est facultatif, mais il ajoute sa voix à chaque préparation. Une pile de baumes dans ton sac fait la différence entre une dure nuit dans la Marche et un retour à pied."
+      ]
+    }
+  ],
+  "next": "spirit_kettle"
+}

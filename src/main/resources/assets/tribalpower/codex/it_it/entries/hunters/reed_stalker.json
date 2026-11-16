@@ -1,0 +1,51 @@
+{
+  "name": "Inseguitore dei canneti",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Una lince striata che si nasconde tra Canna di Spirito. I colpi rapidi portano un veleno breve.",
+        "Cacciato, lascia anche fino a 1 Cuoio della Marcia e fino a 1 Osso."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Gli Inseguitori dei canneti si nascondono nelle paludi dell'Overworld e nelle paludi di mangrovia, nella Palude dei canneti della Marcia e nei Bassifondi, e più radi sui Campi di cristallo e nella Steppa.",
+        "Ha **22 di salute** e **1 di armatura**, si muove in fretta e colpisce per **4**. Ogni morso ti avvelena per 3 secondi. Porta del latte, o tieni le distanze e lascialo venire da te."
+      ],
+      "title": "Dove e come"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Lascia **da 1 a 2 Zanna di canna**.",
+        "Una Zanna di canna si sintonizza in 2 Eco sintonizzato sotto Spirito."
+      ],
+      "title": "Cosa dà"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Nessun amuleto legherà un Inseguitore dei canneti."
+      ],
+      "title": "Non si lega"
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, quando cacciato lascia questo, di più con Saccheggio."
+      ]
+    }
+  ]
+}

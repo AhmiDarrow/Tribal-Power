@@ -1,0 +1,245 @@
+{
+  "name": "인장 베틀",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "혼자서 일하는 제작대. 본편이든 어느 모드든 제작대 제작법 하나를 제작법 인장에 가르치고, 칸을 채워 두면, 초당 결과 하나를 각각 **6펄스**로 짠다. 인장은 절대 소모되지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "제작법 가르치기",
+      "text": [
+        "빈 인장과 종이로 **제작법 인장**을 만든 다음 인장 베틀을 연다. 인장은 삼 대 삼의 가운데가 아니라 칸 옆의 자기 자리에 들어간다.",
+        "제작대에서처럼 칸에 제작법을 정확히 놓는다. 막대기라면, 판자 하나를 다른 판자 위에.",
+        "화면을 닫고 웅크려 **빈손**으로 인장 베틀을 우클릭한다. 인장이 제작법을 기록하고 툴팁이 이름을 붙인다.",
+        "가르칠 수 있는 것은 빈 인장뿐이다. 새 제작법에는 새 인장을 만든다. 칸을 바꿔도 옛 인장이 기억하는 것은 바뀌지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "돌아가게 두기",
+      "text": [
+        "인장이 자리하고 올바른 물건이 올바른 칸에 있으면, 한 박자마다 격자에서 **6펄스**로 하나를 만든다. 판자 두 개가 막대기 네 개가 되고, 인장은 남는다. **베틀**에 응답한다. 8블록 안에 공명 토템 (베틀)을 둔다([야영지의 손](camp_hands) 참고). 그렇지 않으면 쉰다.",
+        "결과는 출력 칸 아홉을 채우고 **아래** 면으로, 그곳의 호퍼나 [릴레이 판](wireless_cargo)으로 나간다. 빈 양동이와 병 같은 찌꺼기도 함께 나가서 칸을 막지 않는다. 제작법이 돌려주는 도구, 예컨대 갈이 그릇은 자기 칸으로 돌아간다. 출력에 제작과 찌꺼기를 둘 자리가 없으면 인장 베틀은 기다리고 아무것도 쓰지 않는다.",
+        "등급이 박자를 줄인다. 제작당 펄스는 6 그대로다. 레버가 멈추게 하고, 비교기는 얼마나 찼는지 읽는다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "막대기 베틀",
+      "steps": [
+        {
+          "caption": "인장 베틀을 발전기와 격자 전도체에서 8블록 안에 둔다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "제작법 인장을 인장 칸에 앉히고, 제작법을 놓은 다음, 빈손으로 웅크리며 클릭한다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "위의 호퍼가 칸을 채워 둔다. 각 아이템은 그것을 받는 첫 칸으로 들어간다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "아래의 호퍼가 아랫면에서 결과를 빼낸다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "재료 넣기",
+      "text": [
+        "호퍼나 베틀에 맞춘 릴레이 판은 각 아이템을 받을 수 있는 첫 격자 칸에 넣는다. 원목을 판자로 만드는 것처럼 칸이 하나인 제작법에 맞다. 모양 있는 제작법은 쓰는 칸을 손으로 가득 찬 묶음으로 채우면, 하나가 떨어질 때까지 만든다. 격자가 인장과 맞지 않게 되면 기다리며 아무것도 쓰지 않는다.",
+        "아이템을 든 채 웅크려 면을 우클릭하면 그 면이 바뀐다. 양쪽, 입력, 출력 또는 닫힘.",
+        "대량 저장고에 연결하기 전에 한 묶음을 시험하라."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "베틀에 새겨라. 인장 하나가 제작법 하나를 기억한다."
+    }
+  ]
+}

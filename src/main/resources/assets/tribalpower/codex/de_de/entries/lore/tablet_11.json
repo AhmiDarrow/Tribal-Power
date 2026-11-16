@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: der Marsch",
+  "icon": "tribalpower:lore_tablet",
+  "order": 210,
+  "spoiler": true,
+  "unlock": "tablet:11",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einer versunkenen Ahnenhalle, für den, der den Marsch als Nächstes begeht:",
+        "“Der Marsch ist der Ort, wo der Faden am dünnsten ausfranste und der gefallene Boden zur Ruhe kam. Hallen liegen bis zum Sturz versunken; Lager halten den Takt, ohne jemand an der Trommel; Kristall wächst, wo sich die Spannung des Webstuhls noch sammelt. Geh ihn mit einer vollen Pulszelle und ruhiger Hand. Hier antwortet noch alles auf einen Schlag.”"
+      ]
+    }
+  ]
+}

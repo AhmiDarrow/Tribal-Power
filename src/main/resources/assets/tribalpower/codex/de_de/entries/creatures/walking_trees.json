@@ -1,0 +1,111 @@
+{
+  "name": "Die gehenden Bäume",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wächter der Haine",
+      "text": [
+        "Nicht jeder Baum des Marsches steht still. In jedem Land, in dem ein [Marschbaum](march_trees) wächst, haben sich einige seiner Art aufgerichtet und gehen, mit demselben Holz und demselben Laub wie der Baum, aus dem sie kamen.",
+        "Die Bäume sind sanft. Bürste einmal pro Minute eines für sein Reagens und locke und züchte es mit **Knochenmehl**. Du kannst es binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl es keine eigene Gabe hat, kann ein gebundenes an einem Totem trotzdem eine Stimme annehmen und deine Magie stärken (siehe [Einstimmen an einem Totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Herdwächter",
+      "text": [
+        "Die Herdeiche der Steppe, breit und schwer auf stumpfen Wurzeln. Lässt **Herdrinde** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Herdeiche-Stamm, bis zu 1 Herdeiche-Setzling und 1 bis 3 Stöcke fallen. Züchte es mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Hainältester",
+      "text": [
+        "Der Marschbaum der Haine des Hochlands, hoch und über einen Stab gebeugt, mit einem Bart aus Moos. Lässt **Ältestenrinde** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Marsch-Stamm, bis zu 1 Marsch-Setzling und 1 bis 3 Stöcke fallen. Züchte es mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Frostkieferwächter",
+      "text": [
+        "Die Frostkiefer der Schneefelder, ein hoher Stamm unter einem Kegel verschneiter Nadeln; die Astarme reichen unter den untersten Zweigen hervor. Lässt **Frostkieferrinde** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Frostkiefer-Stamm, bis zu 1 Frostkiefer-Setzling und 1 bis 3 Stöcke fallen. Züchte es mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Stummelgänger",
+      "text": [
+        "Der Stummel aus Zunderholz der Glutöde, ein verbrannter Totholzstamm, oben abgebrochen und noch schwelend. Lässt **Zunderrinde** fallen (gelber Farbstoff).",
+        "Gejagt lässt es außerdem 1 bis 3 Zunderholz-Stamm, bis zu 1 Zunderholz-Setzling und 1 bis 3 Stöcke fallen. Züchte es mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Trauerwächter",
+      "text": [
+        "Die Weide des Schilfmoors, gebeugt unter einem Vorhang aus Strähnen. Lässt **Trauerknoten** fallen.",
+        "Gejagt lässt es außerdem 1 bis 3 Weide-Stamm, bis zu 1 Weide-Setzling und 1 bis 3 Stöcke fallen. Züchte es mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Glockenkappenältester",
+      "text": [
+        "Die Glockenkappe der Kristallfelder, ein gedrungener Stiel unter einer riesigen Kappe. Lässt **Glockenkappenspore** fallen (magenta Farbstoff).",
+        "Gejagt lässt er auch 1 bis 3 Glockenkappe-Stamm fallen, bis zu 1 Glockenkappe-Setzling und 1 bis 3 Stöcke. Züchte ihn mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Stelzenholz",
+      "text": [
+        "Der Schreiter der Untiefen, hoch getragen auf gebogenen Stelzwurzeln. Lässt **Stelzenwurzel** fallen.",
+        "Gejagt lässt er auch 1 bis 3 Schreiter-Stamm fallen, bis zu 1 Schreiter-Setzling und 1 bis 3 Stöcke. Züchte ihn mit **Knochenmehl**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wie sie sind",
+      "text": [
+        "Jeder Laufbaum hat **48 Gesundheit** und **8 Rüstung**. Sie sind langsam, halten sich von Monstern fern und gehen in Gruppen von zwei bis vier. Jeder lässt **1 bis 3** seines Reagenzes fallen, mehr mit Plünderung.",
+        "Der Schimmergrat lässt keinen Baum wachsen, also hat er keinen Wächter. Der einzige Baum, der geht und nicht sanft ist, ist der [Kolosswächter](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Hüten",
+      "text": [
+        "Neben seinem Reagenz lässt jeder beim Jagen mehr fallen, und mit Plünderung noch mehr. Um wilde zu züchten, **schleiche**, während du zwei Erwachsene mit ihrem Futter fütterst; normal gefüttert wird ein wilder stattdessen zutraulich."
+      ]
+    }
+  ]
+}

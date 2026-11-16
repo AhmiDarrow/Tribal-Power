@@ -1,0 +1,66 @@
+{
+  "name": "La Marche vivante",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "En ce moment",
+      "text": [
+        "Ce que la Marche fait pendant que tu lis ceci. Cela change avec ou sans toi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Temps de la Marche",
+      "text": [
+        "Sept des pays de la Marche ont un temps à eux, au-delà de la pluie : **Chute de cendre** dans les Landes de braise, une **Tempête de lueur** au-dessus des Champs de cristal, un **Blanc total** sur les Champs de neige, **Brume de tourbière** dans la Tourbière des roseaux, **Brouillard de givre** sur le Rivage du gel, une **Tempête de poussière** au-dessus des Plaines de sel et **Dérive de spores** dans le Bourbier aux chapeaux luisants.",
+        "Chacun referme le monde : tu vois moins, et les esprits se lèvent de jour sous lui comme ils le feraient la nuit.",
+        "Chaque sorte s'installe environ une fois par jour de jeu et dure **8 à 20 minutes**. La page du Codex au-dessus te dit ce qui court ; le ciel aussi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Temps et générateurs",
+      "text": [
+        "Chaque temps favorise les générateurs d'une voix et gêne ceux d'une autre, par défaut une fois et demie autant pour la voix favorisée et moitié autant pour celle qui est gênée :",
+        "- **Chute de cendre** alimente les Cornes de braise et étouffe les Harpes du vent.",
+        "- Une **Tempête de lueur** alimente les Cloches d'éveil et émousse les Cœurs-tambours.",
+        "- Un **Blanc total** pousse les Harpes du vent et gèle les Tambours des vagues.",
+        "- **Brume de tourbière** gonfle les Tambours des vagues et amortit les Cornes de braise.",
+        "- **Brouillard de givre** sur le Rivage du gel gonfle les Tambours des vagues et étouffe les Cornes de braise.",
+        "- Une **Tempête de poussière** sur les Plaines de sel pousse les Harpes du vent et sèche les Tambours des vagues.",
+        "- **Dérive de spores** dans le Bourbier aux chapeaux luisants alimente les Cloches d'éveil et amortit les Tambours des vagues.",
+        "**Le temps prévient.** Deux minutes avant qu'un temps se pose, la Marche le dit, dans le chat et au-dessus de la barre d'action : le moment d'atteindre un toit, un camp ou une porte. Une poussée s'annonce de la même façon."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poussées de ley",
+      "text": [
+        "De temps en temps les fils de ley d'une voix courent **vifs** : une poussée. À travers la [Lentille ley](ley_lens) ils flambent, et la lentille nomme la voix. Tant que cela dure, chaque Collecteur de ley dont les fils portent cette voix rend le **double**.",
+        "L'autre face : chaque cellule de ley a un **croisement**, le point où ses fils se rencontrent, et te tenir sur un croisement nu pendant une poussée, sans collecteur près pour la boire, te donne le **Mal de ley** : le sol tangue et ta Pulsation se vide. Écarte-toi, ou pose un collecteur dessus et fais tienne la poussée.",
+        "Par défaut une poussée dure **15 minutes**, et la suivante arrive environ une heure et demie après qu'elle finit."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fêtes",
+      "text": [
+        "Chaque tribu garde un **jour de fête**, les neuf se relayant sur un cycle de vingt-sept jours. Ce jour-là les feux du camp brûlent, l'Âtre jette sa couleur dans l'air, et les Parent restent à l'Âtre au lieu d'errer.",
+        "L'Ancien a des mots de fête, et si tu demandes à te joindre au festin il te met dans les mains deux du plat de la tribu avec un tas de position, une fois par fête. Un rite accompli au camp ce jour-là gagne les remerciements de la fête en plus de ceux du rite, et manger un festin près de l'Âtre te compte à leur table.",
+        "La page du Codex au-dessus nomme à qui est le jour, et la Marche te dit quand le jour tourne."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Esprits errants",
+      "text": [
+        "Rarement, dehors dans la Marche, une lumière chaude dérive près de toi : un **Esprit errant**. Il ne fuit pas. Atteins-le et il te dit une ligne de l'histoire de son pays et laisse un petit cadeau, le réactif auquel son gardien répond, ou de temps en temps un Noyau résonnant, et s'en va.",
+        "Laissé seul, il s'efface en quelques minutes. Chaque pays a trois choses à dire ; entends-les toutes et tu connais un peu mieux la Marche."
+      ]
+    }
+  ]
+}

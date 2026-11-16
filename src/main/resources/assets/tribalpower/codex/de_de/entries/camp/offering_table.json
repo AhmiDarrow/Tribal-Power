@@ -1,0 +1,29 @@
+{
+  "name": "Opfertisch",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Ein Lagerspeicher mit 27 Plätzen und einem schöneren Gesicht als eine Truhe. Stell ihn neben einen Herd oder eine Wiege, um Opfergaben, Essen und Geistergewebe griffbereit zu halten. Er braucht keinen Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Beim Benutzen",
+      "text": [
+        "Es ist Lager, kein zweiter Herd des Stammes. Opfergaben, die das Ansehen bei einem Stamm heben, kommen auf den Herd selbst (siehe [Ansehen](standing)); der Tisch gewährt nichts.",
+        "Nur der Spieler, der ihn gesetzt hat, sein Lager, oder jeder, wenn niemand ihn beansprucht hat, kann ihn öffnen.",
+        "Trichter, Röhren und [Relaisplatten](wireless_cargo) können ihn von jeder Seite füllen oder leeren. Ducke dich und rechtsklicke eine Seite mit leerer Hand, um diese Seite zu ändern: Beides, Eingang, Ausgang oder Geschlossen.",
+        "Ein Komparator liest, wie voll er ist. Ein Redstone-Signal sperrt sowohl das Menü als auch die Automatisierung."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

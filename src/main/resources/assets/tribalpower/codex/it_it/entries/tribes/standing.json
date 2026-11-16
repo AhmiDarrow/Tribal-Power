@@ -1,0 +1,394 @@
+{
+  "name": "Tribù e reputazione",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Nove tribù custodivano un tempo il Telaio, un Filo ciascuna, e i loro accampamenti tengono ancora il tempo. Ogni accampamento è costruito intorno a un **Focolare della tribù**.",
+        "Nutri il focolare e la tribù comincia a conoscerti. Questa è la tua **reputazione**, e apre i loro scambi, i loro segreti e, alla fine, il loro Marchio."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Un accampamento di tribù",
+      "text": [
+        "Un accampamento è facile da notare: un focolare che lascia fumo colorato, uno Stendardo della tribù accanto e quattro Consanguinei alle loro faccende. Il colore dello stendardo nomina la tribù."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dove vivono le tribù",
+      "text": [
+        "Ogni tribù si accampa nella terra adatta al suo Filo:",
+        "- **Custodi del giaciglio**: pianure.",
+        "- **Cantori di ghiaia**: montagne e rive pietrose.",
+        "- **Legaradici**: foreste e giungle.",
+        "- **Camminatori del ciglio**: taiga.",
+        "- **Cuoritamburo**: savana.",
+        "- **Tessitori di trame**: foreste di betulle.",
+        "- **Custodi della colonia**: foreste di fiori, prati e boschi di ciliegi.",
+        "- **Intagliatori di sigilli**: foreste oscure.",
+        "- **Cucitori del telaio**: solo i Campi di cristallo della Marcia.",
+        "Ogni tribù tiene anche un accampamento in ogni fascia del[la Marcia](the_march), costruito con il legno e la pietra di quella fascia."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "La tua prima visita",
+      "steps": [
+        {
+          "caption": "Ogni accampamento è costruito intorno al suo Focolare della tribù. È qui che ti fai degli amici.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lo Stendardo della tribù accanto indica la tribù dal colore. Lascialo in piedi.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un telaio lì vicino è dove lavora il Tessitore dell'accampamento. I quattro Consanguinei non si allontanano mai di oltre 16 blocchi.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Fai clic destro sul focolare con qualcosa che la tribù predilige. Il pane vale +3 di reputazione presso i Custodi del giaciglio.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fai clic destro a mano vuota quando vuoi per vedere la tua reputazione e il tuo rango.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa offrire",
+      "text": [
+        "Fai clic destro sul focolare con un'offerta in mano. Prende un oggetto alla volta:",
+        "- Il **reagente** della tribù: **+8** di reputazione.",
+        "- Il [piatto](tribe_dishes) proprio della tribù: **+6**.",
+        "- Un oggetto **prediletto**: **+3**.",
+        "- Qualsiasi altro **cibo**: **+1**.",
+        "- Una **Cella di Pulso** carica: il focolare ne beve fino a **40 Pulso** e dà **+2 ogni 10**, dunque al massimo **+8**. La cella deve contenere almeno 10 Pulso.",
+        "Reagenti: Custodi del giaciglio **Scheggia di eco**, Cantori di ghiaia **Eco sintonizzato**, Legaradici **Scaglia di dorsomuschio**, Camminatori del ciglio **Dente di fenditura**, Cuoritamburo **Campanello d'osso**, Tessitori di trame **Ala di tempesta**, Custodi della colonia **Piumino di lanterna**, Intagliatori di sigilli **Scheggia di Spirito**, Cucitori del telaio **Filo di Telaio**. La pagina di ogni tribù elenca anche i suoi preferiti.",
+        "Ciò che non serve alla tribù resta nella tua mano, e il focolare lo dice. Una cella con meno di **10 Pulso** viene semplicemente ignorata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto in fretta cresce",
+      "text": [
+        "Il Focolare di una tribù accetta al massimo **60 di reputazione al giorno** dalle tue offerte. Poi ti dice che la tribù ha preso tutto ciò che prenderà oggi e, vicino al limite, un dono che vale più di quanto resta ti rimane in mano. Diciassette offerte favorite (51) o sette reagenti (56) bastano per arrivare a **Ospite** il primo giorno.",
+        "Altre tre vie sono aperte, e nessuna conta nel limite del Focolare. Uccidi una creatura ostile entro **24 blocchi** da un Focolare per **+1**, fino a **venti al giorno** per ogni tribù. L'uccisione deve essere tua: un nemico che il tuo famiglio abbatte non rende nulla. Ogni scambio con l'Anziano dà **+2**. E quando sei Ospite, le [richieste](elders_and_stories) dell'Anziano pagano **8 a 16** ciascuna.",
+        "Nel [giorno di festival](living_march) della tribù, unirsi al banchetto dell'Anziano dà **40** di reputazione e due ciotole del loro piatto; un rito nel loro accampamento dà altri **30**, e un banchetto mangiato presso il Focolare **20**. Ciascuno conta una volta per festival.",
+        "Raggiungere Voce richiede molti giorni. Le sole offerte non ti ci portano in un giorno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "I ranghi",
+      "text": [
+        "- **Straniero** (sotto 50): l'Anziano non ha ancora nulla per te.",
+        "- **Ospite** (50): l'Anziano apre i primi due scambi.",
+        "- **Amico** (150): altri due scambi, più il piatto proprio della tribù per quattro del suo raccolto della Marcia.",
+        "- **Consanguineo** (400): gli ultimi due scambi, il [dono](tribe_boons) della tribù finché mantieni la reputazione, e il suo stemma: un **Motivo per stendardo** per qualsiasi Telaio.",
+        "- **Voce** (800): l'Anziano ti preme in mano un **Marchio della tribù**, una volta per tribù. Il Marchio è la chiave di un [Totem di parentela](kinship_totem) e apre la pagina di quella tribù in questo libro.",
+        "La tua reputazione con i Cantori di ghiaia decide anche quanto a fondo una [Fossa d'ascolto](listening_pit) può ascoltare."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa non fare mai",
+      "text": [
+        "- **Colpire un Consanguineo** costa **25** di reputazione, e ogni Consanguineo di quella tribù entro 24 blocchi ti si rivolta contro. I Cacciatori ti attaccano per un **minuto**.",
+        "- **Rompere il Focolare** costa **40** e ti manda contro i Cacciatori allo stesso modo.",
+        "- **Rompere uno stendardo** costa **5**.",
+        "La reputazione può scendere sotto un rango che hai già guadagnato. Un messaggio rosso ti avvisa quando scivoli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenere il conto",
+      "text": [
+        "Digita **/tribalpower standing** per vedere tutte e nove le tribù in una volta, con la tua reputazione e il tuo rango per ciascuna.",
+        "Un comparatore accanto a un Focolare legge il rango dell'ultimo giocatore che lo ha usato: **0** per uno Straniero fino a **15** per una Voce. Utile per una porta che si apre solo agli amici della tribù.",
+        "Se appartieni a un [accampamento condiviso](shared_camps), un quarto di ogni reputazione che un membro guadagna o perde dopo l'ingresso ricade anche sull'accampamento. Dove conta il tuo rango, conta quello dell'accampamento se è più alto del tuo."
+      ]
+    }
+  ]
+}

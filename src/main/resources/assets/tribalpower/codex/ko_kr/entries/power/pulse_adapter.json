@@ -1,0 +1,194 @@
+{
+  "name": "조화 활성기",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Power는 펄스를 만든다. 다른 많은 모드는 Forge Energy (FE)로 돌아간다. 조화 활성기는 한쪽 다리다. 격자의 펄스를 FE로 바꾸고, 닿아 있는 기계에 넘긴다. 맞은편인 [격자 변환기](lattice_converter)는 FE를 반대 방향으로 가져온다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "설치하기",
+      "text": [
+        "펄스가 있는 망의 [격자 전도체](lattice_conductor)에서 **8블록** 안에 조화 활성기를 두고, 먹일 FE 기계에 바짝 붙인다. 어느 면의 에너지 수신기에도 에너지를 밀어 넣는다.",
+        "**1 펄스를 100 FE로** 바꾸며, 초당 **60 펄스**까지다 (6,000 FE, 곧 틱당 300 FE). 등급이 있는 활성기는 같은 초에 펄스를 더 바꾸고, 그래서 FE도 더 만든다.",
+        "**48,000 FE**를 버퍼에 담고 표준 에너지 수신기로 내보낸다. FE를 받을 수 없으니, 아무것도 에너지를 되돌리지 못한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "FE로 이어지는 다리",
+      "steps": [
+        {
+          "caption": "발전기가 쓰려는 펄스를 갖고 있다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "활성기를 그보다 8블록 이내에 두어라. 매초 최대 60 펄스를 6,000 FE로 바꾼다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "FE 기계를 다른 아무 면에 붙여라. 활성기가 스스로 에너지를 밀어 넣는다.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "옆의 레버가 변환과 추출을 모두 멈춘다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "아무것도 흐르지 않을 때",
+      "text": [
+        "레드스톤은 변환과 추출을 멈춘다. 비교기가 FE 버퍼가 얼마나 찼는지 읽는다.",
+        "FE 기계가 멈춰 있으면, 범위 안에 펄스가 없거나 수신기가 가득 찬 것이다. 이 책으로 활성기를 웅크려 우클릭하면 버퍼와 속도를 본다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "메아리 현현의 공명 핵이 필요하다."
+    }
+  ]
+}

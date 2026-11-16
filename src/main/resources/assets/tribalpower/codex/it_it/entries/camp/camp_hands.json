@@ -1,0 +1,71 @@
+{
+  "name": "Mani dell'accampamento",
+  "icon": "minecraft:campfire",
+  "order": 10,
+  "next": "grove_tender",
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "I Tessitori di trame hanno insegnato all'accampamento a continuare a lavorare dopo che il cantore se n'è andato. Sono le macchine che coltivano, raccolgono, fabbricano, pompano e fanno la guardia mentre tu sei altrove.",
+        "- Il **Curatore del boschetto** pianta e raccoglie un'aiuola di 9 per 9.",
+        "- Il **Laccio del vento** raccoglie gli oggetti caduti a terra.",
+        "- Il **Telaio dei sigilli** fabbrica una ricetta del banco da lavoro, ancora e ancora.",
+        "- La **Pompa di marea** sposta il fluido da un serbatoio all'altro.",
+        "- Il **Tamburo di guardia** colpisce gli ostili che entrano nell'accampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ogni mano risponde a una voce",
+      "text": [
+        "Ogni mano che lavora da sola ha bisogno di un totem della sua voce entro **8 blocchi**. Senza, resta inattiva, e la sua riga di stato nomina il totem che vuole:",
+        "- **Terra**: Curatore del boschetto e Ancora di via.",
+        "- **Spirito**: Tamburo di guardia, Totem del silenzio e Culla di evocazione.",
+        "- **Acqua**: Pompa di marea.",
+        "- **Aria**: Laccio del vento e [relè](wireless_cargo).",
+        "- **Telaio**: Telaio dei sigilli e relè astrali.",
+        "Un Totem di risonanza conta mentre è Risposto o Fievole, non una volta diventato Quieto (vedi [Mantenimento](keeping)). Un Totem di parentela che presta la stessa voce conta anch'esso, e non diventa mai quieto.",
+        "Una mano che aspetta la sua voce non fa nulla: niente lavoro, niente Pulso speso, e niente passato ai blocchi accanto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Regole che tutte condividono",
+      "text": [
+        "Ognuna trae Pulso dal reticolo: un [Conduttore di reticolo](lattice_conductor) entro **8 blocchi** da essa, su una rete con generatori. Il Laccio del vento, il Tamburo di guardia, la Pompa di marea e il Telaio dei sigilli pagano solo quando agiscono. Il Curatore del boschetto, il Totem del silenzio, l'Ancora di via e la Culla di evocazione prima riempiono una riserva propria di **2,400 Pulso**, fino a **80** al secondo, e lavorano da quella.",
+        "Un segnale di redstone costante, come una leva, lo mette in pausa. Un comparatore legge che cosa sta facendo o quanto è pieno; ogni scheda dice quale.",
+        "Il Telaio dei sigilli, la Pompa di marea, il Laccio del vento e il Tamburo di guardia si possono classificare in Sintonizzatore di eco, poi Vincolatore di eco, poi Manifestatore di eco (vedi [Gradi delle macchine](machine_ranks)). Una mano classificata batte più in fretta, ogni **85%**, **70%** o **55%** di un secondo, ma il Pulso per lavoro resta lo stesso, così il reticolo sente la velocità in più.",
+        "Accovacciati e usa una **Chiave del totem** su una faccia della macchina per farle scorrere Entrambi, Ingresso, Uscita e Chiuso. Una faccia Chiusa non offre slot a tramogge, tubi o piastre a relè. Una piastra a relè si mette su qualunque di esse con un semplice clic destro, anche su una il cui clic apre una schermata."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Curare l'accampamento",
+      "text": [
+        "Gli altri blocchi dell'accampamento badano al posto stesso, invece di sbrigare le faccende:",
+        "- Un [Totem del silenzio](hush_totem) ferma la comparsa degli ostili.",
+        "- Un'[Ancora di via](wayanchor) tiene sveglio un chunk lontano.",
+        "- Una [Culla di evocazione](summoning_cradle) chiama una creatura vincolata ancora e ancora.",
+        "- Le [Lanterne di Spirito](spirit_lantern) e le [luci di Pulso](pulse_lights) illuminano i sentieri.",
+        "- I [Campanelli della pioggia](rain_chime) trasformano il meteo in un segnale di redstone.",
+        "- Un [Tavolo delle offerte](offering_table) è un deposito da 27 slot accanto a un focolare.",
+        "Accovacciati e fai clic destro su uno qualsiasi con questo libro quando qualcosa non vuole partire."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivere nell'accampamento",
+      "text": [
+        "Un accampamento è più delle sue macchine. Per costruire e per la vita di ogni giorno, vedi:",
+        "- [Gessetto del costruttore](builders_chalk), per tracciare capanne, muri e riti prima di costruire.",
+        "- Il [Banco tribale](tribal_bench), un banco da lavoro che tiene la griglia.",
+        "- L'[Ascensore di rampicanti](vine_lift), per torri e pozzi.",
+        "- [Mobili dell'accampamento](camp_furniture) e l'[Amuleto del vento](wind_charm), per farlo sembrare abitato.",
+        "- Il [Tamburo del Custode del canto](songkeeper_drum), per suonare il tamburo solo per il gusto.",
+        "- [Accampamenti condivisi](shared_camps), quando gli amici costruiscono con te."
+      ]
+    }
+  ]
+}

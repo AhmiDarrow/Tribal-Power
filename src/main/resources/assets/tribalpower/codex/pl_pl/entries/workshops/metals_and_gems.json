@@ -1,0 +1,286 @@
+{
+  "name": "Metale i klejnoty",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "Żwir to skruszony metal, który czeka na ogień. Kruszenie surowego metalu daje **dwa żwiry** z każdego kawałka, a każdy żwir wytapia się w sztabkę, więc każda ruda daje ci dwa razy więcej metalu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Metale",
+      "text": [
+        "Włóż przedmiot surowego metalu albo rudę metalu wydobytą jedwabnym dotykiem do maszyny Kruszarka echa: **4 sekundy** przy **40 Puls na sekundę**, na dwa żwiry.",
+        "Przetop żwir na sztabkę. Nada się piec, piec hutniczy albo Piec żaru.",
+        "Żelazo, złoto i miedź mają własny żwir. Metale z modów korzystają z jednego przedmiotu **Żwir mineralny**, który nazywa własny materiał, i zapalają się bez paczki danych. Netheryt nigdy nie jest kruszony; trzeba go zdobyć w Netherze."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Klejnoty i minerały",
+      "text": [
+        "Ruda klejnotu wydobyta jedwabnym dotykiem kruszy się od razu w klejnot, **dwukrotnie** tyle, ile wynosi własny drop rudy:",
+        "- Węgiel, diament, szmaragd i kwarc dają **dwa**.",
+        "- Redstone i lazuryt dają **osiem**.",
+        "- Klejnoty z modów dają dwa.",
+        "Sam klejnot nigdy nie jest wejściem."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Linia rudy",
+      "steps": [
+        {
+          "caption": "Piec żaru na dole, ze swoim totemem Ognia.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kruszarka echa na górze, z totemem Ziemi. Jej żwir spada prosto w Piec żaru.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Skrzynia surowej rudy podaje ją przez lej do maszyny Kruszarka echa, a bęben obok maszyny Piec żaru zasila obie stacje.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lej pod maszyną Piec żaru łapie sztabki do skrzyni.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Nić Szwaczy krosna",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z Kryształowej iglicy lub z obozu Szwaczy krosna, ich własnymi słowami:",
+        "“Krosno nigdy nie było jedną nicią. To było dziewięć w zgodzie. Trzymaliśmy Wrzeciono i zszyliśmy pasma plemion w jedno płótno nad niebem. Gdy osiem pociągnięć stało się ośmioma sprzeczkami, płótno rozdarło się wzdłuż naszego szwu. Wciąż szyjemy. Przynieś kryształ. Przynieś nić.”"
+      ]
+    }
+  ]
+}

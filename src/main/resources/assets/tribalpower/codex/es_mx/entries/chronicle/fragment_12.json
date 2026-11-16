@@ -1,0 +1,17 @@
+{
+  "name": "13. El Portal",
+  "icon": "tribalpower:mural",
+  "order": 22,
+  "spoiler": true,
+  "unlock": "fragment:12",
+  "pages": [
+    {
+      "type": "text",
+      "title": "El Portal",
+      "text": [
+        "“La Cresta del Destello es la bóveda de los Talladores de sellos, sellada por dentro el día de la caída. A lo que encerraron allí se le pidió, con educación, que se quedara. Desde entonces se alimenta de esa petición.”",
+        "Hallado en un mural, en el terreno de un guardián."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "闇の狩人",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "下と上",
+      "text": [
+        "三人の狩人がマーチの洞窟を支配し、そこでは昼でも夜でも闇の中に現れる。四人目は夜、高地の上を漂う。",
+        "どれも絆は結ばない。それぞれ試薬を**1～2**落とし、ドロップ増加で増える。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "深潜伏者",
+      "text": [
+        "熊ほどのホシバナモグラで、洞窟の狩人のなかで最も手強い。マーチのあらゆる土地の下に、一度に一匹か二匹いる。**体力32**と**防御3**を持ち、**5**で噛む。",
+        "**潜伏者の爪**を落とす。猟犬の試薬で、空色の染料に砕ける。",
+        "狩ると、さらに骨を最大2、マーチの革を最大1落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "青白い追跡者",
+      "text": [
+        "草原、高地、微光の尾根、雪原、水晶の野の下の洞窟にいる、やせ細って目のない洞窟グール。高く、青白く、素早い。一度に1体か2体。**体力24**と**防具1**。打撃は**4**で、4秒間弱らせる。",
+        "**青白い牙**を落とす。弱化の試薬。",
+        "狩りで倒すと、骨も1個から2個落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "昏這い虫",
+      "text": [
+        "浅瀬以外のあらゆる土地の下の洞窟にいる、低く暗い洞窟のムカデ。一度に1体か2体。**体力22**と**防具2**。噛みつきは**4**。3秒間減速させ、[ほつれ](afflictions)を残すことがある。",
+        "**昏の絹**を落とす。織りの試薬。",
+        "狩りで倒すと、糸を1個から2個、クモの目を最大1個落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "帳の漂い手",
+      "text": [
+        "高地、微光の尾根、雪原、水晶の野の夜に舞い上がる、コウモリのような翼のぼろぼろした漂う死装束。一度に1体か2体。**体力18**と**防具1**。",
+        "最大12ブロック先から**3**の突風を放ち、後ろへ吹き飛ばす。遮蔽があると詠唱が切れる。**帳の切れ端**を落とす。突風の試薬。",
+        "狩りで倒すと、ファントムの皮膜を最大1個、糸を最大1個落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩りと放牧",
+      "text": [
+        "試薬のほか、狩りで倒すとより多く落ち、ドロップ増加でさらに増える。"
+      ]
+    }
+  ]
+}

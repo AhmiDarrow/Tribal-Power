@@ -1,0 +1,255 @@
+{
+  "name": "調律と結束",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "エコー調律（火）はエコーの欠片を**調律されたエコー**にする。対になるエコー結束（水）は、調律されたエコーを**結ばれたエコー**にする。",
+        "これは格子の途中の工程だ。より良い機械の材料になり、パルス共鳴器の結晶も強くなる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "調律",
+      "text": [
+        "エコー調律を火のトーテムから8ブロック以内に置き、エコーの欠片を入れる。1つが**3秒**、**毎秒40パルス**で調律されたエコーになる。",
+        "エコー調律はアメジストの欠片を霊の欠片にも変える。",
+        "触媒スロットにグロウストーンダストがあると、エコー調律は[クォーツガラス](glimmer_ridge)も灯す。",
+        "マーチの生物の戦利品、残り火の心臓、葦の牙、裂け目の歯は、それぞれ調律されたエコーが**二つ**になる。ただし火ではなく**霊**の声が要る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "結束",
+      "text": [
+        "エコー結束を水のトーテムから8ブロック以内に置き、調律されたエコーを入れる。1つが**4秒**、**毎秒48パルス**で結ばれたエコーになる。",
+        "エコー結束は羊毛を**霊織り**に、土を**粘土4つ**にも変える。暁のビロード、ランタンの綿毛、嵐の翼のような柔らかい生物ドロップは、それぞれ霊織り二つになる。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "ホッパーなしの連鎖",
+      "steps": [
+        {
+          "caption": "エコー結束を置き、そばに水のトーテムを置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "その上にエコー調律を置き、近くに火のトーテムを置く。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "エコー調律の下面は、初期ではエコー結束の上面へ出力する。だからエコーは自分で下へ歩く。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "上からエコーの欠片を入れ、エコー結束から結ばれたエコーを取り出す。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "連鎖",
+      "text": [
+        "エコー調律をエコー結束の上に置く。横に置くなら、触れる面を出力から入力にする。連鎖はホッパーなしで歩く。両方を両方へ向けてはいけない。",
+        "インゴットとコアへ続けるなら、エコー結束をエコー顕現の上に置く。",
+        "レバーでどちらの台も止まる。何も動かないときは、この本で声とパルスを確認する。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

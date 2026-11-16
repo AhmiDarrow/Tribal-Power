@@ -1,0 +1,36 @@
+{
+  "name": "灵瓶",
+  "icon": "tribalpower:spirit_flask",
+  "order": 35,
+  "items": [
+    "tribalpower:greater_spirit_flask"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_flask",
+      "text": [
+        "可以带走的储罐。瓶子只装一种流体，**4,000 mB**（4桶）。**高级灵瓶**能装**16,000 mB**，与[灵蓄池](spirit_cistern)一样多。",
+        "它不会拆成一叠桶，所装的量显示为图标下方的一条，颜色就是流体本身的颜色。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "装入与倒出",
+      "text": [
+        "- **对储罐或机器使用**（灵蓄池、浪鼓、其他模组的储罐），它会从中抽取；抽不了，就把所装的倒进去。",
+        "- **对世界中的流体源使用**，它会喝下一桶。",
+        "- **潜行使用**，它会在你面前倒出一桶。",
+        "其他模组把它当成普通流体容器，所以它在你背包里时，管道和灌注机器也能装满或抽干它。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_flask"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:greater_spirit_flask"
+    }
+  ]
+}

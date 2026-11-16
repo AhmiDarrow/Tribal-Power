@@ -1,0 +1,52 @@
+{
+  "name": "Tecelão de eco",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Uma aranha-harpa, as pernas retesadas como uma harpa: uma guardiã de oito pernas de canções quebradas. A mordida deixa a presa mais lenta.",
+        "Na caça, também solta de 1 a 3 linhas e até 1 olho de aranha."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os tecelões de eco rastejam pela Estepe da Marcha, os Campos de Cristal, o Paul de Juncos e os Rasos. O Não Cantado também os invoca em seu Coro.",
+        "Tem **26 pontos de vida** e **3 pontos de armadura** e morde por **4**, deixa você mais lento por 3 segundos e pode deixar você [Desfiado](afflictions). Nunca coloca teias nem danifica seu acampamento."
+      ],
+      "title": "Onde e como"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solta **1 a 2 Seda de eco**.",
+        "Seda de eco se liga em 2 Tece-espírito sob a Água."
+      ],
+      "title": "O que dá"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Alcance **Voz** com os **Costureiros do tear**, depois use um Amuleto de vínculo num adulto: duas tentativas em cinco; o amuleto se gasta se falhar. Ou alimente-o com o próprio reagente: uma tentativa em cinco, e o reagente se gasta de qualquer jeito.",
+        "Um tecelão vinculado apanha o que cai ao redor e joga para você. Veja [dons do familiar](familiar_gifts)."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, solta isto quando caçado, e mais com Saque."
+      ]
+    }
+  ]
+}

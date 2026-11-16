@@ -1,0 +1,47 @@
+{
+  "name": "Ahnenhalle",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Versunkene Steinhallen in der Marschsteppe und im Hochland. An der Oberfläche zeigt sich nur ein Leiterschacht."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ahnenhallen sind vergraben: such einen Leiterschacht, der in den Boden führt. Darunter liegen drei Räume unter Balken aus Webstuhlholz, beleuchtet von alten Laternen.",
+        "Die **Hohlwächter** bewachen die Seitenräume, drei in jeder Halle. Sie schlagen hart und schwächen deinen Griff, also beleuchte die Räume im Gehen und halte einen geladenen Stab für die Distanz bereit."
+      ],
+      "title": "Eine finden"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Vier **Überlieferungstafeln** hängen an den Wänden. Rechtsklicke jede, um sie zu lesen; die erste Lesung steht in diesem Kodex, der zählt, wie viele der **12** Tafeln du gefunden hast. Trommelkreise, die Kristallspitze, die Lager der Siegelkerber und der Tiefe Tempel halten den Rest.",
+        "Zwei Truhen stehen am hinteren Ende. Jede enthält immer **2 bis 4 Webstuhlfaden**, dazu eine Handvoll Echos, Echoscherben, Geistscherben, Geistergewebe, Marschkristall oder ein Leersiegel, und manchmal ein elementares Siegel.",
+        "Webstuhlfaden ist der Grund, aus dem die meisten kommen. Er ist der erste Schritt zu [der sechsten Stimme](sixth_voice)."
+      ],
+      "title": "Was die Halle bewahrt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Acht Marschstein um eine Echoscherbe schnitzen **2 Überlieferungstafeln**. Häng sie daheim an eine Wand, um deine eigene Halle zu markieren; sie liegen flach am Block dahinter und fallen, wenn er entfernt wird."
+      ],
+      "title": "Eigene Tafeln"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes des champs de neige",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceux de la neige",
+      "text": [
+        "Les champs de neige abritent un phoque sur les congères, un caribou, une méduse qui flotte dans l'air froid, et un scorpion de glace qui rampe hors de la neige la nuit.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et elle est attirée puis reproduite avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. On peut la lier comme n'importe quel animal doux (voir [familiers](familiars)), et même si aucune n'a de don à elle, une liée peut encore prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Peaudérive",
+      "text": [
+        "Un phoque des neiges, lourd et au pelage épais, qui se hisse sur les congères avec ses nageoires, en troupeaux de deux à quatre. **26 de santé** et **5 d'armure**, et très lent.",
+        "Il lâche **1 à 3 Peau à la dérive**, davantage avec Butin.",
+        "Chassé, il lâche aussi 1 à 2 Gibier cru et jusqu'à 2 Cuir de la Marche. Reproduis avec **Baie de givre**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Enjambeur de givre",
+      "text": [
+        "Un caribou lourd, à longue crinière blanche, vif sous de grands bois évasés, en hardes de deux à quatre. **22 de santé** et **1 d'armure**.",
+        "Il lâche **1 à 3 Sabot de givre**.",
+        "Chassé, il lâche aussi 1 à 3 Gibier cru, jusqu'à 2 Cuir de la Marche et jusqu'à 1 Os. Reproduis avec **Baie de givre**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Voileneige",
+      "text": [
+        "Une méduse lune pâle de l'air, un dôme bas blanc-bleu avec quatre anneaux violets dedans et quatre bras à volants qui traînent dessous, qui dérive au-dessus de la neige, d'une à trois. **12 de santé**, pas d'armure.",
+        "Il lâche **1 à 3 Voile de neige**.",
+        "Chassé, il lâche aussi jusqu'à 2 Boule de neige et jusqu'à 1 Ficelle. Reproduis avec **Baie de givre**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Rampeur de givre",
+      "text": [
+        "Un scorpion de glace, la queue arquée sur le dos, qui surgit la nuit sur la neige ouverte, un ou deux à la fois. Il a **23 de santé** et **3 d'armure**, et sa piqûre inflige **4** et t'empoisonne pendant 3 secondes.",
+        "Il lâche **1 à 2 Mandibule de givre**, un réactif de venin. Mandibule de givre appelle le Revenant du cairn à l'Anneau du cairn, et le Revenant appelle ses propres Rampeur de givre : voir [gardiens](guardians).",
+        "Chassé, il lâche aussi jusqu'à 2 Boule de neige et jusqu'à 1 Œil d'araignée."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes avec leur nourriture ; nourris normalement, un sauvage s'adoucit envers toi à la place."
+      ]
+    }
+  ]
+}

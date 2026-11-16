@@ -1,0 +1,87 @@
+{
+  "name": "Ritualkohlenbecken",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "Das Kohlenbecken hält ein elementares Siegel und macht daraus einen dauerhaften Segen für alle in der Nähe. Es ist auch das Herz jedes Tafelritus."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Einen Segen entzünden",
+      "text": [
+        "Rechtsklicke das Kohlenbecken mit einem Siegel, um es einzusetzen. Das Siegel wird nie verbraucht; ducke dich mit leerer Hand, um es zurückzunehmen.",
+        "Halte das Totem dieses Siegels innerhalb von **8 Blöcken**, und Puls im Gitter in der Nähe. Solange jemand innerhalb von **6 Blöcken** steht, gibt das Kohlenbecken **8 Puls alle zwei Sekunden** aus und segnet sie alle. Ist niemand nahe, gibt es nichts aus.",
+        "Ein gehaltenes Redstone-Signal pausiert es; gespeicherter Puls wird nicht verworfen. Ein Impuls löst den eingesetzten Ritus aus (siehe [Ritenkreis](rite_circle)).",
+        "Es verbrennt auch [Weihrauch](remedies) für alle in der Nähe, ohne Siegel und ohne Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Segen",
+      "text": [
+        "- **Erde**: Eile.",
+        "- **Feuer**: Feuerresistenz.",
+        "- **Wasser**: Regeneration.",
+        "- **Luft**: sanfter Fall.",
+        "- **Geist**: Nachtsicht.",
+        "- **Webstuhl**: Glück, und jeder Schlag fädelt **2 Puls** in eine getragene Pulszelle mit Platz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Siegel",
+      "text": [
+        "Jedes Siegel beginnt leer: Papier, eine Geistscherbe und ein Knochenklang ergeben **zwei** Leersiegel.",
+        "Gib einen Block Erde für Erde, Holzkohle für Feuer, einen Wassereimer für Wasser, eine Feder für Luft, eine Geistscherbe für Geist oder Webstuhlfaden für den Webstuhl hinzu.",
+        "Siegel gehen in Amulette und Ritentafeln; ein Tafelrezept gibt sein Siegel immer zurück. Ein Siegel, das auf einem Ritussockel benutzt wird, wird für einen schnellen [Siegelritus](rite_circle) verbraucht."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

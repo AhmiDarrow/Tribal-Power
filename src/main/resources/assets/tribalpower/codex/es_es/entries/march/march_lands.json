@@ -1,0 +1,117 @@
+{
+  "name": "Tierras de la Marcha",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "Seis franjas de la Marcha",
+      "text": [
+        "La Marcha va de lo helado a lo caluroso y baja a la oscuridad, **cincuenta y nueve tierras** en seis franjas. Cada franja es una larga deriva de temperatura a través del mapa; dentro de ella, lo húmedo y lo seco, lo alto y lo bajo, y el suelo extraño de alta rareza guardan cada uno su propio país.",
+        "Cada tierra tiene su propio suelo, su propia vegetación y sus propios espíritus. El bestiario del Códice dice dónde vive cada criatura."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Helado",
+      "text": [
+        "El extremo frío de la Marcha: nieve sobre el Césped de la Marcha, Hielo de cencellada donde el viento ha hecho lo que ha querido, y el velo nocturno en su mayor brillo.",
+        "Campos de nieve de la Marcha, Agujas de cencellada, Taiga de abedul de escarcha, Costa de escarcha, Laguna helada, Mar de cencellada, Mar profundo de cencellada, Picos de escarcha blanca, Picos de esquirlas, Laderas de pino de escarcha, Llanos del velo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Frío",
+      "text": [
+        "Taigas de abeto espinoso, páramos, pedregal y el pico mineral de la Cresta de destello.",
+        "Cresta de destello, Taiga de abeto espinoso, Taiga antigua de abeto espinoso, Páramo del túmulo, Cerros de pedregal, Abeto espinoso ventoso, Arboleda de musgo de escarcha, Costa gris, Bajíos fríos, Bajíos fríos profundos, País de lagunas de montaña."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Templado",
+      "text": [
+        "El corazón de la Marcha: estepa, tremedal, país de cristal, bosques de arce del canto y de roble del hogar, y el mar.",
+        "Estepa de la Marcha, Tremedal de juncos de la Marcha, Campos de cristal de la Marcha, Bajíos de la Marcha, Bosque de arce del canto, Prado en flor, Bosque abierto de roble del hogar, Bosque abierto antiguo de roble del hogar, Madera del velo, Huerto de campanillas, Prado alto, Estepa de rueda solar, Río del Telar, Playa de limo, Bajíos profundos, Ciénaga de casquetes luminosos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cálido",
+      "text": [
+        "Sabanas de palma del tambor, la Madera enredada y los pantanos sobre zancos, bajo las Tierras altas y los Picos del sol.",
+        "Tierras altas de la Marcha, Sabana de palma del tambor, Meseta de palma del tambor, Palma del tambor ventosa, Madera enredada, Madera enredada abierta, Matorral de caña, Manglar de zancudo, Picos del sol, Bajíos cálidos, Bajíos cálidos profundos."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caluroso",
+      "text": [
+        "Sal, arcilla de horno y ceniza: el extremo seco de la Marcha, hasta un lecho de mar de cristal fundido.",
+        "Yermos de brasa de la Marcha, Llanos de sal, Mesa del horno, Mesa cortada, Mesa de corteza de sol, Bajíos de cristal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Subterráneo",
+      "text": [
+        "Lo que hay bajo cada franja: las cuevas cantoras, las oquedades luminosas, las vetas ley y el Silencio.",
+        "Cuevas cantoras, Oquedades de sombrero umbrío, El Silencio, Vetas ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Terreno nuevo",
+      "text": [
+        "- **Hielo de cencellada** y **Esquisto de helada** en los picos y agujas helados; **Marga de agujas** y **Musgo de escarcha** bajo las taigas; **Pedregal** en los cerros.",
+        "- **Arena pálida** en las playas, **Césped de esporas** en la Ciénaga de casquetes luminosos, **Piedra pálida** en los Picos del sol.",
+        "- **Costra de sal** y **Pilares de sal** en los llanos; **Arena ocre**, **Arenisca ocre** y cuatro tonos de **Arcilla de horno** en las mesas; **Arena de cristal** bajo los Bajíos de cristal.",
+        "- **Pinchos resonantes** que repican bajo los pies en las Cuevas cantoras, **Musgo luminoso** en las Oquedades de sombrero umbrío, y **Tejido de silencio** con sus **Flores calladas** en el Silencio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Crecimiento nuevo",
+      "text": [
+        "Flor de hielo, Casquete de escarcha, Brezo gris, Cardo de escarcha, Hierba del canto, Campana del Telar, Amapola del alba, Capullo de campanilla, Rueda solar, Matorral espinoso, Helecho enredado, Caña de Espíritu y Brotes de sombrero umbrío, cada uno en la tierra que le conviene. Los nueve árboles nuevos están en la página de los árboles."
+      ]
+    }
+  ]
+}

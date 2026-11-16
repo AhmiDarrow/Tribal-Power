@@ -1,0 +1,336 @@
+{
+  "name": "Schutztrommel",
+  "icon": "tribalpower:ward_drum",
+  "order": 60,
+  "next": "hush_totem",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ward_drum",
+      "text": [
+        "Die Nachtwache eines Lagers. Die Schutztrommel gibt Puls aus, um einen Feind nach dem anderen zu treffen und wegzustoßen, damit ein Creeper nie deine Tür erreicht. Auf Spieler zielt sie nie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie trifft",
+      "text": [
+        "Bei jedem Schlag, einmal pro Sekunde, findet sie einen Feind innerhalb von **8 Blöcken** (ein Würfel um die Trommel) und trifft ihn für **4 Magieschaden** mit einem Stoß weg von der Trommel.",
+        "Jeder Schlag kostet **8 Puls** aus dem Gitter. Ein höherer Rang verkürzt den Schlag; Puls je Schlag bleibt 8. Die Trommel hört auf **Geist**: halte ein Geisttotem innerhalb von 8 Blöcken (siehe [Hände des Lagers](camp_hands)), sonst steht sie still.",
+        "Jeder Feind zählt, die der Oberwelt wie die des Marschs: Zombies, Skelette, Creeper, Spinnen, Phantoms, Hexen, Ertrunkene und der Rest. Spieler sind nie das Ziel, und auch nicht Dorfbewohner, verbundene Vertraute (deine oder die von irgendwem), noch die Jungen. Bosse schütteln es ab: der Wither, der Enderdrache und die Wächter des Marschs bleiben dir überlassen."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Wachposten",
+      "steps": [
+        {
+          "caption": "Stelle die Trommel dorthin, wo Feinde hereinkommen, nahe am Rand des Lagers.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ward_drum[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Gib ihr Puls durch einen Konduktor innerhalb von 8 Blöcken: 8 je Schlag.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              1
+            ],
+            [
+              -1,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Komparator, der die Trommel liest, zeigt 15 in dem Schlag, in dem sie schlägt, und 0, während sie wartet.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Führe sie an eine Lampe oder eine Glocke, dann weißt du, wann etwas das Lager probiert hat.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Damit leben",
+      "text": [
+        "Rechtsklick, um zu sehen, was sie zuletzt geschlagen hat. Ein Hebel bringt sie zum Schweigen.",
+        "Sie ist eine Wache, keine Farm: ein Schlag pro Sekunde hält mit einem Spawner nicht mit. Wenn die Tode dir etwas zurückzahlen sollen, setze eine [Weckglocke](wake_bell) innerhalb von 16 Blöcken von dort, wo sie fallen.",
+        "Ein Stilletotem stoppt, dass Feinde im Lager erscheinen; die Schutztrommel kümmert sich um die, die von außen hineingehen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_drum"
+    }
+  ]
+}

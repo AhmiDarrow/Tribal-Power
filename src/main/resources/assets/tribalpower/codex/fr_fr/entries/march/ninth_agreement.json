@@ -1,0 +1,27 @@
+{
+  "name": "Le neuvième accord",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un finale",
+      "text": [
+        "Le Métier était neuf fils d'accord. Finis les histoires des neuf tribus, les huit [gardiens](guardians) et Le Non-chanté, et tu tiens neuf reliques. Fabrique la tablette avec les huit noyaux et un Cœur Non-chanté, trace un **cercle de Métier** (un Sceau de Métier posé au brasero), rassemble **2,000 Pulsation** à **8 blocs** du brasero (**1,500** dans un cercle de palier deux), et accomplis le rite avec les neuf reliques sur toi. La tablette est dépensée ; les reliques ne le sont pas.",
+        "Le Métier est d'accord. Neuf lumières s'élèvent du cercle, une de la couleur de chaque tribu, et la Marche répond à ta voix dès lors."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qui change",
+      "text": [
+        "Pour celui qui a conclu l'accord : chaque tribu te traite au moins en **Parent**, quel que soit ton rang ; les neuf bienfaits se posent sur toi pendant **30 minutes** ; et l'aurore de la Marche brûle pleine et stable chaque nuit où tu te tiens dessous.",
+        "L'accord est à toi pour de bon dans ce monde, et il se fait une fois par joueur. Ensuite le rite renouvelle les neuf bienfaits : refais-le avec une tablette neuve et la même Pulsation, et les neuf se posent sur toi pour encore 30 minutes pleines. Les reliques ne sont demandées que la première fois."
+      ]
+    }
+  ]
+}

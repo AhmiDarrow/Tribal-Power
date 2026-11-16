@@ -1,0 +1,52 @@
+{
+  "name": "Dos-mousse",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Une tortue d'étang patiente, avec un jardin qui pousse sur sa carapace. Brosse les adultes pour une Écaille de dos-mousse tombée d'elle-même.",
+        "Chassé, il lâche aussi de 2 à 4 Gibier cru et jusqu'à 2 Cuir de la Marche. Reproduis-le avec **Herbe aquatique ou Algue ruban**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Dos-mousse pataugent dans les marais de l'Overworld et les marais à palétuviers. Dans la Marche, ils se pressent dans le Marécage aux roseaux, et quelques-uns errent dans les Champs de cristal, la Steppe et les Champs de neige.",
+        "Un Dos-mousse a **30 de vie** et **6 d'armure**, et avance lentement. Il est doux et recule devant les monstres. Reproduis-en deux avec **Herbe aquatique**."
+      ],
+      "title": "Où tu le trouves"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brosse un adulte pour une **Écaille de dos-mousse**, une fois par minute. Les écailles se lient en 2 Espritissu sous Eau, et les Lieurs de racines les préfèrent comme offrande.",
+        "Si tu en chasses un, il lâche **de 2 à 4 Gibier cru** et jusqu'à 2 Cuir de la Marche, davantage avec Butin, cuit s'il est mort en brûlant."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Dos-mousse lié est une sacoche ambulante de **9 emplacements** (12 avec la marque Poche profonde). S'il meurt, il lâche tout ce qu'il y a dans son sac.",
+        "Vois la page [dons du familier](familiar_gifts) pour ouvrir le sac et l'envoyer attendre."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et conduite du troupeau",
+      "text": [
+        "Chassé, il lâche ceci, davantage avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes de leur nourriture ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

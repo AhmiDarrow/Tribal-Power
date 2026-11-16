@@ -1,0 +1,17 @@
+{
+  "name": "16. Der Horst",
+  "icon": "tribalpower:mural",
+  "order": 25,
+  "spoiler": true,
+  "unlock": "fragment:15",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der Horst",
+      "text": [
+        "“Die Hochlande sind die Brücken der Kantenläufer, der letzte Boden vor der Kante. Der Wind von der Kante war einmal ein Lied. Was jetzt darin nistet, singt dasselbe Lied rückwärts und wirft Läufer hinab, um zu hören, wie sie landen.”",
+        "Gefunden auf einem Wandbild am Grund eines Wächters."
+      ]
+    }
+  ]
+}

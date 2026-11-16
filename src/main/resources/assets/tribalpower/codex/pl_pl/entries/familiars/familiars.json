@@ -1,0 +1,86 @@
+{
+  "name": "Wiązanie chowańca",
+  "icon": "tribalpower:bonding_charm",
+  "order": 20,
+  "next": "familiar_gifts",
+  "pages": [
+    {
+      "type": "image",
+      "image": "familiars_bonding",
+      "text": [
+        "Wiązanie czyni stworzenie twoim na dobre. Chowaniec zrzuca **podwójny** reagent, gdy go szczotkujesz, raz na minutę, i nikt inny nie może go szczotkować."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Każde stworzenie niesie pięć nici: **Rama** (zdrowie), **Krok** (szybkość), **Kieł** (obrażenia), **Brzęk** (jak często działa jego dar) i **Osłona** (pancerz). Każdy krok w górę lub w dół jest wart 12%.",
+        "**Skradaj się i patrz na dowolne stworzenie Marszu**, by zobaczyć jego nici, jego Znamiona, jego pokolenie i jego **linię krwi**, pięć nici zsumowanych. Twoi towarzysze pokazują swoje, gdy na nich patrzysz.",
+        "Dzikie nici wypadają od 0 do 3, więc dwa lisy z tej samej polany nie są klonami. Tylko hodowla sięga 4, a **Wyniesiony** 5. Wybierz tego, którego chcesz zatrzymać: wiązanie nigdy niczego nie przerzuca."
+      ],
+      "title": "Najpierw to przeczytaj"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Są dwa sposoby, by związać dorosłe stworzenie. Młodych nie da się związać.",
+        "- **Nakarm je**, tak jak oswoiłbyś wilka. Łagodne zwierzęta biorą swoje zwykłe jedzenie i wiążą się mniej więcej raz na trzy; pozostałości biorą własny odczynnik i wiążą się raz na pięć. Każda próba zużywa jedzenie.",
+        "- **Użyj Amulet więzi** na nim: trzy próby na pięć u łagodnych zwierząt, dwie na pięć u pozostałości. Amulet zużywa się, gdy więź chwyci. Nieudana próba zostawia go przy łagodnym zwierzęciu, lecz zużywa go przy pozostałości.",
+        "Pozostałość odpowiada w którykolwiek sposób dopiero wtedy, gdy jej plemię nazywa cię **Głos** ([kogo można związać](familiar_basics)). Serca znaczą, że się udało; dym — że nie."
+      ],
+      "title": "Wiązanie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zrób go wcześnie z **czterech nici** wokół **Odłamek Ducha** i **jednego odczynnika stworzenia**. Gdy jest już Duchotkanina, **dwie Duchotkanina** mogą zastąpić nić.",
+        "Odczynnik może być dowolnym z dziewięciu: Aksamit świtu, Puch latarni, Łuska mchogrzbietu, Pryzmatyczny pancerz, Ząb szczeliny, Węzeł żagwi, Skrzydło burzy, Odłamek dzwonu lub Jedwab echa. Przeciągnij pędzlem po Jeleń świtu, Lis-latarnia lub Mchogrzbiet, by dostać jeden, raz na minutę, albo weź jeden z poległej pozostałości; odczynniki innych bestii nie pasują. Cokolwiek weszło, amulet wiąże każde stworzenie, które odpowie.",
+        "Ten sam amulet później daje twojemu chowańcowi głos: zobacz [dostrajanie przy totemie](familiar_attuning)."
+      ],
+      "title": "Amulet więzi"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bonding_charm",
+      "text": "Dowolny z dziewięciu odczynników stworzeń wypełnia górne środkowe pole."
+    },
+    {
+      "type": "text",
+      "text": [
+        "Chowaniec podąża, gdy jesteś **10 bloków** dalej, i teleportuje się do ciebie poza **12**. Ignoruje twoje ciosy.",
+        "Użyj skradając się, by kazać mu czekać, i jeszcze raz, by go przywołać. Trzymaj coś, gdy robisz to przy Mchogrzbiet, bo pusta ręka otwiera jego sakwę.",
+        "**Jeden wojownik** (Odłamkogrzbiet albo Ogar szczeliny) i **dwóch pomocników** mogą iść naraz. Siedzący i to, na czym jedziesz, nie liczą się. Nadmiarowi siadają i mówią dlaczego. Czekający chowaniec, którego zraniono, wstaje i podąża, jeśli w twojej drużynie jest miejsce.",
+        "To, co zabije twój chowaniec, nie daje ci pozycji w plemieniu i nie liczy się do polowań plemienia. Zabójstwo musi być twoje."
+      ],
+      "title": "Trzymać drużynę"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Rozmnażaj dwóch związanych towarzyszy tego samego gatunku, karmiąc obu ich jedzeniem, gdy stoją blisko. Dzikie zwierzęta też się rozmnażają, jeśli skradziesz się przy karmieniu, a ich młode rodzą się dzikie. Jak u wilków, młode dwóch twoich towarzyszy **rodzą się do twojej drużyny**, a więcej jedzenia pomaga im rosnąć.",
+        "Każde młode bierze połowę każdej nici od każdego rodzica, czasem przesuniętą w górę albo w dół. Pary, które masz razem, poprawiają się nieco częściej.",
+        "**Rozmnażaj silne z silnym.** Gdy oboje rodzice mają w nici 3 albo lepiej, młode ma szansę jedną na cztery, by wejść o krok wyżej niż którekolwiek z nich, i to jedyna droga do 4 i do Wyniesionego 5. Linia hodowana z troską staje się o wiele silniejsza niż cokolwiek dzikiego.",
+        "Ostrożnie z kopiowaniem: rozmnażanie tych samych Rama i Kieł przez trzy pokolenia z rzędu u jednego właściciela **Strzępi** linię i obniża jej Pomruk."
+      ],
+      "title": "Rozmnażanie lepszych nici"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Znaki to nazwane dziwactwa. Niektóre widać przy jednej kopii; reszta potrzebuje kopii od obojga rodziców.",
+        "- Jedna kopia: **Cicha nić** (podąża od 8 bloków, staje przy 2), **Kamienna skóra** (+1 pancerza, nieco wolniejszy), **Dryf** (szybszy, o 2 mniej zdrowia, robi się niespokojny po minucie czekania), **Miękka paszcza** (nie gryzie osadników ani golemów), **Żyła blasku** (lis), **Zastrzał** (Odłamkogrzbiet).",
+        "- Dwie kopie: **Bystry** (dar działa szybciej), **Nocny brzęk** (szybszy nocą), **Znak rodu** (rodzi się parze jednego właściciela, odrobinę więcej pancerza) oraz znaki gatunku **Skok**, **Głęboka kieszeń**, **Trop**, **Tempo**, **Celny klik**, **Nieruchomy** i **Zbieranie**.",
+        "Nieliczne dzikie stworzenia zrodzone w Marszu są **Iskrzone**: lśnią i niosą mocną kopię nici, ku której skłania się ich gatunek."
+      ],
+      "title": "Znaki"
+    },
+    {
+      "type": "text",
+      "title": "Leczenie chowańca",
+      "text": [
+        "Nakarm rannego chowańca jego ulubionym jedzeniem, aby go uleczyć. [Maść](remedies) użyta na nim, płonące kadzidło i [Grzechotka uzdrowiciela](healers_rattle) też go leczą.",
+        "Jeśli jeden padnie, zostawia **Pozostałość «Duch»**. [Krąg leczenia](healing_circle) wzywa go z powrotem, wraz z głosem."
+      ]
+    }
+  ]
+}

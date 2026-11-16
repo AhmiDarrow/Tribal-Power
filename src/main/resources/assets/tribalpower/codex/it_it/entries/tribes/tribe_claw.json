@@ -1,0 +1,65 @@
+{
+  "name": "Camminatori del ciglio",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Camminatori del ciglio",
+      "text": [
+        "“Prima gli stivali. Poi il ponte. Poi il coraggio; arriva da solo.”",
+        "Filo di **Artiglio**, voce di **Fuoco**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "I Camminatori del ciglio camminarono sul ciglio della fenditura, dove il filo si sfilacciava più sottile, e posero appigli per tutti quelli che vennero dopo. Il loro mestiere è **Dotazione spirituale e appigli**.",
+        "I loro accampamenti stanno nella **taiga**, e nella Marcia un accampamento loro sta in ogni fascia, dal nord gelato al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è il **Dente di fenditura**, che vale **+8** reputazione al loro focolare.",
+        "Prediligono anche il cuoio, un lingotto di ferro o il ferro grezzo: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda: il focolare prende al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa scambia l'Anziano",
+      "text": [
+        "**Ospite**: 6 cuoio per 2 Schegge di eco; 4 lingotti di ferro per Stivali di cuoio.",
+        "**Amico**: 3 Eco sintonizzato e 4 cuoio per Stivali di Tessitospirito; 8 lingotti di ferro per un Dente di fenditura; 4 Radice di brace per Carne secca del camminatore del ciglio.",
+        "**Consanguineo**: 3 Eco vincolato per una Lama di Dotazione spirituale; 3 Eco vincolato per un Piccone di Dotazione spirituale.",
+        "Ogni scambio dà **+2** reputazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù dei Camminatori del ciglio. Fabbricalo con un {item:tribalpower:resonance_totem_fire} e due Tessitospirito nel loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Fuoco**.",
+        "I Consanguinei dei Camminatori del ciglio portano il loro [dono](tribe_boons): nessuna caduta ti ferisce mentre **ti acquatti**.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "Comprare un Dente di fenditura da Amico è un modo più sicuro per ottenere il loro reagente che cacciare i Segugi della fenditura.",
+        "A **Voce** puoi anche legare un **Segugio della fenditura** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano dei Camminatori del ciglio ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

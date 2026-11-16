@@ -1,0 +1,63 @@
+{
+  "name": "Plaques de chant",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "next": "gate_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Plaques de chant",
+      "text": [
+        "Treize petites plaques, chacune avec une tâche claire en redstone : portes, mémoire, horloges et compteurs.",
+        "Pose-en une sur la face d'un bloc ; la face par laquelle elle pointe vers l'extérieur est sa **sortie**. Sur une machine, un tambour ou une autre plaque, accroupis-toi en posant, sinon le clic actionne ce bloc.",
+        "Fais un clic droit sur une plaque pour entendre ce qu'elle fait. Accroupis-toi et fais un clic droit sur Battement, Dérive ou Compte à main vide pour changer son compte. Une **Clé de totem** synchronise les plaques pour qu'elles s'entendent sans aucun câble : voir Synchroniser les plaques.",
+        "Chaque plaque est bâtie autour du [Fil de chant](song_thread), qui exige le **Fil de Métier** venu de la Marche, donc les plaques viennent après ton premier voyage là-bas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quel côté est lequel",
+      "text": [
+        "Le **dos** d'une plaque est le bloc sur lequel elle est montée. Son avant pointe à l'opposé de ce bloc ; elle n'alimente que le bloc juste devant, et seulement faiblement, donc elle ne se verrouille jamais à travers la pierre.",
+        "- Les plaques **unaires** (Inverse, Écho, Dérive, Frappe, Hasard, Compte, Vers) lisent le **dos**. Alimente le bloc sur lequel elles reposent : un levier dessus, de la poudre de redstone dedans, ou monte la plaque directement sur un Seuil de Pulsation. Le Fil de chant n'alimente jamais le bloc qu'il touche, donc pour lire une ligne de fil, monte la plaque sur le dernier fil lui-même.",
+        "- Les plaques **binaires** (Chœur, Rassemblement, Discorde, Silence) lisent **gauche et droite**, vus de derrière la plaque. Au sol ou au plafond, la gauche est l'ouest et la droite est l'est.",
+        "- **Mémoire** lit la gauche pour fixer et la droite pour effacer. **Battement** n'a pas besoin d'entrée.",
+        "Une plaque n'entend que l'énergie pointée vers elle : un répéteur tourné ailleurs n'est pas entendu, ni une autre plaque pointée droit vers elle. Pour joindre deux plaques, synchronise-les avec la clé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Synchroniser les plaques",
+      "text": [
+        "Les plaques n'ont pas besoin de câble entre elles. Accroupis-toi et utilise une plaque avec une **Clé de totem** pour retenir son chant, puis utilise la clé sur une autre plaque : cette plaque entend maintenant la première, comme si un câble y entrait.",
+        "- **L'endroit du clic choisit l'oreille.** Clique sur la moitié gauche ou droite d'une Plaque de chœur, Plaque de rassemblement, Plaque de discorde, Plaque de silence ou Plaque de mémoire pour alimenter ce côté. Les plaques unaires l'entendent sur leur dos ; sur un Compte, la moitié gauche est la réinitialisation. Un Battement n'entend rien.",
+        "- **Une synchro va dans un seul sens.** Chaque plaque en entend jusqu'à **8** autres, à moins de **32 blocs**, dans le même monde. La clé garde le chant, donc une source peut alimenter toute une rangée.",
+        "- **Utilise encore la clé sur la paire pour la désynchroniser.** Accroupis-toi et utilise la clé en l'air pour lâcher le chant.",
+        "Une nouvelle synchronisation coûte **1 Pulsation** prise sur une cellule portée, ou un point de la clé.",
+        "Un serveur peut changer la portée et le plafond avec **plateLinkRange** et **plateLinkMax**. Les synchronisations faites avant un changement sont gardées ; celle qui est maintenant hors de portée s'entend comme 0.",
+        "Une plaque appartient à qui l'a posée et à son camp : tout le monde peut la lire, mais synchroniser la plaque d'autrui, tenir son chant ou changer son compte est refusé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lire une synchronisation",
+      "text": [
+        "Utilise la clé sur une plaque sans tenir de chant, ou accroupis-toi et fais un clic droit avec ce livre, pour lister chaque plaque qu'elle entend : où elle est, quelle oreille, à quelle distance, et ce qu'elle chante. Des étincelles te tracent chaque synchronisation.",
+        "Une plaque synchronisée entend sa source telle qu'elle était il y a un tick, donc un anneau de plaques est sûr : deux Plaques d'écho qui s'entendent gardent ce sur quoi elles s'accordent, et deux Plaques inverses qui s'entendent font une horloge qui bascule à chaque tick.",
+        "Casse une source et ses auditeurs l'oublient. Une source dans un chunk non chargé s'entend comme **0** jusqu'à ce qu'il se charge de nouveau ; une plaque ne charge jamais un chunk pour écouter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les familles de plaques",
+      "text": [
+        "Les plaques viennent en quatre familles, chacune avec sa propre page :",
+        "- [Plaques de porte](gate_plates) : Chœur, Rassemblement, Discorde et Silence pèsent deux entrées l'une contre l'autre.",
+        "- [Plaques de signal](signal_plates) : Inverse retourne un signal, et Écho le porte plus loin à pleine force.",
+        "- [Plaques de mémoire](memory_plates) : Mémoire, Compte et Vers se souviennent de ce qu'ils ont entendu.",
+        "- [Plaques de temps](timing_plates) : Battement, Dérive, Frappe et Hasard gardent le temps."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "name": "回响粉碎",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "土之工位，也是你要造的第一座。回响粉碎有两件事：把**石头**打碎成回响碎片，那是驱动脉动共鸣器的晶体；以及把方块和矿石碾成更小的东西。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "制作碎片",
+      "text": [
+        "放入**石头**或**深板岩**；远行界石头也可以。圆石不会变成碎片，所以要先烧成石头。",
+        "一块碎片需要**2秒**，**每秒32脉动**。附近储存的脉动，在发电机的缓冲或一座石冢里，能撑着慢速发电机做完一批。",
+        "它需要8个方块以内的土图腾，以及一台充能的发电机。碎片是你第一台脉动共鸣器的小型触媒，会被它产出的脉动慢慢耗掉。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "碾碎",
+      "text": [
+        "- 圆石、深板岩圆石和远行界圆石会变成砂砾；砂砾会变成沙子。",
+        "- 若安装了受支持的过筛模组，沙子会变成粉；否则变成黏土球。",
+        "- 闪长岩会变成石英。远行界矿石会变成两块灵之碎片。",
+        "- 粗金属和金属矿石各自变成**两份砂砾**，耗时4秒，每秒40脉动。参见[金属与宝石](metals_and_gems)。",
+        "- 带精准采集的宝石矿石会直接碎成宝石，数量是该矿石自身掉落的两倍。",
+        "本书中的配方，或JEI，会显示你的整合包里的确切输入与输出。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "砂砾往下走",
+      "steps": [
+        {
+          "caption": "一座余烬窑，配着它的火图腾。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把回响粉碎放在它上面，附近放一座土图腾。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "回响粉碎的底面输出，余烬窑的顶面接收，于是砂砾直接掉进去。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "加上发电机，从顶部送入粗铁，再从余烬窑里取出锭。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "更进一步",
+      "text": [
+        "在它周围按[碎裂阵](shatter_array)的图案建造，它就会少付四分之一的脉动，并把输出倒入下方的先祖储柜。",
+        "阶位会让它更快；参见[机器阶位](machine_ranks)。拉杆会暂停它。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "回响粉碎从石头和深板岩做出的东西。"
+    }
+  ]
+}

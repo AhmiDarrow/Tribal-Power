@@ -1,0 +1,74 @@
+{
+  "name": "草原之兽",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "草原之所有",
+      "text": [
+        "四种动物属于草原：三种在开阔的草地上吃草或飞翔，一种在下面的隧道里捕猎。",
+        "这里的每只温顺野兽都可以每分钟用刷子刷一次来取得试剂，并用下方**狩猎与放牧**中写明的自身食物引诱和繁殖。它可以像任何温顺动物一样结契（见[使魔](familiars)）。虽然没有一只自带天赋，结契之后仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "簇背",
+      "text": [
+        "毛发蓬乱的草原野牛，两到四只成群地吃草。它有**26点生命值**和**5点护甲**，移动非常慢，还会从怪物身边后退。",
+        "掉落**1至3个簇绒**，抢夺时更多。",
+        "猎杀时还会掉落1至2个生野味和最多1个远行界皮革。用**草原谷**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "长胫",
+      "text": [
+        "高大的牡鹿，脚步很快，两到四只成群。**22点生命值**和**1点护甲**。",
+        "掉落**1至3个胫腱**。胫腱在践踏之环召唤奔逃之灵：见[守护者](guardians)。",
+        "猎杀时还会掉落1至3个生野味、最多2个远行界皮革和最多1个骨头。用**草原谷**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "淡翼",
+      "text": [
+        "赤褐色的鸢，翼下颜色淡，尾羽分叉很深，在草地上空以一到三只盘旋。**10点生命值**，没有护甲。",
+        "掉落**1至3个淡绒**，可磨成白色染料（见[试剂](reagents)）。",
+        "猎杀时还会掉落1至2个羽毛和最多1个生野味。用**草原谷或小麦种子**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "穴啮",
+      "text": [
+        "一种会挖掘的锹甲，生着巨大的弯钳，是草原的猎人。它住在草下的黑暗坑道里，不论昼夜都会从那里钻出，每次一只或两只。它有**23点生命值**和**3点护甲**，撕咬造成**4**，并使你中毒3秒。",
+        "它掉落**1到2个啮牙**，一种毒试剂。穴啮也会钻出地面，加入奔逃之灵参与的战斗。",
+        "被猎杀时，还会掉落最多1个骨头和最多1个蜘蛛眼。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与放牧",
+      "text": [
+        "除了试剂，猎杀时掉得更多，有抢夺还会再多。 若动物死于燃烧，掉落的肉是烤熟的。 要繁殖野生的，给两只成年个体喂食时请**潜行**；若照常喂食，野生的则会改为对你亲近。"
+      ]
+    }
+  ]
+}

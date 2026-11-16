@@ -1,0 +1,51 @@
+{
+  "name": "芦苇追猎者",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "藏在灵之芦苇里的条纹猞猁。快速攻击带有短暂的中毒。",
+        "猎杀后还会掉落最多1个远行界皮革和最多1个骨头。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "芦苇追猎者藏在主世界的沼泽和红树林沼泽，也藏在远行界的芦苇沼和浅滩，在水晶原和草原上则更稀少。",
+        "它有**22点生命值**和**1点护甲**，移动很快，攻击造成**4**。每次撕咬使你中毒3秒。带上牛奶，或者保持距离，让它自己过来。"
+      ],
+      "title": "何处与如何"
+    },
+    {
+      "type": "text",
+      "text": [
+        "掉落**1到2个芦苇尖牙**。",
+        "一枚芦苇尖牙在灵下调谐为2个调谐回响。"
+      ],
+      "title": "它会给出什么"
+    },
+    {
+      "type": "text",
+      "text": [
+        "没有护符能与芦苇追猎者结缘。"
+      ],
+      "title": "它不会结缘"
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时还会掉落这些，有抢夺则更多。"
+      ]
+    }
+  ]
+}

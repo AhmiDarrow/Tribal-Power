@@ -1,0 +1,170 @@
+{
+  "name": "Trommelherz",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "Der erste Generator, den du baust, und der, zu dem du immer wieder zurückkommst. Das Trommelherz speichert bis zu **1,000 Puls**, und jeder Schlag, den du ihm gibst, fügt mehr hinzu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Es spielen",
+      "text": [
+        "Rechtsklicke mit **leerer Hand**, etwa **einmal pro Sekunde**. Ein Schlag im Takt gibt **24 Puls**. Ein Schlag daneben gibt höchstens **10**, und weniger, je früher er dem letzten folgt, also schlägt ein gleichmäßiges Tempo schnelles Klicken.",
+        "Maschinen ziehen von der Trommel über einen [Gitterkonduktor](lattice_conductor) innerhalb von 8 Blöcken, nie direkt von ihr. Um Kraft anderswohin zu bringen, nutze eine **Pulszelle** auf der Trommel. Wer die Trommel abbaut, verliert den Puls, den sie hält.",
+        "Von Hand spielen weckt auch jedes Totem innerhalb von 8 Blöcken; siehe [Hüten](keeping)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Es per Redstone spielen",
+      "steps": [
+        {
+          "caption": "Ein Trommelherz für sich braucht dich, damit du den Takt hältst.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle eine Herzschlagplatte daneben. Sie tickt einmal pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Jeder Impuls von der Platte ist ein Schlag. Die Trommel füllt sich jetzt von selbst, während du anderswo arbeitest.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Der Rhythmus, genau",
+      "text": [
+        "Redstone-Schläge im Abstand von **17 bis 23 Spielticks** gelten als pünktlich. Schläge mit weniger als **8 Ticks** Abstand werden ignoriert. Zwanzig Ticks sind eine Sekunde bei normaler Servergeschwindigkeit.",
+        "Ein gehaltenes Redstone-Signal pausiert das Trommelherz nicht; nur die steigende Flanke eines Impulses zählt als Schlag.",
+        "Trommeln verdrängen einander. Nur **zwei Trommeln in einer Zone** — dieselbe Reichweite von 8 Blöcken, die ein Konduktor webt — erzeugen Puls; jede weitere schlägt und klingt noch, bringt aber nichts ein. Stell sie weiter auseinander, dann zahlt wieder jede.",
+        "Jeder [Rang](machine_ranks) fügt **15% Puls pro Schlag** hinzu. Generatoren werden nicht schneller, so wie Stationen mit Rang es tun."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

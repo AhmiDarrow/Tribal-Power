@@ -1,0 +1,394 @@
+{
+  "name": "Plemiona i poważanie",
+  "icon": "tribalpower:tribe_hearth",
+  "order": 10,
+  "spoiler": false,
+  "items": [
+    "tribalpower:tribe_banner"
+  ],
+  "next": "tribal_kin",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:tribe_hearth",
+      "text": [
+        "Dziewięć plemion strzegło niegdyś Krosno, po jednym Paśmie, a ich obozy wciąż trzymają rytm. Każdy obóz powstaje wokół **Palenisko plemienia**.",
+        "Nakarm palenisko, a plemię zacznie cię poznawać. To twoje **poważanie**, i ono otwiera ich handel, ich sekrety, a na końcu ich Znak."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "tribes_standing",
+      "title": "Obóz plemienia",
+      "text": [
+        "Obóz łatwo poznać: palenisko ciągnące kolorowy dym, Chorągiew plemienia obok i czworo rangi Ród przy swoich sprawach. Kolor chorągwi nazywa plemię."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie żyją plemiona",
+      "text": [
+        "Każde plemię obozuje w krainie pasującej do jego Pasma:",
+        "- **Strażnicy posłania**: równiny.",
+        "- **Śpiewacy żwiru**: góry i kamieniste brzegi.",
+        "- **Wiązacze korzeni**: lasy i dżungle.",
+        "- **Chodzący po krawędzi**: tajga.",
+        "- **Bęben-serca**: sawanna.",
+        "- **Tkacze wzorów**: lasy brzozowe.",
+        "- **Strażnicy kolonii**: lasy kwiatowe, łąki i wiśniowe gaje.",
+        "- **Rzeźbiarze pieczęci**: ciemne lasy.",
+        "- **Szwacze krosna**: tylko Kryształowe Pola Marszu.",
+        "Każde plemię trzyma też obóz w każdym pasie [Marszu](the_march), zbudowany z drewna i kamienia tego pasu."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Twoja pierwsza wizyta",
+      "steps": [
+        {
+          "caption": "Każdy obóz powstaje wokół Palenisko plemienia. Tu się zaprzyjaźniasz.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:tribe_hearth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Chorągiew plemienia obok nazywa plemię swoim kolorem. Zostaw ją stojącą.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:tribe_banner[tribe=0,facing=south,wall=false]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Krosno w pobliżu to miejsce, gdzie pracuje Tkacz obozu. Czworo rangi Ród nigdy nie odchodzi dalej niż 16 bloków.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:loom"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij palenisko prawym przyciskiem czymś, co plemię lubi. Chleb daje Strażnicy posłania +3 poważanie.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:bread"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kliknij go prawym przyciskiem z pustą ręką w dowolnej chwili, by zobaczyć swoje poważanie i swoją rangę.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co ofiarować",
+      "text": [
+        "Kliknij palenisko prawym przyciskiem z darem w ręce. Bierze jeden przedmiot naraz:",
+        "- **Odczynnik** plemienia: **+8** poważanie.",
+        "- Własne [danie](tribe_dishes) plemienia: **+6**.",
+        "- Przedmiot **ulubiony**: **+3**.",
+        "- Każde inne **jedzenie**: **+1**.",
+        "- Naładowane **Ogniwo Pulsu**: palenisko wypija z niego do **40 Puls** i daje **+2 za każde 10**, więc najwyżej **+8**. W ogniwie musi być co najmniej 10 Puls.",
+        "Odczynniki: Strażnicy posłania **Odłamek echa**, Śpiewacy żwiru **Dostrojone echo**, Wiązacze korzeni **Łuska mchogrzbietu**, Chodzący po krawędzi **Ząb szczeliny**, Bęben-serca **Kościany dzwonek**, Tkacze wzorów **Skrzydło burzy**, Strażnicy kolonii **Puch latarni**, Rzeźbiarze pieczęci **Odłamek Ducha**, Szwacze krosna **Nić Krosna**. Strona każdego plemienia wymienia też jego ulubione.",
+        "To, czego plemię nie użyje, zostaje w twojej ręce, a palenisko o tym mówi. Ogniwo z mniej niż **10 Puls** jest po prostu pomijane."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak szybko rośnie",
+      "text": [
+        "Palenisko plemienia przyjmuje najwyżej **60 reputacji dziennie** z twoich ofiar. Potem mówi, że plemię wzięło już wszystko, co weźmie dziś, a blisko limitu dar wart więcej niż reszta zostaje w twojej ręce. Siedemnaście preferowanych ofiar (51) albo siedem reagentów (56) wystarcza, by pierwszego dnia osiągnąć **Gość**.",
+        "Otwarte są trzy dalsze drogi i żadna nie liczy się do limitu Palenisko. Zabij wrogiego moba w promieniu **24 bloków** od Palenisko za **+1**, do **dwudziestu dziennie** na każde plemię. Zabójstwo musi być twoje: wróg, którego powali twój chowaniec, nie daje nic. Każdy handel ze Starszym daje **+2**. A gdy jesteś już Gościem, [prośby](elders_and_stories) Starszego płacą po **8 do 16**.",
+        "W [dzień święta](living_march) plemienia dołączenie do uczty Starszego daje **40** reputacji i dwie miski ich dania, obrzęd w ich obozie daje **30** więcej, a uczta zjedzona przy Palenisko **20**. Każde liczy się raz na święto.",
+        "Głos zajmuje wiele dni. Same ofiary nigdy nie doprowadzą cię tam w jeden dzień."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rangi",
+      "text": [
+        "- **Obcy** (poniżej 50): Starszy nie ma jeszcze dla ciebie nic.",
+        "- **Gość** (50): Starszy otwiera dwie pierwsze wymiany.",
+        "- **Przyjaciel** (150): dwie kolejne wymiany oraz własne danie plemienia za cztery plony z Marszu.",
+        "- **Ród** (400): dwie ostatnie wymiany, [łaska](tribe_boons) plemienia, dopóki utrzymujesz reputację, i jego herb: **Wzór sztandaru** na dowolne Krosno.",
+        "- **Głos** (800): Starszy wciska ci w dłoń **Znak plemienia**, po jednym na plemię. Znak jest kluczem do [Totem pokrewieństwa](kinship_totem) i otwiera w tej księdze stronę tego plemienia.",
+        "Twoja reputacja u Śpiewacy żwiru decyduje też, jak głęboko może nasłuchiwać [Dół nasłuchu](listening_pit)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego nigdy nie robić",
+      "text": [
+        "- **Uderzyć Ród** kosztuje **25** reputacji, a każdy Ród tego plemienia w promieniu 24 bloków zwraca się przeciw tobie. Łowcy atakują cię przez **minutę**.",
+        "- **Zniszczyć Palenisko** kosztuje **40** i tak samo nastawia na ciebie Łowców.",
+        "- **Zniszczyć sztandar** kosztuje **5**.",
+        "Reputacja może spaść poniżej rangi, którą już masz. Czerwony komunikat mówi, kiedy zejdziesz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prowadzić rachubę",
+      "text": [
+        "Wpisz **/tribalpower standing**, aby zobaczyć wszystkie dziewięć plemion naraz, z twoją reputacją i rangą przy każdym.",
+        "Komparator obok Palenisko odczytuje rangę ostatniego gracza, który go użył: **0** dla rangi Obcy aż do **15** dla rangi Głos. Przydatne do drzwi, które otwierają się tylko przyjaciołom plemienia.",
+        "Jeśli należysz do [wspólnego obozu](shared_camps), ćwiartka każdej reputacji, którą członek zyska lub straci po dołączeniu, spada też na obóz. Gdzie liczy się twoja ranga, liczy się ranga obozu, gdy jest wyższa od twojej."
+      ]
+    }
+  ]
+}

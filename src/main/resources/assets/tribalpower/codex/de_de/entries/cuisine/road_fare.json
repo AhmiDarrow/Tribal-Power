@@ -1,0 +1,65 @@
+{
+  "name": "Wegzehrung",
+  "icon": "tribalpower:drovers_flatbread",
+  "order": 22,
+  "items": [
+    "tribalpower:drovers_flatbread",
+    "tribalpower:glimmer_crisps",
+    "tribalpower:hunters_skewer",
+    "tribalpower:steppe_pemmican",
+    "tribalpower:frostberry_preserve",
+    "tribalpower:thistle_tea",
+    "tribalpower:highland_crumble"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Essen für den Weg",
+      "text": [
+        "Nicht jede Mahlzeit trägt den [Segen](tribe_dishes) eines Stammes. Lagerkost ist, was ein Wanderer einpackt: billig, schnell am [Herdtopf](hearth_pot), und jedes für eine Aufgabe gemacht. Die meisten mischen die Feldfrüchte des Marschs mit dem, was auf jedem Hof wächst.",
+        "- **Treiberfladen**: Steppenkorn ×2, Weizen. Zwei pro Topf, je 5 Hunger, stapelt bis 64. Der billigste Weg, satt zu bleiben.",
+        "- **Schimmerchips**: Schimmerbohne ×2, getrockneter Seetang. Drei pro Topf, 3 Hunger, und **im Nu gegessen**, damit du zwischen den Schlägen einen Bissen erwischst.",
+        "- **Jägerspieß**: beliebiges rohes Fleisch, Glutwurzel, Rote Bete. Zwei pro Topf, 6 Hunger und **Schnelligkeit für 20 Sekunden**, um dein Wild einzuholen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Essen für den Weg, Fortsetzung",
+      "text": [
+        "- **Steppenpemmikan**: beliebiges gegartes Fleisch, Frostbeere, Süßbeeren. Drei pro Topf, nur 4 Hunger, aber die beste Sättigung für seine Größe: es hält dich auf einem langen Weg am längsten satt.",
+        "- **Frostbeerenkonserve**: Frostbeere ×2, Zucker, in einer Glasflasche. 4 Hunger und **Feuerresistenz für 30 Sekunden**, zum Durchqueren der Glutöde. Die Flasche kommt zurück.",
+        "- **Disteltee**: Leydistel, Marschblatt, Honigwabe, in einer Glasflasche. Wenig Nahrung, aber du kannst ihn trinken, wenn du satt bist, und er **heilt Vergiftung, Hunger und Übelkeit**: die Antwort des Lagers auf eine schlechte Mahlzeit.",
+        "- **Hochlandstreusel**: ein Apfel, Steppenkorn, Süßbeeren, Zucker. 6 Hunger und **Sprungkraft für 45 Sekunden** für die Grate."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drovers_flatbread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:glimmer_crisps"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hunters_skewer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:steppe_pemmican"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:frostberry_preserve"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:thistle_tea"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:highland_crumble"
+    }
+  ],
+  "next": "hearth_meals"
+}

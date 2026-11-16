@@ -1,0 +1,63 @@
+{
+  "name": "Piastre di canto",
+  "icon": "tribalpower:chorus_plate",
+  "order": 70,
+  "spoiler": false,
+  "next": "gate_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Piastre di canto",
+      "text": [
+        "Tredici piccole piastre, ognuna con un compito chiaro con la redstone: porte, memoria, orologi e contatori.",
+        "Posiziona una su una faccia di un blocco; la faccia da cui punta verso l'esterno è la sua **uscita**. Su una macchina, un tamburo o un'altra piastra, accovacciati mentre posizioni, altrimenti il clic aziona quel blocco.",
+        "Fai clic destro su una piastra per sentire cosa sta facendo. Accovacciati e fai clic destro su Battito, Deriva o Conto a mano vuota per cambiare il conto. Una **Chiave del totem** sincronizza le piastre così si sentono senza alcun cavo: vedi Sincronizzare le piastre.",
+        "Ogni piastra è costruita attorno al [Filo di canto](song_thread), che richiede **Filo di Telaio** dalla Marcia, quindi le piastre arrivano dopo il tuo primo viaggio laggiù."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quale lato è quale",
+      "text": [
+        "Il **retro** di una piastra è il blocco su cui è montata. Il fronte punta lontano da quel blocco; alimenta solo il blocco proprio davanti, e solo debolmente, così non si aggancia mai attraverso la pietra.",
+        "- Le piastre **unarie** (Inversa, Eco, Deriva, Colpo, Caso, Conto, Verso) leggono il **retro**. Alimenta il blocco su cui poggiano: una leva su di esso, polvere di redstone dentro, oppure monta la piastra direttamente su una Soglia di Pulso. Il Filo di canto non alimenta mai il blocco che tocca, quindi per leggere una linea di filo monta la piastra sull'ultimo filo stesso.",
+        "- Le piastre **binarie** (Coro, Raduno, Discordia, Silenzio) leggono **sinistra e destra**, viste da dietro la piastra. Su pavimento o soffitto, sinistra è ovest e destra è est.",
+        "- **Memoria** legge a sinistra per impostare e a destra per azzerare. **Battito** non ha bisogno di ingresso.",
+        "Una piastra sente solo l'energia puntata verso di essa: un ripetitore rivolto altrove non viene sentito, e nemmeno un'altra piastra puntata dritta contro di essa. Per unire due piastre, sincronizzale con la chiave."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sincronizzare le piastre",
+      "text": [
+        "Le piastre non hanno bisogno di un cavo tra loro. Accovacciati e usa una piastra con una **Chiave del totem** per trattenere il suo canto, poi usa la chiave su un'altra piastra: quella piastra ora sente la prima, come se un cavo entrasse in essa.",
+        "- **Dove fai clic sceglie l'orecchio.** Fai clic sulla metà sinistra o destra di una Piastra del coro, Piastra di raduno, Piastra della discordia, Piastra del silenzio o Piastra della memoria per alimentare quel lato. Le piastre unarie lo sentono sul retro; su un Conto la metà sinistra è l'azzeramento. Un Battito non sente nulla.",
+        "- **Una sincronizzazione va in un solo senso.** Ogni piastra ne sente fino a **8** altre entro **32 blocchi**, nello stesso mondo. La chiave tiene il canto, così una fonte può alimentare un'intera fila.",
+        "- **Usa di nuovo la chiave sulla coppia per desincronizzarla.** Accovacciati e usa la chiave in aria per lasciare il canto.",
+        "Una sincronizzazione nuova costa **1 Pulso** da una cella che porti, o un punto della chiave.",
+        "Un server può cambiare la portata e il tetto con **plateLinkRange** e **plateLinkMax**. Le sincronizzazioni fatte prima di un cambiamento restano; una che ora è fuori portata si sente come 0.",
+        "Una piastra appartiene a chi l'ha posata e al suo accampamento: chiunque può leggerla, ma sincronizzare la piastra di un altro, tenere il suo canto o cambiarne il conto viene rifiutato."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Leggere una sincronizzazione",
+      "text": [
+        "Usa la chiave su una piastra senza tenere alcun canto, oppure accovacciati e fai clic destro con questo libro, per elencare ogni piastra che sente: dov'è, quale orecchio, quanto dista e che cosa sta cantando. Le scintille ti tracciano ogni sincronizzazione.",
+        "Una piastra sincronizzata sente la sua fonte com'era un tick fa, quindi un anello di piastre è sicuro: due Piastre dell'eco che si sentono tengono ciò su cui concordano, e due Piastre inverse che si sentono fanno un orologio che scatta a ogni tick.",
+        "Rompi una fonte e chi la ascolta la dimentica. Una fonte in un chunk non caricato si sente come **0** finché non si carica di nuovo; una piastra non carica mai un chunk per ascoltare."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le famiglie di piastre",
+      "text": [
+        "Le piastre stanno in quattro famiglie, ognuna con una pagina propria:",
+        "- [Piastre di porta](gate_plates): Coro, Raduno, Discordia e Silenzio pesano due ingressi l'uno contro l'altro.",
+        "- [Piastre di segnale](signal_plates): Inversa rovescia un segnale, ed Eco lo porta avanti a piena forza.",
+        "- [Piastre della memoria](memory_plates): Memoria, Conto e Verso ricordano ciò che hanno sentito.",
+        "- [Piastre di tempo](timing_plates): Battito, Deriva, Colpo e Caso tengono il tempo."
+      ]
+    }
+  ]
+}

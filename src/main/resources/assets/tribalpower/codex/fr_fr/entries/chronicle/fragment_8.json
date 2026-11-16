@@ -1,0 +1,17 @@
+{
+  "name": "9. Cendre",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cendre",
+      "text": [
+        "“Les Friches de braise étaient la forêt des Cœurs-tambours. Elle a brûlé pendant la Chute et ne s'est jamais éteinte. Quelque chose sous les scories a repris la mesure quand les tambours ont fui, et depuis il tient un temps faux.”",
+        "Trouvé sur une fresque au terrain d'un gardien."
+      ]
+    }
+  ]
+}

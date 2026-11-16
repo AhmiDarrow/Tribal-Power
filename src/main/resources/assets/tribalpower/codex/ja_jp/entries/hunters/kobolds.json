@@ -1,0 +1,62 @@
+{
+  "name": "コボルド",
+  "icon": "tribalpower:kobold_scale",
+  "order": 340,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ridge_kobold_spawn_egg",
+    "tribalpower:geode_kobold_spawn_egg",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn"
+  ],
+  "next": "shades",
+  "pages": [
+    {
+      "type": "text",
+      "title": "コボルド",
+      "text": [
+        "コボルドは、掘る価値のあるものがある所ならどこにでも住み、それを分け与えない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "二種類",
+      "text": [
+        "どちらも昼夜を問わず暗闇に現れる。一度に一匹か二匹。コボルドは**体力21**と**防具2**があり、速く、打撃は**4**。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_kobold",
+      "title": "尾根のコボルド",
+      "text": [
+        "直立した小さなトカゲ犬の鉱夫。つるはしと、兜についたランプを持つ。微光の尾根の下の暗い洞窟にいる。",
+        "狩ると、さらに銅の原石を最大2、石炭を最大1落とす。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_kobold",
+      "title": "晶洞のコボルド",
+      "text": [
+        "水晶が生え覆ったコボルド。水晶の穂先の槍を持ち、水晶の野の下の暗い洞窟にいる。",
+        "狩ると、さらにアメジストの欠片を最大2個、ラピスラズリを最大2個落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "それらが与えるもの",
+      "text": [
+        "尾根のコボルドは**コボルドの鱗を1～2個**落とし、晶洞のコボルドは**コボルドの角を1～2個**落とす。ドロップ増加で増える。どちらも猟犬の試薬だ。[試薬](reagents)を参照。",
+        "コボルドは決して結ばれない。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と放牧",
+      "text": [
+        "試薬のほかに、狩るとさらに落とし、ドロップ増加でもっと増える。"
+      ]
+    }
+  ]
+}

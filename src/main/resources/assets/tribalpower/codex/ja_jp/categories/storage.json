@@ -1,0 +1,6 @@
+{
+  "name": "保管と荷物",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 50,
+  "description": "荷物のための貯蔵庫と貯槽、そしてパイプなしで機械から機械へ運ぶリレー。"
+}

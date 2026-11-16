@@ -1,0 +1,81 @@
+{
+  "name": "Żywe istoty Marszu",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Dwa rodzaje stworzeń niosą starą pieśń. **Łagodne zwierzęta** (Jeleń świtu, Lis-latarnia, Mchogrzbiet oraz skubacze, lotne, [chodzące drzewa](walking_trees) i [wróżki](fays) każdej ziemi) dają odczynniki, gdy je szczotkujesz. **Pozostałości** to złamani strażnicy i dzikie duchy; walczą i upuszczają swój odczynnik, gdy padają.",
+        "Odczynniki zasilają pieśni, namaszczoną broń i remedia (zobacz [odczynniki](reagents)). Najstarsze nieliczne idą też do twoich warsztatów echa i do Amuletu więzi.",
+        "Marsz ma też ciche życie, które daje niewiele więcej niż mięso, pióro albo towarzystwo: Wędrowcy Marszu, Duchowe ogniki oraz ryby, galarety i jerzyki jego [dzikiej fauny](march_wildlife).",
+        "Złowione lub opróżnione ziemie zapełniają się znowu, powoli: mniej więcej raz na minutę kilka zwierząt może wejść poza zasięgiem wzroku, aż około sześciu stworzeń dzieli obszar. Zagrody też się liczą, więc ruchliwy obóz nigdy nie jest zalany."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Trzymaj **Pędzel** i użyj go na dorosłym. Młode zwierzęta nic nie dają. Każde zwierzę odpoczywa **jedną minutę** między zbiorami.",
+        "Rozmnażaj je **pszenicą** (Jeleń świtu), **słodkimi jagodami** (Lis-latarnia) i **trawą morską** (Mchogrzbiet). Każde inne łagodne stworzenie je dziką roślinę swojej ziemi albo coś równie łatwego do zdobycia; jego strona podaje jedzenie. Aby rozmnażać dzikie zwierzęta, **skradaj się**, gdy karmisz dwa dorosłe. Karmione zwyczajnie, dzikie zamiast tego się do ciebie przekonywa (zobacz [chowańce](familiars)).",
+        "Zwiąż dorosłego za pomocą [Amulet więzi](familiars), by zatrzymać go jako towarzysza: oddaje **podwójnie** odczynnik, a przy totemie może przyjąć głos, który wzmacnia twoją magię (zobacz [dostrojenie przy totemie](familiar_attuning)). Tylko ty możesz szczotkować własnego chowańca."
+      ],
+      "title": "Łagodny zbiór"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Popiołozwiązany, Korzeniozwiązany i Tropiciele trzcin nawiedzają lasy i bagna Zwykłego świata, a także Marsz. Jak wszystkie pozostałości wstają w ciemności i nigdy tam, gdzie pali się pochodnia albo latarnia, więc oświetlaj swoje ścieżki.",
+        "Trzymaj wodę blisko Popiołozwiązanego; ich ciosy cię podpalają. Ciosy Korzeniozwiązanego spowalniają cię na kilka sekund: cofnij się i przeczekaj. Tropiciele trzcin zatruwają, więc weź mleko albo trzymaj dystans.",
+        "Totem ciszy albo obrzęd Cicha noc nie pozwala obozowi wyhodować nowej watahy przez noc."
+      ],
+      "title": "Złamani strażnicy"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ćmy burzy, Chochliki żagwi, Dzwony żałobne, Błąkacze zasłony i latające cienie rzucają z odległości do **12 bloków**. Najpierw zbierają jasną kiść pyłków: to twoje ostrzeżenie.",
+        "Potrzebują czystej linii do ciebie. Stań za solidną osłoną, a zaklęcie zostanie przerwane. Ich zaklęcia nigdy nie palą ani nie podmieniają terenu.",
+        "Naładowana laska pomaga trzymać dystans. Fala uderzeniowa Niezaśpiewanego to inna walka; skradaj się przeciw niej, jak wyjaśnia jego własna strona."
+      ],
+      "title": "Odpowiedź na zaklęcie"
+    },
+    {
+      "type": "text",
+      "title": "Jak silne jest stworzenie",
+      "text": [
+        "Liczby w bestiariuszu dotyczą stworzenia zwykłej krwi. Każde stworzenie niesie pięć nici (zobacz [chowańce](familiars)), a każdy krok powyżej lub poniżej zwykłego czyni je **12%** silniejszym albo słabszym, więc żadne dwa dzikie nie są całkiem takie same.",
+        "W Marszu duch, który wstaje nocą, ma **40%** więcej zdrowia i uderza **25%** mocniej. Około **jeden na dwanaście** wstaje jako złotoimienna **elita**, częściej na Trudnym: podwójne zdrowie, o połowę więcej obrażeń, **4** pancerza więcej, szybszy na nogach i **trzykrotnie** więcej doświadczenia. Duchy, które wstają za dnia, nigdy nie są elitami."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Aksamit świtu, Puch latarni, Łuska mchogrzbietu, Skrzydło burzy i Jedwab echa wiążą się każde w **2 Duchotkanina** pod Wodą, w Wiązaczu echa.",
+        "- Każdy inny odczynnik pozostałości dostraja się w **2 Dostrojone echo** pod Duchem, w Dostrajaczu echa.",
+        "Każdy odczynnik, te i te od bestii tak samo, wchodzi też w pieśni, namaszczoną broń i remedia: zobacz [odczynniki](reagents).",
+        "Wiązacze korzeni cenią Łuskę mchogrzbietu, a Strażnicy kolonii cenią Puch latarni, więc to, co szczotkujesz, też kupuje pozycję. Otwórz przepisy w tej książce albo w JEI, jeśli go masz, by poprowadzić dowolny odczynnik do warsztatu."
+      ],
+      "title": "Zwrot pieśni"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Po zmierzchu niebo Zwykłego świata rozwija się w powolne zasłony zieleni i fioletu. Najjaśniejsze jest o północy, a deszcz albo grzmot je kryją. Marsz niesie własne, zimniejsze niebo.",
+        "To niebo próbuje przypomnieć sobie rozkład. Samo nie daje Pulsu, choć Kolektor ley pod nim już tak.",
+        "Ustawienia klienta mogą obniżyć jego szczegółowość albo go wyłączyć, co przydaje się przy paczkach shaderów."
+      ],
+      "title": "Zasłona nocą"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Skradając się, przyłóż Duchowy kodeks do wszystkiego, co zamilkło, aby odczytać, co to robi.",
+        "Każde stworzenie ma stronę w bestiariuszu, samo albo ze swoim rodem: gdzie żyje, jak walczy, co daje i czy stworzy więź. Zwierzęta każdej krainy zaczynają się od [Step](beasts_steppe).",
+        "Łagodne stworzenia są w tym rozdziale. Pozostałości i inni łowcy Marszu mają własny rozdział, który otwiera [Dziczyzna i skóra](game_and_leather)."
+      ],
+      "title": "Notatki z terenu"
+    }
+  ]
+}

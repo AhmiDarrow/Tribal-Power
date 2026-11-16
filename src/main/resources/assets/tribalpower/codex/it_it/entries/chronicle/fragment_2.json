@@ -1,0 +1,17 @@
+{
+  "name": "3. Il Telaio tessuto",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Il Telaio tessuto",
+      "text": [
+        "“I Cucitori del telaio scoprirono che nove fili tirati l'uno contro l'altro avrebbero retto un peso che nessuno poteva reggere da solo. Con quello cucirono il suolo al cielo. Ogni accampamento cantò il proprio filo. Il Telaio resse per nove generazioni.”",
+        "Trovato su una Pietra intagliata nelle rovine della Marcia."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Piastre del tempo",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Battito, Deriva, Colpo, Caso",
+      "text": [
+        "- **Battito** pulsa **15 per un tick**, poi riposa. L'uso accovacciato scorre **20, 40, 80, 160** tick, poi torna a 20; parte da 20, un secondo.",
+        "- **Deriva** copia il retro solo dopo che è rimasto attivo per **4, 8, 16 o 32** tick (uso accovacciato per scorrere; parte da 4), e cade appena il retro cade.",
+        "- **Colpo** dà un tick di 15 su un retro in salita, poi tace: il segnale colpito che Cuoritamburo e i bracieri ascoltano.",
+        "- **Caso** lancia una moneta a ogni retro in salita: 15 o 0, tenuto finché il retro non cade.",
+        "Un Battito di un secondo su un Cuoretamburo è un battito da **24-Pulso** quando il fronte cade a tempo. Le impostazioni più lente rendono solo **10** a battito."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

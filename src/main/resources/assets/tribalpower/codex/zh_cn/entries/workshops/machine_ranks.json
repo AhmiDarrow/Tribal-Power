@@ -1,0 +1,300 @@
+{
+  "name": "机器等级",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "工坊和发电机可以像灵械一样提升等级：把机器放入回响调谐，然后回响束缚，然后回响显化。每一级都让它更快，并用脉动支付这份速度。",
+        "不能跳过步骤：束缚拒绝等级0的机器，显化要求等级2。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "提升等级的花费",
+      "text": [
+        "每一步消耗脉动和时间，但不需要催化剂：",
+        "- 调谐（火）：**16秒**，**每秒96脉动**，用于等级1。",
+        "- 束缚（水）：**20秒**，**128**，用于等级2。",
+        "- 显化（灵）：**24秒**，**160**，用于等级3。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "三种声音，三级",
+      "steps": [
+        {
+          "caption": "把机器拿起来。作为物品，它与共鸣图腾（火）一起放入回响调谐，升到等级1。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "然后与水一起放入回响束缚，升到等级2。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "然后与灵一起放入回响显化，升到等级3。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "再放回去。等级跟着方块走，捡起来时也留在物品上。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "等级的作用",
+      "text": [
+        "- 等级1：时间为**85%**，每秒脉动为**118%**。",
+        "- 等级2：时间为**70%**，脉动为**143%**。",
+        "- 等级3：时间为**55%**，脉动为**182%**。",
+        "站点按整秒计时，所以短工作在下一级可能不会更快，但仍要支付更高的脉动速率。等级在长时间的工作上最划算，比如核心、提升等级和余烬窑。",
+        "发电机不同：每一级增加**每秒脉动15%**，而不是工坊的118%。营地之手在每次动作脉动不变的情况下敲得更快。",
+        "**歌之工作台**又不同：每一级降低它的脉动，到**85%**、**70%**和**55%**。",
+        "中继板搬得更多，也为此支付更多脉动，每一级再开一条通道：等级0为一条，等级3最多四条。网格导体按等级每秒输送**64**、**256**、**1,024**或**4,096**脉动，脉动石冢的石块储存**4,000**、**16,000**、**64,000**或**256,000**，并按导体的速率搬运脉动。转换器和充能器每秒搬运更多脉动。有等级的储柜或蓄池只会更快地把物品和流体交给贴着的机器。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "哪些机器",
+      "text": [
+        "每一座回响站点、余烬窑和歌之工作台；鼓心、地脉收集器、脉动共鸣器以及全部五种声音工艺；网格导体、脉动石冢、谐波充能器、网格转换器、先祖储柜和灵蓄池；每个中继器；石盆和共鸣网；以及营地之手（潮汐泵、风圈套、守护鼓、印织机）。",
+        "提示按名称显示等级：已织（0）、已调谐（1）、已束缚（2）、已显化（3）。如果站点不接受这台机器，那就是当前等级用错了站点；拿着这本书潜行右键该站点。"
+      ]
+    }
+  ]
+}

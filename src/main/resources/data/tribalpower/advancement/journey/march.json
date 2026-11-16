@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:gate_drum"
     },
-    "title": "Beyond the veil",
-    "description": "Build a Gate Drum to reach The March.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.march.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.march.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

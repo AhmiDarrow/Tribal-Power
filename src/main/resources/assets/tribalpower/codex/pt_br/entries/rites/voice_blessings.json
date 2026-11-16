@@ -1,0 +1,40 @@
+{
+  "name": "Bênçãos das vozes",
+  "icon": "tribalpower:resonance_totem_spirit",
+  "order": 120,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_seal",
+      "title": "Uma voz pousa em você",
+      "text": [
+        "Cada uma das seis vozes tem uma **bênção**: um modo de se emprestar a quem ela favorece. Você a verá como um efeito de estado na cor dessa voz.",
+        "Há três maneiras de conseguir uma:",
+        "- **Cante uma guarda.** Uma canção de guarda concede a bênção da sua voz, **45 segundos** por cada nota de poder nela.",
+        "- **Um [rito de selo](rite_circle) num Pedestal do rito** abençoa todo mundo em 6 blocos com a voz do selo por **5 minutos**; um rito amplificado dá sete e meio, no nível II. Um [familiar](familiar_boons) sintonizado dessa voz ao seu lado estica mais uma metade.",
+        "- **Coma de um [banquete](feasts) de uma voz.** Cada porção concede a bênção dessa voz por 8 minutos.",
+        "Um **Amuleto da lanterna** equipado mantém acesa qualquer bênção ou dádiva **metade a mais**, enquanto a manutenção for paga."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Terra**: você cava **25%** mais rápido e fica firme contra a repulsão.",
+        "- **Fogo**: seus golpes ateiam fogo no alvo por 3 segundos; no **nível II** o fogo não pode tocar você.",
+        "- **Água**: você nada mais rápido e cura **meio coração por segundo** enquanto está molhado.",
+        "- **Ar**: cada queda é 3 blocos mais curta, e você pula mais alto.",
+        "- **Espírito**: hostis em até 16 blocos brilham através das paredes.",
+        "- **Tear**: **um décimo** do Pulso que o seu equipamento gasta volta para ele, mesmo nos gastos menores: uma parte ainda pequena demais para devolver espera na peça até completar um Pulso inteiro.",
+        "O nível II dobra os números. O leite remove uma bênção, como remove qualquer efeito."
+      ],
+      "title": "As seis bênçãos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Os ritos são o caminho confiável: assente um selo, risque o círculo com giz, e o acampamento inteiro fica abençoado de uma vez antes de uma noite na Marcha. As canções são o caminho rápido na estrada. Cada número vive na seção **efeitos** da configuração comum."
+      ],
+      "title": "Onde encontrá-las"
+    }
+  ]
+}

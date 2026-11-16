@@ -1,0 +1,27 @@
+{
+  "name": "El noveno acuerdo",
+  "icon": "tribalpower:rite_ninth_agreement",
+  "order": 66,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rite_ninth_agreement"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un final",
+      "text": [
+        "El Telar era nueve hilos de acuerdo. Termina las historias de las nueve tribus, los ocho [guardianes](guardians) y El No Cantado, y tendrás nueve reliquias. Fabrica la tablilla con los ocho núcleos y un Corazón No Cantado, traza un **círculo de Telar** (un Sello de Telar asentado en el brasero), reúne **2,000 Pulso** a **8 bloques** del brasero (**1,500** en un círculo de nivel dos), y haz el rito con las nueve reliquias encima. La tablilla se gasta; las reliquias no.",
+        "El Telar concuerda. Nueve luces suben del círculo, una del color de cada tribu, y la Marcha responde a tu voz desde entonces."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué cambia",
+      "text": [
+        "Para quien hizo el acuerdo: cada tribu te trata al menos como **Pariente**, sea cual sea tu rango; los nueve dones se posan en ti durante **30 minutos**; y la aurora de la Marcha arde plena y firme cada noche que estés bajo ella.",
+        "El acuerdo es tuyo para siempre en ese mundo, y se hace una vez por jugador. Después el rito renueva los nueve dones: hazlo otra vez con una tablilla nueva y el mismo Pulso, y los nueve se posan en ti otros 30 minutos enteros. Las reliquias solo se piden la primera vez."
+      ]
+    }
+  ]
+}

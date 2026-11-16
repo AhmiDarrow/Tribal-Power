@@ -1,0 +1,74 @@
+{
+  "name": "Círculo de rito",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Un Pedestal del rito guarda y muestra un objeto. Cuatro alrededor de un Brasero ritual forman el **Círculo de rito**, que todo rito de tablilla necesita, incluida la llamada de la primavera.",
+        "La bendición fija de un brasero no lo necesita: esa solo quiere el sello asentado y su tótem."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Traza el círculo",
+      "text": "Brasero en el centro, cuatro Pedestales del rito en las diagonales, tiza que los une."
+    },
+    {
+      "type": "text",
+      "title": "Usar el círculo",
+      "text": [
+        "Si el círculo está incompleto, un rito de tablilla dice que el círculo no está trazado y que la tablilla no se gasta. Agáchate y haz clic derecho en el brasero con este libro, y enumera lo que aún le falta al círculo.",
+        "Las tablillas pueden esperar en los pedestales. Una señal de redstone que golpea el brasero dispara el rito asentado con la tablilla de un pedestal que coincide con el sello, y un comparador lee si un pedestal está ocupado. Así pones un [rito en un reloj](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Voces en los cardinales",
+      "text": "Asienta cuatro tótems de la propia voz del rito en los cardinales: el rito cuesta un cuarto menos y dura el doble."
+    },
+    {
+      "type": "text",
+      "title": "El círculo más fuerte",
+      "text": [
+        "Los cuatro tótems cardinales solo cuentan si coinciden con el rito que se lanza, así que un círculo de Agua ayuda a la Llamada de la lluvia y a la llamada de la primavera, pero no a la Llamada del alba.",
+        "Es opcional. Un círculo simple lanza cada rito al precio completo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un rito de sello a mano",
+      "text": [
+        "Un pedestal también acepta un rito rápido sin círculo alguno. Usa un **sello** elemental en un Pedestal del rito: el sello se consume, y su voz actúa sobre ti de **20 segundos** a **dos minutos**, y sobre cada hostil en **6 bloques**.",
+        "Si una célula que llevas contiene **8 Pulso**, el rito la toma y queda **amplificado**: más fuerte y más largo.",
+        "Todos en un radio de 6 bloques también reciben la [bendición de voz](voice_blessings) del sello durante **5 minutos**, o 7 y medio en el nivel II si está amplificado. Un [familiar](familiar_boons) sintonizado con la voz del sello, a tu lado, hace que dure la mitad más. Hecho en el campamento de una tribu, cuenta como el rito que piden sus solicitudes.",
+        "Una señal de redstone en el pedestal lo rechaza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qué hace cada sello",
+      "text": [
+        "- **Tierra**: resistencia, absorción y prisa; los hostiles cercanos quedan enraizados, y la hierba bajo el pedestal se compacta en un sendero.",
+        "- **Fuego**: resistencia al fuego; los hostiles se incendian, la nieve y el hielo se derriten, y las hogueras frías se encienden.",
+        "- **Agua**: respiración acuática y la gracia de un nadador; los fuegos se apagan y la tierra de cultivo se empapa. Amplificado, también apresura las plantas.",
+        "- **Aire**: caída lenta, velocidad y un salto más alto; los hostiles salen despedidos hacia atrás, y la lluvia se despeja.",
+        "- **Espíritu**: regeneración y visión nocturna; quita veneno, wither, ceguera, lentitud, debilidad y hambre, y cura a cada jugador cercano; los hostiles brillan y se debilitan. Amplificado, enhebra **12 Pulso** de vuelta en una célula que llevas.",
+        "- **Telar**: suerte y velocidad; los hostiles son atraídos y ralentizados, y cada jugador cercano recibe **12 Pulso** (24 si está amplificado) tejidos en sus células."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

@@ -1,0 +1,184 @@
+{
+  "name": "계속되는 동력",
+  "icon": "tribalpower:pulse_resonator",
+  "order": 30,
+  "next": "moving_power",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "북을 치면 시작되지만, 야영지는 자리를 비운 동안에도 동력이 필요하다. [펄스 공명기](pulse_resonator)는 수정을 앉히고 동료를 주면 스스로 펄스를 만든다. 철, 자수정, 구리 공명기 두 개, 정령 조각으로 제작한다.",
+        "메아리 파쇄에서 메아리 조각을 꺼내 그것으로 공명기를 우클릭한다. 조각은 촉매로 안에 남고, 만드는 펄스에 천천히 소모된다. 조각 하나는 약 20,000 펄스, 처음 속도로 대략 40분이다. 여분을 두어라.",
+        "그다음 근처에 **서로 다른 목소리 둘**의 토템을 둔다. 예를 들어 땅과 불. 땅 토템이 둘이어도 목소리는 하나다. 공명기와 토템에 닿는 격자 전도체를 둔다. 그것이 공명기의 펄스를 기계로 옮기고, 토템의 버퍼와 그 목소리를 가득 유지한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "공명기 앉히기",
+      "steps": [
+        {
+          "caption": "펄스 공명기를 열린 땅에 둔다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_resonator"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "메아리 조각으로 우클릭한다. 조각은 촉매로 안에 앉아, 만드는 펄스가 닳게 할 때까지 남는다.",
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안에 땅 토템을 더한다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "두 번째의 다른 목소리, 예를 들어 불을 더한다. 이제 스스로 초당 8 펄스를 만든다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "느린 시작",
+      "text": [
+        "초당 8 펄스는 소박하다. 바쁜 작업대는 그보다 빨리 쓸 수 있다. 비축이 쌓이게 두고, 더 강한 수정과 더 많은 목소리의 준비가 되면 [펄스 공명기](pulse_resonator) 페이지를 읽는다."
+      ]
+    }
+  ]
+}

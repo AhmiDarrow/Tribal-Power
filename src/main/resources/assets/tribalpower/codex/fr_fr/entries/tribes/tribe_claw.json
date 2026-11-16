@@ -1,0 +1,65 @@
+{
+  "name": "Marcheurs de lisière",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Marcheurs de lisière",
+      "text": [
+        "“Les bottes d'abord. Puis le pont. Puis le courage ; il arrive de lui-même.”",
+        "Brin de **Griffe**, voix de **Feu**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Les Marcheurs de lisière ont marché le bord de la faille, là où le fil s'effilochait le plus fin, et ont posé des prises pour tous ceux qui venaient après. Leur métier est **Espritoutillage et prises de pied**.",
+        "Leurs camps se tiennent dans la **taïga**, et dans la Marche un camp à eux se tient dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est la **Dent de faille**, qui vaut **+8** de réputation à leur âtre.",
+        "Ils privilégient aussi le cuir, un lingot de fer ou le fer brut : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 de Pulsation**, jusqu'à +8.",
+        "Souviens-toi : l'âtre prend au plus **60** de réputation par jour en offrandes ; voir [Tribus et réputation](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 6 cuir contre 2 Éclats d'écho ; 4 lingots de fer contre des Bottes en cuir.",
+        "**Ami** : 3 Écho accordé et 4 cuir contre des Bottes d'Espritissu ; 8 lingots de fer contre une Dent de faille ; 4 Racine de braise contre de la Viande séchée du marcheur de lisière.",
+        "**Parent** : 3 Écho lié contre une Lame d'Espritoutillage ; 3 Écho lié contre une Pioche d'Espritoutillage.",
+        "Chaque échange rapporte **+2** de réputation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "Au rang **Voix**, l'Ancien te donne la Marque de tribu des Marcheurs de lisière. Fabrique-la avec un {item:tribalpower:resonance_totem_fire} et deux Espritissu pour en faire leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Feu**.",
+        "Les Parents des Marcheurs de lisière portent leur [don](tribe_boons) : aucune chute ne te blesse tant que tu **t'accroupis**.",
+        "Leur plat porte le don pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu la portes.",
+        "Acheter une Dent de faille au rang Ami est plus sûr pour obtenir leur réactif que de chasser des Molosses de la faille.",
+        "Au rang **Voix**, tu peux aussi lier un **Molosse de la faille** comme [familier](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Marcheurs de lisière t'a demandé, et jusqu'où leur récit est allé. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

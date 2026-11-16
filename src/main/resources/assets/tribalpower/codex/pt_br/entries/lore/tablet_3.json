@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Botas dos Caminhantes da borda",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Guardada num acampamento dos Entalhadores de selos, nas palavras dos Caminhantes da borda:",
+        "“Primeiro as botas. Depois a ponte. Depois a coragem; ela chega sozinha. Caminhamos pela borda da fenda onde o fio desfiava mais fino e pusemos apoios para os demais. Um apoio é ferro, couro e a promessa de não olhar para baixo.”"
+      ]
+    }
+  ]
+}

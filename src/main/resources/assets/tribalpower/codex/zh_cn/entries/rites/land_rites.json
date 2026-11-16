@@ -1,0 +1,50 @@
+{
+  "name": "土地仪式",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "土地仪式会暂时改变一片区域：作物更快、敌对更少，或是遥远图腾之间的一条借用连接。",
+        "它们遵循与一切石板仪式相同的规则：匹配的印章、圆，以及8个方块内由导体输送的脉动。"
+      ],
+      "title": "土地仪式"
+    },
+    {
+      "type": "text",
+      "title": "三种土地仪式",
+      "text": [
+        "- **绿色祝福**（土，**600**脉动，一根节根）：祝福火盆周围**九个区块**，持续二十分钟。那里的作物、树苗和茎会获得额外随机刻，并闪着绿光。",
+        "- **静夜**（灵，**600**，一枚哨卫印）：在十五分钟内静默**64个方块**内的敌对生成，如同一个宽大的静默图腾。印刻者把这块石板卖给朋友。",
+        "- **地脉束缚**（织机，**1,200**，织机线）：把火盆最近的共鸣图腾与**64个方块**内的另一个绑在一起，持续三十分钟。它嗡鸣时，一个图腾触及的导体织入另一个的网络，脉动沿丝线穿过。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "施放之前",
+      "text": [
+        "先画好圆：缺了台座会使施放失败，且不消耗石板。",
+        "在圆的四个正方位放上四个匹配图腾，花费减四分之一，时间加倍：绿色祝福便以450脉动持续四十分钟。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

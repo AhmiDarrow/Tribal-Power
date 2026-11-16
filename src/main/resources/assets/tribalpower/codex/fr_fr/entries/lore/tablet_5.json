@@ -1,0 +1,16 @@
+{
+  "name": "Tablette : Chant des Tisserands de motifs",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Conservée dans un camp des Graveurs de sceaux, selon les mots des Tisserands de motifs :",
+        "“Une usine est un chant qui n'a plus besoin du chanteur. Nous avons inscrit les cadences sur des roues d'horloge et de la poussière de mite, et laissé le Métier porter l'air. Quand la Coupure est venue, les chants ont continué. Certains jouent encore. Écoute le clic avant le bourdonnement.”"
+      ]
+    }
+  ]
+}

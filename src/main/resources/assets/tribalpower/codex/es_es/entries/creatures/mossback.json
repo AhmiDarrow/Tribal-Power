@@ -1,0 +1,52 @@
+{
+  "name": "Lomomusgo",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Una tortuga de estanque paciente, con un jardín que le crece en el caparazón. Cepilla a los adultos para obtener una Escama de lomomusgo mudada de forma natural.",
+        "Cazado, también suelta de 2 a 4 Caza cruda y hasta 2 Cuero de la Marcha. Críalo con **Hierba marina o Alga de cinta**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Lomomusgo vadean los pantanos de la Superficie y los pantanos de manglar. En la Marcha se apiñan en la Ciénaga de juncos, y unos pocos vagan por los Campos de cristal, la Estepa y los Campos de nieve.",
+        "Un Lomomusgo tiene **30 de salud** y **6 de armadura**, y se mueve lento. Es manso y se aparta de los monstruos. Cría dos con **Hierba marina**."
+      ],
+      "title": "Dónde lo encuentras"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cepilla un adulto para obtener una **Escama de lomomusgo**, una vez por minuto. Las escamas se ligan en 2 Tejido espiritual bajo Agua, y los Vinculadores de raíces las prefieren como ofrenda.",
+        "Si cazas uno, suelta **de 2 a 4 Caza cruda** y hasta 2 Cuero de la Marcha, más con Saqueo, cocinada si murió ardiendo."
+      ],
+      "title": "Lo que da"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un Lomomusgo vinculado es una alforja andante con **9 espacios** (12 con la marca Bolsillo hondo). Si muere, suelta todo lo que lleva en la bolsa.",
+        "Consulta la página [regalos del familiar](familiar_gifts) para ver cómo abrir la bolsa y enviarlo a esperar."
+      ],
+      "title": "Como familiar"
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Al cazarlo suelta esto, más con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar salvajes, **agáchate** mientras alimentas a dos adultos con su comida; si lo alimentas con normalidad, el salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

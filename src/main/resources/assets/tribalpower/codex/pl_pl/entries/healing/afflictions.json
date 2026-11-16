@@ -1,0 +1,25 @@
+{
+  "name": "Dolegliwości",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Poza [Duchową chorobą](spirit_sickness) na zewnątrz mogą osiąść na tobie jeszcze trzy rzeczy:",
+        "- **Niezaśpiewana cisza**: bełty Ciszy Niezaśpiewanego zabierają z sobą twój głos. Przez **12 sekund** nie odpowie ani pieśń, ani głos kostura. Przeczekaj, wypij mleko albo zmyj to.",
+        "- **Wystrzępiony**: cios dzikiego **Tkacz echa** albo **Mroczny pełzacz** wyrywa z ciebie coś: **dwa serca** zdrowia na **dwie minuty**. Mleko nic nie daje.",
+        "- **Choroba ley**: ziemia się chwieje, a ogniwa, które nosisz, tracą **2 Pulsy co dwie sekundy** za każdy poziom. Bierze się ze stania na gołym skrzyżowaniu ley, gdy nici wezbrają. Mleko ją zdejmuje."
+      ],
+      "title": "Co Marsz zostawia na tobie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Każdy [lek](remedies) zdejmuje je wszystkie, a [Krąg leczenia](healing_circle) i noc w [szałasie potu](sweat_lodge) też.",
+        "Stary sposób to **Studnia Ducha**: znajdź jedną w Marszu, wejdź do jej wody i **skradaj się**. Za **40 Pulsów** z ogniwa, które nosisz, studnia zdejmuje z ciebie każdą dolegliwość, w tym Duchową chorobę."
+      ],
+      "title": "Domycie"
+    }
+  ]
+}

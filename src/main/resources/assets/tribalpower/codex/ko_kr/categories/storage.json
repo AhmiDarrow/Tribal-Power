@@ -1,0 +1,6 @@
+{
+  "name": "보관과 화물",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 50,
+  "description": "물건을 넣는 저장고와 저수조, 그리고 관 없이 기계에서 기계로 나르는 릴레이."
+}

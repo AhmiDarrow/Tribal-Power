@@ -1,0 +1,74 @@
+{
+  "name": "微光山脊的兽",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "山脊自有的",
+      "text": [
+        "[微光山脊](glimmer_ridge)的月长石高处，开阔地有一只披板的啮兽和一只蛾，下方洞穴里有一只发光蠕虫和一只水晶蜘蛛。",
+        "这里每只温顺的兽都可以每分钟刷一次以取得试剂，并用下文**狩猎与牧养**里写明的专属食物来引诱和繁殖。它可以像任何温顺动物一样缔结（见[使魔](familiars)）。虽然都没有自己的天赋，缔结之后仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "棱镜啮兽",
+      "text": [
+        "低伏的蜥蜴啮兽，背上有一排棱镜板，两到四只成群。**24点生命值**与**3点护甲**。",
+        "掉落1到3个**棱镜冠**，抢夺时更多。",
+        "猎杀时还会掉落1到2个生野味，以及最多1个远行界皮革。用**微光豆**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "碎片蛾",
+      "text": [
+        "一种紫色的蛾，翅膀如切割过的水晶，在山脊上一到三只地飞舞。**10点生命值**，无护甲。",
+        "掉落1到3个**碎片翅**。",
+        "猎杀时还会掉落最多1个线和最多1个紫水晶碎片。用**微光豆**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "荧光幼虫",
+      "text": [
+        "一种萤虫，身躯细长分节，顶着一颗又大又暗的头，尾端燃烧，居于山脊之下的黑暗洞穴，一次一到三只。**18点生命值**和**1点护甲**。它性情温和，会像任何啮兽一样逃离怪物。",
+        "掉落1到3个**荧光壳**。",
+        "猎杀时还会掉落最多2个荧石粉。用**灯笼盖**或任意蘑菇繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "刻面潜者",
+      "text": [
+        "同一片洞穴中的水晶蜘蛛。无论白天黑夜，它都会在那里的黑暗中现身，一次一两只。它有**21点生命值**和**1点护甲**，行动迅速，撕咬造成**5**点伤害，并使你中毒3秒。",
+        "掉落1到2个**刻面刺**，一种毒试剂。",
+        "猎杀时还会掉落最多1个紫水晶碎片和最多1个线。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与饲养",
+      "text": [
+        "除试剂外，猎杀时掉得更多，有抢夺还会再多。若死于燃烧，肉会变成烤野味。要繁殖野生的，给两只成年的喂它们的食物时请**潜行**；若正常喂食，野生的反而会对你亲近。"
+      ]
+    }
+  ]
+}

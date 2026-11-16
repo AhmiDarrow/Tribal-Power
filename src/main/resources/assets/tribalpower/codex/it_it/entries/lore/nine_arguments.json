@@ -1,0 +1,17 @@
+{
+  "name": "Nove dispute",
+  "icon": "tribalpower:lore_tablet",
+  "order": 50,
+  "spoiler": false,
+  "next": "mending_means",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nessuna tribù poteva reggere il cielo da sola. Suolo senza Pietra è calore senza un posto dove stare. Scintilla senza Orologio è un battito senza canto. Sigillo senza Fuso è una promessa senza una strada per casa.",
+        "Il vecchio mondo non era pace. Era manutenzione. Otto tirate divennero otto dispute, e la nona, quella dei Cucitori del telaio, fu la cucitura lungo la quale strapparono. Poi il resto andò come una corda attraverso una mano.",
+        "Il Taglio non fu una guerra. Furono nove lavori lasciati incompiuti nello stesso respiro."
+      ]
+    }
+  ]
+}

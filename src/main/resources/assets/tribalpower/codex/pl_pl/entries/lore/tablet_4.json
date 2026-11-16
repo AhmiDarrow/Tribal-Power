@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Rytm Bęben-serc",
+  "icon": "tribalpower:lore_tablet",
+  "order": 140,
+  "spoiler": true,
+  "unlock": "tablet:4",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Z Kręgu bębnów w Marszu, słowami Bęben-serc:",
+        "“Bęben nie jest głośny. Bęben jest równy. Bądź bębnem. Jedno uderzenie na oddech, i miedź odpowiada; opuść uderzenie, a zapomni o tobie. Każda maszyna w Marszu wciąż trzyma nasz czas. Uderz, czekaj, uderz. I tyle.”"
+      ]
+    }
+  ]
+}

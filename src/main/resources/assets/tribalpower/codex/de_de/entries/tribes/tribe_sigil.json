@@ -1,0 +1,65 @@
+{
+  "name": "Siegelkerber",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Siegelkerber",
+      "text": [
+        "„Der Geist geht hin, wo man ihn höflich bittet, und bleibt, wo man ihn speist.“",
+        "Strähne von **Sigill**, Stimme von **Geist**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Siegelkerber schnitten vor dem Schnitt Leersiegel zu Tausenden und verlangten viel zu viel. Ein Siegel ist eine höfliche Bitte, in Stein geschnitten; ein Kohlebecken ist die Mahlzeit. Das Handwerk ist **Siegel und Riten**.",
+        "Die Lager stehen in **Finsterwäldern**, und im Marsch steht in jedem Band eines von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Das Reagenz ist die **Geistscherbe**, **+8** Ansehen an ihrem Herd wert.",
+        "Außerdem nehmen sie ein Leersiegel oder ein beliebiges Elementsiegel an: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran, dass der Herd am Tag höchstens **60** Ansehen aus Gaben annimmt; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 2 Geistscherbe für ein Leersiegel; 4 Echoscherbe für 4 Ritualkreide.",
+        "**Freund**: ein Leersiegel und 2 Geistscherbe für ein Geistsiegel; 3 Abgestimmtes Echo und 2 Geistscherbe für die Ritentafel: Stille Nacht; 4 Fennreis für Siegelkerberbrühe.",
+        "**Sippe**: 3 Gebundenes Echo für ein Ritualkohlenbecken; 4 Gebundenes Echo für eine Weckglocke.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gunst",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Siegelkerber. Fertige sie mit einem {item:tribalpower:resonance_totem_spirit} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Geist**.",
+        "Die Sippe der Siegelkerber trägt ihre [Gunst](tribe_boons): deine Amulette verlangen **die Hälfte** des Pulses.",
+        "Ihr Gericht trägt die Gunst für **5 Minuten**, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Ihr Tausch als Freund gegen eine Ritentafel spart die Suche nach den Reagenzien. Sie sind auch der einzige Stamm, der eine **Weckglocke** verkauft.",
+        "Bei **Stimme** kannst du auch eine **Trauerglocke** als [Vertrauten](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sigil",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Siegelkerber von dir verlangt hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

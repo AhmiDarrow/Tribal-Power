@@ -1,0 +1,56 @@
+{
+  "name": "Chiave e bacchetta",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Chiave del totem",
+      "text": [
+        "Ogni macchina dell'accampamento guarda da qualche parte e, prima o poi, dalla parte sbagliata. Usa la chiave su un blocco e quello ruota sul posto, senza romperlo e rimetterlo. I tronchi e i pilastri rotolano sull'asse successivo.",
+        "**Usa accovacciato la faccia di una macchina** e quella faccia scorre su Entrambi, Ingresso, Uscita e Chiuso — la stessa impostazione che mostra il riquadro laterale della macchina, raggiungibile da fuori dalla schermata.",
+        "Sulle [piastre di canto](song_plates) sincronizza invece di girare: usane una accovacciato per trattenere il suo canto, poi usane un'altra perché senta la prima, senza un filo in mezzo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quanto costa e cosa rifiuta",
+      "text": [
+        "Una girata prende **1 Pulso** da qualunque cella che porti. Senza Pulso addosso, la chiave consuma invece un punto dei suoi **512**, così funziona anche in una brutta giornata.",
+        "Una torcia a muro, una scala o una leva passa alla parete successiva che la regge e resta dov'è se non ce n'è nessuna.",
+        "Non gira un blocco che in realtà sono due: un letto, una porta, una cassa doppia, una pianta alta oppure un **pistone esteso** e la sua testa. Ritrai prima il pistone.",
+        "Rispetta la terra protetta e rifiuta le macchine posate da qualcuno fuori dal tuo accampamento, come farebbe una mano vuota: legge comunque le piastre di canto di un altro accampamento, ma non le sincronizza né ne trattiene i canti."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Bacchetta del Tessitore",
+      "text": [
+        "Fai clic sulla faccia di un blocco e la bacchetta porta quella faccia all'infuori attraverso ogni vicino uguale: fino a **32 blocchi** in una passata, appoggiata al lato che hai cliccato.",
+        "I blocchi vengono dal tuo zaino e dalla tua barra di selezione, e costano **2 Pulso** ciascuno; ogni passata consuma alla bacchetta un punto dei suoi **768**. Riempie solo lo spazio vuoto e non sostituisce mai ciò che c'è già, così un pavimento si posa in un clic e non si perde nulla sotto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dove non posa",
+      "text": [
+        "La bacchetta salta ogni punto dove il blocco non potrebbe stare (una torcia senza appiglio, una pianta sulla pietra) e ogni punto in terra protetta, e posa il resto.",
+        "Non copia un blocco che contiene più di un oggetto o che ha un inventario: una lastra doppia, una porta o un letto, una pila di candele o cetrioli di mare, neve a strati, un baule o una macchina.",
+        "Se resti senza blocchi o senza Pulso a metà strada, la passata si ferma lì."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "name": "Ce que font les familiers",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Renard-lanterne",
+      "text": [
+        "Un Renard-lanterne lié éclaire le chemin."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Une **Lumière d'Esprit** invisible l'accompagne à la lumière **10** ; la marque Veine-lueur monte cela à **12**.",
+        "Tu as Vision nocturne tant que tu restes à **8 blocs** de lui.",
+        "Toutes les **4 secondes**, il marque les minerais à **6 blocs** de lui par des éclats que toi seul vois. Acuité raccourcit l'attente, un Bourdon fort l'accélère, et le Bourdon nocturne l'accélère encore après la tombée de la nuit."
+      ],
+      "title": "La lanterne du renard"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Dos-mousse",
+      "text": [
+        "Un Dos-mousse lié porte tes affaires."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Accroupis-toi et utilise-le à **main vide** pour ouvrir une sacoche de **9 emplacements**, ou de **12** avec Poche profonde.",
+        "S'il meurt, la sacoche se répand au sol."
+      ],
+      "title": "La sacoche du Dos-mousse"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Cerf de l'aube",
+      "text": [
+        "Un Cerf de l'aube lié se monte sans selle."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Utilise-le pour monter. Dirige du regard, maintiens le saut pour un court bond et accroupis-toi pour descendre. Il ne porte que celui auquel il est lié.",
+        "Foulée le rend plus rapide ; la marque Bond saute plus haut."
+      ],
+      "title": "Monter le cerf"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ils frappent qui t'a frappé, et celui que tu frappes, mais jamais un joueur ni le compagnon d'un autre gardien. Un vestige sauvage qu'ils frappent riposte. Ils sont braves, pas imbattables : ils perdent encore face aux gardiens.",
+        "**Gueule douce** les empêche de mordre les villageois ou les golems. **Piste** (deux copies, molosses seulement) fait luire le dernier ennemi qui t'a blessé, partout dans les 48 blocs."
+      ],
+      "title": "Combattants : Dos-éclat et Molosse de la faille"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Une Phalène de tempête **assise** laisse un **Clic d'Esprit** invisible de redstone **15** une fois par seconde, pendant 2 ticks. Clic juste le maintient 2 ticks de plus. Ce n'est pas un tambour : les Cœur-tambour, les braseros et les clés de voûte l'ignorent, mais les plaques de chant et la redstone l'entendent.",
+        "Un Diablotin d'escarbille **suivant** rend **4 Pulsation** chaque fois que tu joues un Cœur-tambour à la main dans les **8 blocs**. Les battements de redstone n'obtiennent rien, et un seul diablotin paie par battement. Tempo (deux copies) rend 2 de plus, **6** en tout."
+      ],
+      "title": "Phalène de tempête et Diablotin d'escarbille"
+    },
+    {
+      "type": "scene",
+      "title": "Une phalène comme horloge",
+      "steps": [
+        {
+          "caption": "Pose une lampe de redstone là où ta phalène va s'asseoir, puis accroupis-toi et utilise-la pour qu'elle attende à côté.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Une fois par seconde, un Clic d'Esprit invisible apparaît là où la phalène plane.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La lampe à côté s'allume à chaque clic : une horloge gratuite d'une seconde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Cœur-tambour de l'autre côté n'entend rien, parce que les tambours ignorent le clic.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Une Cloche de deuil qui te suit, dans les **8 blocs**, te retire le poison, la faiblesse, la faim, la fatigue, la cécité et la nausée. Immobile (deux copies) retire aussi la lenteur. Elle ne lève jamais le Wither.",
+        "Un Tisserand d'écho qui te suit ramasse ce qui tombe dans les **4 blocs**, dans une poche à **cinq emplacements**, et te le lance. Récolte (deux copies) atteint **8**. Accroupis-toi et utilise-le à mains vides pour vider la poche toi-même."
+      ],
+      "title": "Cloche de deuil et Tisserand d'écho"
+    }
+  ]
+}

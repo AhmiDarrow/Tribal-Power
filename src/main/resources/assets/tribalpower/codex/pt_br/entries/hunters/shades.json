@@ -1,0 +1,73 @@
+{
+  "name": "Sombras",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sombras",
+      "text": [
+        "Os mortos da Marcha andam onde morreram: um capuz vazio com duas luzes dentro e um manto sem nada por baixo. Cada sombra tem **25 de vida** e nenhuma armadura, e acerta por **5**, mas cada uma luta do seu jeito.",
+        "Cada um deixa cair **de 1 a 2** do seu reagente, mais com Pilhagem. Nenhum deles se vinculará."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Sombra do túmulo",
+      "text": [
+        "Um rei morto coroado, em faixas de tumba. Ele assombra as cavernas escuras sob o Planalto, de dia ou de noite, um ou dois por vez. O golpe dele enfraquece você por 4 segundos.",
+        "Ele deixa cair **Mortalha do túmulo**, um reagente de Enfraquecer.",
+        "Caçado, também deixa cair de 1 a 2 ossos e até 1 Membrana de phantom."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Espectro pálido",
+      "text": [
+        "Um espectro gélido que arrasta longos véus. Ele voa à noite sobre os Campos de Neve, um ou dois por vez. De até 12 blocos de distância, lança um calafrio que deixa você mais lento por 3 segundos. Cobertura interrompe o lançamento.",
+        "Ele deixa cair **Véu de espectro**, um reagente de Calafrio.",
+        "Caçado, também deixa cair até 1 Membrana de phantom e até 2 bolas de neve."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Sombra de cinza",
+      "text": [
+        "Um espectro fumegante com mãos carbonizadas. Ele voa à noite sobre os Ermos de Brasa, um ou dois por vez, e é **imune ao fogo**. De até 12 blocos de distância, lança um virote que põe você em chamas por 2 segundos. Cobertura interrompe o lançamento.",
+        "Ele deixa cair **Brasa de sombra**, um reagente de Virote.",
+        "Caçado, também deixa cair até 1 Membrana de phantom e tem uma chance em três de deixar cair Pó de blaze."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Sombra afogada",
+      "text": [
+        "Um espectro coberto de algas, com uma lanterna. Ele surge à noite na água dos Rasos, um ou dois por vez, e nada ou anda atrás de você: a margem não é refúgio. O golpe dele enfraquece você por 4 segundos.",
+        "Solta **Alga afogada**, um reagente de Enfraquecer.",
+        "Caçado, também solta até 1 membrana de phantom e até 2 fragmentos de prismarinho."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Saque."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "5. La caduta",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "La caduta",
+      "text": [
+        "“Quando un filo molla, gli altri otto reggono per un respiro, e poi si strappano. Il suolo si staccò dal cielo a pezzi. Ciò che non cadde andò alla deriva. Ciò che andò alla deriva è la Marcia.”",
+        "Trovato su una Pietra intagliata nelle rovine della Marcia."
+      ]
+    }
+  ]
+}

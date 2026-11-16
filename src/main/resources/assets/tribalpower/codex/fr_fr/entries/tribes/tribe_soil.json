@@ -1,0 +1,64 @@
+{
+  "name": "Gardiens des litières",
+  "icon": "tribalpower:tribe_mark",
+  "order": 40,
+  "spoiler": true,
+  "unlock": "tribe:soil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_soil",
+      "title": "Gardiens des litières",
+      "text": [
+        "« Nous ne l'avons jamais appelé terre. Nous l'avons appelé ce qui restait, et nous l'avons gardé au chaud. »",
+        "Brin de **Sol**, voix de **Terre**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qui ils sont",
+      "text": [
+        "Quand le sol s'est dérobé, les Gardiens des litières l'ont porté dans des paniers, une litière à la fois, et ont posé un Âtre sur chaque litière sauvée. Leur métier est **âtres et caches** : garder ce qui reste, et le garder au chaud.",
+        "Leurs camps se tiennent dans les **plaines**, et dans la Marche un de leurs camps se tient dans chaque bande, du nord gelé jusqu'au sel."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils veulent",
+      "text": [
+        "Leur réactif est l'**Éclat d'écho**, qui vaut **+8** de réputation à leur Âtre.",
+        "Ils favorisent aussi n'importe quelle terre, un Bloc de mousse, du Pain, Sol de la Marche ou Mousse de la Marche : **+3** chacun. Toute autre nourriture vaut **+1**, et une Cellule de Pulsation chargée **+2 pour chaque 10 Pulsation**, jusqu'à +8.",
+        "Rappelle-toi que l'Âtre prend au plus **60** de réputation par jour en offrandes ; voir [Tribus et réputation](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que l'Ancien échange",
+      "text": [
+        "**Hôte** : 4 Pain contre 2 Éclat d'écho ; 6 Blocs de mousse contre 4 Mousse de la Marche.",
+        "**Ami** : 2 Écho accordé contre un Bassin de pierre ; 8 Pain contre un Écho accordé ; 4 Racine de braise contre Purée de racine du gardien.",
+        "**Parent** : 4 Écho accordé contre une Cache ancestrale ; 2 Écho lié et 8 Blocs de mousse contre une Cache profonde.",
+        "Chaque échange rapporte **+2** de réputation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marque, totem et don",
+      "text": [
+        "À **Voix**, l'Ancien te donne la Marque de tribu des Gardiens des litières. Fabrique-la avec un {item:tribalpower:resonance_totem_earth} et deux Espritissu pour obtenir leur [Totem de parenté](kinship_totem).",
+        "À côté d'un Résonateur de Pulsation, c'est une voix de plus ; à côté d'une station, il prête **Terre**.",
+        "Les Parents des Gardiens des litières portent leur [don](tribe_boons) : tes champs ne sont jamais piétinés, et la faim vient plus lentement.",
+        "Leur plat porte le don pendant **5 minutes**, et leur [relique](elders_and_stories) tant que tu le portes.",
+        "Les Gardiens des litières sont la tribu la plus simple pour commencer : le pain et la terre ne sont jamais loin."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Ton travail avec eux",
+      "text": [
+        "Ce que l'Ancien des Gardiens des litières t'a demandé, et jusqu'où leur histoire est allée. Voir [Anciens, requêtes et récits](elders_and_stories)."
+      ]
+    }
+  ]
+}

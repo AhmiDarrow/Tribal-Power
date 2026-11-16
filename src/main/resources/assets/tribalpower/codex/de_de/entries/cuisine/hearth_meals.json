@@ -1,0 +1,72 @@
+{
+  "name": "Herdmahlzeiten",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eine Mahlzeit für die Arbeit vor dir",
+      "text": [
+        "Satter als [Wegzehrung](road_fare) und gekocht aus der wilden Beute des Marschs: jede Mahlzeit füllt dich gut und leiht eine schlichte Gabe für die Aufgabe vor dir. Keine füllt mehr als das beste [Stammesgericht](tribe_dishes), und keine trägt eine Gunst.",
+        "- **Treibglockenklöße**: Treibgelee, Steppenkorn, ein Ei. Zwei pro Topf, 5 Hunger und **Sanfter Fall für 30 Sekunden**: iss sie vor einem Fall.",
+        "- **Schürfereintopf**: ein brauner und ein roter Pilz, eine Kartoffel, Fennreis, eine Schüssel. 7 Hunger und **Eile für 90 Sekunden**, die Schüssel eines Bergmanns.",
+        "- **Fennrufersuppe**: irgendein roher Fisch (Rohe Glimmerflosse oder Roher Schlickaal), Fennreis, Seetang, eine Kartoffel, eine Schüssel. 8 Hunger und **Unterwasseratmung für 90 Sekunden**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Mahlzeit für die Arbeit vor dir, Fortsetzung",
+      "text": [
+        "- **Schilfumwickelter Aal**: Roher Schlickaal, Geistrohr, Marschblatt. 7 Hunger und **Nachtsicht für 120 Sekunden**, für dunkles Wasser und tiefe Höhlen.",
+        "- **Glutgerösteter Kürbis**: ein Kürbis, Glutwurzel, Steppenkorn. Zwei pro Topf, 6 Hunger und **Stärke für 30 Sekunden**.",
+        "- **Langjagdeintopf**: Gebratenes Wildbret, eine Kartoffel, eine Karotte, Glutwurzel, eine Schüssel. 9 Hunger, die sättigste Lagerkost, und **Absorption für 60 Sekunden**: iss ihn vor einer harten Nacht.",
+        "- **Blütengesangcreme**: Echoblüte, ein Ei, Zucker, Honigwabe, eine Schüssel. 6 Hunger und **Regeneration für 15 Sekunden**, um unterwegs zu heilen.",
+        "- **Fisch mit Pommes**: zwei Rohe Glimmerflosse oben im Quadrat, zwei Glutwurzel darunter. 8 Hunger und die **höchste Sättigung aller Mahlzeiten im Lager**, also hält sie dich am längsten satt, leiht aber keine Gabe.",
+        "Schüsseln kommen zurück, wenn du isst. Packs können in der Config ändern, wie lange jede Gabe hält."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

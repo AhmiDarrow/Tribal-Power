@@ -1,0 +1,52 @@
+{
+  "name": "Molosse de la faille",
+  "icon": "tribalpower:rift_tooth",
+  "order": 150,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rift_hound_spawn_egg",
+    "tribalpower:rift_tooth"
+  ],
+  "next": "echo_weaver",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rift_hound",
+      "text": [
+        "Un lévrier maigre déchiré par des failles lumineuses, attiré par les déchirures du treillis. Il réduit la distance vite, mais ne peut pas traverser les mondes tout seul.",
+        "Chassé, il lâche aussi jusqu'à 2 Os et jusqu'à 1 Cuir de la Marche."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les Molosses de la faille chassent dans la Steppe de la Marche, dans les Hautes Terres, sur la Crête de lueur, dans les Champs de neige et dans les Landes de braise.",
+        "Il a **28 de santé** et **2 d'armure** et frappe pour **5**. C'est le plus rapide des vestiges, alors tu ne le distanceras pas facilement. Tourne-toi et bats-toi le dos au mur."
+      ],
+      "title": "Où et comment"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Il lâche **1 à 2 Dent de faille**.",
+        "Une Dent de faille s'accorde en 2 Écho accordé sous Esprit."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Atteins **Voix** auprès des **Marcheurs de lisière**, puis utilise un Charme de lien sur un adulte : deux essais sur cinq, le charme est dépensé en cas d'échec. Ou nourris-le avec son propre réactif : un essai sur cinq, et le réactif est dépensé dans tous les cas.",
+        "Un molosse lié est un combattant, et la marque rare **Piste** te montre le dernier ennemi qui t'a blessé. Voir [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et troupeau",
+      "text": [
+        "Outre son réactif, il lâche ceci quand on le chasse, davantage avec Butin."
+      ]
+    }
+  ]
+}

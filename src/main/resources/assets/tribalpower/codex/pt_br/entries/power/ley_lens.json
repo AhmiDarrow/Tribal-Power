@@ -1,0 +1,55 @@
+{
+  "name": "Lente ley",
+  "icon": "tribalpower:ley_lens",
+  "order": 60,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_lens",
+      "text": [
+        "Uma vidraça, um Ressonador de cobre e um Fragmento de Espírito fazem uma lente para a visão de ley. Olhe através dela e você vê o que o terreno e o seu acampamento estão fazendo: quão forte é a ley, até onde o Pulso chega, quais totens estão acordados e quais máquinas trabalham."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cinco visões",
+      "text": [
+        "Segure-a em qualquer uma das mãos e use-a para percorrer cinco visões:",
+        "- **Ley**: desenha as linhas de ley ao seu redor, cada fio na cor da sua voz.",
+        "- **Zona de Pulso**: mostra a rede de treliça em que você está: o alcance de **8 blocos** dos condutores, o condutor que você toca contornado com mais brilho, e uma marca sobre cada bloco que guarda Pulso. O painel nomeia os condutores da rede e o ritmo, o grau do seu condutor e o que ele carregou no último segundo, e soma o Pulso que entra na rede contra o que as máquinas gastam. Fora da treliça, ele diz isso.",
+        "- **Vozes**: marca os totens próximos na cor da própria voz quando respondidos, um tom mais escuro quando tênues, e cinza quando quietos.",
+        "- **Máquinas**: marca as máquinas de Tribal Power ao seu redor.",
+        "- **Desligado**: o vidro escurece. Sem linhas, sem painel, sem marcas. Os óculos de ley que você está usando ainda mostram os fios.",
+        "Cada visão tem o próprio painel na tela. A visão de Ley mostra a força da ley onde você está, Zona de Pulso o que está guardado e o que flui, Vozes as vozes ao alcance, e Máquinas as estações, relés e depósitos ao redor. Desligado não mostra nada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fios de ley",
+      "text": [
+        "As linhas de ley são uma teia por toda a dimensão: o Pulso do planeta, não blocos. Cada linha é um fio na cor de um Totem de ressonância (Terra em verde, Fogo em laranja, Água em azul, Ar em céu pálido, Espírito em violeta ou Tear em dourado), com um nó brilhante que lateja ao longo.",
+        "Um totem puxa o fio da própria cor através de si, então você pode guiar um fio por onde coloca o totem. Um cruzamento fica mais ou menos a cada **80 blocos**. A maioria junta dois a quatro fios, e só cerca de um em quarenta reúne os seis.",
+        "Fabrique uma Lente ley em um [Capuz de Tece-espírito](spiritweave) e os óculos do capuz mostram os mesmos fios enquanto você o veste, mesmo com uma lente na mão em Desligado; uma lente em outra visão os esconde. Agache e use o capuz, ou faça um clique agachado com a mão vazia enquanto ele está na sua cabeça, para desligar e ligar os óculos."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "ley_lens",
+      "title": "Lendo o chão",
+      "text": "A lente desenha só os fios, nunca o chão. Na visão de Ley, a barra de força no painel fica dourada onde um Coletor de ley cantaria mais alto e azul onde mal zumbiria."
+    },
+    {
+      "type": "text",
+      "title": "De perto",
+      "text": [
+        "Agache e use a lente num Coletor de ley para imprimir no chat a divisão exata dos fatores desse coletor: os mesmos números com que ele coleta.",
+        "Agache e use-a numa criatura da Marcha, selvagem ou vinculada, para imprimir os fios e as Marcas dela; veja [Vincular um familiar](familiars).",
+        "A linha de força é a mesma batida que um coletor contaria ali, de 1 a **16**, mostrada como uma parte dos 16 inteiros. A parte da terra para em 6, e cada linha de ley soma até 2, menos quanto mais longe você estiver dela. Uma batida de **8 ou mais** mantém os totens próximos acordados. Um telhado tira céu, chuva e tempestade, mas as linhas ficam, então um coletor coberto fica mais fraco, não morto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_lens"
+    }
+  ]
+}

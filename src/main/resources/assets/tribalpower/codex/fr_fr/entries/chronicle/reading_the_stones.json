@@ -1,0 +1,38 @@
+{
+  "name": "Lire les pierres",
+  "icon": "tribalpower:carved_stone",
+  "order": 0,
+  "spoiler": false,
+  "items": [
+    "tribalpower:carved_stone",
+    "tribalpower:mural",
+    "tribalpower:soil_banner_pattern",
+    "tribalpower:stone_banner_pattern",
+    "tribalpower:sprout_banner_pattern",
+    "tribalpower:claw_banner_pattern",
+    "tribalpower:spark_banner_pattern",
+    "tribalpower:clock_banner_pattern",
+    "tribalpower:swarm_banner_pattern",
+    "tribalpower:sigil_banner_pattern",
+    "tribalpower:spindle_banner_pattern"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Pierre gravée et fresques",
+      "text": [
+        "La Marche a écrit sa propre histoire, dans la pierre. Dans les murs de ses ruines sont serties des **Pierre gravée** : ruines du Métier, villages sur pilotis, sanctuaires engloutis, tertres de tourbière, tombes de cendre, ossuaires, galeries de fouille et les voûtes de la Crête de lueur. Sur les terrains des gardiens, les **Fresque gravée** font deux blocs de large et deux de haut ; chacune peint le pays où elle se tient.",
+        "Fais un clic droit sur l'un et tu le lis ; le fragment est gardé ici pour de bon, et la Chronique le met à sa place. Il y en a **seize** : huit pierres pour la chute du Métier, huit fresques pour les pays qu'il a laissés. Lis-les toutes et la Chronique est entière, avec le progrès **La Chronique entière** pour le montrer.",
+        "Les pierres et les fresques peuvent être ramassées et posées sur n'importe quel mur à toi, et en mode créatif un clic accroupi sur une pierre ou une fresque change son chapitre. Chaque chapitre gâche la surprise tant que tu ne l'as pas trouvé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Peintures et emblèmes",
+      "text": [
+        "Six **peintures** de la Marche pendent maintenant parmi les ordinaires : tiens une peinture contre un mur, et l'une peut sortir. Leurs titres sont les leurs.",
+        "Quand ta place auprès d'une tribu atteint **Parent**, elle te remet son **emblème**, une seule fois : un motif de bannière à la marque de la tribu. Mets-le dans un métier à tisser avec une bannière et n'importe quelle teinture. Fais-le flotter au-dessus d'un camp à toi pour montrer de qui tu es Parent."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Aguja de cristal",
+  "icon": "tribalpower:march_crystal",
+  "order": 70,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "image",
+      "image": "crystal_spire",
+      "text": [
+        "Una aguja que se estrecha, de Cristal de la Marcha, en los Campos de cristal, con un puesto de paso a sus pies."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Al pie de la aguja hay un campamento pequeño: un hogar, estandartes, un tótem del Telar, camas y un telar. Viven allí dos Zurcidores del telar de la tribu del Huso, un Anciano y un Tejedor.",
+        "Los Zurcidores del telar mantienen dos tipos de campamento, ambos solo en la Marcha: este pequeño puesto de paso en los Campos de cristal, y un campamento completo con su propio Anciano en cada banda. En cada uno cuelga una Tablilla de relatos."
+      ],
+      "title": "El puesto de paso"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Reciben el **Cristal de la Marcha**, el **Hilo de Telar** y brújulas como ofrendas. Cada uno aumenta tu [posición](standing) con la tribu.",
+        "En el rango **Amigo** abren intercambios de Hilo de Telar, el suministro constante que quieres cuando ya has saqueado las Salas de los Ancestros cercanas.",
+        "Su historia completa está en la página de los [Zurcidores del telar](tribe_spindle)."
+      ],
+      "title": "Intercambio con los Zurcidores del telar"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los Campos de cristal son mesas aterrazadas, y es fácil perder el rumbo entre el cristal. Vincula una brújula antes de vagar.",
+        "Los Lomoesquirlas empujan con fuerza junto a los bordes. Mantén la espalda lejos de los precipicios."
+      ],
+      "title": "Cómo moverse"
+    }
+  ]
+}

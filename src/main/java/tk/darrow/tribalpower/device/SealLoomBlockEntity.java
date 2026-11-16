@@ -61,7 +61,7 @@ public class SealLoomBlockEntity extends BaseContainerBlockEntity implements Wor
             case "wove" -> Component.translatable("message.tribalpower.seal_loom.wove", reasonName);
             case "seat", "paused", "need_blank", "arrange", "mismatch", "output_full", "need_voice"
                     -> Component.translatable("message.tribalpower.seal_loom." + reason);
-            default -> Component.literal(reason);
+            default -> Component.translatableWithFallback("message.tribalpower.seal_loom." + reason, reason);
         };
     }
 

@@ -1,0 +1,92 @@
+{
+  "name": "Serce ley",
+  "icon": "tribalpower:ley_heart",
+  "order": 35,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ley_heart",
+      "text": [
+        "[Rezonator Pulsu](pulse_resonator) i [Kolektor ley](ley_collector) złożone w jedno. Postaw go w środku **Gwiazda serca**, wszystkie sześć głosów totemów wokół, a spala trzy paliwa naraz i wznosi **sześć linii ley** w świat.",
+        "Przechowuje **200 000 Puls**, około 45 sekund swojego maksimum, i zatrzymuje go, gdy je rozbijesz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gwiazda serca",
+      "text": [
+        "Postaw serce na polu 3x3 z **Kamień kotwiczny**, potem ustaw po jednym Totemie rezonansu **każdego** głosu **pięć bloków** dalej, na poziomie samego serca. Ogień i Woda stoją naprzeciw siebie przez serce, na jednej linii. Ziemia i Powietrze oraz Duch i Krosno stoją naprzeciw siebie na skosach: trzy bloki w poprzek i cztery wzdłuż.",
+        "Każde ustawienie działa. Dopóki każdy element nie jest na miejscu, serce milczy. Przykucnij i kliknij je prawym przyciskiem z tą książką, by usłyszeć, czego brakuje; brakujące miejsca iskrzą w świecie."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "ley_heart",
+      "tier": 1,
+      "title": "Gwiazda serca",
+      "text": "Kamień kotwiczny pod sercem; totem każdego głosu pięć bloków dalej."
+    },
+    {
+      "type": "text",
+      "title": "Na kracie",
+      "text": [
+        "Postaw [Przewodnik kraty](lattice_conductor) w promieniu **8 bloków** od serca. Jego Puls dociera do twoich maszyn tylko wzdłuż kraty, więc serce na szczycie chce zamanifestowanych przewodników albo kilka związanych, by unieść wszystko.",
+        "Jego sześć totemów trzyma głosy tylko dopóki krata ma Puls. Totem, który wysycha, milknie i przestaje się liczyć, więc serce długo bez paliwa potrzebuje innego źródła na swojej kracie, by znów się obudzić."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trzy paliwa",
+      "text": [
+        "Kliknij serce prawym przyciskiem, aby je otworzyć. Każde paliwo ma własne wejście:",
+        "- **Kryształy rezonatora** trafiają do gniazda kryształu: Odłamek echa, Dostrojone echo, Związane echo albo Rdzeń rezonansu. Jeden pali się **15, 12, 10 lub 8 minut**: lepszy kryształ śpiewa głośniej i pali się szybciej.",
+        "- Dowolny **odczynnik stworzenia** trafia do gniazda odczynnika. Zwykły pali się **2 minuty**; taki z **Nić** (zobacz [Odczynniki](reagents)) pali się goręcej i szybciej: **90, 60 lub 40 sekund** dla Nić I, II lub III.",
+        "- **Woda** napełnia zbiornik 8 000 mB z wiadra, rury albo płyty Przekaźnik płynów. Pali się najszybciej z trzech: **200 mB na sekundę**, wiadro co pięć sekund.",
+        "Leje i przekaźniki mogą karmić oba gniazda; nic nie wraca na zewnątrz. Paliwo schodzi tylko w sekundach, które dają Puls, więc pełne serce odpoczywa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co wytwarza",
+      "text": [
+        "Co sekundę serce śpiewa sześć razy pieśń Rezonatora: **6 x głosy x (głosy + 2)**, razy tyle, ile warte są palące się paliwa, przez cztery. Kryształ jest wart tyle, ile w Rezonatorze (**4, 6, 8 lub 12**), zwykły odczynnik **4**, a odczynnik Nić I, II lub III **6, 9 lub 12**, i woda **2**. Jego głosy to odpowiadające totemy z sześciu.",
+        "Do tego dodaje udział ley: **12 Puls na sekundę za każdy punkt** siły ley przy sercu, przy sześciu odpowiadających głosach. Serce czyta ziemię i linie planety, które jego totemy wciągają, ale nie własne sześć.",
+        "Potem harmonia: dwa rodzaje paliwa płonące razem mnożą wszystko przez **1.25**, wszystkie trzy przez **1.5**. Gdy nic nie płonie, nie robi nic. Każda [ranga](machine_ranks) serca dodaje **15%**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jakość jest dźwignią",
+      "text": [
+        "Gdy odpowiada sześć głosów:",
+        "- Odłamek echa, zwykły reagent i woda dają **1,080 do 1,368 Puls na sekundę**, od gołego miejsca do idealnego.",
+        "- Związane echo, reagent Nić II i woda na średnim miejscu (ley 8) dają około **2,200**.",
+        "- Rdzeń rezonansu, reagent Nić III i woda na idealnym miejscu dają **3,096**; serce na randze Manifestowany daje **4,489 Puls na sekundę**.",
+        "Rezonator Rdzeń rezonansu i idealny Kolektor ley obok siebie dają 168."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile to kosztuje",
+      "text": [
+        "Lepsze paliwo śpiewa głośniej i spala się szybciej. Godzina zwykłego serca (Odłamek echa, zwykłe reagenty, woda) spala **4 Odłamek echa, 30 reagentów i 720 wiader wody**.",
+        "Godzina u szczytu spala **7.5 Rdzeń rezonansu, 90 reagentów Nić III** i te same 720 wiader. Jeden Wyniesiony chowaniec szczotkowany co minutę zrzuca 120 reagentów Nić III na godzinę.",
+        "Paliwo schodzi tylko na sekundy, które oddają Puls: pełne serce odpoczywa, aż coś z niego czerpie."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sześć linii ley",
+      "text": [
+        "Póki gwiazda jest cała, serce wznosi **sześć linii ley**, po jednej w kolorze każdego totemu, od serca, przez jego totem i dalej przez **64 bloki** w świat. To prawdziwe linie: [Soczewka ley](ley_lens) je rysuje, a [Kolektor ley](ley_collector) ustawiony wzdłuż jednej czuje ją jak każdą inną. Totemy ich nie uginają.",
+        "Zostają, póki gwiazda stoi, przez zapis i w niewczytanych chunkach. Złam serce albo którykolwiek z sześciu totemów, a wszystkie sześć spadnie naraz; złóż gwiazdę z powrotem, a wstaną w ciągu dwóch sekund.",
+        "Śpiewają tylko totemy w **Odpowiedziany** (zobacz [Utrzymanie](keeping)), a pracujące serce trzyma własną szóstkę jako odpowiedzianą. Stały sygnał redstone'u je ucisza."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ley_heart"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Pasti del Focolare",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un pasto per il lavoro che viene",
+      "text": [
+        "Più saziante dei [viveri di strada](road_fare) e cotto dalla presa selvatica della Marcia: ogni pasto ti riempie bene e presta un dono semplice per il compito davanti a te. Nessuno sazia più del miglior [piatto di tribù](tribe_dishes), e nessuno porta un beneficio.",
+        "- **Ravioli di campana alla deriva**: Gelatina alla deriva, Grano della steppa, un uovo. Due per pentola, 5 di fame e **Caduta lenta per 30 secondi**: mangiali prima di una caduta.",
+        "- **Potaggio dello scavatore**: un fungo marrone e uno rosso, una patata, Riso di torbiera, una ciotola. 7 di fame e **Fretta per 90 secondi**, la ciotola di un minatore.",
+        "- **Zuppa del chiamatore della torbiera**: un pesce crudo qualsiasi (Pinnabaleno crudo o Anguilla di limo cruda), Riso di torbiera, alga, una patata, una ciotola. 8 di fame e **Respirazione acquatica per 90 secondi**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un pasto per il lavoro che viene, continua",
+      "text": [
+        "- **Anguilla avvolta nella canna**: Anguilla di limo cruda, Canna di Spirito, Foglia della Marcia. 7 di fame e **Visione notturna per 120 secondi**, per l'acqua scura e le caverne profonde.",
+        "- **Zucca arrostita alla brace**: una zucca, Radice di brace, Grano della steppa. Due per pentola, 6 di fame e **Forza per 30 secondi**.",
+        "- **Stufato della lunga caccia**: Selvaggina arrostita, una patata, una carota, Radice di brace, una ciotola. 9 di fame, il cibo d'accampamento più saziante, e **Assorbimento per 60 secondi**: mangialo prima di una notte dura.",
+        "- **Crema del canto dei fiori**: Fiore di eco, un uovo, zucchero, favo, una ciotola. 6 di fame e **Rigenerazione per 15 secondi**, per rimarginarti in marcia.",
+        "- **Pesce con patatine**: due Pinnabaleno crudo in cima al quadrato, due Radice di brace sotto. 8 di fame e la **più saturazione di ogni pasto dell'accampamento**, così ti tiene sazio più a lungo, ma non presta alcun dono.",
+        "Le ciotole tornano quando mangi. I pacchetti possono cambiare quanto dura ogni dono nella config."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

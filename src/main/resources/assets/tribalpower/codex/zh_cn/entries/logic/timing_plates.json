@@ -1,0 +1,40 @@
+{
+  "name": "时序板",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "心跳、漂移、敲击、概率",
+      "text": [
+        "- **心跳**送出**15，持续一刻**，然后休息。潜行使用循环**20、40、80、160**刻，再回到20；从20开始，也就是一秒。",
+        "- **漂移**只在背面持续激活**4、8、16或32**刻之后才复制背面（潜行使用以循环；从4开始），背面一落下就跟着落下。",
+        "- **敲击**在上升的背面给出一刻的15，然后安静下来：那是鼓心族和火盆在听的敲击信号。",
+        "- **概率**在每次背面上升时抛硬币：15或0，保持到背面落下。",
+        "鼓心上持续一秒的心跳，在边沿落在节拍上时是一次**24-脉动**的节拍。更慢的设置每一拍只得到**10**。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

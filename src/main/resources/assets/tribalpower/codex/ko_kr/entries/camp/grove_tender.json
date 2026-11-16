@@ -1,0 +1,712 @@
+{
+  "name": "숲 관리인",
+  "icon": "tribalpower:grove_tender",
+  "order": 20,
+  "next": "wind_snare",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:grove_tender",
+      "text": [
+        "잠들지 않는 농장 일꾼. 숲 관리인은 주변 9×9 밭에 심고, 기르고, 수확하며, 수확물을 자기 보관함에 둔다. 당신, 호퍼, 저장고가 가져갈 때까지.",
+        "작물, 묘목, 사탕수수, 선인장, 대나무, 달콤한 열매, 네더 사마귀, 코코아를 다루고, 줄기가 내려놓은 호박과 수박을 자르며, 다 자란 벌레잡이풀을 가져간다. 바닐라의 것, 마치의 것, 다른 모드의 것이 모두 센다. 진달래, 맹그로브 번식체, 벌레잡이풀 꼬투리는 씨앗 줄에 들어가고, 팩이 바닐라 작물 태그와 묘목 태그에 넣은 작물이나 묘목도 그렇다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "설치",
+      "text": [
+        "**직접 놓으세요.** 관리인은 누가 놓았는지 기억하고, 그 플레이어의 권한으로 일한다. 그래서 땅 보호는 그대로 적용된다. 아무도 차지하지 않은 관리인은 아무것도 하지 않는다. **땅**에 응답한다. 8블록 안에 땅 토템을 두세요([야영지의 손](camp_hands) 참고). 없으면 가만히 선다.",
+        "**자기 높이**에서 일한다. 밭은 관리인의 높이에서 사방으로 **4블록** 뻗는 정사각형이다. 그러니 작물 높이에, 경작지에 파묻힌 블록 위에 두고, 작물 위에는 두지 마라.",
+        "씨앗은 메뉴의 **윗줄**, 처음 아홉 칸에 들어간다. 호퍼와 파이프는 위나 옆에서 거기에 넣는다. 수확물은 나머지 칸을 채우고 **아래** 면으로 나간다. [중계판](wireless_cargo)은 호퍼처럼 다룬다. 아래에 단 것은 수확물을 보내고, 위나 옆에 맞춘 판은 씨앗 줄을 채운다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "AgriCraft와 함께",
+      "text": [
+        "팩에 AgriCraft가 있으면 관리인은 그 작물을 자기 것으로 다룬다. 윗줄의 **작물 막대**는 밭에 놓인다(갈아 둔 땅이나 마치 자신의 흙). 빈 막대에는 다른 곳보다 먼저 **씨앗**이 들어간다. 분석된 AgriCraft 씨앗이거나, 감자나 마치의 작물처럼 AgriCraft가 아는 평범한 작물이다.",
+        "익은 작물은 클릭으로 수확하듯 수확한다. 산물은 보관함으로 가고, 작물은 막대에 남은 채 잘려 다시 자란다. 잡초는 **4 펄스**로 긁어내고, 느린 작물은 **16**으로 재촉한다.",
+        "다른 일과 같이, 땅 토템, 비축의 펄스, 차지한 주인이 여전히 필요하다. 막대가 비어 있으면 상태 줄을 본다. 관리인이 무엇을 기다리는지 적혀 있다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "돌본 밭",
+      "steps": [
+        {
+          "caption": "땅을 갈고, 한가운데에 조상 저장고를 묻는다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:farmland"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "숲 관리인을 저장고 위에 세워 작물 높이에 있게 한다. 물이 경작지를 젖게 둔다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:grove_tender"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안에 펄스와 땅 토템을 더하고, 씨앗을 준다. 1초에 한 칸, 4 펄스로 심는다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=0]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:wheat_seeds"
+          }
+        },
+        {
+          "caption": "익은 밀은 12 펄스로 베어 다시 심고, 씨앗 하나를 남긴다.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                2
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:wheat[age=7]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:wheat[age=7]"
+            }
+          ]
+        },
+        {
+          "caption": "관리인의 아래 면은 출력이라, 수확물은 호퍼 없이 저장고로 떨어진다.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "각 일의 비용",
+      "text": [
+        "1초에 한 번 밭을 살펴 **하나**의 일을 한다:",
+        "- **심기** 빈 자리: **4 펄스**.",
+        "- **수확**, 익은 것: **12 펄스**. 작물, 네더 사마귀, 코코아는 베어 다시 심고 씨앗 하나를 남긴다. 열매는 따고 덤불은 남는다. 사탕수수, 선인장, 대나무는 줄기가 높이 **셋**이 되면 꼭대기를 잃는다. 호박이나 수박은 자르고 줄기는 다음 것이 자라게 둔다. 다 자란 피처 식물은 통째로 자른다.",
+        "- **재촉**. 묘목, 줄기, 작물, 코코아 열매, 베리 덤불, 대나무 순을 뼛가루처럼 자라게 한다: **16 펄스**.",
+        "- **물주기**, 이랑: **4 펄스** (아래 참조)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "나무",
+      "text": [
+        "이랑에 다른 일이 없으면 나무를 벤다. 자기 높이에서 위로, **가로 9, 높이 11**인 기둥 안의 원목과 잎을 블록당 **12 펄스**. 나무 농장에는 묘목을 준다. 흙에 심고, 위로 재촉한 다음, 나무를 가져간다.",
+        "베는 것은 **자란 나무**뿐이다. 원목은, 이어진 원목이 나무 스스로 키운 잎에 닿을 때 센다. 그래서 높은 줄기나 넓은 2×2는 그루터기를 남기지 않고 땅까지 내려온다.",
+        "당신이 지은 것은 그대로 둔다. 원목 벽과 집, 직접 놓은 잎, 코코아를 위해 놓은 정글 원목."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "흙, 물, 동력",
+      "text": [
+        "식물마다 늘 쓰던 땅이 필요하다. 작물은 물 근처의 경작지, 묘목은 흙, 선인장은 모래, 사탕수수는 물 옆의 모래나 흙, 네더 사마귀는 영혼 모래, 코코아는 이랑 안의 정글 원목.",
+        "**물주기.** 8블록 안에 공명 토템 (물)을 두되, 응답 또는 희미한 상태여야 한다. 그러면 관리인이 이랑의 경작지를 젖게 유지한다. 마른 고랑은 한 박에 적시며 **4 펄스**. 작물 사이로 도랑을 팔 필요가 없다. 물을 빌려 주는 친족 토템은 여기에 치지 않는다. 공명 토템이어야 한다.",
+        "관리인은 **2,400 펄스**의 비축을 두고, 격자에서 초당 최대 **80**까지 채운다. 펄스 전지를 손에 들고 우클릭하면 손으로 보충한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "멈출 때",
+      "text": [
+        "우클릭하면 무엇을 하는지, 펄스를 얼마나 가졌는지 보인다. 저장분이 가득하면 익은 식물을 그대로 두고 기다리니, 비우거나 떨어뜨릴 저장고를 준다.",
+        "레버는 작업을 멈추고 보관함을 잠근다. 비교기는 얼마나 찼는지 읽는다.",
+        "맨손으로 웅크린 채 면을 우클릭하면 그 면의 역할이 바뀐다. 양쪽, 입력, 출력 또는 닫힘.",
+        "근처의 바람 올가미는 그래도 땅에 떨어지는 것을 잡고, 인장 베틀은 수확물을 다른 것으로 바꿀 수 있다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grove_tender"
+    }
+  ]
+}

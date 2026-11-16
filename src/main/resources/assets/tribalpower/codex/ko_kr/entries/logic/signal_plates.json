@@ -1,0 +1,30 @@
+{
+  "name": "신호 판",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "반전과 메아리",
+      "text": [
+        "목소리 하나, 뒤집히거나 옮겨진다.",
+        "- **반전** (NOT)은 뒷면이 고요할 때 노래하고, 뒷면이 켜지면 잠잠해진다.",
+        "- **메아리** (BUFFER)는 뒷면을 복사한다. 켜짐은 켜짐 그대로, 꽉 찬 15.",
+        "반전으로 펄스 임계값을 '너무 비어 있음' 경보로 바꾼다. 메아리로 사그라지는 노래 실을 최대 세기로 되돌린다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

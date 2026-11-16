@@ -1,0 +1,203 @@
+{
+  "name": "Wegsteinkompasse",
+  "icon": "tribalpower:waystone_compass",
+  "order": 20,
+  "items": [
+    "tribalpower:horizon_compass",
+    "tribalpower:astral_compass"
+  ],
+  "next": "way_gate",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:waystone_compass",
+      "text": [
+        "Markiere einen Ort und kehre im Nu dorthin zurück. Ein Kompass merkt sich einen Landeboden und bringt dich hin, für ein wenig Puls aus einer Zelle in deinem Gepäck."
+      ],
+      "title": "Wegsteinkompasse"
+    },
+    {
+      "type": "text",
+      "title": "Binden und benutzen",
+      "text": [
+        "Schleiche und rechtsklicke die **Oberseite** eines festen Blocks, um diesen Boden als deine Landung zu binden.",
+        "Rechtsklicke in die Luft, um zu reisen. Die Reise wird von Pulszellen irgendwo in deinem Inventar bezahlt, danach folgt eine Abklingzeit von **5 Sekunden**.",
+        "Du landest stehend auf dem gebundenen Boden, also braucht es **zwei freie, trockene Blöcke** darüber und nichts Gemeines direkt daneben: Feuer, Lava, Magma, Kaktus, ein brennendes Lagerfeuer, Beerensträucher, Witherrosen oder Pulverschnee.",
+        "Wenn es keinen sicheren Platz zum Stehen gibt, verweigert die Reise und verbraucht nichts. Puls wird erst genommen, wenn die Landung frei ist. Du kannst nicht reisen, während du reitest."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Landung",
+      "steps": [
+        {
+          "caption": "Wähle einen festen Bodenblock für deine Landung.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "minecraft:polished_andesite"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Schleiche und rechtsklicke seine Oberseite mit dem Kompass, um ihn zu binden.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:waystone_compass"
+          }
+        },
+        {
+          "caption": "Halte die zwei Blöcke darüber frei und trocken; dort wirst du stehen.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Hebel, der den Boden versorgt, sperrt die Ankunft, für wenn du die Tür zu haben willst.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=wall,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drei Kompasse",
+      "text": [
+        "- **Wegsteinkompass**: bis zu **128 Blöcke** entfernt, dieselbe Welt, **20 Puls**.",
+        "- **Horizontkompass**: jede Entfernung in derselben Welt, **40 Puls**.",
+        "- **Astralkompass**: jede Entfernung, über Welten hinweg, **100 Puls**. Der einzige, der dich aus dem Marsch nach Hause bringt.",
+        "Ein Wegsteinkompass verknüpft auch ein Paar Wegtore (siehe [Wegtor](way_gate))."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:waystone_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:horizon_compass"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_compass"
+    }
+  ]
+}

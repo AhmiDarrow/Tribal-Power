@@ -1,0 +1,31 @@
+{
+  "name": "Hutte de sudation",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Pierres chaudes",
+      "text": [
+        "Les **Pierres de sueur** fument et luisent quand elles sont sur une source de chaleur : un feu de camp allumé, du feu, du feu des âmes, un bloc de magma, de la lave ou un Bol de braise en dessous. Retire la chaleur et elles refroidissent.",
+        "Mets-en quelques-unes dans une petite hutte avec un lit, et tu as une hutte de sudation."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Une nuit dans la hutte",
+      "text": [
+        "Dors toute la nuit dans un lit avec **Pierres de sueur chaudes dans un rayon de 5 blocs**, pas plus de **2 blocs** au-dessus ou en dessous du lit, et **un toit au-dessus de toi** (n'importe quel solide, de deux à cinq blocs au-dessus du lit).",
+        "Tu te réveilles **complètement soigné**, sans aucun effet néfaste, avec **10 minutes** de [Bénédiction de l'Esprit](spirit_sickness) et un peu de Régénération. Ça ne marche que si tu dors vraiment jusqu'au matin."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Znak rytualny",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "Kredą rysujesz wzór w całości. Każdy patyk rysuje na ziemi **Znak rytualny**, a znaki łączą maszynę z kształtem wokół niej.",
+        "Ta sama kreda pieczętuje też trwałe połączenia między Totemami rezonansu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rysowanie znaków",
+      "text": [
+        "Kliknij prawym przyciskiem wierzch solidnego bloku, aby narysować na nim znak. Każdy znak zużywa **jedno użycie**, a patyk mieści **dziesięć**.",
+        "Kliknij prawym przyciskiem znak z kredą, aby go zetrzeć. Ścieranie nic nie kosztuje, więc poprawiaj błędy swobodnie.",
+        "Złamany znak nic nie upuszcza: kreda już za niego zapłaciła. W trybie kreatywnym kreda nigdy się nie zużywa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Łączenie totemów",
+      "text": [
+        "Kliknij prawym przyciskiem jeden Totem rezonansu kredą, potem drugi **mniej niż 16 bloków** dalej, aby opieczętować połączenie kraty między nimi (zobacz [Przewodnik kraty](lattice_conductor)). Połączenie, które się zawiąże, zużywa jedno użycie.",
+        "Drugie kliknięcie tego samego totemu anuluje połączenie, które zacząłeś. Dwa już połączone totemy zostają połączone i nie kosztują nic więcej."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Jedno wytworzenie daje **cztery** patyki po dziesięć użyć."
+    }
+  ],
+  "next": "anchor_stone"
+}

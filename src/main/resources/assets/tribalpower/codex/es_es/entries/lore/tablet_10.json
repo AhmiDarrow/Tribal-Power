@@ -1,0 +1,16 @@
+{
+  "name": "Tablilla: El No Cantado",
+  "icon": "tribalpower:lore_tablet",
+  "order": 200,
+  "spoiler": true,
+  "unlock": "tablet:10",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Desde una Sala de los ancestros hundida, sobre el tambor que nadie golpeó:",
+        "“Se llevó un tambor de cada campamento que caía, para que el ritmo no parara. El último tambor se llevó al círculo y no quedó nadie para golpearlo. Su guardián se quedó hueco de esperar. Despiértalo con el compás de cuatro y se alzará para ser golpeado. Agáchate cuando marque. Resincronízalo cuando calle. Solo quiere el ritmo de vuelta.”"
+      ]
+    }
+  ]
+}

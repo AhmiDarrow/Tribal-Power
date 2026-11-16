@@ -1,0 +1,65 @@
+{
+  "name": "Caminhantes da borda",
+  "icon": "tribalpower:tribe_mark",
+  "order": 70,
+  "spoiler": true,
+  "unlock": "tribe:claw",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_claw",
+      "title": "Caminhantes da borda",
+      "text": [
+        "“Botas primeiro. Depois a ponte. Depois a coragem; ela chega sozinha.”",
+        "Fio de **Garra**, voz de **Fogo**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem são",
+      "text": [
+        "Os Caminhantes da borda caminharam pela borda da fenda, onde o fio se desfiava mais fino, e puseram pontos de apoio para todos os que vieram depois. O ofício deles é **Equipamento espiritual e pontos de apoio**.",
+        "Os acampamentos deles ficam na **taiga**, e na Marcha um acampamento deles fica em cada faixa, do norte congelado até o sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que querem",
+      "text": [
+        "O reagente deles é o **Dente da fenda**, que vale **+8** de reputação no lar deles.",
+        "Eles também preferem couro, uma barra de ferro ou ferro bruto: **+3** cada. Qualquer outra comida vale **+1**, e uma Célula de Pulso carregada **+2 a cada 10 de Pulso**, até +8.",
+        "Lembre-se: o lar toma no máximo **60** de reputação por dia em oferendas; veja [Tribos e reputação](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Ancião troca",
+      "text": [
+        "**Hóspede**: 6 de couro por 2 Fragmentos de eco; 4 barras de ferro por Botas de couro.",
+        "**Amigo**: 3 de Eco sintonizado e 4 de couro por Botas de Tece-espírito; 8 barras de ferro por um Dente da fenda; 4 de Raiz de brasa por Carne-seca do caminhante da borda.",
+        "**Parente**: 3 de Eco vinculado por uma Lâmina de Equipamento espiritual; 3 de Eco vinculado por uma Picareta de Equipamento espiritual.",
+        "Cada troca rende **+2** de reputação."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, totem e dom",
+      "text": [
+        "Em **Voz**, o Ancião lhe dá a Marca da tribo dos Caminhantes da borda. Fabrique-a com um {item:tribalpower:resonance_totem_fire} e dois Tece-espírito para fazer o [Totem de parentesco](kinship_totem) deles.",
+        "Ao lado de um Ressonador de Pulso, é mais uma voz; ao lado de uma estação, empresta **Fogo**.",
+        "Os Parentes dos Caminhantes da borda carregam o [dom](tribe_boons) deles: nenhuma queda machuca você enquanto você **se agacha**.",
+        "O prato deles carrega o dom por **5 minutos**, e a [relíquia](elders_and_stories) deles enquanto você a carregar.",
+        "Comprar um Dente da fenda como Amigo é um jeito mais seguro de obter o reagente deles do que caçar Cães da fenda.",
+        "Em **Voz**, você também pode vincular um **Cão da fenda** como [familiar](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "claw",
+      "title": "Seu trabalho com eles",
+      "text": [
+        "O que o Ancião dos Caminhantes da borda pediu a você, e até onde a história deles chegou. Veja [Anciãos, pedidos e histórias](elders_and_stories)."
+      ]
+    }
+  ]
+}

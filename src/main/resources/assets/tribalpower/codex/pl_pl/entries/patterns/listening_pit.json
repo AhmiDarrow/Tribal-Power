@@ -1,0 +1,72 @@
+{
+  "name": "Dół nasłuchu",
+  "icon": "tribalpower:resonance_mesh",
+  "order": 70,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_mesh",
+      "text": [
+        "Siatka rezonansu jest sercem Dołu nasłuchu: podparty dół, który wysłuchuje rudę z odnawialnego kamienia.",
+        "Karm go kamieniem, daj mu Puls i głos Ziemi, a ruda surowego metalu i klejnotów ląduje w skrytce na wierzchu. Nigdy nie wyschnie tak jak kopalnia."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 1,
+      "title": "Dół",
+      "text": "Podłoga 5x5 z dowolnego naturalnego kamienia Zwykłego świata (kamień, głęboki łupek, granit, dioryt, andezyt lub tuf), Kamienie kotwiczne w rogach, kreda od każdej krawędzi do środka i siatka na środku."
+    },
+    {
+      "type": "text",
+      "title": "Zanim zacznie nasłuchiwać",
+      "text": [
+        "Dół potrzebuje tego wszystkiego, a Duchowy kodeks nazywa to, czego brakuje:",
+        "- Głos **Ziemia** w zasięgu 8 bloków, utrzymany przy czuwaniu: przygaszony totem spowalnia cykl, cichy go zatrzymuje.",
+        "- **Skrytka przodków** dotykająca siatki. Kreda ze wszystkich czterech stron i kamień pod spodem znaczą **na wierzchu**. Siatka opróżnia do niej wszystko, więc nie potrzebujesz leja.",
+        "- Puls z kraty. Siatka trzyma własny bufor **200 Puls**, żeby generator pracujący zrywami nie zacinał cyklu.",
+        "- Pozycja **Przyjaciel** u Śpiewaków żwiru, nawet przy zwykłej rudzie. Dół Obcego staje."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Karmienie",
+      "text": [
+        "Trzymaj **Skrytkę przodków** na wierzchu pełną kamienia: dół bierze stamtąd swoje **podłoże** i wkłada usłyszaną rudę z powrotem do tej samej skrytki. Kreda i kamień zamykają siatkę z każdej innej strony, więc skrytka jest miejscem, przez które karmią ją twoje ręce, leje i przekaźniki.",
+        "Kliknij prawym przyciskiem siatkę, trzymając **próbkę**, na przykład surowe żelazo, aby wskazać, co przywołuje. Próbka jest filtrem i nigdy się nie zużywa; kucnij z pustą ręką, aby ją zabrać. Zobacz [Co oferuje grunt](what_the_ground_offers)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wokół dołu",
+      "text": [
+        "Trzymaj bęben albo generator poza 5x5: cała podłoga należy do dołu. Nadaj siatce rangę jak każdemu innemu warsztatowi.",
+        "Komparator przy siatce odczytuje, jak daleko zaszedł cykl, i spada do 0, ilekroć dół staje."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "listening_pit",
+      "tier": 2,
+      "title": "Głęboki nasłuch",
+      "text": "Siedem na siedem: dwa pierścienie Kamieni kotwicznych w narożnikach i Totem rezonansu dowolnego głosu na każdej krawędzi kardynalnej."
+    },
+    {
+      "type": "text",
+      "title": "Głęboki nasłuch",
+      "text": [
+        "Układ 7x7 podwaja wzmocnienie narożników i stawia totem na każdej krawędzi kardynalnej. Otwiera pasma **głębokie**, **gorące** i **rzadkie**.",
+        "Wszystkie trzy potrzebują też **Palenisko plemienia** albo **Totem pokrewieństwa Śpiewaków żwiru** stojącego wewnątrz wzoru. Zwykła ruda nie.",
+        "Pozycja u Śpiewaków żwiru: **Przyjaciel** dla zwykłej (nawet na małym dole), **Ród** dla głębokiej i gorącej, **Głos** dla rzadkiej. Gorąca chce też Ogień; rzadka chce Duch. Duchowy kodeks nazywa to, czego ci jeszcze brakuje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_mesh"
+    }
+  ],
+  "next": "what_the_ground_offers"
+}

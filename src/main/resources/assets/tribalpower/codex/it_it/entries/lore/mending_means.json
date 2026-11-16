@@ -1,0 +1,17 @@
+{
+  "name": "Che cosa significa rammendare",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Non stai rimettendo i continenti al loro posto. Stai insegnando a nove voci a tornare d'accordo, un accampamento alla volta.",
+        "Un legame di gesso è una promessa. Un catalizzatore seduto è una conversazione riavviata. Un rito di tavoletta è chiedere con cortesia, più in piccolo di quanto chiedeva il vecchio mondo.",
+        "La Marcia ha conservato le sale, i tamburi, le tavolette. Di' agli accampamenti che ci dispiace che ci sia voluto così tanto."
+      ]
+    }
+  ]
+}

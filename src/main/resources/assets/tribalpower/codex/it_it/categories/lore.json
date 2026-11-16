@@ -1,0 +1,8 @@
+{
+  "name": "Racconti",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "La storia del mondo che fu, e le tavolette che le tribù lasciarono per chi sarebbe venuto dopo.",
+  "spoiler": true,
+  "progress": "tablets"
+}

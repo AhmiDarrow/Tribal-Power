@@ -1,0 +1,261 @@
+{
+  "name": "Reactivos",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Toda criatura de la Marcha deja algo atrás: un colmillo, una escama, un mechón de lana. Esos son **reactivos**, y así es como Tribal Power convierte la caza en magia.",
+        "Ten {item:tribalpower:reagent_pouch} en tu barra rápida y cada reactivo simple que recojas entra directo en la bolsa. La bolsa guarda hasta **999** de cada tipo, crudos y potenciados, así que nunca llena tus bolsas. Un reactivo con un **Hilo** se queda en tus bolsas (página siguiente).",
+        "Haz clic derecho en la bolsa para mirar dentro y sacar los reactivos crudos, para tintes, remedios y recetas. El botón **Tomar** de Banco del canto hace lo mismo.",
+        "Un reactivo empieza **crudo**. En un [Banco del canto](song_bench) puedes **potenciarlo** por 16 de Pulso. Los reactivos crudos preparan remedios y entran en algunas recetas; los potenciados escriben cantos, empluman flechas de verso y ungen armas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Hilos",
+      "text": [
+        "Algunos reactivos llevan un **Hilo**, I, II o III, nombrado en oro en la descripción. Es lo fuerte que era la criatura de la que salió, y se lee cuando el reactivo la deja, por una muerte o un cepillo: su hilo de linaje más fuerte por encima de 2, y un paso más si es una **élite** de nombre dorado.",
+        "- **Hilo I**: una criatura salvaje con un hilo en 3, o cualquier élite.",
+        "- **Hilo II**: una línea criada con un hilo en 4, o una élite con un hilo en 3.",
+        "- **Hilo III**: una línea **Exaltada**, un hilo en 5. Cepilla tu propio familiar exaltado y obtienes dos por minuto.",
+        "Los reactivos de distintos Hilos nunca se apilan. En todo lo demás, un reactivo con hilo funciona como cualquier otro; un [Corazón de ley](ley_heart) lo quema más caliente, y vale **6, 9 o 12** frente al 4 de uno simple."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Familias",
+      "text": [
+        "Lo que hace un reactivo depende de su **familia**, que viene de la criatura de la que salió. Hay once, y cada una significa lo mismo dondequiera que la uses:",
+        "- en un **canto**, lo que un reactivo añade después del primero;",
+        "- en un **arma ungida**, lo que el arma le hace a lo que golpea ([Unción](anointing));",
+        "- en un **remedio**, lo que el brebaje hace por quien lo toma ([Remedios](remedies)).",
+        "Las páginas siguientes listan cada familia, qué reactivos le pertenecen y qué hace en cada una de las tres."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Muele un reactivo crudo en un **cuenco** con una sola barra de **Tiza ritual** (pon los tres en una cuadrícula de fabricación; una pila entera de tiza no sirve) y obtienes **2 de tinte**. El cuenco vuelve, y la tiza solo pierde una marca.",
+        "Dieciséis reactivos hacen los dieciséis tintes:",
+        "- **Blanco**: Plumón pálido",
+        "- **Gris claro**: Lana de pastador",
+        "- **Gris**: Ala de tormenta",
+        "- **Negro**: Ala de ceniza",
+        "- **Marrón**: Cáscara de larva",
+        "- **Rojo**: Mota de brasa",
+        "- **Naranja**: Escama de magma",
+        "- **Amarillo**: Corteza de ceniza"
+      ],
+      "title": "Tintes de reactivos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Verde lima**: Oreja de trasgo",
+        "- **Verde**: Raíz anudada",
+        "- **Cian**: Polvo de destello",
+        "- **Azul claro**: Garra de acechante",
+        "- **Azul**: Caparazón prismático",
+        "- **Morado**: Plumón de farol",
+        "- **Magenta**: Espora de sombrerillo",
+        "- **Rosa**: Pétalo de hada"
+      ],
+      "title": "Tintes de reactivos, continuación"
+    },
+    {
+      "type": "text",
+      "title": "Brasa",
+      "text": [
+        "**Reactivos**: Corazón de brasa, Mota de brasa, Escama de magma, Placa de brasa, Cuajada de escoria, Piel de escoria.",
+        "- **Canto**: prende al objetivo.",
+        "- **Unción**: Abrasador: quema al objetivo y añade fuego a cada golpe.",
+        "- **Remedy**: Yesca: Fuerza."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rayo",
+      "text": [
+        "**Reactivos**: Nudo de pavesa, Brasa de sombra.",
+        "- **Canto**: prende fuego al objetivo.",
+        "- **Unción**: Llamada de tormenta: una cuarta parte de los golpes arquea un rayo hacia dos enemigos cercanos.",
+        "- **Remedy**: Presteza: Velocidad."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Escalofrío",
+      "text": [
+        "**Reactivos**: Fragmento de campana, Velo de espectro.",
+        "- **Canto**: ralentiza al objetivo.",
+        "- **Unción**: Congelación: ralentiza y congela al objetivo.",
+        "- **Remedy**: Enfriamiento: Resistencia al fuego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Veneno",
+      "text": [
+        "**Reactivos**: Colmillo de junco, Diente triturador, Púa de faceta, Mandíbula de escarcha, Púa de esquirla, Colmillo de salmuera.",
+        "- **Canto**: envenena al objetivo.",
+        "- **Unción**: Veneno: envenena al objetivo.",
+        "- **Remedy**: Antídoto: quita el veneno, el Wither, el hambre y las náuseas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ráfaga",
+      "text": [
+        "**Reactivos**: Ala de tormenta, Jirón de velo.",
+        "- **Canto**: empuja al objetivo hacia atrás.",
+        "- **Unción**: Vendaval: lanza al objetivo hacia atrás y hacia arriba.",
+        "- **Remedy**: Caída de pluma: Caída lenta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Raíz",
+      "text": [
+        "**Reactivos**: Raíz anudada, Núcleo de duramen.",
+        "- **Canto**: ralentiza al objetivo.",
+        "- **Unción**: Enraizamiento: una quinta parte de los golpes arraiga al objetivo en el sitio.",
+        "- **Remedy**: Arraigo: Resistencia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Empujón",
+      "text": [
+        "**Reactivos**: Caparazón prismático, Nudillo de pedregal, Colmillo de ascua, Verticilo de junco, Piel de trol, Piel de escarcha.",
+        "- **Canto**: empuja al objetivo hacia atrás con fuerza.",
+        "- **Unción**: Desgarro: los golpes muerden más cuanto más armadura lleva el objetivo.",
+        "- **Remedy**: Baluarte: Absorción."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tejido",
+      "text": [
+        "**Reactivos**: Seda de eco, Seda umbría.",
+        "- **Canto**: ralentiza al objetivo.",
+        "- **Unción**: eco: una cuarta parte de los golpes golpea una segunda vez por la mitad.",
+        "- **Remedy**: Vista clara: Visión nocturna, quita la ceguera y la oscuridad."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Debilitar",
+      "text": [
+        "**Reactivos**: Sigilo de centinela, Colmillo pálido, Mortaja del túmulo, Alga ahogada.",
+        "- **Canto**: debilita al objetivo.",
+        "- **Unción**: Drenaje: debilita al objetivo.",
+        "- **Remedy**: Restauración: Celeridad, quita debilidad, lentitud y fatiga minera."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sabueso",
+      "text": [
+        "**Reactivos**: Diente de la grieta, Garra de acechante, Oreja de trasgo, Colmillo de trasgo, Escama de kóbold, Cuerno de kóbold.",
+        "- **Canto**: hace que el objetivo brille.",
+        "- **Unción**: Sed de sangre: robo de vida, el 15% de cada golpe vuelve como salud.",
+        "- **Remedy**: Vigor: Mejora de salud."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Silencio",
+      "text": [
+        "**Reactivos**: Terciopelo del alba, Plumón de farol, Escama de lomomusgo, Mechón de ceniza, Lana de pastador, Polvo de destello, Ala de revoloteador, Cuerno de saltarín, Cáscara de larva, Lana de mechón, Tendón de zanco, Plumón pálido, Vellón de risco, Colmillo de peña, Vejiga a la deriva, Cresta de prisma, Ala de esquirla, Cáscara de luz, Pellejo a la deriva, Casco de escarcha, Velo de nieve, Ala de ceniza, Pata de pantano, Casco de tremedal, Vejiga de cenagal, Cresta de campanilla, Ala de cristal, Cáscara de geoda, Aleta de limo, Serpentina pálida, Escama de bajío, Corteza del Hogar, Corteza de anciano, Corteza de pino de escarcha, Corteza de ceniza, Nudo llorón, Espora de sombrerillo, Raíz de zanco, Polvo de hada, Pétalo de hada, Chispa de hada.",
+        "- **Canto**: te da un momento de regeneración.",
+        "- **Unción**: Reparación: el arma se repara al golpear.",
+        "- **Remedy**: Reparación: Regeneración."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

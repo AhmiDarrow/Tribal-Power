@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Der Schnitt",
+  "icon": "tribalpower:lore_tablet",
+  "order": 190,
+  "spoiler": true,
+  "unlock": "tablet:9",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aus einer versunkenen Ahnenhalle, von keinem einzelnen Stamm gezeichnet:",
+        "“Niemand schlug den Webstuhl. Er wurde von neun Seiten gezogen, bis ein Strang nachgab, und dann ging der Rest wie ein Seil durch eine Hand. Die Kontinente fielen innerhalb eines Wirbels. Was nicht fiel, trieb in den Marsch und sank langsam. Neun Stämme, eine Halle, niemand ist schuld.”"
+      ]
+    }
+  ]
+}

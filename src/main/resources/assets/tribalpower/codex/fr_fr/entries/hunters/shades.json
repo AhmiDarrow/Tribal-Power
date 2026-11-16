@@ -1,0 +1,73 @@
+{
+  "name": "Ombres",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ombres",
+      "text": [
+        "Les morts de la Marche marchent là où ils sont morts : un capuchon vide avec deux lueurs dedans, et une robe sans rien dessous. Chaque ombre a **25 de santé** et pas d'armure, et frappe pour **5**, mais chacune se bat à sa façon.",
+        "Chacun lâche **1 à 2** de son réactif, davantage avec Butin. Aucun ne se liera."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Ombre du tumulus",
+      "text": [
+        "Un roi mort couronné, dans des bandelettes de tombe. Il hante les cavernes sombres sous les Hautes Terres, jour et nuit, un ou deux à la fois. Son coup t'affaiblit pendant 4 secondes.",
+        "Il lâche **Suaire du tumulus**, un réactif d'Affaiblir.",
+        "Chassé, il lâche aussi de 1 à 2 os et jusqu'à 1 Membrane de Phantom."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Spectre pâle",
+      "text": [
+        "Un spectre glacé qui traîne de longs voiles. Il vole la nuit au-dessus des Champs de neige, un ou deux à la fois. Jusqu'à 12 blocs de distance, il lance un froid qui te ralentit pendant 3 secondes. Un abri interrompt l'incantation.",
+        "Il lâche **Voile de spectre**, un réactif de Froid.",
+        "Chassé, il lâche aussi jusqu'à 1 Membrane de Phantom et jusqu'à 2 boules de neige."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Ombre de cendre",
+      "text": [
+        "Un spectre fumant aux mains calcinées. Il vole la nuit au-dessus des Landes de braise, un ou deux à la fois, et il est **immunisé au feu**. Jusqu'à 12 blocs de distance, il lance un trait qui t'enflamme pendant 2 secondes. Un abri interrompt l'incantation.",
+        "Il lâche **Braise d'ombre**, un réactif de Trait.",
+        "Chassé, il lâche aussi jusqu'à 1 Membrane de Phantom, et une chance sur trois de lâcher de la Poudre de Blaze."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Ombre noyée",
+      "text": [
+        "Un spectre drapé d'algues, qui porte une lanterne. Il surgit la nuit dans l'eau des Bas-fonds, un ou deux à la fois, et nage ou marche après toi : le rivage n'est pas un refuge. Son coup t'affaiblit pendant 4 secondes.",
+        "Il lâche **Algue noyée**, un réactif d'Affaiblissement.",
+        "Chassé, il lâche aussi jusqu'à 1 membrane de Phantom et jusqu'à 2 éclats de prismarine."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "name": "바람 올가미",
+  "icon": "tribalpower:wind_snare",
+  "order": 30,
+  "next": "seal_loom",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wind_snare",
+      "text": [
+        "모으는 상자. 바람 올가미는 주변 땅의 떨어진 아이템을 끌어와 **27칸**에 둔다. 농장도, 파쇄 라인도, 몹 구덩이도 난장판을 남기지 않는다.",
+        "바닥에 놓인 아이템이라면 무엇이든 들어 올린다. 마치에서든, 오버월드에서든, 다른 모드에서든. 상자나 기계에서는 절대 가져가지 않는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "잡는 법",
+      "text": [
+        "매 박마다, 1초에 한 번, **8묶음**까지 **8블록** 안에 있는 것을 퍼 올린다. 잡는 범위는 정육면체라, 옆으로만큼 위아래로도 닿는다.",
+        "묶음마다 격자에서 **2펄스**가 든다. 펄스가 없으면 포획도 없다. 기다리며 아무것도 쓰지 않는다. **바람**에도 응답한다. 8블록 안에 바람 토템을 두어라 ([야영의 손](camp_hands) 참고). 아니면 가만히 있는다.",
+        "등급을 올리면 박이 짧아진다. 묶음당 펄스는 2 그대로다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "저장고 위의 올가미",
+      "steps": [
+        {
+          "caption": "잡은 것이 모일 자리에 조상 저장고를 두어라.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "바람 올가미를 위에 놓아라. 아랫면이 출력이라, 잡은 것은 모두 저장고로 떨어진다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:wind_snare[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안의 전도체로 펄스를 준다. 들어 올리는 묶음마다 2.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "8블록 안에 놓인 것은, 농장 맞은편이라도, 끌려 들어온다.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              -2
+            ],
+            [
+              2,
+              -1,
+              -2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "레버는 포획과 면을 동시에 멈춘다. 직접 무언가를 집어 들고 싶을 때를 위해서다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,facing=east,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "잡은 것을 꺼내기",
+      "text": [
+        "상자처럼 연다. 호퍼, 파이프, [릴레이 판](wireless_cargo)은 **아래** 면에서 가져간다. 다른 면은 아이템을 받는다. 빈손으로 웅크린 채 면을 우클릭하면 순환한다. 양쪽, 입력, 출력, 닫힘.",
+        "조상 저장고나 다른 Tribal Power 저장소 위에 있으면, 아랫면이 호퍼 전혀 없이 아래로 최대 **초당 아이템 16개**를 밀어 낸다.",
+        "비교기는 얼마나 찼는지 읽는다. 올가미를 비워야 할 때 경고등으로 쓰기 좋다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wind_snare"
+    }
+  ]
+}

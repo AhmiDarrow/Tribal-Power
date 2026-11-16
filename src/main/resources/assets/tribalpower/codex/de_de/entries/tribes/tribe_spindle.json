@@ -1,0 +1,65 @@
+{
+  "name": "Webstuhl-Näher",
+  "icon": "tribalpower:tribe_mark",
+  "order": 120,
+  "spoiler": true,
+  "unlock": "tribe:spindle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spindle",
+      "title": "Webstuhl-Näher",
+      "text": [
+        "“Der Webstuhl war nie ein einzelner Faden. Es waren neun, die einig waren.”",
+        "Strang der **Spindel**, Stimme des **Webstuhls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Die Webstuhl-Näher hielten die Spindel und nähten die Stränge der anderen Stämme zu einem Tuch über den Himmel. Als das Tuch riss, riss es entlang ihrer Naht, und sie nähen noch. Deren Handwerk ist **Torpfade und das Neuweben**.",
+        "Deren Lager stehen **nur im Marsch**: in den Kristallfeldern und im seltsamen, beleuchteten Land jedes Streifens. Du musst hinüber, um sie zu treffen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Deren Reagenz ist der **Webstuhlfaden**, **+8** Ansehen wert an ihrem Herd.",
+        "Auch mögen sie Marschkristall, einen Kompass, einen Wegsteinkompass oder einen Horizontkompass: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt am Tag höchstens **60** Ansehen aus Gaben; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 4 Marschkristall für 3 Echoscherbe; ein Kompass für 8 Marsch-Bretter.",
+        "**Freund**: 6 Marschkristall für einen Webstuhlfaden; 4 Abgestimmtes Echo für einen Wegsteinkompass; 4 Fennreis für Webstuhlfadennudeln.",
+        "**Sippe**: 4 Gebundenes Echo und ein Webstuhlfaden für einen Webstuhl-Anker; 2 Webstuhlfaden für ein Webstuhlsiegel.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gunst",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Webstuhl-Näher. Fertige sie mit einem {item:tribalpower:resonance_totem_loom} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Webstuhl**.",
+        "Wer Sippe der Webstuhl-Näher ist, trägt deren [Gunst](tribe_boons): Lieder kosten **ein Viertel weniger** zu singen.",
+        "Ihr Gericht trägt den Segen **5 Minuten** lang, und ihr [Relikt](elders_and_stories), solange du es trägst.",
+        "Ihr Tausch als Freund verwandelt Marschkristall in Webstuhlfaden, der auch ihr Reagenz ist. Sie sind der einzige Stamm, der einen **Webstuhl-Anker** verkauft.",
+        "Auf dem Rang **Stimme** kannst du auch einen **Echoweber** als [Vertrauten](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spindle",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Webstuhl-Näher von dir erbeten hat, und wie weit ihre Geschichte gekommen ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

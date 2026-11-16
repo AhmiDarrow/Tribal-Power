@@ -1,0 +1,16 @@
+{
+  "name": "Tábua: Fio dos Costureiros do tear",
+  "icon": "tribalpower:lore_tablet",
+  "order": 180,
+  "spoiler": true,
+  "unlock": "tablet:8",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "De um Pináculo de cristal ou de um acampamento dos Costureiros do tear, nas palavras deles:",
+        "“O Tear nunca foi um fio só. Eram nove em acordo. Seguramos o Fuso e costuramos os fios das tribos num só pano sobre o céu. Quando oito puxões viraram oito discussões, o pano rasgou ao longo da nossa costura. Ainda estamos costurando. Traga cristal. Traga fio.”"
+      ]
+    }
+  ]
+}

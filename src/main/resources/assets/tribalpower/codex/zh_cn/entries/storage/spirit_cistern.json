@@ -1,0 +1,194 @@
+{
+  "name": "灵蓄池",
+  "icon": "tribalpower:spirit_cistern",
+  "order": 30,
+  "next": "wireless_cargo",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_cistern",
+      "text": [
+        "营地的储罐。只装一种流体，最多**16,000 mB**（16桶），拾起时仍留着流体，因此满罐也能搬走，一滴不洒。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "装填与读取",
+      "text": [
+        "拿着桶右键点击，即可装满或倒空。空手右键点击，则读取流体和数量。",
+        "普通的流体管道、潮汐泵或流体中继器都能装填和排空它。储罐未空时，第二种流体进不去。",
+        "背对它的比较器在空的时候是**0**，注满过程中是**1到15**。",
+        "潜行并用空手右键一个面，即可设置该面：双向、输入、输出或关闭。与之相接的 Tribal Power 机器每秒最多送出**250 mB**，从给出的面到接收的面。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "会保住内容的储罐",
+      "steps": [
+        {
+          "caption": "放下蓄池并倒入一桶；空手点击应显示 1,000 / 16,000 mB。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:water_bucket"
+          }
+        },
+        {
+          "caption": "背对它的比较器读取它有多满。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "其上的拉杆会锁住装填和排空，远程中继器也不例外。流体留着。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "minecraft:lever[face=wall,facing=north,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "破坏后，掉落的蓄池仍装着水；再次放置，它依然是满的。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "须知",
+      "text": [
+        "中继器和潮汐泵只搬运流体，它们不是储罐。两端各放一个蓄池。",
+        "浪鼓被破坏时也会保住自己的水箱。",
+        "[春之召唤](spring_calling)可以把已放置的蓄池标为泉，让它自行补水。移动方块会结束泉；里面已有的水仍留在物品上。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_cistern"
+    }
+  ]
+}

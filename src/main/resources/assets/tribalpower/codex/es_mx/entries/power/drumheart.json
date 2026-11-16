@@ -1,0 +1,170 @@
+{
+  "name": "Corazón de tambor",
+  "icon": "tribalpower:drumheart",
+  "order": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:drumheart",
+      "text": [
+        "El primer generador que construirás, y al que seguirás volviendo. El Corazón de tambor guarda hasta **1,000 Pulso**, y cada golpe que le das añade más."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tocarlo",
+      "text": [
+        "Haz clic derecho con la **mano vacía**, cerca de **una vez por segundo**. Un golpe a tiempo da **24 Pulso**. Uno a destiempo da como mucho **10**, y menos cuanto antes siga al anterior, así que un ritmo constante vence al clic rápido.",
+        "Las máquinas toman del tambor a través de un [Conductor de entramado](lattice_conductor) a 8 bloques de él, nunca directo de él. Para llevar energía a otro sitio, usa una **Célula de Pulso** en el tambor. Romper el tambor pierde el Pulso que guarda.",
+        "Tocar a mano también despierta cada tótem en 8 bloques; mira [Custodia](keeping)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Tocarlo con redstone",
+      "steps": [
+        {
+          "caption": "Un Corazón de tambor, por sí solo, necesita que tú mantengas el ritmo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloca una Placa de latido a su lado; marca una vez por segundo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:heartbeat_plate"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Cada pulso de la placa es un golpe. El tambor ahora se llena solo mientras tú trabajas en otra parte.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "El ritmo, exactamente",
+      "text": [
+        "Los golpes de redstone separados por **17 a 23 tics de juego** cuentan como a tiempo. Los golpes a menos de **8 tics** se ignoran. Veinte tics son un segundo a la velocidad normal del servidor.",
+        "Una señal de redstone sostenida no pausa el Corazón de tambor; solo el flanco de subida de un pulso cuenta como golpe.",
+        "Los tambores se estorban. Solo **dos tambores en una zona** — el mismo alcance de 8 bloques que teje un conductor — producen Pulso; si hay más, siguen golpeando y suenan, pero no ganan nada. Sepáralos más que eso y cada uno vuelve a pagar.",
+        "Cada [rango](machine_ranks) añade **15% de Pulso por golpe**. Los generadores no se aceleran como las estaciones con rango."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart"
+    }
+  ]
+}

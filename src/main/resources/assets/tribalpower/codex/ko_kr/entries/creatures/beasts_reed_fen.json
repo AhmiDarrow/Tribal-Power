@@ -1,0 +1,74 @@
+{
+  "name": "갈대 늪의 짐승",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "갈대 늪 고유",
+      "text": [
+        "갈대와 진흙 물길에는 개구리, 왜가리, 그리고 공중에 떠 있는 복어가 살고, 밤이 되면 풀숲에서 코브라가 깨어난다.",
+        "여기의 온순한 짐승은 모두 1분에 한 번 빗어 시약을 얻을 수 있고, 아래 **사냥과 사육**에 적힌 저마다의 먹이로 유인하고 번식시킨다. 다른 온순한 동물처럼 결속할 수 있다([패밀리어](familiars) 참조). 어느 것도 자기 재능은 없지만, 결속한 짐승은 토템에서 목소리를 받아 당신의 마법을 강화할 수 있다([토템에서 조율](familiar_attuning) 참조)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "습지뛰기",
+      "text": [
+        "잘 뛰는 작은 늪 개구리. 2~4마리씩 모인다. **체력 12**, 방어구 없음.",
+        "**습지 발 1~3개**를 떨어뜨린다. 약탈이 있으면 더 나온다.",
+        "사냥하면 날 사냥고기를 최대 1개, 토끼 가죽을 최대 1개, 슬라임볼을 최대 1개 더 떨어뜨린다. **습지 쌀**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "늪성큼이",
+      "text": [
+        "죽마 같은 다리로 걷는 키 큰 왜가리. 2~4마리씩 모인다. **체력 22**와 **방어구 1**.",
+        "**늪 발굽 1~3개**를 떨어뜨린다.",
+        "사냥하면 날 사냥고기를 1~3개, 마치 가죽을 최대 2개, 뼈를 최대 1개 더 떨어뜨린다. **습지 쌀**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "이탄 부유체",
+      "text": [
+        "둥글게 부풀어 가시가 돋은 초록 풍선 복어. 늪 위를 한 마리에서 세 마리까지 떠다닌다. **체력 12**, 방어구 없음. 일부는 [거상 파수꾼](colossus_warden)과 함께 떠다닌다.",
+        "**이탄 부레 1~3개**를 떨어뜨린다.",
+        "사냥하면 슬라임볼을 최대 1개, 실을 최대 1개 더 떨어뜨린다. **습지 쌀**로 번식시킨다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "갈대 똬리",
+      "text": [
+        "두건을 펼치고 똬리를 튼 늪 코브라. 밤마다 늪의 트인 땅에 한 마리 또는 두 마리씩 나타난다. 매우 느리지만 **체력 30**과 **방어구 6**을 가지고, 매 타격은 **5**이며, 칠 때마다 당신을 뒤로 밀어낸다.",
+        "**갈대 소용돌이 1~2개**를 떨어뜨린다. 밀치기 시약이다.",
+        "사냥하면 마치 가죽을 최대 1개, 뼈를 최대 1개 더 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 사육",
+      "text": [
+        "시약 말고도 사냥하면 더 떨어지고, 약탈이면 다시 더 늘어난다. 불타 죽으면 고기는 구운 채로 떨어진다. 야생을 번식시키려면 어른 둘에게 먹이를 주는 동안 **웅크리기**를 한다. 그냥 먹이면 야생은 그 대신 당신에게 길든다."
+      ]
+    }
+  ]
+}

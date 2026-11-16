@@ -1,0 +1,62 @@
+{
+  "name": "哥布林",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "哥布林",
+      "text": [
+        "个子小，动作快，心眼坏。哥布林一次来一两只，径直朝你冲来。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "两种",
+      "text": [
+        "哥布林有**18点生命值**和**1点护甲**，速度很快，命中**4**。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "沼地哥布林",
+      "text": [
+        "瘦削的大耳哥布林，拿着芦苇矛，见于芦苇沼。夜里在开阔地面出现。",
+        "猎杀时还会掉落最多2个金粒、最多1根骨头和最多1根线。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "隧道哥布林",
+      "text": [
+        "驼着背的哥布林，拿着带刺的棍，帽子上粘着蜡烛，见于草原底下的黑暗隧道，白天黑夜都会出现。",
+        "猎杀时还会掉落最多2个煤炭、最多2个铁粒和最多1根骨头。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "它们给出什么",
+      "text": [
+        "沼地哥布林掉落**1至2个哥布林耳朵**（黄绿色染料），隧道哥布林掉落**1至2个哥布林尖牙**，有抢夺则更多。二者都是猎犬试剂：涂膏之后，它们让武器从每一击里喝回一部分。见[试剂](reagents)。",
+        "哥布林从不结缘。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时掉落更多，有抢夺则再多一些。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Élévateur de lianes",
+  "icon": "tribalpower:vine_lift",
+  "order": 160,
+  "items": [
+    "tribalpower:vine_lift"
+  ],
+  "next": "camp_furniture",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:vine_lift",
+      "title": "Liane vivante qui te porte",
+      "text": [
+        "Un Élévateur de lianes est un tapis de liane vivante. Poses-en un à chaque étage d'une tour ou d'un puits de mine, l'un au-dessus de l'autre dans la **même colonne**, et ils se trouvent tout seuls. Ni lien, ni énergie.",
+        "- **Saute** sur un élévateur pour monter à l'élévateur suivant au-dessus.",
+        "- **Accroupis-toi** sur un élévateur pour descendre à l'élévateur suivant en dessous."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "On peut en empiler autant qu'on veut ; chaque saut ou accroupissement va d'un élévateur à la fois, en sautant les étages vides entre eux. Un élévateur cherche jusqu'à **48 blocs** dans chaque sens.",
+        "L'élévateur suivant a besoin de deux blocs de place au-dessus pour s'y tenir ; un élévateur avec un plafond est ignoré, ainsi tu n'arrives jamais dans un mur."
+      ],
+      "title": "Les enfiler"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:vine_lift"
+    }
+  ]
+}

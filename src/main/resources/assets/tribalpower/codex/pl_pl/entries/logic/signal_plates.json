@@ -1,0 +1,30 @@
+{
+  "name": "Płyty sygnału",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Odwrotna i Echo",
+      "text": [
+        "Jeden głos, odwrócony albo niesiony.",
+        "- **Odwrotna** (NOT) śpiewa, gdy jej tył jest cichy, i cichnie, gdy tył jest aktywny.",
+        "- **Echo** (BUFFER) kopiuje tył: aktywny zostaje aktywny, na pełne 15.",
+        "Użyj Odwrotnej, by zamienić Próg Pulsu w alarm 'zbyt pusto'. Użyj Echo, by przywrócić gasnącą Nić pieśni do pełnej siły."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

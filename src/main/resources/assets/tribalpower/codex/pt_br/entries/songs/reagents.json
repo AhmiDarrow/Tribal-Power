@@ -1,0 +1,261 @@
+{
+  "name": "Reagentes",
+  "icon": "tribalpower:reagent_pouch",
+  "order": 10,
+  "items": [
+    "tribalpower:reagent_pouch",
+    "tribalpower:dawn_velvet",
+    "tribalpower:lantern_down",
+    "tribalpower:mossback_scale",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:bounder_horn",
+    "tribalpower:grub_husk",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:crag_fleece",
+    "tribalpower:boulder_tusk",
+    "tribalpower:drift_bladder",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:ash_wing",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:silt_fin",
+    "tribalpower:pale_streamer",
+    "tribalpower:shoal_scale",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark",
+    "tribalpower:ember_heart",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale",
+    "tribalpower:cinder_plate",
+    "tribalpower:slag_curd",
+    "tribalpower:slag_hide",
+    "tribalpower:knotted_root",
+    "tribalpower:heartwood_core",
+    "tribalpower:reed_fang",
+    "tribalpower:gnasher_tooth",
+    "tribalpower:facet_barb",
+    "tribalpower:rime_mandible",
+    "tribalpower:shard_barb",
+    "tribalpower:brine_fang",
+    "tribalpower:prism_carapace",
+    "tribalpower:scree_knuckle",
+    "tribalpower:ember_fang",
+    "tribalpower:reed_whorl",
+    "tribalpower:troll_hide",
+    "tribalpower:rime_hide",
+    "tribalpower:sentinel_sigil",
+    "tribalpower:pale_fang",
+    "tribalpower:barrow_shroud",
+    "tribalpower:drowned_weed",
+    "tribalpower:storm_wing",
+    "tribalpower:veil_tatter",
+    "tribalpower:cinder_knot",
+    "tribalpower:shade_ember",
+    "tribalpower:bell_fragment",
+    "tribalpower:wraith_veil",
+    "tribalpower:rift_tooth",
+    "tribalpower:lurker_claw",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang",
+    "tribalpower:kobold_scale",
+    "tribalpower:kobold_horn",
+    "tribalpower:echo_silk",
+    "tribalpower:gloom_silk"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Toda criatura da Marcha deixa algo para trás: uma presa, uma escama, um tufo de lã. Esses são **reagentes**, e é assim que Tribal Power transforma a caça em magia.",
+        "Mantenha {item:tribalpower:reagent_pouch} na sua barra rápida. Todo reagente simples que você pegar vai direto para a bolsa. A bolsa guarda até **999** de cada tipo, brutos e potencializados, e assim nunca enche as suas bolsas. Um reagente com um **Fio** fica nas suas bolsas (próxima página).",
+        "Clique com o botão direito na bolsa para olhar dentro e tirar os reagentes brutos, para corantes, remédios e receitas. O botão **Pegar** da Bancada do canto faz o mesmo.",
+        "Um reagente começa **bruto**. Em uma [Bancada do canto](song_bench) você pode **potencializar** o reagente por 16 de Pulso. Reagentes brutos preparam remédios e entram em algumas receitas; os potencializados escrevem cantos, empenam flechas de verso e ungem armas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fios",
+      "text": [
+        "Alguns reagentes carregam um **Fio**, I, II ou III, nomeado em dourado na dica. É o quão forte era a criatura de que saiu, lido quando o reagente a deixa, por uma morte ou um pincel: o fio de linhagem mais forte acima de 2, e um passo a mais para uma **elite** de nome dourado.",
+        "- **Fio I**: uma criatura selvagem com um fio em 3, ou qualquer elite.",
+        "- **Fio II**: uma linhagem reproduzida com um fio em 4, ou uma elite com um fio em 3.",
+        "- **Fio III**: uma linhagem **Exaltada**, um fio em 5. Pincele o seu próprio familiar exaltado para conseguir dois por minuto.",
+        "Reagentes de Fios diferentes nunca se empilham. Em todo o resto, um reagente com fio funciona como qualquer outro; um [Coração de ley](ley_heart) queima mais quente, valendo **6, 9 ou 12** contra os 4 de um simples."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Famílias",
+      "text": [
+        "O que um reagente faz depende da **família** dele, que vem da criatura de que saiu. São onze, e cada uma significa a mesma coisa onde quer que você a use:",
+        "- em um **canto**, o que um reagente acrescenta depois do primeiro;",
+        "- em uma **arma ungida**, o que a arma faz com aquilo que acerta ([Unção](anointing));",
+        "- em um **remédio**, o que o preparado faz por quem o toma ([Remédios](remedies)).",
+        "As próximas páginas listam cada família, quais reagentes pertencem a ela e o que ela faz em cada um dos três."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Moa um reagente bruto em uma **tigela** com um único bastão de **Giz ritual** (coloque os três numa grade de fabricação; uma pilha inteira de giz não serve) e você obtém **2 de corante**. A tigela volta, e o giz só perde uma marca.",
+        "Dezesseis reagentes fazem os dezesseis corantes:",
+        "- **Branco**: Penugem pálida",
+        "- **Cinza-claro**: Lã de pastador",
+        "- **Cinza**: Asa da tempestade",
+        "- **Preto**: Asa de cinza",
+        "- **Marrom**: Casca de larva",
+        "- **Vermelho**: Partícula de brasa",
+        "- **Laranja**: Escama de magma",
+        "- **Amarelo**: Casca de cinza"
+      ],
+      "title": "Corantes de reagentes"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Verde-limão**: Orelha de goblin",
+        "- **Verde**: Raiz nodosa",
+        "- **Ciano**: Pó de brilho",
+        "- **Azul-claro**: Garra de tocaieiro",
+        "- **Azul**: Carapaça prismática",
+        "- **Roxo**: Penugem de lanterna",
+        "- **Magenta**: Esporo de campânula",
+        "- **Rosa**: Pétala de fada"
+      ],
+      "title": "Corantes de reagentes, continuação"
+    },
+    {
+      "type": "text",
+      "title": "Brasa",
+      "text": [
+        "**Reagentes**: Coração de brasa, Partícula de brasa, Escama de magma, Placa de cisco, Coalhada de escória, Pele de escória.",
+        "- **Canto**: incendeia o alvo.",
+        "- **Unção**: Cauterização: queima o alvo e adiciona fogo a cada golpe.",
+        "- **Remedy**: Acendalha: Força."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Raio",
+      "text": [
+        "**Reagentes**: Nó de borralho, Brasa de sombra.",
+        "- **Canto**: põe fogo no alvo.",
+        "- **Unção**: Chamado da tempestade: um quarto dos golpes arqueia um raio até dois inimigos próximos.",
+        "- **Remedy**: Presteza: Velocidade."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Calafrio",
+      "text": [
+        "**Reagentes**: Fragmento de sino, Véu de espectro.",
+        "- **Canto**: retarda o alvo.",
+        "- **Unção**: Geladura: retarda e congela o alvo.",
+        "- **Remedy**: Resfriamento: Resistência ao fogo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Veneno",
+      "text": [
+        "**Reagentes**: Presa de junco, Dente triturador, Farpa de faceta, Mandíbula de geada, Farpa de estilhaço, Presa de salmoura.",
+        "- **Canto**: envenena o alvo.",
+        "- **Unção**: Veneno: envenena o alvo.",
+        "- **Remedy**: Antídoto: remove o veneno, a decomposição, a fome e a náusea."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rajada",
+      "text": [
+        "**Reagentes**: Asa da tempestade, Farrapo de véu.",
+        "- **Canto**: empurra o alvo para trás.",
+        "- **Unção**: Vendaval: arremessa o alvo para trás e para cima.",
+        "- **Remedy**: Queda de pluma: Queda lenta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Raiz",
+      "text": [
+        "**Reagentes**: Raiz nodosa, Núcleo de cerne.",
+        "- **Canto**: retarda o alvo.",
+        "- **Unção**: Arraigamento: um quinto dos golpes enraíza o alvo no lugar.",
+        "- **Remedy**: Enraizamento: Resistência."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Empurrão",
+      "text": [
+        "**Reagentes**: Carapaça prismática, Nó de cascalho, Presa de brasa, Voluta de junco, Pele de trol, Pele de geada.",
+        "- **Canto**: empurra o alvo para trás com força.",
+        "- **Unção**: Ruptura: os golpes mordem mais quanto mais armadura o alvo usa.",
+        "- **Remedy**: Baluarte: Absorção."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trama",
+      "text": [
+        "**Reagentes**: Seda de eco, Seda sombria.",
+        "- **Canto**: retarda o alvo.",
+        "- **Unção**: eco: um quarto dos golpes acerta uma segunda vez pela metade.",
+        "- **Remedy**: Visão clara: Visão noturna, remove a cegueira e a escuridão."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Enfraquecer",
+      "text": [
+        "**Reagentes**: Sigilo de sentinela, Presa pálida, Mortalha do túmulo, Alga afogada.",
+        "- **Canto**: enfraquece o alvo.",
+        "- **Unção**: Drenagem: enfraquece o alvo.",
+        "- **Remedy**: Restauração: Pressa, remove fraqueza, lentidão e fadiga."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cão",
+      "text": [
+        "**Reagentes**: Dente da fenda, Garra de tocaieiro, Orelha de goblin, Presa de goblin, Escama de kobold, Chifre de kobold.",
+        "- **Canto**: faz o alvo brilhar.",
+        "- **Unção**: Sede de sangue: roubo de vida, 15% de cada golpe volta como vida.",
+        "- **Remedy**: Vigor: Aumento de vida."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Silêncio",
+      "text": [
+        "**Reagentes**: Veludo da alvorada, Penugem de lanterna, Escama de lomomusgo, Tufo de cinza, Lã de pastador, Pó de brilho, Asa de esvoaçante, Chifre de saltador, Casca de larva, Lã de tufo, Tendão de canela, Penugem pálida, Velo de penhasco, Presa de matacão, Bexiga à deriva, Crista de prisma, Asa de estilhaço, Casca luminosa, Pele à deriva, Casco de geada, Véu de neve, Asa de cinza, Pé de pântano, Casco de paul, Bexiga de brejo, Crista de sino, Asa de vidro, Casca de geodo, Nadadeira de lodo, Fita pálida, Escama de baixio, Casca do Lar, Casca de ancião, Casca de pinho de geada, Casca de cinza, Nó chorão, Esporo de campânula, Raiz de zanco, Pó de fada, Pétala de fada, Faísca de fada.",
+        "- **Canto**: dá a você um momento de regeneração.",
+        "- **Unção**: Remendo: a arma se repara ao golpear.",
+        "- **Remedy**: Remendo: Regeneração."
+      ]
+    }
+  ],
+  "next": "song_bench"
+}

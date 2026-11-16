@@ -1,0 +1,17 @@
+{
+  "name": "5. A queda",
+  "icon": "tribalpower:carved_stone",
+  "order": 14,
+  "spoiler": true,
+  "unlock": "fragment:4",
+  "pages": [
+    {
+      "type": "text",
+      "title": "A queda",
+      "text": [
+        "“Quando um fio solta, os outros oito seguram por um fôlego e então rasgam. O chão se soltou do céu em pedaços. O que não caiu ficou à deriva. O que ficou à deriva é a Marcha.”",
+        "Encontrado em uma Pedra entalhada nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

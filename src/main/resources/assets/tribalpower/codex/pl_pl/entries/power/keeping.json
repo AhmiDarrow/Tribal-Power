@@ -1,0 +1,190 @@
+{
+  "name": "Czuwanie",
+  "icon": "tribalpower:bone_chime",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Totemy potrzebują uwagi, nie tylko mocy. Totem, którego używasz, zostaje rozbudzony; ten, który ignorujesz, powoli zasypia. Nazywa się to **Czuwanie**, a totem jest zawsze w jednym z trzech stanów:",
+        "- **Odpowiedziany**: rozbudzony, przez około **40 minut** czasu załadowania od ostatniego użycia.",
+        "- **Przygaszony**: gaśnie, przez kolejne **40 minut**. Pasujące stacje trwają około **30% dłużej**.",
+        "- **Cichy**: uśpiony. Nowa praca może stanąć, nawet gdy Pulsu jest dość.",
+        "Zegar biegnie tylko, gdy chunk totemu jest załadowany. Pełny generator sam nie budzi cichego totemu.",
+        "Czuwanie to jedna z dwóch rzeczy, których totem potrzebuje. Druga to Puls w jego **buforze**: totem o pustym buforze jest **niemy** i nie użycza głosu, choćby był rozbudzony. W sieci kraty z Pulsem bufor się napełnia i zostaje pełny; poza kratą albo na suchej opróżnia się w około dwie minuty (zobacz [Przewodnik kraty](lattice_conductor)). Te dwie rzeczy nigdy się nie stykają: Puls nie budzi cichego totemu, a budzenie nie napełnia pustego."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Budzenie totemu",
+      "text": [
+        "Kliknij prawym przyciskiem przygaszony lub cichy totem pustą ręką albo użyj **Kościany dzwonek** na dowolnym totemie, aby go obudzić i uruchomić zegar od nowa.",
+        "Ręczne bicie w Bęben-serce budzi każdy totem w zasięgu 8 bloków. Tak samo bębniarze rangi Ród z plemion i Kolektor ley, którego uderzenie wynosi 8 lub więcej.",
+        "Dostrojony chowaniec utrzymuje w odpowiedzi każdy totem swojego głosu w zasięgu 8 bloków i budzi taki, który ucichł (zobacz [Więź z chowańcem](familiars)).",
+        "Praca utrzymuje totemy rozbudzone: w każdą sekundę, gdy pasująca stacja pracuje, karmi totemy swojego głosu. To podtrzymuje totem odpowiedziany lub przygaszony, ale nie obudzi takiego, który już ucichł.",
+        "Płyta bicia serca może utrzymać Bęben-serce przy wytwarzaniu mocy, ale uderzenia redstone nie utrzymują totemów rozbudzonych."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Budzenie cichego totemu",
+      "steps": [
+        {
+          "caption": "Ta kruszarka ma Puls i totem Ziemi, ale stanęła: jej totem ucichł.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Użyj Kościany dzwonek na totemie albo kliknij go prawym przyciskiem pustą ręką, aby go obudzić.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:bone_chime"
+          }
+        },
+        {
+          "caption": "Stacja wraca do pracy, a każda sekunda pracy utrzymuje totem w odpowiedzi.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Plan obozu",
+      "text": [
+        "Totemy w bujnych miejscach zostają rozbudzone **dwa razy dłużej**. Totem liczy bloki tuż wokół siebie: otwarte niebo (więcej w nocy), deszcz, woda i rośliny, w tym trawa pod stopami. Gdy to składa się na mocne miejsce, zegar idzie z połową prędkości. Większość totemów pod dachem albo na gołym kamieniu trzyma zwykłe tempo.",
+        "[Totem pokrewieństwa](kinship_totem) nigdy nie cichnie. W zasięgu 8 bloków utrzymuje swój głos w odpowiedzi dla stacji i rąk obozu, nawet obok Totem rezonansu tego głosu, który ucichł.",
+        "Wzrok głosów u [Soczewka ley](ley_lens) znaczy totemy kolorem własnego głosu, gdy są w odpowiedzi, ciemniejszym odcieniem, gdy przygaszone, i na szaro, gdy ciche lub nieme. A gdy stacja staje, choć moc wygląda dobrze, kucnij i kliknij ją prawym przyciskiem tą księgą: powie, czy jej totem jest przygaszony, czy cichy."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bone_chime"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Guardiões do leito",
+  "icon": "tribalpower:tribe_mark",
+  "order": 40,
+  "spoiler": true,
+  "unlock": "tribe:soil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_soil",
+      "title": "Guardiões do leito",
+      "text": [
+        "“Nunca chamamos isso de terra. Chamamos de o que restou, e o mantivemos aquecido.”",
+        "Fio de **Solo**, voz da **Terra**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quem são",
+      "text": [
+        "Quando o chão se foi, os Guardiões do leito o levaram em cestos, um leito de cada vez, e puseram um Lar em cada leito que salvaram. O ofício deles é **lares e depósitos**: guardar o que resta, e mantê-lo aquecido.",
+        "Os acampamentos deles ficam nas **planícies**, e na Marcha há um acampamento deles em cada faixa, do norte congelado até o sal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que querem",
+      "text": [
+        "O reagente deles é o **Fragmento de eco**, que vale **+8** de reputação no Lar deles.",
+        "Eles também favorecem qualquer terra, um Bloco de musgo, Pão, Solo da Marcha ou Musgo da Marcha: **+3** cada. Qualquer outra comida vale **+1**, e uma Célula de Pulso carregada **+2 a cada 10 Pulso**, até +8.",
+        "Lembre-se de que o Lar aceita no máximo **60** de reputação por dia em oferendas; veja [Tribos e reputação](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o Ancião troca",
+      "text": [
+        "**Hóspede**: 4 Pão por 2 Fragmento de eco; 6 Blocos de musgo por 4 Musgo da Marcha.",
+        "**Amigo**: 2 Eco sintonizado por uma Pia de pedra; 8 Pão por um Eco sintonizado; 4 Raiz de brasa por Purê de raiz do guardião.",
+        "**Parente**: 4 Eco sintonizado por um Depósito ancestral; 2 Eco vinculado e 8 Blocos de musgo por um Depósito profundo.",
+        "Cada troca rende **+2** de reputação."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marca, totem e dádiva",
+      "text": [
+        "Em **Voz**, o Ancião dá a você a Marca da tribo dos Guardiões do leito. Fabrique-a com um {item:tribalpower:resonance_totem_earth} e dois Tece-espírito para fazer o [Totem de parentesco](kinship_totem) deles.",
+        "Ao lado de um Ressonador de Pulso, é mais uma voz; ao lado de uma estação, empresta **Terra**.",
+        "Os Parentes dos Guardiões do leito carregam a [dádiva](tribe_boons) deles: seus campos nunca são pisoteados, e a fome chega mais devagar.",
+        "O prato deles carrega a dádiva por **5 minutos**, e a [relíquia](elders_and_stories) deles enquanto você a carregar.",
+        "Os Guardiões do leito são a tribo mais fácil para começar: pão e terra nunca estão longe."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "soil",
+      "title": "Seu trabalho com eles",
+      "text": [
+        "O que o Ancião dos Guardiões do leito pediu a você, e até onde a história deles chegou. Veja [Anciãos, pedidos e histórias](elders_and_stories)."
+      ]
+    }
+  ]
+}

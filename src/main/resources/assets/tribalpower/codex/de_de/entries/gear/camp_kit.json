@@ -1,0 +1,56 @@
+{
+  "name": "Schlüssel und Stab",
+  "icon": "tribalpower:totem_wrench",
+  "order": 25,
+  "items": [
+    "tribalpower:weavers_wand"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:totem_wrench",
+      "title": "Totemschlüssel",
+      "text": [
+        "Jede Maschine im Lager zeigt irgendwohin, und früher oder später in die falsche Richtung. Benutze den Schlüssel an einem Block, und er dreht sich an Ort und Stelle, ohne ihn abzubauen und neu zu setzen. Stämme und Säulen rollen auf ihre nächste Achse.",
+        "**Schleich-benutze eine Seite der Maschine** und diese Seite schaltet durch Beides, Eingang, Ausgang und Geschlossen — dieselbe Einstellung, die das eigene Seitenfeld der Maschine zeigt, erreichbar von außerhalb des Bildschirms.",
+        "Auf [Liedplatten](song_plates) stimmt er ab, statt zu drehen: schleich-benutze eine Platte, um ihr Lied zu halten, und benutze dann eine andere, damit sie das erste hört, ohne Draht dazwischen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was er kostet und was er ablehnt",
+      "text": [
+        "Eine Drehung nimmt **1 Puls** aus irgendeiner Zelle, die du bei dir hast. Ohne Puls bei dir verbraucht der Schlüssel stattdessen einen Punkt seiner **512**, damit er auch an einem schlechten Tag noch geht.",
+        "Eine Wandfackel, eine Leiter oder ein Hebel rückt an die nächste Wand, die ihn hält, und bleibt, wo er ist, wenn es keine gibt.",
+        "Er dreht keinen Block, der in Wahrheit zwei ist: ein Bett, eine Tür, eine Doppeltruhe, eine hohe Pflanze oder einen **ausgefahrenen Kolben** samt Kopf. Zieh den Kolben zuerst ein.",
+        "Er achtet geschütztes Land und lehnt Maschinen ab, die jemand außerhalb deines Lagers gesetzt hat, so wie eine leere Hand: die Liedplatten eines anderen Lagers liest er noch, doch er synchronisiert sie nicht und hält ihre Lieder nicht."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:totem_wrench"
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:weavers_wand",
+      "title": "Weberstab",
+      "text": [
+        "Klicke die Seite eines Blocks, und der Stab trägt diese Seite nach außen über jeden gleichen Nachbarn: bis zu **32 Blöcke** in einem Zug, gelegt an die Seite, die du angeklickt hast.",
+        "Die Blöcke kommen aus deinem Rucksack und deiner Schnellleiste und kosten je **2 Puls**; jeder Schwung nutzt den Zauberstab um einen Punkt seiner **768** ab. Er füllt nur leeren Raum und ersetzt nie, was schon da ist, so wird ein Boden mit einem Klick gelegt, und darunter geht nichts verloren."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wo er nicht legt",
+      "text": [
+        "Der Zauberstab überspringt jede Stelle, an der der Block nicht stehen könnte (eine Fackel ohne Halt, eine Pflanze auf Stein), und jede Stelle in geschütztem Land, und legt den Rest.",
+        "Er kopiert keinen Block, der mehr als einen Gegenstand hält oder ein Inventar hat: eine Doppelstufe, eine Tür oder ein Bett, ein Stapel Kerzen oder Meeresgurken, geschichteter Schnee, eine Truhe oder eine Maschine.",
+        "Gehen dir unterwegs Blöcke oder Puls aus, hält der Schwung einfach dort an."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:weavers_wand"
+    }
+  ]
+}

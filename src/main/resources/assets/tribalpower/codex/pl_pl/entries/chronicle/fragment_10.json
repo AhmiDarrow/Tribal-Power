@@ -1,0 +1,17 @@
+{
+  "name": "11. Kopce",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kopce",
+      "text": [
+        "“Śnieżne Pola to łąki Strażników kolonii pod zimą, która przyszła z upadkiem i została. Ule śpią pod kopcami. Zimno nauczyło się ich szumu i zrobiło z niego coś własnego.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "name": "残り火の窯",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "火の装置は石炭ではなくパルスで製錬する。かまどが製錬するものは、残り火の窯も製錬する。丸石は石になり、砂礫はインゴットになる。8ブロック以内に共鳴トーテム（火）が要る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "使い方",
+      "text": [
+        "かまどの入力なら何でも入れ、かまどの結果を取り出す。燃料は燃えない。",
+        "精錬1回は**10秒**、消費は**毎秒64パルス**。",
+        "砂礫は必ず自分のインゴットへ焼ける。かまどが読めないモッドの砂礫でも同じだ。",
+        "レバーで止まる。出力が一杯でも止まる。火が無いと止まり、何も消費しない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "丸石から石へ",
+      "steps": [
+        {
+          "caption": "残り火の窯を、共鳴トーテム（火）から8ブロック以内に置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "パルスを範囲内に保つ。隣の発電機で足りる。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "丸石を入れて石を取り出す。石炭は燃えない。",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "残り火の窯の下のホッパーが生成物を運び去る。",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "自動化",
+      "text": [
+        "エコー破砕を残り火の窯の上に置き、出力を入力へ。砂礫が下へ歩いていく。ステーションを別の上に置いたときの初期設定なので、そのまま動く。[金属と宝石](metals_and_gems)に鉱石の一連の流れがある。",
+        "インゴットを集めたいなら、下にホッパーか貯蔵庫を置く。",
+        "他の作業場と同じく、エコー調律、それから結束、顕現の順でランクを上げる。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

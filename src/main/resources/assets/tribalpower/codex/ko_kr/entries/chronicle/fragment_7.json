@@ -1,0 +1,18 @@
+{
+  "name": "8. 노래되지 않은 자",
+  "icon": "tribalpower:carved_stone",
+  "order": 17,
+  "spoiler": true,
+  "unlock": "fragment:7",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "title": "노래되지 않은 자",
+      "text": [
+        "“아홉째 실은 떨어지는 것조차 동의하지 않았다. 마치의 끝, 돌로 된 원 안에 속이 빈 채로 걸려, 다른 누구도 듣지 못하는 박자를 지키고 있다. 베틀 깁는 이는 기다리고 있다고 한다. 무엇을인지는 말하지 않는다.”",
+        "마치의 폐허에 있는 조각된 돌 위에서 발견되었다."
+      ]
+    }
+  ]
+}

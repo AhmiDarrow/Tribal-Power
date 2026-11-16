@@ -1,0 +1,74 @@
+{
+  "name": "Bestien des Schilffenns",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eigenes des Schilffenns",
+      "text": [
+        "Zwischen dem Schilf und den Schlammrinnen leben ein Frosch, ein Reiher und ein Kugelfisch, der in der Luft schwebt, und nachts erwacht eine Kobra im Gras.",
+        "Jede sanfte Bestie hier kannst du einmal pro Minute abbürsten und so ihr Reagenz bekommen. Gelockt und gezüchtet wird sie mit ihrem eigenen Futter, genannt weiter unten unter **Jagd und Haltung**. Du kannst sie binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene dennoch eine Stimme an einem Totem annehmen und deine Magie stärken (siehe [an einem Totem abstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Sumpfhüpfer",
+      "text": [
+        "Ein kleiner Fennfrosch, schnell im Sprung, in Gruppen von zwei bis vier. **12 Gesundheit**, keine Rüstung.",
+        "Lässt **1 bis 3 Sumpffuß** fallen, mehr mit Plünderung.",
+        "Gejagt lässt er außerdem bis zu 1 Rohes Wildbret, bis zu 1 Kaninchenfell und bis zu 1 Schleimball fallen. Züchte mit **Fennreis**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Fennstelzer",
+      "text": [
+        "Ein hoher Reiher, der auf Stelzenbeinen watet, in Herden von zwei bis vier. **22 Gesundheit** und **1 Rüstung**.",
+        "Lässt **1 bis 3 Fennhuf** fallen.",
+        "Gejagt lässt er außerdem 1 bis 3 Rohes Wildbret, bis zu 2 Marschleder und bis zu 1 Knochen fallen. Züchte mit **Fennreis**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Moorschweber",
+      "text": [
+        "Ein grüner Ballon-Kugelfisch, rund aufgeblasen und stachelig, der einzeln bis zu dritt über das Fenn treibt. **12 Gesundheit**, keine Rüstung. Ein paar treiben mit dem [Kolosswächter](colossus_warden).",
+        "Lässt **1 bis 3 Moorblase** fallen.",
+        "Gejagt lässt er außerdem bis zu 1 Schleimball und bis zu 1 Faden fallen. Züchte mit **Fennreis**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Schilfkringel",
+      "text": [
+        "Eine Sumpfkobra, eingerollt mit aufgestellter Haube, die nachts auf dem offenen Boden des Fenns aufsteigt, eine oder zwei auf einmal. Sie ist sehr langsam, hat aber **30 Gesundheit** und **6 Rüstung**, trifft für **5** und stößt dich bei jedem Schlag zurück.",
+        "Lässt **1 bis 2 Schilfwirbel** fallen, ein Stoß-Reagenz.",
+        "Gejagt lässt sie außerdem bis zu 1 Marschleder und bis zu 1 Knochen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Haltung",
+      "text": [
+        "Neben ihrem Reagenz lässt jede mehr fallen, wenn du sie jagst, und noch mehr mit Plünderung. Fleisch fällt gebraten, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche**, während du zwei Erwachsenen ihr Futter gibst; normal gefüttert, wird ein wildes stattdessen zutraulich zu dir."
+      ]
+    }
+  ]
+}

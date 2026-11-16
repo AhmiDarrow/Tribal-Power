@@ -1,0 +1,52 @@
+{
+  "name": "Renard-lanterne",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:lantern_fox_spawn_egg",
+    "tribalpower:lantern_down"
+  ],
+  "next": "mossback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "text": [
+        "Un renard crépusculaire timide, une lanterne brûlant au bout de sa queue, qui marque les chemins sûrs. Brosse les adultes pour obtenir Duvet de lanterne.",
+        "Chassé, il lâche aussi Gibier cru, de 1 à 2, et Cuir de la Marche, jusqu'à 1. Élève-le avec des **baies sucrées**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Les renards-lanternes vivent dans les forêts de l'Overworld et presque partout dans la Marche : surtout dans les Champs de neige, mais aussi dans la steppe, les hautes terres, les Champs de cristal, la Fagne des roseaux, la Crête de la lueur et même les Terres désolées de braise.",
+        "Un renard a **14 points de vie** et aucune armure. Il détale s'il est blessé et évite les monstres. Reproduis-en deux avec des **baies sucrées**."
+      ],
+      "title": "Où le trouver"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Brosse un adulte pour obtenir du **Duvet de lanterne**, une fois par minute. Ce duvet se lie en 2 Espritissu sous l'Eau, et les Gardiens de la colonie le préfèrent comme offrande.",
+        "Un renard chassé lâche du Gibier cru et parfois du Cuir de la Marche, mais jamais son duvet, donc le brosser est le seul moyen de l'obtenir."
+      ],
+      "title": "Ce qu'il donne"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Un renard lié est une lanterne qui te suit. Il porte une lumière invisible partout où il marche, te donne Vision nocturne tant que tu restes près de lui, et marque les minerais proches de lueurs que toi seul vois.",
+        "Les détails sont sur la page des [dons du familier](familiar_gifts)."
+      ],
+      "title": "Comme familier"
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Quand on le chasse, il lâche ceci, davantage avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour faire se reproduire les sauvages, **accroupis-toi** pendant que tu nourris deux adultes de leur nourriture ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

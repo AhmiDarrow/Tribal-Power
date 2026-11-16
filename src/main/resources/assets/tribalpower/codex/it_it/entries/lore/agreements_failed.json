@@ -1,0 +1,18 @@
+{
+  "name": "Quando gli accordi fallirono",
+  "icon": "tribalpower:lore_tablet",
+  "order": 20,
+  "spoiler": false,
+  "next": "continents_of_thread",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Nessuno ha reciso il Telaio. È stato tirato da nove lati, e questo Codice non può dire quale filo ha ceduto per primo. Neppure le tribù, alla fine. Per un momento il cielo era un pavimento. Subito dopo, gli accordi fallirono nello stesso respiro.",
+        "I Custodi del giaciglio lo sentirono per primi: i focolari si raffreddarono mentre il cielo sembrava ancora intero. Poi le ancore vive dei Legaradici ressero una stagione, e per quella stagione quassù c'è ancora qualcosa.",
+        "I Guardiani si spezzarono nelle loro arene. I canti continuarono senza nessuno ad ascoltarli. I sentieri di porta restarono aperti sul nulla.",
+        "Era un nodo che si scioglieva. I continenti caddero nello spazio di un rullo. Ciò che non è caduto è un giaciglio di terra che i Trefoli ricordano ancora. Sei su avanzi che hanno imparato a essere un pavimento."
+      ]
+    }
+  ]
+}

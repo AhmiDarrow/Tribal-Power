@@ -1,0 +1,38 @@
+{
+  "name": "Ancora di via",
+  "icon": "tribalpower:wayanchor",
+  "order": 80,
+  "next": "summoning_cradle",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wayanchor",
+      "text": [
+        "Tiene un chunk in funzione mentre sei lontano. Un'estremità di relè, una Fossa d'ascolto o una Porta in un chunk lontano si ferma quando non c'è nessuno vicino; un'Ancora di via tiene il proprio chunk caricato per **16 Pulso** al secondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenerne uno in funzione",
+      "text": [
+        "Piazzala nel chunk che deve restare sveglio. Tiene esattamente quel solo chunk, non un raggio intorno. Risponde a **Terra**: tieni un totem di Terra entro 8 blocchi (vedi [Mani dell'accampamento](camp_hands)), altrimenti lascia andare il chunk.",
+        "Tiene una riserva di **2,400 Pulso** e la ricarica fino a **80** al secondo dal reticolo. Puoi anche rabboccarla con una Cella di Pulso.",
+        "La redstone, o una riserva vuota, lascia andare il chunk. Rompere l'ancora lo lascia andare subito.",
+        "Fai clic destro per vedere se sta tenendo. Un comparatore legge 15 finché tiene."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Limiti e usi",
+      "text": [
+        "Ogni giocatore può farne funzionare fino a **32** ancore in ogni mondo. I membri di un [accampamento condiviso](shared_camps) invece condividono **12** ancore tra loro, contate in ogni mondo, quindi accordati con loro su quali chunk contano.",
+        "I relè non tengono mai i chunk caricati da soli. Se entrambe le estremità di un relè devono funzionare mentre viaggi, metti un'ancora all'estremità lontana.",
+        "Le porte tengono sveglia l'estremità lontana per qualche secondo quando qualcuno arriva, quindi una Porta ha bisogno di un'ancora solo se lì qualcosa deve continuare a funzionare."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayanchor"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Mal de l'Esprit",
+  "icon": "tribalpower:spirit_remnant",
+  "order": 40,
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Certains esprits de [la Marche](the_march) laissent plus qu'une blessure. Chaque coup d'un **élite**, et chaque coup de n'importe quel esprit **la nuit**, a une chance sur quatre de te laisser le **Mal de l'Esprit**.",
+        "Il s'empile jusqu'au **niveau III**. Chaque niveau retire **un cœur** à ta santé maximale et te ralentit un peu, et il dure **5 minutes**, renouvelées à chaque nouveau coup. Tu le sens s'installer : le jeu te prévient quand il prend."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le lever",
+      "text": [
+        "Le lait ne fait rien. Seules les vieilles voies fonctionnent :",
+        "- n'importe quel [remède](remedies), teinture, baume ou encens ;",
+        "- le [Hochet du guérisseur](healers_rattle) de Bound, un niveau à chaque secousse ;",
+        "- le [Cercle de soin](healing_circle) ;",
+        "- une nuit dans une [hutte de sudation](sweat_lodge) ;",
+        "- un lavage dans un **Puits de l'Esprit** de la Marche : accroupis-toi dans son eau, pour **40 Pulsation** d'une cellule que tu portes."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bénédiction de l'Esprit",
+      "text": [
+        "Le cercle et la hutte te laissent aussi la **Bénédiction de l'Esprit** : **2 cœurs en plus** et, tant qu'elle dure, le mal ne peut pas prendre du tout. Entre dans la Marche béni, et les esprits de la nuit ne peuvent que te blesser, pas te rendre malade."
+      ]
+    }
+  ],
+  "next": "afflictions"
+}

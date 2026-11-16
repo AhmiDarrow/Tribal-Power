@@ -1,0 +1,65 @@
+{
+  "name": "Fées",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Fées",
+      "text": [
+        "Là où la lumière est étrange, les fées dansent dans l'air. Elles sont petites et douces, et fuient les monstres.",
+        "Brosse-en une pour son réactif, une fois par minute, et attire-la et élève-la avec du **sucre** ou une **bouteille de miel**. Elle se lie comme tout animal doux (voir [familiers](familiars)) et, même sans don propre, une liée peut quand même prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Trois sortes",
+      "text": [
+        "Une fée a **8 de santé** et aucune armure, vole par une à trois et lâche **1 à 3** de son réactif, davantage avec Butin."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "Fée de lueur",
+      "text": [
+        "Dorée, au-dessus de la Crête de la lueur. Lâche **Poussière de fée**.",
+        "Chassée, elle lâche aussi jusqu'à 2 poudre de pierre lumineuse. Élève-la avec **du sucre ou une bouteille de miel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "Fée prisme",
+      "text": [
+        "Rose, au-dessus des Champs de cristal. Lâche **Pétale de fée** (teinture rose).",
+        "Chassée, elle lâche aussi jusqu'à 2 pétales roses et jusqu'à 1 éclat d'améthyste. Élève-la avec **du sucre ou une bouteille de miel**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "Fée des marais",
+      "text": [
+        "Verte, au-dessus de la tourbière aux roseaux. Quelques-unes volent avec le [Gardien colosse](colossus_warden). Lâche **Étincelle de fée**.",
+        "Chassée, elle lâche aussi jusqu'à 1 baie lumineuse et jusqu'à 1 poudre de pierre lumineuse. Élève-la avec **du sucre ou une bouteille de miel**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et pâturage",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand tu le chasses, et encore plus avec Butin. Pour élever les sauvages, **faufile-toi** pendant que tu nourris deux adultes avec leur nourriture ; nourri normalement, un sauvage s'attendrit envers toi à la place."
+      ]
+    }
+  ]
+}

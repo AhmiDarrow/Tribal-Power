@@ -1,0 +1,16 @@
+{
+  "name": "Tafel: Stiefel der Kantenläufer",
+  "icon": "tribalpower:lore_tablet",
+  "order": 130,
+  "spoiler": true,
+  "unlock": "tablet:3",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Aufbewahrt in einem Lager der Siegelkerber, in den Worten der Kantenläufer:",
+        "“Zuerst die Stiefel. Dann die Brücke. Dann der Mut; er kommt von allein. Wir gingen den Rissrand, wo der Faden am dünnsten ausfranste, und setzten Halte für die Übrigen. Ein Halt ist Eisen, Leder und das Versprechen, nicht hinabzusehen.”"
+      ]
+    }
+  ]
+}

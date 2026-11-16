@@ -1,0 +1,87 @@
+{
+  "name": "Braciere rituale",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "Il braciere tiene un sigillo elementale e lo trasforma in una benedizione continua per tutti i vicini. È anche il cuore di ogni rito di tavoletta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Accendere una benedizione",
+      "text": [
+        "Fai clic destro sul braciere con un sigillo per posarlo. Il sigillo non si consuma mai; accovacciati a mano vuota per riprenderlo.",
+        "Tieni il totem di quel sigillo entro **8 blocchi**, e Pulso nel reticolo vicino. Finché qualcuno sta entro **6 blocchi**, il braciere spende **8 Pulso ogni due secondi** e li benedice tutti. Senza nessuno vicino, non spende nulla.",
+        "Un segnale di redstone tenuto lo mette in pausa; il Pulso immagazzinato non viene scaricato. Un segnale breve attiva il rito posato (vedi [Cerchio del rito](rite_circle)).",
+        "Brucia anche [incenso](remedies) per tutti i vicini, senza sigillo e senza Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le benedizioni",
+      "text": [
+        "- **Terra**: fretta.",
+        "- **Fuoco**: resistenza al fuoco.",
+        "- **Acqua**: rigenerazione.",
+        "- **Aria**: caduta lenta.",
+        "- **Spirito**: visione notturna.",
+        "- **Telaio**: fortuna, e ogni battito infila **2 Pulso** in una Cella di Pulso portata che abbia spazio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigilli",
+      "text": [
+        "Ogni sigillo inizia vergine: carta, una Scheggia di Spirito e un Campanello d'osso fanno **due** Sigilli vergini.",
+        "Aggiungi terra per Terra, carbonella per Fuoco, un secchio d'acqua per Acqua, una piuma per Aria, una Scheggia di Spirito per Spirito, o Filo di Telaio per il Telaio.",
+        "I sigilli vanno in amuleti e tavolette di rito; la ricetta di una tavoletta restituisce sempre il suo sigillo. Un sigillo usato su un Piedistallo del rito si consuma in un [rito del sigillo](rite_circle) rapido."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

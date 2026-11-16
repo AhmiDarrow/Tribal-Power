@@ -1,0 +1,53 @@
+{
+  "name": "Formas de canto",
+  "icon": "tribalpower:song_sheet",
+  "order": 30,
+  "next": "pulse_crossbow",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O primeiro reagente decide",
+      "text": [
+        "Cada canto toma uma de cinco **formas**, e o **primeiro** reagente da folha a escolhe pela família ([Reagentes](reagents)):",
+        "- **Virote**: primeiro um reagente de Brasa, Virote ou Cão.",
+        "- **Amarra**: primeiro um reagente de Veneno, Fraqueza, Frio ou Trama.",
+        "- **Passo**: primeiro um reagente de Rajada.",
+        "- **Chamado**: primeiro um reagente de Raiz ou Empurrão.",
+        "- **Guarda**: primeiro um reagente de Quietude, a família de toda fera gentil.",
+        "A voz que você escolheu na bancada tinge a forma, seja qual for."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As cinco formas",
+      "text": [
+        "- **Virote** atinge o hostil que você olha, até **10 blocos** de distância, por **3** de dano mais **1** por cada cópia do primeiro reagente. Fogo o incendeia, e Ar o empurra.",
+        "- **Amarra** deixa esse hostil mais lento: Lentidão I com uma cópia do primeiro reagente, até IV se houver mais, e um nível a mais na voz de Água.",
+        "- **Passo** lança você para a frente, na direção em que olha, mais longe a cada cópia. Ar ergue você mais alto, e Ar e Espírito deixam você flutuar na descida. O Tear também costura você **2 a 4 blocos** à frente, se houver ar livre para pousar.",
+        "- **Chamado** atinge todo hostil ao seu redor, a cerca de **3 blocos**, por **2** de dano mais meio ponto por cópia, com o toque da voz como num Virote.",
+        "- **Guarda** é só para você: a [bênção](voice_blessings) da sua voz por **45 segundos** por cópia, e uma guarda própria. Terra dá resistência, Fogo resistência ao fogo, Água regeneração e respiração aquática, Ar queda lenta e velocidade, Espírito visão noturna e o Tear absorção.",
+        "Um Virote ou uma Amarra precisa de um hostil à vista. Se não houver nenhum ao alcance, o canto não é cantado e não custa nada."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que o resto da folha acrescenta",
+      "text": [
+        "Os reagentes depois do primeiro só vestem a forma. Nunca acrescentam um segundo feitiço.",
+        "- **Outra cópia do primeiro reagente** fortalece o canto: acerta mais, deixa mais lento, lança mais longe ou abençoa por mais tempo.",
+        "- **Um reagente de outra família** acrescenta o toque dessa família: fogo, lentidão, veneno, fraqueza, um empurrão, um brilho ou um momento de regeneração para você. Só as **duas primeiras** outras famílias contam. Uma terceira não acrescenta nada, nem um reagente diferente de uma família que já está na folha.",
+        "- **Cada reagente além do terceiro** faz o canto durar mais: sua lentidão, veneno e outros toques persistentes duram **4 segundos** numa folha de três reagentes e um segundo a mais por cada reagente depois disso. Um Virote ou uma Amarra alcança um bloco a mais. Um Chamado se espalha um pouco mais.",
+        "Os toques caem no alvo de um Virote ou de uma Amarra e em tudo o que um Chamado acerta. Um Passo ou uma Guarda não tem alvo, então só o toque de Quietude, a sua própria regeneração, age nesses."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que custa um canto",
+      "text": [
+        "Cantar custa **8 Pulso, mais 4 por reagente** na folha: **20** para três reagentes, **36** para sete. A dádiva dos Costureiros do tear tira um quarto ([Dádivas tribais](tribe_boons)).",
+        "Uma Folha de canto se gasta quando você a canta. Um Cancioneiro guarda seus cantos e descansa **1,5 segundos** depois de cada um antes de cantar de novo.",
+        "Um familiar da voz do canto por perto faz o golpe mais forte e um Chamado chegar mais longe ([o que uma voz dá](familiar_boons))."
+      ]
+    }
+  ]
+}

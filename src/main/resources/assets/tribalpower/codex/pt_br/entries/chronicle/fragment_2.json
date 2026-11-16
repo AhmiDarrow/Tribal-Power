@@ -1,0 +1,17 @@
+{
+  "name": "3. O Tear tecido",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O Tear tecido",
+      "text": [
+        "“Os Costureiros do tear descobriram que nove fios puxados uns contra os outros segurariam um peso que nenhum seguraria sozinho. Com isso costuraram o chão ao céu. Cada acampamento cantou o seu fio. O Tear segurou por nove gerações.”",
+        "Encontrado em uma Pedra entalhada nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

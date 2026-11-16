@@ -1,0 +1,300 @@
+{
+  "name": "Rangs des machines",
+  "icon": "tribalpower:echo_attune",
+  "order": 90,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Les ateliers et les générateurs peuvent gagner un rang, comme l'Espritoutillage : place la machine dans l'Accordeur d'écho, puis dans le Lieur d'écho, puis dans le Manifesteur d'écho. Chaque rang la rend plus rapide, et elle paie cette vitesse en Pulsation.",
+        "Tu ne peux pas sauter une étape : le Lieur refuse une machine de rang 0, et le Manifesteur veut le rang 2."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que coûte un rang",
+      "text": [
+        "Chaque étape prend de la Pulsation et du temps, mais aucun catalyseur :",
+        "- Accordeur (Feu) : **16 secondes** à **96 Pulsation par seconde**, pour le rang 1.",
+        "- Lieur (Eau) : **20 secondes** à **128**, pour le rang 2.",
+        "- Manifesteur (Esprit) : **24 secondes** à **160**, pour le rang 3."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Trois voix, trois rangs",
+      "steps": [
+        {
+          "caption": "Ramasse la machine. En tant qu'objet, elle va dans l'Accordeur d'écho avec un Totem de résonance (Feu) pour le rang 1.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Puis dans le Lieur d'écho, avec Eau, pour le rang 2.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Puis dans le Manifesteur d'écho, avec Esprit, pour le rang 3.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_manifest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shatter"
+          }
+        },
+        {
+          "caption": "Replace-la. Le rang suit le bloc, et l'objet quand tu le ramasses.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que fait un rang",
+      "text": [
+        "- Rang 1 : **85%** du temps, **118%** de la Pulsation par seconde.",
+        "- Rang 2 : **70%** du temps, **143%** de la Pulsation.",
+        "- Rang 3 : **55%** du temps, **182%** de la Pulsation.",
+        "Les stations comptent des secondes entières, donc un travail court peut ne pas aller plus vite au rang suivant, mais il paie quand même le débit de Pulsation plus haut. Les rangs valent surtout sur un long travail, comme les noyaux, la montée de rang et le Four de braise.",
+        "Les générateurs marchent autrement : chaque rang ajoute **15% de Pulsation par seconde**, pas les 118% de l'atelier. Les mains du camp battent plus vite pour la même Pulsation par mouvement.",
+        "L'**Établi du chant** est encore différent : chaque rang réduit sa Pulsation, à **85%**, **70%** et **55%**.",
+        "Les plaques relais déplacent plus et paient plus de Pulsation pour cela, et chaque rang ouvre un canal de plus : un au rang 0, jusqu'à quatre au rang 3. Un Conducteur de treillis porte **64**, **256**, **1,024** ou **4,096** Pulsation par seconde selon le rang, et une pierre de Cairn de Pulsation contient **4,000**, **16,000**, **64,000** ou **256,000** et déplace la Pulsation au débit du conducteur. Le Convertisseur et l'Énergiseur déplacent plus de Pulsation par seconde. Une Cache ou une Citerne de rang ne fait que passer objets et fluide plus vite aux machines qu'elle touche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quelles machines",
+      "text": [
+        "Chaque station d'écho, le Four de braise et l'Établi du chant ; le Cœur-tambour, le Collecteur de ley, le Résonateur de Pulsation et les cinq artisanats de voix ; le Conducteur de treillis, le Cairn de Pulsation, l'Énergiseur harmonique, le Convertisseur de treillis, la Cache ancestrale et la Citerne d'Esprit ; chaque relais ; le Bassin de pierre et le Maillage de résonance ; et les mains du camp (Pompe de marée, Collet du vent, Tambour de garde, Métier à sceaux).",
+        "L'infobulle montre le rang par nom : Tissé (0), Accordé (1), Lié (2), Manifesté (3). Si une station ne prend pas la machine, ce n'est pas la bonne station pour son rang actuel ; accroupis-toi et fais un clic droit sur la station avec ce livre."
+      ]
+    }
+  ]
+}

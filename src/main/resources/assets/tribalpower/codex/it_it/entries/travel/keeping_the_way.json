@@ -1,0 +1,36 @@
+{
+  "name": "Tenere la via",
+  "icon": "minecraft:map",
+  "order": 50,
+  "pages": [
+    {
+      "type": "text",
+      "title": "",
+      "text": [
+        "Le porte sono costruite per essere sicure. Una porta ti deposita sempre **dentro il telaio proprio della Porta lontana** e non scava, non costruisce e non sgombra mai nulla per fare spazio.",
+        "Se dentro il telaio lontano non c'è dove stare in piedi, il viaggio rifiuta e il Pulso torna nella chiave.",
+        "L'estremità lontana resta caricata per **dieci secondi** intorno al tuo arrivo, così un partner in un chunk scarico risponde ancora. Solo un'[Ancora di via](wayanchor) la tiene caricata più a lungo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando una porta si rompe",
+      "text": [
+        "Rompi una chiave e il partner viene liberato subito e si spegne. Chi sta entro 16 blocchi dal partner viene avvisato di quale porta è andata persa.",
+        "**/tribalpower gate list** mostra ogni porta che hai piazzato e a cosa risponde. **/tribalpower gate unlink <name>** taglia uno dei tuoi fili a mano.",
+        "Per ricollegare, usa di nuovo una bussola, un gesso o un sigillo, come in [Porta della via](way_gate)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando una porta non funziona",
+      "text": [
+        "- **\"Questa chiave non ha un telaio intorno\"**: manca un blocco del telaio oppure è fuori posto. Controlla sullo schema.",
+        "- **Serve Pulso**: carica la chiave; luce e viaggio vengono entrambi dalla sua riserva.",
+        "- **Si spegne da solo**: un segnale di redstone è tenuto su di essa, un blocco del telaio è stato rotto, oppure una Porta lontana ha perso la voce del Telaio.",
+        "- **\"Il filo non trova nulla\"**: la porta è accesa ma non collegata.",
+        "Accovacciati e fai clic destro su una chiave con questo libro per il suo stato completo."
+      ]
+    }
+  ]
+}

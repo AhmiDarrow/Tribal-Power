@@ -1,0 +1,30 @@
+{
+  "name": "Maza de resonancia",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Un pico pesado, de nivel de diamante, que despeja un plano de **3 por 3** de un solo golpe, pagado con Pulso. Los túneles y las canteras van tres veces más rápido."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Al golpear",
+      "text": [
+        "Sostenla en la mano principal y agáchate para usar una cara de bloque. La maza rompe el plano de 3 por 3 alrededor de ese bloque, alineado con la cara que golpeas.",
+        "Cada bloque cuesta **8 Pulso**, primero de la célula asentada en la propia maza y luego de las células que llevas, y el Pulso perdona el filo: el 3 por 3 no desgasta. Si el Pulso se acaba a mitad del golpe, los bloques restantes permanecen. Tras un golpe que rompe algo, la maza descansa **un segundo**.",
+        "Solo toma lo que tomaría un pico, y solo lo que su nivel de diamante puede extraer. El terreno protegido se respeta.",
+        "Golpeada sin agacharte, es un pico normal y se desgasta como tal.",
+        "Un pico de Tierra ligado a un tótem abre un 3 por 3 del mismo modo; consulta [Equipo ligado a un tótem](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Il posizionamento è il rituale",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Costruito, non fabbricato",
+      "text": [
+        "Alcune macchine si svegliano solo quando i blocchi intorno stanno nella forma giusta. La macchina al centro è l'**ancora**; la forma intorno è il suo **schema**.",
+        "Le ancore sono la Vasca di pietra, la Maglia di risonanza, il Braciere rituale, il Risonatore di Pulso, il Frantumatore di eco e la Chiave della porta. Ognuna ha la propria pagina in questo libro, con la forma costruita blocco per blocco.",
+        "Va bene qualsiasi rotazione, quindi orienta la forma come conviene al tuo accampamento."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Controllare il tuo lavoro",
+      "text": [
+        "Accovacciati e fai clic destro con questo libro sulla Vasca di pietra, sulla Maglia di risonanza o su una Chiave della porta. Nomina il livello raggiunto dalla forma, da che parte guarda e le prime **tre** cose ancora mancanti, e delle scintille segnano dove vanno. Un Braciere rituale elenca ciò che manca, senza le scintille.",
+        "Molti schemi hanno un secondo livello più grande. Di solito chiedono [Pietre d'ancora](anchor_stone) rinforzate agli angoli e, in cambio, danno alla macchina più da fare.",
+        "Le forme si uniscono con [Segni rituali](ritual_mark), tracciati con il Gesso rituale."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "La forma più piccola",
+      "text": "Una Vasca di pietra e quattro segni di gesso. È lo schema più facile su cui imparare, e funziona con un tamburo suonato a mano."
+    }
+  ],
+  "next": "ritual_mark"
+}

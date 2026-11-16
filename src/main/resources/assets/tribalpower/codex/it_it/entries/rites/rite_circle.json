@@ -1,0 +1,74 @@
+{
+  "name": "Cerchio del rito",
+  "icon": "tribalpower:rite_pedestal",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_pedestal",
+      "text": [
+        "Un Piedistallo del rito tiene e mostra un oggetto. Quattro di essi intorno a un Braciere rituale formano il **Cerchio del rito**, di cui ogni rito della tavoletta ha bisogno, chiamata di primavera inclusa.",
+        "La benedizione stabile di un braciere non ne ha bisogno: quella vuole solo il sigillo posto e il suo totem."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 1,
+      "title": "Tracciare il cerchio",
+      "text": "Braciere al centro, quattro Piedistalli del rito sulle diagonali, gesso che li unisce."
+    },
+    {
+      "type": "text",
+      "title": "Usare il cerchio",
+      "text": [
+        "Se il cerchio è incompleto, un rito della tavoletta dice che il cerchio non è tracciato e che la tavoletta non è consumata. Accovacciati e fai clic destro sul braciere con questo libro ed elenca ciò che al cerchio ancora manca.",
+        "Le tavolette possono attendere sui piedistalli. Un segnale di redstone colpito sul braciere avvia il rito posto con la tavoletta di un piedistallo che corrisponde al sigillo, e un comparatore legge se un piedistallo è occupato. È così che metti un [rito su un orologio](redstone_language)."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "rite_circle",
+      "tier": 2,
+      "title": "Voci sui cardinali",
+      "text": "Poni quattro totem della voce propria del rito sui cardinali: il rito costa un quarto in meno e dura il doppio."
+    },
+    {
+      "type": "text",
+      "title": "Il cerchio più forte",
+      "text": [
+        "I quattro totem cardinali contano solo quando corrispondono al rito che si lancia, quindi un cerchio d'Acqua aiuta la Chiamata della pioggia e la chiamata di primavera, ma non la Chiamata dell'alba.",
+        "È facoltativo. Un cerchio semplice lancia ogni rito a prezzo pieno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un rito del sigillo a mano",
+      "text": [
+        "Un piedistallo accetta anche un rito rapido senza alcun cerchio. Usa un **sigillo** elementale su un Piedistallo del rito: il sigillo si consuma, e la sua voce agisce su di te da **20 secondi** a **due minuti**, e su ogni ostile entro **6 blocchi**.",
+        "Se una cella che porti contiene **8 Pulso**, il rito la prende e risulta **amplificato**: più forte e più lungo.",
+        "Tutti entro 6 blocchi ricevono anche la [benedizione della voce](voice_blessings) del sigillo per **5 minuti**, o 7 e mezzo al livello II se amplificato. Un [famiglio](familiar_boons) sintonizzato sulla voce del sigillo accanto a te lo fa durare la metà in più. Fatto nell'accampamento di una tribù, conta come il rito che le loro richieste chiedono.",
+        "Un segnale di redstone sul piedistallo lo rifiuta."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa fa ogni sigillo",
+      "text": [
+        "- **Terra**: resistenza, assorbimento e fretta; gli ostili vicini vengono radicati, e l'erba sotto il piedistallo si compatta in un sentiero.",
+        "- **Fuoco**: resistenza al fuoco; gli ostili prendono fuoco, neve e ghiaccio si sciolgono, e i falò freddi si accendono.",
+        "- **Acqua**: respirazione acquatica e la grazia di un nuotatore; i fuochi si spengono e il terreno coltivato si inzuppa. Amplificato, accelera anche le piante.",
+        "- **Aria**: caduta lenta, velocità e un salto più alto; gli ostili vengono respinti, e la pioggia si dirada.",
+        "- **Spirito**: rigenerazione e visione notturna; toglie veleno, wither, cecità, lentezza, debolezza e fame, e cura ogni giocatore vicino; gli ostili brillano e si indeboliscono. Amplificato, rinfila **12 Pulso** in una cella che porti.",
+        "- **Telaio**: fortuna e velocità; gli ostili vengono attirati e rallentati, e ogni giocatore vicino riceve **12 Pulso** (24 se amplificato) infilati nelle proprie celle."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_pedestal"
+    }
+  ],
+  "next": "spring_calling"
+}

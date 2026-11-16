@@ -1,0 +1,38 @@
+{
+  "name": "Totem del silenzio",
+  "icon": "tribalpower:hush_totem",
+  "order": 70,
+  "next": "wayanchor",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hush_totem",
+      "text": [
+        "Pace per tutto l'accampamento. Finché è nutrito, il Totem del silenzio ferma la comparsa degli ostili entro **24 blocchi**, per **8 Pulso** al secondo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tenerlo quieto",
+      "text": [
+        "Mettilo al centro dell'accampamento, entro 8 blocchi da un Conduttore di reticolo, e un totem di **Spirito** entro 8 blocchi anche: senza la sua voce resta fermo (vedi [Mani dell'accampamento](camp_hands)). Tiene una riserva di **2.400 Pulso** per coprire un momento di quiete, e la ricarica fino a **80 Pulso** al secondo. Fai clic destro con una Cella di Pulso per rabboccarlo a mano.",
+        "Ferma le comparse naturali e quelle dei generatori di ogni ostile, quelle dell'Overworld e della Marcia, compresi gli ostili di una Culla di evocazione. Tiene lontani anche i **phantom**: nessuno viene mandato dietro a un giocatore che sta nel cerchio.",
+        "Non rimuove i mob già presenti, non ferma gli animali e non scavalca mai i comandi né le uova generatrici.",
+        "La redstone lo zittisce subito. Un comparatore legge 15 mentre fa silenzio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vivere con esso",
+      "text": [
+        "Gli ostili possono ancora entrare a piedi da fuori del cerchio, quindi tieni illuminati anche i bordi, oppure metti un Tamburo di guardia all'ingresso.",
+        "Se usi una Culla di evocazione per ostili, tienila a più di 24 blocchi dal totem, oppure metti il totem su una leva e alterna tra pace ed evocazione.",
+        "Una Lanterna di Spirito e un Totem del silenzio insieme fanno un accampamento quieto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hush_totem"
+    }
+  ]
+}

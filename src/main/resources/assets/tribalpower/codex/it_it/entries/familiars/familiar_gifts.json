@@ -1,0 +1,235 @@
+{
+  "name": "Cosa fanno i famigli",
+  "icon": "tribalpower:lantern_down",
+  "order": 30,
+  "items": [],
+  "next": "familiar_attuning",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:lantern_fox",
+      "title": "Volpe lanterna",
+      "text": [
+        "Una Volpe lanterna vincolata illumina la via."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una **Luce di Spirito** invisibile viaggia con lei a luce **10**; il marchio Vena-lucente alza quello a **12**.",
+        "Hai Visione notturna finché resti entro **8 blocchi** da lei.",
+        "Ogni **4 secondi** segna i minerali entro **6 blocchi** da sé con barbagli che solo tu vedi. Acume accorcia l'attesa, un Ronzio forte lo accelera, e il Ronzio notturno lo accelera di nuovo dopo il buio."
+      ],
+      "title": "La lanterna della volpe"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "title": "Dorsomuschio",
+      "text": [
+        "Un Dorsomuschio vincolato porta le tue cose."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Accovacciati e usalo con la **mano vuota** per aprire una bisaccia da **9 scomparti**, oppure da **12** con Tasca profonda.",
+        "Se muore, la bisaccia si rovescia a terra."
+      ],
+      "title": "La bisaccia del Dorsomuschio"
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dawn_stag",
+      "title": "Cervo dell'alba",
+      "text": [
+        "Un Cervo dell'alba vincolato si può cavalcare senza sella."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Usalo per salirci. Guida con lo sguardo, tieni premuto il salto per un balzo breve e accovacciati per scendere. Porta solo chi gli è vincolato.",
+        "Falciata lo rende più veloce; il marchio Balzo salta più in alto."
+      ],
+      "title": "Cavalcare il cervo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Colpiscono chi ha colpito te e chi colpisci tu, ma mai un giocatore o il compagno di un altro custode. Un residuo selvatico che colpiscono reagisce. Sono coraggiosi, non imbattibili: perdono comunque contro i guardiani.",
+        "**Fauci morbide** impedisce loro di mordere i villici o i golem. **Traccia** (due copie, solo segugi) fa brillare l'ultimo nemico che ti ha ferito, ovunque entro 48 blocchi."
+      ],
+      "title": "Combattenti: Dorsoscheggia e Segugio della fenditura"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una Falena della tempesta **seduta** lascia un **Clic di Spirito** invisibile di redstone **15** una volta al secondo, per 2 tick. Clic vero lo tiene per altri 2 tick. Non è un tamburo: i Cuoretamburo, i bracieri e le chiavi di volta lo ignorano, ma le piastre di canto e la redstone lo sentono.",
+        "Un Diavoletto di tizzone **seguente** restituisce **4 Pulso** ogni volta che suoni un Cuoretamburo a mano entro **8 blocchi**. I battiti di redstone non ottengono nulla, e un solo diavoletto paga per battito. Tempo (due copie) restituisce altri 2, **6** in tutto."
+      ],
+      "title": "Falena della tempesta e Diavoletto di tizzone"
+    },
+    {
+      "type": "scene",
+      "title": "Una falena come orologio",
+      "steps": [
+        {
+          "caption": "Metti una lampada di redstone dove la tua falena si sederà, e accovacciati e usala perché aspetti accanto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una volta al secondo compare un Clic di Spirito invisibile dove la falena si libra.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "La lampada accanto si accende a ogni clic: un orologio gratis da un secondo.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un Cuoretamburo dall'altra parte non sente nulla, perché i tamburi ignorano il clic.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una Campana del lutto che ti segue, entro **8 blocchi**, ti toglie veleno, debolezza, fame, affaticamento, cecità e nausea. Fermo (due copie) toglie anche la lentezza. Non solleva mai il Wither.",
+        "Un Tessitore di eco che ti segue raccoglie ciò che cade entro **4 blocchi** in una borsa da **cinque scomparti** e te lo lancia. Raccolta (due copie) arriva a **8**. Accovacciati e usalo a mani vuote per svuotare la borsa tu stesso."
+      ],
+      "title": "Campana del lutto e Tessitore di eco"
+    }
+  ]
+}

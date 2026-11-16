@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:ritual_chalk"
     },
-    "title": "Draw the circle",
-    "description": "Complete any pattern. Placement is the ritual: scattered devices are not a rite.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.circle.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.circle.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

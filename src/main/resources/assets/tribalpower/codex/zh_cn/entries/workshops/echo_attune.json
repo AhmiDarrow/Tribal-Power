@@ -1,0 +1,255 @@
+{
+  "name": "调谐与束缚",
+  "icon": "tribalpower:echo_attune",
+  "order": 40,
+  "items": [
+    "tribalpower:echo_bind",
+    "tribalpower:attuned_echo",
+    "tribalpower:bound_echo"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_attune",
+      "text": [
+        "回响调谐（火）把回响碎片变成**调谐回响**。它的搭档回响束缚（水）把调谐回响变成**束缚回响**。",
+        "这是网格的中间步骤：用来做更好的机器，也给你的脉动共鸣器提供更强的晶体。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "调谐",
+      "text": [
+        "放置回响调谐，并在8格内放一个火图腾，再喂入回响碎片。每个在**3秒**内、以**每秒40脉动**变成调谐回响。",
+        "回响调谐也能把紫水晶碎片变成灵之碎片。",
+        "催化剂槽里有荧石粉时，回响调谐还会点亮[石英玻璃](glimmer_ridge)。",
+        "远行界生物的战利品，比如余烬之心、芦苇尖牙或裂隙牙，每个会调谐成**两个**调谐回响，但它们要的是**灵**的声音，不是火。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "束缚",
+      "text": [
+        "放置回响束缚，并在8格内放一个水图腾，再喂入调谐回响。每个在**4秒**内、以**每秒48脉动**变成束缚回响。",
+        "回响束缚还会把羊毛变成**灵织**，把泥土变成**四个粘土球**。黎明绒、灯笼绒羽或风暴翼这类柔软的生物掉落，每个会束缚成两份灵织。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "不用漏斗的串联",
+      "steps": [
+        {
+          "caption": "放置回响束缚，旁边放一个水图腾。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_bind"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_water"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "把回响调谐放在上面，附近放一个火图腾。",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_attune"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "回响调谐的底面默认输出到回响束缚的顶面，所以回响会自己往下走。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "从上端喂入回响碎片，再从回响束缚取出束缚回响。",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "串联",
+      "text": [
+        "把回响调谐放在回响束缚上面，或者放在旁边，让相贴的面从输出接到输入，串联就不用漏斗自己走。切勿让双向对着双向。",
+        "把回响束缚放在回响显化上面，才能继续做出锭和核心。",
+        "拉杆会暂停其中任意一台。如果什么都不动，用这本书检查声音和脉动。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_attune"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_bind"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:attuned_echo"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bound_echo"
+    }
+  ]
+}

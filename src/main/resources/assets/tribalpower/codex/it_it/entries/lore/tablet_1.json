@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Maglia dei Cantori di ghiaia",
+  "icon": "tribalpower:lore_tablet",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tablet:1",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tenuta in un accampamento degli Intagliatori di sigilli, nelle parole dei Cantori di ghiaia:",
+        "“La maglia non trova il minerale. La maglia dà al minerale un posto dove posarsi. Canta piano sulla pietra grezza e si allenta; canta più piano e si frantuma in eco. Le nostre maglie pendono ancora nelle sale, ronzando verso il nulla. Porta loro minerale e ronzeranno per te.”"
+      ]
+    }
+  ]
+}

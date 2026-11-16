@@ -1,0 +1,210 @@
+{
+  "name": "Róg żaru",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "Rzemiosło Bęben-serca: róg, który spala paliwo pieca w Puls. Węgiel, węgiel drzewny, lawa, płomienne różdżki: cokolwiek spala piec, róg zamienia w stałą moc.",
+        "Mieści **1,000 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zasilanie",
+      "text": [
+        "Kliknij prawym przyciskiem z paliwem albo niech lej lub przekaźnik go zasila. Czas palenia paliwa podzielony przez dwadzieścia to jego Puls: węgiel to **80**, blok węgla **800**, wiadro lawy **1,000**, płomienna różdżka **120**.",
+        "Wypuszcza ten Puls w tempie do **20 na sekundę**. Więcej paliwa nie podnosi limitu; tylko starcza na dłużej.",
+        "Zapala następny kawałek tylko wtedy, gdy jest miejsce, więc pełny róg nic nie marnuje. Puste wiadro po lawie wyskakuje na wierzch rogu; z płonącego ognia nie da się wyciągnąć nic więcej.",
+        "Przykucnij i kliknij prawym przyciskiem ścianę pustą ręką, by przełączać go przez Oba, Wejście, Wyjście i Zamknięte, tak jak [Klucz totemu](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Róg, który zasila sam siebie",
+      "steps": [
+        {
+          "caption": "Postaw róg tam, gdzie maszyny w zasięgu 8 bloków mogą z niego czerpać.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lej na górze podaje mu paliwo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Skrzynia węgla nad lejem utrzymuje palenie przez długi czas: każdy węgiel to 80 Puls.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dźwignia obok wstrzymuje róg. Paliwo po prostu czeka.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwiększanie skali",
+      "text": [
+        "Bez rangi róg daje najwyżej **20 na sekundę**. Każda ranga dodaje **15% Puls na sekundę**, z zaokrągleniem do całego Pulsu. Dalej buduj więcej rogów.",
+        "Żadna pętla, którą możesz zautomatyzować, nie zamienia paliwa w więcej paliwa, niż spala. Nawet węgiel przywołany przez Dół nasłuchu kosztuje więcej Pulsu, by go przynieść i roztrzaskać, niż oddaje z powrotem.",
+        "Kliknięcie pustą ręką mówi, co wytwarza i co mieści. Przykucnij i kliknij prawym przyciskiem tą książką, by zobaczyć paliwo i spalanie, które jeszcze jest należne.",
+        "Rogi to rzemiosło plemienia [Bęben-serca](tribe_spark): przepis wymaga Węzeł żagwi i Pieczęć Ognia, a Bęben-serca wymieniają róg każdemu, kogo nazywają Przyjaciel."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

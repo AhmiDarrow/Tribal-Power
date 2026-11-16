@@ -1,0 +1,17 @@
+{
+  "name": "2. Dziewięć głosów",
+  "icon": "tribalpower:carved_stone",
+  "order": 11,
+  "spoiler": true,
+  "unlock": "fragment:1",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dziewięć głosów",
+      "text": [
+        "“Ziemia, by trzymać, Ogień, by grzać, Woda, by nieść, Powietrze, by unosić, Duch, by pytać, i Krosno, by związać pięć. Sześć głosów, dziewięć ludów: trzy z nich wspólne. Dzielenie było tam, gdzie zaczął się spór.”",
+        "Znalezione na rzeźbionym kamieniu w ruinach Marszu."
+      ]
+    }
+  ]
+}

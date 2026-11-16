@@ -1,0 +1,26 @@
+{
+  "name": "Filtros e placas de vazio",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "O filtro",
+      "text": [
+        "Abra uma placa para preencher o **Filtro**: oito espaços que guardam a imagem de um item, nunca o item em si. Clique num espaço com algo na mão para marcá-lo, com a mão vazia para limpá-lo, ou dê um Shift-clique nos itens do seu inventário.",
+        "O botão ao lado troca a lista. Uma **Lista negra** retém os itens marcados e deixa o resto passar; uma lista negra vazia, como a placa começa, envia tudo. Uma **Lista branca** envia só os itens marcados.",
+        "Para fluido, marque um balde ou qualquer recipiente cheio: um balde de água lista a água.",
+        "Agache-se e clique com o botão direito numa placa com a mão vazia para trocar a lista sem abri-la."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Placas de vazio",
+      "text": [
+        "Um **Selo de Fogo** no espaço **Runa** faz uma **placa de vazio**: queima o que puxa da máquina em vez de enviar a algum lugar; itens num Relé de itens, fluido num Relé de fluidos. Só queima o que o filtro nomeia, então um filtro vazio não queima nada. Uma placa de vazio queima pelo filtro da aba 1.",
+        "As placas começam como **Lista negra**, então uma placa de vazio nova com pedregulho marcado queima tudo, menos o pedregulho. Mude primeiro para **Lista branca** para queimar só o que você marcar, ou deixe-a como Lista negra e marque o que quer guardar.",
+        "Uma placa de vazio ainda precisa de Pulso e da sua voz. A cada batida queima até **16 itens** ou **250 mB**, mais quando classificada, e paga o Pulso habitual da placa."
+      ]
+    }
+  ]
+}

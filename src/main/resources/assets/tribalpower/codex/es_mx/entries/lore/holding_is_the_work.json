@@ -1,0 +1,46 @@
+{
+  "name": "Sostener es el trabajo",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Remendar no es un milagro privado. Consigue la reliquia de cada tribu, lleva las nueve a un círculo del Telar y realiza el [El noveno acuerdo](ninth_agreement). Los hilos vuelven a acordar.",
+        "Lee cada tablilla. Golpea el Tambor silencioso cuando estés listo. Ofrece en los hogares. Pide con cortesía, en menos de lo que pedía el mundo viejo.",
+        "El mundo no vuelve de golpe. Aprende a sostener."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "Las tablillas",
+      "text": [
+        "Las tribus dejaron atrás doce tablillas de piedra. Búscalas en las paredes de los campamentos de los Talladores de sellos (bosques oscuros y las Tierras Altas de la Marcha) y, en la Marcha, en [Salas de los ancestros](ancestor_hall) hundidas, Círculos de tambores, Agujas de cristal, campamentos de los Zurcidores del telar y Templos profundos. Haz clic derecho en una para leerla.",
+        "Cada tablilla que lees queda registrada aquí, en el capítulo de Relatos, y sus palabras se abren como una página propia."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "El capítulo cuenta cuántas de las doce has leído. Las tablillas que aún no has encontrado siguen ocultas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tablillas tuyas",
+      "text": [
+        "Ocho Piedra de la Marcha alrededor de un Fragmento de eco hacen **dos** Tablilla de relatos para colgar en una sala tuya. Una tablilla fabricada lleva el primer fragmento, el Hogar de los Guardianes del lecho; en el modo creativo, úsala agachado para recorrer las doce.",
+        "Una tablilla tiene que colgar del costado de un bloque sólido.",
+        "Una tablilla que encontraste olvida sus palabras al romperse y vuelve como el Hogar de los Guardianes del lecho, así que léela donde cuelga."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

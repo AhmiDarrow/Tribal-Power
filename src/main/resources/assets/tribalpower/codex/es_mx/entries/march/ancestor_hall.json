@@ -1,0 +1,47 @@
+{
+  "name": "Sala de los ancestros",
+  "icon": "tribalpower:lore_tablet",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:loom_thread"
+  ],
+  "next": "drum_circle",
+  "pages": [
+    {
+      "type": "image",
+      "image": "ancestor_hall",
+      "text": [
+        "Salas de piedra hundidas en la Estepa de la Marcha y las Tierras altas. En la superficie solo asoma un pozo de escalera."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Las Salas de los ancestros están enterradas: busca un pozo de escalera que baja al suelo. Abajo hay tres habitaciones bajo vigas de madera del Telar, iluminadas por faroles viejos.",
+        "Los **Centinelas huecos** guardan las habitaciones laterales, tres en cada sala. Pegan fuerte y debilitan tu agarre, así que ilumina las habitaciones al avanzar y ten a mano un báculo cargado para golpear de lejos."
+      ],
+      "title": "Encontrar una"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cuatro **Tablillas de relatos** cuelgan de las paredes. Haz clic derecho en cada una para leerla; la primera lectura queda registrada en este Códice, que cuenta cuántas de las **12** tablillas has encontrado. Los Círculos de tambores, la Aguja de cristal, los campamentos de los Talladores de sellos y el Templo profundo guardan el resto.",
+        "Dos cofres están al fondo. Cada uno contiene siempre **2 a 4 Hilo de Telar**, más un puñado de ecos, Fragmentos de eco, Fragmentos de Espíritu, Tejido espiritual, Cristal de la Marcha o un Sello en blanco, y a veces un sello elemental.",
+        "El Hilo de Telar es la razón por la que viene la mayoría. Es el primer paso hacia [la sexta voz](sixth_voice)."
+      ],
+      "title": "Lo que guarda la sala"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Ocho Piedra de la Marcha alrededor de un Fragmento de eco tallan **2 Tablillas de relatos**. Cuélgalas en una pared, en casa, para marcar tu propia sala; quedan planas contra el bloque de detrás y caen si lo quitas."
+      ],
+      "title": "Tablillas propias"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

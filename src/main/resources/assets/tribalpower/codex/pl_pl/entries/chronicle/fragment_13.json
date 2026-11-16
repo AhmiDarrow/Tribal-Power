@@ -1,0 +1,17 @@
+{
+  "name": "14. Przypływ",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Przypływ",
+      "text": [
+        "“Mielizny to dzieła Tkaczy wzorów, zatopione po pas i wciąż obracające się. Przypływ trzyma ich wzór takt w takt. Bębniarz, który go trzyma, zapomniał, że tkacze w ogóle istnieli.”",
+        "Znalezione na muralu, na ziemi strażnika."
+      ]
+    }
+  ]
+}

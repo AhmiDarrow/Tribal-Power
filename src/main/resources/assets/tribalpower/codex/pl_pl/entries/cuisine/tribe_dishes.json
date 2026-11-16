@@ -1,0 +1,78 @@
+{
+  "name": "Potrawy plemion",
+  "icon": "tribalpower:honeycake",
+  "order": 20,
+  "items": [
+    "tribalpower:keepers_root_mash",
+    "tribalpower:grit_baked_bread",
+    "tribalpower:rootbinder_rice",
+    "tribalpower:edge_walker_jerky",
+    "tribalpower:drumheart_chili",
+    "tribalpower:pattern_tart",
+    "tribalpower:honeycake",
+    "tribalpower:seal_carvers_broth",
+    "tribalpower:loom_thread_noodles"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Każde plemię gotuje jedną potrawę tak, jak tylko ono potrafi, a zjedzenie jej niesie [dar](tribe_boons) tego plemienia przez **5 minut**. Gotuj je w [Garnek Paleniska](hearth_pot).",
+        "- **Przecier z korzenia strażnika** (Gleba): Korzeń żaru ×2, Ziarno stepu, miska.",
+        "- **Chleb żwirowy** (Kamień): Ziarno stepu ×2, Żelazny żwir.",
+        "- **Ryż wiązacza korzeni** (Kiełek): Ryż mokradła ×2, Trzcina Ducha, miska.",
+        "- **Susz chodzącego po krawędzi** (Szpon): Surowa dziczyzna ×2, Korzeń żaru.",
+        "- **Chili bęben-serc** (Iskra): Korzeń żaru ×2, Fasola błysku, Surowa dziczyzna, miska."
+      ],
+      "title": "Dziewięć plemion, dziewięć potraw"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Tarta wzorów** (Zegar): Fasola błysku, Ziarno stepu, Mroźna jagoda.",
+        "- **Ciasto miodowe** (Rój): plaster miodu, Ziarno stepu ×2, jajko.",
+        "- **Bulion rzeźbiarza pieczęci** (Sygil): Ryż mokradła, Kwiat echa, Liść Marszu, miska.",
+        "- **Makaron z nici Krosna** (Wrzeciono): Ryż mokradła ×2, Oset ley, miska.",
+        "Gdy plemię nazwie cię **Przyjaciel**, jego Ród sprzeda ci potrawę za cztery sztuki plonu, z którego jest zrobiona. Ofiaruj plemieniu jego własną potrawę przy jego Palenisku, a liczy się to jako **6 reputacji**, więcej niż każdy inny dar poza reagentem."
+      ],
+      "title": "Dziewięć plemion, dziewięć potraw, ciąg dalszy"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:keepers_root_mash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:grit_baked_bread"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rootbinder_rice"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:edge_walker_jerky"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drumheart_chili"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pattern_tart"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:honeycake"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_carvers_broth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_thread_noodles"
+    }
+  ],
+  "next": "road_fare"
+}

@@ -1,0 +1,129 @@
+{
+  "name": "Espritoutillage",
+  "icon": "tribalpower:spiritgear_pickaxe",
+  "order": 40,
+  "items": [
+    "tribalpower:spiritgear_axe",
+    "tribalpower:spiritgear_shovel",
+    "tribalpower:spiritgear_blade",
+    "tribalpower:spiritgear_shears",
+    "tribalpower:spiritgear_hoe"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_pickaxe",
+      "text": [
+        "Outils forgés à partir de Lingot manifesté : une pioche, une hache, une pelle, une lame, des cisailles et une houe. Ils coupent comme le diamant. La pioche, la hache, la pelle, la lame et la houe durent **1,561** utilisations, comme le diamant, et les cisailles **1,024**.",
+        "S'ils peuvent puiser de la Pulsation dans une cellule, la Pulsation est le prix du travail et le tranchant est épargné : un bloc, un usage ou un coup payé ne s'use pas du tout.",
+        "L'[Arc de Pulsation](song_bench) et l'[Arbalète de Pulsation](pulse_crossbow) sont forgés eux aussi à partir de Lingot manifesté et durent **1,024**. Chaque tir se paie en Pulsation, donc tirer ne les use jamais. Tout se répare sur l'[Enclume de l'Esprit](spirit_anvil)."
+      ],
+      "title": "Outils d'Espritoutillage"
+    },
+    {
+      "type": "text",
+      "title": "Pulsation pour le travail",
+      "text": [
+        "Un bloc miné coûte **2 Pulsation**, un coup **3**, un usage **1**, pris sur n'importe quelle Cellule de Pulsation que tu portes.",
+        "Sans Pulsation, l'outil fonctionne encore, mais alors il s'use : ce que n'importe quel outil perdrait, et un point de plus tant qu'il a faim, jusqu'à ce qu'il soit Lié. La barre d'action te dit qu'il a faim.",
+        "Un [familier](familiar_boons) accordé à la voix de la pièce, à proximité, réduit de **40%** ce qu'elle dépense. Chaque pièce se répare avec Lingot manifesté sur n'importe quelle enclume, jamais avec des diamants."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Monter en rang",
+      "text": [
+        "Les rangs sont le moment où l'Espritoutillage devient quelque chose de spécial, et ils doivent coûter un vrai effort. Pose la pièce dans la station, son totem à proximité, mets les **catalyseurs** dans les emplacements de catalyseur, et maintiens le flux de Pulsation :",
+        "- **Accordeur d'écho**, Feu : rang 0 à 1. **45 secondes** à **96 Pulsation par seconde**, et **4 Écho accordé**.",
+        "- **Lieur d'écho**, Eau : rang 1 à 2. **90 secondes** à **128**, et **4 Écho lié**.",
+        "- **Manifesteur d'écho**, Esprit : rang 2 à 3. **180 secondes** à **192**, et **2 Noyau résonnant** et **4 Fil de Métier**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Avant de monter en rang",
+      "text": [
+        "Chaque station ne prend que le rang suivant : Lieur d'écho refuse le rang 0, et Manifesteur d'écho refuse tout ce qui est sous Lié. Fil de Métier ne vient que de [Le Non-chanté](the_unsung), donc le rang le plus haut attend que tu l'aies vaincu.",
+        "Ce sont de lourds tirages pour n'importe quel camp. Apporte un résonateur avec un bon catalyseur, ou plusieurs générateurs, dans les 8 blocs.",
+        "La station attend, sans rien dépenser, jusqu'à ce que ses catalyseurs soient en place ; ils sont consommés quand le rang aboutit. L'infobulle montre toujours ce qu'exige le rang suivant."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce que donnent les rangs",
+      "text": [
+        "- **Accordé** : chaque action coûte une Pulsation de moins, jamais en dessous d'une (miner 1, un coup 2, un usage 1), mine **20%** plus vite et frappe plus fort.",
+        "- **Lié** : une action affamée ne s'use pas plus que celle de n'importe quel outil, et il mine **45%** plus vite.",
+        "- **Manifesté** : mine **80%** plus vite, la moitié des actions affamées ne s'usent pas du tout, et les atouts de la voix deviennent plus forts.",
+        "La lame et sa [famille d'armes](spiritgear_weapons) y gagnent le plus : **+2**, **+5** et **+10** de dégâts d'attaque selon le rang, et un peu de vitesse d'attaque. Une lame Manifesté frappe les **boss 25% plus fort** et te soigne de **10%** de chaque coup, ce qu'il te faut dans un long combat.",
+        "Une pioche liée au Métier dépense **0 Pulsation** pour miner. Détissage d'écho défait un outil endommagé en un Lingot manifesté, en oubliant le rang et la voix."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les cisailles",
+      "text": [
+        "Les **Cisailles d'Espritoutillage** taillent feuilles, laine, lianes et toile d'araignée, et prennent un rang et une voix comme le reste de l'ensemble.",
+        "- **Terre** : un coup prend toute la face 3x3 du feuillage.",
+        "- **Air** : tailler ne coûte aucune Pulsation et aucune usure.",
+        "- **Eau** : un mouton tondu garde sa toison une fois sur deux, et toujours au rang Manifesté.",
+        "- **Feu** : utilisées sur une ruche, elles enfument les abeilles pour les calmer, donc pas d'essaim.",
+        "- **Esprit** : ce qu'elles tondent est réparé ensuite, et les bêtes proches qui valent d'être tondues brillent.",
+        "- **Métier** : les chutes arrivent droit en main."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La houe",
+      "text": [
+        "La **Houe d'Espritoutillage** moissonne et sème d'un seul geste : utilise-la sur une culture mûre et la récolte tombe, moins une graine qui retourne droit en terre. Une culture qui ne donne aucune graine à elle est moissonnée et laissée à nu.",
+        "- **Terre** : retourne un 3x3 de sol d'un coup.",
+        "- **Eau** : ses sillons sortent mouillés, et la terre labourée autour de toi reste arrosée tant que tu la tiens.",
+        "- **Air** : moissonne un 3x3.",
+        "- **Métier** : moissonne un 5x5 et n'y dépense aucune Pulsation.",
+        "- **Esprit** : un quart des récoltes tombe en double (graines à part)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_pickaxe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shovel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_blade"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_shears"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_hoe"
+    },
+    {
+      "type": "text",
+      "title": "Une cellule à soi",
+      "text": [
+        "Chaque pièce d'Espritoutillage et d'Espritissu, la [Masse de résonance](resonance_maul), le [Bâton sextuple](sixfold_staff), les chansonniers et les arcs de Pulsation peuvent porter une **Cellule de Pulsation** à part. Prends la cellule dans ton inventaire et **clique droit avec elle sur la pièce** : elle entre, charge comprise.",
+        "La pièce puise toujours d'abord dans sa propre cellule. Ce n'est que vide qu'elle va chercher les cellules que tu portes, ainsi un ensemble bien chargé continue longtemps après que tes poches sont à sec."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Échanger les cellules",
+      "text": [
+        "Fais un clic droit avec une cellule plus grande (une **{item:tribalpower:greater_pulse_cell}** ou une **{item:tribalpower:grand_pulse_cell}**) sur une pièce qui en tient une plus petite pour l'améliorer ; l'ancienne cellule revient sur ton curseur. Une cellule de même taille ou plus petite complète celle qui est en place.",
+        "Fais un clic droit sur une pièce avec un **curseur vide** pour reprendre sa cellule, charge comprise. L'infobulle montre ce que chaque pièce tient."
+      ]
+    }
+  ],
+  "next": "spiritgear_weapons"
+}

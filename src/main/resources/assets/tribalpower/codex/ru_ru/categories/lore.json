@@ -1,0 +1,8 @@
+{
+  "name": "Предания",
+  "icon": "tribalpower:lore_tablet",
+  "order": 120,
+  "description": "История мира, который был, и скрижали, что племена оставили тем, кто придёт после.",
+  "spoiler": true,
+  "progress": "tablets"
+}

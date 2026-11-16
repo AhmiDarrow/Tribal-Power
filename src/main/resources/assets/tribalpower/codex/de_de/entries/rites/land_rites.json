@@ -1,0 +1,50 @@
+{
+  "name": "Landriten",
+  "icon": "tribalpower:rite_green_blessing",
+  "order": 110,
+  "items": [
+    "tribalpower:rite_still_night",
+    "tribalpower:rite_ley_binding"
+  ],
+  "next": "voice_blessings",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_green_blessing",
+      "text": [
+        "Landriten ändern eine Region für eine Weile: schnellere Feldfrüchte, weniger Feindliche oder eine geliehene Verbindung zwischen fernen Totems.",
+        "Sie folgen denselben Regeln wie jeder Tafelritus: das passende Siegel, der Kreis und Puls durch einen Konduktor innerhalb von 8 Blöcken."
+      ],
+      "title": "Landriten"
+    },
+    {
+      "type": "text",
+      "title": "Die drei Landriten",
+      "text": [
+        "- **Grüner Segen** (Erde, **600** Puls, eine Knotige Wurzel): segnet die **neun Chunks** um das Kohlenbecken für zwanzig Minuten. Feldfrüchte, Setzlinge und Stängel dort bekommen zusätzliche zufällige Ticks und funkeln grün.",
+        "- **Stille Nacht** (Geist, **600**, ein Wächtersiegel): dämpft feindliches Erscheinen innerhalb von **64 Blöcken** für fünfzehn Minuten, wie ein weites Stilletotem. Siegelkerber verkaufen diese Tafel an Freunde.",
+        "- **Leybindung** (Webstuhl, **1.200**, Webstuhlfaden): bindet das nächste Resonanz-Totem des Kohlenbeckens an ein anderes innerhalb von **64 Blöcken** für dreißig Minuten. Solange sie summt, weben sich die Konduktoren in Reichweite des einen Totems ins Netz des anderen, und Puls quert den Faden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Bevor du wirkst",
+      "text": [
+        "Zeichne zuerst den Kreis: fehlende Sockel lassen das Wirken scheitern, ohne die Tafel zu verbrauchen.",
+        "Vier passende Totems auf den Kardinalen des Kreises senken die Kosten um ein Viertel und verdoppeln die Zeit: Grüner Segen hält dann vierzig Minuten für 450 Puls."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_green_blessing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_still_night"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_ley_binding"
+    }
+  ]
+}

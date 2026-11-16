@@ -1,0 +1,28 @@
+{
+  "name": "Lanterna de Espírito",
+  "icon": "tribalpower:spirit_lantern",
+  "order": 100,
+  "next": "pulse_lights",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_lantern",
+      "text": [
+        "Uma lanterna entalhada de cobre e madeira que ilumina o acampamento no nível **15** e nunca precisa de combustível nem de Pulso. Seu cristal brilha nas mesmas cores da treliça viva."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como usar",
+      "text": [
+        "Coloque-as nos caminhos entre as oficinas. Uma alavanca ou qualquer sinal de redstone diminui uma, e um comparador lê 15 enquanto estiver acesa.",
+        "É uma luz, não uma proteção: os hostis ainda precisam de escuridão para surgir, então luz mais um Totem do silêncio faz um acampamento quieto.",
+        "Se você preferir que suas luzes funcionem pela treliça, o Junco luminoso, a Lâmpada de estilhaço, a Arandela de eco e a Tigela de brasa puxam um filete de Pulso. Veja [Luzes de Pulso](pulse_lights)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_lantern"
+    }
+  ]
+}

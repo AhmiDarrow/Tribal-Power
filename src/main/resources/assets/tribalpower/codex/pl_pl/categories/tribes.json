@@ -1,0 +1,8 @@
+{
+  "name": "Dziewięć plemion",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Dziewięć plemion niegdyś strzegło Krosna. Ich obozy wciąż stoją; zdobądź ich pozycję i ich znaki.",
+  "spoiler": true,
+  "progress": "tribes"
+}

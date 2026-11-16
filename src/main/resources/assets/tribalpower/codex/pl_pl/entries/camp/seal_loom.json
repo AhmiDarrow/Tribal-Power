@@ -1,0 +1,245 @@
+{
+  "name": "Krosno pieczęci",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Stół rzemieślniczy, który pracuje sam. Naucz go jednego przepisu stołu, z gry podstawowej albo dowolnego moda, na Pieczęć przepisu, trzymaj siatkę zaopatrzoną, a utka jeden wynik na sekundę za **6 Puls** każdy. Pieczęć nigdy się nie zużywa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nauka przepisu",
+      "text": [
+        "Zrób **Pieczęć przepisu** z dwóch rzeczy: Czysta pieczęć i papier. Potem otwórz Krosno pieczęci. Pieczęć trafia do własnego miejsca obok siatki, nie na środek pola trzy na trzy.",
+        "Ułóż przepis w siatce dokładnie jak przy stole rzemieślniczym: na patyki jedna deska nad drugą.",
+        "Zamknij ekran, przykucnij i kliknij prawym przyciskiem Krosno pieczęci **pustą ręką**. Pieczęć zapisuje przepis, a podpowiedź nadaje mu nazwę.",
+        "Tylko Czysta pieczęć może przyjąć przepis. Na nowy przepis zrób nową pieczęć; zmiana siatki nigdy nie zmienia tego, co pamięta stara pieczęć."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Niech działa",
+      "text": [
+        "Gdy pieczęć jest osadzona, a właściwe przedmioty są we właściwych miejscach, wytwarza raz na uderzenie za **6 Puls** z kraty. Dwie deski dają cztery patyki, a pieczęć zostaje. Odpowiada **Krosno**: trzymaj Totem rezonansu (Krosno) w zasięgu 8 bloków (zobacz [Ręce obozu](camp_hands)), inaczej stoi bezczynnie.",
+        "Wyniki wypełniają dziewięć miejsc wyjścia i wychodzą przez **dolną** ściankę do leja albo [płyty przekaźnika](wireless_cargo) tam. Resztki, jak puste wiadra i butelki, wychodzą z nimi, więc nigdy nie zatykają siatki; narzędzie, które przepis oddaje, jak misa do mielenia, wraca do własnego miejsca. Gdy wyjścia nie mają miejsca na wytwór i resztki, Krosno pieczęci czeka i nic nie wydaje.",
+        "Ranga skraca uderzenie; Puls na wytwór zostaje 6. Dźwignia go wstrzymuje, a komparator odczytuje, jak jest pełny."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Krosno do patyków",
+      "steps": [
+        {
+          "caption": "Postaw Krosno pieczęci, generator i Przewodnik kraty w zasięgu 8 bloków.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Osadź Pieczęć przepisu w miejscu pieczęci, ułóż przepis i kliknij w kucki pustą ręką.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Lej u góry utrzymuje siatkę pełną; każdy przedmiot trafia do pierwszego miejsca, które go przyjmuje.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Lej poniżej wyciąga wyniki z dolnej ścianki.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zasilanie",
+      "text": [
+        "Lej albo płyta przekaźnika zestrojona z krosnem wrzuca każdy przedmiot w pierwsze pole siatki, które go przyjmie. Pasuje to do przepisów na jedno pole, jak kłody w deski. Przy przepisie kształtowym wypełnij ręcznie używane pola pełnymi stosami, a będzie wytwarzać, aż jeden się skończy. Gdy siatka przestaje pasować do pieczęci, czeka i nic nie zużywa.",
+        "Kucnij i kliknij prawym na ścianę, trzymając przedmiot, by zmienić tę ścianę: Oba, Wejście, Wyjście lub Zamknięte.",
+        "Sprawdź jedną partię, zanim podepniesz magazyn hurtowy."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Odbij go na krośnie; jedna pieczęć pamięta jeden przepis."
+    }
+  ]
+}

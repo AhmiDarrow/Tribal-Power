@@ -1,0 +1,245 @@
+{
+  "name": "Telaio dei sigilli",
+  "icon": "tribalpower:seal_loom",
+  "order": 40,
+  "items": [
+    "tribalpower:recipe_seal"
+  ],
+  "next": "tide_pump",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:seal_loom",
+      "text": [
+        "Un banco da lavoro che lavora da solo. Insegnagli una ricetta del banco, del gioco base o di qualunque mod, su un Sigillo di ricetta, tieni la griglia rifornita, e tesse un risultato al secondo per **6 Pulso** ciascuno. Il sigillo non si consuma mai."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Insegnargli una ricetta",
+      "text": [
+        "Crea un **Sigillo di ricetta** da un Sigillo vergine e carta, poi apri il Telaio dei sigilli. Il sigillo va nel suo scomparto accanto alla griglia, non al centro del tre per tre.",
+        "Disponi la ricetta nella griglia esattamente come su un banco da lavoro: per i bastoni, un'asse sopra l'altra.",
+        "Chiudi la schermata, accovacciati e fai clic destro sul Telaio dei sigilli con la **mano vuota**. Il sigillo registra la ricetta e la descrizione le dà il nome.",
+        "Solo un Sigillo vergine può essere istruito. Per una ricetta nuova, fai un sigillo nuovo; cambiare la griglia non cambia mai ciò che un vecchio sigillo ricorda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lasciarlo funzionare",
+      "text": [
+        "Con il sigillo al suo posto e gli oggetti giusti negli scomparti giusti, fabbrica una volta per battito per **6 Pulso** dal reticolo. Due assi danno quattro bastoni, e il sigillo resta. Risponde al **Telaio**: tieni un Totem di risonanza (Telaio) entro 8 blocchi (vedi [Mani dell'accampamento](camp_hands)), altrimenti resta fermo.",
+        "I risultati riempiono i nove scomparti di uscita e escono dalla faccia **inferiore**, verso una tramoggia o una [piastra relè](wireless_cargo) lì. Gli avanzi, come secchi e bottiglie vuote, escono con loro, così non inceppano mai la griglia; un attrezzo che la ricetta restituisce, come una ciotola da macina, torna nel suo scomparto. Quando le uscite non hanno posto per una creazione e i suoi avanzi, il Telaio dei sigilli aspetta e non spende nulla.",
+        "Il rango accorcia il battito; il Pulso per creazione resta 6. Una leva lo mette in pausa, e un comparatore legge quanto è pieno."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Un telaio per bastoni",
+      "steps": [
+        {
+          "caption": "Piazza il Telaio dei sigilli con un generatore e un Conduttore di reticolo entro 8 blocchi.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:seal_loom[facing=south]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Inserisci un Sigillo di ricetta nel suo scomparto, disponi la ricetta e fai clic accovacciato con la mano vuota.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:recipe_seal"
+          }
+        },
+        {
+          "caption": "Una tramoggia sopra tiene la griglia piena; ogni oggetto va nel primo scomparto che lo accetta.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una tramoggia sotto tira i risultati fuori dalla faccia inferiore.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Rifornirlo",
+      "text": [
+        "Una tramoggia, o una piastra relè accordata al telaio, lascia ogni oggetto nella prima casella della griglia che lo accetta. Va bene per le ricette da una sola casella, come tronchi in assi. Per una ricetta sagomata, riempi a mano le caselle che usa con pile piene e fabbrica finché una non si esaurisce. Se la griglia smette di coincidere con il sigillo, aspetta e non consuma nulla.",
+        "Accovacciati e fai clic destro su una faccia tenendo un oggetto per cambiare quella faccia: Entrambi, Ingresso, Uscita o Chiuso.",
+        "Prova un lotto prima di collegare lo stoccaggio di massa."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:seal_loom"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:recipe_seal",
+      "text": "Imprimilo sul telaio; un sigillo ricorda una ricetta."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Caçadores no escuro",
+  "icon": "tribalpower:lurker_claw",
+  "order": 290,
+  "spoiler": true,
+  "items": [
+    "tribalpower:deep_lurker_spawn_egg",
+    "tribalpower:pale_stalker_spawn_egg",
+    "tribalpower:gloom_crawler_spawn_egg",
+    "tribalpower:veil_drifter_spawn_egg",
+    "tribalpower:lurker_claw",
+    "tribalpower:pale_fang",
+    "tribalpower:gloom_silk",
+    "tribalpower:veil_tatter"
+  ],
+  "next": "colossus_warden",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Abaixo e acima",
+      "text": [
+        "Três caçadores dominam as cavernas da Marcha, e surgem lá no escuro de dia tanto quanto de noite. Um quarto deriva sobre as terras altas à noite.",
+        "Nenhum deles se vincula. Cada um solta **1 a 2** do seu reagente, e mais com Pilhagem."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:deep_lurker",
+      "title": "Tocaieiro profundo",
+      "text": [
+        "Uma toupeira de nariz estrelado do tamanho de um urso, o mais resistente dos caçadores das cavernas, sob todas as terras da Marcha, um ou dois de cada vez. Tem **32 de vida** e **3 de armadura** e morde por **5**.",
+        "Ele solta **Garra de tocaieiro**, um reagente de Cão que se mói em corante Azul-claro.",
+        "Quando caçado, também solta até 2 ossos e até 1 Couro da Marcha."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_stalker",
+      "title": "Espreitador pálido",
+      "text": [
+        "Um carniçal de caverna macilento e sem olhos, alto, pálido e rápido, das cavernas sob a Estepe, o Planalto, a Crista do Brilho, os Campos de Neve e os Campos de Cristal, um ou dois de cada vez. **24 pontos de vida** e **1 ponto de armadura**. O golpe causa **4** e enfraquece você por 4 segundos.",
+        "Solta **Presa pálida**, um reagente de Enfraquecer.",
+        "Na caça, também solta de 1 a 2 ossos."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:gloom_crawler",
+      "title": "Rastejador sombrio",
+      "text": [
+        "Uma centopeia de caverna, baixa e escura, das cavernas sob todas as terras menos os Rasos, uma ou duas de cada vez. **22 pontos de vida** e **2 pontos de armadura**. A mordida causa **4**, deixa você mais lento por 3 segundos e pode deixar você [Desfiado](afflictions).",
+        "Solta **Seda sombria**, um reagente de Trama.",
+        "Na caça, também solta de 1 a 2 linhas e até 1 olho de aranha."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_drifter",
+      "title": "Derivante do véu",
+      "text": [
+        "Um sudário esfarrapado à deriva, em asas de morcego, que se ergue à noite sobre o Planalto, a Crista do Brilho, os Campos de Neve e os Campos de Cristal, um ou dois de cada vez. **18 pontos de vida** e **1 ponto de armadura**.",
+        "De até 12 blocos, conjura uma rajada de **3** que joga você para trás. Cobertura interrompe a conjuração. Solta **Farrapo de véu**, um reagente de Rajada.",
+        "Na caça, também solta até 1 membrana de phantom e até 1 linha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um solta mais quando caçado, e mais ainda com Saque."
+      ]
+    }
+  ]
+}

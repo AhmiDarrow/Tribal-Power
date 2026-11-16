@@ -1,0 +1,164 @@
+{
+  "name": "Tamburo della porta",
+  "icon": "tribalpower:gate_drum",
+  "order": 10,
+  "next": "waystone_compass",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_drum",
+      "text": [
+        "La porta verso la Marcia, il mondo che le tribù hanno lasciato indietro. Non le serve Pulso: **batti il suo ritmo** e il ritmo stesso apre la via."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Passare oltre",
+      "text": [
+        "Fai clic destro sul tamburo con la **mano vuota** per iniziare il **Rito della porta**. Suona un canto di tamburi da 20 a 30 secondi, e i suoi battiti cadono verso una linea su quattro tamburi in fila: **A** è il tamburo a cornice grave, **S** il tom basso, **D** il tamburo a mano acuto e **F** il sonaglio.",
+        "Colpisci ogni tamburo quando il suo battito raggiunge la linea, con la musica. Il sonaglio ti conta l'attacco, e il ritmo cresce mentre il canto va avanti.",
+        "I quattro tamburi rispondono a **A**, **S**, **D** e **F**, e i tasti freccia funzionano sempre anche loro. Puoi assegnare ogni tamburo a un altro tasto sotto Tribal Power in Opzioni, Controlli; A, S, D e F suonano comunque."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Centrare il rito",
+      "text": [
+        "Centra il **60%** dei colpi e la porta si apre, portandoti oltre. Premere quando non c'è un colpo conta contro di te, quindi tieni il ritmo invece di tamburellare a caso. Se fallisci, o ti fermi con **Esc**, batti solo il tamburo per riprovare.",
+        "Il mondo non si ferma mentre tamburelli, quindi libera prima l'area. Un segnale di redstone blocca il tamburo, e non puoi attraversare mentre sei in sella.",
+        "Arrivi sulla superficie della Marcia, nello stesso punto della mappa. La prima visita ti sintonizza sul Deposito profondo, quindi aprirne uno da allora è gratis."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Aprire la via",
+      "steps": [
+        {
+          "caption": "Piazza il Tamburo della porta in un punto con spazio intorno.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:gate_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Fai clic destro a mani vuote e batti il ritmo su A, S, D e F per entrare nella Marcia.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tornare a casa",
+      "text": [
+        "Nella Marcia, batti il rito su **qualsiasi** Tamburo della porta per tornare a casa, quindi porta un secondo tamburo da posare lì.",
+        "Ti riporta dove sei partito, nel punto sicuro più vicino accanto, lontano da falò, lastre e cavi. Se quel punto non c'è più, ti porta al punto di generazione.",
+        "Il punto di ritorno resta anche se muori nella Marcia.",
+        "Una Bussola astrale vincolata a casa funziona anch'essa. Una pietra di via o una Bussola dell'orizzonte resta in un solo mondo, quindi non può riportarti indietro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Prima di andare",
+      "text": [
+        "Porta cibo, armatura e Celle di Pulso piene.",
+        "La Marcia ha cinquantanove terre in sei fasce; le prime che è probabile incontrare sono la Steppa, gli Altipiani, i Campi di cristallo, i Campi di neve, le Distese di brace, la Palude di canne, la Cresta del barlume e i Bassifondi. Leggi ogni tavoletta in una [Sala degli antenati](ancestor_hall) e cerca i [Cerchi di tamburi](drum_circle) negli Altipiani.",
+        "Vedi [la Marcia](the_march) per ciò che vi vive."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_drum"
+    }
+  ]
+}

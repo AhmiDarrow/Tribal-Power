@@ -1,0 +1,62 @@
+{
+  "name": "Gobelins",
+  "icon": "tribalpower:goblin_ear",
+  "order": 330,
+  "spoiler": true,
+  "items": [
+    "tribalpower:fen_goblin_spawn_egg",
+    "tribalpower:tunnel_goblin_spawn_egg",
+    "tribalpower:goblin_ear",
+    "tribalpower:goblin_fang"
+  ],
+  "next": "kobolds",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gobelins",
+      "text": [
+        "Petits, rapides et hargneux, les gobelins viennent un ou deux à la fois et foncent droit sur toi."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deux sortes",
+      "text": [
+        "Un gobelin a **18 de santé** et **1 d'armure**, est rapide, et frappe pour **4**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_goblin",
+      "title": "Gobelin du marais",
+      "text": [
+        "Un gobelin maigre aux grandes oreilles, armé d'une lance de roseau, qu'on trouve dans la Tourbière des roseaux. Il apparaît la nuit en terrain ouvert.",
+        "Chassé, il lâche aussi jusqu'à 2 pépites d'or, jusqu'à 1 os et jusqu'à 1 ficelle."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tunnel_goblin",
+      "title": "Gobelin des tunnels",
+      "text": [
+        "Un gobelin voûté, avec une massue à pointes et une bougie collée à sa casquette, qu'on trouve dans les tunnels sombres sous la steppe, où il apparaît de jour comme de nuit.",
+        "Chassé, il lâche aussi jusqu'à 2 charbon, jusqu'à 2 pépites de fer et jusqu'à 1 os."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ce qu'ils donnent",
+      "text": [
+        "Un Gobelin du marais lâche **1 à 2 Oreille de gobelin** (teinture vert clair), un Gobelin des tunnels **1 à 2 Croc de gobelin**, davantage avec Butin. Tous deux sont des réactifs de Molosse : oints, ils font qu'une arme boive en retour une part de chaque coup. Voir [réactifs](reagents).",
+        "Les gobelins ne se lient jamais."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun lâche davantage quand on le chasse, et encore plus avec Butin."
+      ]
+    }
+  ]
+}

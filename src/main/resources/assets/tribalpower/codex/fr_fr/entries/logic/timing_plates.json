@@ -1,0 +1,40 @@
+{
+  "name": "Plaques de temps",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Battement, Dérive, Frappe, Hasard",
+      "text": [
+        "- **Battement** pulse **15 pendant un tick**, puis se repose. L'usage accroupi fait défiler **20, 40, 80, 160** ticks, puis revient à 20 ; il commence à 20, une seconde.",
+        "- **Dérive** ne copie l'arrière qu'après qu'il est resté actif pendant **4, 8, 16 ou 32** ticks (usage accroupi pour faire défiler ; il commence à 4), et retombe dès que l'arrière tombe.",
+        "- **Frappe** donne un tick de 15 sur un arrière montant, puis se tait : le signal frappé que les Cœurs-tambours et les braseros écoutent.",
+        "- **Hasard** joue à pile ou face à chaque arrière montant : 15 ou 0, tenu jusqu'à ce que l'arrière tombe.",
+        "Un Battement d'une seconde sur un Cœur-tambour est un battement de **24-Pulsation** quand le front tombe dans le tempo. Les réglages plus lents ne rapportent que **10** par battement."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

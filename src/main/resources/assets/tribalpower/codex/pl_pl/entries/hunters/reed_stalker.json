@@ -1,0 +1,51 @@
+{
+  "name": "Tropiciel trzcin",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Pręgowany ryś, który kryje się wśród Trzcina Ducha. Szybkie ciosy niosą krótką truciznę.",
+        "Upolowany zostawia też do 1 Skóra Marszu i do 1 Kość."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tropiciele trzcin kryją się na bagnach Zwykłego świata i na bagnach namorzynowych, na Trzcinowym bagnie Marszu i na Płyciznach, a rzadziej na Kryształowych polach i na Stepie.",
+        "Ma **22 zdrowia** i **1 pancerza**, porusza się szybko i uderza za **4**. Każde ugryzienie zatruwa cię przez 3 sekundy. Weź mleko albo trzymaj dystans i pozwól, by sam do ciebie przyszedł."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **1 do 2 Kieł trzciny**.",
+        "Kieł trzciny dostraja się w 2 Dostrojone echo pod Duchem."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Żaden amulet nie zwiąże Tropiciel trzcin."
+      ],
+      "title": "Nie zwiąże się"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz swojego odczynnika przy polowaniu zostawia to, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

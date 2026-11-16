@@ -1,0 +1,43 @@
+{
+  "name": "Geistkessel",
+  "icon": "tribalpower:spirit_kettle",
+  "order": 10,
+  "items": [
+    "tribalpower:spirit_kettle"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_kettle",
+      "title": "Ein Kessel über dem Feuer",
+      "text": [
+        "Der Geistkessel ist ein Eisentopf an einem Knochengestell. Er muss **über Hitze** stehen: ein brennendes Lagerfeuer, Feuer, Seelenfeuer, ein Magmablock, Lava oder eine [Glutschale](pulse_lights) direkt darunter.",
+        "Es braucht kein Totem, um zu arbeiten, aber es lauscht nach einem: die Stimme vom **nächsten Resonanz-Totem** im Umkreis von 8 Blöcken wird in jedes Gebräu gesungen und formt es."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Brauen",
+      "text": [
+        "Öffne ihn und fülle die drei Plätze links:",
+        "- **Reagenz**: ein rohes [Reagenz](reagents), als Gegenstand (nimm es an der Liedbank aus deinem Beutel). Seine Familie bestimmt das Heilmittel.",
+        "- **Kraut**: Geistrohr, Leydistel, Echoblüte, Marschblatt, Mondlilie, Laternenhut, Schleierflechte, Frostbeere oder Schimmerbohne.",
+        "- **Basis**: eine **Glasflasche** ergibt **2 Tinkturen**, eine **Honigwabe** ergibt **2 Salben**, **Holzkohle** ergibt **4 Weihrauch**.",
+        "Ein Ansatz braucht **10 Sekunden** und **24 Puls**, gezogen aus Generatoren und Lagern im Umkreis von 8 Blöcken, wenn er fertig ist, und verbraucht je einen Einsatz. Der Bildschirm sagt dir, ob er auf Hitze, Puls oder Platz in der Ausgabe wartet."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatisierung",
+      "text": [
+        "Trichter und Röhren können ihn von oben und von den Seiten befüllen und das Gebräu unten entnehmen, sodass ein Kessel ein Lager von allein versorgt hält.",
+        "Jede Zahl hier steht im Abschnitt **Heilung** der gemeinsamen Konfiguration."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_kettle"
+    }
+  ],
+  "next": "remedies"
+}

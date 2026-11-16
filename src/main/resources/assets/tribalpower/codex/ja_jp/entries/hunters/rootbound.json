@@ -1,0 +1,51 @@
+{
+  "name": "根縛者",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "結び合った根の守り手。断たれたレイの線にねじれている。遅いが頑丈。",
+        "狩ると、棒を1から3個、骨粉を最大2個落とす。"
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "根縛者はオーバーワールドの森、マーチのステップ、葦の湿原、浅瀬に潜む。",
+        "**38の体力**と**5の防具**を持ち、**6**で打つ。一撃ごとにあなたへ根を張らせ、3秒間遅くする。相手も遅い。下がって、根が解けるまで待ち、また打て。"
+      ],
+      "title": "どこで、どのように"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**1から2個の結ばれた根**を落とす。",
+        "結ばれた根は霊のもとで調律されたエコー2個になる。"
+      ],
+      "title": "与えるもの"
+    },
+    {
+      "type": "text",
+      "text": [
+        "どのお守りでも根縛者とは絆を結べない。"
+      ],
+      "title": "絆は結ばない"
+    },
+    {
+      "type": "text",
+      "title": "狩猟と追い集め",
+      "text": [
+        "試薬のほかに、狩るとこれを落とす。ドロップ増加で増える。"
+      ]
+    }
+  ]
+}

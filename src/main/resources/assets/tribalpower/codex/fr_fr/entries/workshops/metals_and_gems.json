@@ -1,0 +1,286 @@
+{
+  "name": "Métaux et gemmes",
+  "icon": "tribalpower:iron_grit",
+  "order": 80,
+  "items": [
+    "tribalpower:gold_grit",
+    "tribalpower:copper_grit",
+    "tribalpower:mineral_grit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:iron_grit",
+      "text": [
+        "Le gravier est du métal broyé qui attend le feu. Briser le métal brut donne **deux graviers** par pièce, et chaque gravier fond en un lingot, donc chaque minerai te donne deux fois le métal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Métaux",
+      "text": [
+        "Mets un objet de métal brut, ou un minerai de métal miné avec Toucher de soie, dans le Broyeur d'écho : **4 secondes** à **40 Pulsation par seconde**, pour deux graviers.",
+        "Fonds le gravier en un lingot dans un fourneau, un haut fourneau ou le Four de braise.",
+        "Le fer, l'or et le cuivre ont chacun leur propre gravier. Les métaux des mods passent par un seul objet **Gravier minéral** qui nomme son propre matériau, et ils s'allument sans pack de données. La Netherite n'est jamais broyée ; il faut la gagner dans le Nether."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gemmes et minéraux",
+      "text": [
+        "Le minerai de gemme miné avec Toucher de soie se brise directement en gemme, au **double** du butin du minerai lui-même :",
+        "- Le charbon, le diamant, l'émeraude et le quartz donnent **deux**.",
+        "- La redstone et le lapis-lazuli donnent **huit**.",
+        "- Les gemmes des mods donnent deux.",
+        "La gemme elle-même n'est jamais une entrée."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Une ligne de minerai",
+      "steps": [
+        {
+          "caption": "Le Four de braise en bas, avec son totem de Feu.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Le Broyeur d'écho en haut, avec un totem de Terre. Son gravier tombe droit dans le Four de braise.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Un coffre de minerai brut alimente le Broyeur d'écho par un entonnoir, et le tambour à côté du Four de braise fournit l'énergie aux deux postes.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=east]"
+            },
+            {
+              "pos": [
+                -1,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              1,
+              0
+            ],
+            [
+              -1,
+              2,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Un entonnoir sous le Four de braise récupère les lingots dans un coffre.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:iron_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gold_grit"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_grit"
+    }
+  ]
+}

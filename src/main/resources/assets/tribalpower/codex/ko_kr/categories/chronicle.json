@@ -1,0 +1,8 @@
+{
+  "name": "연대기",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "베틀의 역사. 마치에 조각씩 새겨져 있습니다. 그것들을 찾으면 이야기가 여기서 스스로 맞춰집니다.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

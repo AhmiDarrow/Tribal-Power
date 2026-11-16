@@ -1,0 +1,49 @@
+{
+  "name": "Banco tribal",
+  "icon": "tribalpower:oak_tribal_bench",
+  "order": 150,
+  "items": [
+    "tribalpower:oak_tribal_bench",
+    "tribalpower:spruce_tribal_bench",
+    "tribalpower:birch_tribal_bench",
+    "tribalpower:jungle_tribal_bench",
+    "tribalpower:acacia_tribal_bench",
+    "tribalpower:dark_oak_tribal_bench",
+    "tribalpower:mangrove_tribal_bench",
+    "tribalpower:cherry_tribal_bench",
+    "tribalpower:bamboo_tribal_bench",
+    "tribalpower:crimson_tribal_bench",
+    "tribalpower:warped_tribal_bench",
+    "tribalpower:march_tribal_bench",
+    "tribalpower:hearthoak_tribal_bench",
+    "tribalpower:frostpine_tribal_bench",
+    "tribalpower:cinder_tribal_bench",
+    "tribalpower:willow_tribal_bench",
+    "tribalpower:bellcap_tribal_bench",
+    "tribalpower:strider_tribal_bench"
+  ],
+  "next": "vine_lift",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:oak_tribal_bench",
+      "title": "Una mesa que recuerda",
+      "text": [
+        "El Banco tribal es una mesa de trabajo de dos bloques de ancho, con un estante a lo largo de la parte de atrás, y existe en cada madera para que combine con el campamento en el que está.",
+        "La diferencia que importa: **la cuadrícula pertenece al banco**. Ciérralo a mitad de una receta y todo se queda donde lo dejaste, en vez de volver a tu mochila.",
+        "El estante de atrás guarda **cuatro** cosas, como un Estante de pared: haz clic en el estante con algo en la mano para dejarlo, y con la mano vacía para recuperarlo. Haz clic en el tablero para abrir la cuadrícula, con el libro de recetas verde al lado."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Con JEI",
+      "text": [
+        "Si usas JEI, el banco es una estación de fabricación completa: abre una receta de fabricación y pulsa **+** (o las teclas de mover receta de JEI) para llevar los ingredientes de tu inventario a la cuadrícula. Al hacer clic en la flecha del banco se muestra cada receta de fabricación."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:oak_tribal_bench"
+    }
+  ]
+}

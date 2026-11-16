@@ -1,0 +1,231 @@
+{
+  "name": "Piec żaru",
+  "icon": "tribalpower:ember_kiln",
+  "order": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_kiln",
+      "text": [
+        "Stacja Ognia przetapia Pulsem zamiast węgla. Co przetapia piec, przetapia też Piec żaru: bruk staje się kamieniem, żwir staje się sztabką. W zasięgu 8 bloków musi być Totem rezonansu (Ogień)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jak tego używać",
+      "text": [
+        "Wkładaj do niego dowolne wejście pieca i zabieraj wynik pieca. Paliwo się nie spala.",
+        "Każde wytopienie trwa **10 sekund** przy **64 Puls na sekundę**.",
+        "Żwir zawsze wypala się w swoją sztabkę, nawet żwir z modów, którego piec nie potrafi odczytać.",
+        "Dźwignia go wstrzymuje, i pełne wyjście też. Brak Ognia wstrzymuje go i nic nie wydaje."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Z bruku w kamień",
+      "steps": [
+        {
+          "caption": "Postaw Piec żaru w zasięgu 8 bloków od Totem rezonansu (Ogień).",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Trzymaj Puls w zasięgu: generator obok wystarczy.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Włóż bruk i wyjmij kamień. Węgiel się nie spala.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:cobblestone"
+          }
+        },
+        {
+          "caption": "Lej pod blokiem Piec żaru zabiera wyniki.",
+          "place": [
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=south]"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "remove": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              -1,
+              0
+            ],
+            [
+              0,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Automatyzacja",
+      "text": [
+        "Ustaw maszynę Kruszarka echa na bloku Piec żaru, wyjście we wejście, aby żwir schodził w dół: to domyślne, gdy stacja stoi na innej, więc po prostu działa. [Metale i klejnoty](metals_and_gems) pokazuje całą linię rudy.",
+        "Postaw lej lub skrytkę pod spodem, jeśli chcesz zbierać sztabki.",
+        "Podnieś rangę w stacji Dostrajacz echa, potem w Wiązacz, potem w Manifestator, jak w każdym innym warsztacie."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_kiln"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "name": "Bestie wszystkich krain",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wędrowcy",
+      "text": [
+        "Osiem łagodnych stworzeń nie jest przywiązanych do jednej krainy. Spotkasz je w całym Marszu, na otwartej przestrzeni, w jaskiniach i na skraju lawy.",
+        "Każdą tutejszą łagodną bestię można raz na minutę wyszczotkować po jej odczynnik; wabi się ją i rozmnaża jej własnym pokarmem, podanym niżej w **Polowanie i hodowla**. Można ją związać jak każde łagodne zwierzę (zobacz [chowańce](familiars)), a choć żadna nie ma własnego daru, związana wciąż może przyjąć głos przy totemie i wzmocnić twoją magię (zobacz [zestrojenie przy totemie](familiar_attuning)).",
+        "Kilka ich odczynników miele się na barwnik: zobacz [odczynniki](reagents)."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "Skoczek popiołu",
+      "text": [
+        "Mała, szybka myszoskoczka Stepu, Kryształowych pól i Pustkowi żaru, w grupach od dwóch do czterech. **12 zdrowia**. Upuszcza **od 1 do 2 Kępka popiołu**.",
+        "Upolowany upuszcza też do 1 Surowa dziczyzna i do 1 króliczej skóry. Do rozmnożenia: **marchew albo Ziarno stepu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "Skubacz grani",
+      "text": [
+        "Mały włochaty mamut Wyżyny, Grani połysku i Pól śniegu. **26 zdrowia**, **2 pancerza**. Upuszcza **od 1 do 2 Wełna skubacza** (barwnik jasnoszary).",
+        "Upolowany upuszcza też od 1 do 2 Surowa dziczyzna i do 1 Skóra Marszu. Do rozmnożenia: **pszenicę**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "Skoczek urwiska",
+      "text": [
+        "Koziorożec Wyżyny, Grani połysku, Pól śniegu i Kryształowych pól. **20 zdrowia**, **2 pancerza**. Upuszcza **od 1 do 2 Róg skoczka**.",
+        "Upolowany upuszcza też od 1 do 2 Surowa dziczyzna i do 1 Skóra Marszu. Do rozmnożenia: **pszenicę**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "Trzepotek pyłu",
+      "text": [
+        "Mała zięba, najpospolitszy lotnik Marszu, w każdej krainie, także na Płyciznach. **8 zdrowia**. Upuszcza **od 1 do 2 Skrzydło trzepotka**.",
+        "Upolowany upuszcza też do 2 piór. Do rozmnożenia: **nasiona pszenicy albo Ziarno stepu**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "Ćma połysku",
+      "text": [
+        "Bladozielona ćma luna Kryształowych pól, Grani połysku i Trzcinowego bagna. **10 zdrowia**. Upuszcza **od 1 do 2 Pył połysku** (barwnik błękitny).",
+        "Upolowana upuszcza też do 1 nici i do 1 jasnopyłu. Do rozmnożenia: **Kwiat echa albo dowolny mały kwiat**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pod ziemią i przy lawie",
+      "text": [
+        "Oba stworzenia lawy pojawiają się wszędzie, gdzie Marsz ma lawę, w każdej krainie poza Płyciznami."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "Kamienna larwa",
+      "text": [
+        "Larwa chruścika w pochewce z kamyków, z ciemnych jaskiń pod każdą krainą poza Płyciznami, po dwie do czterech naraz. **10 zdrowia**, **4 pancerza**. Upuszcza **od 1 do 2 Łupina larwy** (barwnik brązowy).",
+        "Upolowana upuszcza też do 1 kuli szlamu. Do rozmnożenia: **Kapelusz latarni albo dowolny grzyb**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "Błąkacz żaru",
+      "text": [
+        "Świetlik o ognistym brzuchu, który zbiera się przy lawie. **12 zdrowia**, **odporny na ogień**. Upuszcza **od 1 do 2 Pyłek żaru** (barwnik czerwony), odczynnik żaru.",
+        "Upolowany upuszcza też do 2 węgla drzewnego. Do rozmnożenia: **węgiel albo węgiel drzewny**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "Creeper magmy",
+      "text": [
+        "Magmowy pangolin, powolny i opancerzony, z gorącego kamienia przy lawie. **22 zdrowia**, **6 pancerza**, **odporny na ogień**. Upuszcza **od 1 do 2 Łuska magmy** (barwnik pomarańczowy), odczynnik żaru. Łuska magmy wzywa Tytan żużlu na Tron żużlu.",
+        "Upolowany upuszcza też do 1 magmowego kremu. Do rozmnożenia: **węgiel albo węgiel drzewny**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i hodowla",
+      "text": [
+        "Oprócz odczynnika każdy upuszcza więcej przy polowaniu, a z Grabieżą jeszcze więcej. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnożyć dzikie, **skradaj się**, gdy karmisz dwa dorosłe osobniki ich jedzeniem; karmione zwyczajnie, dzikie zamiast tego przyzwyczaja się do ciebie."
+      ]
+    }
+  ]
+}

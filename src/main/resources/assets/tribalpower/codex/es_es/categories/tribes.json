@@ -1,0 +1,8 @@
+{
+  "name": "Las nueve tribus",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "description": "Nueve tribus custodiaron antaño el Telar. Sus campamentos siguen en pie; consigue su rango y sus marcas.",
+  "spoiler": true,
+  "progress": "tribes"
+}

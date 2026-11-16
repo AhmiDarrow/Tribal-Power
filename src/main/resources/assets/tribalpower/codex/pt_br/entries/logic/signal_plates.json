@@ -1,0 +1,30 @@
+{
+  "name": "Placas de sinal",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Inversa e Eco",
+      "text": [
+        "Uma voz, virada ou carregada.",
+        "- **Inversa** (NOT) canta enquanto sua traseira está quieta, e se cala quando a traseira está ativa.",
+        "- **Eco** (BUFFER) copia a traseira: ativo continua ativo, em um 15 cheio.",
+        "Use Inversa para transformar um Limiar de Pulso em um alarme de 'vazio demais'. Use Eco para trazer um Fio de canto que esmaece de volta à força total."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

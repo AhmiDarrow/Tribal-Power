@@ -1,0 +1,89 @@
+{
+  "name": "Craie de bâtisseur",
+  "icon": "tribalpower:builders_chalk",
+  "order": 140,
+  "next": "tribal_bench",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:builders_chalk",
+      "text": [
+        "La Craie rituelle marque les totems et se consomme en le faisant. Voici l'autre sorte : un bâton de bâtisseur, gardé pour mesurer. Tiens-la, et elle dresse un **hologramme** d'une forme dans le monde — un bloc fantôme dans chaque espace que la forme demande encore — pour poser de vrais blocs dans les fantômes au lieu de compter et d'espérer.",
+        "Elle ne s'use jamais, et elle ne place rien et ne casse rien. L'hologramme n'est dessiné que sur ton propre écran ; personne d'autre ne le voit, et le serveur ne fait aucun travail pour lui."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "S'en servir",
+      "text": [
+        "**Utiliser** en change la forme. **S'accroupir et clic droit** l'agrandit, **s'accroupir et clic gauche** la réduit ; la taille reboucle à chaque bout. Sur un rite de placement, le même accroupissement fait défiler le niveau, et la taille que tu avais réglée reste en place. S'accroupir avec la craie sortie ne casse jamais un bloc, ainsi tu peux la dimensionner debout dans tes propres murs.",
+        "Une craie sans marque posée ne dessine que tant qu'elle est dans ta main, ainsi un tracé ne suit jamais tes pieds pendant que tu balances une pioche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Poser le tracé",
+      "text": [
+        "**Utilise-la sur un bloc pour poser le tracé.** L'hologramme cesse de te suivre et se tient à cet endroit — et il reste tant que la craie est **n'importe où dans ta barre de raccourcis**, pour que tu puisses la ranger, prendre des blocs et bâtir dans les fantômes. Utilise-la encore au même endroit pour effacer la marque.",
+        "Un fantôme ne se tient que là où un bloc est encore voulu. Comble-en un et il s'éteint, ainsi ce qui reste lumineux est exactement ce qu'il reste à bâtir.",
+        "La marque posée ne tient que dans le monde où elle a été posée, et seulement tant que tu es dans un rayon de **192 blocs**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Taille",
+      "text": [
+        "Les tailles vont de **2** à **128**, mesurées depuis la marque — le plus grand cercle fait donc **257 blocs de large**. Le pas s'ouvre en grandissant, fin près d'une hutte et grossier près d'une courtine, si bien que toute l'étendue fait dix-huit crans plutôt que cent vingt-sept.",
+        "L'hologramme atteint environ **48 blocs**, et sur une forme assez grande pour noyer la vue il se dessine plus près au lieu de s'éclaircir. Marche le long de la ligne et il suit ton pas."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les formes",
+      "text": [
+        "- **Carré**, **Cercle**, **Croix** et **Hexagone** : contours plats pour une emprise.",
+        "- **Murs** : une emprise carrée dressée sur trois assises, ce qui fait une pièce.",
+        "- **Dôme** : la coque d'un hémisphère, pour un toit.",
+        "- **Hutte** : quatre murs avec une embrasure sur une face et un toit en gradins au-dessus.",
+        "- **Maison longue** : une salle deux fois plus longue que large, avec une panne faîtière et deux pignons.",
+        "- **Camp de treillis** : le carré qu'une machine à la marque atteint vraiment, et les quatre points où se tiendrait un Totem de résonance pour porter cette portée vers l'extérieur."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pourquoi le carré, et pas un cercle",
+      "text": [
+        "Chaque machine mesure sa portée le long de chaque direction pour elle-même, donc la portée est un **cube**, pas une boule. Un bloc à huit à l'est et huit au nord d'un générateur est à portée ; un à dix blocs plein est ne l'est pas, même si le second a l'air bien plus proche sur une carte.",
+        "C'est pourquoi **Camp de treillis** dessine un carré. Règle-le sur **8** et c'est exactement la zone dans laquelle travaillent un Cœur-tambour, une station ou un Conducteur de treillis."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les rites",
+      "text": [
+        "Après le Camp de treillis, la craie dessine les ouvrages de ce livre, dans l'ordre où tu les rencontres : **Bassin de pierre**, **Fosse d'écoute**, **Cercle de rite**, **Anneau de voix**, **Formation de brisure**, **Porte de voie**, **Porte lointaine**.",
+        "La marque est là où se tient la machine. Un fantôme est un bloc que le rite veut encore — Marques rituelles, Pierres d'ancre, totems, socles, le sol de pierre sous une Fosse d'écoute, la cache sous une station d'écho, le cadre d'une porte. L'intérieur ouvert d'une porte reste sombre, parce que cet espace doit rester libre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Niveaux et orientation",
+      "text": [
+        "S'accroupir et clic droit monte le niveau ; s'accroupir et clic gauche le baisse. La Fosse d'écoute commence en **5 par 5** ; le niveau suivant est l'Écoute profonde, le **7 par 7** avec des totems aux points cardinaux. Le Bassin de pierre et le Cercle de rite ont aussi un second niveau. L'Anneau de voix, la Formation de brisure et les deux portes sont un seul tracé.",
+        "Un rite se tourne vers là où tu regardes, et reste tourné une fois la marque posée. Regarde le long de la porte avant de la planter."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Niveau laser",
+      "text": [
+        "Dernier de la liste, le **niveau laser** : une ligne droite et de niveau, faite de fantômes, qui part de la marque dans la direction où tu regardes, pour un mur, une route, un tunnel ou un long canal. **S'accroupir et clic droit** ou **s'accroupir et clic gauche** fait passer sa longueur par **64**, **128** et **256** blocs.",
+        "Tant qu'il te suit, il tourne avec ton regard. Utilise-le sur un bloc pour le poser, et il garde l'orientation que tu avais alors. Comme chaque forme, il dessine environ **48 blocs** autour de toi, alors marche la ligne et le reste s'allume devant."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:builders_chalk"
+    }
+  ]
+}

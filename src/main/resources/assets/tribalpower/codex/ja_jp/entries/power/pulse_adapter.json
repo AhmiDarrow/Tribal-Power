@@ -1,0 +1,194 @@
+{
+  "name": "調和充能器",
+  "icon": "tribalpower:pulse_adapter",
+  "order": 70,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_adapter",
+      "text": [
+        "Tribal Powerはパルスを出す。ほかの多くのモッドはForge Energy (FE)で動く。調和充能器は一方通行の橋だ。格子のパルスをFEに変え、触れている機械へ渡す。反対側の[格子変換器](lattice_converter)は、FEを逆向きに戻す。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "設置",
+      "text": [
+        "パルスのある網の[格子の伝導体](lattice_conductor)から**8ブロック**以内に調和充能器を置き、供給先のFE機械にぴったり付ける。どの面のエネルギー受け手へもエネルギーを押し込む。",
+        "**1パルスを100 FEに**変え、毎秒**60パルス**まで（6,000 FE、つまり1ティック300 FE）。ランクのある充能器は、同じ一秒でより多くのパルスを変え、その分FEも増える。",
+        "**48,000 FE**をバッファし、標準のエネルギー受け手へ出す。FEは受け取れないので、エネルギーを逆流させることはできない。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "FEへの橋",
+      "steps": [
+        {
+          "caption": "発電機が、使いたいパルスを抱えている。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "充能器を、それから8ブロック以内に置く。毎秒、最大60パルスを6,000 FEに変える。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:pulse_adapter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "FEの機械を、それ以外の面に付ける。充能器が自分からエネルギーを押し込む。",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "そばのレバーが、変換と取り出しの両方を止める。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "何も流れないとき",
+      "text": [
+        "レッドストーンは変換と取り出しを止める。コンパレーターがFEバッファの満ち具合を読む。",
+        "FEの機械が止まっているなら、届くパルスがないか、受け手が満杯だ。この本で充能器にしゃがんで右クリックすると、バッファと速度が見える。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_adapter",
+      "text": "エコー顕現の共鳴核が要る。"
+    }
+  ]
+}

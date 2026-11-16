@@ -1,0 +1,111 @@
+{
+  "name": "Les arbres qui marchent",
+  "icon": "tribalpower:hearth_bark",
+  "order": 300,
+  "spoiler": true,
+  "items": [
+    "tribalpower:hearth_warden_spawn_egg",
+    "tribalpower:grove_elder_spawn_egg",
+    "tribalpower:frostpine_sentinel_spawn_egg",
+    "tribalpower:snagwalker_spawn_egg",
+    "tribalpower:weeping_warden_spawn_egg",
+    "tribalpower:bellcap_elder_spawn_egg",
+    "tribalpower:stiltwood_spawn_egg",
+    "tribalpower:hearth_bark",
+    "tribalpower:elder_bark",
+    "tribalpower:frostpine_bark",
+    "tribalpower:cinder_bark",
+    "tribalpower:weeping_knot",
+    "tribalpower:bellcap_spore",
+    "tribalpower:stilt_root"
+  ],
+  "next": "fays",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gardiens des bosquets",
+      "text": [
+        "Tous les arbres de la Marche ne restent pas immobiles. Dans chaque terre où pousse un [arbre de la Marche](march_trees), quelques-uns de leur espèce se sont dressés et marchent, portant le même bois et la même feuille que l'arbre dont ils viennent.",
+        "Ils sont doux. Brosse-en un pour son réactif, une fois par minute, et attire-le et reproduis-le avec **Poudre d'os**. Tu peux le lier comme n'importe quel animal doux (voir [familiers](familiars)), et même s'il n'a pas de don à lui, un lié peut encore prendre une voix auprès d'un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:hearth_warden",
+      "title": "Gardien de l'Âtre",
+      "text": [
+        "Le chêne de l'âtre de la Steppe, large et lourd sur des racines trapues. Lâche **Écorce de l'Âtre**.",
+        "Chassé, il lâche aussi de 1 à 3 Bûche de chêne de l'âtre, jusqu'à 1 Pousse de chêne de l'âtre et de 1 à 3 bâtons. Reproduis-le avec **Poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:grove_elder",
+      "title": "Ancien du bosquet",
+      "text": [
+        "L'arbre de la Marche des bosquets des Hautes terres, grand et penché sur un bâton, à la barbe de mousse. Lâche **Écorce d'ancien**.",
+        "Chassé, il lâche aussi de 1 à 3 Bûche de la marche, jusqu'à 1 Pousse de la marche et de 1 à 3 bâtons. Reproduis-le avec **Poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frostpine_sentinel",
+      "title": "Sentinelle de pin de givre",
+      "text": [
+        "Le pin de givre des Champs de neige, un haut tronc sous un cône d'aiguilles enneigées, les bras de branches sortant de sous les plus basses. Lâche **Écorce de pin de givre**.",
+        "Chassé, il lâche aussi de 1 à 3 Bûche de pin de givre, jusqu'à 1 Pousse de pin de givre et de 1 à 3 bâtons. Reproduis-le avec **Poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snagwalker",
+      "title": "Marcheur de chicot",
+      "text": [
+        "Le chicot de bois de cendre des Terres de braise, un tronc de bois mort brûlé, cassé au sommet, qui couve encore. Lâche **Écorce de cendre** (teinture jaune).",
+        "Chassé, il lâche aussi de 1 à 3 Bûche de bois de cendre, jusqu'à 1 Pousse de bois de cendre et de 1 à 3 bâtons. Reproduis-le avec **Poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:weeping_warden",
+      "title": "Gardien pleureur",
+      "text": [
+        "Le saule du Marécage aux roseaux, voûté sous un rideau de brins. Lâche **Nœud pleureur**.",
+        "Chassé, il lâche aussi de 1 à 3 Bûche de saule, jusqu'à 1 Pousse de saule et de 1 à 3 bâtons. Reproduis-le avec **Poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bellcap_elder",
+      "title": "Ancien clochecap",
+      "text": [
+        "Le clochecap des Champs de cristal, une tige trapue sous un énorme chapeau. Lâche **Spore de clochecap** (teinture magenta).",
+        "Chassé, il lâche aussi 1 à 3 Bûche de clochecap, jusqu'à 1 Pousse de clochecap et 1 à 3 bâtons. Élève-le avec **poudre d'os**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stiltwood",
+      "title": "Bois-échasses",
+      "text": [
+        "L'arpenteur des Bas-fonds, porté haut sur des racines-échasses arquées. Lâche **Racine-échasse**.",
+        "Chassé, il lâche aussi 1 à 3 Bûche d'arpenteur, jusqu'à 1 Pousse d'arpenteur et 1 à 3 bâtons. Élève-le avec **poudre d'os**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Comment ils sont",
+      "text": [
+        "Chaque arbre marchant a **48 de santé** et **8 d'armure**. Ils sont lents, s'écartent des monstres et marchent par groupes de deux à quatre. Chacun lâche **1 à 3** de son réactif, plus avec Butin.",
+        "La Crête de lueur ne fait pousser aucun arbre, donc elle n'a pas de gardien. Le seul arbre qui marche et qui n'est pas doux est le [Gardien colosse](colossus_warden)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et conduite",
+      "text": [
+        "Outre son réactif, chacun en lâche plus quand on le chasse, et encore plus avec Butin. Pour élever les sauvages, **accroupis-toi** en nourrissant deux adultes de leur nourriture ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

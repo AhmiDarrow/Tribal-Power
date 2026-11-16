@@ -1,0 +1,16 @@
+{
+  "name": "Tavoletta: Alveare dei Custodi della colonia",
+  "icon": "tribalpower:lore_tablet",
+  "order": 160,
+  "spoiler": true,
+  "unlock": "tablet:6",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Da un Cerchio di tamburi nella Marcia, nelle parole dei Custodi della colonia:",
+        "“Non possiedi un alveare. Sei in buoni rapporti con esso. Offri miele, pianta i fiori della Marcia, e lo sciame farà passare il Pulso attraverso il favo per te. Prendi senza chiedere e il favo tace. È molto paziente al riguardo.”"
+      ]
+    }
+  ]
+}

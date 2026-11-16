@@ -1,0 +1,294 @@
+{
+  "name": "詩句の呼びと詩句の応え",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "詩句は十六、導線はない。**詩句の呼び**はレッドストーンを聞く。32ブロック以内で同じ詩句に調律された**詩句の応え**が、それを歌って返す。",
+        "呼びは[歌糸](song_thread)で作り、応えは歌蔓で作る。だから両方にマーチの**織機の糸**が要る。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "一対を調律する",
+      "text": [
+        "詩句の呼びを任意のブロック面に取り付ける。レッドストーンは**向いている面以外のすべての面**から聞く。",
+        "同じ世界で、**32ブロック**以内の面に詩句の応えを取り付ける。向いている面から、その前のブロックへ歌い出す。",
+        "しゃがんで素手でどちらかの板を右クリックし、詩句を**1から16**まで進める。両方を一致させる。素手で右クリックすると詩句と強さを読める。",
+        "各板は置いた者と、そのキャンプのものだ。だから他人の板を再調律することは拒まれる。",
+        "応えは呼びが聞く強さを写すので、いつも15とは限らない。複数の呼びが一つの詩句を共有するとき、応えは最も大きいものを取る。一致しない詩句は黙ったまま。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "庭の向こう",
+      "steps": [
+        {
+          "caption": "詩句の呼びをブロックに取り付ける。隣のレバーが、運ぶ歌になる。",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "詩句の応えを別のブロックに、動かすランプの方を向けて取り付ける。",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "しゃがんで素手で各板を右クリックし、両方が同じ詩句を示すまで続ける。",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "レバーを引くと、応えが同じ強さをランプへ歌う。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "役立つところ",
+      "text": [
+        "リレーは今もアイテムを運ぶ。これらの板が運ぶのはレッドストーンだけだ。歌板を別の歌板につなぐなら、トーテムレンチの同期の方が簡単だ（[歌板](song_plates)を参照）。",
+        "クロック一つでキャンプ全体を動かせる。呼びのそばに鼓動を置き、各太鼓に同じ詩句の応えを置く。互いに8ブロック以内では太鼓二つまでしかパルスを得ない。だから離して置け。",
+        "風の印章は呼びに、骨の鈴は応えに入る。模様織りはクロックと嵐の翼を好む。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

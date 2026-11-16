@@ -1,0 +1,28 @@
+{
+  "name": "Utiliser ce livre",
+  "icon": "tribalpower:spirit_codex",
+  "order": 0,
+  "next": "first_power",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_codex",
+      "text": [
+        "Tout dans Tribal Power repose sur la **Pulsation**, une énergie vivante que tu fais en tenant un rythme, en lisant la terre, ou en laissant cristaux et totems se chanter.",
+        "Ce livre suit un camp depuis son premier battement de tambour jusqu'à des machines qui marchent toutes seules. Tourne la page avec les flèches en bas, ou les touches fléchées.",
+        "Tu as perdu ce livre ? Fabrique-en un autre avec un **livre**, un **Éclat d'Esprit** et un **Carillon d'os**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quand une machine se tait",
+      "text": [
+        "Accroupis-toi et fais un clic droit sur n'importe quel bloc Tribal Power avec ce livre en main. Le bloc te dit ce qui lui manque : de l'énergie, la voix d'un totem, de la place dans sa sortie, ou un signal de redstone qui le tient en pause.",
+        "Cette seule habitude répond à la plupart des questions plus vite qu'aucune page.",
+        "- Les **mots bleus** sont des liens vers d'autres pages.",
+        "- Les **objets** d'une page se cliquent pour ouvrir leur page. Le clic droit ouvre JEI, si tu l'as.",
+        "- Les **scènes** jouent une construction pas à pas. Utilise les petites flèches sous une scène et fais-la glisser pour la tourner."
+      ]
+    }
+  ]
+}

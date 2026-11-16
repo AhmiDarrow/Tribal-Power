@@ -1,0 +1,96 @@
+{
+  "name": "Tierwelt des Marsches",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Im Wasser",
+      "text": [
+        "Die Tümpel, Teiche und Bergseen des Marsches sind voller Leben.",
+        "Alle bleiben im offenen Wasser unter dem Himmel, nie im Wasser, das im Fels darunter eingeschlossen ist."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Glimmerflosse",
+      "text": [
+        "Kleiner Neonfisch mit leuchtenden Flossen, der in Schwärmen schwimmt, im Wasser jedes Landes. Fang einen mit einem Wassereimer, oder koche ihn."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Treibglocke",
+      "text": [
+        "Eine langsame, leuchtende Qualle in Glockenform, im Wasser jedes Landes außer dem Hochland und der Glutöde. Harmlos. Ihr **Treibgelee** lässt dich eine Weile unter Wasser atmen und im Dunkeln sehen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Schleierrochen",
+      "text": [
+        "Ein breiter, scheuer Mantarochen der Steppe, des Hochlands, des Schilffenns und der Sandbänke; er gleitet davon, wenn jemand nahe kommt. Lässt Marschleder und Glimmerflosse fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Schlickaal",
+      "text": [
+        "Ein olivfarbener Fenn-Aal der Teiche und Rinnen des Schilffenns, der Sandbänke und des Wassers, wo die Glutöde zum Meer abfällt. Er schwimmt mit der Glimmerflosse und beißt jeden, der in seinem Wasser watet. Koch ihn zu Geräucherter Schlickaal für eine gute Mahlzeit."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Webstuhlsegler",
+      "text": [
+        "**Webstuhlsegler** kreisen über dem offenen Land in lockeren Schwärmen von **3 bis 6**, nur bei Tag und trockenem Wetter, und nie über der Glutöde; nicht mehr als **12** sammeln sich um dich. Sie lassen eine Feder oder zwei fallen, ab und zu etwas Rohes Wildbret."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "In der Luft",
+      "text": [
+        "Näher am Boden ist die Luft voller Insekten: **Glühwürmchen** nachts über Fenn und Steppe, **Schilfdarter**, die am Tag das Wasser streifen, **Glasflügel**, die über den Blüten der Kristallfelder flattern, und **Zundermücken**, die aus der Glutöde aufsteigen. Sie sind nur Licht und Bewegung; man kann sie nicht fangen, und sie kosten deine Welt nichts."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Herden kommen zurück",
+      "text": [
+        "Jage oder zähme ein Stück des Marsches leer, und es bleibt nicht leer. Etwa **einmal pro Minute**, an einem stillen Ort **32 bis 96 Blöcke** von dir und nie näher als **24 Blöcke** an irgendwen, können ein paar Tiere dieses Landes zurückwandern: dieselben Graser, mit denen sein Land begann, auch solche, die andere Mods dort hinzufügen. Höhlen- und Lavabewohner kehren auf ihren eigenen Boden zurück.",
+        "Sie hören auf zu kommen, sobald etwa **sechs** Tiere innerhalb von 32 Blöcken der Stelle leben. Gezähmte und eingepferchte Tiere zählen auch, also füllt sich das Land ungefähr bis zu dem Stand, mit dem es begann, und nicht weiter, und wilde Herden drängen sich nie auf deinen Farmen oder in einem belebten Lager.",
+        "Fische, Quallen und Segler kommen und gehen mit Wasser und Himmel von allein. Servereinstellungen können das Tempo ändern oder die Rückkehr abschalten."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Füttern und züchten",
+      "text": [
+        "Halte **Bandkraut** oder **Seegras**, und Glimmerflosse, Treibglocke und Schleierrochen schwimmen zu dir, selbst die scheuen Rochen. Füttere zwei derselben Art und sie machen ein drittes.",
+        "Eine **Angel**, ausgeworfen in jedem Wasser des Marsches, holt Rohe Glimmerflosse herauf, und jeder vierte Wurf Roher Schlickaal, statt Kabeljau und Lachs. Halte einen **Leerer Eimer** in deiner anderen Hand, und eine Glimmerflosse kommt lebend herauf, als Glimmerflossen-Eimer: der einfache Weg, einen Teich zu besetzen.",
+        "Halte **Weizensamen** oder **Steppenkorn**, und Webstuhlsegler kreisen dicht um dich, nah genug zum Füttern. Zwei gefütterte Segler machen auf dieselbe Weise einen dritten.",
+        "Ihre Jungen kommen ausgewachsen zur Welt und laufen nie fort, also bleibt ein besetzter Teich besetzt. Jedes Paar ruht fünf Minuten, bevor es wieder züchtet. Der Schlickaal nimmt kein Futter.",
+        "Die Treibglocke lässt ab und zu auch einen Schleimball fallen."
+      ]
+    }
+  ]
+}

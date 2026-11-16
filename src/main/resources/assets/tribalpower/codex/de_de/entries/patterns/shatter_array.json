@@ -1,0 +1,34 @@
+{
+  "name": "Splitterformation",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ein verstrebter Echozermalmer",
+      "text": [
+        "Die Splitterformation ist eine optionale Verstrebung für deinen [Echozermalmer](echo_shatter). Zentriere die Station in einem Feld von fünf mal fünf, stelle an jede Ecke ein Resonanz-Totem und setze einen Ahnenspeicher direkt darunter.",
+        "Dafür verbraucht die Station **ein Viertel weniger Puls** und leert ihre Ausgabe geradewegs in den Speicher darunter.",
+        "Das ist völlig optional: Ohne sie arbeitet die Station genau wie zuvor."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "Die Formation",
+      "text": "Vier Totems auf den Ecken, zwei Blöcke hinaus auf den Diagonalen, und der Speicher unter der Station."
+    },
+    {
+      "type": "text",
+      "title": "Es richtig machen",
+      "text": [
+        "Alle vier Ecktotems müssen die Stimme des Rezepts sein, das die Station gerade fährt. Für Scherben aus Stein ist das **Erde**. Eine falsche Stimme an irgendeiner Ecke heißt einfach kein Nachlass.",
+        "Die Formation wird nur um den Echozermalmer gezogen; die anderen Echo-Stationen nehmen sie nicht an.",
+        "Ein Redstone-Signal am Speicher stoppt das Leeren. Ducke dich und rechtsklicke die Station mit diesem Buch, während sie arbeitet, um zu sehen, ob sie als formiert gilt."
+      ]
+    }
+  ]
+}

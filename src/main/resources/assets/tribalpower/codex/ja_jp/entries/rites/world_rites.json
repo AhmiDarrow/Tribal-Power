@@ -1,0 +1,64 @@
+{
+  "name": "世界の儀式",
+  "icon": "tribalpower:rite_rain_calling",
+  "order": 100,
+  "items": [
+    "tribalpower:rite_sky_clearing",
+    "tribalpower:rite_dawn_calling"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_rain_calling",
+      "text": [
+        "石板の儀式はキャンプを越えて、世界そのものを変える。石板を彫り、合う印章をその円の中の儀式の火鉢に据え、パルスを使う。"
+      ],
+      "title": "天候の儀式"
+    },
+    {
+      "type": "text",
+      "title": "彫りと発動",
+      "text": [
+        "石板はそれぞれ、丸石二つ（またはブラックストーンか深層岩の丸石）、その試薬、合う印章。不定形。印章は返される。",
+        "その印章を火鉢に据える（祝福はそのまま続く）。[儀式の円](rite_circle)を描き、火鉢から**8ブロック**以内に費用をすべて集める。十分に溜まった太鼓の心臓、良い触媒のある共鳴器、または発電機をいくつか。ポケットの電池は数に入らない。パルス計か霊の写本が合計を示す。",
+        "しゃがんで石板を火鉢に使う。格子の蓄えが費用に足りなければ何も使われない。足りるなら石板は消費され、パルスが引かれる。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三つの天候の儀式",
+      "text": [
+        "- **雨呼び**（水、**400**パルス、葦の牙）：二十分の雨。そのあいだレイ収集器は強くなる。まずはこれから。",
+        "- **空晴らし**（風、**400**、嵐の翼）：四十分の晴れ空。",
+        "- **夜明けの呼び**（火、**800**、残り火の心臓）：夜を日の出まで急がせる。ゲームルール tribalpower:allowDawnRite がオフなら、しない。",
+        "円の四方位に合うトーテムが四つあると、費用は四分の一引き、時間は二倍。火鉢にレッドストーン信号が入りっぱなしだと、儀式は拒まれる。",
+        "次は[土地の儀式](land_rites)を試せ。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_rain_calling"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_sky_clearing"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_dawn_calling"
+    },
+    {
+      "type": "text",
+      "title": "癒しの輪",
+      "text": [
+        "霊の儀式。ほかと同じく発動し、霊の印章を据える。費用は**500パルス**、**10分**開いたまま。",
+        "円の中の全員、プレイヤーと絆を結んだ使い魔を癒し、あらゆる害を取り除き、祝福し、その台座に[霊の残滓](healing_circle)を置いた倒れた使い魔を呼び戻す。詳しくは[シャーマンの癒し](healing_circle)。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "land_rites"
+}

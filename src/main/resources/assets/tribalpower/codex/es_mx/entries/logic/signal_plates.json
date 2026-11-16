@@ -1,0 +1,30 @@
+{
+  "name": "Placas de señal",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Inversa y Eco",
+      "text": [
+        "Una voz, invertida o llevada.",
+        "- **Inversa** (NOT) canta mientras su reverso está en calma, y calla cuando el reverso está activo.",
+        "- **Eco** (BUFFER) copia el reverso: activo sigue activo, a un 15 completo.",
+        "Usa Inversa para convertir un Umbral de Pulso en una alarma de 'demasiado vacío'. Usa Eco para devolver un Hilo de canto que se apaga a plena fuerza."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

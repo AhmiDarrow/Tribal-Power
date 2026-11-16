@@ -1,0 +1,65 @@
+{
+  "name": "Bęben-serca",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Bęben-serca",
+      "text": [
+        "„Bęben nie jest głośny. Bęben jest miarowy. Bądź bębnem.”",
+        "Pasmo **Iskra**, głos **Ogień**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Każdy silnik w Marszu wciąż trzyma czas Bęben-serc. Ich rzemiosło to **bębny i Puls**: uderzenie co oddech, a miedź odpowiada.",
+        "Ich obozy stoją na **sawannie**, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy po sól."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich odczynnik to **Kościany dzwonek**, warty **+8** reputacji przy ich Palenisku.",
+        "Cenią też Sztabkę miedzi, Surową miedź albo Miedziany rezonator: **+3** za sztukę. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj: Palenisko przyjmuje najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co wymienia Starszy",
+      "text": [
+        "**Gość**: 6 Sztabka miedzi za Kościany dzwonek; 3 Sztabka miedzi za Miedziany rezonator.",
+        "**Przyjaciel**: 2 Dostrojone echo za Ogniwo Pulsu; 2 Kościany dzwonek i 6 Sztabka miedzi za Róg żaru; 4 Korzeń żaru za Chili bęben-serc.",
+        "**Ród**: Rdzeń rezonansu za Większe ogniwo Pulsu; 4 Związane echo za Bęben-serce.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Na randze **Głos** Starszy daje ci Znak plemienia Bęben-serc. Wytwórz go z {item:tribalpower:resonance_totem_fire} i dwie Duchotkanina w ich [Totem pokrewieństwa](kinship_totem).",
+        "Przy Rezonatorze Pulsu to jeszcze jeden głos; przy stacji użycza **Ogień**.",
+        "Ród Bęben-serc nosi swój [dar](tribe_boons): szybsza ręka: uderzasz o **10%** szybciej.",
+        "Ich danie niesie dar przez **5 minut**, a ich [relikt](elders_and_stories) tak długo, jak go nosisz.",
+        "Ich wymiana rangi Gość zamienia miedź w Kościany dzwonek, ich odczynnik: tani sposób, by wspiąć się ku Przyjaciel.",
+        "Na randze **Głos** możesz też związać **Chochlik żagwi** jako [chowańca](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co poprosił cię Starszy Bęben-serc i jak daleko zaszła ich opowieść. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

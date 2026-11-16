@@ -1,0 +1,470 @@
+{
+  "name": "Drahtlose Fracht",
+  "icon": "tribalpower:lattice_tuner",
+  "order": 40,
+  "items": [
+    "tribalpower:item_relay",
+    "tribalpower:fluid_relay",
+    "tribalpower:longreach_item_relay",
+    "tribalpower:longreach_fluid_relay",
+    "tribalpower:astral_item_relay",
+    "tribalpower:astral_fluid_relay"
+  ],
+  "next": "cargo_filters",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:item_relay",
+      "text": [
+        "Bewege Gegenstände oder Flüssigkeit zwischen zwei Maschinen ohne eine Reihe Rohre. Raste eine Relaisplatte auf einer Seite der sendenden Maschine ein, richte sie mit einem Gitterstimmer auf die empfangende Seite, und jede Sekunde springt die Fracht hinüber.",
+        "Relais sind für die Distanz. Zwei Blöcke von Tribal Power, die sich berühren, können stattdessen über ihre Seiten tauschen (siehe [Wie Stationen funktionieren](echo_workshops)); eine Vanilla-Truhe braucht weiterhin einen Trichter oder eine Platte."
+      ],
+      "title": "Drahtlose Fracht"
+    },
+    {
+      "type": "text",
+      "title": "Einrasten und Zielen",
+      "text": [
+        "Rechtsklicke eine Platte auf eine Seite einer Maschine oder Truhe. Hältst du eine Platte, setzt ein normaler Klick sie, auch an einer Maschine, die einen Bildschirm öffnet. Sie zieht aus dem Block, an dem sie klebt.",
+        "Die Platte zieht durch die Seite, auf der sie sitzt, und liefert in die Seite, die du markiert hast, und beide folgen den Seiteneinstellungen dieses Blocks: die Seite der Platte muss geben (**Ausgabe** oder **Beides**) und die markierte Seite muss nehmen (**Eingabe** oder **Beides**). Die Seiten einer Station starten als **Eingabe** und nur die Unterseite als **Ausgabe**, also stell die Seite zuerst ein.",
+        "Ein [Steinbecken](stone_font) ist für Platten schon eingestellt: Ober- und Unterseite sind **Beides**, also funktionieren Gegenstands- und Flüssigkeitsplatten dort in beide Richtungen.",
+        "Richte sie mit dem **Gitterstimmer** aus: Rechtsklick auf die Seite, die die Fracht empfangen soll, dann Rechtsklick auf die Platte. Die Platte schickt alles, was sie zieht, an diese Seite.",
+        "Halte die Platte am Gitter, innerhalb von 8 Blöcken um einen Gitterkonduktor, und auch ein Resonanz-Totem ihrer Stimme, wach oder gedimmt, aber nicht still: **Luft** für Gegenstands-, Flüssigkeits- und Weitreich-Relais, der **Webstuhl** für Astral-Relais. Ein Verwandtschafts-Totem, das diese Stimme leiht, zählt auch. Ohne das wartet die Platte. Ein Server kann diese Regel mit **automationNeedsVoices** in der allgemeinen Konfiguration abschalten."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Relais ausrichten",
+      "steps": [
+        {
+          "caption": "Zwei Truhen mit etwas Abstand.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:chest"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Raste ein Gegenstandsrelais auf der Oberseite der sendenden Truhe ein.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                1,
+                0
+              ],
+              "block": "tribalpower:item_relay[facing=up]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Rechtsklicke mit einem Gitterstimmer auf die Oberseite der fernen Truhe, um sie zu markieren.",
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Dann rechtsklicke mit dem Stimmer auf die Platte. Sie sendet jetzt an die markierte Seite.",
+          "highlight": [
+            [
+              -2,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              -2,
+              1,
+              0
+            ],
+            "item": "tribalpower:lattice_tuner"
+          }
+        },
+        {
+          "caption": "Stelle ein Resonanz-Totem (Luft) innerhalb von 8 Blöcken um die Platte: Relais laufen auf der Stimme Luft.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=lower]"
+            },
+            {
+              "pos": [
+                -1,
+                1,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air[half=upper]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -2
+            ],
+            [
+              -1,
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "caption": "Puls nahe der sendenden Platte, und bis zu 16 Gegenstände pro Sekunde wechseln hinüber.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              1,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gegenstände oder Flüssigkeit",
+      "text": [
+        "Jede Sekunde bewegt ein Relais bis zu **16 Gegenstände** oder **250 mB**.",
+        "Gegenstands- und Flüssigkeitsrelais tragen, was ihr Name sagt. Ein **Wassersiegel** im Slot **Rune** lässt jede Platte Flüssigkeit tragen; ein **Erdsiegel** lässt sie Gegenstände tragen.",
+        "Für Flüssigkeit stelle eine Geistzisterne an jedes Ende. Relais bewegen Flüssigkeit; sie speichern sie nicht.",
+        "Um zu wählen, was hinübergeht, oder es stattdessen zu verbrennen, siehe [Filter und Leerenplatten](cargo_filters)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kanäle",
+      "text": [
+        "Eine schlichte Platte sendet an einen Ort. Stufe sie auf, und sie öffnet weitere **Kanäle**: [Echoabstimmer](machine_ranks) öffnet einen zweiten, Binder einen dritten, Manifestierer einen vierten. Jeder Kanal hat sein eigenes Ziel und seinen eigenen Filter.",
+        "Markiere eine Seite mit dem Gitterstimmer und benutze den Stimmer an der Platte. Jeder normale Klick füllt den nächsten Kanal ohne Ziel, sodass die Kanäle an verschiedene Orte senden können. Wähle einen Kanal und schleichklicke die Platte mit dem Stimmer, um diesen zu ersetzen. **Trennen** vergisst das Ziel eines Kanals und behält seinen Filter.",
+        "**Priorität** schickt Fracht an den ersten Kanal in Nummernfolge, der sie nimmt und Platz hat: Erze auf Kanal 1 per Positivliste zu einem Ofen, und Kanal 2 nimmt alles andere ins Lager. **Reihum** lässt die Kanäle abwechseln.",
+        "Die Kanäle teilen sich den einen Transfer der Platte pro Schlag, also bewegt eine gestufte Platte so viel wie zuvor, nur an mehr Orte."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Drei Entfernungen",
+      "text": [
+        "- **Gegenstandsrelais** und **Flüssigkeitsrelais** reichen **32 Blöcke** weit, und jeder Schlag, der etwas bewegt, kostet **8 Puls**.",
+        "- **Weitreich**-Relais reichen **128 Blöcke** weit, für **16 Puls** je Schlag.",
+        "- **Astral**-Relais haben keine Reichweitengrenze und wechseln zwischen Welten, für **32 Puls** je Schlag.",
+        "Ein Schlag, der nichts bewegt, kostet nichts.",
+        "Platten mit Rang (siehe [Maschinenränge](machine_ranks)) zahlen **118%**, **143%** oder **182%** davon und bewegen ebenso viel mehr: etwa **19 / 23 / 29** Gegenstände oder **294 / 357 / 455 mB**. Puls je Gegenstand bleibt ungefähr gleich."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gitterstimmer",
+      "text": [
+        "Rechtsklicke die Seite des Blocks, zu der die Ware geliefert werden soll; der Gitterstimmer merkt sich diese Seite. Dann rechtsklicke die Platte mit dem Gitterstimmer, um sie zu zielen. Markiere das Ziel, nie die Platte. Ein einfacher Rechtsklick markiert jeden Block, auch einen Speicher oder eine Truhe, die sich bei einem Klick öffnet.",
+        "Die Markierung bleibt nach dem Zielen auf dem Gitterstimmer, also kann eine Markierung mehrere Platten zielen; rechtsklicke einen anderen Block, um sie zu ersetzen. Eine Markierung auf dem Block, auf dem die Platte selbst steht, wird abgelehnt.",
+        "Die Entfernungsgrenzen oben gelten.",
+        "Das Zielen bleibt, wenn du die Platte aufnimmst, und ihr Filter auch. Zerbrichst du eine Platte, fällt ihre Rune daneben.",
+        "Eine Platte gehört dir: nur du und dein [Lager](shared_camps) können sie öffnen, ihren Filter ändern oder sie mit einem Gitterstimmer zielen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Steuerung und wann sie wartet",
+      "text": [
+        "Ein dauerhaftes Redstone-Signal hält eine Platte an. Versorge den Zielblock des Gitterstimmers, um einen Transfer vom fernen Ende zu stoppen.",
+        "Ein Hebel an einer Tribal Power-Station, einem Speicher oder einer Zisterne hält auch Platten an, die daraus ziehen oder dorthin liefern.",
+        "Ein Komparator an einer Platte zeigt **0** ohne Verknüpfung, **1** verknüpft, aber wartend, **15** während Fracht sich bewegt.",
+        "Beide Enden müssen schon geladen sein. Ein ungeladenes oder volles Ziel lässt das Relais warten; nur eine Feuersiegel-Platte zerstört etwas. Relais laden nie selbst Chunks, also setze einen Weganker ans ferne Ende, wenn es arbeiten soll, während du fort bist.",
+        "Ducke dich und rechtsklicke eine Platte mit diesem Buch, um ihre Verknüpfung, ihre Kosten und warum sie wartet zu sehen."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:longreach_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_item_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:astral_fluid_relay"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_tuner"
+    }
+  ]
+}

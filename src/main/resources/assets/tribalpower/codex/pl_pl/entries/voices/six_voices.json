@@ -1,0 +1,267 @@
+{
+  "name": "Sześć głosów",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Każda stacja echa potrzebuje dwóch rzeczy poza wejściem: Puls i **Totem rezonansu** właściwego głosu w zasięgu **8 bloków**.",
+        "Totem jest nauczycielem, nie generatorem. Bez właściwego głosu stacja czeka i nic nie wydaje."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wysoki na dwa bloki",
+      "text": [
+        "Totem rezonansu ma **dwa bloki** wysokości, więc zostaw wolny blok nad miejscem, w którym go stawiasz.",
+        "Kliknij dowolną połowę: góra odpowiada tak samo jak podstawa. Rozbij dowolną połowę, a cały totem odpadnie jako jeden przedmiot, ze wszystkim, co trzyma.",
+        "Totem o wysokości jednego bloku ze starszego świata sam odrasta górą, gdy blok nad nim jest powietrzem."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Który głos co robi",
+      "text": [
+        "Każdy warsztat odpowiada na jeden głos i czeka na jego totem w zasięgu **8 bloków**:",
+        "- **Ziemia**: Kruszarka echa, Kamienna misa i Dół nasłuchu.",
+        "- **Ogień**: Dostrajacz echa i Piec żaru. Dostrajanie odczynnika istoty prosi zamiast tego o **Duch**.",
+        "- **Woda**: Wiązacz echa.",
+        "- **Duch**: Manifestator echa.",
+        "- **Krosno**: Rozplot echa i Dalekie wrota. To ostatni głos; zobacz [Szósty głos](sixth_voice).",
+        "Wstrzymana maszyna nazywa głos, którego jej brakuje, gdy przykucniesz i klikniesz ją prawym z tą książką."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głosy wokół obozu",
+      "text": [
+        "Urządzenia obozu, które pracują same, też chcą trzymanego głosu w zasięgu 8 bloków:",
+        "- **Ziemia**: Opiekun gaju i Kotwica szlaku.",
+        "- **Woda**: Pompa pływów.",
+        "- **Duch**: Bęben ochrony, Totem ciszy i Kołyska przywołania.",
+        "- **Powietrze**: Sidła wiatru i każdy przekaźnik oprócz astralnych.",
+        "- **Krosno**: Krosno pieczęci i astralne przekaźniki.",
+        "Stół pieśni przyjmuje dowolny głos: totem, który wybierzesz, jest głosem pieśni."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Właściwy nauczyciel",
+      "steps": [
+        {
+          "caption": "Kruszarka echa z kamieniem w środku i naładowanym bębnem obok.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Totem Ogień to niewłaściwy głos dla Kruszarka echa. Stacja czeka i nic nie wydaje.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zamień go na totem Ziemia, a praca się zacznie.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głosy, nie bloki",
+      "text": [
+        "Stacje liczą głosy, nie totemy: dwa totemy Ziemia to wciąż jeden głos. Wiele różnych głosów liczy się dla Rezonator Pulsu i Krosno-kotwica, które dają więcej Puls za każdy **odrębny** głos wokół nich.",
+        "Totem pokrewieństwa użycza żywiołu swojego plemienia stacjom, urządzeniom obozu i Krosno-kotwica i nigdy nie milknie. Rezonator Pulsu liczy go inaczej: każde plemię dodaje jeden dodatkowy głos, nigdy siódmego żywiołu.",
+        "Totem połączony kredą z tym przy stacji też użycza głosu, jeśli stoi bliżej niż 16 bloków od stacji. Urządzenia obozu i Rezonator nie słyszą kredowych połączeń.",
+        "Każdy totem trzyma też **250 Puls** dla kraty i trzeba go budzić: zobacz [Utrzymywanie](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Generator dla każdego głosu",
+      "text": [
+        "Każdy głos ma też własny generator, rzemiosło plemienia, które go strzeże:",
+        "- **Ziemia**: Bęben-serce.",
+        "- **Ogień**: Róg żaru, plemię [Bęben-serca](tribe_spark).",
+        "- **Powietrze**: Harfa wiatru, plemię [Tkacze wzorów](tribe_clock).",
+        "- **Woda**: Bęben fal, plemię [Wiązacze korzeni](tribe_sprout).",
+        "- **Duch**: Dzwon pobudki, plemię [Rzeźbiarze pieczęci](tribe_sigil).",
+        "- **Krosno**: Krosno-kotwica, plemię [Szwacze krosna](tribe_spindle).",
+        "Spraw, by wszystkie sześć produkowało naraz w promieniu **32 bloków** od Krosno-kotwica, a każdy, kto stoi obok, zdobywa **Sześć głosów śpiewa**.",
+        "W [Marszu](living_march) pogoda sprzyja generatorom jednego głosu i utrudnia generatorom innego."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

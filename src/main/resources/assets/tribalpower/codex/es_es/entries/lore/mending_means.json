@@ -1,0 +1,17 @@
+{
+  "name": "Lo que significa remendar",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "No estás devolviendo los continentes a su lugar. Estás enseñando a nueve voces a ponerse de acuerdo otra vez, un campamento a la vez.",
+        "Un enlace de tiza es una promesa. Un catalizador sentado es una conversación que se retoma. Un rito de tablilla es pedir con cortesía, en menos de lo que pedía el mundo viejo.",
+        "La Marcha guardó las salas, los tambores y las tablillas. Diles a los campamentos que sentimos que tardara tanto."
+      ]
+    }
+  ]
+}

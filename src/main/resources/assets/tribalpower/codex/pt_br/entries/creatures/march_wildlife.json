@@ -1,0 +1,96 @@
+{
+  "name": "Fauna da Marcha",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Na água",
+      "text": [
+        "As lagoas, as poças e os lagos de montanha da Marcha estão cheios de vida.",
+        "Todos ficam na água aberta sob o céu, nunca na água fechada na rocha abaixo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Barbatana-brilho",
+      "text": [
+        "Peixe pequeno neon, com barbatanas acesas, que nada em cardumes na água de cada terra. Pegue um com um balde de água, ou cozinhe-o."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Sino à deriva",
+      "text": [
+        "Uma água-viva lenta e brilhante em forma de sino, na água de cada terra menos o Planalto e os Ermos de Brasa. Inofensiva. Sua **Geleia à deriva** deixa você respirar debaixo d'água e ver no escuro por um tempo."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Raia do véu",
+      "text": [
+        "Uma arraia-manta larga e tímida da Estepe, do Planalto, do Brejo dos Juncos e dos Baixios; desliza para longe de quem chega perto. Solta Couro da Marcha e Barbatana-brilho."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Enguia-de-silte",
+      "text": [
+        "Uma enguia de brejo cor de oliva, das poças e canais do Brejo dos Juncos, dos Baixios e da água onde os Ermos de Brasa descem até o mar. Nada com a Barbatana-brilho e morde quem entra na água dela. Cozinhe-a como Enguia-de-silte defumada para uma boa refeição."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Andorinhão do Tear",
+      "text": [
+        "Os **Andorinhão do Tear** circulam sobre a terra aberta em bandos soltos de **3 a 6**, só de dia e com tempo seco, e nunca sobre os Ermos de Brasa; não se juntam mais de **12** ao seu redor. Soltam uma pena ou duas e, de vez em quando, um pouco de Caça crua."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "No ar",
+      "text": [
+        "Mais perto do chão o ar fica cheio de insetos: **vaga-lumes** sobre o brejo e a estepe à noite, **dardos de junco** roçando a água de dia, **asas de vidro** esvoaçando sobre as flores dos Campos de Cristal, e **mosquitos de cinza** subindo dos Ermos de Brasa. São só luz e movimento; não dá para pegá-los, e não custam nada ao seu mundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os rebanhos voltam",
+      "text": [
+        "Cace ou domestique um trecho da Marcha até deixá-lo vazio, e ele não ficará vazio. Cerca de **uma vez por minuto**, num ponto quieto **de 32 a 96 blocos** de você e nunca a menos de **24 blocos** de alguém, alguns animais daquela terra podem voltar: os mesmos pastadores com que a terra começou, inclusive os que outros mods adicionam ali. Os que vivem em cavernas e na lava voltam ao próprio chão.",
+        "Eles param de vir quando cerca de **seis** animais vivem a 32 blocos do ponto. Animais domesticados e em currais também contam, então a terra se enche mais ou menos até como começou e não além, e os rebanhos selvagens nunca apertam suas fazendas nem um acampamento movimentado.",
+        "Peixes, águas-vivas e andorinhões vêm e vão por conta própria com a água e o céu. As configurações do servidor podem mudar o ritmo ou desligar o retorno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentar e procriar",
+      "text": [
+        "Segure **Alga-fita** ou **Erva marinha** e Barbatana-brilho, Sino à deriva e Raia do véu nadam até você, até as raias tímidas. Alimente dois da mesma espécie e eles fazem um terceiro.",
+        "Uma **Vara de pescar** lançada em qualquer água da Marcha puxa Barbatana-brilho crua, e um em cada quatro lançamentos uma Enguia-de-silte crua, no lugar de bacalhau e salmão. Segure um **Balde vazio** na sua outra mão e uma Barbatana-brilho sobe viva, como Balde de barbatana-brilho: o jeito fácil de povoar um lago.",
+        "Segure **Sementes de trigo** ou **Grão da estepe** e os Andorinhão do Tear circulam perto de você, perto o bastante para alimentar. Dois alimentados fazem um terceiro do mesmo jeito.",
+        "Os filhotes nascem já adultos e nunca se afastam, então um lago povoado continua povoado. Cada par descansa cinco minutos antes de procriar de novo. A Enguia-de-silte não aceita comida.",
+        "O Sino à deriva também solta uma bola de slime de vez em quando."
+      ]
+    }
+  ]
+}

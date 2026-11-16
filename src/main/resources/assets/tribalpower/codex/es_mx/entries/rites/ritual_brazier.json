@@ -1,0 +1,87 @@
+{
+  "name": "Brasero ritual",
+  "icon": "tribalpower:ritual_brazier",
+  "order": 70,
+  "items": [
+    "tribalpower:blank_seal",
+    "tribalpower:earth_seal",
+    "tribalpower:fire_seal",
+    "tribalpower:water_seal",
+    "tribalpower:air_seal",
+    "tribalpower:spirit_seal",
+    "tribalpower:loom_seal"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_brazier",
+      "text": [
+        "El brasero sostiene un sello elemental y lo convierte en una bendición continua para todos los cercanos. También es el corazón de cada rito de tablilla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encender una bendición",
+      "text": [
+        "Haz clic derecho en el brasero con un sello para asentarlo. El sello nunca se gasta; agáchate con la mano vacía para retirarlo.",
+        "Mantén el tótem de ese sello a **8 bloques**, y Pulso en el entramado cercano. Mientras alguien esté dentro de **6 bloques**, el brasero gasta **8 Pulso cada dos segundos** y los bendice a todos. Si no hay nadie cerca, no gasta nada.",
+        "Una señal de redstone sostenida lo pausa; el Pulso almacenado no se vacía. Una señal breve dispara el rito asentado (consulta [Círculo de rito](rite_circle)).",
+        "También quema [incienso](remedies) para todos los cercanos, sin sello y sin Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Las bendiciones",
+      "text": [
+        "- **Tierra**: prisa.",
+        "- **Fuego**: resistencia al fuego.",
+        "- **Agua**: regeneración.",
+        "- **Aire**: caída lenta.",
+        "- **Espíritu**: visión nocturna.",
+        "- **Telar**: suerte, y cada latido teje **2 Pulso** en una Célula de Pulso que llevas, si tiene espacio."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sellos",
+      "text": [
+        "Todo sello empieza en blanco: papel, un Fragmento de Espíritu y una Campanilla de hueso hacen **dos** Sellos en blanco.",
+        "Añade tierra para Tierra, carbón vegetal para Fuego, un cubo de agua para Agua, una pluma para Aire, un Fragmento de Espíritu para Espíritu, o Hilo de Telar para el Telar.",
+        "Los sellos van a amuletos y tablillas de rito; la receta de una tablilla siempre devuelve su sello. Un sello usado en un Pedestal del rito se gasta en un [rito de sello](rite_circle) rápido."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_brazier"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:blank_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_seal"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_seal"
+    }
+  ],
+  "next": "rite_circle"
+}

@@ -1,0 +1,220 @@
+{
+  "name": "Depósito ancestral",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "Um grande depósito **de 54 espaços** para os suprimentos do acampamento, com um truque que um baú não tem: ajuste as faces, e ele alimenta ou esvazia as máquinas de Tribal Power que o tocam, sem funil e sem relé."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ajustar as faces",
+      "text": [
+        "Abra-o e use o painel de E/S para definir cada face como **Entrada**, **Saída**, **Ambos** ou **Fechado**. Agachar e clicar com o botão direito numa face com a mão vazia também a percorre.",
+        "Máquinas de Tribal Power que o tocam passam até **16 itens por segundo** de uma face que dá (Saída ou Ambos) para uma face que recebe (Entrada ou Ambos). Duas faces em Ambos nunca trocam, então as pilhas não ficam indo e voltando entre elas.",
+        "A face de baixo de uma estação é Saída, então um depósito sob uma estação apanha tudo o que ela faz. Defina uma face como Saída contra o lado de Entrada de uma estação e ele a alimenta."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Uma estação que se esvazia sozinha",
+      "steps": [
+        {
+          "caption": "Coloque um Depósito ancestral onde a saída deva ir.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Coloque o Triturador de eco em cima; a face de baixo de uma estação é Saída.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Dê ao Triturador de eco o totem de Terra e Pulso dele, como de costume.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Os fragmentos agora caem direto no depósito, sem precisar de funil.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dicas",
+      "text": [
+        "Funis e canos respeitam as mesmas configurações de face, então uma face Fechada também os rejeita.",
+        "Os vizinhos usam as faces; os relés servem para a distância. Veja [Carga sem fio](wireless_cargo).",
+        "Uma alavanca trava tanto o menu quanto a automação. Um comparador lê o quanto ele está cheio."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "O botão Organizar",
+      "text": [
+        "Todo inventário que valha a pena organizar tem um pequeno botão **Organizar** no canto vazio acima dos espaços: sua própria mochila, este depósito, o [Depósito profundo](deep_cache) (e o cofre que um Alforje do viajante ou um acampamento abre) e qualquer baú, barril, caixa de shulker ou funil.",
+        "Um toque junta o que pode ser juntado e põe o resto em ordem. Sua barra de atalhos e sua armadura nunca se movem, e os espaços de uma máquina ficam intocados: o botão só aparece sobre armazenamento simples. Organizar um cofre nunca coloca um Alforje do viajante dentro dele.",
+        "Desligue-o com **sortButtons** na configuração do cliente, se apertar a tela de outro mod."
+      ]
+    }
+  ]
+}

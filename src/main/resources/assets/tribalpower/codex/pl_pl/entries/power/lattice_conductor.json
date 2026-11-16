@@ -1,0 +1,281 @@
+{
+  "name": "Przewodnik kraty",
+  "icon": "tribalpower:lattice_conductor",
+  "order": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_conductor",
+      "text": "Przewodnik kraty tka kratę Pulsu; sam nie wytwarza Pulsu. Puls porusza się tylko wzdłuż przewodników: wszystko w zasięgu **8 bloków** od jednego (generatory, maszyny, ręce obozu, przekaźniki, totemy i Kopiec Pulsu) jest w jego sieci, a maszyny czerpią Puls tylko z sieci. Jeden wyrób daje cztery."
+    },
+    {
+      "type": "text",
+      "title": "Tkanie sieci",
+      "text": [
+        "Przewodniki w zasięgu 8 bloków od siebie łączą się i tkają jedną sieć, jak daleko biegnie linia. Dwie grupy poza swoim zasięgiem to dwie sieci i nic nie dzielą.",
+        "Maszyna czerpie najpierw z generatorów swojej sieci, potem ze swoich [Kopiec Pulsu](pulse_cairn). Nigdy nie czerpie wprost z generatora, nawet z takiego tuż obok: nie ma przewodnika, nie ma Pulsu.",
+        "Totemy w sieci z Pulsem napełniają z niej bufory **250 Puls** i potem stoją pełne, co nic więcej nie kosztuje. Ten bufor trzyma głos totemu: pusty totem jest niemy (zobacz [Czuwanie](keeping)). Maszyny nigdy nie wydają bufora totemu.",
+        "Totemy łączy się przedmiotem **Rytualna kreda** dla ich głosów: kliknij prawym przyciskiem jeden totem, potem drugi w odległości **mniej niż 16 bloków**. Stacja liczy głos totemu spojenego kredą z pobliskim, o ile ten partner stoi mniej niż 16 bloków od stacji. Kreda niesie głosy, nie Puls."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ile niesie",
+      "text": [
+        "Każdy przewodnik niesie ustaloną ilość na sekundę, według [rangi](machine_ranks): **Tkany 64**, **Dostrojony 256**, **Związany 1,024** i **Manifestowany 4,096** Pulsu na sekundę. Przewodnik sprzed rang jest Tkany.",
+        "Puls opuszcza generator przez przewodnik w zasięgu 8 bloków od niego i dociera do maszyny przez przewodnik w zasięgu 8 bloków od maszyny, i liczy się na obu. Puls, który wychodzi i dochodzi tym samym przewodnikiem, liczy się raz. Połączenia między przewodnikami niosą swobodnie, więc sieć niesie tyle, ile wszystkie jej przewodniki razem.",
+        "Duży generator chce silnych albo wielu przewodników wokół: taki, co daje tysiące na sekundę, na przykład najwyższe [Serce ley](ley_heart), potrzebuje zamanifestowanego przewodnika (4 096 na sekundę) albo czterech związanych, by oddać wszystko. To samo dotyczy głodnej maszyny.",
+        "Sygnał redstone na przewodniku wyjmuje go ze splotu, aż sygnał się skończy."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Krata przez obóz",
+      "steps": [
+        {
+          "caption": "Generator. Żadna maszyna nie pobierze z niego, póki krata do niego nie dotrze.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Przewodnik kraty w zasięgu 8 bloków od niego wplata go w kratę.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Stacja w zasięgu 8 bloków od przewodnika czerpie z sieci. Bez przewodnika głodowałaby, choćby bęben stał tuż obok.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:echo_attune"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Totemy w zasięgu napełniają bufory z sieci i stoją pełne: to trzyma ich głosy.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Odczyt",
+      "text": [
+        "Kliknij przewodnik prawym przyciskiem, by zobaczyć jego sieć: ile ma przewodników, generatorów i kopców, tempo tego przewodnika i całej sieci oraz Puls na nim.",
+        "Obrzęd [Więź ley](world_rites) wiąże na chwilę dwa odległe totemy: przewodniki w zasięgu jednego końca wplatają się w sieć drugiego.",
+        "Widok Pulsu [Soczewka ley](ley_lens) pokazuje sieć, na której stoisz, przez który przewodnik i ile niósł w ostatniej sekundzie.",
+        "Krata niesie Puls, nie towary. By przenosić przedmioty na odległość, użyj [przekaźników](wireless_cargo)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdy cichnie",
+      "text": [
+        "Dźwignia albo dowolny sygnał redstone wyjmuje przewodnik ze splotu.",
+        "„Brak generatora lub kopca” znaczy, że nic w sieci nie robi ani nie trzyma Pulsu: ustaw jeden w zasięgu 8 bloków od dowolnego jej przewodnika.",
+        "„Sucho” znaczy, że generatory i kopce sieci są puste: rób więcej Pulsu albo wydawaj mniej.",
+        "„Niesie wszystko, co może” znaczy, że przewodnik w ostatniej sekundzie przepuścił całe swoje tempo: podnieś rangę albo dodaj przewodniki obok zajętego generatora i maszyny.",
+        "Kucnij i kliknij prawym przyciskiem z tą księgą, by zobaczyć rangę, co niósł w ostatniej sekundzie i czego brakuje."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_conductor"
+    }
+  ]
+}

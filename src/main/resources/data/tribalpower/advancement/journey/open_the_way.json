@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:gate_keystone"
     },
-    "title": "Open the way",
-    "description": "Light a Way Gate. Twelve stones, one keystone, and somewhere to be.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.open_the_way.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.open_the_way.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

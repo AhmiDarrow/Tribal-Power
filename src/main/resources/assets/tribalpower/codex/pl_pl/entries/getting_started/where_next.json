@@ -1,0 +1,28 @@
+{
+  "name": "Dokąd iść dalej",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Następny krok",
+      "text": [
+        "Jedna konkretna rzecz do zrobienia, czytana z miejsca, w którym jesteś na drodze od pierwszego Paleniska do Dziewiątego porozumienia. Zmienia się w miarę drogi."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Gdy obóz robi własną energię, idź za tym, co cię ciekawi:",
+        "- [Warsztaty](echo_attune) zamieniają odłamki w silniejsze kryształy, metale i ulepszenia.",
+        "- [Maszyny obozu](grove_tender) uprawiają, zbierają i strzegą, gdy jesteś zajęty.",
+        "- [Magazyn i ładunek](ancestral_cache) trzyma twoje dobra i przenosi je bez rur, a [kompasy i wrota](waystone_compass) przenoszą ciebie.",
+        "- [Wzory](placement_is_the_ritual) buduje się, a nie wytwarza: Kamienna misa i Dół nasłuchu.",
+        "- [Chowaniec](familiar_basics) niesie głos totemu i wzmacnia twoją magię tego głosu.",
+        "- [Dziewięć Plemion](standing) trzyma obozy po całej ziemi. Nakarm Palenisko, by zyskać wymianę, dary i z czasem Totem pokrewieństwa.",
+        "- Z przyjaciółmi [wspólny obóz](shared_camps) dzieli skarbiec, urządzenia i Kotwice szlaku.",
+        "- [Bęben wrót](gate_drum) otwiera drogę do Marszu, gdy będziesz gotów."
+      ]
+    }
+  ]
+}

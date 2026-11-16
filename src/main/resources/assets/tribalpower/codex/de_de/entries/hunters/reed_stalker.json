@@ -1,0 +1,51 @@
+{
+  "name": "Schilfpirscher",
+  "icon": "tribalpower:reed_fang",
+  "order": 90,
+  "spoiler": true,
+  "items": [
+    "tribalpower:reed_stalker_spawn_egg",
+    "tribalpower:reed_fang"
+  ],
+  "next": "shardback",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_stalker",
+      "text": [
+        "Ein gestreifter Luchs, der sich zwischen Geistrohr verbirgt. Schnelle Schläge tragen ein kurzes Gift.",
+        "Gejagt lässt er außerdem bis zu 1 Marschleder und bis zu 1 Knochen fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Schilfpirscher verbergen sich in Sümpfen der Oberwelt und in Mangrovensümpfen, im Schilfmoor des Marsches und in den Untiefen, und dünner auf den Kristallfeldern und in der Steppe.",
+        "Er hat **22 Gesundheit** und **1 Rüstung**, bewegt sich schnell und schlägt für **4**. Jeder Biss vergiftet dich 3 Sekunden lang. Bring Milch mit, oder halte Abstand und lass ihn zu dir kommen."
+      ],
+      "title": "Wo und wie"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Er lässt **1 bis 2 Schilfreißzahn** fallen.",
+        "Ein Schilfreißzahn wird unter Geist zu 2 Abgestimmtes Echo."
+      ],
+      "title": "Was es gibt"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Kein Amulett bindet einen Schilfpirscher."
+      ],
+      "title": "Es bindet sich nicht"
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben dem eigenen Reagenz fällt beim Jagen noch dies, mehr mit Plünderung."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Tkacz echa",
+  "icon": "tribalpower:echo_silk",
+  "order": 160,
+  "spoiler": true,
+  "items": [
+    "tribalpower:echo_weaver_spawn_egg",
+    "tribalpower:echo_silk"
+  ],
+  "next": "dark_hunters",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:echo_weaver",
+      "text": [
+        "Pająk-harfa, nogi napięte jak harfa: ośmionogi strażnik pękniętych pieśni. Ugryzienie spowalnia ofiarę.",
+        "Upolowany upuszcza też od 1 do 3 nici i do 1 oka pająka."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tkacze echa pełzają po Stepie Marszu, Kryształowych polach, Trzcinowych moczarach i Płyciznach. Niezaśpiewany też przywołuje je w swoim chórze.",
+        "Ma **26 zdrowia** i **3 pancerza** i gryzie za **4**, spowalnia cię przez 3 sekundy i może zostawić cię [Wystrzępiony](afflictions). Nigdy nie stawia sieci ani nie niszczy twojego obozu."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Upuszcza **1 do 2 Jedwab echa**.",
+        "Jedwab echa wiąże się w 2 Duchotkanina pod Wodą."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Osiągnij **Głos** u **Szwacze krosna**, potem użyj Amulet więzi na dorosłym: dwie próby na pięć, przy porażce amulet przepada. Albo nakarm go jego własnym odczynnikiem: jedna próba na pięć, a odczynnik przepada tak czy inaczej.",
+        "Związany tkacz podnosi przedmioty wokół siebie i rzuca je tobie. Zobacz [dary chowańca](familiar_gifts)."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Oprócz swojego odczynnika upolowany upuszcza to, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

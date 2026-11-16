@@ -1,0 +1,6 @@
+{
+  "name": "Machines du camp",
+  "icon": "tribalpower:grove_tender",
+  "order": 40,
+  "description": "Des appareils qui s'occupent d'un camp à ta place : ils cultivent, récoltent, gardent, pompent, éclairent le chemin et maintiennent les chunks éveillés."
+}

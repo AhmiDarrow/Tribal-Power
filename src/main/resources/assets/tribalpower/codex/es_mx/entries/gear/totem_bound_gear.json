@@ -1,0 +1,85 @@
+{
+  "name": "Equipo ligado a un tótem",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 50,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Darle una voz al equipo",
+      "text": [
+        "Cualquier herramienta de Equipo espiritual o pieza de Tejido espiritual puede responder a una voz de tótem. Coloca un Tótem de resonancia, lleva una Célula de Pulso cargada y agáchate para usar la pieza sobre el tótem.",
+        "Vincular gasta **40 Pulso**. El tótem no se consume, la barra de acción nombra la voz y puedes sobrescribirla cuando quieras, del mismo modo. Los clics con las manos vacías siguen leyendo el tótem como siempre.",
+        "Los conjuntos mixtos están pensados así: una capucha de Fuego es resistencia al fuego, no visión nocturna. La voz del Telar necesita un tótem del Telar (ve [La sexta voz](sixth_voice)).",
+        "Un [familiar](familiar_boons) sintonizado de la voz de la pieza, si está cerca, hace que gaste un **40%** menos de Pulso y que las ventajas de su voz lleguen más a menudo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Distinguirlos",
+      "text": [
+        "Una pieza de Tejido espiritual vinculada gasta **3 Pulso cada cuatro segundos**, así que una capucha, una túnica y unos pantalones vinculados cuestan **9**; una pieza sin vincular no tiene beneficio y no gasta nada. Las botas gastan solo cuando se usa una de sus ventajas, y eso cubre los cuatro segundos siguientes. Una pieza apagada, o sin Pulso a su alcance, no da ninguna de sus ventajas.",
+        "Una pieza vinculada se reconoce de un vistazo: sus adornos brillan del color de su voz, verde de Tierra, naranja de Fuego, azul de Agua, menta pálida de Aire, violeta de Espíritu y cian de Telar, en la mano y al llevarla. Cuanto más alto el rango, más fuerte brilla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En el pico",
+      "text": [
+        "- **Tierra** abre un **3 por 3** de piedra alrededor de cada bloque que picas, en cuadro hacia donde miras. Todo el 3 por 3 cuesta solo el Pulso del primer bloque.",
+        "- **Fuego** funde lo que pica.",
+        "- **Agua** pica con toque de seda.",
+        "- **Aire** otorga prisa.",
+        "- **Espíritu** hace brillar las menas cercanas cada pocos segundos, en un radio de 6 bloques (10 en el rango 3).",
+        "- **Telar** pica por **0 Pulso** y, al hacerlo, no sufre desgaste."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En el hacha",
+      "text": [
+        "La **hacha**, en troncos: **Tierra** tala el **árbol entero**, de arriba abajo, golpees donde golpees; agáchate para cortar un solo tronco. Solo cuentan los troncos del tipo que golpeaste, y solo con hojas crecidas de forma natural: al menos **3**, y una por cada **8** troncos. La madera que toca tablones, cristal, puertas, vallas u otros bloques de construcción es una construcción, así que las construcciones de troncos desnudos y una cabaña crecida dentro de un árbol quedan en pie. El Pulso se paga conforme caen los troncos: cada 16 troncos cuestan el Pulso de un golpe, y como todo trabajo pagado la tala no desgasta. Así, una tala solo es tan grande como el Pulso al que llegue el hacha: un **Coloso llorón**, decenas de miles de troncos, puede gastar más que una Célula de Pulso entera. El valor de un golpe que no tala nada (madera protegida, por ejemplo) se devuelve. **Aire** siempre toma dos más, **Agua** de vez en cuando suelta un brote de roble, **Espíritu** hace brillar a los hostiles en 8 bloques, **Fuego** carboniza la madera y **Telar** envía los troncos a tu mano.",
+        "Un árbol de más de **512** troncos (un sauce aparte) se deja entero, igual que uno que llega a terreno no cargado. Un golpe sin Pulso corta un solo tronco."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En la pala",
+      "text": [
+        "La **pala**: **Tierra** cava un **3 por 3** de tierra, arena o grava, **Aire** tiende senderos de tres de ancho, **Agua** a veces saca arcilla de la tierra, **Fuego** cuece la arena hasta hacer cristal, **Telar** levanta la arena y la grava enteras, y **Espíritu** hace brillar cofres, barriles y generadores en 8 bloques."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "En la hoja",
+      "text": [
+        "Cada golpe pagado de la hoja añade un **golpe de eco**: un poco de daño mágico, y el enemigo brilla unos segundos. Su voz añade más:",
+        "- **Tierra**: empuja al enemigo hacia atrás y lo ralentiza.",
+        "- **Fuego**: lo prende y quema un poco más hondo.",
+        "- **Agua**: te cura un corazón (dos en el rango 3).",
+        "- **Aire**: el golpe barre a los hostiles de al lado.",
+        "- **Espíritu**: un golpe de eco más fuerte.",
+        "- **Telar**: arrastra al enemigo hacia ti.",
+        "Toda la [familia de armas](spiritgear_weapons) toma las voces del mismo modo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sobre el Tejido espiritual",
+      "text": [
+        "- **Tierra**: la capucha desvía un proyectil de cada cinco (alrededor de uno de cada tres en el rango 3); la túnica da resistencia; los pantalones atraviesan telarañas, arbustos de bayas y arena de almas; las botas reducen el retroceso y nunca pisotean la tierra de cultivo.",
+        "- **Fuego**: la capucha y la túnica dan resistencia al fuego, y la túnica prende a los atacantes durante 3 segundos; los pantalones dan velocidad en la lava y en el Nether; las botas ignoran los suelos calientes.",
+        "- **Agua**: la capucha da respiración acuática; la túnica te regenera cuando te golpean (más tiempo en el rango 3); los pantalones dan gracia del delfín; las botas congelan el agua quieta bajo tus pies."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Más voces del Tejido espiritual",
+      "text": [
+        "- **Aire**: la capucha da visión nocturna; la túnica ignora el retroceso; los pantalones dan velocidad (más fuerte en el rango 3); las botas dan caída lenta.",
+        "- **Espíritu**: la capucha da visión nocturna y hace brillar a los hostiles a 12 bloques; la túnica da resistencia y hace brillar a quien ataca; los pantalones dan velocidad y un paso más alto; las botas anulan el daño por caída y, en el rango 3, te impulsan hacia arriba tras una caída de 4 o más.",
+        "- **Telar**: la capucha da suerte; la túnica a veces vuelve a enhebrar en tu célula el Pulso que gastó; los pantalones atraviesan telarañas y arbustos de bayas; las botas te dejan avanzar agachado para coser **4 bloques** (**6** en el rango 3), se paga como sus otras ventajas y luego descansa 8 segundos."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de la ciénaga de juncos",
+  "icon": "tribalpower:marsh_foot",
+  "order": 250,
+  "spoiler": true,
+  "items": [
+    "tribalpower:marsh_hopper_spawn_egg",
+    "tribalpower:fen_strider_spawn_egg",
+    "tribalpower:bog_floater_spawn_egg",
+    "tribalpower:reed_coil_spawn_egg",
+    "tribalpower:marsh_foot",
+    "tribalpower:fen_hoof",
+    "tribalpower:bog_bladder",
+    "tribalpower:reed_whorl"
+  ],
+  "next": "beasts_crystal_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Propios de la ciénaga de juncos",
+      "text": [
+        "Entre los juncos y los canales de lodo viven una rana, una garza y un pez globo que flota en el aire, y de noche una cobra despierta en la hierba.",
+        "Puedes cepillar a cada bestia mansa de aquí una vez por minuto para obtener su reactivo, y se tienta y se cría con su propia comida, nombrada más abajo en **Caza y pastoreo**. Puedes vincularla como a cualquier animal manso (consulta [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (consulta [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_hopper",
+      "title": "Saltapantano",
+      "text": [
+        "Una rana pequeña de ciénaga, rápida para saltar, en grupos de dos a cuatro. **12 de salud**, sin armadura.",
+        "Suelta **1 a 3 Pata de pantano**, más con Saqueo.",
+        "Cazada, también suelta hasta 1 Caza cruda, hasta 1 Piel de conejo y hasta 1 Bola de slime. Críala con **Arroz de ciénaga**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:fen_strider",
+      "title": "Vadeador del tremedal",
+      "text": [
+        "Una garza alta que vadea sobre patas de zanco, en bandadas de dos a cuatro. **22 de salud** y **1 de armadura**.",
+        "Suelta **1 a 3 Casco de tremedal**.",
+        "Cazada, también suelta de 1 a 3 Caza cruda, hasta 2 Cuero de la Marcha y hasta 1 Hueso. Críala con **Arroz de ciénaga**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_floater",
+      "title": "Flotacenagal",
+      "text": [
+        "Un pez globo verde, hinchado, redondo y espinoso, que flota sobre la ciénaga de uno a tres. **12 de salud**, sin armadura. Algunos flotan junto al [Guardián coloso](colossus_warden).",
+        "Suelta **1 a 3 Vejiga de cenagal**.",
+        "Cazado, también suelta hasta 1 Bola de slime y hasta 1 Hilo. Críalo con **Arroz de ciénaga**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:reed_coil",
+      "title": "Espiral de junco",
+      "text": [
+        "Una cobra de pantano, enroscada y con la capucha abierta, que surge de noche en el suelo abierto de la ciénaga, una o dos a la vez. Es muy lenta, pero tiene **30 de salud** y **6 de armadura**, golpea por **5** y te empuja hacia atrás con cada golpe.",
+        "Suelta **1 a 2 Verticilo de junco**, un reactivo de Empujón.",
+        "Cazada, también suelta hasta 1 Cuero de la Marcha y hasta 1 Hueso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada una suelta más al cazarla, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras das su comida a dos adultos; si la alimentas con normalidad, uno salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

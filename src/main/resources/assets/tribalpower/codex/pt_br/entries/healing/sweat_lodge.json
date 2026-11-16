@@ -1,0 +1,31 @@
+{
+  "name": "Cabana de suor",
+  "icon": "tribalpower:sweat_stones",
+  "order": 60,
+  "items": [
+    "tribalpower:sweat_stones"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sweat_stones",
+      "title": "Pedras quentes",
+      "text": [
+        "As **Pedras de suor** soltam vapor e brilham quando ficam sobre o calor: uma fogueira acesa, fogo, fogo das almas, um bloco de magma, lava ou uma Tigela de brasa embaixo. Tire o calor e elas esfriam.",
+        "Coloque algumas numa cabana pequena com uma cama e você tem uma cabana de suor."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Uma noite na cabana",
+      "text": [
+        "Durma a noite toda numa cama com **Pedras de suor quentes num raio de 5 blocos**, no máximo **2 blocos** acima ou abaixo da cama, e **um teto sobre você** (qualquer coisa sólida, de dois a cinco blocos acima da cama).",
+        "Você acorda **totalmente curado**, sem nenhum efeito nocivo, com **10 minutos** de [Bênção do Espírito](spirit_sickness) e um pouco de Regeneração. Só funciona se você realmente dormir até de manhã."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sweat_stones"
+    }
+  ]
+}

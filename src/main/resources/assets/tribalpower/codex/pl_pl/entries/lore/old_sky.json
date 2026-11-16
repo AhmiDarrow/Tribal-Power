@@ -1,0 +1,25 @@
+{
+  "name": "Świat, który był",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Zanim pustka dostała nazwę, niebo było podłogą. Dziewięć Pasm (Gleba, Kamień, Kiełek, Szpon, Iskra, Zegar, Rój, Sygil i Wrzeciono) napięło dziewięć plemion. Kontynenty wisiały na tej kracie tak, jak owoc wisi na zadbanej winorośli.",
+        "Pogoda biegła wzdłuż niej. Deszcz wiedział, gdzie spaść. Nic nie spadało, co spaść nie miało.",
+        "Drogi wśpiewano w nić i przemierzano. Uprawy zakorzeniały się w Paśmie tak samo jak w ziemi. Bębny pod jednym posłaniem słychać było jako Puls pod innym."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Krosno",
+      "text": [
+        "Krosno nie było bogiem ani maszyną. Było dziewięcioma porozumieniami trzymanymi naraz. Gdy plemiona ciągnęły razem, horyzont zostawał na miejscu. To cała dawna fizyka.",
+        "Z tego ciągnięcia wzięło się to rzemiosło: Puls, krata, pieczęć i droga w Marsz. Silniki wciąż są tam, na zewnątrz. Osierocone, buczące, święte. Traktuj je jak dziedzictwo, nie jak stertę złomu."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Anziani, richieste e storie",
+  "icon": "tribalpower:relic_spindle",
+  "order": 15,
+  "spoiler": false,
+  "items": [
+    "tribalpower:relic_soil",
+    "tribalpower:relic_stone",
+    "tribalpower:relic_sprout",
+    "tribalpower:relic_claw",
+    "tribalpower:relic_spark",
+    "tribalpower:relic_clock",
+    "tribalpower:relic_swarm",
+    "tribalpower:relic_sigil",
+    "tribalpower:relic_spindle"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Parlare con un Anziano",
+      "text": [
+        "L'accampamento di ogni tribù ha un **Anziano**, e una volta che sei Ospite ti parleranno. Fai clic destro su uno e si apre una conversazione: ciò che dicono a sinistra, ciò che puoi rispondere come pulsanti.",
+        "Lo scambio è una delle cose che puoi chiedere. Gli Stranieri ricevono solo poche parole brusche e un accenno al focolare, quindi porta prima un'offerta (vedi [Tribù e prestigio](standing)).",
+        "Ciò che l'Anziano offre cambia con ciò che hai fatto: richieste, la loro storia e, una volta finita, un'accoglienza più calda.",
+        "Nel [giorno di festa](living_march) della tribù, l'Anziano ti invita anche al banchetto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Richieste",
+      "text": [
+        "Chiedi a un Anziano **\"C'è del lavoro che posso fare?\"** e ti danno una delle richieste della tribù. Ogni tribù ne ha tre aperte in un dato giorno, e cambiano con i giorni; se quella di oggi non ti va, torna domani.",
+        "Tieni **una richiesta per tribù** alla volta. Una volta finite **tre** in un giorno, fra tutte le tribù, gli Anziani non danno nuovo lavoro fino a domani. Il lavoro che hai già può ancora essere consegnato.",
+        "Finiscila e di' all'Anziano **\"Ho fatto ciò che mi hai chiesto.\"** Ognuna paga **8 a 16** di prestigio, e ogni **terza** richiesta finita per una tribù paga un **Marchio della tribù** in più, molto prima che tu raggiunga Voce.",
+        "Il Codice tiene il conto per te: la pagina di ogni tribù finisce con la richiesta aperta e con quanto è avanti."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ciò che chiedono",
+      "text": [
+        "- **Recupera**: porta ciò a cui tengono, come il loro raccolto della Marcia. Portalo quando lo dici all'Anziano.",
+        "- **Consegna**: porta due ciotole del loro [piatto](tribe_dishes).",
+        "- **Caccia**: respingi sei creature dell'oscurità entro **48 blocchi** dal loro focolare. Il colpo mortale deve essere tuo.",
+        "- **Rito**: compi un rito qualsiasi su un braciere o un piedistallo entro 48 blocchi dal loro focolare.",
+        "- **Costruisci**: innalza **Muretti** di dimensione 3 o più entro 48 blocchi dal loro focolare, segnati con il Gessetto del costruttore, e tieni quel gessetto quando lo dici all'Anziano. Costruiscili con blocchi lavorati, come assi, mattoni o pietrisco: pietra grezza, terra, sabbia, terracotta, ghiaccio e il suolo proprio della Marcia non contano. Una costruzione conta **una volta**: i muretti già consegnati a quella tribù non pagano di nuovo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "La loro storia",
+      "text": [
+        "Chiedi **«Raccontami la tua storia»** e l'Anziano inizia una strada più lunga: **sette passi**, una tribù alla volta, che poggiano su tutto il resto che fai con loro. Diventa loro Amico, porta l'unica cosa a cui tengono, caccia vicino ai loro fuochi, compi un rito nel loro accampamento, porta il loro piatto e, alla fine, vai dove ti mandano.",
+        "L'ultimo passo è una **prova**: la terra di ogni tribù custodisce un guardiano, e la tribù vuole che tu lo affronti. La prova dei Cucitori del telaio è Il Non Cantato stesso; gli altri otto attendono sulle loro terre, raccontati in [I guardiani](guardians). Se cadi nello scontro, la storia semplicemente aspetta. Un guardiano lasciato solo per mezzo minuto torna a dormire imbattuto, e il suo altare si può richiamare subito.",
+        "Affronta il guardiano solo quando l'Anziano ti manda. Un guardiano sconfitto prima non conta per la storia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Le nove reliquie",
+      "text": [
+        "Finisci la storia e l'Anziano ti consegna la **reliquia** della tribù: una cosa piccola e unica che concede il [dono](tribe_boons) di quella tribù ogni volta che è nel tuo inventario, qualunque sia il tuo grado, e ti segna per sempre ai loro occhi.",
+        "{item:tribalpower:relic_soil} (Custodi del giaciglio). {item:tribalpower:relic_stone} (Cantori di ghiaia). {item:tribalpower:relic_sprout} (Legaradici). {item:tribalpower:relic_claw} (Camminatori del ciglio). {item:tribalpower:relic_spark} (Cuoritamburo). {item:tribalpower:relic_clock} (Tessitori di trame). {item:tribalpower:relic_swarm} (Custodi della colonia). {item:tribalpower:relic_sigil} (Intagliatori di sigilli). {item:tribalpower:relic_spindle} (Cucitori del telaio).",
+        "Una per ogni tribù, ciascuna fine di una storia e inizio di nove che tornano ad accordarsi."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Das Setzen ist das Ritual",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Gebaut, nicht hergestellt",
+      "text": [
+        "Manche Maschinen erwachen nur, wenn die Blöcke um sie in der richtigen Form stehen. Die Maschine in der Mitte ist der **Anker**; die Form darum ist ihr **Muster**.",
+        "Die Anker sind das Steinbecken, das Resonanzgeflecht, das Ritualkohlenbecken, der Pulsresonator, der Echozermalmer und der Torschlussstein. Jeder hat eine eigene Seite in diesem Buch, und die Form ist Block für Block aufgebaut.",
+        "Jede Drehung geht, also richte die Form so aus, wie es deinem Lager passt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deine Arbeit prüfen",
+      "text": [
+        "Ducke dich und rechtsklicke mit diesem Buch das Steinbecken, das Resonanzgeflecht oder einen Torschlussstein. Es nennt die Stufe, die die Form erreicht hat, wohin sie blickt, und die ersten **drei** Dinge, die noch fehlen, und Funken markieren, wohin sie gehören. Ein Ritualkohlenbecken listet, was fehlt, ohne die Funken.",
+        "Viele Muster haben eine größere zweite Stufe. Die verlangen meist [Ankersteine](anchor_stone), an den Ecken verspannt, und geben der Maschine dafür mehr zu tun.",
+        "Formen werden mit [Ritualmarkierungen](ritual_mark) verbunden, gezeichnet mit Ritualkreide."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "stone_font",
+      "tier": 1,
+      "title": "Die kleinste Form",
+      "text": "Ein Steinbecken und vier Kreidemarken. Es ist das leichteste Muster zum Lernen, und es läuft auf einer von Hand gespielten Trommel."
+    }
+  ],
+  "next": "ritual_mark"
+}

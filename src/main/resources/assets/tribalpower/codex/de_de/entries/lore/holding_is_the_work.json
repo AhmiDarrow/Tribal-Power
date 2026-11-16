@@ -1,0 +1,46 @@
+{
+  "name": "Halten ist die Arbeit",
+  "icon": "tribalpower:lore_tablet",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Flicken ist kein privates Wunder. Verdiene das Relikt jedes Stammes, trag alle neun in einen Kreis des Webstuhls und vollziehe die [Die neunte Übereinkunft](ninth_agreement). Die Fäden stimmen wieder überein.",
+        "Lies jede Tafel. Schlage die Stille Trommel, wenn du bereit bist. Opfere an den Herden. Bitte höflich, kleiner, als die alte Welt bat.",
+        "Die Welt schnappt nicht zurück. Sie lernt zu halten."
+      ]
+    },
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lore_tablet",
+      "title": "Die Tafeln",
+      "text": [
+        "Die Stämme ließen zwölf Steintafeln zurück. Suche sie an den Wänden der Lager der Siegelkerber (dunkle Wälder und das Marschhochland) und, im Marsch, in versunkenen [Ahnenhallen](ancestor_hall), Trommelkreisen, Kristalltürmen, Lagern der Webstuhl-Näher und Tiefen Tempeln. Rechtsklicke eine, um sie zu lesen.",
+        "Jede Tafel, die du liest, wird hier festgehalten, im Kapitel der Überlieferung, und ihre Worte öffnen sich als eigene Seite."
+      ]
+    },
+    {
+      "type": "image",
+      "image": "lore_tablet_page",
+      "text": [
+        "Das Kapitel zählt, wie viele der zwölf du gelesen hast. Tafeln, die du noch nicht gefunden hast, bleiben verborgen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deine eigenen Tafeln",
+      "text": [
+        "Acht Marschstein um eine Echoscherbe ergeben **zwei** Überlieferungstafel zum Aufhängen in einer eigenen Halle. Eine gefertigte Tafel trägt das erste Fragment, den Herd der Polsterhüter; im Kreativmodus schleiche und benutze sie, um die zwölf durchzuschalten.",
+        "Eine Tafel muss an der Seite eines soliden Blocks hängen.",
+        "Eine Tafel, die du gefunden hast, vergisst ihre Worte, wenn sie zerstört wird, und kommt als Herd der Polsterhüter zurück. Lies sie also dort, wo sie hängt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lore_tablet"
+    }
+  ]
+}

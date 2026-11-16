@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:ritual_brazier"
     },
-    "title": "A hearth worth returning to",
-    "description": "Build a sustained ritual for your camp.",
+    "title": {
+      "translate": "advancement.tribalpower.journey.ritual.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.journey.ritual.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,

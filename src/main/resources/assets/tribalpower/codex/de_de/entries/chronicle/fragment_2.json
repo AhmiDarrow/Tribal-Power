@@ -1,0 +1,17 @@
+{
+  "name": "3. Der gewebte Webstuhl",
+  "icon": "tribalpower:carved_stone",
+  "order": 12,
+  "spoiler": true,
+  "unlock": "fragment:2",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der gewebte Webstuhl",
+      "text": [
+        "“Die Webstuhl-Näher fanden, dass neun gegeneinander gezogene Fäden ein Gewicht halten würden, das keiner allein halten konnte. Damit nähten sie den Boden an den Himmel. Jedes Lager sang seinen Faden. Der Webstuhl hielt neun Generationen.”",
+        "Gefunden auf Gemeißelter Stein in den Ruinen des Marsches."
+      ]
+    }
+  ]
+}

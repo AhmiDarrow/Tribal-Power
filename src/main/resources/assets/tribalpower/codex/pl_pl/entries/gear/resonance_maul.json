@@ -1,0 +1,30 @@
+{
+  "name": "Młot rezonansu",
+  "icon": "tribalpower:resonance_maul",
+  "order": 20,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_maul",
+      "text": [
+        "Ciężki kilof diamentowej klasy, który jednym zamachem czyści płaszczyznę **3 na 3**, opłacany Pulsem. Tunele i kamieniołomy idą trzy razy szybciej."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zamach",
+      "text": [
+        "Trzymaj go w głównej ręce i kucnij, używając ściany bloku. Młot łamie płaszczyznę 3 na 3 wokół tego bloku, w płaszczyźnie ściany, którą uderzasz.",
+        "Każdy blok kosztuje **8 Puls**, najpierw z osadzonego ogniwa samego młota, potem z ogniw, które nosisz, a Puls oszczędza ostrze: 3 na 3 nie zużywa. Jeśli Puls skończy się w połowie zamachu, pozostałe bloki zostają. Po zamachu, który cokolwiek zniszczy, młot odpoczywa **jedną sekundę**.",
+        "Bierze tylko to, co mógłby wziąć kilof, i tylko to, co może wydobyć jego diamentowa klasa. Chroniona ziemia jest szanowana.",
+        "Bez kucania to zwykły kilof i zużywa się jak kilof.",
+        "Kilof Ziemi związany z totemem otwiera 3 na 3 tak samo; zobacz [Sprzęt związany z totemem](totem_bound_gear)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_maul"
+    }
+  ]
+}

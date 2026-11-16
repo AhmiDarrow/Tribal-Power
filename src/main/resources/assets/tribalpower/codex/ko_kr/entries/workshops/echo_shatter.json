@@ -1,0 +1,239 @@
+{
+  "name": "메아리 파쇄",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "땅 작업대이며, 가장 먼저 짓게 된다. 메아리 파쇄의 일은 둘이다. **돌**을 메아리 조각으로 깨는 일. 그 조각은 펄스 공명기를 움직이는 수정이다. 그리고 블록과 광석을 더 잘게 부수는 일."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "조각 만들기",
+      "text": [
+        "**돌**이나 **심층암**을 넣는다. 마치 돌도 된다. 조약돌은 조각이 되지 않으니, 먼저 돌로 제련한다.",
+        "조각 하나는 **2초**, **초당 32 펄스**가 든다. 근처에 저장된 펄스, 발전기의 버퍼나 돌무지의 것이, 느린 발전기를 한 묶음 동안 버티게 한다.",
+        "8블록 이내에 땅 토템과 충전된 발전기가 필요하다. 조각은 첫 펄스 공명기의 작은 촉매이며, 그것이 만드는 펄스에 천천히 소모된다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "분쇄",
+      "text": [
+        "- 조약돌, 심층암 조약돌, 마치 조약돌은 자갈이 된다. 자갈은 모래가 된다.",
+        "- 지원되는 체질 Mod가 설치되어 있으면 모래는 가루가 되고, 아니면 점토 덩이가 된다.",
+        "- 섬록암은 석영이 된다. 마치 광석은 정령 조각 두 개가 된다.",
+        "- 금속 원석과 금속 광석은 각각 **자갈 둘**이 된다. 4초, 초당 40 펄스. [금속과 보석](metals_and_gems)을 보라.",
+        "- 섬세한 손길의 보석 광석은 곧바로 보석으로 깨진다. 수는 광석 자신이 떨어뜨리는 것의 두 배다.",
+        "이 책의 제작법이나 JEI가, 네 팩에서의 정확한 입력과 출력을 보여 준다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "자갈이 내려간다",
+      "steps": [
+        {
+          "caption": "잔불 가마와 그 불 토템.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그 위에 메아리 파쇄를 올리고, 근처에 땅 토템을 둔다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "메아리 파쇄의 아랫면이 출력하고 잔불 가마의 윗면이 받는다. 그래서 자갈이 곧장 떨어진다.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "발전기를 더하고, 위로 철 원석을 넣고, 잔불 가마에서 주괴를 꺼낸다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "더 나아가면",
+      "text": [
+        "주위에 [파쇄 진형](shatter_array) 문양을 지으면, 펄스를 4분의 1 덜 쓰고, 출력을 아래의 조상 저장고로 비운다.",
+        "등급이 그것을 더 빠르게 한다. [기계 등급](machine_ranks)을 보라. 레버는 그것을 멈춘다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "메아리 파쇄가 돌과 심층암으로 만드는 것."
+    }
+  ]
+}

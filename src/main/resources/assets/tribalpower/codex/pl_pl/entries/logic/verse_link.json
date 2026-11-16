@@ -1,0 +1,294 @@
+{
+  "name": "Wezwanie zwrotki i Odpowiedź zwrotki",
+  "icon": "tribalpower:verse_call",
+  "order": 60,
+  "spoiler": false,
+  "items": [
+    "tribalpower:verse_answer"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:verse_call",
+      "text": [
+        "Szesnaście zwrotek i żaden przewód. **Wezwanie zwrotki** słucha redstone; **Odpowiedź zwrotki** w zasięgu 32 bloków, nastrojona na tę samą zwrotkę, wyśpiewuje ją z powrotem.",
+        "Wezwanie robi się z [Nić pieśni](song_thread), a Odpowiedź z Pnącze pieśni, więc obie potrzebują **Nić Krosna** z Marszu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Strojenie pary",
+      "text": [
+        "Wepnij Wezwanie zwrotki na dowolną ściankę bloku. Słyszy redstone z **każdej strony poza tą, w którą jest zwrócone**.",
+        "Wepnij Odpowiedź zwrotki na ściankę w zasięgu **32 bloków**, w tym samym świecie. Śpiewa ze swojej strony przedniej, w blok przed sobą.",
+        "Kucnij i kliknij prawym dowolną płytę pustą ręką, by przestawić jej zwrotkę z **1 do 16**; obie muszą się zgadzać. Kliknij prawym pustą ręką, by odczytać zwrotkę i siłę.",
+        "Każda płyta należy do tego, kto ją postawił, i do jego obozu, więc przestrojenie cudzej jest odrzucane.",
+        "Odpowiedź kopiuje siłę, którą słyszy Wezwanie, więc nie zawsze jest to 15. Gdy kilka Wezwań dzieli zwrotkę, Odpowiedź bierze najgłośniejsze. Niedopasowana zwrotka milczy."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Przez podwórze",
+      "steps": [
+        {
+          "caption": "Zamontuj Wezwanie zwrotki na bloku. Dźwignia obok to pieśń, którą poniesie.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_call[facing=north]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=false]"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Zamontuj Odpowiedź zwrotki na innym bloku, zwróconą ku lampie, którą ma napędzać.",
+          "place": [
+            {
+              "pos": [
+                2,
+                0,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:verse_answer[facing=north]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp"
+            }
+          ],
+          "highlight": [
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Kucnij i klikaj prawym każdą płytę pustą ręką, aż obie pokażą tę samą zwrotkę.",
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Pociągnij dźwignię: Odpowiedź śpiewa tę samą siłę w lampę.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -1
+              ],
+              "block": "minecraft:redstone_lamp[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Gdzie to pomaga",
+      "text": [
+        "Przekaźniki wciąż przenoszą przedmioty; te płyty przenoszą tylko redstone. By połączyć jedną płytę pieśni z drugą, synchronizacja przez Klucz totemu jest prostsza (zobacz [Płyty pieśni](song_plates)).",
+        "Jeden zegar może napędzać cały obóz: Bicie serca obok Wezwania i Odpowiedź na tej samej zwrotce przy każdym bębnie. Tylko dwa bębny w zasięgu 8 bloków od siebie zdobywają Puls, więc rozstaw je.",
+        "Pieczęć Powietrza trafia do Wezwania, a Kościany dzwonek do Odpowiedzi. Tkacze wzorów wolą zegary i Skrzydło burzy."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_call"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:verse_answer"
+    }
+  ],
+  "next": "song_plates"
+}

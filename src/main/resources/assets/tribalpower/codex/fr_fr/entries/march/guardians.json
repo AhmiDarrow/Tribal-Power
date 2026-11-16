@@ -1,0 +1,125 @@
+{
+  "name": "Les gardiens",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Huit gardiens",
+      "text": [
+        "Huit des pays de la Marche gardent un **gardien** : ce sur quoi l'histoire de chaque tribu se termine (voir [Anciens, demandes et récits](elders_and_stories)). Ce sont des boss dans tous les sens : une barre de boss, pas de recul, pas de potions, pas d'urne d'âme, deux phases, et un combat qui mérite qu'on s'y prépare.",
+        "Un gardien n'arrive jamais en errant. Chacun a un **terrain** dans son biome, un anneau de pierre avec un **Autel du gardien** en son centre, et il ne se lève que de cet autel : l'autel doit reposer sur de l'ardoise des abîmes polie, avec une bougie allumée à chaque coin (l'autel ou rien), il faut de la place au-dessus, et il se repose environ vingt minutes entre deux appels.",
+        "Utilise l'autel à main vide et il te dit ce qu'il veut : une poignée du réactif de ce biome, huit par défaut. Pose-la dessus et recule."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Deux phases",
+      "text": [
+        "À mi-vie, chaque gardien est **éveillé** : son attaque propre, auparavant toutes les **4 secondes**, vient environ toutes les **2,4 secondes** et frappe plus fort, et il appelle les créatures de son biome à ses côtés, **2** d'un coup et **2** de plus toutes les **15 secondes**, jamais plus de **6**. Ces créatures ne lâchent rien et disparaissent quand il tombe.",
+        "Si personne ne reste dans les **48 blocs** pendant une demi-minute, le gardien se rendort invaincu ; l'autel n'a plus besoin de son repos ensuite, et on peut le rappeler tout de suite.",
+        "Une créature appelée à laquelle tu te lies pendant le combat est à toi : une Phalène de tempête du Perchoir, par exemple, une fois que les Tisserands de motifs te nomment **Voix**. Elle ne compte plus pour le gardien et reste quand le combat s'achève.",
+        "Quand il tombe, tous ceux dans les **48 blocs** qui suivent l'histoire de cette tribu finissent l'**épreuve**, et son **noyau** tombe avec un tas de réactifs et **2 à 3 noyaux résonnants**. Chaque terrain garde aussi un coffre qui peut contenir des noyaux résonnants, du Fil de Métier, une pomme dorée ou une Tablette de récits vierge."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Titan de scories",
+      "text": [
+        "Une fonderie ambulante : un géant au ventre de fourneau, aux poings de creuset et à couronne de cheminée. **Le Trône de Scories dans les Landes de Braise**. Appelé avec des Écailles de magma. **360 points de vie** et **12 d'armure**. Accroupis-toi pour encaisser ses coups ; dans sa seconde phase les anneaux s'embrasent et des Diablotins d'escarbille surgissent des scories. Sa chute clôt l'histoire des **Cœurs-tambours**.",
+        "Lâche le **Noyau de scories**, **8 à 14 écailles de magma**, **4 à 8 écorces de cendre** et **2 à 3 noyaux résonnants**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Matriarche du marais",
+      "text": [
+        "Un grand crapaud de couvée qui porte ses petits sur le dos, couvert de roseaux et de barbillons de racine. **La Racine Noyée dans la Tourbière des Roseaux**. Appelée avec des Crocs de roseau. **320 points de vie** et **8 d'armure**. Son piège t'attire et te ralentit, et t'empoisonne une fois éveillée ; reste sur le sol ferme, et abats les Traqueurs des roseaux qu'elle appelle avant qu'ils n'essaiment. Sa chute clôt l'histoire des **Lieurs de racines**.",
+        "Lâche le **Cœur de tourbière**, **8 à 14 crocs de roseau**, **4 à 8 racines nouées** et **2 à 3 noyaux résonnants**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Revenant du cairn",
+      "text": [
+        "Une pile de pierres de cairn allumées sous un crâne d'élan, dans un manteau de givre. **L'Anneau du Cairn dans les Champs de Neige**. Appelé avec des Mandibules de givre. **300 points de vie** et **6 d'armure**. Son souffle gèle tout devant lui. Contourne-le par derrière, et occupe-toi des Rampeurs de givre qu'il appelle. Sa chute clôt l'histoire des **Gardiens de la colonie**.",
+        "Lâche la **Pierre de cairn**, **8 à 14 mandibules de givre**, **4 à 8 duvets pâles** et **2 à 3 noyaux résonnants**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Serpent de prisme",
+      "text": [
+        "Un wyrm de cristal à épine de prisme et à crête de gemme. **La Fracture Chantante dans les Champs de Cristal**. Appelé avec une Carapace prismatique. **300 points de vie** et **8 d'armure**. Il tire des traits de lumière qui te marquent luisant. Décale-toi, rapproche-toi, et surveille le second trait qu'il ajoute en phase deux, quand les Traqueurs d'éclats le rejoignent. Sa chute clôt l'histoire des **Chanteurs de gravier**.",
+        "Lâche le **Noyau de prisme**, **8 à 14 carapaces prismatiques**, **4 à 8 poussières de lueur** et **2 à 3 noyaux résonnants**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Sentinelle du caveau",
+      "text": [
+        "Une porte de caveau qui marche : un assemblage dont la poitrine est un caveau scellé, avec des dalles pour lames. **La Porte Scellée sur la Crête de la Lueur**. Appelée avec des Sceaux de sentinelle. **380 points de vie** et **16 d'armure**, le plus lourd de la Marche, et un balayage qui te jette hors de la crête. En phase deux il se protège trois secondes à la fois (attends que ça passe) et appelle des Rampeurs de pénombre. Sa chute clôt l'histoire des **Graveurs de sceaux**.",
+        "Il lâche le **Sceau du caveau**, **8 à 14 Sceau de sentinelle**, **4 à 8 Soie de pénombre** et **2 à 3 Noyau résonnant**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Tambour de la marée",
+      "text": [
+        "Un bernard-l'ermite géant qui vit dans un tambour de guerre couvert de bernacles et le frappe de ses pinces. **La Pierre de la marée dans les hauts-fonds**. Appelé avec Croc de saumure. **320 de santé** et **8 d'armure**. Chaque battement attire tout le monde vers lui et blesse ; éveillé, il te ralentit aussi et appelle des Rôdeurs de saumure. Combats-le depuis le rivage, le dos contre quelque chose de solide. Sa chute clôt l'histoire des **Tisserands de motifs**.",
+        "Il lâche la **Coquille de marée**, **8 à 14 Croc de saumure**, **4 à 8 Écaille de haut-fond** et **2 à 3 Noyau résonnant**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Esprit de la ruée",
+      "text": [
+        "Un aurochs esprit, au masque d'os, aux cornes en lyre et à la crinière de poussière. **Le Cercle piétiné dans la Steppe**. Appelé avec Tendon de jarret. **300 de santé** et **6 d'armure**. Il charge. Esquive sur le côté et frappe-le au passage, et abats les Ronge-terrier avant sa charge suivante. Sa chute clôt l'histoire des **Gardiens des litières**.",
+        "Il lâche la **Corne du troupeau**, **8 à 14 Tendon de jarret**, **4 à 8 Défense de roche** et **2 à 3 Noyau résonnant**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Roc de la tempête",
+      "text": [
+        "Un oiseau-tonnerre : un aigle de tempête huppé, avec des barres d'éclair dans les ailes. **Le perchoir sur les Hautes terres**. Appelé avec Aile de tempête. **280 de santé** et **4 d'armure**. Il pique et te jette en l'air, et en phase deux l'éclair suit chaque piqué et des Phalènes de tempête le rejoignent. Un arc et un toit aident plus qu'un bouclier. Sa chute clôt l'histoire des **Marcheurs de lisière**.",
+        "Il lâche la **Plume de tempête**, **8 à 14 Aile de tempête**, **4 à 8 Duvet pâle** et **2 à 3 Noyau résonnant**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "À quoi servent les noyaux",
+      "text": [
+        "Chaque noyau avec un Fil de Métier fait six Noyau résonnant, le plus court chemin vers eux dans le jeu. Les huit noyaux ensemble avec un {item:tribalpower:unsung_heart} font la tablette de [Le neuvième accord](ninth_agreement)."
+      ]
+    }
+  ]
+}

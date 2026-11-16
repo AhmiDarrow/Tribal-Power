@@ -1,0 +1,125 @@
+{
+  "name": "Die Wächter",
+  "icon": "tribalpower:vault_seal",
+  "order": 65,
+  "spoiler": true,
+  "items": [
+    "tribalpower:slag_titan_spawn_egg",
+    "tribalpower:bog_matriarch_spawn_egg",
+    "tribalpower:cairn_wight_spawn_egg",
+    "tribalpower:prism_serpent_spawn_egg",
+    "tribalpower:vault_sentinel_spawn_egg",
+    "tribalpower:tide_drummer_spawn_egg",
+    "tribalpower:stampede_spirit_spawn_egg",
+    "tribalpower:storm_roc_spawn_egg",
+    "tribalpower:guardian_altar",
+    "tribalpower:slag_core",
+    "tribalpower:fen_heart",
+    "tribalpower:cairn_stone",
+    "tribalpower:prism_core",
+    "tribalpower:vault_seal",
+    "tribalpower:tide_shell",
+    "tribalpower:herd_horn",
+    "tribalpower:storm_plume"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Acht Wächter",
+      "text": [
+        "Acht Länder im Marsch halten einen **Wächter**: das, worauf die Geschichte jedes Stammes hinausläuft (siehe [Älteste, Bitten und Geschichten](elders_and_stories)). Das sind Bosse in jedem Sinn: eine Bossleiste, kein Rückstoß, keine Tränke, keine Seelenurne, zwei Phasen, und ein Kampf, für den sich Vorbereitung lohnt.",
+        "Ein Wächter wandert nie herein. Jeder hat einen **Grund** in seinem Biom, einen Steinring mit einem **Wächteraltar** in der Mitte, und er erhebt sich nur von diesem Altar: der Altar muss auf poliertem Tiefenschiefer stehen, mit einer brennenden Kerze an jeder Ecke (der Altar oder nichts), darüber muss Platz sein, und er ruht etwa zwanzig Minuten zwischen den Rufen.",
+        "Benutze den Altar mit leerer Hand, und er sagt dir, was er will: eine Handvoll vom Reagenz dieses Bioms, standardmäßig acht. Leg sie darauf und tritt zurück."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwei Phasen",
+      "text": [
+        "Bei halber Gesundheit ist jeder Wächter **erwacht**: sein eigener Angriff, vorher alle **4 Sekunden**, kommt etwa alle **2,4 Sekunden** und trifft härter, und er ruft die Kreaturen seines Bioms an seine Seite, **2** auf einmal und **2** weitere alle **15 Sekunden**, nie mehr als **6**. Diese Kreaturen lassen nichts fallen und verschwinden, wenn er fällt.",
+        "Wenn eine halbe Minute lang niemand innerhalb von **48 Blöcken** bleibt, schläft der Wächter unbesiegt wieder ein; der Altar braucht danach seine Ruhe nicht und kann sofort wieder gerufen werden.",
+        "Eine gerufene Kreatur, die du im Kampf bindest, gehört dir: etwa eine Sturmmotte aus dem Horst, sobald die Musterweber dich **Stimme** nennen. Sie zählt nicht mehr für den Wächter und bleibt, wenn der Kampf endet.",
+        "Wenn er fällt, beendet jeder innerhalb von **48 Blöcken**, der in der Geschichte dieses Stammes ist, die **Prüfung**, und sein **Kern** fällt mit einem Haufen Reagenzien und **2 bis 3 Resonanzkerne**. Jeder Grund bewahrt außerdem eine Truhe, die Resonanzkerne, Webstuhlfaden, einen goldenen Apfel oder eine leere Überlieferungstafel enthalten kann."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:slag_titan",
+      "title": "Schlackentitan",
+      "text": [
+        "Ein wandelnder Schmelzer: ein Riese mit Ofenbauch, Tiegelfäusten und einer Schornsteinkrone. **Der Schlackenthron im Glutödland**. Gerufen mit Magmaschuppen. **360 Leben** und **12 Rüstung**. Schleiche, um dich gegen seine Schläge zu stemmen; in der zweiten Phase entzünden sich die Ringe, und Zunderkobolde steigen aus der Schlacke. Sein Fall schließt die Geschichte der **Trommelherzen**.",
+        "Lässt den **Schlackenkern**, **8 bis 14 Magmaschuppen**, **4 bis 8 Zunderrinden** und **2 bis 3 Resonanzkerne** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:bog_matriarch",
+      "title": "Sumpfmatriarchin",
+      "text": [
+        "Eine große Brutkröte, die ihre Jungen auf dem Rücken trägt, behängt mit Schilf und Wurzelbarteln. **Die Ertrunkene Wurzel im Schilffenn**. Gerufen mit Schilfreißzähnen. **320 Leben** und **8 Rüstung**. Ihre Schlinge zieht dich heran und verlangsamt dich, und vergiftet dich, sobald sie erwacht ist; bleib auf festem Boden und schlag die Schilfpirscher nieder, die sie ruft, bevor sie schwärmen. Ihr Fall schließt die Geschichte der **Wurzelbinder**.",
+        "Lässt das **Fennherz**, **8 bis 14 Schilfreißzähne**, **4 bis 8 Knotige Wurzeln** und **2 bis 3 Resonanzkerne** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cairn_wight",
+      "title": "Steinmalwicht",
+      "text": [
+        "Ein Stapel leuchtender Malsteine unter einem Elchschädel, in einem Mantel aus Reif. **Der Malring in den Schneefeldern**. Gerufen mit Reifmandibeln. **300 Leben** und **6 Rüstung**. Sein Atem gefriert alles vor ihm. Kreise hinter ihn und kümmere dich um die Reifkriecher, die er ruft. Sein Fall schließt die Geschichte der **Koloniehüter**.",
+        "Lässt den **Malstein**, **8 bis 14 Reifmandibeln**, **4 bis 8 Bleiche Daunen** und **2 bis 3 Resonanzkerne** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_serpent",
+      "title": "Prismenschlange",
+      "text": [
+        "Ein Kristallwyrm mit Prismendorn und Edelsteinkamm. **Der Singende Bruch in den Kristallfeldern**. Gerufen mit Prismapanzer. **300 Leben** und **8 Rüstung**. Er schießt Lichtbolzen, die dich leuchtend markieren. Weiche seitlich aus, geh ran und achte auf den zweiten Bolzen, den er in Phase zwei hinzufügt, wenn Splitterschleicher sich ihm anschließen. Sein Fall schließt die Geschichte der **Griessänger**.",
+        "Lässt den **Prismenkern**, **8 bis 14 Prismapanzer**, **4 bis 8 Schimmerstaub** und **2 bis 3 Resonanzkerne** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:vault_sentinel",
+      "title": "Gewölbewächter",
+      "text": [
+        "Eine wandelnde Gewölbetür: ein Konstrukt, dessen Brust ein versiegeltes Gewölbe ist, mit Stufen als Klingen. **Das Versiegelte Tor auf dem Schimmergrat**. Gerufen mit Wächtersiegeln. **380 Leben** und **16 Rüstung**, der schwerste im Marsch, und ein Schwung, der dich vom Grat wirft. In Phase zwei schirmt es sich jeweils drei Sekunden ab (warte es ab) und ruft Düsterkriecher. Sein Fall schließt die Geschichte der **Siegelkerber**.",
+        "Lässt das **Gewölbesiegel**, **8 bis 14 Wächtersiegel**, **4 bis 8 Düsterseide** und **2 bis 3 Resonanzkern** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tide_drummer",
+      "title": "Gezeitentrommler",
+      "text": [
+        "Ein riesiger Einsiedlerkrebs, der in einer von Seepocken besetzten Kriegstrommel lebt und sie mit den Scheren schlägt. **Der Gezeitenstein in den Untiefen**. Gerufen mit Solenzahn. **320 Gesundheit** und **8 Rüstung**. Jeder Schlag zieht alle zu ihm und tut weh; erregt verlangsamt er auch dich und ruft Solenlauerer. Kämpfe vom Ufer aus, den Rücken an etwas Festem. Sein Sturz schließt die Geschichte der **Musterweber**.",
+        "Lässt die **Gezeitenmuschel**, **8 bis 14 Solenzahn**, **4 bis 8 Sandbankschuppe** und **2 bis 3 Resonanzkern** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stampede_spirit",
+      "title": "Stampedegeist",
+      "text": [
+        "Ein Geister-Auerochse mit Knochenmaske, Leierhörnern und einer Mähne aus Staub. **Der zertretene Kreis in der Steppe**. Gerufen mit Schenkelsehne. **300 Gesundheit** und **6 Rüstung**. Er stürmt. Weiche zur Seite und triff ihn, wenn er vorbeizieht, und hau die Bauknirscher nieder, bevor er wieder stürmt. Sein Sturz schließt die Geschichte der **Polsterhüter**.",
+        "Lässt das **Herdenhorn**, **8 bis 14 Schenkelsehne**, **4 bis 8 Brockenstoßzahn** und **2 bis 3 Resonanzkern** fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:storm_roc",
+      "title": "Sturmroch",
+      "text": [
+        "Ein Donnervogel: ein gehaubter Sturmadler mit Blitzbalken in den Flügeln. **Der Horst auf dem Hochland**. Gerufen mit Sturmflügel. **280 Gesundheit** und **4 Rüstung**. Er stößt herab und wirft dich in die Luft, und in Phase zwei folgt jedem Sturz ein Blitz, und Sturmmotten kommen dazu. Ein Bogen und ein Dach helfen mehr als ein Schild. Sein Sturz schließt die Geschichte der **Kantenläufer**.",
+        "Lässt die **Sturmfeder**, **8 bis 14 Sturmflügel**, **4 bis 8 Bleiche Daune** und **2 bis 3 Resonanzkern** fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wozu die Kerne da sind",
+      "text": [
+        "Jeder Kern mit einem Webstuhlfaden ergibt sechs Resonanzkern, der schnellste Weg zu ihnen im Spiel. Alle acht Kerne zusammen mit einem {item:tribalpower:unsung_heart} ergeben die Tafel [Die neunte Übereinkunft](ninth_agreement)."
+      ]
+    }
+  ]
+}

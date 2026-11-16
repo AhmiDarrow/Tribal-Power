@@ -1,0 +1,74 @@
+{
+  "name": "Bestias de la estepa",
+  "icon": "tribalpower:tuft_wool",
+  "order": 200,
+  "spoiler": true,
+  "items": [
+    "tribalpower:tuftback_spawn_egg",
+    "tribalpower:longshank_spawn_egg",
+    "tribalpower:palewing_spawn_egg",
+    "tribalpower:burrow_gnasher_spawn_egg",
+    "tribalpower:tuft_wool",
+    "tribalpower:shank_sinew",
+    "tribalpower:pale_down",
+    "tribalpower:gnasher_tooth"
+  ],
+  "next": "beasts_highlands",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Lo propio de la estepa",
+      "text": [
+        "Cuatro animales pertenecen a la estepa: tres que pastan o vuelan sobre la hierba abierta, y uno que caza en los túneles de debajo.",
+        "Toda bestia mansa de aquí se puede cepillar con el pincel para obtener su reactivo una vez por minuto, y se atrae y se cría con su propia comida, nombrada más abajo en **Caza y pastoreo**. Se puede vincular como a cualquier animal manso (véase [familiares](familiars)), y aunque ninguna tiene un don propio, una vinculada aún puede tomar una voz en un tótem y reforzar tu magia (véase [sintonizar en un tótem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:tuftback",
+      "title": "Lomomechón",
+      "text": [
+        "Un bisonte lanudo de la estepa que pasta en manadas de dos a cuatro. Tiene **26 de salud** y **5 de armadura**, se mueve muy despacio y se aparta de los monstruos.",
+        "Suelta **1 a 3 Lana de mechón**, más con Saqueo.",
+        "Cazado, también suelta 1 a 2 Caza cruda y hasta 1 Cuero de la Marcha. Cría con **Grano de la estepa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:longshank",
+      "title": "Zancolargo",
+      "text": [
+        "Un ciervo alto, rápido de patas, en manadas de dos a cuatro. **22 de salud** y **1 de armadura**.",
+        "Suelta **1 a 3 Tendón de zanco**. Tendón de zanco invoca al Espíritu de la estampida en el Anillo pisoteado: véase [guardianes](guardians).",
+        "Cazado, también suelta 1 a 3 Caza cruda, hasta 2 Cuero de la Marcha y hasta 1 Hueso. Cría con **Grano de la estepa**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:palewing",
+      "title": "Alapálida",
+      "text": [
+        "Un milano rojizo, pálido bajo las alas, con la cola profundamente ahorquillada, que planea sobre la hierba de uno a tres. **10 de salud**, sin armadura.",
+        "Suelta **1 a 3 Plumón pálido**, que se muele en tinte blanco (véase [reactivos](reagents)).",
+        "Cazado, también suelta 1 a 2 Pluma y hasta 1 Caza cruda. Cría con **Grano de la estepa o semillas de trigo**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:burrow_gnasher",
+      "title": "Roemadriguera",
+      "text": [
+        "Un ciervo volante excavador, con grandes pinzas curvas: el cazador de la estepa. Vive en los túneles oscuros bajo la hierba y sale allí de día o de noche, de uno o de dos a la vez. Tiene **23 de salud** y **3 de armadura**, y su mordisco inflige **4** y te envenena durante 3 segundos.",
+        "Suelta **1 a 2 dientes trituradores**, un reactivo de veneno. Los Roemadriguera también salen a la superficie para unirse al combate del Espíritu de la estampida.",
+        "Si lo cazas, también suelta hasta 1 hueso y hasta 1 ojo de araña."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caza y pastoreo",
+      "text": [
+        "Además de su reactivo, cada uno suelta más cuando lo cazas, y más aún con Saqueo. La carne cae asada si el animal murió ardiendo. Para criar a los salvajes, **agáchate** mientras alimentas a dos adultos con su comida; alimentado con normalidad, un salvaje se encariña contigo."
+      ]
+    }
+  ]
+}

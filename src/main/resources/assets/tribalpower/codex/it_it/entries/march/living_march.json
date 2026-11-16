@@ -1,0 +1,66 @@
+{
+  "name": "La Marcia viva",
+  "icon": "tribalpower:ley_lens",
+  "order": 12,
+  "spoiler": false,
+  "pages": [
+    {
+      "type": "events",
+      "title": "Proprio ora",
+      "text": [
+        "Cosa sta facendo la Marcia mentre leggi questo. Cambia con te o senza di te."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tempo della Marcia",
+      "text": [
+        "Sette dei paesi della Marcia hanno un tempo proprio, oltre la pioggia: **Caduta di cenere** nelle Distese di brace, una **Tempesta di barlume** sopra i Campi di cristallo, un **Bianco totale** sui Campi di neve, **Nebbia di torbiera** nella Torbiera dei canneti, **Nebbia di brina** sulla Costa del gelo, una **Tempesta di polvere** sopra le Distese di sale e **Deriva di spore** nel Pantano dei cappelli luminosi.",
+        "Ciascuno chiude il mondo: vedi meno, e gli spiriti sorgono di giorno sotto di esso come farebbero di notte.",
+        "Ogni tipo si posa circa una volta per giorno di gioco e dura **da 8 a 20 minuti**. La pagina del Codice sopra ti dice che cosa è in corso; anche il cielo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Tempo e generatori",
+      "text": [
+        "Ogni tempo favorisce i generatori di una voce e ostacola quelli di un'altra, per impostazione predefinita una volta e mezzo dalla voce favorita e la metà da quella ostacolata:",
+        "- **Caduta di cenere** alimenta i Corni di brace e strozza le Arpe del vento.",
+        "- Una **Tempesta di barlume** alimenta le Campane del risveglio e smussa i Cuoritamburo.",
+        "- Un **Bianco totale** spinge le Arpe del vento e congela i Tamburi delle onde.",
+        "- **Nebbia di torbiera** gonfia i Tamburi delle onde e smorza i Corni di brace.",
+        "- **Nebbia di brina** sulla Costa del gelo gonfia i Tamburi delle onde e strozza i Corni di brace.",
+        "- Una **Tempesta di polvere** sulle Distese di sale spinge le Arpe del vento e secca i Tamburi delle onde.",
+        "- **Deriva di spore** nel Pantano dei cappelli luminosi alimenta le Campane del risveglio e smorza i Tamburi delle onde.",
+        "**Il tempo avvisa.** Due minuti prima che un tempo si assesti, la Marcia lo dice, in chat e sopra la barra di selezione: tempo di raggiungere un tetto, un accampamento o una porta. Un impulso si annuncia allo stesso modo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Impulsi di ley",
+      "text": [
+        "Ogni tanto i fili di ley di una voce corrono **luminosi**: un impulso. Attraverso la [Lente ley](ley_lens) divampano, e la lente nomina la voce. Finché dura, ogni Collettore di ley i cui fili portano quella voce rende il **doppio**.",
+        "L'altro lato: ogni cella di ley ha un **incrocio**, il punto in cui i suoi fili si incontrano, e stare su uno nudo durante un impulso, senza un collettore vicino che lo beva, ti dà **Mal di ley**: il suolo ondeggia e il tuo Pulso si svuota. Scendi, o metti un collettore sopra e fai tuo l'impulso.",
+        "Per impostazione predefinita un impulso dura **15 minuti**, e il successivo arriva circa un'ora e mezzo dopo che finisce."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Feste",
+      "text": [
+        "Ogni tribù tiene un **giorno di festa**, le nove a turno in un ciclo di ventisette giorni. Nel loro giorno i fuochi dell'accampamento ardono, il Focolare getta il suo colore nell'aria, e i Consanguineo restano al Focolare invece di vagare.",
+        "L'Anziano ha parole di festa, e se chiedi di unirti al banchetto ti mette in mano due del piatto della tribù con un mucchio di posizione, una volta per festa. Un rito compiuto nell'accampamento quel giorno guadagna i ringraziamenti della festa oltre a quelli del rito, e mangiare un banchetto accanto al Focolare ti conta alla loro tavola.",
+        "La pagina del Codice sopra dice di chi è il giorno, e la Marcia ti dice quando il giorno gira."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:wandering_spirit",
+      "title": "Spiriti erranti",
+      "text": [
+        "Di rado, fuori nella Marcia, una luce calda va alla deriva vicino a te: uno **Spirito errante**. Non fugge. Raggiungilo e ti dice una riga della storia del suo paese e lascia un piccolo dono, il reagente a cui risponde il suo custode, o ogni tanto un Nucleo risonante, e se ne va.",
+        "Lasciato solo, svanisce in un paio di minuti. Ogni paese ha tre cose da dire; ascoltale tutte e conosci la Marcia un po' meglio."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "name": "조상 저장고",
+  "icon": "tribalpower:ancestral_cache",
+  "order": 10,
+  "next": "spirit_cistern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ancestral_cache",
+      "text": [
+        "야영 보급품을 넣는 큰 **54칸** 창고. 상자에는 없는 수가 있다. 면을 설정하면, 맞닿은 Tribal Power 기계를 채우거나 비운다. 호퍼도 릴레이도 필요 없다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "면 설정",
+      "text": [
+        "열고 입출력 패드로 각 면을 **입력**, **출력**, **양쪽**, **닫힘**으로 둔다. 웅크려 빈손으로 면을 우클릭해도 순환한다.",
+        "맞닿은 Tribal Power 기계는 주는 면(출력 또는 양쪽)에서 받는 면(입력 또는 양쪽)으로 최대 **초당 16개**를 넘긴다. 양쪽인 면 둘은 서로 거래하지 않아, 묶음이 그 사이에서 왔다 갔다 할 수 없다.",
+        "작업대의 아랫면은 출력이라, 작업대 아래에 둔 저장고는 그것이 만드는 것을 모두 받는다. 면을 출력으로 두고 작업대의 입력 쪽에 대면 작업대에 공급한다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "스스로 비우는 작업대",
+      "steps": [
+        {
+          "caption": "산출이 가야 할 곳에 조상 저장고를 놓는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ancestral_cache"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "그 위에 메아리 파쇄를 세운다. 작업대의 아랫면은 출력이다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "메아리 파쇄에 평소처럼 땅의 토템과 펄스를 준다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "조각이 이제 저장고로 곧장 떨어진다. 호퍼는 필요 없다.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "팁",
+      "text": [
+        "호퍼와 파이프는 같은 면 설정을 따른다. 닫힘 면은 그것들도 거부한다.",
+        "이웃은 면을 쓴다. 릴레이는 거리를 위한 것이다. [무선 화물](wireless_cargo) 참조.",
+        "레버는 메뉴와 자동화를 모두 잠근다. 비교기는 얼마나 찼는지 읽는다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ancestral_cache"
+    },
+    {
+      "type": "text",
+      "title": "정리 버튼",
+      "text": [
+        "정리할 만한 보관함마다 칸 위 빈 모서리에 작은 **정리** 버튼이 있다. 자신의 소지품, 이 저장고, [깊은 저장고](deep_cache)(나그네 가방이나 야영지가 여는 금고), 그리고 상자, 통, 셜커 상자, 호퍼.",
+        "누르면 합칠 수 있는 것은 합치고 나머지는 순서대로 놓는다. 단축바와 갑옷은 움직이지 않고, 기계의 칸은 그대로 둔다. 버튼은 일반 저장고 위에만 나타난다. 금고를 정리해도 나그네 가방은 안에 넣지 않는다.",
+        "다른 모드의 화면을 가리면 클라이언트 설정의 **sortButtons**로 끈다."
+      ]
+    }
+  ]
+}

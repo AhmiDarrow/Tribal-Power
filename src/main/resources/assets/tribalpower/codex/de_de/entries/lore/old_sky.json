@@ -1,0 +1,25 @@
+{
+  "name": "Die Welt, die war",
+  "icon": "tribalpower:lore_tablet",
+  "order": 10,
+  "spoiler": false,
+  "next": "agreements_failed",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Bevor die Leere einen Namen hatte, war der Himmel ein Boden. Neun Stränge (Boden, Stein, Spross, Klaue, Funke, Uhr, Schwarm, Sigill und Spindel) wurden von neun Stämmen straff gezogen. Die Kontinente hingen an diesem Gitter, so wie Frucht an einem gepflegten Weinstock hängt.",
+        "Das Wetter lief daran entlang. Der Regen wusste, wohin er fallen sollte. Es fiel nichts, das nicht fallen sollte.",
+        "Wege wurden in den Faden gesungen und begangen. Feldfrüchte wurzelten ebenso im Strang wie in der Erde. Trommeln unter einem Polster waren unter einem anderen als Puls zu hören."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Der Webstuhl",
+      "text": [
+        "Der Webstuhl war kein Gott und keine Maschine. Er war neun Übereinkünfte, zugleich gehalten. Wenn die Stämme gemeinsam zogen, blieb der Horizont, wo er war. Das ist die ganze alte Physik.",
+        "Aus diesem Zug kam dieses Handwerk: Puls, Gitter, Siegel und der Weg in den Marsch. Die Maschinen sind noch da draußen. Verwaist, summend, heilig. Behandle sie wie ein Erbe, nicht wie einen Schrotthaufen."
+      ]
+    }
+  ]
+}

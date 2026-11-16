@@ -1,0 +1,123 @@
+{
+  "name": "Amuletos do Espírito",
+  "icon": "tribalpower:sky_charm",
+  "order": 60,
+  "items": [
+    "tribalpower:ember_charm",
+    "tribalpower:tide_charm",
+    "tribalpower:root_charm",
+    "tribalpower:lantern_charm",
+    "tribalpower:spindle_charm",
+    "tribalpower:ward_charm",
+    "tribalpower:hearth_charm",
+    "tribalpower:veil_charm",
+    "tribalpower:chorus_charm",
+    "tribalpower:gathering_charm"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:sky_charm",
+      "text": [
+        "Amuletos são selos que se vestem. Cada um traz uma voz de totem e uma dádiva, e você pode usar até **três** nos espaços de amuleto do próprio Tribal Power. Nenhum outro mod é necessário."
+      ],
+      "title": "Amuletos do Espírito"
+    },
+    {
+      "type": "text",
+      "title": "Usar amuletos",
+      "text": [
+        "Use um amuleto para equipá-lo. Agache e use qualquer amuleto para abrir os três espaços.",
+        "Amuletos equipados custam **2 de Pulso por voz a cada dois segundos**, de uma Célula de Pulso que você carregue. Quando as células secam, as dádivas param, e o voo com elas, então recarregue ou desequipe.",
+        "As vozes se somam em tudo o que você veste, mas a mesma voz duas vezes dá sua dádiva só uma vez.",
+        "Um [familiar](familiar_boons) sintonizado por perto que compartilhe a voz de um amuleto reduz a manutenção desse amuleto em **40%** e adiciona uma dádiva própria.",
+        "Amuletos equipados caem no chão quando você morre, a menos que seu mundo mantenha o inventário."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os onze amuletos",
+      "text": [
+        "- **Céu** (Ar): voo criativo enquanto o Pulso durar, como com qualquer amuleto que carregue Ar, exceto o Amuleto de reunião.",
+        "- **Brasa** (Fogo): resistência ao fogo, e quem atacar pega fogo por 3 segundos.",
+        "- **Maré** (Água): respiração aquática e graça de nadador.",
+        "- **Raiz** (Terra): resistência.",
+        "- **Lanterna** (Espírito): visão noturna, e toda bênção ou dádiva que você ganhar enquanto ela estiver paga dura **metade a mais**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Os onze amuletos, continuação",
+      "text": [
+        "- **Fuso** (Tear): sorte, e cerca de três vezes em dez devolve até **2 de Pulso** a uma célula que você carregue, a cada dois segundos.",
+        "- **Guarda** (Terra): desvia cerca de um projétil em quatro, ou um em dois se Espírito também estiver nos seus amuletos.",
+        "- **Lar** (Fogo): mantém você alimentado.",
+        "- **Véu** (Espírito): esconde você enquanto você se agacha.",
+        "- **Reunião** (Ar): puxa os itens largados e a experiência até você.",
+        "- **Coro**: começa em silêncio e aprende com um braseiro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Coro e vozes extras",
+      "text": [
+        "Um Coro em silêncio ainda custa 2. Agache e use-o em um Braseiro ritual com **três totens diferentes** em até 8 blocos e **200 de Pulso**, e ele vincula toda voz próxima.",
+        "Agache e use um amuleto em um Totem de ressonância para adicionar essa voz por **40 de Pulso**. Mais vozes custam mais para usar e fazem mais.",
+        "Guarda e Lar carregam Terra e Fogo, então também dão resistência e resistência ao fogo. Ar também dá queda lenta, a menos que Fogo também esteja equipado. O voo vem com a voz Ar, não só com o Amuleto do céu: qualquer amuleto equipado que carregue Ar, o do próprio Céu ou um que você tenha adicionado, deixa você voar enquanto o Pulso durar. O Amuleto de reunião é a única exceção: o Ar dele vai para o puxão."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Amuleto de reunião",
+      "text": [
+        "Enquanto estiver equipado e pago, puxa itens largados e experiência até você a partir de **5 blocos**, **2 a mais por voz extra**, até **11**.",
+        "**Agache** para pausar e poder largar coisas. Uma pilha que alguém acabou de jogar fica quieta até poder ser pega, uma pilha guardada para outro jogador é dele, e itens que outro mod marca para não serem movidos ficam no lugar.",
+        "O Ar dele vai para o puxão, então, ao contrário do Céu, não dá voo nem queda lenta. As vozes que você adicionar funcionam como em qualquer amuleto."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:sky_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:tide_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:root_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lantern_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spindle_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ward_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:veil_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chorus_charm"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gathering_charm"
+    }
+  ]
+}

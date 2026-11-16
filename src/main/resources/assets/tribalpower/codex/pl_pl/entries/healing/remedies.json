@@ -1,0 +1,70 @@
+{
+  "name": "Leki",
+  "icon": "tribalpower:spirit_tincture",
+  "order": 20,
+  "items": [
+    "tribalpower:spirit_tincture",
+    "tribalpower:spirit_salve",
+    "tribalpower:spirit_incense"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spirit_tincture",
+      "title": "Trzy sposoby zażycia",
+      "text": [
+        "- **Nalewka**: wypij. Lek trwa **3 minuty**, a butelkę dostajesz z powrotem.",
+        "- **Maść**: użyj jej, by nałożyć ją na siebie, albo **użyj jej na kimś innym**: przyjaciel, osadnik, twój chowaniec. Leczy **3 serca** naraz, zdejmuje **każdy** szkodliwy efekt, a lek trwa o połowę krócej niż nalewka.",
+        "- **Kadzidło**: osadź je w [Rytualne brasero](ritual_brazier), a płonie dla wszystkich wokół. Patrz niżej.",
+        "**Każdy lek zdejmuje [Choroba Ducha](spirit_sickness)**, a także inne [dolegliwości](afflictions) Marszu: Niezaśpiewana cisza, Wystrzępiony i Choroba ley."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co warzy każda rodzina",
+      "text": [
+        "- **Podpałka** (Żar): Siła.",
+        "- **Przyspieszenie** (Błyskawica): Szybkość.",
+        "- **Chłodzenie** (Chłód): Odporność na ogień.",
+        "- **Antidotum** (Jad): zdejmuje zatrucie, uwiąd, głód i nudności.",
+        "- **Pióropad** (Podmuch): Powolne opadanie.",
+        "- **Zakorzenienie** (Korzeń): Odporność."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Co warzy każda rodzina, ciąg dalszy",
+      "text": [
+        "- **Szaniec** (Pchnięcie): Absorpcja.",
+        "- **Jasny wzrok** (Splot): Widzenie w ciemności, zdejmuje ślepotę i ciemność.",
+        "- **Przywrócenie** (Osłabienie): Pośpiech, zdejmuje słabość, spowolnienie i zmęczenie.",
+        "- **Wigor** (Ogar): Wzmocnienie zdrowia.",
+        "- **Naprawa** (Cisza): Regeneracja.",
+        "Kolor wywaru jest kolorem jego odczynnika, więc rozpoznasz je w swoim tobołku."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głos totemu",
+      "text": [
+        "Totem najbliższy kotłu podczas warzenia dodaje własny dar, pokazany w podpowiedzi:",
+        "- **Ziemia**: daje 2 serca absorpcji.",
+        "- **Ogień**: trwa o połowę dłużej.",
+        "- **Woda**: o poziom silniejszy.",
+        "- **Powietrze**: leczy 2 serca naraz.",
+        "- **Duch**: dodaje 10 sekund Regeneracji.",
+        "- **Krosno**: trwa dwa razy dłużej, ale zostaje na poziomie I."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Płonące kadzidło",
+      "text": [
+        "Użyj kadzidła na Rytualne brasero, by je osadzić; mieści do **16** pałeczek jednego wywaru. Płonie samo, **bez pieczęci i bez Pulsu**.",
+        "Co dwie sekundy wszyscy w promieniu **8 bloków**, gracze i powiązane chowańce, dostają lek na 12 sekund, a chowańce są leczone o serce. Każda pałeczka trwa **30 sekund**. Sygnał redstone na brasero gasi je; użyj go skradając się z pustą ręką, bez osadzonej pieczęci, by zabrać kadzidło.",
+        "To najlepszy sposób, by utrzymać cały obóz na nogach przez długą noc."
+      ]
+    }
+  ],
+  "next": "healers_rattle"
+}

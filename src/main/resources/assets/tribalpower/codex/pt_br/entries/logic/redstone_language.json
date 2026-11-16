@@ -1,0 +1,462 @@
+{
+  "name": "Linguagem de redstone",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Mantido e golpeado",
+      "text": [
+        "As máquinas Tribal ouvem redstone de dois jeitos.",
+        "Um sinal **mantido** pausa. Mantenha uma linha alta e oficinas, condutores, ressonadores, coletores, relés, braseiros, malhas, pias, pedestais, pedras-chave do portal e todo gerador, exceto o Coração de tambor, param e esperam. O armazenamento e os destinos de viagem travam.",
+        "Uma pausa nunca perde nada: Pulso armazenado, itens e fluidos ficam onde estão.",
+        "Um sinal **golpeado**, a borda de subida quando uma linha liga, é um chamado. Só escutam os aparelhos que fazem uma coisa discreta: um Coração de tambor recebe uma batida, um Braseiro ritual dispara o rito assentado, uma Pedra-chave do portal acende ou apaga.",
+        "Golpeie uma pedra-chave com um botão ou uma Placa de golpe, não com uma alavanca: uma linha ainda mantida um instante depois derruba o portal de novo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lendo o acampamento",
+      "text": [
+        "Ponha um comparador contra um bloco Tribal, virado para fora, para ler o que ele guarda sem abrir: Pulso armazenado, o quanto o inventário ou o tanque está cheio, o buffer de FE ou a atividade dos relés. Uma Pia de pedra ou uma Malha de ressonância lê o progresso no lugar e cai a 0 quando empaca.",
+        "Para o Pulso como um 0 a 15 limpo, use um [Medidor de Pulso](pulse_gauge). Quando um número não basta, agache e clique com o botão direito no bloco com este livro para uma frase (veja [Diagnósticos do códice](codex_diagnostics)).",
+        "Relógios, alavancas e comparadores bastam para coreografar um acampamento inteiro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Fiação Tribal",
+      "text": [
+        "[Fio de canto](song_thread) carrega 0 a 15 de modo fraco, como pó, nas seis direções. Ele não alimenta a pedra que toca, então nunca se trava.",
+        "[Placas de canto](song_plates) emitem pela face para a qual estão viradas. Placas unárias leem as costas; placas binárias leem esquerda e direita. Uma placa só ouve energia apontada para ela, ou uma placa sincronizada a ela com uma Chave de totem, até 32 blocos sem fio.",
+        "[Chamado de verso e resposta](verse_link) levam um sinal até 32 blocos sem fio nenhum."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Clique ou agachar",
+      "text": [
+        "- **Clique simples**, com a mão vazia ou não: aciona o bloco. Uma estação se abre, um Coração de tambor bate, um Limiar avança seu ajuste, uma placa, um medidor ou um totem diz a você o que está fazendo.",
+        "- **Colocar um bloco** contra uma máquina tribal, um tambor ou uma placa: agache, ou o clique aciona esse bloco. As placas de relé são a única exceção: contra elas você coloca com um clique simples.",
+        "- **Agachar com a mão vazia**: muda um ajuste. A face de uma estação, um depósito, uma cisterna ou um acampamento passa por Entrada, Saída, Ambos, Fechado; Batimento, Deriva e Contagem avançam sua contagem; uma Placa de verso avança seu verso; uma placa de relé inverte sua lista.",
+        "- **Agachar com este livro**: o bloco se explica (veja [Diagnósticos do códice](codex_diagnostics))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Um rito em um relógio",
+      "text": [
+        "Um Pedestal do rito segura e mostra um item, e um comparador lê se está ocupado. É tudo o que um rito precisa para funcionar sozinho:",
+        "- Um relé repõe um pedestal do [Círculo de rito](rite_circle) com uma tábua.",
+        "- Uma Placa de batimento, ou uma alavanca, golpeia o braseiro.",
+        "- O rito dispara e gasta a tábua que corresponde ao selo assentado.",
+        "- O comparador informa que o pedestal está vazio, e o relé o enche de novo.",
+        "Adicione uma Placa de memória se você quiser armar e desarmar o ciclo. O acampamento usa apenas as ações que você poderia fazer à mão: nenhum inventário extra oculto."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um braseiro em um relógio",
+      "steps": [
+        {
+          "caption": "Trace o Círculo de rito: braseiro no meio, pedestais nas diagonais, giz entre eles.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Assente o selo no braseiro e abasteça um pedestal com uma tábua da mesma voz.",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "Monte uma Placa de batimento em um bloco ao lado do braseiro, virada para ele. Cada batida golpeia o braseiro uma vez.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Um comparador lê o pedestal. Quando o rito gasta a tábua, ele cai para 0: o sinal para um relé repor.",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

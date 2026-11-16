@@ -1,0 +1,455 @@
+{
+  "name": "Suelo y crecimiento de la Marcha",
+  "icon": "tribalpower:march_grass",
+  "order": 20,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_stone",
+    "tribalpower:march_cobble",
+    "tribalpower:march_soil",
+    "tribalpower:march_farmland",
+    "tribalpower:march_path",
+    "tribalpower:march_moss",
+    "tribalpower:march_log",
+    "tribalpower:march_planks",
+    "tribalpower:march_leaves",
+    "tribalpower:march_leaf",
+    "tribalpower:march_sapling",
+    "tribalpower:march_ore",
+    "tribalpower:march_crystal",
+    "tribalpower:spirit_reed",
+    "tribalpower:echo_bloom",
+    "tribalpower:ley_thistle",
+    "tribalpower:march_lily_pad",
+    "tribalpower:moon_lily",
+    "tribalpower:ribbon_weed",
+    "tribalpower:march_silt",
+    "tribalpower:veil_lichen",
+    "tribalpower:echo_roots",
+    "tribalpower:lantern_cap"
+  ],
+  "next": "march_underground",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "text": [
+        "La Marcha tiene su propio suelo: Césped de la Marcha sobre Suelo de la Marcha, Piedra de la Marcha debajo, y sus propios árboles, flores y cristal.",
+        "Casi todo funciona como los bloques del Mundo superior que conoces, con unas pocas diferencias que conviene aprender antes de que empieces a construir allí."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Piedra de la Marcha** es la roca de todo el mundo. Hace falta al menos un **pico de piedra**, y se rompe en **Adoquín de la Marcha** a menos que uses Toque de seda. Funde el adoquín para recuperar la piedra.",
+        "Bajo el césped está **Suelo de la Marcha**. El césped suelta suelo a menos que uses Toque de seda, y solo se extiende sobre Suelo de la Marcha, con buena luz. El polvo de hueso sobre Césped de la Marcha hace brotar matas de **Hoja de la Marcha**.",
+        "**Musgo de la Marcha** cubre el Tremedal de cañas y las Tierras Altas. Algunos biomas añaden suelo del juego base: calcita en los Campos de cristal, nieve y hielo compacto en los Campos de nieve, basalto liso en los Yermos de brasa, barro en el Marjal.",
+        "Un Triturador de eco tritura Piedra de la Marcha en un Fragmento de eco, y Adoquín de la Marcha en grava."
+      ],
+      "title": "Piedra y suelo"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Una azada convierte Suelo de la Marcha, césped o musgo en **Suelo de cultivo de la Marcha**, siempre que arriba no haya nada. El agua a **4 bloques** lo mantiene húmedo. Si se seca, o lo pisotean, vuelve a Suelo de la Marcha, nunca a tierra del Mundo superior.",
+        "Una pala aplana los mismos bloques en **Camino de la Marcha**, que también vuelve a Suelo de la Marcha cuando algo lo cubre.",
+        "El Brote de la Marcha crece sobre Césped de la Marcha y sobre Suelo de cultivo de la Marcha."
+      ],
+      "title": "Cultivo y caminos"
+    },
+    {
+      "type": "scene",
+      "title": "Trabajar el suelo de la Marcha",
+      "steps": [
+        {
+          "caption": "Césped de la Marcha sobre Suelo de la Marcha: la mayor parte del suelo que pisarás.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "tribalpower:march_soil"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_grass"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_grass"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Una azada labra el césped y lo vuelve Suelo de cultivo de la Marcha, siempre que no haya nada encima.",
+          "remove": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland"
+            }
+          ],
+          "use": {
+            "pos": [
+              -1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_hoe"
+          },
+          "highlight": [
+            [
+              -1,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "El agua a cuatro bloques lo mantiene húmedo; el suelo de cultivo seco vuelve poco a poco a Suelo de la Marcha.",
+          "remove": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_farmland[moisture=7]"
+            }
+          ],
+          "highlight": [
+            [
+              -1,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Una pala aplana el césped en Camino de la Marcha para tus senderos.",
+          "remove": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ],
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:march_path"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:march_path"
+            }
+          ],
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:iron_shovel"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              -1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Un Brote de la Marcha echa raíz en el césped que queda.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                -1
+              ],
+              "block": "tribalpower:march_sapling"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Los árboles de la Marcha crecen en arboledas en las Tierras Altas, en bosquecillos y solos en la Estepa, y con forma propia en el Marjal y en los Campos de nieve.",
+        "Un **Tronco de la Marcha** da **4 Tablones de la Marcha**. Las Hojas de la Marcha sueltan a veces un Brote de la Marcha (Fortuna ayuda) y uno o dos palos; las tijeras o Toque de seda conservan las hojas.",
+        "Los Tablones de la Marcha entran en mucho de Tribal Power: tambores, el tótem del Telar, taburetes y mesas. Césped de la Marcha, Musgo de la Marcha, Hojas de la Marcha y las matas de Hoja de la Marcha cuentan como verde vivo alrededor de un Colector de ley."
+      ],
+      "title": "Árboles"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- **Caña de Espíritu** crece tupida en el Tremedal de cañas y rala en la Estepa. Entra en Vid de canto, Junco luminoso, Amuleto de viento, Estera tejida y Tablilla de la llamada de la primavera, y los Vinculadores de raíces la aceptan como ofrenda.",
+        "- **Flor de eco** crece en mantos, en campos enteros por los Campos de cristal, y suelta pequeñas motas de luz. Entra en el Cuenco de brasa.",
+        "- **Cardo de ley** está repartido por casi toda la Marcha, incluidos los Yermos de brasa. Es decoración: recógelo para tu campamento.",
+        "Las tres se pueden replantar en cualquier suelo de la Marcha, incluso en piedra desnuda, y las tres arden."
+      ],
+      "title": "Flores y cañas"
+    },
+    {
+      "type": "text",
+      "text": [
+        "**Cristal de la Marcha** crece en la superficie, más tupido en los Campos de cristal. Brilla a luz **10**, necesita un bloque sólido debajo y suelta el mismo bloque con cualquier herramienta. Con él se fabrican el tótem del Telar, el Ancla de Telar, el Ancla de camino, la Cuna de invocación, la Brújula astral y los relés astrales, y a los Zurcidores del telar les encanta. Los Fuegos fatuos espirituales se reúnen a su alrededor.",
+        "**Mena de la Marcha** es mena de espíritu en la piedra, sobre todo muy por debajo de **y -8**, y en algunos biomas hay más más arriba. Necesita un pico de piedra y suelta **1 a 2 Fragmentos de Espíritu** (Fortuna añade más). Con Toque de seda conservas el bloque, y un Triturador de eco lo convierte en **2 Fragmentos de Espíritu**."
+      ],
+      "title": "Cristal y Mena de la Marcha"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_planks"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:march_stone",
+      "text": "Funde el Adoquín de la Marcha para volver a obtener Piedra de la Marcha."
+    },
+    {
+      "type": "text",
+      "title": "Agua y cuevas",
+      "text": [
+        "Las lagunas de la Marcha lucen **Nenúfares de la Marcha**, y de vez en cuando un **Lirio de luna** que brilla sobre el agua de noche. La **Alga de cinta** se mece debajo, enraizada en lechos de **Limo de la Marcha** gris y arcilla.",
+        "Bajo tierra, las paredes y los techos de las cuevas llevan **Liquen del velo** que brilla débilmente; las **Raíces de eco** cuelgan de la roca, y los **Casquetes de farol**, hongos pequeños y luminosos, alumbran el suelo de las cuevas.",
+        "Las tijeras conservan el alga, el liquen y las raíces."
+      ]
+    }
+  ]
+}

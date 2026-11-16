@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_soil"
     },
-    "title": "What was left",
-    "description": "Finish the Pad-keepers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_soil.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_soil.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

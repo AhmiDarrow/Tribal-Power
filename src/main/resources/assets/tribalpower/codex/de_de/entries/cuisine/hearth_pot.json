@@ -1,0 +1,32 @@
+{
+  "name": "Herdtopf",
+  "icon": "tribalpower:hearth_pot",
+  "order": 10,
+  "items": [
+    "tribalpower:hearth_pot"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:hearth_pot",
+      "title": "Ein Topf über dem Feuer",
+      "text": [
+        "Der Herdtopf ist ein weiter Tontopf in einer Kupferwiege. Stell ihn **über Hitze**: ein brennendes Lagerfeuer, Feuer, Seelenfeuer, Magma, Lava oder eine [Glutschale](pulse_lights) direkt darunter. Er verlangt überhaupt keinen Puls, also ist er die erste Maschine eines Lagers.",
+        "Öffne ihn und leg jede Zutat auf **ihren eigenen Platz** im Zwei-mal-zwei-Quadrat, wo das Rezept sie zeigt: die erste oben links, dann oben rechts, unten links und unten rechts. Plätze, die die Mahlzeit nicht nutzt, bleiben leer. Eine **Schüssel** kommt auf den Platz neben dem Quadrat, wenn die Mahlzeit eine will. Ein Gericht braucht etwa **12 Sekunden** über dem Feuer, schnelle Wegzehrung nur **8**, und ein Festmahl **20**, und die Mahlzeit kommt rechts heraus."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Jedes [Stammesgericht](tribe_dishes), jedes Stück [Wegzehrung](road_fare) und [Herdmahl](hearth_meals) und jedes [Festmahl](feasts) ist ein Herdtopf-Rezept. Eine Mahlzeit, die eine Schüssel oder eine Glasflasche will, nimmt sie auf dem Platz neben dem Quadrat. Die Plätze zählen: die richtigen Zutaten auf den falschen Plätzen machen nichts. JEI listet sie alle unter dem Topf.",
+        "Trichter füttern ihn von oben und von den Seiten und nehmen die Mahlzeit von unten, also kann ein Topf ein Lager allein satt halten. Ein Trichter legt Schüsseln und Flaschen auf den Platz neben dem Quadrat und jede Zutat auf einen Platz, wo irgendeine Mahlzeit sie will, je nachdem, was die anderen Plätze schon halten. Um eine Mahlzeit am Laufen zu halten, setz zuerst von jeder eines von Hand; Trichter füllen dann jeden Platz nach, und eine Mahlzeit, die dasselbe zweimal will, bekommt beide Plätze gleichmäßig gefüllt. Packmacher können eigene Mahlzeiten als Rezepte vom Typ Herd hinzufügen."
+      ],
+      "title": "Was er kocht"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:hearth_pot"
+    }
+  ],
+  "next": "tribe_dishes"
+}

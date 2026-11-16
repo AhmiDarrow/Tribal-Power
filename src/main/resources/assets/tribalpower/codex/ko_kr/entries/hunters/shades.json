@@ -1,0 +1,73 @@
+{
+  "name": "그림자",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "그림자",
+      "text": [
+        "마치의 죽은 자들은 죽은 곳을 걸어 다닌다. 안에 불빛 둘이 있는 빈 후드와, 아래에는 아무것도 없는 로브. 모든 그림자는 **25 체력**이고 방어력은 없으며 **5**로 친다. 하지만 싸우는 방식은 저마다 다르다.",
+        "각각 시약을 **1~2개** 떨어뜨리고, 약탈이 있으면 더 많다. 아무도 결속하지 않는다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "고분 그림자",
+      "text": [
+        "왕관을 쓴 죽은 왕으로, 무덤 붕대를 둘렀다. 고지 아래의 어두운 동굴을 낮이든 밤이든 한두 마리씩 떠돈다. 그 타격은 4초 동안 약화한다.",
+        "**고분 수의**를 떨어뜨린다. 약화 시약이다.",
+        "사냥하면 뼈를 1~2개, 팬텀 막을 최대 1개 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "창백한 망령",
+      "text": [
+        "긴 장막을 끄는 차가운 망령. 밤에 설원 위를 한두 마리씩 난다. 최대 12블록 거리에서 3초 동안 느려지게 하는 한기를 시전한다. 엄폐하면 시전이 끊긴다.",
+        "**망령 장막**을 떨어뜨린다. 한기 시약이다.",
+        "사냥하면 팬텀 막을 최대 1개, 눈덩이를 최대 2개 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "잿불 그림자",
+      "text": [
+        "그을린 손을 한 그을리는 망령. 밤에 잿불 황무지 위를 한두 마리씩 날며 **화염 면역**이다. 최대 12블록 거리에서 2초 동안 너를 불태우는 벼락을 시전한다. 엄폐하면 시전이 끊긴다.",
+        "**그림자 잔불**을 떨어뜨린다. 벼락 시약이다.",
+        "사냥하면 팬텀 막을 최대 1개 떨어뜨리고, 3분의 1 확률로 블레이즈 가루를 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "익사한 그림자",
+      "text": [
+        "수초를 두른 채 랜턴을 든 망령. 밤에 얕은 물의 물속에서 한두 마리씩 떠오르고, 헤엄치거나 걸어서 따라온다. 물가는 피신처가 되지 못한다. 그 타격은 4초 동안 약화한다.",
+        "**익사한 수초**를 떨어뜨린다. 약화 시약.",
+        "사냥하면 팬텀 막 최대 1개와 프리즈머린 조각 최대 2개도 떨어뜨린다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "사냥과 목축",
+      "text": [
+        "시약 외에, 사냥하면 더 떨어지고, 약탈이면 한층 더 늘어난다."
+      ]
+    }
+  ]
+}

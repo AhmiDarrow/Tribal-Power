@@ -1,0 +1,65 @@
+{
+  "name": "Intagliatori di sigilli",
+  "icon": "tribalpower:tribe_mark",
+  "order": 110,
+  "spoiler": true,
+  "unlock": "tribe:sigil",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sigil",
+      "title": "Intagliatori di sigilli",
+      "text": [
+        "«Lo Spirito va dove lo si chiede con cortesia e resta dove lo si nutre.»",
+        "Filo di **Sigillo**, voce di **Spirito**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chi sono",
+      "text": [
+        "Gli Intagliatori di sigilli intagliarono sigilli vergini a migliaia prima del Taglio e chiesero fin troppo. Un sigillo è una richiesta cortese intagliata nella pietra; un braciere è il pasto. La loro arte è **sigilli e riti**.",
+        "I loro accampamenti stanno nelle **foreste oscure**, e nella Marcia un loro accampamento sta in ogni fascia, dal nord ghiacciato fino al sale."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa vogliono",
+      "text": [
+        "Il loro reagente è la **Scheggia di Spirito**, che vale **+8** di reputazione al loro Focolare.",
+        "Prediligono anche un Sigillo vergine o qualunque sigillo elementale: **+3** ciascuno. Qualsiasi altro cibo vale **+1**, e una Cella di Pulso carica **+2 ogni 10 Pulso**, fino a +8.",
+        "Ricorda che il Focolare accetta al massimo **60** di reputazione al giorno dalle offerte; vedi [Tribù e reputazione](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Cosa scambia l'Anziano",
+      "text": [
+        "**Ospite**: 2 Scheggia di Spirito per un Sigillo vergine; 4 Scheggia di eco per 4 Gesso rituale.",
+        "**Amico**: un Sigillo vergine e 2 Scheggia di Spirito per un Sigillo di Spirito; 3 Eco sintonizzato e 2 Scheggia di Spirito per la Tavoletta del rito: Notte quieta; 4 Riso di torbiera per Brodo dell'intagliatore di sigilli.",
+        "**Consanguineo**: 3 Eco vincolato per un Braciere rituale; 4 Eco vincolato per una Campana del risveglio.",
+        "Ogni scambio frutta **+2** reputazione."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marchio, totem e dono",
+      "text": [
+        "A **Voce** l'Anziano ti dà il Marchio della tribù degli Intagliatori di sigilli. Fabbricalo con un {item:tribalpower:resonance_totem_spirit} e due Tessitospirito per ottenere il loro [Totem di parentela](kinship_totem).",
+        "Accanto a un Risonatore di Pulso è una voce in più; accanto a una stazione presta **Spirito**.",
+        "I Consanguinei degli Intagliatori di sigilli portano il loro [dono](tribe_boons): i tuoi amuleti chiedono **la metà** del Pulso.",
+        "Il loro piatto porta il dono per **5 minuti**, e la loro [reliquia](elders_and_stories) finché la porti.",
+        "Il loro scambio da Amico per una Tavoletta del rito è una scorciatoia che evita la ricerca dei reagenti. Sono anche l'unica tribù che vende una **Campana del risveglio**.",
+        "A **Voce** puoi anche legare una **Campana del lutto** come [famiglio](familiar_basics)."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sigil",
+      "title": "Il tuo lavoro con loro",
+      "text": [
+        "Ciò che l'Anziano degli Intagliatori di sigilli ti ha chiesto, e fin dove è arrivata la loro storia. Vedi [Anziani, richieste e storie](elders_and_stories)."
+      ]
+    }
+  ]
+}

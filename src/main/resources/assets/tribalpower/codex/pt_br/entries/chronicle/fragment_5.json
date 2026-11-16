@@ -1,0 +1,17 @@
+{
+  "name": "6. O carrego",
+  "icon": "tribalpower:carved_stone",
+  "order": 15,
+  "spoiler": true,
+  "unlock": "fragment:5",
+  "pages": [
+    {
+      "type": "text",
+      "title": "O carrego",
+      "text": [
+        "“Os Guardiões do leito não correram. Recolheram o chão, uma cesta de cada vez, e puseram um Lar em cada leito que salvaram. Os outros riram, e então vieram e sentaram-se junto às fogueiras.”",
+        "Encontrado em uma Pedra entalhada nas ruínas da Marcha."
+      ]
+    }
+  ]
+}

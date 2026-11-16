@@ -1,0 +1,214 @@
+{
+  "name": "Il tuo primo laboratorio",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "I laboratori di Tribal Power si chiamano **stazioni di eco**. Ognuno ha bisogno di tre cose vicine: qualcosa su cui lavorare, Pulso che lo raggiunga attraverso il reticolo e il giusto **Totem di risonanza** vicino per dargli la sua voce.",
+        "La prima stazione che ti serve è [Frantumatore di eco](echo_shatter): sette pietra intorno a un Campanello d'osso e un Risonatore di rame. Quattro lingotti di rame intorno a un Campanello d'osso fanno **due** Risonatore di rame. Rompe la pietra in una **Scheggia di eco**, il cristallino che ti lascia produrre Pulso senza suonare il tamburo.",
+        "Il Pulso viaggia solo lungo un [Conduttore di reticolo](lattice_conductor): una stazione senza conduttore entro 8 blocchi resta a secco anche proprio accanto a un tamburo pieno. Quattro Risonatore di rame intorno a una polvere di redstone fanno **quattro** conduttori; mettine uno tra il tamburo e la stazione.",
+        "Il Frantumatore di eco ha bisogno della voce **Terra**. Crea un {item:tribalpower:resonance_totem_earth} con tronchi, terra, un Campanello d'osso e un Risonatore di rame, e mettilo vicino alla stazione. Il totem non è una fonte di energia. Pensalo come il maestro della stazione: senza di lui, la stazione aspetta e non spende nulla.",
+        "Un totem è **alto due blocchi**, quindi lascia un blocco libero sopra il punto. Fai clic su una delle due metà; romperne una porta via l'intero totem. Un totem di un mondo vecchio rifà la cima quando il blocco sopra è libero."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "L'angolo del Frantumatore di eco",
+      "steps": [
+        {
+          "caption": "Posa il Frantumatore di eco accanto al tuo Cuoretamburo.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Metti un Conduttore di reticolo entro 8 blocchi da entrambi. Il Pulso viaggia solo lungo i conduttori: senza uno, la stazione resta a secco, per quanto vicino sia il tamburo.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Aggiungi un Totem di risonanza (Terra) entro 8 blocchi. Proprio accanto è la cosa più semplice.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Apri il Frantumatore di eco e metti pietra. Il pietrisco dà solo ghiaia, quindi fondilo prima.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Tieni il tamburo carico. In pochi secondi esce una Scheggia di eco.",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Se non parte",
+      "text": [
+        "Accovacciati e fai clic destro sulla stazione con questo libro. Dirà se le manca Pulso, un conduttore, il suo totem o spazio nell'uscita.",
+        "Il Frantumatore di eco spende Pulso più in fretta di quanto un tamburo a mano ne produca, quindi suona prima una riserva e lascia che il tamburo porti il lavoro.",
+        "Una leva o un segnale di redstone continuo mette in pausa una stazione. Non si perde nulla mentre aspetta."
+      ]
+    }
+  ]
+}

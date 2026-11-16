@@ -1,0 +1,40 @@
+{
+  "name": "Ritualmarkierung",
+  "icon": "tribalpower:ritual_chalk",
+  "order": 20,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ritual_chalk",
+      "text": [
+        "Mit Kreide zeichnest du ein Muster zusammen. Jeder Stab zeichnet **Ritualmarkierung** auf den Boden, und die Markierungen binden eine Maschine an die Form um sie herum.",
+        "Dieselbe Kreide versiegelt auch dauerhafte Verbindungen zwischen Resonanz-Totems."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Markierungen zeichnen",
+      "text": [
+        "Rechtsklicke die Oberseite eines soliden Blocks, um darauf eine Markierung zu zeichnen. Jede Markierung verbraucht **eine Nutzung**, und ein Stab hält **zehn**.",
+        "Rechtsklicke eine Markierung mit Kreide, um sie wegzuwischen. Löschen kostet nichts, also behebe Fehler frei.",
+        "Eine zerbrochene Markierung lässt nichts fallen: die Kreide hat schon dafür gezahlt. Im Kreativmodus wird Kreide nie verbraucht."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Totems verbinden",
+      "text": [
+        "Rechtsklicke ein Resonanz-Totem mit Kreide, dann ein zweites **weniger als 16 Blöcke** entfernt, um eine Gitterverbindung zwischen ihnen zu versiegeln (siehe [Gitterkonduktor](lattice_conductor)). Eine Verbindung, die zustande kommt, verbraucht eine Nutzung.",
+        "Ein zweiter Klick auf dasselbe Totem bricht die Verbindung ab, die du angefangen hast. Zwei schon verbundene Totems bleiben verbunden und kosten nichts weiter."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ritual_chalk",
+      "text": "Eine Herstellung ergibt **vier** Stäbe zu je zehn Nutzungen."
+    }
+  ],
+  "next": "anchor_stone"
+}

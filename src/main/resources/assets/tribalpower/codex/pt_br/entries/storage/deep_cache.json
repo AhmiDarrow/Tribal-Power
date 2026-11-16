@@ -1,0 +1,45 @@
+{
+  "name": "Depósito profundo",
+  "icon": "tribalpower:deep_cache",
+  "order": 20,
+  "items": [
+    "tribalpower:wayfarer_satchel"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:deep_cache",
+      "text": [
+        "Um cofre, em todo lugar. Cada Depósito profundo que você coloca abre o mesmo cofre pessoal de **54 espaços**, então um baú em casa e outro num posto avançado distante guardam as mesmas coisas. Um Alforje do viajante o abre do seu bolso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Abrindo-o",
+      "text": [
+        "Depois que você pisa na Marcha, fica sintonizado, e cada abertura é de graça.",
+        "Até lá, cada abertura custa **5 Pulso** de uma Célula de Pulso que você carrega.",
+        "O cofre é seu, não do bloco. Quebrar um Depósito profundo não perde nada; coloque outro e suas coisas estão lá.",
+        "Uma alavanca trava esse bloco de depósito. O cofre em si nunca se esvazia com uma pausa."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O Alforje do viajante",
+      "text": [
+        "O alforje abre o mesmo cofre de qualquer lugar, com a mesma regra de sintonia. É uma chave, não uma bolsa: nada fica no item em si, então não dá para duplicá-lo nem perdê-lo com o conteúdo. O cofre não aceita um alforje, então você nunca tranca a chave lá dentro.",
+        "Se você pertence a um [acampamento compartilhado](shared_camps), um Depósito profundo ou um alforje abre o cofre compartilhado do acampamento. Agache-se ao abrir para ir ao seu cofre pessoal e voltar; ele lembra a escolha. O cofre do acampamento é um inventário à parte.",
+        "A tecla **Cofre do alforje** alterna entre o cofre do acampamento e o seu sem abrir nada. Começa sem atalho: defina-a em Tribal Power, em Opções, Controles.",
+        "Cada visão de cofre tem um botão **Organizar** acima dos espaços, que junta e ordena o que está dentro; veja [Depósito ancestral](ancestral_cache)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:deep_cache"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wayfarer_satchel"
+    }
+  ]
+}

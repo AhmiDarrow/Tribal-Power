@@ -1,0 +1,17 @@
+{
+  "name": "Ce que raccommoder veut dire",
+  "icon": "tribalpower:lore_tablet",
+  "order": 55,
+  "spoiler": false,
+  "next": "holding_is_the_work",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tu ne remets pas les continents en place. Tu apprends à neuf voix à s'accorder de nouveau, un camp à la fois.",
+        "Un lien de craie est une promesse. Un catalyseur assis est une conversation reprise. Un rite de tablette, c'est demander poliment, moins que ce que demandait l'ancien monde.",
+        "La Marche a gardé les salles, les tambours, les tablettes. Dis aux camps que nous sommes désolés d'avoir mis si longtemps."
+      ]
+    }
+  ]
+}

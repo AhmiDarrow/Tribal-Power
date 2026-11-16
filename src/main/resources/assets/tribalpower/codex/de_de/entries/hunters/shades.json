@@ -1,0 +1,73 @@
+{
+  "name": "Schatten",
+  "icon": "tribalpower:barrow_shroud",
+  "order": 360,
+  "spoiler": true,
+  "items": [
+    "tribalpower:barrow_shade_spawn_egg",
+    "tribalpower:pale_wraith_spawn_egg",
+    "tribalpower:cinder_shade_spawn_egg",
+    "tribalpower:drowned_shade_spawn_egg",
+    "tribalpower:barrow_shroud",
+    "tribalpower:wraith_veil",
+    "tribalpower:shade_ember",
+    "tribalpower:drowned_weed"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Schatten",
+      "text": [
+        "Die Toten des Marsches gehen dort, wo sie starben: eine leere Kapuze mit zwei Lichtern darin und eine Robe ohne etwas darunter. Jeder Schatten hat **25 Gesundheit** und keine Rüstung und trifft für **5**, doch jeder kämpft auf seine Weise.",
+        "Jeder lässt **1 bis 2** seines Reagenzes fallen, mehr mit Plünderung. Keiner von ihnen bindet sich."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:barrow_shade",
+      "title": "Hügelgrabschatten",
+      "text": [
+        "Ein gekrönter toter König in Grabbinden. Er sucht die dunklen Höhlen unter dem Hochland heim, bei Tag oder Nacht, einzeln oder zu zweit. Sein Schlag schwächt dich 4 Sekunden lang.",
+        "Es lässt **Hügelgrabtuch** fallen, ein Schwächen-Reagenz.",
+        "Gejagt lässt es außerdem 1 bis 2 Knochen und bis zu 1 Phantomhaut fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:pale_wraith",
+      "title": "Fahlgespenst",
+      "text": [
+        "Ein eisiges Gespenst, das lange Schleier nachzieht. Es fliegt nachts über die Schneefelder, einzeln oder zu zweit. Aus bis zu 12 Blöcken Entfernung wirkt es eine Kälte, die dich 3 Sekunden lang verlangsamt. Deckung bricht den Zauber.",
+        "Es lässt **Gespensterschleier** fallen, ein Kälte-Reagenz.",
+        "Gejagt lässt es außerdem bis zu 1 Phantomhaut und bis zu 2 Schneebälle fallen."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:cinder_shade",
+      "title": "Zunderschatten",
+      "text": [
+        "Ein schwelendes Gespenst mit verkohlten Händen. Es fliegt nachts über die Glutöde, einzeln oder zu zweit, und ist **immun gegen Feuer**. Aus bis zu 12 Blöcken Entfernung wirkt es einen Bolzen, der dich 2 Sekunden lang anzündet. Deckung bricht den Zauber.",
+        "Es lässt **Schattenglut** fallen, ein Bolzen-Reagenz.",
+        "Gejagt lässt es außerdem bis zu 1 Phantomhaut fallen, und mit einer Chance von eins zu drei Lohenstaub."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drowned_shade",
+      "title": "Ertrunkenenschatten",
+      "text": [
+        "Ein mit Kraut behangenes Gespenst mit einer Laterne. Es steigt nachts im Wasser der Untiefen auf, einzeln oder zu zweit, und schwimmt oder läuft dir nach: das Ufer ist keine Zuflucht vor ihm. Sein Schlag schwächt dich 4 Sekunden lang.",
+        "Er lässt **Ertrunkenenkraut** fallen, ein Schwächungsreagenz.",
+        "Gejagt lässt er außerdem bis zu 1 Phantomhaut und bis zu 2 Prismarinscherben fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagenz lässt jeder gejagt mehr fallen, und mit Plünderung noch mehr."
+      ]
+    }
+  ]
+}

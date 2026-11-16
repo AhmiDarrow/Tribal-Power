@@ -1,0 +1,117 @@
+{
+  "name": "마치의 땅",
+  "icon": "tribalpower:rime_ice",
+  "order": 21,
+  "items": [
+    "tribalpower:rime_ice",
+    "tribalpower:frost_shale",
+    "tribalpower:scree",
+    "tribalpower:needle_loam",
+    "tribalpower:hoarmoss",
+    "tribalpower:pale_sand",
+    "tribalpower:spore_turf",
+    "tribalpower:pale_stone",
+    "tribalpower:salt_crust",
+    "tribalpower:ochre_sand",
+    "tribalpower:ochre_sandstone",
+    "tribalpower:kiln_clay_rust",
+    "tribalpower:kiln_clay_ochre",
+    "tribalpower:kiln_clay_bone",
+    "tribalpower:kiln_clay_ash",
+    "tribalpower:glass_sand",
+    "tribalpower:glowmoss",
+    "tribalpower:silence_weave",
+    "tribalpower:hush_bloom",
+    "tribalpower:salt_pillar",
+    "tribalpower:resonant_spike",
+    "tribalpower:icebloom",
+    "tribalpower:frostcap",
+    "tribalpower:grey_heather",
+    "tribalpower:hoar_thistle",
+    "tribalpower:songgrass",
+    "tribalpower:loom_bell",
+    "tribalpower:dawn_poppy",
+    "tribalpower:chime_bud",
+    "tribalpower:sunwheel",
+    "tribalpower:thornbrush",
+    "tribalpower:tangle_fern",
+    "tribalpower:spirit_cane",
+    "tribalpower:gloomcap_sprout"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_grass",
+      "title": "마치의 여섯 띠",
+      "text": [
+        "마치는 동결에서 폭서까지, 그리고 어둠 아래로 이어지며, 여섯 띠 속에 **쉰아홉 땅**이 있다. 각 띠는 지도를 가로지르는 긴 기온의 흐름이고, 그 안에서 습한 것과 마른 것, 높은 것과 낮은 것, 그리고 높은 기묘함의 낯선 땅이 저마다 자기 나라를 지킨다.",
+        "모든 땅에는 저마다의 지면, 저마다의 식물, 저마다의 정령이 있다. 서고의 생물지가 각 생물이 사는 곳을 말한다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "동결",
+      "text": [
+        "마치의 추운 끝. 마치 잔디 위의 눈, 바람이 마음대로 둔 무상 얼음, 그리고 가장 밝은 밤의 장막.",
+        "마치 눈들판, 무상 첨탑, 서리자작나무 타이가, 서리 해안, 얼어붙은 얕은 못, 무상 바다, 깊은 무상 바다, 상고대 봉우리, 파편 봉우리, 서리소나무 비탈, 장막 평지."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "한랭",
+      "text": [
+        "가시전나무 타이가, 황야, 너덜경, 그리고 희미빛 능선이라는 광물 봉우리.",
+        "희미빛 능선, 가시전나무 타이가, 오래된 가시전나무 타이가, 고분 황야, 너덜경 구릉, 바람 부는 가시전나무, 상고대이끼 숲, 회색 해안, 차가운 얕은 물, 깊은 차가운 얕은 물, 산정 호수 지방."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "온대",
+      "text": [
+        "마치의 심장. 초원, 늪, 수정의 나라, 노래단풍나무와 화로참나무의 숲, 그리고 바다.",
+        "마치 초원, 마치 갈대 늪, 마치 수정 들판, 마치 얕은 물, 노래단풍나무 숲, 꽃초지, 화로참나무 성긴 숲, 오래된 화로참나무 성긴 숲, 장막나무, 울림 과수원, 높은 초지, 해바퀴 초원, 베틀 강, 실트 물가, 깊은 얕은 물, 빛갓 수렁."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "온난",
+      "text": [
+        "북야자 사바나, 엉킨나무, 그리고 죽마 늪. 고지와 태양 봉우리 아래.",
+        "마치 고지, 북야자 사바나, 북야자 고원, 바람 부는 북야자, 엉킨나무, 트인 엉킨나무, 갈대 덤불, 스트라이더나무 맹그로브, 태양 봉우리, 따뜻한 얕은 물, 깊은 따뜻한 얕은 물."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "폭서",
+      "text": [
+        "소금, 가마 점토, 재. 마치의 마른 끝이며, 녹아 붙은 유리의 해저까지.",
+        "마치 잿불 황무지, 소금 평지, 가마 메사, 깎인 메사, 햇껍질나무 메사, 유리 얕은 물."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "지하",
+      "text": [
+        "모든 띠 아래에 있는 것. 노래하는 동굴, 빛나는 공동, 레이의 맥, 그리고 정적.",
+        "노래하는 동굴, 어스름갓나무 공동, 정적, 레이의 맥."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "새 지면",
+      "text": [
+        "- 얼어붙은 봉우리와 첨탑의 **무상 얼음**과 **서리 셰일**. 타이가 아래의 **바늘 양토**와 **상고대이끼**. 구릉의 **너덜경**.",
+        "- 물가의 **창백한 모래**, 빛갓 수렁의 **포자 잔디**, 태양 봉우리의 **창백한 돌**.",
+        "- 평지의 **소금 껍질**과 **소금 기둥**. 메사의 **황토색 모래**, **황토색 사암**, 네 가지 빛깔의 **가마 점토**. 유리 얕은 물 아래의 **유리 모래**.",
+        "- 노래하는 동굴에서 발밑으로 울리는 **공명 가시**, 어스름갓나무 공동의 **발광 이끼**, 그리고 정적의 **침묵 직조**와 그 **숨죽은 꽃**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "새 식물",
+      "text": [
+        "얼음꽃, 서리 갓, 회색 히스, 흰서리 엉겅퀴, 노래풀, 베틀 종, 새벽 양귀비, 울림 봉오리, 해바퀴, 가시덤불, 엉킨 고사리, 정령 갈대와 어스름갓나무 새싹. 각각 어울리는 땅에 있다. 새 나무 아홉은 나무 페이지에 있다."
+      ]
+    }
+  ]
+}

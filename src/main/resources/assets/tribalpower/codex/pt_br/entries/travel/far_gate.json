@@ -1,0 +1,53 @@
+{
+  "name": "Portal distante",
+  "icon": "tribalpower:gate_sigil",
+  "order": 40,
+  "next": "keeping_the_way",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:gate_sigil",
+      "text": [
+        "Um portal que cruza entre mundos. O Portal distante é uma moldura mais alta, escorada com Pedras de âncora e com a voz do Tear, e ligado com um Sigilo do portal. A voz do Tear é o que põe os outros mundos atrás de O Não Cantado."
+      ],
+      "title": "Portal distante"
+    },
+    {
+      "type": "pattern",
+      "pattern": "far_gate",
+      "title": "Construindo a moldura",
+      "text": "O anel é uma fiada mais alto, em volta de um interior com três de largura e quatro de altura. Quatro Pedras de âncora ficam nos cantos da projeção, à frente e atrás da moldura."
+    },
+    {
+      "type": "text",
+      "title": "O que precisa",
+      "text": [
+        "Treze molduras do portal, uma Pedra-chave do portal e quatro [Pedras de âncora](anchor_stone).",
+        "A voz do **Tear** a **8 blocos** da pedra-chave (veja [A sexta voz](sixth_voice)). Sem ela o portal não acende, e um aceso se apaga.",
+        "Uma pedra-chave numa moldura de Portal distante guarda até **2,000 Pulso**. Despeje com Células de Pulso, até 100 por vez."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Sigilo do portal",
+      "text": [
+        "Faça um sigilo com um Selo em branco, Fio de Tear e um Fragmento de Espírito.",
+        "Agache e clique com o botão direito numa pedra-chave com ele para registrar esse portal. Depois clique com o botão direito na outra pedra-chave para ligar os dois, nos dois sentidos, mesmo em outro mundo.",
+        "As duas pontas precisam ser Portais distantes para cruzar entre mundos. Um servidor pode desligar os Portais distantes por completo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Acender e atravessar",
+      "text": [
+        "Acender custa **1,200 Pulso** dos **2,000** do próprio portal. Cada travessia custa **120** e é seguida de uma recarga de **dois segundos**.",
+        "Todo o resto funciona como um Portal da senda: a mão ou um sinal golpeado para acender, chegada dentro da moldura distante, recusa e reembolso quando não há onde ficar de pé.",
+        "Chegar à Marcha por um Portal distante conta como uma visita, igual ao Tambor do portal."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:gate_sigil"
+    }
+  ]
+}

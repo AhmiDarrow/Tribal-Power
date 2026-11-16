@@ -1,0 +1,74 @@
+{
+  "name": "Bêtes des Champs de cristal",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ceux du cristal",
+      "text": [
+        "Les mesas en terrasses gardent un brouteur au long cou et une libellule à découvert, un cloporte dans les grottes en dessous, et une mante de cristal qui marche sur le cristal la nuit.",
+        "Chaque bête douce d'ici peut être brossée pour son réactif une fois par minute, et on l'attire et on la reproduit avec sa propre nourriture, nommée plus bas sous **Chasse et élevage**. On peut la lier comme n'importe quel animal doux (voir [familiers](familiars)) et, bien qu'aucune n'ait de don propre, une liée peut encore prendre une voix à un totem et renforcer ta magie (voir [s'accorder à un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "Brouteur carillon",
+      "text": [
+        "Un brouteur violet, laineux, au long cou, avec deux grandes cornes de cristal et une crête de cristal le long du dos, en hardes de deux à quatre. **24 de santé** et **3 d'armure**.",
+        "Il lâche **1 à 3 Crête carillon**, davantage avec Butin.",
+        "Chassé, il lâche aussi 1 à 2 Gibier cru, jusqu'à 1 Cuir de la Marche et jusqu'à 1 éclat d'améthyste. Élever avec **blé**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "Voltigeur de verre",
+      "text": [
+        "Une libellule aux ailes de verre, d'une à trois. **10 de santé**, sans armure.",
+        "Il lâche **1 à 3 Aile de verre**.",
+        "Chassé, il lâche aussi jusqu'à 2 plumes. Élever avec **Fleur d'écho ou n'importe quelle petite fleur**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "Larve de géode",
+      "text": [
+        "Un cloporte lourd de pierre lilas bandée, avec une plaque de tête pâle et une crête de géodes le long de l'échine, des cavernes sombres sous les mésas, un à trois à la fois. **26 de santé** et **5 d'armure**, très lent, et doux.",
+        "Il lâche **1 à 3 Carapace de géode**.",
+        "Chassé, il lâche aussi jusqu'à 2 éclats d'améthyste. Élever avec **Chapeau-lanterne ou n'importe quel champignon**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "Traqueur d'éclats",
+      "text": [
+        "Une mante de cristal qui se dresse parmi le cristal la nuit, une ou deux à la fois. Elle a **21 de santé** et **1 d'armure**, est rapide, et sa frappe inflige **5** et t'empoisonne pendant 3 secondes.",
+        "Elle lâche **1 à 2 Aiguillon d'éclat**, un réactif de venin.",
+        "Chassée, elle lâche aussi jusqu'à 1 éclat d'améthyste et jusqu'à 1 ficelle."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Chasse et élevage",
+      "text": [
+        "Outre son réactif, chacun lâche davantage quand on le chasse, et encore plus avec Butin. La viande tombe rôtie si l'animal est mort en brûlant. Pour reproduire les sauvages, **accroupis-toi** en nourrissant deux adultes de leur nourriture ; nourri normalement, un sauvage s'attache à toi à la place."
+      ]
+    }
+  ]
+}

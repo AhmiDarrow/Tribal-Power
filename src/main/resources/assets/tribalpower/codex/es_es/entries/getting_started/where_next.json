@@ -1,0 +1,28 @@
+{
+  "name": "Adónde ir después",
+  "icon": "tribalpower:gate_drum",
+  "order": 5,
+  "pages": [
+    {
+      "type": "next_step",
+      "title": "Siguiente paso",
+      "text": [
+        "Una cosa concreta que hacer, leída desde donde estás en el camino del primer Hogar al noveno acuerdo. Cambia según avanzas."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cuando tu campamento haga su propia energía, sigue lo que te dé curiosidad:",
+        "- Los [Talleres](echo_attune) convierten fragmentos en cristales más fuertes, metales y mejoras.",
+        "- Las [Máquinas del campamento](grove_tender) cultivan, recogen y vigilan mientras estás ocupado.",
+        "- [Almacén y carga](ancestral_cache) guarda tus bienes y los mueve sin tuberías, y [brújulas y portales](waystone_compass) te mueven.",
+        "- [Patrones](placement_is_the_ritual) se construyen, no se fabrican: la Pila de piedra y el Foso de escucha.",
+        "- Un [familiar](familiar_basics) lleva la voz de un tótem y hace más fuerte tu magia de esa voz.",
+        "- [Las Nueve Tribus](standing) mantienen campamentos por la tierra. Alimenta un Hogar para ganar trueques, dones y, con el tiempo, un Tótem de parentesco.",
+        "- Con amigos, un [campamento compartido](shared_camps) comparte una bóveda, aparatos y Anclas de camino.",
+        "- El [Tambor del portal](gate_drum) abre el camino a la Marcha, cuando estés listo."
+      ]
+    }
+  ]
+}

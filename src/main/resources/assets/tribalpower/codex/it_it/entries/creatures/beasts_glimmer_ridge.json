@@ -1,0 +1,74 @@
+{
+  "name": "Bestie della Cresta del barlume",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Quelle della Cresta",
+      "text": [
+        "Le alture di pietra di luna della [Cresta del barlume](glimmer_ridge) custodiscono un brucatore a placche e una falena all'aperto, e un verme luminoso e un ragno di cristallo nelle caverne sotto.",
+        "Ogni bestia mansueta qui si può spazzolare per il suo reagente una volta al minuto, e si attira e si riproduce con il proprio cibo, indicato sotto **Caccia e allevamento** più in basso. Si può legare come qualsiasi animale mansueto (vedi [famigli](familiars)), e benché nessuna abbia un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Brucaprisma",
+      "text": [
+        "Un brucatore lucertola, basso, con una fila di placche di prisma lungo il dorso, in branchi da due a quattro. **24 di salute** e **3 di armatura**.",
+        "Lascia da 1 a 3 **Cresta di prisma**, di più con Saccheggio.",
+        "Cacciato, lascia anche da 1 a 2 Selvaggina cruda e fino a 1 Cuoio della Marcia. Riproduci con **Fagiolo di bagliore**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Falena di scheggia",
+      "text": [
+        "Una falena viola, dalle ali di cristallo tagliato, che svolazza sulla cresta, da una a tre. **10 di salute**, nessuna armatura.",
+        "Lascia da 1 a 3 **Ala di scheggia**.",
+        "Cacciato, lascia anche fino a 1 Corda e fino a 1 Scheggia di ametista. Riproduci con **Fagiolo di bagliore**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Larvaluce",
+      "text": [
+        "Un verme luminoso, lungo e segmentato sotto una grossa testa scura, con la punta della coda che brucia; delle caverne buie sotto la cresta, da uno a tre alla volta. **18 di salute** e **1 di armatura**. È mite e fugge dai mostri come qualsiasi pascolatore.",
+        "Lascia da 1 a 3 **Guscio luminoso**.",
+        "Cacciato, lascia anche fino a 2 Polvere di luminite. Riproduci con **Cappello lanterna** o un fungo qualunque."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Inseguitore di faccette",
+      "text": [
+        "Un ragno di cristallo delle stesse caverne. Compare lì nel buio, di giorno o di notte, uno o due alla volta. Ha **21 di salute** e **1 di armatura**, è rapido, e il suo morso infligge **5** e ti avvelena per 3 secondi.",
+        "Lascia da 1 a 2 **Barbiglio a faccette**, un reagente di Veleno.",
+        "Cacciato, lascia anche fino a 1 Scheggia di ametista e fino a 1 Corda."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al reagente, ognuno lascia di più se cacciato, e ancora di più con Saccheggio. La carne cade come Selvaggina arrostita se l'animale è morto bruciando. Per riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; nutrito normalmente, un selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

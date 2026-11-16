@@ -1,0 +1,58 @@
+{
+  "name": "Bajo la Marcha",
+  "icon": "tribalpower:march_iron_ore",
+  "order": 30,
+  "spoiler": true,
+  "items": [
+    "tribalpower:march_coal_ore",
+    "tribalpower:march_iron_ore",
+    "tribalpower:march_copper_ore",
+    "tribalpower:march_gold_ore",
+    "tribalpower:march_redstone_ore",
+    "tribalpower:march_lapis_ore",
+    "tribalpower:march_diamond_ore",
+    "tribalpower:march_emerald_ore"
+  ],
+  "next": "ancestor_hall",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:march_iron_ore",
+      "text": [
+        "La Marcha está hueca por debajo. Cava hacia abajo o sigue una boca de cueva y hallarás cavernas enormes sostenidas por pilares de piedra, túneles largos y sinuosos, cañones profundos abiertos al cielo, y cada mena vanilla engastada en Piedra de la Marcha. Lleva mucha luz. Los Restos del Espíritu aparecen en la oscuridad de ahí abajo igual que en la superficie."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "La mena de carbón, hierro, cobre, oro, redstone, lapislázuli, diamante y esmeralda de la Marcha se extrae y se funde exactamente como sus gemelas vanilla. Solo la roca de alrededor es distinta.",
+        "- Carbón: cualquier pico.",
+        "- Hierro, cobre y lapislázuli: un pico de piedra o mejor.",
+        "- Oro, redstone, diamante y esmeralda: un pico de hierro o mejor.",
+        "Sueltan las mismas materias en bruto y gemas, Fortuna funciona, y Toque de seda conserva el bloque de mena, que puedes fundir directo. Un Zorro farol vinculado marca todas, y también la Mena de la Marcha."
+      ],
+      "title": "Minar las ocho menas"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Carbón: de **y 0** a **192**.",
+        "- Hierro: en todas partes; más rico en las profundidades medias y otra vez en lo alto de las montañas.",
+        "- Cobre: de **y -16** a **112**.",
+        "- Oro: en profundidad, hasta **y 32**. Lapislázuli: de **y -32** a **32**. Redstone: por debajo de **y 16**.",
+        "- Diamante: por debajo de **y 16**, de vez en cuando en una veta grande.",
+        "- Esmeralda: solo en las **Tierras altas** y en la **Cresta del destello**, desde **y 48** hacia arriba. Allí son comunes, así que vale la subida."
+      ],
+      "title": "Dónde mirar"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Aquí y allá, la pared de una cueva se abre a una bolsa pequeña de amatista: unos pocos bloques de amatista en la roca, con brotes y, si tienes suerte, un cúmulo entero que crece hacia la cueva.",
+        "No hay amatista en ciernes en ellas, así que nunca vuelven a crecer. Toma lo que hay y sigue.",
+        "Los fragmentos de amatista se sintonizan en Fragmentos de Espíritu en un Sintonizador de eco, así que una bolsa es un buen hallazgo al principio de la Marcha."
+      ],
+      "title": "Bolsas de amatista"
+    }
+  ]
+}

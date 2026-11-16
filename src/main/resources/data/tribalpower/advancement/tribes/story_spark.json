@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_spark"
     },
-    "title": "Be the drum",
-    "description": "Finish the Drumhearts' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_spark.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_spark.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

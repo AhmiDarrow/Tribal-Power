@@ -1,0 +1,17 @@
+{
+  "name": "14. Maré",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Maré",
+      "text": [
+        "“Os Rasos são as obras dos Tecelões de padrões, afogadas até a cintura e ainda girando. A maré mantém o padrão deles batida por batida. O Tamborileiro que o mantém esqueceu que um dia houve tecelões.”",
+        "Encontrado num mural, no terreno de um guardião."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "name": "Wellentrommel",
+  "icon": "tribalpower:wave_drum",
+  "order": 40,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:wave_drum",
+      "text": [
+        "Das Handwerk der Wurzelbinder. Die Wellentrommel macht Puls aus Wasser: ein wenig aus einem Teich daneben, viel aus Wasser, das hineingegossen wird. Sie ist ein Generator, kein Ersatztank.",
+        "Hält **1,000 Puls**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zwei Wege, sie zu füttern",
+      "text": [
+        "**Neben Wasser.** Wasser, das irgendeine Seite der Trommel berührt, gibt **3 Puls pro Sekunde**. Trommeln innerhalb von **8 Blöcken** in jede Richtung, Rand eingeschlossen, mit Leitung oder ohne, teilen es, abgerundet: zwei Trommeln machen je **1 pro Sekunde**, und vier machen nichts.",
+        "**Eigenes Wasser.** Fülle ihren inneren Tank mit einem Eimer, einer Geistzisterne oder einem Flüssigkeitsrelais, und sie macht **10 pro Sekunde** und trinkt **100 mB pro Sekunde**. Nichts drängt sich auf diese Stufe; das Wasser ist schon der Preis. Sie trinkt nur, wenn sie wirklich Puls liefert.",
+        "Regen, der auf die Trommel fällt, verdoppelt jede Stufe, also bekommt eine überdachte Trommel keinen Regenbonus. Jeder Rang fügt **15% Puls pro Sekunde** hinzu. Der Bonus wird auf einen ganzen Puls gerundet, also gewinnt ein Generator, der nur 2 oder 3 pro Sekunde macht, nichts durch seinen ersten Rang. Der Tank fasst **4,000 mB**, und nur Wasser."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Neben einem Teich",
+      "steps": [
+        {
+          "caption": "Stelle die Wellentrommel an den Wasserrand.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Wasser, das irgendeine Seite der Trommel berührt, gibt ihr 3 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "minecraft:water"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "minecraft:water"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Eine zweite Trommel innerhalb von 8 Blöcken teilt es: jede macht nun 1 Puls pro Sekunde.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              -1,
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Eine Trommel, die sich selbst füttert",
+      "steps": [
+        {
+          "caption": "Eine trockene Trommel allein macht nichts.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:wave_drum"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Stelle sie an eine Geistzisterne. Die Zisterne gießt von selbst Wasser in die Trommel.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:spirit_cistern"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Mit eigenem Wasser macht die Trommel 10 Puls pro Sekunde und trinkt 100 mB pro Sekunde.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Frühlingsruf an der Zisterne füllt sie nach, also läuft das Ganze von allein.",
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Versetzen",
+      "text": [
+        "Zerstöre die Trommel, und der fallengelassene Gegenstand behält das Wasser in seinem Tank. Nimm eine Gezeitenpumpe dazu, wenn das Wasser nach dem Ankommen weiter soll: Relais und die Gezeitenpumpe bewegen Flüssigkeit, sie sind kein Speicher.",
+        "Ein [Frühlingsruf](spring_calling) an einer nahen Geistzisterne ist, wie sich das Wasser selbst nachfüllt.",
+        "Ein Redstone-Signal pausiert sie, und eine pausierte Trommel nimmt kein Wasser. Eine trockene Trommel bekommt immer nur die Stufe neben Wasser. Ducke dich und rechtsklicke sie mit diesem Buch, um zu sehen, auf welcher Stufe sie ist und was im Tank ist.",
+        "Trommeln sind das Handwerk der [Wurzelbinder](tribe_sprout): das Rezept braucht eine Knotige Wurzel und ein Wassersiegel, und die Wurzelbinder handeln eine Trommel an einen Freund für Geistrohr.",
+        "Ducke dich und rechtsklicke eine Seite mit leerer Hand, um sie durch Beide, Eingang, Ausgang und Geschlossen zu schalten, so wie der [Totemschlüssel](camp_kit)."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:wave_drum"
+    }
+  ]
+}

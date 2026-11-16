@@ -1,0 +1,264 @@
+{
+  "name": "Miernik Pulsu i Próg Pulsu",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "Miernik Pulsu zamienia zmagazynowany Puls w redstone. Skieruj go na Bęben-serce, generator, rezonator albo Kolektor ley, na cokolwiek, co przechowuje Puls, a poda **od 0 do 15** według tego, jak pełny jest ten zapas. Warsztaty ciągną Puls z okolicy i nie trzymają nic do odczytu.",
+        "Jego brat, **Próg Pulsu**, odpowiada zwykłym tak albo nie: czy zapas jest przynajmniej aż tak pełny?",
+        "Oba robi się z Kamienia Marszu, więc czekają na twoją pierwszą wyprawę na Marsz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Miernik Pulsu",
+      "text": [
+        "Kucnij i postaw go przy bloku, który chcesz odczytać; strzałka wskazuje w blok, który klikniesz. Zwykłe kliknięcie użyłoby tamtego bloku i uderzyło Bęben-serce. Wysyła z **każdej ściany oprócz strzałki**, słabo z boków i mocno z tyłu.",
+        "Sygnał wynosi **0**, gdy zapas jest pusty, potem rośnie od 1 do 15 w miarę zapełniania. Odświeża się co 4 ticki, a komparator czytający miernik dostaje tę samą liczbę.",
+        "Kliknij prawym przyciskiem, aby zobaczyć zmagazynowany Puls, pojemność i sygnał."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Próg Pulsu",
+      "text": [
+        "Postaw go tak samo, kucając, strzałką w zapas. Prawy przycisk przełącza **25, 50, 75 i 100%**; zaczyna od 50.",
+        "Wysyła pełne **15**, dopóki zmagazynowany Puls jest na tym udziale lub wyżej, i nic poniżej. Jak miernik, nigdy nie wysyła ze ściany strzałki, więc nie zaburza zapasu, który obserwuje. Komparator czyta ustawienie jako 1 do 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pauza albo ochrona",
+      "text": [
+        "Przytrzymany sygnał pauzuje maszyny. Podłączony wprost do maszyny, Próg Pulsu pauzuje ją, dopóki zapas jest **dość pełny**.",
+        "Zwykle chcesz odwrotnie: wstrzymać głodną stację, gdy bęben idzie **nisko**, żeby została ci rezerwa. Połóż **Płyta odwrotna** na linię. Teraz 'zbyt pusto' jest żywym sygnałem: poniżej ustawienia Odwrotna śpiewa i stacja pauzuje; gdy bęben się podniesie, Odwrotna milknie i praca wraca.",
+        "Sprawdź na jednej głodnej stacji, zanim okablujesz cały obóz."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Trzymanie rezerwy",
+      "steps": [
+        {
+          "caption": "Bęben-serce zasila Kruszarkę echa trzy bloki dalej.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Kucnij i postaw Próg Pulsu przy bębnie, strzałką do środka; zwykłe kliknięcie uderzyłoby bęben. Prawy przycisk na Progu Pulsu wybiera 25, 50, 75 lub 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Kucnij i zamontuj Płytę odwrotną z tyłu Progu Pulsu, frontem do stacji; zwykłe kliknięcie zmieniłoby ustawienie Progu Pulsu. Czyta blok, na którym siedzi.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Poniżej ustawienia Próg Pulsu milknie, Odwrotna śpiewa, a stacja czeka, aż bęben znów się napełni.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

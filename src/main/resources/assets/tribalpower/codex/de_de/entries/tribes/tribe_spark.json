@@ -1,0 +1,65 @@
+{
+  "name": "Trommelherzen",
+  "icon": "tribalpower:tribe_mark",
+  "order": 80,
+  "spoiler": true,
+  "unlock": "tribe:spark",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_spark",
+      "title": "Trommelherzen",
+      "text": [
+        "„Die Trommel ist nicht laut. Die Trommel ist stetig. Sei die Trommel.“",
+        "Strang aus **Funke**, Stimme von **Feuer**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Wer sie sind",
+      "text": [
+        "Jede Maschine im Marsch hält noch die Zeit der Trommelherzen. Deren Handwerk ist **Trommeln und Puls**: ein Schlag mit einem Atem Abstand, und das Kupfer antwortet.",
+        "Deren Lager stehen in der **Savanne**, und im Marsch steht in jedem Streifen eines von ihnen, vom gefrorenen Norden bis zum Salz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was sie wollen",
+      "text": [
+        "Deren Reagenz ist der **Knochenklang**, **+8** Ansehen wert an ihrem Herd.",
+        "Auch mögen sie einen Kupferbarren, Rohkupfer oder einen Kupferresonator: **+3** je Stück. Jedes andere Essen ist **+1** wert, und eine geladene Pulszelle **+2 je 10 Puls**, bis zu +8.",
+        "Denk daran: der Herd nimmt am Tag höchstens **60** Ansehen aus Gaben; siehe [Stämme und Ansehen](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Was der Älteste tauscht",
+      "text": [
+        "**Gast**: 6 Kupferbarren für einen Knochenklang; 3 Kupferbarren für einen Kupferresonator.",
+        "**Freund**: 2 Abgestimmtes Echo für eine Pulszelle; 2 Knochenklang und 6 Kupferbarren für ein Gluthorn; 4 Glutwurzel für Trommelherzen-Chili.",
+        "**Sippe**: ein Resonanzkern für eine Größere Pulszelle; 4 Gebundenes Echo für ein Trommelherz.",
+        "Jeder Tausch bringt **+2** Ansehen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Marke, Totem und Gunst",
+      "text": [
+        "Bei **Stimme** gibt dir der Älteste die Stammesmarke der Trommelherzen. Fertige sie mit einem {item:tribalpower:resonance_totem_fire} und zwei Geistergewebe zu ihrem [Verwandtschafts-Totem](kinship_totem).",
+        "Neben einem Pulsresonator ist es eine Stimme mehr; neben einer Station leiht es **Feuer**.",
+        "Wer Sippe der Trommelherzen ist, trägt deren [Gunst](tribe_boons): eine schnellere Hand: du schlägst **10%** schneller.",
+        "Deren Gericht trägt die Gunst **5 Minuten** lang, und deren [Relikt](elders_and_stories), solange du es trägst.",
+        "Deren Tausch als Gast macht aus Kupfer Knochenklang, ihr Reagenz: ein billiger Weg hinauf zu Freund.",
+        "Bei **Stimme** darfst du auch einen **Zunderkobold** als [Vertrauten](familiar_basics) binden."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "spark",
+      "title": "Deine Arbeit mit ihnen",
+      "text": [
+        "Was der Älteste der Trommelherzen von dir verlangt hat, und wie weit ihre Geschichte ist. Siehe [Älteste, Bitten und Geschichten](elders_and_stories)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Wiązacze korzeni",
+  "icon": "tribalpower:tribe_mark",
+  "order": 60,
+  "spoiler": true,
+  "unlock": "tribe:sprout",
+  "pages": [
+    {
+      "type": "image",
+      "image": "tribe_sprout",
+      "title": "Wiązacze korzeni",
+      "text": [
+        "“Korzenie to jedyna lina, którą pustka szanuje.”",
+        "Pasmo **Kiełek**, głos **Woda**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Kim są",
+      "text": [
+        "Wiązacze korzeni posadzili pierwsze żywe kotwice na spadających wyspach i związali je korzeń z korzeniem. Kotwice wytrzymały sezon, i przez ten sezon tu na górze wciąż coś jest. Ich rzemiosło to **żywe kotwice i flora Marszu**.",
+        "Ich obozy stoją w **lasach** i dżunglach, a w Marszu ich obóz stoi w każdym pasie, od zamarzniętej północy do soli."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czego chcą",
+      "text": [
+        "Ich reagent to **Łuska mchogrzbietu**, warta **+8** reputacji przy ich palenisku.",
+        "Cenią też sadzonki, nasiona, blok mchu albo Trzcina Ducha: **+3** każde. Każde inne jedzenie jest warte **+1**, a naładowane Ogniwo Pulsu **+2 za każde 10 Puls**, do +8.",
+        "Pamiętaj: palenisko bierze najwyżej **60** reputacji dziennie z ofiar; zobacz [Plemiona i reputacja](standing)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czym handluje Starszy",
+      "text": [
+        "**Gość**: 4 sadzonki dębu za 3 Trzcina Ducha; 12 nasion pszenicy za 8 mączki kostnej.",
+        "**Przyjaciel**: 6 Trzcina Ducha za Bęben fal; 8 bloków mchu za Łuska mchogrzbietu; 4 Ryż mokradła za Ryż wiązacza korzeni.",
+        "**Ród**: 8 Odłamek echa za 6 Kłoda (Marsz); 2 Duchotkanina za 2 Kwiat echa.",
+        "Każda wymiana daje **+2** reputacji."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Znak, totem i dar",
+      "text": [
+        "Na randze **Głos** Starszy plemienia Wiązacze korzeni daje ci Znak plemienia. Zrób go z {item:tribalpower:resonance_totem_water} i dwóch sztuk Duchotkanina, by dostać ich [Totem pokrewieństwa](kinship_totem).",
+        "Obok Rezonator Pulsu to jeszcze jeden głos; obok stanowiska użycza **Woda**.",
+        "Ranga Ród u Wiązaczy korzeni nosi swój [dar](tribe_boons): uprawy i sadzonki w zasięgu 4 bloków wokół ciebie rosną szybciej.",
+        "Ich potrawa niesie dar przez **5 minut**, a ich [relikt](elders_and_stories), dopóki go nosisz.",
+        "Wiązacze korzeni to jedyne plemię, które sprzedaje **Bęben fal**, generator Wody."
+      ]
+    },
+    {
+      "type": "quests",
+      "tribe": "sprout",
+      "title": "Twoja praca z nimi",
+      "text": [
+        "O co poprosił cię Starszy plemienia Wiązacze korzeni, i jak daleko zaszła ich opowieść. Zobacz [Starsi, prośby i opowieści](elders_and_stories)."
+      ]
+    }
+  ]
+}

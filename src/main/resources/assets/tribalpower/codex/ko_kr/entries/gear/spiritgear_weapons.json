@@ -1,0 +1,98 @@
+{
+  "name": "정령장비 무기",
+  "icon": "tribalpower:spiritgear_halberd",
+  "order": 42,
+  "items": [
+    "tribalpower:spiritgear_spear",
+    "tribalpower:spiritgear_halberd",
+    "tribalpower:spiritgear_battle_axe",
+    "tribalpower:spiritgear_warhammer",
+    "tribalpower:spiritgear_dagger",
+    "tribalpower:spiritgear_scythe",
+    "tribalpower:spiritgear_greatsword",
+    "tribalpower:spiritgear_trident"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:spiritgear_greatsword",
+      "title": "날의 계열",
+      "text": [
+        "[정령장비 날](spiritgear)에게 이제 계열이 있다. 창, 미늘창, 전투 도끼, 전쟁망치, 단검, 낫, 대검, 삼지창. 만드는 법은 같고, 현현한 주괴와 뼈 방울로, 대부분은 자루에 막대기를 쓰며, 모두 **뼈 손잡이**가 있다.",
+        "속은 저마다 날이다. 메아리 자리에서 등급이 오르고, 메아리 타격에 펄스를 쓰며(값을 치른 일격은 닳지 않고), 토템의 목소리를 받고, 현현에서는 보스를 더 세게 치며 매 타격마다 너를 회복시킨다. 바뀌는 것은 사거리, 무게, 그리고 저만의 동작 하나다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "수치",
+      "text": [
+        "- **창**: 피해 7, 초당 1.3회, 사거리 +1.5. 질주 찌르기는 **35%** 더 세게 맞는다.",
+        "- **미늘창**: 피해 10, 초당 0.9회, 사거리 +1, 무거움 (−4%). 휩쓸고, 든 방패를 부순다.",
+        "- **전투 도끼**: 피해 11, 초당 0.8회, 사거리 —, 무거움 (−6%). 무거운 가르기 휩쓸기. 방패를 부순다.",
+        "- **전쟁망치**: 피해 12, 초당 0.7회, 사거리 —, 가장 무거움 (−8%). 타격은 방어구를 관통한다. 대상 방어구의 **30%**가 추가 피해로 돌아온다. 방패를 부순다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "수치, 이어서",
+      "text": [
+        "- **단검**: 피해 4.5, 초당 2.4회, 사거리 −0.5, 가벼움 (+5%). **뒤**에서 친 일격은 **1.75×**로 들어간다.",
+        "- **낫**: 피해 8, 초당 1.0회, 사거리 +0.5, 약간 무거움 (−2%). 각 타격은 대상 주위의 적에게도 공격의 **절반**을 거둔다.",
+        "- **대검**: 피해 10, 초당 0.85회, 사거리 +0.5, 무거움 (−6%). 가장 넓고 가장 강한 휩쓸기.",
+        "- **삼지창**: 피해 8, 초당 1.1회, 사거리 +1. 물이나 비 속에 선 것에 **50%** 더 깊이 박힌다.",
+        "이것은 랭크 0의 수치다. 랭크는 날의 보너스를 더한다. 공격 피해 **+2**, **+5**, **+10**. 모든 수치는 공용 설정의 **무기** 항목에 있다."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "각각 무언가를 맞바꾼다. 무거운 무기는 가장 세게 맞지만 느리게 휘두르고, 손에 있는 동안 **걷는 속도를 늦춘다**. 단검은 약하지만 빠르고, 조금 더 빨리 움직이게 한다.",
+        "사거리는 너를 안전하게 지키지만, 긴 무기는 초당 효율이 낮다. 휩쓸기와 낫의 수확은 무리에게 빛나고, 단일 대상에게는 무게를 낭비한다.",
+        "날은 만능이다. 사거리도, 무게도, 전용 동작도 없고, 못하는 것도 없다."
+      ],
+      "title": "모든 것을 이기는 무기는 없다"
+    },
+    {
+      "type": "text",
+      "title": "긴 것과 짧은 것",
+      "text": [
+        "긴 무기는 정말로 길다. 창은 손에 든 검의 약 두 배이고, 미늘창과 대검도 거의 그렇고, 도끼와 망치는 한 배 반이다. 단검은 짧고 빠르다.",
+        "사거리는 피해만큼 중요하다. 창이나 삼지창은 균열 사냥개를 한 팔 거리에 둔다. 단검은 가까이, 뒤에서 치길 원한다.",
+        "어느 것이든 [도유](anointing)를 실을 수 있다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_spear"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_halberd"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_battle_axe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_warhammer"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_dagger"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_scythe"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_greatsword"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spiritgear_trident"
+    }
+  ],
+  "next": "totem_bound_gear"
+}

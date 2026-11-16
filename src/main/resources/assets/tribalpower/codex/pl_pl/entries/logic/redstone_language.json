@@ -1,0 +1,462 @@
+{
+  "name": "Język redstone",
+  "icon": "minecraft:comparator",
+  "order": 10,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Przytrzymany i uderzony",
+      "text": [
+        "Maszyny Tribal słyszą redstone na dwa sposoby.",
+        "**Przytrzymany** sygnał pauzuje. Trzymaj linię wysoko, a warsztaty, przewodniki, rezonatory, kolektory, przekaźniki, brasera, siatki, misy, cokoły, zworniki wrót i każdy generator poza Bęben-sercem stają i czekają. Magazyny i cele podróży się blokują.",
+        "Pauza nigdy niczego nie gubi: zmagazynowany Puls, przedmioty i płyny zostają na miejscu.",
+        "**Uderzony** sygnał, zbocze narastające, gdy linia się włącza, jest wezwaniem. Słuchają go tylko urządzenia, które robią jedną osobną rzecz: Bęben-serce przyjmuje uderzenie, Rytualne brasero odpala osadzony obrzęd, Zwornik wrót zapala się albo gaśnie.",
+        "Uderz zwornik przyciskiem albo Płytą uderzenia, nie dźwignią: linia wciąż przytrzymana chwilę później ściąga wrota z powrotem w dół."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Czytanie obozu",
+      "text": [
+        "Postaw komparator przy bloku Tribal, odwrócony od niego, aby odczytać, co trzyma, bez otwierania: zmagazynowany Puls, jak pełny jest ekwipunek albo zbiornik, bufor FE albo aktywność przekaźników. Kamienna misa albo Siatka rezonansu czyta zamiast tego swój postęp i spada do 0, gdy staje.",
+        "Dla Pulsu jako czystego 0 do 15 użyj [Miernik Pulsu](pulse_gauge). Gdy liczba nie wystarcza, kucnij i kliknij blok prawym przyciskiem z tą książką, aby dostać zdanie (zobacz [Diagnostyka kodeksu](codex_diagnostics)).",
+        "Zegary, dźwignie i komparatory wystarczą, by ułożyć cały obóz."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Okablowanie Tribal",
+      "text": [
+        "[Nić pieśni](song_thread) niesie 0 do 15 słabo, jak pył, we wszystkich sześciu kierunkach. Nie zasila kamienia, którego dotyka, więc nigdy się nie zatrzaskuje.",
+        "[Płyty pieśni](song_plates) wysyłają ze strony, w którą są zwrócone. Płyty unarne czytają tył; płyty binarne czytają lewo i prawo. Płyta słyszy tylko moc skierowaną w siebie albo płytę zsynchronizowaną z nią Kluczem totemu, do 32 bloków i bez przewodu.",
+        "[Wezwanie zwrotki i odpowiedź](verse_link) niosą sygnał do 32 bloków zupełnie bez przewodu."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Klik lub skradanie",
+      "text": [
+        "- **Zwykłe kliknięcie**, pusta ręka czy nie: uruchamia blok. Stacja się otwiera, Bęben-serce bije, Próg przesuwa swoje ustawienie, płyta, miernik lub totem mówi ci, co robi.",
+        "- **Stawianie bloku** przy plemiennej maszynie, bębnie lub płycie: skradaj się, inaczej kliknięcie uruchomi ten blok. Płyty przekaźnika to jedyny wyjątek: przy nich stawiasz zwykłym kliknięciem.",
+        "- **Skradanie z pustą ręką**: zmienia ustawienie. Ściana stacji, skrytki, cysterny lub obozu przełącza Wejście, Wyjście, Oba, Zamknięte; Bicie serca, Dryf i Rachunek przesuwają swoją liczbę; Płyta zwrotki przesuwa swoją zwrotkę; płyta przekaźnika odwraca swoją listę.",
+        "- **Skradanie z tą książką**: blok tłumaczy się sam (zobacz [Diagnostyka kodeksu](codex_diagnostics))."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Obrzęd na zegarze",
+      "text": [
+        "Cokół obrzędu trzyma i pokazuje jeden przedmiot, a komparator odczytuje, czy jest zajęty. Tyle wystarczy, by obrzęd działał sam:",
+        "- Przekaźnik uzupełnia cokół [Krąg obrzędu](rite_circle) tabliczką.",
+        "- Płyta bicia serca albo dźwignia uderza w brasero.",
+        "- Obrzęd odpala się i zużywa tabliczkę zgodną z osadzoną pieczęcią.",
+        "- Komparator zgłasza, że cokół jest pusty, a przekaźnik znowu go napełnia.",
+        "Przyda się Płyta pamięci, jeśli chcesz uzbroić i rozbroić pętlę. Obóz używa tylko działań, które mógłbyś wykonać ręcznie: żadnego ukrytego dodatkowego ekwipunku."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Brasero na zegarze",
+      "steps": [
+        {
+          "caption": "Narysuj Krąg obrzędu: brasero pośrodku, cokoły na przekątnych, kreda między nimi.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                3,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                2
+              ],
+              "block": "tribalpower:rite_pedestal"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                -1
+              ],
+              "block": "tribalpower:ritual_mark"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:ritual_mark"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Osadź pieczęć w brasero i zaopatrz cokół w tabliczkę tego samego głosu.",
+          "highlight": [
+            [
+              2,
+              0,
+              2
+            ]
+          ],
+          "use": {
+            "pos": [
+              2,
+              0,
+              2
+            ],
+            "item": "tribalpower:rite_rain_calling"
+          }
+        },
+        {
+          "caption": "Na blok obok brasero, frontem do niego, idzie Płyta bicia serca. Każde uderzenie trafia w brasero raz.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -1
+              ],
+              "block": "tribalpower:heartbeat_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Komparator odczytuje cokół. Gdy obrzęd zużywa tabliczkę, spada do 0: sygnał, by przekaźnik go uzupełnił.",
+          "place": [
+            {
+              "pos": [
+                3,
+                0,
+                2
+              ],
+              "block": "minecraft:comparator[facing=west]"
+            }
+          ],
+          "highlight": [
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "next": "codex_diagnostics"
+}

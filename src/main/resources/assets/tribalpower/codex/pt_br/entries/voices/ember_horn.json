@@ -1,0 +1,210 @@
+{
+  "name": "Chifre de brasa",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "O ofício dos Corações de tambor: um chifre que queima combustível de fornalha em Pulso. Carvão, carvão vegetal, lava, varas de blaze: o que uma fornalha queima, o chifre transforma em energia constante.",
+        "Ele guarda **1,000 Pulso**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alimentá-lo",
+      "text": [
+        "Clique com o botão direito com combustível, ou deixe um funil ou um relé alimentá-lo. O tempo de queima do combustível dividido por vinte é o seu Pulso: o carvão é **80**, um bloco de carvão **800**, um balde de lava **1,000**, uma vara de blaze **120**.",
+        "Ele solta esse Pulso em até **20 por segundo**. Mais combustível não aumenta o teto; só dura mais.",
+        "Ele acende a próxima peça só quando há espaço, então um chifre cheio não desperdiça nada. O balde vazio da lava sai por cima do chifre; nada mais pode ser puxado de um fogo aceso.",
+        "Agache e clique com o botão direito numa face com a mão vazia para alterná-lo entre Ambos, Entrada, Saída e Fechado, como faz a [Chave de totem](camp_kit)."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Um chifre que se alimenta sozinho",
+      "steps": [
+        {
+          "caption": "Coloque o chifre onde as máquinas a até 8 blocos possam puxar dele.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um funil em cima fornece o combustível.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Um baú de carvão acima do funil o mantém queimando por muito tempo: cada carvão é 80 Pulso.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Uma alavanca ao lado pausa o chifre. O combustível simplesmente espera.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Aumentar a escala",
+      "text": [
+        "Sem ranque, o chifre produz no máximo **20 por segundo**. Cada ranque adiciona **15% de Pulso por segundo**, arredondado para um Pulso inteiro. Além disso, construa mais chifres.",
+        "Nenhum ciclo que você possa automatizar transforma combustível em mais combustível do que queima. Até o carvão chamado pelo Fosso de escuta custa mais Pulso para buscar e estilhaçar do que devolve.",
+        "Um clique de mãos vazias diz o que ele produz e o que guarda. Agache e clique com o botão direito com este livro para ver o combustível e a queima ainda devida.",
+        "Os chifres são o ofício dos [Corações de tambor](tribe_spark): a receita precisa de um Nó de borralho e um Selo de Fogo, e os Corações de tambor trocam um chifre com quem chamam de Amigo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Głębokie miejsca Marszu",
+  "icon": "tribalpower:march_stone_bricks",
+  "order": 32,
+  "spoiler": true,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Poniżej kopania",
+      "text": [
+        "Wszystko inne, co pogrzebał Marsz, jest ledwie pogrzebane — kurhan pod darnią, grobowiec tuzin bloków niżej. Te cztery są dalej w środku, zatopione w samym kamieniu, bez szybu i bez wejścia. Znajdziesz je kopiąc albo idąc za jaskinią, która otwiera się tam, gdzie nie powinna.",
+        "Weź pochodnię. Żadne nie jest oświetlone na wskroś, a to, co tam żyje, było pierwsze."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Głęboka świątynia",
+      "text": [
+        "Sala kolumnowa z Cegły kamienne Marszu, zapieczętowana w skale: schodkowy ołtarz pod środkiem, z **Tabliczka podań** na tylnym kamieniu, latarnie Ducha po bokach i skrzynia w każdym dalekim rogu. Podłoga ułożona z wypolerowanego kamienia, a wejście zatrzasnęło się dawno temu.",
+        "Trzyma stare rzeczy — związane echa, pieczęcie, zestrojoną robotę."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Galeria drążenia",
+      "text": [
+        "Ktoś pracował przy tym złożu i przestał. Podparte drewno, dach z desek, ruda wciąż w ścianach, i jeden koniec pod zawałem gruzu, który pewnie tłumaczy przerwę. Skrzynia narzędzi i racji przy wylocie.",
+        "Płytsza niż reszta: spotykasz je tam, gdzie rudę wciąż warto brać."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Skarbiec połysku",
+      "text": [
+        "Tylko pod **Grań połysku**. Obrobiona komnata z Kamień księżycowy i Wypolerowany kamień księżycowy, Agat mszysty ułożony w podłodze pierścieniami, Świecące szkło kwarcowe w sklepieniu powyżej i Kwarc Marszu wyrosły z kamienia — w górę z podłogi, w dół z dachu.",
+        "Kto to ciął, popisywał się. Skrzynia trzyma własny kamień grani i jasnogłaz do jej oświetlenia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Ossuarium",
+      "text": [
+        "Krypta: wnęki cięte w trzech warstwach wzdłuż obu długich ścian, kość ułożona w nich, pajęczyna na reszcie i co kilka kroków latarnia Ducha, która jakimś cudem wciąż się pali. Jedna skrzynia na dalekim końcu.",
+        "Najgłębsza z czterech. To głównie kość i zgnilizna, ale nie tylko."
+      ]
+    }
+  ]
+}

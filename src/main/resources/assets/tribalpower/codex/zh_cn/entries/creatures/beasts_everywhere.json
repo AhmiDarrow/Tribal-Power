@@ -1,0 +1,122 @@
+{
+  "name": "各地的兽",
+  "icon": "tribalpower:grazer_wool",
+  "order": 280,
+  "spoiler": true,
+  "items": [
+    "tribalpower:ash_hopper_spawn_egg",
+    "tribalpower:ridge_grazer_spawn_egg",
+    "tribalpower:crag_bounder_spawn_egg",
+    "tribalpower:glimmer_moth_spawn_egg",
+    "tribalpower:dust_flitter_spawn_egg",
+    "tribalpower:stone_grub_spawn_egg",
+    "tribalpower:ember_drifter_spawn_egg",
+    "tribalpower:magma_creeper_spawn_egg",
+    "tribalpower:ash_tuft",
+    "tribalpower:grazer_wool",
+    "tribalpower:bounder_horn",
+    "tribalpower:glimmer_dust",
+    "tribalpower:flitter_wing",
+    "tribalpower:grub_husk",
+    "tribalpower:ember_mote",
+    "tribalpower:magma_scale"
+  ],
+  "next": "walking_trees",
+  "pages": [
+    {
+      "type": "text",
+      "title": "漫游者",
+      "text": [
+        "八种温顺生物并不困于一地。你会在远行界各处、开阔地、洞穴里和熔岩边缘遇见它们。",
+        "这里每只温顺的兽都可以每分钟刷一次以取得试剂，并用下文**狩猎与牧养**里写明的专属食物来引诱和繁殖。它可以像任何温顺动物一样缔结（见[使魔](familiars)）。虽然都没有自己的天赋，缔结之后仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。",
+        "它们的一些试剂可以磨成染料：见[试剂](reagents)。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ash_hopper",
+      "title": "灰跳鼠",
+      "text": [
+        "草原、水晶原与余烬荒原上的小型敏捷跳鼠，两到四只成群。**12点生命值**。掉落**1到2个灰簇**。",
+        "猎杀时还会掉落最多1个生野味和最多1个兔子皮。用**胡萝卜或草原谷**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ridge_grazer",
+      "title": "山脊啮兽",
+      "text": [
+        "高地、微光山脊和雪原上的小型长毛猛犸。**26点生命值**，**2点护甲**。掉落**1到2个啮兽羊毛**（淡灰色染料）。",
+        "猎杀时还会掉落1到2个生野味和最多1个远行界皮革。用**小麦**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:crag_bounder",
+      "title": "崖跃兽",
+      "text": [
+        "高地、微光山脊、雪原和水晶原上的北山羊。**20点生命值**，**2点护甲**。掉落**1到2个跃兽角**。",
+        "猎杀时还会掉落1到2个生野味和最多1个远行界皮革。用**小麦**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:dust_flitter",
+      "title": "尘扑鸟",
+      "text": [
+        "一只小雀，是远行界最常见的飞鸟，浅滩在内的每片土地都有。**8点生命值**。掉落**1到2个扑鸟翼**。",
+        "猎杀时还会掉落最多2根羽毛。用**小麦种子或草原谷**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_moth",
+      "title": "微光蛾",
+      "text": [
+        "水晶原、微光山脊和芦苇沼上淡绿色的月蛾。**10点生命值**。掉落**1到2个微光粉**（青色染料）。",
+        "猎杀时还会掉落最多1根线和最多1份荧石粉。用**回响花或任意小型花**繁殖。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "地下与熔岩旁",
+      "text": [
+        "两种熔岩栖居者会出现在远行界有熔岩之处，浅滩以外的每片土地都有。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:stone_grub",
+      "title": "石幼虫",
+      "text": [
+        "身负卵石巢的石蚕幼虫，栖于浅滩以外每片土地下方的暗洞，一次两到四只。**10点生命值**，**4点护甲**。掉落**1到2个幼虫壳**（棕色染料）。",
+        "猎杀时还会掉落最多1个粘液球。用**灯笼盖或任意蘑菇**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:ember_drifter",
+      "title": "余烬漂者",
+      "text": [
+        "聚在熔岩旁的腹中带火的萤火虫。**12点生命值**，**免疫火焰**。掉落**1到2个余烬微粒**（红色染料），一种余烬试剂。",
+        "猎杀时还会掉落最多2个木炭。用**煤炭或木炭**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:magma_creeper",
+      "title": "岩浆苦力怕",
+      "text": [
+        "熔岩旁热石上的岩浆穿山甲，缓慢而带甲。**22点生命值**，**6点护甲**，**免疫火焰**。掉落**1到2个岩浆鳞**（橙色染料），一种余烬试剂。岩浆鳞能在炉渣王座召唤炉渣泰坦。",
+        "猎杀时还会掉落最多1份岩浆膏。用**煤炭或木炭**繁殖。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除试剂外，猎杀时掉落更多，有抢夺时再多一些。若死于燃烧，肉会以烤熟形态掉落。要繁殖野生个体，给两只成年的喂它们的食物时须**潜行**。若正常喂食，野生的反而会亲近你。"
+      ]
+    }
+  ]
+}

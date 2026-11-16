@@ -1,0 +1,96 @@
+{
+  "name": "Faune de la Marche",
+  "icon": "tribalpower:raw_glimmerfin",
+  "order": 190,
+  "items": [
+    "tribalpower:glimmerfin_spawn_egg",
+    "tribalpower:drift_bell_spawn_egg",
+    "tribalpower:veil_ray_spawn_egg",
+    "tribalpower:silt_eel_spawn_egg",
+    "tribalpower:loom_swift_spawn_egg",
+    "tribalpower:raw_glimmerfin",
+    "tribalpower:cooked_glimmerfin",
+    "tribalpower:raw_silt_eel",
+    "tribalpower:smoked_silt_eel",
+    "tribalpower:drift_jelly",
+    "tribalpower:glimmerfin_bucket"
+  ],
+  "next": "beasts_steppe",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Dans l'eau",
+      "text": [
+        "Les mares, les bassins et les lacs de montagne de la Marche sont pleins de vie.",
+        "Tous restent dans l'eau ouverte sous le ciel, jamais dans l'eau enfermée dans la roche en dessous."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmerfin",
+      "title": "Brillanageoire",
+      "text": [
+        "Petit poisson néon aux nageoires allumées, qui nage en bancs dans l'eau de chaque terre. Attrape-en un avec un seau d'eau, ou cuis-le."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:drift_bell",
+      "title": "Cloche à la dérive",
+      "text": [
+        "Une méduse lente et luisante en forme de cloche, dans l'eau de chaque terre sauf les Hautes terres et les Landes de braise. Inoffensive. Sa **Gelée à la dérive** te laisse respirer sous l'eau et voir dans le noir un moment."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:veil_ray",
+      "title": "Raie du voile",
+      "text": [
+        "Une large raie manta timide de la Steppe, des Hautes terres, de la Tourbière aux roseaux et des Hauts-fonds ; elle file loin de quiconque s'approche. Lâche Cuir de la Marche et Brillanageoire."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:silt_eel",
+      "title": "Anguille de limon",
+      "text": [
+        "Une anguille de tourbière olive, des bassins et chenaux de la Tourbière aux roseaux, des Hauts-fonds, et de l'eau où les Landes de braise descendent vers la mer. Elle nage avec la Brillanageoire et mord quiconque patauge dans son eau. Cuis-la en Anguille de limon fumée pour un bon repas."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:loom_swift",
+      "title": "Martinet du Métier",
+      "text": [
+        "Les **Martinet du Métier** tournent au-dessus de la terre ouverte en bandes lâches de **3 à 6**, seulement le jour et par temps sec, et jamais au-dessus des Landes de braise ; pas plus de **12** se rassemblent autour de toi. Ils lâchent une plume ou deux, et parfois du Gibier cru."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Dans l'air",
+      "text": [
+        "Plus près du sol, l'air grouille d'insectes : **lucioles** au-dessus de la tourbière et de la steppe la nuit, **dards de roseau** qui rasent l'eau le jour, **ailes de verre** qui volettent au-dessus des fleurs des Champs de cristal, et **moucherons de cendre** qui montent des Landes de braise. Ils ne sont que lumière et mouvement ; on ne peut pas les attraper, et ils ne coûtent rien à ton monde."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Les troupeaux reviennent",
+      "text": [
+        "Chasse ou apprivoise un bout de la Marche jusqu'à le vider, et il ne restera pas vide. Environ **une fois par minute**, en un endroit calme **de 32 à 96 blocs** de toi et jamais à moins de **24 blocs** de quiconque, quelques animaux de cette terre peuvent revenir : les mêmes brouteurs avec lesquels sa terre a commencé, y compris ceux que d'autres mods y ajoutent. Les habitants des cavernes et de la lave regagnent leur propre sol.",
+        "Ils cessent de venir dès qu'environ **six** animaux vivent à 32 blocs de l'endroit. Les animaux apprivoisés et en enclos comptent aussi, donc la terre se remplit à peu près comme au début et pas plus, et les hardes sauvages n'envahissent jamais tes fermes ni un camp animé.",
+        "Poissons, méduses et martinets vont et viennent tout seuls avec l'eau et le ciel. Les réglages du serveur peuvent changer le rythme, ou couper le retour."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Nourrir et faire se reproduire",
+      "text": [
+        "Tiens de l'**Algue ruban** ou de l'**Herbe aquatique** et Brillanageoire, Cloche à la dérive et Raie du voile nagent vers toi, même les raies timides. Nourris-en deux de la même sorte et ils en font un troisième.",
+        "Une **Canne à pêche** lancée dans n'importe quelle eau de la Marche remonte de la Brillanageoire crue, et un lancer sur quatre une Anguille de limon crue, à la place de la morue et du saumon. Tiens un **Seau vide** dans ton autre main et une Brillanageoire remonte vivante, comme Seau de brillanageoire : le moyen simple de peupler un étang.",
+        "Tiens des **Graines de blé** ou du **Grain de steppe** et les Martinet du Métier tournent tout près de toi, assez pour les nourrir. Deux nourris en font un troisième de la même façon.",
+        "Leurs petits naissent déjà adultes et ne s'éloignent jamais, donc un étang peuplé le reste. Chaque paire se repose cinq minutes avant de se reproduire encore. L'Anguille de limon ne prend aucune nourriture.",
+        "La Cloche à la dérive lâche aussi une boule de slime de temps en temps."
+      ]
+    }
+  ]
+}

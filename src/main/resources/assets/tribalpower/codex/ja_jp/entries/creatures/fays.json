@@ -1,0 +1,65 @@
+{
+  "name": "妖精",
+  "icon": "tribalpower:fay_dust",
+  "order": 350,
+  "spoiler": true,
+  "items": [
+    "tribalpower:glimmer_fay_spawn_egg",
+    "tribalpower:prism_fay_spawn_egg",
+    "tribalpower:marsh_fay_spawn_egg",
+    "tribalpower:fay_dust",
+    "tribalpower:fay_petal",
+    "tribalpower:fay_spark"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "妖精",
+      "text": [
+        "光が奇妙な場所で、妖精は空中で踊る。小さく穏やかで、モンスターから逃げる。",
+        "1分に1回ブラシすると試薬が得られ、**砂糖**か**ハチミツ入りの瓶**で誘い、繁殖できる。穏やかな動物と同じく結べる（[使い魔](familiars)を参照）。自分の贈り物はなくても、結んだ個体はトーテムで声を受けて魔法を強められる（[トーテムでの調律](familiar_attuning)を参照）。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "三つの種類",
+      "text": [
+        "妖精は**8の体力**があり、防具はなく、1匹から3匹で飛び、試薬を**1から3**個落とす。ドロップ増加で増える。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glimmer_fay",
+      "title": "微光の妖精",
+      "text": [
+        "金色で、微光の尾根の上空にいる。**妖精の粉**を落とす。",
+        "狩ると、グロウストーンダストを最大2個落とす。**砂糖かハチミツ入りの瓶**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_fay",
+      "title": "プリズムの妖精",
+      "text": [
+        "薔薇色で、水晶の野の上空にいる。**妖精の花びら**を落とす（桃色の染料）。",
+        "狩ると、ピンクの花びらを最大2個、アメジストの欠片を最大1個落とす。**砂糖かハチミツ入りの瓶**で繁殖する。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:marsh_fay",
+      "title": "湿地の妖精",
+      "text": [
+        "緑色で、葦の沼沢の上空にいる。何匹かは[巨像の番人](colossus_warden)と一緒に飛ぶ。**妖精の火花**を落とす。",
+        "狩ると、グロウベリーを最大1個、グロウストーンダストを最大1個落とす。**砂糖かハチミツ入りの瓶**で繁殖する。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猟と牧畜",
+      "text": [
+        "試薬とは別に、狩るとより多く落ち、ドロップ増加でもっと増える。 野生を繁殖させるには、大人2匹にその餌を与えるあいだ**スニーク**する。普通に与えると、野生の個体は代わりに懐く。"
+      ]
+    }
+  ]
+}

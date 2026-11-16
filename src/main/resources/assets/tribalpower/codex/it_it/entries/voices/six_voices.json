@@ -1,0 +1,267 @@
+{
+  "name": "Le sei voci",
+  "icon": "tribalpower:resonance_totem_earth",
+  "order": 10,
+  "items": [
+    "tribalpower:resonance_totem_fire",
+    "tribalpower:resonance_totem_water",
+    "tribalpower:resonance_totem_air",
+    "tribalpower:resonance_totem_spirit"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:resonance_totem_earth",
+      "text": [
+        "Ogni stazione di eco ha bisogno di due cose oltre al suo ingresso: Pulso e un **Totem di risonanza** della voce giusta entro **8 blocchi**.",
+        "Il totem è un maestro, non un generatore. Senza la voce giusta una stazione aspetta e non spende nulla."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Alto due blocchi",
+      "text": [
+        "Un Totem di risonanza è alto **due blocchi**, quindi lascia un blocco libero sopra il punto in cui ne piazzi uno.",
+        "Fai clic su una delle due metà: la cima risponde proprio come la base. Rompi una delle due metà e l'intero totem viene via come un solo oggetto, con tutto ciò che contiene.",
+        "Un totem di un blocco da un mondo più vecchio si rifà la cima da solo appena il blocco sopra di esso è aria."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quale voce fa cosa",
+      "text": [
+        "Ogni laboratorio risponde a una voce e attende un totem di essa entro **8 blocchi**:",
+        "- **Terra**: Frantumatore di eco, la Vasca di pietra e la Fossa d'ascolto.",
+        "- **Fuoco**: Sintonizzatore di eco e la Fornace di brace. Sintonizzare un reagente di creatura chiede invece lo **Spirito**.",
+        "- **Acqua**: Vincolatore di eco.",
+        "- **Spirito**: Manifestatore di eco.",
+        "- **Telaio**: Distessitura d'eco e Porta lontana. È l'ultima voce; vedi [La sesta voce](sixth_voice).",
+        "Una macchina in pausa nomina la voce che le manca quando ti accovacci e ci fai clic destro con questo libro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voci intorno all'accampamento",
+      "text": [
+        "I dispositivi dell'accampamento che lavorano da soli vogliono anch'essi una voce tenuta entro 8 blocchi:",
+        "- **Terra**: il Curatore del boschetto e l'Ancora di via.",
+        "- **Acqua**: la Pompa di marea.",
+        "- **Spirito**: il Tamburo di guardia, il Totem del silenzio e la Culla di evocazione.",
+        "- **Aria**: il Laccio del vento, e ogni relè tranne quelli astrali.",
+        "- **Telaio**: il Telaio dei sigilli e i relè astrali.",
+        "Il Banco del canto prende qualsiasi voce: il totem che scegli è la voce del canto."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Il maestro giusto",
+      "steps": [
+        {
+          "caption": "Frantumatore di eco con pietra dentro, e un tamburo carico accanto.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          }
+        },
+        {
+          "caption": "Un totem di Fuoco è la voce sbagliata per il Frantumatore di eco. La stazione aspetta e non spende nulla.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Sostituiscilo con un totem di Terra e il lavoro inizia.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "remove": [
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Voci, non blocchi",
+      "text": [
+        "Le stazioni contano le voci, non i totem: due totem di Terra restano una sola voce. Avere molte voci diverse conta per il Risonatore di Pulso e l'Ancora di Telaio, che fanno più Pulso per ogni voce **distinta** intorno a loro.",
+        "Un Totem di parentela presta l'elemento della sua tribù alle stazioni, ai dispositivi dell'accampamento e all'Ancora di Telaio, e non tace mai. Un Risonatore di Pulso lo conta diversamente: ogni tribù aggiunge una voce in più, mai un settimo elemento.",
+        "Un totem collegato col gesso a uno vicino alla stazione presta anche la sua voce, se sta a meno di 16 blocchi dalla stazione. I dispositivi dell'accampamento e il Risonatore non sentono i collegamenti di gesso.",
+        "Ogni totem tiene anche **250 Pulso** per il reticolo, e va tenuto sveglio: vedi [Mantenimento](keeping)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Un generatore per ogni voce",
+      "text": [
+        "Ogni voce ha anche un generatore suo, l'opera della tribù che la custodisce:",
+        "- **Terra**: il Cuoretamburo.",
+        "- **Fuoco**: il Corno di brace, dei [Cuoritamburo](tribe_spark).",
+        "- **Aria**: l'Arpa del vento, dei [Tessitori di trame](tribe_clock).",
+        "- **Acqua**: il Tamburo delle onde, dei [Legaradici](tribe_sprout).",
+        "- **Spirito**: la Campana del risveglio, degli [Intagliatori di sigilli](tribe_sigil).",
+        "- **Telaio**: l'Ancora di Telaio, dei [Cucitori del telaio](tribe_spindle).",
+        "Fai produrre tutti e sei insieme entro **32 blocchi** da un'Ancora di Telaio, e chiunque stia vicino ottiene **Sei voci che cantano**.",
+        "Nella [Marcia](living_march), il tempo favorisce i generatori di una voce e ostacola quelli di un'altra."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_earth"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_fire"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_water"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_air"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonance_totem_spirit"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Korzeniozwiązany",
+  "icon": "tribalpower:knotted_root",
+  "order": 80,
+  "spoiler": true,
+  "items": [
+    "tribalpower:rootbound_spawn_egg",
+    "tribalpower:knotted_root"
+  ],
+  "next": "reed_stalker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:rootbound",
+      "text": [
+        "Strażnik sękatych korzeni, wykręcony przerwaną linią ley. Powolny, ale krzepki.",
+        "Upolowany zostawia też od 1 do 3 patyków i do 2 Mączka kostna."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Korzeniozwiązany czają się w lasach Zwykłego świata, na stepie Marszu, na Trzcinowym bagnie i na Mieliznach.",
+        "Ma **38 zdrowia** i **5 pancerza** i zadaje **6**. Każdy cios zakorzenia cię i spowalnia na 3 sekundy. Sam jest powolny, więc cofnij się, przeczekaj korzenie i uderz znowu."
+      ],
+      "title": "Gdzie i jak"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Zostawia **od 1 do 2 Sękaty korzeń**.",
+        "Sękaty korzeń dostraja się do 2 Dostrojone echo pod Duchem."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Żaden amulet nie zwiąże Korzeniozwiązany."
+      ],
+      "title": "Nie stworzy więzi"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i zaganianie",
+      "text": [
+        "Oprócz swojego odczynnika zostawia to, gdy jest upolowany, więcej z Grabieżą."
+      ]
+    }
+  ]
+}

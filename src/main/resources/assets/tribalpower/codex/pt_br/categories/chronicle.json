@@ -1,0 +1,8 @@
+{
+  "name": "A crônica",
+  "icon": "tribalpower:mural",
+  "order": 125,
+  "description": "A história do Tear, entalhada na Marcha um fragmento de cada vez. Encontre-os e a história se monta sozinha aqui.",
+  "spoiler": false,
+  "progress": "chronicle"
+}

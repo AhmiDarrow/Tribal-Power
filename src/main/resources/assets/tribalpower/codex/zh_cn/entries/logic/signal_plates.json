@@ -1,0 +1,30 @@
+{
+  "name": "信号板",
+  "icon": "tribalpower:inverse_plate",
+  "order": 74,
+  "items": [
+    "tribalpower:inverse_plate",
+    "tribalpower:echo_plate"
+  ],
+  "next": "memory_plates",
+  "pages": [
+    {
+      "type": "text",
+      "title": "反转与回响",
+      "text": [
+        "一个声音，或翻转，或送出。",
+        "- **反转** (NOT) 在背面安静时歌唱，背面有信号时则静下来。",
+        "- **回响** (BUFFER) 复制背面：有信号仍是有信号，满档 15。",
+        "用反转把脉动阈值变成「太空」警报。用回响把渐弱的歌线拉回满强度。"
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:inverse_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_plate"
+    }
+  ]
+}

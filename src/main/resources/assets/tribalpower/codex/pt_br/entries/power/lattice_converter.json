@@ -1,0 +1,45 @@
+{
+  "name": "Conversor de treliça",
+  "icon": "tribalpower:lattice_converter",
+  "order": 75,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:lattice_converter",
+      "text": [
+        "O Conversor de treliça é o [Energizador harmônico](pulse_adapter) ao contrário: alimente-o com energia Forge (FE) de geradores ou cabos de outro mod, e ele bate essa energia em Pulso para o seu acampamento.",
+        "Não é uma troca justa. FE cru é ruído para uma treliça, e são precisas vozes de totem para que isso se sustente."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Como montar",
+      "text": [
+        "Mande FE para qualquer face. O conversor guarda **48.000 FE** e nunca devolve FE.",
+        "A cada segundo ele faz até **40 Pulso** e o põe na rede da treliça, por um [Condutor de treliça](lattice_conductor) em **8 blocos**: primeiro em cada Marco de Pulso da rede, depois em geradores com espaço sobrando, de onde as máquinas puxam. Fora da treliça, ou sem espaço nela, ele espera e não gasta FE.",
+        "Cada [grau](machine_ranks) faz mais Pulso por segundo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As vozes barateiam",
+      "text": [
+        "Sem vozes por perto, um Pulso custa **220 FE**. Cada voz distinta de um Totem de ressonância **Respondido**, em 8 blocos, tira **20 FE**, até **120 FE** com cinco vozes. Nenhum Totem de parentesco conta aqui.",
+        "De Pulso para FE e de volta sempre se perde um pouco: o energizador transforma um Pulso em 100 FE, e o conversor nunca leva menos de 120 FE para fazer um."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Quando nada flui",
+      "text": [
+        "Um sinal de redstone o pausa, e ele não toma FE enquanto pausado. Um comparador lê o quanto a reserva de FE está cheia.",
+        "Clique com o botão direito para uma linha de estado. Agache e clique com o botão direito com este livro para ver a reserva, o preço por Pulso e o que fez no último segundo."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:lattice_converter",
+      "text": "Precisa de um Núcleo ressonante do Manifestador de eco e de dois Eco sintonizado do Sintonizador de eco."
+    }
+  ]
+}

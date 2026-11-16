@@ -1,0 +1,74 @@
+{
+  "name": "雪原之兽",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "雪之所有",
+      "text": [
+        "雪原里有雪堆上的一只海豹、一头驯鹿、一只漂在冷空气中的水母，还有一只夜里从雪中爬出来的冰蝎。",
+        "这里的每只温顺野兽都可以每分钟用刷子刷一次来取得试剂，并用下方**狩猎与放牧**中写明的自身食物引诱和繁殖。它可以像任何温顺动物一样结契（见[使魔](familiars)）。虽然没有一只自带天赋，结契之后仍能在图腾处取得一种声音，并强化你的魔法（见[在图腾处调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "漂毛皮兽",
+      "text": [
+        "雪海豹，身子重、毛厚，用鳍肢在雪堆上拖着走，两到四只成群。**26点生命值**和**5点护甲**，非常慢。",
+        "掉落**1至3个漂毛皮**，抢夺时更多。",
+        "猎杀时还会掉落1至2个生野味和最多2个远行界皮革。用**霜莓**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "霜行兽",
+      "text": [
+        "沉重的驯鹿，白色长鬃，在大幅张开的角下脚步很快，两到四只成群。**22点生命值**和**1点护甲**。",
+        "掉落**1至3个霜蹄**。",
+        "猎杀时还会掉落1至3个生野味、最多2个远行界皮革和最多1个骨头。用**霜莓**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "雪帷",
+      "text": [
+        "空气里的淡色月水母，低矮的白蓝伞盖里有四圈紫环，下面拖着四条褶边腕足，在雪上以一到三只漂行。**12点生命值**，没有护甲。",
+        "掉落**1至3个雪帷幕**。",
+        "猎杀时还会掉落最多2个雪球和最多1个线。用**霜莓**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "雾凇爬虫",
+      "text": [
+        "冰蝎，尾巴弓在背上，夜里在开阔雪地上出现，一次一两只。它有**23点生命值**和**3点护甲**，蜇击造成**4**，并使你中毒3秒。",
+        "掉落**1至2个雾凇颚**，一种毒试剂。雾凇颚在石冢之环召唤石冢尸鬼，尸鬼会召唤自己的雾凇爬虫：见[守护者](guardians)。",
+        "猎杀时还会掉落最多2个雪球和最多1个蜘蛛眼。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与放牧",
+      "text": [
+        "除试剂外，猎杀时各自掉得更多，有抢夺时还要再多。若动物是烧死的，肉会以烤熟的样子掉落。要繁殖野生的个体，给两只成年的喂它们的食物时**潜行**；若正常喂食，野生的反而会对你亲近。"
+      ]
+    }
+  ]
+}

@@ -3,8 +3,12 @@
     "icon": {
       "id": "tribalpower:relic_sigil"
     },
-    "title": "Asked politely",
-    "description": "Finish the Seal-carvers' story.",
+    "title": {
+      "translate": "advancement.tribalpower.tribes.story_sigil.title"
+    },
+    "description": {
+      "translate": "advancement.tribalpower.tribes.story_sigil.description"
+    },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,

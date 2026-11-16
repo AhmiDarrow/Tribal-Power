@@ -1,0 +1,17 @@
+{
+  "name": "11. Ometti",
+  "icon": "tribalpower:mural",
+  "order": 20,
+  "spoiler": true,
+  "unlock": "fragment:10",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ometti",
+      "text": [
+        "“I Campi di neve sono i prati dei Custodi della colonia, sotto un inverno arrivato con la caduta e rimasto. Gli alveari dormono sotto gli ometti. Il freddo imparò il loro ronzio e ne fece qualcosa di proprio.”",
+        "Trovato su un murale, sul terreno di un custode."
+      ]
+    }
+  ]
+}

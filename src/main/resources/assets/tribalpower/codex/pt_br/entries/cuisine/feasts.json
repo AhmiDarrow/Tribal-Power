@@ -1,0 +1,58 @@
+{
+  "name": "Banquetes",
+  "icon": "tribalpower:fire_feast",
+  "order": 30,
+  "items": [
+    "tribalpower:earth_feast",
+    "tribalpower:fire_feast",
+    "tribalpower:water_feast",
+    "tribalpower:air_feast",
+    "tribalpower:spirit_feast",
+    "tribalpower:loom_feast"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:earth_feast",
+      "title": "Uma mesa para o acampamento",
+      "text": [
+        "Um banquete é um grande prato cozido para todos. Coloque-o num bloco sólido e ele guarda **seis porções**; cada uma que você come enche você e concede a [bênção](voice_blessings) dessa voz por **8 minutos**.",
+        "Cozinhe um na Panela do Lar com os pratos e cultivos da voz dele: um Banquete da Terra a partir do purê dos Guardiões do leito e do Pão de cascalho, um Banquete do Fogo a partir de carne-seca e chili, e assim por diante. Cada receita está no JEI, sob a panela.",
+        "Um acampamento que reparte um banquete antes de uma noite na Marcha sai abençoado junto. Um comparador lê quantas porções restam."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "À mesa",
+      "text": [
+        "Você só pode pegar uma porção quando está com fome. Cada uma enche **6** de fome e dá a bênção no nível I.",
+        "Um banquete inteiro volta para a mão quando quebrado. Quando falta uma porção, ele quebra em nada, então mova-o antes de começar.",
+        "Coma um a **24 blocos** do lar de uma tribo durante o [festival](living_march) dela e a tribo conta você à mesa: **20 de prestígio**, uma vez por festival."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:earth_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fire_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:water_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:air_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:spirit_feast"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:loom_feast"
+    }
+  ]
+}

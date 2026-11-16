@@ -1,0 +1,52 @@
+{
+  "name": "Mchogrzbiet",
+  "icon": "tribalpower:mossback_scale",
+  "order": 40,
+  "spoiler": true,
+  "items": [
+    "tribalpower:mossback_spawn_egg",
+    "tribalpower:mossback_scale"
+  ],
+  "next": "march_walker",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:mossback",
+      "text": [
+        "Cierpliwy żółw stawowy z ogrodem rosnącym na skorupie. Wyszczotkuj dorosłe, a dostaniesz Łuska mchogrzbietu, zrzuconą naturalnie.",
+        "Upolowany upuszcza też od 2 do 4 Surowa dziczyzna i do 2 Skóra Marszu. Rozmnażaj go za pomocą **Trawa morska lub Wstęgowy wodorost**."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Mchogrzbiety brodzą po bagnach Zwykłego świata i po bagnach namorzynowych. Na Marszu tłoczą się na Trzcinowym mokradle, a nieliczne wędrują po Kryształowych polach, Stepie i Śnieżnych polach.",
+        "Mchogrzbiet ma **30 zdrowia** i **6 pancerza** i porusza się wolno. Jest łagodny i cofa się przed potworami. Rozmnażaj dwa osobniki za pomocą **Trawa morska**."
+      ],
+      "title": "Gdzie go znajdziesz"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Raz na minutę oczyść szczotką dorosłego, aby zdobyć **Łuska mchogrzbietu**. Łuski wiążą się w 2 Duchotkanina pod Wodą, a Wiązacze korzeni wolą je jako ofiarę.",
+        "Jeśli upolujesz jednego, upuszcza **od 2 do 4 Surowa dziczyzna** i do 2 Skóra Marszu, więcej, jeśli jest Grabież, ugotowaną, jeśli zginął płonąc."
+      ],
+      "title": "Co daje"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Związany Mchogrzbiet to chodząca sakwa z **9 miejsc** (12 ze znamieniem Głęboka kieszeń). Jeśli zginie, upuszcza wszystko z sakwy.",
+        "Zobacz stronę [dary chowańca](familiar_gifts): jak otworzyć sakwę i odesłać go, by czekał."
+      ],
+      "title": "Jako chowaniec"
+    },
+    {
+      "type": "text",
+      "title": "Polowanie i wypas",
+      "text": [
+        "Upolowany upuszcza to, więcej, jeśli jest Grabież. Mięso wypada upieczone, jeśli zwierzę zginęło płonąc. Aby rozmnażać dzikie, **skradaj się**, gdy karmisz dwa dorosłe ich jedzeniem; karmiony normalnie, dziki zamiast tego oswaja się z tobą."
+      ]
+    }
+  ]
+}

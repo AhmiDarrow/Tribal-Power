@@ -1,0 +1,40 @@
+{
+  "name": "Krąg leczenia",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "Obrzęd obozu",
+      "text": [
+        "Krąg leczenia to [obrzęd świata](world_rites). Zbuduj [Krąg obrzędu](rite_circle), osadź **Pieczęć Ducha** w koksowniku i rzuć tabliczkę: **500 Pulsów**, a krąg zostaje otwarty **10 minut** (krąg drugiego stopnia, z czterema totemami Ducha na kierunkach kardynalnych, kosztuje **375 Pulsów** i zostaje otwarty **20 minut**).",
+        "Gdy się otwiera, każdy w zasięgu **12 bloków**, gracze i związane chowańce, zostaje uleczony o **10 serc**, traci każdy szkodliwy efekt i zyskuje **10 minut** [Duchowego błogosławieństwa](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Póki pozostaje otwarty",
+      "text": [
+        "Przez resztę czasu krąg leczy wszystkich w środku o **serce co dwie sekundy** i zdejmuje Duchową chorobę, gdy tylko chwyci. Dobre miejsce, by się wycofać."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Przywołanie poległych",
+      "text": [
+        "Gdy umiera **związany chowaniec**, nie znika ot tak. Zostawia świecącą **Pozostałość «Duch»** tam, gdzie padł; ta nigdy nie znika, a ty dostajesz wiadomość, która o tym mówi. (Nie mylić z dzikimi pozostałościami Marszu: to duch twojego towarzysza, który czeka.)",
+        "Połóż pozostałość na jednym z **czterech postumentów** kręgu, zanim rzucisz. Gdy krąg się otwiera, chowaniec wraca na tym postumencie: **cały**, wciąż twój, ze swoim imieniem i swoją kratą. To, co niósł, spadło tam, gdzie spadł on, jak zawsze, więc podnieś i to."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

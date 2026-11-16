@@ -1,0 +1,46 @@
+{
+  "name": "Guardián coloso",
+  "icon": "tribalpower:heartwood_core",
+  "order": 310,
+  "spoiler": true,
+  "items": [
+    "tribalpower:colossus_warden_spawn_egg",
+    "tribalpower:heartwood_core"
+  ],
+  "next": "trolls",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:colossus_warden",
+      "title": "Guardián coloso",
+      "text": [
+        "El sauce crecido hasta lo enorme, y andando. El Guardián coloso es el único jefe errante de la Marcha, de siete bloques de alto, y nunca se lo encuentra solo.",
+        "No es el Coloso llorón, el gran sauce que se alza en arboledas por la ciénaga: consulta [árboles de la Marcha](march_trees)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Encontrar uno",
+      "text": [
+        "Surge rara vez, solo en el **Tremedal de juncos**, en terreno abierto de noche. Llega con su arboleda alrededor: **de 2 a 4 Guardián llorón**, **de 1 a 3 Hada del pantano** y hasta **2 Flotacenagal**. Son mansos y siguen mansos.",
+        "Una barra de jefe muestra su salud a todos los que están cerca. No se desvanece al amanecer como otros espíritus, y mientras está cerca no puedes dormir. Si se va sin morir, su arboleda se va con él. Solo un Guardián coloso que surge por sí solo trae una arboleda: uno que sale de un huevo generador llega solo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Combatirlo",
+      "text": [
+        "Tiene **260 de salud** y **14 de armadura**, y es lento. Cada golpe hace **12** y te enraíza: quedas ralentizado durante 3 segundos, así que no dejes que te alcance dos veces.",
+        "Como cualquier espíritu que surge de noche, llega más fuerte, y puede surgir como una élite de nombre dorado. Trae amigos, un arco y espacio para retroceder. No se vinculará."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Lo que deja",
+      "text": [
+        "Siempre suelta su **Núcleo de duramen**, un reactivo de Raíz que no consigues en ningún otro lugar, junto con **de 16 a 32 Tronco de sauce**, **de 4 a 8 Brote de sauce**, **de 6 a 12 Mechón de sauce**, **de 4 a 8 Raíz anudada** y **de 8 a 16 frascos de experiencia**. Botín añade más.",
+        "No hay un Brote de sauce gigante: planta cuatro Brote de sauce en un cuadrado para cultivar tu propio Coloso llorón."
+      ]
+    }
+  ]
+}

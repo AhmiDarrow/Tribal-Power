@@ -1,0 +1,34 @@
+{
+  "name": "Szyk rozbicia",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kruszarka echa ze stężeniem",
+      "text": [
+        "Szyk rozbicia to opcjonalne stężenie dla [Kruszarka echa](echo_shatter). Wyśrodkuj stację w polu pięć na pięć, postaw totem rezonansu na każdym rogu i ustaw skrytkę przodków bezpośrednio pod nią.",
+        "W zamian stacja zużywa **o ćwierć mniej Pulsu** i opróżnia wyjście prosto do skrytki pod spodem.",
+        "Jest całkowicie opcjonalne: bez niego stacja działa dokładnie tak jak wcześniej."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "Szyk",
+      "text": "Cztery totemy na rogach, dwa bloki w bok po przekątnych i skrytka pod stacją."
+    },
+    {
+      "type": "text",
+      "title": "Jak zrobić to dobrze",
+      "text": [
+        "Wszystkie cztery narożne totemy muszą być głosem przepisu, który wykonuje stacja. Dla odłamków z kamienia to **Ziemia**. Zły głos na dowolnym rogu znaczy po prostu brak zniżki.",
+        "Szyk rysuje się tylko wokół kruszarki echa; inne stacje echa go nie przyjmują.",
+        "Sygnał redstone na skrytce zatrzymuje opróżnianie. Przykucnij i kliknij prawym przyciskiem stację tą książką, gdy pracuje, aby zobaczyć, czy liczy się jako uszykowana."
+      ]
+    }
+  ]
+}

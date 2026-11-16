@@ -1,0 +1,17 @@
+{
+  "name": "14. 潮汐",
+  "icon": "tribalpower:mural",
+  "order": 23,
+  "spoiler": true,
+  "unlock": "fragment:13",
+  "pages": [
+    {
+      "type": "text",
+      "title": "潮汐",
+      "text": [
+        "“浅滩是纹织者的造物，淹到腰际，仍在转。潮汐一拍一拍守着他们的纹样。守着它的鼓手，已经忘了曾经有过织工。”",
+        "发现于一处守护者之地的壁画上。"
+      ]
+    }
+  ]
+}

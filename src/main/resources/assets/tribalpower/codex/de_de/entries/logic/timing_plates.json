@@ -1,0 +1,40 @@
+{
+  "name": "Zeitplatten",
+  "icon": "tribalpower:heartbeat_plate",
+  "order": 78,
+  "items": [
+    "tribalpower:heartbeat_plate",
+    "tribalpower:drift_plate",
+    "tribalpower:strike_plate",
+    "tribalpower:chance_plate"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Herzschlag, Verzug, Schlag, Zufall",
+      "text": [
+        "- **Herzschlag** pulst **15 für einen Tick**, dann ruht er. Schleich-Benutzen schaltet **20, 40, 80, 160** Ticks durch und dann zurück auf 20; er startet bei 20, eine Sekunde.",
+        "- **Verzug** kopiert die Rückseite erst, nachdem sie **4, 8, 16 oder 32** Ticks lang aktiv geblieben ist (Schleich-Benutzen zum Durchschalten; Start bei 4), und fällt, sobald die Rückseite abfällt.",
+        "- **Schlag** gibt einen Tick lang 15 an einer steigenden Rückseite, dann wird er still: das angeschlagene Signal, auf das Trommelherzen und Kohlenbecken hören.",
+        "- **Zufall** wirft bei jeder steigenden Rückseite eine Münze: 15 oder 0, gehalten, bis die Rückseite abfällt.",
+        "Ein Herzschlag von einer Sekunde auf einem Trommelherz ist ein Takt von **24-Puls**, wenn die Flanke im Takt landet. Langsamere Einstellungen bringen nur **10** pro Takt."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:heartbeat_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:strike_plate"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:chance_plate"
+    }
+  ]
+}

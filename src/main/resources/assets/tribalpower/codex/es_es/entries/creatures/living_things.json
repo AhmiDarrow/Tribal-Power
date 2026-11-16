@@ -1,0 +1,81 @@
+{
+  "name": "Seres vivos de la Marcha",
+  "icon": "minecraft:brush",
+  "order": 10,
+  "spoiler": true,
+  "next": "dawn_stag",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Dos clases de criatura llevan la vieja canción. Los **animales mansos** (el Ciervo del alba, el Zorro farol, el Lomomusgo y los pastadores, los voladores, los [árboles andantes](walking_trees) y las [hadas](fays) de cada tierra) te dan reactivos cuando los cepillas. Los **restos** son guardianes rotos y espíritus salvajes; luchan y sueltan su reactivo al caer.",
+        "Los reactivos alimentan canciones, armas ungidas y remedios (mira [reactivos](reagents)). Los más antiguos también entran en tus talleres de eco y en el Amuleto de vínculo.",
+        "La Marcha también tiene vida callada que da poco más que carne, una pluma o compañía: Caminantes de la Marcha, Fuegos fatuos espirituales, y los peces, gelatinas y vencejos de su [fauna](march_wildlife).",
+        "La tierra cazada o vaciada se llena otra vez, despacio: más o menos una vez por minuto unos pocos de sus animales pueden entrar sin que los veas, hasta que unos seis seres comparten el área. Los corrales también cuentan, así que un campamento ocupado nunca se desborda."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Sostén un **Cepillo** y úsalo en un adulto. Los animales jóvenes no dan nada. Cada animal descansa **un minuto** entre cosechas.",
+        "Críalos con **trigo** (Ciervo del alba), **bayas dulces** (Zorro farol) y **hierba marina** (Lomomusgo). Cualquier otra criatura mansa come el cultivo silvestre de su tierra, o algo igual de fácil de conseguir; su página nombra la comida. Para criar animales salvajes, **agáchate** mientras alimentas a dos adultos. Si los alimentas normal, el salvaje te toma cariño en vez de eso (mira [familiares](familiars)).",
+        "Vincula un adulto con un [Amuleto de vínculo](familiars) para quedártelo como compañero: suelta el **doble** de reactivo, y en un tótem puede tomar una voz que refuerza tu magia (mira [sintonizar en un tótem](familiar_attuning)). Solo tú puedes cepillar a tu propio familiar."
+      ],
+      "title": "Cosecha mansa"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Cenizligado, Raizligado y los Acechadores de juncos rondan los bosques y pantanos de la Superficie, y también la Marcha. Como todos los restos, surgen en la oscuridad, y nunca donde arde una antorcha o un farol, así que ilumina tus caminos.",
+        "Ten agua cerca de Cenizligado; sus golpes te prenden fuego. Los golpes de Raizligado te ralentizan unos segundos: retrocede y espera a que pase. Los Acechadores de juncos envenenan, así que trae leche o mantén la distancia.",
+        "Un Tótem del silencio, o el rito Noche quieta, impide que un campamento críe una jauría nueva durante la noche."
+      ],
+      "title": "Guardianes rotos"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Las Polillas de tormenta, los Diablillos de pavesa, las Campanas de duelo, los Derivantes del velo y las sombras voladoras lanzan desde hasta **12 bloques**. Primero reúnen un racimo brillante de motas: esa es tu advertencia.",
+        "Necesitan una línea despejada hasta ti. Ponte detrás de una cobertura sólida y el hechizo se interrumpe. Sus hechizos nunca queman ni reemplazan el terreno.",
+        "Un bastón cargado sirve para mantener la distancia. La onda de choque de El No Cantado es otro combate; agáchate contra ella, como explica su propia página."
+      ],
+      "title": "Responder a un hechizo"
+    },
+    {
+      "type": "text",
+      "title": "Qué tan fuerte es una criatura",
+      "text": [
+        "Los números del bestiario son para una criatura de sangre ordinaria. Toda criatura lleva cinco hilos (mira [familiares](familiars)), y cada paso por encima o por debajo de lo habitual la hace **12%** más fuerte o más débil, así que no hay dos salvajes iguales.",
+        "En la Marcha, un espíritu que surge de noche tiene **40%** más de salud y golpea **25%** más fuerte. Alrededor de **uno de cada doce** surge como **élite** de nombre dorado, más a menudo en Difícil: el doble de salud, la mitad más de daño, **4** más de armadura, más rápido de pies y **tres veces** la experiencia. Los espíritus que surgen de día nunca son élites."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Terciopelo del alba, Plumón de farol, Escama de lomomusgo, Ala de tormenta y Seda de eco se vinculan en **2 Tejido espiritual** cada uno bajo el Agua, en un Vinculador de eco.",
+        "- Cualquier otro reactivo de resto se sintoniza en **2 Eco sintonizado** bajo el Espíritu, en un Sintonizador de eco.",
+        "Todo reactivo, estos y los de las bestias por igual, también entra en canciones, armas ungidas y remedios: mira [reactivos](reagents).",
+        "Los Vinculadores de raíces prefieren Escama de lomomusgo y los Guardianes de la colonia prefieren Plumón de farol, así que lo que cepillas también compra prestigio. Abre las recetas en este libro, o en JEI si lo tienes, para seguir cualquier reactivo hasta tu taller."
+      ],
+      "title": "Devolver la canción"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Tras el anochecer, el cielo de la Superficie se abre en cortinas lentas de verde y violeta. Brilla más a medianoche, y la lluvia o el trueno lo esconden. La Marcha lleva un cielo más frío, propio.",
+        "Es el cielo intentando recordar un horario. Por sí solo no da Pulso, aunque un Colector de ley bajo él sí.",
+        "Los ajustes del cliente pueden bajar su detalle o apagarlo, lo que viene bien con los paquetes de shaders."
+      ],
+      "title": "El velo de noche"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Agáchate y usa este Códice espiritual sobre cualquier cosa que se haya quedado en silencio para leer qué está haciendo.",
+        "Cada criatura tiene una página en el bestiario, sola o con sus parientes: dónde vive, cómo lucha, qué da y si creará un vínculo. Las bestias de cada tierra empiezan por la [Estepa](beasts_steppe).",
+        "Las criaturas mansas están en este capítulo. Los Restos y los demás cazadores de la Marcha tienen un capítulo propio, que abre con [Caza y cuero](game_and_leather)."
+      ],
+      "title": "Notas de campo"
+    }
+  ]
+}

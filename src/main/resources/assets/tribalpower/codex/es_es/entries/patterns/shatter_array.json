@@ -1,0 +1,34 @@
+{
+  "name": "Formación de quiebre",
+  "icon": "tribalpower:echo_shatter",
+  "order": 60,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Un Triturador de eco reforzado",
+      "text": [
+        "La Formación de quiebre es un refuerzo opcional para tu [Triturador de eco](echo_shatter). Centra la estación en un cinco por cinco, coloca un Tótem de resonancia en cada esquina y pon un Alijo ancestral justo debajo.",
+        "A cambio, la estación gasta **un cuarto menos de Pulso** y vacía su salida directamente en el alijo de abajo.",
+        "Es del todo opcional: sin ello, la estación funciona exactamente como antes."
+      ]
+    },
+    {
+      "type": "pattern",
+      "pattern": "shatter_array",
+      "tier": 1,
+      "title": "La formación",
+      "text": "Cuatro tótems en las esquinas, a dos bloques por las diagonales, y el alijo bajo la estación."
+    },
+    {
+      "type": "text",
+      "title": "Hacerlo bien",
+      "text": [
+        "Los cuatro tótems de las esquinas deben ser la voz de la receta que ejecuta la estación. Para fragmentos a partir de piedra, eso es **Tierra**. Una voz equivocada en cualquier esquina simplemente significa que no hay descuento.",
+        "La formación se traza solo alrededor del Triturador de eco; las otras estaciones de eco no la aceptan.",
+        "Una señal de redstone en el alijo detiene el vaciado. Agáchate y haz clic derecho en la estación con este libro mientras trabaja, para ver si cuenta como en formación."
+      ]
+    }
+  ]
+}

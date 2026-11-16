@@ -1,0 +1,74 @@
+{
+  "name": "Der Ungesungene",
+  "icon": "tribalpower:unsung_heart",
+  "order": 60,
+  "spoiler": true,
+  "items": [
+    "tribalpower:the_unsung_spawn_egg"
+  ],
+  "next": "crystal_spire",
+  "pages": [
+    {
+      "type": "creature",
+      "entity": "tribalpower:the_unsung",
+      "text": [
+        "Eine Sanduhr-Trommel mit einer gesprungenen Porzellanmaske und zwei Runenarmen. Es will nur den Rhythmus zurück."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Der Ungesungene kommt nie von allein. Er erhebt sich nur, wenn jemand den Viertakt auf einer [Stille Trommel](drum_circle) spielt, und in seiner letzten Phase kehrt er zu dieser Trommel zurück.",
+        "Er hat **400 Gesundheit** und **8 Rüstung**, lässt sich nicht zurückstoßen und Trankeffekte prallen an ihm ab. Eine Bossleiste zeigt seine drei Phasen: Schlag, Chor und Stille.",
+        "Bring Essen, Rüstung, geladene Pulszellen, einen Knochenklang und einen erprobten Heimweg mit. Ein Freund macht es viel leichter."
+      ],
+      "title": "Vor dem ersten Schlag"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Solange er über zwei Dritteln seiner Gesundheit ist, rollt **alle 3 Sekunden** eine Stoßwelle heraus und trifft alle innerhalb von **8 Blöcken** für **6**, mit hartem Rückstoß.",
+        "Schleiche dich kurz bevor sie aufkommt, um dich zu stemmen: du nimmst **halben Schaden** und keinen Rückstoß.",
+        "Sein Armhieb verursacht **10**, also halte die Trommel zwischen dich und ihn, wenn er näher kommt."
+      ],
+      "title": "Schlag"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Unter zwei Dritteln ruft er **zwei Echoweber alle 8 Sekunden**, bis zu **sechs** auf einmal, und die Stoßwellen kommen alle **2.5 Sekunden**.",
+        "Räume die Weber weg, bevor sie dich verlangsamen. Ihr Biss macht dich träge, und du musst dich weiter gegen Stoßwellen stemmen.",
+        "Ein Weber, den du im Kampf bindest (die Webstuhl-Näher müssen dich **Stimme** nennen), gehört dir: er zählt nicht mehr für den Ungesungenen und bleibt, wenn der Kampf endet."
+      ],
+      "title": "Chor"
+    },
+    {
+      "type": "text",
+      "text": [
+        "Unter einem Drittel schwebt er über der Trommel und kann nicht verletzt werden. Alle 2 Sekunden schießt er einen langsamen Webbolzen: **5 Schaden**, Langsamkeit und Schwäche, und [Ungesungen-Stille](afflictions) für **12 Sekunden**: kein Lied und keine Stabstimme antwortet, bis es nachlässt. Bolzen zerbrechen an festen Blöcken, also hilft Deckung.",
+        "Geh zur Stillen Trommel und spiele den Viertakt noch einmal. Das synchronisiert ihn neu: er ist **8 Sekunden betäubt** und nimmt **doppelten Schaden**, und kann danach noch **4 Sekunden** lang mit normalem Schaden verletzt werden.",
+        "Stille kehrt **12 Sekunden** nach jeder Neusynchronisierung zurück, also schlage hart zu und spiele dann wieder."
+      ],
+      "title": "Stille"
+    },
+    {
+      "type": "text",
+      "text": [
+        "- Ein **Ungesungen-Herz**, woraus das Webstuhl-Totem entsteht ([die sechste Stimme](sixth_voice)).",
+        "- **16 bis 24 Webstuhlfaden**.",
+        "- **4 Resonanzkerne**.",
+        "- Eine **Schallplatte** des Trommelkreises.",
+        "- Der [Ritus der Siegelkerber](tablet_7), eine Überlieferungstafel, die sonst nur auf einem Altar des Tiefen Tempels liegt. Hänge sie an eine Wand und lies sie.",
+        "Wenn niemand innerhalb von **48 Blöcken** für **30 Sekunden** bleibt, setzt er sich zurück: er verschwindet mit seinen Webern, und die Trommel ist wieder spielbereit."
+      ],
+      "title": "Was er hinterlässt"
+    },
+    {
+      "type": "text",
+      "title": "Die Prüfung der Webstuhl-Näher",
+      "text": [
+        "Der Ungesungene ist der Wächter, an dem die Geschichte der Webstuhl-Näher endet: bring ihn mit ihrer Geschichte im letzten Schritt zur Ruhe, und ihr Relikt gehört dir. Seine Echoweber lassen jetzt nichts fallen, und er braucht Platz zum Erheben: nichts Festes in den fünf Blöcken über der Trommel oder auf dem Fünf-mal-fünf darum. Siehe [Die Wächter](guardians)."
+      ]
+    }
+  ]
+}

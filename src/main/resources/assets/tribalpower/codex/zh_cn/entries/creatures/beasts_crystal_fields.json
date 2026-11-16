@@ -1,0 +1,74 @@
+{
+  "name": "水晶旷野的兽",
+  "icon": "tribalpower:chime_crest",
+  "order": 260,
+  "spoiler": true,
+  "items": [
+    "tribalpower:chime_grazer_spawn_egg",
+    "tribalpower:glass_flitter_spawn_egg",
+    "tribalpower:geode_grub_spawn_egg",
+    "tribalpower:shard_stalker_spawn_egg",
+    "tribalpower:chime_crest",
+    "tribalpower:glass_wing",
+    "tribalpower:geode_husk",
+    "tribalpower:shard_barb"
+  ],
+  "next": "beasts_shallows",
+  "pages": [
+    {
+      "type": "text",
+      "title": "水晶之物",
+      "text": [
+        "阶地台地在开阔处留有长颈的食草兽和蜻蜓，在下方的洞穴里留有鼠妇，还有一只夜里走在水晶上的水晶螳螂。",
+        "这里每只温顺的野兽都可以每分钟刷一次以取得试剂，并用各自的食物引诱和繁殖，食物见下文**狩猎与牧养**。它可以像任何温顺动物一样结契（见[使魔](familiars)）。尽管都没有自己的天赋，已结契的仍可在图腾上取得一种声音，并强化你的魔法（见[在图腾上调谐](familiar_attuning)）。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:chime_grazer",
+      "title": "铃鸣食草兽",
+      "text": [
+        "一只紫罗兰色、毛茸茸的长颈食草兽，两只巨大的水晶角，背上一条水晶棱，两到四只成群。**24点生命值**和**3点护甲**。",
+        "掉落**1至3个铃冠**，有抢夺则更多。",
+        "猎杀时还会掉落1至2个生野味、最多1个远行界皮革和最多1个紫水晶碎片。用**小麦**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glass_flitter",
+      "title": "玻璃飞虫",
+      "text": [
+        "玻璃翅的蜻蜓，一只到三只。**10点生命值**，无护甲。",
+        "掉落**1至3个玻璃翅**。",
+        "猎杀时还会掉落最多2根羽毛。用**回响花或任意小花**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:geode_grub",
+      "title": "晶洞幼虫",
+      "text": [
+        "一只沉重的鼠妇，身躯是带纹的淡紫石，头上有浅色甲片，脊背上一条晶洞棱。出自台地下的暗洞，一次一到三只。**26点生命值**和**5点护甲**，非常慢，而且温顺。",
+        "掉落**1至3个晶洞外壳**。",
+        "猎杀时还会掉落最多2个紫水晶碎片。用**灯笼盖或任意蘑菇**繁殖。"
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shard_stalker",
+      "title": "碎片潜猎者",
+      "text": [
+        "夜里从水晶之间升起的水晶螳螂，一次一两只。它有**21点生命值**和**1点护甲**，很快，攻击造成**5**，并使你中毒3秒。",
+        "掉落**1至2个碎片尖刺**，一种毒试剂。",
+        "猎杀时还会掉落最多1个紫水晶碎片和最多1根线。"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "狩猎与牧养",
+      "text": [
+        "除了试剂，猎杀时掉落更多，有抢夺则再多一些。若动物是烧死的，肉会烤熟后掉落。要繁殖野生的，给两只成年个体喂食时**潜行**；若正常喂食，野生的反而会对你热络起来。"
+      ]
+    }
+  ]
+}

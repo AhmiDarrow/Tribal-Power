@@ -1,0 +1,210 @@
+{
+  "name": "잔불 뿔피리",
+  "icon": "tribalpower:ember_horn",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:ember_horn",
+      "text": [
+        "북심장의 기술. 화로 연료를 태워 펄스로 만드는 뿔피리. 석탄, 목탄, 용암, 블레이즈 막대. 화로가 태우는 것은 무엇이든, 뿔피리가 고른 힘으로 바꾼다.",
+        "**1,000 펄스**를 담는다."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "연료 넣기",
+      "text": [
+        "연료를 든 채 우클릭하거나, 호퍼나 릴레이가 넣어 주게 둔다. 연료의 연소 시간을 이십으로 나눈 값이 그 펄스다. 석탄은 **80**, 석탄 블록은 **800**, 용암 양동이는 **1,000**, 블레이즈 막대는 **120**.",
+        "그 펄스를 최대 **초당 20**까지 내보낸다. 연료를 더해도 상한은 오르지 않고, 더 오래 갈 뿐이다.",
+        "공간이 있을 때만 다음 조각에 불을 붙이므로, 가득 찬 뿔피리는 아무것도 낭비하지 않는다. 용암의 빈 양동이는 뿔피리 위로 튀어나온다. 켜진 불에서는 그 밖에는 아무것도 꺼낼 수 없다.",
+        "웅크린 채 맨손으로 면을 우클릭하면 양쪽, 입력, 출력, 닫힘으로 넘어간다. [토템 렌치](camp_kit)와 같다."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "스스로 연료를 넣는 뿔피리",
+      "steps": [
+        {
+          "caption": "8블록 안의 기계가 끌어쓸 수 있는 곳에 뿔피리를 놓는다.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "위의 호퍼가 연료를 넣는다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "minecraft:hopper[facing=down]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "호퍼 위 석탄 상자가 오래 타게 한다. 석탄 하나마다 80 펄스다.",
+          "place": [
+            {
+              "pos": [
+                0,
+                2,
+                0
+              ],
+              "block": "minecraft:chest"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_horn[lit=true]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "옆의 레버가 뿔피리를 멈춘다. 연료는 그저 기다린다.",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "minecraft:lever[face=floor,powered=true]"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "규모 키우기",
+      "text": [
+        "등급이 없으면 뿔피리는 최대 **초당 20**만 낸다. 등급마다 **초당 15% 펄스**가 더해지고, 펄스 정수로 반올림된다. 그 이상은 뿔피리를 더 만든다.",
+        "자동화할 수 있는 순환은 태우는 것보다 많은 연료로 바꾸지 못한다. 듣는 구덩이가 불러낸 석탄조차, 가져오고 부수는 데 드는 펄스가 돌려주는 것보다 많다.",
+        "맨손 클릭은 만드는 양과 담은 양을 알려 준다. 이 책을 든 채 웅크리고 우클릭하면 연료와 아직 남은 연소가 보인다.",
+        "뿔피리는 [북심장](tribe_spark)의 공예다. 제작법에는 잿불 매듭과 불 인장이 필요하다. 북심장은 벗이라 부르는 이에게 뿔피리를 바꿔 준다."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_horn"
+    }
+  ]
+}

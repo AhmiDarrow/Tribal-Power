@@ -1,0 +1,72 @@
+{
+  "name": "Refeições do Lar",
+  "icon": "tribalpower:long_hunt_stew",
+  "order": 24,
+  "items": [
+    "tribalpower:drift_bell_dumplings",
+    "tribalpower:delvers_pottage",
+    "tribalpower:fen_callers_chowder",
+    "tribalpower:reed_wrapped_eel",
+    "tribalpower:ember_roast_squash",
+    "tribalpower:long_hunt_stew",
+    "tribalpower:bloomsong_custard",
+    "tribalpower:fish_and_chips"
+  ],
+  "pages": [
+    {
+      "type": "text",
+      "title": "Uma refeição para o trabalho à frente",
+      "text": [
+        "Mais farto que a [comida de estrada](road_fare) e cozido da caça selvagem da Marcha: cada refeição enche você bem e empresta um dom simples para a tarefa à sua frente. Nenhuma enche mais que o melhor [prato da tribo](tribe_dishes), e nenhuma traz uma graça.",
+        "- **Bolinhos de sino à deriva**: Geleia à deriva, Grão da estepe, um ovo. Dois por panela, 5 de fome e **Queda lenta por 30 segundos**: coma antes de uma queda.",
+        "- **Ensopado do escavador**: um cogumelo marrom e um vermelho, uma batata, Arroz de brejo, uma tigela. 7 de fome e **Pressa por 90 segundos**, a tigela de um mineiro.",
+        "- **Caldeirada do chamador do brejo**: qualquer peixe cru (Barbatana-brilho crua ou Enguia-de-silte crua), Arroz de brejo, alga, uma batata, uma tigela. 8 de fome e **Respiração aquática por 90 segundos**."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Uma refeição para o trabalho à frente, continuação",
+      "text": [
+        "- **Enguia embrulhada em junco**: Enguia-de-silte crua, Cana de Espírito, Folha da Marcha. 7 de fome e **Visão noturna por 120 segundos**, para água escura e cavernas fundas.",
+        "- **Abóbora assada na brasa**: uma abóbora, Raiz de brasa, Grão da estepe. Duas por panela, 6 de fome e **Força por 30 segundos**.",
+        "- **Ensopado da caçada longa**: Caça assada, uma batata, uma cenoura, Raiz de brasa, uma tigela. 9 de fome, a comida de acampamento mais farta, e **Absorção por 60 segundos**: coma antes de uma noite dura.",
+        "- **Creme do canto da flor**: Flor de eco, um ovo, açúcar, favo de mel, uma tigela. 6 de fome e **Regeneração por 15 segundos**, para sarar em movimento.",
+        "- **Peixe com batatas fritas**: duas Barbatana-brilho crua no alto do quadrado, duas Raiz de brasa abaixo. 8 de fome e a **maior saturação de qualquer refeição do acampamento**, então mantém você cheio por mais tempo, mas não empresta dom nenhum.",
+        "As tigelas voltam quando você come. Os pacotes podem mudar quanto tempo cada dom dura na config."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:drift_bell_dumplings"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:delvers_pottage"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fen_callers_chowder"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:reed_wrapped_eel"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:ember_roast_squash"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:long_hunt_stew"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:bloomsong_custard"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:fish_and_chips"
+    }
+  ],
+  "next": "feasts"
+}

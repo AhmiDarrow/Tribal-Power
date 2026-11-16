@@ -1,0 +1,74 @@
+{
+  "name": "Bestie dei campi di neve",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "I propri della neve",
+      "text": [
+        "I campi di neve ospitano una foca sui cumuli, un caribù, una medusa che galleggia nell'aria fredda e uno scorpione di ghiaccio che di notte striscia fuori dalla neve.",
+        "Ogni bestia mansueta qui si può spazzolare per il suo reagente una volta al minuto, ed è attirata e fatta riprodurre con il proprio cibo, indicato più sotto in **Caccia e allevamento**. Si può legare come qualsiasi animale mansueto (vedi [familiari](familiars)), e anche se nessuna ha un dono proprio, una legata può comunque prendere una voce a un totem e rafforzare la tua magia (vedi [sintonizzarsi a un totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Pellideriva",
+      "text": [
+        "Una foca delle nevi, pesante e dal pelo folto, che si trascina con le pinne sui cumuli di neve, in branchi da due a quattro. **26 di salute** e **5 di armatura**, e molto lenta.",
+        "Lascia cadere **1 a 3 Pelle alla deriva**, di più con Saccheggio.",
+        "Cacciato, lascia cadere anche da 1 a 2 Selvaggina cruda e fino a 2 Cuoio della Marcia. Riproduci con **Bacca di brina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Granpasso di brina",
+      "text": [
+        "Un caribù pesante, dalla lunga criniera bianca, rapido sotto grandi palchi arcuati, in branchi da due a quattro. **22 di salute** e **1 di armatura**.",
+        "Lascia cadere **1 a 3 Zoccolo di brina**.",
+        "Cacciato, lascia cadere anche da 1 a 3 Selvaggina cruda, fino a 2 Cuoio della Marcia e fino a 1 Osso. Riproduci con **Bacca di brina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Veloneve",
+      "text": [
+        "Una medusa luna pallida dell'aria, una cupola bassa bianco-azzurra con quattro anelli viola dentro e quattro braccia sfrangiate che pendono sotto, che va alla deriva sulla neve da una a tre. **12 di salute**, nessuna armatura.",
+        "Lascia cadere **1 a 3 Velo di neve**.",
+        "Cacciato, lascia cadere anche fino a 2 Palla di neve e fino a 1 Filo. Riproduci con **Bacca di brina**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Strisciatore di brina",
+      "text": [
+        "Uno scorpione di ghiaccio, la coda arcuata sul dorso, che di notte emerge sulla neve aperta, uno o due alla volta. Ha **23 di salute** e **3 di armatura**, e il suo pungiglione infligge **4** e ti avvelena per 3 secondi.",
+        "Lascia cadere **1 a 2 Mandibola di brina**, un reagente di veleno. Mandibola di brina chiama lo Spettro del tumulo all'Anello del tumulo, e lo Spettro chiama i propri Strisciatore di brina: vedi [guardiani](guardians).",
+        "Cacciato, lascia cadere anche fino a 2 Palla di neve e fino a 1 Occhio di ragno."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caccia e allevamento",
+      "text": [
+        "Oltre al suo reagente, ognuno lascia cadere di più se cacciato, e ancora di più con Saccheggio. La carne cade arrostita se l'animale è morto bruciando. Per far riprodurre i selvatici, **accovacciati** mentre nutri due adulti con il loro cibo; se li nutri normalmente, uno selvatico invece si affeziona a te."
+      ]
+    }
+  ]
+}

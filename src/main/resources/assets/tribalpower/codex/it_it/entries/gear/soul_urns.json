@@ -1,0 +1,50 @@
+{
+  "name": "Urne dell'anima",
+  "icon": "tribalpower:copper_soul_urn",
+  "order": 44,
+  "items": [
+    "tribalpower:woven_soul_urn",
+    "tribalpower:copper_soul_urn",
+    "tribalpower:manifested_soul_urn",
+    "tribalpower:resonant_soul_urn"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:copper_soul_urn",
+      "title": "Porta una creatura a casa",
+      "text": [
+        "Un'urna dell'anima attira una creatura dentro. **Usala su una creatura** per prenderla, e **usala su un blocco** per rimetterla lì, sana e intera.",
+        "Prende qualsiasi essere vivente tranne i **giocatori**, i **boss**, le **élite** della Marcia e le creature che qualcun altro ha addomesticato o legato: una mucca per il nuovo recinto, un villico per il villaggio, un famiglio oltre un fiume."
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        "Prendere una creatura è un uso, e lasciarla uscire è un altro:",
+        "- **Intrecciata**: 2 usi, una cattura e un rilascio.",
+        "- **Rame**: 10 usi, cinque viaggi.",
+        "- **Manifestata**: 20 usi, dieci viaggi.",
+        "- **Risonante**: non si usura mai.",
+        "Un'urna non prende una creatura quando le resta un solo uso, così non intrappoli mai qualcosa che non puoi liberare. La barra sotto l'urna mostra l'usura, e un'urna senza usi rimasti si sgretola mentre lascia andare l'ultima creatura."
+      ],
+      "title": "Quattro livelli"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:woven_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:copper_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:manifested_soul_urn"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:resonant_soul_urn"
+    }
+  ]
+}

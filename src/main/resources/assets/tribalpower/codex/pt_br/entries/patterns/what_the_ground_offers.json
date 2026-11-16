@@ -1,0 +1,65 @@
+{
+  "name": "O que o solo oferece",
+  "icon": "minecraft:raw_iron",
+  "order": 80,
+  "spoiler": false,
+  "items": [],
+  "pages": [
+    {
+      "type": "text",
+      "title": "O que o fosso chama",
+      "text": [
+        "O fosso chama exatamente o que uma ida minerar com toque suave daria: o **item bruto** para um metal, o **bloco de minério** para uma gema. Cada ciclo consome o substrato e dá um resultado.",
+        "A pedra é renovável: uma [Pia de pedra](stone_font) a faz. Pedra da Marcha é fundida a partir de Pedregulho da Marcha, que você minera na Marcha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "As quatro faixas",
+      "text": [
+        "- **Comum**: carvão, cobre e ferro. **10 segundos** a **56 Pulso por segundo**, em **duas pedras**.",
+        "- **Profunda**: ouro, redstone e lápis-lazúli. **15 segundos** a **64**, em **duas Pedra da Marcha**. Quartzo não está nesta faixa.",
+        "- **Quente**: o quartzo e o minério de ouro do Nether. **20 segundos** a **72**, em duas Pedra da Marcha, com **Fogo**.",
+        "- **Rara**: diamante, esmeralda e qualquer metal ou gema que a varredura de cascalho achou na sua mochila. **40 segundos** a **48**, em **quatro Pedra da Marcha e um Fragmento de Espírito**, com **Espírito**. Cerca de um ciclo raro em quatro dá o dobro."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Qual faixa ele ouve",
+      "text": [
+        "Profunda, Quente e Rara exigem [Escuta profunda](listening_pit) e o posto à altura. Sem uma amostra, um fosso abaixo de **y 0** ouve uma faixa mais funda, e Espírito leva mais uma abaixo.",
+        "Se o posto ou a forma não chegarem tão longe, o fosso aceita a faixa mais funda que puder alcançar, em vez de parar.",
+        "Abaixo de y 0, ou sobre ardósia, as gemas saem como minérios de ardósia."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Amostras",
+      "text": [
+        "Uma amostra é um filtro, nunca um ingrediente. Coloque uma clicando com o botão direito na malha com um metal bruto, cascalho ou uma gema.",
+        "Um material que a amostra nomeia pesa **seis vezes** tanto quanto qualquer outra coisa na faixa. Uma amostra também pede a faixa mais funda que o contenha e que o fosso possa alcançar: ouro significa a faixa quente quando Fogo está aceso, e a faixa profunda nos outros casos.",
+        "Uma amostra que nenhuma faixa alcançável contém é ignorada, e o Códice diz isso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vozes no fosso",
+      "text": [
+        "Terra é obrigatória. Cada outra voz troca uma coisa por outra; nenhuma é um simples multiplicador.",
+        "- **Água** lava: uma saída extra a cada **terceiro** ciclo, por **250 mB** do tanque da malha. Encha-o com um balde; ele comporta 4,000 mB.",
+        "- **Ar** acelera o ciclo para cerca de **0.65** do tempo dele e cobra cerca de **1.55 vezes** o Pulso por segundo. O Pulso por item não muda.",
+        "- **Fogo** abre a faixa quente a 72 Pulso por segundo. O fosso só escuta lá quando uma amostra de quartzo ou de ouro pede, e o ouro então sai como Minério de ouro do Nether.",
+        "- **Espírito** ouve uma faixa mais funda e abre a rara.",
+        "- O **Tear** reduz o substrato pela metade, arredondando para cima."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "O que custa",
+      "text": [
+        "Um ciclo de ferro é **560 Pulso** em duas pedras.",
+        "Minerar ainda custa menos Pulso por barra. O presente do fosso é que ele nunca acaba."
+      ]
+    }
+  ]
+}

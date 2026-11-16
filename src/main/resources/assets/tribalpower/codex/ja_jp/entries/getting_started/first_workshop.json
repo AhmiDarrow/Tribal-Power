@@ -1,0 +1,214 @@
+{
+  "name": "初めての工房",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "next": "self_powered",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Tribal Powerの工房は**エコーステーション**と呼ぶ。それぞれ近くに三つ要る。加工するもの、格子を通って届くパルス、そして声を与える適切な**共鳴トーテム**だ。",
+        "最初に欲しい台は[エコー破砕](echo_shatter)。骨の鈴と銅の共鳴器を石7つで囲む。骨の鈴を銅インゴット4つで囲むと銅の共鳴器が**2つ**できる。石を**エコーの欠片**に砕く。太鼓を叩かずにパルスを作れる小さな結晶だ。",
+        "パルスは[格子の伝導体](lattice_conductor)に沿ってしか進まない。8ブロック以内に伝導体がない台は、満タンの太鼓の真横でも飢える。銅の共鳴器4つでレッドストーンダストを囲むと伝導体が**4つ**できる。太鼓と台の間に一つ置け。",
+        "エコー破砕には声**土**が要る。原木、土、骨の鈴、銅の共鳴器で{item:tribalpower:resonance_totem_earth}を作り、台の近くに立てる。トーテムは動力源ではない。台の師だと思え。それがなければ台は待ち、何も消費しない。",
+        "トーテムは**高さ2ブロック**だ。置く場所の上を1ブロック空けておけ。どちらの半分をクリックしてもよく、どちらかを壊すとトーテム全体が取れる。古いワールドのトーテムは、上のブロックが空くと先端を戻す。"
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "エコー破砕の一角",
+      "steps": [
+        {
+          "caption": "エコー破砕を太鼓の心臓のそばに置く。",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "両方から8ブロック以内に格子の伝導体を置く。パルスは伝導体に沿ってしか進まない。一つもなければ、太鼓がどれほど近くても台は飢える。",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "8ブロック以内に共鳴トーテム（土）を足す。すぐそばが一番簡単だ。",
+          "place": [
+            {
+              "pos": [
+                1,
+                0,
+                1
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "エコー破砕を開き、石を入れる。丸石は砂利にしかならないので、先に精錬する。",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "minecraft:stone"
+          },
+          "highlight": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "太鼓を満たしたままにする。数秒でエコーの欠片が出る。",
+          "use": {
+            "pos": [
+              1,
+              0,
+              0
+            ],
+            "item": "tribalpower:echo_shard"
+          },
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "動かないとき",
+      "text": [
+        "この本を持って台をしゃがみ右クリックする。パルス、伝導体、トーテム、出力の空きのどれが足りないかを告げる。",
+        "エコー破砕は、手で叩く太鼓が作るより速くパルスを使う。先に蓄えを叩き、仕事は太鼓に背負わせよ。",
+        "レバーか、途切れないレッドストーン信号は台を止める。待っている間、何も失われない。"
+      ]
+    }
+  ]
+}

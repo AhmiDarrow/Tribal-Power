@@ -1,0 +1,40 @@
+{
+  "name": "Cerchio di guarigione",
+  "icon": "tribalpower:rite_healing_circle",
+  "order": 50,
+  "items": [
+    "tribalpower:rite_healing_circle",
+    "tribalpower:spirit_remnant"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:rite_healing_circle",
+      "title": "Il rito dell'accampamento",
+      "text": [
+        "Il Cerchio di guarigione è un [rito del mondo](world_rites). Costruisci un [Cerchio del rito](rite_circle), poni un **Sigillo di Spirito** nel braciere e lancia la tavoletta: **500 di Pulso**, e il cerchio resta aperto **10 minuti** (un cerchio di secondo grado, con quattro totem di Spirito sui punti cardinali, costa **375 di Pulso** e resta aperto **20 minuti**).",
+        "Quando si apre, chiunque entro **12 blocchi**, giocatori e familiari vincolati, viene curato di **10 cuori**, perde ogni effetto dannoso e ottiene **10 minuti** di [Benedizione spirituale](spirit_sickness)."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Finché resta aperto",
+      "text": [
+        "Per il resto del tempo, il cerchio rimargina chi sta dentro di **un cuore ogni due secondi** e toglie la Malattia spirituale appena attecchisce. È un buon posto in cui ripiegare."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Richiamare i caduti",
+      "text": [
+        "Quando muore un **familiare vincolato**, non svanisce e basta. Lascia un **Resto dello Spirito** luminoso dove è caduto, che non scompare mai, e ricevi un messaggio che te lo dice. (Da non confondere con i resti selvatici della Marcia: questo è lo spirito del tuo compagno, in attesa.)",
+        "Posa il resto su uno dei **quattro piedistalli** del cerchio prima di lanciare. Quando il cerchio si apre, il familiare torna su quel piedistallo: **integro**, ancora tuo, con il suo nome e il suo reticolo. Ciò che portava è caduto dove è caduto lui, come sempre, quindi raccoglilo anche."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:rite_healing_circle"
+    }
+  ],
+  "next": "sweat_lodge"
+}

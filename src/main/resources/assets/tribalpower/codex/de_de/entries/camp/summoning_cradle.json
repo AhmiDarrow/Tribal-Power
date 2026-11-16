@@ -1,0 +1,699 @@
+{
+  "name": "Beschwörungswiege",
+  "icon": "tribalpower:summoning_cradle",
+  "order": 90,
+  "items": [
+    "tribalpower:binding_effigy"
+  ],
+  "next": "spirit_lantern",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:summoning_cradle",
+      "text": [
+        "Rufe lebende Geister, ohne sie zu jagen. Eine Bindefigur merkt sich eine Kreatur, ohne sie zu verletzen; eine Beschwörungswiege ruft diese Kreatur dann immer wieder, solange sie Puls und Geistergewebe hat.",
+        "Die Bindung ist ein Ritual, mit Absicht. Das ist keine Abkürzung über ein Spawn-Ei."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Eine Figur prägen",
+      "text": [
+        "Fertige eine leere **Bindefigur**, dann schleiche und rechtsklicke damit eine geeignete Kreatur. Die Kreatur nimmt keinen Schaden.",
+        "Jede Kreatur des Grundspiels, die auf trockenem Boden lebt, lässt sich prägen (Kühe, Pferde, Kaninchen, Füchse, Zombies, Lohen, Endermen, Hexen, Fledermäuse und der Rest), und ebenso die eigenen Tiere und Geister von «der Marsch»: ihre Weidetiere, Motten, Hunde, Pirscher, Trolle, Goblins, Feen, Schatten, Baumvolk und der Rest. Der Wither, der Enderdrache, der Wärter und der Große Wächter können es nie, auch nicht Magier, Dorfbewohner, fahrende Händler, Golems oder Wasserkreaturen. Die Wächter, Der Ungesungene und der Kolosswächter sind Bosse und können es nicht, und ebenso wenig Geisterlichter, Marschwanderer, Wandergeister, Stammes-Sippe, Glimmerflosse, Treibglocken, Schleierrochen, Schlickaale oder Webstuhlsegler.",
+        "Eine aktive Bindung lässt sich nicht überschreiben; verbrauche zuerst ihre Fäden. Der Tooltip nennt die Prägung und die restlichen Fäden.",
+        "Eine Prägung allein ruft nichts. Die Prägung muss durch die Bindung der drei Stimmen gewebt werden."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Bindung der drei Stimmen",
+      "text": [
+        "Setze ein **Geistsiegel** in ein Ritualkohlenbecken. Stelle Totems von **Erde**, **Luft** und **Geist** innerhalb von 8 Blöcken auf, habe **200 Puls** in Reichweite und trage **drei Geistergewebe**.",
+        "Ohne Redstone am Kohlenbecken rechtsklickst du es mit deiner geprägten, leeren Figur. Die drei Stimmen knoten **512** Beschwörungsfäden hinein und nehmen den Puls und das Geistergewebe.",
+        "Eine erschöpfte Figur erneuerst du auf dieselbe Weise, oder du prägst zuerst eine andere Kreatur darauf.",
+        "Fehlt etwas, sagt es das Kohlenbecken."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Die Bindung der drei Stimmen",
+      "steps": [
+        {
+          "caption": "Stelle ein Ritualkohlenbecken hin und setze ein Geistsiegel hinein.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ritual_brazier"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spirit_seal"
+          }
+        },
+        {
+          "caption": "Totems von Erde, Luft und Geist innerhalb von 8 Blöcken geben die drei Stimmen.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                -2
+              ],
+              "block": "tribalpower:resonance_totem_air"
+            },
+            {
+              "pos": [
+                2,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_spirit"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              -2
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Ein Generator und ein Gitterkonduktor in der Nähe liefern die 200 Puls.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              2
+            ],
+            [
+              -2,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Trage drei Geistergewebe und rechtsklicke das Kohlenbecken mit der geprägten Figur: 512 Fäden.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:binding_effigy"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Die Wiege betreiben",
+      "text": [
+        "Die gebundene Figur kommt in das **erste** Fach der Wiege und Geistergewebe in das **zweite**.",
+        "Alle **zehn Sekunden** versucht sie einmal, die Kreatur auf einen freien, trockenen Boden innerhalb von **3 Blöcken** auf ihrer eigenen Ebene zu rufen. Eine Beschwörung kostet **80 Puls**, **ein Geistergewebe** und **einen Faden**. Ein fehlgeschlagener oder blockierter Versuch verbraucht nichts.",
+        "Die Wiege hält eine Reserve von **2.400 Puls** und füllt sie mit bis zu 80 pro Sekunde aus dem Gitter. Die Wiege antwortet auf **Geist**: ohne ein Totem von Geist innerhalb von 8 Blöcken (siehe [Lagerhände](camp_hands)) steht sie still."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Ein Boden für die Wiege",
+      "steps": [
+        {
+          "caption": "Stelle die Wiege auf einen flachen Boden mit Platz ringsum.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                -1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                0
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                1
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                2,
+                -1,
+                2
+              ],
+              "block": "minecraft:stone"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:summoning_cradle"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Puls über einen Konduktor innerhalb von 8 Blöcken: jede Beschwörung kostet 80.",
+          "place": [
+            {
+              "pos": [
+                -2,
+                0,
+                -2
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                -2,
+                0,
+                -1
+              ],
+              "block": "tribalpower:lattice_conductor"
+            }
+          ],
+          "highlight": [
+            [
+              -2,
+              0,
+              -2
+            ],
+            [
+              -2,
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "caption": "Die gebundene Figur kommt in das erste Fach, Geistergewebe in das zweite.",
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              0,
+              0
+            ],
+            "item": "tribalpower:spiritweave"
+          }
+        },
+        {
+          "caption": "Kreaturen erscheinen auf freiem, trockenem Boden innerhalb von 3 Blöcken, eine alle zehn Sekunden.",
+          "highlight": [
+            [
+              2,
+              -1,
+              2
+            ],
+            [
+              -2,
+              -1,
+              2
+            ],
+            [
+              2,
+              -1,
+              -1
+            ],
+            [
+              1,
+              -1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Grenzen und Automatisierung",
+      "text": [
+        "Die Wiege pausiert, solange **8 oder mehr** Kreaturen innerhalb von 12 Blöcken sind, also schaffe sie weg. Feindliche werden nie in Friedlich gerufen, und auch nicht im Kreis von einem Stilletotem.",
+        "Ein Komparator liest die restlichen Fäden. Redstone pausiert alles.",
+        "Trichter und [Relaisplatten](wireless_cargo) können Geistergewebe von oben oder von den Seiten einspeisen. Die Unterseite gibt nur eine erschöpfte Figur, bereit zur Erneuerung, an einen Trichter oder eine Platte darunter ab.",
+        "Beim Abbauen der Wiege fällt dieselbe Figur, und ihre restlichen Fäden bleiben heil."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:summoning_cradle"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:binding_effigy"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Tavolo delle offerte",
+  "icon": "tribalpower:offering_table",
+  "order": 130,
+  "next": "builders_chalk",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:offering_table",
+      "text": [
+        "Un magazzino d'accampamento da 27 scomparti, con una faccia più bella di un baule. Mettilo accanto a un focolare o a una culla per tenere offerte, cibo e Tessitospirito a portata di mano. Non gli serve Pulso."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Come usarlo",
+      "text": [
+        "È deposito, non un secondo Focolare della tribù. Le offerte che alzano la posizione presso una tribù vanno sul focolare stesso (vedi [Posizione](standing)); il tavolo non concede nulla.",
+        "Solo chi l'ha posizionato, il suo accampamento, o chiunque se nessuno l'ha rivendicato, può aprirlo.",
+        "Tramogge, tubi e [piastre relè](wireless_cargo) possono riempirlo o svuotarlo da ogni lato. Accovacciati e fai clic destro su una faccia a mano vuota per cambiare quella faccia: Entrambi, Ingresso, Uscita o Chiuso.",
+        "Un comparatore legge quanto è pieno. Un segnale di redstone blocca sia il menu sia l'automazione."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:offering_table"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "7. Obozy",
+  "icon": "tribalpower:carved_stone",
+  "order": 16,
+  "spoiler": true,
+  "unlock": "fragment:6",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Obozy",
+      "text": [
+        "“Dziewięć obozów na dziewięciu posłaniach, każdy śpiewał jedną nić w Krosno, którego już nie było. Nawyk, nazwali to Chodzący po krawędzi. Nadzieja, powiedzieli Wiązacze korzeni. Śpiewacy żwiru powiedzieli, że to to samo, powiedziane dwa razy.”",
+        "Znaleziono na Rzeźbiony kamień w ruinach Marszu."
+      ]
+    }
+  ]
+}

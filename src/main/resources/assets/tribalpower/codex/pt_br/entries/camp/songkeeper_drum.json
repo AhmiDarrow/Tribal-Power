@@ -1,0 +1,42 @@
+{
+  "name": "Tambor do Guardião do canto",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Toque pelo prazer de fazê-lo",
+      "text": [
+        "O Tambor do Guardião do canto é um jogo de ritmo com **26 canções** próprias: os Ritos do Portal e o Círculo de tambores, a música de cada terra da Marcha e os temas dos seus guardiões. Com **Ninjacat Skies Core** 0.5.16 ou posterior instalado, os doze temas dos guardiões Ninjacat entram também, e com **Chocobos Reborn** as oito corridas dele. Cada canção toca por inteiro, e cada nota é marcada a partir de uma batida real da gravação.",
+        "Escolha uma canção e uma dificuldade (**Fácil**, **Normal**, **Difícil** ou **Especialista**; Fácil usa três tambores) e bata **A**, **S**, **D** e **F** (ou as teclas de seta) quando cada pele chegar à linha. Você pode reatribuir os quatro tambores em Controles (as teclas de tambor do **rito do Portal**); A, S, D, F e as setas também funcionam sempre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jogando",
+      "text": [
+        "Um acerto é **Perfeito**, **Ótimo** ou **Bom**, conforme a proximidade. Uma sequência sobe seu multiplicador: **x2** aos 10 seguidos, **x3** aos 20, **x4** aos 30. Um erro quebra a sequência e a canção esmorece.",
+        "Notas brilhantes são uma frase de **Surto de Espírito**. Cada frase limpa enche um **quarto** do medidor de Surto; pela metade, pressione **Espaço** para dobrar cada ponto enquanto durar: até **16 segundos** com o medidor cheio, **8** pela metade.",
+        "Observe o medidor de **Ressonância**. Erros o esvaziam, acertos o enchem; se esvaziar, a canção quebra e nenhuma pontuação fica. Fácil nunca quebra.",
+        "Se as notas e a música se afastarem no seu equipamento, ajuste o **deslocamento de áudio** na lista de canções. A **Velocidade** muda o quão rápido as notas viajam, e os **sons de acerto** põem um toque em cada acerto."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pontuações e duelos",
+      "text": [
+        "O tambor guarda sua **melhor pontuação e estrelas** de cada canção em cada dificuldade, e um quadro dos **cinco melhores** no servidor. Um combo completo ganha estrelas douradas.",
+        "Coloque **dois Tambor do Guardião do canto lado a lado** e eles viram um par de duelo. De um tambor, desafie o jogador no outro: vocês tocam a mesma canção ao mesmo tempo, cada um vê a pontuação do outro numa barra de cabo de guerra, e a maior vence. Seu histórico de duelos aparece no topo da lista de canções."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

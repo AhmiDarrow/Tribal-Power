@@ -1,0 +1,42 @@
+{
+  "name": "Tamburo del Custode del canto",
+  "icon": "tribalpower:songkeeper_drum",
+  "order": 190,
+  "items": [
+    "tribalpower:songkeeper_drum"
+  ],
+  "next": "shared_camps",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:songkeeper_drum",
+      "title": "Suona per il gusto di farlo",
+      "text": [
+        "Il Tamburo del Custode del canto è un gioco di ritmo su **26 canzoni** sue: i Riti della Porta e il Cerchio di tamburi, la musica di ogni terra della Marcia e i temi dei suoi guardiani. Con **Ninjacat Skies Core** 0.5.16 o successivo installato, si aggiungono i dodici temi dei guardiani Ninjacat, e con **Chocobos Reborn** anche le sue otto gare. Ogni canzone suona per intero, e ogni nota è segnata da un battito reale della registrazione.",
+        "Scegli una canzone e una difficoltà (**Facile**, **Normale**, **Difficile** o **Esperto**; Facile usa tre tamburi), poi batti **A**, **S**, **D** e **F** (o i tasti freccia) quando ogni pelle raggiunge la linea. Puoi riassegnare i quattro tamburi nei Controlli (i tasti del tamburo del **rito della Porta**); A, S, D, F e le frecce funzionano sempre."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Suonare",
+      "text": [
+        "Un colpo è **Perfetto**, **Ottimo** o **Buono** in base a quanto ci va vicino. Una serie alza il moltiplicatore: **x2** a 10 di fila, **x3** a 20, **x4** a 30. Un errore spezza la serie e il brano cala.",
+        "Le note luminose sono una frase di **Impeto di Spirito**. Ogni frase pulita riempie un **quarto** del misuratore di Impeto; a metà, premi **Spazio** per raddoppiare ogni punto finché dura: fino a **16 secondi** a misuratore pieno, **8** a metà.",
+        "Tieni d'occhio il misuratore di **Risonanza**. Gli errori lo svuotano, i colpi lo riempiono; se si svuota, il brano si spezza e nessun punteggio resta. Facile non si spezza mai.",
+        "Se le note e la musica si scostano sulla tua macchina, imposta lo **scostamento audio** nella lista dei brani. La **Velocità** cambia quanto in fretta viaggiano le note, e i **suoni di colpo** aggiungono un tocco a ogni colpo."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Punteggi e duelli",
+      "text": [
+        "Il tamburo tiene il tuo **miglior punteggio e stelle** per ogni canzone a ogni difficoltà, e una lista dei **cinque migliori** sul server. Una combo piena dà stelle d'oro.",
+        "Metti **due Tamburo del Custode del canto affiancati** e diventano una coppia da duello. Da un tamburo, sfida il giocatore all'altro: suonate entrambi lo stesso brano insieme, ognuno guarda il punteggio dell'altro in una barra del tiro alla fune, e vince il più alto. Il tuo registro dei duelli sta in cima alla lista dei brani."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:songkeeper_drum"
+    }
+  ]
+}

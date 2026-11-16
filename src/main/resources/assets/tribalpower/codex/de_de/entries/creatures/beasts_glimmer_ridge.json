@@ -1,0 +1,74 @@
+{
+  "name": "Bestien des Schimmergrats",
+  "icon": "tribalpower:prism_crest",
+  "order": 220,
+  "spoiler": true,
+  "items": [
+    "tribalpower:prism_grazer_spawn_egg",
+    "tribalpower:shardmoth_spawn_egg",
+    "tribalpower:glowgrub_spawn_egg",
+    "tribalpower:facet_stalker_spawn_egg",
+    "tribalpower:prism_crest",
+    "tribalpower:shard_wing",
+    "tribalpower:glow_husk",
+    "tribalpower:facet_barb"
+  ],
+  "next": "beasts_snow_fields",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eigenes des Grats",
+      "text": [
+        "Die Mondsteinhöhen des [Schimmergrats](glimmer_ridge) beherbergen im Freien einen Plattengraser und eine Motte, und in den Höhlen darunter einen Glühwurm und eine Kristallspinne.",
+        "Jede sanfte Bestie hier lässt sich einmal pro Minute nach ihrem Reagenz bürsten und wird mit ihrem eigenen Futter angelockt und gezüchtet, genannt unter **Jagd und Haltung** weiter unten. Sie lässt sich binden wie jedes sanfte Tier (siehe [Vertraute](familiars)), und obwohl keine eine eigene Gabe hat, kann eine gebundene an einem Totem dennoch eine Stimme annehmen und deine Magie stärken (siehe [an einem Totem einstimmen](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:prism_grazer",
+      "title": "Prismengraser",
+      "text": [
+        "Ein niedriger Echsengraser mit einer Reihe Prismenplatten auf dem Rücken, in Herden von zwei bis vier. **24 Gesundheit** und **3 Rüstung**.",
+        "Es lässt 1 bis 3 **Prismenkamm** fallen, mehr mit Plünderung.",
+        "Gejagt lässt es außerdem 1 bis 2 Rohes Wildbret und bis zu 1 Marschleder fallen. Züchte mit **Schimmerbohne**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:shardmoth",
+      "title": "Splittermotte",
+      "text": [
+        "Eine violette Motte mit Flügeln aus geschliffenem Kristall, die zu ein bis drei über dem Grat flattert. **10 Gesundheit**, keine Rüstung.",
+        "Es lässt 1 bis 3 **Splitterflügel** fallen.",
+        "Gejagt lässt es außerdem bis zu 1 Faden und bis zu 1 Amethystscherbe fallen. Züchte mit **Schimmerbohne**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:glowgrub",
+      "title": "Leuchtmade",
+      "text": [
+        "Ein Glühwürmchen, lang und gegliedert unter einem großen dunklen Kopf, das Schwanzende brennend; aus den dunklen Höhlen unter dem Grat, ein bis drei auf einmal. **18 Gesundheit** und **1 Rüstung**. Es ist sanft und flieht vor Monstern wie jeder Graser.",
+        "Es lässt 1 bis 3 **Leuchthülle** fallen.",
+        "Gejagt lässt es außerdem bis zu 2 Glowstone-Staub fallen. Züchte mit **Laternenhut** oder einem beliebigen Pilz."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:facet_stalker",
+      "title": "Facettenpirscher",
+      "text": [
+        "Eine Kristallspinne derselben Höhlen. Sie erscheint dort im Dunkeln, bei Tag oder bei Nacht, ein oder zwei auf einmal. Sie hat **21 Gesundheit** und **1 Rüstung**, ist schnell, und ihr Biss fügt **5** zu und vergiftet dich 3 Sekunden lang.",
+        "Es lässt 1 bis 2 **Facettenstachel** fallen, ein Gift-Reagens.",
+        "Gejagt lässt es außerdem bis zu 1 Amethystscherbe und bis zu 1 Faden fallen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jagd und Zucht",
+      "text": [
+        "Neben seinem Reagens lässt jedes mehr fallen, wenn es gejagt wird, und noch mehr mit Plünderung. Fleisch fällt als Gebratenes Wildbret, wenn das Tier brennend starb. Um wilde zu züchten, **schleiche** dich, während du zwei Erwachsene mit ihrem Futter fütterst; normal gefüttert, wird ein wildes dir stattdessen zutraulich."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "9. Cinza",
+  "icon": "tribalpower:mural",
+  "order": 18,
+  "spoiler": true,
+  "unlock": "fragment:8",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Cinza",
+      "text": [
+        "“Os Ermos da Brasa eram a floresta dos Corações de tambor. Ela queimou na Queda e nunca se apagou. Algo sob a escória assumiu o ritmo quando os tamborileiros fugiram, e desde então marca um tempo errado.”",
+        "Encontrado em um mural no terreno de um guardião."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "name": "Echozermalmer",
+  "icon": "tribalpower:echo_shatter",
+  "order": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:echo_shatter",
+      "text": [
+        "Die Station der Erde, und die erste, die du bauen wirst. Der Echozermalmer hat zwei Aufgaben: **Stein** zu Echoscherben brechen, dem Kristall, der einen Pulsresonator speist, und Blöcke und Erze zu etwas Kleinerem zerstoßen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Scherben machen",
+      "text": [
+        "Lege **Stein** oder **Tiefenschiefer** ein; Marschstein geht auch. Bruchstein ergibt keine Scherben, schmilz ihn also zuerst zu Stein.",
+        "Eine Scherbe braucht **2 Sekunden** bei **32 Puls pro Sekunde**. Puls, der in der Nähe lagert, im Puffer eines Generators oder einem Kairn, trägt einen langsamen Generator durch eine Charge.",
+        "Er braucht ein Totem der Erde innerhalb von 8 Blöcken und einen geladenen Generator. Die Scherbe ist der kleine Katalysator für deinen ersten Pulsresonator, langsam verbraucht von dem Puls, den er erzeugt."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Zerstoßen",
+      "text": [
+        "- Bruchstein, Bruchtiefenschiefer und Marschbruchstein werden zu Kies; Kies wird zu Sand.",
+        "- Sand wird zu Staub, wenn die unterstützte Sieb-Mod installiert ist, sonst zu einem Tonklumpen.",
+        "- Diorit wird zu Quarz. Marscherz wird zu zwei Geistscherben.",
+        "- Rohmetalle und Metallerze werden jeweils zu **zwei Gries**, in 4 Sekunden bei 40 Puls pro Sekunde. Siehe [Metalle und Edelsteine](metals_and_gems).",
+        "- Edelsteinerze mit Behutsamkeit zerbrechen direkt zum Edelstein, mit dem Doppelten dessen, was das Erz selbst fallen lässt.",
+        "Rezepte in diesem Buch, oder JEI, zeigen die genauen Eingaben und Ausgaben in deinem Pack."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Gries wandert hinab",
+      "steps": [
+        {
+          "caption": "Ein Glutofen mit seinem Totem des Feuers.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:ember_kiln"
+            },
+            {
+              "pos": [
+                1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_fire"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Setze den Echozermalmer obendrauf, mit einem Totem der Erde in der Nähe.",
+          "place": [
+            {
+              "pos": [
+                0,
+                1,
+                0
+              ],
+              "block": "tribalpower:echo_shatter"
+            },
+            {
+              "pos": [
+                -1,
+                0,
+                0
+              ],
+              "block": "tribalpower:resonance_totem_earth"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              -1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Die Unterseite des Echozermalmers gibt aus, und die Oberseite des Glutofens nimmt an, also fällt der Gries direkt hinein.",
+          "highlight": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "caption": "Füge einen Generator hinzu, gib Roheisen oben hinein und nimm die Barren aus dem Glutofen.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:drumheart"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "use": {
+            "pos": [
+              0,
+              1,
+              0
+            ],
+            "item": "minecraft:raw_iron"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Weiter",
+      "text": [
+        "Baue das Muster [Splitterformation](shatter_array) um ihn herum, und er verbraucht ein Viertel weniger Puls und leert seine Ausgabe in einen Ahnenspeicher darunter.",
+        "Ränge machen ihn schneller; siehe [Maschinenränge](machine_ranks). Ein Hebel pausiert ihn."
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shatter"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:echo_shard",
+      "text": "Was der Echozermalmer aus Stein und Tiefenschiefer macht."
+    }
+  ]
+}

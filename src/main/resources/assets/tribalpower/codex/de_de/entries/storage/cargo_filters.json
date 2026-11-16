@@ -1,0 +1,26 @@
+{
+  "name": "Filter und Vernichtungsplatten",
+  "icon": "tribalpower:fire_seal",
+  "order": 45,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Der Filter",
+      "text": [
+        "Öffne eine Platte, um ihren **Filter** zu füllen: acht Plätze, die ein Bild eines Gegenstands halten, nie den Gegenstand selbst. Klicke einen Platz mit etwas in der Hand an, um ihn zu markieren, mit leerer Hand, um ihn zu löschen, oder Umschaltklicke Güter in deinem Inventar.",
+        "Der Knopf daneben schaltet die Liste um. Eine **Sperrliste** hält die markierten Güter zurück und lässt alles andere durch; eine leere Sperrliste, so beginnt eine Platte, schickt alles. Eine **Freigabeliste** schickt nur die markierten Güter.",
+        "Für Flüssigkeit markiere einen Eimer oder einen gefüllten Behälter: ein Wassereimer listet Wasser.",
+        "Schleiche und rechtsklicke eine Platte mit leerer Hand, um ihre Liste zu wechseln, ohne sie zu öffnen."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Vernichtungsplatten",
+      "text": [
+        "Ein **Feuersiegel** im Platz **Rune** macht eine **Vernichtungsplatte**: sie verbrennt, was sie aus ihrer Maschine zieht, statt es irgendwohin zu schicken; Gegenstände über ein Gegenstandsrelais, Flüssigkeit über ein Flüssigkeitsrelais. Sie verbrennt nur, was ihr Filter nennt, also verbrennt ein leerer Filter nichts. Eine Vernichtungsplatte verbrennt nach dem Filter von Reiter 1.",
+        "Platten beginnen als **Sperrliste**, also verbrennt eine frische Vernichtungsplatte mit markiertem Bruchstein alles außer Bruchstein. Schalte sie zuerst auf **Freigabeliste**, um nur das zu verbrennen, was du markierst, oder lass sie eine Sperrliste und markiere, was bleiben soll.",
+        "Eine Vernichtungsplatte braucht weiterhin Puls und ihre Stimme. Bei jedem Schlag verbrennt sie bis zu **16 Gegenstände** oder **250 mB**, mehr mit Rang, und zahlt dafür den üblichen Puls der Platte."
+      ]
+    }
+  ]
+}

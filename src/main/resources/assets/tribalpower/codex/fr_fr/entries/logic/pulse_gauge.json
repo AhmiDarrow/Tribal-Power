@@ -1,0 +1,264 @@
+{
+  "name": "Jauge de Pulsation et Seuil de Pulsation",
+  "icon": "tribalpower:pulse_gauge",
+  "order": 30,
+  "spoiler": false,
+  "items": [
+    "tribalpower:pulse_threshold"
+  ],
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "tribalpower:pulse_gauge",
+      "text": [
+        "La Jauge de Pulsation change la Pulsation stockée en redstone. Pointe-la vers un Cœur-tambour, un générateur, un résonateur ou un Collecteur de ley, n'importe quoi qui stocke de la Pulsation, et elle rend de **0 à 15** selon le remplissage de cette réserve. Les ateliers puisent la Pulsation autour d'eux et n'en gardent aucune à lire.",
+        "Son pendant, le **Seuil de Pulsation**, répond par un simple oui ou non : la réserve est-elle au moins aussi pleine ?",
+        "Les deux se fabriquent en Pierre de la Marche, ils attendent donc ton premier voyage vers la Marche."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Jauge de Pulsation",
+      "text": [
+        "Accroupis-toi et place-la contre le bloc à lire ; sa flèche pointe dans le bloc que tu as cliqué. Un clic simple utiliserait ce bloc à la place, et battrait un Cœur-tambour. Elle émet depuis **toutes les faces sauf la flèche**, faiblement par les côtés et fortement par l'arrière.",
+        "Le signal est **0** quand la réserve est vide, puis monte de 1 à 15 à mesure qu'elle se remplit. Il se met à jour toutes les 4 ticks, et un comparateur qui lit la jauge obtient le même nombre.",
+        "Clique droit pour voir la Pulsation stockée, la capacité et le signal."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Seuil de Pulsation",
+      "text": [
+        "Place-le de la même façon, accroupi, flèche dans la réserve. Clique droit pour faire défiler **25, 50, 75 et 100%** ; il part de 50.",
+        "Il émet un **15** plein tant que la Pulsation stockée est à cette part ou au-dessus, et rien en dessous. Comme la jauge, il n'émet jamais depuis la face de la flèche, donc il ne dérange pas la réserve qu'il surveille. Un comparateur lit le réglage de 1 à 4."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Pause ou protection",
+      "text": [
+        "Un signal maintenu met les machines en pause. Branché droit sur une machine, un Seuil de Pulsation la met en pause tant que la réserve est **assez pleine**.",
+        "D'habitude tu veux l'inverse : mettre en pause une station affamée pendant que le tambour est **bas**, pour qu'il te reste une réserve. Pose une **Plaque inverse** sur la ligne. Alors 'trop vide' est le signal actif : sous le réglage, l'Inverse chante et la station se met en pause ; dès que le tambour se rétablit, l'Inverse se tait et le travail reprend.",
+        "Essaie avec une seule station affamée avant de câbler tout le camp."
+      ]
+    },
+    {
+      "type": "scene",
+      "title": "Garder une réserve",
+      "steps": [
+        {
+          "caption": "Un Cœur-tambour alimente un Broyeur d'écho à trois blocs.",
+          "place": [
+            {
+              "pos": [
+                -1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                -1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                -1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                0
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                1
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                2
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                1,
+                -1,
+                3
+              ],
+              "block": "minecraft:grass_block"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "block": "tribalpower:drumheart"
+            },
+            {
+              "pos": [
+                0,
+                0,
+                3
+              ],
+              "block": "tribalpower:echo_shatter"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "caption": "Accroupis-toi et place un Seuil de Pulsation contre le tambour, flèche vers l'intérieur ; un clic simple battrait le tambour à la place. Clique droit sur le Seuil de Pulsation pour choisir 25, 50, 75 ou 100%.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                1
+              ],
+              "block": "tribalpower:pulse_threshold[facing=north]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "caption": "Accroupis-toi et monte une Plaque inverse au dos du Seuil de Pulsation, face à la station ; un clic simple changerait le réglage du Seuil de Pulsation. Elle lit le bloc sur lequel elle est posée.",
+          "place": [
+            {
+              "pos": [
+                0,
+                0,
+                2
+              ],
+              "block": "tribalpower:inverse_plate[facing=south]"
+            }
+          ],
+          "highlight": [
+            [
+              0,
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "caption": "Sous le réglage, le Seuil de Pulsation se tait, l'Inverse chante, et la station attend que le tambour se remplisse.",
+          "highlight": [
+            [
+              0,
+              0,
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_gauge"
+    },
+    {
+      "type": "recipe",
+      "item": "tribalpower:pulse_threshold"
+    }
+  ],
+  "next": "song_thread"
+}

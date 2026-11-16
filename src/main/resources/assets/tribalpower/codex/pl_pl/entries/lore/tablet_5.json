@@ -1,0 +1,16 @@
+{
+  "name": "Tabliczka: Pieśń Tkaczy wzorów",
+  "icon": "tribalpower:lore_tablet",
+  "order": 150,
+  "spoiler": true,
+  "unlock": "tablet:5",
+  "pages": [
+    {
+      "type": "text",
+      "text": [
+        "Przechowywana w obozie Rzeźbiarzy pieczęci, słowami Tkaczy wzorów:",
+        "“Fabryka to pieśń, która przestała potrzebować śpiewaka. Zapisaliśmy czasy na kołach zegarowych i na pyle ciem i pozwoliliśmy, by Krosno niosło melodię. Gdy nadeszło Cięcie, pieśni grały dalej. Niektóre grają nadal. Nasłuchuj kliknięcia przed szumem.”"
+      ]
+    }
+  ]
+}

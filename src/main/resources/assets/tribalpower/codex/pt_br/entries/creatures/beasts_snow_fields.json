@@ -1,0 +1,74 @@
+{
+  "name": "Feras dos campos de neve",
+  "icon": "tribalpower:drift_pelt",
+  "order": 230,
+  "spoiler": true,
+  "items": [
+    "tribalpower:driftpelt_spawn_egg",
+    "tribalpower:frost_strider_spawn_egg",
+    "tribalpower:snowveil_spawn_egg",
+    "tribalpower:rime_crawler_spawn_egg",
+    "tribalpower:drift_pelt",
+    "tribalpower:frost_hoof",
+    "tribalpower:snow_veil",
+    "tribalpower:rime_mandible"
+  ],
+  "next": "beasts_ember_wastes",
+  "pages": [
+    {
+      "type": "text",
+      "title": "Os próprios da neve",
+      "text": [
+        "Os campos de neve abrigam uma foca nos montes de neve, um caribu, uma água-viva que flutua no ar frio e um escorpião de gelo que à noite sai rastejando da neve.",
+        "Toda fera mansa daqui pode ser escovada com o pincel para obter seu reagente uma vez por minuto, e é atraída e reproduzida com a própria comida, nomeada abaixo em **Caça e pastoreio**. Pode ser vinculada como qualquer animal manso (veja [familiares](familiars)), e embora nenhuma tenha um dom próprio, uma vinculada ainda pode tomar uma voz em um totem e fortalecer sua magia (veja [sintonizar em um totem](familiar_attuning))."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:driftpelt",
+      "title": "Peloderiva",
+      "text": [
+        "Uma foca da neve, pesada e de pelo grosso, que se arrasta com as nadadeiras sobre os montes de neve, em manadas de dois a quatro. **26 de vida** e **5 de armadura**, e muito lenta.",
+        "Deixa cair **1 a 3 Pele à deriva**, mais com Pilhagem.",
+        "Caçado, também deixa cair 1 a 2 Caça crua e até 2 Couro da Marcha. Reproduza com **Baga de geada**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:frost_strider",
+      "title": "Andarilho de geada",
+      "text": [
+        "Um caribu pesado, de longa crina branca, ágil sob grandes galhadas abertas, em manadas de dois a quatro. **22 de vida** e **1 de armadura**.",
+        "Deixa cair **1 a 3 Casco de geada**.",
+        "Caçado, também deixa cair 1 a 3 Caça crua, até 2 Couro da Marcha e até 1 Osso. Reproduza com **Baga de geada**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:snowveil",
+      "title": "Véu-neve",
+      "text": [
+        "Uma água-viva lua pálida do ar, uma cúpula baixa branco-azulada com quatro anéis violeta nela e quatro braços franjados pendendo embaixo, que paira sobre a neve de uma a três. **12 de vida**, sem armadura.",
+        "Deixa cair **1 a 3 Véu de neve**.",
+        "Caçado, também deixa cair até 2 Bola de neve e até 1 Linha. Reproduza com **Baga de geada**."
+      ]
+    },
+    {
+      "type": "creature",
+      "entity": "tribalpower:rime_crawler",
+      "title": "Rastejante de geada",
+      "text": [
+        "Um escorpião de gelo, a cauda arqueada sobre o dorso, que surge à noite na neve aberta, um ou dois de cada vez. Tem **23 de vida** e **3 de armadura**, e sua ferroada causa **4** e envenena você por 3 segundos.",
+        "Deixa cair **1 a 2 Mandíbula de geada**, um reagente de veneno. Mandíbula de geada chama a Aparição do túmulo no Anel do túmulo, e a Aparição chama seus próprios Rastejante de geada: veja [guardiões](guardians).",
+        "Caçado, também deixa cair até 2 Bola de neve e até 1 Olho de aranha."
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Caça e pastoreio",
+      "text": [
+        "Além do reagente, cada um deixa cair mais quando caçado, e mais ainda com Pilhagem. A carne cai assada se o animal morreu queimando. Para reproduzir os selvagens, **agache** enquanto alimenta dois adultos com a comida deles; se alimentar normalmente, um selvagem se afeiçoa a você."
+      ]
+    }
+  ]
+}
