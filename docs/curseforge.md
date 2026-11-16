@@ -48,6 +48,9 @@ Project description refreshed for 3.5.0: new March section (terrain, caves, Marc
 ## 5.3.16 — Stone and Lit Glass
 Uploaded 2026-10-01: `tribalpower-5.3.16.jar` as file **9029023** ("Tribal Power 5.3.16 - Stone and Lit Glass", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_5.3.16.md`. Stone pressure plates and buttons, chiseled moonstone and moss agate bricks, cracked bricks, and lit quartz glass at Echo Attune. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v5.3.16
 
+## 6.2.0 — In Your Language
+Uploaded 2026-11-16: `tribalpower-6.2.0.jar` as file **9643408** ("Tribal Power 6.2.0 - In Your Language", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_6.2.0.md`. Now available in Spanish, French, German, Portuguese (Brazil), Italian, Russian, Polish, Japanese, Korean and Chinese (Simplified). Follows your Minecraft language setting. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v6.2.0
+
 ## 6.1.0 — Cut and Bound
 Uploaded 2026-10-10: `tribalpower-6.1.0.jar` as file **9115266** ("Tribal Power 6.1.0 - Cut and Bound", release, 1.21.1 / NeoForge / Client+Server) via `tools/upload_curseforge.py`. Changelog is `docs/RELEASE_6.1.0.md`. Stairs, slabs and walls for eight more March stones, recipes for every building block, the March sands as sand, Spiritgear shears that count as shears (loot ability, enchanting tags, dispenser), unlinked Spiritweave as plain armour with bound pieces glinting, and an optimization and bug pass. Store description refreshed with `cf_update_store_pages.py`. GitHub: https://github.com/AhmiDarrow/Tribal-Power/releases/tag/v6.1.0
 
